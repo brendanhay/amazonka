@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- table.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSSEDescription' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679381223"><span id="local-6989586621679381224"></span></span><span class="hs-keyword">data</span><span> </span><span id="SSEDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-var">SSEDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SSEDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-var">SSEDescription'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679381232"><span id="local-6989586621679381233"></span></span><span class="hs-keyword">data</span><span> </span><span id="SSEDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-var">SSEDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SSEDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-var">SSEDescription'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the current state of server-side encryption. The only</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- supported values are:</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AkmsMasterKeyArn%3ASSEDescription%27"><span class="annot"><span class="annottext">SSEDescription -&gt; Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#%24sel%3AkmsMasterKeyArn%3ASSEDescription%27"><span class="hs-identifier hs-var hs-var">kmsMasterKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381214"><span id="local-6989586621679381216"><span class="annot"><span class="annottext">SSEDescription -&gt; SSEDescription -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381223"><span id="local-6989586621679381225"><span class="annot"><span class="annottext">SSEDescription -&gt; SSEDescription -&gt; Bool
 (SSEDescription -&gt; SSEDescription -&gt; Bool)
 -&gt; (SSEDescription -&gt; SSEDescription -&gt; Bool) -&gt; Eq SSEDescription
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SSEDescription -&gt; SSEDescription -&gt; Bool
 == :: SSEDescription -&gt; SSEDescription -&gt; Bool
 $c== :: SSEDescription -&gt; SSEDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381205"><span id="local-6989586621679381207"><span id="local-6989586621679381209"><span id="local-6989586621679381211"><span class="annot"><span class="annottext">ReadPrec [SSEDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381214"><span id="local-6989586621679381216"><span id="local-6989586621679381218"><span id="local-6989586621679381220"><span class="annot"><span class="annottext">ReadPrec [SSEDescription]
 ReadPrec SSEDescription
 Int -&gt; ReadS SSEDescription
 ReadS [SSEDescription]
@@ -86,7 +86,7 @@ readList :: ReadS [SSEDescription]
 $creadList :: ReadS [SSEDescription]
 readsPrec :: Int -&gt; ReadS SSEDescription
 $creadsPrec :: Int -&gt; ReadS SSEDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381198"><span id="local-6989586621679381200"><span id="local-6989586621679381202"><span class="annot"><span class="annottext">Int -&gt; SSEDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381207"><span id="local-6989586621679381209"><span id="local-6989586621679381211"><span class="annot"><span class="annottext">Int -&gt; SSEDescription -&gt; ShowS
 [SSEDescription] -&gt; ShowS
 SSEDescription -&gt; String
 (Int -&gt; SSEDescription -&gt; ShowS)
@@ -181,16 +181,16 @@ forall a. Maybe a
 -&gt; Lens
      SSEDescription SSEDescription (Maybe SSEStatus) (Maybe SSEStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381189"><span class="annot"><span class="annottext">Maybe SSEStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381198"><span class="annot"><span class="annottext">Maybe SSEStatus
 status :: Maybe SSEStatus
 $sel:status:SSEDescription' :: SSEDescription -&gt; Maybe SSEStatus
-</span><a href="#local-6989586621679381189"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSEStatus
-</span><a href="#local-6989586621679381189"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381188"><span class="annot"><span class="annottext">s :: SSEDescription
-</span><a href="#local-6989586621679381188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381187"><span class="annot"><span class="annottext">Maybe SSEStatus
-</span><a href="#local-6989586621679381187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSEDescription
-</span><a href="#local-6989586621679381188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SSEDescription' :: Maybe SSEStatus
+</span><a href="#local-6989586621679381198"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSEStatus
+</span><a href="#local-6989586621679381198"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381197"><span class="annot"><span class="annottext">s :: SSEDescription
+</span><a href="#local-6989586621679381197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381196"><span class="annot"><span class="annottext">Maybe SSEStatus
+</span><a href="#local-6989586621679381196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSEDescription
+</span><a href="#local-6989586621679381197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SSEDescription' :: Maybe SSEStatus
 </span><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#%24sel%3Astatus%3ASSEDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSEStatus
-</span><a href="#local-6989586621679381187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | Indicates the time, in UNIX epoch date format, when DynamoDB detected</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- that the table\'s AWS KMS key was inaccessible. This attribute will</span><span>
@@ -205,16 +205,16 @@ $sel:status:SSEDescription' :: SSEDescription -&gt; Maybe SSEStatus
 -&gt; (SSEDescription -&gt; Maybe POSIX -&gt; SSEDescription)
 -&gt; Lens SSEDescription SSEDescription (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381185"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381194"><span class="annot"><span class="annottext">Maybe POSIX
 inaccessibleEncryptionDateTime :: Maybe POSIX
 $sel:inaccessibleEncryptionDateTime:SSEDescription' :: SSEDescription -&gt; Maybe POSIX
-</span><a href="#local-6989586621679381185"><span class="hs-identifier hs-var hs-var">inaccessibleEncryptionDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679381185"><span class="hs-identifier hs-var">inaccessibleEncryptionDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381184"><span class="annot"><span class="annottext">s :: SSEDescription
-</span><a href="#local-6989586621679381184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381183"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679381183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSEDescription
-</span><a href="#local-6989586621679381184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inaccessibleEncryptionDateTime:SSEDescription' :: Maybe POSIX
+</span><a href="#local-6989586621679381194"><span class="hs-identifier hs-var hs-var">inaccessibleEncryptionDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679381194"><span class="hs-identifier hs-var">inaccessibleEncryptionDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381193"><span class="annot"><span class="annottext">s :: SSEDescription
+</span><a href="#local-6989586621679381193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381192"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679381192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSEDescription
+</span><a href="#local-6989586621679381193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inaccessibleEncryptionDateTime:SSEDescription' :: Maybe POSIX
 </span><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#%24sel%3AinaccessibleEncryptionDateTime%3ASSEDescription%27"><span class="hs-identifier hs-var">inaccessibleEncryptionDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679381183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679381192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; SSEDescription -&gt; f SSEDescription)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -244,16 +244,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      SSEDescription SSEDescription (Maybe SSEType) (Maybe SSEType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381178"><span class="annot"><span class="annottext">Maybe SSEType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381187"><span class="annot"><span class="annottext">Maybe SSEType
 sSEType :: Maybe SSEType
 $sel:sSEType:SSEDescription' :: SSEDescription -&gt; Maybe SSEType
-</span><a href="#local-6989586621679381178"><span class="hs-identifier hs-var hs-var">sSEType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSEType
-</span><a href="#local-6989586621679381178"><span class="hs-identifier hs-var">sSEType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381177"><span class="annot"><span class="annottext">s :: SSEDescription
-</span><a href="#local-6989586621679381177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381176"><span class="annot"><span class="annottext">Maybe SSEType
-</span><a href="#local-6989586621679381176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSEDescription
-</span><a href="#local-6989586621679381177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSEType:SSEDescription' :: Maybe SSEType
+</span><a href="#local-6989586621679381187"><span class="hs-identifier hs-var hs-var">sSEType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSEType
+</span><a href="#local-6989586621679381187"><span class="hs-identifier hs-var">sSEType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381186"><span class="annot"><span class="annottext">s :: SSEDescription
+</span><a href="#local-6989586621679381186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381185"><span class="annot"><span class="annottext">Maybe SSEType
+</span><a href="#local-6989586621679381185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSEDescription
+</span><a href="#local-6989586621679381186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSEType:SSEDescription' :: Maybe SSEType
 </span><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#%24sel%3AsSEType%3ASSEDescription%27"><span class="hs-identifier hs-var">sSEType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSEType
-</span><a href="#local-6989586621679381176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The AWS KMS customer master key (CMK) ARN used for the AWS KMS</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- encryption.</span><span>
@@ -264,19 +264,19 @@ $sel:sSEType:SSEDescription' :: SSEDescription -&gt; Maybe SSEType
 -&gt; (SSEDescription -&gt; Maybe Text -&gt; SSEDescription)
 -&gt; Lens SSEDescription SSEDescription (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381174"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381183"><span class="annot"><span class="annottext">Maybe Text
 kmsMasterKeyArn :: Maybe Text
 $sel:kmsMasterKeyArn:SSEDescription' :: SSEDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679381174"><span class="hs-identifier hs-var hs-var">kmsMasterKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381174"><span class="hs-identifier hs-var">kmsMasterKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381173"><span class="annot"><span class="annottext">s :: SSEDescription
-</span><a href="#local-6989586621679381173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381172"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSEDescription
-</span><a href="#local-6989586621679381173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsMasterKeyArn:SSEDescription' :: Maybe Text
+</span><a href="#local-6989586621679381183"><span class="hs-identifier hs-var hs-var">kmsMasterKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381183"><span class="hs-identifier hs-var">kmsMasterKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381182"><span class="annot"><span class="annottext">s :: SSEDescription
+</span><a href="#local-6989586621679381182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381181"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSEDescription
+</span><a href="#local-6989586621679381182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsMasterKeyArn:SSEDescription' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#%24sel%3AkmsMasterKeyArn%3ASSEDescription%27"><span class="hs-identifier hs-var">kmsMasterKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381169"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679381167"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SSEDescription
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381178"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679381176"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SSEDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SSEDescription)
@@ -286,8 +286,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SSEDescription&quot;</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381164"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381164"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381173"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381173"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe SSEStatus
 -&gt; Maybe POSIX -&gt; Maybe SSEType -&gt; Maybe Text -&gt; SSEDescription
 </span><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-var">SSEDescription'</span></a></span><span>
@@ -298,7 +298,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe POSIX -&gt; Maybe SSEType -&gt; Maybe Text -&gt; SSEDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381164"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SSEStatus)
+</span><a href="#local-6989586621679381173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SSEStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -308,7 +308,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe SSEType -&gt; Maybe Text -&gt; SSEDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381164"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679381173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InaccessibleEncryptionDateTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -316,7 +316,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe SSEType) -&gt; Parser (Maybe Text -&gt; SSEDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381164"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SSEType)
+</span><a href="#local-6989586621679381173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SSEType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SSEType&quot;</span></span><span class="hs-special">)</span><span>
@@ -324,13 +324,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser SSEDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381164"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679381173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KMSMasterKeyArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381158"><span id="local-6989586621679381160"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381167"><span id="local-6989586621679381169"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381155"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381164"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span></span><span>
 </span><span id="line-145"></span></pre></body></html>

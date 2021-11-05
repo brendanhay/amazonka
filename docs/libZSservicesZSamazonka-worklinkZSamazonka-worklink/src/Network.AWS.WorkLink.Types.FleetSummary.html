@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.WorkLink.Types.FleetSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkLink.Types.FleetSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetStatus.html"><span class="hs-identifier">Network.AWS.WorkLink.Types.FleetStatus</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The summary of the fleet.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFleetSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679190573"><span id="local-6989586621679190574"></span></span><span class="hs-keyword">data</span><span> </span><span id="FleetSummary"><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-var">FleetSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetSummary%27"><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-var">FleetSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time when the fleet was last updated.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3AFleetSummary%27"><span class="annot"><span class="annottext">FleetSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AlastUpdatedTime%3AFleetSummary%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The status of the fleet.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AfleetStatus%3AFleetSummary%27"><span class="annot"><span class="annottext">FleetSummary -&gt; Maybe FleetStatus
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AfleetStatus%3AFleetSummary%27"><span class="hs-identifier hs-var hs-var">fleetStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetStatus.html#FleetStatus"><span class="hs-identifier hs-type">FleetStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The identifier used by users to sign into the Amazon WorkLink app.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcompanyCode%3AFleetSummary%27"><span class="annot"><span class="annottext">FleetSummary -&gt; Maybe Text
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AcompanyCode%3AFleetSummary%27"><span class="hs-identifier hs-var hs-var">companyCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The time when the fleet was created.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcreatedTime%3AFleetSummary%27"><span class="annot"><span class="annottext">FleetSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AcreatedTime%3AFleetSummary%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the fleet.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AfleetArn%3AFleetSummary%27"><span class="annot"><span class="annottext">FleetSummary -&gt; Maybe Text
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AfleetArn%3AFleetSummary%27"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the fleet to display.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AdisplayName%3AFleetSummary%27"><span class="annot"><span class="annottext">FleetSummary -&gt; Maybe Text
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AdisplayName%3AFleetSummary%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the fleet.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AfleetName%3AFleetSummary%27"><span class="annot"><span class="annottext">FleetSummary -&gt; Maybe Text
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AfleetName%3AFleetSummary%27"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The tags attached to the resource. A tag is a key-value pair.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Atags%3AFleetSummary%27"><span class="annot"><span class="annottext">FleetSummary -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3Atags%3AFleetSummary%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679190560"><span id="local-6989586621679190562"><span class="annot"><span class="annottext">FleetSummary -&gt; FleetSummary -&gt; Bool
+(FleetSummary -&gt; FleetSummary -&gt; Bool)
+-&gt; (FleetSummary -&gt; FleetSummary -&gt; Bool) -&gt; Eq FleetSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FleetSummary -&gt; FleetSummary -&gt; Bool
+$c/= :: FleetSummary -&gt; FleetSummary -&gt; Bool
+== :: FleetSummary -&gt; FleetSummary -&gt; Bool
+$c== :: FleetSummary -&gt; FleetSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190551"><span id="local-6989586621679190553"><span id="local-6989586621679190555"><span id="local-6989586621679190557"><span class="annot"><span class="annottext">ReadPrec [FleetSummary]
+ReadPrec FleetSummary
+Int -&gt; ReadS FleetSummary
+ReadS [FleetSummary]
+(Int -&gt; ReadS FleetSummary)
+-&gt; ReadS [FleetSummary]
+-&gt; ReadPrec FleetSummary
+-&gt; ReadPrec [FleetSummary]
+-&gt; Read FleetSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FleetSummary]
+$creadListPrec :: ReadPrec [FleetSummary]
+readPrec :: ReadPrec FleetSummary
+$creadPrec :: ReadPrec FleetSummary
+readList :: ReadS [FleetSummary]
+$creadList :: ReadS [FleetSummary]
+readsPrec :: Int -&gt; ReadS FleetSummary
+$creadsPrec :: Int -&gt; ReadS FleetSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190544"><span id="local-6989586621679190546"><span id="local-6989586621679190548"><span class="annot"><span class="annottext">Int -&gt; FleetSummary -&gt; ShowS
+[FleetSummary] -&gt; ShowS
+FleetSummary -&gt; String
+(Int -&gt; FleetSummary -&gt; ShowS)
+-&gt; (FleetSummary -&gt; String)
+-&gt; ([FleetSummary] -&gt; ShowS)
+-&gt; Show FleetSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FleetSummary] -&gt; ShowS
+$cshowList :: [FleetSummary] -&gt; ShowS
+show :: FleetSummary -&gt; String
+$cshow :: FleetSummary -&gt; String
+showsPrec :: Int -&gt; FleetSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; FleetSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FleetSummary -&gt; Rep FleetSummary x)
+-&gt; (forall x. Rep FleetSummary x -&gt; FleetSummary)
+-&gt; Generic FleetSummary
+forall x. Rep FleetSummary x -&gt; FleetSummary
+forall x. FleetSummary -&gt; Rep FleetSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FleetSummary x -&gt; FleetSummary
+$cfrom :: forall x. FleetSummary -&gt; Rep FleetSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'FleetSummary' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'lastUpdatedTime', 'fleetSummary_lastUpdatedTime' - The time when the fleet was last updated.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'fleetStatus', 'fleetSummary_fleetStatus' - The status of the fleet.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'companyCode', 'fleetSummary_companyCode' - The identifier used by users to sign into the Amazon WorkLink app.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'createdTime', 'fleetSummary_createdTime' - The time when the fleet was created.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'fleetArn', 'fleetSummary_fleetArn' - The Amazon Resource Name (ARN) of the fleet.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'displayName', 'fleetSummary_displayName' - The name of the fleet to display.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'fleetName', 'fleetSummary_fleetName' - The name of the fleet.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'tags', 'fleetSummary_tags' - The tags attached to the resource. A tag is a key-value pair.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#newFleetSummary"><span class="hs-identifier hs-type">newFleetSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span>
+</span><span id="line-75"></span><span id="newFleetSummary"><span class="annot"><span class="annottext">newFleetSummary :: FleetSummary
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#newFleetSummary"><span class="hs-identifier hs-var hs-var">newFleetSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">FleetSummary' :: Maybe POSIX
+-&gt; Maybe FleetStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; FleetSummary
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:FleetSummary' :: Maybe POSIX
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AlastUpdatedTime%3AFleetSummary%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetStatus:FleetSummary' :: Maybe FleetStatus
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AfleetStatus%3AFleetSummary%27"><span class="hs-identifier hs-var">fleetStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FleetStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:companyCode:FleetSummary' :: Maybe Text
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AcompanyCode%3AFleetSummary%27"><span class="hs-identifier hs-var">companyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:FleetSummary' :: Maybe POSIX
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AcreatedTime%3AFleetSummary%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetArn:FleetSummary' :: Maybe Text
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AfleetArn%3AFleetSummary%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:FleetSummary' :: Maybe Text
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AdisplayName%3AFleetSummary%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetName:FleetSummary' :: Maybe Text
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AfleetName%3AFleetSummary%27"><span class="hs-identifier hs-var">fleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:FleetSummary' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3Atags%3AFleetSummary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The time when the fleet was last updated.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_lastUpdatedTime"><span class="hs-identifier hs-type">fleetSummary_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="fleetSummary_lastUpdatedTime"><span class="annot"><span class="annottext">fleetSummary_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; FleetSummary -&gt; f FleetSummary
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">fleetSummary_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetSummary -&gt; Maybe POSIX)
+-&gt; (FleetSummary -&gt; Maybe POSIX -&gt; FleetSummary)
+-&gt; Lens FleetSummary FleetSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190535"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTime :: Maybe POSIX
+$sel:lastUpdatedTime:FleetSummary' :: FleetSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679190535"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679190535"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190534"><span class="annot"><span class="annottext">s :: FleetSummary
+</span><a href="#local-6989586621679190534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190533"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679190533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetSummary
+</span><a href="#local-6989586621679190534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:FleetSummary' :: Maybe POSIX
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AlastUpdatedTime%3AFleetSummary%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679190533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; FleetSummary -&gt; f FleetSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; FleetSummary
+-&gt; f FleetSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The status of the fleet.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_fleetStatus"><span class="hs-identifier hs-type">fleetSummary_fleetStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetStatus.html#FleetStatus"><span class="hs-identifier hs-type">FleetStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="fleetSummary_fleetStatus"><span class="annot"><span class="annottext">fleetSummary_fleetStatus :: (Maybe FleetStatus -&gt; f (Maybe FleetStatus))
+-&gt; FleetSummary -&gt; f FleetSummary
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_fleetStatus"><span class="hs-identifier hs-var hs-var">fleetSummary_fleetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetSummary -&gt; Maybe FleetStatus)
+-&gt; (FleetSummary -&gt; Maybe FleetStatus -&gt; FleetSummary)
+-&gt; Lens
+     FleetSummary FleetSummary (Maybe FleetStatus) (Maybe FleetStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190528"><span class="annot"><span class="annottext">Maybe FleetStatus
+fleetStatus :: Maybe FleetStatus
+$sel:fleetStatus:FleetSummary' :: FleetSummary -&gt; Maybe FleetStatus
+</span><a href="#local-6989586621679190528"><span class="hs-identifier hs-var hs-var">fleetStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FleetStatus
+</span><a href="#local-6989586621679190528"><span class="hs-identifier hs-var">fleetStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190527"><span class="annot"><span class="annottext">s :: FleetSummary
+</span><a href="#local-6989586621679190527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190526"><span class="annot"><span class="annottext">Maybe FleetStatus
+</span><a href="#local-6989586621679190526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetSummary
+</span><a href="#local-6989586621679190527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetStatus:FleetSummary' :: Maybe FleetStatus
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AfleetStatus%3AFleetSummary%27"><span class="hs-identifier hs-var">fleetStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FleetStatus
+</span><a href="#local-6989586621679190526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The identifier used by users to sign into the Amazon WorkLink app.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_companyCode"><span class="hs-identifier hs-type">fleetSummary_companyCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="fleetSummary_companyCode"><span class="annot"><span class="annottext">fleetSummary_companyCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FleetSummary -&gt; f FleetSummary
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_companyCode"><span class="hs-identifier hs-var hs-var">fleetSummary_companyCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetSummary -&gt; Maybe Text)
+-&gt; (FleetSummary -&gt; Maybe Text -&gt; FleetSummary)
+-&gt; Lens FleetSummary FleetSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190524"><span class="annot"><span class="annottext">Maybe Text
+companyCode :: Maybe Text
+$sel:companyCode:FleetSummary' :: FleetSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679190524"><span class="hs-identifier hs-var hs-var">companyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190524"><span class="hs-identifier hs-var">companyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190523"><span class="annot"><span class="annottext">s :: FleetSummary
+</span><a href="#local-6989586621679190523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190522"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetSummary
+</span><a href="#local-6989586621679190523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:companyCode:FleetSummary' :: Maybe Text
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AcompanyCode%3AFleetSummary%27"><span class="hs-identifier hs-var">companyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The time when the fleet was created.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_createdTime"><span class="hs-identifier hs-type">fleetSummary_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="fleetSummary_createdTime"><span class="annot"><span class="annottext">fleetSummary_createdTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; FleetSummary -&gt; f FleetSummary
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_createdTime"><span class="hs-identifier hs-var hs-var">fleetSummary_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetSummary -&gt; Maybe POSIX)
+-&gt; (FleetSummary -&gt; Maybe POSIX -&gt; FleetSummary)
+-&gt; Lens FleetSummary FleetSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190520"><span class="annot"><span class="annottext">Maybe POSIX
+createdTime :: Maybe POSIX
+$sel:createdTime:FleetSummary' :: FleetSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679190520"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679190520"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190519"><span class="annot"><span class="annottext">s :: FleetSummary
+</span><a href="#local-6989586621679190519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190518"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679190518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetSummary
+</span><a href="#local-6989586621679190519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:FleetSummary' :: Maybe POSIX
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AcreatedTime%3AFleetSummary%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679190518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; FleetSummary -&gt; f FleetSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; FleetSummary
+-&gt; f FleetSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the fleet.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_fleetArn"><span class="hs-identifier hs-type">fleetSummary_fleetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="fleetSummary_fleetArn"><span class="annot"><span class="annottext">fleetSummary_fleetArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FleetSummary -&gt; f FleetSummary
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_fleetArn"><span class="hs-identifier hs-var hs-var">fleetSummary_fleetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetSummary -&gt; Maybe Text)
+-&gt; (FleetSummary -&gt; Maybe Text -&gt; FleetSummary)
+-&gt; Lens FleetSummary FleetSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190516"><span class="annot"><span class="annottext">Maybe Text
+fleetArn :: Maybe Text
+$sel:fleetArn:FleetSummary' :: FleetSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679190516"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190516"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190515"><span class="annot"><span class="annottext">s :: FleetSummary
+</span><a href="#local-6989586621679190515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190514"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetSummary
+</span><a href="#local-6989586621679190515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetArn:FleetSummary' :: Maybe Text
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AfleetArn%3AFleetSummary%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The name of the fleet to display.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_displayName"><span class="hs-identifier hs-type">fleetSummary_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="fleetSummary_displayName"><span class="annot"><span class="annottext">fleetSummary_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FleetSummary -&gt; f FleetSummary
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_displayName"><span class="hs-identifier hs-var hs-var">fleetSummary_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetSummary -&gt; Maybe Text)
+-&gt; (FleetSummary -&gt; Maybe Text -&gt; FleetSummary)
+-&gt; Lens FleetSummary FleetSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190512"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:FleetSummary' :: FleetSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679190512"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190512"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190511"><span class="annot"><span class="annottext">s :: FleetSummary
+</span><a href="#local-6989586621679190511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190510"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetSummary
+</span><a href="#local-6989586621679190511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:FleetSummary' :: Maybe Text
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AdisplayName%3AFleetSummary%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The name of the fleet.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_fleetName"><span class="hs-identifier hs-type">fleetSummary_fleetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="fleetSummary_fleetName"><span class="annot"><span class="annottext">fleetSummary_fleetName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FleetSummary -&gt; f FleetSummary
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_fleetName"><span class="hs-identifier hs-var hs-var">fleetSummary_fleetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetSummary -&gt; Maybe Text)
+-&gt; (FleetSummary -&gt; Maybe Text -&gt; FleetSummary)
+-&gt; Lens FleetSummary FleetSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190508"><span class="annot"><span class="annottext">Maybe Text
+fleetName :: Maybe Text
+$sel:fleetName:FleetSummary' :: FleetSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679190508"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190508"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190507"><span class="annot"><span class="annottext">s :: FleetSummary
+</span><a href="#local-6989586621679190507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190506"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetSummary
+</span><a href="#local-6989586621679190507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetName:FleetSummary' :: Maybe Text
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3AfleetName%3AFleetSummary%27"><span class="hs-identifier hs-var">fleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The tags attached to the resource. A tag is a key-value pair.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_tags"><span class="hs-identifier hs-type">fleetSummary_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="fleetSummary_tags"><span class="annot"><span class="annottext">fleetSummary_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; FleetSummary -&gt; f FleetSummary
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#fleetSummary_tags"><span class="hs-identifier hs-var hs-var">fleetSummary_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetSummary -&gt; Maybe (HashMap Text Text))
+-&gt; (FleetSummary -&gt; Maybe (HashMap Text Text) -&gt; FleetSummary)
+-&gt; Lens
+     FleetSummary
+     FleetSummary
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190504"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:FleetSummary' :: FleetSummary -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679190504"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679190504"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190503"><span class="annot"><span class="annottext">s :: FleetSummary
+</span><a href="#local-6989586621679190503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-type">FleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190502"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679190502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetSummary
+</span><a href="#local-6989586621679190503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:FleetSummary' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#%24sel%3Atags%3AFleetSummary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679190502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; FleetSummary -&gt; f FleetSummary)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; FleetSummary
+-&gt; f FleetSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190498"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679190496"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FleetSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FleetSummary) -&gt; Value -&gt; Parser FleetSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FleetSummary&quot;</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679190493"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190493"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe FleetStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; FleetSummary
+</span><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary%27"><span class="hs-identifier hs-var">FleetSummary'</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe FleetStatus
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; FleetSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe FleetStatus
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; FleetSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FleetStatus
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; FleetSummary)
+-&gt; Parser (Maybe FleetStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; FleetSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FleetStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; FleetSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; FleetSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompanyCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; FleetSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; FleetSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; FleetSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; FleetSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; FleetSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; FleetSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; FleetSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; FleetSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; FleetSummary)
+-&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser FleetSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190486"><span id="local-6989586621679190488"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190483"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.FleetSummary.html#FleetSummary"><span class="hs-identifier hs-type">FleetSummary</span></a></span></span><span>
+</span><span id="line-138"></span></pre></body></html>

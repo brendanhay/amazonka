@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Indicates whether an instance is configured for hibernation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLaunchTemplateHibernationOptions' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681123505"><span id="local-6989586621681123506"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateHibernationOptions"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#LaunchTemplateHibernationOptions"><span class="hs-identifier hs-var">LaunchTemplateHibernationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateHibernationOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#LaunchTemplateHibernationOptions%27"><span class="hs-identifier hs-var">LaunchTemplateHibernationOptions'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681123514"><span id="local-6989586621681123515"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateHibernationOptions"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#LaunchTemplateHibernationOptions"><span class="hs-identifier hs-var">LaunchTemplateHibernationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateHibernationOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#LaunchTemplateHibernationOptions%27"><span class="hs-identifier hs-var">LaunchTemplateHibernationOptions'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If this parameter is set to @true@, the instance is enabled for</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- hibernation; otherwise, it is not enabled for hibernation.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aconfigured%3ALaunchTemplateHibernationOptions%27"><span class="annot"><span class="annottext">LaunchTemplateHibernationOptions -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#%24sel%3Aconfigured%3ALaunchTemplateHibernationOptions%27"><span class="hs-identifier hs-var hs-var">configured</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681123499"><span id="local-6989586621681123501"><span class="annot"><span class="annottext">LaunchTemplateHibernationOptions
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681123508"><span id="local-6989586621681123510"><span class="annot"><span class="annottext">LaunchTemplateHibernationOptions
 -&gt; LaunchTemplateHibernationOptions -&gt; Bool
 (LaunchTemplateHibernationOptions
  -&gt; LaunchTemplateHibernationOptions -&gt; Bool)
@@ -49,7 +49,7 @@ $c/= :: LaunchTemplateHibernationOptions
 -&gt; LaunchTemplateHibernationOptions -&gt; Bool
 $c== :: LaunchTemplateHibernationOptions
 -&gt; LaunchTemplateHibernationOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681123490"><span id="local-6989586621681123492"><span id="local-6989586621681123494"><span id="local-6989586621681123496"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateHibernationOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681123499"><span id="local-6989586621681123501"><span id="local-6989586621681123503"><span id="local-6989586621681123505"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateHibernationOptions]
 ReadPrec LaunchTemplateHibernationOptions
 Int -&gt; ReadS LaunchTemplateHibernationOptions
 ReadS [LaunchTemplateHibernationOptions]
@@ -69,7 +69,7 @@ readList :: ReadS [LaunchTemplateHibernationOptions]
 $creadList :: ReadS [LaunchTemplateHibernationOptions]
 readsPrec :: Int -&gt; ReadS LaunchTemplateHibernationOptions
 $creadsPrec :: Int -&gt; ReadS LaunchTemplateHibernationOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681123483"><span id="local-6989586621681123485"><span id="local-6989586621681123487"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateHibernationOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681123492"><span id="local-6989586621681123494"><span id="local-6989586621681123496"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateHibernationOptions -&gt; ShowS
 [LaunchTemplateHibernationOptions] -&gt; ShowS
 LaunchTemplateHibernationOptions -&gt; String
 (Int -&gt; LaunchTemplateHibernationOptions -&gt; ShowS)
@@ -145,24 +145,24 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#LaunchTemplateHibernationOptions%27"><span class="hs-identifier hs-type">LaunchTemplateHibernationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681123474"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#LaunchTemplateHibernationOptions%27"><span class="hs-identifier hs-type">LaunchTemplateHibernationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681123483"><span class="annot"><span class="annottext">Maybe Bool
 configured :: Maybe Bool
 $sel:configured:LaunchTemplateHibernationOptions' :: LaunchTemplateHibernationOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621681123474"><span class="hs-identifier hs-var hs-var">configured</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681123474"><span class="hs-identifier hs-var">configured</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681123473"><span class="annot"><span class="annottext">s :: LaunchTemplateHibernationOptions
-</span><a href="#local-6989586621681123473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#LaunchTemplateHibernationOptions%27"><span class="hs-identifier hs-type">LaunchTemplateHibernationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681123472"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681123472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateHibernationOptions
-</span><a href="#local-6989586621681123473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configured:LaunchTemplateHibernationOptions' :: Maybe Bool
+</span><a href="#local-6989586621681123483"><span class="hs-identifier hs-var hs-var">configured</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681123483"><span class="hs-identifier hs-var">configured</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681123482"><span class="annot"><span class="annottext">s :: LaunchTemplateHibernationOptions
+</span><a href="#local-6989586621681123482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#LaunchTemplateHibernationOptions%27"><span class="hs-identifier hs-type">LaunchTemplateHibernationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681123481"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681123481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateHibernationOptions
+</span><a href="#local-6989586621681123482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configured:LaunchTemplateHibernationOptions' :: Maybe Bool
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#%24sel%3Aconfigured%3ALaunchTemplateHibernationOptions%27"><span class="hs-identifier hs-var">configured</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681123472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#LaunchTemplateHibernationOptions"><span class="hs-identifier hs-type">LaunchTemplateHibernationOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681123481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#LaunchTemplateHibernationOptions"><span class="hs-identifier hs-type">LaunchTemplateHibernationOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#LaunchTemplateHibernationOptions"><span class="hs-identifier hs-type">LaunchTemplateHibernationOptions</span></a></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621681123469"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LaunchTemplateHibernationOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681123467"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681123467"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621681123478"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LaunchTemplateHibernationOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681123476"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681123476"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool -&gt; LaunchTemplateHibernationOptions
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#LaunchTemplateHibernationOptions%27"><span class="hs-identifier hs-var">LaunchTemplateHibernationOptions'</span></a></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; LaunchTemplateHibernationOptions)
@@ -170,16 +170,16 @@ $sel:configured:LaunchTemplateHibernationOptions' :: LaunchTemplateHibernationOp
 -&gt; Either String LaunchTemplateHibernationOptions
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681123467"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621681123476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configured&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621681123461"><span id="local-6989586621681123463"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621681123470"><span id="local-6989586621681123472"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#LaunchTemplateHibernationOptions"><span class="hs-identifier hs-type">LaunchTemplateHibernationOptions</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621681123458"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621681123467"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHibernationOptions.html#LaunchTemplateHibernationOptions"><span class="hs-identifier hs-type">LaunchTemplateHibernationOptions</span></a></span></span><span>
 </span><span id="line-75"></span></pre></body></html>

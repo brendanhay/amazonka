@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Contains information about a workflow type.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newWorkflowTypeInfo' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679357334"><span id="local-6989586621679357335"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkflowTypeInfo"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-var">WorkflowTypeInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowTypeInfo%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-var">WorkflowTypeInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679357343"><span id="local-6989586621679357344"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkflowTypeInfo"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-var">WorkflowTypeInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowTypeInfo%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-var">WorkflowTypeInfo'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the type is in deprecated state, then it is set to the date when the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- type was deprecated.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdeprecationDate%3AWorkflowTypeInfo%27"><span class="annot"><span class="annottext">WorkflowTypeInfo -&gt; Maybe POSIX
@@ -46,7 +46,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AcreationDate%3AWorkflowTypeInfo%27"><span class="annot"><span class="annottext">WorkflowTypeInfo -&gt; POSIX
 </span><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#%24sel%3AcreationDate%3AWorkflowTypeInfo%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357324"><span id="local-6989586621679357326"><span class="annot"><span class="annottext">WorkflowTypeInfo -&gt; WorkflowTypeInfo -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357333"><span id="local-6989586621679357335"><span class="annot"><span class="annottext">WorkflowTypeInfo -&gt; WorkflowTypeInfo -&gt; Bool
 (WorkflowTypeInfo -&gt; WorkflowTypeInfo -&gt; Bool)
 -&gt; (WorkflowTypeInfo -&gt; WorkflowTypeInfo -&gt; Bool)
 -&gt; Eq WorkflowTypeInfo
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WorkflowTypeInfo -&gt; WorkflowTypeInfo -&gt; Bool
 == :: WorkflowTypeInfo -&gt; WorkflowTypeInfo -&gt; Bool
 $c== :: WorkflowTypeInfo -&gt; WorkflowTypeInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357315"><span id="local-6989586621679357317"><span id="local-6989586621679357319"><span id="local-6989586621679357321"><span class="annot"><span class="annottext">ReadPrec [WorkflowTypeInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357324"><span id="local-6989586621679357326"><span id="local-6989586621679357328"><span id="local-6989586621679357330"><span class="annot"><span class="annottext">ReadPrec [WorkflowTypeInfo]
 ReadPrec WorkflowTypeInfo
 Int -&gt; ReadS WorkflowTypeInfo
 ReadS [WorkflowTypeInfo]
@@ -75,7 +75,7 @@ readList :: ReadS [WorkflowTypeInfo]
 $creadList :: ReadS [WorkflowTypeInfo]
 readsPrec :: Int -&gt; ReadS WorkflowTypeInfo
 $creadsPrec :: Int -&gt; ReadS WorkflowTypeInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357308"><span id="local-6989586621679357310"><span id="local-6989586621679357312"><span class="annot"><span class="annottext">Int -&gt; WorkflowTypeInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357317"><span id="local-6989586621679357319"><span id="local-6989586621679357321"><span class="annot"><span class="annottext">Int -&gt; WorkflowTypeInfo -&gt; ShowS
 [WorkflowTypeInfo] -&gt; ShowS
 WorkflowTypeInfo -&gt; String
 (Int -&gt; WorkflowTypeInfo -&gt; ShowS)
@@ -129,12 +129,12 @@ $cfrom :: forall x. WorkflowTypeInfo -&gt; Rep WorkflowTypeInfo x
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span><span>
 </span><span id="line-72"></span><span id="newWorkflowTypeInfo"><span class="annot"><span class="annottext">newWorkflowTypeInfo :: WorkflowType -&gt; RegistrationStatus -&gt; UTCTime -&gt; WorkflowTypeInfo
 </span><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#newWorkflowTypeInfo"><span class="hs-identifier hs-var hs-var">newWorkflowTypeInfo</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679357302"><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679357302"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679357301"><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679357301"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679357300"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679357300"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679357311"><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679357311"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679357310"><span class="annot"><span class="annottext">RegistrationStatus
+</span><a href="#local-6989586621679357310"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679357309"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679357309"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">WorkflowTypeInfo' :: Maybe POSIX
 -&gt; Maybe Text
 -&gt; WorkflowType
@@ -153,10 +153,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:workflowType:WorkflowTypeInfo' :: WorkflowType
 </span><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#%24sel%3AworkflowType%3AWorkflowTypeInfo%27"><span class="hs-identifier hs-var">workflowType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679357302"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679357311"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:WorkflowTypeInfo' :: RegistrationStatus
 </span><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#%24sel%3Astatus%3AWorkflowTypeInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679357301"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679357310"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationDate:WorkflowTypeInfo' :: POSIX
 </span><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#%24sel%3AcreationDate%3AWorkflowTypeInfo%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -165,7 +165,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679357300"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span>
+</span><a href="#local-6989586621679357309"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | If the type is in deprecated state, then it is set to the date when the</span><span>
@@ -178,16 +178,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      WorkflowTypeInfo WorkflowTypeInfo (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357294"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357303"><span class="annot"><span class="annottext">Maybe POSIX
 deprecationDate :: Maybe POSIX
 $sel:deprecationDate:WorkflowTypeInfo' :: WorkflowTypeInfo -&gt; Maybe POSIX
-</span><a href="#local-6989586621679357294"><span class="hs-identifier hs-var hs-var">deprecationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679357294"><span class="hs-identifier hs-var">deprecationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357293"><span class="annot"><span class="annottext">s :: WorkflowTypeInfo
-</span><a href="#local-6989586621679357293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357292"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679357292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowTypeInfo
-</span><a href="#local-6989586621679357293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deprecationDate:WorkflowTypeInfo' :: Maybe POSIX
+</span><a href="#local-6989586621679357303"><span class="hs-identifier hs-var hs-var">deprecationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679357303"><span class="hs-identifier hs-var">deprecationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357302"><span class="annot"><span class="annottext">s :: WorkflowTypeInfo
+</span><a href="#local-6989586621679357302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357301"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679357301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowTypeInfo
+</span><a href="#local-6989586621679357302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deprecationDate:WorkflowTypeInfo' :: Maybe POSIX
 </span><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#%24sel%3AdeprecationDate%3AWorkflowTypeInfo%27"><span class="hs-identifier hs-var">deprecationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679357292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679357301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; WorkflowTypeInfo -&gt; f WorkflowTypeInfo)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -212,16 +212,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (WorkflowTypeInfo -&gt; Maybe Text -&gt; WorkflowTypeInfo)
 -&gt; Lens WorkflowTypeInfo WorkflowTypeInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357288"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357297"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:WorkflowTypeInfo' :: WorkflowTypeInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679357288"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357288"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357287"><span class="annot"><span class="annottext">s :: WorkflowTypeInfo
-</span><a href="#local-6989586621679357287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357286"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowTypeInfo
-</span><a href="#local-6989586621679357287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:WorkflowTypeInfo' :: Maybe Text
+</span><a href="#local-6989586621679357297"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357297"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357296"><span class="annot"><span class="annottext">s :: WorkflowTypeInfo
+</span><a href="#local-6989586621679357296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357295"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowTypeInfo
+</span><a href="#local-6989586621679357296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:WorkflowTypeInfo' :: Maybe Text
 </span><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#%24sel%3Adescription%3AWorkflowTypeInfo%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The workflow type this information is about.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#workflowTypeInfo_workflowType"><span class="hs-identifier hs-type">workflowTypeInfo_workflowType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span>
@@ -231,16 +231,16 @@ $sel:description:WorkflowTypeInfo' :: WorkflowTypeInfo -&gt; Maybe Text
 -&gt; (WorkflowTypeInfo -&gt; WorkflowType -&gt; WorkflowTypeInfo)
 -&gt; Lens WorkflowTypeInfo WorkflowTypeInfo WorkflowType WorkflowType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357284"><span class="annot"><span class="annottext">WorkflowType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357293"><span class="annot"><span class="annottext">WorkflowType
 workflowType :: WorkflowType
 $sel:workflowType:WorkflowTypeInfo' :: WorkflowTypeInfo -&gt; WorkflowType
-</span><a href="#local-6989586621679357284"><span class="hs-identifier hs-var hs-var">workflowType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679357284"><span class="hs-identifier hs-var">workflowType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357283"><span class="annot"><span class="annottext">s :: WorkflowTypeInfo
-</span><a href="#local-6989586621679357283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357282"><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679357282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowTypeInfo
-</span><a href="#local-6989586621679357283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowType:WorkflowTypeInfo' :: WorkflowType
+</span><a href="#local-6989586621679357293"><span class="hs-identifier hs-var hs-var">workflowType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679357293"><span class="hs-identifier hs-var">workflowType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357292"><span class="annot"><span class="annottext">s :: WorkflowTypeInfo
+</span><a href="#local-6989586621679357292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357291"><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679357291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowTypeInfo
+</span><a href="#local-6989586621679357292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowType:WorkflowTypeInfo' :: WorkflowType
 </span><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#%24sel%3AworkflowType%3AWorkflowTypeInfo%27"><span class="hs-identifier hs-var">workflowType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679357282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The current status of the workflow type.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#workflowTypeInfo_status"><span class="hs-identifier hs-type">workflowTypeInfo_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.RegistrationStatus.html#RegistrationStatus"><span class="hs-identifier hs-type">RegistrationStatus</span></a></span><span>
@@ -254,16 +254,16 @@ $sel:workflowType:WorkflowTypeInfo' :: WorkflowTypeInfo -&gt; WorkflowType
      RegistrationStatus
      RegistrationStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357280"><span class="annot"><span class="annottext">RegistrationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357289"><span class="annot"><span class="annottext">RegistrationStatus
 status :: RegistrationStatus
 $sel:status:WorkflowTypeInfo' :: WorkflowTypeInfo -&gt; RegistrationStatus
-</span><a href="#local-6989586621679357280"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679357280"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357279"><span class="annot"><span class="annottext">s :: WorkflowTypeInfo
-</span><a href="#local-6989586621679357279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357278"><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679357278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowTypeInfo
-</span><a href="#local-6989586621679357279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:WorkflowTypeInfo' :: RegistrationStatus
+</span><a href="#local-6989586621679357289"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistrationStatus
+</span><a href="#local-6989586621679357289"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357288"><span class="annot"><span class="annottext">s :: WorkflowTypeInfo
+</span><a href="#local-6989586621679357288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357287"><span class="annot"><span class="annottext">RegistrationStatus
+</span><a href="#local-6989586621679357287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowTypeInfo
+</span><a href="#local-6989586621679357288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:WorkflowTypeInfo' :: RegistrationStatus
 </span><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#%24sel%3Astatus%3AWorkflowTypeInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679357278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The date when this type was registered.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#workflowTypeInfo_creationDate"><span class="hs-identifier hs-type">workflowTypeInfo_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -272,16 +272,16 @@ $sel:status:WorkflowTypeInfo' :: WorkflowTypeInfo -&gt; RegistrationStatus
 -&gt; (WorkflowTypeInfo -&gt; POSIX -&gt; WorkflowTypeInfo)
 -&gt; Lens WorkflowTypeInfo WorkflowTypeInfo POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357276"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357285"><span class="annot"><span class="annottext">POSIX
 creationDate :: POSIX
 $sel:creationDate:WorkflowTypeInfo' :: WorkflowTypeInfo -&gt; POSIX
-</span><a href="#local-6989586621679357276"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679357276"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357275"><span class="annot"><span class="annottext">s :: WorkflowTypeInfo
-</span><a href="#local-6989586621679357275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357274"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679357274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowTypeInfo
-</span><a href="#local-6989586621679357275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:WorkflowTypeInfo' :: POSIX
+</span><a href="#local-6989586621679357285"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679357285"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357284"><span class="annot"><span class="annottext">s :: WorkflowTypeInfo
+</span><a href="#local-6989586621679357284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo%27"><span class="hs-identifier hs-type">WorkflowTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357283"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679357283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowTypeInfo
+</span><a href="#local-6989586621679357284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:WorkflowTypeInfo' :: POSIX
 </span><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#%24sel%3AcreationDate%3AWorkflowTypeInfo%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679357274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; WorkflowTypeInfo -&gt; f WorkflowTypeInfo)
+</span><a href="#local-6989586621679357283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; WorkflowTypeInfo -&gt; f WorkflowTypeInfo)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; WorkflowTypeInfo
@@ -291,8 +291,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357271"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679357269"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkflowTypeInfo
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357280"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679357278"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkflowTypeInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WorkflowTypeInfo)
@@ -302,8 +302,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WorkflowTypeInfo&quot;</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679357266"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357266"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679357275"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357275"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe Text
 -&gt; WorkflowType
@@ -323,7 +323,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; WorkflowType -&gt; RegistrationStatus -&gt; POSIX -&gt; WorkflowTypeInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679357275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deprecationDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -335,7 +335,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (WorkflowType -&gt; RegistrationStatus -&gt; POSIX -&gt; WorkflowTypeInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679357275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
@@ -345,7 +345,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (RegistrationStatus -&gt; POSIX -&gt; WorkflowTypeInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowType
+</span><a href="#local-6989586621679357275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;workflowType&quot;</span></span><span class="hs-special">)</span><span>
@@ -353,7 +353,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser RegistrationStatus -&gt; Parser (POSIX -&gt; WorkflowTypeInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RegistrationStatus
+</span><a href="#local-6989586621679357275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RegistrationStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
@@ -361,13 +361,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser WorkflowTypeInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679357275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357259"><span id="local-6989586621679357261"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357268"><span id="local-6989586621679357270"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357256"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357265"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowTypeInfo.html#WorkflowTypeInfo"><span class="hs-identifier hs-type">WorkflowTypeInfo</span></a></span></span><span>
 </span><span id="line-122"></span></pre></body></html>

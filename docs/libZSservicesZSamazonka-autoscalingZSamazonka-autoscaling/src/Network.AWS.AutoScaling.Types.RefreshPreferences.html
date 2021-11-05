@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes the preferences for an instance refresh.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRefreshPreferences' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679331780"><span id="local-6989586621679331781"></span></span><span class="hs-keyword">data</span><span> </span><span id="RefreshPreferences"><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-var">RefreshPreferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RefreshPreferences%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-var">RefreshPreferences'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679331789"><span id="local-6989586621679331790"></span></span><span class="hs-keyword">data</span><span> </span><span id="RefreshPreferences"><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-var">RefreshPreferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RefreshPreferences%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-var">RefreshPreferences'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of capacity in the Auto Scaling group that must remain</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- healthy during an instance refresh to allow the operation to continue.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- The value is expressed as a percentage of the desired capacity of the</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AinstanceWarmup%3ARefreshPreferences%27"><span class="annot"><span class="annottext">RefreshPreferences -&gt; Maybe Natural
 </span><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#%24sel%3AinstanceWarmup%3ARefreshPreferences%27"><span class="hs-identifier hs-var hs-var">instanceWarmup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331770"><span id="local-6989586621679331772"><span class="annot"><span class="annottext">RefreshPreferences -&gt; RefreshPreferences -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331779"><span id="local-6989586621679331781"><span class="annot"><span class="annottext">RefreshPreferences -&gt; RefreshPreferences -&gt; Bool
 (RefreshPreferences -&gt; RefreshPreferences -&gt; Bool)
 -&gt; (RefreshPreferences -&gt; RefreshPreferences -&gt; Bool)
 -&gt; Eq RefreshPreferences
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RefreshPreferences -&gt; RefreshPreferences -&gt; Bool
 == :: RefreshPreferences -&gt; RefreshPreferences -&gt; Bool
 $c== :: RefreshPreferences -&gt; RefreshPreferences -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331761"><span id="local-6989586621679331763"><span id="local-6989586621679331765"><span id="local-6989586621679331767"><span class="annot"><span class="annottext">ReadPrec [RefreshPreferences]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331770"><span id="local-6989586621679331772"><span id="local-6989586621679331774"><span id="local-6989586621679331776"><span class="annot"><span class="annottext">ReadPrec [RefreshPreferences]
 ReadPrec RefreshPreferences
 Int -&gt; ReadS RefreshPreferences
 ReadS [RefreshPreferences]
@@ -97,7 +97,7 @@ readList :: ReadS [RefreshPreferences]
 $creadList :: ReadS [RefreshPreferences]
 readsPrec :: Int -&gt; ReadS RefreshPreferences
 $creadsPrec :: Int -&gt; ReadS RefreshPreferences
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331754"><span id="local-6989586621679331756"><span id="local-6989586621679331758"><span class="annot"><span class="annottext">Int -&gt; RefreshPreferences -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331763"><span id="local-6989586621679331765"><span id="local-6989586621679331767"><span class="annot"><span class="annottext">Int -&gt; RefreshPreferences -&gt; ShowS
 [RefreshPreferences] -&gt; ShowS
 RefreshPreferences -&gt; String
 (Int -&gt; RefreshPreferences -&gt; ShowS)
@@ -219,16 +219,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331745"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331754"><span class="annot"><span class="annottext">Maybe Natural
 minHealthyPercentage :: Maybe Natural
 $sel:minHealthyPercentage:RefreshPreferences' :: RefreshPreferences -&gt; Maybe Natural
-</span><a href="#local-6989586621679331745"><span class="hs-identifier hs-var hs-var">minHealthyPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679331745"><span class="hs-identifier hs-var">minHealthyPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331744"><span class="annot"><span class="annottext">s :: RefreshPreferences
-</span><a href="#local-6989586621679331744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331743"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679331743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshPreferences
-</span><a href="#local-6989586621679331744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minHealthyPercentage:RefreshPreferences' :: Maybe Natural
+</span><a href="#local-6989586621679331754"><span class="hs-identifier hs-var hs-var">minHealthyPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679331754"><span class="hs-identifier hs-var">minHealthyPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331753"><span class="annot"><span class="annottext">s :: RefreshPreferences
+</span><a href="#local-6989586621679331753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331752"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679331752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshPreferences
+</span><a href="#local-6989586621679331753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minHealthyPercentage:RefreshPreferences' :: Maybe Natural
 </span><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#%24sel%3AminHealthyPercentage%3ARefreshPreferences%27"><span class="hs-identifier hs-var">minHealthyPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679331743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | A boolean value that indicates whether skip matching is enabled. If</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- true, then Amazon EC2 Auto Scaling skips replacing instances that match</span><span>
@@ -243,16 +243,16 @@ $sel:minHealthyPercentage:RefreshPreferences' :: RefreshPreferences -&gt; Maybe 
 -&gt; Lens
      RefreshPreferences RefreshPreferences (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331741"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331750"><span class="annot"><span class="annottext">Maybe Bool
 skipMatching :: Maybe Bool
 $sel:skipMatching:RefreshPreferences' :: RefreshPreferences -&gt; Maybe Bool
-</span><a href="#local-6989586621679331741"><span class="hs-identifier hs-var hs-var">skipMatching</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679331741"><span class="hs-identifier hs-var">skipMatching</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331740"><span class="annot"><span class="annottext">s :: RefreshPreferences
-</span><a href="#local-6989586621679331740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331739"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679331739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshPreferences
-</span><a href="#local-6989586621679331740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipMatching:RefreshPreferences' :: Maybe Bool
+</span><a href="#local-6989586621679331750"><span class="hs-identifier hs-var hs-var">skipMatching</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679331750"><span class="hs-identifier hs-var">skipMatching</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331749"><span class="annot"><span class="annottext">s :: RefreshPreferences
+</span><a href="#local-6989586621679331749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331748"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679331748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshPreferences
+</span><a href="#local-6989586621679331749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipMatching:RefreshPreferences' :: Maybe Bool
 </span><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#%24sel%3AskipMatching%3ARefreshPreferences%27"><span class="hs-identifier hs-var">skipMatching</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679331739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | Threshold values for each checkpoint in ascending order. Each number</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- must be unique. To replace all instances in the Auto Scaling group, the</span><span>
@@ -272,16 +272,16 @@ $sel:skipMatching:RefreshPreferences' :: RefreshPreferences -&gt; Maybe Bool
      (Maybe [Natural])
      (Maybe [Natural])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331737"><span class="annot"><span class="annottext">Maybe [Natural]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331746"><span class="annot"><span class="annottext">Maybe [Natural]
 checkpointPercentages :: Maybe [Natural]
 $sel:checkpointPercentages:RefreshPreferences' :: RefreshPreferences -&gt; Maybe [Natural]
-</span><a href="#local-6989586621679331737"><span class="hs-identifier hs-var hs-var">checkpointPercentages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
-</span><a href="#local-6989586621679331737"><span class="hs-identifier hs-var">checkpointPercentages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331736"><span class="annot"><span class="annottext">s :: RefreshPreferences
-</span><a href="#local-6989586621679331736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331735"><span class="annot"><span class="annottext">Maybe [Natural]
-</span><a href="#local-6989586621679331735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshPreferences
-</span><a href="#local-6989586621679331736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkpointPercentages:RefreshPreferences' :: Maybe [Natural]
+</span><a href="#local-6989586621679331746"><span class="hs-identifier hs-var hs-var">checkpointPercentages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679331746"><span class="hs-identifier hs-var">checkpointPercentages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331745"><span class="annot"><span class="annottext">s :: RefreshPreferences
+</span><a href="#local-6989586621679331745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331744"><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679331744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshPreferences
+</span><a href="#local-6989586621679331745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkpointPercentages:RefreshPreferences' :: Maybe [Natural]
 </span><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#%24sel%3AcheckpointPercentages%3ARefreshPreferences%27"><span class="hs-identifier hs-var">checkpointPercentages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
-</span><a href="#local-6989586621679331735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Natural] -&gt; f (Maybe [Natural]))
+</span><a href="#local-6989586621679331744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Natural] -&gt; f (Maybe [Natural]))
  -&gt; RefreshPreferences -&gt; f RefreshPreferences)
 -&gt; ((Maybe [Natural] -&gt; f (Maybe [Natural]))
     -&gt; Maybe [Natural] -&gt; f (Maybe [Natural]))
@@ -318,16 +318,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331730"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331739"><span class="annot"><span class="annottext">Maybe Natural
 checkpointDelay :: Maybe Natural
 $sel:checkpointDelay:RefreshPreferences' :: RefreshPreferences -&gt; Maybe Natural
-</span><a href="#local-6989586621679331730"><span class="hs-identifier hs-var hs-var">checkpointDelay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679331730"><span class="hs-identifier hs-var">checkpointDelay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331729"><span class="annot"><span class="annottext">s :: RefreshPreferences
-</span><a href="#local-6989586621679331729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331728"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679331728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshPreferences
-</span><a href="#local-6989586621679331729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkpointDelay:RefreshPreferences' :: Maybe Natural
+</span><a href="#local-6989586621679331739"><span class="hs-identifier hs-var hs-var">checkpointDelay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679331739"><span class="hs-identifier hs-var">checkpointDelay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331738"><span class="annot"><span class="annottext">s :: RefreshPreferences
+</span><a href="#local-6989586621679331738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331737"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679331737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshPreferences
+</span><a href="#local-6989586621679331738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkpointDelay:RefreshPreferences' :: Maybe Natural
 </span><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#%24sel%3AcheckpointDelay%3ARefreshPreferences%27"><span class="hs-identifier hs-var">checkpointDelay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679331728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The number of seconds until a newly launched instance is configured and</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- ready to use. During this time, Amazon EC2 Auto Scaling does not</span><span>
@@ -344,21 +344,21 @@ $sel:checkpointDelay:RefreshPreferences' :: RefreshPreferences -&gt; Maybe Natur
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331726"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331735"><span class="annot"><span class="annottext">Maybe Natural
 instanceWarmup :: Maybe Natural
 $sel:instanceWarmup:RefreshPreferences' :: RefreshPreferences -&gt; Maybe Natural
-</span><a href="#local-6989586621679331726"><span class="hs-identifier hs-var hs-var">instanceWarmup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679331726"><span class="hs-identifier hs-var">instanceWarmup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331725"><span class="annot"><span class="annottext">s :: RefreshPreferences
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331724"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679331724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshPreferences
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceWarmup:RefreshPreferences' :: Maybe Natural
+</span><a href="#local-6989586621679331735"><span class="hs-identifier hs-var hs-var">instanceWarmup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679331735"><span class="hs-identifier hs-var">instanceWarmup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331734"><span class="annot"><span class="annottext">s :: RefreshPreferences
+</span><a href="#local-6989586621679331734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331733"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679331733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshPreferences
+</span><a href="#local-6989586621679331734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceWarmup:RefreshPreferences' :: Maybe Natural
 </span><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#%24sel%3AinstanceWarmup%3ARefreshPreferences%27"><span class="hs-identifier hs-var">instanceWarmup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679331724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679331721"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RefreshPreferences
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679331719"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331719"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679331730"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RefreshPreferences
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679331728"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331728"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Bool
 -&gt; Maybe [Natural]
@@ -382,7 +382,7 @@ $sel:instanceWarmup:RefreshPreferences' :: RefreshPreferences -&gt; Maybe Natura
       -&gt; RefreshPreferences)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331719"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679331728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinHealthyPercentage&quot;</span></span><span class="hs-special">)</span><span>
@@ -400,7 +400,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Natural -&gt; Maybe Natural -&gt; RefreshPreferences)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331719"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679331728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SkipMatching&quot;</span></span><span class="hs-special">)</span><span>
@@ -413,7 +413,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Natural -&gt; Maybe Natural -&gt; RefreshPreferences)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331719"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679331728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CheckpointPercentages&quot;</span></span><span>
@@ -442,7 +442,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Maybe Natural -&gt; RefreshPreferences)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331719"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679331728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CheckpointDelay&quot;</span></span><span class="hs-special">)</span><span>
@@ -451,18 +451,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String RefreshPreferences
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331719"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679331728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceWarmup&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331710"><span id="local-6989586621679331712"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331719"><span id="local-6989586621679331721"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span></span></span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331707"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331716"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679331703"><span class="annot"><span class="annottext">toQuery :: RefreshPreferences -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331697"><span id="local-6989586621679331698"><span id="local-6989586621679331699"><span id="local-6989586621679331700"><span id="local-6989586621679331701"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679331712"><span class="annot"><span class="annottext">toQuery :: RefreshPreferences -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences%27"><span class="hs-identifier hs-type">RefreshPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331706"><span id="local-6989586621679331707"><span id="local-6989586621679331708"><span id="local-6989586621679331709"><span id="local-6989586621679331710"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe [Natural]
 instanceWarmup :: Maybe Natural
@@ -475,7 +475,7 @@ $sel:checkpointDelay:RefreshPreferences' :: RefreshPreferences -&gt; Maybe Natur
 $sel:checkpointPercentages:RefreshPreferences' :: RefreshPreferences -&gt; Maybe [Natural]
 $sel:skipMatching:RefreshPreferences' :: RefreshPreferences -&gt; Maybe Bool
 $sel:minHealthyPercentage:RefreshPreferences' :: RefreshPreferences -&gt; Maybe Natural
-</span><a href="#local-6989586621679331697"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679331706"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -483,12 +483,12 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;MinHealthyPercentage&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679331701"><span class="hs-identifier hs-var">minHealthyPercentage</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679331710"><span class="hs-identifier hs-var">minHealthyPercentage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SkipMatching&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679331700"><span class="hs-identifier hs-var">skipMatching</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679331709"><span class="hs-identifier hs-var">skipMatching</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;CheckpointPercentages&quot;</span></span><span>
 </span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -505,17 +505,17 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-191"></span><span>                </span><span class="annot"><span class="annottext">([Natural] -&gt; QueryString) -&gt; Maybe [Natural] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
-</span><a href="#local-6989586621679331699"><span class="hs-identifier hs-var">checkpointPercentages</span></a></span><span>
+</span><a href="#local-6989586621679331708"><span class="hs-identifier hs-var">checkpointPercentages</span></a></span><span>
 </span><span id="line-192"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;CheckpointDelay&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679331698"><span class="hs-identifier hs-var">checkpointDelay</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679331707"><span class="hs-identifier hs-var">checkpointDelay</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;InstanceWarmup&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679331697"><span class="hs-identifier hs-var">instanceWarmup</span></a></span><span>
+</span><a href="#local-6989586621679331706"><span class="hs-identifier hs-var">instanceWarmup</span></a></span><span>
 </span><span id="line-195"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-196"></span></pre></body></html>

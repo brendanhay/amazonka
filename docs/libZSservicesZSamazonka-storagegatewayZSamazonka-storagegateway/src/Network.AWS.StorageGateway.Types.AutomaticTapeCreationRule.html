@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedCreateTapes.html#CreateTapesAutomatically Creating Tapes Automatically&gt;.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAutomaticTapeCreationRule' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679370426"><span id="local-6989586621679370427"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutomaticTapeCreationRule"><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-var">AutomaticTapeCreationRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomaticTapeCreationRule%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-var">AutomaticTapeCreationRule'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679370435"><span id="local-6989586621679370436"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutomaticTapeCreationRule"><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-var">AutomaticTapeCreationRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomaticTapeCreationRule%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-var">AutomaticTapeCreationRule'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set to @true@ to indicate that tapes are to be archived as</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- write-once-read-many (WORM). Set to @false@ when WORM is not enabled for</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- tapes.</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AminimumNumTapes%3AAutomaticTapeCreationRule%27"><span class="annot"><span class="annottext">AutomaticTapeCreationRule -&gt; Natural
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#%24sel%3AminimumNumTapes%3AAutomaticTapeCreationRule%27"><span class="hs-identifier hs-var hs-var">minimumNumTapes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370416"><span id="local-6989586621679370418"><span class="annot"><span class="annottext">AutomaticTapeCreationRule -&gt; AutomaticTapeCreationRule -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370425"><span id="local-6989586621679370427"><span class="annot"><span class="annottext">AutomaticTapeCreationRule -&gt; AutomaticTapeCreationRule -&gt; Bool
 (AutomaticTapeCreationRule -&gt; AutomaticTapeCreationRule -&gt; Bool)
 -&gt; (AutomaticTapeCreationRule -&gt; AutomaticTapeCreationRule -&gt; Bool)
 -&gt; Eq AutomaticTapeCreationRule
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AutomaticTapeCreationRule -&gt; AutomaticTapeCreationRule -&gt; Bool
 == :: AutomaticTapeCreationRule -&gt; AutomaticTapeCreationRule -&gt; Bool
 $c== :: AutomaticTapeCreationRule -&gt; AutomaticTapeCreationRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370407"><span id="local-6989586621679370409"><span id="local-6989586621679370411"><span id="local-6989586621679370413"><span class="annot"><span class="annottext">ReadPrec [AutomaticTapeCreationRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370416"><span id="local-6989586621679370418"><span id="local-6989586621679370420"><span id="local-6989586621679370422"><span class="annot"><span class="annottext">ReadPrec [AutomaticTapeCreationRule]
 ReadPrec AutomaticTapeCreationRule
 Int -&gt; ReadS AutomaticTapeCreationRule
 ReadS [AutomaticTapeCreationRule]
@@ -92,7 +92,7 @@ readList :: ReadS [AutomaticTapeCreationRule]
 $creadList :: ReadS [AutomaticTapeCreationRule]
 readsPrec :: Int -&gt; ReadS AutomaticTapeCreationRule
 $creadsPrec :: Int -&gt; ReadS AutomaticTapeCreationRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370400"><span id="local-6989586621679370402"><span id="local-6989586621679370404"><span class="annot"><span class="annottext">Int -&gt; AutomaticTapeCreationRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370409"><span id="local-6989586621679370411"><span id="local-6989586621679370413"><span class="annot"><span class="annottext">Int -&gt; AutomaticTapeCreationRule -&gt; ShowS
 [AutomaticTapeCreationRule] -&gt; ShowS
 AutomaticTapeCreationRule -&gt; String
 (Int -&gt; AutomaticTapeCreationRule -&gt; ShowS)
@@ -170,14 +170,14 @@ AutomaticTapeCreationRule -&gt; Rep AutomaticTapeCreationRule x
 </span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span><span>
 </span><span id="line-107"></span><span id="newAutomaticTapeCreationRule"><span class="annot"><span class="annottext">newAutomaticTapeCreationRule :: Text -&gt; Text -&gt; Integer -&gt; Natural -&gt; AutomaticTapeCreationRule
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#newAutomaticTapeCreationRule"><span class="hs-identifier hs-var hs-var">newAutomaticTapeCreationRule</span></a></span></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679370394"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679370394"><span class="hs-identifier hs-var">pTapeBarcodePrefix_</span></a></span></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679370393"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679370393"><span class="hs-identifier hs-var">pPoolId_</span></a></span></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679370392"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679370392"><span class="hs-identifier hs-var">pTapeSizeInBytes_</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679370391"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370391"><span class="hs-identifier hs-var">pMinimumNumTapes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679370403"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679370403"><span class="hs-identifier hs-var">pTapeBarcodePrefix_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679370402"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679370402"><span class="hs-identifier hs-var">pPoolId_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679370401"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679370401"><span class="hs-identifier hs-var">pTapeSizeInBytes_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679370400"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370400"><span class="hs-identifier hs-var">pMinimumNumTapes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">AutomaticTapeCreationRule' :: Maybe Bool
 -&gt; Text -&gt; Text -&gt; Integer -&gt; Natural -&gt; AutomaticTapeCreationRule
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span>
@@ -187,16 +187,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:tapeBarcodePrefix:AutomaticTapeCreationRule' :: Text
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#%24sel%3AtapeBarcodePrefix%3AAutomaticTapeCreationRule%27"><span class="hs-identifier hs-var">tapeBarcodePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679370394"><span class="hs-identifier hs-var">pTapeBarcodePrefix_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370403"><span class="hs-identifier hs-var">pTapeBarcodePrefix_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:poolId:AutomaticTapeCreationRule' :: Text
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#%24sel%3ApoolId%3AAutomaticTapeCreationRule%27"><span class="hs-identifier hs-var">poolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679370393"><span class="hs-identifier hs-var">pPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370402"><span class="hs-identifier hs-var">pPoolId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:tapeSizeInBytes:AutomaticTapeCreationRule' :: Integer
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#%24sel%3AtapeSizeInBytes%3AAutomaticTapeCreationRule%27"><span class="hs-identifier hs-var">tapeSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679370392"><span class="hs-identifier hs-var">pTapeSizeInBytes_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370401"><span class="hs-identifier hs-var">pTapeSizeInBytes_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:minimumNumTapes:AutomaticTapeCreationRule' :: Natural
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#%24sel%3AminimumNumTapes%3AAutomaticTapeCreationRule%27"><span class="hs-identifier hs-var">minimumNumTapes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370391"><span class="hs-identifier hs-var">pMinimumNumTapes_</span></a></span><span>
+</span><a href="#local-6989586621679370400"><span class="hs-identifier hs-var">pMinimumNumTapes_</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | Set to @true@ to indicate that tapes are to be archived as</span><span>
@@ -214,16 +214,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370387"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370396"><span class="annot"><span class="annottext">Maybe Bool
 worm :: Maybe Bool
 $sel:worm:AutomaticTapeCreationRule' :: AutomaticTapeCreationRule -&gt; Maybe Bool
-</span><a href="#local-6989586621679370387"><span class="hs-identifier hs-var hs-var">worm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370387"><span class="hs-identifier hs-var">worm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370386"><span class="annot"><span class="annottext">s :: AutomaticTapeCreationRule
-</span><a href="#local-6989586621679370386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370385"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticTapeCreationRule
-</span><a href="#local-6989586621679370386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:worm:AutomaticTapeCreationRule' :: Maybe Bool
+</span><a href="#local-6989586621679370396"><span class="hs-identifier hs-var hs-var">worm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679370396"><span class="hs-identifier hs-var">worm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370395"><span class="annot"><span class="annottext">s :: AutomaticTapeCreationRule
+</span><a href="#local-6989586621679370395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370394"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679370394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticTapeCreationRule
+</span><a href="#local-6989586621679370395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:worm:AutomaticTapeCreationRule' :: Maybe Bool
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#%24sel%3Aworm%3AAutomaticTapeCreationRule%27"><span class="hs-identifier hs-var">worm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | A prefix that you append to the barcode of the virtual tape that you are</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- creating. This prefix makes the barcode unique.</span><span>
@@ -238,16 +238,16 @@ $sel:worm:AutomaticTapeCreationRule' :: AutomaticTapeCreationRule -&gt; Maybe Bo
 -&gt; Lens
      AutomaticTapeCreationRule AutomaticTapeCreationRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370383"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370392"><span class="annot"><span class="annottext">Text
 tapeBarcodePrefix :: Text
 $sel:tapeBarcodePrefix:AutomaticTapeCreationRule' :: AutomaticTapeCreationRule -&gt; Text
-</span><a href="#local-6989586621679370383"><span class="hs-identifier hs-var hs-var">tapeBarcodePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679370383"><span class="hs-identifier hs-var">tapeBarcodePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370382"><span class="annot"><span class="annottext">s :: AutomaticTapeCreationRule
-</span><a href="#local-6989586621679370382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370381"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679370381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticTapeCreationRule
-</span><a href="#local-6989586621679370382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tapeBarcodePrefix:AutomaticTapeCreationRule' :: Text
+</span><a href="#local-6989586621679370392"><span class="hs-identifier hs-var hs-var">tapeBarcodePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679370392"><span class="hs-identifier hs-var">tapeBarcodePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370391"><span class="annot"><span class="annottext">s :: AutomaticTapeCreationRule
+</span><a href="#local-6989586621679370391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370390"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679370390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticTapeCreationRule
+</span><a href="#local-6989586621679370391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tapeBarcodePrefix:AutomaticTapeCreationRule' :: Text
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#%24sel%3AtapeBarcodePrefix%3AAutomaticTapeCreationRule%27"><span class="hs-identifier hs-var">tapeBarcodePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679370381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The ID of the pool that you want to add your tape to for archiving. The</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- tape in this pool is archived in the Amazon S3 storage class that is</span><span>
@@ -264,16 +264,16 @@ $sel:tapeBarcodePrefix:AutomaticTapeCreationRule' :: AutomaticTapeCreationRule -
 -&gt; Lens
      AutomaticTapeCreationRule AutomaticTapeCreationRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370379"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370388"><span class="annot"><span class="annottext">Text
 poolId :: Text
 $sel:poolId:AutomaticTapeCreationRule' :: AutomaticTapeCreationRule -&gt; Text
-</span><a href="#local-6989586621679370379"><span class="hs-identifier hs-var hs-var">poolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679370379"><span class="hs-identifier hs-var">poolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370378"><span class="annot"><span class="annottext">s :: AutomaticTapeCreationRule
-</span><a href="#local-6989586621679370378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370377"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679370377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticTapeCreationRule
-</span><a href="#local-6989586621679370378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolId:AutomaticTapeCreationRule' :: Text
+</span><a href="#local-6989586621679370388"><span class="hs-identifier hs-var hs-var">poolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679370388"><span class="hs-identifier hs-var">poolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370387"><span class="annot"><span class="annottext">s :: AutomaticTapeCreationRule
+</span><a href="#local-6989586621679370387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370386"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679370386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticTapeCreationRule
+</span><a href="#local-6989586621679370387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolId:AutomaticTapeCreationRule' :: Text
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#%24sel%3ApoolId%3AAutomaticTapeCreationRule%27"><span class="hs-identifier hs-var">poolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679370377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The size, in bytes, of the virtual tape capacity.</span><span>
 </span><span id="line-145"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#automaticTapeCreationRule_tapeSizeInBytes"><span class="hs-identifier hs-type">automaticTapeCreationRule_tapeSizeInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
@@ -285,16 +285,16 @@ $sel:poolId:AutomaticTapeCreationRule' :: AutomaticTapeCreationRule -&gt; Text
 -&gt; Lens
      AutomaticTapeCreationRule AutomaticTapeCreationRule Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370375"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370384"><span class="annot"><span class="annottext">Integer
 tapeSizeInBytes :: Integer
 $sel:tapeSizeInBytes:AutomaticTapeCreationRule' :: AutomaticTapeCreationRule -&gt; Integer
-</span><a href="#local-6989586621679370375"><span class="hs-identifier hs-var hs-var">tapeSizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679370375"><span class="hs-identifier hs-var">tapeSizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370374"><span class="annot"><span class="annottext">s :: AutomaticTapeCreationRule
-</span><a href="#local-6989586621679370374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370373"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679370373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticTapeCreationRule
-</span><a href="#local-6989586621679370374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tapeSizeInBytes:AutomaticTapeCreationRule' :: Integer
+</span><a href="#local-6989586621679370384"><span class="hs-identifier hs-var hs-var">tapeSizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679370384"><span class="hs-identifier hs-var">tapeSizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370383"><span class="annot"><span class="annottext">s :: AutomaticTapeCreationRule
+</span><a href="#local-6989586621679370383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370382"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679370382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticTapeCreationRule
+</span><a href="#local-6989586621679370383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tapeSizeInBytes:AutomaticTapeCreationRule' :: Integer
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#%24sel%3AtapeSizeInBytes%3AAutomaticTapeCreationRule%27"><span class="hs-identifier hs-var">tapeSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679370373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The minimum number of available virtual tapes that the gateway maintains</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- at all times. If the number of tapes on the gateway goes below this</span><span>
@@ -311,19 +311,19 @@ $sel:tapeSizeInBytes:AutomaticTapeCreationRule' :: AutomaticTapeCreationRule -&g
 -&gt; Lens
      AutomaticTapeCreationRule AutomaticTapeCreationRule Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370371"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370380"><span class="annot"><span class="annottext">Natural
 minimumNumTapes :: Natural
 $sel:minimumNumTapes:AutomaticTapeCreationRule' :: AutomaticTapeCreationRule -&gt; Natural
-</span><a href="#local-6989586621679370371"><span class="hs-identifier hs-var hs-var">minimumNumTapes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370371"><span class="hs-identifier hs-var">minimumNumTapes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370370"><span class="annot"><span class="annottext">s :: AutomaticTapeCreationRule
-</span><a href="#local-6989586621679370370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370369"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticTapeCreationRule
-</span><a href="#local-6989586621679370370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumNumTapes:AutomaticTapeCreationRule' :: Natural
+</span><a href="#local-6989586621679370380"><span class="hs-identifier hs-var hs-var">minimumNumTapes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370380"><span class="hs-identifier hs-var">minimumNumTapes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370379"><span class="annot"><span class="annottext">s :: AutomaticTapeCreationRule
+</span><a href="#local-6989586621679370379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370378"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticTapeCreationRule
+</span><a href="#local-6989586621679370379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumNumTapes:AutomaticTapeCreationRule' :: Natural
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#%24sel%3AminimumNumTapes%3AAutomaticTapeCreationRule%27"><span class="hs-identifier hs-var">minimumNumTapes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370366"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679370364"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutomaticTapeCreationRule
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370375"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679370373"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutomaticTapeCreationRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AutomaticTapeCreationRule)
@@ -333,8 +333,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AutomaticTapeCreationRule&quot;</span></span><span>
-</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370361"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370361"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370370"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370370"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Text -&gt; Text -&gt; Integer -&gt; Natural -&gt; AutomaticTapeCreationRule
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-var">AutomaticTapeCreationRule'</span></a></span><span>
@@ -345,7 +345,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Text -&gt; Text -&gt; Integer -&gt; Natural -&gt; AutomaticTapeCreationRule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679370370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Worm&quot;</span></span><span class="hs-special">)</span><span>
@@ -355,7 +355,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; Integer -&gt; Natural -&gt; AutomaticTapeCreationRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679370370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TapeBarcodePrefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -364,7 +364,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Integer -&gt; Natural -&gt; AutomaticTapeCreationRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679370370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PoolId&quot;</span></span><span class="hs-special">)</span><span>
@@ -372,7 +372,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Integer -&gt; Parser (Natural -&gt; AutomaticTapeCreationRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679370370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TapeSizeInBytes&quot;</span></span><span class="hs-special">)</span><span>
@@ -380,19 +380,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser AutomaticTapeCreationRule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679370370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinimumNumTapes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370354"><span id="local-6989586621679370356"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370363"><span id="local-6989586621679370365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span></span></span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span></span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370343"><span id="local-6989586621679370345"><span id="local-6989586621679370347"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679370341"><span class="annot"><span class="annottext">toJSON :: AutomaticTapeCreationRule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370335"><span id="local-6989586621679370336"><span id="local-6989586621679370337"><span id="local-6989586621679370338"><span id="local-6989586621679370339"><span class="annot"><span class="annottext">Integer
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370352"><span id="local-6989586621679370354"><span id="local-6989586621679370356"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679370350"><span class="annot"><span class="annottext">toJSON :: AutomaticTapeCreationRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule%27"><span class="hs-identifier hs-type">AutomaticTapeCreationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370344"><span id="local-6989586621679370345"><span id="local-6989586621679370346"><span id="local-6989586621679370347"><span id="local-6989586621679370348"><span class="annot"><span class="annottext">Integer
 Natural
 Maybe Bool
 Text
@@ -406,7 +406,7 @@ $sel:tapeSizeInBytes:AutomaticTapeCreationRule' :: AutomaticTapeCreationRule -&g
 $sel:poolId:AutomaticTapeCreationRule' :: AutomaticTapeCreationRule -&gt; Text
 $sel:tapeBarcodePrefix:AutomaticTapeCreationRule' :: AutomaticTapeCreationRule -&gt; Text
 $sel:worm:AutomaticTapeCreationRule' :: AutomaticTapeCreationRule -&gt; Maybe Bool
-</span><a href="#local-6989586621679370335"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679370344"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -418,7 +418,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370339"><span class="hs-identifier hs-var">worm</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370348"><span class="hs-identifier hs-var">worm</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -426,14 +426,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TapeBarcodePrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679370338"><span class="hs-identifier hs-var">tapeBarcodePrefix</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370347"><span class="hs-identifier hs-var">tapeBarcodePrefix</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679370337"><span class="hs-identifier hs-var">poolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370346"><span class="hs-identifier hs-var">poolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -441,7 +441,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TapeSizeInBytes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679370336"><span class="hs-identifier hs-var">tapeSizeInBytes</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370345"><span class="hs-identifier hs-var">tapeSizeInBytes</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -449,7 +449,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;MinimumNumTapes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370335"><span class="hs-identifier hs-var">minimumNumTapes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370344"><span class="hs-identifier hs-var">minimumNumTapes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span></pre></body></html>

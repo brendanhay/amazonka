@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679197938"><span id="local-6989586621679197939"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScalingType"><span class="annot"><a href="Network.AWS.Kinesis.Types.ScalingType.html#ScalingType"><span class="hs-identifier hs-var">ScalingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingType%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.ScalingType.html#ScalingType%27"><span class="hs-identifier hs-var">ScalingType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679197947"><span id="local-6989586621679197948"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScalingType"><span class="annot"><a href="Network.AWS.Kinesis.Types.ScalingType.html#ScalingType"><span class="hs-identifier hs-var">ScalingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingType%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.ScalingType.html#ScalingType%27"><span class="hs-identifier hs-var">ScalingType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScalingType"><span class="annot"><span class="annottext">ScalingType -&gt; Text
 </span><a href="Network.AWS.Kinesis.Types.ScalingType.html#fromScalingType"><span class="hs-identifier hs-var hs-var">fromScalingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679197930"><span id="local-6989586621679197932"><span id="local-6989586621679197934"><span class="annot"><span class="annottext">Int -&gt; ScalingType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679197939"><span id="local-6989586621679197941"><span id="local-6989586621679197943"><span class="annot"><span class="annottext">Int -&gt; ScalingType -&gt; ShowS
 [ScalingType] -&gt; ShowS
 ScalingType -&gt; String
 (Int -&gt; ScalingType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ScalingType -&gt; String
 showsPrec :: Int -&gt; ScalingType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ScalingType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679197921"><span id="local-6989586621679197923"><span id="local-6989586621679197925"><span id="local-6989586621679197927"><span class="annot"><span class="annottext">ReadPrec [ScalingType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679197930"><span id="local-6989586621679197932"><span id="local-6989586621679197934"><span id="local-6989586621679197936"><span class="annot"><span class="annottext">ReadPrec [ScalingType]
 ReadPrec ScalingType
 Int -&gt; ReadS ScalingType
 ReadS [ScalingType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ScalingType]
 readsPrec :: Int -&gt; ReadS ScalingType
 $creadsPrec :: Int -&gt; ReadS ScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679197916"><span id="local-6989586621679197918"><span class="annot"><span class="annottext">ScalingType -&gt; ScalingType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679197925"><span id="local-6989586621679197927"><span class="annot"><span class="annottext">ScalingType -&gt; ScalingType -&gt; Bool
 (ScalingType -&gt; ScalingType -&gt; Bool)
 -&gt; (ScalingType -&gt; ScalingType -&gt; Bool) -&gt; Eq ScalingType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: ScalingType -&gt; ScalingType -&gt; Bool
 == :: ScalingType -&gt; ScalingType -&gt; Bool
 $c== :: ScalingType -&gt; ScalingType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679197900"><span id="local-6989586621679197902"><span id="local-6989586621679197904"><span id="local-6989586621679197906"><span id="local-6989586621679197908"><span id="local-6989586621679197910"><span id="local-6989586621679197912"><span class="annot"><span class="annottext">Eq ScalingType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679197909"><span id="local-6989586621679197911"><span id="local-6989586621679197913"><span id="local-6989586621679197915"><span id="local-6989586621679197917"><span id="local-6989586621679197919"><span id="local-6989586621679197921"><span class="annot"><span class="annottext">Eq ScalingType
 Eq ScalingType
 -&gt; (ScalingType -&gt; ScalingType -&gt; Ordering)
 -&gt; (ScalingType -&gt; ScalingType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. ScalingType -&gt; Rep ScalingType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679197892"><span id="local-6989586621679197894"><span class="annot"><span class="annottext">Int -&gt; ScalingType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679197901"><span id="local-6989586621679197903"><span class="annot"><span class="annottext">Int -&gt; ScalingType -&gt; Int
 ScalingType -&gt; Int
 (Int -&gt; ScalingType -&gt; Int)
 -&gt; (ScalingType -&gt; Int) -&gt; Hashable ScalingType
@@ -141,49 +141,49 @@ $chash :: ScalingType -&gt; Int
 hashWithSalt :: Int -&gt; ScalingType -&gt; Int
 $chashWithSalt :: Int -&gt; ScalingType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679197889"><span class="annot"><span class="annottext">ScalingType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679197898"><span class="annot"><span class="annottext">ScalingType -&gt; ()
 (ScalingType -&gt; ()) -&gt; NFData ScalingType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ScalingType -&gt; ()
 $crnf :: ScalingType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679197886"><span class="annot"><span class="annottext">Text -&gt; Either String ScalingType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679197895"><span class="annot"><span class="annottext">Text -&gt; Either String ScalingType
 (Text -&gt; Either String ScalingType) -&gt; FromText ScalingType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ScalingType
 $cfromText :: Text -&gt; Either String ScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679197883"><span class="annot"><span class="annottext">ScalingType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679197892"><span class="annot"><span class="annottext">ScalingType -&gt; Text
 (ScalingType -&gt; Text) -&gt; ToText ScalingType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ScalingType -&gt; Text
 $ctoText :: ScalingType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679197880"><span class="annot"><span class="annottext">ScalingType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679197889"><span class="annot"><span class="annottext">ScalingType -&gt; ByteString
 (ScalingType -&gt; ByteString) -&gt; ToByteString ScalingType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ScalingType -&gt; ByteString
 $ctoBS :: ScalingType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679197877"><span class="annot"><span class="annottext">ScalingType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679197886"><span class="annot"><span class="annottext">ScalingType -&gt; ByteStringBuilder
 (ScalingType -&gt; ByteStringBuilder) -&gt; ToLog ScalingType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ScalingType -&gt; ByteStringBuilder
 $cbuild :: ScalingType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679197874"><span class="annot"><span class="annottext">HeaderName -&gt; ScalingType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679197883"><span class="annot"><span class="annottext">HeaderName -&gt; ScalingType -&gt; [Header]
 (HeaderName -&gt; ScalingType -&gt; [Header]) -&gt; ToHeader ScalingType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ScalingType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ScalingType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679197871"><span class="annot"><span class="annottext">ScalingType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679197880"><span class="annot"><span class="annottext">ScalingType -&gt; QueryString
 (ScalingType -&gt; QueryString) -&gt; ToQuery ScalingType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ScalingType -&gt; QueryString
 $ctoQuery :: ScalingType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679197866"><span id="local-6989586621679197868"><span class="annot"><span class="annottext">Value -&gt; Parser [ScalingType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679197875"><span id="local-6989586621679197877"><span class="annot"><span class="annottext">Value -&gt; Parser [ScalingType]
 Value -&gt; Parser ScalingType
 (Value -&gt; Parser ScalingType)
 -&gt; (Value -&gt; Parser [ScalingType]) -&gt; FromJSON ScalingType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [ScalingType]
 parseJSON :: Value -&gt; Parser ScalingType
 $cparseJSON :: Value -&gt; Parser ScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679197861"><span id="local-6989586621679197863"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScalingType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679197870"><span id="local-6989586621679197872"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScalingType]
 FromJSONKeyFunction ScalingType
 FromJSONKeyFunction ScalingType
 -&gt; FromJSONKeyFunction [ScalingType] -&gt; FromJSONKey ScalingType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ScalingType]
 fromJSONKey :: FromJSONKeyFunction ScalingType
 $cfromJSONKey :: FromJSONKeyFunction ScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679197852"><span id="local-6989586621679197854"><span id="local-6989586621679197856"><span id="local-6989586621679197858"><span class="annot"><span class="annottext">[ScalingType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679197861"><span id="local-6989586621679197863"><span id="local-6989586621679197865"><span id="local-6989586621679197867"><span class="annot"><span class="annottext">[ScalingType] -&gt; Encoding
 [ScalingType] -&gt; Value
 ScalingType -&gt; Encoding
 ScalingType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: ScalingType -&gt; Encoding
 toJSON :: ScalingType -&gt; Value
 $ctoJSON :: ScalingType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679197847"><span id="local-6989586621679197849"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScalingType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679197856"><span id="local-6989586621679197858"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScalingType]
 ToJSONKeyFunction ScalingType
 ToJSONKeyFunction ScalingType
 -&gt; ToJSONKeyFunction [ScalingType] -&gt; ToJSONKey ScalingType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ScalingType]
 toJSONKey :: ToJSONKeyFunction ScalingType
 $ctoJSONKey :: ToJSONKeyFunction ScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679197844"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScalingType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679197853"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScalingType
 ([Node] -&gt; Either String ScalingType) -&gt; FromXML ScalingType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ScalingType
 $cparseXML :: [Node] -&gt; Either String ScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679197841"><span class="annot"><span class="annottext">ScalingType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679197850"><span class="annot"><span class="annottext">ScalingType -&gt; XML
 (ScalingType -&gt; XML) -&gt; ToXML ScalingType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ScalingType -&gt; XML

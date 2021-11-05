@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides the current status of the entity.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOptionStatus' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679297437"><span id="local-6989586621679297438"></span></span><span class="hs-keyword">data</span><span> </span><span id="OptionStatus"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-var">OptionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OptionStatus%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-var">OptionStatus'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679297446"><span id="local-6989586621679297447"></span></span><span class="hs-keyword">data</span><span> </span><span id="OptionStatus"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-var">OptionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OptionStatus%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-var">OptionStatus'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether the Elasticsearch domain is being deleted.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3ApendingDeletion%3AOptionStatus%27"><span class="annot"><span class="annottext">OptionStatus -&gt; Maybe Bool
 </span><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#%24sel%3ApendingDeletion%3AOptionStatus%27"><span class="hs-identifier hs-var hs-var">pendingDeletion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Astate%3AOptionStatus%27"><span class="annot"><span class="annottext">OptionStatus -&gt; OptionState
 </span><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#%24sel%3Astate%3AOptionStatus%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionState.html#OptionState"><span class="hs-identifier hs-type">OptionState</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297427"><span id="local-6989586621679297429"><span class="annot"><span class="annottext">OptionStatus -&gt; OptionStatus -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297436"><span id="local-6989586621679297438"><span class="annot"><span class="annottext">OptionStatus -&gt; OptionStatus -&gt; Bool
 (OptionStatus -&gt; OptionStatus -&gt; Bool)
 -&gt; (OptionStatus -&gt; OptionStatus -&gt; Bool) -&gt; Eq OptionStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OptionStatus -&gt; OptionStatus -&gt; Bool
 == :: OptionStatus -&gt; OptionStatus -&gt; Bool
 $c== :: OptionStatus -&gt; OptionStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297418"><span id="local-6989586621679297420"><span id="local-6989586621679297422"><span id="local-6989586621679297424"><span class="annot"><span class="annottext">ReadPrec [OptionStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297427"><span id="local-6989586621679297429"><span id="local-6989586621679297431"><span id="local-6989586621679297433"><span class="annot"><span class="annottext">ReadPrec [OptionStatus]
 ReadPrec OptionStatus
 Int -&gt; ReadS OptionStatus
 ReadS [OptionStatus]
@@ -72,7 +72,7 @@ readList :: ReadS [OptionStatus]
 $creadList :: ReadS [OptionStatus]
 readsPrec :: Int -&gt; ReadS OptionStatus
 $creadsPrec :: Int -&gt; ReadS OptionStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297411"><span id="local-6989586621679297413"><span id="local-6989586621679297415"><span class="annot"><span class="annottext">Int -&gt; OptionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297420"><span id="local-6989586621679297422"><span id="local-6989586621679297424"><span class="annot"><span class="annottext">Int -&gt; OptionStatus -&gt; ShowS
 [OptionStatus] -&gt; ShowS
 OptionStatus -&gt; String
 (Int -&gt; OptionStatus -&gt; ShowS)
@@ -124,10 +124,10 @@ $cfrom :: forall x. OptionStatus -&gt; Rep OptionStatus x
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionState.html#OptionState"><span class="hs-identifier hs-type">OptionState</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span>
 </span><span id="line-69"></span><span id="newOptionStatus"><span class="annot"><span class="annottext">newOptionStatus :: UTCTime -&gt; UTCTime -&gt; OptionState -&gt; OptionStatus
-</span><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#newOptionStatus"><span class="hs-identifier hs-var hs-var">newOptionStatus</span></a></span></span><span> </span><span id="local-6989586621679297405"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679297405"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span> </span><span id="local-6989586621679297404"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679297404"><span class="hs-identifier hs-var">pUpdateDate_</span></a></span></span><span> </span><span id="local-6989586621679297403"><span class="annot"><span class="annottext">OptionState
-</span><a href="#local-6989586621679297403"><span class="hs-identifier hs-var">pState_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#newOptionStatus"><span class="hs-identifier hs-var hs-var">newOptionStatus</span></a></span></span><span> </span><span id="local-6989586621679297414"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679297414"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span> </span><span id="local-6989586621679297413"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679297413"><span class="hs-identifier hs-var">pUpdateDate_</span></a></span></span><span> </span><span id="local-6989586621679297412"><span class="annot"><span class="annottext">OptionState
+</span><a href="#local-6989586621679297412"><span class="hs-identifier hs-var">pState_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">OptionStatus' :: Maybe Bool
 -&gt; Maybe Natural -&gt; POSIX -&gt; POSIX -&gt; OptionState -&gt; OptionStatus
 </span><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span>
@@ -147,7 +147,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679297405"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297414"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:updateDate:OptionStatus' :: POSIX
 </span><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#%24sel%3AupdateDate%3AOptionStatus%27"><span class="hs-identifier hs-var">updateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -156,10 +156,10 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679297404"><span class="hs-identifier hs-var">pUpdateDate_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297413"><span class="hs-identifier hs-var">pUpdateDate_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:OptionStatus' :: OptionState
 </span><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#%24sel%3Astate%3AOptionStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionState
-</span><a href="#local-6989586621679297403"><span class="hs-identifier hs-var">pState_</span></a></span><span>
+</span><a href="#local-6989586621679297412"><span class="hs-identifier hs-var">pState_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Indicates whether the Elasticsearch domain is being deleted.</span><span>
@@ -169,16 +169,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (OptionStatus -&gt; Maybe Bool -&gt; OptionStatus)
 -&gt; Lens OptionStatus OptionStatus (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297397"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297406"><span class="annot"><span class="annottext">Maybe Bool
 pendingDeletion :: Maybe Bool
 $sel:pendingDeletion:OptionStatus' :: OptionStatus -&gt; Maybe Bool
-</span><a href="#local-6989586621679297397"><span class="hs-identifier hs-var hs-var">pendingDeletion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679297397"><span class="hs-identifier hs-var">pendingDeletion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297396"><span class="annot"><span class="annottext">s :: OptionStatus
-</span><a href="#local-6989586621679297396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297395"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679297395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingDeletion:OptionStatus' :: Maybe Bool
+</span><a href="#local-6989586621679297406"><span class="hs-identifier hs-var hs-var">pendingDeletion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679297406"><span class="hs-identifier hs-var">pendingDeletion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297405"><span class="annot"><span class="annottext">s :: OptionStatus
+</span><a href="#local-6989586621679297405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297404"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679297404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingDeletion:OptionStatus' :: Maybe Bool
 </span><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#%24sel%3ApendingDeletion%3AOptionStatus%27"><span class="hs-identifier hs-var">pendingDeletion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679297395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | Specifies the latest version for the entity.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#optionStatus_updateVersion"><span class="hs-identifier hs-type">optionStatus_updateVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -188,16 +188,16 @@ $sel:pendingDeletion:OptionStatus' :: OptionStatus -&gt; Maybe Bool
 -&gt; (OptionStatus -&gt; Maybe Natural -&gt; OptionStatus)
 -&gt; Lens OptionStatus OptionStatus (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297393"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297402"><span class="annot"><span class="annottext">Maybe Natural
 updateVersion :: Maybe Natural
 $sel:updateVersion:OptionStatus' :: OptionStatus -&gt; Maybe Natural
-</span><a href="#local-6989586621679297393"><span class="hs-identifier hs-var hs-var">updateVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679297393"><span class="hs-identifier hs-var">updateVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297392"><span class="annot"><span class="annottext">s :: OptionStatus
-</span><a href="#local-6989586621679297392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297391"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679297391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateVersion:OptionStatus' :: Maybe Natural
+</span><a href="#local-6989586621679297402"><span class="hs-identifier hs-var hs-var">updateVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679297402"><span class="hs-identifier hs-var">updateVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297401"><span class="annot"><span class="annottext">s :: OptionStatus
+</span><a href="#local-6989586621679297401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297400"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679297400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateVersion:OptionStatus' :: Maybe Natural
 </span><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#%24sel%3AupdateVersion%3AOptionStatus%27"><span class="hs-identifier hs-var">updateVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679297391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | Timestamp which tells the creation date for the entity.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#optionStatus_creationDate"><span class="hs-identifier hs-type">optionStatus_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -206,16 +206,16 @@ $sel:updateVersion:OptionStatus' :: OptionStatus -&gt; Maybe Natural
 -&gt; (OptionStatus -&gt; POSIX -&gt; OptionStatus)
 -&gt; Lens OptionStatus OptionStatus POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297389"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297398"><span class="annot"><span class="annottext">POSIX
 creationDate :: POSIX
 $sel:creationDate:OptionStatus' :: OptionStatus -&gt; POSIX
-</span><a href="#local-6989586621679297389"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679297389"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297388"><span class="annot"><span class="annottext">s :: OptionStatus
-</span><a href="#local-6989586621679297388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297387"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679297387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:OptionStatus' :: POSIX
+</span><a href="#local-6989586621679297398"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679297398"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297397"><span class="annot"><span class="annottext">s :: OptionStatus
+</span><a href="#local-6989586621679297397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297396"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679297396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:OptionStatus' :: POSIX
 </span><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#%24sel%3AcreationDate%3AOptionStatus%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679297387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; OptionStatus -&gt; f OptionStatus)
+</span><a href="#local-6989586621679297396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; OptionStatus -&gt; f OptionStatus)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; OptionStatus
@@ -232,16 +232,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (OptionStatus -&gt; POSIX -&gt; OptionStatus)
 -&gt; Lens OptionStatus OptionStatus POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297384"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297393"><span class="annot"><span class="annottext">POSIX
 updateDate :: POSIX
 $sel:updateDate:OptionStatus' :: OptionStatus -&gt; POSIX
-</span><a href="#local-6989586621679297384"><span class="hs-identifier hs-var hs-var">updateDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679297384"><span class="hs-identifier hs-var">updateDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297383"><span class="annot"><span class="annottext">s :: OptionStatus
-</span><a href="#local-6989586621679297383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297382"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679297382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateDate:OptionStatus' :: POSIX
+</span><a href="#local-6989586621679297393"><span class="hs-identifier hs-var hs-var">updateDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679297393"><span class="hs-identifier hs-var">updateDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297392"><span class="annot"><span class="annottext">s :: OptionStatus
+</span><a href="#local-6989586621679297392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297391"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679297391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateDate:OptionStatus' :: POSIX
 </span><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#%24sel%3AupdateDate%3AOptionStatus%27"><span class="hs-identifier hs-var">updateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679297382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; OptionStatus -&gt; f OptionStatus)
+</span><a href="#local-6989586621679297391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; OptionStatus -&gt; f OptionStatus)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; OptionStatus
@@ -258,19 +258,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (OptionStatus -&gt; OptionState -&gt; OptionStatus)
 -&gt; Lens OptionStatus OptionStatus OptionState OptionState
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297380"><span class="annot"><span class="annottext">OptionState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297389"><span class="annot"><span class="annottext">OptionState
 state :: OptionState
 $sel:state:OptionStatus' :: OptionStatus -&gt; OptionState
-</span><a href="#local-6989586621679297380"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionState
-</span><a href="#local-6989586621679297380"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297379"><span class="annot"><span class="annottext">s :: OptionStatus
-</span><a href="#local-6989586621679297379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297378"><span class="annot"><span class="annottext">OptionState
-</span><a href="#local-6989586621679297378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:OptionStatus' :: OptionState
+</span><a href="#local-6989586621679297389"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionState
+</span><a href="#local-6989586621679297389"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297388"><span class="annot"><span class="annottext">s :: OptionStatus
+</span><a href="#local-6989586621679297388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297387"><span class="annot"><span class="annottext">OptionState
+</span><a href="#local-6989586621679297387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:OptionStatus' :: OptionState
 </span><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#%24sel%3Astate%3AOptionStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionState
-</span><a href="#local-6989586621679297378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297375"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679297373"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OptionStatus
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297384"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679297382"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OptionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OptionStatus) -&gt; Value -&gt; Parser OptionStatus
@@ -278,8 +278,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OptionStatus&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297370"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297370"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297379"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297379"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe Natural -&gt; POSIX -&gt; POSIX -&gt; OptionState -&gt; OptionStatus
 </span><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-var">OptionStatus'</span></a></span><span>
@@ -290,7 +290,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Natural -&gt; POSIX -&gt; POSIX -&gt; OptionState -&gt; OptionStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679297379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PendingDeletion&quot;</span></span><span class="hs-special">)</span><span>
@@ -300,7 +300,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (POSIX -&gt; POSIX -&gt; OptionState -&gt; OptionStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679297379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UpdateVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -308,7 +308,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser POSIX -&gt; Parser (POSIX -&gt; OptionState -&gt; OptionStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679297379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -316,7 +316,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser (OptionState -&gt; OptionStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679297379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UpdateDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -324,13 +324,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser OptionState -&gt; Parser OptionStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OptionState
+</span><a href="#local-6989586621679297379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OptionState
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297363"><span id="local-6989586621679297365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297372"><span id="local-6989586621679297374"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297369"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span></span><span>
 </span><span id="line-114"></span></pre></body></html>

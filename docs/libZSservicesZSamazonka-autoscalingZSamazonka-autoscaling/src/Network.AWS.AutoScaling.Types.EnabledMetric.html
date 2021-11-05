@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an enabled metric.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newEnabledMetric' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679325938"><span id="local-6989586621679325939"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnabledMetric"><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric"><span class="hs-identifier hs-var">EnabledMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnabledMetric%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric%27"><span class="hs-identifier hs-var">EnabledMetric'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679325947"><span id="local-6989586621679325948"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnabledMetric"><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric"><span class="hs-identifier hs-var">EnabledMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnabledMetric%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric%27"><span class="hs-identifier hs-var">EnabledMetric'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The granularity of the metric. The only valid value is @1Minute@.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Agranularity%3AEnabledMetric%27"><span class="annot"><span class="annottext">EnabledMetric -&gt; Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#%24sel%3Agranularity%3AEnabledMetric%27"><span class="hs-identifier hs-var hs-var">granularity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3Ametric%3AEnabledMetric%27"><span class="annot"><span class="annottext">EnabledMetric -&gt; Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#%24sel%3Ametric%3AEnabledMetric%27"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325931"><span id="local-6989586621679325933"><span class="annot"><span class="annottext">EnabledMetric -&gt; EnabledMetric -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325940"><span id="local-6989586621679325942"><span class="annot"><span class="annottext">EnabledMetric -&gt; EnabledMetric -&gt; Bool
 (EnabledMetric -&gt; EnabledMetric -&gt; Bool)
 -&gt; (EnabledMetric -&gt; EnabledMetric -&gt; Bool) -&gt; Eq EnabledMetric
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnabledMetric -&gt; EnabledMetric -&gt; Bool
 == :: EnabledMetric -&gt; EnabledMetric -&gt; Bool
 $c== :: EnabledMetric -&gt; EnabledMetric -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325922"><span id="local-6989586621679325924"><span id="local-6989586621679325926"><span id="local-6989586621679325928"><span class="annot"><span class="annottext">ReadPrec [EnabledMetric]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325931"><span id="local-6989586621679325933"><span id="local-6989586621679325935"><span id="local-6989586621679325937"><span class="annot"><span class="annottext">ReadPrec [EnabledMetric]
 ReadPrec EnabledMetric
 Int -&gt; ReadS EnabledMetric
 ReadS [EnabledMetric]
@@ -102,7 +102,7 @@ readList :: ReadS [EnabledMetric]
 $creadList :: ReadS [EnabledMetric]
 readsPrec :: Int -&gt; ReadS EnabledMetric
 $creadsPrec :: Int -&gt; ReadS EnabledMetric
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325915"><span id="local-6989586621679325917"><span id="local-6989586621679325919"><span class="annot"><span class="annottext">Int -&gt; EnabledMetric -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325924"><span id="local-6989586621679325926"><span id="local-6989586621679325928"><span class="annot"><span class="annottext">Int -&gt; EnabledMetric -&gt; ShowS
 [EnabledMetric] -&gt; ShowS
 EnabledMetric -&gt; String
 (Int -&gt; EnabledMetric -&gt; ShowS)
@@ -202,16 +202,16 @@ forall a. Maybe a
 -&gt; (EnabledMetric -&gt; Maybe Text -&gt; EnabledMetric)
 -&gt; Lens EnabledMetric EnabledMetric (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric%27"><span class="hs-identifier hs-type">EnabledMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325906"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric%27"><span class="hs-identifier hs-type">EnabledMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325915"><span class="annot"><span class="annottext">Maybe Text
 granularity :: Maybe Text
 $sel:granularity:EnabledMetric' :: EnabledMetric -&gt; Maybe Text
-</span><a href="#local-6989586621679325906"><span class="hs-identifier hs-var hs-var">granularity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325906"><span class="hs-identifier hs-var">granularity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325905"><span class="annot"><span class="annottext">s :: EnabledMetric
-</span><a href="#local-6989586621679325905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric%27"><span class="hs-identifier hs-type">EnabledMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325904"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnabledMetric
-</span><a href="#local-6989586621679325905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granularity:EnabledMetric' :: Maybe Text
+</span><a href="#local-6989586621679325915"><span class="hs-identifier hs-var hs-var">granularity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325915"><span class="hs-identifier hs-var">granularity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325914"><span class="annot"><span class="annottext">s :: EnabledMetric
+</span><a href="#local-6989586621679325914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric%27"><span class="hs-identifier hs-type">EnabledMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325913"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnabledMetric
+</span><a href="#local-6989586621679325914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granularity:EnabledMetric' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#%24sel%3Agranularity%3AEnabledMetric%27"><span class="hs-identifier hs-var">granularity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric"><span class="hs-identifier hs-type">EnabledMetric</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric"><span class="hs-identifier hs-type">EnabledMetric</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | One of the following metrics:</span><span>
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
@@ -260,21 +260,21 @@ $sel:granularity:EnabledMetric' :: EnabledMetric -&gt; Maybe Text
 -&gt; (EnabledMetric -&gt; Maybe Text -&gt; EnabledMetric)
 -&gt; Lens EnabledMetric EnabledMetric (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric%27"><span class="hs-identifier hs-type">EnabledMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325902"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric%27"><span class="hs-identifier hs-type">EnabledMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325911"><span class="annot"><span class="annottext">Maybe Text
 metric :: Maybe Text
 $sel:metric:EnabledMetric' :: EnabledMetric -&gt; Maybe Text
-</span><a href="#local-6989586621679325902"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325902"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325901"><span class="annot"><span class="annottext">s :: EnabledMetric
-</span><a href="#local-6989586621679325901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric%27"><span class="hs-identifier hs-type">EnabledMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325900"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnabledMetric
-</span><a href="#local-6989586621679325901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:EnabledMetric' :: Maybe Text
+</span><a href="#local-6989586621679325911"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325911"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325910"><span class="annot"><span class="annottext">s :: EnabledMetric
+</span><a href="#local-6989586621679325910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric%27"><span class="hs-identifier hs-type">EnabledMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325909"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnabledMetric
+</span><a href="#local-6989586621679325910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:EnabledMetric' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#%24sel%3Ametric%3AEnabledMetric%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric"><span class="hs-identifier hs-type">EnabledMetric</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric"><span class="hs-identifier hs-type">EnabledMetric</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric"><span class="hs-identifier hs-type">EnabledMetric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679325897"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EnabledMetric
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679325895"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679325895"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679325906"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EnabledMetric
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679325904"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679325904"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; EnabledMetric
 </span><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric%27"><span class="hs-identifier hs-var">EnabledMetric'</span></a></span><span>
 </span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; EnabledMetric)
@@ -282,7 +282,7 @@ $sel:metric:EnabledMetric' :: EnabledMetric -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; EnabledMetric)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679325895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679325904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Granularity&quot;</span></span><span class="hs-special">)</span><span>
@@ -290,12 +290,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String EnabledMetric
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679325895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679325904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Metric&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325889"><span id="local-6989586621679325891"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric"><span class="hs-identifier hs-type">EnabledMetric</span></a></span></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325898"><span id="local-6989586621679325900"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric"><span class="hs-identifier hs-type">EnabledMetric</span></a></span></span></span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325886"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric"><span class="hs-identifier hs-type">EnabledMetric</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325895"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.EnabledMetric.html#EnabledMetric"><span class="hs-identifier hs-type">EnabledMetric</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

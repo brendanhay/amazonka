@@ -1,0 +1,1363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsDetails.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsDetails</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionInferenceAcceleratorsDetails.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionInferenceAcceleratorsDetails</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionPlacementConstraintsDetails.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionPlacementConstraintsDetails</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionProxyConfigurationDetails.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionProxyConfigurationDetails</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionVolumesDetails.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionVolumesDetails</span></a></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | details about a task definition. A task definition describes the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- container and volume definitions of an Amazon Elastic Container Service</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- task.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newAwsEcsTaskDefinitionDetails' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679953603"><span id="local-6989586621679953604"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsEcsTaskDefinitionDetails"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-var">AwsEcsTaskDefinitionDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsEcsTaskDefinitionDetails%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">AwsEcsTaskDefinitionDetails'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Elastic Inference accelerators to use for the containers in the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- task.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AinferenceAccelerators%3AAwsEcsTaskDefinitionDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+-&gt; Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AinferenceAccelerators%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var hs-var">inferenceAccelerators</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionInferenceAcceleratorsDetails.html#AwsEcsTaskDefinitionInferenceAcceleratorsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionInferenceAcceleratorsDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ARN of the task execution role that grants the container agent</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- permission to make API calls on behalf of the container user.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AexecutionRoleArn%3AAwsEcsTaskDefinitionDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AexecutionRoleArn%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var hs-var">executionRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The process namespace to use for the containers in the task.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3ApidMode%3AAwsEcsTaskDefinitionDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3ApidMode%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var hs-var">pidMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of a family that this task definition is registered to.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Afamily%3AAwsEcsTaskDefinitionDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3Afamily%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-keyword hs-var hs-var">family</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The task launch types that the task definition was validated against.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3ArequiresCompatibilities%3AAwsEcsTaskDefinitionDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails -&gt; Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3ArequiresCompatibilities%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var hs-var">requiresCompatibilities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The container definitions that describe the containers that make up the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- task.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AcontainerDefinitions%3AAwsEcsTaskDefinitionDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+-&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AcontainerDefinitions%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var hs-var">containerDefinitions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The amount (in MiB) of memory used by the task.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Amemory%3AAwsEcsTaskDefinitionDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3Amemory%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var hs-var">memory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The IPC resource namespace to use for the containers in the task.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AipcMode%3AAwsEcsTaskDefinitionDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AipcMode%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var hs-var">ipcMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The short name or ARN of the IAM role that grants containers in the task</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- permission to call Amazon Web Services API operations on your behalf.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtaskRoleArn%3AAwsEcsTaskDefinitionDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AtaskRoleArn%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var hs-var">taskRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The configuration details for the App Mesh proxy.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AproxyConfiguration%3AAwsEcsTaskDefinitionDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+-&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AproxyConfiguration%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var hs-var">proxyConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionProxyConfigurationDetails.html#AwsEcsTaskDefinitionProxyConfigurationDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionProxyConfigurationDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The placement constraint objects to use for tasks.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AplacementConstraints%3AAwsEcsTaskDefinitionDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+-&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AplacementConstraints%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var hs-var">placementConstraints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionPlacementConstraintsDetails.html#AwsEcsTaskDefinitionPlacementConstraintsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionPlacementConstraintsDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The Docker networking mode to use for the containers in the task.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AnetworkMode%3AAwsEcsTaskDefinitionDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AnetworkMode%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var hs-var">networkMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The data volume definitions for the task.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Avolumes%3AAwsEcsTaskDefinitionDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+-&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3Avolumes%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var hs-var">volumes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionVolumesDetails.html#AwsEcsTaskDefinitionVolumesDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionVolumesDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The number of CPU units used by the task.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Acpu%3AAwsEcsTaskDefinitionDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3Acpu%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var hs-var">cpu</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679953584"><span id="local-6989586621679953586"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails -&gt; AwsEcsTaskDefinitionDetails -&gt; Bool
+(AwsEcsTaskDefinitionDetails
+ -&gt; AwsEcsTaskDefinitionDetails -&gt; Bool)
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; AwsEcsTaskDefinitionDetails -&gt; Bool)
+-&gt; Eq AwsEcsTaskDefinitionDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsEcsTaskDefinitionDetails -&gt; AwsEcsTaskDefinitionDetails -&gt; Bool
+$c/= :: AwsEcsTaskDefinitionDetails -&gt; AwsEcsTaskDefinitionDetails -&gt; Bool
+== :: AwsEcsTaskDefinitionDetails -&gt; AwsEcsTaskDefinitionDetails -&gt; Bool
+$c== :: AwsEcsTaskDefinitionDetails -&gt; AwsEcsTaskDefinitionDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679953575"><span id="local-6989586621679953577"><span id="local-6989586621679953579"><span id="local-6989586621679953581"><span class="annot"><span class="annottext">ReadPrec [AwsEcsTaskDefinitionDetails]
+ReadPrec AwsEcsTaskDefinitionDetails
+Int -&gt; ReadS AwsEcsTaskDefinitionDetails
+ReadS [AwsEcsTaskDefinitionDetails]
+(Int -&gt; ReadS AwsEcsTaskDefinitionDetails)
+-&gt; ReadS [AwsEcsTaskDefinitionDetails]
+-&gt; ReadPrec AwsEcsTaskDefinitionDetails
+-&gt; ReadPrec [AwsEcsTaskDefinitionDetails]
+-&gt; Read AwsEcsTaskDefinitionDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsEcsTaskDefinitionDetails]
+$creadListPrec :: ReadPrec [AwsEcsTaskDefinitionDetails]
+readPrec :: ReadPrec AwsEcsTaskDefinitionDetails
+$creadPrec :: ReadPrec AwsEcsTaskDefinitionDetails
+readList :: ReadS [AwsEcsTaskDefinitionDetails]
+$creadList :: ReadS [AwsEcsTaskDefinitionDetails]
+readsPrec :: Int -&gt; ReadS AwsEcsTaskDefinitionDetails
+$creadsPrec :: Int -&gt; ReadS AwsEcsTaskDefinitionDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679953568"><span id="local-6989586621679953570"><span id="local-6989586621679953572"><span class="annot"><span class="annottext">Int -&gt; AwsEcsTaskDefinitionDetails -&gt; ShowS
+[AwsEcsTaskDefinitionDetails] -&gt; ShowS
+AwsEcsTaskDefinitionDetails -&gt; String
+(Int -&gt; AwsEcsTaskDefinitionDetails -&gt; ShowS)
+-&gt; (AwsEcsTaskDefinitionDetails -&gt; String)
+-&gt; ([AwsEcsTaskDefinitionDetails] -&gt; ShowS)
+-&gt; Show AwsEcsTaskDefinitionDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsEcsTaskDefinitionDetails] -&gt; ShowS
+$cshowList :: [AwsEcsTaskDefinitionDetails] -&gt; ShowS
+show :: AwsEcsTaskDefinitionDetails -&gt; String
+$cshow :: AwsEcsTaskDefinitionDetails -&gt; String
+showsPrec :: Int -&gt; AwsEcsTaskDefinitionDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsEcsTaskDefinitionDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsEcsTaskDefinitionDetails -&gt; Rep AwsEcsTaskDefinitionDetails x)
+-&gt; (forall x.
+    Rep AwsEcsTaskDefinitionDetails x -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Generic AwsEcsTaskDefinitionDetails
+forall x.
+Rep AwsEcsTaskDefinitionDetails x -&gt; AwsEcsTaskDefinitionDetails
+forall x.
+AwsEcsTaskDefinitionDetails -&gt; Rep AwsEcsTaskDefinitionDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AwsEcsTaskDefinitionDetails x -&gt; AwsEcsTaskDefinitionDetails
+$cfrom :: forall x.
+AwsEcsTaskDefinitionDetails -&gt; Rep AwsEcsTaskDefinitionDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'AwsEcsTaskDefinitionDetails' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'inferenceAccelerators', 'awsEcsTaskDefinitionDetails_inferenceAccelerators' - The Elastic Inference accelerators to use for the containers in the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- task.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'executionRoleArn', 'awsEcsTaskDefinitionDetails_executionRoleArn' - The ARN of the task execution role that grants the container agent</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- permission to make API calls on behalf of the container user.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'pidMode', 'awsEcsTaskDefinitionDetails_pidMode' - The process namespace to use for the containers in the task.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'family', 'awsEcsTaskDefinitionDetails_family' - The name of a family that this task definition is registered to.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'requiresCompatibilities', 'awsEcsTaskDefinitionDetails_requiresCompatibilities' - The task launch types that the task definition was validated against.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'containerDefinitions', 'awsEcsTaskDefinitionDetails_containerDefinitions' - The container definitions that describe the containers that make up the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- task.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'memory', 'awsEcsTaskDefinitionDetails_memory' - The amount (in MiB) of memory used by the task.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'ipcMode', 'awsEcsTaskDefinitionDetails_ipcMode' - The IPC resource namespace to use for the containers in the task.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'taskRoleArn', 'awsEcsTaskDefinitionDetails_taskRoleArn' - The short name or ARN of the IAM role that grants containers in the task</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- permission to call Amazon Web Services API operations on your behalf.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'proxyConfiguration', 'awsEcsTaskDefinitionDetails_proxyConfiguration' - The configuration details for the App Mesh proxy.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'placementConstraints', 'awsEcsTaskDefinitionDetails_placementConstraints' - The placement constraint objects to use for tasks.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'networkMode', 'awsEcsTaskDefinitionDetails_networkMode' - The Docker networking mode to use for the containers in the task.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'volumes', 'awsEcsTaskDefinitionDetails_volumes' - The data volume definitions for the task.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'cpu', 'awsEcsTaskDefinitionDetails_cpu' - The number of CPU units used by the task.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#newAwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">newAwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span>
+</span><span id="line-113"></span><span id="newAwsEcsTaskDefinitionDetails"><span class="annot"><span class="annottext">newAwsEcsTaskDefinitionDetails :: AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#newAwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-var hs-var">newAwsEcsTaskDefinitionDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails' :: Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+-&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+-&gt; Maybe Text
+-&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+-&gt; Maybe Text
+-&gt; AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:inferenceAccelerators:AwsEcsTaskDefinitionDetails' :: Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AinferenceAccelerators%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">inferenceAccelerators</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionRoleArn:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AexecutionRoleArn%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:pidMode:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3ApidMode%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">pidMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:family:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3Afamily%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-keyword hs-var">family</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:requiresCompatibilities:AwsEcsTaskDefinitionDetails' :: Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3ArequiresCompatibilities%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">requiresCompatibilities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerDefinitions:AwsEcsTaskDefinitionDetails' :: Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AcontainerDefinitions%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">containerDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:memory:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3Amemory%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">memory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipcMode:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AipcMode%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">ipcMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskRoleArn:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AtaskRoleArn%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">taskRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:proxyConfiguration:AwsEcsTaskDefinitionDetails' :: Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AproxyConfiguration%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">proxyConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:placementConstraints:AwsEcsTaskDefinitionDetails' :: Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AplacementConstraints%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkMode:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AnetworkMode%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">networkMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumes:AwsEcsTaskDefinitionDetails' :: Maybe [AwsEcsTaskDefinitionVolumesDetails]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3Avolumes%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">volumes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionVolumesDetails]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:cpu:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3Acpu%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">cpu</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The Elastic Inference accelerators to use for the containers in the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- task.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_inferenceAccelerators"><span class="hs-identifier hs-type">awsEcsTaskDefinitionDetails_inferenceAccelerators</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionInferenceAcceleratorsDetails.html#AwsEcsTaskDefinitionInferenceAcceleratorsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionInferenceAcceleratorsDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="awsEcsTaskDefinitionDetails_inferenceAccelerators"><span class="annot"><span class="annottext">awsEcsTaskDefinitionDetails_inferenceAccelerators :: (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+ -&gt; f (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]))
+-&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_inferenceAccelerators"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionDetails_inferenceAccelerators</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionDetails
+ -&gt; Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails])
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+    -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionDetails
+     AwsEcsTaskDefinitionDetails
+     (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails])
+     (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953559"><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+inferenceAccelerators :: Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+$sel:inferenceAccelerators:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails
+-&gt; Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+</span><a href="#local-6989586621679953559"><span class="hs-identifier hs-var hs-var">inferenceAccelerators</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+</span><a href="#local-6989586621679953559"><span class="hs-identifier hs-var">inferenceAccelerators</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679953558"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679953557"><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+</span><a href="#local-6989586621679953557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inferenceAccelerators:AwsEcsTaskDefinitionDetails' :: Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AinferenceAccelerators%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">inferenceAccelerators</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+</span><a href="#local-6989586621679953557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+  -&gt; f (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]))
+ -&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails)
+-&gt; ((Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+     -&gt; f (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]))
+    -&gt; Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+    -&gt; f (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]))
+-&gt; (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+    -&gt; f (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]))
+-&gt; AwsEcsTaskDefinitionDetails
+-&gt; f AwsEcsTaskDefinitionDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+  [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+  [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+  [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+-&gt; Iso
+     (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails])
+     (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails])
+     (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails])
+     (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+  [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+  [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+  [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The ARN of the task execution role that grants the container agent</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- permission to make API calls on behalf of the container user.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_executionRoleArn"><span class="hs-identifier hs-type">awsEcsTaskDefinitionDetails_executionRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="awsEcsTaskDefinitionDetails_executionRoleArn"><span class="annot"><span class="annottext">awsEcsTaskDefinitionDetails_executionRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_executionRoleArn"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionDetails_executionRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionDetails -&gt; Maybe Text)
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; Maybe Text -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionDetails
+     AwsEcsTaskDefinitionDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953552"><span class="annot"><span class="annottext">Maybe Text
+executionRoleArn :: Maybe Text
+$sel:executionRoleArn:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679953552"><span class="hs-identifier hs-var hs-var">executionRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953552"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679953551"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679953550"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionRoleArn:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AexecutionRoleArn%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The process namespace to use for the containers in the task.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_pidMode"><span class="hs-identifier hs-type">awsEcsTaskDefinitionDetails_pidMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="awsEcsTaskDefinitionDetails_pidMode"><span class="annot"><span class="annottext">awsEcsTaskDefinitionDetails_pidMode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_pidMode"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionDetails_pidMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionDetails -&gt; Maybe Text)
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; Maybe Text -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionDetails
+     AwsEcsTaskDefinitionDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953548"><span class="annot"><span class="annottext">Maybe Text
+pidMode :: Maybe Text
+$sel:pidMode:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679953548"><span class="hs-identifier hs-var hs-var">pidMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953548"><span class="hs-identifier hs-var">pidMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679953547"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679953546"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pidMode:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3ApidMode%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">pidMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The name of a family that this task definition is registered to.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_family"><span class="hs-identifier hs-type">awsEcsTaskDefinitionDetails_family</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="awsEcsTaskDefinitionDetails_family"><span class="annot"><span class="annottext">awsEcsTaskDefinitionDetails_family :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_family"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionDetails_family</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionDetails -&gt; Maybe Text)
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; Maybe Text -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionDetails
+     AwsEcsTaskDefinitionDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953544"><span class="annot"><span class="annottext">Maybe Text
+family :: Maybe Text
+$sel:family:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679953544"><span class="hs-keyword hs-var hs-var">family</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953544"><span class="hs-keyword hs-var">family</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679953543"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679953542"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:family:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3Afamily%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-keyword hs-var">family</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The task launch types that the task definition was validated against.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_requiresCompatibilities"><span class="hs-identifier hs-type">awsEcsTaskDefinitionDetails_requiresCompatibilities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="awsEcsTaskDefinitionDetails_requiresCompatibilities"><span class="annot"><span class="annottext">awsEcsTaskDefinitionDetails_requiresCompatibilities :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_requiresCompatibilities"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionDetails_requiresCompatibilities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionDetails -&gt; Maybe [Text])
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; Maybe [Text] -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionDetails
+     AwsEcsTaskDefinitionDetails
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953540"><span class="annot"><span class="annottext">Maybe [Text]
+requiresCompatibilities :: Maybe [Text]
+$sel:requiresCompatibilities:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe [Text]
+</span><a href="#local-6989586621679953540"><span class="hs-identifier hs-var hs-var">requiresCompatibilities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679953540"><span class="hs-identifier hs-var">requiresCompatibilities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679953539"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679953538"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679953538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requiresCompatibilities:AwsEcsTaskDefinitionDetails' :: Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3ArequiresCompatibilities%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">requiresCompatibilities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679953538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AwsEcsTaskDefinitionDetails
+-&gt; f AwsEcsTaskDefinitionDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The container definitions that describe the containers that make up the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- task.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_containerDefinitions"><span class="hs-identifier hs-type">awsEcsTaskDefinitionDetails_containerDefinitions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="awsEcsTaskDefinitionDetails_containerDefinitions"><span class="annot"><span class="annottext">awsEcsTaskDefinitionDetails_containerDefinitions :: (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+ -&gt; f (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]))
+-&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_containerDefinitions"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionDetails_containerDefinitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionDetails
+ -&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails])
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+    -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionDetails
+     AwsEcsTaskDefinitionDetails
+     (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails])
+     (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953536"><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+containerDefinitions :: Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+$sel:containerDefinitions:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails
+-&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+</span><a href="#local-6989586621679953536"><span class="hs-identifier hs-var hs-var">containerDefinitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+</span><a href="#local-6989586621679953536"><span class="hs-identifier hs-var">containerDefinitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679953535"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679953534"><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+</span><a href="#local-6989586621679953534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerDefinitions:AwsEcsTaskDefinitionDetails' :: Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AcontainerDefinitions%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">containerDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+</span><a href="#local-6989586621679953534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+  -&gt; f (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]))
+ -&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails)
+-&gt; ((Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+     -&gt; f (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]))
+    -&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+    -&gt; f (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]))
+-&gt; (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+    -&gt; f (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]))
+-&gt; AwsEcsTaskDefinitionDetails
+-&gt; f AwsEcsTaskDefinitionDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+-&gt; Iso
+     (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails])
+     (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails])
+     (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails])
+     (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The amount (in MiB) of memory used by the task.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_memory"><span class="hs-identifier hs-type">awsEcsTaskDefinitionDetails_memory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="awsEcsTaskDefinitionDetails_memory"><span class="annot"><span class="annottext">awsEcsTaskDefinitionDetails_memory :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_memory"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionDetails_memory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionDetails -&gt; Maybe Text)
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; Maybe Text -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionDetails
+     AwsEcsTaskDefinitionDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953532"><span class="annot"><span class="annottext">Maybe Text
+memory :: Maybe Text
+$sel:memory:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679953532"><span class="hs-identifier hs-var hs-var">memory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953532"><span class="hs-identifier hs-var">memory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679953531"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679953530"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memory:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3Amemory%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">memory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The IPC resource namespace to use for the containers in the task.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_ipcMode"><span class="hs-identifier hs-type">awsEcsTaskDefinitionDetails_ipcMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="awsEcsTaskDefinitionDetails_ipcMode"><span class="annot"><span class="annottext">awsEcsTaskDefinitionDetails_ipcMode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_ipcMode"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionDetails_ipcMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionDetails -&gt; Maybe Text)
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; Maybe Text -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionDetails
+     AwsEcsTaskDefinitionDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953528"><span class="annot"><span class="annottext">Maybe Text
+ipcMode :: Maybe Text
+$sel:ipcMode:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679953528"><span class="hs-identifier hs-var hs-var">ipcMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953528"><span class="hs-identifier hs-var">ipcMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679953527"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679953526"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipcMode:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AipcMode%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">ipcMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The short name or ARN of the IAM role that grants containers in the task</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- permission to call Amazon Web Services API operations on your behalf.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_taskRoleArn"><span class="hs-identifier hs-type">awsEcsTaskDefinitionDetails_taskRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="awsEcsTaskDefinitionDetails_taskRoleArn"><span class="annot"><span class="annottext">awsEcsTaskDefinitionDetails_taskRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_taskRoleArn"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionDetails_taskRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionDetails -&gt; Maybe Text)
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; Maybe Text -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionDetails
+     AwsEcsTaskDefinitionDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953524"><span class="annot"><span class="annottext">Maybe Text
+taskRoleArn :: Maybe Text
+$sel:taskRoleArn:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679953524"><span class="hs-identifier hs-var hs-var">taskRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953524"><span class="hs-identifier hs-var">taskRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679953523"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679953522"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskRoleArn:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AtaskRoleArn%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">taskRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The configuration details for the App Mesh proxy.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_proxyConfiguration"><span class="hs-identifier hs-type">awsEcsTaskDefinitionDetails_proxyConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionProxyConfigurationDetails.html#AwsEcsTaskDefinitionProxyConfigurationDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionProxyConfigurationDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="awsEcsTaskDefinitionDetails_proxyConfiguration"><span class="annot"><span class="annottext">awsEcsTaskDefinitionDetails_proxyConfiguration :: (Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+ -&gt; f (Maybe AwsEcsTaskDefinitionProxyConfigurationDetails))
+-&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_proxyConfiguration"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionDetails_proxyConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionDetails
+ -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails)
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+    -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionDetails
+     AwsEcsTaskDefinitionDetails
+     (Maybe AwsEcsTaskDefinitionProxyConfigurationDetails)
+     (Maybe AwsEcsTaskDefinitionProxyConfigurationDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953520"><span class="annot"><span class="annottext">Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+proxyConfiguration :: Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+$sel:proxyConfiguration:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails
+-&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+</span><a href="#local-6989586621679953520"><span class="hs-identifier hs-var hs-var">proxyConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+</span><a href="#local-6989586621679953520"><span class="hs-identifier hs-var">proxyConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679953519"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679953518"><span class="annot"><span class="annottext">Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+</span><a href="#local-6989586621679953518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:proxyConfiguration:AwsEcsTaskDefinitionDetails' :: Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AproxyConfiguration%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">proxyConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+</span><a href="#local-6989586621679953518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The placement constraint objects to use for tasks.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_placementConstraints"><span class="hs-identifier hs-type">awsEcsTaskDefinitionDetails_placementConstraints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionPlacementConstraintsDetails.html#AwsEcsTaskDefinitionPlacementConstraintsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionPlacementConstraintsDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="awsEcsTaskDefinitionDetails_placementConstraints"><span class="annot"><span class="annottext">awsEcsTaskDefinitionDetails_placementConstraints :: (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+ -&gt; f (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]))
+-&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_placementConstraints"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionDetails_placementConstraints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionDetails
+ -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails])
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+    -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionDetails
+     AwsEcsTaskDefinitionDetails
+     (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails])
+     (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953516"><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+placementConstraints :: Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+$sel:placementConstraints:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails
+-&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+</span><a href="#local-6989586621679953516"><span class="hs-identifier hs-var hs-var">placementConstraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+</span><a href="#local-6989586621679953516"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679953515"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679953514"><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+</span><a href="#local-6989586621679953514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementConstraints:AwsEcsTaskDefinitionDetails' :: Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AplacementConstraints%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+</span><a href="#local-6989586621679953514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+  -&gt; f (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]))
+ -&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails)
+-&gt; ((Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+     -&gt; f (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]))
+    -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+    -&gt; f (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]))
+-&gt; (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+    -&gt; f (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]))
+-&gt; AwsEcsTaskDefinitionDetails
+-&gt; f AwsEcsTaskDefinitionDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+  [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+  [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+  [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+-&gt; Iso
+     (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails])
+     (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails])
+     (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails])
+     (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+  [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+  [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+  [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The Docker networking mode to use for the containers in the task.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_networkMode"><span class="hs-identifier hs-type">awsEcsTaskDefinitionDetails_networkMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="awsEcsTaskDefinitionDetails_networkMode"><span class="annot"><span class="annottext">awsEcsTaskDefinitionDetails_networkMode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_networkMode"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionDetails_networkMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionDetails -&gt; Maybe Text)
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; Maybe Text -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionDetails
+     AwsEcsTaskDefinitionDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953512"><span class="annot"><span class="annottext">Maybe Text
+networkMode :: Maybe Text
+$sel:networkMode:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679953512"><span class="hs-identifier hs-var hs-var">networkMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953512"><span class="hs-identifier hs-var">networkMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679953511"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679953510"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkMode:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3AnetworkMode%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">networkMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The data volume definitions for the task.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_volumes"><span class="hs-identifier hs-type">awsEcsTaskDefinitionDetails_volumes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionVolumesDetails.html#AwsEcsTaskDefinitionVolumesDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionVolumesDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="awsEcsTaskDefinitionDetails_volumes"><span class="annot"><span class="annottext">awsEcsTaskDefinitionDetails_volumes :: (Maybe [AwsEcsTaskDefinitionVolumesDetails]
+ -&gt; f (Maybe [AwsEcsTaskDefinitionVolumesDetails]))
+-&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_volumes"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionDetails_volumes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionDetails
+ -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails])
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+    -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionDetails
+     AwsEcsTaskDefinitionDetails
+     (Maybe [AwsEcsTaskDefinitionVolumesDetails])
+     (Maybe [AwsEcsTaskDefinitionVolumesDetails])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953508"><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionVolumesDetails]
+volumes :: Maybe [AwsEcsTaskDefinitionVolumesDetails]
+$sel:volumes:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails
+-&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+</span><a href="#local-6989586621679953508"><span class="hs-identifier hs-var hs-var">volumes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionVolumesDetails]
+</span><a href="#local-6989586621679953508"><span class="hs-identifier hs-var">volumes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679953507"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679953506"><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionVolumesDetails]
+</span><a href="#local-6989586621679953506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumes:AwsEcsTaskDefinitionDetails' :: Maybe [AwsEcsTaskDefinitionVolumesDetails]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3Avolumes%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">volumes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionVolumesDetails]
+</span><a href="#local-6989586621679953506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsEcsTaskDefinitionVolumesDetails]
+  -&gt; f (Maybe [AwsEcsTaskDefinitionVolumesDetails]))
+ -&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails)
+-&gt; ((Maybe [AwsEcsTaskDefinitionVolumesDetails]
+     -&gt; f (Maybe [AwsEcsTaskDefinitionVolumesDetails]))
+    -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+    -&gt; f (Maybe [AwsEcsTaskDefinitionVolumesDetails]))
+-&gt; (Maybe [AwsEcsTaskDefinitionVolumesDetails]
+    -&gt; f (Maybe [AwsEcsTaskDefinitionVolumesDetails]))
+-&gt; AwsEcsTaskDefinitionDetails
+-&gt; f AwsEcsTaskDefinitionDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEcsTaskDefinitionVolumesDetails]
+  [AwsEcsTaskDefinitionVolumesDetails]
+  [AwsEcsTaskDefinitionVolumesDetails]
+  [AwsEcsTaskDefinitionVolumesDetails]
+-&gt; Iso
+     (Maybe [AwsEcsTaskDefinitionVolumesDetails])
+     (Maybe [AwsEcsTaskDefinitionVolumesDetails])
+     (Maybe [AwsEcsTaskDefinitionVolumesDetails])
+     (Maybe [AwsEcsTaskDefinitionVolumesDetails])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEcsTaskDefinitionVolumesDetails]
+  [AwsEcsTaskDefinitionVolumesDetails]
+  [AwsEcsTaskDefinitionVolumesDetails]
+  [AwsEcsTaskDefinitionVolumesDetails]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The number of CPU units used by the task.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_cpu"><span class="hs-identifier hs-type">awsEcsTaskDefinitionDetails_cpu</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="awsEcsTaskDefinitionDetails_cpu"><span class="annot"><span class="annottext">awsEcsTaskDefinitionDetails_cpu :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEcsTaskDefinitionDetails -&gt; f AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#awsEcsTaskDefinitionDetails_cpu"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionDetails_cpu</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionDetails -&gt; Maybe Text)
+-&gt; (AwsEcsTaskDefinitionDetails
+    -&gt; Maybe Text -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionDetails
+     AwsEcsTaskDefinitionDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953504"><span class="annot"><span class="annottext">Maybe Text
+cpu :: Maybe Text
+$sel:cpu:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679953504"><span class="hs-identifier hs-var hs-var">cpu</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953504"><span class="hs-identifier hs-var">cpu</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679953503"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679953502"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionDetails
+</span><a href="#local-6989586621679953503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpu:AwsEcsTaskDefinitionDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#%24sel%3Acpu%3AAwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">cpu</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679953499"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679953497"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsEcsTaskDefinitionDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsEcsTaskDefinitionDetails)
+-&gt; Value
+-&gt; Parser AwsEcsTaskDefinitionDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsEcsTaskDefinitionDetails&quot;</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679953494"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+-&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+-&gt; Maybe Text
+-&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+-&gt; Maybe Text
+-&gt; AwsEcsTaskDefinitionDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-var">AwsEcsTaskDefinitionDetails'</span></a></span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+ -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+ -&gt; Maybe Text
+ -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+ -&gt; Maybe Text
+ -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Parser
+     (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+      -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+      -&gt; Maybe Text
+      -&gt; AwsEcsTaskDefinitionDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InferenceAccelerators&quot;</span></span><span>
+</span><span id="line-199"></span><span>                            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]))
+-&gt; Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+-&gt; Parser
+     (Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-200"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+   -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+   -&gt; Maybe Text
+   -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+      -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+      -&gt; Maybe Text
+      -&gt; AwsEcsTaskDefinitionDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExecutionRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+   -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+   -&gt; Maybe Text
+   -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+      -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+      -&gt; Maybe Text
+      -&gt; AwsEcsTaskDefinitionDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PidMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+   -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+   -&gt; Maybe Text
+   -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+      -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+      -&gt; Maybe Text
+      -&gt; AwsEcsTaskDefinitionDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Family&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+   -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+   -&gt; Maybe Text
+   -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+      -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+      -&gt; Maybe Text
+      -&gt; AwsEcsTaskDefinitionDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequiresCompatibilities&quot;</span></span><span>
+</span><span id="line-205"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-206"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+   -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+   -&gt; Maybe Text
+   -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Parser (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+      -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+      -&gt; Maybe Text
+      -&gt; AwsEcsTaskDefinitionDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainerDefinitions&quot;</span></span><span>
+</span><span id="line-208"></span><span>                            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]))
+-&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+-&gt; Parser (Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-209"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+   -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+   -&gt; Maybe Text
+   -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+      -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+      -&gt; Maybe Text
+      -&gt; AwsEcsTaskDefinitionDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Memory&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+   -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+   -&gt; Maybe Text
+   -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+      -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+      -&gt; Maybe Text
+      -&gt; AwsEcsTaskDefinitionDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpcMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+   -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+   -&gt; Maybe Text
+   -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+      -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+      -&gt; Maybe Text
+      -&gt; AwsEcsTaskDefinitionDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TaskRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+   -&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+   -&gt; Maybe Text
+   -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Parser (Maybe AwsEcsTaskDefinitionProxyConfigurationDetails)
+-&gt; Parser
+     (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+      -&gt; Maybe Text
+      -&gt; AwsEcsTaskDefinitionDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe AwsEcsTaskDefinitionProxyConfigurationDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProxyConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+   -&gt; Maybe Text
+   -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Parser (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+      -&gt; Maybe Text
+      -&gt; AwsEcsTaskDefinitionDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlacementConstraints&quot;</span></span><span>
+</span><span id="line-215"></span><span>                            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]))
+-&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+-&gt; Parser (Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-216"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+   -&gt; Maybe Text
+   -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [AwsEcsTaskDefinitionVolumesDetails]
+      -&gt; Maybe Text -&gt; AwsEcsTaskDefinitionDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AwsEcsTaskDefinitionVolumesDetails]
+   -&gt; Maybe Text -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Parser (Maybe [AwsEcsTaskDefinitionVolumesDetails])
+-&gt; Parser (Maybe Text -&gt; AwsEcsTaskDefinitionDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe [AwsEcsTaskDefinitionVolumesDetails]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Volumes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AwsEcsTaskDefinitionVolumesDetails]))
+-&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+-&gt; Parser (Maybe [AwsEcsTaskDefinitionVolumesDetails])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionVolumesDetails]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AwsEcsTaskDefinitionDetails)
+-&gt; Parser (Maybe Text) -&gt; Parser AwsEcsTaskDefinitionDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679953494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Cpu&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679953487"><span id="local-6989586621679953489"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span></span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679953484"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679953476"><span id="local-6989586621679953478"><span id="local-6989586621679953480"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679953474"><span class="annot"><span class="annottext">toJSON :: AwsEcsTaskDefinitionDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails.html#AwsEcsTaskDefinitionDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679953459"><span id="local-6989586621679953460"><span id="local-6989586621679953461"><span id="local-6989586621679953462"><span id="local-6989586621679953463"><span id="local-6989586621679953464"><span id="local-6989586621679953465"><span id="local-6989586621679953466"><span id="local-6989586621679953467"><span id="local-6989586621679953468"><span id="local-6989586621679953469"><span id="local-6989586621679953470"><span id="local-6989586621679953471"><span id="local-6989586621679953472"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+Maybe [AwsEcsTaskDefinitionVolumesDetails]
+Maybe Text
+Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+cpu :: Maybe Text
+volumes :: Maybe [AwsEcsTaskDefinitionVolumesDetails]
+networkMode :: Maybe Text
+placementConstraints :: Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+proxyConfiguration :: Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+taskRoleArn :: Maybe Text
+ipcMode :: Maybe Text
+memory :: Maybe Text
+containerDefinitions :: Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+requiresCompatibilities :: Maybe [Text]
+family :: Maybe Text
+pidMode :: Maybe Text
+executionRoleArn :: Maybe Text
+inferenceAccelerators :: Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+$sel:cpu:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+$sel:volumes:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails
+-&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails]
+$sel:networkMode:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+$sel:placementConstraints:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails
+-&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+$sel:proxyConfiguration:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails
+-&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+$sel:taskRoleArn:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+$sel:ipcMode:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+$sel:memory:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+$sel:containerDefinitions:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails
+-&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+$sel:requiresCompatibilities:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe [Text]
+$sel:family:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+$sel:pidMode:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+$sel:executionRoleArn:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails -&gt; Maybe Text
+$sel:inferenceAccelerators:AwsEcsTaskDefinitionDetails' :: AwsEcsTaskDefinitionDetails
+-&gt; Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+</span><a href="#local-6989586621679953459"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-230"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InferenceAccelerators&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsEcsTaskDefinitionInferenceAcceleratorsDetails] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>              </span><span class="annot"><span class="annottext">([AwsEcsTaskDefinitionInferenceAcceleratorsDetails] -&gt; Pair)
+-&gt; Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails]
+</span><a href="#local-6989586621679953472"><span class="hs-identifier hs-var">inferenceAccelerators</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExecutionRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953471"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PidMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953470"><span class="hs-identifier hs-var">pidMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Family&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953469"><span class="hs-keyword hs-var">family</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequiresCompatibilities&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679953468"><span class="hs-identifier hs-var">requiresCompatibilities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainerDefinitions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsEcsTaskDefinitionContainerDefinitionsDetails] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>              </span><span class="annot"><span class="annottext">([AwsEcsTaskDefinitionContainerDefinitionsDetails] -&gt; Pair)
+-&gt; Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails]
+</span><a href="#local-6989586621679953467"><span class="hs-identifier hs-var">containerDefinitions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Memory&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953466"><span class="hs-identifier hs-var">memory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpcMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953465"><span class="hs-identifier hs-var">ipcMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TaskRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953464"><span class="hs-identifier hs-var">taskRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProxyConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsEcsTaskDefinitionProxyConfigurationDetails -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>              </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionProxyConfigurationDetails -&gt; Pair)
+-&gt; Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsEcsTaskDefinitionProxyConfigurationDetails
+</span><a href="#local-6989586621679953463"><span class="hs-identifier hs-var">proxyConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlacementConstraints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsEcsTaskDefinitionPlacementConstraintsDetails] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">([AwsEcsTaskDefinitionPlacementConstraintsDetails] -&gt; Pair)
+-&gt; Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails]
+</span><a href="#local-6989586621679953462"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953461"><span class="hs-identifier hs-var">networkMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Volumes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsEcsTaskDefinitionVolumesDetails] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([AwsEcsTaskDefinitionVolumesDetails] -&gt; Pair)
+-&gt; Maybe [AwsEcsTaskDefinitionVolumesDetails] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEcsTaskDefinitionVolumesDetails]
+</span><a href="#local-6989586621679953460"><span class="hs-identifier hs-var">volumes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Cpu&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679953459"><span class="hs-identifier hs-var">cpu</span></a></span><span>
+</span><span id="line-250"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span></pre></body></html>

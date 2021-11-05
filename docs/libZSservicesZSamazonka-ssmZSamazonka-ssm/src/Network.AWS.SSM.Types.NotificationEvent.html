@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679800890"><span id="local-6989586621679800891"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NotificationEvent"><span class="annot"><a href="Network.AWS.SSM.Types.NotificationEvent.html#NotificationEvent"><span class="hs-identifier hs-var">NotificationEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationEvent%27"><span class="annot"><a href="Network.AWS.SSM.Types.NotificationEvent.html#NotificationEvent%27"><span class="hs-identifier hs-var">NotificationEvent'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679800899"><span id="local-6989586621679800900"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NotificationEvent"><span class="annot"><a href="Network.AWS.SSM.Types.NotificationEvent.html#NotificationEvent"><span class="hs-identifier hs-var">NotificationEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationEvent%27"><span class="annot"><a href="Network.AWS.SSM.Types.NotificationEvent.html#NotificationEvent%27"><span class="hs-identifier hs-var">NotificationEvent'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNotificationEvent"><span class="annot"><span class="annottext">NotificationEvent -&gt; Text
 </span><a href="Network.AWS.SSM.Types.NotificationEvent.html#fromNotificationEvent"><span class="hs-identifier hs-var hs-var">fromNotificationEvent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679800882"><span id="local-6989586621679800884"><span id="local-6989586621679800886"><span class="annot"><span class="annottext">Int -&gt; NotificationEvent -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679800891"><span id="local-6989586621679800893"><span id="local-6989586621679800895"><span class="annot"><span class="annottext">Int -&gt; NotificationEvent -&gt; ShowS
 [NotificationEvent] -&gt; ShowS
 NotificationEvent -&gt; String
 (Int -&gt; NotificationEvent -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: NotificationEvent -&gt; String
 showsPrec :: Int -&gt; NotificationEvent -&gt; ShowS
 $cshowsPrec :: Int -&gt; NotificationEvent -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679800873"><span id="local-6989586621679800875"><span id="local-6989586621679800877"><span id="local-6989586621679800879"><span class="annot"><span class="annottext">ReadPrec [NotificationEvent]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679800882"><span id="local-6989586621679800884"><span id="local-6989586621679800886"><span id="local-6989586621679800888"><span class="annot"><span class="annottext">ReadPrec [NotificationEvent]
 ReadPrec NotificationEvent
 Int -&gt; ReadS NotificationEvent
 ReadS [NotificationEvent]
@@ -76,7 +76,7 @@ $creadList :: ReadS [NotificationEvent]
 readsPrec :: Int -&gt; ReadS NotificationEvent
 $creadsPrec :: Int -&gt; ReadS NotificationEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679800868"><span id="local-6989586621679800870"><span class="annot"><span class="annottext">NotificationEvent -&gt; NotificationEvent -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679800877"><span id="local-6989586621679800879"><span class="annot"><span class="annottext">NotificationEvent -&gt; NotificationEvent -&gt; Bool
 (NotificationEvent -&gt; NotificationEvent -&gt; Bool)
 -&gt; (NotificationEvent -&gt; NotificationEvent -&gt; Bool)
 -&gt; Eq NotificationEvent
@@ -86,7 +86,7 @@ $c/= :: NotificationEvent -&gt; NotificationEvent -&gt; Bool
 == :: NotificationEvent -&gt; NotificationEvent -&gt; Bool
 $c== :: NotificationEvent -&gt; NotificationEvent -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679800852"><span id="local-6989586621679800854"><span id="local-6989586621679800856"><span id="local-6989586621679800858"><span id="local-6989586621679800860"><span id="local-6989586621679800862"><span id="local-6989586621679800864"><span class="annot"><span class="annottext">Eq NotificationEvent
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679800861"><span id="local-6989586621679800863"><span id="local-6989586621679800865"><span id="local-6989586621679800867"><span id="local-6989586621679800869"><span id="local-6989586621679800871"><span id="local-6989586621679800873"><span class="annot"><span class="annottext">Eq NotificationEvent
 Eq NotificationEvent
 -&gt; (NotificationEvent -&gt; NotificationEvent -&gt; Ordering)
 -&gt; (NotificationEvent -&gt; NotificationEvent -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. NotificationEvent -&gt; Rep NotificationEvent x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679800844"><span id="local-6989586621679800846"><span class="annot"><span class="annottext">Int -&gt; NotificationEvent -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679800853"><span id="local-6989586621679800855"><span class="annot"><span class="annottext">Int -&gt; NotificationEvent -&gt; Int
 NotificationEvent -&gt; Int
 (Int -&gt; NotificationEvent -&gt; Int)
 -&gt; (NotificationEvent -&gt; Int) -&gt; Hashable NotificationEvent
@@ -147,51 +147,51 @@ $chash :: NotificationEvent -&gt; Int
 hashWithSalt :: Int -&gt; NotificationEvent -&gt; Int
 $chashWithSalt :: Int -&gt; NotificationEvent -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679800841"><span class="annot"><span class="annottext">NotificationEvent -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679800850"><span class="annot"><span class="annottext">NotificationEvent -&gt; ()
 (NotificationEvent -&gt; ()) -&gt; NFData NotificationEvent
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NotificationEvent -&gt; ()
 $crnf :: NotificationEvent -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679800838"><span class="annot"><span class="annottext">Text -&gt; Either String NotificationEvent
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679800847"><span class="annot"><span class="annottext">Text -&gt; Either String NotificationEvent
 (Text -&gt; Either String NotificationEvent)
 -&gt; FromText NotificationEvent
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NotificationEvent
 $cfromText :: Text -&gt; Either String NotificationEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679800835"><span class="annot"><span class="annottext">NotificationEvent -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679800844"><span class="annot"><span class="annottext">NotificationEvent -&gt; Text
 (NotificationEvent -&gt; Text) -&gt; ToText NotificationEvent
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NotificationEvent -&gt; Text
 $ctoText :: NotificationEvent -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679800832"><span class="annot"><span class="annottext">NotificationEvent -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679800841"><span class="annot"><span class="annottext">NotificationEvent -&gt; ByteString
 (NotificationEvent -&gt; ByteString) -&gt; ToByteString NotificationEvent
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NotificationEvent -&gt; ByteString
 $ctoBS :: NotificationEvent -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679800829"><span class="annot"><span class="annottext">NotificationEvent -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679800838"><span class="annot"><span class="annottext">NotificationEvent -&gt; ByteStringBuilder
 (NotificationEvent -&gt; ByteStringBuilder) -&gt; ToLog NotificationEvent
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NotificationEvent -&gt; ByteStringBuilder
 $cbuild :: NotificationEvent -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679800826"><span class="annot"><span class="annottext">HeaderName -&gt; NotificationEvent -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679800835"><span class="annot"><span class="annottext">HeaderName -&gt; NotificationEvent -&gt; [Header]
 (HeaderName -&gt; NotificationEvent -&gt; [Header])
 -&gt; ToHeader NotificationEvent
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NotificationEvent -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NotificationEvent -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679800823"><span class="annot"><span class="annottext">NotificationEvent -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679800832"><span class="annot"><span class="annottext">NotificationEvent -&gt; QueryString
 (NotificationEvent -&gt; QueryString) -&gt; ToQuery NotificationEvent
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NotificationEvent -&gt; QueryString
 $ctoQuery :: NotificationEvent -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679800818"><span id="local-6989586621679800820"><span class="annot"><span class="annottext">Value -&gt; Parser [NotificationEvent]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679800827"><span id="local-6989586621679800829"><span class="annot"><span class="annottext">Value -&gt; Parser [NotificationEvent]
 Value -&gt; Parser NotificationEvent
 (Value -&gt; Parser NotificationEvent)
 -&gt; (Value -&gt; Parser [NotificationEvent])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [NotificationEvent]
 parseJSON :: Value -&gt; Parser NotificationEvent
 $cparseJSON :: Value -&gt; Parser NotificationEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679800813"><span id="local-6989586621679800815"><span class="annot"><span class="annottext">FromJSONKeyFunction [NotificationEvent]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679800822"><span id="local-6989586621679800824"><span class="annot"><span class="annottext">FromJSONKeyFunction [NotificationEvent]
 FromJSONKeyFunction NotificationEvent
 FromJSONKeyFunction NotificationEvent
 -&gt; FromJSONKeyFunction [NotificationEvent]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NotificationEvent]
 fromJSONKey :: FromJSONKeyFunction NotificationEvent
 $cfromJSONKey :: FromJSONKeyFunction NotificationEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679800804"><span id="local-6989586621679800806"><span id="local-6989586621679800808"><span id="local-6989586621679800810"><span class="annot"><span class="annottext">[NotificationEvent] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679800813"><span id="local-6989586621679800815"><span id="local-6989586621679800817"><span id="local-6989586621679800819"><span class="annot"><span class="annottext">[NotificationEvent] -&gt; Encoding
 [NotificationEvent] -&gt; Value
 NotificationEvent -&gt; Encoding
 NotificationEvent -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: NotificationEvent -&gt; Encoding
 toJSON :: NotificationEvent -&gt; Value
 $ctoJSON :: NotificationEvent -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679800799"><span id="local-6989586621679800801"><span class="annot"><span class="annottext">ToJSONKeyFunction [NotificationEvent]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679800808"><span id="local-6989586621679800810"><span class="annot"><span class="annottext">ToJSONKeyFunction [NotificationEvent]
 ToJSONKeyFunction NotificationEvent
 ToJSONKeyFunction NotificationEvent
 -&gt; ToJSONKeyFunction [NotificationEvent]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NotificationEvent]
 toJSONKey :: ToJSONKeyFunction NotificationEvent
 $ctoJSONKey :: ToJSONKeyFunction NotificationEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679800796"><span class="annot"><span class="annottext">[Node] -&gt; Either String NotificationEvent
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679800805"><span class="annot"><span class="annottext">[Node] -&gt; Either String NotificationEvent
 ([Node] -&gt; Either String NotificationEvent)
 -&gt; FromXML NotificationEvent
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NotificationEvent
 $cparseXML :: [Node] -&gt; Either String NotificationEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679800793"><span class="annot"><span class="annottext">NotificationEvent -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679800802"><span class="annot"><span class="annottext">NotificationEvent -&gt; XML
 (NotificationEvent -&gt; XML) -&gt; ToXML NotificationEvent
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NotificationEvent -&gt; XML

@@ -99,7 +99,7 @@
 </span><span id="line-99"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | /See:/ 'newCreateLag' smart constructor.</span><span>
-</span><span id="line-102"></span><span id="local-6989586621679300737"><span id="local-6989586621679300738"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLag"><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-var">CreateLag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLag%27"><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-var">CreateLag'</span></a></span></span><span>
+</span><span id="line-102"></span><span id="local-6989586621679300746"><span id="local-6989586621679300747"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLag"><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-var">CreateLag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLag%27"><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-var">CreateLag'</span></a></span></span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags to associate with the automtically created LAGs.</span><span>
 </span><span id="line-104"></span><span>    </span><span id="%24sel%3AchildConnectionTags%3ACreateLag%27"><span class="annot"><span class="annottext">CreateLag -&gt; Maybe (NonEmpty Tag)
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3AchildConnectionTags%3ACreateLag%27"><span class="hs-identifier hs-var hs-var">childConnectionTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -135,7 +135,7 @@
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AlagName%3ACreateLag%27"><span class="annot"><span class="annottext">CreateLag -&gt; Text
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3AlagName%3ACreateLag%27"><span class="hs-identifier hs-var hs-var">lagName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300723"><span id="local-6989586621679300725"><span class="annot"><span class="annottext">CreateLag -&gt; CreateLag -&gt; Bool
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300732"><span id="local-6989586621679300734"><span class="annot"><span class="annottext">CreateLag -&gt; CreateLag -&gt; Bool
 (CreateLag -&gt; CreateLag -&gt; Bool)
 -&gt; (CreateLag -&gt; CreateLag -&gt; Bool) -&gt; Eq CreateLag
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -143,7 +143,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateLag -&gt; CreateLag -&gt; Bool
 == :: CreateLag -&gt; CreateLag -&gt; Bool
 $c== :: CreateLag -&gt; CreateLag -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300714"><span id="local-6989586621679300716"><span id="local-6989586621679300718"><span id="local-6989586621679300720"><span class="annot"><span class="annottext">ReadPrec [CreateLag]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300723"><span id="local-6989586621679300725"><span id="local-6989586621679300727"><span id="local-6989586621679300729"><span class="annot"><span class="annottext">ReadPrec [CreateLag]
 ReadPrec CreateLag
 Int -&gt; ReadS CreateLag
 ReadS [CreateLag]
@@ -163,7 +163,7 @@ readList :: ReadS [CreateLag]
 $creadList :: ReadS [CreateLag]
 readsPrec :: Int -&gt; ReadS CreateLag
 $creadsPrec :: Int -&gt; ReadS CreateLag
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300707"><span id="local-6989586621679300709"><span id="local-6989586621679300711"><span class="annot"><span class="annottext">Int -&gt; CreateLag -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300716"><span id="local-6989586621679300718"><span id="local-6989586621679300720"><span class="annot"><span class="annottext">Int -&gt; CreateLag -&gt; ShowS
 [CreateLag] -&gt; ShowS
 CreateLag -&gt; String
 (Int -&gt; CreateLag -&gt; ShowS)
@@ -232,14 +232,14 @@ $cfrom :: forall x. CreateLag -&gt; Rep CreateLag x
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span>
 </span><span id="line-173"></span><span id="newCreateLag"><span class="annot"><span class="annottext">newCreateLag :: Int -&gt; Text -&gt; Text -&gt; Text -&gt; CreateLag
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#newCreateLag"><span class="hs-identifier hs-var hs-var">newCreateLag</span></a></span></span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679300702"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300702"><span class="hs-identifier hs-var">pNumberOfConnections_</span></a></span></span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679300701"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300701"><span class="hs-identifier hs-var">pLocation_</span></a></span></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679300700"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300700"><span class="hs-identifier hs-var">pConnectionsBandwidth_</span></a></span></span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679300699"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300699"><span class="hs-identifier hs-var">pLagName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679300711"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300711"><span class="hs-identifier hs-var">pNumberOfConnections_</span></a></span></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679300710"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300710"><span class="hs-identifier hs-var">pLocation_</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679300709"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300709"><span class="hs-identifier hs-var">pConnectionsBandwidth_</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679300708"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300708"><span class="hs-identifier hs-var">pLagName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">CreateLag' :: Maybe (NonEmpty Tag)
 -&gt; Maybe Text
 -&gt; Maybe Bool
@@ -273,16 +273,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">$sel:numberOfConnections:CreateLag' :: Int
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3AnumberOfConnections%3ACreateLag%27"><span class="hs-identifier hs-var">numberOfConnections</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300702"><span class="hs-identifier hs-var">pNumberOfConnections_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300711"><span class="hs-identifier hs-var">pNumberOfConnections_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:location:CreateLag' :: Text
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3Alocation%3ACreateLag%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300701"><span class="hs-identifier hs-var">pLocation_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300710"><span class="hs-identifier hs-var">pLocation_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">$sel:connectionsBandwidth:CreateLag' :: Text
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3AconnectionsBandwidth%3ACreateLag%27"><span class="hs-identifier hs-var">connectionsBandwidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300700"><span class="hs-identifier hs-var">pConnectionsBandwidth_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300709"><span class="hs-identifier hs-var">pConnectionsBandwidth_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">$sel:lagName:CreateLag' :: Text
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3AlagName%3ACreateLag%27"><span class="hs-identifier hs-var">lagName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300699"><span class="hs-identifier hs-var">pLagName_</span></a></span><span>
+</span><a href="#local-6989586621679300708"><span class="hs-identifier hs-var">pLagName_</span></a></span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | The tags to associate with the automtically created LAGs.</span><span>
@@ -294,16 +294,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateLag CreateLag (Maybe (NonEmpty Tag)) (Maybe (NonEmpty Tag))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300696"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300705"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
 childConnectionTags :: Maybe (NonEmpty Tag)
 $sel:childConnectionTags:CreateLag' :: CreateLag -&gt; Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679300696"><span class="hs-identifier hs-var hs-var">childConnectionTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679300696"><span class="hs-identifier hs-var">childConnectionTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300695"><span class="annot"><span class="annottext">s :: CreateLag
-</span><a href="#local-6989586621679300695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300694"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679300694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
-</span><a href="#local-6989586621679300695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:childConnectionTags:CreateLag' :: Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679300705"><span class="hs-identifier hs-var hs-var">childConnectionTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679300705"><span class="hs-identifier hs-var">childConnectionTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300704"><span class="annot"><span class="annottext">s :: CreateLag
+</span><a href="#local-6989586621679300704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300703"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679300703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
+</span><a href="#local-6989586621679300704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:childConnectionTags:CreateLag' :: Maybe (NonEmpty Tag)
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3AchildConnectionTags%3ACreateLag%27"><span class="hs-identifier hs-var">childConnectionTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679300694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+</span><a href="#local-6989586621679300703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
  -&gt; CreateLag -&gt; f CreateLag)
 -&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
     -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
@@ -331,16 +331,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateLag -&gt; Maybe Text -&gt; CreateLag)
 -&gt; Lens CreateLag CreateLag (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300690"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300699"><span class="annot"><span class="annottext">Maybe Text
 connectionId :: Maybe Text
 $sel:connectionId:CreateLag' :: CreateLag -&gt; Maybe Text
-</span><a href="#local-6989586621679300690"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300690"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300689"><span class="annot"><span class="annottext">s :: CreateLag
-</span><a href="#local-6989586621679300689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300688"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
-</span><a href="#local-6989586621679300689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:CreateLag' :: Maybe Text
+</span><a href="#local-6989586621679300699"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300699"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300698"><span class="annot"><span class="annottext">s :: CreateLag
+</span><a href="#local-6989586621679300698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300697"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
+</span><a href="#local-6989586621679300698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:CreateLag' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3AconnectionId%3ACreateLag%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | Indicates whether the connection will support MAC Security (MACsec).</span><span>
 </span><span id="line-199"></span><span class="hs-comment">--</span><span>
@@ -354,16 +354,16 @@ $sel:connectionId:CreateLag' :: CreateLag -&gt; Maybe Text
 -&gt; (CreateLag -&gt; Maybe Bool -&gt; CreateLag)
 -&gt; Lens CreateLag CreateLag (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300687"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300696"><span class="annot"><span class="annottext">Maybe Bool
 requestMACSec :: Maybe Bool
 $sel:requestMACSec:CreateLag' :: CreateLag -&gt; Maybe Bool
-</span><a href="#local-6989586621679300687"><span class="hs-identifier hs-var hs-var">requestMACSec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679300687"><span class="hs-identifier hs-var">requestMACSec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300686"><span class="annot"><span class="annottext">s :: CreateLag
-</span><a href="#local-6989586621679300686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300685"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679300685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
-</span><a href="#local-6989586621679300686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestMACSec:CreateLag' :: Maybe Bool
+</span><a href="#local-6989586621679300696"><span class="hs-identifier hs-var hs-var">requestMACSec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300696"><span class="hs-identifier hs-var">requestMACSec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300695"><span class="annot"><span class="annottext">s :: CreateLag
+</span><a href="#local-6989586621679300695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300694"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
+</span><a href="#local-6989586621679300695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestMACSec:CreateLag' :: Maybe Bool
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3ArequestMACSec%3ACreateLag%27"><span class="hs-identifier hs-var">requestMACSec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679300685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The name of the service provider associated with the LAG.</span><span>
 </span><span id="line-208"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#createLag_providerName"><span class="hs-identifier hs-type">createLag_providerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -372,16 +372,16 @@ $sel:requestMACSec:CreateLag' :: CreateLag -&gt; Maybe Bool
 -&gt; (CreateLag -&gt; Maybe Text -&gt; CreateLag)
 -&gt; Lens CreateLag CreateLag (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300684"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300693"><span class="annot"><span class="annottext">Maybe Text
 providerName :: Maybe Text
 $sel:providerName:CreateLag' :: CreateLag -&gt; Maybe Text
-</span><a href="#local-6989586621679300684"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300684"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300683"><span class="annot"><span class="annottext">s :: CreateLag
-</span><a href="#local-6989586621679300683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300682"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
-</span><a href="#local-6989586621679300683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerName:CreateLag' :: Maybe Text
+</span><a href="#local-6989586621679300693"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300693"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300692"><span class="annot"><span class="annottext">s :: CreateLag
+</span><a href="#local-6989586621679300692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300691"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
+</span><a href="#local-6989586621679300692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerName:CreateLag' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3AproviderName%3ACreateLag%27"><span class="hs-identifier hs-var">providerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | The tags to associate with the LAG.</span><span>
 </span><span id="line-212"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#createLag_tags"><span class="hs-identifier hs-type">createLag_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -392,16 +392,16 @@ $sel:providerName:CreateLag' :: CreateLag -&gt; Maybe Text
 -&gt; Lens
      CreateLag CreateLag (Maybe (NonEmpty Tag)) (Maybe (NonEmpty Tag))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300681"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300690"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
 tags :: Maybe (NonEmpty Tag)
 $sel:tags:CreateLag' :: CreateLag -&gt; Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679300681"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679300681"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300680"><span class="annot"><span class="annottext">s :: CreateLag
-</span><a href="#local-6989586621679300680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300679"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679300679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
-</span><a href="#local-6989586621679300680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateLag' :: Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679300690"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679300690"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300689"><span class="annot"><span class="annottext">s :: CreateLag
+</span><a href="#local-6989586621679300689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300688"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679300688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
+</span><a href="#local-6989586621679300689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateLag' :: Maybe (NonEmpty Tag)
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3Atags%3ACreateLag%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679300679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+</span><a href="#local-6989586621679300688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
  -&gt; CreateLag -&gt; f CreateLag)
 -&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
     -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
@@ -430,16 +430,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateLag -&gt; Int -&gt; CreateLag)
 -&gt; Lens CreateLag CreateLag Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300678"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300687"><span class="annot"><span class="annottext">Int
 numberOfConnections :: Int
 $sel:numberOfConnections:CreateLag' :: CreateLag -&gt; Int
-</span><a href="#local-6989586621679300678"><span class="hs-identifier hs-var hs-var">numberOfConnections</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300678"><span class="hs-identifier hs-var">numberOfConnections</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300677"><span class="annot"><span class="annottext">s :: CreateLag
-</span><a href="#local-6989586621679300677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300676"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
-</span><a href="#local-6989586621679300677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfConnections:CreateLag' :: Int
+</span><a href="#local-6989586621679300687"><span class="hs-identifier hs-var hs-var">numberOfConnections</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300687"><span class="hs-identifier hs-var">numberOfConnections</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300686"><span class="annot"><span class="annottext">s :: CreateLag
+</span><a href="#local-6989586621679300686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300685"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
+</span><a href="#local-6989586621679300686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfConnections:CreateLag' :: Int
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3AnumberOfConnections%3ACreateLag%27"><span class="hs-identifier hs-var">numberOfConnections</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | The location for the LAG.</span><span>
 </span><span id="line-221"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#createLag_location"><span class="hs-identifier hs-type">createLag_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -448,16 +448,16 @@ $sel:numberOfConnections:CreateLag' :: CreateLag -&gt; Int
 -&gt; (CreateLag -&gt; Text -&gt; CreateLag)
 -&gt; Lens CreateLag CreateLag Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300675"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300684"><span class="annot"><span class="annottext">Text
 location :: Text
 $sel:location:CreateLag' :: CreateLag -&gt; Text
-</span><a href="#local-6989586621679300675"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300675"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300674"><span class="annot"><span class="annottext">s :: CreateLag
-</span><a href="#local-6989586621679300674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300673"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
-</span><a href="#local-6989586621679300674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateLag' :: Text
+</span><a href="#local-6989586621679300684"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300684"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300683"><span class="annot"><span class="annottext">s :: CreateLag
+</span><a href="#local-6989586621679300683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300682"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
+</span><a href="#local-6989586621679300683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateLag' :: Text
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3Alocation%3ACreateLag%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The bandwidth of the individual physical dedicated connections bundled</span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- by the LAG. The possible values are 1Gbps and 10Gbps.</span><span>
@@ -467,16 +467,16 @@ $sel:location:CreateLag' :: CreateLag -&gt; Text
 -&gt; (CreateLag -&gt; Text -&gt; CreateLag)
 -&gt; Lens CreateLag CreateLag Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300672"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300681"><span class="annot"><span class="annottext">Text
 connectionsBandwidth :: Text
 $sel:connectionsBandwidth:CreateLag' :: CreateLag -&gt; Text
-</span><a href="#local-6989586621679300672"><span class="hs-identifier hs-var hs-var">connectionsBandwidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300672"><span class="hs-identifier hs-var">connectionsBandwidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300671"><span class="annot"><span class="annottext">s :: CreateLag
-</span><a href="#local-6989586621679300671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300670"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
-</span><a href="#local-6989586621679300671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionsBandwidth:CreateLag' :: Text
+</span><a href="#local-6989586621679300681"><span class="hs-identifier hs-var hs-var">connectionsBandwidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300681"><span class="hs-identifier hs-var">connectionsBandwidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300680"><span class="annot"><span class="annottext">s :: CreateLag
+</span><a href="#local-6989586621679300680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300679"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
+</span><a href="#local-6989586621679300680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionsBandwidth:CreateLag' :: Text
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3AconnectionsBandwidth%3ACreateLag%27"><span class="hs-identifier hs-var">connectionsBandwidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The name of the LAG.</span><span>
 </span><span id="line-230"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#createLag_lagName"><span class="hs-identifier hs-type">createLag_lagName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -485,25 +485,25 @@ $sel:connectionsBandwidth:CreateLag' :: CreateLag -&gt; Text
 -&gt; (CreateLag -&gt; Text -&gt; CreateLag)
 -&gt; Lens CreateLag CreateLag Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300669"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300678"><span class="annot"><span class="annottext">Text
 lagName :: Text
 $sel:lagName:CreateLag' :: CreateLag -&gt; Text
-</span><a href="#local-6989586621679300669"><span class="hs-identifier hs-var hs-var">lagName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300669"><span class="hs-identifier hs-var">lagName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300668"><span class="annot"><span class="annottext">s :: CreateLag
-</span><a href="#local-6989586621679300668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300667"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
-</span><a href="#local-6989586621679300668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lagName:CreateLag' :: Text
+</span><a href="#local-6989586621679300678"><span class="hs-identifier hs-var hs-var">lagName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300678"><span class="hs-identifier hs-var">lagName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300677"><span class="annot"><span class="annottext">s :: CreateLag
+</span><a href="#local-6989586621679300677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300676"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLag
+</span><a href="#local-6989586621679300677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lagName:CreateLag' :: Text
 </span><a href="Network.AWS.DirectConnect.CreateLag.html#%24sel%3AlagName%3ACreateLag%27"><span class="hs-identifier hs-var">lagName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-234"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Lag.html#Lag"><span class="hs-identifier hs-type">Lag</span></a></span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679300663"><span class="annot"><span class="annottext">request :: CreateLag -&gt; Request CreateLag
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679300672"><span class="annot"><span class="annottext">request :: CreateLag -&gt; Request CreateLag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateLag -&gt; Request CreateLag
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621679300659"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679300668"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateLag
 -&gt; ClientResponse ClientBody
@@ -527,20 +527,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-238"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300656"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300656"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679300655"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679300655"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679300654"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300654"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Lag
+</span><span id="line-238"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300665"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300665"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679300664"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679300664"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679300663"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300663"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Lag
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300654"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300663"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300649"><span id="local-6989586621679300651"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span></span></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300658"><span id="local-6989586621679300660"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span></span></span><span>
 </span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300655"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span></span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-245"></span><span>  </span><span id="local-6989586621679300642"><span class="annot"><span class="annottext">toHeaders :: CreateLag -&gt; ResponseHeaders
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679300651"><span class="annot"><span class="annottext">toHeaders :: CreateLag -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateLag -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -565,9 +565,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-254"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-255"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300632"><span id="local-6989586621679300634"><span id="local-6989586621679300636"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-258"></span><span>  </span><span id="local-6989586621679300630"><span class="annot"><span class="annottext">toJSON :: CreateLag -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300620"><span id="local-6989586621679300621"><span id="local-6989586621679300622"><span id="local-6989586621679300623"><span id="local-6989586621679300624"><span id="local-6989586621679300625"><span id="local-6989586621679300626"><span id="local-6989586621679300627"><span id="local-6989586621679300628"><span class="annot"><span class="annottext">Int
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300641"><span id="local-6989586621679300643"><span id="local-6989586621679300645"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679300639"><span class="annot"><span class="annottext">toJSON :: CreateLag -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag%27"><span class="hs-identifier hs-type">CreateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300629"><span id="local-6989586621679300630"><span id="local-6989586621679300631"><span id="local-6989586621679300632"><span id="local-6989586621679300633"><span id="local-6989586621679300634"><span id="local-6989586621679300635"><span id="local-6989586621679300636"><span id="local-6989586621679300637"><span class="annot"><span class="annottext">Int
 Maybe Bool
 Maybe (NonEmpty Tag)
 Maybe Text
@@ -590,7 +590,7 @@ $sel:providerName:CreateLag' :: CreateLag -&gt; Maybe Text
 $sel:requestMACSec:CreateLag' :: CreateLag -&gt; Maybe Bool
 $sel:connectionId:CreateLag' :: CreateLag -&gt; Maybe Text
 $sel:childConnectionTags:CreateLag' :: CreateLag -&gt; Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679300620"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679300629"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-259"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-260"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -603,35 +603,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-262"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679300628"><span class="hs-identifier hs-var">childConnectionTags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300637"><span class="hs-identifier hs-var">childConnectionTags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;connectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300627"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300636"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;requestMACSec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679300626"><span class="hs-identifier hs-var">requestMACSec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300635"><span class="hs-identifier hs-var">requestMACSec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;providerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300625"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300634"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679300624"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300633"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -639,14 +639,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;numberOfConnections&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300623"><span class="hs-identifier hs-var">numberOfConnections</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300632"><span class="hs-identifier hs-var">numberOfConnections</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300622"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300631"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -655,7 +655,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-272"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300621"><span class="hs-identifier hs-var">connectionsBandwidth</span></a></span><span>
+</span><a href="#local-6989586621679300630"><span class="hs-identifier hs-var">connectionsBandwidth</span></a></span><span>
 </span><span id="line-273"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -663,19 +663,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;lagName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300620"><span class="hs-identifier hs-var">lagName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300629"><span class="hs-identifier hs-var">lagName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-275"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-276"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>
 </span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-279"></span><span>  </span><span id="local-6989586621679300613"><span class="annot"><span class="annottext">toPath :: CreateLag -&gt; ByteString
+</span><span id="line-279"></span><span>  </span><span id="local-6989586621679300622"><span class="annot"><span class="annottext">toPath :: CreateLag -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateLag -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateLag.html#CreateLag"><span class="hs-identifier hs-type">CreateLag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-282"></span><span>  </span><span id="local-6989586621679300609"><span class="annot"><span class="annottext">toQuery :: CreateLag -&gt; QueryString
+</span><span id="line-282"></span><span>  </span><span id="local-6989586621679300618"><span class="annot"><span class="annottext">toQuery :: CreateLag -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateLag -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

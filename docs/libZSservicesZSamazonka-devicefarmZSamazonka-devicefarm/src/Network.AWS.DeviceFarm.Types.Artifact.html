@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- screenshots.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newArtifact' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679360825"><span id="local-6989586621679360826"></span></span><span class="hs-keyword">data</span><span> </span><span id="Artifact"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-var">Artifact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Artifact%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-var">Artifact'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679360834"><span id="local-6989586621679360835"></span></span><span class="hs-keyword">data</span><span> </span><span id="Artifact"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-var">Artifact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Artifact%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-var">Artifact'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The artifact\'s ARN.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aarn%3AArtifact%27"><span class="annot"><span class="annottext">Artifact -&gt; Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.Artifact.html#%24sel%3Aarn%3AArtifact%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -105,7 +105,7 @@
 </span><span id="line-101"></span><span>    </span><span id="%24sel%3Atype%27%3AArtifact%27"><span class="annot"><span class="annottext">Artifact -&gt; Maybe ArtifactType
 </span><a href="Network.AWS.DeviceFarm.Types.Artifact.html#%24sel%3Atype%27%3AArtifact%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ArtifactType.html#ArtifactType"><span class="hs-identifier hs-type">ArtifactType</span></a></span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360815"><span id="local-6989586621679360817"><span class="annot"><span class="annottext">Artifact -&gt; Artifact -&gt; Bool
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360824"><span id="local-6989586621679360826"><span class="annot"><span class="annottext">Artifact -&gt; Artifact -&gt; Bool
 (Artifact -&gt; Artifact -&gt; Bool)
 -&gt; (Artifact -&gt; Artifact -&gt; Bool) -&gt; Eq Artifact
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -113,7 +113,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Artifact -&gt; Artifact -&gt; Bool
 == :: Artifact -&gt; Artifact -&gt; Bool
 $c== :: Artifact -&gt; Artifact -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360806"><span id="local-6989586621679360808"><span id="local-6989586621679360810"><span id="local-6989586621679360812"><span class="annot"><span class="annottext">ReadPrec [Artifact]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360815"><span id="local-6989586621679360817"><span id="local-6989586621679360819"><span id="local-6989586621679360821"><span class="annot"><span class="annottext">ReadPrec [Artifact]
 ReadPrec Artifact
 Int -&gt; ReadS Artifact
 ReadS [Artifact]
@@ -133,7 +133,7 @@ readList :: ReadS [Artifact]
 $creadList :: ReadS [Artifact]
 readsPrec :: Int -&gt; ReadS Artifact
 $creadsPrec :: Int -&gt; ReadS Artifact
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360799"><span id="local-6989586621679360801"><span id="local-6989586621679360803"><span class="annot"><span class="annottext">Int -&gt; Artifact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360808"><span id="local-6989586621679360810"><span id="local-6989586621679360812"><span class="annot"><span class="annottext">Int -&gt; Artifact -&gt; ShowS
 [Artifact] -&gt; ShowS
 Artifact -&gt; String
 (Int -&gt; Artifact -&gt; ShowS)
@@ -273,16 +273,16 @@ forall a. Maybe a
 -&gt; (Artifact -&gt; Maybe Text -&gt; Artifact)
 -&gt; Lens Artifact Artifact (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360790"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360799"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:Artifact' :: Artifact -&gt; Maybe Text
-</span><a href="#local-6989586621679360790"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360790"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360789"><span class="annot"><span class="annottext">s :: Artifact
-</span><a href="#local-6989586621679360789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360788"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
-</span><a href="#local-6989586621679360789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Artifact' :: Maybe Text
+</span><a href="#local-6989586621679360799"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360799"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360798"><span class="annot"><span class="annottext">s :: Artifact
+</span><a href="#local-6989586621679360798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360797"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
+</span><a href="#local-6989586621679360798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Artifact' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.Artifact.html#%24sel%3Aarn%3AArtifact%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | The presigned Amazon S3 URL that can be used with a GET request to</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- download the artifact\'s file.</span><span>
@@ -292,16 +292,16 @@ $sel:arn:Artifact' :: Artifact -&gt; Maybe Text
 -&gt; (Artifact -&gt; Maybe Text -&gt; Artifact)
 -&gt; Lens Artifact Artifact (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360786"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360795"><span class="annot"><span class="annottext">Maybe Text
 url :: Maybe Text
 $sel:url:Artifact' :: Artifact -&gt; Maybe Text
-</span><a href="#local-6989586621679360786"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360786"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360785"><span class="annot"><span class="annottext">s :: Artifact
-</span><a href="#local-6989586621679360785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360784"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
-</span><a href="#local-6989586621679360785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:Artifact' :: Maybe Text
+</span><a href="#local-6989586621679360795"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360795"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360794"><span class="annot"><span class="annottext">s :: Artifact
+</span><a href="#local-6989586621679360794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360793"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
+</span><a href="#local-6989586621679360794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:Artifact' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.Artifact.html#%24sel%3Aurl%3AArtifact%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The artifact\'s file extension.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#artifact_extension"><span class="hs-identifier hs-type">artifact_extension</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -310,16 +310,16 @@ $sel:url:Artifact' :: Artifact -&gt; Maybe Text
 -&gt; (Artifact -&gt; Maybe Text -&gt; Artifact)
 -&gt; Lens Artifact Artifact (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360782"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360791"><span class="annot"><span class="annottext">Maybe Text
 extension :: Maybe Text
 $sel:extension:Artifact' :: Artifact -&gt; Maybe Text
-</span><a href="#local-6989586621679360782"><span class="hs-identifier hs-var hs-var">extension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360782"><span class="hs-identifier hs-var">extension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360781"><span class="annot"><span class="annottext">s :: Artifact
-</span><a href="#local-6989586621679360781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360780"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
-</span><a href="#local-6989586621679360781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extension:Artifact' :: Maybe Text
+</span><a href="#local-6989586621679360791"><span class="hs-identifier hs-var hs-var">extension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360791"><span class="hs-identifier hs-var">extension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360790"><span class="annot"><span class="annottext">s :: Artifact
+</span><a href="#local-6989586621679360790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360789"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
+</span><a href="#local-6989586621679360790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extension:Artifact' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.Artifact.html#%24sel%3Aextension%3AArtifact%27"><span class="hs-identifier hs-var">extension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The artifact\'s name.</span><span>
 </span><span id="line-207"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#artifact_name"><span class="hs-identifier hs-type">artifact_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -328,16 +328,16 @@ $sel:extension:Artifact' :: Artifact -&gt; Maybe Text
 -&gt; (Artifact -&gt; Maybe Text -&gt; Artifact)
 -&gt; Lens Artifact Artifact (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360778"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360787"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Artifact' :: Artifact -&gt; Maybe Text
-</span><a href="#local-6989586621679360778"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360778"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360777"><span class="annot"><span class="annottext">s :: Artifact
-</span><a href="#local-6989586621679360777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360776"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
-</span><a href="#local-6989586621679360777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Artifact' :: Maybe Text
+</span><a href="#local-6989586621679360787"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360787"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360786"><span class="annot"><span class="annottext">s :: Artifact
+</span><a href="#local-6989586621679360786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360785"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
+</span><a href="#local-6989586621679360786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Artifact' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.Artifact.html#%24sel%3Aname%3AArtifact%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | The artifact\'s type.</span><span>
 </span><span id="line-211"></span><span class="hs-comment">--</span><span>
@@ -406,27 +406,27 @@ $sel:name:Artifact' :: Artifact -&gt; Maybe Text
 -&gt; (Artifact -&gt; Maybe ArtifactType -&gt; Artifact)
 -&gt; Lens Artifact Artifact (Maybe ArtifactType) (Maybe ArtifactType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360774"><span class="annot"><span class="annottext">Maybe ArtifactType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360783"><span class="annot"><span class="annottext">Maybe ArtifactType
 type' :: Maybe ArtifactType
 $sel:type':Artifact' :: Artifact -&gt; Maybe ArtifactType
-</span><a href="#local-6989586621679360774"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactType
-</span><a href="#local-6989586621679360774"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360773"><span class="annot"><span class="annottext">s :: Artifact
-</span><a href="#local-6989586621679360773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360772"><span class="annot"><span class="annottext">Maybe ArtifactType
-</span><a href="#local-6989586621679360772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
-</span><a href="#local-6989586621679360773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Artifact' :: Maybe ArtifactType
+</span><a href="#local-6989586621679360783"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactType
+</span><a href="#local-6989586621679360783"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360782"><span class="annot"><span class="annottext">s :: Artifact
+</span><a href="#local-6989586621679360782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360781"><span class="annot"><span class="annottext">Maybe ArtifactType
+</span><a href="#local-6989586621679360781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
+</span><a href="#local-6989586621679360782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Artifact' :: Maybe ArtifactType
 </span><a href="Network.AWS.DeviceFarm.Types.Artifact.html#%24sel%3Atype%27%3AArtifact%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactType
-</span><a href="#local-6989586621679360772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-272"></span><span>
-</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360769"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-274"></span><span>  </span><span id="local-6989586621679360767"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Artifact
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360778"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679360776"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Artifact
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-275"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Artifact) -&gt; Value -&gt; Parser Artifact
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Artifact&quot;</span></span><span>
-</span><span id="line-277"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679360764"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360764"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-277"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679360773"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360773"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-278"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -446,7 +446,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe ArtifactType -&gt; Artifact)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360764"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679360773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -458,7 +458,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe ArtifactType -&gt; Artifact)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360764"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679360773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;url&quot;</span></span><span class="hs-special">)</span><span>
@@ -467,7 +467,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe ArtifactType -&gt; Artifact)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360764"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679360773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;extension&quot;</span></span><span class="hs-special">)</span><span>
@@ -475,7 +475,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe ArtifactType -&gt; Artifact)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360764"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679360773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -483,13 +483,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe ArtifactType) -&gt; Parser Artifact
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360764"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArtifactType)
+</span><a href="#local-6989586621679360773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArtifactType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-285"></span><span>
-</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360758"><span id="local-6989586621679360760"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span></span></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360767"><span id="local-6989586621679360769"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span></span></span><span>
 </span><span id="line-287"></span><span>
-</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360764"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span></span><span>
 </span><span id="line-289"></span></pre></body></html>

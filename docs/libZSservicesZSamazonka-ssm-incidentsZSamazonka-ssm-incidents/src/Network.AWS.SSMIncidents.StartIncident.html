@@ -1,0 +1,704 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SSMIncidents.StartIncident</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Used to start an incident from CloudWatch alarms, EventBridge events, or</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- manually.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSMIncidents.StartIncident</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier">StartIncident</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#newStartIncident"><span class="hs-identifier">newStartIncident</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_clientToken"><span class="hs-identifier">startIncident_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_triggerDetails"><span class="hs-identifier">startIncident_triggerDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_relatedItems"><span class="hs-identifier">startIncident_relatedItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_impact"><span class="hs-identifier">startIncident_impact</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_title"><span class="hs-identifier">startIncident_title</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_responsePlanArn"><span class="hs-identifier">startIncident_responsePlanArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse"><span class="hs-identifier">StartIncidentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#newStartIncidentResponse"><span class="hs-identifier">newStartIncidentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncidentResponse_httpStatus"><span class="hs-identifier">startIncidentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncidentResponse_incidentRecordArn"><span class="hs-identifier">startIncidentResponse_incidentRecordArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.html"><span class="hs-identifier">Network.AWS.SSMIncidents.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newStartIncident' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679217917"><span id="local-6989586621679217918"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartIncident"><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-var">StartIncident</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartIncident%27"><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-var">StartIncident'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token ensuring that the action is called only once with the specified</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- details.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AclientToken%3AStartIncident%27"><span class="annot"><span class="annottext">StartIncident -&gt; Maybe Text
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AclientToken%3AStartIncident%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Details of what created the incident record in Incident Manager.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AtriggerDetails%3AStartIncident%27"><span class="annot"><span class="annottext">StartIncident -&gt; Maybe TriggerDetails
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AtriggerDetails%3AStartIncident%27"><span class="hs-identifier hs-var hs-var">triggerDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.TriggerDetails.html#TriggerDetails"><span class="hs-identifier hs-type">TriggerDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Add related items to the incident for other responders to use. Related</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- items are AWS resources, external links, or files uploaded to an S3</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- bucket.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3ArelatedItems%3AStartIncident%27"><span class="annot"><span class="annottext">StartIncident -&gt; Maybe [RelatedItem]
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3ArelatedItems%3AStartIncident%27"><span class="hs-identifier hs-var hs-var">relatedItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem"><span class="hs-identifier hs-type">RelatedItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Defines the impact to the customers. Providing an impact overwrites the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- impact provided by a response plan.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- __Possible impacts:__</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @1@ - Critical impact, this typically relates to full application</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     failure that impacts many to all customers.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @2@ - High impact, partial application failure with impact to many</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     customers.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @3@ - Medium impact, the application is providing reduced service to</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     customers.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- -   @4@ - Low impact, customer might aren\'t impacted by the problem</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     yet.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   @5@ - No impact, customers aren\'t currently impacted but urgent</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     action is needed to avoid impact.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3Aimpact%3AStartIncident%27"><span class="annot"><span class="annottext">StartIncident -&gt; Maybe Natural
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3Aimpact%3AStartIncident%27"><span class="hs-identifier hs-var hs-var">impact</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | Provide a title for the incident. Providing a title overwrites the title</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- provided by the response plan.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Atitle%3AStartIncident%27"><span class="annot"><span class="annottext">StartIncident -&gt; Maybe Text
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3Atitle%3AStartIncident%27"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the response plan that pre-defines</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- summary, chat channels, SNS topics, runbooks, title, and impact of the</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- incident.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AresponsePlanArn%3AStartIncident%27"><span class="annot"><span class="annottext">StartIncident -&gt; Text
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AresponsePlanArn%3AStartIncident%27"><span class="hs-identifier hs-var hs-var">responsePlanArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217906"><span id="local-6989586621679217908"><span class="annot"><span class="annottext">StartIncident -&gt; StartIncident -&gt; Bool
+(StartIncident -&gt; StartIncident -&gt; Bool)
+-&gt; (StartIncident -&gt; StartIncident -&gt; Bool) -&gt; Eq StartIncident
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartIncident -&gt; StartIncident -&gt; Bool
+$c/= :: StartIncident -&gt; StartIncident -&gt; Bool
+== :: StartIncident -&gt; StartIncident -&gt; Bool
+$c== :: StartIncident -&gt; StartIncident -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217897"><span id="local-6989586621679217899"><span id="local-6989586621679217901"><span id="local-6989586621679217903"><span class="annot"><span class="annottext">ReadPrec [StartIncident]
+ReadPrec StartIncident
+Int -&gt; ReadS StartIncident
+ReadS [StartIncident]
+(Int -&gt; ReadS StartIncident)
+-&gt; ReadS [StartIncident]
+-&gt; ReadPrec StartIncident
+-&gt; ReadPrec [StartIncident]
+-&gt; Read StartIncident
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartIncident]
+$creadListPrec :: ReadPrec [StartIncident]
+readPrec :: ReadPrec StartIncident
+$creadPrec :: ReadPrec StartIncident
+readList :: ReadS [StartIncident]
+$creadList :: ReadS [StartIncident]
+readsPrec :: Int -&gt; ReadS StartIncident
+$creadsPrec :: Int -&gt; ReadS StartIncident
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217890"><span id="local-6989586621679217892"><span id="local-6989586621679217894"><span class="annot"><span class="annottext">Int -&gt; StartIncident -&gt; ShowS
+[StartIncident] -&gt; ShowS
+StartIncident -&gt; String
+(Int -&gt; StartIncident -&gt; ShowS)
+-&gt; (StartIncident -&gt; String)
+-&gt; ([StartIncident] -&gt; ShowS)
+-&gt; Show StartIncident
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartIncident] -&gt; ShowS
+$cshowList :: [StartIncident] -&gt; ShowS
+show :: StartIncident -&gt; String
+$cshow :: StartIncident -&gt; String
+showsPrec :: Int -&gt; StartIncident -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartIncident -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartIncident -&gt; Rep StartIncident x)
+-&gt; (forall x. Rep StartIncident x -&gt; StartIncident)
+-&gt; Generic StartIncident
+forall x. Rep StartIncident x -&gt; StartIncident
+forall x. StartIncident -&gt; Rep StartIncident x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartIncident x -&gt; StartIncident
+$cfrom :: forall x. StartIncident -&gt; Rep StartIncident x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'StartIncident' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'clientToken', 'startIncident_clientToken' - A token ensuring that the action is called only once with the specified</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- details.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'triggerDetails', 'startIncident_triggerDetails' - Details of what created the incident record in Incident Manager.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'relatedItems', 'startIncident_relatedItems' - Add related items to the incident for other responders to use. Related</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- items are AWS resources, external links, or files uploaded to an S3</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- bucket.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'impact', 'startIncident_impact' - Defines the impact to the customers. Providing an impact overwrites the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- impact provided by a response plan.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- __Possible impacts:__</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   @1@ - Critical impact, this typically relates to full application</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     failure that impacts many to all customers.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   @2@ - High impact, partial application failure with impact to many</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--     customers.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   @3@ - Medium impact, the application is providing reduced service to</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     customers.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- -   @4@ - Low impact, customer might aren\'t impacted by the problem</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--     yet.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- -   @5@ - No impact, customers aren\'t currently impacted but urgent</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--     action is needed to avoid impact.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'title', 'startIncident_title' - Provide a title for the incident. Providing a title overwrites the title</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- provided by the response plan.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'responsePlanArn', 'startIncident_responsePlanArn' - The Amazon Resource Name (ARN) of the response plan that pre-defines</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- summary, chat channels, SNS topics, runbooks, title, and impact of the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- incident.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#newStartIncident"><span class="hs-identifier hs-type">newStartIncident</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-comment">-- | 'responsePlanArn'</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span>
+</span><span id="line-143"></span><span id="newStartIncident"><span class="annot"><span class="annottext">newStartIncident :: Text -&gt; StartIncident
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#newStartIncident"><span class="hs-identifier hs-var hs-var">newStartIncident</span></a></span></span><span> </span><span id="local-6989586621679217885"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217885"><span class="hs-identifier hs-var">pResponsePlanArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">StartIncident' :: Maybe Text
+-&gt; Maybe TriggerDetails
+-&gt; Maybe [RelatedItem]
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Text
+-&gt; StartIncident
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-type">StartIncident'</span></a></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:StartIncident' :: Maybe Text
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AclientToken%3AStartIncident%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:triggerDetails:StartIncident' :: Maybe TriggerDetails
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AtriggerDetails%3AStartIncident%27"><span class="hs-identifier hs-var">triggerDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TriggerDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:relatedItems:StartIncident' :: Maybe [RelatedItem]
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3ArelatedItems%3AStartIncident%27"><span class="hs-identifier hs-var">relatedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RelatedItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:impact:StartIncident' :: Maybe Natural
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3Aimpact%3AStartIncident%27"><span class="hs-identifier hs-var">impact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:title:StartIncident' :: Maybe Text
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3Atitle%3AStartIncident%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:responsePlanArn:StartIncident' :: Text
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AresponsePlanArn%3AStartIncident%27"><span class="hs-identifier hs-var">responsePlanArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217885"><span class="hs-identifier hs-var">pResponsePlanArn_</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | A token ensuring that the action is called only once with the specified</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- details.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_clientToken"><span class="hs-identifier hs-type">startIncident_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="startIncident_clientToken"><span class="annot"><span class="annottext">startIncident_clientToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StartIncident -&gt; f StartIncident
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_clientToken"><span class="hs-identifier hs-var hs-var">startIncident_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartIncident -&gt; Maybe Text)
+-&gt; (StartIncident -&gt; Maybe Text -&gt; StartIncident)
+-&gt; Lens StartIncident StartIncident (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-type">StartIncident'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217882"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:StartIncident' :: StartIncident -&gt; Maybe Text
+</span><a href="#local-6989586621679217882"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217882"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217881"><span class="annot"><span class="annottext">s :: StartIncident
+</span><a href="#local-6989586621679217881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-type">StartIncident'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217880"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartIncident
+</span><a href="#local-6989586621679217881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:StartIncident' :: Maybe Text
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AclientToken%3AStartIncident%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | Details of what created the incident record in Incident Manager.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_triggerDetails"><span class="hs-identifier hs-type">startIncident_triggerDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.TriggerDetails.html#TriggerDetails"><span class="hs-identifier hs-type">TriggerDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="startIncident_triggerDetails"><span class="annot"><span class="annottext">startIncident_triggerDetails :: (Maybe TriggerDetails -&gt; f (Maybe TriggerDetails))
+-&gt; StartIncident -&gt; f StartIncident
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_triggerDetails"><span class="hs-identifier hs-var hs-var">startIncident_triggerDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartIncident -&gt; Maybe TriggerDetails)
+-&gt; (StartIncident -&gt; Maybe TriggerDetails -&gt; StartIncident)
+-&gt; Lens
+     StartIncident
+     StartIncident
+     (Maybe TriggerDetails)
+     (Maybe TriggerDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-type">StartIncident'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217879"><span class="annot"><span class="annottext">Maybe TriggerDetails
+triggerDetails :: Maybe TriggerDetails
+$sel:triggerDetails:StartIncident' :: StartIncident -&gt; Maybe TriggerDetails
+</span><a href="#local-6989586621679217879"><span class="hs-identifier hs-var hs-var">triggerDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TriggerDetails
+</span><a href="#local-6989586621679217879"><span class="hs-identifier hs-var">triggerDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217878"><span class="annot"><span class="annottext">s :: StartIncident
+</span><a href="#local-6989586621679217878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-type">StartIncident'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217877"><span class="annot"><span class="annottext">Maybe TriggerDetails
+</span><a href="#local-6989586621679217877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartIncident
+</span><a href="#local-6989586621679217878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerDetails:StartIncident' :: Maybe TriggerDetails
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AtriggerDetails%3AStartIncident%27"><span class="hs-identifier hs-var">triggerDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TriggerDetails
+</span><a href="#local-6989586621679217877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | Add related items to the incident for other responders to use. Related</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- items are AWS resources, external links, or files uploaded to an S3</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- bucket.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_relatedItems"><span class="hs-identifier hs-type">startIncident_relatedItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem"><span class="hs-identifier hs-type">RelatedItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="startIncident_relatedItems"><span class="annot"><span class="annottext">startIncident_relatedItems :: (Maybe [RelatedItem] -&gt; f (Maybe [RelatedItem]))
+-&gt; StartIncident -&gt; f StartIncident
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_relatedItems"><span class="hs-identifier hs-var hs-var">startIncident_relatedItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartIncident -&gt; Maybe [RelatedItem])
+-&gt; (StartIncident -&gt; Maybe [RelatedItem] -&gt; StartIncident)
+-&gt; Lens
+     StartIncident
+     StartIncident
+     (Maybe [RelatedItem])
+     (Maybe [RelatedItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-type">StartIncident'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217876"><span class="annot"><span class="annottext">Maybe [RelatedItem]
+relatedItems :: Maybe [RelatedItem]
+$sel:relatedItems:StartIncident' :: StartIncident -&gt; Maybe [RelatedItem]
+</span><a href="#local-6989586621679217876"><span class="hs-identifier hs-var hs-var">relatedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RelatedItem]
+</span><a href="#local-6989586621679217876"><span class="hs-identifier hs-var">relatedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217875"><span class="annot"><span class="annottext">s :: StartIncident
+</span><a href="#local-6989586621679217875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-type">StartIncident'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217874"><span class="annot"><span class="annottext">Maybe [RelatedItem]
+</span><a href="#local-6989586621679217874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartIncident
+</span><a href="#local-6989586621679217875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relatedItems:StartIncident' :: Maybe [RelatedItem]
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3ArelatedItems%3AStartIncident%27"><span class="hs-identifier hs-var">relatedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RelatedItem]
+</span><a href="#local-6989586621679217874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RelatedItem] -&gt; f (Maybe [RelatedItem]))
+ -&gt; StartIncident -&gt; f StartIncident)
+-&gt; ((Maybe [RelatedItem] -&gt; f (Maybe [RelatedItem]))
+    -&gt; Maybe [RelatedItem] -&gt; f (Maybe [RelatedItem]))
+-&gt; (Maybe [RelatedItem] -&gt; f (Maybe [RelatedItem]))
+-&gt; StartIncident
+-&gt; f StartIncident
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RelatedItem] [RelatedItem] [RelatedItem] [RelatedItem]
+-&gt; Iso
+     (Maybe [RelatedItem])
+     (Maybe [RelatedItem])
+     (Maybe [RelatedItem])
+     (Maybe [RelatedItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RelatedItem] [RelatedItem] [RelatedItem] [RelatedItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | Defines the impact to the customers. Providing an impact overwrites the</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- impact provided by a response plan.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- __Possible impacts:__</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- -   @1@ - Critical impact, this typically relates to full application</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--     failure that impacts many to all customers.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- -   @2@ - High impact, partial application failure with impact to many</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--     customers.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- -   @3@ - Medium impact, the application is providing reduced service to</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     customers.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- -   @4@ - Low impact, customer might aren\'t impacted by the problem</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     yet.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- -   @5@ - No impact, customers aren\'t currently impacted but urgent</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     action is needed to avoid impact.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_impact"><span class="hs-identifier hs-type">startIncident_impact</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="startIncident_impact"><span class="annot"><span class="annottext">startIncident_impact :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; StartIncident -&gt; f StartIncident
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_impact"><span class="hs-identifier hs-var hs-var">startIncident_impact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartIncident -&gt; Maybe Natural)
+-&gt; (StartIncident -&gt; Maybe Natural -&gt; StartIncident)
+-&gt; Lens StartIncident StartIncident (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-type">StartIncident'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217870"><span class="annot"><span class="annottext">Maybe Natural
+impact :: Maybe Natural
+$sel:impact:StartIncident' :: StartIncident -&gt; Maybe Natural
+</span><a href="#local-6989586621679217870"><span class="hs-identifier hs-var hs-var">impact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679217870"><span class="hs-identifier hs-var">impact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217869"><span class="annot"><span class="annottext">s :: StartIncident
+</span><a href="#local-6989586621679217869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-type">StartIncident'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217868"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679217868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartIncident
+</span><a href="#local-6989586621679217869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:impact:StartIncident' :: Maybe Natural
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3Aimpact%3AStartIncident%27"><span class="hs-identifier hs-var">impact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679217868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | Provide a title for the incident. Providing a title overwrites the title</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- provided by the response plan.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_title"><span class="hs-identifier hs-type">startIncident_title</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="startIncident_title"><span class="annot"><span class="annottext">startIncident_title :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StartIncident -&gt; f StartIncident
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_title"><span class="hs-identifier hs-var hs-var">startIncident_title</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartIncident -&gt; Maybe Text)
+-&gt; (StartIncident -&gt; Maybe Text -&gt; StartIncident)
+-&gt; Lens StartIncident StartIncident (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-type">StartIncident'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217867"><span class="annot"><span class="annottext">Maybe Text
+title :: Maybe Text
+$sel:title:StartIncident' :: StartIncident -&gt; Maybe Text
+</span><a href="#local-6989586621679217867"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217867"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217866"><span class="annot"><span class="annottext">s :: StartIncident
+</span><a href="#local-6989586621679217866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-type">StartIncident'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217865"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartIncident
+</span><a href="#local-6989586621679217866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:StartIncident' :: Maybe Text
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3Atitle%3AStartIncident%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the response plan that pre-defines</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- summary, chat channels, SNS topics, runbooks, title, and impact of the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- incident.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_responsePlanArn"><span class="hs-identifier hs-type">startIncident_responsePlanArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-199"></span><span id="startIncident_responsePlanArn"><span class="annot"><span class="annottext">startIncident_responsePlanArn :: (Text -&gt; f Text) -&gt; StartIncident -&gt; f StartIncident
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncident_responsePlanArn"><span class="hs-identifier hs-var hs-var">startIncident_responsePlanArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartIncident -&gt; Text)
+-&gt; (StartIncident -&gt; Text -&gt; StartIncident)
+-&gt; Lens StartIncident StartIncident Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-type">StartIncident'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217864"><span class="annot"><span class="annottext">Text
+responsePlanArn :: Text
+$sel:responsePlanArn:StartIncident' :: StartIncident -&gt; Text
+</span><a href="#local-6989586621679217864"><span class="hs-identifier hs-var hs-var">responsePlanArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217864"><span class="hs-identifier hs-var">responsePlanArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217863"><span class="annot"><span class="annottext">s :: StartIncident
+</span><a href="#local-6989586621679217863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-type">StartIncident'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217862"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartIncident
+</span><a href="#local-6989586621679217863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responsePlanArn:StartIncident' :: Text
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AresponsePlanArn%3AStartIncident%27"><span class="hs-identifier hs-var">responsePlanArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-203"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse"><span class="hs-identifier hs-type">StartIncidentResponse</span></a></span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679217858"><span class="annot"><span class="annottext">request :: StartIncident -&gt; Request StartIncident
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartIncident -&gt; Request StartIncident
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SSMIncidents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679217854"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartIncident
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartIncident)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartIncident))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartIncident
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartIncident)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217851"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217851"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679217850"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679217850"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679217849"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217849"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; StartIncidentResponse
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse%27"><span class="hs-identifier hs-var">StartIncidentResponse'</span></a></span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; StartIncidentResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; StartIncidentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217851"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; StartIncidentResponse)
+-&gt; Either String Text -&gt; Either String StartIncidentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;incidentRecordArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217841"><span id="local-6989586621679217843"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span></span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217838"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679217834"><span class="annot"><span class="annottext">toHeaders :: StartIncident -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartIncident -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-222"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-223"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-224"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-225"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-227"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217824"><span id="local-6989586621679217826"><span id="local-6989586621679217828"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679217822"><span class="annot"><span class="annottext">toJSON :: StartIncident -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident%27"><span class="hs-identifier hs-type">StartIncident'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217815"><span id="local-6989586621679217816"><span id="local-6989586621679217817"><span id="local-6989586621679217818"><span id="local-6989586621679217819"><span id="local-6989586621679217820"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [RelatedItem]
+Maybe Text
+Maybe TriggerDetails
+Text
+responsePlanArn :: Text
+title :: Maybe Text
+impact :: Maybe Natural
+relatedItems :: Maybe [RelatedItem]
+triggerDetails :: Maybe TriggerDetails
+clientToken :: Maybe Text
+$sel:responsePlanArn:StartIncident' :: StartIncident -&gt; Text
+$sel:title:StartIncident' :: StartIncident -&gt; Maybe Text
+$sel:impact:StartIncident' :: StartIncident -&gt; Maybe Natural
+$sel:relatedItems:StartIncident' :: StartIncident -&gt; Maybe [RelatedItem]
+$sel:triggerDetails:StartIncident' :: StartIncident -&gt; Maybe TriggerDetails
+$sel:clientToken:StartIncident' :: StartIncident -&gt; Maybe Text
+</span><a href="#local-6989586621679217815"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-232"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-233"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217820"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;triggerDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TriggerDetails -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>              </span><span class="annot"><span class="annottext">(TriggerDetails -&gt; Pair) -&gt; Maybe TriggerDetails -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TriggerDetails
+</span><a href="#local-6989586621679217819"><span class="hs-identifier hs-var">triggerDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;relatedItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [RelatedItem] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([RelatedItem] -&gt; Pair) -&gt; Maybe [RelatedItem] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RelatedItem]
+</span><a href="#local-6989586621679217818"><span class="hs-identifier hs-var">relatedItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;impact&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679217817"><span class="hs-identifier hs-var">impact</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;title&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217816"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-240"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responsePlanArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217815"><span class="hs-identifier hs-var">responsePlanArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679217809"><span class="annot"><span class="annottext">toPath :: StartIncident -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartIncident -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/startIncident&quot;</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncident"><span class="hs-identifier hs-type">StartIncident</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679217805"><span class="annot"><span class="annottext">toQuery :: StartIncident -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartIncident -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | /See:/ 'newStartIncidentResponse' smart constructor.</span><span>
+</span><span id="line-251"></span><span id="local-6989586621679217802"><span id="local-6989586621679217803"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartIncidentResponse"><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse"><span class="hs-identifier hs-var">StartIncidentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartIncidentResponse%27"><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse%27"><span class="hs-identifier hs-var">StartIncidentResponse'</span></a></span></span><span>
+</span><span id="line-252"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-253"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartIncidentResponse%27"><span class="annot"><span class="annottext">StartIncidentResponse -&gt; Int
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AhttpStatus%3AStartIncidentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- | The ARN of the newly created incident record.</span><span>
+</span><span id="line-255"></span><span>    </span><span id="%24sel%3AincidentRecordArn%3AStartIncidentResponse%27"><span class="annot"><span class="annottext">StartIncidentResponse -&gt; Text
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AincidentRecordArn%3AStartIncidentResponse%27"><span class="hs-identifier hs-var hs-var">incidentRecordArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-256"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217796"><span id="local-6989586621679217798"><span class="annot"><span class="annottext">StartIncidentResponse -&gt; StartIncidentResponse -&gt; Bool
+(StartIncidentResponse -&gt; StartIncidentResponse -&gt; Bool)
+-&gt; (StartIncidentResponse -&gt; StartIncidentResponse -&gt; Bool)
+-&gt; Eq StartIncidentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartIncidentResponse -&gt; StartIncidentResponse -&gt; Bool
+$c/= :: StartIncidentResponse -&gt; StartIncidentResponse -&gt; Bool
+== :: StartIncidentResponse -&gt; StartIncidentResponse -&gt; Bool
+$c== :: StartIncidentResponse -&gt; StartIncidentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217788"><span id="local-6989586621679217790"><span id="local-6989586621679217792"><span id="local-6989586621679217794"><span class="annot"><span class="annottext">ReadPrec [StartIncidentResponse]
+ReadPrec StartIncidentResponse
+Int -&gt; ReadS StartIncidentResponse
+ReadS [StartIncidentResponse]
+(Int -&gt; ReadS StartIncidentResponse)
+-&gt; ReadS [StartIncidentResponse]
+-&gt; ReadPrec StartIncidentResponse
+-&gt; ReadPrec [StartIncidentResponse]
+-&gt; Read StartIncidentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartIncidentResponse]
+$creadListPrec :: ReadPrec [StartIncidentResponse]
+readPrec :: ReadPrec StartIncidentResponse
+$creadPrec :: ReadPrec StartIncidentResponse
+readList :: ReadS [StartIncidentResponse]
+$creadList :: ReadS [StartIncidentResponse]
+readsPrec :: Int -&gt; ReadS StartIncidentResponse
+$creadsPrec :: Int -&gt; ReadS StartIncidentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217782"><span id="local-6989586621679217784"><span id="local-6989586621679217786"><span class="annot"><span class="annottext">Int -&gt; StartIncidentResponse -&gt; ShowS
+[StartIncidentResponse] -&gt; ShowS
+StartIncidentResponse -&gt; String
+(Int -&gt; StartIncidentResponse -&gt; ShowS)
+-&gt; (StartIncidentResponse -&gt; String)
+-&gt; ([StartIncidentResponse] -&gt; ShowS)
+-&gt; Show StartIncidentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartIncidentResponse] -&gt; ShowS
+$cshowList :: [StartIncidentResponse] -&gt; ShowS
+show :: StartIncidentResponse -&gt; String
+$cshow :: StartIncidentResponse -&gt; String
+showsPrec :: Int -&gt; StartIncidentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartIncidentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartIncidentResponse -&gt; Rep StartIncidentResponse x)
+-&gt; (forall x. Rep StartIncidentResponse x -&gt; StartIncidentResponse)
+-&gt; Generic StartIncidentResponse
+forall x. Rep StartIncidentResponse x -&gt; StartIncidentResponse
+forall x. StartIncidentResponse -&gt; Rep StartIncidentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartIncidentResponse x -&gt; StartIncidentResponse
+$cfrom :: forall x. StartIncidentResponse -&gt; Rep StartIncidentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- Create a value of 'StartIncidentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'httpStatus', 'startIncidentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- 'incidentRecordArn', 'startIncidentResponse_incidentRecordArn' - The ARN of the newly created incident record.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#newStartIncidentResponse"><span class="hs-identifier hs-type">newStartIncidentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-271"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-272"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-273"></span><span>  </span><span class="hs-comment">-- | 'incidentRecordArn'</span><span>
+</span><span id="line-274"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-275"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse"><span class="hs-identifier hs-type">StartIncidentResponse</span></a></span><span>
+</span><span id="line-276"></span><span id="newStartIncidentResponse"><span class="annot"><span class="annottext">newStartIncidentResponse :: Int -&gt; Text -&gt; StartIncidentResponse
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#newStartIncidentResponse"><span class="hs-identifier hs-var hs-var">newStartIncidentResponse</span></a></span></span><span>
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679217779"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217779"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-278"></span><span>  </span><span id="local-6989586621679217778"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217778"><span class="hs-identifier hs-var">pIncidentRecordArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><span class="annottext">StartIncidentResponse' :: Int -&gt; Text -&gt; StartIncidentResponse
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse%27"><span class="hs-identifier hs-type">StartIncidentResponse'</span></a></span><span>
+</span><span id="line-280"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StartIncidentResponse' :: Int
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AhttpStatus%3AStartIncidentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217779"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>        </span><span class="annot"><span class="annottext">$sel:incidentRecordArn:StartIncidentResponse' :: Text
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AincidentRecordArn%3AStartIncidentResponse%27"><span class="hs-identifier hs-var">incidentRecordArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217778"><span class="hs-identifier hs-var">pIncidentRecordArn_</span></a></span><span>
+</span><span id="line-282"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncidentResponse_httpStatus"><span class="hs-identifier hs-type">startIncidentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse"><span class="hs-identifier hs-type">StartIncidentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-286"></span><span id="startIncidentResponse_httpStatus"><span class="annot"><span class="annottext">startIncidentResponse_httpStatus :: (Int -&gt; f Int) -&gt; StartIncidentResponse -&gt; f StartIncidentResponse
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncidentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startIncidentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartIncidentResponse -&gt; Int)
+-&gt; (StartIncidentResponse -&gt; Int -&gt; StartIncidentResponse)
+-&gt; Lens StartIncidentResponse StartIncidentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse%27"><span class="hs-identifier hs-type">StartIncidentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217777"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartIncidentResponse' :: StartIncidentResponse -&gt; Int
+</span><a href="#local-6989586621679217777"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217777"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217776"><span class="annot"><span class="annottext">s :: StartIncidentResponse
+</span><a href="#local-6989586621679217776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse%27"><span class="hs-identifier hs-type">StartIncidentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217775"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartIncidentResponse
+</span><a href="#local-6989586621679217776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartIncidentResponse' :: Int
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AhttpStatus%3AStartIncidentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse"><span class="hs-identifier hs-type">StartIncidentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The ARN of the newly created incident record.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncidentResponse_incidentRecordArn"><span class="hs-identifier hs-type">startIncidentResponse_incidentRecordArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse"><span class="hs-identifier hs-type">StartIncidentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-290"></span><span id="startIncidentResponse_incidentRecordArn"><span class="annot"><span class="annottext">startIncidentResponse_incidentRecordArn :: (Text -&gt; f Text)
+-&gt; StartIncidentResponse -&gt; f StartIncidentResponse
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#startIncidentResponse_incidentRecordArn"><span class="hs-identifier hs-var hs-var">startIncidentResponse_incidentRecordArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartIncidentResponse -&gt; Text)
+-&gt; (StartIncidentResponse -&gt; Text -&gt; StartIncidentResponse)
+-&gt; Lens StartIncidentResponse StartIncidentResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse%27"><span class="hs-identifier hs-type">StartIncidentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217774"><span class="annot"><span class="annottext">Text
+incidentRecordArn :: Text
+$sel:incidentRecordArn:StartIncidentResponse' :: StartIncidentResponse -&gt; Text
+</span><a href="#local-6989586621679217774"><span class="hs-identifier hs-var hs-var">incidentRecordArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217774"><span class="hs-identifier hs-var">incidentRecordArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217773"><span class="annot"><span class="annottext">s :: StartIncidentResponse
+</span><a href="#local-6989586621679217773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse%27"><span class="hs-identifier hs-type">StartIncidentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217772"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartIncidentResponse
+</span><a href="#local-6989586621679217773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:incidentRecordArn:StartIncidentResponse' :: Text
+</span><a href="Network.AWS.SSMIncidents.StartIncident.html#%24sel%3AincidentRecordArn%3AStartIncidentResponse%27"><span class="hs-identifier hs-var">incidentRecordArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse"><span class="hs-identifier hs-type">StartIncidentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217770"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.StartIncident.html#StartIncidentResponse"><span class="hs-identifier hs-type">StartIncidentResponse</span></a></span></span><span>
+</span><span id="line-293"></span></pre></body></html>

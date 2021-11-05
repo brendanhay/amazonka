@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes an IAM instance profile.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIamInstanceProfileSpecification' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681112888"><span id="local-6989586621681112889"></span></span><span class="hs-keyword">data</span><span> </span><span id="IamInstanceProfileSpecification"><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-var">IamInstanceProfileSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IamInstanceProfileSpecification%27"><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification%27"><span class="hs-identifier hs-var">IamInstanceProfileSpecification'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681112897"><span id="local-6989586621681112898"></span></span><span class="hs-keyword">data</span><span> </span><span id="IamInstanceProfileSpecification"><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-var">IamInstanceProfileSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IamInstanceProfileSpecification%27"><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification%27"><span class="hs-identifier hs-var">IamInstanceProfileSpecification'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the instance profile.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aarn%3AIamInstanceProfileSpecification%27"><span class="annot"><span class="annottext">IamInstanceProfileSpecification -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#%24sel%3Aarn%3AIamInstanceProfileSpecification%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AIamInstanceProfileSpecification%27"><span class="annot"><span class="annottext">IamInstanceProfileSpecification -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#%24sel%3Aname%3AIamInstanceProfileSpecification%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681112881"><span id="local-6989586621681112883"><span class="annot"><span class="annottext">IamInstanceProfileSpecification
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681112890"><span id="local-6989586621681112892"><span class="annot"><span class="annottext">IamInstanceProfileSpecification
 -&gt; IamInstanceProfileSpecification -&gt; Bool
 (IamInstanceProfileSpecification
  -&gt; IamInstanceProfileSpecification -&gt; Bool)
@@ -51,7 +51,7 @@ $c/= :: IamInstanceProfileSpecification
 -&gt; IamInstanceProfileSpecification -&gt; Bool
 $c== :: IamInstanceProfileSpecification
 -&gt; IamInstanceProfileSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681112872"><span id="local-6989586621681112874"><span id="local-6989586621681112876"><span id="local-6989586621681112878"><span class="annot"><span class="annottext">ReadPrec [IamInstanceProfileSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681112881"><span id="local-6989586621681112883"><span id="local-6989586621681112885"><span id="local-6989586621681112887"><span class="annot"><span class="annottext">ReadPrec [IamInstanceProfileSpecification]
 ReadPrec IamInstanceProfileSpecification
 Int -&gt; ReadS IamInstanceProfileSpecification
 ReadS [IamInstanceProfileSpecification]
@@ -71,7 +71,7 @@ readList :: ReadS [IamInstanceProfileSpecification]
 $creadList :: ReadS [IamInstanceProfileSpecification]
 readsPrec :: Int -&gt; ReadS IamInstanceProfileSpecification
 $creadsPrec :: Int -&gt; ReadS IamInstanceProfileSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681112865"><span id="local-6989586621681112867"><span id="local-6989586621681112869"><span class="annot"><span class="annottext">Int -&gt; IamInstanceProfileSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681112874"><span id="local-6989586621681112876"><span id="local-6989586621681112878"><span class="annot"><span class="annottext">Int -&gt; IamInstanceProfileSpecification -&gt; ShowS
 [IamInstanceProfileSpecification] -&gt; ShowS
 IamInstanceProfileSpecification -&gt; String
 (Int -&gt; IamInstanceProfileSpecification -&gt; ShowS)
@@ -151,16 +151,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification%27"><span class="hs-identifier hs-type">IamInstanceProfileSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112856"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification%27"><span class="hs-identifier hs-type">IamInstanceProfileSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112865"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:IamInstanceProfileSpecification' :: IamInstanceProfileSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621681112856"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681112856"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681112855"><span class="annot"><span class="annottext">s :: IamInstanceProfileSpecification
-</span><a href="#local-6989586621681112855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification%27"><span class="hs-identifier hs-type">IamInstanceProfileSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681112854"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681112854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileSpecification
-</span><a href="#local-6989586621681112855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:IamInstanceProfileSpecification' :: Maybe Text
+</span><a href="#local-6989586621681112865"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681112865"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681112864"><span class="annot"><span class="annottext">s :: IamInstanceProfileSpecification
+</span><a href="#local-6989586621681112864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification%27"><span class="hs-identifier hs-type">IamInstanceProfileSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681112863"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681112863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileSpecification
+</span><a href="#local-6989586621681112864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:IamInstanceProfileSpecification' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#%24sel%3Aarn%3AIamInstanceProfileSpecification%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681112854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-type">IamInstanceProfileSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681112863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-type">IamInstanceProfileSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The name of the instance profile.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#iamInstanceProfileSpecification_name"><span class="hs-identifier hs-type">iamInstanceProfileSpecification_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-type">IamInstanceProfileSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -176,21 +176,21 @@ $sel:arn:IamInstanceProfileSpecification' :: IamInstanceProfileSpecification -&g
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification%27"><span class="hs-identifier hs-type">IamInstanceProfileSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112852"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification%27"><span class="hs-identifier hs-type">IamInstanceProfileSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112861"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:IamInstanceProfileSpecification' :: IamInstanceProfileSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621681112852"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681112852"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681112851"><span class="annot"><span class="annottext">s :: IamInstanceProfileSpecification
-</span><a href="#local-6989586621681112851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification%27"><span class="hs-identifier hs-type">IamInstanceProfileSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681112850"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681112850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileSpecification
-</span><a href="#local-6989586621681112851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:IamInstanceProfileSpecification' :: Maybe Text
+</span><a href="#local-6989586621681112861"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681112861"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681112860"><span class="annot"><span class="annottext">s :: IamInstanceProfileSpecification
+</span><a href="#local-6989586621681112860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification%27"><span class="hs-identifier hs-type">IamInstanceProfileSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681112859"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681112859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileSpecification
+</span><a href="#local-6989586621681112860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:IamInstanceProfileSpecification' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#%24sel%3Aname%3AIamInstanceProfileSpecification%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681112850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-type">IamInstanceProfileSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681112859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-type">IamInstanceProfileSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-type">IamInstanceProfileSpecification</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621681112847"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IamInstanceProfileSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681112845"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681112845"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621681112856"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IamInstanceProfileSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681112854"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681112854"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; IamInstanceProfileSpecification
 </span><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification%27"><span class="hs-identifier hs-var">IamInstanceProfileSpecification'</span></a></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; IamInstanceProfileSpecification)
@@ -198,7 +198,7 @@ $sel:name:IamInstanceProfileSpecification' :: IamInstanceProfileSpecification -&
 -&gt; Either String (Maybe Text -&gt; IamInstanceProfileSpecification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681112845"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681112854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; IamInstanceProfileSpecification)
@@ -206,27 +206,27 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String IamInstanceProfileSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681112845"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681112854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621681112839"><span id="local-6989586621681112841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621681112848"><span id="local-6989586621681112850"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-type">IamInstanceProfileSpecification</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621681112836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621681112845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-type">IamInstanceProfileSpecification</span></a></span></span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-type">IamInstanceProfileSpecification</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621681112832"><span class="annot"><span class="annottext">toQuery :: IamInstanceProfileSpecification -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification%27"><span class="hs-identifier hs-type">IamInstanceProfileSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112829"><span id="local-6989586621681112830"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621681112841"><span class="annot"><span class="annottext">toQuery :: IamInstanceProfileSpecification -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification%27"><span class="hs-identifier hs-type">IamInstanceProfileSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112838"><span id="local-6989586621681112839"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 arn :: Maybe Text
 $sel:name:IamInstanceProfileSpecification' :: IamInstanceProfileSpecification -&gt; Maybe Text
 $sel:arn:IamInstanceProfileSpecification' :: IamInstanceProfileSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621681112829"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681112838"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -234,9 +234,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681112830"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621681112839"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681112829"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681112838"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span></pre></body></html>

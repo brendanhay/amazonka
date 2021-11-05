@@ -57,14 +57,14 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newGetAuthorizationToken' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679241147"><span id="local-6989586621679241148"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAuthorizationToken"><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken"><span class="hs-identifier hs-var">GetAuthorizationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAuthorizationToken%27"><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken%27"><span class="hs-identifier hs-var">GetAuthorizationToken'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679241156"><span id="local-6989586621679241157"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAuthorizationToken"><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken"><span class="hs-identifier hs-var">GetAuthorizationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAuthorizationToken%27"><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken%27"><span class="hs-identifier hs-var">GetAuthorizationToken'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of Amazon Web Services account IDs that are associated with the</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- registries for which to get AuthorizationData objects. If you do not</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- specify a registry, the default registry is assumed.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AregistryIds%3AGetAuthorizationToken%27"><span class="annot"><span class="annottext">GetAuthorizationToken -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.ECR.GetAuthorizationToken.html#%24sel%3AregistryIds%3AGetAuthorizationToken%27"><span class="hs-identifier hs-var hs-var">registryIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241141"><span id="local-6989586621679241143"><span class="annot"><span class="annottext">GetAuthorizationToken -&gt; GetAuthorizationToken -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241150"><span id="local-6989586621679241152"><span class="annot"><span class="annottext">GetAuthorizationToken -&gt; GetAuthorizationToken -&gt; Bool
 (GetAuthorizationToken -&gt; GetAuthorizationToken -&gt; Bool)
 -&gt; (GetAuthorizationToken -&gt; GetAuthorizationToken -&gt; Bool)
 -&gt; Eq GetAuthorizationToken
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAuthorizationToken -&gt; GetAuthorizationToken -&gt; Bool
 == :: GetAuthorizationToken -&gt; GetAuthorizationToken -&gt; Bool
 $c== :: GetAuthorizationToken -&gt; GetAuthorizationToken -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241132"><span id="local-6989586621679241134"><span id="local-6989586621679241136"><span id="local-6989586621679241138"><span class="annot"><span class="annottext">ReadPrec [GetAuthorizationToken]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241141"><span id="local-6989586621679241143"><span id="local-6989586621679241145"><span id="local-6989586621679241147"><span class="annot"><span class="annottext">ReadPrec [GetAuthorizationToken]
 ReadPrec GetAuthorizationToken
 Int -&gt; ReadS GetAuthorizationToken
 ReadS [GetAuthorizationToken]
@@ -93,7 +93,7 @@ readList :: ReadS [GetAuthorizationToken]
 $creadList :: ReadS [GetAuthorizationToken]
 readsPrec :: Int -&gt; ReadS GetAuthorizationToken
 $creadsPrec :: Int -&gt; ReadS GetAuthorizationToken
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241125"><span id="local-6989586621679241127"><span id="local-6989586621679241129"><span class="annot"><span class="annottext">Int -&gt; GetAuthorizationToken -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241134"><span id="local-6989586621679241136"><span id="local-6989586621679241138"><span class="annot"><span class="annottext">Int -&gt; GetAuthorizationToken -&gt; ShowS
 [GetAuthorizationToken] -&gt; ShowS
 GetAuthorizationToken -&gt; String
 (Int -&gt; GetAuthorizationToken -&gt; ShowS)
@@ -158,16 +158,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken%27"><span class="hs-identifier hs-type">GetAuthorizationToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241118"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken%27"><span class="hs-identifier hs-type">GetAuthorizationToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241127"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 registryIds :: Maybe (NonEmpty Text)
 $sel:registryIds:GetAuthorizationToken' :: GetAuthorizationToken -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679241118"><span class="hs-identifier hs-var hs-var">registryIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679241118"><span class="hs-identifier hs-var">registryIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241117"><span class="annot"><span class="annottext">s :: GetAuthorizationToken
-</span><a href="#local-6989586621679241117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken%27"><span class="hs-identifier hs-type">GetAuthorizationToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241116"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679241116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizationToken
-</span><a href="#local-6989586621679241117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryIds:GetAuthorizationToken' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679241127"><span class="hs-identifier hs-var hs-var">registryIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679241127"><span class="hs-identifier hs-var">registryIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241126"><span class="annot"><span class="annottext">s :: GetAuthorizationToken
+</span><a href="#local-6989586621679241126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken%27"><span class="hs-identifier hs-type">GetAuthorizationToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241125"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679241125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizationToken
+</span><a href="#local-6989586621679241126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryIds:GetAuthorizationToken' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.ECR.GetAuthorizationToken.html#%24sel%3AregistryIds%3AGetAuthorizationToken%27"><span class="hs-identifier hs-var">registryIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679241116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken"><span class="hs-identifier hs-type">GetAuthorizationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679241125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken"><span class="hs-identifier hs-type">GetAuthorizationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; GetAuthorizationToken -&gt; f GetAuthorizationToken)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -194,12 +194,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken"><span class="hs-identifier hs-type">GetAuthorizationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679241109"><span class="annot"><span class="annottext">request :: GetAuthorizationToken -&gt; Request GetAuthorizationToken
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679241118"><span class="annot"><span class="annottext">request :: GetAuthorizationToken -&gt; Request GetAuthorizationToken
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetAuthorizationToken -&gt; Request GetAuthorizationToken
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679241105"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679241114"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetAuthorizationToken
 -&gt; ClientResponse ClientBody
@@ -225,10 +225,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241102"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241102"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679241101"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679241101"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679241100"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679241100"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241111"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241111"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679241110"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679241110"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679241109"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241109"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AuthorizationData] -&gt; Int -&gt; GetAuthorizationTokenResponse
 </span><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse%27"><span class="hs-identifier hs-var">GetAuthorizationTokenResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AuthorizationData] -&gt; Int -&gt; GetAuthorizationTokenResponse)
@@ -236,7 +236,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetAuthorizationTokenResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679241100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AuthorizationData]))
+</span><a href="#local-6989586621679241109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AuthorizationData]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authorizationData&quot;</span></span><span>
@@ -256,15 +256,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241102"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241111"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241091"><span id="local-6989586621679241093"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken"><span class="hs-identifier hs-type">GetAuthorizationToken</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241100"><span id="local-6989586621679241102"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken"><span class="hs-identifier hs-type">GetAuthorizationToken</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken"><span class="hs-identifier hs-type">GetAuthorizationToken</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken"><span class="hs-identifier hs-type">GetAuthorizationToken</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken"><span class="hs-identifier hs-type">GetAuthorizationToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679241084"><span class="annot"><span class="annottext">toHeaders :: GetAuthorizationToken -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679241093"><span class="annot"><span class="annottext">toHeaders :: GetAuthorizationToken -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAuthorizationToken -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -291,12 +291,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241074"><span id="local-6989586621679241076"><span id="local-6989586621679241078"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken"><span class="hs-identifier hs-type">GetAuthorizationToken</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679241072"><span class="annot"><span class="annottext">toJSON :: GetAuthorizationToken -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken%27"><span class="hs-identifier hs-type">GetAuthorizationToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241070"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241083"><span id="local-6989586621679241085"><span id="local-6989586621679241087"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken"><span class="hs-identifier hs-type">GetAuthorizationToken</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679241081"><span class="annot"><span class="annottext">toJSON :: GetAuthorizationToken -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken%27"><span class="hs-identifier hs-type">GetAuthorizationToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241079"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 registryIds :: Maybe (NonEmpty Text)
 $sel:registryIds:GetAuthorizationToken' :: GetAuthorizationToken -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679241070"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679241079"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -308,18 +308,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679241070"><span class="hs-identifier hs-var">registryIds</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679241079"><span class="hs-identifier hs-var">registryIds</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken"><span class="hs-identifier hs-type">GetAuthorizationToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679241064"><span class="annot"><span class="annottext">toPath :: GetAuthorizationToken -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679241073"><span class="annot"><span class="annottext">toPath :: GetAuthorizationToken -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAuthorizationToken -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationToken"><span class="hs-identifier hs-type">GetAuthorizationToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679241060"><span class="annot"><span class="annottext">toQuery :: GetAuthorizationToken -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679241069"><span class="annot"><span class="annottext">toQuery :: GetAuthorizationToken -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetAuthorizationToken -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -327,7 +327,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newGetAuthorizationTokenResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679241057"><span id="local-6989586621679241058"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAuthorizationTokenResponse"><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse"><span class="hs-identifier hs-var">GetAuthorizationTokenResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAuthorizationTokenResponse%27"><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse%27"><span class="hs-identifier hs-var">GetAuthorizationTokenResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679241066"><span id="local-6989586621679241067"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAuthorizationTokenResponse"><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse"><span class="hs-identifier hs-var">GetAuthorizationTokenResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAuthorizationTokenResponse%27"><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse%27"><span class="hs-identifier hs-var">GetAuthorizationTokenResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of authorization token data objects that correspond to the</span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-comment">-- @registryIds@ values in the request.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AauthorizationData%3AGetAuthorizationTokenResponse%27"><span class="annot"><span class="annottext">GetAuthorizationTokenResponse -&gt; Maybe [AuthorizationData]
@@ -336,7 +336,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAuthorizationTokenResponse%27"><span class="annot"><span class="annottext">GetAuthorizationTokenResponse -&gt; Int
 </span><a href="Network.AWS.ECR.GetAuthorizationToken.html#%24sel%3AhttpStatus%3AGetAuthorizationTokenResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241051"><span id="local-6989586621679241053"><span class="annot"><span class="annottext">GetAuthorizationTokenResponse
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241060"><span id="local-6989586621679241062"><span class="annot"><span class="annottext">GetAuthorizationTokenResponse
 -&gt; GetAuthorizationTokenResponse -&gt; Bool
 (GetAuthorizationTokenResponse
  -&gt; GetAuthorizationTokenResponse -&gt; Bool)
@@ -352,7 +352,7 @@ $c/= :: GetAuthorizationTokenResponse
 -&gt; GetAuthorizationTokenResponse -&gt; Bool
 $c== :: GetAuthorizationTokenResponse
 -&gt; GetAuthorizationTokenResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241043"><span id="local-6989586621679241045"><span id="local-6989586621679241047"><span id="local-6989586621679241049"><span class="annot"><span class="annottext">ReadPrec [GetAuthorizationTokenResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241052"><span id="local-6989586621679241054"><span id="local-6989586621679241056"><span id="local-6989586621679241058"><span class="annot"><span class="annottext">ReadPrec [GetAuthorizationTokenResponse]
 ReadPrec GetAuthorizationTokenResponse
 Int -&gt; ReadS GetAuthorizationTokenResponse
 ReadS [GetAuthorizationTokenResponse]
@@ -372,7 +372,7 @@ readList :: ReadS [GetAuthorizationTokenResponse]
 $creadList :: ReadS [GetAuthorizationTokenResponse]
 readsPrec :: Int -&gt; ReadS GetAuthorizationTokenResponse
 $creadsPrec :: Int -&gt; ReadS GetAuthorizationTokenResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241037"><span id="local-6989586621679241039"><span id="local-6989586621679241041"><span class="annot"><span class="annottext">Int -&gt; GetAuthorizationTokenResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241046"><span id="local-6989586621679241048"><span id="local-6989586621679241050"><span class="annot"><span class="annottext">Int -&gt; GetAuthorizationTokenResponse -&gt; ShowS
 [GetAuthorizationTokenResponse] -&gt; ShowS
 GetAuthorizationTokenResponse -&gt; String
 (Int -&gt; GetAuthorizationTokenResponse -&gt; ShowS)
@@ -427,8 +427,8 @@ GetAuthorizationTokenResponse
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse</span></a></span><span>
 </span><span id="line-166"></span><span id="newGetAuthorizationTokenResponse"><span class="annot"><span class="annottext">newGetAuthorizationTokenResponse :: Int -&gt; GetAuthorizationTokenResponse
-</span><a href="Network.AWS.ECR.GetAuthorizationToken.html#newGetAuthorizationTokenResponse"><span class="hs-identifier hs-var hs-var">newGetAuthorizationTokenResponse</span></a></span></span><span> </span><span id="local-6989586621679241034"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241034"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.GetAuthorizationToken.html#newGetAuthorizationTokenResponse"><span class="hs-identifier hs-var hs-var">newGetAuthorizationTokenResponse</span></a></span></span><span> </span><span id="local-6989586621679241043"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241043"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">GetAuthorizationTokenResponse' :: Maybe [AuthorizationData] -&gt; Int -&gt; GetAuthorizationTokenResponse
 </span><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse%27"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse'</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authorizationData:GetAuthorizationTokenResponse' :: Maybe [AuthorizationData]
@@ -438,7 +438,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAuthorizationTokenResponse' :: Int
 </span><a href="Network.AWS.ECR.GetAuthorizationToken.html#%24sel%3AhttpStatus%3AGetAuthorizationTokenResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241034"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679241043"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | A list of authorization token data objects that correspond to the</span><span>
@@ -455,16 +455,16 @@ forall a. Maybe a
      (Maybe [AuthorizationData])
      (Maybe [AuthorizationData])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse%27"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241033"><span class="annot"><span class="annottext">Maybe [AuthorizationData]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse%27"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241042"><span class="annot"><span class="annottext">Maybe [AuthorizationData]
 authorizationData :: Maybe [AuthorizationData]
 $sel:authorizationData:GetAuthorizationTokenResponse' :: GetAuthorizationTokenResponse -&gt; Maybe [AuthorizationData]
-</span><a href="#local-6989586621679241033"><span class="hs-identifier hs-var hs-var">authorizationData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AuthorizationData]
-</span><a href="#local-6989586621679241033"><span class="hs-identifier hs-var">authorizationData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241032"><span class="annot"><span class="annottext">s :: GetAuthorizationTokenResponse
-</span><a href="#local-6989586621679241032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse%27"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241031"><span class="annot"><span class="annottext">Maybe [AuthorizationData]
-</span><a href="#local-6989586621679241031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizationTokenResponse
-</span><a href="#local-6989586621679241032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationData:GetAuthorizationTokenResponse' :: Maybe [AuthorizationData]
+</span><a href="#local-6989586621679241042"><span class="hs-identifier hs-var hs-var">authorizationData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AuthorizationData]
+</span><a href="#local-6989586621679241042"><span class="hs-identifier hs-var">authorizationData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241041"><span class="annot"><span class="annottext">s :: GetAuthorizationTokenResponse
+</span><a href="#local-6989586621679241041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse%27"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241040"><span class="annot"><span class="annottext">Maybe [AuthorizationData]
+</span><a href="#local-6989586621679241040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizationTokenResponse
+</span><a href="#local-6989586621679241041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationData:GetAuthorizationTokenResponse' :: Maybe [AuthorizationData]
 </span><a href="Network.AWS.ECR.GetAuthorizationToken.html#%24sel%3AauthorizationData%3AGetAuthorizationTokenResponse%27"><span class="hs-identifier hs-var">authorizationData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AuthorizationData]
-</span><a href="#local-6989586621679241031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AuthorizationData] -&gt; f (Maybe [AuthorizationData]))
+</span><a href="#local-6989586621679241040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AuthorizationData] -&gt; f (Maybe [AuthorizationData]))
  -&gt; GetAuthorizationTokenResponse
  -&gt; f GetAuthorizationTokenResponse)
 -&gt; ((Maybe [AuthorizationData] -&gt; f (Maybe [AuthorizationData]))
@@ -504,16 +504,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      GetAuthorizationTokenResponse GetAuthorizationTokenResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse%27"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241030"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse%27"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241039"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetAuthorizationTokenResponse' :: GetAuthorizationTokenResponse -&gt; Int
-</span><a href="#local-6989586621679241030"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241030"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241029"><span class="annot"><span class="annottext">s :: GetAuthorizationTokenResponse
-</span><a href="#local-6989586621679241029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse%27"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241028"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizationTokenResponse
-</span><a href="#local-6989586621679241029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAuthorizationTokenResponse' :: Int
+</span><a href="#local-6989586621679241039"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241039"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241038"><span class="annot"><span class="annottext">s :: GetAuthorizationTokenResponse
+</span><a href="#local-6989586621679241038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse%27"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241037"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizationTokenResponse
+</span><a href="#local-6989586621679241038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAuthorizationTokenResponse' :: Int
 </span><a href="Network.AWS.ECR.GetAuthorizationToken.html#%24sel%3AhttpStatus%3AGetAuthorizationTokenResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241026"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241035"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetAuthorizationToken.html#GetAuthorizationTokenResponse"><span class="hs-identifier hs-type">GetAuthorizationTokenResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

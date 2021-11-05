@@ -47,13 +47,13 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetTags' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679721095"><span id="local-6989586621679721096"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTags"><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-var">GetTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTags%27"><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags%27"><span class="hs-identifier hs-var">GetTags'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679721104"><span id="local-6989586621679721105"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTags"><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-var">GetTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTags%27"><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags%27"><span class="hs-identifier hs-var">GetTags'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource for which to retrieve</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- tags.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AresourceArn%3AGetTags%27"><span class="annot"><span class="annottext">GetTags -&gt; Text
 </span><a href="Network.AWS.Glue.GetTags.html#%24sel%3AresourceArn%3AGetTags%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679721089"><span id="local-6989586621679721091"><span class="annot"><span class="annottext">GetTags -&gt; GetTags -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679721098"><span id="local-6989586621679721100"><span class="annot"><span class="annottext">GetTags -&gt; GetTags -&gt; Bool
 (GetTags -&gt; GetTags -&gt; Bool)
 -&gt; (GetTags -&gt; GetTags -&gt; Bool) -&gt; Eq GetTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTags -&gt; GetTags -&gt; Bool
 == :: GetTags -&gt; GetTags -&gt; Bool
 $c== :: GetTags -&gt; GetTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721080"><span id="local-6989586621679721082"><span id="local-6989586621679721084"><span id="local-6989586621679721086"><span class="annot"><span class="annottext">ReadPrec [GetTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721089"><span id="local-6989586621679721091"><span id="local-6989586621679721093"><span id="local-6989586621679721095"><span class="annot"><span class="annottext">ReadPrec [GetTags]
 ReadPrec GetTags
 Int -&gt; ReadS GetTags
 ReadS [GetTags]
@@ -81,7 +81,7 @@ readList :: ReadS [GetTags]
 $creadList :: ReadS [GetTags]
 readsPrec :: Int -&gt; ReadS GetTags
 $creadsPrec :: Int -&gt; ReadS GetTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721073"><span id="local-6989586621679721075"><span id="local-6989586621679721077"><span class="annot"><span class="annottext">Int -&gt; GetTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721082"><span id="local-6989586621679721084"><span id="local-6989586621679721086"><span class="annot"><span class="annottext">Int -&gt; GetTags -&gt; ShowS
 [GetTags] -&gt; ShowS
 GetTags -&gt; String
 (Int -&gt; GetTags -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. GetTags -&gt; Rep GetTags x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span>
 </span><span id="line-71"></span><span id="newGetTags"><span class="annot"><span class="annottext">newGetTags :: Text -&gt; GetTags
-</span><a href="Network.AWS.Glue.GetTags.html#newGetTags"><span class="hs-identifier hs-var hs-var">newGetTags</span></a></span></span><span> </span><span id="local-6989586621679721068"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721068"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetTags.html#newGetTags"><span class="hs-identifier hs-var hs-var">newGetTags</span></a></span></span><span> </span><span id="local-6989586621679721077"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679721077"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">GetTags' :: Text -&gt; GetTags
 </span><a href="Network.AWS.Glue.GetTags.html#GetTags%27"><span class="hs-identifier hs-type">GetTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:GetTags' :: Text
 </span><a href="Network.AWS.Glue.GetTags.html#%24sel%3AresourceArn%3AGetTags%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721068"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679721077"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource for which to retrieve</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- tags.</span><span>
@@ -133,25 +133,25 @@ $cfrom :: forall x. GetTags -&gt; Rep GetTags x
 </span><a href="Network.AWS.Glue.GetTags.html#getTags_resourceArn"><span class="hs-identifier hs-var hs-var">getTags_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTags -&gt; Text)
 -&gt; (GetTags -&gt; Text -&gt; GetTags) -&gt; Lens GetTags GetTags Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags%27"><span class="hs-identifier hs-type">GetTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721065"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags%27"><span class="hs-identifier hs-type">GetTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721074"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:GetTags' :: GetTags -&gt; Text
-</span><a href="#local-6989586621679721065"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721065"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721064"><span class="annot"><span class="annottext">s :: GetTags
-</span><a href="#local-6989586621679721064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags%27"><span class="hs-identifier hs-type">GetTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721063"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTags
-</span><a href="#local-6989586621679721064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:GetTags' :: Text
+</span><a href="#local-6989586621679721074"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679721074"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721073"><span class="annot"><span class="annottext">s :: GetTags
+</span><a href="#local-6989586621679721073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags%27"><span class="hs-identifier hs-type">GetTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721072"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679721072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTags
+</span><a href="#local-6989586621679721073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:GetTags' :: Text
 </span><a href="Network.AWS.Glue.GetTags.html#%24sel%3AresourceArn%3AGetTags%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679721059"><span class="annot"><span class="annottext">request :: GetTags -&gt; Request GetTags
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679721068"><span class="annot"><span class="annottext">request :: GetTags -&gt; Request GetTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetTags -&gt; Request GetTags
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679721055"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679721064"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetTags
 -&gt; ClientResponse ClientBody
@@ -175,10 +175,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679721052"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721052"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679721051"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679721051"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679721050"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679721050"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679721061"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679721061"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679721060"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679721060"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679721059"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679721059"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Int -&gt; GetTagsResponse
 </span><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-var">GetTagsResponse'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Int -&gt; GetTagsResponse)
@@ -186,7 +186,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetTagsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679721050"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679721059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
@@ -204,15 +204,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721052"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721061"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721041"><span id="local-6989586621679721043"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721050"><span id="local-6989586621679721052"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721038"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721047"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679721034"><span class="annot"><span class="annottext">toHeaders :: GetTags -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679721043"><span class="annot"><span class="annottext">toHeaders :: GetTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -237,12 +237,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721024"><span id="local-6989586621679721026"><span id="local-6989586621679721028"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679721022"><span class="annot"><span class="annottext">toJSON :: GetTags -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags%27"><span class="hs-identifier hs-type">GetTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721020"><span class="annot"><span class="annottext">Text
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721033"><span id="local-6989586621679721035"><span id="local-6989586621679721037"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679721031"><span class="annot"><span class="annottext">toJSON :: GetTags -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags%27"><span class="hs-identifier hs-type">GetTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721029"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:GetTags' :: GetTags -&gt; Text
-</span><a href="#local-6989586621679721020"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679721029"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -254,18 +254,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721020"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679721029"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679721014"><span class="annot"><span class="annottext">toPath :: GetTags -&gt; ByteString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679721023"><span class="annot"><span class="annottext">toPath :: GetTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679721010"><span class="annot"><span class="annottext">toQuery :: GetTags -&gt; QueryString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679721019"><span class="annot"><span class="annottext">toQuery :: GetTags -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetTags -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -273,7 +273,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newGetTagsResponse' smart constructor.</span><span>
-</span><span id="line-121"></span><span id="local-6989586621679721007"><span id="local-6989586621679721008"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTagsResponse"><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-var">GetTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTagsResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-var">GetTagsResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span id="local-6989586621679721016"><span id="local-6989586621679721017"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTagsResponse"><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-var">GetTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTagsResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-var">GetTagsResponse'</span></a></span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The requested tags.</span><span>
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3Atags%3AGetTagsResponse%27"><span class="annot"><span class="annottext">GetTagsResponse -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glue.GetTags.html#%24sel%3Atags%3AGetTagsResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -281,7 +281,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTagsResponse%27"><span class="annot"><span class="annottext">GetTagsResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetTags.html#%24sel%3AhttpStatus%3AGetTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679721001"><span id="local-6989586621679721003"><span class="annot"><span class="annottext">GetTagsResponse -&gt; GetTagsResponse -&gt; Bool
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679721010"><span id="local-6989586621679721012"><span class="annot"><span class="annottext">GetTagsResponse -&gt; GetTagsResponse -&gt; Bool
 (GetTagsResponse -&gt; GetTagsResponse -&gt; Bool)
 -&gt; (GetTagsResponse -&gt; GetTagsResponse -&gt; Bool)
 -&gt; Eq GetTagsResponse
@@ -290,7 +290,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTagsResponse -&gt; GetTagsResponse -&gt; Bool
 == :: GetTagsResponse -&gt; GetTagsResponse -&gt; Bool
 $c== :: GetTagsResponse -&gt; GetTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679720993"><span id="local-6989586621679720995"><span id="local-6989586621679720997"><span id="local-6989586621679720999"><span class="annot"><span class="annottext">ReadPrec [GetTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721002"><span id="local-6989586621679721004"><span id="local-6989586621679721006"><span id="local-6989586621679721008"><span class="annot"><span class="annottext">ReadPrec [GetTagsResponse]
 ReadPrec GetTagsResponse
 Int -&gt; ReadS GetTagsResponse
 ReadS [GetTagsResponse]
@@ -310,7 +310,7 @@ readList :: ReadS [GetTagsResponse]
 $creadList :: ReadS [GetTagsResponse]
 readsPrec :: Int -&gt; ReadS GetTagsResponse
 $creadsPrec :: Int -&gt; ReadS GetTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679720987"><span id="local-6989586621679720989"><span id="local-6989586621679720991"><span class="annot"><span class="annottext">Int -&gt; GetTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679720996"><span id="local-6989586621679720998"><span id="local-6989586621679721000"><span class="annot"><span class="annottext">Int -&gt; GetTagsResponse -&gt; ShowS
 [GetTagsResponse] -&gt; ShowS
 GetTagsResponse -&gt; String
 (Int -&gt; GetTagsResponse -&gt; ShowS)
@@ -352,8 +352,8 @@ $cfrom :: forall x. GetTagsResponse -&gt; Rep GetTagsResponse x
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span><span>
 </span><span id="line-144"></span><span id="newGetTagsResponse"><span class="annot"><span class="annottext">newGetTagsResponse :: Int -&gt; GetTagsResponse
-</span><a href="Network.AWS.Glue.GetTags.html#newGetTagsResponse"><span class="hs-identifier hs-var hs-var">newGetTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679720984"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679720984"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetTags.html#newGetTagsResponse"><span class="hs-identifier hs-var hs-var">newGetTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679720993"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679720993"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">GetTagsResponse' :: Maybe (HashMap Text Text) -&gt; Int -&gt; GetTagsResponse
 </span><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-type">GetTagsResponse'</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:GetTagsResponse' :: Maybe (HashMap Text Text)
@@ -362,7 +362,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTagsResponse' :: Int
 </span><a href="Network.AWS.Glue.GetTags.html#%24sel%3AhttpStatus%3AGetTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679720984"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679720993"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The requested tags.</span><span>
@@ -378,16 +378,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-type">GetTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679720983"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-type">GetTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679720992"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:GetTagsResponse' :: GetTagsResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679720983"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679720983"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679720982"><span class="annot"><span class="annottext">s :: GetTagsResponse
-</span><a href="#local-6989586621679720982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-type">GetTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679720981"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679720981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTagsResponse
-</span><a href="#local-6989586621679720982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetTagsResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679720992"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679720992"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679720991"><span class="annot"><span class="annottext">s :: GetTagsResponse
+</span><a href="#local-6989586621679720991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-type">GetTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679720990"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679720990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTagsResponse
+</span><a href="#local-6989586621679720991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetTagsResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glue.GetTags.html#%24sel%3Atags%3AGetTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679720981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679720990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GetTagsResponse -&gt; f GetTagsResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -423,16 +423,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetTagsResponse -&gt; Int -&gt; GetTagsResponse)
 -&gt; Lens GetTagsResponse GetTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-type">GetTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679720977"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-type">GetTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679720986"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetTagsResponse' :: GetTagsResponse -&gt; Int
-</span><a href="#local-6989586621679720977"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679720977"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679720976"><span class="annot"><span class="annottext">s :: GetTagsResponse
-</span><a href="#local-6989586621679720976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-type">GetTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679720975"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679720975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTagsResponse
-</span><a href="#local-6989586621679720976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTagsResponse' :: Int
+</span><a href="#local-6989586621679720986"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679720986"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679720985"><span class="annot"><span class="annottext">s :: GetTagsResponse
+</span><a href="#local-6989586621679720985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-type">GetTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679720984"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679720984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTagsResponse
+</span><a href="#local-6989586621679720985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTagsResponse' :: Int
 </span><a href="Network.AWS.Glue.GetTags.html#%24sel%3AhttpStatus%3AGetTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679720975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679720984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679720973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679720982"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span></span><span>
 </span><span id="line-159"></span></pre></body></html>

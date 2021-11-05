@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- in an AWS account. It reflects the resource\'s limits for this account.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResourceQuota' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679306341"><span id="local-6989586621679306342"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceQuota"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota"><span class="hs-identifier hs-var">ResourceQuota</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceQuota%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota%27"><span class="hs-identifier hs-var">ResourceQuota'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679306350"><span id="local-6989586621679306351"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceQuota"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota"><span class="hs-identifier hs-var">ResourceQuota</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceQuota%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota%27"><span class="hs-identifier hs-var">ResourceQuota'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of instances of this Elastic Beanstalk resource type</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- that an AWS account can use.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Amaximum%3AResourceQuota%27"><span class="annot"><span class="annottext">ResourceQuota -&gt; Maybe Int
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#%24sel%3Amaximum%3AResourceQuota%27"><span class="hs-identifier hs-var hs-var">maximum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306335"><span id="local-6989586621679306337"><span class="annot"><span class="annottext">ResourceQuota -&gt; ResourceQuota -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306344"><span id="local-6989586621679306346"><span class="annot"><span class="annottext">ResourceQuota -&gt; ResourceQuota -&gt; Bool
 (ResourceQuota -&gt; ResourceQuota -&gt; Bool)
 -&gt; (ResourceQuota -&gt; ResourceQuota -&gt; Bool) -&gt; Eq ResourceQuota
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceQuota -&gt; ResourceQuota -&gt; Bool
 == :: ResourceQuota -&gt; ResourceQuota -&gt; Bool
 $c== :: ResourceQuota -&gt; ResourceQuota -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306326"><span id="local-6989586621679306328"><span id="local-6989586621679306330"><span id="local-6989586621679306332"><span class="annot"><span class="annottext">ReadPrec [ResourceQuota]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306335"><span id="local-6989586621679306337"><span id="local-6989586621679306339"><span id="local-6989586621679306341"><span class="annot"><span class="annottext">ReadPrec [ResourceQuota]
 ReadPrec ResourceQuota
 Int -&gt; ReadS ResourceQuota
 ReadS [ResourceQuota]
@@ -61,7 +61,7 @@ readList :: ReadS [ResourceQuota]
 $creadList :: ReadS [ResourceQuota]
 readsPrec :: Int -&gt; ReadS ResourceQuota
 $creadsPrec :: Int -&gt; ReadS ResourceQuota
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306319"><span id="local-6989586621679306321"><span id="local-6989586621679306323"><span class="annot"><span class="annottext">Int -&gt; ResourceQuota -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306328"><span id="local-6989586621679306330"><span id="local-6989586621679306332"><span class="annot"><span class="annottext">Int -&gt; ResourceQuota -&gt; ShowS
 [ResourceQuota] -&gt; ShowS
 ResourceQuota -&gt; String
 (Int -&gt; ResourceQuota -&gt; ShowS)
@@ -115,32 +115,32 @@ forall a. Maybe a
 -&gt; (ResourceQuota -&gt; Maybe Int -&gt; ResourceQuota)
 -&gt; Lens ResourceQuota ResourceQuota (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota%27"><span class="hs-identifier hs-type">ResourceQuota'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306310"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota%27"><span class="hs-identifier hs-type">ResourceQuota'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306319"><span class="annot"><span class="annottext">Maybe Int
 maximum :: Maybe Int
 $sel:maximum:ResourceQuota' :: ResourceQuota -&gt; Maybe Int
-</span><a href="#local-6989586621679306310"><span class="hs-identifier hs-var hs-var">maximum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679306310"><span class="hs-identifier hs-var">maximum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306309"><span class="annot"><span class="annottext">s :: ResourceQuota
-</span><a href="#local-6989586621679306309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota%27"><span class="hs-identifier hs-type">ResourceQuota'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306308"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679306308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceQuota
-</span><a href="#local-6989586621679306309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximum:ResourceQuota' :: Maybe Int
+</span><a href="#local-6989586621679306319"><span class="hs-identifier hs-var hs-var">maximum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679306319"><span class="hs-identifier hs-var">maximum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306318"><span class="annot"><span class="annottext">s :: ResourceQuota
+</span><a href="#local-6989586621679306318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota%27"><span class="hs-identifier hs-type">ResourceQuota'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306317"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679306317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceQuota
+</span><a href="#local-6989586621679306318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximum:ResourceQuota' :: Maybe Int
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#%24sel%3Amaximum%3AResourceQuota%27"><span class="hs-identifier hs-var">maximum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679306308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota"><span class="hs-identifier hs-type">ResourceQuota</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota"><span class="hs-identifier hs-type">ResourceQuota</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota"><span class="hs-identifier hs-type">ResourceQuota</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679306305"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ResourceQuota
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679306303"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679306303"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679306314"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ResourceQuota
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679306312"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679306312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; ResourceQuota
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota%27"><span class="hs-identifier hs-var">ResourceQuota'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Int -&gt; ResourceQuota)
 -&gt; Either String (Maybe Int) -&gt; Either String ResourceQuota
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679306303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679306312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Maximum&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306297"><span id="local-6989586621679306299"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota"><span class="hs-identifier hs-type">ResourceQuota</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306306"><span id="local-6989586621679306308"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota"><span class="hs-identifier hs-type">ResourceQuota</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota"><span class="hs-identifier hs-type">ResourceQuota</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ResourceQuota.html#ResourceQuota"><span class="hs-identifier hs-type">ResourceQuota</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

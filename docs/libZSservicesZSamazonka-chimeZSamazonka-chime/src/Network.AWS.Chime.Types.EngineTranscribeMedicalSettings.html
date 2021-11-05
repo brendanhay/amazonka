@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.Types.EngineTranscribeMedicalSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.Types.EngineTranscribeMedicalSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalLanguageCode.html"><span class="hs-identifier">Network.AWS.Chime.Types.TranscribeMedicalLanguageCode</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalRegion.html"><span class="hs-identifier">Network.AWS.Chime.Types.TranscribeMedicalRegion</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalSpecialty.html"><span class="hs-identifier">Network.AWS.Chime.Types.TranscribeMedicalSpecialty</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html"><span class="hs-identifier">Network.AWS.Chime.Types.TranscribeMedicalType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Settings specific to the Amazon Transcribe Medical engine.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newEngineTranscribeMedicalSettings' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679520861"><span id="local-6989586621679520862"></span></span><span class="hs-keyword">data</span><span> </span><span id="EngineTranscribeMedicalSettings"><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-var">EngineTranscribeMedicalSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EngineTranscribeMedicalSettings%27"><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var">EngineTranscribeMedicalSettings'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the vocabulary passed to Amazon Transcribe Medical.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AvocabularyName%3AEngineTranscribeMedicalSettings%27"><span class="annot"><span class="annottext">EngineTranscribeMedicalSettings -&gt; Maybe Text
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3AvocabularyName%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The AWS Region passed to Amazon Transcribe Medical. If you don\'t</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- specify a Region, Amazon Chime uses the meeting\'s Region.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aregion%3AEngineTranscribeMedicalSettings%27"><span class="annot"><span class="annottext">EngineTranscribeMedicalSettings -&gt; Maybe TranscribeMedicalRegion
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3Aregion%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalRegion.html#TranscribeMedicalRegion"><span class="hs-identifier hs-type">TranscribeMedicalRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The language code specified for the Amazon Transcribe Medical engine.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlanguageCode%3AEngineTranscribeMedicalSettings%27"><span class="annot"><span class="annottext">EngineTranscribeMedicalSettings -&gt; TranscribeMedicalLanguageCode
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3AlanguageCode%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalLanguageCode.html#TranscribeMedicalLanguageCode"><span class="hs-identifier hs-type">TranscribeMedicalLanguageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The specialty specified for the Amazon Transcribe Medical engine.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aspecialty%3AEngineTranscribeMedicalSettings%27"><span class="annot"><span class="annottext">EngineTranscribeMedicalSettings -&gt; TranscribeMedicalSpecialty
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3Aspecialty%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var hs-var">specialty</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalSpecialty.html#TranscribeMedicalSpecialty"><span class="hs-identifier hs-type">TranscribeMedicalSpecialty</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The type of transcription.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Atype%27%3AEngineTranscribeMedicalSettings%27"><span class="annot"><span class="annottext">EngineTranscribeMedicalSettings -&gt; TranscribeMedicalType
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3Atype%27%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType"><span class="hs-identifier hs-type">TranscribeMedicalType</span></a></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679520851"><span id="local-6989586621679520853"><span class="annot"><span class="annottext">EngineTranscribeMedicalSettings
+-&gt; EngineTranscribeMedicalSettings -&gt; Bool
+(EngineTranscribeMedicalSettings
+ -&gt; EngineTranscribeMedicalSettings -&gt; Bool)
+-&gt; (EngineTranscribeMedicalSettings
+    -&gt; EngineTranscribeMedicalSettings -&gt; Bool)
+-&gt; Eq EngineTranscribeMedicalSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EngineTranscribeMedicalSettings
+-&gt; EngineTranscribeMedicalSettings -&gt; Bool
+$c/= :: EngineTranscribeMedicalSettings
+-&gt; EngineTranscribeMedicalSettings -&gt; Bool
+== :: EngineTranscribeMedicalSettings
+-&gt; EngineTranscribeMedicalSettings -&gt; Bool
+$c== :: EngineTranscribeMedicalSettings
+-&gt; EngineTranscribeMedicalSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679520842"><span id="local-6989586621679520844"><span id="local-6989586621679520846"><span id="local-6989586621679520848"><span class="annot"><span class="annottext">ReadPrec [EngineTranscribeMedicalSettings]
+ReadPrec EngineTranscribeMedicalSettings
+Int -&gt; ReadS EngineTranscribeMedicalSettings
+ReadS [EngineTranscribeMedicalSettings]
+(Int -&gt; ReadS EngineTranscribeMedicalSettings)
+-&gt; ReadS [EngineTranscribeMedicalSettings]
+-&gt; ReadPrec EngineTranscribeMedicalSettings
+-&gt; ReadPrec [EngineTranscribeMedicalSettings]
+-&gt; Read EngineTranscribeMedicalSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EngineTranscribeMedicalSettings]
+$creadListPrec :: ReadPrec [EngineTranscribeMedicalSettings]
+readPrec :: ReadPrec EngineTranscribeMedicalSettings
+$creadPrec :: ReadPrec EngineTranscribeMedicalSettings
+readList :: ReadS [EngineTranscribeMedicalSettings]
+$creadList :: ReadS [EngineTranscribeMedicalSettings]
+readsPrec :: Int -&gt; ReadS EngineTranscribeMedicalSettings
+$creadsPrec :: Int -&gt; ReadS EngineTranscribeMedicalSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679520835"><span id="local-6989586621679520837"><span id="local-6989586621679520839"><span class="annot"><span class="annottext">Int -&gt; EngineTranscribeMedicalSettings -&gt; ShowS
+[EngineTranscribeMedicalSettings] -&gt; ShowS
+EngineTranscribeMedicalSettings -&gt; String
+(Int -&gt; EngineTranscribeMedicalSettings -&gt; ShowS)
+-&gt; (EngineTranscribeMedicalSettings -&gt; String)
+-&gt; ([EngineTranscribeMedicalSettings] -&gt; ShowS)
+-&gt; Show EngineTranscribeMedicalSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EngineTranscribeMedicalSettings] -&gt; ShowS
+$cshowList :: [EngineTranscribeMedicalSettings] -&gt; ShowS
+show :: EngineTranscribeMedicalSettings -&gt; String
+$cshow :: EngineTranscribeMedicalSettings -&gt; String
+showsPrec :: Int -&gt; EngineTranscribeMedicalSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; EngineTranscribeMedicalSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ EngineTranscribeMedicalSettings
+ -&gt; Rep EngineTranscribeMedicalSettings x)
+-&gt; (forall x.
+    Rep EngineTranscribeMedicalSettings x
+    -&gt; EngineTranscribeMedicalSettings)
+-&gt; Generic EngineTranscribeMedicalSettings
+forall x.
+Rep EngineTranscribeMedicalSettings x
+-&gt; EngineTranscribeMedicalSettings
+forall x.
+EngineTranscribeMedicalSettings
+-&gt; Rep EngineTranscribeMedicalSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep EngineTranscribeMedicalSettings x
+-&gt; EngineTranscribeMedicalSettings
+$cfrom :: forall x.
+EngineTranscribeMedicalSettings
+-&gt; Rep EngineTranscribeMedicalSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'EngineTranscribeMedicalSettings' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'vocabularyName', 'engineTranscribeMedicalSettings_vocabularyName' - The name of the vocabulary passed to Amazon Transcribe Medical.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'region', 'engineTranscribeMedicalSettings_region' - The AWS Region passed to Amazon Transcribe Medical. If you don\'t</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- specify a Region, Amazon Chime uses the meeting\'s Region.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'languageCode', 'engineTranscribeMedicalSettings_languageCode' - The language code specified for the Amazon Transcribe Medical engine.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'specialty', 'engineTranscribeMedicalSettings_specialty' - The specialty specified for the Amazon Transcribe Medical engine.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'type'', 'engineTranscribeMedicalSettings_type' - The type of transcription.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#newEngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">newEngineTranscribeMedicalSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'languageCode'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalLanguageCode.html#TranscribeMedicalLanguageCode"><span class="hs-identifier hs-type">TranscribeMedicalLanguageCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'specialty'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalSpecialty.html#TranscribeMedicalSpecialty"><span class="hs-identifier hs-type">TranscribeMedicalSpecialty</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType"><span class="hs-identifier hs-type">TranscribeMedicalType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings</span></a></span><span>
+</span><span id="line-74"></span><span id="newEngineTranscribeMedicalSettings"><span class="annot"><span class="annottext">newEngineTranscribeMedicalSettings :: TranscribeMedicalLanguageCode
+-&gt; TranscribeMedicalSpecialty
+-&gt; TranscribeMedicalType
+-&gt; EngineTranscribeMedicalSettings
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#newEngineTranscribeMedicalSettings"><span class="hs-identifier hs-var hs-var">newEngineTranscribeMedicalSettings</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679520829"><span class="annot"><span class="annottext">TranscribeMedicalLanguageCode
+</span><a href="#local-6989586621679520829"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679520828"><span class="annot"><span class="annottext">TranscribeMedicalSpecialty
+</span><a href="#local-6989586621679520828"><span class="hs-identifier hs-var">pSpecialty_</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679520827"><span class="annot"><span class="annottext">TranscribeMedicalType
+</span><a href="#local-6989586621679520827"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">EngineTranscribeMedicalSettings' :: Maybe Text
+-&gt; Maybe TranscribeMedicalRegion
+-&gt; TranscribeMedicalLanguageCode
+-&gt; TranscribeMedicalSpecialty
+-&gt; TranscribeMedicalType
+-&gt; EngineTranscribeMedicalSettings
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings'</span></a></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vocabularyName:EngineTranscribeMedicalSettings' :: Maybe Text
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3AvocabularyName%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:region:EngineTranscribeMedicalSettings' :: Maybe TranscribeMedicalRegion
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3Aregion%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TranscribeMedicalRegion
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:languageCode:EngineTranscribeMedicalSettings' :: TranscribeMedicalLanguageCode
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3AlanguageCode%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TranscribeMedicalLanguageCode
+</span><a href="#local-6989586621679520829"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:specialty:EngineTranscribeMedicalSettings' :: TranscribeMedicalSpecialty
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3Aspecialty%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var">specialty</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TranscribeMedicalSpecialty
+</span><a href="#local-6989586621679520828"><span class="hs-identifier hs-var">pSpecialty_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':EngineTranscribeMedicalSettings' :: TranscribeMedicalType
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3Atype%27%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TranscribeMedicalType
+</span><a href="#local-6989586621679520827"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The name of the vocabulary passed to Amazon Transcribe Medical.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#engineTranscribeMedicalSettings_vocabularyName"><span class="hs-identifier hs-type">engineTranscribeMedicalSettings_vocabularyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="engineTranscribeMedicalSettings_vocabularyName"><span class="annot"><span class="annottext">engineTranscribeMedicalSettings_vocabularyName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EngineTranscribeMedicalSettings
+-&gt; f EngineTranscribeMedicalSettings
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#engineTranscribeMedicalSettings_vocabularyName"><span class="hs-identifier hs-var hs-var">engineTranscribeMedicalSettings_vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineTranscribeMedicalSettings -&gt; Maybe Text)
+-&gt; (EngineTranscribeMedicalSettings
+    -&gt; Maybe Text -&gt; EngineTranscribeMedicalSettings)
+-&gt; Lens
+     EngineTranscribeMedicalSettings
+     EngineTranscribeMedicalSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520823"><span class="annot"><span class="annottext">Maybe Text
+vocabularyName :: Maybe Text
+$sel:vocabularyName:EngineTranscribeMedicalSettings' :: EngineTranscribeMedicalSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679520823"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679520823"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679520822"><span class="annot"><span class="annottext">s :: EngineTranscribeMedicalSettings
+</span><a href="#local-6989586621679520822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679520821"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679520821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineTranscribeMedicalSettings
+</span><a href="#local-6989586621679520822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:EngineTranscribeMedicalSettings' :: Maybe Text
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3AvocabularyName%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679520821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The AWS Region passed to Amazon Transcribe Medical. If you don\'t</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- specify a Region, Amazon Chime uses the meeting\'s Region.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#engineTranscribeMedicalSettings_region"><span class="hs-identifier hs-type">engineTranscribeMedicalSettings_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalRegion.html#TranscribeMedicalRegion"><span class="hs-identifier hs-type">TranscribeMedicalRegion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="engineTranscribeMedicalSettings_region"><span class="annot"><span class="annottext">engineTranscribeMedicalSettings_region :: (Maybe TranscribeMedicalRegion
+ -&gt; f (Maybe TranscribeMedicalRegion))
+-&gt; EngineTranscribeMedicalSettings
+-&gt; f EngineTranscribeMedicalSettings
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#engineTranscribeMedicalSettings_region"><span class="hs-identifier hs-var hs-var">engineTranscribeMedicalSettings_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineTranscribeMedicalSettings -&gt; Maybe TranscribeMedicalRegion)
+-&gt; (EngineTranscribeMedicalSettings
+    -&gt; Maybe TranscribeMedicalRegion
+    -&gt; EngineTranscribeMedicalSettings)
+-&gt; Lens
+     EngineTranscribeMedicalSettings
+     EngineTranscribeMedicalSettings
+     (Maybe TranscribeMedicalRegion)
+     (Maybe TranscribeMedicalRegion)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520819"><span class="annot"><span class="annottext">Maybe TranscribeMedicalRegion
+region :: Maybe TranscribeMedicalRegion
+$sel:region:EngineTranscribeMedicalSettings' :: EngineTranscribeMedicalSettings -&gt; Maybe TranscribeMedicalRegion
+</span><a href="#local-6989586621679520819"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TranscribeMedicalRegion
+</span><a href="#local-6989586621679520819"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679520818"><span class="annot"><span class="annottext">s :: EngineTranscribeMedicalSettings
+</span><a href="#local-6989586621679520818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679520817"><span class="annot"><span class="annottext">Maybe TranscribeMedicalRegion
+</span><a href="#local-6989586621679520817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineTranscribeMedicalSettings
+</span><a href="#local-6989586621679520818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:EngineTranscribeMedicalSettings' :: Maybe TranscribeMedicalRegion
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3Aregion%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TranscribeMedicalRegion
+</span><a href="#local-6989586621679520817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The language code specified for the Amazon Transcribe Medical engine.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#engineTranscribeMedicalSettings_languageCode"><span class="hs-identifier hs-type">engineTranscribeMedicalSettings_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalLanguageCode.html#TranscribeMedicalLanguageCode"><span class="hs-identifier hs-type">TranscribeMedicalLanguageCode</span></a></span><span>
+</span><span id="line-98"></span><span id="engineTranscribeMedicalSettings_languageCode"><span class="annot"><span class="annottext">engineTranscribeMedicalSettings_languageCode :: (TranscribeMedicalLanguageCode -&gt; f TranscribeMedicalLanguageCode)
+-&gt; EngineTranscribeMedicalSettings
+-&gt; f EngineTranscribeMedicalSettings
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#engineTranscribeMedicalSettings_languageCode"><span class="hs-identifier hs-var hs-var">engineTranscribeMedicalSettings_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineTranscribeMedicalSettings -&gt; TranscribeMedicalLanguageCode)
+-&gt; (EngineTranscribeMedicalSettings
+    -&gt; TranscribeMedicalLanguageCode
+    -&gt; EngineTranscribeMedicalSettings)
+-&gt; Lens
+     EngineTranscribeMedicalSettings
+     EngineTranscribeMedicalSettings
+     TranscribeMedicalLanguageCode
+     TranscribeMedicalLanguageCode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520815"><span class="annot"><span class="annottext">TranscribeMedicalLanguageCode
+languageCode :: TranscribeMedicalLanguageCode
+$sel:languageCode:EngineTranscribeMedicalSettings' :: EngineTranscribeMedicalSettings -&gt; TranscribeMedicalLanguageCode
+</span><a href="#local-6989586621679520815"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranscribeMedicalLanguageCode
+</span><a href="#local-6989586621679520815"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679520814"><span class="annot"><span class="annottext">s :: EngineTranscribeMedicalSettings
+</span><a href="#local-6989586621679520814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679520813"><span class="annot"><span class="annottext">TranscribeMedicalLanguageCode
+</span><a href="#local-6989586621679520813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineTranscribeMedicalSettings
+</span><a href="#local-6989586621679520814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:EngineTranscribeMedicalSettings' :: TranscribeMedicalLanguageCode
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3AlanguageCode%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TranscribeMedicalLanguageCode
+</span><a href="#local-6989586621679520813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The specialty specified for the Amazon Transcribe Medical engine.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#engineTranscribeMedicalSettings_specialty"><span class="hs-identifier hs-type">engineTranscribeMedicalSettings_specialty</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalSpecialty.html#TranscribeMedicalSpecialty"><span class="hs-identifier hs-type">TranscribeMedicalSpecialty</span></a></span><span>
+</span><span id="line-102"></span><span id="engineTranscribeMedicalSettings_specialty"><span class="annot"><span class="annottext">engineTranscribeMedicalSettings_specialty :: (TranscribeMedicalSpecialty -&gt; f TranscribeMedicalSpecialty)
+-&gt; EngineTranscribeMedicalSettings
+-&gt; f EngineTranscribeMedicalSettings
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#engineTranscribeMedicalSettings_specialty"><span class="hs-identifier hs-var hs-var">engineTranscribeMedicalSettings_specialty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineTranscribeMedicalSettings -&gt; TranscribeMedicalSpecialty)
+-&gt; (EngineTranscribeMedicalSettings
+    -&gt; TranscribeMedicalSpecialty -&gt; EngineTranscribeMedicalSettings)
+-&gt; Lens
+     EngineTranscribeMedicalSettings
+     EngineTranscribeMedicalSettings
+     TranscribeMedicalSpecialty
+     TranscribeMedicalSpecialty
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520811"><span class="annot"><span class="annottext">TranscribeMedicalSpecialty
+specialty :: TranscribeMedicalSpecialty
+$sel:specialty:EngineTranscribeMedicalSettings' :: EngineTranscribeMedicalSettings -&gt; TranscribeMedicalSpecialty
+</span><a href="#local-6989586621679520811"><span class="hs-identifier hs-var hs-var">specialty</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranscribeMedicalSpecialty
+</span><a href="#local-6989586621679520811"><span class="hs-identifier hs-var">specialty</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679520810"><span class="annot"><span class="annottext">s :: EngineTranscribeMedicalSettings
+</span><a href="#local-6989586621679520810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679520809"><span class="annot"><span class="annottext">TranscribeMedicalSpecialty
+</span><a href="#local-6989586621679520809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineTranscribeMedicalSettings
+</span><a href="#local-6989586621679520810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:specialty:EngineTranscribeMedicalSettings' :: TranscribeMedicalSpecialty
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3Aspecialty%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var">specialty</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TranscribeMedicalSpecialty
+</span><a href="#local-6989586621679520809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The type of transcription.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#engineTranscribeMedicalSettings_type"><span class="hs-identifier hs-type">engineTranscribeMedicalSettings_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType"><span class="hs-identifier hs-type">TranscribeMedicalType</span></a></span><span>
+</span><span id="line-106"></span><span id="engineTranscribeMedicalSettings_type"><span class="annot"><span class="annottext">engineTranscribeMedicalSettings_type :: (TranscribeMedicalType -&gt; f TranscribeMedicalType)
+-&gt; EngineTranscribeMedicalSettings
+-&gt; f EngineTranscribeMedicalSettings
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#engineTranscribeMedicalSettings_type"><span class="hs-identifier hs-var hs-var">engineTranscribeMedicalSettings_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineTranscribeMedicalSettings -&gt; TranscribeMedicalType)
+-&gt; (EngineTranscribeMedicalSettings
+    -&gt; TranscribeMedicalType -&gt; EngineTranscribeMedicalSettings)
+-&gt; Lens
+     EngineTranscribeMedicalSettings
+     EngineTranscribeMedicalSettings
+     TranscribeMedicalType
+     TranscribeMedicalType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520807"><span class="annot"><span class="annottext">TranscribeMedicalType
+type' :: TranscribeMedicalType
+$sel:type':EngineTranscribeMedicalSettings' :: EngineTranscribeMedicalSettings -&gt; TranscribeMedicalType
+</span><a href="#local-6989586621679520807"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranscribeMedicalType
+</span><a href="#local-6989586621679520807"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679520806"><span class="annot"><span class="annottext">s :: EngineTranscribeMedicalSettings
+</span><a href="#local-6989586621679520806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679520805"><span class="annot"><span class="annottext">TranscribeMedicalType
+</span><a href="#local-6989586621679520805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineTranscribeMedicalSettings
+</span><a href="#local-6989586621679520806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':EngineTranscribeMedicalSettings' :: TranscribeMedicalType
+</span><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#%24sel%3Atype%27%3AEngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TranscribeMedicalType
+</span><a href="#local-6989586621679520805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679520801"><span id="local-6989586621679520803"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679520798"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings</span></a></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679520790"><span id="local-6989586621679520792"><span id="local-6989586621679520794"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679520788"><span class="annot"><span class="annottext">toJSON :: EngineTranscribeMedicalSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.EngineTranscribeMedicalSettings.html#EngineTranscribeMedicalSettings%27"><span class="hs-identifier hs-type">EngineTranscribeMedicalSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520782"><span id="local-6989586621679520783"><span id="local-6989586621679520784"><span id="local-6989586621679520785"><span id="local-6989586621679520786"><span class="annot"><span class="annottext">Maybe Text
+Maybe TranscribeMedicalRegion
+TranscribeMedicalLanguageCode
+TranscribeMedicalSpecialty
+TranscribeMedicalType
+type' :: TranscribeMedicalType
+specialty :: TranscribeMedicalSpecialty
+languageCode :: TranscribeMedicalLanguageCode
+region :: Maybe TranscribeMedicalRegion
+vocabularyName :: Maybe Text
+$sel:type':EngineTranscribeMedicalSettings' :: EngineTranscribeMedicalSettings -&gt; TranscribeMedicalType
+$sel:specialty:EngineTranscribeMedicalSettings' :: EngineTranscribeMedicalSettings -&gt; TranscribeMedicalSpecialty
+$sel:languageCode:EngineTranscribeMedicalSettings' :: EngineTranscribeMedicalSettings -&gt; TranscribeMedicalLanguageCode
+$sel:region:EngineTranscribeMedicalSettings' :: EngineTranscribeMedicalSettings -&gt; Maybe TranscribeMedicalRegion
+$sel:vocabularyName:EngineTranscribeMedicalSettings' :: EngineTranscribeMedicalSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679520782"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679520786"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TranscribeMedicalRegion -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TranscribeMedicalRegion -&gt; Pair)
+-&gt; Maybe TranscribeMedicalRegion -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TranscribeMedicalRegion
+</span><a href="#local-6989586621679520785"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TranscribeMedicalLanguageCode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TranscribeMedicalLanguageCode
+</span><a href="#local-6989586621679520784"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Specialty&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TranscribeMedicalSpecialty -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TranscribeMedicalSpecialty
+</span><a href="#local-6989586621679520783"><span class="hs-identifier hs-var">specialty</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TranscribeMedicalType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TranscribeMedicalType
+</span><a href="#local-6989586621679520782"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span></pre></body></html>

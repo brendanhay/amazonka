@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679326291"><span id="local-6989586621679326292"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceMetadataEndpointState"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataEndpointState.html#InstanceMetadataEndpointState"><span class="hs-identifier hs-var">InstanceMetadataEndpointState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceMetadataEndpointState%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataEndpointState.html#InstanceMetadataEndpointState%27"><span class="hs-identifier hs-var">InstanceMetadataEndpointState'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679326300"><span id="local-6989586621679326301"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceMetadataEndpointState"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataEndpointState.html#InstanceMetadataEndpointState"><span class="hs-identifier hs-var">InstanceMetadataEndpointState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceMetadataEndpointState%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataEndpointState.html#InstanceMetadataEndpointState%27"><span class="hs-identifier hs-var">InstanceMetadataEndpointState'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceMetadataEndpointState"><span class="annot"><span class="annottext">InstanceMetadataEndpointState -&gt; Text
 </span><a href="Network.AWS.AutoScaling.Types.InstanceMetadataEndpointState.html#fromInstanceMetadataEndpointState"><span class="hs-identifier hs-var hs-var">fromInstanceMetadataEndpointState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326283"><span id="local-6989586621679326285"><span id="local-6989586621679326287"><span class="annot"><span class="annottext">Int -&gt; InstanceMetadataEndpointState -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326292"><span id="local-6989586621679326294"><span id="local-6989586621679326296"><span class="annot"><span class="annottext">Int -&gt; InstanceMetadataEndpointState -&gt; ShowS
 [InstanceMetadataEndpointState] -&gt; ShowS
 InstanceMetadataEndpointState -&gt; String
 (Int -&gt; InstanceMetadataEndpointState -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: InstanceMetadataEndpointState -&gt; String
 showsPrec :: Int -&gt; InstanceMetadataEndpointState -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceMetadataEndpointState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679326274"><span id="local-6989586621679326276"><span id="local-6989586621679326278"><span id="local-6989586621679326280"><span class="annot"><span class="annottext">ReadPrec [InstanceMetadataEndpointState]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679326283"><span id="local-6989586621679326285"><span id="local-6989586621679326287"><span id="local-6989586621679326289"><span class="annot"><span class="annottext">ReadPrec [InstanceMetadataEndpointState]
 ReadPrec InstanceMetadataEndpointState
 Int -&gt; ReadS InstanceMetadataEndpointState
 ReadS [InstanceMetadataEndpointState]
@@ -72,7 +72,7 @@ $creadList :: ReadS [InstanceMetadataEndpointState]
 readsPrec :: Int -&gt; ReadS InstanceMetadataEndpointState
 $creadsPrec :: Int -&gt; ReadS InstanceMetadataEndpointState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679326269"><span id="local-6989586621679326271"><span class="annot"><span class="annottext">InstanceMetadataEndpointState
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679326278"><span id="local-6989586621679326280"><span class="annot"><span class="annottext">InstanceMetadataEndpointState
 -&gt; InstanceMetadataEndpointState -&gt; Bool
 (InstanceMetadataEndpointState
  -&gt; InstanceMetadataEndpointState -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: InstanceMetadataEndpointState
 $c== :: InstanceMetadataEndpointState
 -&gt; InstanceMetadataEndpointState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679326253"><span id="local-6989586621679326255"><span id="local-6989586621679326257"><span id="local-6989586621679326259"><span id="local-6989586621679326261"><span id="local-6989586621679326263"><span id="local-6989586621679326265"><span class="annot"><span class="annottext">Eq InstanceMetadataEndpointState
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679326262"><span id="local-6989586621679326264"><span id="local-6989586621679326266"><span id="local-6989586621679326268"><span id="local-6989586621679326270"><span id="local-6989586621679326272"><span id="local-6989586621679326274"><span class="annot"><span class="annottext">Eq InstanceMetadataEndpointState
 Eq InstanceMetadataEndpointState
 -&gt; (InstanceMetadataEndpointState
     -&gt; InstanceMetadataEndpointState -&gt; Ordering)
@@ -176,7 +176,7 @@ InstanceMetadataEndpointState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326245"><span id="local-6989586621679326247"><span class="annot"><span class="annottext">Int -&gt; InstanceMetadataEndpointState -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326254"><span id="local-6989586621679326256"><span class="annot"><span class="annottext">Int -&gt; InstanceMetadataEndpointState -&gt; Int
 InstanceMetadataEndpointState -&gt; Int
 (Int -&gt; InstanceMetadataEndpointState -&gt; Int)
 -&gt; (InstanceMetadataEndpointState -&gt; Int)
@@ -187,56 +187,56 @@ $chash :: InstanceMetadataEndpointState -&gt; Int
 hashWithSalt :: Int -&gt; InstanceMetadataEndpointState -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceMetadataEndpointState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679326242"><span class="annot"><span class="annottext">InstanceMetadataEndpointState -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679326251"><span class="annot"><span class="annottext">InstanceMetadataEndpointState -&gt; ()
 (InstanceMetadataEndpointState -&gt; ())
 -&gt; NFData InstanceMetadataEndpointState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceMetadataEndpointState -&gt; ()
 $crnf :: InstanceMetadataEndpointState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679326239"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceMetadataEndpointState
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679326248"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceMetadataEndpointState
 (Text -&gt; Either String InstanceMetadataEndpointState)
 -&gt; FromText InstanceMetadataEndpointState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceMetadataEndpointState
 $cfromText :: Text -&gt; Either String InstanceMetadataEndpointState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679326236"><span class="annot"><span class="annottext">InstanceMetadataEndpointState -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679326245"><span class="annot"><span class="annottext">InstanceMetadataEndpointState -&gt; Text
 (InstanceMetadataEndpointState -&gt; Text)
 -&gt; ToText InstanceMetadataEndpointState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceMetadataEndpointState -&gt; Text
 $ctoText :: InstanceMetadataEndpointState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679326233"><span class="annot"><span class="annottext">InstanceMetadataEndpointState -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679326242"><span class="annot"><span class="annottext">InstanceMetadataEndpointState -&gt; ByteString
 (InstanceMetadataEndpointState -&gt; ByteString)
 -&gt; ToByteString InstanceMetadataEndpointState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceMetadataEndpointState -&gt; ByteString
 $ctoBS :: InstanceMetadataEndpointState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679326230"><span class="annot"><span class="annottext">InstanceMetadataEndpointState -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679326239"><span class="annot"><span class="annottext">InstanceMetadataEndpointState -&gt; ByteStringBuilder
 (InstanceMetadataEndpointState -&gt; ByteStringBuilder)
 -&gt; ToLog InstanceMetadataEndpointState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceMetadataEndpointState -&gt; ByteStringBuilder
 $cbuild :: InstanceMetadataEndpointState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679326227"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceMetadataEndpointState -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679326236"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceMetadataEndpointState -&gt; [Header]
 (HeaderName -&gt; InstanceMetadataEndpointState -&gt; [Header])
 -&gt; ToHeader InstanceMetadataEndpointState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceMetadataEndpointState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceMetadataEndpointState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679326224"><span class="annot"><span class="annottext">InstanceMetadataEndpointState -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679326233"><span class="annot"><span class="annottext">InstanceMetadataEndpointState -&gt; QueryString
 (InstanceMetadataEndpointState -&gt; QueryString)
 -&gt; ToQuery InstanceMetadataEndpointState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceMetadataEndpointState -&gt; QueryString
 $ctoQuery :: InstanceMetadataEndpointState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326219"><span id="local-6989586621679326221"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceMetadataEndpointState]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326228"><span id="local-6989586621679326230"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceMetadataEndpointState]
 Value -&gt; Parser InstanceMetadataEndpointState
 (Value -&gt; Parser InstanceMetadataEndpointState)
 -&gt; (Value -&gt; Parser [InstanceMetadataEndpointState])
@@ -248,7 +248,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceMetadataEndpointState]
 parseJSON :: Value -&gt; Parser InstanceMetadataEndpointState
 $cparseJSON :: Value -&gt; Parser InstanceMetadataEndpointState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326214"><span id="local-6989586621679326216"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceMetadataEndpointState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326223"><span id="local-6989586621679326225"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceMetadataEndpointState]
 FromJSONKeyFunction InstanceMetadataEndpointState
 FromJSONKeyFunction InstanceMetadataEndpointState
 -&gt; FromJSONKeyFunction [InstanceMetadataEndpointState]
@@ -260,7 +260,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceMetadataEndpointState]
 fromJSONKey :: FromJSONKeyFunction InstanceMetadataEndpointState
 $cfromJSONKey :: FromJSONKeyFunction InstanceMetadataEndpointState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326205"><span id="local-6989586621679326207"><span id="local-6989586621679326209"><span id="local-6989586621679326211"><span class="annot"><span class="annottext">[InstanceMetadataEndpointState] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326214"><span id="local-6989586621679326216"><span id="local-6989586621679326218"><span id="local-6989586621679326220"><span class="annot"><span class="annottext">[InstanceMetadataEndpointState] -&gt; Encoding
 [InstanceMetadataEndpointState] -&gt; Value
 InstanceMetadataEndpointState -&gt; Encoding
 InstanceMetadataEndpointState -&gt; Value
@@ -284,7 +284,7 @@ $ctoEncoding :: InstanceMetadataEndpointState -&gt; Encoding
 toJSON :: InstanceMetadataEndpointState -&gt; Value
 $ctoJSON :: InstanceMetadataEndpointState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326200"><span id="local-6989586621679326202"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceMetadataEndpointState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326209"><span id="local-6989586621679326211"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceMetadataEndpointState]
 ToJSONKeyFunction InstanceMetadataEndpointState
 ToJSONKeyFunction InstanceMetadataEndpointState
 -&gt; ToJSONKeyFunction [InstanceMetadataEndpointState]
@@ -296,14 +296,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceMetadataEndpointState]
 toJSONKey :: ToJSONKeyFunction InstanceMetadataEndpointState
 $ctoJSONKey :: ToJSONKeyFunction InstanceMetadataEndpointState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326197"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceMetadataEndpointState
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326206"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceMetadataEndpointState
 ([Node] -&gt; Either String InstanceMetadataEndpointState)
 -&gt; FromXML InstanceMetadataEndpointState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceMetadataEndpointState
 $cparseXML :: [Node] -&gt; Either String InstanceMetadataEndpointState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326194"><span class="annot"><span class="annottext">InstanceMetadataEndpointState -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326203"><span class="annot"><span class="annottext">InstanceMetadataEndpointState -&gt; XML
 (InstanceMetadataEndpointState -&gt; XML)
 -&gt; ToXML InstanceMetadataEndpointState
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679313489"><span id="local-6989586621679313490"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MigrationAlertType"><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationAlertType.html#MigrationAlertType"><span class="hs-identifier hs-var">MigrationAlertType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MigrationAlertType%27"><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationAlertType.html#MigrationAlertType%27"><span class="hs-identifier hs-var">MigrationAlertType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679313498"><span id="local-6989586621679313499"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MigrationAlertType"><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationAlertType.html#MigrationAlertType"><span class="hs-identifier hs-var">MigrationAlertType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MigrationAlertType%27"><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationAlertType.html#MigrationAlertType%27"><span class="hs-identifier hs-var">MigrationAlertType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMigrationAlertType"><span class="annot"><span class="annottext">MigrationAlertType -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.MigrationAlertType.html#fromMigrationAlertType"><span class="hs-identifier hs-var hs-var">fromMigrationAlertType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679313481"><span id="local-6989586621679313483"><span id="local-6989586621679313485"><span class="annot"><span class="annottext">Int -&gt; MigrationAlertType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679313490"><span id="local-6989586621679313492"><span id="local-6989586621679313494"><span class="annot"><span class="annottext">Int -&gt; MigrationAlertType -&gt; ShowS
 [MigrationAlertType] -&gt; ShowS
 MigrationAlertType -&gt; String
 (Int -&gt; MigrationAlertType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: MigrationAlertType -&gt; String
 showsPrec :: Int -&gt; MigrationAlertType -&gt; ShowS
 $cshowsPrec :: Int -&gt; MigrationAlertType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679313472"><span id="local-6989586621679313474"><span id="local-6989586621679313476"><span id="local-6989586621679313478"><span class="annot"><span class="annottext">ReadPrec [MigrationAlertType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679313481"><span id="local-6989586621679313483"><span id="local-6989586621679313485"><span id="local-6989586621679313487"><span class="annot"><span class="annottext">ReadPrec [MigrationAlertType]
 ReadPrec MigrationAlertType
 Int -&gt; ReadS MigrationAlertType
 ReadS [MigrationAlertType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [MigrationAlertType]
 readsPrec :: Int -&gt; ReadS MigrationAlertType
 $creadsPrec :: Int -&gt; ReadS MigrationAlertType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679313467"><span id="local-6989586621679313469"><span class="annot"><span class="annottext">MigrationAlertType -&gt; MigrationAlertType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679313476"><span id="local-6989586621679313478"><span class="annot"><span class="annottext">MigrationAlertType -&gt; MigrationAlertType -&gt; Bool
 (MigrationAlertType -&gt; MigrationAlertType -&gt; Bool)
 -&gt; (MigrationAlertType -&gt; MigrationAlertType -&gt; Bool)
 -&gt; Eq MigrationAlertType
@@ -82,7 +82,7 @@ $c/= :: MigrationAlertType -&gt; MigrationAlertType -&gt; Bool
 == :: MigrationAlertType -&gt; MigrationAlertType -&gt; Bool
 $c== :: MigrationAlertType -&gt; MigrationAlertType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679313451"><span id="local-6989586621679313453"><span id="local-6989586621679313455"><span id="local-6989586621679313457"><span id="local-6989586621679313459"><span id="local-6989586621679313461"><span id="local-6989586621679313463"><span class="annot"><span class="annottext">Eq MigrationAlertType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679313460"><span id="local-6989586621679313462"><span id="local-6989586621679313464"><span id="local-6989586621679313466"><span id="local-6989586621679313468"><span id="local-6989586621679313470"><span id="local-6989586621679313472"><span class="annot"><span class="annottext">Eq MigrationAlertType
 Eq MigrationAlertType
 -&gt; (MigrationAlertType -&gt; MigrationAlertType -&gt; Ordering)
 -&gt; (MigrationAlertType -&gt; MigrationAlertType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. MigrationAlertType -&gt; Rep MigrationAlertType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679313443"><span id="local-6989586621679313445"><span class="annot"><span class="annottext">Int -&gt; MigrationAlertType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679313452"><span id="local-6989586621679313454"><span class="annot"><span class="annottext">Int -&gt; MigrationAlertType -&gt; Int
 MigrationAlertType -&gt; Int
 (Int -&gt; MigrationAlertType -&gt; Int)
 -&gt; (MigrationAlertType -&gt; Int) -&gt; Hashable MigrationAlertType
@@ -143,53 +143,53 @@ $chash :: MigrationAlertType -&gt; Int
 hashWithSalt :: Int -&gt; MigrationAlertType -&gt; Int
 $chashWithSalt :: Int -&gt; MigrationAlertType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679313440"><span class="annot"><span class="annottext">MigrationAlertType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679313449"><span class="annot"><span class="annottext">MigrationAlertType -&gt; ()
 (MigrationAlertType -&gt; ()) -&gt; NFData MigrationAlertType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MigrationAlertType -&gt; ()
 $crnf :: MigrationAlertType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679313437"><span class="annot"><span class="annottext">Text -&gt; Either String MigrationAlertType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679313446"><span class="annot"><span class="annottext">Text -&gt; Either String MigrationAlertType
 (Text -&gt; Either String MigrationAlertType)
 -&gt; FromText MigrationAlertType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MigrationAlertType
 $cfromText :: Text -&gt; Either String MigrationAlertType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679313434"><span class="annot"><span class="annottext">MigrationAlertType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679313443"><span class="annot"><span class="annottext">MigrationAlertType -&gt; Text
 (MigrationAlertType -&gt; Text) -&gt; ToText MigrationAlertType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MigrationAlertType -&gt; Text
 $ctoText :: MigrationAlertType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679313431"><span class="annot"><span class="annottext">MigrationAlertType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679313440"><span class="annot"><span class="annottext">MigrationAlertType -&gt; ByteString
 (MigrationAlertType -&gt; ByteString)
 -&gt; ToByteString MigrationAlertType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MigrationAlertType -&gt; ByteString
 $ctoBS :: MigrationAlertType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679313428"><span class="annot"><span class="annottext">MigrationAlertType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679313437"><span class="annot"><span class="annottext">MigrationAlertType -&gt; ByteStringBuilder
 (MigrationAlertType -&gt; ByteStringBuilder)
 -&gt; ToLog MigrationAlertType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MigrationAlertType -&gt; ByteStringBuilder
 $cbuild :: MigrationAlertType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679313425"><span class="annot"><span class="annottext">HeaderName -&gt; MigrationAlertType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679313434"><span class="annot"><span class="annottext">HeaderName -&gt; MigrationAlertType -&gt; [Header]
 (HeaderName -&gt; MigrationAlertType -&gt; [Header])
 -&gt; ToHeader MigrationAlertType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MigrationAlertType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MigrationAlertType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679313422"><span class="annot"><span class="annottext">MigrationAlertType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679313431"><span class="annot"><span class="annottext">MigrationAlertType -&gt; QueryString
 (MigrationAlertType -&gt; QueryString) -&gt; ToQuery MigrationAlertType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MigrationAlertType -&gt; QueryString
 $ctoQuery :: MigrationAlertType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679313417"><span id="local-6989586621679313419"><span class="annot"><span class="annottext">Value -&gt; Parser [MigrationAlertType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679313426"><span id="local-6989586621679313428"><span class="annot"><span class="annottext">Value -&gt; Parser [MigrationAlertType]
 Value -&gt; Parser MigrationAlertType
 (Value -&gt; Parser MigrationAlertType)
 -&gt; (Value -&gt; Parser [MigrationAlertType])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [MigrationAlertType]
 parseJSON :: Value -&gt; Parser MigrationAlertType
 $cparseJSON :: Value -&gt; Parser MigrationAlertType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679313412"><span id="local-6989586621679313414"><span class="annot"><span class="annottext">FromJSONKeyFunction [MigrationAlertType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679313421"><span id="local-6989586621679313423"><span class="annot"><span class="annottext">FromJSONKeyFunction [MigrationAlertType]
 FromJSONKeyFunction MigrationAlertType
 FromJSONKeyFunction MigrationAlertType
 -&gt; FromJSONKeyFunction [MigrationAlertType]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MigrationAlertType]
 fromJSONKey :: FromJSONKeyFunction MigrationAlertType
 $cfromJSONKey :: FromJSONKeyFunction MigrationAlertType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679313403"><span id="local-6989586621679313405"><span id="local-6989586621679313407"><span id="local-6989586621679313409"><span class="annot"><span class="annottext">[MigrationAlertType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679313412"><span id="local-6989586621679313414"><span id="local-6989586621679313416"><span id="local-6989586621679313418"><span class="annot"><span class="annottext">[MigrationAlertType] -&gt; Encoding
 [MigrationAlertType] -&gt; Value
 MigrationAlertType -&gt; Encoding
 MigrationAlertType -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: MigrationAlertType -&gt; Encoding
 toJSON :: MigrationAlertType -&gt; Value
 $ctoJSON :: MigrationAlertType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679313398"><span id="local-6989586621679313400"><span class="annot"><span class="annottext">ToJSONKeyFunction [MigrationAlertType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679313407"><span id="local-6989586621679313409"><span class="annot"><span class="annottext">ToJSONKeyFunction [MigrationAlertType]
 ToJSONKeyFunction MigrationAlertType
 ToJSONKeyFunction MigrationAlertType
 -&gt; ToJSONKeyFunction [MigrationAlertType]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MigrationAlertType]
 toJSONKey :: ToJSONKeyFunction MigrationAlertType
 $ctoJSONKey :: ToJSONKeyFunction MigrationAlertType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679313395"><span class="annot"><span class="annottext">[Node] -&gt; Either String MigrationAlertType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679313404"><span class="annot"><span class="annottext">[Node] -&gt; Either String MigrationAlertType
 ([Node] -&gt; Either String MigrationAlertType)
 -&gt; FromXML MigrationAlertType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MigrationAlertType
 $cparseXML :: [Node] -&gt; Either String MigrationAlertType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679313392"><span class="annot"><span class="annottext">MigrationAlertType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679313401"><span class="annot"><span class="annottext">MigrationAlertType -&gt; XML
 (MigrationAlertType -&gt; XML) -&gt; ToXML MigrationAlertType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MigrationAlertType -&gt; XML

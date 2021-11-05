@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html Share or Unshare a Custom WorkSpaces Image&gt;.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newImagePermission' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679271668"><span id="local-6989586621679271669"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImagePermission"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission"><span class="hs-identifier hs-var">ImagePermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImagePermission%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission%27"><span class="hs-identifier hs-var">ImagePermission'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679271677"><span id="local-6989586621679271678"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImagePermission"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission"><span class="hs-identifier hs-var">ImagePermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImagePermission%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission%27"><span class="hs-identifier hs-var">ImagePermission'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the Amazon Web Services account that an image has been</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- shared with.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AsharedAccountId%3AImagePermission%27"><span class="annot"><span class="annottext">ImagePermission -&gt; Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#%24sel%3AsharedAccountId%3AImagePermission%27"><span class="hs-identifier hs-var hs-var">sharedAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271662"><span id="local-6989586621679271664"><span class="annot"><span class="annottext">ImagePermission -&gt; ImagePermission -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271671"><span id="local-6989586621679271673"><span class="annot"><span class="annottext">ImagePermission -&gt; ImagePermission -&gt; Bool
 (ImagePermission -&gt; ImagePermission -&gt; Bool)
 -&gt; (ImagePermission -&gt; ImagePermission -&gt; Bool)
 -&gt; Eq ImagePermission
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImagePermission -&gt; ImagePermission -&gt; Bool
 == :: ImagePermission -&gt; ImagePermission -&gt; Bool
 $c== :: ImagePermission -&gt; ImagePermission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271653"><span id="local-6989586621679271655"><span id="local-6989586621679271657"><span id="local-6989586621679271659"><span class="annot"><span class="annottext">ReadPrec [ImagePermission]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271662"><span id="local-6989586621679271664"><span id="local-6989586621679271666"><span id="local-6989586621679271668"><span class="annot"><span class="annottext">ReadPrec [ImagePermission]
 ReadPrec ImagePermission
 Int -&gt; ReadS ImagePermission
 ReadS [ImagePermission]
@@ -64,7 +64,7 @@ readList :: ReadS [ImagePermission]
 $creadList :: ReadS [ImagePermission]
 readsPrec :: Int -&gt; ReadS ImagePermission
 $creadsPrec :: Int -&gt; ReadS ImagePermission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271646"><span id="local-6989586621679271648"><span id="local-6989586621679271650"><span class="annot"><span class="annottext">Int -&gt; ImagePermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271655"><span id="local-6989586621679271657"><span id="local-6989586621679271659"><span class="annot"><span class="annottext">Int -&gt; ImagePermission -&gt; ShowS
 [ImagePermission] -&gt; ShowS
 ImagePermission -&gt; String
 (Int -&gt; ImagePermission -&gt; ShowS)
@@ -119,19 +119,19 @@ forall a. Maybe a
 -&gt; (ImagePermission -&gt; Maybe Text -&gt; ImagePermission)
 -&gt; Lens ImagePermission ImagePermission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission%27"><span class="hs-identifier hs-type">ImagePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271637"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission%27"><span class="hs-identifier hs-type">ImagePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271646"><span class="annot"><span class="annottext">Maybe Text
 sharedAccountId :: Maybe Text
 $sel:sharedAccountId:ImagePermission' :: ImagePermission -&gt; Maybe Text
-</span><a href="#local-6989586621679271637"><span class="hs-identifier hs-var hs-var">sharedAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271637"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271636"><span class="annot"><span class="annottext">s :: ImagePermission
-</span><a href="#local-6989586621679271636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission%27"><span class="hs-identifier hs-type">ImagePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271635"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImagePermission
-</span><a href="#local-6989586621679271636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedAccountId:ImagePermission' :: Maybe Text
+</span><a href="#local-6989586621679271646"><span class="hs-identifier hs-var hs-var">sharedAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271646"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271645"><span class="annot"><span class="annottext">s :: ImagePermission
+</span><a href="#local-6989586621679271645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission%27"><span class="hs-identifier hs-type">ImagePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271644"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImagePermission
+</span><a href="#local-6989586621679271645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedAccountId:ImagePermission' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#%24sel%3AsharedAccountId%3AImagePermission%27"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission"><span class="hs-identifier hs-type">ImagePermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission"><span class="hs-identifier hs-type">ImagePermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271632"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission"><span class="hs-identifier hs-type">ImagePermission</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679271630"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImagePermission
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271641"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission"><span class="hs-identifier hs-type">ImagePermission</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679271639"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImagePermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ImagePermission)
@@ -141,21 +141,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ImagePermission&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271627"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271627"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271636"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271636"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; ImagePermission
 </span><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission%27"><span class="hs-identifier hs-var">ImagePermission'</span></a></span><span>
 </span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; ImagePermission)
 -&gt; Parser (Maybe Text) -&gt; Parser ImagePermission
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271627"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679271636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SharedAccountId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271621"><span id="local-6989586621679271623"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission"><span class="hs-identifier hs-type">ImagePermission</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271630"><span id="local-6989586621679271632"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission"><span class="hs-identifier hs-type">ImagePermission</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271618"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission"><span class="hs-identifier hs-type">ImagePermission</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271627"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImagePermission.html#ImagePermission"><span class="hs-identifier hs-type">ImagePermission</span></a></span></span><span>
 </span><span id="line-71"></span></pre></body></html>

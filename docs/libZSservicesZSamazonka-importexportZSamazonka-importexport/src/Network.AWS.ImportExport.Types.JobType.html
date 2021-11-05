@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Specifies whether the job to initiate is an import or export job.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679154171"><span id="local-6989586621679154172"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobType"><span class="annot"><a href="Network.AWS.ImportExport.Types.JobType.html#JobType"><span class="hs-identifier hs-var">JobType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobType%27"><span class="annot"><a href="Network.AWS.ImportExport.Types.JobType.html#JobType%27"><span class="hs-identifier hs-var">JobType'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromJobType"><span class="annot"><span class="annottext">JobType -&gt; Text
+</span><span id="line-33"></span><span id="local-6989586621679154180"><span id="local-6989586621679154181"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobType"><span class="annot"><a href="Network.AWS.ImportExport.Types.JobType.html#JobType"><span class="hs-identifier hs-var">JobType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobType%27"><span class="annot"><a href="Network.AWS.ImportExport.Types.JobType.html#JobType%27"><span class="hs-identifier hs-var">JobType'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromJobType"><span class="annot"><span class="annottext">JobType -&gt; Text
 </span><a href="Network.AWS.ImportExport.Types.JobType.html#fromJobType"><span class="hs-identifier hs-var hs-var">fromJobType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679154163"><span id="local-6989586621679154165"><span id="local-6989586621679154167"><span class="annot"><span class="annottext">Int -&gt; JobType -&gt; ShowS
+</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679154172"><span id="local-6989586621679154174"><span id="local-6989586621679154176"><span class="annot"><span class="annottext">Int -&gt; JobType -&gt; ShowS
 [JobType] -&gt; ShowS
 JobType -&gt; String
 (Int -&gt; JobType -&gt; ShowS)
@@ -47,7 +47,7 @@ $cshow :: JobType -&gt; String
 showsPrec :: Int -&gt; JobType -&gt; ShowS
 $cshowsPrec :: Int -&gt; JobType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>      </span><span id="local-6989586621679154154"><span id="local-6989586621679154156"><span id="local-6989586621679154158"><span id="local-6989586621679154160"><span class="annot"><span class="annottext">ReadPrec [JobType]
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679154163"><span id="local-6989586621679154165"><span id="local-6989586621679154167"><span id="local-6989586621679154169"><span class="annot"><span class="annottext">ReadPrec [JobType]
 ReadPrec JobType
 Int -&gt; ReadS JobType
 ReadS [JobType]
@@ -68,7 +68,7 @@ $creadList :: ReadS [JobType]
 readsPrec :: Int -&gt; ReadS JobType
 $creadsPrec :: Int -&gt; ReadS JobType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679154149"><span id="local-6989586621679154151"><span class="annot"><span class="annottext">JobType -&gt; JobType -&gt; Bool
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679154158"><span id="local-6989586621679154160"><span class="annot"><span class="annottext">JobType -&gt; JobType -&gt; Bool
 (JobType -&gt; JobType -&gt; Bool)
 -&gt; (JobType -&gt; JobType -&gt; Bool) -&gt; Eq JobType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -77,7 +77,7 @@ $c/= :: JobType -&gt; JobType -&gt; Bool
 == :: JobType -&gt; JobType -&gt; Bool
 $c== :: JobType -&gt; JobType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679154133"><span id="local-6989586621679154135"><span id="local-6989586621679154137"><span id="local-6989586621679154139"><span id="local-6989586621679154141"><span id="local-6989586621679154143"><span id="local-6989586621679154145"><span class="annot"><span class="annottext">Eq JobType
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679154142"><span id="local-6989586621679154144"><span id="local-6989586621679154146"><span id="local-6989586621679154148"><span id="local-6989586621679154150"><span id="local-6989586621679154152"><span id="local-6989586621679154154"><span class="annot"><span class="annottext">Eq JobType
 Eq JobType
 -&gt; (JobType -&gt; JobType -&gt; Ordering)
 -&gt; (JobType -&gt; JobType -&gt; Bool)
@@ -127,7 +127,7 @@ $cfrom :: forall x. JobType -&gt; Rep JobType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679154125"><span id="local-6989586621679154127"><span class="annot"><span class="annottext">Int -&gt; JobType -&gt; Int
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679154134"><span id="local-6989586621679154136"><span class="annot"><span class="annottext">Int -&gt; JobType -&gt; Int
 JobType -&gt; Int
 (Int -&gt; JobType -&gt; Int) -&gt; (JobType -&gt; Int) -&gt; Hashable JobType
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -136,49 +136,49 @@ $chash :: JobType -&gt; Int
 hashWithSalt :: Int -&gt; JobType -&gt; Int
 $chashWithSalt :: Int -&gt; JobType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679154122"><span class="annot"><span class="annottext">JobType -&gt; ()
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679154131"><span class="annot"><span class="annottext">JobType -&gt; ()
 (JobType -&gt; ()) -&gt; NFData JobType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: JobType -&gt; ()
 $crnf :: JobType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679154119"><span class="annot"><span class="annottext">Text -&gt; Either String JobType
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679154128"><span class="annot"><span class="annottext">Text -&gt; Either String JobType
 (Text -&gt; Either String JobType) -&gt; FromText JobType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String JobType
 $cfromText :: Text -&gt; Either String JobType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679154116"><span class="annot"><span class="annottext">JobType -&gt; Text
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679154125"><span class="annot"><span class="annottext">JobType -&gt; Text
 (JobType -&gt; Text) -&gt; ToText JobType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: JobType -&gt; Text
 $ctoText :: JobType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679154113"><span class="annot"><span class="annottext">JobType -&gt; ByteString
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679154122"><span class="annot"><span class="annottext">JobType -&gt; ByteString
 (JobType -&gt; ByteString) -&gt; ToByteString JobType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: JobType -&gt; ByteString
 $ctoBS :: JobType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679154110"><span class="annot"><span class="annottext">JobType -&gt; ByteStringBuilder
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679154119"><span class="annot"><span class="annottext">JobType -&gt; ByteStringBuilder
 (JobType -&gt; ByteStringBuilder) -&gt; ToLog JobType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: JobType -&gt; ByteStringBuilder
 $cbuild :: JobType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679154107"><span class="annot"><span class="annottext">HeaderName -&gt; JobType -&gt; [Header]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679154116"><span class="annot"><span class="annottext">HeaderName -&gt; JobType -&gt; [Header]
 (HeaderName -&gt; JobType -&gt; [Header]) -&gt; ToHeader JobType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; JobType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; JobType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679154104"><span class="annot"><span class="annottext">JobType -&gt; QueryString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679154113"><span class="annot"><span class="annottext">JobType -&gt; QueryString
 (JobType -&gt; QueryString) -&gt; ToQuery JobType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: JobType -&gt; QueryString
 $ctoQuery :: JobType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679154099"><span id="local-6989586621679154101"><span class="annot"><span class="annottext">Value -&gt; Parser [JobType]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679154108"><span id="local-6989586621679154110"><span class="annot"><span class="annottext">Value -&gt; Parser [JobType]
 Value -&gt; Parser JobType
 (Value -&gt; Parser JobType)
 -&gt; (Value -&gt; Parser [JobType]) -&gt; FromJSON JobType
@@ -189,7 +189,7 @@ $cparseJSONList :: Value -&gt; Parser [JobType]
 parseJSON :: Value -&gt; Parser JobType
 $cparseJSON :: Value -&gt; Parser JobType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679154094"><span id="local-6989586621679154096"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679154103"><span id="local-6989586621679154105"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobType]
 FromJSONKeyFunction JobType
 FromJSONKeyFunction JobType
 -&gt; FromJSONKeyFunction [JobType] -&gt; FromJSONKey JobType
@@ -200,7 +200,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [JobType]
 fromJSONKey :: FromJSONKeyFunction JobType
 $cfromJSONKey :: FromJSONKeyFunction JobType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679154085"><span id="local-6989586621679154087"><span id="local-6989586621679154089"><span id="local-6989586621679154091"><span class="annot"><span class="annottext">[JobType] -&gt; Encoding
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679154094"><span id="local-6989586621679154096"><span id="local-6989586621679154098"><span id="local-6989586621679154100"><span class="annot"><span class="annottext">[JobType] -&gt; Encoding
 [JobType] -&gt; Value
 JobType -&gt; Encoding
 JobType -&gt; Value
@@ -224,7 +224,7 @@ $ctoEncoding :: JobType -&gt; Encoding
 toJSON :: JobType -&gt; Value
 $ctoJSON :: JobType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679154080"><span id="local-6989586621679154082"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679154089"><span id="local-6989586621679154091"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobType]
 ToJSONKeyFunction JobType
 ToJSONKeyFunction JobType
 -&gt; ToJSONKeyFunction [JobType] -&gt; ToJSONKey JobType
@@ -235,13 +235,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [JobType]
 toJSONKey :: ToJSONKeyFunction JobType
 $ctoJSONKey :: ToJSONKeyFunction JobType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679154077"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobType
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679154086"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobType
 ([Node] -&gt; Either String JobType) -&gt; FromXML JobType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String JobType
 $cparseXML :: [Node] -&gt; Either String JobType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679154074"><span class="annot"><span class="annottext">JobType -&gt; XML
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679154083"><span class="annot"><span class="annottext">JobType -&gt; XML
 (JobType -&gt; XML) -&gt; ToXML JobType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: JobType -&gt; XML

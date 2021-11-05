@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-comment">-- | Request to create or update a group of environments.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newComposeEnvironments' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679317338"><span id="local-6989586621679317339"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComposeEnvironments"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-var">ComposeEnvironments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComposeEnvironments%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-var">ComposeEnvironments'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679317347"><span id="local-6989586621679317348"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComposeEnvironments"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-var">ComposeEnvironments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComposeEnvironments%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-var">ComposeEnvironments'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of version labels, specifying one or more application source</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- bundles that belong to the target application. Each source bundle must</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- include an environment manifest that specifies the name of the</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AgroupName%3AComposeEnvironments%27"><span class="annot"><span class="annottext">ComposeEnvironments -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#%24sel%3AgroupName%3AComposeEnvironments%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317330"><span id="local-6989586621679317332"><span class="annot"><span class="annottext">ComposeEnvironments -&gt; ComposeEnvironments -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317339"><span id="local-6989586621679317341"><span class="annot"><span class="annottext">ComposeEnvironments -&gt; ComposeEnvironments -&gt; Bool
 (ComposeEnvironments -&gt; ComposeEnvironments -&gt; Bool)
 -&gt; (ComposeEnvironments -&gt; ComposeEnvironments -&gt; Bool)
 -&gt; Eq ComposeEnvironments
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ComposeEnvironments -&gt; ComposeEnvironments -&gt; Bool
 == :: ComposeEnvironments -&gt; ComposeEnvironments -&gt; Bool
 $c== :: ComposeEnvironments -&gt; ComposeEnvironments -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317321"><span id="local-6989586621679317323"><span id="local-6989586621679317325"><span id="local-6989586621679317327"><span class="annot"><span class="annottext">ReadPrec [ComposeEnvironments]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317330"><span id="local-6989586621679317332"><span id="local-6989586621679317334"><span id="local-6989586621679317336"><span class="annot"><span class="annottext">ReadPrec [ComposeEnvironments]
 ReadPrec ComposeEnvironments
 Int -&gt; ReadS ComposeEnvironments
 ReadS [ComposeEnvironments]
@@ -107,7 +107,7 @@ readList :: ReadS [ComposeEnvironments]
 $creadList :: ReadS [ComposeEnvironments]
 readsPrec :: Int -&gt; ReadS ComposeEnvironments
 $creadsPrec :: Int -&gt; ReadS ComposeEnvironments
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317314"><span id="local-6989586621679317316"><span id="local-6989586621679317318"><span class="annot"><span class="annottext">Int -&gt; ComposeEnvironments -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317323"><span id="local-6989586621679317325"><span id="local-6989586621679317327"><span class="annot"><span class="annottext">Int -&gt; ComposeEnvironments -&gt; ShowS
 [ComposeEnvironments] -&gt; ShowS
 ComposeEnvironments -&gt; String
 (Int -&gt; ComposeEnvironments -&gt; ShowS)
@@ -192,16 +192,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-type">ComposeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317307"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-type">ComposeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317316"><span class="annot"><span class="annottext">Maybe [Text]
 versionLabels :: Maybe [Text]
 $sel:versionLabels:ComposeEnvironments' :: ComposeEnvironments -&gt; Maybe [Text]
-</span><a href="#local-6989586621679317307"><span class="hs-identifier hs-var hs-var">versionLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679317307"><span class="hs-identifier hs-var">versionLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317306"><span class="annot"><span class="annottext">s :: ComposeEnvironments
-</span><a href="#local-6989586621679317306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-type">ComposeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317305"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679317305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComposeEnvironments
-</span><a href="#local-6989586621679317306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionLabels:ComposeEnvironments' :: Maybe [Text]
+</span><a href="#local-6989586621679317316"><span class="hs-identifier hs-var hs-var">versionLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679317316"><span class="hs-identifier hs-var">versionLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317315"><span class="annot"><span class="annottext">s :: ComposeEnvironments
+</span><a href="#local-6989586621679317315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-type">ComposeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317314"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679317314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComposeEnvironments
+</span><a href="#local-6989586621679317315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionLabels:ComposeEnvironments' :: Maybe [Text]
 </span><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#%24sel%3AversionLabels%3AComposeEnvironments%27"><span class="hs-identifier hs-var">versionLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679317305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679317314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ComposeEnvironments -&gt; f ComposeEnvironments)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -228,16 +228,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ComposeEnvironments ComposeEnvironments (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-type">ComposeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317301"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-type">ComposeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317310"><span class="annot"><span class="annottext">Maybe Text
 applicationName :: Maybe Text
 $sel:applicationName:ComposeEnvironments' :: ComposeEnvironments -&gt; Maybe Text
-</span><a href="#local-6989586621679317301"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317301"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317300"><span class="annot"><span class="annottext">s :: ComposeEnvironments
-</span><a href="#local-6989586621679317300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-type">ComposeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317299"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComposeEnvironments
-</span><a href="#local-6989586621679317300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:ComposeEnvironments' :: Maybe Text
+</span><a href="#local-6989586621679317310"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317310"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317309"><span class="annot"><span class="annottext">s :: ComposeEnvironments
+</span><a href="#local-6989586621679317309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-type">ComposeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317308"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComposeEnvironments
+</span><a href="#local-6989586621679317309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:ComposeEnvironments' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#%24sel%3AapplicationName%3AComposeEnvironments%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The name of the group to which the target environments belong. Specify a</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- group name only if the environment name defined in each target</span><span>
@@ -252,27 +252,27 @@ $sel:applicationName:ComposeEnvironments' :: ComposeEnvironments -&gt; Maybe Tex
 -&gt; Lens
      ComposeEnvironments ComposeEnvironments (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-type">ComposeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317298"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-type">ComposeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317307"><span class="annot"><span class="annottext">Maybe Text
 groupName :: Maybe Text
 $sel:groupName:ComposeEnvironments' :: ComposeEnvironments -&gt; Maybe Text
-</span><a href="#local-6989586621679317298"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317298"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317297"><span class="annot"><span class="annottext">s :: ComposeEnvironments
-</span><a href="#local-6989586621679317297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-type">ComposeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317296"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComposeEnvironments
-</span><a href="#local-6989586621679317297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:ComposeEnvironments' :: Maybe Text
+</span><a href="#local-6989586621679317307"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317307"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317306"><span class="annot"><span class="annottext">s :: ComposeEnvironments
+</span><a href="#local-6989586621679317306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-type">ComposeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317305"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComposeEnvironments
+</span><a href="#local-6989586621679317306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:ComposeEnvironments' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#%24sel%3AgroupName%3AComposeEnvironments%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentDescriptionsMessage.html#EnvironmentDescriptionsMessage"><span class="hs-identifier hs-type">EnvironmentDescriptionsMessage</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679317292"><span class="annot"><span class="annottext">request :: ComposeEnvironments -&gt; Request ComposeEnvironments
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679317301"><span class="annot"><span class="annottext">request :: ComposeEnvironments -&gt; Request ComposeEnvironments
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ComposeEnvironments -&gt; Request ComposeEnvironments
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679317288"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679317297"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ComposeEnvironments
 -&gt; ClientResponse ClientBody
@@ -303,20 +303,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComposeEnvironmentsResult&quot;</span></span><span>
-</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317285"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317285"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317284"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679317284"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317283"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679317283"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String EnvironmentDescriptionsMessage
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317294"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317294"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317293"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679317293"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317292"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679317292"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String EnvironmentDescriptionsMessage
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679317283"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317292"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317278"><span id="local-6989586621679317280"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317287"><span id="local-6989586621679317289"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679317271"><span class="annot"><span class="annottext">toHeaders :: ComposeEnvironments -&gt; ResponseHeaders
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679317280"><span class="annot"><span class="annottext">toHeaders :: ComposeEnvironments -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ComposeEnvironments -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -324,15 +324,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679317266"><span class="annot"><span class="annottext">toPath :: ComposeEnvironments -&gt; ByteString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679317275"><span class="annot"><span class="annottext">toPath :: ComposeEnvironments -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ComposeEnvironments -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments"><span class="hs-identifier hs-type">ComposeEnvironments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679317262"><span class="annot"><span class="annottext">toQuery :: ComposeEnvironments -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-type">ComposeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317258"><span id="local-6989586621679317259"><span id="local-6989586621679317260"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679317271"><span class="annot"><span class="annottext">toQuery :: ComposeEnvironments -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ComposeEnvironments.html#ComposeEnvironments%27"><span class="hs-identifier hs-type">ComposeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317267"><span id="local-6989586621679317268"><span id="local-6989586621679317269"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 groupName :: Maybe Text
 applicationName :: Maybe Text
@@ -340,7 +340,7 @@ versionLabels :: Maybe [Text]
 $sel:groupName:ComposeEnvironments' :: ComposeEnvironments -&gt; Maybe Text
 $sel:applicationName:ComposeEnvironments' :: ComposeEnvironments -&gt; Maybe Text
 $sel:versionLabels:ComposeEnvironments' :: ComposeEnvironments -&gt; Maybe [Text]
-</span><a href="#local-6989586621679317258"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679317267"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -372,17 +372,17 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-163"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679317260"><span class="hs-identifier hs-var">versionLabels</span></a></span><span>
+</span><a href="#local-6989586621679317269"><span class="hs-identifier hs-var">versionLabels</span></a></span><span>
 </span><span id="line-164"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ApplicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317259"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679317268"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317258"><span class="hs-identifier hs-var">groupName</span></a></span><span>
+</span><a href="#local-6989586621679317267"><span class="hs-identifier hs-var">groupName</span></a></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span></pre></body></html>

@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeStatus.html"><span class="hs-identifier">Network.AWS.MarketplaceCatalog.Types.ChangeStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.FailureCode.html"><span class="hs-identifier">Network.AWS.MarketplaceCatalog.Types.FailureCode</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A summary of a change set returned in a list of change sets when the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @ListChangeSets@ action is called.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newChangeSetSummaryListItem' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679158644"><span id="local-6989586621679158645"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChangeSetSummaryListItem"><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-var">ChangeSetSummaryListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeSetSummaryListItem%27"><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">ChangeSetSummaryListItem'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the change set.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AChangeSetSummaryListItem%27"><span class="annot"><span class="annottext">ChangeSetSummaryListItem -&gt; Maybe ChangeStatus
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3Astatus%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeStatus.html#ChangeStatus"><span class="hs-identifier hs-type">ChangeStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | This object is a list of entity IDs (string) that are a part of a change</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- set. The entity ID list is a maximum of 20 entities. It must contain at</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- least one entity.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AentityIdList%3AChangeSetSummaryListItem%27"><span class="annot"><span class="annottext">ChangeSetSummaryListItem -&gt; Maybe [Text]
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AentityIdList%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var hs-var">entityIdList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- was started.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AstartTime%3AChangeSetSummaryListItem%27"><span class="annot"><span class="annottext">ChangeSetSummaryListItem -&gt; Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AstartTime%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Returned if the change set is in @FAILED@ status. Can be either</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @CLIENT_ERROR@, which means that there are issues with the request (see</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the @ErrorDetailList@ of @DescribeChangeSet@), or @SERVER_FAULT@, which</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- means that there is a problem in the system, and you should retry your</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AfailureCode%3AChangeSetSummaryListItem%27"><span class="annot"><span class="annottext">ChangeSetSummaryListItem -&gt; Maybe FailureCode
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AfailureCode%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var hs-var">failureCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.FailureCode.html#FailureCode"><span class="hs-identifier hs-type">FailureCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The non-unique name for the change set.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AchangeSetName%3AChangeSetSummaryListItem%27"><span class="annot"><span class="annottext">ChangeSetSummaryListItem -&gt; Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AchangeSetName%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var hs-var">changeSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The unique identifier for a change set.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AchangeSetId%3AChangeSetSummaryListItem%27"><span class="annot"><span class="annottext">ChangeSetSummaryListItem -&gt; Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AchangeSetId%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var hs-var">changeSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- was finished.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AendTime%3AChangeSetSummaryListItem%27"><span class="annot"><span class="annottext">ChangeSetSummaryListItem -&gt; Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AendTime%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The ARN associated with the unique identifier for the change set</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- referenced in this request.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AchangeSetArn%3AChangeSetSummaryListItem%27"><span class="annot"><span class="annottext">ChangeSetSummaryListItem -&gt; Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AchangeSetArn%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var hs-var">changeSetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679158631"><span id="local-6989586621679158633"><span class="annot"><span class="annottext">ChangeSetSummaryListItem -&gt; ChangeSetSummaryListItem -&gt; Bool
+(ChangeSetSummaryListItem -&gt; ChangeSetSummaryListItem -&gt; Bool)
+-&gt; (ChangeSetSummaryListItem -&gt; ChangeSetSummaryListItem -&gt; Bool)
+-&gt; Eq ChangeSetSummaryListItem
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChangeSetSummaryListItem -&gt; ChangeSetSummaryListItem -&gt; Bool
+$c/= :: ChangeSetSummaryListItem -&gt; ChangeSetSummaryListItem -&gt; Bool
+== :: ChangeSetSummaryListItem -&gt; ChangeSetSummaryListItem -&gt; Bool
+$c== :: ChangeSetSummaryListItem -&gt; ChangeSetSummaryListItem -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158622"><span id="local-6989586621679158624"><span id="local-6989586621679158626"><span id="local-6989586621679158628"><span class="annot"><span class="annottext">ReadPrec [ChangeSetSummaryListItem]
+ReadPrec ChangeSetSummaryListItem
+Int -&gt; ReadS ChangeSetSummaryListItem
+ReadS [ChangeSetSummaryListItem]
+(Int -&gt; ReadS ChangeSetSummaryListItem)
+-&gt; ReadS [ChangeSetSummaryListItem]
+-&gt; ReadPrec ChangeSetSummaryListItem
+-&gt; ReadPrec [ChangeSetSummaryListItem]
+-&gt; Read ChangeSetSummaryListItem
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChangeSetSummaryListItem]
+$creadListPrec :: ReadPrec [ChangeSetSummaryListItem]
+readPrec :: ReadPrec ChangeSetSummaryListItem
+$creadPrec :: ReadPrec ChangeSetSummaryListItem
+readList :: ReadS [ChangeSetSummaryListItem]
+$creadList :: ReadS [ChangeSetSummaryListItem]
+readsPrec :: Int -&gt; ReadS ChangeSetSummaryListItem
+$creadsPrec :: Int -&gt; ReadS ChangeSetSummaryListItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158615"><span id="local-6989586621679158617"><span id="local-6989586621679158619"><span class="annot"><span class="annottext">Int -&gt; ChangeSetSummaryListItem -&gt; ShowS
+[ChangeSetSummaryListItem] -&gt; ShowS
+ChangeSetSummaryListItem -&gt; String
+(Int -&gt; ChangeSetSummaryListItem -&gt; ShowS)
+-&gt; (ChangeSetSummaryListItem -&gt; String)
+-&gt; ([ChangeSetSummaryListItem] -&gt; ShowS)
+-&gt; Show ChangeSetSummaryListItem
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChangeSetSummaryListItem] -&gt; ShowS
+$cshowList :: [ChangeSetSummaryListItem] -&gt; ShowS
+show :: ChangeSetSummaryListItem -&gt; String
+$cshow :: ChangeSetSummaryListItem -&gt; String
+showsPrec :: Int -&gt; ChangeSetSummaryListItem -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChangeSetSummaryListItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ChangeSetSummaryListItem -&gt; Rep ChangeSetSummaryListItem x)
+-&gt; (forall x.
+    Rep ChangeSetSummaryListItem x -&gt; ChangeSetSummaryListItem)
+-&gt; Generic ChangeSetSummaryListItem
+forall x.
+Rep ChangeSetSummaryListItem x -&gt; ChangeSetSummaryListItem
+forall x.
+ChangeSetSummaryListItem -&gt; Rep ChangeSetSummaryListItem x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ChangeSetSummaryListItem x -&gt; ChangeSetSummaryListItem
+$cfrom :: forall x.
+ChangeSetSummaryListItem -&gt; Rep ChangeSetSummaryListItem x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'ChangeSetSummaryListItem' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'status', 'changeSetSummaryListItem_status' - The current status of the change set.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'entityIdList', 'changeSetSummaryListItem_entityIdList' - This object is a list of entity IDs (string) that are a part of a change</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- set. The entity ID list is a maximum of 20 entities. It must contain at</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- least one entity.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'startTime', 'changeSetSummaryListItem_startTime' - The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- was started.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'failureCode', 'changeSetSummaryListItem_failureCode' - Returned if the change set is in @FAILED@ status. Can be either</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @CLIENT_ERROR@, which means that there are issues with the request (see</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- the @ErrorDetailList@ of @DescribeChangeSet@), or @SERVER_FAULT@, which</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- means that there is a problem in the system, and you should retry your</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'changeSetName', 'changeSetSummaryListItem_changeSetName' - The non-unique name for the change set.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'changeSetId', 'changeSetSummaryListItem_changeSetId' - The unique identifier for a change set.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'endTime', 'changeSetSummaryListItem_endTime' - The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- was finished.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'changeSetArn', 'changeSetSummaryListItem_changeSetArn' - The ARN associated with the unique identifier for the change set</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- referenced in this request.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#newChangeSetSummaryListItem"><span class="hs-identifier hs-type">newChangeSetSummaryListItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span>
+</span><span id="line-95"></span><span id="newChangeSetSummaryListItem"><span class="annot"><span class="annottext">newChangeSetSummaryListItem :: ChangeSetSummaryListItem
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#newChangeSetSummaryListItem"><span class="hs-identifier hs-var hs-var">newChangeSetSummaryListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">ChangeSetSummaryListItem' :: Maybe ChangeStatus
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe FailureCode
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ChangeSetSummaryListItem
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ChangeSetSummaryListItem' :: Maybe ChangeStatus
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3Astatus%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityIdList:ChangeSetSummaryListItem' :: Maybe [Text]
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AentityIdList%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">entityIdList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:ChangeSetSummaryListItem' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AstartTime%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureCode:ChangeSetSummaryListItem' :: Maybe FailureCode
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AfailureCode%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">failureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FailureCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeSetName:ChangeSetSummaryListItem' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AchangeSetName%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">changeSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeSetId:ChangeSetSummaryListItem' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AchangeSetId%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">changeSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:ChangeSetSummaryListItem' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AendTime%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeSetArn:ChangeSetSummaryListItem' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AchangeSetArn%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">changeSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The current status of the change set.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_status"><span class="hs-identifier hs-type">changeSetSummaryListItem_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeStatus.html#ChangeStatus"><span class="hs-identifier hs-type">ChangeStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="changeSetSummaryListItem_status"><span class="annot"><span class="annottext">changeSetSummaryListItem_status :: (Maybe ChangeStatus -&gt; f (Maybe ChangeStatus))
+-&gt; ChangeSetSummaryListItem -&gt; f ChangeSetSummaryListItem
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_status"><span class="hs-identifier hs-var hs-var">changeSetSummaryListItem_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummaryListItem -&gt; Maybe ChangeStatus)
+-&gt; (ChangeSetSummaryListItem
+    -&gt; Maybe ChangeStatus -&gt; ChangeSetSummaryListItem)
+-&gt; Lens
+     ChangeSetSummaryListItem
+     ChangeSetSummaryListItem
+     (Maybe ChangeStatus)
+     (Maybe ChangeStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158606"><span class="annot"><span class="annottext">Maybe ChangeStatus
+status :: Maybe ChangeStatus
+$sel:status:ChangeSetSummaryListItem' :: ChangeSetSummaryListItem -&gt; Maybe ChangeStatus
+</span><a href="#local-6989586621679158606"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeStatus
+</span><a href="#local-6989586621679158606"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158605"><span class="annot"><span class="annottext">s :: ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158604"><span class="annot"><span class="annottext">Maybe ChangeStatus
+</span><a href="#local-6989586621679158604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ChangeSetSummaryListItem' :: Maybe ChangeStatus
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3Astatus%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeStatus
+</span><a href="#local-6989586621679158604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | This object is a list of entity IDs (string) that are a part of a change</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- set. The entity ID list is a maximum of 20 entities. It must contain at</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- least one entity.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_entityIdList"><span class="hs-identifier hs-type">changeSetSummaryListItem_entityIdList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="changeSetSummaryListItem_entityIdList"><span class="annot"><span class="annottext">changeSetSummaryListItem_entityIdList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ChangeSetSummaryListItem -&gt; f ChangeSetSummaryListItem
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_entityIdList"><span class="hs-identifier hs-var hs-var">changeSetSummaryListItem_entityIdList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummaryListItem -&gt; Maybe [Text])
+-&gt; (ChangeSetSummaryListItem
+    -&gt; Maybe [Text] -&gt; ChangeSetSummaryListItem)
+-&gt; Lens
+     ChangeSetSummaryListItem
+     ChangeSetSummaryListItem
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158602"><span class="annot"><span class="annottext">Maybe [Text]
+entityIdList :: Maybe [Text]
+$sel:entityIdList:ChangeSetSummaryListItem' :: ChangeSetSummaryListItem -&gt; Maybe [Text]
+</span><a href="#local-6989586621679158602"><span class="hs-identifier hs-var hs-var">entityIdList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679158602"><span class="hs-identifier hs-var">entityIdList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158601"><span class="annot"><span class="annottext">s :: ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158600"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679158600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityIdList:ChangeSetSummaryListItem' :: Maybe [Text]
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AentityIdList%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">entityIdList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679158600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ChangeSetSummaryListItem -&gt; f ChangeSetSummaryListItem)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ChangeSetSummaryListItem
+-&gt; f ChangeSetSummaryListItem
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- was started.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_startTime"><span class="hs-identifier hs-type">changeSetSummaryListItem_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="changeSetSummaryListItem_startTime"><span class="annot"><span class="annottext">changeSetSummaryListItem_startTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChangeSetSummaryListItem -&gt; f ChangeSetSummaryListItem
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_startTime"><span class="hs-identifier hs-var hs-var">changeSetSummaryListItem_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummaryListItem -&gt; Maybe Text)
+-&gt; (ChangeSetSummaryListItem
+    -&gt; Maybe Text -&gt; ChangeSetSummaryListItem)
+-&gt; Lens
+     ChangeSetSummaryListItem
+     ChangeSetSummaryListItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158595"><span class="annot"><span class="annottext">Maybe Text
+startTime :: Maybe Text
+$sel:startTime:ChangeSetSummaryListItem' :: ChangeSetSummaryListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679158595"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158595"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158594"><span class="annot"><span class="annottext">s :: ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158593"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ChangeSetSummaryListItem' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AstartTime%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Returned if the change set is in @FAILED@ status. Can be either</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @CLIENT_ERROR@, which means that there are issues with the request (see</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- the @ErrorDetailList@ of @DescribeChangeSet@), or @SERVER_FAULT@, which</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- means that there is a problem in the system, and you should retry your</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_failureCode"><span class="hs-identifier hs-type">changeSetSummaryListItem_failureCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.FailureCode.html#FailureCode"><span class="hs-identifier hs-type">FailureCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="changeSetSummaryListItem_failureCode"><span class="annot"><span class="annottext">changeSetSummaryListItem_failureCode :: (Maybe FailureCode -&gt; f (Maybe FailureCode))
+-&gt; ChangeSetSummaryListItem -&gt; f ChangeSetSummaryListItem
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_failureCode"><span class="hs-identifier hs-var hs-var">changeSetSummaryListItem_failureCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummaryListItem -&gt; Maybe FailureCode)
+-&gt; (ChangeSetSummaryListItem
+    -&gt; Maybe FailureCode -&gt; ChangeSetSummaryListItem)
+-&gt; Lens
+     ChangeSetSummaryListItem
+     ChangeSetSummaryListItem
+     (Maybe FailureCode)
+     (Maybe FailureCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158591"><span class="annot"><span class="annottext">Maybe FailureCode
+failureCode :: Maybe FailureCode
+$sel:failureCode:ChangeSetSummaryListItem' :: ChangeSetSummaryListItem -&gt; Maybe FailureCode
+</span><a href="#local-6989586621679158591"><span class="hs-identifier hs-var hs-var">failureCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FailureCode
+</span><a href="#local-6989586621679158591"><span class="hs-identifier hs-var">failureCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158590"><span class="annot"><span class="annottext">s :: ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158589"><span class="annot"><span class="annottext">Maybe FailureCode
+</span><a href="#local-6989586621679158589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureCode:ChangeSetSummaryListItem' :: Maybe FailureCode
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AfailureCode%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">failureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FailureCode
+</span><a href="#local-6989586621679158589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The non-unique name for the change set.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_changeSetName"><span class="hs-identifier hs-type">changeSetSummaryListItem_changeSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="changeSetSummaryListItem_changeSetName"><span class="annot"><span class="annottext">changeSetSummaryListItem_changeSetName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChangeSetSummaryListItem -&gt; f ChangeSetSummaryListItem
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_changeSetName"><span class="hs-identifier hs-var hs-var">changeSetSummaryListItem_changeSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummaryListItem -&gt; Maybe Text)
+-&gt; (ChangeSetSummaryListItem
+    -&gt; Maybe Text -&gt; ChangeSetSummaryListItem)
+-&gt; Lens
+     ChangeSetSummaryListItem
+     ChangeSetSummaryListItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158587"><span class="annot"><span class="annottext">Maybe Text
+changeSetName :: Maybe Text
+$sel:changeSetName:ChangeSetSummaryListItem' :: ChangeSetSummaryListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679158587"><span class="hs-identifier hs-var hs-var">changeSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158587"><span class="hs-identifier hs-var">changeSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158586"><span class="annot"><span class="annottext">s :: ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158585"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeSetName:ChangeSetSummaryListItem' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AchangeSetName%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">changeSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The unique identifier for a change set.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_changeSetId"><span class="hs-identifier hs-type">changeSetSummaryListItem_changeSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="changeSetSummaryListItem_changeSetId"><span class="annot"><span class="annottext">changeSetSummaryListItem_changeSetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChangeSetSummaryListItem -&gt; f ChangeSetSummaryListItem
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_changeSetId"><span class="hs-identifier hs-var hs-var">changeSetSummaryListItem_changeSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummaryListItem -&gt; Maybe Text)
+-&gt; (ChangeSetSummaryListItem
+    -&gt; Maybe Text -&gt; ChangeSetSummaryListItem)
+-&gt; Lens
+     ChangeSetSummaryListItem
+     ChangeSetSummaryListItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158583"><span class="annot"><span class="annottext">Maybe Text
+changeSetId :: Maybe Text
+$sel:changeSetId:ChangeSetSummaryListItem' :: ChangeSetSummaryListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679158583"><span class="hs-identifier hs-var hs-var">changeSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158583"><span class="hs-identifier hs-var">changeSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158582"><span class="annot"><span class="annottext">s :: ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158581"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeSetId:ChangeSetSummaryListItem' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AchangeSetId%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">changeSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- was finished.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_endTime"><span class="hs-identifier hs-type">changeSetSummaryListItem_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="changeSetSummaryListItem_endTime"><span class="annot"><span class="annottext">changeSetSummaryListItem_endTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChangeSetSummaryListItem -&gt; f ChangeSetSummaryListItem
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_endTime"><span class="hs-identifier hs-var hs-var">changeSetSummaryListItem_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummaryListItem -&gt; Maybe Text)
+-&gt; (ChangeSetSummaryListItem
+    -&gt; Maybe Text -&gt; ChangeSetSummaryListItem)
+-&gt; Lens
+     ChangeSetSummaryListItem
+     ChangeSetSummaryListItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158579"><span class="annot"><span class="annottext">Maybe Text
+endTime :: Maybe Text
+$sel:endTime:ChangeSetSummaryListItem' :: ChangeSetSummaryListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679158579"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158579"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158578"><span class="annot"><span class="annottext">s :: ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158577"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:ChangeSetSummaryListItem' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AendTime%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The ARN associated with the unique identifier for the change set</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- referenced in this request.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_changeSetArn"><span class="hs-identifier hs-type">changeSetSummaryListItem_changeSetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="changeSetSummaryListItem_changeSetArn"><span class="annot"><span class="annottext">changeSetSummaryListItem_changeSetArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChangeSetSummaryListItem -&gt; f ChangeSetSummaryListItem
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#changeSetSummaryListItem_changeSetArn"><span class="hs-identifier hs-var hs-var">changeSetSummaryListItem_changeSetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummaryListItem -&gt; Maybe Text)
+-&gt; (ChangeSetSummaryListItem
+    -&gt; Maybe Text -&gt; ChangeSetSummaryListItem)
+-&gt; Lens
+     ChangeSetSummaryListItem
+     ChangeSetSummaryListItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158575"><span class="annot"><span class="annottext">Maybe Text
+changeSetArn :: Maybe Text
+$sel:changeSetArn:ChangeSetSummaryListItem' :: ChangeSetSummaryListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679158575"><span class="hs-identifier hs-var hs-var">changeSetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158575"><span class="hs-identifier hs-var">changeSetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158574"><span class="annot"><span class="annottext">s :: ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-type">ChangeSetSummaryListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158573"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummaryListItem
+</span><a href="#local-6989586621679158574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeSetArn:ChangeSetSummaryListItem' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#%24sel%3AchangeSetArn%3AChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">changeSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158570"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679158568"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChangeSetSummaryListItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ChangeSetSummaryListItem)
+-&gt; Value
+-&gt; Parser ChangeSetSummaryListItem
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ChangeSetSummaryListItem&quot;</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679158565"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158565"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe ChangeStatus
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe FailureCode
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ChangeSetSummaryListItem
+</span><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem%27"><span class="hs-identifier hs-var">ChangeSetSummaryListItem'</span></a></span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ChangeStatus
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe FailureCode
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ChangeSetSummaryListItem)
+-&gt; Parser (Maybe ChangeStatus)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe FailureCode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ChangeSetSummaryListItem)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChangeStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe FailureCode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ChangeSetSummaryListItem)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe FailureCode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ChangeSetSummaryListItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EntityIdList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe FailureCode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ChangeSetSummaryListItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe FailureCode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ChangeSetSummaryListItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FailureCode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ChangeSetSummaryListItem)
+-&gt; Parser (Maybe FailureCode)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ChangeSetSummaryListItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FailureCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ChangeSetSummaryListItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; ChangeSetSummaryListItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeSetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; ChangeSetSummaryListItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ChangeSetSummaryListItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeSetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ChangeSetSummaryListItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; ChangeSetSummaryListItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ChangeSetSummaryListItem)
+-&gt; Parser (Maybe Text) -&gt; Parser ChangeSetSummaryListItem
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeSetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158558"><span id="local-6989586621679158560"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158555"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.html#ChangeSetSummaryListItem"><span class="hs-identifier hs-type">ChangeSetSummaryListItem</span></a></span></span><span>
+</span><span id="line-167"></span></pre></body></html>

@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-40"></span><span>
-</span><span id="line-41"></span><span id="local-6989586621679369752"><span id="local-6989586621679369753"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BuildPhaseType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhaseType.html#BuildPhaseType"><span class="hs-identifier hs-var">BuildPhaseType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuildPhaseType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhaseType.html#BuildPhaseType%27"><span class="hs-identifier hs-var">BuildPhaseType'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679369761"><span id="local-6989586621679369762"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BuildPhaseType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhaseType.html#BuildPhaseType"><span class="hs-identifier hs-var">BuildPhaseType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuildPhaseType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhaseType.html#BuildPhaseType%27"><span class="hs-identifier hs-var">BuildPhaseType'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBuildPhaseType"><span class="annot"><span class="annottext">BuildPhaseType -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.BuildPhaseType.html#fromBuildPhaseType"><span class="hs-identifier hs-var hs-var">fromBuildPhaseType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369744"><span id="local-6989586621679369746"><span id="local-6989586621679369748"><span class="annot"><span class="annottext">Int -&gt; BuildPhaseType -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369753"><span id="local-6989586621679369755"><span id="local-6989586621679369757"><span class="annot"><span class="annottext">Int -&gt; BuildPhaseType -&gt; ShowS
 [BuildPhaseType] -&gt; ShowS
 BuildPhaseType -&gt; String
 (Int -&gt; BuildPhaseType -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: BuildPhaseType -&gt; String
 showsPrec :: Int -&gt; BuildPhaseType -&gt; ShowS
 $cshowsPrec :: Int -&gt; BuildPhaseType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679369735"><span id="local-6989586621679369737"><span id="local-6989586621679369739"><span id="local-6989586621679369741"><span class="annot"><span class="annottext">ReadPrec [BuildPhaseType]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679369744"><span id="local-6989586621679369746"><span id="local-6989586621679369748"><span id="local-6989586621679369750"><span class="annot"><span class="annottext">ReadPrec [BuildPhaseType]
 ReadPrec BuildPhaseType
 Int -&gt; ReadS BuildPhaseType
 ReadS [BuildPhaseType]
@@ -81,7 +81,7 @@ $creadList :: ReadS [BuildPhaseType]
 readsPrec :: Int -&gt; ReadS BuildPhaseType
 $creadsPrec :: Int -&gt; ReadS BuildPhaseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679369730"><span id="local-6989586621679369732"><span class="annot"><span class="annottext">BuildPhaseType -&gt; BuildPhaseType -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679369739"><span id="local-6989586621679369741"><span class="annot"><span class="annottext">BuildPhaseType -&gt; BuildPhaseType -&gt; Bool
 (BuildPhaseType -&gt; BuildPhaseType -&gt; Bool)
 -&gt; (BuildPhaseType -&gt; BuildPhaseType -&gt; Bool) -&gt; Eq BuildPhaseType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ $c/= :: BuildPhaseType -&gt; BuildPhaseType -&gt; Bool
 == :: BuildPhaseType -&gt; BuildPhaseType -&gt; Bool
 $c== :: BuildPhaseType -&gt; BuildPhaseType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679369714"><span id="local-6989586621679369716"><span id="local-6989586621679369718"><span id="local-6989586621679369720"><span id="local-6989586621679369722"><span id="local-6989586621679369724"><span id="local-6989586621679369726"><span class="annot"><span class="annottext">Eq BuildPhaseType
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679369723"><span id="local-6989586621679369725"><span id="local-6989586621679369727"><span id="local-6989586621679369729"><span id="local-6989586621679369731"><span id="local-6989586621679369733"><span id="local-6989586621679369735"><span class="annot"><span class="annottext">Eq BuildPhaseType
 Eq BuildPhaseType
 -&gt; (BuildPhaseType -&gt; BuildPhaseType -&gt; Ordering)
 -&gt; (BuildPhaseType -&gt; BuildPhaseType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. BuildPhaseType -&gt; Rep BuildPhaseType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369706"><span id="local-6989586621679369708"><span class="annot"><span class="annottext">Int -&gt; BuildPhaseType -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369715"><span id="local-6989586621679369717"><span class="annot"><span class="annottext">Int -&gt; BuildPhaseType -&gt; Int
 BuildPhaseType -&gt; Int
 (Int -&gt; BuildPhaseType -&gt; Int)
 -&gt; (BuildPhaseType -&gt; Int) -&gt; Hashable BuildPhaseType
@@ -151,50 +151,50 @@ $chash :: BuildPhaseType -&gt; Int
 hashWithSalt :: Int -&gt; BuildPhaseType -&gt; Int
 $chashWithSalt :: Int -&gt; BuildPhaseType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679369703"><span class="annot"><span class="annottext">BuildPhaseType -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679369712"><span class="annot"><span class="annottext">BuildPhaseType -&gt; ()
 (BuildPhaseType -&gt; ()) -&gt; NFData BuildPhaseType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BuildPhaseType -&gt; ()
 $crnf :: BuildPhaseType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679369700"><span class="annot"><span class="annottext">Text -&gt; Either String BuildPhaseType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679369709"><span class="annot"><span class="annottext">Text -&gt; Either String BuildPhaseType
 (Text -&gt; Either String BuildPhaseType) -&gt; FromText BuildPhaseType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BuildPhaseType
 $cfromText :: Text -&gt; Either String BuildPhaseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679369697"><span class="annot"><span class="annottext">BuildPhaseType -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679369706"><span class="annot"><span class="annottext">BuildPhaseType -&gt; Text
 (BuildPhaseType -&gt; Text) -&gt; ToText BuildPhaseType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BuildPhaseType -&gt; Text
 $ctoText :: BuildPhaseType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679369694"><span class="annot"><span class="annottext">BuildPhaseType -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679369703"><span class="annot"><span class="annottext">BuildPhaseType -&gt; ByteString
 (BuildPhaseType -&gt; ByteString) -&gt; ToByteString BuildPhaseType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BuildPhaseType -&gt; ByteString
 $ctoBS :: BuildPhaseType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679369691"><span class="annot"><span class="annottext">BuildPhaseType -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679369700"><span class="annot"><span class="annottext">BuildPhaseType -&gt; ByteStringBuilder
 (BuildPhaseType -&gt; ByteStringBuilder) -&gt; ToLog BuildPhaseType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BuildPhaseType -&gt; ByteStringBuilder
 $cbuild :: BuildPhaseType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679369688"><span class="annot"><span class="annottext">HeaderName -&gt; BuildPhaseType -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679369697"><span class="annot"><span class="annottext">HeaderName -&gt; BuildPhaseType -&gt; [Header]
 (HeaderName -&gt; BuildPhaseType -&gt; [Header])
 -&gt; ToHeader BuildPhaseType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BuildPhaseType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BuildPhaseType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679369685"><span class="annot"><span class="annottext">BuildPhaseType -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679369694"><span class="annot"><span class="annottext">BuildPhaseType -&gt; QueryString
 (BuildPhaseType -&gt; QueryString) -&gt; ToQuery BuildPhaseType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BuildPhaseType -&gt; QueryString
 $ctoQuery :: BuildPhaseType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679369680"><span id="local-6989586621679369682"><span class="annot"><span class="annottext">Value -&gt; Parser [BuildPhaseType]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679369689"><span id="local-6989586621679369691"><span class="annot"><span class="annottext">Value -&gt; Parser [BuildPhaseType]
 Value -&gt; Parser BuildPhaseType
 (Value -&gt; Parser BuildPhaseType)
 -&gt; (Value -&gt; Parser [BuildPhaseType]) -&gt; FromJSON BuildPhaseType
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [BuildPhaseType]
 parseJSON :: Value -&gt; Parser BuildPhaseType
 $cparseJSON :: Value -&gt; Parser BuildPhaseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679369675"><span id="local-6989586621679369677"><span class="annot"><span class="annottext">FromJSONKeyFunction [BuildPhaseType]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679369684"><span id="local-6989586621679369686"><span class="annot"><span class="annottext">FromJSONKeyFunction [BuildPhaseType]
 FromJSONKeyFunction BuildPhaseType
 FromJSONKeyFunction BuildPhaseType
 -&gt; FromJSONKeyFunction [BuildPhaseType]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BuildPhaseType]
 fromJSONKey :: FromJSONKeyFunction BuildPhaseType
 $cfromJSONKey :: FromJSONKeyFunction BuildPhaseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679369666"><span id="local-6989586621679369668"><span id="local-6989586621679369670"><span id="local-6989586621679369672"><span class="annot"><span class="annottext">[BuildPhaseType] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679369675"><span id="local-6989586621679369677"><span id="local-6989586621679369679"><span id="local-6989586621679369681"><span class="annot"><span class="annottext">[BuildPhaseType] -&gt; Encoding
 [BuildPhaseType] -&gt; Value
 BuildPhaseType -&gt; Encoding
 BuildPhaseType -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: BuildPhaseType -&gt; Encoding
 toJSON :: BuildPhaseType -&gt; Value
 $ctoJSON :: BuildPhaseType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679369661"><span id="local-6989586621679369663"><span class="annot"><span class="annottext">ToJSONKeyFunction [BuildPhaseType]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679369670"><span id="local-6989586621679369672"><span class="annot"><span class="annottext">ToJSONKeyFunction [BuildPhaseType]
 ToJSONKeyFunction BuildPhaseType
 ToJSONKeyFunction BuildPhaseType
 -&gt; ToJSONKeyFunction [BuildPhaseType] -&gt; ToJSONKey BuildPhaseType
@@ -252,13 +252,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BuildPhaseType]
 toJSONKey :: ToJSONKeyFunction BuildPhaseType
 $ctoJSONKey :: ToJSONKeyFunction BuildPhaseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679369658"><span class="annot"><span class="annottext">[Node] -&gt; Either String BuildPhaseType
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679369667"><span class="annot"><span class="annottext">[Node] -&gt; Either String BuildPhaseType
 ([Node] -&gt; Either String BuildPhaseType) -&gt; FromXML BuildPhaseType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BuildPhaseType
 $cparseXML :: [Node] -&gt; Either String BuildPhaseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679369655"><span class="annot"><span class="annottext">BuildPhaseType -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679369664"><span class="annot"><span class="annottext">BuildPhaseType -&gt; XML
 (BuildPhaseType -&gt; XML) -&gt; ToXML BuildPhaseType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BuildPhaseType -&gt; XML

@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteRelationalDatabaseSnapshot' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679651660"><span id="local-6989586621679651661"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRelationalDatabaseSnapshot"><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot"><span class="hs-identifier hs-var">DeleteRelationalDatabaseSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRelationalDatabaseSnapshot%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot%27"><span class="hs-identifier hs-var">DeleteRelationalDatabaseSnapshot'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679651669"><span id="local-6989586621679651670"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRelationalDatabaseSnapshot"><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot"><span class="hs-identifier hs-var">DeleteRelationalDatabaseSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRelationalDatabaseSnapshot%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot%27"><span class="hs-identifier hs-var">DeleteRelationalDatabaseSnapshot'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the database snapshot that you are deleting.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3ArelationalDatabaseSnapshotName%3ADeleteRelationalDatabaseSnapshot%27"><span class="annot"><span class="annottext">DeleteRelationalDatabaseSnapshot -&gt; Text
 </span><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#%24sel%3ArelationalDatabaseSnapshotName%3ADeleteRelationalDatabaseSnapshot%27"><span class="hs-identifier hs-var hs-var">relationalDatabaseSnapshotName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679651654"><span id="local-6989586621679651656"><span class="annot"><span class="annottext">DeleteRelationalDatabaseSnapshot
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679651663"><span id="local-6989586621679651665"><span class="annot"><span class="annottext">DeleteRelationalDatabaseSnapshot
 -&gt; DeleteRelationalDatabaseSnapshot -&gt; Bool
 (DeleteRelationalDatabaseSnapshot
  -&gt; DeleteRelationalDatabaseSnapshot -&gt; Bool)
@@ -73,7 +73,7 @@ $c/= :: DeleteRelationalDatabaseSnapshot
 -&gt; DeleteRelationalDatabaseSnapshot -&gt; Bool
 $c== :: DeleteRelationalDatabaseSnapshot
 -&gt; DeleteRelationalDatabaseSnapshot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651645"><span id="local-6989586621679651647"><span id="local-6989586621679651649"><span id="local-6989586621679651651"><span class="annot"><span class="annottext">ReadPrec [DeleteRelationalDatabaseSnapshot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651654"><span id="local-6989586621679651656"><span id="local-6989586621679651658"><span id="local-6989586621679651660"><span class="annot"><span class="annottext">ReadPrec [DeleteRelationalDatabaseSnapshot]
 ReadPrec DeleteRelationalDatabaseSnapshot
 Int -&gt; ReadS DeleteRelationalDatabaseSnapshot
 ReadS [DeleteRelationalDatabaseSnapshot]
@@ -93,7 +93,7 @@ readList :: ReadS [DeleteRelationalDatabaseSnapshot]
 $creadList :: ReadS [DeleteRelationalDatabaseSnapshot]
 readsPrec :: Int -&gt; ReadS DeleteRelationalDatabaseSnapshot
 $creadsPrec :: Int -&gt; ReadS DeleteRelationalDatabaseSnapshot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651638"><span id="local-6989586621679651640"><span id="local-6989586621679651642"><span class="annot"><span class="annottext">Int -&gt; DeleteRelationalDatabaseSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651647"><span id="local-6989586621679651649"><span id="local-6989586621679651651"><span class="annot"><span class="annottext">Int -&gt; DeleteRelationalDatabaseSnapshot -&gt; ShowS
 [DeleteRelationalDatabaseSnapshot] -&gt; ShowS
 DeleteRelationalDatabaseSnapshot -&gt; String
 (Int -&gt; DeleteRelationalDatabaseSnapshot -&gt; ShowS)
@@ -146,14 +146,14 @@ DeleteRelationalDatabaseSnapshot
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot</span></a></span><span>
 </span><span id="line-74"></span><span id="newDeleteRelationalDatabaseSnapshot"><span class="annot"><span class="annottext">newDeleteRelationalDatabaseSnapshot :: Text -&gt; DeleteRelationalDatabaseSnapshot
 </span><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#newDeleteRelationalDatabaseSnapshot"><span class="hs-identifier hs-var hs-var">newDeleteRelationalDatabaseSnapshot</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679651633"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679651633"><span class="hs-identifier hs-var">pRelationalDatabaseSnapshotName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679651642"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679651642"><span class="hs-identifier hs-var">pRelationalDatabaseSnapshotName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">DeleteRelationalDatabaseSnapshot' :: Text -&gt; DeleteRelationalDatabaseSnapshot
 </span><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot'</span></a></span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:relationalDatabaseSnapshotName:DeleteRelationalDatabaseSnapshot' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#%24sel%3ArelationalDatabaseSnapshotName%3ADeleteRelationalDatabaseSnapshot%27"><span class="hs-identifier hs-var">relationalDatabaseSnapshotName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679651633"><span class="hs-identifier hs-var">pRelationalDatabaseSnapshotName_</span></a></span><span>
+</span><a href="#local-6989586621679651642"><span class="hs-identifier hs-var">pRelationalDatabaseSnapshotName_</span></a></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The name of the database snapshot that you are deleting.</span><span>
@@ -170,16 +170,16 @@ DeleteRelationalDatabaseSnapshot
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651630"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651639"><span class="annot"><span class="annottext">Text
 relationalDatabaseSnapshotName :: Text
 $sel:relationalDatabaseSnapshotName:DeleteRelationalDatabaseSnapshot' :: DeleteRelationalDatabaseSnapshot -&gt; Text
-</span><a href="#local-6989586621679651630"><span class="hs-identifier hs-var hs-var">relationalDatabaseSnapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679651630"><span class="hs-identifier hs-var">relationalDatabaseSnapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679651629"><span class="annot"><span class="annottext">s :: DeleteRelationalDatabaseSnapshot
-</span><a href="#local-6989586621679651629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679651628"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679651628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRelationalDatabaseSnapshot
-</span><a href="#local-6989586621679651629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationalDatabaseSnapshotName:DeleteRelationalDatabaseSnapshot' :: Text
+</span><a href="#local-6989586621679651639"><span class="hs-identifier hs-var hs-var">relationalDatabaseSnapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679651639"><span class="hs-identifier hs-var">relationalDatabaseSnapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679651638"><span class="annot"><span class="annottext">s :: DeleteRelationalDatabaseSnapshot
+</span><a href="#local-6989586621679651638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679651637"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679651637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRelationalDatabaseSnapshot
+</span><a href="#local-6989586621679651638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationalDatabaseSnapshotName:DeleteRelationalDatabaseSnapshot' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#%24sel%3ArelationalDatabaseSnapshotName%3ADeleteRelationalDatabaseSnapshot%27"><span class="hs-identifier hs-var">relationalDatabaseSnapshotName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679651628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679651637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -188,7 +188,7 @@ $sel:relationalDatabaseSnapshotName:DeleteRelationalDatabaseSnapshot' :: DeleteR
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679651624"><span class="annot"><span class="annottext">request :: DeleteRelationalDatabaseSnapshot
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679651633"><span class="annot"><span class="annottext">request :: DeleteRelationalDatabaseSnapshot
 -&gt; Request DeleteRelationalDatabaseSnapshot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteRelationalDatabaseSnapshot
@@ -196,7 +196,7 @@ $sel:relationalDatabaseSnapshotName:DeleteRelationalDatabaseSnapshot' :: DeleteR
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679651620"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679651629"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteRelationalDatabaseSnapshot
 -&gt; ClientResponse ClientBody
@@ -224,10 +224,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679651617"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679651617"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679651616"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679651616"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679651615"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679651615"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679651626"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679651626"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679651625"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679651625"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679651624"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679651624"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation]
 -&gt; Int -&gt; DeleteRelationalDatabaseSnapshotResponse
 </span><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-var">DeleteRelationalDatabaseSnapshotResponse'</span></a></span><span>
@@ -237,7 +237,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteRelationalDatabaseSnapshotResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679651615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679651624"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -255,22 +255,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679651617"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679651626"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679651606"><span id="local-6989586621679651608"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679651615"><span id="local-6989586621679651617"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679651603"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679651612"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot</span></a></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679651599"><span class="annot"><span class="annottext">toHeaders :: DeleteRelationalDatabaseSnapshot -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679651608"><span class="annot"><span class="annottext">toHeaders :: DeleteRelationalDatabaseSnapshot -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DeleteRelationalDatabaseSnapshot -&gt; ResponseHeaders
@@ -298,12 +298,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679651589"><span id="local-6989586621679651591"><span id="local-6989586621679651593"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679651587"><span class="annot"><span class="annottext">toJSON :: DeleteRelationalDatabaseSnapshot -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651585"><span class="annot"><span class="annottext">Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679651598"><span id="local-6989586621679651600"><span id="local-6989586621679651602"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679651596"><span class="annot"><span class="annottext">toJSON :: DeleteRelationalDatabaseSnapshot -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651594"><span class="annot"><span class="annottext">Text
 relationalDatabaseSnapshotName :: Text
 $sel:relationalDatabaseSnapshotName:DeleteRelationalDatabaseSnapshot' :: DeleteRelationalDatabaseSnapshot -&gt; Text
-</span><a href="#local-6989586621679651585"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679651594"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -317,13 +317,13 @@ forall a. a -&gt; Maybe a
 </span><span id="line-133"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679651585"><span class="hs-identifier hs-var">relationalDatabaseSnapshotName</span></a></span><span>
+</span><a href="#local-6989586621679651594"><span class="hs-identifier hs-var">relationalDatabaseSnapshotName</span></a></span><span>
 </span><span id="line-134"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679651579"><span class="annot"><span class="annottext">toPath :: DeleteRelationalDatabaseSnapshot -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679651588"><span class="annot"><span class="annottext">toPath :: DeleteRelationalDatabaseSnapshot -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteRelationalDatabaseSnapshot -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -333,7 +333,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshot"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshot</span></a></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679651575"><span class="annot"><span class="annottext">toQuery :: DeleteRelationalDatabaseSnapshot -&gt; QueryString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679651584"><span class="annot"><span class="annottext">toQuery :: DeleteRelationalDatabaseSnapshot -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteRelationalDatabaseSnapshot -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -341,7 +341,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newDeleteRelationalDatabaseSnapshotResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679651572"><span id="local-6989586621679651573"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRelationalDatabaseSnapshotResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse"><span class="hs-identifier hs-var">DeleteRelationalDatabaseSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRelationalDatabaseSnapshotResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-var">DeleteRelationalDatabaseSnapshotResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679651581"><span id="local-6989586621679651582"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRelationalDatabaseSnapshotResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse"><span class="hs-identifier hs-var">DeleteRelationalDatabaseSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRelationalDatabaseSnapshotResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-var">DeleteRelationalDatabaseSnapshotResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -351,7 +351,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteRelationalDatabaseSnapshotResponse%27"><span class="annot"><span class="annottext">DeleteRelationalDatabaseSnapshotResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#%24sel%3AhttpStatus%3ADeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679651566"><span id="local-6989586621679651568"><span class="annot"><span class="annottext">DeleteRelationalDatabaseSnapshotResponse
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679651575"><span id="local-6989586621679651577"><span class="annot"><span class="annottext">DeleteRelationalDatabaseSnapshotResponse
 -&gt; DeleteRelationalDatabaseSnapshotResponse -&gt; Bool
 (DeleteRelationalDatabaseSnapshotResponse
  -&gt; DeleteRelationalDatabaseSnapshotResponse -&gt; Bool)
@@ -367,7 +367,7 @@ $c/= :: DeleteRelationalDatabaseSnapshotResponse
 -&gt; DeleteRelationalDatabaseSnapshotResponse -&gt; Bool
 $c== :: DeleteRelationalDatabaseSnapshotResponse
 -&gt; DeleteRelationalDatabaseSnapshotResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651558"><span id="local-6989586621679651560"><span id="local-6989586621679651562"><span id="local-6989586621679651564"><span class="annot"><span class="annottext">ReadPrec [DeleteRelationalDatabaseSnapshotResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651567"><span id="local-6989586621679651569"><span id="local-6989586621679651571"><span id="local-6989586621679651573"><span class="annot"><span class="annottext">ReadPrec [DeleteRelationalDatabaseSnapshotResponse]
 ReadPrec DeleteRelationalDatabaseSnapshotResponse
 Int -&gt; ReadS DeleteRelationalDatabaseSnapshotResponse
 ReadS [DeleteRelationalDatabaseSnapshotResponse]
@@ -387,7 +387,7 @@ readList :: ReadS [DeleteRelationalDatabaseSnapshotResponse]
 $creadList :: ReadS [DeleteRelationalDatabaseSnapshotResponse]
 readsPrec :: Int -&gt; ReadS DeleteRelationalDatabaseSnapshotResponse
 $creadsPrec :: Int -&gt; ReadS DeleteRelationalDatabaseSnapshotResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651552"><span id="local-6989586621679651554"><span id="local-6989586621679651556"><span class="annot"><span class="annottext">Int -&gt; DeleteRelationalDatabaseSnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651561"><span id="local-6989586621679651563"><span id="local-6989586621679651565"><span class="annot"><span class="annottext">Int -&gt; DeleteRelationalDatabaseSnapshotResponse -&gt; ShowS
 [DeleteRelationalDatabaseSnapshotResponse] -&gt; ShowS
 DeleteRelationalDatabaseSnapshotResponse -&gt; String
 (Int -&gt; DeleteRelationalDatabaseSnapshotResponse -&gt; ShowS)
@@ -444,8 +444,8 @@ DeleteRelationalDatabaseSnapshotResponse
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newDeleteRelationalDatabaseSnapshotResponse"><span class="annot"><span class="annottext">newDeleteRelationalDatabaseSnapshotResponse :: Int -&gt; DeleteRelationalDatabaseSnapshotResponse
 </span><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#newDeleteRelationalDatabaseSnapshotResponse"><span class="hs-identifier hs-var hs-var">newDeleteRelationalDatabaseSnapshotResponse</span></a></span></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679651549"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679651549"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679651558"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679651558"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">DeleteRelationalDatabaseSnapshotResponse' :: Maybe [Operation]
 -&gt; Int -&gt; DeleteRelationalDatabaseSnapshotResponse
 </span><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse'</span></a></span><span>
@@ -456,7 +456,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRelationalDatabaseSnapshotResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#%24sel%3AhttpStatus%3ADeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679651549"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679651558"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -475,16 +475,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651548"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651557"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:DeleteRelationalDatabaseSnapshotResponse' :: DeleteRelationalDatabaseSnapshotResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679651548"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679651548"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679651547"><span class="annot"><span class="annottext">s :: DeleteRelationalDatabaseSnapshotResponse
-</span><a href="#local-6989586621679651547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679651546"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679651546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRelationalDatabaseSnapshotResponse
-</span><a href="#local-6989586621679651547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteRelationalDatabaseSnapshotResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679651557"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679651557"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679651556"><span class="annot"><span class="annottext">s :: DeleteRelationalDatabaseSnapshotResponse
+</span><a href="#local-6989586621679651556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679651555"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679651555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRelationalDatabaseSnapshotResponse
+</span><a href="#local-6989586621679651556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteRelationalDatabaseSnapshotResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#%24sel%3Aoperations%3ADeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679651546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679651555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; DeleteRelationalDatabaseSnapshotResponse
  -&gt; f DeleteRelationalDatabaseSnapshotResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -520,18 +520,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651542"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651551"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteRelationalDatabaseSnapshotResponse' :: DeleteRelationalDatabaseSnapshotResponse -&gt; Int
-</span><a href="#local-6989586621679651542"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679651542"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679651541"><span class="annot"><span class="annottext">s :: DeleteRelationalDatabaseSnapshotResponse
-</span><a href="#local-6989586621679651541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679651540"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679651540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRelationalDatabaseSnapshotResponse
-</span><a href="#local-6989586621679651541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRelationalDatabaseSnapshotResponse' :: Int
+</span><a href="#local-6989586621679651551"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679651551"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679651550"><span class="annot"><span class="annottext">s :: DeleteRelationalDatabaseSnapshotResponse
+</span><a href="#local-6989586621679651550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679651549"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679651549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRelationalDatabaseSnapshotResponse
+</span><a href="#local-6989586621679651550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRelationalDatabaseSnapshotResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#%24sel%3AhttpStatus%3ADeleteRelationalDatabaseSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679651540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679651549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679651538"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679651547"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-195"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot.html#DeleteRelationalDatabaseSnapshotResponse"><span class="hs-identifier hs-type">DeleteRelationalDatabaseSnapshotResponse</span></a></span></span><span>
 </span><span id="line-196"></span></pre></body></html>

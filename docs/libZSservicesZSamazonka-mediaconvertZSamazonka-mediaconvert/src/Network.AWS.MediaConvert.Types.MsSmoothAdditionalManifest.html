@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Each manifest can reference a different subset of outputs in the group.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMsSmoothAdditionalManifest' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679995754"><span id="local-6989586621679995755"></span></span><span class="hs-keyword">data</span><span> </span><span id="MsSmoothAdditionalManifest"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest"><span class="hs-identifier hs-var">MsSmoothAdditionalManifest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MsSmoothAdditionalManifest%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest%27"><span class="hs-identifier hs-var">MsSmoothAdditionalManifest'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679995763"><span id="local-6989586621679995764"></span></span><span class="hs-keyword">data</span><span> </span><span id="MsSmoothAdditionalManifest"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest"><span class="hs-identifier hs-var">MsSmoothAdditionalManifest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MsSmoothAdditionalManifest%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest%27"><span class="hs-identifier hs-var">MsSmoothAdditionalManifest'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify a name modifier that the service adds to the name of this</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- manifest to make it different from the file names of the other main</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- manifests in the output group. For example, say that the default main</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AselectedOutputs%3AMsSmoothAdditionalManifest%27"><span class="annot"><span class="annottext">MsSmoothAdditionalManifest -&gt; Maybe [Text]
 </span><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#%24sel%3AselectedOutputs%3AMsSmoothAdditionalManifest%27"><span class="hs-identifier hs-var hs-var">selectedOutputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679995747"><span id="local-6989586621679995749"><span class="annot"><span class="annottext">MsSmoothAdditionalManifest -&gt; MsSmoothAdditionalManifest -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679995756"><span id="local-6989586621679995758"><span class="annot"><span class="annottext">MsSmoothAdditionalManifest -&gt; MsSmoothAdditionalManifest -&gt; Bool
 (MsSmoothAdditionalManifest -&gt; MsSmoothAdditionalManifest -&gt; Bool)
 -&gt; (MsSmoothAdditionalManifest
     -&gt; MsSmoothAdditionalManifest -&gt; Bool)
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MsSmoothAdditionalManifest -&gt; MsSmoothAdditionalManifest -&gt; Bool
 == :: MsSmoothAdditionalManifest -&gt; MsSmoothAdditionalManifest -&gt; Bool
 $c== :: MsSmoothAdditionalManifest -&gt; MsSmoothAdditionalManifest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679995738"><span id="local-6989586621679995740"><span id="local-6989586621679995742"><span id="local-6989586621679995744"><span class="annot"><span class="annottext">ReadPrec [MsSmoothAdditionalManifest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679995747"><span id="local-6989586621679995749"><span id="local-6989586621679995751"><span id="local-6989586621679995753"><span class="annot"><span class="annottext">ReadPrec [MsSmoothAdditionalManifest]
 ReadPrec MsSmoothAdditionalManifest
 Int -&gt; ReadS MsSmoothAdditionalManifest
 ReadS [MsSmoothAdditionalManifest]
@@ -72,7 +72,7 @@ readList :: ReadS [MsSmoothAdditionalManifest]
 $creadList :: ReadS [MsSmoothAdditionalManifest]
 readsPrec :: Int -&gt; ReadS MsSmoothAdditionalManifest
 $creadsPrec :: Int -&gt; ReadS MsSmoothAdditionalManifest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679995731"><span id="local-6989586621679995733"><span id="local-6989586621679995735"><span class="annot"><span class="annottext">Int -&gt; MsSmoothAdditionalManifest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679995740"><span id="local-6989586621679995742"><span id="local-6989586621679995744"><span class="annot"><span class="annottext">Int -&gt; MsSmoothAdditionalManifest -&gt; ShowS
 [MsSmoothAdditionalManifest] -&gt; ShowS
 MsSmoothAdditionalManifest -&gt; String
 (Int -&gt; MsSmoothAdditionalManifest -&gt; ShowS)
@@ -156,16 +156,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest%27"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679995722"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest%27"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679995731"><span class="annot"><span class="annottext">Maybe Text
 manifestNameModifier :: Maybe Text
 $sel:manifestNameModifier:MsSmoothAdditionalManifest' :: MsSmoothAdditionalManifest -&gt; Maybe Text
-</span><a href="#local-6989586621679995722"><span class="hs-identifier hs-var hs-var">manifestNameModifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679995722"><span class="hs-identifier hs-var">manifestNameModifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679995721"><span class="annot"><span class="annottext">s :: MsSmoothAdditionalManifest
-</span><a href="#local-6989586621679995721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest%27"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679995720"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679995720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothAdditionalManifest
-</span><a href="#local-6989586621679995721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manifestNameModifier:MsSmoothAdditionalManifest' :: Maybe Text
+</span><a href="#local-6989586621679995731"><span class="hs-identifier hs-var hs-var">manifestNameModifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679995731"><span class="hs-identifier hs-var">manifestNameModifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679995730"><span class="annot"><span class="annottext">s :: MsSmoothAdditionalManifest
+</span><a href="#local-6989586621679995730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest%27"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679995729"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679995729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothAdditionalManifest
+</span><a href="#local-6989586621679995730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manifestNameModifier:MsSmoothAdditionalManifest' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#%24sel%3AmanifestNameModifier%3AMsSmoothAdditionalManifest%27"><span class="hs-identifier hs-var">manifestNameModifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679995720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679995729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Specify the outputs that you want this additional top-level manifest to</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- reference.</span><span>
@@ -181,16 +181,16 @@ $sel:manifestNameModifier:MsSmoothAdditionalManifest' :: MsSmoothAdditionalManif
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest%27"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679995718"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest%27"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679995727"><span class="annot"><span class="annottext">Maybe [Text]
 selectedOutputs :: Maybe [Text]
 $sel:selectedOutputs:MsSmoothAdditionalManifest' :: MsSmoothAdditionalManifest -&gt; Maybe [Text]
-</span><a href="#local-6989586621679995718"><span class="hs-identifier hs-var hs-var">selectedOutputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679995718"><span class="hs-identifier hs-var">selectedOutputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679995717"><span class="annot"><span class="annottext">s :: MsSmoothAdditionalManifest
-</span><a href="#local-6989586621679995717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest%27"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679995716"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679995716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothAdditionalManifest
-</span><a href="#local-6989586621679995717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectedOutputs:MsSmoothAdditionalManifest' :: Maybe [Text]
+</span><a href="#local-6989586621679995727"><span class="hs-identifier hs-var hs-var">selectedOutputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679995727"><span class="hs-identifier hs-var">selectedOutputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679995726"><span class="annot"><span class="annottext">s :: MsSmoothAdditionalManifest
+</span><a href="#local-6989586621679995726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest%27"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679995725"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679995725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothAdditionalManifest
+</span><a href="#local-6989586621679995726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectedOutputs:MsSmoothAdditionalManifest' :: Maybe [Text]
 </span><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#%24sel%3AselectedOutputs%3AMsSmoothAdditionalManifest%27"><span class="hs-identifier hs-var">selectedOutputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679995716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679995725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; MsSmoothAdditionalManifest -&gt; f MsSmoothAdditionalManifest)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -207,8 +207,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679995710"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679995708"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MsSmoothAdditionalManifest
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679995719"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679995717"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MsSmoothAdditionalManifest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MsSmoothAdditionalManifest)
@@ -218,8 +218,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MsSmoothAdditionalManifest&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679995705"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679995705"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679995714"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679995714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; MsSmoothAdditionalManifest
 </span><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest%27"><span class="hs-identifier hs-var">MsSmoothAdditionalManifest'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; MsSmoothAdditionalManifest)
@@ -227,7 +227,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Text] -&gt; MsSmoothAdditionalManifest)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679995705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679995714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;manifestNameModifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -235,7 +235,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text]) -&gt; Parser MsSmoothAdditionalManifest
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679995705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679995714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;selectedOutputs&quot;</span></span><span>
@@ -248,19 +248,19 @@ forall a. Monoid a =&gt; a
 </span><span id="line-94"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679995698"><span id="local-6989586621679995700"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679995707"><span id="local-6989586621679995709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679995695"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679995704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest</span></a></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679995687"><span id="local-6989586621679995689"><span id="local-6989586621679995691"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679995685"><span class="annot"><span class="annottext">toJSON :: MsSmoothAdditionalManifest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest%27"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679995682"><span id="local-6989586621679995683"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679995696"><span id="local-6989586621679995698"><span id="local-6989586621679995700"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679995694"><span class="annot"><span class="annottext">toJSON :: MsSmoothAdditionalManifest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest.html#MsSmoothAdditionalManifest%27"><span class="hs-identifier hs-type">MsSmoothAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679995691"><span id="local-6989586621679995692"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 selectedOutputs :: Maybe [Text]
 manifestNameModifier :: Maybe Text
 $sel:selectedOutputs:MsSmoothAdditionalManifest' :: MsSmoothAdditionalManifest -&gt; Maybe [Text]
 $sel:manifestNameModifier:MsSmoothAdditionalManifest' :: MsSmoothAdditionalManifest -&gt; Maybe Text
-</span><a href="#local-6989586621679995682"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679995691"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -273,7 +273,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679995683"><span class="hs-identifier hs-var">manifestNameModifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679995692"><span class="hs-identifier hs-var">manifestNameModifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;selectedOutputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -281,7 +281,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679995682"><span class="hs-identifier hs-var">selectedOutputs</span></a></span><span>
+</span><a href="#local-6989586621679995691"><span class="hs-identifier hs-var">selectedOutputs</span></a></span><span>
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span></pre></body></html>

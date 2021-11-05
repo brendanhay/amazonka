@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Details on a container instance bind mount host volume.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHostVolumeProperties' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679454174"><span id="local-6989586621679454175"></span></span><span class="hs-keyword">data</span><span> </span><span id="HostVolumeProperties"><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties"><span class="hs-identifier hs-var">HostVolumeProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HostVolumeProperties%27"><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties%27"><span class="hs-identifier hs-var">HostVolumeProperties'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679454183"><span id="local-6989586621679454184"></span></span><span class="hs-keyword">data</span><span> </span><span id="HostVolumeProperties"><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties"><span class="hs-identifier hs-var">HostVolumeProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HostVolumeProperties%27"><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties%27"><span class="hs-identifier hs-var">HostVolumeProperties'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When the @host@ parameter is used, specify a @sourcePath@ to declare the</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- path on the host container instance that is presented to the container.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- If this parameter is empty, then the Docker daemon has assigned a host</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AsourcePath%3AHostVolumeProperties%27"><span class="annot"><span class="annottext">HostVolumeProperties -&gt; Maybe Text
 </span><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#%24sel%3AsourcePath%3AHostVolumeProperties%27"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454168"><span id="local-6989586621679454170"><span class="annot"><span class="annottext">HostVolumeProperties -&gt; HostVolumeProperties -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454177"><span id="local-6989586621679454179"><span class="annot"><span class="annottext">HostVolumeProperties -&gt; HostVolumeProperties -&gt; Bool
 (HostVolumeProperties -&gt; HostVolumeProperties -&gt; Bool)
 -&gt; (HostVolumeProperties -&gt; HostVolumeProperties -&gt; Bool)
 -&gt; Eq HostVolumeProperties
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HostVolumeProperties -&gt; HostVolumeProperties -&gt; Bool
 == :: HostVolumeProperties -&gt; HostVolumeProperties -&gt; Bool
 $c== :: HostVolumeProperties -&gt; HostVolumeProperties -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454159"><span id="local-6989586621679454161"><span id="local-6989586621679454163"><span id="local-6989586621679454165"><span class="annot"><span class="annottext">ReadPrec [HostVolumeProperties]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454168"><span id="local-6989586621679454170"><span id="local-6989586621679454172"><span id="local-6989586621679454174"><span class="annot"><span class="annottext">ReadPrec [HostVolumeProperties]
 ReadPrec HostVolumeProperties
 Int -&gt; ReadS HostVolumeProperties
 ReadS [HostVolumeProperties]
@@ -71,7 +71,7 @@ readList :: ReadS [HostVolumeProperties]
 $creadList :: ReadS [HostVolumeProperties]
 readsPrec :: Int -&gt; ReadS HostVolumeProperties
 $creadsPrec :: Int -&gt; ReadS HostVolumeProperties
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454152"><span id="local-6989586621679454154"><span id="local-6989586621679454156"><span class="annot"><span class="annottext">Int -&gt; HostVolumeProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454161"><span id="local-6989586621679454163"><span id="local-6989586621679454165"><span class="annot"><span class="annottext">Int -&gt; HostVolumeProperties -&gt; ShowS
 [HostVolumeProperties] -&gt; ShowS
 HostVolumeProperties -&gt; String
 (Int -&gt; HostVolumeProperties -&gt; ShowS)
@@ -147,19 +147,19 @@ forall a. Maybe a
 -&gt; Lens
      HostVolumeProperties HostVolumeProperties (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties%27"><span class="hs-identifier hs-type">HostVolumeProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454143"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties%27"><span class="hs-identifier hs-type">HostVolumeProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454152"><span class="annot"><span class="annottext">Maybe Text
 sourcePath :: Maybe Text
 $sel:sourcePath:HostVolumeProperties' :: HostVolumeProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679454143"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679454143"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454142"><span class="annot"><span class="annottext">s :: HostVolumeProperties
-</span><a href="#local-6989586621679454142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties%27"><span class="hs-identifier hs-type">HostVolumeProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454141"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679454141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostVolumeProperties
-</span><a href="#local-6989586621679454142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePath:HostVolumeProperties' :: Maybe Text
+</span><a href="#local-6989586621679454152"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679454152"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454151"><span class="annot"><span class="annottext">s :: HostVolumeProperties
+</span><a href="#local-6989586621679454151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties%27"><span class="hs-identifier hs-type">HostVolumeProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454150"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679454150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostVolumeProperties
+</span><a href="#local-6989586621679454151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePath:HostVolumeProperties' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#%24sel%3AsourcePath%3AHostVolumeProperties%27"><span class="hs-identifier hs-var">sourcePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679454141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties"><span class="hs-identifier hs-type">HostVolumeProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties"><span class="hs-identifier hs-type">HostVolumeProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454138"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties"><span class="hs-identifier hs-type">HostVolumeProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679454136"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HostVolumeProperties
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454147"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties"><span class="hs-identifier hs-type">HostVolumeProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679454145"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HostVolumeProperties
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HostVolumeProperties)
@@ -169,30 +169,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HostVolumeProperties&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679454133"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679454133"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679454142"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679454142"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; HostVolumeProperties
 </span><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties%27"><span class="hs-identifier hs-var">HostVolumeProperties'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; HostVolumeProperties)
 -&gt; Parser (Maybe Text) -&gt; Parser HostVolumeProperties
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679454133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679454142"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourcePath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454127"><span id="local-6989586621679454129"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties"><span class="hs-identifier hs-type">HostVolumeProperties</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454136"><span id="local-6989586621679454138"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties"><span class="hs-identifier hs-type">HostVolumeProperties</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454124"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties"><span class="hs-identifier hs-type">HostVolumeProperties</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties"><span class="hs-identifier hs-type">HostVolumeProperties</span></a></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454116"><span id="local-6989586621679454118"><span id="local-6989586621679454120"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties"><span class="hs-identifier hs-type">HostVolumeProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679454114"><span class="annot"><span class="annottext">toJSON :: HostVolumeProperties -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties%27"><span class="hs-identifier hs-type">HostVolumeProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454112"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454125"><span id="local-6989586621679454127"><span id="local-6989586621679454129"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties"><span class="hs-identifier hs-type">HostVolumeProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679454123"><span class="annot"><span class="annottext">toJSON :: HostVolumeProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties%27"><span class="hs-identifier hs-type">HostVolumeProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454121"><span class="annot"><span class="annottext">Maybe Text
 sourcePath :: Maybe Text
 $sel:sourcePath:HostVolumeProperties' :: HostVolumeProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679454112"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679454121"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -204,6 +204,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679454112"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679454121"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

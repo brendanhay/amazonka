@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Contains the parameters for RemoveTags.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newRemoveTags' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679199219"><span id="local-6989586621679199220"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTags"><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-var">RemoveTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTags%27"><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-var">RemoveTags'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679199228"><span id="local-6989586621679199229"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTags"><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-var">RemoveTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTags%27"><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-var">RemoveTags'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the load balancer. You can specify a maximum of one load</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- balancer name.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AloadBalancerNames%3ARemoveTags%27"><span class="annot"><span class="annottext">RemoveTags -&gt; [Text]
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Atags%3ARemoveTags%27"><span class="annot"><span class="annottext">RemoveTags -&gt; NonEmpty TagKeyOnly
 </span><a href="Network.AWS.ELB.RemoveTags.html#%24sel%3Atags%3ARemoveTags%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly"><span class="hs-identifier hs-type">TagKeyOnly</span></a></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199212"><span id="local-6989586621679199214"><span class="annot"><span class="annottext">RemoveTags -&gt; RemoveTags -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199221"><span id="local-6989586621679199223"><span class="annot"><span class="annottext">RemoveTags -&gt; RemoveTags -&gt; Bool
 (RemoveTags -&gt; RemoveTags -&gt; Bool)
 -&gt; (RemoveTags -&gt; RemoveTags -&gt; Bool) -&gt; Eq RemoveTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveTags -&gt; RemoveTags -&gt; Bool
 == :: RemoveTags -&gt; RemoveTags -&gt; Bool
 $c== :: RemoveTags -&gt; RemoveTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199203"><span id="local-6989586621679199205"><span id="local-6989586621679199207"><span id="local-6989586621679199209"><span class="annot"><span class="annottext">ReadPrec [RemoveTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199212"><span id="local-6989586621679199214"><span id="local-6989586621679199216"><span id="local-6989586621679199218"><span class="annot"><span class="annottext">ReadPrec [RemoveTags]
 ReadPrec RemoveTags
 Int -&gt; ReadS RemoveTags
 ReadS [RemoveTags]
@@ -86,7 +86,7 @@ readList :: ReadS [RemoveTags]
 $creadList :: ReadS [RemoveTags]
 readsPrec :: Int -&gt; ReadS RemoveTags
 $creadsPrec :: Int -&gt; ReadS RemoveTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199196"><span id="local-6989586621679199198"><span id="local-6989586621679199200"><span class="annot"><span class="annottext">Int -&gt; RemoveTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199205"><span id="local-6989586621679199207"><span id="local-6989586621679199209"><span class="annot"><span class="annottext">Int -&gt; RemoveTags -&gt; ShowS
 [RemoveTags] -&gt; ShowS
 RemoveTags -&gt; String
 (Int -&gt; RemoveTags -&gt; ShowS)
@@ -128,8 +128,8 @@ $cfrom :: forall x. RemoveTags -&gt; Rep RemoveTags x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly"><span class="hs-identifier hs-type">TagKeyOnly</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span>
 </span><span id="line-77"></span><span id="newRemoveTags"><span class="annot"><span class="annottext">newRemoveTags :: NonEmpty TagKeyOnly -&gt; RemoveTags
-</span><a href="Network.AWS.ELB.RemoveTags.html#newRemoveTags"><span class="hs-identifier hs-var hs-var">newRemoveTags</span></a></span></span><span> </span><span id="local-6989586621679199191"><span class="annot"><span class="annottext">NonEmpty TagKeyOnly
-</span><a href="#local-6989586621679199191"><span class="hs-identifier hs-var">pTags_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELB.RemoveTags.html#newRemoveTags"><span class="hs-identifier hs-var hs-var">newRemoveTags</span></a></span></span><span> </span><span id="local-6989586621679199200"><span class="annot"><span class="annottext">NonEmpty TagKeyOnly
+</span><a href="#local-6989586621679199200"><span class="hs-identifier hs-var">pTags_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">RemoveTags' :: [Text] -&gt; NonEmpty TagKeyOnly -&gt; RemoveTags
 </span><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loadBalancerNames:RemoveTags' :: [Text]
@@ -145,7 +145,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty TagKeyOnly -&gt; NonEmpty TagKeyOnly
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty TagKeyOnly
-</span><a href="#local-6989586621679199191"><span class="hs-identifier hs-var">pTags_</span></a></span><span>
+</span><a href="#local-6989586621679199200"><span class="hs-identifier hs-var">pTags_</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The name of the load balancer. You can specify a maximum of one load</span><span>
@@ -156,16 +156,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (RemoveTags -&gt; [Text] -&gt; RemoveTags)
 -&gt; Lens RemoveTags RemoveTags [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199186"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199195"><span class="annot"><span class="annottext">[Text]
 loadBalancerNames :: [Text]
 $sel:loadBalancerNames:RemoveTags' :: RemoveTags -&gt; [Text]
-</span><a href="#local-6989586621679199186"><span class="hs-identifier hs-var hs-var">loadBalancerNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679199186"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199185"><span class="annot"><span class="annottext">s :: RemoveTags
-</span><a href="#local-6989586621679199185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199184"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679199184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTags
-</span><a href="#local-6989586621679199185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerNames:RemoveTags' :: [Text]
+</span><a href="#local-6989586621679199195"><span class="hs-identifier hs-var hs-var">loadBalancerNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679199195"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199194"><span class="annot"><span class="annottext">s :: RemoveTags
+</span><a href="#local-6989586621679199194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199193"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679199193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTags
+</span><a href="#local-6989586621679199194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerNames:RemoveTags' :: [Text]
 </span><a href="Network.AWS.ELB.RemoveTags.html#%24sel%3AloadBalancerNames%3ARemoveTags%27"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679199184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; RemoveTags -&gt; f RemoveTags)
+</span><a href="#local-6989586621679199193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; RemoveTags -&gt; f RemoveTags)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; RemoveTags
@@ -184,16 +184,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      RemoveTags RemoveTags (NonEmpty TagKeyOnly) (NonEmpty TagKeyOnly)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199182"><span class="annot"><span class="annottext">NonEmpty TagKeyOnly
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199191"><span class="annot"><span class="annottext">NonEmpty TagKeyOnly
 tags :: NonEmpty TagKeyOnly
 $sel:tags:RemoveTags' :: RemoveTags -&gt; NonEmpty TagKeyOnly
-</span><a href="#local-6989586621679199182"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty TagKeyOnly
-</span><a href="#local-6989586621679199182"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199181"><span class="annot"><span class="annottext">s :: RemoveTags
-</span><a href="#local-6989586621679199181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199180"><span class="annot"><span class="annottext">NonEmpty TagKeyOnly
-</span><a href="#local-6989586621679199180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTags
-</span><a href="#local-6989586621679199181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RemoveTags' :: NonEmpty TagKeyOnly
+</span><a href="#local-6989586621679199191"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty TagKeyOnly
+</span><a href="#local-6989586621679199191"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199190"><span class="annot"><span class="annottext">s :: RemoveTags
+</span><a href="#local-6989586621679199190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199189"><span class="annot"><span class="annottext">NonEmpty TagKeyOnly
+</span><a href="#local-6989586621679199189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTags
+</span><a href="#local-6989586621679199190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RemoveTags' :: NonEmpty TagKeyOnly
 </span><a href="Network.AWS.ELB.RemoveTags.html#%24sel%3Atags%3ARemoveTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty TagKeyOnly
-</span><a href="#local-6989586621679199180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty TagKeyOnly -&gt; f (NonEmpty TagKeyOnly))
+</span><a href="#local-6989586621679199189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty TagKeyOnly -&gt; f (NonEmpty TagKeyOnly))
  -&gt; RemoveTags -&gt; f RemoveTags)
 -&gt; ((NonEmpty TagKeyOnly -&gt; f (NonEmpty TagKeyOnly))
     -&gt; NonEmpty TagKeyOnly -&gt; f (NonEmpty TagKeyOnly))
@@ -208,12 +208,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-type">RemoveTagsResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679199176"><span class="annot"><span class="annottext">request :: RemoveTags -&gt; Request RemoveTags
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679199185"><span class="annot"><span class="annottext">request :: RemoveTags -&gt; Request RemoveTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RemoveTags -&gt; Request RemoveTags
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ELB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679199172"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679199181"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RemoveTags
 -&gt; ClientResponse ClientBody
@@ -242,10 +242,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RemoveTagsResult&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199169"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199169"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679199168"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679199168"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679199167"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679199167"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199178"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199178"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679199177"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679199177"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679199176"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679199176"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RemoveTagsResponse
 </span><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-var">RemoveTagsResponse'</span></a></span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RemoveTagsResponse)
@@ -256,15 +256,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199169"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199178"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199160"><span id="local-6989586621679199162"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199169"><span id="local-6989586621679199171"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199157"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199166"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679199153"><span class="annot"><span class="annottext">toHeaders :: RemoveTags -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679199162"><span class="annot"><span class="annottext">toHeaders :: RemoveTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RemoveTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -272,21 +272,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679199148"><span class="annot"><span class="annottext">toPath :: RemoveTags -&gt; ByteString
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679199157"><span class="annot"><span class="annottext">toPath :: RemoveTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679199144"><span class="annot"><span class="annottext">toQuery :: RemoveTags -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199141"><span id="local-6989586621679199142"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679199153"><span class="annot"><span class="annottext">toQuery :: RemoveTags -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199150"><span id="local-6989586621679199151"><span class="annot"><span class="annottext">[Text]
 NonEmpty TagKeyOnly
 tags :: NonEmpty TagKeyOnly
 loadBalancerNames :: [Text]
 $sel:tags:RemoveTags' :: RemoveTags -&gt; NonEmpty TagKeyOnly
 $sel:loadBalancerNames:RemoveTags' :: RemoveTags -&gt; [Text]
-</span><a href="#local-6989586621679199141"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679199150"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -312,7 +312,7 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679199142"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199151"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
@@ -322,18 +322,18 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty TagKeyOnly
-</span><a href="#local-6989586621679199141"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><a href="#local-6989586621679199150"><span class="hs-identifier hs-var">tags</span></a></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | Contains the output of RemoveTags.</span><span>
 </span><span id="line-126"></span><span class="hs-comment">--</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- /See:/ 'newRemoveTagsResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679199137"><span id="local-6989586621679199138"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTagsResponse"><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-var">RemoveTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTagsResponse%27"><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-var">RemoveTagsResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679199146"><span id="local-6989586621679199147"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTagsResponse"><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-var">RemoveTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTagsResponse%27"><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-var">RemoveTagsResponse'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveTagsResponse%27"><span class="annot"><span class="annottext">RemoveTagsResponse -&gt; Int
 </span><a href="Network.AWS.ELB.RemoveTags.html#%24sel%3AhttpStatus%3ARemoveTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199132"><span id="local-6989586621679199134"><span class="annot"><span class="annottext">RemoveTagsResponse -&gt; RemoveTagsResponse -&gt; Bool
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199141"><span id="local-6989586621679199143"><span class="annot"><span class="annottext">RemoveTagsResponse -&gt; RemoveTagsResponse -&gt; Bool
 (RemoveTagsResponse -&gt; RemoveTagsResponse -&gt; Bool)
 -&gt; (RemoveTagsResponse -&gt; RemoveTagsResponse -&gt; Bool)
 -&gt; Eq RemoveTagsResponse
@@ -342,7 +342,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveTagsResponse -&gt; RemoveTagsResponse -&gt; Bool
 == :: RemoveTagsResponse -&gt; RemoveTagsResponse -&gt; Bool
 $c== :: RemoveTagsResponse -&gt; RemoveTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199124"><span id="local-6989586621679199126"><span id="local-6989586621679199128"><span id="local-6989586621679199130"><span class="annot"><span class="annottext">ReadPrec [RemoveTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199133"><span id="local-6989586621679199135"><span id="local-6989586621679199137"><span id="local-6989586621679199139"><span class="annot"><span class="annottext">ReadPrec [RemoveTagsResponse]
 ReadPrec RemoveTagsResponse
 Int -&gt; ReadS RemoveTagsResponse
 ReadS [RemoveTagsResponse]
@@ -362,7 +362,7 @@ readList :: ReadS [RemoveTagsResponse]
 $creadList :: ReadS [RemoveTagsResponse]
 readsPrec :: Int -&gt; ReadS RemoveTagsResponse
 $creadsPrec :: Int -&gt; ReadS RemoveTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199118"><span id="local-6989586621679199120"><span id="local-6989586621679199122"><span class="annot"><span class="annottext">Int -&gt; RemoveTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199127"><span id="local-6989586621679199129"><span id="local-6989586621679199131"><span class="annot"><span class="annottext">Int -&gt; RemoveTagsResponse -&gt; ShowS
 [RemoveTagsResponse] -&gt; ShowS
 RemoveTagsResponse -&gt; String
 (Int -&gt; RemoveTagsResponse -&gt; ShowS)
@@ -402,12 +402,12 @@ $cfrom :: forall x. RemoveTagsResponse -&gt; Rep RemoveTagsResponse x
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-type">RemoveTagsResponse</span></a></span><span>
 </span><span id="line-147"></span><span id="newRemoveTagsResponse"><span class="annot"><span class="annottext">newRemoveTagsResponse :: Int -&gt; RemoveTagsResponse
-</span><a href="Network.AWS.ELB.RemoveTags.html#newRemoveTagsResponse"><span class="hs-identifier hs-var hs-var">newRemoveTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679199115"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199115"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELB.RemoveTags.html#newRemoveTagsResponse"><span class="hs-identifier hs-var hs-var">newRemoveTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679199124"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199124"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">RemoveTagsResponse' :: Int -&gt; RemoveTagsResponse
 </span><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-type">RemoveTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveTagsResponse' :: Int
 </span><a href="Network.AWS.ELB.RemoveTags.html#%24sel%3AhttpStatus%3ARemoveTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199115"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679199124"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-151"></span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#removeTagsResponse_httpStatus"><span class="hs-identifier hs-type">removeTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-type">RemoveTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -416,16 +416,16 @@ $cfrom :: forall x. RemoveTagsResponse -&gt; Rep RemoveTagsResponse x
 -&gt; (RemoveTagsResponse -&gt; Int -&gt; RemoveTagsResponse)
 -&gt; Lens RemoveTagsResponse RemoveTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-type">RemoveTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199114"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-type">RemoveTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199123"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RemoveTagsResponse' :: RemoveTagsResponse -&gt; Int
-</span><a href="#local-6989586621679199114"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199114"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199113"><span class="annot"><span class="annottext">s :: RemoveTagsResponse
-</span><a href="#local-6989586621679199113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-type">RemoveTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199112"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsResponse
-</span><a href="#local-6989586621679199113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveTagsResponse' :: Int
+</span><a href="#local-6989586621679199123"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199123"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199122"><span class="annot"><span class="annottext">s :: RemoveTagsResponse
+</span><a href="#local-6989586621679199122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-type">RemoveTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199121"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsResponse
+</span><a href="#local-6989586621679199122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveTagsResponse' :: Int
 </span><a href="Network.AWS.ELB.RemoveTags.html#%24sel%3AhttpStatus%3ARemoveTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-type">RemoveTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-type">RemoveTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199110"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-type">RemoveTagsResponse</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199119"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-type">RemoveTagsResponse</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

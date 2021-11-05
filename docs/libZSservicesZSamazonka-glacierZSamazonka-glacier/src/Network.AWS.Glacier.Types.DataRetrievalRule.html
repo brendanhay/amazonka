@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Data retrieval policy rule.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDataRetrievalRule' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679215221"><span id="local-6989586621679215222"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataRetrievalRule"><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule"><span class="hs-identifier hs-var">DataRetrievalRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataRetrievalRule%27"><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule%27"><span class="hs-identifier hs-var">DataRetrievalRule'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679215230"><span id="local-6989586621679215231"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataRetrievalRule"><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule"><span class="hs-identifier hs-var">DataRetrievalRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataRetrievalRule%27"><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule%27"><span class="hs-identifier hs-var">DataRetrievalRule'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of data retrieval policy to set.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Valid values: BytesPerHour|FreeTier|None</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AbytesPerHour%3ADataRetrievalRule%27"><span class="annot"><span class="annottext">DataRetrievalRule -&gt; Maybe Integer
 </span><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#%24sel%3AbytesPerHour%3ADataRetrievalRule%27"><span class="hs-identifier hs-var hs-var">bytesPerHour</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215214"><span id="local-6989586621679215216"><span class="annot"><span class="annottext">DataRetrievalRule -&gt; DataRetrievalRule -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215223"><span id="local-6989586621679215225"><span class="annot"><span class="annottext">DataRetrievalRule -&gt; DataRetrievalRule -&gt; Bool
 (DataRetrievalRule -&gt; DataRetrievalRule -&gt; Bool)
 -&gt; (DataRetrievalRule -&gt; DataRetrievalRule -&gt; Bool)
 -&gt; Eq DataRetrievalRule
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DataRetrievalRule -&gt; DataRetrievalRule -&gt; Bool
 == :: DataRetrievalRule -&gt; DataRetrievalRule -&gt; Bool
 $c== :: DataRetrievalRule -&gt; DataRetrievalRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215205"><span id="local-6989586621679215207"><span id="local-6989586621679215209"><span id="local-6989586621679215211"><span class="annot"><span class="annottext">ReadPrec [DataRetrievalRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215214"><span id="local-6989586621679215216"><span id="local-6989586621679215218"><span id="local-6989586621679215220"><span class="annot"><span class="annottext">ReadPrec [DataRetrievalRule]
 ReadPrec DataRetrievalRule
 Int -&gt; ReadS DataRetrievalRule
 ReadS [DataRetrievalRule]
@@ -69,7 +69,7 @@ readList :: ReadS [DataRetrievalRule]
 $creadList :: ReadS [DataRetrievalRule]
 readsPrec :: Int -&gt; ReadS DataRetrievalRule
 $creadsPrec :: Int -&gt; ReadS DataRetrievalRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215198"><span id="local-6989586621679215200"><span id="local-6989586621679215202"><span class="annot"><span class="annottext">Int -&gt; DataRetrievalRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215207"><span id="local-6989586621679215209"><span id="local-6989586621679215211"><span class="annot"><span class="annottext">Int -&gt; DataRetrievalRule -&gt; ShowS
 [DataRetrievalRule] -&gt; ShowS
 DataRetrievalRule -&gt; String
 (Int -&gt; DataRetrievalRule -&gt; ShowS)
@@ -139,16 +139,16 @@ forall a. Maybe a
 -&gt; Lens
      DataRetrievalRule DataRetrievalRule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule%27"><span class="hs-identifier hs-type">DataRetrievalRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215189"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule%27"><span class="hs-identifier hs-type">DataRetrievalRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215198"><span class="annot"><span class="annottext">Maybe Text
 strategy :: Maybe Text
 $sel:strategy:DataRetrievalRule' :: DataRetrievalRule -&gt; Maybe Text
-</span><a href="#local-6989586621679215189"><span class="hs-identifier hs-var hs-var">strategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215189"><span class="hs-identifier hs-var">strategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215188"><span class="annot"><span class="annottext">s :: DataRetrievalRule
-</span><a href="#local-6989586621679215188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule%27"><span class="hs-identifier hs-type">DataRetrievalRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215187"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataRetrievalRule
-</span><a href="#local-6989586621679215188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:strategy:DataRetrievalRule' :: Maybe Text
+</span><a href="#local-6989586621679215198"><span class="hs-identifier hs-var hs-var">strategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215198"><span class="hs-identifier hs-var">strategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215197"><span class="annot"><span class="annottext">s :: DataRetrievalRule
+</span><a href="#local-6989586621679215197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule%27"><span class="hs-identifier hs-type">DataRetrievalRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215196"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataRetrievalRule
+</span><a href="#local-6989586621679215197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:strategy:DataRetrievalRule' :: Maybe Text
 </span><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#%24sel%3Astrategy%3ADataRetrievalRule%27"><span class="hs-identifier hs-var">strategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule"><span class="hs-identifier hs-type">DataRetrievalRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule"><span class="hs-identifier hs-type">DataRetrievalRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The maximum number of bytes that can be retrieved in an hour.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
@@ -163,19 +163,19 @@ $sel:strategy:DataRetrievalRule' :: DataRetrievalRule -&gt; Maybe Text
 -&gt; Lens
      DataRetrievalRule DataRetrievalRule (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule%27"><span class="hs-identifier hs-type">DataRetrievalRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215185"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule%27"><span class="hs-identifier hs-type">DataRetrievalRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215194"><span class="annot"><span class="annottext">Maybe Integer
 bytesPerHour :: Maybe Integer
 $sel:bytesPerHour:DataRetrievalRule' :: DataRetrievalRule -&gt; Maybe Integer
-</span><a href="#local-6989586621679215185"><span class="hs-identifier hs-var hs-var">bytesPerHour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679215185"><span class="hs-identifier hs-var">bytesPerHour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215184"><span class="annot"><span class="annottext">s :: DataRetrievalRule
-</span><a href="#local-6989586621679215184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule%27"><span class="hs-identifier hs-type">DataRetrievalRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215183"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679215183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataRetrievalRule
-</span><a href="#local-6989586621679215184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesPerHour:DataRetrievalRule' :: Maybe Integer
+</span><a href="#local-6989586621679215194"><span class="hs-identifier hs-var hs-var">bytesPerHour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679215194"><span class="hs-identifier hs-var">bytesPerHour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215193"><span class="annot"><span class="annottext">s :: DataRetrievalRule
+</span><a href="#local-6989586621679215193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule%27"><span class="hs-identifier hs-type">DataRetrievalRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215192"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679215192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataRetrievalRule
+</span><a href="#local-6989586621679215193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesPerHour:DataRetrievalRule' :: Maybe Integer
 </span><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#%24sel%3AbytesPerHour%3ADataRetrievalRule%27"><span class="hs-identifier hs-var">bytesPerHour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679215183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule"><span class="hs-identifier hs-type">DataRetrievalRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule"><span class="hs-identifier hs-type">DataRetrievalRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215180"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule"><span class="hs-identifier hs-type">DataRetrievalRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679215178"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataRetrievalRule
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215189"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule"><span class="hs-identifier hs-type">DataRetrievalRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679215187"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataRetrievalRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DataRetrievalRule)
@@ -185,8 +185,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DataRetrievalRule&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215175"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215175"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215184"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215184"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Integer -&gt; DataRetrievalRule
 </span><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule%27"><span class="hs-identifier hs-var">DataRetrievalRule'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Integer -&gt; DataRetrievalRule)
@@ -194,7 +194,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Integer -&gt; DataRetrievalRule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679215184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Strategy&quot;</span></span><span class="hs-special">)</span><span>
@@ -202,25 +202,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integer) -&gt; Parser DataRetrievalRule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679215184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BytesPerHour&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215169"><span id="local-6989586621679215171"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule"><span class="hs-identifier hs-type">DataRetrievalRule</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215178"><span id="local-6989586621679215180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule"><span class="hs-identifier hs-type">DataRetrievalRule</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215166"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule"><span class="hs-identifier hs-type">DataRetrievalRule</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule"><span class="hs-identifier hs-type">DataRetrievalRule</span></a></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215158"><span id="local-6989586621679215160"><span id="local-6989586621679215162"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule"><span class="hs-identifier hs-type">DataRetrievalRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679215156"><span class="annot"><span class="annottext">toJSON :: DataRetrievalRule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule%27"><span class="hs-identifier hs-type">DataRetrievalRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215153"><span id="local-6989586621679215154"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215167"><span id="local-6989586621679215169"><span id="local-6989586621679215171"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule"><span class="hs-identifier hs-type">DataRetrievalRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679215165"><span class="annot"><span class="annottext">toJSON :: DataRetrievalRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalRule.html#DataRetrievalRule%27"><span class="hs-identifier hs-type">DataRetrievalRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215162"><span id="local-6989586621679215163"><span class="annot"><span class="annottext">Maybe Integer
 Maybe Text
 bytesPerHour :: Maybe Integer
 strategy :: Maybe Text
 $sel:bytesPerHour:DataRetrievalRule' :: DataRetrievalRule -&gt; Maybe Integer
 $sel:strategy:DataRetrievalRule' :: DataRetrievalRule -&gt; Maybe Text
-</span><a href="#local-6989586621679215153"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679215162"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -232,14 +232,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215154"><span class="hs-identifier hs-var">strategy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215163"><span class="hs-identifier hs-var">strategy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BytesPerHour&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679215153"><span class="hs-identifier hs-var">bytesPerHour</span></a></span><span>
+</span><a href="#local-6989586621679215162"><span class="hs-identifier hs-var">bytesPerHour</span></a></span><span>
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- If you\'re creating an alias resource record set, omit @ResourceRecord@.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newResourceRecord' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679296573"><span id="local-6989586621679296574"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceRecord"><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-var">ResourceRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceRecord%27"><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-var">ResourceRecord'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679296582"><span id="local-6989586621679296583"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceRecord"><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-var">ResourceRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceRecord%27"><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-var">ResourceRecord'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current or new DNS record value, not to exceed 4,000 characters. In</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- the case of a @DELETE@ action, if the current value does not match the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- actual value, an error is returned. For descriptions about how to format</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Avalue%3AResourceRecord%27"><span class="annot"><span class="annottext">ResourceRecord -&gt; Text
 </span><a href="Network.AWS.Route53.Types.ResourceRecord.html#%24sel%3Avalue%3AResourceRecord%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296567"><span id="local-6989586621679296569"><span class="annot"><span class="annottext">ResourceRecord -&gt; ResourceRecord -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296576"><span id="local-6989586621679296578"><span class="annot"><span class="annottext">ResourceRecord -&gt; ResourceRecord -&gt; Bool
 (ResourceRecord -&gt; ResourceRecord -&gt; Bool)
 -&gt; (ResourceRecord -&gt; ResourceRecord -&gt; Bool) -&gt; Eq ResourceRecord
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceRecord -&gt; ResourceRecord -&gt; Bool
 == :: ResourceRecord -&gt; ResourceRecord -&gt; Bool
 $c== :: ResourceRecord -&gt; ResourceRecord -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296558"><span id="local-6989586621679296560"><span id="local-6989586621679296562"><span id="local-6989586621679296564"><span class="annot"><span class="annottext">ReadPrec [ResourceRecord]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296567"><span id="local-6989586621679296569"><span id="local-6989586621679296571"><span id="local-6989586621679296573"><span class="annot"><span class="annottext">ReadPrec [ResourceRecord]
 ReadPrec ResourceRecord
 Int -&gt; ReadS ResourceRecord
 ReadS [ResourceRecord]
@@ -72,7 +72,7 @@ readList :: ReadS [ResourceRecord]
 $creadList :: ReadS [ResourceRecord]
 readsPrec :: Int -&gt; ReadS ResourceRecord
 $creadsPrec :: Int -&gt; ReadS ResourceRecord
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296551"><span id="local-6989586621679296553"><span id="local-6989586621679296555"><span class="annot"><span class="annottext">Int -&gt; ResourceRecord -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296560"><span id="local-6989586621679296562"><span id="local-6989586621679296564"><span class="annot"><span class="annottext">Int -&gt; ResourceRecord -&gt; ShowS
 [ResourceRecord] -&gt; ShowS
 ResourceRecord -&gt; String
 (Int -&gt; ResourceRecord -&gt; ShowS)
@@ -122,12 +122,12 @@ $cfrom :: forall x. ResourceRecord -&gt; Rep ResourceRecord x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span>
 </span><span id="line-71"></span><span id="newResourceRecord"><span class="annot"><span class="annottext">newResourceRecord :: Text -&gt; ResourceRecord
-</span><a href="Network.AWS.Route53.Types.ResourceRecord.html#newResourceRecord"><span class="hs-identifier hs-var hs-var">newResourceRecord</span></a></span></span><span> </span><span id="local-6989586621679296545"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296545"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53.Types.ResourceRecord.html#newResourceRecord"><span class="hs-identifier hs-var hs-var">newResourceRecord</span></a></span></span><span> </span><span id="local-6989586621679296554"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296554"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">ResourceRecord' :: Text -&gt; ResourceRecord
 </span><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ResourceRecord' :: Text
 </span><a href="Network.AWS.Route53.Types.ResourceRecord.html#%24sel%3Avalue%3AResourceRecord%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296545"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679296554"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The current or new DNS record value, not to exceed 4,000 characters. In</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- the case of a @DELETE@ action, if the current value does not match the</span><span>
@@ -146,46 +146,46 @@ $cfrom :: forall x. ResourceRecord -&gt; Rep ResourceRecord x
 -&gt; (ResourceRecord -&gt; Text -&gt; ResourceRecord)
 -&gt; Lens ResourceRecord ResourceRecord Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296541"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296550"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:ResourceRecord' :: ResourceRecord -&gt; Text
-</span><a href="#local-6989586621679296541"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296541"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296540"><span class="annot"><span class="annottext">s :: ResourceRecord
-</span><a href="#local-6989586621679296540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296539"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecord
-</span><a href="#local-6989586621679296540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ResourceRecord' :: Text
+</span><a href="#local-6989586621679296550"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296550"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296549"><span class="annot"><span class="annottext">s :: ResourceRecord
+</span><a href="#local-6989586621679296549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296548"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecord
+</span><a href="#local-6989586621679296549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ResourceRecord' :: Text
 </span><a href="Network.AWS.Route53.Types.ResourceRecord.html#%24sel%3Avalue%3AResourceRecord%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679296536"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ResourceRecord
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679296534"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296534"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679296545"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ResourceRecord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679296543"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679296543"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; ResourceRecord
 </span><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-var">ResourceRecord'</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; ResourceRecord)
 -&gt; Either String Text -&gt; Either String ResourceRecord
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679296543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296528"><span id="local-6989586621679296530"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296537"><span id="local-6989586621679296539"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296525"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296534"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679296521"><span class="annot"><span class="annottext">toXML :: ResourceRecord -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296519"><span class="annot"><span class="annottext">Text
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679296530"><span class="annot"><span class="annottext">toXML :: ResourceRecord -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296528"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:ResourceRecord' :: ResourceRecord -&gt; Text
-</span><a href="#local-6989586621679296519"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679296528"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296519"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679296528"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span></pre></body></html>

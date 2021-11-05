@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.FraudDetector.Types.LogOddsMetric</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FraudDetector.Types.LogOddsMetric</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The log odds metric details.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLogOddsMetric' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679304729"><span id="local-6989586621679304730"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogOddsMetric"><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric"><span class="hs-identifier hs-var">LogOddsMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogOddsMetric%27"><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric%27"><span class="hs-identifier hs-var">LogOddsMetric'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the variable.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AvariableName%3ALogOddsMetric%27"><span class="annot"><span class="annottext">LogOddsMetric -&gt; Text
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#%24sel%3AvariableName%3ALogOddsMetric%27"><span class="hs-identifier hs-var hs-var">variableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The type of variable.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AvariableType%3ALogOddsMetric%27"><span class="annot"><span class="annottext">LogOddsMetric -&gt; Text
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#%24sel%3AvariableType%3ALogOddsMetric%27"><span class="hs-identifier hs-var hs-var">variableType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The relative importance of the variable. For more information, see</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/frauddetector/latest/ug/model-variable-importance.html Model variable importance&gt;.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AvariableImportance%3ALogOddsMetric%27"><span class="annot"><span class="annottext">LogOddsMetric -&gt; Double
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#%24sel%3AvariableImportance%3ALogOddsMetric%27"><span class="hs-identifier hs-var hs-var">variableImportance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304721"><span id="local-6989586621679304723"><span class="annot"><span class="annottext">LogOddsMetric -&gt; LogOddsMetric -&gt; Bool
+(LogOddsMetric -&gt; LogOddsMetric -&gt; Bool)
+-&gt; (LogOddsMetric -&gt; LogOddsMetric -&gt; Bool) -&gt; Eq LogOddsMetric
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LogOddsMetric -&gt; LogOddsMetric -&gt; Bool
+$c/= :: LogOddsMetric -&gt; LogOddsMetric -&gt; Bool
+== :: LogOddsMetric -&gt; LogOddsMetric -&gt; Bool
+$c== :: LogOddsMetric -&gt; LogOddsMetric -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304712"><span id="local-6989586621679304714"><span id="local-6989586621679304716"><span id="local-6989586621679304718"><span class="annot"><span class="annottext">ReadPrec [LogOddsMetric]
+ReadPrec LogOddsMetric
+Int -&gt; ReadS LogOddsMetric
+ReadS [LogOddsMetric]
+(Int -&gt; ReadS LogOddsMetric)
+-&gt; ReadS [LogOddsMetric]
+-&gt; ReadPrec LogOddsMetric
+-&gt; ReadPrec [LogOddsMetric]
+-&gt; Read LogOddsMetric
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LogOddsMetric]
+$creadListPrec :: ReadPrec [LogOddsMetric]
+readPrec :: ReadPrec LogOddsMetric
+$creadPrec :: ReadPrec LogOddsMetric
+readList :: ReadS [LogOddsMetric]
+$creadList :: ReadS [LogOddsMetric]
+readsPrec :: Int -&gt; ReadS LogOddsMetric
+$creadsPrec :: Int -&gt; ReadS LogOddsMetric
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304705"><span id="local-6989586621679304707"><span id="local-6989586621679304709"><span class="annot"><span class="annottext">Int -&gt; LogOddsMetric -&gt; ShowS
+[LogOddsMetric] -&gt; ShowS
+LogOddsMetric -&gt; String
+(Int -&gt; LogOddsMetric -&gt; ShowS)
+-&gt; (LogOddsMetric -&gt; String)
+-&gt; ([LogOddsMetric] -&gt; ShowS)
+-&gt; Show LogOddsMetric
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LogOddsMetric] -&gt; ShowS
+$cshowList :: [LogOddsMetric] -&gt; ShowS
+show :: LogOddsMetric -&gt; String
+$cshow :: LogOddsMetric -&gt; String
+showsPrec :: Int -&gt; LogOddsMetric -&gt; ShowS
+$cshowsPrec :: Int -&gt; LogOddsMetric -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LogOddsMetric -&gt; Rep LogOddsMetric x)
+-&gt; (forall x. Rep LogOddsMetric x -&gt; LogOddsMetric)
+-&gt; Generic LogOddsMetric
+forall x. Rep LogOddsMetric x -&gt; LogOddsMetric
+forall x. LogOddsMetric -&gt; Rep LogOddsMetric x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LogOddsMetric x -&gt; LogOddsMetric
+$cfrom :: forall x. LogOddsMetric -&gt; Rep LogOddsMetric x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'LogOddsMetric' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'variableName', 'logOddsMetric_variableName' - The name of the variable.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'variableType', 'logOddsMetric_variableType' - The type of variable.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'variableImportance', 'logOddsMetric_variableImportance' - The relative importance of the variable. For more information, see</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/frauddetector/latest/ug/model-variable-importance.html Model variable importance&gt;.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#newLogOddsMetric"><span class="hs-identifier hs-type">newLogOddsMetric</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'variableName'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-comment">-- | 'variableType'</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-comment">-- | 'variableImportance'</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric"><span class="hs-identifier hs-type">LogOddsMetric</span></a></span><span>
+</span><span id="line-62"></span><span id="newLogOddsMetric"><span class="annot"><span class="annottext">newLogOddsMetric :: Text -&gt; Text -&gt; Double -&gt; LogOddsMetric
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#newLogOddsMetric"><span class="hs-identifier hs-var hs-var">newLogOddsMetric</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679304699"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304699"><span class="hs-identifier hs-var">pVariableName_</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679304698"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304698"><span class="hs-identifier hs-var">pVariableType_</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679304697"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679304697"><span class="hs-identifier hs-var">pVariableImportance_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">LogOddsMetric' :: Text -&gt; Text -&gt; Double -&gt; LogOddsMetric
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric%27"><span class="hs-identifier hs-type">LogOddsMetric'</span></a></span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:variableName:LogOddsMetric' :: Text
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#%24sel%3AvariableName%3ALogOddsMetric%27"><span class="hs-identifier hs-var">variableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304699"><span class="hs-identifier hs-var">pVariableName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">$sel:variableType:LogOddsMetric' :: Text
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#%24sel%3AvariableType%3ALogOddsMetric%27"><span class="hs-identifier hs-var">variableType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304698"><span class="hs-identifier hs-var">pVariableType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">$sel:variableImportance:LogOddsMetric' :: Double
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#%24sel%3AvariableImportance%3ALogOddsMetric%27"><span class="hs-identifier hs-var">variableImportance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679304697"><span class="hs-identifier hs-var">pVariableImportance_</span></a></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The name of the variable.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#logOddsMetric_variableName"><span class="hs-identifier hs-type">logOddsMetric_variableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric"><span class="hs-identifier hs-type">LogOddsMetric</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="logOddsMetric_variableName"><span class="annot"><span class="annottext">logOddsMetric_variableName :: (Text -&gt; f Text) -&gt; LogOddsMetric -&gt; f LogOddsMetric
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#logOddsMetric_variableName"><span class="hs-identifier hs-var hs-var">logOddsMetric_variableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogOddsMetric -&gt; Text)
+-&gt; (LogOddsMetric -&gt; Text -&gt; LogOddsMetric)
+-&gt; Lens LogOddsMetric LogOddsMetric Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric%27"><span class="hs-identifier hs-type">LogOddsMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304693"><span class="annot"><span class="annottext">Text
+variableName :: Text
+$sel:variableName:LogOddsMetric' :: LogOddsMetric -&gt; Text
+</span><a href="#local-6989586621679304693"><span class="hs-identifier hs-var hs-var">variableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304693"><span class="hs-identifier hs-var">variableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304692"><span class="annot"><span class="annottext">s :: LogOddsMetric
+</span><a href="#local-6989586621679304692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric%27"><span class="hs-identifier hs-type">LogOddsMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304691"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogOddsMetric
+</span><a href="#local-6989586621679304692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:variableName:LogOddsMetric' :: Text
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#%24sel%3AvariableName%3ALogOddsMetric%27"><span class="hs-identifier hs-var">variableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric"><span class="hs-identifier hs-type">LogOddsMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The type of variable.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#logOddsMetric_variableType"><span class="hs-identifier hs-type">logOddsMetric_variableType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric"><span class="hs-identifier hs-type">LogOddsMetric</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="logOddsMetric_variableType"><span class="annot"><span class="annottext">logOddsMetric_variableType :: (Text -&gt; f Text) -&gt; LogOddsMetric -&gt; f LogOddsMetric
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#logOddsMetric_variableType"><span class="hs-identifier hs-var hs-var">logOddsMetric_variableType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogOddsMetric -&gt; Text)
+-&gt; (LogOddsMetric -&gt; Text -&gt; LogOddsMetric)
+-&gt; Lens LogOddsMetric LogOddsMetric Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric%27"><span class="hs-identifier hs-type">LogOddsMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304689"><span class="annot"><span class="annottext">Text
+variableType :: Text
+$sel:variableType:LogOddsMetric' :: LogOddsMetric -&gt; Text
+</span><a href="#local-6989586621679304689"><span class="hs-identifier hs-var hs-var">variableType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304689"><span class="hs-identifier hs-var">variableType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304688"><span class="annot"><span class="annottext">s :: LogOddsMetric
+</span><a href="#local-6989586621679304688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric%27"><span class="hs-identifier hs-type">LogOddsMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304687"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogOddsMetric
+</span><a href="#local-6989586621679304688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:variableType:LogOddsMetric' :: Text
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#%24sel%3AvariableType%3ALogOddsMetric%27"><span class="hs-identifier hs-var">variableType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric"><span class="hs-identifier hs-type">LogOddsMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The relative importance of the variable. For more information, see</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/frauddetector/latest/ug/model-variable-importance.html Model variable importance&gt;.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#logOddsMetric_variableImportance"><span class="hs-identifier hs-type">logOddsMetric_variableImportance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric"><span class="hs-identifier hs-type">LogOddsMetric</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-83"></span><span id="logOddsMetric_variableImportance"><span class="annot"><span class="annottext">logOddsMetric_variableImportance :: (Double -&gt; f Double) -&gt; LogOddsMetric -&gt; f LogOddsMetric
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#logOddsMetric_variableImportance"><span class="hs-identifier hs-var hs-var">logOddsMetric_variableImportance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogOddsMetric -&gt; Double)
+-&gt; (LogOddsMetric -&gt; Double -&gt; LogOddsMetric)
+-&gt; Lens LogOddsMetric LogOddsMetric Double Double
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric%27"><span class="hs-identifier hs-type">LogOddsMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304685"><span class="annot"><span class="annottext">Double
+variableImportance :: Double
+$sel:variableImportance:LogOddsMetric' :: LogOddsMetric -&gt; Double
+</span><a href="#local-6989586621679304685"><span class="hs-identifier hs-var hs-var">variableImportance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679304685"><span class="hs-identifier hs-var">variableImportance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304684"><span class="annot"><span class="annottext">s :: LogOddsMetric
+</span><a href="#local-6989586621679304684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric%27"><span class="hs-identifier hs-type">LogOddsMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304683"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679304683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogOddsMetric
+</span><a href="#local-6989586621679304684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:variableImportance:LogOddsMetric' :: Double
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#%24sel%3AvariableImportance%3ALogOddsMetric%27"><span class="hs-identifier hs-var">variableImportance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679304683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric"><span class="hs-identifier hs-type">LogOddsMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304680"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric"><span class="hs-identifier hs-type">LogOddsMetric</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679304678"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogOddsMetric
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LogOddsMetric)
+-&gt; Value
+-&gt; Parser LogOddsMetric
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LogOddsMetric&quot;</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304675"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Double -&gt; LogOddsMetric
+</span><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric%27"><span class="hs-identifier hs-var">LogOddsMetric'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Double -&gt; LogOddsMetric)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Double -&gt; LogOddsMetric)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;variableName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Double -&gt; LogOddsMetric)
+-&gt; Parser Text -&gt; Parser (Double -&gt; LogOddsMetric)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;variableType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Double -&gt; LogOddsMetric)
+-&gt; Parser Double -&gt; Parser LogOddsMetric
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;variableImportance&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304669"><span id="local-6989586621679304671"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric"><span class="hs-identifier hs-type">LogOddsMetric</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric"><span class="hs-identifier hs-type">LogOddsMetric</span></a></span></span><span>
+</span><span id="line-99"></span></pre></body></html>

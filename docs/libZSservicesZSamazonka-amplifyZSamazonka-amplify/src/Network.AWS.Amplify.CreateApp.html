@@ -1,0 +1,1258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Amplify.CreateApp</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new Amplify app.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Amplify.CreateApp</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#newCreateApp"><span class="hs-identifier">newCreateApp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_enableBranchAutoBuild"><span class="hs-identifier">createApp_enableBranchAutoBuild</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_oauthToken"><span class="hs-identifier">createApp_oauthToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_accessToken"><span class="hs-identifier">createApp_accessToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_customHeaders"><span class="hs-identifier">createApp_customHeaders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_platform"><span class="hs-identifier">createApp_platform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_basicAuthCredentials"><span class="hs-identifier">createApp_basicAuthCredentials</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_repository"><span class="hs-identifier">createApp_repository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_buildSpec"><span class="hs-identifier">createApp_buildSpec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_enableBranchAutoDeletion"><span class="hs-identifier">createApp_enableBranchAutoDeletion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_customRules"><span class="hs-identifier">createApp_customRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_iamServiceRoleArn"><span class="hs-identifier">createApp_iamServiceRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_autoBranchCreationPatterns"><span class="hs-identifier">createApp_autoBranchCreationPatterns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_autoBranchCreationConfig"><span class="hs-identifier">createApp_autoBranchCreationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_environmentVariables"><span class="hs-identifier">createApp_environmentVariables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_enableAutoBranchCreation"><span class="hs-identifier">createApp_enableAutoBranchCreation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_enableBasicAuth"><span class="hs-identifier">createApp_enableBasicAuth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_description"><span class="hs-identifier">createApp_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_tags"><span class="hs-identifier">createApp_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_name"><span class="hs-identifier">createApp_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse"><span class="hs-identifier">CreateAppResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#newCreateAppResponse"><span class="hs-identifier">newCreateAppResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createAppResponse_httpStatus"><span class="hs-identifier">createAppResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createAppResponse_app"><span class="hs-identifier">createAppResponse_app</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.html"><span class="hs-identifier">Network.AWS.Amplify.Types</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The request structure used to create apps in Amplify.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- /See:/ 'newCreateApp' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621679254033"><span id="local-6989586621679254034"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApp"><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-var">CreateApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApp%27"><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-var">CreateApp'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Enables the auto building of branches for an Amplify app.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AenableBranchAutoBuild%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe Bool
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenableBranchAutoBuild%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">enableBranchAutoBuild</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The OAuth token for a third-party source control system for an Amplify</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- app. The OAuth token is used to create a webhook and a read-only deploy</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- key. The OAuth token is not stored.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AoauthToken%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AoauthToken%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">oauthToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The personal access token for a third-party source control system for an</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- Amplify app. The personal access token is used to create a webhook and a</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- read-only deploy key. The token is not stored.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AaccessToken%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AaccessToken%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The custom HTTP headers for an Amplify app.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AcustomHeaders%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AcustomHeaders%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">customHeaders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The platform or framework for an Amplify app.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Aplatform%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe Platform
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Aplatform%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.Platform.html#Platform"><span class="hs-identifier hs-type">Platform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The credentials for basic authorization for an Amplify app.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AbasicAuthCredentials%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AbasicAuthCredentials%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">basicAuthCredentials</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The repository for an Amplify app.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Arepository%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Arepository%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The build specification (build spec) for an Amplify app.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AbuildSpec%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AbuildSpec%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">buildSpec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | Automatically disconnects a branch in the Amplify Console when you</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- delete a branch from your Git repository.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AenableBranchAutoDeletion%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe Bool
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenableBranchAutoDeletion%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">enableBranchAutoDeletion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The custom rewrite and redirect rules for an Amplify app.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AcustomRules%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe [CustomRule]
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AcustomRules%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">customRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Amplify.Types.CustomRule.html#CustomRule"><span class="hs-identifier hs-type">CustomRule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The AWS Identity and Access Management (IAM) service role for an Amplify</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- app.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AiamServiceRoleArn%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AiamServiceRoleArn%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">iamServiceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The automated branch creation glob patterns for an Amplify app.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AautoBranchCreationPatterns%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe [Text]
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AautoBranchCreationPatterns%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">autoBranchCreationPatterns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The automated branch creation configuration for an Amplify app.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AautoBranchCreationConfig%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe AutoBranchCreationConfig
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AautoBranchCreationConfig%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">autoBranchCreationConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The environment variables map for an Amplify app.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AenvironmentVariables%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenvironmentVariables%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">environmentVariables</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | Enables automated branch creation for an Amplify app.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AenableAutoBranchCreation%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe Bool
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenableAutoBranchCreation%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">enableAutoBranchCreation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | Enables basic authorization for an Amplify app. This will apply to all</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- branches that are part of this app.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AenableBasicAuth%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe Bool
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenableBasicAuth%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">enableBasicAuth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The description for an Amplify app.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3Adescription%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Adescription%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The tag for an Amplify app.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3Atags%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Atags%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | The name for an Amplify app.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3Aname%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Aname%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254009"><span id="local-6989586621679254011"><span class="annot"><span class="annottext">CreateApp -&gt; CreateApp -&gt; Bool
+(CreateApp -&gt; CreateApp -&gt; Bool)
+-&gt; (CreateApp -&gt; CreateApp -&gt; Bool) -&gt; Eq CreateApp
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateApp -&gt; CreateApp -&gt; Bool
+$c/= :: CreateApp -&gt; CreateApp -&gt; Bool
+== :: CreateApp -&gt; CreateApp -&gt; Bool
+$c== :: CreateApp -&gt; CreateApp -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254002"><span id="local-6989586621679254004"><span id="local-6989586621679254006"><span class="annot"><span class="annottext">Int -&gt; CreateApp -&gt; ShowS
+[CreateApp] -&gt; ShowS
+CreateApp -&gt; String
+(Int -&gt; CreateApp -&gt; ShowS)
+-&gt; (CreateApp -&gt; String)
+-&gt; ([CreateApp] -&gt; ShowS)
+-&gt; Show CreateApp
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateApp] -&gt; ShowS
+$cshowList :: [CreateApp] -&gt; ShowS
+show :: CreateApp -&gt; String
+$cshow :: CreateApp -&gt; String
+showsPrec :: Int -&gt; CreateApp -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateApp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateApp -&gt; Rep CreateApp x)
+-&gt; (forall x. Rep CreateApp x -&gt; CreateApp) -&gt; Generic CreateApp
+forall x. Rep CreateApp x -&gt; CreateApp
+forall x. CreateApp -&gt; Rep CreateApp x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateApp x -&gt; CreateApp
+$cfrom :: forall x. CreateApp -&gt; Rep CreateApp x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Create a value of 'CreateApp' with all optional fields omitted.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'enableBranchAutoBuild', 'createApp_enableBranchAutoBuild' - Enables the auto building of branches for an Amplify app.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'oauthToken', 'createApp_oauthToken' - The OAuth token for a third-party source control system for an Amplify</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- app. The OAuth token is used to create a webhook and a read-only deploy</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- key. The OAuth token is not stored.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'accessToken', 'createApp_accessToken' - The personal access token for a third-party source control system for an</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Amplify app. The personal access token is used to create a webhook and a</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- read-only deploy key. The token is not stored.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'customHeaders', 'createApp_customHeaders' - The custom HTTP headers for an Amplify app.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'platform', 'createApp_platform' - The platform or framework for an Amplify app.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'basicAuthCredentials', 'createApp_basicAuthCredentials' - The credentials for basic authorization for an Amplify app.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'repository', 'createApp_repository' - The repository for an Amplify app.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'buildSpec', 'createApp_buildSpec' - The build specification (build spec) for an Amplify app.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'enableBranchAutoDeletion', 'createApp_enableBranchAutoDeletion' - Automatically disconnects a branch in the Amplify Console when you</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- delete a branch from your Git repository.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'customRules', 'createApp_customRules' - The custom rewrite and redirect rules for an Amplify app.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'iamServiceRoleArn', 'createApp_iamServiceRoleArn' - The AWS Identity and Access Management (IAM) service role for an Amplify</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- app.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'autoBranchCreationPatterns', 'createApp_autoBranchCreationPatterns' - The automated branch creation glob patterns for an Amplify app.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'autoBranchCreationConfig', 'createApp_autoBranchCreationConfig' - The automated branch creation configuration for an Amplify app.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'environmentVariables', 'createApp_environmentVariables' - The environment variables map for an Amplify app.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'enableAutoBranchCreation', 'createApp_enableAutoBranchCreation' - Enables automated branch creation for an Amplify app.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'enableBasicAuth', 'createApp_enableBasicAuth' - Enables basic authorization for an Amplify app. This will apply to all</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- branches that are part of this app.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'description', 'createApp_description' - The description for an Amplify app.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'tags', 'createApp_tags' - The tag for an Amplify app.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'name', 'createApp_name' - The name for an Amplify app.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#newCreateApp"><span class="hs-identifier hs-type">newCreateApp</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span>
+</span><span id="line-175"></span><span id="newCreateApp"><span class="annot"><span class="annottext">newCreateApp :: Text -&gt; CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#newCreateApp"><span class="hs-identifier hs-var hs-var">newCreateApp</span></a></span></span><span> </span><span id="local-6989586621679253997"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253997"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">CreateApp' :: Maybe Bool
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe Platform
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe [CustomRule]
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe AutoBranchCreationConfig
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enableBranchAutoBuild:CreateApp' :: Maybe Bool
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenableBranchAutoBuild%3ACreateApp%27"><span class="hs-identifier hs-var">enableBranchAutoBuild</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:oauthToken:CreateApp' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AoauthToken%3ACreateApp%27"><span class="hs-identifier hs-var">oauthToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessToken:CreateApp' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AaccessToken%3ACreateApp%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:customHeaders:CreateApp' :: Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AcustomHeaders%3ACreateApp%27"><span class="hs-identifier hs-var">customHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:platform:CreateApp' :: Maybe Platform
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Aplatform%3ACreateApp%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Platform
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:basicAuthCredentials:CreateApp' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AbasicAuthCredentials%3ACreateApp%27"><span class="hs-identifier hs-var">basicAuthCredentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:repository:CreateApp' :: Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Arepository%3ACreateApp%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:buildSpec:CreateApp' :: Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AbuildSpec%3ACreateApp%27"><span class="hs-identifier hs-var">buildSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableBranchAutoDeletion:CreateApp' :: Maybe Bool
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenableBranchAutoDeletion%3ACreateApp%27"><span class="hs-identifier hs-var">enableBranchAutoDeletion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:customRules:CreateApp' :: Maybe [CustomRule]
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AcustomRules%3ACreateApp%27"><span class="hs-identifier hs-var">customRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomRule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamServiceRoleArn:CreateApp' :: Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AiamServiceRoleArn%3ACreateApp%27"><span class="hs-identifier hs-var">iamServiceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoBranchCreationPatterns:CreateApp' :: Maybe [Text]
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AautoBranchCreationPatterns%3ACreateApp%27"><span class="hs-identifier hs-var">autoBranchCreationPatterns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoBranchCreationConfig:CreateApp' :: Maybe AutoBranchCreationConfig
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AautoBranchCreationConfig%3ACreateApp%27"><span class="hs-identifier hs-var">autoBranchCreationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoBranchCreationConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentVariables:CreateApp' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenvironmentVariables%3ACreateApp%27"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableAutoBranchCreation:CreateApp' :: Maybe Bool
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenableAutoBranchCreation%3ACreateApp%27"><span class="hs-identifier hs-var">enableAutoBranchCreation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableBasicAuth:CreateApp' :: Maybe Bool
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenableBasicAuth%3ACreateApp%27"><span class="hs-identifier hs-var">enableBasicAuth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateApp' :: Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Adescription%3ACreateApp%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateApp' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Atags%3ACreateApp%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateApp' :: Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Aname%3ACreateApp%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253997"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | Enables the auto building of branches for an Amplify app.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_enableBranchAutoBuild"><span class="hs-identifier hs-type">createApp_enableBranchAutoBuild</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="createApp_enableBranchAutoBuild"><span class="annot"><span class="annottext">createApp_enableBranchAutoBuild :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_enableBranchAutoBuild"><span class="hs-identifier hs-var hs-var">createApp_enableBranchAutoBuild</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe Bool)
+-&gt; (CreateApp -&gt; Maybe Bool -&gt; CreateApp)
+-&gt; Lens CreateApp CreateApp (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253994"><span class="annot"><span class="annottext">Maybe Bool
+enableBranchAutoBuild :: Maybe Bool
+$sel:enableBranchAutoBuild:CreateApp' :: CreateApp -&gt; Maybe Bool
+</span><a href="#local-6989586621679253994"><span class="hs-identifier hs-var hs-var">enableBranchAutoBuild</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253994"><span class="hs-identifier hs-var">enableBranchAutoBuild</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253993"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253992"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableBranchAutoBuild:CreateApp' :: Maybe Bool
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenableBranchAutoBuild%3ACreateApp%27"><span class="hs-identifier hs-var">enableBranchAutoBuild</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The OAuth token for a third-party source control system for an Amplify</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- app. The OAuth token is used to create a webhook and a read-only deploy</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- key. The OAuth token is not stored.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_oauthToken"><span class="hs-identifier hs-type">createApp_oauthToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="createApp_oauthToken"><span class="annot"><span class="annottext">createApp_oauthToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_oauthToken"><span class="hs-identifier hs-var hs-var">createApp_oauthToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe (Sensitive Text))
+-&gt; (CreateApp -&gt; Maybe (Sensitive Text) -&gt; CreateApp)
+-&gt; Lens
+     CreateApp
+     CreateApp
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253991"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+oauthToken :: Maybe (Sensitive Text)
+$sel:oauthToken:CreateApp' :: CreateApp -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253991"><span class="hs-identifier hs-var hs-var">oauthToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253991"><span class="hs-identifier hs-var">oauthToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253990"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253989"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oauthToken:CreateApp' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AoauthToken%3ACreateApp%27"><span class="hs-identifier hs-var">oauthToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; CreateApp -&gt; f CreateApp)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateApp
+-&gt; f CreateApp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The personal access token for a third-party source control system for an</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- Amplify app. The personal access token is used to create a webhook and a</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- read-only deploy key. The token is not stored.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_accessToken"><span class="hs-identifier hs-type">createApp_accessToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="createApp_accessToken"><span class="annot"><span class="annottext">createApp_accessToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_accessToken"><span class="hs-identifier hs-var hs-var">createApp_accessToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe (Sensitive Text))
+-&gt; (CreateApp -&gt; Maybe (Sensitive Text) -&gt; CreateApp)
+-&gt; Lens
+     CreateApp
+     CreateApp
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253985"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+accessToken :: Maybe (Sensitive Text)
+$sel:accessToken:CreateApp' :: CreateApp -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253985"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253985"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253984"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253983"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:CreateApp' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AaccessToken%3ACreateApp%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; CreateApp -&gt; f CreateApp)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateApp
+-&gt; f CreateApp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The custom HTTP headers for an Amplify app.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_customHeaders"><span class="hs-identifier hs-type">createApp_customHeaders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="createApp_customHeaders"><span class="annot"><span class="annottext">createApp_customHeaders :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_customHeaders"><span class="hs-identifier hs-var hs-var">createApp_customHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe Text)
+-&gt; (CreateApp -&gt; Maybe Text -&gt; CreateApp)
+-&gt; Lens CreateApp CreateApp (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253982"><span class="annot"><span class="annottext">Maybe Text
+customHeaders :: Maybe Text
+$sel:customHeaders:CreateApp' :: CreateApp -&gt; Maybe Text
+</span><a href="#local-6989586621679253982"><span class="hs-identifier hs-var hs-var">customHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253982"><span class="hs-identifier hs-var">customHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253981"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253980"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customHeaders:CreateApp' :: Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AcustomHeaders%3ACreateApp%27"><span class="hs-identifier hs-var">customHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The platform or framework for an Amplify app.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_platform"><span class="hs-identifier hs-type">createApp_platform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.Platform.html#Platform"><span class="hs-identifier hs-type">Platform</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="createApp_platform"><span class="annot"><span class="annottext">createApp_platform :: (Maybe Platform -&gt; f (Maybe Platform)) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_platform"><span class="hs-identifier hs-var hs-var">createApp_platform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe Platform)
+-&gt; (CreateApp -&gt; Maybe Platform -&gt; CreateApp)
+-&gt; Lens CreateApp CreateApp (Maybe Platform) (Maybe Platform)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253979"><span class="annot"><span class="annottext">Maybe Platform
+platform :: Maybe Platform
+$sel:platform:CreateApp' :: CreateApp -&gt; Maybe Platform
+</span><a href="#local-6989586621679253979"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Platform
+</span><a href="#local-6989586621679253979"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253978"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253977"><span class="annot"><span class="annottext">Maybe Platform
+</span><a href="#local-6989586621679253977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:CreateApp' :: Maybe Platform
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Aplatform%3ACreateApp%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Platform
+</span><a href="#local-6989586621679253977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The credentials for basic authorization for an Amplify app.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_basicAuthCredentials"><span class="hs-identifier hs-type">createApp_basicAuthCredentials</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="createApp_basicAuthCredentials"><span class="annot"><span class="annottext">createApp_basicAuthCredentials :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_basicAuthCredentials"><span class="hs-identifier hs-var hs-var">createApp_basicAuthCredentials</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe (Sensitive Text))
+-&gt; (CreateApp -&gt; Maybe (Sensitive Text) -&gt; CreateApp)
+-&gt; Lens
+     CreateApp
+     CreateApp
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253976"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+basicAuthCredentials :: Maybe (Sensitive Text)
+$sel:basicAuthCredentials:CreateApp' :: CreateApp -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253976"><span class="hs-identifier hs-var hs-var">basicAuthCredentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253976"><span class="hs-identifier hs-var">basicAuthCredentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253975"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253974"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:basicAuthCredentials:CreateApp' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AbasicAuthCredentials%3ACreateApp%27"><span class="hs-identifier hs-var">basicAuthCredentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; CreateApp -&gt; f CreateApp)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateApp
+-&gt; f CreateApp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The repository for an Amplify app.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_repository"><span class="hs-identifier hs-type">createApp_repository</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="createApp_repository"><span class="annot"><span class="annottext">createApp_repository :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_repository"><span class="hs-identifier hs-var hs-var">createApp_repository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe Text)
+-&gt; (CreateApp -&gt; Maybe Text -&gt; CreateApp)
+-&gt; Lens CreateApp CreateApp (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253973"><span class="annot"><span class="annottext">Maybe Text
+repository :: Maybe Text
+$sel:repository:CreateApp' :: CreateApp -&gt; Maybe Text
+</span><a href="#local-6989586621679253973"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253973"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253972"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repository:CreateApp' :: Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Arepository%3ACreateApp%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The build specification (build spec) for an Amplify app.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_buildSpec"><span class="hs-identifier hs-type">createApp_buildSpec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="createApp_buildSpec"><span class="annot"><span class="annottext">createApp_buildSpec :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_buildSpec"><span class="hs-identifier hs-var hs-var">createApp_buildSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe Text)
+-&gt; (CreateApp -&gt; Maybe Text -&gt; CreateApp)
+-&gt; Lens CreateApp CreateApp (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253970"><span class="annot"><span class="annottext">Maybe Text
+buildSpec :: Maybe Text
+$sel:buildSpec:CreateApp' :: CreateApp -&gt; Maybe Text
+</span><a href="#local-6989586621679253970"><span class="hs-identifier hs-var hs-var">buildSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253970"><span class="hs-identifier hs-var">buildSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253969"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253968"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildSpec:CreateApp' :: Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AbuildSpec%3ACreateApp%27"><span class="hs-identifier hs-var">buildSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | Automatically disconnects a branch in the Amplify Console when you</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- delete a branch from your Git repository.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_enableBranchAutoDeletion"><span class="hs-identifier hs-type">createApp_enableBranchAutoDeletion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="createApp_enableBranchAutoDeletion"><span class="annot"><span class="annottext">createApp_enableBranchAutoDeletion :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_enableBranchAutoDeletion"><span class="hs-identifier hs-var hs-var">createApp_enableBranchAutoDeletion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe Bool)
+-&gt; (CreateApp -&gt; Maybe Bool -&gt; CreateApp)
+-&gt; Lens CreateApp CreateApp (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253967"><span class="annot"><span class="annottext">Maybe Bool
+enableBranchAutoDeletion :: Maybe Bool
+$sel:enableBranchAutoDeletion:CreateApp' :: CreateApp -&gt; Maybe Bool
+</span><a href="#local-6989586621679253967"><span class="hs-identifier hs-var hs-var">enableBranchAutoDeletion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253967"><span class="hs-identifier hs-var">enableBranchAutoDeletion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253966"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253965"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableBranchAutoDeletion:CreateApp' :: Maybe Bool
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenableBranchAutoDeletion%3ACreateApp%27"><span class="hs-identifier hs-var">enableBranchAutoDeletion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | The custom rewrite and redirect rules for an Amplify app.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_customRules"><span class="hs-identifier hs-type">createApp_customRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Amplify.Types.CustomRule.html#CustomRule"><span class="hs-identifier hs-type">CustomRule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="createApp_customRules"><span class="annot"><span class="annottext">createApp_customRules :: (Maybe [CustomRule] -&gt; f (Maybe [CustomRule]))
+-&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_customRules"><span class="hs-identifier hs-var hs-var">createApp_customRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe [CustomRule])
+-&gt; (CreateApp -&gt; Maybe [CustomRule] -&gt; CreateApp)
+-&gt; Lens
+     CreateApp CreateApp (Maybe [CustomRule]) (Maybe [CustomRule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253964"><span class="annot"><span class="annottext">Maybe [CustomRule]
+customRules :: Maybe [CustomRule]
+$sel:customRules:CreateApp' :: CreateApp -&gt; Maybe [CustomRule]
+</span><a href="#local-6989586621679253964"><span class="hs-identifier hs-var hs-var">customRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomRule]
+</span><a href="#local-6989586621679253964"><span class="hs-identifier hs-var">customRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253963"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253962"><span class="annot"><span class="annottext">Maybe [CustomRule]
+</span><a href="#local-6989586621679253962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customRules:CreateApp' :: Maybe [CustomRule]
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AcustomRules%3ACreateApp%27"><span class="hs-identifier hs-var">customRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomRule]
+</span><a href="#local-6989586621679253962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CustomRule] -&gt; f (Maybe [CustomRule]))
+ -&gt; CreateApp -&gt; f CreateApp)
+-&gt; ((Maybe [CustomRule] -&gt; f (Maybe [CustomRule]))
+    -&gt; Maybe [CustomRule] -&gt; f (Maybe [CustomRule]))
+-&gt; (Maybe [CustomRule] -&gt; f (Maybe [CustomRule]))
+-&gt; CreateApp
+-&gt; f CreateApp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CustomRule] [CustomRule] [CustomRule] [CustomRule]
+-&gt; Iso
+     (Maybe [CustomRule])
+     (Maybe [CustomRule])
+     (Maybe [CustomRule])
+     (Maybe [CustomRule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CustomRule] [CustomRule] [CustomRule] [CustomRule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The AWS Identity and Access Management (IAM) service role for an Amplify</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- app.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_iamServiceRoleArn"><span class="hs-identifier hs-type">createApp_iamServiceRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="createApp_iamServiceRoleArn"><span class="annot"><span class="annottext">createApp_iamServiceRoleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_iamServiceRoleArn"><span class="hs-identifier hs-var hs-var">createApp_iamServiceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe Text)
+-&gt; (CreateApp -&gt; Maybe Text -&gt; CreateApp)
+-&gt; Lens CreateApp CreateApp (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253960"><span class="annot"><span class="annottext">Maybe Text
+iamServiceRoleArn :: Maybe Text
+$sel:iamServiceRoleArn:CreateApp' :: CreateApp -&gt; Maybe Text
+</span><a href="#local-6989586621679253960"><span class="hs-identifier hs-var hs-var">iamServiceRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253960"><span class="hs-identifier hs-var">iamServiceRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253959"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253958"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamServiceRoleArn:CreateApp' :: Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AiamServiceRoleArn%3ACreateApp%27"><span class="hs-identifier hs-var">iamServiceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The automated branch creation glob patterns for an Amplify app.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_autoBranchCreationPatterns"><span class="hs-identifier hs-type">createApp_autoBranchCreationPatterns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="createApp_autoBranchCreationPatterns"><span class="annot"><span class="annottext">createApp_autoBranchCreationPatterns :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_autoBranchCreationPatterns"><span class="hs-identifier hs-var hs-var">createApp_autoBranchCreationPatterns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe [Text])
+-&gt; (CreateApp -&gt; Maybe [Text] -&gt; CreateApp)
+-&gt; Lens CreateApp CreateApp (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253957"><span class="annot"><span class="annottext">Maybe [Text]
+autoBranchCreationPatterns :: Maybe [Text]
+$sel:autoBranchCreationPatterns:CreateApp' :: CreateApp -&gt; Maybe [Text]
+</span><a href="#local-6989586621679253957"><span class="hs-identifier hs-var hs-var">autoBranchCreationPatterns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679253957"><span class="hs-identifier hs-var">autoBranchCreationPatterns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253956"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253955"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679253955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoBranchCreationPatterns:CreateApp' :: Maybe [Text]
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AautoBranchCreationPatterns%3ACreateApp%27"><span class="hs-identifier hs-var">autoBranchCreationPatterns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679253955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CreateApp -&gt; f CreateApp)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateApp
+-&gt; f CreateApp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The automated branch creation configuration for an Amplify app.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_autoBranchCreationConfig"><span class="hs-identifier hs-type">createApp_autoBranchCreationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="createApp_autoBranchCreationConfig"><span class="annot"><span class="annottext">createApp_autoBranchCreationConfig :: (Maybe AutoBranchCreationConfig
+ -&gt; f (Maybe AutoBranchCreationConfig))
+-&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_autoBranchCreationConfig"><span class="hs-identifier hs-var hs-var">createApp_autoBranchCreationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe AutoBranchCreationConfig)
+-&gt; (CreateApp -&gt; Maybe AutoBranchCreationConfig -&gt; CreateApp)
+-&gt; Lens
+     CreateApp
+     CreateApp
+     (Maybe AutoBranchCreationConfig)
+     (Maybe AutoBranchCreationConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253954"><span class="annot"><span class="annottext">Maybe AutoBranchCreationConfig
+autoBranchCreationConfig :: Maybe AutoBranchCreationConfig
+$sel:autoBranchCreationConfig:CreateApp' :: CreateApp -&gt; Maybe AutoBranchCreationConfig
+</span><a href="#local-6989586621679253954"><span class="hs-identifier hs-var hs-var">autoBranchCreationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoBranchCreationConfig
+</span><a href="#local-6989586621679253954"><span class="hs-identifier hs-var">autoBranchCreationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253953"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253952"><span class="annot"><span class="annottext">Maybe AutoBranchCreationConfig
+</span><a href="#local-6989586621679253952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoBranchCreationConfig:CreateApp' :: Maybe AutoBranchCreationConfig
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AautoBranchCreationConfig%3ACreateApp%27"><span class="hs-identifier hs-var">autoBranchCreationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoBranchCreationConfig
+</span><a href="#local-6989586621679253952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The environment variables map for an Amplify app.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_environmentVariables"><span class="hs-identifier hs-type">createApp_environmentVariables</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="createApp_environmentVariables"><span class="annot"><span class="annottext">createApp_environmentVariables :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_environmentVariables"><span class="hs-identifier hs-var hs-var">createApp_environmentVariables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateApp -&gt; Maybe (HashMap Text Text) -&gt; CreateApp)
+-&gt; Lens
+     CreateApp
+     CreateApp
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253951"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+environmentVariables :: Maybe (HashMap Text Text)
+$sel:environmentVariables:CreateApp' :: CreateApp -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679253951"><span class="hs-identifier hs-var hs-var">environmentVariables</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679253951"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253950"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253949"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679253949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentVariables:CreateApp' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenvironmentVariables%3ACreateApp%27"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679253949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateApp -&gt; f CreateApp)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateApp
+-&gt; f CreateApp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | Enables automated branch creation for an Amplify app.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_enableAutoBranchCreation"><span class="hs-identifier hs-type">createApp_enableAutoBranchCreation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="createApp_enableAutoBranchCreation"><span class="annot"><span class="annottext">createApp_enableAutoBranchCreation :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_enableAutoBranchCreation"><span class="hs-identifier hs-var hs-var">createApp_enableAutoBranchCreation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe Bool)
+-&gt; (CreateApp -&gt; Maybe Bool -&gt; CreateApp)
+-&gt; Lens CreateApp CreateApp (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253948"><span class="annot"><span class="annottext">Maybe Bool
+enableAutoBranchCreation :: Maybe Bool
+$sel:enableAutoBranchCreation:CreateApp' :: CreateApp -&gt; Maybe Bool
+</span><a href="#local-6989586621679253948"><span class="hs-identifier hs-var hs-var">enableAutoBranchCreation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253948"><span class="hs-identifier hs-var">enableAutoBranchCreation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253947"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253946"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableAutoBranchCreation:CreateApp' :: Maybe Bool
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenableAutoBranchCreation%3ACreateApp%27"><span class="hs-identifier hs-var">enableAutoBranchCreation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | Enables basic authorization for an Amplify app. This will apply to all</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- branches that are part of this app.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_enableBasicAuth"><span class="hs-identifier hs-type">createApp_enableBasicAuth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="createApp_enableBasicAuth"><span class="annot"><span class="annottext">createApp_enableBasicAuth :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_enableBasicAuth"><span class="hs-identifier hs-var hs-var">createApp_enableBasicAuth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe Bool)
+-&gt; (CreateApp -&gt; Maybe Bool -&gt; CreateApp)
+-&gt; Lens CreateApp CreateApp (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253945"><span class="annot"><span class="annottext">Maybe Bool
+enableBasicAuth :: Maybe Bool
+$sel:enableBasicAuth:CreateApp' :: CreateApp -&gt; Maybe Bool
+</span><a href="#local-6989586621679253945"><span class="hs-identifier hs-var hs-var">enableBasicAuth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253945"><span class="hs-identifier hs-var">enableBasicAuth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253944"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253943"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableBasicAuth:CreateApp' :: Maybe Bool
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AenableBasicAuth%3ACreateApp%27"><span class="hs-identifier hs-var">enableBasicAuth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The description for an Amplify app.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_description"><span class="hs-identifier hs-type">createApp_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="createApp_description"><span class="annot"><span class="annottext">createApp_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_description"><span class="hs-identifier hs-var hs-var">createApp_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe Text)
+-&gt; (CreateApp -&gt; Maybe Text -&gt; CreateApp)
+-&gt; Lens CreateApp CreateApp (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253942"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateApp' :: CreateApp -&gt; Maybe Text
+</span><a href="#local-6989586621679253942"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253942"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253941"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253940"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateApp' :: Maybe Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Adescription%3ACreateApp%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | The tag for an Amplify app.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_tags"><span class="hs-identifier hs-type">createApp_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="createApp_tags"><span class="annot"><span class="annottext">createApp_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_tags"><span class="hs-identifier hs-var hs-var">createApp_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateApp -&gt; Maybe (HashMap Text Text) -&gt; CreateApp)
+-&gt; Lens
+     CreateApp
+     CreateApp
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253939"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateApp' :: CreateApp -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679253939"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679253939"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253938"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253937"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679253937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateApp' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Atags%3ACreateApp%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679253937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateApp -&gt; f CreateApp)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateApp
+-&gt; f CreateApp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The name for an Amplify app.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createApp_name"><span class="hs-identifier hs-type">createApp_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-279"></span><span id="createApp_name"><span class="annot"><span class="annottext">createApp_name :: (Text -&gt; f Text) -&gt; CreateApp -&gt; f CreateApp
+</span><a href="Network.AWS.Amplify.CreateApp.html#createApp_name"><span class="hs-identifier hs-var hs-var">createApp_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApp -&gt; Text)
+-&gt; (CreateApp -&gt; Text -&gt; CreateApp)
+-&gt; Lens CreateApp CreateApp Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253936"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateApp' :: CreateApp -&gt; Text
+</span><a href="#local-6989586621679253936"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253936"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253935"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679253935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253934"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679253935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateApp' :: Text
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Aname%3ACreateApp%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-282"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span>
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679253930"><span class="annot"><span class="annottext">request :: CreateApp -&gt; Request CreateApp
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateApp -&gt; Request CreateApp
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Amplify.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679253926"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateApp
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateApp)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateApp))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateApp
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateApp)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-286"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253923"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253923"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253922"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679253922"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253921"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253921"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-287"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; App -&gt; CreateAppResponse
+</span><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-var">CreateAppResponse'</span></a></span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; App -&gt; CreateAppResponse)
+-&gt; Either String Int -&gt; Either String (App -&gt; CreateAppResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253923"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Either String (App -&gt; CreateAppResponse)
+-&gt; Either String App -&gt; Either String CreateAppResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253921"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String App
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;app&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253913"><span id="local-6989586621679253915"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span></span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253910"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-297"></span><span>  </span><span id="local-6989586621679253906"><span class="annot"><span class="annottext">toHeaders :: CreateApp -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateApp -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-299"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-300"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-301"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-302"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-303"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-305"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253896"><span id="local-6989586621679253898"><span id="local-6989586621679253900"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-308"></span><span>  </span><span id="local-6989586621679253894"><span class="annot"><span class="annottext">toJSON :: CreateApp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253874"><span id="local-6989586621679253875"><span id="local-6989586621679253876"><span id="local-6989586621679253877"><span id="local-6989586621679253878"><span id="local-6989586621679253879"><span id="local-6989586621679253880"><span id="local-6989586621679253881"><span id="local-6989586621679253882"><span id="local-6989586621679253883"><span id="local-6989586621679253884"><span id="local-6989586621679253885"><span id="local-6989586621679253886"><span id="local-6989586621679253887"><span id="local-6989586621679253888"><span id="local-6989586621679253889"><span id="local-6989586621679253890"><span id="local-6989586621679253891"><span id="local-6989586621679253892"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Text]
+Maybe [CustomRule]
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe (Sensitive Text)
+Maybe Platform
+Maybe AutoBranchCreationConfig
+Text
+name :: Text
+tags :: Maybe (HashMap Text Text)
+description :: Maybe Text
+enableBasicAuth :: Maybe Bool
+enableAutoBranchCreation :: Maybe Bool
+environmentVariables :: Maybe (HashMap Text Text)
+autoBranchCreationConfig :: Maybe AutoBranchCreationConfig
+autoBranchCreationPatterns :: Maybe [Text]
+iamServiceRoleArn :: Maybe Text
+customRules :: Maybe [CustomRule]
+enableBranchAutoDeletion :: Maybe Bool
+buildSpec :: Maybe Text
+repository :: Maybe Text
+basicAuthCredentials :: Maybe (Sensitive Text)
+platform :: Maybe Platform
+customHeaders :: Maybe Text
+accessToken :: Maybe (Sensitive Text)
+oauthToken :: Maybe (Sensitive Text)
+enableBranchAutoBuild :: Maybe Bool
+$sel:name:CreateApp' :: CreateApp -&gt; Text
+$sel:tags:CreateApp' :: CreateApp -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateApp' :: CreateApp -&gt; Maybe Text
+$sel:enableBasicAuth:CreateApp' :: CreateApp -&gt; Maybe Bool
+$sel:enableAutoBranchCreation:CreateApp' :: CreateApp -&gt; Maybe Bool
+$sel:environmentVariables:CreateApp' :: CreateApp -&gt; Maybe (HashMap Text Text)
+$sel:autoBranchCreationConfig:CreateApp' :: CreateApp -&gt; Maybe AutoBranchCreationConfig
+$sel:autoBranchCreationPatterns:CreateApp' :: CreateApp -&gt; Maybe [Text]
+$sel:iamServiceRoleArn:CreateApp' :: CreateApp -&gt; Maybe Text
+$sel:customRules:CreateApp' :: CreateApp -&gt; Maybe [CustomRule]
+$sel:enableBranchAutoDeletion:CreateApp' :: CreateApp -&gt; Maybe Bool
+$sel:buildSpec:CreateApp' :: CreateApp -&gt; Maybe Text
+$sel:repository:CreateApp' :: CreateApp -&gt; Maybe Text
+$sel:basicAuthCredentials:CreateApp' :: CreateApp -&gt; Maybe (Sensitive Text)
+$sel:platform:CreateApp' :: CreateApp -&gt; Maybe Platform
+$sel:customHeaders:CreateApp' :: CreateApp -&gt; Maybe Text
+$sel:accessToken:CreateApp' :: CreateApp -&gt; Maybe (Sensitive Text)
+$sel:oauthToken:CreateApp' :: CreateApp -&gt; Maybe (Sensitive Text)
+$sel:enableBranchAutoBuild:CreateApp' :: CreateApp -&gt; Maybe Bool
+</span><a href="#local-6989586621679253874"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-310"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-311"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enableBranchAutoBuild&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253892"><span class="hs-identifier hs-var">enableBranchAutoBuild</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;oauthToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253891"><span class="hs-identifier hs-var">oauthToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;accessToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253890"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customHeaders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253889"><span class="hs-identifier hs-var">customHeaders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;platform&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Platform -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Platform -&gt; Pair) -&gt; Maybe Platform -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Platform
+</span><a href="#local-6989586621679253888"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;basicAuthCredentials&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679253887"><span class="hs-identifier hs-var">basicAuthCredentials</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;repository&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253886"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;buildSpec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253885"><span class="hs-identifier hs-var">buildSpec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enableBranchAutoDeletion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253884"><span class="hs-identifier hs-var">enableBranchAutoDeletion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CustomRule] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([CustomRule] -&gt; Pair) -&gt; Maybe [CustomRule] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CustomRule]
+</span><a href="#local-6989586621679253883"><span class="hs-identifier hs-var">customRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iamServiceRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253882"><span class="hs-identifier hs-var">iamServiceRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;autoBranchCreationPatterns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679253881"><span class="hs-identifier hs-var">autoBranchCreationPatterns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;autoBranchCreationConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AutoBranchCreationConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>              </span><span class="annot"><span class="annottext">(AutoBranchCreationConfig -&gt; Pair)
+-&gt; Maybe AutoBranchCreationConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AutoBranchCreationConfig
+</span><a href="#local-6989586621679253880"><span class="hs-identifier hs-var">autoBranchCreationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environmentVariables&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679253879"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enableAutoBranchCreation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253878"><span class="hs-identifier hs-var">enableAutoBranchCreation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enableBasicAuth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253877"><span class="hs-identifier hs-var">enableBasicAuth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253876"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679253875"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253874"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-340"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-343"></span><span>  </span><span id="local-6989586621679253868"><span class="annot"><span class="annottext">toPath :: CreateApp -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateApp -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/apps&quot;</span></span><span>
+</span><span id="line-344"></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-346"></span><span>  </span><span id="local-6989586621679253864"><span class="annot"><span class="annottext">toQuery :: CreateApp -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateApp -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- | /See:/ 'newCreateAppResponse' smart constructor.</span><span>
+</span><span id="line-349"></span><span id="local-6989586621679253861"><span id="local-6989586621679253862"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAppResponse"><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-var">CreateAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAppResponse%27"><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-var">CreateAppResponse'</span></a></span></span><span>
+</span><span id="line-350"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-351"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAppResponse%27"><span class="annot"><span class="annottext">CreateAppResponse -&gt; Int
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AhttpStatus%3ACreateAppResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>    </span><span id="%24sel%3Aapp%3ACreateAppResponse%27"><span class="annot"><span class="annottext">CreateAppResponse -&gt; App
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Aapp%3ACreateAppResponse%27"><span class="hs-identifier hs-var hs-var">app</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.App.html#App"><span class="hs-identifier hs-type">App</span></a></span><span>
+</span><span id="line-353"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-354"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253855"><span id="local-6989586621679253857"><span class="annot"><span class="annottext">CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
+(CreateAppResponse -&gt; CreateAppResponse -&gt; Bool)
+-&gt; (CreateAppResponse -&gt; CreateAppResponse -&gt; Bool)
+-&gt; Eq CreateAppResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
+$c/= :: CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
+== :: CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
+$c== :: CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253849"><span id="local-6989586621679253851"><span id="local-6989586621679253853"><span class="annot"><span class="annottext">Int -&gt; CreateAppResponse -&gt; ShowS
+[CreateAppResponse] -&gt; ShowS
+CreateAppResponse -&gt; String
+(Int -&gt; CreateAppResponse -&gt; ShowS)
+-&gt; (CreateAppResponse -&gt; String)
+-&gt; ([CreateAppResponse] -&gt; ShowS)
+-&gt; Show CreateAppResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAppResponse] -&gt; ShowS
+$cshowList :: [CreateAppResponse] -&gt; ShowS
+show :: CreateAppResponse -&gt; String
+$cshow :: CreateAppResponse -&gt; String
+showsPrec :: Int -&gt; CreateAppResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAppResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateAppResponse -&gt; Rep CreateAppResponse x)
+-&gt; (forall x. Rep CreateAppResponse x -&gt; CreateAppResponse)
+-&gt; Generic CreateAppResponse
+forall x. Rep CreateAppResponse x -&gt; CreateAppResponse
+forall x. CreateAppResponse -&gt; Rep CreateAppResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateAppResponse x -&gt; CreateAppResponse
+$cfrom :: forall x. CreateAppResponse -&gt; Rep CreateAppResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- Create a value of 'CreateAppResponse' with all optional fields omitted.</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-360"></span><span class="hs-comment">--</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- 'httpStatus', 'createAppResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- 'app', 'createAppResponse_app' - Undocumented member.</span><span>
+</span><span id="line-367"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#newCreateAppResponse"><span class="hs-identifier hs-type">newCreateAppResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-368"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-369"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-370"></span><span>  </span><span class="hs-comment">-- | 'app'</span><span>
+</span><span id="line-371"></span><span>  </span><span class="annot"><a href="Network.AWS.Amplify.Types.App.html#App"><span class="hs-identifier hs-type">App</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-372"></span><span>  </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span>
+</span><span id="line-373"></span><span id="newCreateAppResponse"><span class="annot"><span class="annottext">newCreateAppResponse :: Int -&gt; App -&gt; CreateAppResponse
+</span><a href="Network.AWS.Amplify.CreateApp.html#newCreateAppResponse"><span class="hs-identifier hs-var hs-var">newCreateAppResponse</span></a></span></span><span> </span><span id="local-6989586621679253846"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253846"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679253845"><span class="annot"><span class="annottext">App
+</span><a href="#local-6989586621679253845"><span class="hs-identifier hs-var">pApp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-374"></span><span>  </span><span class="annot"><span class="annottext">CreateAppResponse' :: Int -&gt; App -&gt; CreateAppResponse
+</span><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span>
+</span><span id="line-375"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAppResponse' :: Int
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AhttpStatus%3ACreateAppResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253846"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>      </span><span class="annot"><span class="annottext">$sel:app:CreateAppResponse' :: App
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Aapp%3ACreateAppResponse%27"><span class="hs-identifier hs-var">app</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">App
+</span><a href="#local-6989586621679253845"><span class="hs-identifier hs-var">pApp_</span></a></span><span>
+</span><span id="line-377"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-378"></span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-380"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createAppResponse_httpStatus"><span class="hs-identifier hs-type">createAppResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-381"></span><span id="createAppResponse_httpStatus"><span class="annot"><span class="annottext">createAppResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateAppResponse -&gt; f CreateAppResponse
+</span><a href="Network.AWS.Amplify.CreateApp.html#createAppResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createAppResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAppResponse -&gt; Int)
+-&gt; (CreateAppResponse -&gt; Int -&gt; CreateAppResponse)
+-&gt; Lens CreateAppResponse CreateAppResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253844"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateAppResponse' :: CreateAppResponse -&gt; Int
+</span><a href="#local-6989586621679253844"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253844"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253843"><span class="annot"><span class="annottext">s :: CreateAppResponse
+</span><a href="#local-6989586621679253843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253842"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppResponse
+</span><a href="#local-6989586621679253843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAppResponse' :: Int
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3AhttpStatus%3ACreateAppResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-384"></span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#createAppResponse_app"><span class="hs-identifier hs-type">createAppResponse_app</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.App.html#App"><span class="hs-identifier hs-type">App</span></a></span><span>
+</span><span id="line-385"></span><span id="createAppResponse_app"><span class="annot"><span class="annottext">createAppResponse_app :: (App -&gt; f App) -&gt; CreateAppResponse -&gt; f CreateAppResponse
+</span><a href="Network.AWS.Amplify.CreateApp.html#createAppResponse_app"><span class="hs-identifier hs-var hs-var">createAppResponse_app</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAppResponse -&gt; App)
+-&gt; (CreateAppResponse -&gt; App -&gt; CreateAppResponse)
+-&gt; Lens CreateAppResponse CreateAppResponse App App
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253841"><span class="annot"><span class="annottext">App
+app :: App
+$sel:app:CreateAppResponse' :: CreateAppResponse -&gt; App
+</span><a href="#local-6989586621679253841"><span class="hs-identifier hs-var hs-var">app</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">App
+</span><a href="#local-6989586621679253841"><span class="hs-identifier hs-var">app</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253840"><span class="annot"><span class="annottext">s :: CreateAppResponse
+</span><a href="#local-6989586621679253840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253839"><span class="annot"><span class="annottext">App
+</span><a href="#local-6989586621679253839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppResponse
+</span><a href="#local-6989586621679253840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:app:CreateAppResponse' :: App
+</span><a href="Network.AWS.Amplify.CreateApp.html#%24sel%3Aapp%3ACreateAppResponse%27"><span class="hs-identifier hs-var">app</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">App
+</span><a href="#local-6989586621679253839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-386"></span><span>
+</span><span id="line-387"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253837"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span></span><span>
+</span><span id="line-388"></span></pre></body></html>

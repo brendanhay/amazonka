@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a core.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCore' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679341717"><span id="local-6989586621679341718"></span></span><span class="hs-keyword">data</span><span> </span><span id="Core"><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-var">Core</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Core%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-var">Core'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679341726"><span id="local-6989586621679341727"></span></span><span class="hs-keyword">data</span><span> </span><span id="Core"><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-var">Core</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Core%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-var">Core'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If true, the core\'s local shadow is automatically synced with the</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- cloud.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AsyncShadow%3ACore%27"><span class="annot"><span class="annottext">Core -&gt; Maybe Bool
@@ -43,14 +43,14 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AcertificateArn%3ACore%27"><span class="annot"><span class="annottext">Core -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.Core.html#%24sel%3AcertificateArn%3ACore%27"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341708"><span id="local-6989586621679341710"><span class="annot"><span class="annottext">Core -&gt; Core -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341717"><span id="local-6989586621679341719"><span class="annot"><span class="annottext">Core -&gt; Core -&gt; Bool
 (Core -&gt; Core -&gt; Bool) -&gt; (Core -&gt; Core -&gt; Bool) -&gt; Eq Core
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Core -&gt; Core -&gt; Bool
 $c/= :: Core -&gt; Core -&gt; Bool
 == :: Core -&gt; Core -&gt; Bool
 $c== :: Core -&gt; Core -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341699"><span id="local-6989586621679341701"><span id="local-6989586621679341703"><span id="local-6989586621679341705"><span class="annot"><span class="annottext">ReadPrec [Core]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341708"><span id="local-6989586621679341710"><span id="local-6989586621679341712"><span id="local-6989586621679341714"><span class="annot"><span class="annottext">ReadPrec [Core]
 ReadPrec Core
 Int -&gt; ReadS Core
 ReadS [Core]
@@ -67,7 +67,7 @@ readList :: ReadS [Core]
 $creadList :: ReadS [Core]
 readsPrec :: Int -&gt; ReadS Core
 $creadsPrec :: Int -&gt; ReadS Core
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341692"><span id="local-6989586621679341694"><span id="local-6989586621679341696"><span class="annot"><span class="annottext">Int -&gt; Core -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341701"><span id="local-6989586621679341703"><span id="local-6989586621679341705"><span class="annot"><span class="annottext">Int -&gt; Core -&gt; ShowS
 [Core] -&gt; ShowS
 Core -&gt; String
 (Int -&gt; Core -&gt; ShowS)
@@ -117,10 +117,10 @@ $cfrom :: forall x. Core -&gt; Rep Core x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span><span>
 </span><span id="line-70"></span><span id="newCore"><span class="annot"><span class="annottext">newCore :: Text -&gt; Text -&gt; Text -&gt; Core
-</span><a href="Network.AWS.Greengrass.Types.Core.html#newCore"><span class="hs-identifier hs-var hs-var">newCore</span></a></span></span><span> </span><span id="local-6989586621679341686"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341686"><span class="hs-identifier hs-var">pThingArn_</span></a></span></span><span> </span><span id="local-6989586621679341685"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341685"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679341684"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341684"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.Types.Core.html#newCore"><span class="hs-identifier hs-var hs-var">newCore</span></a></span></span><span> </span><span id="local-6989586621679341695"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341695"><span class="hs-identifier hs-var">pThingArn_</span></a></span></span><span> </span><span id="local-6989586621679341694"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341694"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679341693"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341693"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">Core' :: Maybe Bool -&gt; Text -&gt; Text -&gt; Text -&gt; Core
 </span><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:syncShadow:Core' :: Maybe Bool
@@ -129,13 +129,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingArn:Core' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Core.html#%24sel%3AthingArn%3ACore%27"><span class="hs-identifier hs-var">thingArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341686"><span class="hs-identifier hs-var">pThingArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341695"><span class="hs-identifier hs-var">pThingArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Core' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Core.html#%24sel%3Aid%3ACore%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341685"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341694"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateArn:Core' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Core.html#%24sel%3AcertificateArn%3ACore%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341684"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span><span>
+</span><a href="#local-6989586621679341693"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | If true, the core\'s local shadow is automatically synced with the</span><span>
@@ -146,16 +146,16 @@ forall a. Maybe a
 -&gt; (Core -&gt; Maybe Bool -&gt; Core)
 -&gt; Lens Core Core (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341680"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341689"><span class="annot"><span class="annottext">Maybe Bool
 syncShadow :: Maybe Bool
 $sel:syncShadow:Core' :: Core -&gt; Maybe Bool
-</span><a href="#local-6989586621679341680"><span class="hs-identifier hs-var hs-var">syncShadow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679341680"><span class="hs-identifier hs-var">syncShadow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341679"><span class="annot"><span class="annottext">s :: Core
-</span><a href="#local-6989586621679341679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341678"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679341678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Core
-</span><a href="#local-6989586621679341679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncShadow:Core' :: Maybe Bool
+</span><a href="#local-6989586621679341689"><span class="hs-identifier hs-var hs-var">syncShadow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679341689"><span class="hs-identifier hs-var">syncShadow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341688"><span class="annot"><span class="annottext">s :: Core
+</span><a href="#local-6989586621679341688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341687"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679341687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Core
+</span><a href="#local-6989586621679341688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncShadow:Core' :: Maybe Bool
 </span><a href="Network.AWS.Greengrass.Types.Core.html#%24sel%3AsyncShadow%3ACore%27"><span class="hs-identifier hs-var">syncShadow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679341678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The ARN of the thing which is the core.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#core_thingArn"><span class="hs-identifier hs-type">core_thingArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -163,16 +163,16 @@ $sel:syncShadow:Core' :: Core -&gt; Maybe Bool
 </span><a href="Network.AWS.Greengrass.Types.Core.html#core_thingArn"><span class="hs-identifier hs-var hs-var">core_thingArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Core -&gt; Text)
 -&gt; (Core -&gt; Text -&gt; Core) -&gt; Lens Core Core Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341676"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341685"><span class="annot"><span class="annottext">Text
 thingArn :: Text
 $sel:thingArn:Core' :: Core -&gt; Text
-</span><a href="#local-6989586621679341676"><span class="hs-identifier hs-var hs-var">thingArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341676"><span class="hs-identifier hs-var">thingArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341675"><span class="annot"><span class="annottext">s :: Core
-</span><a href="#local-6989586621679341675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341674"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Core
-</span><a href="#local-6989586621679341675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingArn:Core' :: Text
+</span><a href="#local-6989586621679341685"><span class="hs-identifier hs-var hs-var">thingArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341685"><span class="hs-identifier hs-var">thingArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341684"><span class="annot"><span class="annottext">s :: Core
+</span><a href="#local-6989586621679341684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341683"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Core
+</span><a href="#local-6989586621679341684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingArn:Core' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Core.html#%24sel%3AthingArn%3ACore%27"><span class="hs-identifier hs-var">thingArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | A descriptive or arbitrary ID for the core. This value must be unique</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- within the core definition version. Max length is 128 characters with</span><span>
@@ -182,16 +182,16 @@ $sel:thingArn:Core' :: Core -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.Core.html#core_id"><span class="hs-identifier hs-var hs-var">core_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Core -&gt; Text)
 -&gt; (Core -&gt; Text -&gt; Core) -&gt; Lens Core Core Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341672"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341681"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:Core' :: Core -&gt; Text
-</span><a href="#local-6989586621679341672"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341672"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341671"><span class="annot"><span class="annottext">s :: Core
-</span><a href="#local-6989586621679341671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341670"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Core
-</span><a href="#local-6989586621679341671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Core' :: Text
+</span><a href="#local-6989586621679341681"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341681"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341680"><span class="annot"><span class="annottext">s :: Core
+</span><a href="#local-6989586621679341680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341679"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Core
+</span><a href="#local-6989586621679341680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Core' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Core.html#%24sel%3Aid%3ACore%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The ARN of the certificate associated with the core.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#core_certificateArn"><span class="hs-identifier hs-type">core_certificateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -199,34 +199,34 @@ $sel:id:Core' :: Core -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.Core.html#core_certificateArn"><span class="hs-identifier hs-var hs-var">core_certificateArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Core -&gt; Text)
 -&gt; (Core -&gt; Text -&gt; Core) -&gt; Lens Core Core Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341668"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341677"><span class="annot"><span class="annottext">Text
 certificateArn :: Text
 $sel:certificateArn:Core' :: Core -&gt; Text
-</span><a href="#local-6989586621679341668"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341668"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341667"><span class="annot"><span class="annottext">s :: Core
-</span><a href="#local-6989586621679341667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341666"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Core
-</span><a href="#local-6989586621679341667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:Core' :: Text
+</span><a href="#local-6989586621679341677"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341677"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341676"><span class="annot"><span class="annottext">s :: Core
+</span><a href="#local-6989586621679341676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341675"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Core
+</span><a href="#local-6989586621679341676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:Core' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Core.html#%24sel%3AcertificateArn%3ACore%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341663"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679341661"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Core
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341672"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679341670"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Core
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Core) -&gt; Value -&gt; Parser Core
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Core&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341658"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341658"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341667"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Text -&gt; Text -&gt; Text -&gt; Core
 </span><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-var">Core'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Text -&gt; Text -&gt; Text -&gt; Core)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; Core)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679341667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SyncShadow&quot;</span></span><span class="hs-special">)</span><span>
@@ -234,7 +234,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; Core)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679341667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ThingArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -242,26 +242,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Core)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679341667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Core) -&gt; Parser Text -&gt; Parser Core
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679341667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CertificateArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341651"><span id="local-6989586621679341653"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341660"><span id="local-6989586621679341662"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341648"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341640"><span id="local-6989586621679341642"><span id="local-6989586621679341644"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679341638"><span class="annot"><span class="annottext">toJSON :: Core -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341633"><span id="local-6989586621679341634"><span id="local-6989586621679341635"><span id="local-6989586621679341636"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341649"><span id="local-6989586621679341651"><span id="local-6989586621679341653"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679341647"><span class="annot"><span class="annottext">toJSON :: Core -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core%27"><span class="hs-identifier hs-type">Core'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341642"><span id="local-6989586621679341643"><span id="local-6989586621679341644"><span id="local-6989586621679341645"><span class="annot"><span class="annottext">Maybe Bool
 Text
 certificateArn :: Text
 id :: Text
@@ -271,7 +271,7 @@ $sel:certificateArn:Core' :: Core -&gt; Text
 $sel:id:Core' :: Core -&gt; Text
 $sel:thingArn:Core' :: Core -&gt; Text
 $sel:syncShadow:Core' :: Core -&gt; Maybe Bool
-</span><a href="#local-6989586621679341633"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679341642"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -283,21 +283,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679341636"><span class="hs-identifier hs-var">syncShadow</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341645"><span class="hs-identifier hs-var">syncShadow</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ThingArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341635"><span class="hs-identifier hs-var">thingArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341644"><span class="hs-identifier hs-var">thingArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341634"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341643"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -305,7 +305,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CertificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341633"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341642"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span></pre></body></html>

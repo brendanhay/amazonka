@@ -64,7 +64,7 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newCopySnapshot' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679662378"><span id="local-6989586621679662379"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopySnapshot"><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-var">CopySnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopySnapshot%27"><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-var">CopySnapshot'</span></a></span></span><span>
+</span><span id="line-67"></span><span id="local-6989586621679662387"><span id="local-6989586621679662388"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopySnapshot"><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-var">CopySnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopySnapshot%27"><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-var">CopySnapshot'</span></a></span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A Boolean value to indicate whether to use the latest available</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- automatic snapshot of the specified source instance or disk.</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -122,7 +122,7 @@
 </span><span id="line-117"></span><span>    </span><span id="%24sel%3AsourceRegion%3ACopySnapshot%27"><span class="annot"><span class="annottext">CopySnapshot -&gt; RegionName
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#%24sel%3AsourceRegion%3ACopySnapshot%27"><span class="hs-identifier hs-var hs-var">sourceRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679662367"><span id="local-6989586621679662369"><span class="annot"><span class="annottext">CopySnapshot -&gt; CopySnapshot -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679662376"><span id="local-6989586621679662378"><span class="annot"><span class="annottext">CopySnapshot -&gt; CopySnapshot -&gt; Bool
 (CopySnapshot -&gt; CopySnapshot -&gt; Bool)
 -&gt; (CopySnapshot -&gt; CopySnapshot -&gt; Bool) -&gt; Eq CopySnapshot
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -130,7 +130,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CopySnapshot -&gt; CopySnapshot -&gt; Bool
 == :: CopySnapshot -&gt; CopySnapshot -&gt; Bool
 $c== :: CopySnapshot -&gt; CopySnapshot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662358"><span id="local-6989586621679662360"><span id="local-6989586621679662362"><span id="local-6989586621679662364"><span class="annot"><span class="annottext">ReadPrec [CopySnapshot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662367"><span id="local-6989586621679662369"><span id="local-6989586621679662371"><span id="local-6989586621679662373"><span class="annot"><span class="annottext">ReadPrec [CopySnapshot]
 ReadPrec CopySnapshot
 Int -&gt; ReadS CopySnapshot
 ReadS [CopySnapshot]
@@ -150,7 +150,7 @@ readList :: ReadS [CopySnapshot]
 $creadList :: ReadS [CopySnapshot]
 readsPrec :: Int -&gt; ReadS CopySnapshot
 $creadsPrec :: Int -&gt; ReadS CopySnapshot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662351"><span id="local-6989586621679662353"><span id="local-6989586621679662355"><span class="annot"><span class="annottext">Int -&gt; CopySnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662360"><span id="local-6989586621679662362"><span id="local-6989586621679662364"><span class="annot"><span class="annottext">Int -&gt; CopySnapshot -&gt; ShowS
 [CopySnapshot] -&gt; ShowS
 CopySnapshot -&gt; String
 (Int -&gt; CopySnapshot -&gt; ShowS)
@@ -240,9 +240,9 @@ $cfrom :: forall x. CopySnapshot -&gt; Rep CopySnapshot x
 </span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span>
 </span><span id="line-184"></span><span id="newCopySnapshot"><span class="annot"><span class="annottext">newCopySnapshot :: Text -&gt; RegionName -&gt; CopySnapshot
-</span><a href="Network.AWS.Lightsail.CopySnapshot.html#newCopySnapshot"><span class="hs-identifier hs-var hs-var">newCopySnapshot</span></a></span></span><span> </span><span id="local-6989586621679662346"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662346"><span class="hs-identifier hs-var">pTargetSnapshotName_</span></a></span></span><span> </span><span id="local-6989586621679662345"><span class="annot"><span class="annottext">RegionName
-</span><a href="#local-6989586621679662345"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.CopySnapshot.html#newCopySnapshot"><span class="hs-identifier hs-var hs-var">newCopySnapshot</span></a></span></span><span> </span><span id="local-6989586621679662355"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679662355"><span class="hs-identifier hs-var">pTargetSnapshotName_</span></a></span></span><span> </span><span id="local-6989586621679662354"><span class="annot"><span class="annottext">RegionName
+</span><a href="#local-6989586621679662354"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">CopySnapshot' :: Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -270,10 +270,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetSnapshotName:CopySnapshot' :: Text
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#%24sel%3AtargetSnapshotName%3ACopySnapshot%27"><span class="hs-identifier hs-var">targetSnapshotName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662346"><span class="hs-identifier hs-var">pTargetSnapshotName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679662355"><span class="hs-identifier hs-var">pTargetSnapshotName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceRegion:CopySnapshot' :: RegionName
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#%24sel%3AsourceRegion%3ACopySnapshot%27"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegionName
-</span><a href="#local-6989586621679662345"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span><span>
+</span><a href="#local-6989586621679662354"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span><span>
 </span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | A Boolean value to indicate whether to use the latest available</span><span>
@@ -294,16 +294,16 @@ forall a. Maybe a
 -&gt; (CopySnapshot -&gt; Maybe Bool -&gt; CopySnapshot)
 -&gt; Lens CopySnapshot CopySnapshot (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662342"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662351"><span class="annot"><span class="annottext">Maybe Bool
 useLatestRestorableAutoSnapshot :: Maybe Bool
 $sel:useLatestRestorableAutoSnapshot:CopySnapshot' :: CopySnapshot -&gt; Maybe Bool
-</span><a href="#local-6989586621679662342"><span class="hs-identifier hs-var hs-var">useLatestRestorableAutoSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679662342"><span class="hs-identifier hs-var">useLatestRestorableAutoSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662341"><span class="annot"><span class="annottext">s :: CopySnapshot
-</span><a href="#local-6989586621679662341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662340"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679662340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshot
-</span><a href="#local-6989586621679662341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useLatestRestorableAutoSnapshot:CopySnapshot' :: Maybe Bool
+</span><a href="#local-6989586621679662351"><span class="hs-identifier hs-var hs-var">useLatestRestorableAutoSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679662351"><span class="hs-identifier hs-var">useLatestRestorableAutoSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662350"><span class="annot"><span class="annottext">s :: CopySnapshot
+</span><a href="#local-6989586621679662350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662349"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679662349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshot
+</span><a href="#local-6989586621679662350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useLatestRestorableAutoSnapshot:CopySnapshot' :: Maybe Bool
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#%24sel%3AuseLatestRestorableAutoSnapshot%3ACopySnapshot%27"><span class="hs-identifier hs-var">useLatestRestorableAutoSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679662340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | The date of the source automatic snapshot to copy. Use the</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- @get auto snapshots@ operation to identify the dates of the available</span><span>
@@ -327,16 +327,16 @@ $sel:useLatestRestorableAutoSnapshot:CopySnapshot' :: CopySnapshot -&gt; Maybe B
 -&gt; (CopySnapshot -&gt; Maybe Text -&gt; CopySnapshot)
 -&gt; Lens CopySnapshot CopySnapshot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662339"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662348"><span class="annot"><span class="annottext">Maybe Text
 restoreDate :: Maybe Text
 $sel:restoreDate:CopySnapshot' :: CopySnapshot -&gt; Maybe Text
-</span><a href="#local-6989586621679662339"><span class="hs-identifier hs-var hs-var">restoreDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679662339"><span class="hs-identifier hs-var">restoreDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662338"><span class="annot"><span class="annottext">s :: CopySnapshot
-</span><a href="#local-6989586621679662338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662337"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679662337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshot
-</span><a href="#local-6989586621679662338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restoreDate:CopySnapshot' :: Maybe Text
+</span><a href="#local-6989586621679662348"><span class="hs-identifier hs-var hs-var">restoreDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679662348"><span class="hs-identifier hs-var">restoreDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662347"><span class="annot"><span class="annottext">s :: CopySnapshot
+</span><a href="#local-6989586621679662347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662346"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679662346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshot
+</span><a href="#local-6989586621679662347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restoreDate:CopySnapshot' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#%24sel%3ArestoreDate%3ACopySnapshot%27"><span class="hs-identifier hs-var">restoreDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679662337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The name of the source instance or disk from which the source automatic</span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- snapshot was created.</span><span>
@@ -352,16 +352,16 @@ $sel:restoreDate:CopySnapshot' :: CopySnapshot -&gt; Maybe Text
 -&gt; (CopySnapshot -&gt; Maybe Text -&gt; CopySnapshot)
 -&gt; Lens CopySnapshot CopySnapshot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662336"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662345"><span class="annot"><span class="annottext">Maybe Text
 sourceResourceName :: Maybe Text
 $sel:sourceResourceName:CopySnapshot' :: CopySnapshot -&gt; Maybe Text
-</span><a href="#local-6989586621679662336"><span class="hs-identifier hs-var hs-var">sourceResourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679662336"><span class="hs-identifier hs-var">sourceResourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662335"><span class="annot"><span class="annottext">s :: CopySnapshot
-</span><a href="#local-6989586621679662335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662334"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679662334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshot
-</span><a href="#local-6989586621679662335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceResourceName:CopySnapshot' :: Maybe Text
+</span><a href="#local-6989586621679662345"><span class="hs-identifier hs-var hs-var">sourceResourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679662345"><span class="hs-identifier hs-var">sourceResourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662344"><span class="annot"><span class="annottext">s :: CopySnapshot
+</span><a href="#local-6989586621679662344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662343"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679662343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshot
+</span><a href="#local-6989586621679662344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceResourceName:CopySnapshot' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#%24sel%3AsourceResourceName%3ACopySnapshot%27"><span class="hs-identifier hs-var">sourceResourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679662334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | The name of the source manual snapshot to copy.</span><span>
 </span><span id="line-241"></span><span class="hs-comment">--</span><span>
@@ -375,16 +375,16 @@ $sel:sourceResourceName:CopySnapshot' :: CopySnapshot -&gt; Maybe Text
 -&gt; (CopySnapshot -&gt; Maybe Text -&gt; CopySnapshot)
 -&gt; Lens CopySnapshot CopySnapshot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662333"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662342"><span class="annot"><span class="annottext">Maybe Text
 sourceSnapshotName :: Maybe Text
 $sel:sourceSnapshotName:CopySnapshot' :: CopySnapshot -&gt; Maybe Text
-</span><a href="#local-6989586621679662333"><span class="hs-identifier hs-var hs-var">sourceSnapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679662333"><span class="hs-identifier hs-var">sourceSnapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662332"><span class="annot"><span class="annottext">s :: CopySnapshot
-</span><a href="#local-6989586621679662332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662331"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679662331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshot
-</span><a href="#local-6989586621679662332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceSnapshotName:CopySnapshot' :: Maybe Text
+</span><a href="#local-6989586621679662342"><span class="hs-identifier hs-var hs-var">sourceSnapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679662342"><span class="hs-identifier hs-var">sourceSnapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662341"><span class="annot"><span class="annottext">s :: CopySnapshot
+</span><a href="#local-6989586621679662341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662340"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679662340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshot
+</span><a href="#local-6989586621679662341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceSnapshotName:CopySnapshot' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#%24sel%3AsourceSnapshotName%3ACopySnapshot%27"><span class="hs-identifier hs-var">sourceSnapshotName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679662331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | The name of the new manual snapshot to be created as a copy.</span><span>
 </span><span id="line-250"></span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#copySnapshot_targetSnapshotName"><span class="hs-identifier hs-type">copySnapshot_targetSnapshotName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -393,16 +393,16 @@ $sel:sourceSnapshotName:CopySnapshot' :: CopySnapshot -&gt; Maybe Text
 -&gt; (CopySnapshot -&gt; Text -&gt; CopySnapshot)
 -&gt; Lens CopySnapshot CopySnapshot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662330"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662339"><span class="annot"><span class="annottext">Text
 targetSnapshotName :: Text
 $sel:targetSnapshotName:CopySnapshot' :: CopySnapshot -&gt; Text
-</span><a href="#local-6989586621679662330"><span class="hs-identifier hs-var hs-var">targetSnapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662330"><span class="hs-identifier hs-var">targetSnapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662329"><span class="annot"><span class="annottext">s :: CopySnapshot
-</span><a href="#local-6989586621679662329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662328"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshot
-</span><a href="#local-6989586621679662329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetSnapshotName:CopySnapshot' :: Text
+</span><a href="#local-6989586621679662339"><span class="hs-identifier hs-var hs-var">targetSnapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679662339"><span class="hs-identifier hs-var">targetSnapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662338"><span class="annot"><span class="annottext">s :: CopySnapshot
+</span><a href="#local-6989586621679662338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662337"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679662337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshot
+</span><a href="#local-6989586621679662338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetSnapshotName:CopySnapshot' :: Text
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#%24sel%3AtargetSnapshotName%3ACopySnapshot%27"><span class="hs-identifier hs-var">targetSnapshotName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | The AWS Region where the source manual or automatic snapshot is located.</span><span>
 </span><span id="line-254"></span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#copySnapshot_sourceRegion"><span class="hs-identifier hs-type">copySnapshot_sourceRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-type">RegionName</span></a></span><span>
@@ -411,25 +411,25 @@ $sel:targetSnapshotName:CopySnapshot' :: CopySnapshot -&gt; Text
 -&gt; (CopySnapshot -&gt; RegionName -&gt; CopySnapshot)
 -&gt; Lens CopySnapshot CopySnapshot RegionName RegionName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662327"><span class="annot"><span class="annottext">RegionName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662336"><span class="annot"><span class="annottext">RegionName
 sourceRegion :: RegionName
 $sel:sourceRegion:CopySnapshot' :: CopySnapshot -&gt; RegionName
-</span><a href="#local-6989586621679662327"><span class="hs-identifier hs-var hs-var">sourceRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegionName
-</span><a href="#local-6989586621679662327"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662326"><span class="annot"><span class="annottext">s :: CopySnapshot
-</span><a href="#local-6989586621679662326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662325"><span class="annot"><span class="annottext">RegionName
-</span><a href="#local-6989586621679662325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshot
-</span><a href="#local-6989586621679662326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRegion:CopySnapshot' :: RegionName
+</span><a href="#local-6989586621679662336"><span class="hs-identifier hs-var hs-var">sourceRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegionName
+</span><a href="#local-6989586621679662336"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662335"><span class="annot"><span class="annottext">s :: CopySnapshot
+</span><a href="#local-6989586621679662335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662334"><span class="annot"><span class="annottext">RegionName
+</span><a href="#local-6989586621679662334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshot
+</span><a href="#local-6989586621679662335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRegion:CopySnapshot' :: RegionName
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#%24sel%3AsourceRegion%3ACopySnapshot%27"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegionName
-</span><a href="#local-6989586621679662325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-258"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse"><span class="hs-identifier hs-type">CopySnapshotResponse</span></a></span><span>
-</span><span id="line-259"></span><span>  </span><span id="local-6989586621679662321"><span class="annot"><span class="annottext">request :: CopySnapshot -&gt; Request CopySnapshot
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621679662330"><span class="annot"><span class="annottext">request :: CopySnapshot -&gt; Request CopySnapshot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CopySnapshot -&gt; Request CopySnapshot
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621679662317"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679662326"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CopySnapshot
 -&gt; ClientResponse ClientBody
@@ -453,10 +453,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-262"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679662314"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679662314"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679662313"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679662313"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679662312"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679662312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-262"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679662323"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679662323"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679662322"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679662322"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679662321"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679662321"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-263"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; CopySnapshotResponse
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse%27"><span class="hs-identifier hs-var">CopySnapshotResponse'</span></a></span><span>
 </span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; CopySnapshotResponse)
@@ -464,7 +464,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CopySnapshotResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679662312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679662321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -481,15 +481,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679662314"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662323"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>
-</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662303"><span id="local-6989586621679662305"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span></span></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662312"><span id="local-6989586621679662314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span></span></span><span>
 </span><span id="line-269"></span><span>
-</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span></span><span>
 </span><span id="line-271"></span><span>
 </span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-273"></span><span>  </span><span id="local-6989586621679662296"><span class="annot"><span class="annottext">toHeaders :: CopySnapshot -&gt; ResponseHeaders
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679662305"><span class="annot"><span class="annottext">toHeaders :: CopySnapshot -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-274"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CopySnapshot -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -516,9 +516,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-284"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-285"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
-</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662286"><span id="local-6989586621679662288"><span id="local-6989586621679662290"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-288"></span><span>  </span><span id="local-6989586621679662284"><span class="annot"><span class="annottext">toJSON :: CopySnapshot -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662277"><span id="local-6989586621679662278"><span id="local-6989586621679662279"><span id="local-6989586621679662280"><span id="local-6989586621679662281"><span id="local-6989586621679662282"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662295"><span id="local-6989586621679662297"><span id="local-6989586621679662299"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-288"></span><span>  </span><span id="local-6989586621679662293"><span class="annot"><span class="annottext">toJSON :: CopySnapshot -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot%27"><span class="hs-identifier hs-type">CopySnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662286"><span id="local-6989586621679662287"><span id="local-6989586621679662288"><span id="local-6989586621679662289"><span id="local-6989586621679662290"><span id="local-6989586621679662291"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 RegionName
@@ -534,7 +534,7 @@ $sel:sourceSnapshotName:CopySnapshot' :: CopySnapshot -&gt; Maybe Text
 $sel:sourceResourceName:CopySnapshot' :: CopySnapshot -&gt; Maybe Text
 $sel:restoreDate:CopySnapshot' :: CopySnapshot -&gt; Maybe Text
 $sel:useLatestRestorableAutoSnapshot:CopySnapshot' :: CopySnapshot -&gt; Maybe Bool
-</span><a href="#local-6989586621679662277"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679662286"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-289"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-290"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -547,14 +547,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-292"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679662282"><span class="hs-identifier hs-var">useLatestRestorableAutoSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679662291"><span class="hs-identifier hs-var">useLatestRestorableAutoSnapshot</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-293"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;restoreDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679662281"><span class="hs-identifier hs-var">restoreDate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679662290"><span class="hs-identifier hs-var">restoreDate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-294"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceResourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -562,7 +562,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-295"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679662280"><span class="hs-identifier hs-var">sourceResourceName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679662289"><span class="hs-identifier hs-var">sourceResourceName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-296"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceSnapshotName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -570,7 +570,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-297"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679662279"><span class="hs-identifier hs-var">sourceSnapshotName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679662288"><span class="hs-identifier hs-var">sourceSnapshotName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-298"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -578,26 +578,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;targetSnapshotName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662278"><span class="hs-identifier hs-var">targetSnapshotName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679662287"><span class="hs-identifier hs-var">targetSnapshotName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-300"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RegionName -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RegionName
-</span><a href="#local-6989586621679662277"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662286"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-302"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-303"></span><span>
 </span><span id="line-304"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-305"></span><span>  </span><span id="local-6989586621679662271"><span class="annot"><span class="annottext">toPath :: CopySnapshot -&gt; ByteString
+</span><span id="line-305"></span><span>  </span><span id="local-6989586621679662280"><span class="annot"><span class="annottext">toPath :: CopySnapshot -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CopySnapshot -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-306"></span><span>
 </span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshot"><span class="hs-identifier hs-type">CopySnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-308"></span><span>  </span><span id="local-6989586621679662267"><span class="annot"><span class="annottext">toQuery :: CopySnapshot -&gt; QueryString
+</span><span id="line-308"></span><span>  </span><span id="local-6989586621679662276"><span class="annot"><span class="annottext">toQuery :: CopySnapshot -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CopySnapshot -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -605,7 +605,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-309"></span><span>
 </span><span id="line-310"></span><span class="hs-comment">-- | /See:/ 'newCopySnapshotResponse' smart constructor.</span><span>
-</span><span id="line-311"></span><span id="local-6989586621679662264"><span id="local-6989586621679662265"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopySnapshotResponse"><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse"><span class="hs-identifier hs-var">CopySnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopySnapshotResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse%27"><span class="hs-identifier hs-var">CopySnapshotResponse'</span></a></span></span><span>
+</span><span id="line-311"></span><span id="local-6989586621679662273"><span id="local-6989586621679662274"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopySnapshotResponse"><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse"><span class="hs-identifier hs-var">CopySnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopySnapshotResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse%27"><span class="hs-identifier hs-var">CopySnapshotResponse'</span></a></span></span><span>
 </span><span id="line-312"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-313"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-314"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -615,7 +615,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-317"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACopySnapshotResponse%27"><span class="annot"><span class="annottext">CopySnapshotResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#%24sel%3AhttpStatus%3ACopySnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-318"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-319"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679662258"><span id="local-6989586621679662260"><span class="annot"><span class="annottext">CopySnapshotResponse -&gt; CopySnapshotResponse -&gt; Bool
+</span><span id="line-319"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679662267"><span id="local-6989586621679662269"><span class="annot"><span class="annottext">CopySnapshotResponse -&gt; CopySnapshotResponse -&gt; Bool
 (CopySnapshotResponse -&gt; CopySnapshotResponse -&gt; Bool)
 -&gt; (CopySnapshotResponse -&gt; CopySnapshotResponse -&gt; Bool)
 -&gt; Eq CopySnapshotResponse
@@ -624,7 +624,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CopySnapshotResponse -&gt; CopySnapshotResponse -&gt; Bool
 == :: CopySnapshotResponse -&gt; CopySnapshotResponse -&gt; Bool
 $c== :: CopySnapshotResponse -&gt; CopySnapshotResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662250"><span id="local-6989586621679662252"><span id="local-6989586621679662254"><span id="local-6989586621679662256"><span class="annot"><span class="annottext">ReadPrec [CopySnapshotResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662259"><span id="local-6989586621679662261"><span id="local-6989586621679662263"><span id="local-6989586621679662265"><span class="annot"><span class="annottext">ReadPrec [CopySnapshotResponse]
 ReadPrec CopySnapshotResponse
 Int -&gt; ReadS CopySnapshotResponse
 ReadS [CopySnapshotResponse]
@@ -644,7 +644,7 @@ readList :: ReadS [CopySnapshotResponse]
 $creadList :: ReadS [CopySnapshotResponse]
 readsPrec :: Int -&gt; ReadS CopySnapshotResponse
 $creadsPrec :: Int -&gt; ReadS CopySnapshotResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662244"><span id="local-6989586621679662246"><span id="local-6989586621679662248"><span class="annot"><span class="annottext">Int -&gt; CopySnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662253"><span id="local-6989586621679662255"><span id="local-6989586621679662257"><span class="annot"><span class="annottext">Int -&gt; CopySnapshotResponse -&gt; ShowS
 [CopySnapshotResponse] -&gt; ShowS
 CopySnapshotResponse -&gt; String
 (Int -&gt; CopySnapshotResponse -&gt; ShowS)
@@ -688,8 +688,8 @@ $cfrom :: forall x. CopySnapshotResponse -&gt; Rep CopySnapshotResponse x
 </span><span id="line-336"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-337"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse"><span class="hs-identifier hs-type">CopySnapshotResponse</span></a></span><span>
 </span><span id="line-338"></span><span id="newCopySnapshotResponse"><span class="annot"><span class="annottext">newCopySnapshotResponse :: Int -&gt; CopySnapshotResponse
-</span><a href="Network.AWS.Lightsail.CopySnapshot.html#newCopySnapshotResponse"><span class="hs-identifier hs-var hs-var">newCopySnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679662241"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679662241"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.CopySnapshot.html#newCopySnapshotResponse"><span class="hs-identifier hs-var hs-var">newCopySnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679662250"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679662250"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-339"></span><span>  </span><span class="annot"><span class="annottext">CopySnapshotResponse' :: Maybe [Operation] -&gt; Int -&gt; CopySnapshotResponse
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse%27"><span class="hs-identifier hs-type">CopySnapshotResponse'</span></a></span><span>
 </span><span id="line-340"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:CopySnapshotResponse' :: Maybe [Operation]
@@ -698,7 +698,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-341"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CopySnapshotResponse' :: Int
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#%24sel%3AhttpStatus%3ACopySnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679662241"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679662250"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-342"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-343"></span><span>
 </span><span id="line-344"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -716,16 +716,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse%27"><span class="hs-identifier hs-type">CopySnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662240"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse%27"><span class="hs-identifier hs-type">CopySnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662249"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:CopySnapshotResponse' :: CopySnapshotResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679662240"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679662240"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662239"><span class="annot"><span class="annottext">s :: CopySnapshotResponse
-</span><a href="#local-6989586621679662239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse%27"><span class="hs-identifier hs-type">CopySnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662238"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679662238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshotResponse
-</span><a href="#local-6989586621679662239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:CopySnapshotResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679662249"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679662249"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662248"><span class="annot"><span class="annottext">s :: CopySnapshotResponse
+</span><a href="#local-6989586621679662248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse%27"><span class="hs-identifier hs-type">CopySnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662247"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679662247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshotResponse
+</span><a href="#local-6989586621679662248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:CopySnapshotResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#%24sel%3Aoperations%3ACopySnapshotResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679662238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse"><span class="hs-identifier hs-type">CopySnapshotResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679662247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse"><span class="hs-identifier hs-type">CopySnapshotResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; CopySnapshotResponse -&gt; f CopySnapshotResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -753,16 +753,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CopySnapshotResponse -&gt; Int -&gt; CopySnapshotResponse)
 -&gt; Lens CopySnapshotResponse CopySnapshotResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse%27"><span class="hs-identifier hs-type">CopySnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662234"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse%27"><span class="hs-identifier hs-type">CopySnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662243"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CopySnapshotResponse' :: CopySnapshotResponse -&gt; Int
-</span><a href="#local-6989586621679662234"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679662234"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662233"><span class="annot"><span class="annottext">s :: CopySnapshotResponse
-</span><a href="#local-6989586621679662233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse%27"><span class="hs-identifier hs-type">CopySnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662232"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679662232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshotResponse
-</span><a href="#local-6989586621679662233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CopySnapshotResponse' :: Int
+</span><a href="#local-6989586621679662243"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679662243"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662242"><span class="annot"><span class="annottext">s :: CopySnapshotResponse
+</span><a href="#local-6989586621679662242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse%27"><span class="hs-identifier hs-type">CopySnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662241"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679662241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopySnapshotResponse
+</span><a href="#local-6989586621679662242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CopySnapshotResponse' :: Int
 </span><a href="Network.AWS.Lightsail.CopySnapshot.html#%24sel%3AhttpStatus%3ACopySnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679662232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse"><span class="hs-identifier hs-type">CopySnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse"><span class="hs-identifier hs-type">CopySnapshotResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-353"></span><span>
-</span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662230"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse"><span class="hs-identifier hs-type">CopySnapshotResponse</span></a></span></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662239"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CopySnapshot.html#CopySnapshotResponse"><span class="hs-identifier hs-type">CopySnapshotResponse</span></a></span></span><span>
 </span><span id="line-355"></span></pre></body></html>

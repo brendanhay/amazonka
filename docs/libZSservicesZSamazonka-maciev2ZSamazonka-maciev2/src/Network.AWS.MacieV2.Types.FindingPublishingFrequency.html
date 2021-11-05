@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.Types.FindingPublishingFrequency</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.Types.FindingPublishingFrequency</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency"><span class="hs-identifier">FindingPublishingFrequency</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency_FIFTEEN_MINUTES"><span class="hs-identifier">FindingPublishingFrequency_FIFTEEN_MINUTES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency_ONE_HOUR"><span class="hs-identifier">FindingPublishingFrequency_ONE_HOUR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency_SIX_HOURS"><span class="hs-identifier">FindingPublishingFrequency_SIX_HOURS</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | The frequency with which Amazon Macie publishes updates to policy</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- findings for an account. This includes publishing updates to Security</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/macie/latest/user/findings-monitor.html Monitoring and processing findings&gt;</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- in the /Amazon Macie User Guide/. Valid values are:</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679387387"><span id="local-6989586621679387388"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FindingPublishingFrequency"><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency"><span class="hs-identifier hs-var">FindingPublishingFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingPublishingFrequency%27"><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency%27"><span class="hs-identifier hs-var">FindingPublishingFrequency'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFindingPublishingFrequency"><span class="annot"><span class="annottext">FindingPublishingFrequency -&gt; Text
+</span><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#fromFindingPublishingFrequency"><span class="hs-identifier hs-var hs-var">fromFindingPublishingFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679387379"><span id="local-6989586621679387381"><span id="local-6989586621679387383"><span class="annot"><span class="annottext">Int -&gt; FindingPublishingFrequency -&gt; ShowS
+[FindingPublishingFrequency] -&gt; ShowS
+FindingPublishingFrequency -&gt; String
+(Int -&gt; FindingPublishingFrequency -&gt; ShowS)
+-&gt; (FindingPublishingFrequency -&gt; String)
+-&gt; ([FindingPublishingFrequency] -&gt; ShowS)
+-&gt; Show FindingPublishingFrequency
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FindingPublishingFrequency] -&gt; ShowS
+$cshowList :: [FindingPublishingFrequency] -&gt; ShowS
+show :: FindingPublishingFrequency -&gt; String
+$cshow :: FindingPublishingFrequency -&gt; String
+showsPrec :: Int -&gt; FindingPublishingFrequency -&gt; ShowS
+$cshowsPrec :: Int -&gt; FindingPublishingFrequency -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679387370"><span id="local-6989586621679387372"><span id="local-6989586621679387374"><span id="local-6989586621679387376"><span class="annot"><span class="annottext">ReadPrec [FindingPublishingFrequency]
+ReadPrec FindingPublishingFrequency
+Int -&gt; ReadS FindingPublishingFrequency
+ReadS [FindingPublishingFrequency]
+(Int -&gt; ReadS FindingPublishingFrequency)
+-&gt; ReadS [FindingPublishingFrequency]
+-&gt; ReadPrec FindingPublishingFrequency
+-&gt; ReadPrec [FindingPublishingFrequency]
+-&gt; Read FindingPublishingFrequency
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FindingPublishingFrequency]
+$creadListPrec :: ReadPrec [FindingPublishingFrequency]
+readPrec :: ReadPrec FindingPublishingFrequency
+$creadPrec :: ReadPrec FindingPublishingFrequency
+readList :: ReadS [FindingPublishingFrequency]
+$creadList :: ReadS [FindingPublishingFrequency]
+readsPrec :: Int -&gt; ReadS FindingPublishingFrequency
+$creadsPrec :: Int -&gt; ReadS FindingPublishingFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679387365"><span id="local-6989586621679387367"><span class="annot"><span class="annottext">FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool
+(FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool)
+-&gt; (FindingPublishingFrequency
+    -&gt; FindingPublishingFrequency -&gt; Bool)
+-&gt; Eq FindingPublishingFrequency
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool
+$c/= :: FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool
+== :: FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool
+$c== :: FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679387349"><span id="local-6989586621679387351"><span id="local-6989586621679387353"><span id="local-6989586621679387355"><span id="local-6989586621679387357"><span id="local-6989586621679387359"><span id="local-6989586621679387361"><span class="annot"><span class="annottext">Eq FindingPublishingFrequency
+Eq FindingPublishingFrequency
+-&gt; (FindingPublishingFrequency
+    -&gt; FindingPublishingFrequency -&gt; Ordering)
+-&gt; (FindingPublishingFrequency
+    -&gt; FindingPublishingFrequency -&gt; Bool)
+-&gt; (FindingPublishingFrequency
+    -&gt; FindingPublishingFrequency -&gt; Bool)
+-&gt; (FindingPublishingFrequency
+    -&gt; FindingPublishingFrequency -&gt; Bool)
+-&gt; (FindingPublishingFrequency
+    -&gt; FindingPublishingFrequency -&gt; Bool)
+-&gt; (FindingPublishingFrequency
+    -&gt; FindingPublishingFrequency -&gt; FindingPublishingFrequency)
+-&gt; (FindingPublishingFrequency
+    -&gt; FindingPublishingFrequency -&gt; FindingPublishingFrequency)
+-&gt; Ord FindingPublishingFrequency
+FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool
+FindingPublishingFrequency
+-&gt; FindingPublishingFrequency -&gt; Ordering
+FindingPublishingFrequency
+-&gt; FindingPublishingFrequency -&gt; FindingPublishingFrequency
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FindingPublishingFrequency
+-&gt; FindingPublishingFrequency -&gt; FindingPublishingFrequency
+$cmin :: FindingPublishingFrequency
+-&gt; FindingPublishingFrequency -&gt; FindingPublishingFrequency
+max :: FindingPublishingFrequency
+-&gt; FindingPublishingFrequency -&gt; FindingPublishingFrequency
+$cmax :: FindingPublishingFrequency
+-&gt; FindingPublishingFrequency -&gt; FindingPublishingFrequency
+&gt;= :: FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool
+$c&gt;= :: FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool
+&gt; :: FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool
+$c&gt; :: FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool
+&lt;= :: FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool
+$c&lt;= :: FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool
+&lt; :: FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool
+$c&lt; :: FindingPublishingFrequency -&gt; FindingPublishingFrequency -&gt; Bool
+compare :: FindingPublishingFrequency
+-&gt; FindingPublishingFrequency -&gt; Ordering
+$ccompare :: FindingPublishingFrequency
+-&gt; FindingPublishingFrequency -&gt; Ordering
+$cp1Ord :: Eq FindingPublishingFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ FindingPublishingFrequency -&gt; Rep FindingPublishingFrequency x)
+-&gt; (forall x.
+    Rep FindingPublishingFrequency x -&gt; FindingPublishingFrequency)
+-&gt; Generic FindingPublishingFrequency
+forall x.
+Rep FindingPublishingFrequency x -&gt; FindingPublishingFrequency
+forall x.
+FindingPublishingFrequency -&gt; Rep FindingPublishingFrequency x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FindingPublishingFrequency x -&gt; FindingPublishingFrequency
+$cfrom :: forall x.
+FindingPublishingFrequency -&gt; Rep FindingPublishingFrequency x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679387341"><span id="local-6989586621679387343"><span class="annot"><span class="annottext">Int -&gt; FindingPublishingFrequency -&gt; Int
+FindingPublishingFrequency -&gt; Int
+(Int -&gt; FindingPublishingFrequency -&gt; Int)
+-&gt; (FindingPublishingFrequency -&gt; Int)
+-&gt; Hashable FindingPublishingFrequency
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FindingPublishingFrequency -&gt; Int
+$chash :: FindingPublishingFrequency -&gt; Int
+hashWithSalt :: Int -&gt; FindingPublishingFrequency -&gt; Int
+$chashWithSalt :: Int -&gt; FindingPublishingFrequency -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679387338"><span class="annot"><span class="annottext">FindingPublishingFrequency -&gt; ()
+(FindingPublishingFrequency -&gt; ())
+-&gt; NFData FindingPublishingFrequency
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FindingPublishingFrequency -&gt; ()
+$crnf :: FindingPublishingFrequency -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679387335"><span class="annot"><span class="annottext">Text -&gt; Either String FindingPublishingFrequency
+(Text -&gt; Either String FindingPublishingFrequency)
+-&gt; FromText FindingPublishingFrequency
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FindingPublishingFrequency
+$cfromText :: Text -&gt; Either String FindingPublishingFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679387332"><span class="annot"><span class="annottext">FindingPublishingFrequency -&gt; Text
+(FindingPublishingFrequency -&gt; Text)
+-&gt; ToText FindingPublishingFrequency
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FindingPublishingFrequency -&gt; Text
+$ctoText :: FindingPublishingFrequency -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679387329"><span class="annot"><span class="annottext">FindingPublishingFrequency -&gt; ByteString
+(FindingPublishingFrequency -&gt; ByteString)
+-&gt; ToByteString FindingPublishingFrequency
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FindingPublishingFrequency -&gt; ByteString
+$ctoBS :: FindingPublishingFrequency -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679387326"><span class="annot"><span class="annottext">FindingPublishingFrequency -&gt; ByteStringBuilder
+(FindingPublishingFrequency -&gt; ByteStringBuilder)
+-&gt; ToLog FindingPublishingFrequency
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FindingPublishingFrequency -&gt; ByteStringBuilder
+$cbuild :: FindingPublishingFrequency -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679387323"><span class="annot"><span class="annottext">HeaderName -&gt; FindingPublishingFrequency -&gt; [Header]
+(HeaderName -&gt; FindingPublishingFrequency -&gt; [Header])
+-&gt; ToHeader FindingPublishingFrequency
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FindingPublishingFrequency -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FindingPublishingFrequency -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679387320"><span class="annot"><span class="annottext">FindingPublishingFrequency -&gt; QueryString
+(FindingPublishingFrequency -&gt; QueryString)
+-&gt; ToQuery FindingPublishingFrequency
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FindingPublishingFrequency -&gt; QueryString
+$ctoQuery :: FindingPublishingFrequency -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679387315"><span id="local-6989586621679387317"><span class="annot"><span class="annottext">Value -&gt; Parser [FindingPublishingFrequency]
+Value -&gt; Parser FindingPublishingFrequency
+(Value -&gt; Parser FindingPublishingFrequency)
+-&gt; (Value -&gt; Parser [FindingPublishingFrequency])
+-&gt; FromJSON FindingPublishingFrequency
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FindingPublishingFrequency]
+$cparseJSONList :: Value -&gt; Parser [FindingPublishingFrequency]
+parseJSON :: Value -&gt; Parser FindingPublishingFrequency
+$cparseJSON :: Value -&gt; Parser FindingPublishingFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679387310"><span id="local-6989586621679387312"><span class="annot"><span class="annottext">FromJSONKeyFunction [FindingPublishingFrequency]
+FromJSONKeyFunction FindingPublishingFrequency
+FromJSONKeyFunction FindingPublishingFrequency
+-&gt; FromJSONKeyFunction [FindingPublishingFrequency]
+-&gt; FromJSONKey FindingPublishingFrequency
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FindingPublishingFrequency]
+$cfromJSONKeyList :: FromJSONKeyFunction [FindingPublishingFrequency]
+fromJSONKey :: FromJSONKeyFunction FindingPublishingFrequency
+$cfromJSONKey :: FromJSONKeyFunction FindingPublishingFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679387301"><span id="local-6989586621679387303"><span id="local-6989586621679387305"><span id="local-6989586621679387307"><span class="annot"><span class="annottext">[FindingPublishingFrequency] -&gt; Encoding
+[FindingPublishingFrequency] -&gt; Value
+FindingPublishingFrequency -&gt; Encoding
+FindingPublishingFrequency -&gt; Value
+(FindingPublishingFrequency -&gt; Value)
+-&gt; (FindingPublishingFrequency -&gt; Encoding)
+-&gt; ([FindingPublishingFrequency] -&gt; Value)
+-&gt; ([FindingPublishingFrequency] -&gt; Encoding)
+-&gt; ToJSON FindingPublishingFrequency
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FindingPublishingFrequency] -&gt; Encoding
+$ctoEncodingList :: [FindingPublishingFrequency] -&gt; Encoding
+toJSONList :: [FindingPublishingFrequency] -&gt; Value
+$ctoJSONList :: [FindingPublishingFrequency] -&gt; Value
+toEncoding :: FindingPublishingFrequency -&gt; Encoding
+$ctoEncoding :: FindingPublishingFrequency -&gt; Encoding
+toJSON :: FindingPublishingFrequency -&gt; Value
+$ctoJSON :: FindingPublishingFrequency -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679387296"><span id="local-6989586621679387298"><span class="annot"><span class="annottext">ToJSONKeyFunction [FindingPublishingFrequency]
+ToJSONKeyFunction FindingPublishingFrequency
+ToJSONKeyFunction FindingPublishingFrequency
+-&gt; ToJSONKeyFunction [FindingPublishingFrequency]
+-&gt; ToJSONKey FindingPublishingFrequency
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FindingPublishingFrequency]
+$ctoJSONKeyList :: ToJSONKeyFunction [FindingPublishingFrequency]
+toJSONKey :: ToJSONKeyFunction FindingPublishingFrequency
+$ctoJSONKey :: ToJSONKeyFunction FindingPublishingFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679387293"><span class="annot"><span class="annottext">[Node] -&gt; Either String FindingPublishingFrequency
+([Node] -&gt; Either String FindingPublishingFrequency)
+-&gt; FromXML FindingPublishingFrequency
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FindingPublishingFrequency
+$cparseXML :: [Node] -&gt; Either String FindingPublishingFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679387290"><span class="annot"><span class="annottext">FindingPublishingFrequency -&gt; XML
+(FindingPublishingFrequency -&gt; XML)
+-&gt; ToXML FindingPublishingFrequency
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FindingPublishingFrequency -&gt; XML
+$ctoXML :: FindingPublishingFrequency -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency_FIFTEEN_MINUTES"><span class="hs-identifier hs-type">FindingPublishingFrequency_FIFTEEN_MINUTES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency"><span class="hs-identifier hs-type">FindingPublishingFrequency</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFindingPublishingFrequency_FIFTEEN_MINUTES"><span id="%24mFindingPublishingFrequency_FIFTEEN_MINUTES"><span id="FindingPublishingFrequency_FIFTEEN_MINUTES"><span class="annot"><span class="annottext">$bFindingPublishingFrequency_FIFTEEN_MINUTES :: FindingPublishingFrequency
+$mFindingPublishingFrequency_FIFTEEN_MINUTES :: forall r.
+FindingPublishingFrequency -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#%24bFindingPublishingFrequency_FIFTEEN_MINUTES"><span class="hs-identifier hs-var hs-var hs-var">FindingPublishingFrequency_FIFTEEN_MINUTES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency%27"><span class="hs-identifier hs-type">FindingPublishingFrequency'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FIFTEEN_MINUTES&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency_ONE_HOUR"><span class="hs-identifier hs-type">FindingPublishingFrequency_ONE_HOUR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency"><span class="hs-identifier hs-type">FindingPublishingFrequency</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFindingPublishingFrequency_ONE_HOUR"><span id="%24mFindingPublishingFrequency_ONE_HOUR"><span id="FindingPublishingFrequency_ONE_HOUR"><span class="annot"><span class="annottext">$bFindingPublishingFrequency_ONE_HOUR :: FindingPublishingFrequency
+$mFindingPublishingFrequency_ONE_HOUR :: forall r.
+FindingPublishingFrequency -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#%24bFindingPublishingFrequency_ONE_HOUR"><span class="hs-identifier hs-var hs-var hs-var">FindingPublishingFrequency_ONE_HOUR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency%27"><span class="hs-identifier hs-type">FindingPublishingFrequency'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ONE_HOUR&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency_SIX_HOURS"><span class="hs-identifier hs-type">FindingPublishingFrequency_SIX_HOURS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency"><span class="hs-identifier hs-type">FindingPublishingFrequency</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFindingPublishingFrequency_SIX_HOURS"><span id="%24mFindingPublishingFrequency_SIX_HOURS"><span id="FindingPublishingFrequency_SIX_HOURS"><span class="annot"><span class="annottext">$bFindingPublishingFrequency_SIX_HOURS :: FindingPublishingFrequency
+$mFindingPublishingFrequency_SIX_HOURS :: forall r.
+FindingPublishingFrequency -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#%24bFindingPublishingFrequency_SIX_HOURS"><span class="hs-identifier hs-var hs-var hs-var">FindingPublishingFrequency_SIX_HOURS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency%27"><span class="hs-identifier hs-type">FindingPublishingFrequency'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SIX_HOURS&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency_FIFTEEN_MINUTES"><span class="hs-pragma hs-type">FindingPublishingFrequency_FIFTEEN_MINUTES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency_ONE_HOUR"><span class="hs-pragma hs-type">FindingPublishingFrequency_ONE_HOUR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency_SIX_HOURS"><span class="hs-pragma hs-type">FindingPublishingFrequency_SIX_HOURS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingPublishingFrequency.html#FindingPublishingFrequency%27"><span class="hs-pragma hs-type">FindingPublishingFrequency'</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-82"></span></pre></body></html>

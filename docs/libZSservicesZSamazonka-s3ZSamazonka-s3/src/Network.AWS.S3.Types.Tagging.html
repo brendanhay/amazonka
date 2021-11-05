@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Container for @TagSet@ elements.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTagging' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679557017"><span id="local-6989586621679557018"></span></span><span class="hs-keyword">data</span><span> </span><span id="Tagging"><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging"><span class="hs-identifier hs-var">Tagging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tagging%27"><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging%27"><span class="hs-identifier hs-var">Tagging'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679557026"><span id="local-6989586621679557027"></span></span><span class="hs-keyword">data</span><span> </span><span id="Tagging"><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging"><span class="hs-identifier hs-var">Tagging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tagging%27"><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging%27"><span class="hs-identifier hs-var">Tagging'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A collection for a set of tags</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AtagSet%3ATagging%27"><span class="annot"><span class="annottext">Tagging -&gt; [Tag]
 </span><a href="Network.AWS.S3.Types.Tagging.html#%24sel%3AtagSet%3ATagging%27"><span class="hs-identifier hs-var hs-var">tagSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679557011"><span id="local-6989586621679557013"><span class="annot"><span class="annottext">Tagging -&gt; Tagging -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679557020"><span id="local-6989586621679557022"><span class="annot"><span class="annottext">Tagging -&gt; Tagging -&gt; Bool
 (Tagging -&gt; Tagging -&gt; Bool)
 -&gt; (Tagging -&gt; Tagging -&gt; Bool) -&gt; Eq Tagging
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Tagging -&gt; Tagging -&gt; Bool
 == :: Tagging -&gt; Tagging -&gt; Bool
 $c== :: Tagging -&gt; Tagging -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557002"><span id="local-6989586621679557004"><span id="local-6989586621679557006"><span id="local-6989586621679557008"><span class="annot"><span class="annottext">ReadPrec [Tagging]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557011"><span id="local-6989586621679557013"><span id="local-6989586621679557015"><span id="local-6989586621679557017"><span class="annot"><span class="annottext">ReadPrec [Tagging]
 ReadPrec Tagging
 Int -&gt; ReadS Tagging
 ReadS [Tagging]
@@ -61,7 +61,7 @@ readList :: ReadS [Tagging]
 $creadList :: ReadS [Tagging]
 readsPrec :: Int -&gt; ReadS Tagging
 $creadsPrec :: Int -&gt; ReadS Tagging
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679556995"><span id="local-6989586621679556997"><span id="local-6989586621679556999"><span class="annot"><span class="annottext">Int -&gt; Tagging -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557004"><span id="local-6989586621679557006"><span id="local-6989586621679557008"><span class="annot"><span class="annottext">Int -&gt; Tagging -&gt; ShowS
 [Tagging] -&gt; ShowS
 Tagging -&gt; String
 (Int -&gt; Tagging -&gt; ShowS)
@@ -109,16 +109,16 @@ forall a. Monoid a =&gt; a
 -&gt; (Tagging -&gt; [Tag] -&gt; Tagging)
 -&gt; Lens Tagging Tagging [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging%27"><span class="hs-identifier hs-type">Tagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556986"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging%27"><span class="hs-identifier hs-type">Tagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556995"><span class="annot"><span class="annottext">[Tag]
 tagSet :: [Tag]
 $sel:tagSet:Tagging' :: Tagging -&gt; [Tag]
-</span><a href="#local-6989586621679556986"><span class="hs-identifier hs-var hs-var">tagSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679556986"><span class="hs-identifier hs-var">tagSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556985"><span class="annot"><span class="annottext">s :: Tagging
-</span><a href="#local-6989586621679556985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging%27"><span class="hs-identifier hs-type">Tagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556984"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679556984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tagging
-</span><a href="#local-6989586621679556985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSet:Tagging' :: [Tag]
+</span><a href="#local-6989586621679556995"><span class="hs-identifier hs-var hs-var">tagSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679556995"><span class="hs-identifier hs-var">tagSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556994"><span class="annot"><span class="annottext">s :: Tagging
+</span><a href="#local-6989586621679556994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging%27"><span class="hs-identifier hs-type">Tagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556993"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679556993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tagging
+</span><a href="#local-6989586621679556994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSet:Tagging' :: [Tag]
 </span><a href="Network.AWS.S3.Types.Tagging.html#%24sel%3AtagSet%3ATagging%27"><span class="hs-identifier hs-var">tagSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679556984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging"><span class="hs-identifier hs-type">Tagging</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; Tagging -&gt; f Tagging)
+</span><a href="#local-6989586621679556993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging"><span class="hs-identifier hs-type">Tagging</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; Tagging -&gt; f Tagging)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
 -&gt; Tagging
@@ -128,16 +128,16 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679556978"><span id="local-6989586621679556980"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging"><span class="hs-identifier hs-type">Tagging</span></a></span></span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679556987"><span id="local-6989586621679556989"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging"><span class="hs-identifier hs-type">Tagging</span></a></span></span></span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679556975"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging"><span class="hs-identifier hs-type">Tagging</span></a></span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679556984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging"><span class="hs-identifier hs-type">Tagging</span></a></span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging"><span class="hs-identifier hs-type">Tagging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679556971"><span class="annot"><span class="annottext">toXML :: Tagging -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging%27"><span class="hs-identifier hs-type">Tagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556969"><span class="annot"><span class="annottext">[Tag]
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679556980"><span class="annot"><span class="annottext">toXML :: Tagging -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tagging.html#Tagging%27"><span class="hs-identifier hs-type">Tagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556978"><span class="annot"><span class="annottext">[Tag]
 tagSet :: [Tag]
 $sel:tagSet:Tagging' :: Tagging -&gt; [Tag]
-</span><a href="#local-6989586621679556969"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679556978"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -148,5 +148,5 @@ forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679556969"><span class="hs-identifier hs-var">tagSet</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679556978"><span class="hs-identifier hs-var">tagSet</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-62"></span></pre></body></html>

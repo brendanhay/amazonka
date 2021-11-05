@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DLM.Types.ResourceLocationValues</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DLM.Types.ResourceLocationValues</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues"><span class="hs-identifier">ResourceLocationValues</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues_CLOUD"><span class="hs-identifier">ResourceLocationValues_CLOUD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues_OUTPOST"><span class="hs-identifier">ResourceLocationValues_OUTPOST</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679178974"><span id="local-6989586621679178975"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceLocationValues"><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues"><span class="hs-identifier hs-var">ResourceLocationValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceLocationValues%27"><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues%27"><span class="hs-identifier hs-var">ResourceLocationValues'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResourceLocationValues"><span class="annot"><span class="annottext">ResourceLocationValues -&gt; Text
+</span><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#fromResourceLocationValues"><span class="hs-identifier hs-var hs-var">fromResourceLocationValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679178966"><span id="local-6989586621679178968"><span id="local-6989586621679178970"><span class="annot"><span class="annottext">Int -&gt; ResourceLocationValues -&gt; ShowS
+[ResourceLocationValues] -&gt; ShowS
+ResourceLocationValues -&gt; String
+(Int -&gt; ResourceLocationValues -&gt; ShowS)
+-&gt; (ResourceLocationValues -&gt; String)
+-&gt; ([ResourceLocationValues] -&gt; ShowS)
+-&gt; Show ResourceLocationValues
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceLocationValues] -&gt; ShowS
+$cshowList :: [ResourceLocationValues] -&gt; ShowS
+show :: ResourceLocationValues -&gt; String
+$cshow :: ResourceLocationValues -&gt; String
+showsPrec :: Int -&gt; ResourceLocationValues -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceLocationValues -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679178957"><span id="local-6989586621679178959"><span id="local-6989586621679178961"><span id="local-6989586621679178963"><span class="annot"><span class="annottext">ReadPrec [ResourceLocationValues]
+ReadPrec ResourceLocationValues
+Int -&gt; ReadS ResourceLocationValues
+ReadS [ResourceLocationValues]
+(Int -&gt; ReadS ResourceLocationValues)
+-&gt; ReadS [ResourceLocationValues]
+-&gt; ReadPrec ResourceLocationValues
+-&gt; ReadPrec [ResourceLocationValues]
+-&gt; Read ResourceLocationValues
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceLocationValues]
+$creadListPrec :: ReadPrec [ResourceLocationValues]
+readPrec :: ReadPrec ResourceLocationValues
+$creadPrec :: ReadPrec ResourceLocationValues
+readList :: ReadS [ResourceLocationValues]
+$creadList :: ReadS [ResourceLocationValues]
+readsPrec :: Int -&gt; ReadS ResourceLocationValues
+$creadsPrec :: Int -&gt; ReadS ResourceLocationValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679178952"><span id="local-6989586621679178954"><span class="annot"><span class="annottext">ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool
+(ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool)
+-&gt; (ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool)
+-&gt; Eq ResourceLocationValues
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool
+$c/= :: ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool
+== :: ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool
+$c== :: ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679178936"><span id="local-6989586621679178938"><span id="local-6989586621679178940"><span id="local-6989586621679178942"><span id="local-6989586621679178944"><span id="local-6989586621679178946"><span id="local-6989586621679178948"><span class="annot"><span class="annottext">Eq ResourceLocationValues
+Eq ResourceLocationValues
+-&gt; (ResourceLocationValues -&gt; ResourceLocationValues -&gt; Ordering)
+-&gt; (ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool)
+-&gt; (ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool)
+-&gt; (ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool)
+-&gt; (ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool)
+-&gt; (ResourceLocationValues
+    -&gt; ResourceLocationValues -&gt; ResourceLocationValues)
+-&gt; (ResourceLocationValues
+    -&gt; ResourceLocationValues -&gt; ResourceLocationValues)
+-&gt; Ord ResourceLocationValues
+ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool
+ResourceLocationValues -&gt; ResourceLocationValues -&gt; Ordering
+ResourceLocationValues
+-&gt; ResourceLocationValues -&gt; ResourceLocationValues
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ResourceLocationValues
+-&gt; ResourceLocationValues -&gt; ResourceLocationValues
+$cmin :: ResourceLocationValues
+-&gt; ResourceLocationValues -&gt; ResourceLocationValues
+max :: ResourceLocationValues
+-&gt; ResourceLocationValues -&gt; ResourceLocationValues
+$cmax :: ResourceLocationValues
+-&gt; ResourceLocationValues -&gt; ResourceLocationValues
+&gt;= :: ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool
+$c&gt;= :: ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool
+&gt; :: ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool
+$c&gt; :: ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool
+&lt;= :: ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool
+$c&lt;= :: ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool
+&lt; :: ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool
+$c&lt; :: ResourceLocationValues -&gt; ResourceLocationValues -&gt; Bool
+compare :: ResourceLocationValues -&gt; ResourceLocationValues -&gt; Ordering
+$ccompare :: ResourceLocationValues -&gt; ResourceLocationValues -&gt; Ordering
+$cp1Ord :: Eq ResourceLocationValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ResourceLocationValues -&gt; Rep ResourceLocationValues x)
+-&gt; (forall x.
+    Rep ResourceLocationValues x -&gt; ResourceLocationValues)
+-&gt; Generic ResourceLocationValues
+forall x. Rep ResourceLocationValues x -&gt; ResourceLocationValues
+forall x. ResourceLocationValues -&gt; Rep ResourceLocationValues x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResourceLocationValues x -&gt; ResourceLocationValues
+$cfrom :: forall x. ResourceLocationValues -&gt; Rep ResourceLocationValues x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679178928"><span id="local-6989586621679178930"><span class="annot"><span class="annottext">Int -&gt; ResourceLocationValues -&gt; Int
+ResourceLocationValues -&gt; Int
+(Int -&gt; ResourceLocationValues -&gt; Int)
+-&gt; (ResourceLocationValues -&gt; Int)
+-&gt; Hashable ResourceLocationValues
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ResourceLocationValues -&gt; Int
+$chash :: ResourceLocationValues -&gt; Int
+hashWithSalt :: Int -&gt; ResourceLocationValues -&gt; Int
+$chashWithSalt :: Int -&gt; ResourceLocationValues -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679178925"><span class="annot"><span class="annottext">ResourceLocationValues -&gt; ()
+(ResourceLocationValues -&gt; ()) -&gt; NFData ResourceLocationValues
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ResourceLocationValues -&gt; ()
+$crnf :: ResourceLocationValues -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679178922"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceLocationValues
+(Text -&gt; Either String ResourceLocationValues)
+-&gt; FromText ResourceLocationValues
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ResourceLocationValues
+$cfromText :: Text -&gt; Either String ResourceLocationValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679178919"><span class="annot"><span class="annottext">ResourceLocationValues -&gt; Text
+(ResourceLocationValues -&gt; Text) -&gt; ToText ResourceLocationValues
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ResourceLocationValues -&gt; Text
+$ctoText :: ResourceLocationValues -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679178916"><span class="annot"><span class="annottext">ResourceLocationValues -&gt; ByteString
+(ResourceLocationValues -&gt; ByteString)
+-&gt; ToByteString ResourceLocationValues
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ResourceLocationValues -&gt; ByteString
+$ctoBS :: ResourceLocationValues -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679178913"><span class="annot"><span class="annottext">ResourceLocationValues -&gt; ByteStringBuilder
+(ResourceLocationValues -&gt; ByteStringBuilder)
+-&gt; ToLog ResourceLocationValues
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ResourceLocationValues -&gt; ByteStringBuilder
+$cbuild :: ResourceLocationValues -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679178910"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceLocationValues -&gt; [Header]
+(HeaderName -&gt; ResourceLocationValues -&gt; [Header])
+-&gt; ToHeader ResourceLocationValues
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ResourceLocationValues -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ResourceLocationValues -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679178907"><span class="annot"><span class="annottext">ResourceLocationValues -&gt; QueryString
+(ResourceLocationValues -&gt; QueryString)
+-&gt; ToQuery ResourceLocationValues
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ResourceLocationValues -&gt; QueryString
+$ctoQuery :: ResourceLocationValues -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679178902"><span id="local-6989586621679178904"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceLocationValues]
+Value -&gt; Parser ResourceLocationValues
+(Value -&gt; Parser ResourceLocationValues)
+-&gt; (Value -&gt; Parser [ResourceLocationValues])
+-&gt; FromJSON ResourceLocationValues
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ResourceLocationValues]
+$cparseJSONList :: Value -&gt; Parser [ResourceLocationValues]
+parseJSON :: Value -&gt; Parser ResourceLocationValues
+$cparseJSON :: Value -&gt; Parser ResourceLocationValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679178897"><span id="local-6989586621679178899"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceLocationValues]
+FromJSONKeyFunction ResourceLocationValues
+FromJSONKeyFunction ResourceLocationValues
+-&gt; FromJSONKeyFunction [ResourceLocationValues]
+-&gt; FromJSONKey ResourceLocationValues
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ResourceLocationValues]
+$cfromJSONKeyList :: FromJSONKeyFunction [ResourceLocationValues]
+fromJSONKey :: FromJSONKeyFunction ResourceLocationValues
+$cfromJSONKey :: FromJSONKeyFunction ResourceLocationValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679178888"><span id="local-6989586621679178890"><span id="local-6989586621679178892"><span id="local-6989586621679178894"><span class="annot"><span class="annottext">[ResourceLocationValues] -&gt; Encoding
+[ResourceLocationValues] -&gt; Value
+ResourceLocationValues -&gt; Encoding
+ResourceLocationValues -&gt; Value
+(ResourceLocationValues -&gt; Value)
+-&gt; (ResourceLocationValues -&gt; Encoding)
+-&gt; ([ResourceLocationValues] -&gt; Value)
+-&gt; ([ResourceLocationValues] -&gt; Encoding)
+-&gt; ToJSON ResourceLocationValues
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ResourceLocationValues] -&gt; Encoding
+$ctoEncodingList :: [ResourceLocationValues] -&gt; Encoding
+toJSONList :: [ResourceLocationValues] -&gt; Value
+$ctoJSONList :: [ResourceLocationValues] -&gt; Value
+toEncoding :: ResourceLocationValues -&gt; Encoding
+$ctoEncoding :: ResourceLocationValues -&gt; Encoding
+toJSON :: ResourceLocationValues -&gt; Value
+$ctoJSON :: ResourceLocationValues -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679178883"><span id="local-6989586621679178885"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceLocationValues]
+ToJSONKeyFunction ResourceLocationValues
+ToJSONKeyFunction ResourceLocationValues
+-&gt; ToJSONKeyFunction [ResourceLocationValues]
+-&gt; ToJSONKey ResourceLocationValues
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ResourceLocationValues]
+$ctoJSONKeyList :: ToJSONKeyFunction [ResourceLocationValues]
+toJSONKey :: ToJSONKeyFunction ResourceLocationValues
+$ctoJSONKey :: ToJSONKeyFunction ResourceLocationValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679178880"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceLocationValues
+([Node] -&gt; Either String ResourceLocationValues)
+-&gt; FromXML ResourceLocationValues
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ResourceLocationValues
+$cparseXML :: [Node] -&gt; Either String ResourceLocationValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679178877"><span class="annot"><span class="annottext">ResourceLocationValues -&gt; XML
+(ResourceLocationValues -&gt; XML) -&gt; ToXML ResourceLocationValues
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ResourceLocationValues -&gt; XML
+$ctoXML :: ResourceLocationValues -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues_CLOUD"><span class="hs-identifier hs-type">ResourceLocationValues_CLOUD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues"><span class="hs-identifier hs-type">ResourceLocationValues</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceLocationValues_CLOUD"><span id="%24mResourceLocationValues_CLOUD"><span id="ResourceLocationValues_CLOUD"><span class="annot"><span class="annottext">$bResourceLocationValues_CLOUD :: ResourceLocationValues
+$mResourceLocationValues_CLOUD :: forall r.
+ResourceLocationValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#%24bResourceLocationValues_CLOUD"><span class="hs-identifier hs-var hs-var hs-var">ResourceLocationValues_CLOUD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues%27"><span class="hs-identifier hs-type">ResourceLocationValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLOUD&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues_OUTPOST"><span class="hs-identifier hs-type">ResourceLocationValues_OUTPOST</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues"><span class="hs-identifier hs-type">ResourceLocationValues</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceLocationValues_OUTPOST"><span id="%24mResourceLocationValues_OUTPOST"><span id="ResourceLocationValues_OUTPOST"><span class="annot"><span class="annottext">$bResourceLocationValues_OUTPOST :: ResourceLocationValues
+$mResourceLocationValues_OUTPOST :: forall r.
+ResourceLocationValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#%24bResourceLocationValues_OUTPOST"><span class="hs-identifier hs-var hs-var hs-var">ResourceLocationValues_OUTPOST</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues%27"><span class="hs-identifier hs-type">ResourceLocationValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OUTPOST&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues_CLOUD"><span class="hs-pragma hs-type">ResourceLocationValues_CLOUD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues_OUTPOST"><span class="hs-pragma hs-type">ResourceLocationValues_OUTPOST</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues%27"><span class="hs-pragma hs-type">ResourceLocationValues'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

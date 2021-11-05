@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679592845"><span id="local-6989586621679592846"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ButtonAction"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ButtonAction.html#ButtonAction"><span class="hs-identifier hs-var">ButtonAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ButtonAction%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ButtonAction.html#ButtonAction%27"><span class="hs-identifier hs-var">ButtonAction'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679592854"><span id="local-6989586621679592855"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ButtonAction"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ButtonAction.html#ButtonAction"><span class="hs-identifier hs-var">ButtonAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ButtonAction%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ButtonAction.html#ButtonAction%27"><span class="hs-identifier hs-var">ButtonAction'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromButtonAction"><span class="annot"><span class="annottext">ButtonAction -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.ButtonAction.html#fromButtonAction"><span class="hs-identifier hs-var hs-var">fromButtonAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679592837"><span id="local-6989586621679592839"><span id="local-6989586621679592841"><span class="annot"><span class="annottext">Int -&gt; ButtonAction -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679592846"><span id="local-6989586621679592848"><span id="local-6989586621679592850"><span class="annot"><span class="annottext">Int -&gt; ButtonAction -&gt; ShowS
 [ButtonAction] -&gt; ShowS
 ButtonAction -&gt; String
 (Int -&gt; ButtonAction -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ButtonAction -&gt; String
 showsPrec :: Int -&gt; ButtonAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; ButtonAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679592828"><span id="local-6989586621679592830"><span id="local-6989586621679592832"><span id="local-6989586621679592834"><span class="annot"><span class="annottext">ReadPrec [ButtonAction]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679592837"><span id="local-6989586621679592839"><span id="local-6989586621679592841"><span id="local-6989586621679592843"><span class="annot"><span class="annottext">ReadPrec [ButtonAction]
 ReadPrec ButtonAction
 Int -&gt; ReadS ButtonAction
 ReadS [ButtonAction]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ButtonAction]
 readsPrec :: Int -&gt; ReadS ButtonAction
 $creadsPrec :: Int -&gt; ReadS ButtonAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679592823"><span id="local-6989586621679592825"><span class="annot"><span class="annottext">ButtonAction -&gt; ButtonAction -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679592832"><span id="local-6989586621679592834"><span class="annot"><span class="annottext">ButtonAction -&gt; ButtonAction -&gt; Bool
 (ButtonAction -&gt; ButtonAction -&gt; Bool)
 -&gt; (ButtonAction -&gt; ButtonAction -&gt; Bool) -&gt; Eq ButtonAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: ButtonAction -&gt; ButtonAction -&gt; Bool
 == :: ButtonAction -&gt; ButtonAction -&gt; Bool
 $c== :: ButtonAction -&gt; ButtonAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679592807"><span id="local-6989586621679592809"><span id="local-6989586621679592811"><span id="local-6989586621679592813"><span id="local-6989586621679592815"><span id="local-6989586621679592817"><span id="local-6989586621679592819"><span class="annot"><span class="annottext">Eq ButtonAction
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679592816"><span id="local-6989586621679592818"><span id="local-6989586621679592820"><span id="local-6989586621679592822"><span id="local-6989586621679592824"><span id="local-6989586621679592826"><span id="local-6989586621679592828"><span class="annot"><span class="annottext">Eq ButtonAction
 Eq ButtonAction
 -&gt; (ButtonAction -&gt; ButtonAction -&gt; Ordering)
 -&gt; (ButtonAction -&gt; ButtonAction -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ButtonAction -&gt; Rep ButtonAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679592799"><span id="local-6989586621679592801"><span class="annot"><span class="annottext">Int -&gt; ButtonAction -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679592808"><span id="local-6989586621679592810"><span class="annot"><span class="annottext">Int -&gt; ButtonAction -&gt; Int
 ButtonAction -&gt; Int
 (Int -&gt; ButtonAction -&gt; Int)
 -&gt; (ButtonAction -&gt; Int) -&gt; Hashable ButtonAction
@@ -143,49 +143,49 @@ $chash :: ButtonAction -&gt; Int
 hashWithSalt :: Int -&gt; ButtonAction -&gt; Int
 $chashWithSalt :: Int -&gt; ButtonAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679592796"><span class="annot"><span class="annottext">ButtonAction -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679592805"><span class="annot"><span class="annottext">ButtonAction -&gt; ()
 (ButtonAction -&gt; ()) -&gt; NFData ButtonAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ButtonAction -&gt; ()
 $crnf :: ButtonAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679592793"><span class="annot"><span class="annottext">Text -&gt; Either String ButtonAction
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679592802"><span class="annot"><span class="annottext">Text -&gt; Either String ButtonAction
 (Text -&gt; Either String ButtonAction) -&gt; FromText ButtonAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ButtonAction
 $cfromText :: Text -&gt; Either String ButtonAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679592790"><span class="annot"><span class="annottext">ButtonAction -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679592799"><span class="annot"><span class="annottext">ButtonAction -&gt; Text
 (ButtonAction -&gt; Text) -&gt; ToText ButtonAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ButtonAction -&gt; Text
 $ctoText :: ButtonAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679592787"><span class="annot"><span class="annottext">ButtonAction -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679592796"><span class="annot"><span class="annottext">ButtonAction -&gt; ByteString
 (ButtonAction -&gt; ByteString) -&gt; ToByteString ButtonAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ButtonAction -&gt; ByteString
 $ctoBS :: ButtonAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679592784"><span class="annot"><span class="annottext">ButtonAction -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679592793"><span class="annot"><span class="annottext">ButtonAction -&gt; ByteStringBuilder
 (ButtonAction -&gt; ByteStringBuilder) -&gt; ToLog ButtonAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ButtonAction -&gt; ByteStringBuilder
 $cbuild :: ButtonAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679592781"><span class="annot"><span class="annottext">HeaderName -&gt; ButtonAction -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679592790"><span class="annot"><span class="annottext">HeaderName -&gt; ButtonAction -&gt; [Header]
 (HeaderName -&gt; ButtonAction -&gt; [Header]) -&gt; ToHeader ButtonAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ButtonAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ButtonAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679592778"><span class="annot"><span class="annottext">ButtonAction -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679592787"><span class="annot"><span class="annottext">ButtonAction -&gt; QueryString
 (ButtonAction -&gt; QueryString) -&gt; ToQuery ButtonAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ButtonAction -&gt; QueryString
 $ctoQuery :: ButtonAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679592773"><span id="local-6989586621679592775"><span class="annot"><span class="annottext">Value -&gt; Parser [ButtonAction]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679592782"><span id="local-6989586621679592784"><span class="annot"><span class="annottext">Value -&gt; Parser [ButtonAction]
 Value -&gt; Parser ButtonAction
 (Value -&gt; Parser ButtonAction)
 -&gt; (Value -&gt; Parser [ButtonAction]) -&gt; FromJSON ButtonAction
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [ButtonAction]
 parseJSON :: Value -&gt; Parser ButtonAction
 $cparseJSON :: Value -&gt; Parser ButtonAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679592768"><span id="local-6989586621679592770"><span class="annot"><span class="annottext">FromJSONKeyFunction [ButtonAction]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679592777"><span id="local-6989586621679592779"><span class="annot"><span class="annottext">FromJSONKeyFunction [ButtonAction]
 FromJSONKeyFunction ButtonAction
 FromJSONKeyFunction ButtonAction
 -&gt; FromJSONKeyFunction [ButtonAction] -&gt; FromJSONKey ButtonAction
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ButtonAction]
 fromJSONKey :: FromJSONKeyFunction ButtonAction
 $cfromJSONKey :: FromJSONKeyFunction ButtonAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679592759"><span id="local-6989586621679592761"><span id="local-6989586621679592763"><span id="local-6989586621679592765"><span class="annot"><span class="annottext">[ButtonAction] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679592768"><span id="local-6989586621679592770"><span id="local-6989586621679592772"><span id="local-6989586621679592774"><span class="annot"><span class="annottext">[ButtonAction] -&gt; Encoding
 [ButtonAction] -&gt; Value
 ButtonAction -&gt; Encoding
 ButtonAction -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: ButtonAction -&gt; Encoding
 toJSON :: ButtonAction -&gt; Value
 $ctoJSON :: ButtonAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679592754"><span id="local-6989586621679592756"><span class="annot"><span class="annottext">ToJSONKeyFunction [ButtonAction]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679592763"><span id="local-6989586621679592765"><span class="annot"><span class="annottext">ToJSONKeyFunction [ButtonAction]
 ToJSONKeyFunction ButtonAction
 ToJSONKeyFunction ButtonAction
 -&gt; ToJSONKeyFunction [ButtonAction] -&gt; ToJSONKey ButtonAction
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ButtonAction]
 toJSONKey :: ToJSONKeyFunction ButtonAction
 $ctoJSONKey :: ToJSONKeyFunction ButtonAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679592751"><span class="annot"><span class="annottext">[Node] -&gt; Either String ButtonAction
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679592760"><span class="annot"><span class="annottext">[Node] -&gt; Either String ButtonAction
 ([Node] -&gt; Either String ButtonAction) -&gt; FromXML ButtonAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ButtonAction
 $cparseXML :: [Node] -&gt; Either String ButtonAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679592748"><span class="annot"><span class="annottext">ButtonAction -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679592757"><span class="annot"><span class="annottext">ButtonAction -&gt; XML
 (ButtonAction -&gt; XML) -&gt; ToXML ButtonAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ButtonAction -&gt; XML

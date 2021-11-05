@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679387428"><span id="local-6989586621679387429"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CachePolicyHeaderBehavior"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior.html#CachePolicyHeaderBehavior"><span class="hs-identifier hs-var">CachePolicyHeaderBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CachePolicyHeaderBehavior%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior.html#CachePolicyHeaderBehavior%27"><span class="hs-identifier hs-var">CachePolicyHeaderBehavior'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679387437"><span id="local-6989586621679387438"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CachePolicyHeaderBehavior"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior.html#CachePolicyHeaderBehavior"><span class="hs-identifier hs-var">CachePolicyHeaderBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CachePolicyHeaderBehavior%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior.html#CachePolicyHeaderBehavior%27"><span class="hs-identifier hs-var">CachePolicyHeaderBehavior'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCachePolicyHeaderBehavior"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior.html#fromCachePolicyHeaderBehavior"><span class="hs-identifier hs-var hs-var">fromCachePolicyHeaderBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679387420"><span id="local-6989586621679387422"><span id="local-6989586621679387424"><span class="annot"><span class="annottext">Int -&gt; CachePolicyHeaderBehavior -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679387429"><span id="local-6989586621679387431"><span id="local-6989586621679387433"><span class="annot"><span class="annottext">Int -&gt; CachePolicyHeaderBehavior -&gt; ShowS
 [CachePolicyHeaderBehavior] -&gt; ShowS
 CachePolicyHeaderBehavior -&gt; String
 (Int -&gt; CachePolicyHeaderBehavior -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CachePolicyHeaderBehavior -&gt; String
 showsPrec :: Int -&gt; CachePolicyHeaderBehavior -&gt; ShowS
 $cshowsPrec :: Int -&gt; CachePolicyHeaderBehavior -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679387411"><span id="local-6989586621679387413"><span id="local-6989586621679387415"><span id="local-6989586621679387417"><span class="annot"><span class="annottext">ReadPrec [CachePolicyHeaderBehavior]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679387420"><span id="local-6989586621679387422"><span id="local-6989586621679387424"><span id="local-6989586621679387426"><span class="annot"><span class="annottext">ReadPrec [CachePolicyHeaderBehavior]
 ReadPrec CachePolicyHeaderBehavior
 Int -&gt; ReadS CachePolicyHeaderBehavior
 ReadS [CachePolicyHeaderBehavior]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CachePolicyHeaderBehavior]
 readsPrec :: Int -&gt; ReadS CachePolicyHeaderBehavior
 $creadsPrec :: Int -&gt; ReadS CachePolicyHeaderBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679387406"><span id="local-6989586621679387408"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; CachePolicyHeaderBehavior -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679387415"><span id="local-6989586621679387417"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; CachePolicyHeaderBehavior -&gt; Bool
 (CachePolicyHeaderBehavior -&gt; CachePolicyHeaderBehavior -&gt; Bool)
 -&gt; (CachePolicyHeaderBehavior -&gt; CachePolicyHeaderBehavior -&gt; Bool)
 -&gt; Eq CachePolicyHeaderBehavior
@@ -82,7 +82,7 @@ $c/= :: CachePolicyHeaderBehavior -&gt; CachePolicyHeaderBehavior -&gt; Bool
 == :: CachePolicyHeaderBehavior -&gt; CachePolicyHeaderBehavior -&gt; Bool
 $c== :: CachePolicyHeaderBehavior -&gt; CachePolicyHeaderBehavior -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679387390"><span id="local-6989586621679387392"><span id="local-6989586621679387394"><span id="local-6989586621679387396"><span id="local-6989586621679387398"><span id="local-6989586621679387400"><span id="local-6989586621679387402"><span class="annot"><span class="annottext">Eq CachePolicyHeaderBehavior
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679387399"><span id="local-6989586621679387401"><span id="local-6989586621679387403"><span id="local-6989586621679387405"><span id="local-6989586621679387407"><span id="local-6989586621679387409"><span id="local-6989586621679387411"><span class="annot"><span class="annottext">Eq CachePolicyHeaderBehavior
 Eq CachePolicyHeaderBehavior
 -&gt; (CachePolicyHeaderBehavior
     -&gt; CachePolicyHeaderBehavior -&gt; Ordering)
@@ -147,7 +147,7 @@ CachePolicyHeaderBehavior -&gt; Rep CachePolicyHeaderBehavior x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679387382"><span id="local-6989586621679387384"><span class="annot"><span class="annottext">Int -&gt; CachePolicyHeaderBehavior -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679387391"><span id="local-6989586621679387393"><span class="annot"><span class="annottext">Int -&gt; CachePolicyHeaderBehavior -&gt; Int
 CachePolicyHeaderBehavior -&gt; Int
 (Int -&gt; CachePolicyHeaderBehavior -&gt; Int)
 -&gt; (CachePolicyHeaderBehavior -&gt; Int)
@@ -158,56 +158,56 @@ $chash :: CachePolicyHeaderBehavior -&gt; Int
 hashWithSalt :: Int -&gt; CachePolicyHeaderBehavior -&gt; Int
 $chashWithSalt :: Int -&gt; CachePolicyHeaderBehavior -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679387379"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679387388"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; ()
 (CachePolicyHeaderBehavior -&gt; ())
 -&gt; NFData CachePolicyHeaderBehavior
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CachePolicyHeaderBehavior -&gt; ()
 $crnf :: CachePolicyHeaderBehavior -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679387376"><span class="annot"><span class="annottext">Text -&gt; Either String CachePolicyHeaderBehavior
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679387385"><span class="annot"><span class="annottext">Text -&gt; Either String CachePolicyHeaderBehavior
 (Text -&gt; Either String CachePolicyHeaderBehavior)
 -&gt; FromText CachePolicyHeaderBehavior
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CachePolicyHeaderBehavior
 $cfromText :: Text -&gt; Either String CachePolicyHeaderBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679387373"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679387382"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; Text
 (CachePolicyHeaderBehavior -&gt; Text)
 -&gt; ToText CachePolicyHeaderBehavior
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CachePolicyHeaderBehavior -&gt; Text
 $ctoText :: CachePolicyHeaderBehavior -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679387370"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679387379"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; ByteString
 (CachePolicyHeaderBehavior -&gt; ByteString)
 -&gt; ToByteString CachePolicyHeaderBehavior
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CachePolicyHeaderBehavior -&gt; ByteString
 $ctoBS :: CachePolicyHeaderBehavior -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679387367"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679387376"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; ByteStringBuilder
 (CachePolicyHeaderBehavior -&gt; ByteStringBuilder)
 -&gt; ToLog CachePolicyHeaderBehavior
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CachePolicyHeaderBehavior -&gt; ByteStringBuilder
 $cbuild :: CachePolicyHeaderBehavior -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679387364"><span class="annot"><span class="annottext">HeaderName -&gt; CachePolicyHeaderBehavior -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679387373"><span class="annot"><span class="annottext">HeaderName -&gt; CachePolicyHeaderBehavior -&gt; [Header]
 (HeaderName -&gt; CachePolicyHeaderBehavior -&gt; [Header])
 -&gt; ToHeader CachePolicyHeaderBehavior
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CachePolicyHeaderBehavior -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CachePolicyHeaderBehavior -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679387361"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679387370"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; QueryString
 (CachePolicyHeaderBehavior -&gt; QueryString)
 -&gt; ToQuery CachePolicyHeaderBehavior
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CachePolicyHeaderBehavior -&gt; QueryString
 $ctoQuery :: CachePolicyHeaderBehavior -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679387356"><span id="local-6989586621679387358"><span class="annot"><span class="annottext">Value -&gt; Parser [CachePolicyHeaderBehavior]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679387365"><span id="local-6989586621679387367"><span class="annot"><span class="annottext">Value -&gt; Parser [CachePolicyHeaderBehavior]
 Value -&gt; Parser CachePolicyHeaderBehavior
 (Value -&gt; Parser CachePolicyHeaderBehavior)
 -&gt; (Value -&gt; Parser [CachePolicyHeaderBehavior])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [CachePolicyHeaderBehavior]
 parseJSON :: Value -&gt; Parser CachePolicyHeaderBehavior
 $cparseJSON :: Value -&gt; Parser CachePolicyHeaderBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679387351"><span id="local-6989586621679387353"><span class="annot"><span class="annottext">FromJSONKeyFunction [CachePolicyHeaderBehavior]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679387360"><span id="local-6989586621679387362"><span class="annot"><span class="annottext">FromJSONKeyFunction [CachePolicyHeaderBehavior]
 FromJSONKeyFunction CachePolicyHeaderBehavior
 FromJSONKeyFunction CachePolicyHeaderBehavior
 -&gt; FromJSONKeyFunction [CachePolicyHeaderBehavior]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CachePolicyHeaderBehavior]
 fromJSONKey :: FromJSONKeyFunction CachePolicyHeaderBehavior
 $cfromJSONKey :: FromJSONKeyFunction CachePolicyHeaderBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679387342"><span id="local-6989586621679387344"><span id="local-6989586621679387346"><span id="local-6989586621679387348"><span class="annot"><span class="annottext">[CachePolicyHeaderBehavior] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679387351"><span id="local-6989586621679387353"><span id="local-6989586621679387355"><span id="local-6989586621679387357"><span class="annot"><span class="annottext">[CachePolicyHeaderBehavior] -&gt; Encoding
 [CachePolicyHeaderBehavior] -&gt; Value
 CachePolicyHeaderBehavior -&gt; Encoding
 CachePolicyHeaderBehavior -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: CachePolicyHeaderBehavior -&gt; Encoding
 toJSON :: CachePolicyHeaderBehavior -&gt; Value
 $ctoJSON :: CachePolicyHeaderBehavior -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679387337"><span id="local-6989586621679387339"><span class="annot"><span class="annottext">ToJSONKeyFunction [CachePolicyHeaderBehavior]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679387346"><span id="local-6989586621679387348"><span class="annot"><span class="annottext">ToJSONKeyFunction [CachePolicyHeaderBehavior]
 ToJSONKeyFunction CachePolicyHeaderBehavior
 ToJSONKeyFunction CachePolicyHeaderBehavior
 -&gt; ToJSONKeyFunction [CachePolicyHeaderBehavior]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CachePolicyHeaderBehavior]
 toJSONKey :: ToJSONKeyFunction CachePolicyHeaderBehavior
 $ctoJSONKey :: ToJSONKeyFunction CachePolicyHeaderBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679387334"><span class="annot"><span class="annottext">[Node] -&gt; Either String CachePolicyHeaderBehavior
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679387343"><span class="annot"><span class="annottext">[Node] -&gt; Either String CachePolicyHeaderBehavior
 ([Node] -&gt; Either String CachePolicyHeaderBehavior)
 -&gt; FromXML CachePolicyHeaderBehavior
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CachePolicyHeaderBehavior
 $cparseXML :: [Node] -&gt; Either String CachePolicyHeaderBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679387331"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679387340"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior -&gt; XML
 (CachePolicyHeaderBehavior -&gt; XML)
 -&gt; ToXML CachePolicyHeaderBehavior
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-43"></span><span>
-</span><span id="line-44"></span><span id="local-6989586621679185221"><span id="local-6989586621679185222"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceNamespace"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-var">ServiceNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceNamespace%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace%27"><span class="hs-identifier hs-var">ServiceNamespace'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679185230"><span id="local-6989586621679185231"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceNamespace"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-var">ServiceNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceNamespace%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace%27"><span class="hs-identifier hs-var">ServiceNamespace'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServiceNamespace"><span class="annot"><span class="annottext">ServiceNamespace -&gt; Text
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#fromServiceNamespace"><span class="hs-identifier hs-var hs-var">fromServiceNamespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679185213"><span id="local-6989586621679185215"><span id="local-6989586621679185217"><span class="annot"><span class="annottext">Int -&gt; ServiceNamespace -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679185222"><span id="local-6989586621679185224"><span id="local-6989586621679185226"><span class="annot"><span class="annottext">Int -&gt; ServiceNamespace -&gt; ShowS
 [ServiceNamespace] -&gt; ShowS
 ServiceNamespace -&gt; String
 (Int -&gt; ServiceNamespace -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: ServiceNamespace -&gt; String
 showsPrec :: Int -&gt; ServiceNamespace -&gt; ShowS
 $cshowsPrec :: Int -&gt; ServiceNamespace -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679185204"><span id="local-6989586621679185206"><span id="local-6989586621679185208"><span id="local-6989586621679185210"><span class="annot"><span class="annottext">ReadPrec [ServiceNamespace]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679185213"><span id="local-6989586621679185215"><span id="local-6989586621679185217"><span id="local-6989586621679185219"><span class="annot"><span class="annottext">ReadPrec [ServiceNamespace]
 ReadPrec ServiceNamespace
 Int -&gt; ReadS ServiceNamespace
 ReadS [ServiceNamespace]
@@ -84,7 +84,7 @@ $creadList :: ReadS [ServiceNamespace]
 readsPrec :: Int -&gt; ReadS ServiceNamespace
 $creadsPrec :: Int -&gt; ReadS ServiceNamespace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679185199"><span id="local-6989586621679185201"><span class="annot"><span class="annottext">ServiceNamespace -&gt; ServiceNamespace -&gt; Bool
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679185208"><span id="local-6989586621679185210"><span class="annot"><span class="annottext">ServiceNamespace -&gt; ServiceNamespace -&gt; Bool
 (ServiceNamespace -&gt; ServiceNamespace -&gt; Bool)
 -&gt; (ServiceNamespace -&gt; ServiceNamespace -&gt; Bool)
 -&gt; Eq ServiceNamespace
@@ -94,7 +94,7 @@ $c/= :: ServiceNamespace -&gt; ServiceNamespace -&gt; Bool
 == :: ServiceNamespace -&gt; ServiceNamespace -&gt; Bool
 $c== :: ServiceNamespace -&gt; ServiceNamespace -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679185183"><span id="local-6989586621679185185"><span id="local-6989586621679185187"><span id="local-6989586621679185189"><span id="local-6989586621679185191"><span id="local-6989586621679185193"><span id="local-6989586621679185195"><span class="annot"><span class="annottext">Eq ServiceNamespace
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679185192"><span id="local-6989586621679185194"><span id="local-6989586621679185196"><span id="local-6989586621679185198"><span id="local-6989586621679185200"><span id="local-6989586621679185202"><span id="local-6989586621679185204"><span class="annot"><span class="annottext">Eq ServiceNamespace
 Eq ServiceNamespace
 -&gt; (ServiceNamespace -&gt; ServiceNamespace -&gt; Ordering)
 -&gt; (ServiceNamespace -&gt; ServiceNamespace -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. ServiceNamespace -&gt; Rep ServiceNamespace x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679185175"><span id="local-6989586621679185177"><span class="annot"><span class="annottext">Int -&gt; ServiceNamespace -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679185184"><span id="local-6989586621679185186"><span class="annot"><span class="annottext">Int -&gt; ServiceNamespace -&gt; Int
 ServiceNamespace -&gt; Int
 (Int -&gt; ServiceNamespace -&gt; Int)
 -&gt; (ServiceNamespace -&gt; Int) -&gt; Hashable ServiceNamespace
@@ -155,51 +155,51 @@ $chash :: ServiceNamespace -&gt; Int
 hashWithSalt :: Int -&gt; ServiceNamespace -&gt; Int
 $chashWithSalt :: Int -&gt; ServiceNamespace -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679185172"><span class="annot"><span class="annottext">ServiceNamespace -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679185181"><span class="annot"><span class="annottext">ServiceNamespace -&gt; ()
 (ServiceNamespace -&gt; ()) -&gt; NFData ServiceNamespace
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ServiceNamespace -&gt; ()
 $crnf :: ServiceNamespace -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679185169"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceNamespace
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679185178"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceNamespace
 (Text -&gt; Either String ServiceNamespace)
 -&gt; FromText ServiceNamespace
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ServiceNamespace
 $cfromText :: Text -&gt; Either String ServiceNamespace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679185166"><span class="annot"><span class="annottext">ServiceNamespace -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679185175"><span class="annot"><span class="annottext">ServiceNamespace -&gt; Text
 (ServiceNamespace -&gt; Text) -&gt; ToText ServiceNamespace
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ServiceNamespace -&gt; Text
 $ctoText :: ServiceNamespace -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679185163"><span class="annot"><span class="annottext">ServiceNamespace -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679185172"><span class="annot"><span class="annottext">ServiceNamespace -&gt; ByteString
 (ServiceNamespace -&gt; ByteString) -&gt; ToByteString ServiceNamespace
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ServiceNamespace -&gt; ByteString
 $ctoBS :: ServiceNamespace -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679185160"><span class="annot"><span class="annottext">ServiceNamespace -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679185169"><span class="annot"><span class="annottext">ServiceNamespace -&gt; ByteStringBuilder
 (ServiceNamespace -&gt; ByteStringBuilder) -&gt; ToLog ServiceNamespace
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ServiceNamespace -&gt; ByteStringBuilder
 $cbuild :: ServiceNamespace -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679185157"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceNamespace -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679185166"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceNamespace -&gt; [Header]
 (HeaderName -&gt; ServiceNamespace -&gt; [Header])
 -&gt; ToHeader ServiceNamespace
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ServiceNamespace -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ServiceNamespace -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679185154"><span class="annot"><span class="annottext">ServiceNamespace -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679185163"><span class="annot"><span class="annottext">ServiceNamespace -&gt; QueryString
 (ServiceNamespace -&gt; QueryString) -&gt; ToQuery ServiceNamespace
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ServiceNamespace -&gt; QueryString
 $ctoQuery :: ServiceNamespace -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679185149"><span id="local-6989586621679185151"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceNamespace]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679185158"><span id="local-6989586621679185160"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceNamespace]
 Value -&gt; Parser ServiceNamespace
 (Value -&gt; Parser ServiceNamespace)
 -&gt; (Value -&gt; Parser [ServiceNamespace])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [ServiceNamespace]
 parseJSON :: Value -&gt; Parser ServiceNamespace
 $cparseJSON :: Value -&gt; Parser ServiceNamespace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679185144"><span id="local-6989586621679185146"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceNamespace]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679185153"><span id="local-6989586621679185155"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceNamespace]
 FromJSONKeyFunction ServiceNamespace
 FromJSONKeyFunction ServiceNamespace
 -&gt; FromJSONKeyFunction [ServiceNamespace]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ServiceNamespace]
 fromJSONKey :: FromJSONKeyFunction ServiceNamespace
 $cfromJSONKey :: FromJSONKeyFunction ServiceNamespace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679185135"><span id="local-6989586621679185137"><span id="local-6989586621679185139"><span id="local-6989586621679185141"><span class="annot"><span class="annottext">[ServiceNamespace] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679185144"><span id="local-6989586621679185146"><span id="local-6989586621679185148"><span id="local-6989586621679185150"><span class="annot"><span class="annottext">[ServiceNamespace] -&gt; Encoding
 [ServiceNamespace] -&gt; Value
 ServiceNamespace -&gt; Encoding
 ServiceNamespace -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: ServiceNamespace -&gt; Encoding
 toJSON :: ServiceNamespace -&gt; Value
 $ctoJSON :: ServiceNamespace -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679185130"><span id="local-6989586621679185132"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceNamespace]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679185139"><span id="local-6989586621679185141"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceNamespace]
 ToJSONKeyFunction ServiceNamespace
 ToJSONKeyFunction ServiceNamespace
 -&gt; ToJSONKeyFunction [ServiceNamespace]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ServiceNamespace]
 toJSONKey :: ToJSONKeyFunction ServiceNamespace
 $ctoJSONKey :: ToJSONKeyFunction ServiceNamespace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679185127"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceNamespace
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679185136"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceNamespace
 ([Node] -&gt; Either String ServiceNamespace)
 -&gt; FromXML ServiceNamespace
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ServiceNamespace
 $cparseXML :: [Node] -&gt; Either String ServiceNamespace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679185124"><span class="annot"><span class="annottext">ServiceNamespace -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679185133"><span class="annot"><span class="annottext">ServiceNamespace -&gt; XML
 (ServiceNamespace -&gt; XML) -&gt; ToXML ServiceNamespace
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ServiceNamespace -&gt; XML

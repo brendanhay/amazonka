@@ -55,13 +55,13 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span id="local-6989586621679360667"><span id="local-6989586621679360668"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ArtifactType"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ArtifactType.html#ArtifactType"><span class="hs-identifier hs-var">ArtifactType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactType%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ArtifactType.html#ArtifactType%27"><span class="hs-identifier hs-var">ArtifactType'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679360676"><span id="local-6989586621679360677"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ArtifactType"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ArtifactType.html#ArtifactType"><span class="hs-identifier hs-var">ArtifactType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactType%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ArtifactType.html#ArtifactType%27"><span class="hs-identifier hs-var">ArtifactType'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromArtifactType"><span class="annot"><span class="annottext">ArtifactType -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.Types.ArtifactType.html#fromArtifactType"><span class="hs-identifier hs-var hs-var">fromArtifactType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679360659"><span id="local-6989586621679360661"><span id="local-6989586621679360663"><span class="annot"><span class="annottext">Int -&gt; ArtifactType -&gt; ShowS
+</span><span id="line-63"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679360668"><span id="local-6989586621679360670"><span id="local-6989586621679360672"><span class="annot"><span class="annottext">Int -&gt; ArtifactType -&gt; ShowS
 [ArtifactType] -&gt; ShowS
 ArtifactType -&gt; String
 (Int -&gt; ArtifactType -&gt; ShowS)
@@ -77,7 +77,7 @@ $cshow :: ArtifactType -&gt; String
 showsPrec :: Int -&gt; ArtifactType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ArtifactType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679360650"><span id="local-6989586621679360652"><span id="local-6989586621679360654"><span id="local-6989586621679360656"><span class="annot"><span class="annottext">ReadPrec [ArtifactType]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679360659"><span id="local-6989586621679360661"><span id="local-6989586621679360663"><span id="local-6989586621679360665"><span class="annot"><span class="annottext">ReadPrec [ArtifactType]
 ReadPrec ArtifactType
 Int -&gt; ReadS ArtifactType
 ReadS [ArtifactType]
@@ -98,7 +98,7 @@ $creadList :: ReadS [ArtifactType]
 readsPrec :: Int -&gt; ReadS ArtifactType
 $creadsPrec :: Int -&gt; ReadS ArtifactType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679360645"><span id="local-6989586621679360647"><span class="annot"><span class="annottext">ArtifactType -&gt; ArtifactType -&gt; Bool
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679360654"><span id="local-6989586621679360656"><span class="annot"><span class="annottext">ArtifactType -&gt; ArtifactType -&gt; Bool
 (ArtifactType -&gt; ArtifactType -&gt; Bool)
 -&gt; (ArtifactType -&gt; ArtifactType -&gt; Bool) -&gt; Eq ArtifactType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -107,7 +107,7 @@ $c/= :: ArtifactType -&gt; ArtifactType -&gt; Bool
 == :: ArtifactType -&gt; ArtifactType -&gt; Bool
 $c== :: ArtifactType -&gt; ArtifactType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679360629"><span id="local-6989586621679360631"><span id="local-6989586621679360633"><span id="local-6989586621679360635"><span id="local-6989586621679360637"><span id="local-6989586621679360639"><span id="local-6989586621679360641"><span class="annot"><span class="annottext">Eq ArtifactType
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679360638"><span id="local-6989586621679360640"><span id="local-6989586621679360642"><span id="local-6989586621679360644"><span id="local-6989586621679360646"><span id="local-6989586621679360648"><span id="local-6989586621679360650"><span class="annot"><span class="annottext">Eq ArtifactType
 Eq ArtifactType
 -&gt; (ArtifactType -&gt; ArtifactType -&gt; Ordering)
 -&gt; (ArtifactType -&gt; ArtifactType -&gt; Bool)
@@ -158,7 +158,7 @@ $cfrom :: forall x. ArtifactType -&gt; Rep ArtifactType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679360621"><span id="local-6989586621679360623"><span class="annot"><span class="annottext">Int -&gt; ArtifactType -&gt; Int
+</span><span id="line-70"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679360630"><span id="local-6989586621679360632"><span class="annot"><span class="annottext">Int -&gt; ArtifactType -&gt; Int
 ArtifactType -&gt; Int
 (Int -&gt; ArtifactType -&gt; Int)
 -&gt; (ArtifactType -&gt; Int) -&gt; Hashable ArtifactType
@@ -168,49 +168,49 @@ $chash :: ArtifactType -&gt; Int
 hashWithSalt :: Int -&gt; ArtifactType -&gt; Int
 $chashWithSalt :: Int -&gt; ArtifactType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679360618"><span class="annot"><span class="annottext">ArtifactType -&gt; ()
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679360627"><span class="annot"><span class="annottext">ArtifactType -&gt; ()
 (ArtifactType -&gt; ()) -&gt; NFData ArtifactType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ArtifactType -&gt; ()
 $crnf :: ArtifactType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679360615"><span class="annot"><span class="annottext">Text -&gt; Either String ArtifactType
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679360624"><span class="annot"><span class="annottext">Text -&gt; Either String ArtifactType
 (Text -&gt; Either String ArtifactType) -&gt; FromText ArtifactType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ArtifactType
 $cfromText :: Text -&gt; Either String ArtifactType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679360612"><span class="annot"><span class="annottext">ArtifactType -&gt; Text
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679360621"><span class="annot"><span class="annottext">ArtifactType -&gt; Text
 (ArtifactType -&gt; Text) -&gt; ToText ArtifactType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ArtifactType -&gt; Text
 $ctoText :: ArtifactType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679360609"><span class="annot"><span class="annottext">ArtifactType -&gt; ByteString
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679360618"><span class="annot"><span class="annottext">ArtifactType -&gt; ByteString
 (ArtifactType -&gt; ByteString) -&gt; ToByteString ArtifactType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ArtifactType -&gt; ByteString
 $ctoBS :: ArtifactType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679360606"><span class="annot"><span class="annottext">ArtifactType -&gt; ByteStringBuilder
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679360615"><span class="annot"><span class="annottext">ArtifactType -&gt; ByteStringBuilder
 (ArtifactType -&gt; ByteStringBuilder) -&gt; ToLog ArtifactType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ArtifactType -&gt; ByteStringBuilder
 $cbuild :: ArtifactType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679360603"><span class="annot"><span class="annottext">HeaderName -&gt; ArtifactType -&gt; [Header]
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679360612"><span class="annot"><span class="annottext">HeaderName -&gt; ArtifactType -&gt; [Header]
 (HeaderName -&gt; ArtifactType -&gt; [Header]) -&gt; ToHeader ArtifactType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ArtifactType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ArtifactType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679360600"><span class="annot"><span class="annottext">ArtifactType -&gt; QueryString
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679360609"><span class="annot"><span class="annottext">ArtifactType -&gt; QueryString
 (ArtifactType -&gt; QueryString) -&gt; ToQuery ArtifactType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ArtifactType -&gt; QueryString
 $ctoQuery :: ArtifactType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679360595"><span id="local-6989586621679360597"><span class="annot"><span class="annottext">Value -&gt; Parser [ArtifactType]
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679360604"><span id="local-6989586621679360606"><span class="annot"><span class="annottext">Value -&gt; Parser [ArtifactType]
 Value -&gt; Parser ArtifactType
 (Value -&gt; Parser ArtifactType)
 -&gt; (Value -&gt; Parser [ArtifactType]) -&gt; FromJSON ArtifactType
@@ -221,7 +221,7 @@ $cparseJSONList :: Value -&gt; Parser [ArtifactType]
 parseJSON :: Value -&gt; Parser ArtifactType
 $cparseJSON :: Value -&gt; Parser ArtifactType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679360590"><span id="local-6989586621679360592"><span class="annot"><span class="annottext">FromJSONKeyFunction [ArtifactType]
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679360599"><span id="local-6989586621679360601"><span class="annot"><span class="annottext">FromJSONKeyFunction [ArtifactType]
 FromJSONKeyFunction ArtifactType
 FromJSONKeyFunction ArtifactType
 -&gt; FromJSONKeyFunction [ArtifactType] -&gt; FromJSONKey ArtifactType
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ArtifactType]
 fromJSONKey :: FromJSONKeyFunction ArtifactType
 $cfromJSONKey :: FromJSONKeyFunction ArtifactType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679360581"><span id="local-6989586621679360583"><span id="local-6989586621679360585"><span id="local-6989586621679360587"><span class="annot"><span class="annottext">[ArtifactType] -&gt; Encoding
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679360590"><span id="local-6989586621679360592"><span id="local-6989586621679360594"><span id="local-6989586621679360596"><span class="annot"><span class="annottext">[ArtifactType] -&gt; Encoding
 [ArtifactType] -&gt; Value
 ArtifactType -&gt; Encoding
 ArtifactType -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: ArtifactType -&gt; Encoding
 toJSON :: ArtifactType -&gt; Value
 $ctoJSON :: ArtifactType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621679360576"><span id="local-6989586621679360578"><span class="annot"><span class="annottext">ToJSONKeyFunction [ArtifactType]
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679360585"><span id="local-6989586621679360587"><span class="annot"><span class="annottext">ToJSONKeyFunction [ArtifactType]
 ToJSONKeyFunction ArtifactType
 ToJSONKeyFunction ArtifactType
 -&gt; ToJSONKeyFunction [ArtifactType] -&gt; ToJSONKey ArtifactType
@@ -267,13 +267,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ArtifactType]
 toJSONKey :: ToJSONKeyFunction ArtifactType
 $ctoJSONKey :: ToJSONKeyFunction ArtifactType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621679360573"><span class="annot"><span class="annottext">[Node] -&gt; Either String ArtifactType
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679360582"><span class="annot"><span class="annottext">[Node] -&gt; Either String ArtifactType
 ([Node] -&gt; Either String ArtifactType) -&gt; FromXML ArtifactType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ArtifactType
 $cparseXML :: [Node] -&gt; Either String ArtifactType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span id="local-6989586621679360570"><span class="annot"><span class="annottext">ArtifactType -&gt; XML
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679360579"><span class="annot"><span class="annottext">ArtifactType -&gt; XML
 (ArtifactType -&gt; XML) -&gt; ToXML ArtifactType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ArtifactType -&gt; XML

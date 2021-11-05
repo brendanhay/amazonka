@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Forecast.DeleteResourceTree</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an entire resource tree. This operation will delete the parent</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- resource and its child resources.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Child resources are resources that were created from another resource.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- For example, when a forecast is generated from a predictor, the forecast</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- is the child resource and the predictor is the parent resource.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Amazon Forecast resources possess the following parent-child resource</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- hierarchies:</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- -   __Dataset__: dataset import jobs</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   __Dataset Group__: predictors, predictor backtest export jobs,</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     forecasts, forecast export jobs</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   __Predictor__: predictor backtest export jobs, forecasts, forecast</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     export jobs</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   __Forecast__: forecast export jobs</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- @DeleteResourceTree@ will only delete Amazon Forecast resources, and</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- will not delete datasets or exported files stored in Amazon S3.</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Forecast.DeleteResourceTree</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree"><span class="hs-identifier">DeleteResourceTree</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#newDeleteResourceTree"><span class="hs-identifier">newDeleteResourceTree</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#deleteResourceTree_resourceArn"><span class="hs-identifier">deleteResourceTree_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTreeResponse"><span class="hs-identifier">DeleteResourceTreeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#newDeleteResourceTreeResponse"><span class="hs-identifier">newDeleteResourceTreeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.html"><span class="hs-identifier">Network.AWS.Forecast.Types</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newDeleteResourceTree' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621679256756"><span id="local-6989586621679256757"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteResourceTree"><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree"><span class="hs-identifier hs-var">DeleteResourceTree</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteResourceTree%27"><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree%27"><span class="hs-identifier hs-var">DeleteResourceTree'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the parent resource to delete. All</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- child resources of the parent resource will also be deleted.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AresourceArn%3ADeleteResourceTree%27"><span class="annot"><span class="annottext">DeleteResourceTree -&gt; Text
+</span><a href="Network.AWS.Forecast.DeleteResourceTree.html#%24sel%3AresourceArn%3ADeleteResourceTree%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256750"><span id="local-6989586621679256752"><span class="annot"><span class="annottext">DeleteResourceTree -&gt; DeleteResourceTree -&gt; Bool
+(DeleteResourceTree -&gt; DeleteResourceTree -&gt; Bool)
+-&gt; (DeleteResourceTree -&gt; DeleteResourceTree -&gt; Bool)
+-&gt; Eq DeleteResourceTree
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteResourceTree -&gt; DeleteResourceTree -&gt; Bool
+$c/= :: DeleteResourceTree -&gt; DeleteResourceTree -&gt; Bool
+== :: DeleteResourceTree -&gt; DeleteResourceTree -&gt; Bool
+$c== :: DeleteResourceTree -&gt; DeleteResourceTree -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256741"><span id="local-6989586621679256743"><span id="local-6989586621679256745"><span id="local-6989586621679256747"><span class="annot"><span class="annottext">ReadPrec [DeleteResourceTree]
+ReadPrec DeleteResourceTree
+Int -&gt; ReadS DeleteResourceTree
+ReadS [DeleteResourceTree]
+(Int -&gt; ReadS DeleteResourceTree)
+-&gt; ReadS [DeleteResourceTree]
+-&gt; ReadPrec DeleteResourceTree
+-&gt; ReadPrec [DeleteResourceTree]
+-&gt; Read DeleteResourceTree
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteResourceTree]
+$creadListPrec :: ReadPrec [DeleteResourceTree]
+readPrec :: ReadPrec DeleteResourceTree
+$creadPrec :: ReadPrec DeleteResourceTree
+readList :: ReadS [DeleteResourceTree]
+$creadList :: ReadS [DeleteResourceTree]
+readsPrec :: Int -&gt; ReadS DeleteResourceTree
+$creadsPrec :: Int -&gt; ReadS DeleteResourceTree
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256734"><span id="local-6989586621679256736"><span id="local-6989586621679256738"><span class="annot"><span class="annottext">Int -&gt; DeleteResourceTree -&gt; ShowS
+[DeleteResourceTree] -&gt; ShowS
+DeleteResourceTree -&gt; String
+(Int -&gt; DeleteResourceTree -&gt; ShowS)
+-&gt; (DeleteResourceTree -&gt; String)
+-&gt; ([DeleteResourceTree] -&gt; ShowS)
+-&gt; Show DeleteResourceTree
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteResourceTree] -&gt; ShowS
+$cshowList :: [DeleteResourceTree] -&gt; ShowS
+show :: DeleteResourceTree -&gt; String
+$cshow :: DeleteResourceTree -&gt; String
+showsPrec :: Int -&gt; DeleteResourceTree -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteResourceTree -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteResourceTree -&gt; Rep DeleteResourceTree x)
+-&gt; (forall x. Rep DeleteResourceTree x -&gt; DeleteResourceTree)
+-&gt; Generic DeleteResourceTree
+forall x. Rep DeleteResourceTree x -&gt; DeleteResourceTree
+forall x. DeleteResourceTree -&gt; Rep DeleteResourceTree x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteResourceTree x -&gt; DeleteResourceTree
+$cfrom :: forall x. DeleteResourceTree -&gt; Rep DeleteResourceTree x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'DeleteResourceTree' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'resourceArn', 'deleteResourceTree_resourceArn' - The Amazon Resource Name (ARN) of the parent resource to delete. All</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- child resources of the parent resource will also be deleted.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#newDeleteResourceTree"><span class="hs-identifier hs-type">newDeleteResourceTree</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'resourceArn'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree"><span class="hs-identifier hs-type">DeleteResourceTree</span></a></span><span>
+</span><span id="line-88"></span><span id="newDeleteResourceTree"><span class="annot"><span class="annottext">newDeleteResourceTree :: Text -&gt; DeleteResourceTree
+</span><a href="Network.AWS.Forecast.DeleteResourceTree.html#newDeleteResourceTree"><span class="hs-identifier hs-var hs-var">newDeleteResourceTree</span></a></span></span><span> </span><span id="local-6989586621679256729"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256729"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">DeleteResourceTree' :: Text -&gt; DeleteResourceTree
+</span><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree%27"><span class="hs-identifier hs-type">DeleteResourceTree'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:DeleteResourceTree' :: Text
+</span><a href="Network.AWS.Forecast.DeleteResourceTree.html#%24sel%3AresourceArn%3ADeleteResourceTree%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256729"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the parent resource to delete. All</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- child resources of the parent resource will also be deleted.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#deleteResourceTree_resourceArn"><span class="hs-identifier hs-type">deleteResourceTree_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree"><span class="hs-identifier hs-type">DeleteResourceTree</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="deleteResourceTree_resourceArn"><span class="annot"><span class="annottext">deleteResourceTree_resourceArn :: (Text -&gt; f Text) -&gt; DeleteResourceTree -&gt; f DeleteResourceTree
+</span><a href="Network.AWS.Forecast.DeleteResourceTree.html#deleteResourceTree_resourceArn"><span class="hs-identifier hs-var hs-var">deleteResourceTree_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteResourceTree -&gt; Text)
+-&gt; (DeleteResourceTree -&gt; Text -&gt; DeleteResourceTree)
+-&gt; Lens DeleteResourceTree DeleteResourceTree Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree%27"><span class="hs-identifier hs-type">DeleteResourceTree'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256726"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:DeleteResourceTree' :: DeleteResourceTree -&gt; Text
+</span><a href="#local-6989586621679256726"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256726"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256725"><span class="annot"><span class="annottext">s :: DeleteResourceTree
+</span><a href="#local-6989586621679256725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree%27"><span class="hs-identifier hs-type">DeleteResourceTree'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteResourceTree
+</span><a href="#local-6989586621679256725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:DeleteResourceTree' :: Text
+</span><a href="Network.AWS.Forecast.DeleteResourceTree.html#%24sel%3AresourceArn%3ADeleteResourceTree%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree"><span class="hs-identifier hs-type">DeleteResourceTree</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree"><span class="hs-identifier hs-type">DeleteResourceTree</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree"><span class="hs-identifier hs-type">DeleteResourceTree</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTreeResponse"><span class="hs-identifier hs-type">DeleteResourceTreeResponse</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679256720"><span class="annot"><span class="annottext">request :: DeleteResourceTree -&gt; Request DeleteResourceTree
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteResourceTree -&gt; Request DeleteResourceTree
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Forecast.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679256716"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteResourceTree
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteResourceTree)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteResourceTree
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteResourceTree
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteResourceTree)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteResourceTree
+DeleteResourceTreeResponse
+</span><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTreeResponse%27"><span class="hs-identifier hs-var">DeleteResourceTreeResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256709"><span id="local-6989586621679256711"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree"><span class="hs-identifier hs-type">DeleteResourceTree</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree"><span class="hs-identifier hs-type">DeleteResourceTree</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree"><span class="hs-identifier hs-type">DeleteResourceTree</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679256702"><span class="annot"><span class="annottext">toHeaders :: DeleteResourceTree -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteResourceTree -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonForecast.DeleteResourceTree&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256692"><span id="local-6989586621679256694"><span id="local-6989586621679256696"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree"><span class="hs-identifier hs-type">DeleteResourceTree</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679256690"><span class="annot"><span class="annottext">toJSON :: DeleteResourceTree -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree%27"><span class="hs-identifier hs-type">DeleteResourceTree'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256688"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:DeleteResourceTree' :: DeleteResourceTree -&gt; Text
+</span><a href="#local-6989586621679256688"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256688"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree"><span class="hs-identifier hs-type">DeleteResourceTree</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679256682"><span class="annot"><span class="annottext">toPath :: DeleteResourceTree -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteResourceTree -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTree"><span class="hs-identifier hs-type">DeleteResourceTree</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679256678"><span class="annot"><span class="annottext">toQuery :: DeleteResourceTree -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteResourceTree -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newDeleteResourceTreeResponse' smart constructor.</span><span>
+</span><span id="line-137"></span><span id="local-6989586621679256675"><span id="local-6989586621679256676"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteResourceTreeResponse"><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTreeResponse"><span class="hs-identifier hs-var">DeleteResourceTreeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteResourceTreeResponse%27"><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTreeResponse%27"><span class="hs-identifier hs-var">DeleteResourceTreeResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256671"><span id="local-6989586621679256673"><span class="annot"><span class="annottext">DeleteResourceTreeResponse -&gt; DeleteResourceTreeResponse -&gt; Bool
+(DeleteResourceTreeResponse -&gt; DeleteResourceTreeResponse -&gt; Bool)
+-&gt; (DeleteResourceTreeResponse
+    -&gt; DeleteResourceTreeResponse -&gt; Bool)
+-&gt; Eq DeleteResourceTreeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteResourceTreeResponse -&gt; DeleteResourceTreeResponse -&gt; Bool
+$c/= :: DeleteResourceTreeResponse -&gt; DeleteResourceTreeResponse -&gt; Bool
+== :: DeleteResourceTreeResponse -&gt; DeleteResourceTreeResponse -&gt; Bool
+$c== :: DeleteResourceTreeResponse -&gt; DeleteResourceTreeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256663"><span id="local-6989586621679256665"><span id="local-6989586621679256667"><span id="local-6989586621679256669"><span class="annot"><span class="annottext">ReadPrec [DeleteResourceTreeResponse]
+ReadPrec DeleteResourceTreeResponse
+Int -&gt; ReadS DeleteResourceTreeResponse
+ReadS [DeleteResourceTreeResponse]
+(Int -&gt; ReadS DeleteResourceTreeResponse)
+-&gt; ReadS [DeleteResourceTreeResponse]
+-&gt; ReadPrec DeleteResourceTreeResponse
+-&gt; ReadPrec [DeleteResourceTreeResponse]
+-&gt; Read DeleteResourceTreeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteResourceTreeResponse]
+$creadListPrec :: ReadPrec [DeleteResourceTreeResponse]
+readPrec :: ReadPrec DeleteResourceTreeResponse
+$creadPrec :: ReadPrec DeleteResourceTreeResponse
+readList :: ReadS [DeleteResourceTreeResponse]
+$creadList :: ReadS [DeleteResourceTreeResponse]
+readsPrec :: Int -&gt; ReadS DeleteResourceTreeResponse
+$creadsPrec :: Int -&gt; ReadS DeleteResourceTreeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256657"><span id="local-6989586621679256659"><span id="local-6989586621679256661"><span class="annot"><span class="annottext">Int -&gt; DeleteResourceTreeResponse -&gt; ShowS
+[DeleteResourceTreeResponse] -&gt; ShowS
+DeleteResourceTreeResponse -&gt; String
+(Int -&gt; DeleteResourceTreeResponse -&gt; ShowS)
+-&gt; (DeleteResourceTreeResponse -&gt; String)
+-&gt; ([DeleteResourceTreeResponse] -&gt; ShowS)
+-&gt; Show DeleteResourceTreeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteResourceTreeResponse] -&gt; ShowS
+$cshowList :: [DeleteResourceTreeResponse] -&gt; ShowS
+show :: DeleteResourceTreeResponse -&gt; String
+$cshow :: DeleteResourceTreeResponse -&gt; String
+showsPrec :: Int -&gt; DeleteResourceTreeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteResourceTreeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteResourceTreeResponse -&gt; Rep DeleteResourceTreeResponse x)
+-&gt; (forall x.
+    Rep DeleteResourceTreeResponse x -&gt; DeleteResourceTreeResponse)
+-&gt; Generic DeleteResourceTreeResponse
+forall x.
+Rep DeleteResourceTreeResponse x -&gt; DeleteResourceTreeResponse
+forall x.
+DeleteResourceTreeResponse -&gt; Rep DeleteResourceTreeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteResourceTreeResponse x -&gt; DeleteResourceTreeResponse
+$cfrom :: forall x.
+DeleteResourceTreeResponse -&gt; Rep DeleteResourceTreeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'DeleteResourceTreeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#newDeleteResourceTreeResponse"><span class="hs-identifier hs-type">newDeleteResourceTreeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTreeResponse"><span class="hs-identifier hs-type">DeleteResourceTreeResponse</span></a></span><span>
+</span><span id="line-148"></span><span id="newDeleteResourceTreeResponse"><span class="annot"><span class="annottext">newDeleteResourceTreeResponse :: DeleteResourceTreeResponse
+</span><a href="Network.AWS.Forecast.DeleteResourceTree.html#newDeleteResourceTreeResponse"><span class="hs-identifier hs-var hs-var">newDeleteResourceTreeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="annottext">DeleteResourceTreeResponse
+</span><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTreeResponse%27"><span class="hs-identifier hs-var">DeleteResourceTreeResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256653"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.DeleteResourceTree.html#DeleteResourceTreeResponse"><span class="hs-identifier hs-type">DeleteResourceTreeResponse</span></a></span></span><span>
+</span><span id="line-152"></span></pre></body></html>

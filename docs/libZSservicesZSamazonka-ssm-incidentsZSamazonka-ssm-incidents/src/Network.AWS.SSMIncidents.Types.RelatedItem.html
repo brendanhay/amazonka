@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSMIncidents.Types.RelatedItem</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSMIncidents.Types.RelatedItem</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.ItemIdentifier.html"><span class="hs-identifier">Network.AWS.SSMIncidents.Types.ItemIdentifier</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Resources that responders use to triage and mitigate the incident.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRelatedItem' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679215295"><span id="local-6989586621679215296"></span></span><span class="hs-keyword">data</span><span> </span><span id="RelatedItem"><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem"><span class="hs-identifier hs-var">RelatedItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RelatedItem%27"><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem%27"><span class="hs-identifier hs-var">RelatedItem'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The title of the related item.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Atitle%3ARelatedItem%27"><span class="annot"><span class="annottext">RelatedItem -&gt; Maybe Text
+</span><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#%24sel%3Atitle%3ARelatedItem%27"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Details about the related item.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aidentifier%3ARelatedItem%27"><span class="annot"><span class="annottext">RelatedItem -&gt; ItemIdentifier
+</span><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#%24sel%3Aidentifier%3ARelatedItem%27"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.ItemIdentifier.html#ItemIdentifier"><span class="hs-identifier hs-type">ItemIdentifier</span></a></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215288"><span id="local-6989586621679215290"><span class="annot"><span class="annottext">RelatedItem -&gt; RelatedItem -&gt; Bool
+(RelatedItem -&gt; RelatedItem -&gt; Bool)
+-&gt; (RelatedItem -&gt; RelatedItem -&gt; Bool) -&gt; Eq RelatedItem
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RelatedItem -&gt; RelatedItem -&gt; Bool
+$c/= :: RelatedItem -&gt; RelatedItem -&gt; Bool
+== :: RelatedItem -&gt; RelatedItem -&gt; Bool
+$c== :: RelatedItem -&gt; RelatedItem -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215279"><span id="local-6989586621679215281"><span id="local-6989586621679215283"><span id="local-6989586621679215285"><span class="annot"><span class="annottext">ReadPrec [RelatedItem]
+ReadPrec RelatedItem
+Int -&gt; ReadS RelatedItem
+ReadS [RelatedItem]
+(Int -&gt; ReadS RelatedItem)
+-&gt; ReadS [RelatedItem]
+-&gt; ReadPrec RelatedItem
+-&gt; ReadPrec [RelatedItem]
+-&gt; Read RelatedItem
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RelatedItem]
+$creadListPrec :: ReadPrec [RelatedItem]
+readPrec :: ReadPrec RelatedItem
+$creadPrec :: ReadPrec RelatedItem
+readList :: ReadS [RelatedItem]
+$creadList :: ReadS [RelatedItem]
+readsPrec :: Int -&gt; ReadS RelatedItem
+$creadsPrec :: Int -&gt; ReadS RelatedItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215272"><span id="local-6989586621679215274"><span id="local-6989586621679215276"><span class="annot"><span class="annottext">Int -&gt; RelatedItem -&gt; ShowS
+[RelatedItem] -&gt; ShowS
+RelatedItem -&gt; String
+(Int -&gt; RelatedItem -&gt; ShowS)
+-&gt; (RelatedItem -&gt; String)
+-&gt; ([RelatedItem] -&gt; ShowS)
+-&gt; Show RelatedItem
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RelatedItem] -&gt; ShowS
+$cshowList :: [RelatedItem] -&gt; ShowS
+show :: RelatedItem -&gt; String
+$cshow :: RelatedItem -&gt; String
+showsPrec :: Int -&gt; RelatedItem -&gt; ShowS
+$cshowsPrec :: Int -&gt; RelatedItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RelatedItem -&gt; Rep RelatedItem x)
+-&gt; (forall x. Rep RelatedItem x -&gt; RelatedItem)
+-&gt; Generic RelatedItem
+forall x. Rep RelatedItem x -&gt; RelatedItem
+forall x. RelatedItem -&gt; Rep RelatedItem x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RelatedItem x -&gt; RelatedItem
+$cfrom :: forall x. RelatedItem -&gt; Rep RelatedItem x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'RelatedItem' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'title', 'relatedItem_title' - The title of the related item.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'identifier', 'relatedItem_identifier' - Details about the related item.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#newRelatedItem"><span class="hs-identifier hs-type">newRelatedItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-comment">-- | 'identifier'</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.ItemIdentifier.html#ItemIdentifier"><span class="hs-identifier hs-type">ItemIdentifier</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem"><span class="hs-identifier hs-type">RelatedItem</span></a></span><span>
+</span><span id="line-53"></span><span id="newRelatedItem"><span class="annot"><span class="annottext">newRelatedItem :: ItemIdentifier -&gt; RelatedItem
+</span><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#newRelatedItem"><span class="hs-identifier hs-var hs-var">newRelatedItem</span></a></span></span><span> </span><span id="local-6989586621679215266"><span class="annot"><span class="annottext">ItemIdentifier
+</span><a href="#local-6989586621679215266"><span class="hs-identifier hs-var">pIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">RelatedItem' :: Maybe Text -&gt; ItemIdentifier -&gt; RelatedItem
+</span><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem%27"><span class="hs-identifier hs-type">RelatedItem'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:title:RelatedItem' :: Maybe Text
+</span><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#%24sel%3Atitle%3ARelatedItem%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:identifier:RelatedItem' :: ItemIdentifier
+</span><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#%24sel%3Aidentifier%3ARelatedItem%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ItemIdentifier
+</span><a href="#local-6989586621679215266"><span class="hs-identifier hs-var">pIdentifier_</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The title of the related item.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#relatedItem_title"><span class="hs-identifier hs-type">relatedItem_title</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem"><span class="hs-identifier hs-type">RelatedItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="relatedItem_title"><span class="annot"><span class="annottext">relatedItem_title :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RelatedItem -&gt; f RelatedItem
+</span><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#relatedItem_title"><span class="hs-identifier hs-var hs-var">relatedItem_title</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelatedItem -&gt; Maybe Text)
+-&gt; (RelatedItem -&gt; Maybe Text -&gt; RelatedItem)
+-&gt; Lens RelatedItem RelatedItem (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem%27"><span class="hs-identifier hs-type">RelatedItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215262"><span class="annot"><span class="annottext">Maybe Text
+title :: Maybe Text
+$sel:title:RelatedItem' :: RelatedItem -&gt; Maybe Text
+</span><a href="#local-6989586621679215262"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215262"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215261"><span class="annot"><span class="annottext">s :: RelatedItem
+</span><a href="#local-6989586621679215261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem%27"><span class="hs-identifier hs-type">RelatedItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215260"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelatedItem
+</span><a href="#local-6989586621679215261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:RelatedItem' :: Maybe Text
+</span><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#%24sel%3Atitle%3ARelatedItem%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem"><span class="hs-identifier hs-type">RelatedItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Details about the related item.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#relatedItem_identifier"><span class="hs-identifier hs-type">relatedItem_identifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem"><span class="hs-identifier hs-type">RelatedItem</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.ItemIdentifier.html#ItemIdentifier"><span class="hs-identifier hs-type">ItemIdentifier</span></a></span><span>
+</span><span id="line-65"></span><span id="relatedItem_identifier"><span class="annot"><span class="annottext">relatedItem_identifier :: (ItemIdentifier -&gt; f ItemIdentifier)
+-&gt; RelatedItem -&gt; f RelatedItem
+</span><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#relatedItem_identifier"><span class="hs-identifier hs-var hs-var">relatedItem_identifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelatedItem -&gt; ItemIdentifier)
+-&gt; (RelatedItem -&gt; ItemIdentifier -&gt; RelatedItem)
+-&gt; Lens RelatedItem RelatedItem ItemIdentifier ItemIdentifier
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem%27"><span class="hs-identifier hs-type">RelatedItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215258"><span class="annot"><span class="annottext">ItemIdentifier
+identifier :: ItemIdentifier
+$sel:identifier:RelatedItem' :: RelatedItem -&gt; ItemIdentifier
+</span><a href="#local-6989586621679215258"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ItemIdentifier
+</span><a href="#local-6989586621679215258"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215257"><span class="annot"><span class="annottext">s :: RelatedItem
+</span><a href="#local-6989586621679215257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem%27"><span class="hs-identifier hs-type">RelatedItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215256"><span class="annot"><span class="annottext">ItemIdentifier
+</span><a href="#local-6989586621679215256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelatedItem
+</span><a href="#local-6989586621679215257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identifier:RelatedItem' :: ItemIdentifier
+</span><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#%24sel%3Aidentifier%3ARelatedItem%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ItemIdentifier
+</span><a href="#local-6989586621679215256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem"><span class="hs-identifier hs-type">RelatedItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215253"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem"><span class="hs-identifier hs-type">RelatedItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679215251"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RelatedItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RelatedItem) -&gt; Value -&gt; Parser RelatedItem
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RelatedItem&quot;</span></span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215248"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215248"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; ItemIdentifier -&gt; RelatedItem
+</span><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem%27"><span class="hs-identifier hs-var">RelatedItem'</span></a></span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; ItemIdentifier -&gt; RelatedItem)
+-&gt; Parser (Maybe Text) -&gt; Parser (ItemIdentifier -&gt; RelatedItem)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;title&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (ItemIdentifier -&gt; RelatedItem)
+-&gt; Parser ItemIdentifier -&gt; Parser RelatedItem
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ItemIdentifier
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;identifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215241"><span id="local-6989586621679215243"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem"><span class="hs-identifier hs-type">RelatedItem</span></a></span></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215238"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem"><span class="hs-identifier hs-type">RelatedItem</span></a></span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215230"><span id="local-6989586621679215232"><span id="local-6989586621679215234"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem"><span class="hs-identifier hs-type">RelatedItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679215228"><span class="annot"><span class="annottext">toJSON :: RelatedItem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RelatedItem.html#RelatedItem%27"><span class="hs-identifier hs-type">RelatedItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215225"><span id="local-6989586621679215226"><span class="annot"><span class="annottext">Maybe Text
+ItemIdentifier
+identifier :: ItemIdentifier
+title :: Maybe Text
+$sel:identifier:RelatedItem' :: RelatedItem -&gt; ItemIdentifier
+$sel:title:RelatedItem' :: RelatedItem -&gt; Maybe Text
+</span><a href="#local-6989586621679215225"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-85"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;title&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215226"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;identifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ItemIdentifier -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ItemIdentifier
+</span><a href="#local-6989586621679215225"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The root cause of a trace summary error.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newErrorRootCause' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679254209"><span id="local-6989586621679254210"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorRootCause"><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause"><span class="hs-identifier hs-var">ErrorRootCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorRootCause%27"><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause%27"><span class="hs-identifier hs-var">ErrorRootCause'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679254218"><span id="local-6989586621679254219"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorRootCause"><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause"><span class="hs-identifier hs-var">ErrorRootCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorRootCause%27"><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause%27"><span class="hs-identifier hs-var">ErrorRootCause'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A flag that denotes that the root cause impacts the trace client.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AclientImpacting%3AErrorRootCause%27"><span class="annot"><span class="annottext">ErrorRootCause -&gt; Maybe Bool
 </span><a href="Network.AWS.XRay.Types.ErrorRootCause.html#%24sel%3AclientImpacting%3AErrorRootCause%27"><span class="hs-identifier hs-var hs-var">clientImpacting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aservices%3AErrorRootCause%27"><span class="annot"><span class="annottext">ErrorRootCause -&gt; Maybe [ErrorRootCauseService]
 </span><a href="Network.AWS.XRay.Types.ErrorRootCause.html#%24sel%3Aservices%3AErrorRootCause%27"><span class="hs-identifier hs-var hs-var">services</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCauseService.html#ErrorRootCauseService"><span class="hs-identifier hs-type">ErrorRootCauseService</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254202"><span id="local-6989586621679254204"><span class="annot"><span class="annottext">ErrorRootCause -&gt; ErrorRootCause -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254211"><span id="local-6989586621679254213"><span class="annot"><span class="annottext">ErrorRootCause -&gt; ErrorRootCause -&gt; Bool
 (ErrorRootCause -&gt; ErrorRootCause -&gt; Bool)
 -&gt; (ErrorRootCause -&gt; ErrorRootCause -&gt; Bool) -&gt; Eq ErrorRootCause
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ErrorRootCause -&gt; ErrorRootCause -&gt; Bool
 == :: ErrorRootCause -&gt; ErrorRootCause -&gt; Bool
 $c== :: ErrorRootCause -&gt; ErrorRootCause -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254193"><span id="local-6989586621679254195"><span id="local-6989586621679254197"><span id="local-6989586621679254199"><span class="annot"><span class="annottext">ReadPrec [ErrorRootCause]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254202"><span id="local-6989586621679254204"><span id="local-6989586621679254206"><span id="local-6989586621679254208"><span class="annot"><span class="annottext">ReadPrec [ErrorRootCause]
 ReadPrec ErrorRootCause
 Int -&gt; ReadS ErrorRootCause
 ReadS [ErrorRootCause]
@@ -64,7 +64,7 @@ readList :: ReadS [ErrorRootCause]
 $creadList :: ReadS [ErrorRootCause]
 readsPrec :: Int -&gt; ReadS ErrorRootCause
 $creadsPrec :: Int -&gt; ReadS ErrorRootCause
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254186"><span id="local-6989586621679254188"><span id="local-6989586621679254190"><span class="annot"><span class="annottext">Int -&gt; ErrorRootCause -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254195"><span id="local-6989586621679254197"><span id="local-6989586621679254199"><span class="annot"><span class="annottext">Int -&gt; ErrorRootCause -&gt; ShowS
 [ErrorRootCause] -&gt; ShowS
 ErrorRootCause -&gt; String
 (Int -&gt; ErrorRootCause -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (ErrorRootCause -&gt; Maybe Bool -&gt; ErrorRootCause)
 -&gt; Lens ErrorRootCause ErrorRootCause (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause%27"><span class="hs-identifier hs-type">ErrorRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254177"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause%27"><span class="hs-identifier hs-type">ErrorRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254186"><span class="annot"><span class="annottext">Maybe Bool
 clientImpacting :: Maybe Bool
 $sel:clientImpacting:ErrorRootCause' :: ErrorRootCause -&gt; Maybe Bool
-</span><a href="#local-6989586621679254177"><span class="hs-identifier hs-var hs-var">clientImpacting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679254177"><span class="hs-identifier hs-var">clientImpacting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254176"><span class="annot"><span class="annottext">s :: ErrorRootCause
-</span><a href="#local-6989586621679254176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause%27"><span class="hs-identifier hs-type">ErrorRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254175"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679254175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorRootCause
-</span><a href="#local-6989586621679254176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientImpacting:ErrorRootCause' :: Maybe Bool
+</span><a href="#local-6989586621679254186"><span class="hs-identifier hs-var hs-var">clientImpacting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679254186"><span class="hs-identifier hs-var">clientImpacting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254185"><span class="annot"><span class="annottext">s :: ErrorRootCause
+</span><a href="#local-6989586621679254185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause%27"><span class="hs-identifier hs-type">ErrorRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254184"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679254184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorRootCause
+</span><a href="#local-6989586621679254185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientImpacting:ErrorRootCause' :: Maybe Bool
 </span><a href="Network.AWS.XRay.Types.ErrorRootCause.html#%24sel%3AclientImpacting%3AErrorRootCause%27"><span class="hs-identifier hs-var">clientImpacting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679254175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause"><span class="hs-identifier hs-type">ErrorRootCause</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause"><span class="hs-identifier hs-type">ErrorRootCause</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | A list of services corresponding to an error. A service identifies a</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- segment and it contains a name, account ID, type, and inferred flag.</span><span>
@@ -152,16 +152,16 @@ $sel:clientImpacting:ErrorRootCause' :: ErrorRootCause -&gt; Maybe Bool
      (Maybe [ErrorRootCauseService])
      (Maybe [ErrorRootCauseService])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause%27"><span class="hs-identifier hs-type">ErrorRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254173"><span class="annot"><span class="annottext">Maybe [ErrorRootCauseService]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause%27"><span class="hs-identifier hs-type">ErrorRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254182"><span class="annot"><span class="annottext">Maybe [ErrorRootCauseService]
 services :: Maybe [ErrorRootCauseService]
 $sel:services:ErrorRootCause' :: ErrorRootCause -&gt; Maybe [ErrorRootCauseService]
-</span><a href="#local-6989586621679254173"><span class="hs-identifier hs-var hs-var">services</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorRootCauseService]
-</span><a href="#local-6989586621679254173"><span class="hs-identifier hs-var">services</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254172"><span class="annot"><span class="annottext">s :: ErrorRootCause
-</span><a href="#local-6989586621679254172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause%27"><span class="hs-identifier hs-type">ErrorRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254171"><span class="annot"><span class="annottext">Maybe [ErrorRootCauseService]
-</span><a href="#local-6989586621679254171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorRootCause
-</span><a href="#local-6989586621679254172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:services:ErrorRootCause' :: Maybe [ErrorRootCauseService]
+</span><a href="#local-6989586621679254182"><span class="hs-identifier hs-var hs-var">services</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorRootCauseService]
+</span><a href="#local-6989586621679254182"><span class="hs-identifier hs-var">services</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254181"><span class="annot"><span class="annottext">s :: ErrorRootCause
+</span><a href="#local-6989586621679254181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause%27"><span class="hs-identifier hs-type">ErrorRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254180"><span class="annot"><span class="annottext">Maybe [ErrorRootCauseService]
+</span><a href="#local-6989586621679254180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorRootCause
+</span><a href="#local-6989586621679254181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:services:ErrorRootCause' :: Maybe [ErrorRootCauseService]
 </span><a href="Network.AWS.XRay.Types.ErrorRootCause.html#%24sel%3Aservices%3AErrorRootCause%27"><span class="hs-identifier hs-var">services</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorRootCauseService]
-</span><a href="#local-6989586621679254171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause"><span class="hs-identifier hs-type">ErrorRootCause</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ErrorRootCauseService]
+</span><a href="#local-6989586621679254180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause"><span class="hs-identifier hs-type">ErrorRootCause</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ErrorRootCauseService]
   -&gt; f (Maybe [ErrorRootCauseService]))
  -&gt; ErrorRootCause -&gt; f ErrorRootCause)
 -&gt; ((Maybe [ErrorRootCauseService]
@@ -194,8 +194,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254165"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause"><span class="hs-identifier hs-type">ErrorRootCause</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679254163"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ErrorRootCause
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254174"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause"><span class="hs-identifier hs-type">ErrorRootCause</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679254172"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ErrorRootCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ErrorRootCause)
@@ -205,8 +205,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ErrorRootCause&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254160"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254160"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254169"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679254169"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe [ErrorRootCauseService] -&gt; ErrorRootCause
 </span><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause%27"><span class="hs-identifier hs-var">ErrorRootCause'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe [ErrorRootCauseService] -&gt; ErrorRootCause)
@@ -214,7 +214,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [ErrorRootCauseService] -&gt; ErrorRootCause)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679254169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClientImpacting&quot;</span></span><span class="hs-special">)</span><span>
@@ -222,7 +222,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [ErrorRootCauseService]) -&gt; Parser ErrorRootCause
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ErrorRootCauseService]))
+</span><a href="#local-6989586621679254169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ErrorRootCauseService]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Services&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ErrorRootCauseService]))
@@ -234,7 +234,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254153"><span id="local-6989586621679254155"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause"><span class="hs-identifier hs-type">ErrorRootCause</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254162"><span id="local-6989586621679254164"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause"><span class="hs-identifier hs-type">ErrorRootCause</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause"><span class="hs-identifier hs-type">ErrorRootCause</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254159"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorRootCause.html#ErrorRootCause"><span class="hs-identifier hs-type">ErrorRootCause</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

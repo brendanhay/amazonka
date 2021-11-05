@@ -31,10 +31,10 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679557326"><span id="local-6989586621679557327"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Tier"><span class="annot"><a href="Network.AWS.S3.Types.Tier.html#Tier"><span class="hs-identifier hs-var">Tier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tier%27"><span class="annot"><a href="Network.AWS.S3.Types.Tier.html#Tier%27"><span class="hs-identifier hs-var">Tier'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromTier"><span class="annot"><span class="annottext">Tier -&gt; Text
+</span><span id="line-34"></span><span id="local-6989586621679557335"><span id="local-6989586621679557336"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Tier"><span class="annot"><a href="Network.AWS.S3.Types.Tier.html#Tier"><span class="hs-identifier hs-var">Tier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tier%27"><span class="annot"><a href="Network.AWS.S3.Types.Tier.html#Tier%27"><span class="hs-identifier hs-var">Tier'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromTier"><span class="annot"><span class="annottext">Tier -&gt; Text
 </span><a href="Network.AWS.S3.Types.Tier.html#fromTier"><span class="hs-identifier hs-var hs-var">fromTier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679557318"><span id="local-6989586621679557320"><span id="local-6989586621679557322"><span class="annot"><span class="annottext">Int -&gt; Tier -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679557327"><span id="local-6989586621679557329"><span id="local-6989586621679557331"><span class="annot"><span class="annottext">Int -&gt; Tier -&gt; ShowS
 [Tier] -&gt; ShowS
 Tier -&gt; String
 (Int -&gt; Tier -&gt; ShowS)
@@ -48,7 +48,7 @@ $cshow :: Tier -&gt; String
 showsPrec :: Int -&gt; Tier -&gt; ShowS
 $cshowsPrec :: Int -&gt; Tier -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679557309"><span id="local-6989586621679557311"><span id="local-6989586621679557313"><span id="local-6989586621679557315"><span class="annot"><span class="annottext">ReadPrec [Tier]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679557318"><span id="local-6989586621679557320"><span id="local-6989586621679557322"><span id="local-6989586621679557324"><span class="annot"><span class="annottext">ReadPrec [Tier]
 ReadPrec Tier
 Int -&gt; ReadS Tier
 ReadS [Tier]
@@ -66,7 +66,7 @@ $creadList :: ReadS [Tier]
 readsPrec :: Int -&gt; ReadS Tier
 $creadsPrec :: Int -&gt; ReadS Tier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679557304"><span id="local-6989586621679557306"><span class="annot"><span class="annottext">Tier -&gt; Tier -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679557313"><span id="local-6989586621679557315"><span class="annot"><span class="annottext">Tier -&gt; Tier -&gt; Bool
 (Tier -&gt; Tier -&gt; Bool) -&gt; (Tier -&gt; Tier -&gt; Bool) -&gt; Eq Tier
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Tier -&gt; Tier -&gt; Bool
@@ -74,7 +74,7 @@ $c/= :: Tier -&gt; Tier -&gt; Bool
 == :: Tier -&gt; Tier -&gt; Bool
 $c== :: Tier -&gt; Tier -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679557288"><span id="local-6989586621679557290"><span id="local-6989586621679557292"><span id="local-6989586621679557294"><span id="local-6989586621679557296"><span id="local-6989586621679557298"><span id="local-6989586621679557300"><span class="annot"><span class="annottext">Eq Tier
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679557297"><span id="local-6989586621679557299"><span id="local-6989586621679557301"><span id="local-6989586621679557303"><span id="local-6989586621679557305"><span id="local-6989586621679557307"><span id="local-6989586621679557309"><span class="annot"><span class="annottext">Eq Tier
 Eq Tier
 -&gt; (Tier -&gt; Tier -&gt; Ordering)
 -&gt; (Tier -&gt; Tier -&gt; Bool)
@@ -124,7 +124,7 @@ $cfrom :: forall x. Tier -&gt; Rep Tier x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679557280"><span id="local-6989586621679557282"><span class="annot"><span class="annottext">Int -&gt; Tier -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679557289"><span id="local-6989586621679557291"><span class="annot"><span class="annottext">Int -&gt; Tier -&gt; Int
 Tier -&gt; Int
 (Int -&gt; Tier -&gt; Int) -&gt; (Tier -&gt; Int) -&gt; Hashable Tier
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -133,49 +133,49 @@ $chash :: Tier -&gt; Int
 hashWithSalt :: Int -&gt; Tier -&gt; Int
 $chashWithSalt :: Int -&gt; Tier -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679557277"><span class="annot"><span class="annottext">Tier -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679557286"><span class="annot"><span class="annottext">Tier -&gt; ()
 (Tier -&gt; ()) -&gt; NFData Tier
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Tier -&gt; ()
 $crnf :: Tier -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679557274"><span class="annot"><span class="annottext">Text -&gt; Either String Tier
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679557283"><span class="annot"><span class="annottext">Text -&gt; Either String Tier
 (Text -&gt; Either String Tier) -&gt; FromText Tier
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Tier
 $cfromText :: Text -&gt; Either String Tier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679557271"><span class="annot"><span class="annottext">Tier -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679557280"><span class="annot"><span class="annottext">Tier -&gt; Text
 (Tier -&gt; Text) -&gt; ToText Tier
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Tier -&gt; Text
 $ctoText :: Tier -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679557268"><span class="annot"><span class="annottext">Tier -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679557277"><span class="annot"><span class="annottext">Tier -&gt; ByteString
 (Tier -&gt; ByteString) -&gt; ToByteString Tier
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Tier -&gt; ByteString
 $ctoBS :: Tier -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679557265"><span class="annot"><span class="annottext">Tier -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679557274"><span class="annot"><span class="annottext">Tier -&gt; ByteStringBuilder
 (Tier -&gt; ByteStringBuilder) -&gt; ToLog Tier
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Tier -&gt; ByteStringBuilder
 $cbuild :: Tier -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679557262"><span class="annot"><span class="annottext">HeaderName -&gt; Tier -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679557271"><span class="annot"><span class="annottext">HeaderName -&gt; Tier -&gt; [Header]
 (HeaderName -&gt; Tier -&gt; [Header]) -&gt; ToHeader Tier
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Tier -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Tier -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679557259"><span class="annot"><span class="annottext">Tier -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679557268"><span class="annot"><span class="annottext">Tier -&gt; QueryString
 (Tier -&gt; QueryString) -&gt; ToQuery Tier
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Tier -&gt; QueryString
 $ctoQuery :: Tier -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679557254"><span id="local-6989586621679557256"><span class="annot"><span class="annottext">Value -&gt; Parser [Tier]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679557263"><span id="local-6989586621679557265"><span class="annot"><span class="annottext">Value -&gt; Parser [Tier]
 Value -&gt; Parser Tier
 (Value -&gt; Parser Tier) -&gt; (Value -&gt; Parser [Tier]) -&gt; FromJSON Tier
 forall a.
@@ -185,7 +185,7 @@ $cparseJSONList :: Value -&gt; Parser [Tier]
 parseJSON :: Value -&gt; Parser Tier
 $cparseJSON :: Value -&gt; Parser Tier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679557249"><span id="local-6989586621679557251"><span class="annot"><span class="annottext">FromJSONKeyFunction [Tier]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679557258"><span id="local-6989586621679557260"><span class="annot"><span class="annottext">FromJSONKeyFunction [Tier]
 FromJSONKeyFunction Tier
 FromJSONKeyFunction Tier
 -&gt; FromJSONKeyFunction [Tier] -&gt; FromJSONKey Tier
@@ -196,7 +196,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Tier]
 fromJSONKey :: FromJSONKeyFunction Tier
 $cfromJSONKey :: FromJSONKeyFunction Tier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679557240"><span id="local-6989586621679557242"><span id="local-6989586621679557244"><span id="local-6989586621679557246"><span class="annot"><span class="annottext">[Tier] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679557249"><span id="local-6989586621679557251"><span id="local-6989586621679557253"><span id="local-6989586621679557255"><span class="annot"><span class="annottext">[Tier] -&gt; Encoding
 [Tier] -&gt; Value
 Tier -&gt; Encoding
 Tier -&gt; Value
@@ -220,7 +220,7 @@ $ctoEncoding :: Tier -&gt; Encoding
 toJSON :: Tier -&gt; Value
 $ctoJSON :: Tier -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679557235"><span id="local-6989586621679557237"><span class="annot"><span class="annottext">ToJSONKeyFunction [Tier]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679557244"><span id="local-6989586621679557246"><span class="annot"><span class="annottext">ToJSONKeyFunction [Tier]
 ToJSONKeyFunction Tier
 ToJSONKeyFunction Tier
 -&gt; ToJSONKeyFunction [Tier] -&gt; ToJSONKey Tier
@@ -231,13 +231,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Tier]
 toJSONKey :: ToJSONKeyFunction Tier
 $ctoJSONKey :: ToJSONKeyFunction Tier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679557232"><span class="annot"><span class="annottext">[Node] -&gt; Either String Tier
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679557241"><span class="annot"><span class="annottext">[Node] -&gt; Either String Tier
 ([Node] -&gt; Either String Tier) -&gt; FromXML Tier
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Tier
 $cparseXML :: [Node] -&gt; Either String Tier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679557229"><span class="annot"><span class="annottext">Tier -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679557238"><span class="annot"><span class="annottext">Tier -&gt; XML
 (Tier -&gt; XML) -&gt; ToXML Tier
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Tier -&gt; XML

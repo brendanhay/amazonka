@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Container element that identifies who initiated the multipart upload.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInitiator' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679542379"><span id="local-6989586621679542380"></span></span><span class="hs-keyword">data</span><span> </span><span id="Initiator"><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator"><span class="hs-identifier hs-var">Initiator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Initiator%27"><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator%27"><span class="hs-identifier hs-var">Initiator'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679542388"><span id="local-6989586621679542389"></span></span><span class="hs-keyword">data</span><span> </span><span id="Initiator"><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator"><span class="hs-identifier hs-var">Initiator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Initiator%27"><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator%27"><span class="hs-identifier hs-var">Initiator'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the Principal.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AdisplayName%3AInitiator%27"><span class="annot"><span class="annottext">Initiator -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.Initiator.html#%24sel%3AdisplayName%3AInitiator%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aid%3AInitiator%27"><span class="annot"><span class="annottext">Initiator -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.Initiator.html#%24sel%3Aid%3AInitiator%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679542372"><span id="local-6989586621679542374"><span class="annot"><span class="annottext">Initiator -&gt; Initiator -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679542381"><span id="local-6989586621679542383"><span class="annot"><span class="annottext">Initiator -&gt; Initiator -&gt; Bool
 (Initiator -&gt; Initiator -&gt; Bool)
 -&gt; (Initiator -&gt; Initiator -&gt; Bool) -&gt; Eq Initiator
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Initiator -&gt; Initiator -&gt; Bool
 == :: Initiator -&gt; Initiator -&gt; Bool
 $c== :: Initiator -&gt; Initiator -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679542363"><span id="local-6989586621679542365"><span id="local-6989586621679542367"><span id="local-6989586621679542369"><span class="annot"><span class="annottext">ReadPrec [Initiator]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679542372"><span id="local-6989586621679542374"><span id="local-6989586621679542376"><span id="local-6989586621679542378"><span class="annot"><span class="annottext">ReadPrec [Initiator]
 ReadPrec Initiator
 Int -&gt; ReadS Initiator
 ReadS [Initiator]
@@ -65,7 +65,7 @@ readList :: ReadS [Initiator]
 $creadList :: ReadS [Initiator]
 readsPrec :: Int -&gt; ReadS Initiator
 $creadsPrec :: Int -&gt; ReadS Initiator
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679542356"><span id="local-6989586621679542358"><span id="local-6989586621679542360"><span class="annot"><span class="annottext">Int -&gt; Initiator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679542365"><span id="local-6989586621679542367"><span id="local-6989586621679542369"><span class="annot"><span class="annottext">Int -&gt; Initiator -&gt; ShowS
 [Initiator] -&gt; ShowS
 Initiator -&gt; String
 (Int -&gt; Initiator -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (Initiator -&gt; Maybe Text -&gt; Initiator)
 -&gt; Lens Initiator Initiator (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator%27"><span class="hs-identifier hs-type">Initiator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679542347"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator%27"><span class="hs-identifier hs-type">Initiator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679542356"><span class="annot"><span class="annottext">Maybe Text
 displayName :: Maybe Text
 $sel:displayName:Initiator' :: Initiator -&gt; Maybe Text
-</span><a href="#local-6989586621679542347"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679542347"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679542346"><span class="annot"><span class="annottext">s :: Initiator
-</span><a href="#local-6989586621679542346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator%27"><span class="hs-identifier hs-type">Initiator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679542345"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679542345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Initiator
-</span><a href="#local-6989586621679542346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:Initiator' :: Maybe Text
+</span><a href="#local-6989586621679542356"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679542356"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679542355"><span class="annot"><span class="annottext">s :: Initiator
+</span><a href="#local-6989586621679542355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator%27"><span class="hs-identifier hs-type">Initiator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679542354"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679542354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Initiator
+</span><a href="#local-6989586621679542355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:Initiator' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.Initiator.html#%24sel%3AdisplayName%3AInitiator%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679542345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator"><span class="hs-identifier hs-type">Initiator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679542354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator"><span class="hs-identifier hs-type">Initiator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | If the principal is an Amazon Web Services account, it provides the</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- Canonical User ID. If the principal is an IAM User, it provides a user</span><span>
@@ -146,21 +146,21 @@ $sel:displayName:Initiator' :: Initiator -&gt; Maybe Text
 -&gt; (Initiator -&gt; Maybe Text -&gt; Initiator)
 -&gt; Lens Initiator Initiator (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator%27"><span class="hs-identifier hs-type">Initiator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679542343"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator%27"><span class="hs-identifier hs-type">Initiator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679542352"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:Initiator' :: Initiator -&gt; Maybe Text
-</span><a href="#local-6989586621679542343"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679542343"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679542342"><span class="annot"><span class="annottext">s :: Initiator
-</span><a href="#local-6989586621679542342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator%27"><span class="hs-identifier hs-type">Initiator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679542341"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679542341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Initiator
-</span><a href="#local-6989586621679542342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Initiator' :: Maybe Text
+</span><a href="#local-6989586621679542352"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679542352"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679542351"><span class="annot"><span class="annottext">s :: Initiator
+</span><a href="#local-6989586621679542351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator%27"><span class="hs-identifier hs-type">Initiator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679542350"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679542350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Initiator
+</span><a href="#local-6989586621679542351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Initiator' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.Initiator.html#%24sel%3Aid%3AInitiator%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679542341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator"><span class="hs-identifier hs-type">Initiator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679542350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator"><span class="hs-identifier hs-type">Initiator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator"><span class="hs-identifier hs-type">Initiator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679542338"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Initiator
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679542336"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679542336"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679542347"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Initiator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679542345"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679542345"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Initiator
 </span><a href="Network.AWS.S3.Types.Initiator.html#Initiator%27"><span class="hs-identifier hs-var">Initiator'</span></a></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Initiator)
@@ -168,7 +168,7 @@ $sel:id:Initiator' :: Initiator -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; Initiator)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679542336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679542345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
@@ -176,12 +176,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String Initiator
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679542336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679542345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ID&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679542330"><span id="local-6989586621679542332"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator"><span class="hs-identifier hs-type">Initiator</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679542339"><span id="local-6989586621679542341"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator"><span class="hs-identifier hs-type">Initiator</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679542327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator"><span class="hs-identifier hs-type">Initiator</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679542336"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator"><span class="hs-identifier hs-type">Initiator</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

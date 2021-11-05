@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- while processing an upload request.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDocumentServiceWarning' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679152517"><span id="local-6989586621679152518"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentServiceWarning"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning"><span class="hs-identifier hs-var">DocumentServiceWarning</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentServiceWarning%27"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning%27"><span class="hs-identifier hs-var">DocumentServiceWarning'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679152526"><span id="local-6989586621679152527"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentServiceWarning"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning"><span class="hs-identifier hs-var">DocumentServiceWarning</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentServiceWarning%27"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning%27"><span class="hs-identifier hs-var">DocumentServiceWarning'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description for a warning returned by the document service.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Amessage%3ADocumentServiceWarning%27"><span class="annot"><span class="annottext">DocumentServiceWarning -&gt; Maybe Text
 </span><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#%24sel%3Amessage%3ADocumentServiceWarning%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152511"><span id="local-6989586621679152513"><span class="annot"><span class="annottext">DocumentServiceWarning -&gt; DocumentServiceWarning -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152520"><span id="local-6989586621679152522"><span class="annot"><span class="annottext">DocumentServiceWarning -&gt; DocumentServiceWarning -&gt; Bool
 (DocumentServiceWarning -&gt; DocumentServiceWarning -&gt; Bool)
 -&gt; (DocumentServiceWarning -&gt; DocumentServiceWarning -&gt; Bool)
 -&gt; Eq DocumentServiceWarning
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DocumentServiceWarning -&gt; DocumentServiceWarning -&gt; Bool
 == :: DocumentServiceWarning -&gt; DocumentServiceWarning -&gt; Bool
 $c== :: DocumentServiceWarning -&gt; DocumentServiceWarning -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152502"><span id="local-6989586621679152504"><span id="local-6989586621679152506"><span id="local-6989586621679152508"><span class="annot"><span class="annottext">ReadPrec [DocumentServiceWarning]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152511"><span id="local-6989586621679152513"><span id="local-6989586621679152515"><span id="local-6989586621679152517"><span class="annot"><span class="annottext">ReadPrec [DocumentServiceWarning]
 ReadPrec DocumentServiceWarning
 Int -&gt; ReadS DocumentServiceWarning
 ReadS [DocumentServiceWarning]
@@ -61,7 +61,7 @@ readList :: ReadS [DocumentServiceWarning]
 $creadList :: ReadS [DocumentServiceWarning]
 readsPrec :: Int -&gt; ReadS DocumentServiceWarning
 $creadsPrec :: Int -&gt; ReadS DocumentServiceWarning
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152495"><span id="local-6989586621679152497"><span id="local-6989586621679152499"><span class="annot"><span class="annottext">Int -&gt; DocumentServiceWarning -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152504"><span id="local-6989586621679152506"><span id="local-6989586621679152508"><span class="annot"><span class="annottext">Int -&gt; DocumentServiceWarning -&gt; ShowS
 [DocumentServiceWarning] -&gt; ShowS
 DocumentServiceWarning -&gt; String
 (Int -&gt; DocumentServiceWarning -&gt; ShowS)
@@ -119,19 +119,19 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning%27"><span class="hs-identifier hs-type">DocumentServiceWarning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152486"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning%27"><span class="hs-identifier hs-type">DocumentServiceWarning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152495"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:DocumentServiceWarning' :: DocumentServiceWarning -&gt; Maybe Text
-</span><a href="#local-6989586621679152486"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152486"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152485"><span class="annot"><span class="annottext">s :: DocumentServiceWarning
-</span><a href="#local-6989586621679152485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning%27"><span class="hs-identifier hs-type">DocumentServiceWarning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152484"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentServiceWarning
-</span><a href="#local-6989586621679152485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:DocumentServiceWarning' :: Maybe Text
+</span><a href="#local-6989586621679152495"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152495"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152494"><span class="annot"><span class="annottext">s :: DocumentServiceWarning
+</span><a href="#local-6989586621679152494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning%27"><span class="hs-identifier hs-type">DocumentServiceWarning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152493"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentServiceWarning
+</span><a href="#local-6989586621679152494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:DocumentServiceWarning' :: Maybe Text
 </span><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#%24sel%3Amessage%3ADocumentServiceWarning%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning"><span class="hs-identifier hs-type">DocumentServiceWarning</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679152493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning"><span class="hs-identifier hs-type">DocumentServiceWarning</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152481"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning"><span class="hs-identifier hs-type">DocumentServiceWarning</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679152479"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentServiceWarning
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152490"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning"><span class="hs-identifier hs-type">DocumentServiceWarning</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679152488"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentServiceWarning
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DocumentServiceWarning)
@@ -141,21 +141,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DocumentServiceWarning&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152476"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152476"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152485"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152485"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; DocumentServiceWarning
 </span><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning%27"><span class="hs-identifier hs-var">DocumentServiceWarning'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; DocumentServiceWarning)
 -&gt; Parser (Maybe Text) -&gt; Parser DocumentServiceWarning
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679152485"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152470"><span id="local-6989586621679152472"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning"><span class="hs-identifier hs-type">DocumentServiceWarning</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152479"><span id="local-6989586621679152481"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning"><span class="hs-identifier hs-type">DocumentServiceWarning</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152467"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning"><span class="hs-identifier hs-type">DocumentServiceWarning</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152476"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#DocumentServiceWarning"><span class="hs-identifier hs-type">DocumentServiceWarning</span></a></span></span><span>
 </span><span id="line-66"></span></pre></body></html>

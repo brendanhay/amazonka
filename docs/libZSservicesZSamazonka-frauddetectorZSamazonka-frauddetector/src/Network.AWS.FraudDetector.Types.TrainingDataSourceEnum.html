@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.FraudDetector.Types.TrainingDataSourceEnum</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FraudDetector.Types.TrainingDataSourceEnum</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum"><span class="hs-identifier">TrainingDataSourceEnum</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum_EXTERNAL_EVENTS"><span class="hs-identifier">TrainingDataSourceEnum_EXTERNAL_EVENTS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum_INGESTED_EVENTS"><span class="hs-identifier">TrainingDataSourceEnum_INGESTED_EVENTS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679307930"><span id="local-6989586621679307931"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrainingDataSourceEnum"><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum"><span class="hs-identifier hs-var">TrainingDataSourceEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrainingDataSourceEnum%27"><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum%27"><span class="hs-identifier hs-var">TrainingDataSourceEnum'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTrainingDataSourceEnum"><span class="annot"><span class="annottext">TrainingDataSourceEnum -&gt; Text
+</span><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#fromTrainingDataSourceEnum"><span class="hs-identifier hs-var hs-var">fromTrainingDataSourceEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307922"><span id="local-6989586621679307924"><span id="local-6989586621679307926"><span class="annot"><span class="annottext">Int -&gt; TrainingDataSourceEnum -&gt; ShowS
+[TrainingDataSourceEnum] -&gt; ShowS
+TrainingDataSourceEnum -&gt; String
+(Int -&gt; TrainingDataSourceEnum -&gt; ShowS)
+-&gt; (TrainingDataSourceEnum -&gt; String)
+-&gt; ([TrainingDataSourceEnum] -&gt; ShowS)
+-&gt; Show TrainingDataSourceEnum
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TrainingDataSourceEnum] -&gt; ShowS
+$cshowList :: [TrainingDataSourceEnum] -&gt; ShowS
+show :: TrainingDataSourceEnum -&gt; String
+$cshow :: TrainingDataSourceEnum -&gt; String
+showsPrec :: Int -&gt; TrainingDataSourceEnum -&gt; ShowS
+$cshowsPrec :: Int -&gt; TrainingDataSourceEnum -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679307913"><span id="local-6989586621679307915"><span id="local-6989586621679307917"><span id="local-6989586621679307919"><span class="annot"><span class="annottext">ReadPrec [TrainingDataSourceEnum]
+ReadPrec TrainingDataSourceEnum
+Int -&gt; ReadS TrainingDataSourceEnum
+ReadS [TrainingDataSourceEnum]
+(Int -&gt; ReadS TrainingDataSourceEnum)
+-&gt; ReadS [TrainingDataSourceEnum]
+-&gt; ReadPrec TrainingDataSourceEnum
+-&gt; ReadPrec [TrainingDataSourceEnum]
+-&gt; Read TrainingDataSourceEnum
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TrainingDataSourceEnum]
+$creadListPrec :: ReadPrec [TrainingDataSourceEnum]
+readPrec :: ReadPrec TrainingDataSourceEnum
+$creadPrec :: ReadPrec TrainingDataSourceEnum
+readList :: ReadS [TrainingDataSourceEnum]
+$creadList :: ReadS [TrainingDataSourceEnum]
+readsPrec :: Int -&gt; ReadS TrainingDataSourceEnum
+$creadsPrec :: Int -&gt; ReadS TrainingDataSourceEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679307908"><span id="local-6989586621679307910"><span class="annot"><span class="annottext">TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool
+(TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool)
+-&gt; (TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool)
+-&gt; Eq TrainingDataSourceEnum
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool
+$c/= :: TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool
+== :: TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool
+$c== :: TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679307892"><span id="local-6989586621679307894"><span id="local-6989586621679307896"><span id="local-6989586621679307898"><span id="local-6989586621679307900"><span id="local-6989586621679307902"><span id="local-6989586621679307904"><span class="annot"><span class="annottext">Eq TrainingDataSourceEnum
+Eq TrainingDataSourceEnum
+-&gt; (TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Ordering)
+-&gt; (TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool)
+-&gt; (TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool)
+-&gt; (TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool)
+-&gt; (TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool)
+-&gt; (TrainingDataSourceEnum
+    -&gt; TrainingDataSourceEnum -&gt; TrainingDataSourceEnum)
+-&gt; (TrainingDataSourceEnum
+    -&gt; TrainingDataSourceEnum -&gt; TrainingDataSourceEnum)
+-&gt; Ord TrainingDataSourceEnum
+TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool
+TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Ordering
+TrainingDataSourceEnum
+-&gt; TrainingDataSourceEnum -&gt; TrainingDataSourceEnum
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TrainingDataSourceEnum
+-&gt; TrainingDataSourceEnum -&gt; TrainingDataSourceEnum
+$cmin :: TrainingDataSourceEnum
+-&gt; TrainingDataSourceEnum -&gt; TrainingDataSourceEnum
+max :: TrainingDataSourceEnum
+-&gt; TrainingDataSourceEnum -&gt; TrainingDataSourceEnum
+$cmax :: TrainingDataSourceEnum
+-&gt; TrainingDataSourceEnum -&gt; TrainingDataSourceEnum
+&gt;= :: TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool
+$c&gt;= :: TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool
+&gt; :: TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool
+$c&gt; :: TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool
+&lt;= :: TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool
+$c&lt;= :: TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool
+&lt; :: TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool
+$c&lt; :: TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Bool
+compare :: TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Ordering
+$ccompare :: TrainingDataSourceEnum -&gt; TrainingDataSourceEnum -&gt; Ordering
+$cp1Ord :: Eq TrainingDataSourceEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TrainingDataSourceEnum -&gt; Rep TrainingDataSourceEnum x)
+-&gt; (forall x.
+    Rep TrainingDataSourceEnum x -&gt; TrainingDataSourceEnum)
+-&gt; Generic TrainingDataSourceEnum
+forall x. Rep TrainingDataSourceEnum x -&gt; TrainingDataSourceEnum
+forall x. TrainingDataSourceEnum -&gt; Rep TrainingDataSourceEnum x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TrainingDataSourceEnum x -&gt; TrainingDataSourceEnum
+$cfrom :: forall x. TrainingDataSourceEnum -&gt; Rep TrainingDataSourceEnum x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307884"><span id="local-6989586621679307886"><span class="annot"><span class="annottext">Int -&gt; TrainingDataSourceEnum -&gt; Int
+TrainingDataSourceEnum -&gt; Int
+(Int -&gt; TrainingDataSourceEnum -&gt; Int)
+-&gt; (TrainingDataSourceEnum -&gt; Int)
+-&gt; Hashable TrainingDataSourceEnum
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TrainingDataSourceEnum -&gt; Int
+$chash :: TrainingDataSourceEnum -&gt; Int
+hashWithSalt :: Int -&gt; TrainingDataSourceEnum -&gt; Int
+$chashWithSalt :: Int -&gt; TrainingDataSourceEnum -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679307881"><span class="annot"><span class="annottext">TrainingDataSourceEnum -&gt; ()
+(TrainingDataSourceEnum -&gt; ()) -&gt; NFData TrainingDataSourceEnum
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TrainingDataSourceEnum -&gt; ()
+$crnf :: TrainingDataSourceEnum -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679307878"><span class="annot"><span class="annottext">Text -&gt; Either String TrainingDataSourceEnum
+(Text -&gt; Either String TrainingDataSourceEnum)
+-&gt; FromText TrainingDataSourceEnum
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TrainingDataSourceEnum
+$cfromText :: Text -&gt; Either String TrainingDataSourceEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679307875"><span class="annot"><span class="annottext">TrainingDataSourceEnum -&gt; Text
+(TrainingDataSourceEnum -&gt; Text) -&gt; ToText TrainingDataSourceEnum
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TrainingDataSourceEnum -&gt; Text
+$ctoText :: TrainingDataSourceEnum -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679307872"><span class="annot"><span class="annottext">TrainingDataSourceEnum -&gt; ByteString
+(TrainingDataSourceEnum -&gt; ByteString)
+-&gt; ToByteString TrainingDataSourceEnum
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TrainingDataSourceEnum -&gt; ByteString
+$ctoBS :: TrainingDataSourceEnum -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679307869"><span class="annot"><span class="annottext">TrainingDataSourceEnum -&gt; ByteStringBuilder
+(TrainingDataSourceEnum -&gt; ByteStringBuilder)
+-&gt; ToLog TrainingDataSourceEnum
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TrainingDataSourceEnum -&gt; ByteStringBuilder
+$cbuild :: TrainingDataSourceEnum -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679307866"><span class="annot"><span class="annottext">HeaderName -&gt; TrainingDataSourceEnum -&gt; [Header]
+(HeaderName -&gt; TrainingDataSourceEnum -&gt; [Header])
+-&gt; ToHeader TrainingDataSourceEnum
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TrainingDataSourceEnum -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TrainingDataSourceEnum -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679307863"><span class="annot"><span class="annottext">TrainingDataSourceEnum -&gt; QueryString
+(TrainingDataSourceEnum -&gt; QueryString)
+-&gt; ToQuery TrainingDataSourceEnum
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TrainingDataSourceEnum -&gt; QueryString
+$ctoQuery :: TrainingDataSourceEnum -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679307858"><span id="local-6989586621679307860"><span class="annot"><span class="annottext">Value -&gt; Parser [TrainingDataSourceEnum]
+Value -&gt; Parser TrainingDataSourceEnum
+(Value -&gt; Parser TrainingDataSourceEnum)
+-&gt; (Value -&gt; Parser [TrainingDataSourceEnum])
+-&gt; FromJSON TrainingDataSourceEnum
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TrainingDataSourceEnum]
+$cparseJSONList :: Value -&gt; Parser [TrainingDataSourceEnum]
+parseJSON :: Value -&gt; Parser TrainingDataSourceEnum
+$cparseJSON :: Value -&gt; Parser TrainingDataSourceEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679307853"><span id="local-6989586621679307855"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrainingDataSourceEnum]
+FromJSONKeyFunction TrainingDataSourceEnum
+FromJSONKeyFunction TrainingDataSourceEnum
+-&gt; FromJSONKeyFunction [TrainingDataSourceEnum]
+-&gt; FromJSONKey TrainingDataSourceEnum
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TrainingDataSourceEnum]
+$cfromJSONKeyList :: FromJSONKeyFunction [TrainingDataSourceEnum]
+fromJSONKey :: FromJSONKeyFunction TrainingDataSourceEnum
+$cfromJSONKey :: FromJSONKeyFunction TrainingDataSourceEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679307844"><span id="local-6989586621679307846"><span id="local-6989586621679307848"><span id="local-6989586621679307850"><span class="annot"><span class="annottext">[TrainingDataSourceEnum] -&gt; Encoding
+[TrainingDataSourceEnum] -&gt; Value
+TrainingDataSourceEnum -&gt; Encoding
+TrainingDataSourceEnum -&gt; Value
+(TrainingDataSourceEnum -&gt; Value)
+-&gt; (TrainingDataSourceEnum -&gt; Encoding)
+-&gt; ([TrainingDataSourceEnum] -&gt; Value)
+-&gt; ([TrainingDataSourceEnum] -&gt; Encoding)
+-&gt; ToJSON TrainingDataSourceEnum
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TrainingDataSourceEnum] -&gt; Encoding
+$ctoEncodingList :: [TrainingDataSourceEnum] -&gt; Encoding
+toJSONList :: [TrainingDataSourceEnum] -&gt; Value
+$ctoJSONList :: [TrainingDataSourceEnum] -&gt; Value
+toEncoding :: TrainingDataSourceEnum -&gt; Encoding
+$ctoEncoding :: TrainingDataSourceEnum -&gt; Encoding
+toJSON :: TrainingDataSourceEnum -&gt; Value
+$ctoJSON :: TrainingDataSourceEnum -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679307839"><span id="local-6989586621679307841"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrainingDataSourceEnum]
+ToJSONKeyFunction TrainingDataSourceEnum
+ToJSONKeyFunction TrainingDataSourceEnum
+-&gt; ToJSONKeyFunction [TrainingDataSourceEnum]
+-&gt; ToJSONKey TrainingDataSourceEnum
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TrainingDataSourceEnum]
+$ctoJSONKeyList :: ToJSONKeyFunction [TrainingDataSourceEnum]
+toJSONKey :: ToJSONKeyFunction TrainingDataSourceEnum
+$ctoJSONKey :: ToJSONKeyFunction TrainingDataSourceEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679307836"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrainingDataSourceEnum
+([Node] -&gt; Either String TrainingDataSourceEnum)
+-&gt; FromXML TrainingDataSourceEnum
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TrainingDataSourceEnum
+$cparseXML :: [Node] -&gt; Either String TrainingDataSourceEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679307833"><span class="annot"><span class="annottext">TrainingDataSourceEnum -&gt; XML
+(TrainingDataSourceEnum -&gt; XML) -&gt; ToXML TrainingDataSourceEnum
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TrainingDataSourceEnum -&gt; XML
+$ctoXML :: TrainingDataSourceEnum -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum_EXTERNAL_EVENTS"><span class="hs-identifier hs-type">TrainingDataSourceEnum_EXTERNAL_EVENTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum"><span class="hs-identifier hs-type">TrainingDataSourceEnum</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrainingDataSourceEnum_EXTERNAL_EVENTS"><span id="%24mTrainingDataSourceEnum_EXTERNAL_EVENTS"><span id="TrainingDataSourceEnum_EXTERNAL_EVENTS"><span class="annot"><span class="annottext">$bTrainingDataSourceEnum_EXTERNAL_EVENTS :: TrainingDataSourceEnum
+$mTrainingDataSourceEnum_EXTERNAL_EVENTS :: forall r.
+TrainingDataSourceEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#%24bTrainingDataSourceEnum_EXTERNAL_EVENTS"><span class="hs-identifier hs-var hs-var hs-var">TrainingDataSourceEnum_EXTERNAL_EVENTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum%27"><span class="hs-identifier hs-type">TrainingDataSourceEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXTERNAL_EVENTS&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum_INGESTED_EVENTS"><span class="hs-identifier hs-type">TrainingDataSourceEnum_INGESTED_EVENTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum"><span class="hs-identifier hs-type">TrainingDataSourceEnum</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrainingDataSourceEnum_INGESTED_EVENTS"><span id="%24mTrainingDataSourceEnum_INGESTED_EVENTS"><span id="TrainingDataSourceEnum_INGESTED_EVENTS"><span class="annot"><span class="annottext">$bTrainingDataSourceEnum_INGESTED_EVENTS :: TrainingDataSourceEnum
+$mTrainingDataSourceEnum_INGESTED_EVENTS :: forall r.
+TrainingDataSourceEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#%24bTrainingDataSourceEnum_INGESTED_EVENTS"><span class="hs-identifier hs-var hs-var hs-var">TrainingDataSourceEnum_INGESTED_EVENTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum%27"><span class="hs-identifier hs-type">TrainingDataSourceEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INGESTED_EVENTS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum_EXTERNAL_EVENTS"><span class="hs-pragma hs-type">TrainingDataSourceEnum_EXTERNAL_EVENTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum_INGESTED_EVENTS"><span class="hs-pragma hs-type">TrainingDataSourceEnum_INGESTED_EVENTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum%27"><span class="hs-pragma hs-type">TrainingDataSourceEnum'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

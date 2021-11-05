@@ -47,13 +47,13 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDisableOrganizationAdminAccount' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679310982"><span id="local-6989586621679310983"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableOrganizationAdminAccount"><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount"><span class="hs-identifier hs-var">DisableOrganizationAdminAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableOrganizationAdminAccount%27"><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount%27"><span class="hs-identifier hs-var">DisableOrganizationAdminAccount'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679310991"><span id="local-6989586621679310992"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableOrganizationAdminAccount"><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount"><span class="hs-identifier hs-var">DisableOrganizationAdminAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableOrganizationAdminAccount%27"><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount%27"><span class="hs-identifier hs-var">DisableOrganizationAdminAccount'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS Account ID for the organizations account to be disabled as a</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- GuardDuty delegated administrator.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AadminAccountId%3ADisableOrganizationAdminAccount%27"><span class="annot"><span class="annottext">DisableOrganizationAdminAccount -&gt; Text
 </span><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#%24sel%3AadminAccountId%3ADisableOrganizationAdminAccount%27"><span class="hs-identifier hs-var hs-var">adminAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310976"><span id="local-6989586621679310978"><span class="annot"><span class="annottext">DisableOrganizationAdminAccount
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310985"><span id="local-6989586621679310987"><span class="annot"><span class="annottext">DisableOrganizationAdminAccount
 -&gt; DisableOrganizationAdminAccount -&gt; Bool
 (DisableOrganizationAdminAccount
  -&gt; DisableOrganizationAdminAccount -&gt; Bool)
@@ -69,7 +69,7 @@ $c/= :: DisableOrganizationAdminAccount
 -&gt; DisableOrganizationAdminAccount -&gt; Bool
 $c== :: DisableOrganizationAdminAccount
 -&gt; DisableOrganizationAdminAccount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310967"><span id="local-6989586621679310969"><span id="local-6989586621679310971"><span id="local-6989586621679310973"><span class="annot"><span class="annottext">ReadPrec [DisableOrganizationAdminAccount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310976"><span id="local-6989586621679310978"><span id="local-6989586621679310980"><span id="local-6989586621679310982"><span class="annot"><span class="annottext">ReadPrec [DisableOrganizationAdminAccount]
 ReadPrec DisableOrganizationAdminAccount
 Int -&gt; ReadS DisableOrganizationAdminAccount
 ReadS [DisableOrganizationAdminAccount]
@@ -89,7 +89,7 @@ readList :: ReadS [DisableOrganizationAdminAccount]
 $creadList :: ReadS [DisableOrganizationAdminAccount]
 readsPrec :: Int -&gt; ReadS DisableOrganizationAdminAccount
 $creadsPrec :: Int -&gt; ReadS DisableOrganizationAdminAccount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310960"><span id="local-6989586621679310962"><span id="local-6989586621679310964"><span class="annot"><span class="annottext">Int -&gt; DisableOrganizationAdminAccount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310969"><span id="local-6989586621679310971"><span id="local-6989586621679310973"><span class="annot"><span class="annottext">Int -&gt; DisableOrganizationAdminAccount -&gt; ShowS
 [DisableOrganizationAdminAccount] -&gt; ShowS
 DisableOrganizationAdminAccount -&gt; String
 (Int -&gt; DisableOrganizationAdminAccount -&gt; ShowS)
@@ -142,14 +142,14 @@ DisableOrganizationAdminAccount
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount</span></a></span><span>
 </span><span id="line-71"></span><span id="newDisableOrganizationAdminAccount"><span class="annot"><span class="annottext">newDisableOrganizationAdminAccount :: Text -&gt; DisableOrganizationAdminAccount
-</span><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#newDisableOrganizationAdminAccount"><span class="hs-identifier hs-var hs-var">newDisableOrganizationAdminAccount</span></a></span></span><span> </span><span id="local-6989586621679310955"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310955"><span class="hs-identifier hs-var">pAdminAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#newDisableOrganizationAdminAccount"><span class="hs-identifier hs-var hs-var">newDisableOrganizationAdminAccount</span></a></span></span><span> </span><span id="local-6989586621679310964"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310964"><span class="hs-identifier hs-var">pAdminAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DisableOrganizationAdminAccount' :: Text -&gt; DisableOrganizationAdminAccount
 </span><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount%27"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:adminAccountId:DisableOrganizationAdminAccount' :: Text
 </span><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#%24sel%3AadminAccountId%3ADisableOrganizationAdminAccount%27"><span class="hs-identifier hs-var">adminAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310955"><span class="hs-identifier hs-var">pAdminAccountId_</span></a></span><span>
+</span><a href="#local-6989586621679310964"><span class="hs-identifier hs-var">pAdminAccountId_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The AWS Account ID for the organizations account to be disabled as a</span><span>
@@ -167,16 +167,16 @@ DisableOrganizationAdminAccount
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount%27"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310952"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount%27"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310961"><span class="annot"><span class="annottext">Text
 adminAccountId :: Text
 $sel:adminAccountId:DisableOrganizationAdminAccount' :: DisableOrganizationAdminAccount -&gt; Text
-</span><a href="#local-6989586621679310952"><span class="hs-identifier hs-var hs-var">adminAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310952"><span class="hs-identifier hs-var">adminAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310951"><span class="annot"><span class="annottext">s :: DisableOrganizationAdminAccount
-</span><a href="#local-6989586621679310951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount%27"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310950"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableOrganizationAdminAccount
-</span><a href="#local-6989586621679310951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adminAccountId:DisableOrganizationAdminAccount' :: Text
+</span><a href="#local-6989586621679310961"><span class="hs-identifier hs-var hs-var">adminAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310961"><span class="hs-identifier hs-var">adminAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310960"><span class="annot"><span class="annottext">s :: DisableOrganizationAdminAccount
+</span><a href="#local-6989586621679310960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount%27"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310959"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableOrganizationAdminAccount
+</span><a href="#local-6989586621679310960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adminAccountId:DisableOrganizationAdminAccount' :: Text
 </span><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#%24sel%3AadminAccountId%3ADisableOrganizationAdminAccount%27"><span class="hs-identifier hs-var">adminAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -185,7 +185,7 @@ $sel:adminAccountId:DisableOrganizationAdminAccount' :: DisableOrganizationAdmin
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse"><span class="hs-identifier hs-type">DisableOrganizationAdminAccountResponse</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679310946"><span class="annot"><span class="annottext">request :: DisableOrganizationAdminAccount
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679310955"><span class="annot"><span class="annottext">request :: DisableOrganizationAdminAccount
 -&gt; Request DisableOrganizationAdminAccount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DisableOrganizationAdminAccount
@@ -193,7 +193,7 @@ $sel:adminAccountId:DisableOrganizationAdminAccount' :: DisableOrganizationAdmin
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679310942"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679310951"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DisableOrganizationAdminAccount
 -&gt; ClientResponse ClientBody
@@ -221,10 +221,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310939"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310939"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679310938"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679310938"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679310937"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679310937"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310948"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310948"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679310947"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679310947"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679310946"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679310946"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DisableOrganizationAdminAccountResponse
 </span><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse%27"><span class="hs-identifier hs-var">DisableOrganizationAdminAccountResponse'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DisableOrganizationAdminAccountResponse)
@@ -236,22 +236,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310939"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310948"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679310930"><span id="local-6989586621679310932"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679310939"><span id="local-6989586621679310941"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679310927"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679310936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount</span></a></span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679310923"><span class="annot"><span class="annottext">toHeaders :: DisableOrganizationAdminAccount -&gt; ResponseHeaders
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679310932"><span class="annot"><span class="annottext">toHeaders :: DisableOrganizationAdminAccount -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DisableOrganizationAdminAccount -&gt; ResponseHeaders
@@ -271,12 +271,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310913"><span id="local-6989586621679310915"><span id="local-6989586621679310917"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679310911"><span class="annot"><span class="annottext">toJSON :: DisableOrganizationAdminAccount -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount%27"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310909"><span class="annot"><span class="annottext">Text
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310922"><span id="local-6989586621679310924"><span id="local-6989586621679310926"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679310920"><span class="annot"><span class="annottext">toJSON :: DisableOrganizationAdminAccount -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount%27"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310918"><span class="annot"><span class="annottext">Text
 adminAccountId :: Text
 $sel:adminAccountId:DisableOrganizationAdminAccount' :: DisableOrganizationAdminAccount -&gt; Text
-</span><a href="#local-6989586621679310909"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679310918"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -289,19 +289,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;adminAccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310909"><span class="hs-identifier hs-var">adminAccountId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310918"><span class="hs-identifier hs-var">adminAccountId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679310903"><span class="annot"><span class="annottext">toPath :: DisableOrganizationAdminAccount -&gt; ByteString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679310912"><span class="annot"><span class="annottext">toPath :: DisableOrganizationAdminAccount -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisableOrganizationAdminAccount -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/admin/disable&quot;</span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccount"><span class="hs-identifier hs-type">DisableOrganizationAdminAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679310899"><span class="annot"><span class="annottext">toQuery :: DisableOrganizationAdminAccount -&gt; QueryString
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679310908"><span class="annot"><span class="annottext">toQuery :: DisableOrganizationAdminAccount -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisableOrganizationAdminAccount -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -309,12 +309,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newDisableOrganizationAdminAccountResponse' smart constructor.</span><span>
-</span><span id="line-135"></span><span id="local-6989586621679310896"><span id="local-6989586621679310897"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableOrganizationAdminAccountResponse"><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse"><span class="hs-identifier hs-var">DisableOrganizationAdminAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableOrganizationAdminAccountResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse%27"><span class="hs-identifier hs-var">DisableOrganizationAdminAccountResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span id="local-6989586621679310905"><span id="local-6989586621679310906"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableOrganizationAdminAccountResponse"><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse"><span class="hs-identifier hs-var">DisableOrganizationAdminAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableOrganizationAdminAccountResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse%27"><span class="hs-identifier hs-var">DisableOrganizationAdminAccountResponse'</span></a></span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisableOrganizationAdminAccountResponse%27"><span class="annot"><span class="annottext">DisableOrganizationAdminAccountResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#%24sel%3AhttpStatus%3ADisableOrganizationAdminAccountResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310891"><span id="local-6989586621679310893"><span class="annot"><span class="annottext">DisableOrganizationAdminAccountResponse
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310900"><span id="local-6989586621679310902"><span class="annot"><span class="annottext">DisableOrganizationAdminAccountResponse
 -&gt; DisableOrganizationAdminAccountResponse -&gt; Bool
 (DisableOrganizationAdminAccountResponse
  -&gt; DisableOrganizationAdminAccountResponse -&gt; Bool)
@@ -330,7 +330,7 @@ $c/= :: DisableOrganizationAdminAccountResponse
 -&gt; DisableOrganizationAdminAccountResponse -&gt; Bool
 $c== :: DisableOrganizationAdminAccountResponse
 -&gt; DisableOrganizationAdminAccountResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310883"><span id="local-6989586621679310885"><span id="local-6989586621679310887"><span id="local-6989586621679310889"><span class="annot"><span class="annottext">ReadPrec [DisableOrganizationAdminAccountResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310892"><span id="local-6989586621679310894"><span id="local-6989586621679310896"><span id="local-6989586621679310898"><span class="annot"><span class="annottext">ReadPrec [DisableOrganizationAdminAccountResponse]
 ReadPrec DisableOrganizationAdminAccountResponse
 Int -&gt; ReadS DisableOrganizationAdminAccountResponse
 ReadS [DisableOrganizationAdminAccountResponse]
@@ -350,7 +350,7 @@ readList :: ReadS [DisableOrganizationAdminAccountResponse]
 $creadList :: ReadS [DisableOrganizationAdminAccountResponse]
 readsPrec :: Int -&gt; ReadS DisableOrganizationAdminAccountResponse
 $creadsPrec :: Int -&gt; ReadS DisableOrganizationAdminAccountResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310877"><span id="local-6989586621679310879"><span id="local-6989586621679310881"><span class="annot"><span class="annottext">Int -&gt; DisableOrganizationAdminAccountResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310886"><span id="local-6989586621679310888"><span id="local-6989586621679310890"><span class="annot"><span class="annottext">Int -&gt; DisableOrganizationAdminAccountResponse -&gt; ShowS
 [DisableOrganizationAdminAccountResponse] -&gt; ShowS
 DisableOrganizationAdminAccountResponse -&gt; String
 (Int -&gt; DisableOrganizationAdminAccountResponse -&gt; ShowS)
@@ -403,14 +403,14 @@ DisableOrganizationAdminAccountResponse
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse"><span class="hs-identifier hs-type">DisableOrganizationAdminAccountResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newDisableOrganizationAdminAccountResponse"><span class="annot"><span class="annottext">newDisableOrganizationAdminAccountResponse :: Int -&gt; DisableOrganizationAdminAccountResponse
 </span><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#newDisableOrganizationAdminAccountResponse"><span class="hs-identifier hs-var hs-var">newDisableOrganizationAdminAccountResponse</span></a></span></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679310874"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310874"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679310883"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310883"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">DisableOrganizationAdminAccountResponse' :: Int -&gt; DisableOrganizationAdminAccountResponse
 </span><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse%27"><span class="hs-identifier hs-type">DisableOrganizationAdminAccountResponse'</span></a></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DisableOrganizationAdminAccountResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#%24sel%3AhttpStatus%3ADisableOrganizationAdminAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310874"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679310883"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -427,18 +427,18 @@ DisableOrganizationAdminAccountResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse%27"><span class="hs-identifier hs-type">DisableOrganizationAdminAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310873"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse%27"><span class="hs-identifier hs-type">DisableOrganizationAdminAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310882"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DisableOrganizationAdminAccountResponse' :: DisableOrganizationAdminAccountResponse -&gt; Int
-</span><a href="#local-6989586621679310873"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310873"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310872"><span class="annot"><span class="annottext">s :: DisableOrganizationAdminAccountResponse
-</span><a href="#local-6989586621679310872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse%27"><span class="hs-identifier hs-type">DisableOrganizationAdminAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310871"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableOrganizationAdminAccountResponse
-</span><a href="#local-6989586621679310872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisableOrganizationAdminAccountResponse' :: Int
+</span><a href="#local-6989586621679310882"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310882"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310881"><span class="annot"><span class="annottext">s :: DisableOrganizationAdminAccountResponse
+</span><a href="#local-6989586621679310881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse%27"><span class="hs-identifier hs-type">DisableOrganizationAdminAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310880"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableOrganizationAdminAccountResponse
+</span><a href="#local-6989586621679310881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisableOrganizationAdminAccountResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#%24sel%3AhttpStatus%3ADisableOrganizationAdminAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse"><span class="hs-identifier hs-type">DisableOrganizationAdminAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse"><span class="hs-identifier hs-type">DisableOrganizationAdminAccountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679310869"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679310878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DisableOrganizationAdminAccount.html#DisableOrganizationAdminAccountResponse"><span class="hs-identifier hs-type">DisableOrganizationAdminAccountResponse</span></a></span></span><span>
 </span><span id="line-168"></span></pre></body></html>

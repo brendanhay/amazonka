@@ -1,0 +1,1060 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.KafkaConnect.CreateConnector</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a connector using the specified properties.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KafkaConnect.CreateConnector</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier">CreateConnector</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#newCreateConnector"><span class="hs-identifier">newCreateConnector</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_logDelivery"><span class="hs-identifier">createConnector_logDelivery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_workerConfiguration"><span class="hs-identifier">createConnector_workerConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_connectorDescription"><span class="hs-identifier">createConnector_connectorDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_capacity"><span class="hs-identifier">createConnector_capacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_connectorConfiguration"><span class="hs-identifier">createConnector_connectorConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_connectorName"><span class="hs-identifier">createConnector_connectorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_kafkaCluster"><span class="hs-identifier">createConnector_kafkaCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_kafkaClusterClientAuthentication"><span class="hs-identifier">createConnector_kafkaClusterClientAuthentication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_kafkaClusterEncryptionInTransit"><span class="hs-identifier">createConnector_kafkaClusterEncryptionInTransit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_kafkaConnectVersion"><span class="hs-identifier">createConnector_kafkaConnectVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_plugins"><span class="hs-identifier">createConnector_plugins</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_serviceExecutionRoleArn"><span class="hs-identifier">createConnector_serviceExecutionRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse"><span class="hs-identifier">CreateConnectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#newCreateConnectorResponse"><span class="hs-identifier">newCreateConnectorResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnectorResponse_connectorArn"><span class="hs-identifier">createConnectorResponse_connectorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnectorResponse_connectorName"><span class="hs-identifier">createConnectorResponse_connectorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnectorResponse_connectorState"><span class="hs-identifier">createConnectorResponse_connectorState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnectorResponse_httpStatus"><span class="hs-identifier">createConnectorResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.html"><span class="hs-identifier">Network.AWS.KafkaConnect.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newCreateConnector' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679209843"><span id="local-6989586621679209844"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateConnector"><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-var">CreateConnector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateConnector%27"><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-var">CreateConnector'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about log delivery.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AlogDelivery%3ACreateConnector%27"><span class="annot"><span class="annottext">CreateConnector -&gt; Maybe LogDelivery
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AlogDelivery%3ACreateConnector%27"><span class="hs-identifier hs-var hs-var">logDelivery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.LogDelivery.html#LogDelivery"><span class="hs-identifier hs-type">LogDelivery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Specifies which worker configuration to use with the connector.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AworkerConfiguration%3ACreateConnector%27"><span class="annot"><span class="annottext">CreateConnector -&gt; Maybe WorkerConfiguration
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AworkerConfiguration%3ACreateConnector%27"><span class="hs-identifier hs-var hs-var">workerConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.WorkerConfiguration.html#WorkerConfiguration"><span class="hs-identifier hs-type">WorkerConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | A summary description of the connector.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AconnectorDescription%3ACreateConnector%27"><span class="annot"><span class="annottext">CreateConnector -&gt; Maybe Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorDescription%3ACreateConnector%27"><span class="hs-identifier hs-var hs-var">connectorDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Information about the capacity allocated to the connector. Exactly one</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- of the two properties must be specified.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Acapacity%3ACreateConnector%27"><span class="annot"><span class="annottext">CreateConnector -&gt; Capacity
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3Acapacity%3ACreateConnector%27"><span class="hs-identifier hs-var hs-var">capacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.Capacity.html#Capacity"><span class="hs-identifier hs-type">Capacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A map of keys to values that represent the configuration for the</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- connector.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AconnectorConfiguration%3ACreateConnector%27"><span class="annot"><span class="annottext">CreateConnector -&gt; HashMap Text Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorConfiguration%3ACreateConnector%27"><span class="hs-identifier hs-var hs-var">connectorConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The name of the connector.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AconnectorName%3ACreateConnector%27"><span class="annot"><span class="annottext">CreateConnector -&gt; Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorName%3ACreateConnector%27"><span class="hs-identifier hs-var hs-var">connectorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Specifies which Apache Kafka cluster to connect to.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AkafkaCluster%3ACreateConnector%27"><span class="annot"><span class="annottext">CreateConnector -&gt; KafkaCluster
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AkafkaCluster%3ACreateConnector%27"><span class="hs-identifier hs-var hs-var">kafkaCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaCluster.html#KafkaCluster"><span class="hs-identifier hs-type">KafkaCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Details of the client authentication used by the Apache Kafka cluster.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AkafkaClusterClientAuthentication%3ACreateConnector%27"><span class="annot"><span class="annottext">CreateConnector -&gt; KafkaClusterClientAuthentication
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AkafkaClusterClientAuthentication%3ACreateConnector%27"><span class="hs-identifier hs-var hs-var">kafkaClusterClientAuthentication</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthentication.html#KafkaClusterClientAuthentication"><span class="hs-identifier hs-type">KafkaClusterClientAuthentication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Details of encryption in transit to the Apache Kafka cluster.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AkafkaClusterEncryptionInTransit%3ACreateConnector%27"><span class="annot"><span class="annottext">CreateConnector -&gt; KafkaClusterEncryptionInTransit
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AkafkaClusterEncryptionInTransit%3ACreateConnector%27"><span class="hs-identifier hs-var hs-var">kafkaClusterEncryptionInTransit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransit.html#KafkaClusterEncryptionInTransit"><span class="hs-identifier hs-type">KafkaClusterEncryptionInTransit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The version of Kafka Connect. It has to be compatible with both the</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- Apache Kafka cluster\'s version and the plugins.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AkafkaConnectVersion%3ACreateConnector%27"><span class="annot"><span class="annottext">CreateConnector -&gt; Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AkafkaConnectVersion%3ACreateConnector%27"><span class="hs-identifier hs-var hs-var">kafkaConnectVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | Specifies which plugins to use for the connector.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Aplugins%3ACreateConnector%27"><span class="annot"><span class="annottext">CreateConnector -&gt; [Plugin]
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3Aplugins%3ACreateConnector%27"><span class="hs-identifier hs-var hs-var">plugins</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.Plugin.html#Plugin"><span class="hs-identifier hs-type">Plugin</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role used by the connector to</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- access the Amazon Web Services resources that it needs. The types of</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- resources depends on the logic of the connector. For example, a</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- connector that has Amazon S3 as a destination must have permissions that</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- allow it to write to the S3 destination bucket.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AserviceExecutionRoleArn%3ACreateConnector%27"><span class="annot"><span class="annottext">CreateConnector -&gt; Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AserviceExecutionRoleArn%3ACreateConnector%27"><span class="hs-identifier hs-var hs-var">serviceExecutionRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209826"><span id="local-6989586621679209828"><span class="annot"><span class="annottext">CreateConnector -&gt; CreateConnector -&gt; Bool
+(CreateConnector -&gt; CreateConnector -&gt; Bool)
+-&gt; (CreateConnector -&gt; CreateConnector -&gt; Bool)
+-&gt; Eq CreateConnector
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateConnector -&gt; CreateConnector -&gt; Bool
+$c/= :: CreateConnector -&gt; CreateConnector -&gt; Bool
+== :: CreateConnector -&gt; CreateConnector -&gt; Bool
+$c== :: CreateConnector -&gt; CreateConnector -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209817"><span id="local-6989586621679209819"><span id="local-6989586621679209821"><span id="local-6989586621679209823"><span class="annot"><span class="annottext">ReadPrec [CreateConnector]
+ReadPrec CreateConnector
+Int -&gt; ReadS CreateConnector
+ReadS [CreateConnector]
+(Int -&gt; ReadS CreateConnector)
+-&gt; ReadS [CreateConnector]
+-&gt; ReadPrec CreateConnector
+-&gt; ReadPrec [CreateConnector]
+-&gt; Read CreateConnector
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateConnector]
+$creadListPrec :: ReadPrec [CreateConnector]
+readPrec :: ReadPrec CreateConnector
+$creadPrec :: ReadPrec CreateConnector
+readList :: ReadS [CreateConnector]
+$creadList :: ReadS [CreateConnector]
+readsPrec :: Int -&gt; ReadS CreateConnector
+$creadsPrec :: Int -&gt; ReadS CreateConnector
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209810"><span id="local-6989586621679209812"><span id="local-6989586621679209814"><span class="annot"><span class="annottext">Int -&gt; CreateConnector -&gt; ShowS
+[CreateConnector] -&gt; ShowS
+CreateConnector -&gt; String
+(Int -&gt; CreateConnector -&gt; ShowS)
+-&gt; (CreateConnector -&gt; String)
+-&gt; ([CreateConnector] -&gt; ShowS)
+-&gt; Show CreateConnector
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateConnector] -&gt; ShowS
+$cshowList :: [CreateConnector] -&gt; ShowS
+show :: CreateConnector -&gt; String
+$cshow :: CreateConnector -&gt; String
+showsPrec :: Int -&gt; CreateConnector -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateConnector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateConnector -&gt; Rep CreateConnector x)
+-&gt; (forall x. Rep CreateConnector x -&gt; CreateConnector)
+-&gt; Generic CreateConnector
+forall x. Rep CreateConnector x -&gt; CreateConnector
+forall x. CreateConnector -&gt; Rep CreateConnector x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateConnector x -&gt; CreateConnector
+$cfrom :: forall x. CreateConnector -&gt; Rep CreateConnector x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Create a value of 'CreateConnector' with all optional fields omitted.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'logDelivery', 'createConnector_logDelivery' - Details about log delivery.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'workerConfiguration', 'createConnector_workerConfiguration' - Specifies which worker configuration to use with the connector.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'connectorDescription', 'createConnector_connectorDescription' - A summary description of the connector.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'capacity', 'createConnector_capacity' - Information about the capacity allocated to the connector. Exactly one</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- of the two properties must be specified.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'connectorConfiguration', 'createConnector_connectorConfiguration' - A map of keys to values that represent the configuration for the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- connector.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'connectorName', 'createConnector_connectorName' - The name of the connector.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'kafkaCluster', 'createConnector_kafkaCluster' - Specifies which Apache Kafka cluster to connect to.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'kafkaClusterClientAuthentication', 'createConnector_kafkaClusterClientAuthentication' - Details of the client authentication used by the Apache Kafka cluster.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'kafkaClusterEncryptionInTransit', 'createConnector_kafkaClusterEncryptionInTransit' - Details of encryption in transit to the Apache Kafka cluster.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'kafkaConnectVersion', 'createConnector_kafkaConnectVersion' - The version of Kafka Connect. It has to be compatible with both the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Apache Kafka cluster\'s version and the plugins.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'plugins', 'createConnector_plugins' - Specifies which plugins to use for the connector.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'serviceExecutionRoleArn', 'createConnector_serviceExecutionRoleArn' - The Amazon Resource Name (ARN) of the IAM role used by the connector to</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- access the Amazon Web Services resources that it needs. The types of</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- resources depends on the logic of the connector. For example, a</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- connector that has Amazon S3 as a destination must have permissions that</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- allow it to write to the S3 destination bucket.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#newCreateConnector"><span class="hs-identifier hs-type">newCreateConnector</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-comment">-- | 'capacity'</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.Capacity.html#Capacity"><span class="hs-identifier hs-type">Capacity</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-comment">-- | 'connectorName'</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-comment">-- | 'kafkaCluster'</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaCluster.html#KafkaCluster"><span class="hs-identifier hs-type">KafkaCluster</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'kafkaClusterClientAuthentication'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthentication.html#KafkaClusterClientAuthentication"><span class="hs-identifier hs-type">KafkaClusterClientAuthentication</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-comment">-- | 'kafkaClusterEncryptionInTransit'</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransit.html#KafkaClusterEncryptionInTransit"><span class="hs-identifier hs-type">KafkaClusterEncryptionInTransit</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'kafkaConnectVersion'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'serviceExecutionRoleArn'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span>
+</span><span id="line-152"></span><span id="newCreateConnector"><span class="annot"><span class="annottext">newCreateConnector :: Capacity
+-&gt; Text
+-&gt; KafkaCluster
+-&gt; KafkaClusterClientAuthentication
+-&gt; KafkaClusterEncryptionInTransit
+-&gt; Text
+-&gt; Text
+-&gt; CreateConnector
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#newCreateConnector"><span class="hs-identifier hs-var hs-var">newCreateConnector</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679209805"><span class="annot"><span class="annottext">Capacity
+</span><a href="#local-6989586621679209805"><span class="hs-identifier hs-var">pCapacity_</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679209804"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209804"><span class="hs-identifier hs-var">pConnectorName_</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679209803"><span class="annot"><span class="annottext">KafkaCluster
+</span><a href="#local-6989586621679209803"><span class="hs-identifier hs-var">pKafkaCluster_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679209802"><span class="annot"><span class="annottext">KafkaClusterClientAuthentication
+</span><a href="#local-6989586621679209802"><span class="hs-identifier hs-var">pKafkaClusterClientAuthentication_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679209801"><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransit
+</span><a href="#local-6989586621679209801"><span class="hs-identifier hs-var">pKafkaClusterEncryptionInTransit_</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679209800"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209800"><span class="hs-identifier hs-var">pKafkaConnectVersion_</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679209799"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209799"><span class="hs-identifier hs-var">pServiceExecutionRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">CreateConnector' :: Maybe LogDelivery
+-&gt; Maybe WorkerConfiguration
+-&gt; Maybe Text
+-&gt; Capacity
+-&gt; HashMap Text Text
+-&gt; Text
+-&gt; KafkaCluster
+-&gt; KafkaClusterClientAuthentication
+-&gt; KafkaClusterEncryptionInTransit
+-&gt; Text
+-&gt; [Plugin]
+-&gt; Text
+-&gt; CreateConnector
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logDelivery:CreateConnector' :: Maybe LogDelivery
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AlogDelivery%3ACreateConnector%27"><span class="hs-identifier hs-var">logDelivery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogDelivery
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:workerConfiguration:CreateConnector' :: Maybe WorkerConfiguration
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AworkerConfiguration%3ACreateConnector%27"><span class="hs-identifier hs-var">workerConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkerConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:connectorDescription:CreateConnector' :: Maybe Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorDescription%3ACreateConnector%27"><span class="hs-identifier hs-var">connectorDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:capacity:CreateConnector' :: Capacity
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3Acapacity%3ACreateConnector%27"><span class="hs-identifier hs-var">capacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Capacity
+</span><a href="#local-6989586621679209805"><span class="hs-identifier hs-var">pCapacity_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:connectorConfiguration:CreateConnector' :: HashMap Text Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorConfiguration%3ACreateConnector%27"><span class="hs-identifier hs-var">connectorConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:connectorName:CreateConnector' :: Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorName%3ACreateConnector%27"><span class="hs-identifier hs-var">connectorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209804"><span class="hs-identifier hs-var">pConnectorName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:kafkaCluster:CreateConnector' :: KafkaCluster
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AkafkaCluster%3ACreateConnector%27"><span class="hs-identifier hs-var">kafkaCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KafkaCluster
+</span><a href="#local-6989586621679209803"><span class="hs-identifier hs-var">pKafkaCluster_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:kafkaClusterClientAuthentication:CreateConnector' :: KafkaClusterClientAuthentication
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AkafkaClusterClientAuthentication%3ACreateConnector%27"><span class="hs-identifier hs-var">kafkaClusterClientAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">KafkaClusterClientAuthentication
+</span><a href="#local-6989586621679209802"><span class="hs-identifier hs-var">pKafkaClusterClientAuthentication_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">$sel:kafkaClusterEncryptionInTransit:CreateConnector' :: KafkaClusterEncryptionInTransit
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AkafkaClusterEncryptionInTransit%3ACreateConnector%27"><span class="hs-identifier hs-var">kafkaClusterEncryptionInTransit</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransit
+</span><a href="#local-6989586621679209801"><span class="hs-identifier hs-var">pKafkaClusterEncryptionInTransit_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">$sel:kafkaConnectVersion:CreateConnector' :: Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AkafkaConnectVersion%3ACreateConnector%27"><span class="hs-identifier hs-var">kafkaConnectVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209800"><span class="hs-identifier hs-var">pKafkaConnectVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">$sel:plugins:CreateConnector' :: [Plugin]
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3Aplugins%3ACreateConnector%27"><span class="hs-identifier hs-var">plugins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Plugin]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceExecutionRoleArn:CreateConnector' :: Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AserviceExecutionRoleArn%3ACreateConnector%27"><span class="hs-identifier hs-var">serviceExecutionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209799"><span class="hs-identifier hs-var">pServiceExecutionRoleArn_</span></a></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Details about log delivery.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_logDelivery"><span class="hs-identifier hs-type">createConnector_logDelivery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.LogDelivery.html#LogDelivery"><span class="hs-identifier hs-type">LogDelivery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="createConnector_logDelivery"><span class="annot"><span class="annottext">createConnector_logDelivery :: (Maybe LogDelivery -&gt; f (Maybe LogDelivery))
+-&gt; CreateConnector -&gt; f CreateConnector
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_logDelivery"><span class="hs-identifier hs-var hs-var">createConnector_logDelivery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnector -&gt; Maybe LogDelivery)
+-&gt; (CreateConnector -&gt; Maybe LogDelivery -&gt; CreateConnector)
+-&gt; Lens
+     CreateConnector
+     CreateConnector
+     (Maybe LogDelivery)
+     (Maybe LogDelivery)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209796"><span class="annot"><span class="annottext">Maybe LogDelivery
+logDelivery :: Maybe LogDelivery
+$sel:logDelivery:CreateConnector' :: CreateConnector -&gt; Maybe LogDelivery
+</span><a href="#local-6989586621679209796"><span class="hs-identifier hs-var hs-var">logDelivery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogDelivery
+</span><a href="#local-6989586621679209796"><span class="hs-identifier hs-var">logDelivery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209795"><span class="annot"><span class="annottext">s :: CreateConnector
+</span><a href="#local-6989586621679209795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209794"><span class="annot"><span class="annottext">Maybe LogDelivery
+</span><a href="#local-6989586621679209794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnector
+</span><a href="#local-6989586621679209795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logDelivery:CreateConnector' :: Maybe LogDelivery
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AlogDelivery%3ACreateConnector%27"><span class="hs-identifier hs-var">logDelivery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogDelivery
+</span><a href="#local-6989586621679209794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | Specifies which worker configuration to use with the connector.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_workerConfiguration"><span class="hs-identifier hs-type">createConnector_workerConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.WorkerConfiguration.html#WorkerConfiguration"><span class="hs-identifier hs-type">WorkerConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="createConnector_workerConfiguration"><span class="annot"><span class="annottext">createConnector_workerConfiguration :: (Maybe WorkerConfiguration -&gt; f (Maybe WorkerConfiguration))
+-&gt; CreateConnector -&gt; f CreateConnector
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_workerConfiguration"><span class="hs-identifier hs-var hs-var">createConnector_workerConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnector -&gt; Maybe WorkerConfiguration)
+-&gt; (CreateConnector
+    -&gt; Maybe WorkerConfiguration -&gt; CreateConnector)
+-&gt; Lens
+     CreateConnector
+     CreateConnector
+     (Maybe WorkerConfiguration)
+     (Maybe WorkerConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209793"><span class="annot"><span class="annottext">Maybe WorkerConfiguration
+workerConfiguration :: Maybe WorkerConfiguration
+$sel:workerConfiguration:CreateConnector' :: CreateConnector -&gt; Maybe WorkerConfiguration
+</span><a href="#local-6989586621679209793"><span class="hs-identifier hs-var hs-var">workerConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkerConfiguration
+</span><a href="#local-6989586621679209793"><span class="hs-identifier hs-var">workerConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209792"><span class="annot"><span class="annottext">s :: CreateConnector
+</span><a href="#local-6989586621679209792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209791"><span class="annot"><span class="annottext">Maybe WorkerConfiguration
+</span><a href="#local-6989586621679209791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnector
+</span><a href="#local-6989586621679209792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workerConfiguration:CreateConnector' :: Maybe WorkerConfiguration
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AworkerConfiguration%3ACreateConnector%27"><span class="hs-identifier hs-var">workerConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkerConfiguration
+</span><a href="#local-6989586621679209791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | A summary description of the connector.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_connectorDescription"><span class="hs-identifier hs-type">createConnector_connectorDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="createConnector_connectorDescription"><span class="annot"><span class="annottext">createConnector_connectorDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateConnector -&gt; f CreateConnector
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_connectorDescription"><span class="hs-identifier hs-var hs-var">createConnector_connectorDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnector -&gt; Maybe Text)
+-&gt; (CreateConnector -&gt; Maybe Text -&gt; CreateConnector)
+-&gt; Lens CreateConnector CreateConnector (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209790"><span class="annot"><span class="annottext">Maybe Text
+connectorDescription :: Maybe Text
+$sel:connectorDescription:CreateConnector' :: CreateConnector -&gt; Maybe Text
+</span><a href="#local-6989586621679209790"><span class="hs-identifier hs-var hs-var">connectorDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209790"><span class="hs-identifier hs-var">connectorDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209789"><span class="annot"><span class="annottext">s :: CreateConnector
+</span><a href="#local-6989586621679209789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209788"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnector
+</span><a href="#local-6989586621679209789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorDescription:CreateConnector' :: Maybe Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorDescription%3ACreateConnector%27"><span class="hs-identifier hs-var">connectorDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Information about the capacity allocated to the connector. Exactly one</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- of the two properties must be specified.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_capacity"><span class="hs-identifier hs-type">createConnector_capacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.Capacity.html#Capacity"><span class="hs-identifier hs-type">Capacity</span></a></span><span>
+</span><span id="line-192"></span><span id="createConnector_capacity"><span class="annot"><span class="annottext">createConnector_capacity :: (Capacity -&gt; f Capacity) -&gt; CreateConnector -&gt; f CreateConnector
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_capacity"><span class="hs-identifier hs-var hs-var">createConnector_capacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnector -&gt; Capacity)
+-&gt; (CreateConnector -&gt; Capacity -&gt; CreateConnector)
+-&gt; Lens CreateConnector CreateConnector Capacity Capacity
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209787"><span class="annot"><span class="annottext">Capacity
+capacity :: Capacity
+$sel:capacity:CreateConnector' :: CreateConnector -&gt; Capacity
+</span><a href="#local-6989586621679209787"><span class="hs-identifier hs-var hs-var">capacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Capacity
+</span><a href="#local-6989586621679209787"><span class="hs-identifier hs-var">capacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209786"><span class="annot"><span class="annottext">s :: CreateConnector
+</span><a href="#local-6989586621679209786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209785"><span class="annot"><span class="annottext">Capacity
+</span><a href="#local-6989586621679209785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnector
+</span><a href="#local-6989586621679209786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacity:CreateConnector' :: Capacity
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3Acapacity%3ACreateConnector%27"><span class="hs-identifier hs-var">capacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Capacity
+</span><a href="#local-6989586621679209785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | A map of keys to values that represent the configuration for the</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- connector.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_connectorConfiguration"><span class="hs-identifier hs-type">createConnector_connectorConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="createConnector_connectorConfiguration"><span class="annot"><span class="annottext">createConnector_connectorConfiguration :: (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; CreateConnector -&gt; f CreateConnector
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_connectorConfiguration"><span class="hs-identifier hs-var hs-var">createConnector_connectorConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnector -&gt; HashMap Text Text)
+-&gt; (CreateConnector -&gt; HashMap Text Text -&gt; CreateConnector)
+-&gt; Lens
+     CreateConnector
+     CreateConnector
+     (HashMap Text Text)
+     (HashMap Text Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209784"><span class="annot"><span class="annottext">HashMap Text Text
+connectorConfiguration :: HashMap Text Text
+$sel:connectorConfiguration:CreateConnector' :: CreateConnector -&gt; HashMap Text Text
+</span><a href="#local-6989586621679209784"><span class="hs-identifier hs-var hs-var">connectorConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679209784"><span class="hs-identifier hs-var">connectorConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209783"><span class="annot"><span class="annottext">s :: CreateConnector
+</span><a href="#local-6989586621679209783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209782"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679209782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnector
+</span><a href="#local-6989586621679209783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorConfiguration:CreateConnector' :: HashMap Text Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorConfiguration%3ACreateConnector%27"><span class="hs-identifier hs-var">connectorConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679209782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+ -&gt; CreateConnector -&gt; f CreateConnector)
+-&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
+    -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; CreateConnector
+-&gt; f CreateConnector
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; f (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The name of the connector.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_connectorName"><span class="hs-identifier hs-type">createConnector_connectorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-201"></span><span id="createConnector_connectorName"><span class="annot"><span class="annottext">createConnector_connectorName :: (Text -&gt; f Text) -&gt; CreateConnector -&gt; f CreateConnector
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_connectorName"><span class="hs-identifier hs-var hs-var">createConnector_connectorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnector -&gt; Text)
+-&gt; (CreateConnector -&gt; Text -&gt; CreateConnector)
+-&gt; Lens CreateConnector CreateConnector Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209779"><span class="annot"><span class="annottext">Text
+connectorName :: Text
+$sel:connectorName:CreateConnector' :: CreateConnector -&gt; Text
+</span><a href="#local-6989586621679209779"><span class="hs-identifier hs-var hs-var">connectorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209779"><span class="hs-identifier hs-var">connectorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209778"><span class="annot"><span class="annottext">s :: CreateConnector
+</span><a href="#local-6989586621679209778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209777"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnector
+</span><a href="#local-6989586621679209778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorName:CreateConnector' :: Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorName%3ACreateConnector%27"><span class="hs-identifier hs-var">connectorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | Specifies which Apache Kafka cluster to connect to.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_kafkaCluster"><span class="hs-identifier hs-type">createConnector_kafkaCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaCluster.html#KafkaCluster"><span class="hs-identifier hs-type">KafkaCluster</span></a></span><span>
+</span><span id="line-205"></span><span id="createConnector_kafkaCluster"><span class="annot"><span class="annottext">createConnector_kafkaCluster :: (KafkaCluster -&gt; f KafkaCluster)
+-&gt; CreateConnector -&gt; f CreateConnector
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_kafkaCluster"><span class="hs-identifier hs-var hs-var">createConnector_kafkaCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnector -&gt; KafkaCluster)
+-&gt; (CreateConnector -&gt; KafkaCluster -&gt; CreateConnector)
+-&gt; Lens CreateConnector CreateConnector KafkaCluster KafkaCluster
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209776"><span class="annot"><span class="annottext">KafkaCluster
+kafkaCluster :: KafkaCluster
+$sel:kafkaCluster:CreateConnector' :: CreateConnector -&gt; KafkaCluster
+</span><a href="#local-6989586621679209776"><span class="hs-identifier hs-var hs-var">kafkaCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaCluster
+</span><a href="#local-6989586621679209776"><span class="hs-identifier hs-var">kafkaCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209775"><span class="annot"><span class="annottext">s :: CreateConnector
+</span><a href="#local-6989586621679209775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209774"><span class="annot"><span class="annottext">KafkaCluster
+</span><a href="#local-6989586621679209774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnector
+</span><a href="#local-6989586621679209775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kafkaCluster:CreateConnector' :: KafkaCluster
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AkafkaCluster%3ACreateConnector%27"><span class="hs-identifier hs-var">kafkaCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KafkaCluster
+</span><a href="#local-6989586621679209774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | Details of the client authentication used by the Apache Kafka cluster.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_kafkaClusterClientAuthentication"><span class="hs-identifier hs-type">createConnector_kafkaClusterClientAuthentication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthentication.html#KafkaClusterClientAuthentication"><span class="hs-identifier hs-type">KafkaClusterClientAuthentication</span></a></span><span>
+</span><span id="line-209"></span><span id="createConnector_kafkaClusterClientAuthentication"><span class="annot"><span class="annottext">createConnector_kafkaClusterClientAuthentication :: (KafkaClusterClientAuthentication
+ -&gt; f KafkaClusterClientAuthentication)
+-&gt; CreateConnector -&gt; f CreateConnector
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_kafkaClusterClientAuthentication"><span class="hs-identifier hs-var hs-var">createConnector_kafkaClusterClientAuthentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnector -&gt; KafkaClusterClientAuthentication)
+-&gt; (CreateConnector
+    -&gt; KafkaClusterClientAuthentication -&gt; CreateConnector)
+-&gt; Lens
+     CreateConnector
+     CreateConnector
+     KafkaClusterClientAuthentication
+     KafkaClusterClientAuthentication
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209773"><span class="annot"><span class="annottext">KafkaClusterClientAuthentication
+kafkaClusterClientAuthentication :: KafkaClusterClientAuthentication
+$sel:kafkaClusterClientAuthentication:CreateConnector' :: CreateConnector -&gt; KafkaClusterClientAuthentication
+</span><a href="#local-6989586621679209773"><span class="hs-identifier hs-var hs-var">kafkaClusterClientAuthentication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaClusterClientAuthentication
+</span><a href="#local-6989586621679209773"><span class="hs-identifier hs-var">kafkaClusterClientAuthentication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209772"><span class="annot"><span class="annottext">s :: CreateConnector
+</span><a href="#local-6989586621679209772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209771"><span class="annot"><span class="annottext">KafkaClusterClientAuthentication
+</span><a href="#local-6989586621679209771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnector
+</span><a href="#local-6989586621679209772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kafkaClusterClientAuthentication:CreateConnector' :: KafkaClusterClientAuthentication
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AkafkaClusterClientAuthentication%3ACreateConnector%27"><span class="hs-identifier hs-var">kafkaClusterClientAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KafkaClusterClientAuthentication
+</span><a href="#local-6989586621679209771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | Details of encryption in transit to the Apache Kafka cluster.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_kafkaClusterEncryptionInTransit"><span class="hs-identifier hs-type">createConnector_kafkaClusterEncryptionInTransit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransit.html#KafkaClusterEncryptionInTransit"><span class="hs-identifier hs-type">KafkaClusterEncryptionInTransit</span></a></span><span>
+</span><span id="line-213"></span><span id="createConnector_kafkaClusterEncryptionInTransit"><span class="annot"><span class="annottext">createConnector_kafkaClusterEncryptionInTransit :: (KafkaClusterEncryptionInTransit
+ -&gt; f KafkaClusterEncryptionInTransit)
+-&gt; CreateConnector -&gt; f CreateConnector
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_kafkaClusterEncryptionInTransit"><span class="hs-identifier hs-var hs-var">createConnector_kafkaClusterEncryptionInTransit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnector -&gt; KafkaClusterEncryptionInTransit)
+-&gt; (CreateConnector
+    -&gt; KafkaClusterEncryptionInTransit -&gt; CreateConnector)
+-&gt; Lens
+     CreateConnector
+     CreateConnector
+     KafkaClusterEncryptionInTransit
+     KafkaClusterEncryptionInTransit
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209770"><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransit
+kafkaClusterEncryptionInTransit :: KafkaClusterEncryptionInTransit
+$sel:kafkaClusterEncryptionInTransit:CreateConnector' :: CreateConnector -&gt; KafkaClusterEncryptionInTransit
+</span><a href="#local-6989586621679209770"><span class="hs-identifier hs-var hs-var">kafkaClusterEncryptionInTransit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransit
+</span><a href="#local-6989586621679209770"><span class="hs-identifier hs-var">kafkaClusterEncryptionInTransit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209769"><span class="annot"><span class="annottext">s :: CreateConnector
+</span><a href="#local-6989586621679209769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209768"><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransit
+</span><a href="#local-6989586621679209768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnector
+</span><a href="#local-6989586621679209769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kafkaClusterEncryptionInTransit:CreateConnector' :: KafkaClusterEncryptionInTransit
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AkafkaClusterEncryptionInTransit%3ACreateConnector%27"><span class="hs-identifier hs-var">kafkaClusterEncryptionInTransit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransit
+</span><a href="#local-6989586621679209768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The version of Kafka Connect. It has to be compatible with both the</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Apache Kafka cluster\'s version and the plugins.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_kafkaConnectVersion"><span class="hs-identifier hs-type">createConnector_kafkaConnectVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-218"></span><span id="createConnector_kafkaConnectVersion"><span class="annot"><span class="annottext">createConnector_kafkaConnectVersion :: (Text -&gt; f Text) -&gt; CreateConnector -&gt; f CreateConnector
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_kafkaConnectVersion"><span class="hs-identifier hs-var hs-var">createConnector_kafkaConnectVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnector -&gt; Text)
+-&gt; (CreateConnector -&gt; Text -&gt; CreateConnector)
+-&gt; Lens CreateConnector CreateConnector Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209767"><span class="annot"><span class="annottext">Text
+kafkaConnectVersion :: Text
+$sel:kafkaConnectVersion:CreateConnector' :: CreateConnector -&gt; Text
+</span><a href="#local-6989586621679209767"><span class="hs-identifier hs-var hs-var">kafkaConnectVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209767"><span class="hs-identifier hs-var">kafkaConnectVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209766"><span class="annot"><span class="annottext">s :: CreateConnector
+</span><a href="#local-6989586621679209766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209765"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnector
+</span><a href="#local-6989586621679209766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kafkaConnectVersion:CreateConnector' :: Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AkafkaConnectVersion%3ACreateConnector%27"><span class="hs-identifier hs-var">kafkaConnectVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | Specifies which plugins to use for the connector.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_plugins"><span class="hs-identifier hs-type">createConnector_plugins</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.Plugin.html#Plugin"><span class="hs-identifier hs-type">Plugin</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-222"></span><span id="createConnector_plugins"><span class="annot"><span class="annottext">createConnector_plugins :: ([Plugin] -&gt; f [Plugin]) -&gt; CreateConnector -&gt; f CreateConnector
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_plugins"><span class="hs-identifier hs-var hs-var">createConnector_plugins</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnector -&gt; [Plugin])
+-&gt; (CreateConnector -&gt; [Plugin] -&gt; CreateConnector)
+-&gt; Lens CreateConnector CreateConnector [Plugin] [Plugin]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209764"><span class="annot"><span class="annottext">[Plugin]
+plugins :: [Plugin]
+$sel:plugins:CreateConnector' :: CreateConnector -&gt; [Plugin]
+</span><a href="#local-6989586621679209764"><span class="hs-identifier hs-var hs-var">plugins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Plugin]
+</span><a href="#local-6989586621679209764"><span class="hs-identifier hs-var">plugins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209763"><span class="annot"><span class="annottext">s :: CreateConnector
+</span><a href="#local-6989586621679209763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209762"><span class="annot"><span class="annottext">[Plugin]
+</span><a href="#local-6989586621679209762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnector
+</span><a href="#local-6989586621679209763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:plugins:CreateConnector' :: [Plugin]
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3Aplugins%3ACreateConnector%27"><span class="hs-identifier hs-var">plugins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Plugin]
+</span><a href="#local-6989586621679209762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Plugin] -&gt; f [Plugin]) -&gt; CreateConnector -&gt; f CreateConnector)
+-&gt; (([Plugin] -&gt; f [Plugin]) -&gt; [Plugin] -&gt; f [Plugin])
+-&gt; ([Plugin] -&gt; f [Plugin])
+-&gt; CreateConnector
+-&gt; f CreateConnector
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Plugin] -&gt; f [Plugin]) -&gt; [Plugin] -&gt; f [Plugin]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role used by the connector to</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- access the Amazon Web Services resources that it needs. The types of</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- resources depends on the logic of the connector. For example, a</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- connector that has Amazon S3 as a destination must have permissions that</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- allow it to write to the S3 destination bucket.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_serviceExecutionRoleArn"><span class="hs-identifier hs-type">createConnector_serviceExecutionRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-230"></span><span id="createConnector_serviceExecutionRoleArn"><span class="annot"><span class="annottext">createConnector_serviceExecutionRoleArn :: (Text -&gt; f Text) -&gt; CreateConnector -&gt; f CreateConnector
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnector_serviceExecutionRoleArn"><span class="hs-identifier hs-var hs-var">createConnector_serviceExecutionRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnector -&gt; Text)
+-&gt; (CreateConnector -&gt; Text -&gt; CreateConnector)
+-&gt; Lens CreateConnector CreateConnector Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209761"><span class="annot"><span class="annottext">Text
+serviceExecutionRoleArn :: Text
+$sel:serviceExecutionRoleArn:CreateConnector' :: CreateConnector -&gt; Text
+</span><a href="#local-6989586621679209761"><span class="hs-identifier hs-var hs-var">serviceExecutionRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209761"><span class="hs-identifier hs-var">serviceExecutionRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209760"><span class="annot"><span class="annottext">s :: CreateConnector
+</span><a href="#local-6989586621679209760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209759"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnector
+</span><a href="#local-6989586621679209760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceExecutionRoleArn:CreateConnector' :: Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AserviceExecutionRoleArn%3ACreateConnector%27"><span class="hs-identifier hs-var">serviceExecutionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-234"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse"><span class="hs-identifier hs-type">CreateConnectorResponse</span></a></span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679209755"><span class="annot"><span class="annottext">request :: CreateConnector -&gt; Request CreateConnector
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateConnector -&gt; Request CreateConnector
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.KafkaConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679209751"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateConnector
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateConnector)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateConnector))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateConnector
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateConnector)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209748"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209748"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679209747"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679209747"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679209746"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209746"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-240"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ConnectorState
+-&gt; Int
+-&gt; CreateConnectorResponse
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse%27"><span class="hs-identifier hs-var">CreateConnectorResponse'</span></a></span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ConnectorState
+ -&gt; Int
+ -&gt; CreateConnectorResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ConnectorState -&gt; Int -&gt; CreateConnectorResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ConnectorState -&gt; Int -&gt; CreateConnectorResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe ConnectorState -&gt; Int -&gt; CreateConnectorResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe ConnectorState -&gt; Int -&gt; CreateConnectorResponse)
+-&gt; Either String (Maybe ConnectorState)
+-&gt; Either String (Int -&gt; CreateConnectorResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConnectorState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateConnectorResponse)
+-&gt; Either String Int -&gt; Either String CreateConnectorResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209748"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209738"><span id="local-6989586621679209740"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span></span></span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209735"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679209731"><span class="annot"><span class="annottext">toHeaders :: CreateConnector -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateConnector -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-254"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-255"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-256"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-257"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-258"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209721"><span id="local-6989586621679209723"><span id="local-6989586621679209725"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679209719"><span class="annot"><span class="annottext">toJSON :: CreateConnector -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector%27"><span class="hs-identifier hs-type">CreateConnector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209706"><span id="local-6989586621679209707"><span id="local-6989586621679209708"><span id="local-6989586621679209709"><span id="local-6989586621679209710"><span id="local-6989586621679209711"><span id="local-6989586621679209712"><span id="local-6989586621679209713"><span id="local-6989586621679209714"><span id="local-6989586621679209715"><span id="local-6989586621679209716"><span id="local-6989586621679209717"><span class="annot"><span class="annottext">[Plugin]
+Maybe Text
+Maybe WorkerConfiguration
+Maybe LogDelivery
+Text
+HashMap Text Text
+KafkaClusterClientAuthentication
+KafkaClusterEncryptionInTransit
+Capacity
+KafkaCluster
+serviceExecutionRoleArn :: Text
+plugins :: [Plugin]
+kafkaConnectVersion :: Text
+kafkaClusterEncryptionInTransit :: KafkaClusterEncryptionInTransit
+kafkaClusterClientAuthentication :: KafkaClusterClientAuthentication
+kafkaCluster :: KafkaCluster
+connectorName :: Text
+connectorConfiguration :: HashMap Text Text
+capacity :: Capacity
+connectorDescription :: Maybe Text
+workerConfiguration :: Maybe WorkerConfiguration
+logDelivery :: Maybe LogDelivery
+$sel:serviceExecutionRoleArn:CreateConnector' :: CreateConnector -&gt; Text
+$sel:plugins:CreateConnector' :: CreateConnector -&gt; [Plugin]
+$sel:kafkaConnectVersion:CreateConnector' :: CreateConnector -&gt; Text
+$sel:kafkaClusterEncryptionInTransit:CreateConnector' :: CreateConnector -&gt; KafkaClusterEncryptionInTransit
+$sel:kafkaClusterClientAuthentication:CreateConnector' :: CreateConnector -&gt; KafkaClusterClientAuthentication
+$sel:kafkaCluster:CreateConnector' :: CreateConnector -&gt; KafkaCluster
+$sel:connectorName:CreateConnector' :: CreateConnector -&gt; Text
+$sel:connectorConfiguration:CreateConnector' :: CreateConnector -&gt; HashMap Text Text
+$sel:capacity:CreateConnector' :: CreateConnector -&gt; Capacity
+$sel:connectorDescription:CreateConnector' :: CreateConnector -&gt; Maybe Text
+$sel:workerConfiguration:CreateConnector' :: CreateConnector -&gt; Maybe WorkerConfiguration
+$sel:logDelivery:CreateConnector' :: CreateConnector -&gt; Maybe LogDelivery
+</span><a href="#local-6989586621679209706"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-265"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-266"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logDelivery&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogDelivery -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LogDelivery -&gt; Pair) -&gt; Maybe LogDelivery -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogDelivery
+</span><a href="#local-6989586621679209717"><span class="hs-identifier hs-var">logDelivery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workerConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WorkerConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>              </span><span class="annot"><span class="annottext">(WorkerConfiguration -&gt; Pair)
+-&gt; Maybe WorkerConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WorkerConfiguration
+</span><a href="#local-6989586621679209716"><span class="hs-identifier hs-var">workerConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209715"><span class="hs-identifier hs-var">connectorDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;capacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Capacity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Capacity
+</span><a href="#local-6989586621679209714"><span class="hs-identifier hs-var">capacity</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-273"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorConfiguration&quot;</span></span><span>
+</span><span id="line-274"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679209713"><span class="hs-identifier hs-var">connectorConfiguration</span></a></span><span>
+</span><span id="line-275"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209712"><span class="hs-identifier hs-var">connectorName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kafkaCluster&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KafkaCluster -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">KafkaCluster
+</span><a href="#local-6989586621679209711"><span class="hs-identifier hs-var">kafkaCluster</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-279"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kafkaClusterClientAuthentication&quot;</span></span><span>
+</span><span id="line-280"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; KafkaClusterClientAuthentication -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">KafkaClusterClientAuthentication
+</span><a href="#local-6989586621679209710"><span class="hs-identifier hs-var">kafkaClusterClientAuthentication</span></a></span><span>
+</span><span id="line-281"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-283"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kafkaClusterEncryptionInTransit&quot;</span></span><span>
+</span><span id="line-284"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; KafkaClusterEncryptionInTransit -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransit
+</span><a href="#local-6989586621679209709"><span class="hs-identifier hs-var">kafkaClusterEncryptionInTransit</span></a></span><span>
+</span><span id="line-285"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-287"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kafkaConnectVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209708"><span class="hs-identifier hs-var">kafkaConnectVersion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;plugins&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Plugin] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Plugin]
+</span><a href="#local-6989586621679209707"><span class="hs-identifier hs-var">plugins</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-290"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceExecutionRoleArn&quot;</span></span><span>
+</span><span id="line-291"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209706"><span class="hs-identifier hs-var">serviceExecutionRoleArn</span></a></span><span>
+</span><span id="line-292"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-294"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-297"></span><span>  </span><span id="local-6989586621679209700"><span class="annot"><span class="annottext">toPath :: CreateConnector -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateConnector -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/connectors&quot;</span></span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnector"><span class="hs-identifier hs-type">CreateConnector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-300"></span><span>  </span><span id="local-6989586621679209696"><span class="annot"><span class="annottext">toQuery :: CreateConnector -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateConnector -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | /See:/ 'newCreateConnectorResponse' smart constructor.</span><span>
+</span><span id="line-303"></span><span id="local-6989586621679209693"><span id="local-6989586621679209694"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateConnectorResponse"><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse"><span class="hs-identifier hs-var">CreateConnectorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateConnectorResponse%27"><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse%27"><span class="hs-identifier hs-var">CreateConnectorResponse'</span></a></span></span><span>
+</span><span id="line-304"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that Amazon assigned to the connector.</span><span>
+</span><span id="line-305"></span><span>    </span><span id="%24sel%3AconnectorArn%3ACreateConnectorResponse%27"><span class="annot"><span class="annottext">CreateConnectorResponse -&gt; Maybe Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorArn%3ACreateConnectorResponse%27"><span class="hs-identifier hs-var hs-var">connectorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>    </span><span class="hs-comment">-- | The name of the connector.</span><span>
+</span><span id="line-307"></span><span>    </span><span id="%24sel%3AconnectorName%3ACreateConnectorResponse%27"><span class="annot"><span class="annottext">CreateConnectorResponse -&gt; Maybe Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorName%3ACreateConnectorResponse%27"><span class="hs-identifier hs-var hs-var">connectorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>    </span><span class="hs-comment">-- | The state of the connector.</span><span>
+</span><span id="line-309"></span><span>    </span><span id="%24sel%3AconnectorState%3ACreateConnectorResponse%27"><span class="annot"><span class="annottext">CreateConnectorResponse -&gt; Maybe ConnectorState
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorState%3ACreateConnectorResponse%27"><span class="hs-identifier hs-var hs-var">connectorState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.ConnectorState.html#ConnectorState"><span class="hs-identifier hs-type">ConnectorState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-311"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateConnectorResponse%27"><span class="annot"><span class="annottext">CreateConnectorResponse -&gt; Int
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AhttpStatus%3ACreateConnectorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-312"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-313"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209685"><span id="local-6989586621679209687"><span class="annot"><span class="annottext">CreateConnectorResponse -&gt; CreateConnectorResponse -&gt; Bool
+(CreateConnectorResponse -&gt; CreateConnectorResponse -&gt; Bool)
+-&gt; (CreateConnectorResponse -&gt; CreateConnectorResponse -&gt; Bool)
+-&gt; Eq CreateConnectorResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateConnectorResponse -&gt; CreateConnectorResponse -&gt; Bool
+$c/= :: CreateConnectorResponse -&gt; CreateConnectorResponse -&gt; Bool
+== :: CreateConnectorResponse -&gt; CreateConnectorResponse -&gt; Bool
+$c== :: CreateConnectorResponse -&gt; CreateConnectorResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209677"><span id="local-6989586621679209679"><span id="local-6989586621679209681"><span id="local-6989586621679209683"><span class="annot"><span class="annottext">ReadPrec [CreateConnectorResponse]
+ReadPrec CreateConnectorResponse
+Int -&gt; ReadS CreateConnectorResponse
+ReadS [CreateConnectorResponse]
+(Int -&gt; ReadS CreateConnectorResponse)
+-&gt; ReadS [CreateConnectorResponse]
+-&gt; ReadPrec CreateConnectorResponse
+-&gt; ReadPrec [CreateConnectorResponse]
+-&gt; Read CreateConnectorResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateConnectorResponse]
+$creadListPrec :: ReadPrec [CreateConnectorResponse]
+readPrec :: ReadPrec CreateConnectorResponse
+$creadPrec :: ReadPrec CreateConnectorResponse
+readList :: ReadS [CreateConnectorResponse]
+$creadList :: ReadS [CreateConnectorResponse]
+readsPrec :: Int -&gt; ReadS CreateConnectorResponse
+$creadsPrec :: Int -&gt; ReadS CreateConnectorResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209671"><span id="local-6989586621679209673"><span id="local-6989586621679209675"><span class="annot"><span class="annottext">Int -&gt; CreateConnectorResponse -&gt; ShowS
+[CreateConnectorResponse] -&gt; ShowS
+CreateConnectorResponse -&gt; String
+(Int -&gt; CreateConnectorResponse -&gt; ShowS)
+-&gt; (CreateConnectorResponse -&gt; String)
+-&gt; ([CreateConnectorResponse] -&gt; ShowS)
+-&gt; Show CreateConnectorResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateConnectorResponse] -&gt; ShowS
+$cshowList :: [CreateConnectorResponse] -&gt; ShowS
+show :: CreateConnectorResponse -&gt; String
+$cshow :: CreateConnectorResponse -&gt; String
+showsPrec :: Int -&gt; CreateConnectorResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateConnectorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateConnectorResponse -&gt; Rep CreateConnectorResponse x)
+-&gt; (forall x.
+    Rep CreateConnectorResponse x -&gt; CreateConnectorResponse)
+-&gt; Generic CreateConnectorResponse
+forall x. Rep CreateConnectorResponse x -&gt; CreateConnectorResponse
+forall x. CreateConnectorResponse -&gt; Rep CreateConnectorResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateConnectorResponse x -&gt; CreateConnectorResponse
+$cfrom :: forall x. CreateConnectorResponse -&gt; Rep CreateConnectorResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- Create a value of 'CreateConnectorResponse' with all optional fields omitted.</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- 'connectorArn', 'createConnectorResponse_connectorArn' - The Amazon Resource Name (ARN) that Amazon assigned to the connector.</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- 'connectorName', 'createConnectorResponse_connectorName' - The name of the connector.</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- 'connectorState', 'createConnectorResponse_connectorState' - The state of the connector.</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- 'httpStatus', 'createConnectorResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-330"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#newCreateConnectorResponse"><span class="hs-identifier hs-type">newCreateConnectorResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-331"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-332"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-333"></span><span>  </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse"><span class="hs-identifier hs-type">CreateConnectorResponse</span></a></span><span>
+</span><span id="line-334"></span><span id="newCreateConnectorResponse"><span class="annot"><span class="annottext">newCreateConnectorResponse :: Int -&gt; CreateConnectorResponse
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#newCreateConnectorResponse"><span class="hs-identifier hs-var hs-var">newCreateConnectorResponse</span></a></span></span><span> </span><span id="local-6989586621679209668"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209668"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-335"></span><span>  </span><span class="annot"><span class="annottext">CreateConnectorResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ConnectorState
+-&gt; Int
+-&gt; CreateConnectorResponse
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse%27"><span class="hs-identifier hs-type">CreateConnectorResponse'</span></a></span><span>
+</span><span id="line-336"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectorArn:CreateConnectorResponse' :: Maybe Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorArn%3ACreateConnectorResponse%27"><span class="hs-identifier hs-var">connectorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-337"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectorName:CreateConnectorResponse' :: Maybe Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorName%3ACreateConnectorResponse%27"><span class="hs-identifier hs-var">connectorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectorState:CreateConnectorResponse' :: Maybe ConnectorState
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorState%3ACreateConnectorResponse%27"><span class="hs-identifier hs-var">connectorState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateConnectorResponse' :: Int
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AhttpStatus%3ACreateConnectorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209668"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-341"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-342"></span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that Amazon assigned to the connector.</span><span>
+</span><span id="line-344"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnectorResponse_connectorArn"><span class="hs-identifier hs-type">createConnectorResponse_connectorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse"><span class="hs-identifier hs-type">CreateConnectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span id="createConnectorResponse_connectorArn"><span class="annot"><span class="annottext">createConnectorResponse_connectorArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateConnectorResponse -&gt; f CreateConnectorResponse
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnectorResponse_connectorArn"><span class="hs-identifier hs-var hs-var">createConnectorResponse_connectorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnectorResponse -&gt; Maybe Text)
+-&gt; (CreateConnectorResponse
+    -&gt; Maybe Text -&gt; CreateConnectorResponse)
+-&gt; Lens
+     CreateConnectorResponse
+     CreateConnectorResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse%27"><span class="hs-identifier hs-type">CreateConnectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209667"><span class="annot"><span class="annottext">Maybe Text
+connectorArn :: Maybe Text
+$sel:connectorArn:CreateConnectorResponse' :: CreateConnectorResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679209667"><span class="hs-identifier hs-var hs-var">connectorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209667"><span class="hs-identifier hs-var">connectorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209666"><span class="annot"><span class="annottext">s :: CreateConnectorResponse
+</span><a href="#local-6989586621679209666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse%27"><span class="hs-identifier hs-type">CreateConnectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209665"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnectorResponse
+</span><a href="#local-6989586621679209666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorArn:CreateConnectorResponse' :: Maybe Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorArn%3ACreateConnectorResponse%27"><span class="hs-identifier hs-var">connectorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse"><span class="hs-identifier hs-type">CreateConnectorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-346"></span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- | The name of the connector.</span><span>
+</span><span id="line-348"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnectorResponse_connectorName"><span class="hs-identifier hs-type">createConnectorResponse_connectorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse"><span class="hs-identifier hs-type">CreateConnectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span id="createConnectorResponse_connectorName"><span class="annot"><span class="annottext">createConnectorResponse_connectorName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateConnectorResponse -&gt; f CreateConnectorResponse
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnectorResponse_connectorName"><span class="hs-identifier hs-var hs-var">createConnectorResponse_connectorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnectorResponse -&gt; Maybe Text)
+-&gt; (CreateConnectorResponse
+    -&gt; Maybe Text -&gt; CreateConnectorResponse)
+-&gt; Lens
+     CreateConnectorResponse
+     CreateConnectorResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse%27"><span class="hs-identifier hs-type">CreateConnectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209664"><span class="annot"><span class="annottext">Maybe Text
+connectorName :: Maybe Text
+$sel:connectorName:CreateConnectorResponse' :: CreateConnectorResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679209664"><span class="hs-identifier hs-var hs-var">connectorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209664"><span class="hs-identifier hs-var">connectorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209663"><span class="annot"><span class="annottext">s :: CreateConnectorResponse
+</span><a href="#local-6989586621679209663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse%27"><span class="hs-identifier hs-type">CreateConnectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209662"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnectorResponse
+</span><a href="#local-6989586621679209663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorName:CreateConnectorResponse' :: Maybe Text
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorName%3ACreateConnectorResponse%27"><span class="hs-identifier hs-var">connectorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse"><span class="hs-identifier hs-type">CreateConnectorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- | The state of the connector.</span><span>
+</span><span id="line-352"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnectorResponse_connectorState"><span class="hs-identifier hs-type">createConnectorResponse_connectorState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse"><span class="hs-identifier hs-type">CreateConnectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.ConnectorState.html#ConnectorState"><span class="hs-identifier hs-type">ConnectorState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span id="createConnectorResponse_connectorState"><span class="annot"><span class="annottext">createConnectorResponse_connectorState :: (Maybe ConnectorState -&gt; f (Maybe ConnectorState))
+-&gt; CreateConnectorResponse -&gt; f CreateConnectorResponse
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnectorResponse_connectorState"><span class="hs-identifier hs-var hs-var">createConnectorResponse_connectorState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnectorResponse -&gt; Maybe ConnectorState)
+-&gt; (CreateConnectorResponse
+    -&gt; Maybe ConnectorState -&gt; CreateConnectorResponse)
+-&gt; Lens
+     CreateConnectorResponse
+     CreateConnectorResponse
+     (Maybe ConnectorState)
+     (Maybe ConnectorState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse%27"><span class="hs-identifier hs-type">CreateConnectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209661"><span class="annot"><span class="annottext">Maybe ConnectorState
+connectorState :: Maybe ConnectorState
+$sel:connectorState:CreateConnectorResponse' :: CreateConnectorResponse -&gt; Maybe ConnectorState
+</span><a href="#local-6989586621679209661"><span class="hs-identifier hs-var hs-var">connectorState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorState
+</span><a href="#local-6989586621679209661"><span class="hs-identifier hs-var">connectorState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209660"><span class="annot"><span class="annottext">s :: CreateConnectorResponse
+</span><a href="#local-6989586621679209660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse%27"><span class="hs-identifier hs-type">CreateConnectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209659"><span class="annot"><span class="annottext">Maybe ConnectorState
+</span><a href="#local-6989586621679209659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnectorResponse
+</span><a href="#local-6989586621679209660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorState:CreateConnectorResponse' :: Maybe ConnectorState
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AconnectorState%3ACreateConnectorResponse%27"><span class="hs-identifier hs-var">connectorState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorState
+</span><a href="#local-6989586621679209659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse"><span class="hs-identifier hs-type">CreateConnectorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-356"></span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnectorResponse_httpStatus"><span class="hs-identifier hs-type">createConnectorResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse"><span class="hs-identifier hs-type">CreateConnectorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-357"></span><span id="createConnectorResponse_httpStatus"><span class="annot"><span class="annottext">createConnectorResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateConnectorResponse -&gt; f CreateConnectorResponse
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#createConnectorResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createConnectorResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConnectorResponse -&gt; Int)
+-&gt; (CreateConnectorResponse -&gt; Int -&gt; CreateConnectorResponse)
+-&gt; Lens CreateConnectorResponse CreateConnectorResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse%27"><span class="hs-identifier hs-type">CreateConnectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209658"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateConnectorResponse' :: CreateConnectorResponse -&gt; Int
+</span><a href="#local-6989586621679209658"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209658"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209657"><span class="annot"><span class="annottext">s :: CreateConnectorResponse
+</span><a href="#local-6989586621679209657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse%27"><span class="hs-identifier hs-type">CreateConnectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209656"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConnectorResponse
+</span><a href="#local-6989586621679209657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateConnectorResponse' :: Int
+</span><a href="Network.AWS.KafkaConnect.CreateConnector.html#%24sel%3AhttpStatus%3ACreateConnectorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse"><span class="hs-identifier hs-type">CreateConnectorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209654"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.CreateConnector.html#CreateConnectorResponse"><span class="hs-identifier hs-type">CreateConnectorResponse</span></a></span></span><span>
+</span><span id="line-360"></span></pre></body></html>

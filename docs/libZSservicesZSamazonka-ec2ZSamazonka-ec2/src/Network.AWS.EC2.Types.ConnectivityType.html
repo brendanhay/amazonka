@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681096526"><span id="local-6989586621681096527"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectivityType"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectivityType.html#ConnectivityType"><span class="hs-identifier hs-var">ConnectivityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectivityType%27"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectivityType.html#ConnectivityType%27"><span class="hs-identifier hs-var">ConnectivityType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681096535"><span id="local-6989586621681096536"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectivityType"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectivityType.html#ConnectivityType"><span class="hs-identifier hs-var">ConnectivityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectivityType%27"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectivityType.html#ConnectivityType%27"><span class="hs-identifier hs-var">ConnectivityType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConnectivityType"><span class="annot"><span class="annottext">ConnectivityType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ConnectivityType.html#fromConnectivityType"><span class="hs-identifier hs-var hs-var">fromConnectivityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096518"><span id="local-6989586621681096520"><span id="local-6989586621681096522"><span class="annot"><span class="annottext">Int -&gt; ConnectivityType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096527"><span id="local-6989586621681096529"><span id="local-6989586621681096531"><span class="annot"><span class="annottext">Int -&gt; ConnectivityType -&gt; ShowS
 [ConnectivityType] -&gt; ShowS
 ConnectivityType -&gt; String
 (Int -&gt; ConnectivityType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ConnectivityType -&gt; String
 showsPrec :: Int -&gt; ConnectivityType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConnectivityType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681096509"><span id="local-6989586621681096511"><span id="local-6989586621681096513"><span id="local-6989586621681096515"><span class="annot"><span class="annottext">ReadPrec [ConnectivityType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681096518"><span id="local-6989586621681096520"><span id="local-6989586621681096522"><span id="local-6989586621681096524"><span class="annot"><span class="annottext">ReadPrec [ConnectivityType]
 ReadPrec ConnectivityType
 Int -&gt; ReadS ConnectivityType
 ReadS [ConnectivityType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ConnectivityType]
 readsPrec :: Int -&gt; ReadS ConnectivityType
 $creadsPrec :: Int -&gt; ReadS ConnectivityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681096504"><span id="local-6989586621681096506"><span class="annot"><span class="annottext">ConnectivityType -&gt; ConnectivityType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681096513"><span id="local-6989586621681096515"><span class="annot"><span class="annottext">ConnectivityType -&gt; ConnectivityType -&gt; Bool
 (ConnectivityType -&gt; ConnectivityType -&gt; Bool)
 -&gt; (ConnectivityType -&gt; ConnectivityType -&gt; Bool)
 -&gt; Eq ConnectivityType
@@ -83,7 +83,7 @@ $c/= :: ConnectivityType -&gt; ConnectivityType -&gt; Bool
 == :: ConnectivityType -&gt; ConnectivityType -&gt; Bool
 $c== :: ConnectivityType -&gt; ConnectivityType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681096488"><span id="local-6989586621681096490"><span id="local-6989586621681096492"><span id="local-6989586621681096494"><span id="local-6989586621681096496"><span id="local-6989586621681096498"><span id="local-6989586621681096500"><span class="annot"><span class="annottext">Eq ConnectivityType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681096497"><span id="local-6989586621681096499"><span id="local-6989586621681096501"><span id="local-6989586621681096503"><span id="local-6989586621681096505"><span id="local-6989586621681096507"><span id="local-6989586621681096509"><span class="annot"><span class="annottext">Eq ConnectivityType
 Eq ConnectivityType
 -&gt; (ConnectivityType -&gt; ConnectivityType -&gt; Ordering)
 -&gt; (ConnectivityType -&gt; ConnectivityType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ConnectivityType -&gt; Rep ConnectivityType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096480"><span id="local-6989586621681096482"><span class="annot"><span class="annottext">Int -&gt; ConnectivityType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096489"><span id="local-6989586621681096491"><span class="annot"><span class="annottext">Int -&gt; ConnectivityType -&gt; Int
 ConnectivityType -&gt; Int
 (Int -&gt; ConnectivityType -&gt; Int)
 -&gt; (ConnectivityType -&gt; Int) -&gt; Hashable ConnectivityType
@@ -144,51 +144,51 @@ $chash :: ConnectivityType -&gt; Int
 hashWithSalt :: Int -&gt; ConnectivityType -&gt; Int
 $chashWithSalt :: Int -&gt; ConnectivityType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681096477"><span class="annot"><span class="annottext">ConnectivityType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681096486"><span class="annot"><span class="annottext">ConnectivityType -&gt; ()
 (ConnectivityType -&gt; ()) -&gt; NFData ConnectivityType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConnectivityType -&gt; ()
 $crnf :: ConnectivityType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681096474"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectivityType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681096483"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectivityType
 (Text -&gt; Either String ConnectivityType)
 -&gt; FromText ConnectivityType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConnectivityType
 $cfromText :: Text -&gt; Either String ConnectivityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681096471"><span class="annot"><span class="annottext">ConnectivityType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681096480"><span class="annot"><span class="annottext">ConnectivityType -&gt; Text
 (ConnectivityType -&gt; Text) -&gt; ToText ConnectivityType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConnectivityType -&gt; Text
 $ctoText :: ConnectivityType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681096468"><span class="annot"><span class="annottext">ConnectivityType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681096477"><span class="annot"><span class="annottext">ConnectivityType -&gt; ByteString
 (ConnectivityType -&gt; ByteString) -&gt; ToByteString ConnectivityType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConnectivityType -&gt; ByteString
 $ctoBS :: ConnectivityType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681096465"><span class="annot"><span class="annottext">ConnectivityType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681096474"><span class="annot"><span class="annottext">ConnectivityType -&gt; ByteStringBuilder
 (ConnectivityType -&gt; ByteStringBuilder) -&gt; ToLog ConnectivityType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConnectivityType -&gt; ByteStringBuilder
 $cbuild :: ConnectivityType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681096462"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectivityType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681096471"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectivityType -&gt; [Header]
 (HeaderName -&gt; ConnectivityType -&gt; [Header])
 -&gt; ToHeader ConnectivityType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConnectivityType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConnectivityType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681096459"><span class="annot"><span class="annottext">ConnectivityType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681096468"><span class="annot"><span class="annottext">ConnectivityType -&gt; QueryString
 (ConnectivityType -&gt; QueryString) -&gt; ToQuery ConnectivityType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConnectivityType -&gt; QueryString
 $ctoQuery :: ConnectivityType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681096454"><span id="local-6989586621681096456"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectivityType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681096463"><span id="local-6989586621681096465"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectivityType]
 Value -&gt; Parser ConnectivityType
 (Value -&gt; Parser ConnectivityType)
 -&gt; (Value -&gt; Parser [ConnectivityType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [ConnectivityType]
 parseJSON :: Value -&gt; Parser ConnectivityType
 $cparseJSON :: Value -&gt; Parser ConnectivityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681096449"><span id="local-6989586621681096451"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectivityType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681096458"><span id="local-6989586621681096460"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectivityType]
 FromJSONKeyFunction ConnectivityType
 FromJSONKeyFunction ConnectivityType
 -&gt; FromJSONKeyFunction [ConnectivityType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConnectivityType]
 fromJSONKey :: FromJSONKeyFunction ConnectivityType
 $cfromJSONKey :: FromJSONKeyFunction ConnectivityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681096440"><span id="local-6989586621681096442"><span id="local-6989586621681096444"><span id="local-6989586621681096446"><span class="annot"><span class="annottext">[ConnectivityType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681096449"><span id="local-6989586621681096451"><span id="local-6989586621681096453"><span id="local-6989586621681096455"><span class="annot"><span class="annottext">[ConnectivityType] -&gt; Encoding
 [ConnectivityType] -&gt; Value
 ConnectivityType -&gt; Encoding
 ConnectivityType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: ConnectivityType -&gt; Encoding
 toJSON :: ConnectivityType -&gt; Value
 $ctoJSON :: ConnectivityType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681096435"><span id="local-6989586621681096437"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectivityType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681096444"><span id="local-6989586621681096446"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectivityType]
 ToJSONKeyFunction ConnectivityType
 ToJSONKeyFunction ConnectivityType
 -&gt; ToJSONKeyFunction [ConnectivityType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConnectivityType]
 toJSONKey :: ToJSONKeyFunction ConnectivityType
 $ctoJSONKey :: ToJSONKeyFunction ConnectivityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681096432"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectivityType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681096441"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectivityType
 ([Node] -&gt; Either String ConnectivityType)
 -&gt; FromXML ConnectivityType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConnectivityType
 $cparseXML :: [Node] -&gt; Either String ConnectivityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681096429"><span class="annot"><span class="annottext">ConnectivityType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681096438"><span class="annot"><span class="annottext">ConnectivityType -&gt; XML
 (ConnectivityType -&gt; XML) -&gt; ToXML ConnectivityType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConnectivityType -&gt; XML

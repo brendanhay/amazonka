@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newPutInsightSelectors' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679198105"><span id="local-6989586621679198106"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutInsightSelectors"><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-var">PutInsightSelectors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInsightSelectors%27"><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors%27"><span class="hs-identifier hs-var">PutInsightSelectors'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679198114"><span id="local-6989586621679198115"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutInsightSelectors"><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-var">PutInsightSelectors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInsightSelectors%27"><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors%27"><span class="hs-identifier hs-var">PutInsightSelectors'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the CloudTrail trail for which you want to change or add</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Insights selectors.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AtrailName%3APutInsightSelectors%27"><span class="annot"><span class="annottext">PutInsightSelectors -&gt; Text
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AinsightSelectors%3APutInsightSelectors%27"><span class="annot"><span class="annottext">PutInsightSelectors -&gt; [InsightSelector]
 </span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#%24sel%3AinsightSelectors%3APutInsightSelectors%27"><span class="hs-identifier hs-var hs-var">insightSelectors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.InsightSelector.html#InsightSelector"><span class="hs-identifier hs-type">InsightSelector</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198098"><span id="local-6989586621679198100"><span class="annot"><span class="annottext">PutInsightSelectors -&gt; PutInsightSelectors -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198107"><span id="local-6989586621679198109"><span class="annot"><span class="annottext">PutInsightSelectors -&gt; PutInsightSelectors -&gt; Bool
 (PutInsightSelectors -&gt; PutInsightSelectors -&gt; Bool)
 -&gt; (PutInsightSelectors -&gt; PutInsightSelectors -&gt; Bool)
 -&gt; Eq PutInsightSelectors
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutInsightSelectors -&gt; PutInsightSelectors -&gt; Bool
 == :: PutInsightSelectors -&gt; PutInsightSelectors -&gt; Bool
 $c== :: PutInsightSelectors -&gt; PutInsightSelectors -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198089"><span id="local-6989586621679198091"><span id="local-6989586621679198093"><span id="local-6989586621679198095"><span class="annot"><span class="annottext">ReadPrec [PutInsightSelectors]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198098"><span id="local-6989586621679198100"><span id="local-6989586621679198102"><span id="local-6989586621679198104"><span class="annot"><span class="annottext">ReadPrec [PutInsightSelectors]
 ReadPrec PutInsightSelectors
 Int -&gt; ReadS PutInsightSelectors
 ReadS [PutInsightSelectors]
@@ -92,7 +92,7 @@ readList :: ReadS [PutInsightSelectors]
 $creadList :: ReadS [PutInsightSelectors]
 readsPrec :: Int -&gt; ReadS PutInsightSelectors
 $creadsPrec :: Int -&gt; ReadS PutInsightSelectors
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198082"><span id="local-6989586621679198084"><span id="local-6989586621679198086"><span class="annot"><span class="annottext">Int -&gt; PutInsightSelectors -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198091"><span id="local-6989586621679198093"><span id="local-6989586621679198095"><span class="annot"><span class="annottext">Int -&gt; PutInsightSelectors -&gt; ShowS
 [PutInsightSelectors] -&gt; ShowS
 PutInsightSelectors -&gt; String
 (Int -&gt; PutInsightSelectors -&gt; ShowS)
@@ -136,13 +136,13 @@ $cfrom :: forall x. PutInsightSelectors -&gt; Rep PutInsightSelectors x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span><span>
 </span><span id="line-83"></span><span id="newPutInsightSelectors"><span class="annot"><span class="annottext">newPutInsightSelectors :: Text -&gt; PutInsightSelectors
-</span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#newPutInsightSelectors"><span class="hs-identifier hs-var hs-var">newPutInsightSelectors</span></a></span></span><span> </span><span id="local-6989586621679198077"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198077"><span class="hs-identifier hs-var">pTrailName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#newPutInsightSelectors"><span class="hs-identifier hs-var hs-var">newPutInsightSelectors</span></a></span></span><span> </span><span id="local-6989586621679198086"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198086"><span class="hs-identifier hs-var">pTrailName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">PutInsightSelectors' :: Text -&gt; [InsightSelector] -&gt; PutInsightSelectors
 </span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors%27"><span class="hs-identifier hs-type">PutInsightSelectors'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trailName:PutInsightSelectors' :: Text
 </span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#%24sel%3AtrailName%3APutInsightSelectors%27"><span class="hs-identifier hs-var">trailName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198077"><span class="hs-identifier hs-var">pTrailName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679198086"><span class="hs-identifier hs-var">pTrailName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:insightSelectors:PutInsightSelectors' :: [InsightSelector]
 </span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#%24sel%3AinsightSelectors%3APutInsightSelectors%27"><span class="hs-identifier hs-var">insightSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[InsightSelector]
 forall a. Monoid a =&gt; a
@@ -157,16 +157,16 @@ forall a. Monoid a =&gt; a
 -&gt; (PutInsightSelectors -&gt; Text -&gt; PutInsightSelectors)
 -&gt; Lens PutInsightSelectors PutInsightSelectors Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors%27"><span class="hs-identifier hs-type">PutInsightSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198074"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors%27"><span class="hs-identifier hs-type">PutInsightSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198083"><span class="annot"><span class="annottext">Text
 trailName :: Text
 $sel:trailName:PutInsightSelectors' :: PutInsightSelectors -&gt; Text
-</span><a href="#local-6989586621679198074"><span class="hs-identifier hs-var hs-var">trailName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198074"><span class="hs-identifier hs-var">trailName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198073"><span class="annot"><span class="annottext">s :: PutInsightSelectors
-</span><a href="#local-6989586621679198073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors%27"><span class="hs-identifier hs-type">PutInsightSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198072"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInsightSelectors
-</span><a href="#local-6989586621679198073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trailName:PutInsightSelectors' :: Text
+</span><a href="#local-6989586621679198083"><span class="hs-identifier hs-var hs-var">trailName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198083"><span class="hs-identifier hs-var">trailName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198082"><span class="annot"><span class="annottext">s :: PutInsightSelectors
+</span><a href="#local-6989586621679198082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors%27"><span class="hs-identifier hs-type">PutInsightSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198081"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInsightSelectors
+</span><a href="#local-6989586621679198082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trailName:PutInsightSelectors' :: Text
 </span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#%24sel%3AtrailName%3APutInsightSelectors%27"><span class="hs-identifier hs-var">trailName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | A JSON string that contains the Insights types that you want to log on a</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- trail. The valid Insights type in this release is @ApiCallRateInsight@.</span><span>
@@ -182,16 +182,16 @@ $sel:trailName:PutInsightSelectors' :: PutInsightSelectors -&gt; Text
      [InsightSelector]
      [InsightSelector]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors%27"><span class="hs-identifier hs-type">PutInsightSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198071"><span class="annot"><span class="annottext">[InsightSelector]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors%27"><span class="hs-identifier hs-type">PutInsightSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198080"><span class="annot"><span class="annottext">[InsightSelector]
 insightSelectors :: [InsightSelector]
 $sel:insightSelectors:PutInsightSelectors' :: PutInsightSelectors -&gt; [InsightSelector]
-</span><a href="#local-6989586621679198071"><span class="hs-identifier hs-var hs-var">insightSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[InsightSelector]
-</span><a href="#local-6989586621679198071"><span class="hs-identifier hs-var">insightSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198070"><span class="annot"><span class="annottext">s :: PutInsightSelectors
-</span><a href="#local-6989586621679198070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors%27"><span class="hs-identifier hs-type">PutInsightSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198069"><span class="annot"><span class="annottext">[InsightSelector]
-</span><a href="#local-6989586621679198069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInsightSelectors
-</span><a href="#local-6989586621679198070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightSelectors:PutInsightSelectors' :: [InsightSelector]
+</span><a href="#local-6989586621679198080"><span class="hs-identifier hs-var hs-var">insightSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[InsightSelector]
+</span><a href="#local-6989586621679198080"><span class="hs-identifier hs-var">insightSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198079"><span class="annot"><span class="annottext">s :: PutInsightSelectors
+</span><a href="#local-6989586621679198079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors%27"><span class="hs-identifier hs-type">PutInsightSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198078"><span class="annot"><span class="annottext">[InsightSelector]
+</span><a href="#local-6989586621679198078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInsightSelectors
+</span><a href="#local-6989586621679198079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightSelectors:PutInsightSelectors' :: [InsightSelector]
 </span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#%24sel%3AinsightSelectors%3APutInsightSelectors%27"><span class="hs-identifier hs-var">insightSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[InsightSelector]
-</span><a href="#local-6989586621679198069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([InsightSelector] -&gt; f [InsightSelector])
+</span><a href="#local-6989586621679198078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([InsightSelector] -&gt; f [InsightSelector])
  -&gt; PutInsightSelectors -&gt; f PutInsightSelectors)
 -&gt; (([InsightSelector] -&gt; f [InsightSelector])
     -&gt; [InsightSelector] -&gt; f [InsightSelector])
@@ -208,12 +208,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse"><span class="hs-identifier hs-type">PutInsightSelectorsResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679198063"><span class="annot"><span class="annottext">request :: PutInsightSelectors -&gt; Request PutInsightSelectors
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679198072"><span class="annot"><span class="annottext">request :: PutInsightSelectors -&gt; Request PutInsightSelectors
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutInsightSelectors -&gt; Request PutInsightSelectors
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudTrail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679198059"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679198068"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutInsightSelectors
 -&gt; ClientResponse ClientBody
@@ -239,10 +239,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198056"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679198056"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679198055"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679198055"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679198054"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679198054"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198065"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198065"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679198064"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679198064"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679198063"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198063"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [InsightSelector] -&gt; Int -&gt; PutInsightSelectorsResponse
 </span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-var">PutInsightSelectorsResponse'</span></a></span><span>
@@ -254,7 +254,7 @@ MonadResource m =&gt;
      (Maybe [InsightSelector] -&gt; Int -&gt; PutInsightSelectorsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679198054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679198063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrailARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -265,7 +265,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; PutInsightSelectorsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679198054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [InsightSelector]))
+</span><a href="#local-6989586621679198063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [InsightSelector]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InsightSelectors&quot;</span></span><span>
@@ -285,15 +285,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679198056"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198065"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198045"><span id="local-6989586621679198047"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198054"><span id="local-6989586621679198056"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198051"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679198038"><span class="annot"><span class="annottext">toHeaders :: PutInsightSelectors -&gt; ResponseHeaders
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679198047"><span class="annot"><span class="annottext">toHeaders :: PutInsightSelectors -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutInsightSelectors -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -320,15 +320,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198028"><span id="local-6989586621679198030"><span id="local-6989586621679198032"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679198026"><span class="annot"><span class="annottext">toJSON :: PutInsightSelectors -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors%27"><span class="hs-identifier hs-type">PutInsightSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198023"><span id="local-6989586621679198024"><span class="annot"><span class="annottext">[InsightSelector]
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198037"><span id="local-6989586621679198039"><span id="local-6989586621679198041"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679198035"><span class="annot"><span class="annottext">toJSON :: PutInsightSelectors -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors%27"><span class="hs-identifier hs-type">PutInsightSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198032"><span id="local-6989586621679198033"><span class="annot"><span class="annottext">[InsightSelector]
 Text
 insightSelectors :: [InsightSelector]
 trailName :: Text
 $sel:insightSelectors:PutInsightSelectors' :: PutInsightSelectors -&gt; [InsightSelector]
 $sel:trailName:PutInsightSelectors' :: PutInsightSelectors -&gt; Text
-</span><a href="#local-6989586621679198023"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679198032"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -340,7 +340,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TrailName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198024"><span class="hs-identifier hs-var">trailName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679198033"><span class="hs-identifier hs-var">trailName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -348,19 +348,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;InsightSelectors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [InsightSelector] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[InsightSelector]
-</span><a href="#local-6989586621679198023"><span class="hs-identifier hs-var">insightSelectors</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198032"><span class="hs-identifier hs-var">insightSelectors</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679198017"><span class="annot"><span class="annottext">toPath :: PutInsightSelectors -&gt; ByteString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679198026"><span class="annot"><span class="annottext">toPath :: PutInsightSelectors -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutInsightSelectors -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectors"><span class="hs-identifier hs-type">PutInsightSelectors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679198013"><span class="annot"><span class="annottext">toQuery :: PutInsightSelectors -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679198022"><span class="annot"><span class="annottext">toQuery :: PutInsightSelectors -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutInsightSelectors -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -368,7 +368,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newPutInsightSelectorsResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679198010"><span id="local-6989586621679198011"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutInsightSelectorsResponse"><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse"><span class="hs-identifier hs-var">PutInsightSelectorsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInsightSelectorsResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-var">PutInsightSelectorsResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679198019"><span id="local-6989586621679198020"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutInsightSelectorsResponse"><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse"><span class="hs-identifier hs-var">PutInsightSelectorsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInsightSelectorsResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-var">PutInsightSelectorsResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of a trail for which you want to change</span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-comment">-- or add Insights selectors.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AtrailARN%3APutInsightSelectorsResponse%27"><span class="annot"><span class="annottext">PutInsightSelectorsResponse -&gt; Maybe Text
@@ -382,7 +382,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutInsightSelectorsResponse%27"><span class="annot"><span class="annottext">PutInsightSelectorsResponse -&gt; Int
 </span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#%24sel%3AhttpStatus%3APutInsightSelectorsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198003"><span id="local-6989586621679198005"><span class="annot"><span class="annottext">PutInsightSelectorsResponse -&gt; PutInsightSelectorsResponse -&gt; Bool
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198012"><span id="local-6989586621679198014"><span class="annot"><span class="annottext">PutInsightSelectorsResponse -&gt; PutInsightSelectorsResponse -&gt; Bool
 (PutInsightSelectorsResponse
  -&gt; PutInsightSelectorsResponse -&gt; Bool)
 -&gt; (PutInsightSelectorsResponse
@@ -393,7 +393,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutInsightSelectorsResponse -&gt; PutInsightSelectorsResponse -&gt; Bool
 == :: PutInsightSelectorsResponse -&gt; PutInsightSelectorsResponse -&gt; Bool
 $c== :: PutInsightSelectorsResponse -&gt; PutInsightSelectorsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197995"><span id="local-6989586621679197997"><span id="local-6989586621679197999"><span id="local-6989586621679198001"><span class="annot"><span class="annottext">ReadPrec [PutInsightSelectorsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198004"><span id="local-6989586621679198006"><span id="local-6989586621679198008"><span id="local-6989586621679198010"><span class="annot"><span class="annottext">ReadPrec [PutInsightSelectorsResponse]
 ReadPrec PutInsightSelectorsResponse
 Int -&gt; ReadS PutInsightSelectorsResponse
 ReadS [PutInsightSelectorsResponse]
@@ -413,7 +413,7 @@ readList :: ReadS [PutInsightSelectorsResponse]
 $creadList :: ReadS [PutInsightSelectorsResponse]
 readsPrec :: Int -&gt; ReadS PutInsightSelectorsResponse
 $creadsPrec :: Int -&gt; ReadS PutInsightSelectorsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197989"><span id="local-6989586621679197991"><span id="local-6989586621679197993"><span class="annot"><span class="annottext">Int -&gt; PutInsightSelectorsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197998"><span id="local-6989586621679198000"><span id="local-6989586621679198002"><span class="annot"><span class="annottext">Int -&gt; PutInsightSelectorsResponse -&gt; ShowS
 [PutInsightSelectorsResponse] -&gt; ShowS
 PutInsightSelectorsResponse -&gt; String
 (Int -&gt; PutInsightSelectorsResponse -&gt; ShowS)
@@ -466,8 +466,8 @@ PutInsightSelectorsResponse -&gt; Rep PutInsightSelectorsResponse x
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse"><span class="hs-identifier hs-type">PutInsightSelectorsResponse</span></a></span><span>
 </span><span id="line-184"></span><span id="newPutInsightSelectorsResponse"><span class="annot"><span class="annottext">newPutInsightSelectorsResponse :: Int -&gt; PutInsightSelectorsResponse
-</span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#newPutInsightSelectorsResponse"><span class="hs-identifier hs-var hs-var">newPutInsightSelectorsResponse</span></a></span></span><span> </span><span id="local-6989586621679197986"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197986"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#newPutInsightSelectorsResponse"><span class="hs-identifier hs-var hs-var">newPutInsightSelectorsResponse</span></a></span></span><span> </span><span id="local-6989586621679197995"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197995"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">PutInsightSelectorsResponse' :: Maybe Text
 -&gt; Maybe [InsightSelector] -&gt; Int -&gt; PutInsightSelectorsResponse
 </span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-type">PutInsightSelectorsResponse'</span></a></span><span>
@@ -482,7 +482,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutInsightSelectorsResponse' :: Int
 </span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#%24sel%3AhttpStatus%3APutInsightSelectorsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197986"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679197995"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of a trail for which you want to change</span><span>
@@ -499,16 +499,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-type">PutInsightSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197985"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-type">PutInsightSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197994"><span class="annot"><span class="annottext">Maybe Text
 trailARN :: Maybe Text
 $sel:trailARN:PutInsightSelectorsResponse' :: PutInsightSelectorsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679197985"><span class="hs-identifier hs-var hs-var">trailARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197985"><span class="hs-identifier hs-var">trailARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197984"><span class="annot"><span class="annottext">s :: PutInsightSelectorsResponse
-</span><a href="#local-6989586621679197984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-type">PutInsightSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197983"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInsightSelectorsResponse
-</span><a href="#local-6989586621679197984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trailARN:PutInsightSelectorsResponse' :: Maybe Text
+</span><a href="#local-6989586621679197994"><span class="hs-identifier hs-var hs-var">trailARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197994"><span class="hs-identifier hs-var">trailARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197993"><span class="annot"><span class="annottext">s :: PutInsightSelectorsResponse
+</span><a href="#local-6989586621679197993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-type">PutInsightSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197992"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInsightSelectorsResponse
+</span><a href="#local-6989586621679197993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trailARN:PutInsightSelectorsResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#%24sel%3AtrailARN%3APutInsightSelectorsResponse%27"><span class="hs-identifier hs-var">trailARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse"><span class="hs-identifier hs-type">PutInsightSelectorsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse"><span class="hs-identifier hs-type">PutInsightSelectorsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | A JSON string that contains the Insights event types that you want to</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- log on a trail. The valid Insights type in this release is</span><span>
@@ -525,16 +525,16 @@ $sel:trailARN:PutInsightSelectorsResponse' :: PutInsightSelectorsResponse -&gt; 
      (Maybe [InsightSelector])
      (Maybe [InsightSelector])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-type">PutInsightSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197982"><span class="annot"><span class="annottext">Maybe [InsightSelector]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-type">PutInsightSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197991"><span class="annot"><span class="annottext">Maybe [InsightSelector]
 insightSelectors :: Maybe [InsightSelector]
 $sel:insightSelectors:PutInsightSelectorsResponse' :: PutInsightSelectorsResponse -&gt; Maybe [InsightSelector]
-</span><a href="#local-6989586621679197982"><span class="hs-identifier hs-var hs-var">insightSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightSelector]
-</span><a href="#local-6989586621679197982"><span class="hs-identifier hs-var">insightSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197981"><span class="annot"><span class="annottext">s :: PutInsightSelectorsResponse
-</span><a href="#local-6989586621679197981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-type">PutInsightSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197980"><span class="annot"><span class="annottext">Maybe [InsightSelector]
-</span><a href="#local-6989586621679197980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInsightSelectorsResponse
-</span><a href="#local-6989586621679197981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightSelectors:PutInsightSelectorsResponse' :: Maybe [InsightSelector]
+</span><a href="#local-6989586621679197991"><span class="hs-identifier hs-var hs-var">insightSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightSelector]
+</span><a href="#local-6989586621679197991"><span class="hs-identifier hs-var">insightSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197990"><span class="annot"><span class="annottext">s :: PutInsightSelectorsResponse
+</span><a href="#local-6989586621679197990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-type">PutInsightSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197989"><span class="annot"><span class="annottext">Maybe [InsightSelector]
+</span><a href="#local-6989586621679197989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInsightSelectorsResponse
+</span><a href="#local-6989586621679197990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightSelectors:PutInsightSelectorsResponse' :: Maybe [InsightSelector]
 </span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#%24sel%3AinsightSelectors%3APutInsightSelectorsResponse%27"><span class="hs-identifier hs-var">insightSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightSelector]
-</span><a href="#local-6989586621679197980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse"><span class="hs-identifier hs-type">PutInsightSelectorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InsightSelector] -&gt; f (Maybe [InsightSelector]))
+</span><a href="#local-6989586621679197989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse"><span class="hs-identifier hs-type">PutInsightSelectorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InsightSelector] -&gt; f (Maybe [InsightSelector]))
  -&gt; PutInsightSelectorsResponse -&gt; f PutInsightSelectorsResponse)
 -&gt; ((Maybe [InsightSelector] -&gt; f (Maybe [InsightSelector]))
     -&gt; Maybe [InsightSelector] -&gt; f (Maybe [InsightSelector]))
@@ -573,16 +573,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      PutInsightSelectorsResponse PutInsightSelectorsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-type">PutInsightSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197978"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-type">PutInsightSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197987"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutInsightSelectorsResponse' :: PutInsightSelectorsResponse -&gt; Int
-</span><a href="#local-6989586621679197978"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197978"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197977"><span class="annot"><span class="annottext">s :: PutInsightSelectorsResponse
-</span><a href="#local-6989586621679197977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-type">PutInsightSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197976"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInsightSelectorsResponse
-</span><a href="#local-6989586621679197977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutInsightSelectorsResponse' :: Int
+</span><a href="#local-6989586621679197987"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197987"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197986"><span class="annot"><span class="annottext">s :: PutInsightSelectorsResponse
+</span><a href="#local-6989586621679197986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse%27"><span class="hs-identifier hs-type">PutInsightSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197985"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInsightSelectorsResponse
+</span><a href="#local-6989586621679197986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutInsightSelectorsResponse' :: Int
 </span><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#%24sel%3AhttpStatus%3APutInsightSelectorsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse"><span class="hs-identifier hs-type">PutInsightSelectorsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse"><span class="hs-identifier hs-type">PutInsightSelectorsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse"><span class="hs-identifier hs-type">PutInsightSelectorsResponse</span></a></span></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutInsightSelectors.html#PutInsightSelectorsResponse"><span class="hs-identifier hs-type">PutInsightSelectorsResponse</span></a></span></span><span>
 </span><span id="line-208"></span></pre></body></html>

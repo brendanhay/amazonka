@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RobOMaker.Types.RobotStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RobOMaker.Types.RobotStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus"><span class="hs-identifier">RobotStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_Available"><span class="hs-identifier">RobotStatus_Available</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_Deploying"><span class="hs-identifier">RobotStatus_Deploying</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_Failed"><span class="hs-identifier">RobotStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_InSync"><span class="hs-identifier">RobotStatus_InSync</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_NoResponse"><span class="hs-identifier">RobotStatus_NoResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_PendingNewDeployment"><span class="hs-identifier">RobotStatus_PendingNewDeployment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_Registered"><span class="hs-identifier">RobotStatus_Registered</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679369358"><span id="local-6989586621679369359"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RobotStatus"><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus"><span class="hs-identifier hs-var">RobotStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RobotStatus%27"><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus%27"><span class="hs-identifier hs-var">RobotStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRobotStatus"><span class="annot"><span class="annottext">RobotStatus -&gt; Text
+</span><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#fromRobotStatus"><span class="hs-identifier hs-var hs-var">fromRobotStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369350"><span id="local-6989586621679369352"><span id="local-6989586621679369354"><span class="annot"><span class="annottext">Int -&gt; RobotStatus -&gt; ShowS
+[RobotStatus] -&gt; ShowS
+RobotStatus -&gt; String
+(Int -&gt; RobotStatus -&gt; ShowS)
+-&gt; (RobotStatus -&gt; String)
+-&gt; ([RobotStatus] -&gt; ShowS)
+-&gt; Show RobotStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RobotStatus] -&gt; ShowS
+$cshowList :: [RobotStatus] -&gt; ShowS
+show :: RobotStatus -&gt; String
+$cshow :: RobotStatus -&gt; String
+showsPrec :: Int -&gt; RobotStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; RobotStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679369341"><span id="local-6989586621679369343"><span id="local-6989586621679369345"><span id="local-6989586621679369347"><span class="annot"><span class="annottext">ReadPrec [RobotStatus]
+ReadPrec RobotStatus
+Int -&gt; ReadS RobotStatus
+ReadS [RobotStatus]
+(Int -&gt; ReadS RobotStatus)
+-&gt; ReadS [RobotStatus]
+-&gt; ReadPrec RobotStatus
+-&gt; ReadPrec [RobotStatus]
+-&gt; Read RobotStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RobotStatus]
+$creadListPrec :: ReadPrec [RobotStatus]
+readPrec :: ReadPrec RobotStatus
+$creadPrec :: ReadPrec RobotStatus
+readList :: ReadS [RobotStatus]
+$creadList :: ReadS [RobotStatus]
+readsPrec :: Int -&gt; ReadS RobotStatus
+$creadsPrec :: Int -&gt; ReadS RobotStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679369336"><span id="local-6989586621679369338"><span class="annot"><span class="annottext">RobotStatus -&gt; RobotStatus -&gt; Bool
+(RobotStatus -&gt; RobotStatus -&gt; Bool)
+-&gt; (RobotStatus -&gt; RobotStatus -&gt; Bool) -&gt; Eq RobotStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RobotStatus -&gt; RobotStatus -&gt; Bool
+$c/= :: RobotStatus -&gt; RobotStatus -&gt; Bool
+== :: RobotStatus -&gt; RobotStatus -&gt; Bool
+$c== :: RobotStatus -&gt; RobotStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679369320"><span id="local-6989586621679369322"><span id="local-6989586621679369324"><span id="local-6989586621679369326"><span id="local-6989586621679369328"><span id="local-6989586621679369330"><span id="local-6989586621679369332"><span class="annot"><span class="annottext">Eq RobotStatus
+Eq RobotStatus
+-&gt; (RobotStatus -&gt; RobotStatus -&gt; Ordering)
+-&gt; (RobotStatus -&gt; RobotStatus -&gt; Bool)
+-&gt; (RobotStatus -&gt; RobotStatus -&gt; Bool)
+-&gt; (RobotStatus -&gt; RobotStatus -&gt; Bool)
+-&gt; (RobotStatus -&gt; RobotStatus -&gt; Bool)
+-&gt; (RobotStatus -&gt; RobotStatus -&gt; RobotStatus)
+-&gt; (RobotStatus -&gt; RobotStatus -&gt; RobotStatus)
+-&gt; Ord RobotStatus
+RobotStatus -&gt; RobotStatus -&gt; Bool
+RobotStatus -&gt; RobotStatus -&gt; Ordering
+RobotStatus -&gt; RobotStatus -&gt; RobotStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RobotStatus -&gt; RobotStatus -&gt; RobotStatus
+$cmin :: RobotStatus -&gt; RobotStatus -&gt; RobotStatus
+max :: RobotStatus -&gt; RobotStatus -&gt; RobotStatus
+$cmax :: RobotStatus -&gt; RobotStatus -&gt; RobotStatus
+&gt;= :: RobotStatus -&gt; RobotStatus -&gt; Bool
+$c&gt;= :: RobotStatus -&gt; RobotStatus -&gt; Bool
+&gt; :: RobotStatus -&gt; RobotStatus -&gt; Bool
+$c&gt; :: RobotStatus -&gt; RobotStatus -&gt; Bool
+&lt;= :: RobotStatus -&gt; RobotStatus -&gt; Bool
+$c&lt;= :: RobotStatus -&gt; RobotStatus -&gt; Bool
+&lt; :: RobotStatus -&gt; RobotStatus -&gt; Bool
+$c&lt; :: RobotStatus -&gt; RobotStatus -&gt; Bool
+compare :: RobotStatus -&gt; RobotStatus -&gt; Ordering
+$ccompare :: RobotStatus -&gt; RobotStatus -&gt; Ordering
+$cp1Ord :: Eq RobotStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RobotStatus -&gt; Rep RobotStatus x)
+-&gt; (forall x. Rep RobotStatus x -&gt; RobotStatus)
+-&gt; Generic RobotStatus
+forall x. Rep RobotStatus x -&gt; RobotStatus
+forall x. RobotStatus -&gt; Rep RobotStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RobotStatus x -&gt; RobotStatus
+$cfrom :: forall x. RobotStatus -&gt; Rep RobotStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369312"><span id="local-6989586621679369314"><span class="annot"><span class="annottext">Int -&gt; RobotStatus -&gt; Int
+RobotStatus -&gt; Int
+(Int -&gt; RobotStatus -&gt; Int)
+-&gt; (RobotStatus -&gt; Int) -&gt; Hashable RobotStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RobotStatus -&gt; Int
+$chash :: RobotStatus -&gt; Int
+hashWithSalt :: Int -&gt; RobotStatus -&gt; Int
+$chashWithSalt :: Int -&gt; RobotStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679369309"><span class="annot"><span class="annottext">RobotStatus -&gt; ()
+(RobotStatus -&gt; ()) -&gt; NFData RobotStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RobotStatus -&gt; ()
+$crnf :: RobotStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679369306"><span class="annot"><span class="annottext">Text -&gt; Either String RobotStatus
+(Text -&gt; Either String RobotStatus) -&gt; FromText RobotStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RobotStatus
+$cfromText :: Text -&gt; Either String RobotStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679369303"><span class="annot"><span class="annottext">RobotStatus -&gt; Text
+(RobotStatus -&gt; Text) -&gt; ToText RobotStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RobotStatus -&gt; Text
+$ctoText :: RobotStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679369300"><span class="annot"><span class="annottext">RobotStatus -&gt; ByteString
+(RobotStatus -&gt; ByteString) -&gt; ToByteString RobotStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RobotStatus -&gt; ByteString
+$ctoBS :: RobotStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679369297"><span class="annot"><span class="annottext">RobotStatus -&gt; ByteStringBuilder
+(RobotStatus -&gt; ByteStringBuilder) -&gt; ToLog RobotStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RobotStatus -&gt; ByteStringBuilder
+$cbuild :: RobotStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679369294"><span class="annot"><span class="annottext">HeaderName -&gt; RobotStatus -&gt; [Header]
+(HeaderName -&gt; RobotStatus -&gt; [Header]) -&gt; ToHeader RobotStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RobotStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RobotStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679369291"><span class="annot"><span class="annottext">RobotStatus -&gt; QueryString
+(RobotStatus -&gt; QueryString) -&gt; ToQuery RobotStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RobotStatus -&gt; QueryString
+$ctoQuery :: RobotStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679369286"><span id="local-6989586621679369288"><span class="annot"><span class="annottext">Value -&gt; Parser [RobotStatus]
+Value -&gt; Parser RobotStatus
+(Value -&gt; Parser RobotStatus)
+-&gt; (Value -&gt; Parser [RobotStatus]) -&gt; FromJSON RobotStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RobotStatus]
+$cparseJSONList :: Value -&gt; Parser [RobotStatus]
+parseJSON :: Value -&gt; Parser RobotStatus
+$cparseJSON :: Value -&gt; Parser RobotStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679369281"><span id="local-6989586621679369283"><span class="annot"><span class="annottext">FromJSONKeyFunction [RobotStatus]
+FromJSONKeyFunction RobotStatus
+FromJSONKeyFunction RobotStatus
+-&gt; FromJSONKeyFunction [RobotStatus] -&gt; FromJSONKey RobotStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RobotStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [RobotStatus]
+fromJSONKey :: FromJSONKeyFunction RobotStatus
+$cfromJSONKey :: FromJSONKeyFunction RobotStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679369272"><span id="local-6989586621679369274"><span id="local-6989586621679369276"><span id="local-6989586621679369278"><span class="annot"><span class="annottext">[RobotStatus] -&gt; Encoding
+[RobotStatus] -&gt; Value
+RobotStatus -&gt; Encoding
+RobotStatus -&gt; Value
+(RobotStatus -&gt; Value)
+-&gt; (RobotStatus -&gt; Encoding)
+-&gt; ([RobotStatus] -&gt; Value)
+-&gt; ([RobotStatus] -&gt; Encoding)
+-&gt; ToJSON RobotStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RobotStatus] -&gt; Encoding
+$ctoEncodingList :: [RobotStatus] -&gt; Encoding
+toJSONList :: [RobotStatus] -&gt; Value
+$ctoJSONList :: [RobotStatus] -&gt; Value
+toEncoding :: RobotStatus -&gt; Encoding
+$ctoEncoding :: RobotStatus -&gt; Encoding
+toJSON :: RobotStatus -&gt; Value
+$ctoJSON :: RobotStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679369267"><span id="local-6989586621679369269"><span class="annot"><span class="annottext">ToJSONKeyFunction [RobotStatus]
+ToJSONKeyFunction RobotStatus
+ToJSONKeyFunction RobotStatus
+-&gt; ToJSONKeyFunction [RobotStatus] -&gt; ToJSONKey RobotStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RobotStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [RobotStatus]
+toJSONKey :: ToJSONKeyFunction RobotStatus
+$ctoJSONKey :: ToJSONKeyFunction RobotStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679369264"><span class="annot"><span class="annottext">[Node] -&gt; Either String RobotStatus
+([Node] -&gt; Either String RobotStatus) -&gt; FromXML RobotStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RobotStatus
+$cparseXML :: [Node] -&gt; Either String RobotStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679369261"><span class="annot"><span class="annottext">RobotStatus -&gt; XML
+(RobotStatus -&gt; XML) -&gt; ToXML RobotStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RobotStatus -&gt; XML
+$ctoXML :: RobotStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_Available"><span class="hs-identifier hs-type">RobotStatus_Available</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus"><span class="hs-identifier hs-type">RobotStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRobotStatus_Available"><span id="%24mRobotStatus_Available"><span id="RobotStatus_Available"><span class="annot"><span class="annottext">$bRobotStatus_Available :: RobotStatus
+$mRobotStatus_Available :: forall r. RobotStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#%24bRobotStatus_Available"><span class="hs-identifier hs-var hs-var hs-var">RobotStatus_Available</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus%27"><span class="hs-identifier hs-type">RobotStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Available&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_Deploying"><span class="hs-identifier hs-type">RobotStatus_Deploying</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus"><span class="hs-identifier hs-type">RobotStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRobotStatus_Deploying"><span id="%24mRobotStatus_Deploying"><span id="RobotStatus_Deploying"><span class="annot"><span class="annottext">$bRobotStatus_Deploying :: RobotStatus
+$mRobotStatus_Deploying :: forall r. RobotStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#%24bRobotStatus_Deploying"><span class="hs-identifier hs-var hs-var hs-var">RobotStatus_Deploying</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus%27"><span class="hs-identifier hs-type">RobotStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Deploying&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_Failed"><span class="hs-identifier hs-type">RobotStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus"><span class="hs-identifier hs-type">RobotStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRobotStatus_Failed"><span id="%24mRobotStatus_Failed"><span id="RobotStatus_Failed"><span class="annot"><span class="annottext">$bRobotStatus_Failed :: RobotStatus
+$mRobotStatus_Failed :: forall r. RobotStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#%24bRobotStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">RobotStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus%27"><span class="hs-identifier hs-type">RobotStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_InSync"><span class="hs-identifier hs-type">RobotStatus_InSync</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus"><span class="hs-identifier hs-type">RobotStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRobotStatus_InSync"><span id="%24mRobotStatus_InSync"><span id="RobotStatus_InSync"><span class="annot"><span class="annottext">$bRobotStatus_InSync :: RobotStatus
+$mRobotStatus_InSync :: forall r. RobotStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#%24bRobotStatus_InSync"><span class="hs-identifier hs-var hs-var hs-var">RobotStatus_InSync</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus%27"><span class="hs-identifier hs-type">RobotStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InSync&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_NoResponse"><span class="hs-identifier hs-type">RobotStatus_NoResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus"><span class="hs-identifier hs-type">RobotStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRobotStatus_NoResponse"><span id="%24mRobotStatus_NoResponse"><span id="RobotStatus_NoResponse"><span class="annot"><span class="annottext">$bRobotStatus_NoResponse :: RobotStatus
+$mRobotStatus_NoResponse :: forall r. RobotStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#%24bRobotStatus_NoResponse"><span class="hs-identifier hs-var hs-var hs-var">RobotStatus_NoResponse</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus%27"><span class="hs-identifier hs-type">RobotStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NoResponse&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_PendingNewDeployment"><span class="hs-identifier hs-type">RobotStatus_PendingNewDeployment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus"><span class="hs-identifier hs-type">RobotStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRobotStatus_PendingNewDeployment"><span id="%24mRobotStatus_PendingNewDeployment"><span id="RobotStatus_PendingNewDeployment"><span class="annot"><span class="annottext">$bRobotStatus_PendingNewDeployment :: RobotStatus
+$mRobotStatus_PendingNewDeployment :: forall r. RobotStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#%24bRobotStatus_PendingNewDeployment"><span class="hs-identifier hs-var hs-var hs-var">RobotStatus_PendingNewDeployment</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus%27"><span class="hs-identifier hs-type">RobotStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PendingNewDeployment&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_Registered"><span class="hs-identifier hs-type">RobotStatus_Registered</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus"><span class="hs-identifier hs-type">RobotStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRobotStatus_Registered"><span id="%24mRobotStatus_Registered"><span id="RobotStatus_Registered"><span class="annot"><span class="annottext">$bRobotStatus_Registered :: RobotStatus
+$mRobotStatus_Registered :: forall r. RobotStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#%24bRobotStatus_Registered"><span class="hs-identifier hs-var hs-var hs-var">RobotStatus_Registered</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus%27"><span class="hs-identifier hs-type">RobotStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Registered&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_Available"><span class="hs-pragma hs-type">RobotStatus_Available</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_Deploying"><span class="hs-pragma hs-type">RobotStatus_Deploying</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_Failed"><span class="hs-pragma hs-type">RobotStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_InSync"><span class="hs-pragma hs-type">RobotStatus_InSync</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_NoResponse"><span class="hs-pragma hs-type">RobotStatus_NoResponse</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_PendingNewDeployment"><span class="hs-pragma hs-type">RobotStatus_PendingNewDeployment</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus_Registered"><span class="hs-pragma hs-type">RobotStatus_Registered</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus%27"><span class="hs-pragma hs-type">RobotStatus'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- because the command hasn\'t run on the instance yet.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newCommandFilter' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679789942"><span id="local-6989586621679789943"></span></span><span class="hs-keyword">data</span><span> </span><span id="CommandFilter"><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-var">CommandFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommandFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-var">CommandFilter'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679789951"><span id="local-6989586621679789952"></span></span><span class="hs-keyword">data</span><span> </span><span id="CommandFilter"><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-var">CommandFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommandFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-var">CommandFilter'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the filter.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Akey%3ACommandFilter%27"><span class="annot"><span class="annottext">CommandFilter -&gt; CommandFilterKey
 </span><a href="Network.AWS.SSM.Types.CommandFilter.html#%24sel%3Akey%3ACommandFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilterKey.html#CommandFilterKey"><span class="hs-identifier hs-type">CommandFilterKey</span></a></span><span class="hs-special">,</span><span>
@@ -118,7 +118,7 @@
 </span><span id="line-117"></span><span>    </span><span id="%24sel%3Avalue%3ACommandFilter%27"><span class="annot"><span class="annottext">CommandFilter -&gt; Text
 </span><a href="Network.AWS.SSM.Types.CommandFilter.html#%24sel%3Avalue%3ACommandFilter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789935"><span id="local-6989586621679789937"><span class="annot"><span class="annottext">CommandFilter -&gt; CommandFilter -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789944"><span id="local-6989586621679789946"><span class="annot"><span class="annottext">CommandFilter -&gt; CommandFilter -&gt; Bool
 (CommandFilter -&gt; CommandFilter -&gt; Bool)
 -&gt; (CommandFilter -&gt; CommandFilter -&gt; Bool) -&gt; Eq CommandFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -126,7 +126,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CommandFilter -&gt; CommandFilter -&gt; Bool
 == :: CommandFilter -&gt; CommandFilter -&gt; Bool
 $c== :: CommandFilter -&gt; CommandFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789926"><span id="local-6989586621679789928"><span id="local-6989586621679789930"><span id="local-6989586621679789932"><span class="annot"><span class="annottext">ReadPrec [CommandFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789935"><span id="local-6989586621679789937"><span id="local-6989586621679789939"><span id="local-6989586621679789941"><span class="annot"><span class="annottext">ReadPrec [CommandFilter]
 ReadPrec CommandFilter
 Int -&gt; ReadS CommandFilter
 ReadS [CommandFilter]
@@ -146,7 +146,7 @@ readList :: ReadS [CommandFilter]
 $creadList :: ReadS [CommandFilter]
 readsPrec :: Int -&gt; ReadS CommandFilter
 $creadsPrec :: Int -&gt; ReadS CommandFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789919"><span id="local-6989586621679789921"><span id="local-6989586621679789923"><span class="annot"><span class="annottext">Int -&gt; CommandFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789928"><span id="local-6989586621679789930"><span id="local-6989586621679789932"><span class="annot"><span class="annottext">Int -&gt; CommandFilter -&gt; ShowS
 [CommandFilter] -&gt; ShowS
 CommandFilter -&gt; String
 (Int -&gt; CommandFilter -&gt; ShowS)
@@ -270,15 +270,15 @@ $cfrom :: forall x. CommandFilter -&gt; Rep CommandFilter x
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span>
 </span><span id="line-218"></span><span id="newCommandFilter"><span class="annot"><span class="annottext">newCommandFilter :: CommandFilterKey -&gt; Text -&gt; CommandFilter
-</span><a href="Network.AWS.SSM.Types.CommandFilter.html#newCommandFilter"><span class="hs-identifier hs-var hs-var">newCommandFilter</span></a></span></span><span> </span><span id="local-6989586621679789913"><span class="annot"><span class="annottext">CommandFilterKey
-</span><a href="#local-6989586621679789913"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679789912"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679789912"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.Types.CommandFilter.html#newCommandFilter"><span class="hs-identifier hs-var hs-var">newCommandFilter</span></a></span></span><span> </span><span id="local-6989586621679789922"><span class="annot"><span class="annottext">CommandFilterKey
+</span><a href="#local-6989586621679789922"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679789921"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789921"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">CommandFilter' :: CommandFilterKey -&gt; Text -&gt; CommandFilter
 </span><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:CommandFilter' :: CommandFilterKey
 </span><a href="Network.AWS.SSM.Types.CommandFilter.html#%24sel%3Akey%3ACommandFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CommandFilterKey
-</span><a href="#local-6989586621679789913"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:CommandFilter' :: Text
+</span><a href="#local-6989586621679789922"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:CommandFilter' :: Text
 </span><a href="Network.AWS.SSM.Types.CommandFilter.html#%24sel%3Avalue%3ACommandFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679789912"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679789921"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The name of the filter.</span><span>
 </span><span id="line-222"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#commandFilter_key"><span class="hs-identifier hs-type">commandFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilterKey.html#CommandFilterKey"><span class="hs-identifier hs-type">CommandFilterKey</span></a></span><span>
@@ -289,16 +289,16 @@ $cfrom :: forall x. CommandFilter -&gt; Rep CommandFilter x
 -&gt; Lens
      CommandFilter CommandFilter CommandFilterKey CommandFilterKey
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789908"><span class="annot"><span class="annottext">CommandFilterKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789917"><span class="annot"><span class="annottext">CommandFilterKey
 key :: CommandFilterKey
 $sel:key:CommandFilter' :: CommandFilter -&gt; CommandFilterKey
-</span><a href="#local-6989586621679789908"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandFilterKey
-</span><a href="#local-6989586621679789908"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789907"><span class="annot"><span class="annottext">s :: CommandFilter
-</span><a href="#local-6989586621679789907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789906"><span class="annot"><span class="annottext">CommandFilterKey
-</span><a href="#local-6989586621679789906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandFilter
-</span><a href="#local-6989586621679789907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:CommandFilter' :: CommandFilterKey
+</span><a href="#local-6989586621679789917"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandFilterKey
+</span><a href="#local-6989586621679789917"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789916"><span class="annot"><span class="annottext">s :: CommandFilter
+</span><a href="#local-6989586621679789916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789915"><span class="annot"><span class="annottext">CommandFilterKey
+</span><a href="#local-6989586621679789915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandFilter
+</span><a href="#local-6989586621679789916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:CommandFilter' :: CommandFilterKey
 </span><a href="Network.AWS.SSM.Types.CommandFilter.html#%24sel%3Akey%3ACommandFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CommandFilterKey
-</span><a href="#local-6989586621679789906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679789915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | The filter value. Valid values for each filter key are as follows:</span><span>
 </span><span id="line-226"></span><span class="hs-comment">--</span><span>
@@ -387,30 +387,30 @@ $sel:key:CommandFilter' :: CommandFilter -&gt; CommandFilterKey
 -&gt; (CommandFilter -&gt; Text -&gt; CommandFilter)
 -&gt; Lens CommandFilter CommandFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789904"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789913"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:CommandFilter' :: CommandFilter -&gt; Text
-</span><a href="#local-6989586621679789904"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679789904"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789903"><span class="annot"><span class="annottext">s :: CommandFilter
-</span><a href="#local-6989586621679789903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789902"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679789902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandFilter
-</span><a href="#local-6989586621679789903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:CommandFilter' :: Text
+</span><a href="#local-6989586621679789913"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789913"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789912"><span class="annot"><span class="annottext">s :: CommandFilter
+</span><a href="#local-6989586621679789912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789911"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandFilter
+</span><a href="#local-6989586621679789912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:CommandFilter' :: Text
 </span><a href="Network.AWS.SSM.Types.CommandFilter.html#%24sel%3Avalue%3ACommandFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679789902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679789911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-308"></span><span>
-</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789898"><span id="local-6989586621679789900"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span></span></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789907"><span id="local-6989586621679789909"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span></span></span><span>
 </span><span id="line-310"></span><span>
-</span><span id="line-311"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789895"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span></span><span>
+</span><span id="line-311"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789904"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span></span><span>
 </span><span id="line-312"></span><span>
-</span><span id="line-313"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789887"><span id="local-6989586621679789889"><span id="local-6989586621679789891"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-314"></span><span>  </span><span id="local-6989586621679789885"><span class="annot"><span class="annottext">toJSON :: CommandFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789882"><span id="local-6989586621679789883"><span class="annot"><span class="annottext">Text
+</span><span id="line-313"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789896"><span id="local-6989586621679789898"><span id="local-6989586621679789900"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-314"></span><span>  </span><span id="local-6989586621679789894"><span class="annot"><span class="annottext">toJSON :: CommandFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789891"><span id="local-6989586621679789892"><span class="annot"><span class="annottext">Text
 CommandFilterKey
 value :: Text
 key :: CommandFilterKey
 $sel:value:CommandFilter' :: CommandFilter -&gt; Text
 $sel:key:CommandFilter' :: CommandFilter -&gt; CommandFilterKey
-</span><a href="#local-6989586621679789882"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679789891"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-315"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-316"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -422,14 +422,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CommandFilterKey -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">CommandFilterKey
-</span><a href="#local-6989586621679789883"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679789892"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-318"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679789882"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679789891"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-319"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-320"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-321"></span></pre></body></html>

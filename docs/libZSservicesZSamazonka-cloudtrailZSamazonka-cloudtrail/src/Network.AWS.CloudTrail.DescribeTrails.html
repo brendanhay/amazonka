@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | Returns information about the trail.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newDescribeTrails' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679200754"><span id="local-6989586621679200755"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTrails"><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-var">DescribeTrails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTrails%27"><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails%27"><span class="hs-identifier hs-var">DescribeTrails'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679200763"><span id="local-6989586621679200764"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTrails"><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-var">DescribeTrails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTrails%27"><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails%27"><span class="hs-identifier hs-var">DescribeTrails'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether to include shadow trails in the response. A shadow</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- trail is the replication in a region of a trail that was created in a</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- different region, or in the case of an organization trail, the</span><span>
@@ -82,7 +82,7 @@
 </span><span id="line-81"></span><span>    </span><span id="%24sel%3AtrailNameList%3ADescribeTrails%27"><span class="annot"><span class="annottext">DescribeTrails -&gt; Maybe [Text]
 </span><a href="Network.AWS.CloudTrail.DescribeTrails.html#%24sel%3AtrailNameList%3ADescribeTrails%27"><span class="hs-identifier hs-var hs-var">trailNameList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200747"><span id="local-6989586621679200749"><span class="annot"><span class="annottext">DescribeTrails -&gt; DescribeTrails -&gt; Bool
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200756"><span id="local-6989586621679200758"><span class="annot"><span class="annottext">DescribeTrails -&gt; DescribeTrails -&gt; Bool
 (DescribeTrails -&gt; DescribeTrails -&gt; Bool)
 -&gt; (DescribeTrails -&gt; DescribeTrails -&gt; Bool) -&gt; Eq DescribeTrails
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeTrails -&gt; DescribeTrails -&gt; Bool
 == :: DescribeTrails -&gt; DescribeTrails -&gt; Bool
 $c== :: DescribeTrails -&gt; DescribeTrails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200738"><span id="local-6989586621679200740"><span id="local-6989586621679200742"><span id="local-6989586621679200744"><span class="annot"><span class="annottext">ReadPrec [DescribeTrails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200747"><span id="local-6989586621679200749"><span id="local-6989586621679200751"><span id="local-6989586621679200753"><span class="annot"><span class="annottext">ReadPrec [DescribeTrails]
 ReadPrec DescribeTrails
 Int -&gt; ReadS DescribeTrails
 ReadS [DescribeTrails]
@@ -110,7 +110,7 @@ readList :: ReadS [DescribeTrails]
 $creadList :: ReadS [DescribeTrails]
 readsPrec :: Int -&gt; ReadS DescribeTrails
 $creadsPrec :: Int -&gt; ReadS DescribeTrails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200731"><span id="local-6989586621679200733"><span id="local-6989586621679200735"><span class="annot"><span class="annottext">Int -&gt; DescribeTrails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200740"><span id="local-6989586621679200742"><span id="local-6989586621679200744"><span class="annot"><span class="annottext">Int -&gt; DescribeTrails -&gt; ShowS
 [DescribeTrails] -&gt; ShowS
 DescribeTrails -&gt; String
 (Int -&gt; DescribeTrails -&gt; ShowS)
@@ -200,16 +200,16 @@ forall a. Maybe a
 -&gt; (DescribeTrails -&gt; Maybe Bool -&gt; DescribeTrails)
 -&gt; Lens DescribeTrails DescribeTrails (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails%27"><span class="hs-identifier hs-type">DescribeTrails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200724"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails%27"><span class="hs-identifier hs-type">DescribeTrails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200733"><span class="annot"><span class="annottext">Maybe Bool
 includeShadowTrails :: Maybe Bool
 $sel:includeShadowTrails:DescribeTrails' :: DescribeTrails -&gt; Maybe Bool
-</span><a href="#local-6989586621679200724"><span class="hs-identifier hs-var hs-var">includeShadowTrails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679200724"><span class="hs-identifier hs-var">includeShadowTrails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200723"><span class="annot"><span class="annottext">s :: DescribeTrails
-</span><a href="#local-6989586621679200723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails%27"><span class="hs-identifier hs-type">DescribeTrails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200722"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679200722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTrails
-</span><a href="#local-6989586621679200723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeShadowTrails:DescribeTrails' :: Maybe Bool
+</span><a href="#local-6989586621679200733"><span class="hs-identifier hs-var hs-var">includeShadowTrails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679200733"><span class="hs-identifier hs-var">includeShadowTrails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200732"><span class="annot"><span class="annottext">s :: DescribeTrails
+</span><a href="#local-6989586621679200732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails%27"><span class="hs-identifier hs-type">DescribeTrails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200731"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679200731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTrails
+</span><a href="#local-6989586621679200732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeShadowTrails:DescribeTrails' :: Maybe Bool
 </span><a href="Network.AWS.CloudTrail.DescribeTrails.html#%24sel%3AincludeShadowTrails%3ADescribeTrails%27"><span class="hs-identifier hs-var">includeShadowTrails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679200722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-type">DescribeTrails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-type">DescribeTrails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | Specifies a list of trail names, trail ARNs, or both, of the trails to</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- describe. The format of a trail ARN is:</span><span>
@@ -237,16 +237,16 @@ $sel:includeShadowTrails:DescribeTrails' :: DescribeTrails -&gt; Maybe Bool
 -&gt; (DescribeTrails -&gt; Maybe [Text] -&gt; DescribeTrails)
 -&gt; Lens DescribeTrails DescribeTrails (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails%27"><span class="hs-identifier hs-type">DescribeTrails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200721"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails%27"><span class="hs-identifier hs-type">DescribeTrails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200730"><span class="annot"><span class="annottext">Maybe [Text]
 trailNameList :: Maybe [Text]
 $sel:trailNameList:DescribeTrails' :: DescribeTrails -&gt; Maybe [Text]
-</span><a href="#local-6989586621679200721"><span class="hs-identifier hs-var hs-var">trailNameList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200721"><span class="hs-identifier hs-var">trailNameList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200720"><span class="annot"><span class="annottext">s :: DescribeTrails
-</span><a href="#local-6989586621679200720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails%27"><span class="hs-identifier hs-type">DescribeTrails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200719"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTrails
-</span><a href="#local-6989586621679200720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trailNameList:DescribeTrails' :: Maybe [Text]
+</span><a href="#local-6989586621679200730"><span class="hs-identifier hs-var hs-var">trailNameList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679200730"><span class="hs-identifier hs-var">trailNameList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200729"><span class="annot"><span class="annottext">s :: DescribeTrails
+</span><a href="#local-6989586621679200729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails%27"><span class="hs-identifier hs-type">DescribeTrails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200728"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679200728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTrails
+</span><a href="#local-6989586621679200729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trailNameList:DescribeTrails' :: Maybe [Text]
 </span><a href="Network.AWS.CloudTrail.DescribeTrails.html#%24sel%3AtrailNameList%3ADescribeTrails%27"><span class="hs-identifier hs-var">trailNameList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-type">DescribeTrails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679200728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-type">DescribeTrails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeTrails -&gt; f DescribeTrails)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -267,12 +267,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-160"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-161"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-type">DescribeTrails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse"><span class="hs-identifier hs-type">DescribeTrailsResponse</span></a></span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679200712"><span class="annot"><span class="annottext">request :: DescribeTrails -&gt; Request DescribeTrails
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679200721"><span class="annot"><span class="annottext">request :: DescribeTrails -&gt; Request DescribeTrails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeTrails -&gt; Request DescribeTrails
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudTrail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679200708"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679200717"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeTrails
 -&gt; ClientResponse ClientBody
@@ -296,10 +296,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200705"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200705"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200704"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679200704"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200703"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679200703"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200714"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200714"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200713"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679200713"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200712"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200712"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Trail] -&gt; Int -&gt; DescribeTrailsResponse
 </span><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse%27"><span class="hs-identifier hs-var">DescribeTrailsResponse'</span></a></span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Trail] -&gt; Int -&gt; DescribeTrailsResponse)
@@ -307,7 +307,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeTrailsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679200703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Trail]))
+</span><a href="#local-6989586621679200712"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Trail]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;trailList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Trail]))
@@ -324,15 +324,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200705"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200714"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200694"><span id="local-6989586621679200696"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-type">DescribeTrails</span></a></span></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200703"><span id="local-6989586621679200705"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-type">DescribeTrails</span></a></span></span></span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200691"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-type">DescribeTrails</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-type">DescribeTrails</span></a></span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-type">DescribeTrails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679200687"><span class="annot"><span class="annottext">toHeaders :: DescribeTrails -&gt; ResponseHeaders
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679200696"><span class="annot"><span class="annottext">toHeaders :: DescribeTrails -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeTrails -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -359,15 +359,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200677"><span id="local-6989586621679200679"><span id="local-6989586621679200681"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-type">DescribeTrails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679200675"><span class="annot"><span class="annottext">toJSON :: DescribeTrails -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails%27"><span class="hs-identifier hs-type">DescribeTrails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200672"><span id="local-6989586621679200673"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200686"><span id="local-6989586621679200688"><span id="local-6989586621679200690"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-type">DescribeTrails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679200684"><span class="annot"><span class="annottext">toJSON :: DescribeTrails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails%27"><span class="hs-identifier hs-type">DescribeTrails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200681"><span id="local-6989586621679200682"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 trailNameList :: Maybe [Text]
 includeShadowTrails :: Maybe Bool
 $sel:trailNameList:DescribeTrails' :: DescribeTrails -&gt; Maybe [Text]
 $sel:includeShadowTrails:DescribeTrails' :: DescribeTrails -&gt; Maybe Bool
-</span><a href="#local-6989586621679200672"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679200681"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -380,26 +380,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679200673"><span class="hs-identifier hs-var">includeShadowTrails</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200682"><span class="hs-identifier hs-var">includeShadowTrails</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;trailNameList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200672"><span class="hs-identifier hs-var">trailNameList</span></a></span><span>
+</span><a href="#local-6989586621679200681"><span class="hs-identifier hs-var">trailNameList</span></a></span><span>
 </span><span id="line-198"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-type">DescribeTrails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679200666"><span class="annot"><span class="annottext">toPath :: DescribeTrails -&gt; ByteString
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679200675"><span class="annot"><span class="annottext">toPath :: DescribeTrails -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeTrails -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrails"><span class="hs-identifier hs-type">DescribeTrails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679200662"><span class="annot"><span class="annottext">toQuery :: DescribeTrails -&gt; QueryString
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679200671"><span class="annot"><span class="annottext">toQuery :: DescribeTrails -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeTrails -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -410,7 +410,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-208"></span><span class="hs-comment">-- returns an error.</span><span>
 </span><span id="line-209"></span><span class="hs-comment">--</span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- /See:/ 'newDescribeTrailsResponse' smart constructor.</span><span>
-</span><span id="line-211"></span><span id="local-6989586621679200659"><span id="local-6989586621679200660"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTrailsResponse"><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse"><span class="hs-identifier hs-var">DescribeTrailsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTrailsResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse%27"><span class="hs-identifier hs-var">DescribeTrailsResponse'</span></a></span></span><span>
+</span><span id="line-211"></span><span id="local-6989586621679200668"><span id="local-6989586621679200669"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTrailsResponse"><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse"><span class="hs-identifier hs-var">DescribeTrailsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTrailsResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse%27"><span class="hs-identifier hs-var">DescribeTrailsResponse'</span></a></span></span><span>
 </span><span id="line-212"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of trail objects. Trail objects with string values are only</span><span>
 </span><span id="line-213"></span><span>    </span><span class="hs-comment">-- returned if values for the objects exist in a trail\'s configuration.</span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-comment">-- For example, @SNSTopicName@ and @SNSTopicARN@ are only returned in</span><span>
@@ -423,7 +423,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-220"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeTrailsResponse%27"><span class="annot"><span class="annottext">DescribeTrailsResponse -&gt; Int
 </span><a href="Network.AWS.CloudTrail.DescribeTrails.html#%24sel%3AhttpStatus%3ADescribeTrailsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-221"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200653"><span id="local-6989586621679200655"><span class="annot"><span class="annottext">DescribeTrailsResponse -&gt; DescribeTrailsResponse -&gt; Bool
+</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200662"><span id="local-6989586621679200664"><span class="annot"><span class="annottext">DescribeTrailsResponse -&gt; DescribeTrailsResponse -&gt; Bool
 (DescribeTrailsResponse -&gt; DescribeTrailsResponse -&gt; Bool)
 -&gt; (DescribeTrailsResponse -&gt; DescribeTrailsResponse -&gt; Bool)
 -&gt; Eq DescribeTrailsResponse
@@ -432,7 +432,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeTrailsResponse -&gt; DescribeTrailsResponse -&gt; Bool
 == :: DescribeTrailsResponse -&gt; DescribeTrailsResponse -&gt; Bool
 $c== :: DescribeTrailsResponse -&gt; DescribeTrailsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200645"><span id="local-6989586621679200647"><span id="local-6989586621679200649"><span id="local-6989586621679200651"><span class="annot"><span class="annottext">ReadPrec [DescribeTrailsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200654"><span id="local-6989586621679200656"><span id="local-6989586621679200658"><span id="local-6989586621679200660"><span class="annot"><span class="annottext">ReadPrec [DescribeTrailsResponse]
 ReadPrec DescribeTrailsResponse
 Int -&gt; ReadS DescribeTrailsResponse
 ReadS [DescribeTrailsResponse]
@@ -452,7 +452,7 @@ readList :: ReadS [DescribeTrailsResponse]
 $creadList :: ReadS [DescribeTrailsResponse]
 readsPrec :: Int -&gt; ReadS DescribeTrailsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeTrailsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200639"><span id="local-6989586621679200641"><span id="local-6989586621679200643"><span class="annot"><span class="annottext">Int -&gt; DescribeTrailsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200648"><span id="local-6989586621679200650"><span id="local-6989586621679200652"><span class="annot"><span class="annottext">Int -&gt; DescribeTrailsResponse -&gt; ShowS
 [DescribeTrailsResponse] -&gt; ShowS
 DescribeTrailsResponse -&gt; String
 (Int -&gt; DescribeTrailsResponse -&gt; ShowS)
@@ -500,8 +500,8 @@ $cfrom :: forall x. DescribeTrailsResponse -&gt; Rep DescribeTrailsResponse x
 </span><span id="line-242"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-243"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse"><span class="hs-identifier hs-type">DescribeTrailsResponse</span></a></span><span>
 </span><span id="line-244"></span><span id="newDescribeTrailsResponse"><span class="annot"><span class="annottext">newDescribeTrailsResponse :: Int -&gt; DescribeTrailsResponse
-</span><a href="Network.AWS.CloudTrail.DescribeTrails.html#newDescribeTrailsResponse"><span class="hs-identifier hs-var hs-var">newDescribeTrailsResponse</span></a></span></span><span> </span><span id="local-6989586621679200636"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200636"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudTrail.DescribeTrails.html#newDescribeTrailsResponse"><span class="hs-identifier hs-var hs-var">newDescribeTrailsResponse</span></a></span></span><span> </span><span id="local-6989586621679200645"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200645"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-245"></span><span>  </span><span class="annot"><span class="annottext">DescribeTrailsResponse' :: Maybe [Trail] -&gt; Int -&gt; DescribeTrailsResponse
 </span><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse%27"><span class="hs-identifier hs-type">DescribeTrailsResponse'</span></a></span><span>
 </span><span id="line-246"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trailList:DescribeTrailsResponse' :: Maybe [Trail]
@@ -511,7 +511,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTrailsResponse' :: Int
 </span><a href="Network.AWS.CloudTrail.DescribeTrails.html#%24sel%3AhttpStatus%3ADescribeTrailsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200636"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679200645"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-249"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-comment">-- | The list of trail objects. Trail objects with string values are only</span><span>
@@ -532,16 +532,16 @@ forall a. Maybe a
      (Maybe [Trail])
      (Maybe [Trail])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse%27"><span class="hs-identifier hs-type">DescribeTrailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200635"><span class="annot"><span class="annottext">Maybe [Trail]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse%27"><span class="hs-identifier hs-type">DescribeTrailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200644"><span class="annot"><span class="annottext">Maybe [Trail]
 trailList :: Maybe [Trail]
 $sel:trailList:DescribeTrailsResponse' :: DescribeTrailsResponse -&gt; Maybe [Trail]
-</span><a href="#local-6989586621679200635"><span class="hs-identifier hs-var hs-var">trailList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Trail]
-</span><a href="#local-6989586621679200635"><span class="hs-identifier hs-var">trailList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200634"><span class="annot"><span class="annottext">s :: DescribeTrailsResponse
-</span><a href="#local-6989586621679200634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse%27"><span class="hs-identifier hs-type">DescribeTrailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200633"><span class="annot"><span class="annottext">Maybe [Trail]
-</span><a href="#local-6989586621679200633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTrailsResponse
-</span><a href="#local-6989586621679200634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trailList:DescribeTrailsResponse' :: Maybe [Trail]
+</span><a href="#local-6989586621679200644"><span class="hs-identifier hs-var hs-var">trailList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Trail]
+</span><a href="#local-6989586621679200644"><span class="hs-identifier hs-var">trailList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200643"><span class="annot"><span class="annottext">s :: DescribeTrailsResponse
+</span><a href="#local-6989586621679200643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse%27"><span class="hs-identifier hs-type">DescribeTrailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200642"><span class="annot"><span class="annottext">Maybe [Trail]
+</span><a href="#local-6989586621679200642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTrailsResponse
+</span><a href="#local-6989586621679200643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trailList:DescribeTrailsResponse' :: Maybe [Trail]
 </span><a href="Network.AWS.CloudTrail.DescribeTrails.html#%24sel%3AtrailList%3ADescribeTrailsResponse%27"><span class="hs-identifier hs-var">trailList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Trail]
-</span><a href="#local-6989586621679200633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse"><span class="hs-identifier hs-type">DescribeTrailsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Trail] -&gt; f (Maybe [Trail]))
+</span><a href="#local-6989586621679200642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse"><span class="hs-identifier hs-type">DescribeTrailsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Trail] -&gt; f (Maybe [Trail]))
  -&gt; DescribeTrailsResponse -&gt; f DescribeTrailsResponse)
 -&gt; ((Maybe [Trail] -&gt; f (Maybe [Trail]))
     -&gt; Maybe [Trail] -&gt; f (Maybe [Trail]))
@@ -567,16 +567,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeTrailsResponse -&gt; Int -&gt; DescribeTrailsResponse)
 -&gt; Lens DescribeTrailsResponse DescribeTrailsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse%27"><span class="hs-identifier hs-type">DescribeTrailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200632"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse%27"><span class="hs-identifier hs-type">DescribeTrailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200641"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeTrailsResponse' :: DescribeTrailsResponse -&gt; Int
-</span><a href="#local-6989586621679200632"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200632"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200631"><span class="annot"><span class="annottext">s :: DescribeTrailsResponse
-</span><a href="#local-6989586621679200631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse%27"><span class="hs-identifier hs-type">DescribeTrailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200630"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTrailsResponse
-</span><a href="#local-6989586621679200631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTrailsResponse' :: Int
+</span><a href="#local-6989586621679200641"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200641"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200640"><span class="annot"><span class="annottext">s :: DescribeTrailsResponse
+</span><a href="#local-6989586621679200640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse%27"><span class="hs-identifier hs-type">DescribeTrailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200639"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTrailsResponse
+</span><a href="#local-6989586621679200640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTrailsResponse' :: Int
 </span><a href="Network.AWS.CloudTrail.DescribeTrails.html#%24sel%3AhttpStatus%3ADescribeTrailsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse"><span class="hs-identifier hs-type">DescribeTrailsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse"><span class="hs-identifier hs-type">DescribeTrailsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-263"></span><span>
-</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200628"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse"><span class="hs-identifier hs-type">DescribeTrailsResponse</span></a></span></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200637"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DescribeTrails.html#DescribeTrailsResponse"><span class="hs-identifier hs-type">DescribeTrailsResponse</span></a></span></span><span>
 </span><span id="line-265"></span></pre></body></html>

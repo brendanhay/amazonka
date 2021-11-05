@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679201148"><span id="local-6989586621679201149"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AttackPropertyIdentifier"><span class="annot"><a href="Network.AWS.Shield.Types.AttackPropertyIdentifier.html#AttackPropertyIdentifier"><span class="hs-identifier hs-var">AttackPropertyIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttackPropertyIdentifier%27"><span class="annot"><a href="Network.AWS.Shield.Types.AttackPropertyIdentifier.html#AttackPropertyIdentifier%27"><span class="hs-identifier hs-var">AttackPropertyIdentifier'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679201157"><span id="local-6989586621679201158"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AttackPropertyIdentifier"><span class="annot"><a href="Network.AWS.Shield.Types.AttackPropertyIdentifier.html#AttackPropertyIdentifier"><span class="hs-identifier hs-var">AttackPropertyIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttackPropertyIdentifier%27"><span class="annot"><a href="Network.AWS.Shield.Types.AttackPropertyIdentifier.html#AttackPropertyIdentifier%27"><span class="hs-identifier hs-var">AttackPropertyIdentifier'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAttackPropertyIdentifier"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; Text
 </span><a href="Network.AWS.Shield.Types.AttackPropertyIdentifier.html#fromAttackPropertyIdentifier"><span class="hs-identifier hs-var hs-var">fromAttackPropertyIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201140"><span id="local-6989586621679201142"><span id="local-6989586621679201144"><span class="annot"><span class="annottext">Int -&gt; AttackPropertyIdentifier -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201149"><span id="local-6989586621679201151"><span id="local-6989586621679201153"><span class="annot"><span class="annottext">Int -&gt; AttackPropertyIdentifier -&gt; ShowS
 [AttackPropertyIdentifier] -&gt; ShowS
 AttackPropertyIdentifier -&gt; String
 (Int -&gt; AttackPropertyIdentifier -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: AttackPropertyIdentifier -&gt; String
 showsPrec :: Int -&gt; AttackPropertyIdentifier -&gt; ShowS
 $cshowsPrec :: Int -&gt; AttackPropertyIdentifier -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679201131"><span id="local-6989586621679201133"><span id="local-6989586621679201135"><span id="local-6989586621679201137"><span class="annot"><span class="annottext">ReadPrec [AttackPropertyIdentifier]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679201140"><span id="local-6989586621679201142"><span id="local-6989586621679201144"><span id="local-6989586621679201146"><span class="annot"><span class="annottext">ReadPrec [AttackPropertyIdentifier]
 ReadPrec AttackPropertyIdentifier
 Int -&gt; ReadS AttackPropertyIdentifier
 ReadS [AttackPropertyIdentifier]
@@ -78,7 +78,7 @@ $creadList :: ReadS [AttackPropertyIdentifier]
 readsPrec :: Int -&gt; ReadS AttackPropertyIdentifier
 $creadsPrec :: Int -&gt; ReadS AttackPropertyIdentifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679201126"><span id="local-6989586621679201128"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; AttackPropertyIdentifier -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679201135"><span id="local-6989586621679201137"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; AttackPropertyIdentifier -&gt; Bool
 (AttackPropertyIdentifier -&gt; AttackPropertyIdentifier -&gt; Bool)
 -&gt; (AttackPropertyIdentifier -&gt; AttackPropertyIdentifier -&gt; Bool)
 -&gt; Eq AttackPropertyIdentifier
@@ -88,7 +88,7 @@ $c/= :: AttackPropertyIdentifier -&gt; AttackPropertyIdentifier -&gt; Bool
 == :: AttackPropertyIdentifier -&gt; AttackPropertyIdentifier -&gt; Bool
 $c== :: AttackPropertyIdentifier -&gt; AttackPropertyIdentifier -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679201110"><span id="local-6989586621679201112"><span id="local-6989586621679201114"><span id="local-6989586621679201116"><span id="local-6989586621679201118"><span id="local-6989586621679201120"><span id="local-6989586621679201122"><span class="annot"><span class="annottext">Eq AttackPropertyIdentifier
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679201119"><span id="local-6989586621679201121"><span id="local-6989586621679201123"><span id="local-6989586621679201125"><span id="local-6989586621679201127"><span id="local-6989586621679201129"><span id="local-6989586621679201131"><span class="annot"><span class="annottext">Eq AttackPropertyIdentifier
 Eq AttackPropertyIdentifier
 -&gt; (AttackPropertyIdentifier
     -&gt; AttackPropertyIdentifier -&gt; Ordering)
@@ -153,7 +153,7 @@ AttackPropertyIdentifier -&gt; Rep AttackPropertyIdentifier x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201102"><span id="local-6989586621679201104"><span class="annot"><span class="annottext">Int -&gt; AttackPropertyIdentifier -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201111"><span id="local-6989586621679201113"><span class="annot"><span class="annottext">Int -&gt; AttackPropertyIdentifier -&gt; Int
 AttackPropertyIdentifier -&gt; Int
 (Int -&gt; AttackPropertyIdentifier -&gt; Int)
 -&gt; (AttackPropertyIdentifier -&gt; Int)
@@ -164,55 +164,55 @@ $chash :: AttackPropertyIdentifier -&gt; Int
 hashWithSalt :: Int -&gt; AttackPropertyIdentifier -&gt; Int
 $chashWithSalt :: Int -&gt; AttackPropertyIdentifier -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679201099"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679201108"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; ()
 (AttackPropertyIdentifier -&gt; ()) -&gt; NFData AttackPropertyIdentifier
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AttackPropertyIdentifier -&gt; ()
 $crnf :: AttackPropertyIdentifier -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679201096"><span class="annot"><span class="annottext">Text -&gt; Either String AttackPropertyIdentifier
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679201105"><span class="annot"><span class="annottext">Text -&gt; Either String AttackPropertyIdentifier
 (Text -&gt; Either String AttackPropertyIdentifier)
 -&gt; FromText AttackPropertyIdentifier
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AttackPropertyIdentifier
 $cfromText :: Text -&gt; Either String AttackPropertyIdentifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679201093"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679201102"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; Text
 (AttackPropertyIdentifier -&gt; Text)
 -&gt; ToText AttackPropertyIdentifier
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AttackPropertyIdentifier -&gt; Text
 $ctoText :: AttackPropertyIdentifier -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679201090"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679201099"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; ByteString
 (AttackPropertyIdentifier -&gt; ByteString)
 -&gt; ToByteString AttackPropertyIdentifier
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AttackPropertyIdentifier -&gt; ByteString
 $ctoBS :: AttackPropertyIdentifier -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679201087"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679201096"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; ByteStringBuilder
 (AttackPropertyIdentifier -&gt; ByteStringBuilder)
 -&gt; ToLog AttackPropertyIdentifier
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AttackPropertyIdentifier -&gt; ByteStringBuilder
 $cbuild :: AttackPropertyIdentifier -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679201084"><span class="annot"><span class="annottext">HeaderName -&gt; AttackPropertyIdentifier -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679201093"><span class="annot"><span class="annottext">HeaderName -&gt; AttackPropertyIdentifier -&gt; [Header]
 (HeaderName -&gt; AttackPropertyIdentifier -&gt; [Header])
 -&gt; ToHeader AttackPropertyIdentifier
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AttackPropertyIdentifier -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AttackPropertyIdentifier -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679201081"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679201090"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; QueryString
 (AttackPropertyIdentifier -&gt; QueryString)
 -&gt; ToQuery AttackPropertyIdentifier
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AttackPropertyIdentifier -&gt; QueryString
 $ctoQuery :: AttackPropertyIdentifier -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679201076"><span id="local-6989586621679201078"><span class="annot"><span class="annottext">Value -&gt; Parser [AttackPropertyIdentifier]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679201085"><span id="local-6989586621679201087"><span class="annot"><span class="annottext">Value -&gt; Parser [AttackPropertyIdentifier]
 Value -&gt; Parser AttackPropertyIdentifier
 (Value -&gt; Parser AttackPropertyIdentifier)
 -&gt; (Value -&gt; Parser [AttackPropertyIdentifier])
@@ -224,7 +224,7 @@ $cparseJSONList :: Value -&gt; Parser [AttackPropertyIdentifier]
 parseJSON :: Value -&gt; Parser AttackPropertyIdentifier
 $cparseJSON :: Value -&gt; Parser AttackPropertyIdentifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679201071"><span id="local-6989586621679201073"><span class="annot"><span class="annottext">FromJSONKeyFunction [AttackPropertyIdentifier]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679201080"><span id="local-6989586621679201082"><span class="annot"><span class="annottext">FromJSONKeyFunction [AttackPropertyIdentifier]
 FromJSONKeyFunction AttackPropertyIdentifier
 FromJSONKeyFunction AttackPropertyIdentifier
 -&gt; FromJSONKeyFunction [AttackPropertyIdentifier]
@@ -236,7 +236,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AttackPropertyIdentifier]
 fromJSONKey :: FromJSONKeyFunction AttackPropertyIdentifier
 $cfromJSONKey :: FromJSONKeyFunction AttackPropertyIdentifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679201062"><span id="local-6989586621679201064"><span id="local-6989586621679201066"><span id="local-6989586621679201068"><span class="annot"><span class="annottext">[AttackPropertyIdentifier] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679201071"><span id="local-6989586621679201073"><span id="local-6989586621679201075"><span id="local-6989586621679201077"><span class="annot"><span class="annottext">[AttackPropertyIdentifier] -&gt; Encoding
 [AttackPropertyIdentifier] -&gt; Value
 AttackPropertyIdentifier -&gt; Encoding
 AttackPropertyIdentifier -&gt; Value
@@ -260,7 +260,7 @@ $ctoEncoding :: AttackPropertyIdentifier -&gt; Encoding
 toJSON :: AttackPropertyIdentifier -&gt; Value
 $ctoJSON :: AttackPropertyIdentifier -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679201057"><span id="local-6989586621679201059"><span class="annot"><span class="annottext">ToJSONKeyFunction [AttackPropertyIdentifier]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679201066"><span id="local-6989586621679201068"><span class="annot"><span class="annottext">ToJSONKeyFunction [AttackPropertyIdentifier]
 ToJSONKeyFunction AttackPropertyIdentifier
 ToJSONKeyFunction AttackPropertyIdentifier
 -&gt; ToJSONKeyFunction [AttackPropertyIdentifier]
@@ -272,14 +272,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AttackPropertyIdentifier]
 toJSONKey :: ToJSONKeyFunction AttackPropertyIdentifier
 $ctoJSONKey :: ToJSONKeyFunction AttackPropertyIdentifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679201054"><span class="annot"><span class="annottext">[Node] -&gt; Either String AttackPropertyIdentifier
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679201063"><span class="annot"><span class="annottext">[Node] -&gt; Either String AttackPropertyIdentifier
 ([Node] -&gt; Either String AttackPropertyIdentifier)
 -&gt; FromXML AttackPropertyIdentifier
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AttackPropertyIdentifier
 $cparseXML :: [Node] -&gt; Either String AttackPropertyIdentifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679201051"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679201060"><span class="annot"><span class="annottext">AttackPropertyIdentifier -&gt; XML
 (AttackPropertyIdentifier -&gt; XML) -&gt; ToXML AttackPropertyIdentifier
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AttackPropertyIdentifier -&gt; XML

@@ -1,0 +1,587 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.FraudDetector.GetBatchImportJobs</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets all batch import jobs or a specific job of the specified ID. This</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- is a paginated API. If you provide a null @maxResults@, this action</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- retrieves a maximum of 50 records per page. If you provide a</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @maxResults@, the value must be between 1 and 50. To get the next page</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- results, provide the pagination token from the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @GetBatchImportJobsResponse@ as part of your request. A null pagination</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- token fetches the records from the beginning.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FraudDetector.GetBatchImportJobs</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier">GetBatchImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#newGetBatchImportJobs"><span class="hs-identifier">newGetBatchImportJobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobs_jobId"><span class="hs-identifier">getBatchImportJobs_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobs_nextToken"><span class="hs-identifier">getBatchImportJobs_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobs_maxResults"><span class="hs-identifier">getBatchImportJobs_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse"><span class="hs-identifier">GetBatchImportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#newGetBatchImportJobsResponse"><span class="hs-identifier">newGetBatchImportJobsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobsResponse_nextToken"><span class="hs-identifier">getBatchImportJobsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobsResponse_batchImports"><span class="hs-identifier">getBatchImportJobsResponse_batchImports</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobsResponse_httpStatus"><span class="hs-identifier">getBatchImportJobsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newGetBatchImportJobs' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679316348"><span id="local-6989586621679316349"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBatchImportJobs"><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-var">GetBatchImportJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBatchImportJobs%27"><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs%27"><span class="hs-identifier hs-var">GetBatchImportJobs'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the batch import job to get.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AjobId%3AGetBatchImportJobs%27"><span class="annot"><span class="annottext">GetBatchImportJobs -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AjobId%3AGetBatchImportJobs%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The next token from the previous request.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AGetBatchImportJobs%27"><span class="annot"><span class="annottext">GetBatchImportJobs -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AnextToken%3AGetBatchImportJobs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The maximum number of objects to return for request.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetBatchImportJobs%27"><span class="annot"><span class="annottext">GetBatchImportJobs -&gt; Maybe Natural
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AmaxResults%3AGetBatchImportJobs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316340"><span id="local-6989586621679316342"><span class="annot"><span class="annottext">GetBatchImportJobs -&gt; GetBatchImportJobs -&gt; Bool
+(GetBatchImportJobs -&gt; GetBatchImportJobs -&gt; Bool)
+-&gt; (GetBatchImportJobs -&gt; GetBatchImportJobs -&gt; Bool)
+-&gt; Eq GetBatchImportJobs
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBatchImportJobs -&gt; GetBatchImportJobs -&gt; Bool
+$c/= :: GetBatchImportJobs -&gt; GetBatchImportJobs -&gt; Bool
+== :: GetBatchImportJobs -&gt; GetBatchImportJobs -&gt; Bool
+$c== :: GetBatchImportJobs -&gt; GetBatchImportJobs -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316331"><span id="local-6989586621679316333"><span id="local-6989586621679316335"><span id="local-6989586621679316337"><span class="annot"><span class="annottext">ReadPrec [GetBatchImportJobs]
+ReadPrec GetBatchImportJobs
+Int -&gt; ReadS GetBatchImportJobs
+ReadS [GetBatchImportJobs]
+(Int -&gt; ReadS GetBatchImportJobs)
+-&gt; ReadS [GetBatchImportJobs]
+-&gt; ReadPrec GetBatchImportJobs
+-&gt; ReadPrec [GetBatchImportJobs]
+-&gt; Read GetBatchImportJobs
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBatchImportJobs]
+$creadListPrec :: ReadPrec [GetBatchImportJobs]
+readPrec :: ReadPrec GetBatchImportJobs
+$creadPrec :: ReadPrec GetBatchImportJobs
+readList :: ReadS [GetBatchImportJobs]
+$creadList :: ReadS [GetBatchImportJobs]
+readsPrec :: Int -&gt; ReadS GetBatchImportJobs
+$creadsPrec :: Int -&gt; ReadS GetBatchImportJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316324"><span id="local-6989586621679316326"><span id="local-6989586621679316328"><span class="annot"><span class="annottext">Int -&gt; GetBatchImportJobs -&gt; ShowS
+[GetBatchImportJobs] -&gt; ShowS
+GetBatchImportJobs -&gt; String
+(Int -&gt; GetBatchImportJobs -&gt; ShowS)
+-&gt; (GetBatchImportJobs -&gt; String)
+-&gt; ([GetBatchImportJobs] -&gt; ShowS)
+-&gt; Show GetBatchImportJobs
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBatchImportJobs] -&gt; ShowS
+$cshowList :: [GetBatchImportJobs] -&gt; ShowS
+show :: GetBatchImportJobs -&gt; String
+$cshow :: GetBatchImportJobs -&gt; String
+showsPrec :: Int -&gt; GetBatchImportJobs -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBatchImportJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetBatchImportJobs -&gt; Rep GetBatchImportJobs x)
+-&gt; (forall x. Rep GetBatchImportJobs x -&gt; GetBatchImportJobs)
+-&gt; Generic GetBatchImportJobs
+forall x. Rep GetBatchImportJobs x -&gt; GetBatchImportJobs
+forall x. GetBatchImportJobs -&gt; Rep GetBatchImportJobs x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetBatchImportJobs x -&gt; GetBatchImportJobs
+$cfrom :: forall x. GetBatchImportJobs -&gt; Rep GetBatchImportJobs x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'GetBatchImportJobs' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'jobId', 'getBatchImportJobs_jobId' - The ID of the batch import job to get.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'nextToken', 'getBatchImportJobs_nextToken' - The next token from the previous request.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'maxResults', 'getBatchImportJobs_maxResults' - The maximum number of objects to return for request.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#newGetBatchImportJobs"><span class="hs-identifier hs-type">newGetBatchImportJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span><span>
+</span><span id="line-84"></span><span id="newGetBatchImportJobs"><span class="annot"><span class="annottext">newGetBatchImportJobs :: GetBatchImportJobs
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#newGetBatchImportJobs"><span class="hs-identifier hs-var hs-var">newGetBatchImportJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">GetBatchImportJobs' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; GetBatchImportJobs
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs%27"><span class="hs-identifier hs-type">GetBatchImportJobs'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobId:GetBatchImportJobs' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AjobId%3AGetBatchImportJobs%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetBatchImportJobs' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AnextToken%3AGetBatchImportJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetBatchImportJobs' :: Maybe Natural
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AmaxResults%3AGetBatchImportJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The ID of the batch import job to get.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobs_jobId"><span class="hs-identifier hs-type">getBatchImportJobs_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="getBatchImportJobs_jobId"><span class="annot"><span class="annottext">getBatchImportJobs_jobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBatchImportJobs -&gt; f GetBatchImportJobs
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobs_jobId"><span class="hs-identifier hs-var hs-var">getBatchImportJobs_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBatchImportJobs -&gt; Maybe Text)
+-&gt; (GetBatchImportJobs -&gt; Maybe Text -&gt; GetBatchImportJobs)
+-&gt; Lens
+     GetBatchImportJobs GetBatchImportJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs%27"><span class="hs-identifier hs-type">GetBatchImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316317"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:GetBatchImportJobs' :: GetBatchImportJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679316317"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316317"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316316"><span class="annot"><span class="annottext">s :: GetBatchImportJobs
+</span><a href="#local-6989586621679316316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs%27"><span class="hs-identifier hs-type">GetBatchImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316315"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBatchImportJobs
+</span><a href="#local-6989586621679316316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetBatchImportJobs' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AjobId%3AGetBatchImportJobs%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The next token from the previous request.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobs_nextToken"><span class="hs-identifier hs-type">getBatchImportJobs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="getBatchImportJobs_nextToken"><span class="annot"><span class="annottext">getBatchImportJobs_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBatchImportJobs -&gt; f GetBatchImportJobs
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobs_nextToken"><span class="hs-identifier hs-var hs-var">getBatchImportJobs_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBatchImportJobs -&gt; Maybe Text)
+-&gt; (GetBatchImportJobs -&gt; Maybe Text -&gt; GetBatchImportJobs)
+-&gt; Lens
+     GetBatchImportJobs GetBatchImportJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs%27"><span class="hs-identifier hs-type">GetBatchImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316314"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetBatchImportJobs' :: GetBatchImportJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679316314"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316314"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316313"><span class="annot"><span class="annottext">s :: GetBatchImportJobs
+</span><a href="#local-6989586621679316313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs%27"><span class="hs-identifier hs-type">GetBatchImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316312"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBatchImportJobs
+</span><a href="#local-6989586621679316313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetBatchImportJobs' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AnextToken%3AGetBatchImportJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The maximum number of objects to return for request.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobs_maxResults"><span class="hs-identifier hs-type">getBatchImportJobs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="getBatchImportJobs_maxResults"><span class="annot"><span class="annottext">getBatchImportJobs_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetBatchImportJobs -&gt; f GetBatchImportJobs
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobs_maxResults"><span class="hs-identifier hs-var hs-var">getBatchImportJobs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBatchImportJobs -&gt; Maybe Natural)
+-&gt; (GetBatchImportJobs -&gt; Maybe Natural -&gt; GetBatchImportJobs)
+-&gt; Lens
+     GetBatchImportJobs
+     GetBatchImportJobs
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs%27"><span class="hs-identifier hs-type">GetBatchImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316311"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetBatchImportJobs' :: GetBatchImportJobs -&gt; Maybe Natural
+</span><a href="#local-6989586621679316311"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316311"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316310"><span class="annot"><span class="annottext">s :: GetBatchImportJobs
+</span><a href="#local-6989586621679316310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs%27"><span class="hs-identifier hs-type">GetBatchImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316309"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBatchImportJobs
+</span><a href="#local-6989586621679316310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetBatchImportJobs' :: Maybe Natural
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AmaxResults%3AGetBatchImportJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse"><span class="hs-identifier hs-type">GetBatchImportJobsResponse</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679316305"><span class="annot"><span class="annottext">request :: GetBatchImportJobs -&gt; Request GetBatchImportJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetBatchImportJobs -&gt; Request GetBatchImportJobs
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679316301"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetBatchImportJobs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetBatchImportJobs)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetBatchImportJobs))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetBatchImportJobs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetBatchImportJobs)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316298"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316298"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679316297"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679316297"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679316296"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316296"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [BatchImport] -&gt; Int -&gt; GetBatchImportJobsResponse
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse%27"><span class="hs-identifier hs-var">GetBatchImportJobsResponse'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [BatchImport] -&gt; Int -&gt; GetBatchImportJobsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [BatchImport] -&gt; Int -&gt; GetBatchImportJobsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [BatchImport] -&gt; Int -&gt; GetBatchImportJobsResponse)
+-&gt; Either String (Maybe [BatchImport])
+-&gt; Either String (Int -&gt; GetBatchImportJobsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BatchImport]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;batchImports&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BatchImport]))
+-&gt; Maybe [BatchImport] -&gt; Either String (Maybe [BatchImport])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BatchImport]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetBatchImportJobsResponse)
+-&gt; Either String Int -&gt; Either String GetBatchImportJobsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316298"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316287"><span id="local-6989586621679316289"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679316280"><span class="annot"><span class="annottext">toHeaders :: GetBatchImportJobs -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBatchImportJobs -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHawksNestServiceFacade.GetBatchImportJobs&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316270"><span id="local-6989586621679316272"><span id="local-6989586621679316274"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679316268"><span class="annot"><span class="annottext">toJSON :: GetBatchImportJobs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs%27"><span class="hs-identifier hs-type">GetBatchImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316264"><span id="local-6989586621679316265"><span id="local-6989586621679316266"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+jobId :: Maybe Text
+$sel:maxResults:GetBatchImportJobs' :: GetBatchImportJobs -&gt; Maybe Natural
+$sel:nextToken:GetBatchImportJobs' :: GetBatchImportJobs -&gt; Maybe Text
+$sel:jobId:GetBatchImportJobs' :: GetBatchImportJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679316264"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316266"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316265"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316264"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679316258"><span class="annot"><span class="annottext">toPath :: GetBatchImportJobs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetBatchImportJobs -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobs"><span class="hs-identifier hs-type">GetBatchImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679316254"><span class="annot"><span class="annottext">toQuery :: GetBatchImportJobs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBatchImportJobs -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | /See:/ 'newGetBatchImportJobsResponse' smart constructor.</span><span>
+</span><span id="line-153"></span><span id="local-6989586621679316251"><span id="local-6989586621679316252"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBatchImportJobsResponse"><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse"><span class="hs-identifier hs-var">GetBatchImportJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBatchImportJobsResponse%27"><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse%27"><span class="hs-identifier hs-var">GetBatchImportJobsResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The next token for the subsequent resquest.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AnextToken%3AGetBatchImportJobsResponse%27"><span class="annot"><span class="annottext">GetBatchImportJobsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AnextToken%3AGetBatchImportJobsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | An array containing the details of each batch import job.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AbatchImports%3AGetBatchImportJobsResponse%27"><span class="annot"><span class="annottext">GetBatchImportJobsResponse -&gt; Maybe [BatchImport]
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AbatchImports%3AGetBatchImportJobsResponse%27"><span class="hs-identifier hs-var hs-var">batchImports</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.BatchImport.html#BatchImport"><span class="hs-identifier hs-type">BatchImport</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBatchImportJobsResponse%27"><span class="annot"><span class="annottext">GetBatchImportJobsResponse -&gt; Int
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AhttpStatus%3AGetBatchImportJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316244"><span id="local-6989586621679316246"><span class="annot"><span class="annottext">GetBatchImportJobsResponse -&gt; GetBatchImportJobsResponse -&gt; Bool
+(GetBatchImportJobsResponse -&gt; GetBatchImportJobsResponse -&gt; Bool)
+-&gt; (GetBatchImportJobsResponse
+    -&gt; GetBatchImportJobsResponse -&gt; Bool)
+-&gt; Eq GetBatchImportJobsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBatchImportJobsResponse -&gt; GetBatchImportJobsResponse -&gt; Bool
+$c/= :: GetBatchImportJobsResponse -&gt; GetBatchImportJobsResponse -&gt; Bool
+== :: GetBatchImportJobsResponse -&gt; GetBatchImportJobsResponse -&gt; Bool
+$c== :: GetBatchImportJobsResponse -&gt; GetBatchImportJobsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316236"><span id="local-6989586621679316238"><span id="local-6989586621679316240"><span id="local-6989586621679316242"><span class="annot"><span class="annottext">ReadPrec [GetBatchImportJobsResponse]
+ReadPrec GetBatchImportJobsResponse
+Int -&gt; ReadS GetBatchImportJobsResponse
+ReadS [GetBatchImportJobsResponse]
+(Int -&gt; ReadS GetBatchImportJobsResponse)
+-&gt; ReadS [GetBatchImportJobsResponse]
+-&gt; ReadPrec GetBatchImportJobsResponse
+-&gt; ReadPrec [GetBatchImportJobsResponse]
+-&gt; Read GetBatchImportJobsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBatchImportJobsResponse]
+$creadListPrec :: ReadPrec [GetBatchImportJobsResponse]
+readPrec :: ReadPrec GetBatchImportJobsResponse
+$creadPrec :: ReadPrec GetBatchImportJobsResponse
+readList :: ReadS [GetBatchImportJobsResponse]
+$creadList :: ReadS [GetBatchImportJobsResponse]
+readsPrec :: Int -&gt; ReadS GetBatchImportJobsResponse
+$creadsPrec :: Int -&gt; ReadS GetBatchImportJobsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316230"><span id="local-6989586621679316232"><span id="local-6989586621679316234"><span class="annot"><span class="annottext">Int -&gt; GetBatchImportJobsResponse -&gt; ShowS
+[GetBatchImportJobsResponse] -&gt; ShowS
+GetBatchImportJobsResponse -&gt; String
+(Int -&gt; GetBatchImportJobsResponse -&gt; ShowS)
+-&gt; (GetBatchImportJobsResponse -&gt; String)
+-&gt; ([GetBatchImportJobsResponse] -&gt; ShowS)
+-&gt; Show GetBatchImportJobsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBatchImportJobsResponse] -&gt; ShowS
+$cshowList :: [GetBatchImportJobsResponse] -&gt; ShowS
+show :: GetBatchImportJobsResponse -&gt; String
+$cshow :: GetBatchImportJobsResponse -&gt; String
+showsPrec :: Int -&gt; GetBatchImportJobsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBatchImportJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetBatchImportJobsResponse -&gt; Rep GetBatchImportJobsResponse x)
+-&gt; (forall x.
+    Rep GetBatchImportJobsResponse x -&gt; GetBatchImportJobsResponse)
+-&gt; Generic GetBatchImportJobsResponse
+forall x.
+Rep GetBatchImportJobsResponse x -&gt; GetBatchImportJobsResponse
+forall x.
+GetBatchImportJobsResponse -&gt; Rep GetBatchImportJobsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetBatchImportJobsResponse x -&gt; GetBatchImportJobsResponse
+$cfrom :: forall x.
+GetBatchImportJobsResponse -&gt; Rep GetBatchImportJobsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Create a value of 'GetBatchImportJobsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'nextToken', 'getBatchImportJobsResponse_nextToken' - The next token for the subsequent resquest.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'batchImports', 'getBatchImportJobsResponse_batchImports' - An array containing the details of each batch import job.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'httpStatus', 'getBatchImportJobsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#newGetBatchImportJobsResponse"><span class="hs-identifier hs-type">newGetBatchImportJobsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse"><span class="hs-identifier hs-type">GetBatchImportJobsResponse</span></a></span><span>
+</span><span id="line-180"></span><span id="newGetBatchImportJobsResponse"><span class="annot"><span class="annottext">newGetBatchImportJobsResponse :: Int -&gt; GetBatchImportJobsResponse
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#newGetBatchImportJobsResponse"><span class="hs-identifier hs-var hs-var">newGetBatchImportJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679316227"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316227"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">GetBatchImportJobsResponse' :: Maybe Text
+-&gt; Maybe [BatchImport] -&gt; Int -&gt; GetBatchImportJobsResponse
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse%27"><span class="hs-identifier hs-type">GetBatchImportJobsResponse'</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetBatchImportJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AnextToken%3AGetBatchImportJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:batchImports:GetBatchImportJobsResponse' :: Maybe [BatchImport]
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AbatchImports%3AGetBatchImportJobsResponse%27"><span class="hs-identifier hs-var">batchImports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchImport]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBatchImportJobsResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AhttpStatus%3AGetBatchImportJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316227"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The next token for the subsequent resquest.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobsResponse_nextToken"><span class="hs-identifier hs-type">getBatchImportJobsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse"><span class="hs-identifier hs-type">GetBatchImportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="getBatchImportJobsResponse_nextToken"><span class="annot"><span class="annottext">getBatchImportJobsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBatchImportJobsResponse -&gt; f GetBatchImportJobsResponse
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobsResponse_nextToken"><span class="hs-identifier hs-var hs-var">getBatchImportJobsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBatchImportJobsResponse -&gt; Maybe Text)
+-&gt; (GetBatchImportJobsResponse
+    -&gt; Maybe Text -&gt; GetBatchImportJobsResponse)
+-&gt; Lens
+     GetBatchImportJobsResponse
+     GetBatchImportJobsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse%27"><span class="hs-identifier hs-type">GetBatchImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316226"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetBatchImportJobsResponse' :: GetBatchImportJobsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679316226"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316226"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316225"><span class="annot"><span class="annottext">s :: GetBatchImportJobsResponse
+</span><a href="#local-6989586621679316225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse%27"><span class="hs-identifier hs-type">GetBatchImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316224"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBatchImportJobsResponse
+</span><a href="#local-6989586621679316225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetBatchImportJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AnextToken%3AGetBatchImportJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse"><span class="hs-identifier hs-type">GetBatchImportJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | An array containing the details of each batch import job.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobsResponse_batchImports"><span class="hs-identifier hs-type">getBatchImportJobsResponse_batchImports</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse"><span class="hs-identifier hs-type">GetBatchImportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.BatchImport.html#BatchImport"><span class="hs-identifier hs-type">BatchImport</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="getBatchImportJobsResponse_batchImports"><span class="annot"><span class="annottext">getBatchImportJobsResponse_batchImports :: (Maybe [BatchImport] -&gt; f (Maybe [BatchImport]))
+-&gt; GetBatchImportJobsResponse -&gt; f GetBatchImportJobsResponse
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobsResponse_batchImports"><span class="hs-identifier hs-var hs-var">getBatchImportJobsResponse_batchImports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBatchImportJobsResponse -&gt; Maybe [BatchImport])
+-&gt; (GetBatchImportJobsResponse
+    -&gt; Maybe [BatchImport] -&gt; GetBatchImportJobsResponse)
+-&gt; Lens
+     GetBatchImportJobsResponse
+     GetBatchImportJobsResponse
+     (Maybe [BatchImport])
+     (Maybe [BatchImport])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse%27"><span class="hs-identifier hs-type">GetBatchImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316223"><span class="annot"><span class="annottext">Maybe [BatchImport]
+batchImports :: Maybe [BatchImport]
+$sel:batchImports:GetBatchImportJobsResponse' :: GetBatchImportJobsResponse -&gt; Maybe [BatchImport]
+</span><a href="#local-6989586621679316223"><span class="hs-identifier hs-var hs-var">batchImports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchImport]
+</span><a href="#local-6989586621679316223"><span class="hs-identifier hs-var">batchImports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316222"><span class="annot"><span class="annottext">s :: GetBatchImportJobsResponse
+</span><a href="#local-6989586621679316222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse%27"><span class="hs-identifier hs-type">GetBatchImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316221"><span class="annot"><span class="annottext">Maybe [BatchImport]
+</span><a href="#local-6989586621679316221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBatchImportJobsResponse
+</span><a href="#local-6989586621679316222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchImports:GetBatchImportJobsResponse' :: Maybe [BatchImport]
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AbatchImports%3AGetBatchImportJobsResponse%27"><span class="hs-identifier hs-var">batchImports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchImport]
+</span><a href="#local-6989586621679316221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse"><span class="hs-identifier hs-type">GetBatchImportJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchImport] -&gt; f (Maybe [BatchImport]))
+ -&gt; GetBatchImportJobsResponse -&gt; f GetBatchImportJobsResponse)
+-&gt; ((Maybe [BatchImport] -&gt; f (Maybe [BatchImport]))
+    -&gt; Maybe [BatchImport] -&gt; f (Maybe [BatchImport]))
+-&gt; (Maybe [BatchImport] -&gt; f (Maybe [BatchImport]))
+-&gt; GetBatchImportJobsResponse
+-&gt; f GetBatchImportJobsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [BatchImport] [BatchImport] [BatchImport] [BatchImport]
+-&gt; Iso
+     (Maybe [BatchImport])
+     (Maybe [BatchImport])
+     (Maybe [BatchImport])
+     (Maybe [BatchImport])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [BatchImport] [BatchImport] [BatchImport] [BatchImport]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobsResponse_httpStatus"><span class="hs-identifier hs-type">getBatchImportJobsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse"><span class="hs-identifier hs-type">GetBatchImportJobsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-198"></span><span id="getBatchImportJobsResponse_httpStatus"><span class="annot"><span class="annottext">getBatchImportJobsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetBatchImportJobsResponse -&gt; f GetBatchImportJobsResponse
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#getBatchImportJobsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getBatchImportJobsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBatchImportJobsResponse -&gt; Int)
+-&gt; (GetBatchImportJobsResponse
+    -&gt; Int -&gt; GetBatchImportJobsResponse)
+-&gt; Lens
+     GetBatchImportJobsResponse GetBatchImportJobsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse%27"><span class="hs-identifier hs-type">GetBatchImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316217"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetBatchImportJobsResponse' :: GetBatchImportJobsResponse -&gt; Int
+</span><a href="#local-6989586621679316217"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316217"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316216"><span class="annot"><span class="annottext">s :: GetBatchImportJobsResponse
+</span><a href="#local-6989586621679316216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse%27"><span class="hs-identifier hs-type">GetBatchImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316215"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBatchImportJobsResponse
+</span><a href="#local-6989586621679316216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBatchImportJobsResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#%24sel%3AhttpStatus%3AGetBatchImportJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse"><span class="hs-identifier hs-type">GetBatchImportJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316213"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetBatchImportJobs.html#GetBatchImportJobsResponse"><span class="hs-identifier hs-type">GetBatchImportJobsResponse</span></a></span></span><span>
+</span><span id="line-201"></span></pre></body></html>

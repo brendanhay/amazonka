@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-comment">-- motion-compensated interpolation. FrameFormer chooses the best</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- conversion method frame by frame. Note that using FrameFormer increases</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- the transcoding time and incurs a significant add-on cost.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621680015287"><span id="local-6989586621680015288"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp9FramerateConversionAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm"><span class="hs-identifier hs-var">Vp9FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp9FramerateConversionAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm%27"><span class="hs-identifier hs-var">Vp9FramerateConversionAlgorithm'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621680015296"><span id="local-6989586621680015297"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp9FramerateConversionAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm"><span class="hs-identifier hs-var">Vp9FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp9FramerateConversionAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm%27"><span class="hs-identifier hs-var">Vp9FramerateConversionAlgorithm'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVp9FramerateConversionAlgorithm"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#fromVp9FramerateConversionAlgorithm"><span class="hs-identifier hs-var hs-var">fromVp9FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015279"><span id="local-6989586621680015281"><span id="local-6989586621680015283"><span class="annot"><span class="annottext">Int -&gt; Vp9FramerateConversionAlgorithm -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015288"><span id="local-6989586621680015290"><span id="local-6989586621680015292"><span class="annot"><span class="annottext">Int -&gt; Vp9FramerateConversionAlgorithm -&gt; ShowS
 [Vp9FramerateConversionAlgorithm] -&gt; ShowS
 Vp9FramerateConversionAlgorithm -&gt; String
 (Int -&gt; Vp9FramerateConversionAlgorithm -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: Vp9FramerateConversionAlgorithm -&gt; String
 showsPrec :: Int -&gt; Vp9FramerateConversionAlgorithm -&gt; ShowS
 $cshowsPrec :: Int -&gt; Vp9FramerateConversionAlgorithm -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680015270"><span id="local-6989586621680015272"><span id="local-6989586621680015274"><span id="local-6989586621680015276"><span class="annot"><span class="annottext">ReadPrec [Vp9FramerateConversionAlgorithm]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680015279"><span id="local-6989586621680015281"><span id="local-6989586621680015283"><span id="local-6989586621680015285"><span class="annot"><span class="annottext">ReadPrec [Vp9FramerateConversionAlgorithm]
 ReadPrec Vp9FramerateConversionAlgorithm
 Int -&gt; ReadS Vp9FramerateConversionAlgorithm
 ReadS [Vp9FramerateConversionAlgorithm]
@@ -84,7 +84,7 @@ $creadList :: ReadS [Vp9FramerateConversionAlgorithm]
 readsPrec :: Int -&gt; ReadS Vp9FramerateConversionAlgorithm
 $creadsPrec :: Int -&gt; ReadS Vp9FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680015265"><span id="local-6989586621680015267"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680015274"><span id="local-6989586621680015276"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm
 -&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
 (Vp9FramerateConversionAlgorithm
  -&gt; Vp9FramerateConversionAlgorithm -&gt; Bool)
@@ -101,7 +101,7 @@ $c/= :: Vp9FramerateConversionAlgorithm
 $c== :: Vp9FramerateConversionAlgorithm
 -&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680015249"><span id="local-6989586621680015251"><span id="local-6989586621680015253"><span id="local-6989586621680015255"><span id="local-6989586621680015257"><span id="local-6989586621680015259"><span id="local-6989586621680015261"><span class="annot"><span class="annottext">Eq Vp9FramerateConversionAlgorithm
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680015258"><span id="local-6989586621680015260"><span id="local-6989586621680015262"><span id="local-6989586621680015264"><span id="local-6989586621680015266"><span id="local-6989586621680015268"><span id="local-6989586621680015270"><span class="annot"><span class="annottext">Eq Vp9FramerateConversionAlgorithm
 Eq Vp9FramerateConversionAlgorithm
 -&gt; (Vp9FramerateConversionAlgorithm
     -&gt; Vp9FramerateConversionAlgorithm -&gt; Ordering)
@@ -195,7 +195,7 @@ Vp9FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015241"><span id="local-6989586621680015243"><span class="annot"><span class="annottext">Int -&gt; Vp9FramerateConversionAlgorithm -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015250"><span id="local-6989586621680015252"><span class="annot"><span class="annottext">Int -&gt; Vp9FramerateConversionAlgorithm -&gt; Int
 Vp9FramerateConversionAlgorithm -&gt; Int
 (Int -&gt; Vp9FramerateConversionAlgorithm -&gt; Int)
 -&gt; (Vp9FramerateConversionAlgorithm -&gt; Int)
@@ -206,56 +206,56 @@ $chash :: Vp9FramerateConversionAlgorithm -&gt; Int
 hashWithSalt :: Int -&gt; Vp9FramerateConversionAlgorithm -&gt; Int
 $chashWithSalt :: Int -&gt; Vp9FramerateConversionAlgorithm -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680015238"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680015247"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; ()
 (Vp9FramerateConversionAlgorithm -&gt; ())
 -&gt; NFData Vp9FramerateConversionAlgorithm
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Vp9FramerateConversionAlgorithm -&gt; ()
 $crnf :: Vp9FramerateConversionAlgorithm -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680015235"><span class="annot"><span class="annottext">Text -&gt; Either String Vp9FramerateConversionAlgorithm
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680015244"><span class="annot"><span class="annottext">Text -&gt; Either String Vp9FramerateConversionAlgorithm
 (Text -&gt; Either String Vp9FramerateConversionAlgorithm)
 -&gt; FromText Vp9FramerateConversionAlgorithm
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Vp9FramerateConversionAlgorithm
 $cfromText :: Text -&gt; Either String Vp9FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680015232"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680015241"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; Text
 (Vp9FramerateConversionAlgorithm -&gt; Text)
 -&gt; ToText Vp9FramerateConversionAlgorithm
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Vp9FramerateConversionAlgorithm -&gt; Text
 $ctoText :: Vp9FramerateConversionAlgorithm -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680015229"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680015238"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; ByteString
 (Vp9FramerateConversionAlgorithm -&gt; ByteString)
 -&gt; ToByteString Vp9FramerateConversionAlgorithm
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Vp9FramerateConversionAlgorithm -&gt; ByteString
 $ctoBS :: Vp9FramerateConversionAlgorithm -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680015226"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680015235"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; ByteStringBuilder
 (Vp9FramerateConversionAlgorithm -&gt; ByteStringBuilder)
 -&gt; ToLog Vp9FramerateConversionAlgorithm
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Vp9FramerateConversionAlgorithm -&gt; ByteStringBuilder
 $cbuild :: Vp9FramerateConversionAlgorithm -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680015223"><span class="annot"><span class="annottext">HeaderName -&gt; Vp9FramerateConversionAlgorithm -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680015232"><span class="annot"><span class="annottext">HeaderName -&gt; Vp9FramerateConversionAlgorithm -&gt; [Header]
 (HeaderName -&gt; Vp9FramerateConversionAlgorithm -&gt; [Header])
 -&gt; ToHeader Vp9FramerateConversionAlgorithm
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Vp9FramerateConversionAlgorithm -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Vp9FramerateConversionAlgorithm -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680015220"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680015229"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; QueryString
 (Vp9FramerateConversionAlgorithm -&gt; QueryString)
 -&gt; ToQuery Vp9FramerateConversionAlgorithm
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Vp9FramerateConversionAlgorithm -&gt; QueryString
 $ctoQuery :: Vp9FramerateConversionAlgorithm -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680015215"><span id="local-6989586621680015217"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp9FramerateConversionAlgorithm]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680015224"><span id="local-6989586621680015226"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp9FramerateConversionAlgorithm]
 Value -&gt; Parser Vp9FramerateConversionAlgorithm
 (Value -&gt; Parser Vp9FramerateConversionAlgorithm)
 -&gt; (Value -&gt; Parser [Vp9FramerateConversionAlgorithm])
@@ -267,7 +267,7 @@ $cparseJSONList :: Value -&gt; Parser [Vp9FramerateConversionAlgorithm]
 parseJSON :: Value -&gt; Parser Vp9FramerateConversionAlgorithm
 $cparseJSON :: Value -&gt; Parser Vp9FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680015210"><span id="local-6989586621680015212"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp9FramerateConversionAlgorithm]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680015219"><span id="local-6989586621680015221"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp9FramerateConversionAlgorithm]
 FromJSONKeyFunction Vp9FramerateConversionAlgorithm
 FromJSONKeyFunction Vp9FramerateConversionAlgorithm
 -&gt; FromJSONKeyFunction [Vp9FramerateConversionAlgorithm]
@@ -279,7 +279,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Vp9FramerateConversionAlgorithm]
 fromJSONKey :: FromJSONKeyFunction Vp9FramerateConversionAlgorithm
 $cfromJSONKey :: FromJSONKeyFunction Vp9FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680015201"><span id="local-6989586621680015203"><span id="local-6989586621680015205"><span id="local-6989586621680015207"><span class="annot"><span class="annottext">[Vp9FramerateConversionAlgorithm] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680015210"><span id="local-6989586621680015212"><span id="local-6989586621680015214"><span id="local-6989586621680015216"><span class="annot"><span class="annottext">[Vp9FramerateConversionAlgorithm] -&gt; Encoding
 [Vp9FramerateConversionAlgorithm] -&gt; Value
 Vp9FramerateConversionAlgorithm -&gt; Encoding
 Vp9FramerateConversionAlgorithm -&gt; Value
@@ -303,7 +303,7 @@ $ctoEncoding :: Vp9FramerateConversionAlgorithm -&gt; Encoding
 toJSON :: Vp9FramerateConversionAlgorithm -&gt; Value
 $ctoJSON :: Vp9FramerateConversionAlgorithm -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621680015196"><span id="local-6989586621680015198"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp9FramerateConversionAlgorithm]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680015205"><span id="local-6989586621680015207"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp9FramerateConversionAlgorithm]
 ToJSONKeyFunction Vp9FramerateConversionAlgorithm
 ToJSONKeyFunction Vp9FramerateConversionAlgorithm
 -&gt; ToJSONKeyFunction [Vp9FramerateConversionAlgorithm]
@@ -315,14 +315,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Vp9FramerateConversionAlgorithm]
 toJSONKey :: ToJSONKeyFunction Vp9FramerateConversionAlgorithm
 $ctoJSONKey :: ToJSONKeyFunction Vp9FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621680015193"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp9FramerateConversionAlgorithm
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680015202"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp9FramerateConversionAlgorithm
 ([Node] -&gt; Either String Vp9FramerateConversionAlgorithm)
 -&gt; FromXML Vp9FramerateConversionAlgorithm
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Vp9FramerateConversionAlgorithm
 $cparseXML :: [Node] -&gt; Either String Vp9FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621680015190"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680015199"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; XML
 (Vp9FramerateConversionAlgorithm -&gt; XML)
 -&gt; ToXML Vp9FramerateConversionAlgorithm
 forall a. (a -&gt; XML) -&gt; ToXML a

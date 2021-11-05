@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Specifies a cross-origin access rule for an Amazon S3 bucket.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCORSRule' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679539037"><span id="local-6989586621679539038"></span></span><span class="hs-keyword">data</span><span> </span><span id="CORSRule"><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-var">CORSRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CORSRule%27"><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-var">CORSRule'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679539046"><span id="local-6989586621679539047"></span></span><span class="hs-keyword">data</span><span> </span><span id="CORSRule"><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-var">CORSRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CORSRule%27"><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-var">CORSRule'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time in seconds that your browser is to cache the preflight response</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- for the specified resource.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AmaxAgeSeconds%3ACORSRule%27"><span class="annot"><span class="annottext">CORSRule -&gt; Maybe Int
@@ -56,7 +56,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AallowedOrigins%3ACORSRule%27"><span class="annot"><span class="annottext">CORSRule -&gt; [Text]
 </span><a href="Network.AWS.S3.Types.CORSRule.html#%24sel%3AallowedOrigins%3ACORSRule%27"><span class="hs-identifier hs-var hs-var">allowedOrigins</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679539026"><span id="local-6989586621679539028"><span class="annot"><span class="annottext">CORSRule -&gt; CORSRule -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679539035"><span id="local-6989586621679539037"><span class="annot"><span class="annottext">CORSRule -&gt; CORSRule -&gt; Bool
 (CORSRule -&gt; CORSRule -&gt; Bool)
 -&gt; (CORSRule -&gt; CORSRule -&gt; Bool) -&gt; Eq CORSRule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CORSRule -&gt; CORSRule -&gt; Bool
 == :: CORSRule -&gt; CORSRule -&gt; Bool
 $c== :: CORSRule -&gt; CORSRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539017"><span id="local-6989586621679539019"><span id="local-6989586621679539021"><span id="local-6989586621679539023"><span class="annot"><span class="annottext">ReadPrec [CORSRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539026"><span id="local-6989586621679539028"><span id="local-6989586621679539030"><span id="local-6989586621679539032"><span class="annot"><span class="annottext">ReadPrec [CORSRule]
 ReadPrec CORSRule
 Int -&gt; ReadS CORSRule
 ReadS [CORSRule]
@@ -84,7 +84,7 @@ readList :: ReadS [CORSRule]
 $creadList :: ReadS [CORSRule]
 readsPrec :: Int -&gt; ReadS CORSRule
 $creadsPrec :: Int -&gt; ReadS CORSRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539010"><span id="local-6989586621679539012"><span id="local-6989586621679539014"><span class="annot"><span class="annottext">Int -&gt; CORSRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539019"><span id="local-6989586621679539021"><span id="local-6989586621679539023"><span class="annot"><span class="annottext">Int -&gt; CORSRule -&gt; ShowS
 [CORSRule] -&gt; ShowS
 CORSRule -&gt; String
 (Int -&gt; CORSRule -&gt; ShowS)
@@ -181,16 +181,16 @@ forall a. Monoid a =&gt; a
 -&gt; (CORSRule -&gt; Maybe Int -&gt; CORSRule)
 -&gt; Lens CORSRule CORSRule (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539001"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539010"><span class="annot"><span class="annottext">Maybe Int
 maxAgeSeconds :: Maybe Int
 $sel:maxAgeSeconds:CORSRule' :: CORSRule -&gt; Maybe Int
-</span><a href="#local-6989586621679539001"><span class="hs-identifier hs-var hs-var">maxAgeSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679539001"><span class="hs-identifier hs-var">maxAgeSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539000"><span class="annot"><span class="annottext">s :: CORSRule
-</span><a href="#local-6989586621679539000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538999"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679538999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSRule
-</span><a href="#local-6989586621679539000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAgeSeconds:CORSRule' :: Maybe Int
+</span><a href="#local-6989586621679539010"><span class="hs-identifier hs-var hs-var">maxAgeSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679539010"><span class="hs-identifier hs-var">maxAgeSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539009"><span class="annot"><span class="annottext">s :: CORSRule
+</span><a href="#local-6989586621679539009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539008"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679539008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSRule
+</span><a href="#local-6989586621679539009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAgeSeconds:CORSRule' :: Maybe Int
 </span><a href="Network.AWS.S3.Types.CORSRule.html#%24sel%3AmaxAgeSeconds%3ACORSRule%27"><span class="hs-identifier hs-var">maxAgeSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679538999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679539008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | Headers that are specified in the @Access-Control-Request-Headers@</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- header. These headers are allowed in a preflight OPTIONS request. In</span><span>
@@ -202,16 +202,16 @@ $sel:maxAgeSeconds:CORSRule' :: CORSRule -&gt; Maybe Int
 -&gt; (CORSRule -&gt; Maybe [Text] -&gt; CORSRule)
 -&gt; Lens CORSRule CORSRule (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538997"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539006"><span class="annot"><span class="annottext">Maybe [Text]
 allowedHeaders :: Maybe [Text]
 $sel:allowedHeaders:CORSRule' :: CORSRule -&gt; Maybe [Text]
-</span><a href="#local-6989586621679538997"><span class="hs-identifier hs-var hs-var">allowedHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679538997"><span class="hs-identifier hs-var">allowedHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538996"><span class="annot"><span class="annottext">s :: CORSRule
-</span><a href="#local-6989586621679538996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538995"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679538995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSRule
-</span><a href="#local-6989586621679538996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedHeaders:CORSRule' :: Maybe [Text]
+</span><a href="#local-6989586621679539006"><span class="hs-identifier hs-var hs-var">allowedHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679539006"><span class="hs-identifier hs-var">allowedHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539005"><span class="annot"><span class="annottext">s :: CORSRule
+</span><a href="#local-6989586621679539005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539004"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679539004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSRule
+</span><a href="#local-6989586621679539005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedHeaders:CORSRule' :: Maybe [Text]
 </span><a href="Network.AWS.S3.Types.CORSRule.html#%24sel%3AallowedHeaders%3ACORSRule%27"><span class="hs-identifier hs-var">allowedHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679538995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CORSRule -&gt; f CORSRule)
+</span><a href="#local-6989586621679539004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CORSRule -&gt; f CORSRule)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -236,16 +236,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CORSRule -&gt; Maybe [Text] -&gt; CORSRule)
 -&gt; Lens CORSRule CORSRule (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538990"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538999"><span class="annot"><span class="annottext">Maybe [Text]
 exposeHeaders :: Maybe [Text]
 $sel:exposeHeaders:CORSRule' :: CORSRule -&gt; Maybe [Text]
-</span><a href="#local-6989586621679538990"><span class="hs-identifier hs-var hs-var">exposeHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679538990"><span class="hs-identifier hs-var">exposeHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538989"><span class="annot"><span class="annottext">s :: CORSRule
-</span><a href="#local-6989586621679538989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538988"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679538988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSRule
-</span><a href="#local-6989586621679538989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exposeHeaders:CORSRule' :: Maybe [Text]
+</span><a href="#local-6989586621679538999"><span class="hs-identifier hs-var hs-var">exposeHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679538999"><span class="hs-identifier hs-var">exposeHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538998"><span class="annot"><span class="annottext">s :: CORSRule
+</span><a href="#local-6989586621679538998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538997"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679538997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSRule
+</span><a href="#local-6989586621679538998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exposeHeaders:CORSRule' :: Maybe [Text]
 </span><a href="Network.AWS.S3.Types.CORSRule.html#%24sel%3AexposeHeaders%3ACORSRule%27"><span class="hs-identifier hs-var">exposeHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679538988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CORSRule -&gt; f CORSRule)
+</span><a href="#local-6989586621679538997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CORSRule -&gt; f CORSRule)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -269,16 +269,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CORSRule -&gt; Maybe Text -&gt; CORSRule)
 -&gt; Lens CORSRule CORSRule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538986"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538995"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:CORSRule' :: CORSRule -&gt; Maybe Text
-</span><a href="#local-6989586621679538986"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679538986"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538985"><span class="annot"><span class="annottext">s :: CORSRule
-</span><a href="#local-6989586621679538985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538984"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679538984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSRule
-</span><a href="#local-6989586621679538985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CORSRule' :: Maybe Text
+</span><a href="#local-6989586621679538995"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679538995"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538994"><span class="annot"><span class="annottext">s :: CORSRule
+</span><a href="#local-6989586621679538994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538993"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679538993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSRule
+</span><a href="#local-6989586621679538994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CORSRule' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.CORSRule.html#%24sel%3Aid%3ACORSRule%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679538984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679538993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | An HTTP method that you allow the origin to execute. Valid values are</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- @GET@, @PUT@, @HEAD@, @POST@, and @DELETE@.</span><span>
@@ -288,16 +288,16 @@ $sel:id:CORSRule' :: CORSRule -&gt; Maybe Text
 -&gt; (CORSRule -&gt; [Text] -&gt; CORSRule)
 -&gt; Lens CORSRule CORSRule [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538982"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538991"><span class="annot"><span class="annottext">[Text]
 allowedMethods :: [Text]
 $sel:allowedMethods:CORSRule' :: CORSRule -&gt; [Text]
-</span><a href="#local-6989586621679538982"><span class="hs-identifier hs-var hs-var">allowedMethods</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679538982"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538981"><span class="annot"><span class="annottext">s :: CORSRule
-</span><a href="#local-6989586621679538981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538980"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679538980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSRule
-</span><a href="#local-6989586621679538981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedMethods:CORSRule' :: [Text]
+</span><a href="#local-6989586621679538991"><span class="hs-identifier hs-var hs-var">allowedMethods</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679538991"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538990"><span class="annot"><span class="annottext">s :: CORSRule
+</span><a href="#local-6989586621679538990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538989"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679538989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSRule
+</span><a href="#local-6989586621679538990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedMethods:CORSRule' :: [Text]
 </span><a href="Network.AWS.S3.Types.CORSRule.html#%24sel%3AallowedMethods%3ACORSRule%27"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679538980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; CORSRule -&gt; f CORSRule)
+</span><a href="#local-6989586621679538989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; CORSRule -&gt; f CORSRule)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; CORSRule
@@ -315,16 +315,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CORSRule -&gt; [Text] -&gt; CORSRule)
 -&gt; Lens CORSRule CORSRule [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538978"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538987"><span class="annot"><span class="annottext">[Text]
 allowedOrigins :: [Text]
 $sel:allowedOrigins:CORSRule' :: CORSRule -&gt; [Text]
-</span><a href="#local-6989586621679538978"><span class="hs-identifier hs-var hs-var">allowedOrigins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679538978"><span class="hs-identifier hs-var">allowedOrigins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538977"><span class="annot"><span class="annottext">s :: CORSRule
-</span><a href="#local-6989586621679538977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538976"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679538976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSRule
-</span><a href="#local-6989586621679538977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedOrigins:CORSRule' :: [Text]
+</span><a href="#local-6989586621679538987"><span class="hs-identifier hs-var hs-var">allowedOrigins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679538987"><span class="hs-identifier hs-var">allowedOrigins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538986"><span class="annot"><span class="annottext">s :: CORSRule
+</span><a href="#local-6989586621679538986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538985"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679538985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSRule
+</span><a href="#local-6989586621679538986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedOrigins:CORSRule' :: [Text]
 </span><a href="Network.AWS.S3.Types.CORSRule.html#%24sel%3AallowedOrigins%3ACORSRule%27"><span class="hs-identifier hs-var">allowedOrigins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679538976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; CORSRule -&gt; f CORSRule)
+</span><a href="#local-6989586621679538985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; CORSRule -&gt; f CORSRule)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; CORSRule
@@ -335,9 +335,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679538973"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CORSRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679538971"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679538971"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679538982"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CORSRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679538980"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679538980"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe [Text]
 -&gt; Maybe [Text]
@@ -360,7 +360,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
       -&gt; Maybe [Text] -&gt; Maybe Text -&gt; [Text] -&gt; [Text] -&gt; CORSRule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679538971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679538980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxAgeSeconds&quot;</span></span><span class="hs-special">)</span><span>
@@ -381,7 +381,7 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowedHeader&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679538971"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679538980"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Either
   String (Maybe [Text] -&gt; Maybe Text -&gt; [Text] -&gt; [Text] -&gt; CORSRule)
 -&gt; Either String (Maybe [Text])
@@ -396,13 +396,13 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExposeHeader&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679538971"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679538980"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; [Text] -&gt; [Text] -&gt; CORSRule)
 -&gt; Either String (Maybe Text)
 -&gt; Either String ([Text] -&gt; [Text] -&gt; CORSRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679538971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679538980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ID&quot;</span></span><span class="hs-special">)</span><span>
@@ -413,7 +413,7 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowedMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679538971"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679538980"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Either String ([Text] -&gt; CORSRule)
 -&gt; Either String [Text] -&gt; Either String CORSRule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -421,15 +421,15 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowedOrigin&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679538971"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679538980"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679538963"><span id="local-6989586621679538965"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679538972"><span id="local-6989586621679538974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679538960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679538969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679538956"><span class="annot"><span class="annottext">toXML :: CORSRule -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538949"><span id="local-6989586621679538950"><span id="local-6989586621679538951"><span id="local-6989586621679538952"><span id="local-6989586621679538953"><span id="local-6989586621679538954"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679538965"><span class="annot"><span class="annottext">toXML :: CORSRule -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule%27"><span class="hs-identifier hs-type">CORSRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538958"><span id="local-6989586621679538959"><span id="local-6989586621679538960"><span id="local-6989586621679538961"><span id="local-6989586621679538962"><span id="local-6989586621679538963"><span class="annot"><span class="annottext">[Text]
 Maybe Int
 Maybe [Text]
 Maybe Text
@@ -445,7 +445,7 @@ $sel:id:CORSRule' :: CORSRule -&gt; Maybe Text
 $sel:exposeHeaders:CORSRule' :: CORSRule -&gt; Maybe [Text]
 $sel:allowedHeaders:CORSRule' :: CORSRule -&gt; Maybe [Text]
 $sel:maxAgeSeconds:CORSRule' :: CORSRule -&gt; Maybe Int
-</span><a href="#local-6989586621679538949"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679538958"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -453,7 +453,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;MaxAgeSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679538954"><span class="hs-identifier hs-var">maxAgeSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679538963"><span class="hs-identifier hs-var">maxAgeSeconds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">Maybe XML -&gt; XML
 forall a. ToXML a =&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXML</span></span><span>
@@ -464,7 +464,7 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; XML) -&gt; Maybe [Text] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679538953"><span class="hs-identifier hs-var">allowedHeaders</span></a></span><span>
+</span><a href="#local-6989586621679538962"><span class="hs-identifier hs-var">allowedHeaders</span></a></span><span>
 </span><span id="line-149"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Maybe XML -&gt; XML
 forall a. ToXML a =&gt; a -&gt; XML
@@ -476,22 +476,22 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; XML) -&gt; Maybe [Text] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679538952"><span class="hs-identifier hs-var">exposeHeaders</span></a></span><span>
+</span><a href="#local-6989586621679538961"><span class="hs-identifier hs-var">exposeHeaders</span></a></span><span>
 </span><span id="line-153"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ID&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679538951"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679538960"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Name -&gt; [Text] -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;AllowedMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679538950"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679538959"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">Name -&gt; [Text] -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;AllowedOrigin&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679538949"><span class="hs-identifier hs-var">allowedOrigins</span></a></span><span>
+</span><a href="#local-6989586621679538958"><span class="hs-identifier hs-var">allowedOrigins</span></a></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span></pre></body></html>

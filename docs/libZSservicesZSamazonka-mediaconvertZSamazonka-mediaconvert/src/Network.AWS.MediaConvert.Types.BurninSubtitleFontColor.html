@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-comment">-- | Specify the color of the burned-in captions text. Leave Font color</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- (FontColor) blank and set Style passthrough (StylePassthrough) to</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- enabled to use the font color data from your input captions, if present.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679947147"><span id="local-6989586621679947148"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BurninSubtitleFontColor"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleFontColor.html#BurninSubtitleFontColor"><span class="hs-identifier hs-var">BurninSubtitleFontColor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BurninSubtitleFontColor%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleFontColor.html#BurninSubtitleFontColor%27"><span class="hs-identifier hs-var">BurninSubtitleFontColor'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679947156"><span id="local-6989586621679947157"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BurninSubtitleFontColor"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleFontColor.html#BurninSubtitleFontColor"><span class="hs-identifier hs-var">BurninSubtitleFontColor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BurninSubtitleFontColor%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleFontColor.html#BurninSubtitleFontColor%27"><span class="hs-identifier hs-var">BurninSubtitleFontColor'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBurninSubtitleFontColor"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.BurninSubtitleFontColor.html#fromBurninSubtitleFontColor"><span class="hs-identifier hs-var hs-var">fromBurninSubtitleFontColor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947139"><span id="local-6989586621679947141"><span id="local-6989586621679947143"><span class="annot"><span class="annottext">Int -&gt; BurninSubtitleFontColor -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947148"><span id="local-6989586621679947150"><span id="local-6989586621679947152"><span class="annot"><span class="annottext">Int -&gt; BurninSubtitleFontColor -&gt; ShowS
 [BurninSubtitleFontColor] -&gt; ShowS
 BurninSubtitleFontColor -&gt; String
 (Int -&gt; BurninSubtitleFontColor -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: BurninSubtitleFontColor -&gt; String
 showsPrec :: Int -&gt; BurninSubtitleFontColor -&gt; ShowS
 $cshowsPrec :: Int -&gt; BurninSubtitleFontColor -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679947130"><span id="local-6989586621679947132"><span id="local-6989586621679947134"><span id="local-6989586621679947136"><span class="annot"><span class="annottext">ReadPrec [BurninSubtitleFontColor]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679947139"><span id="local-6989586621679947141"><span id="local-6989586621679947143"><span id="local-6989586621679947145"><span class="annot"><span class="annottext">ReadPrec [BurninSubtitleFontColor]
 ReadPrec BurninSubtitleFontColor
 Int -&gt; ReadS BurninSubtitleFontColor
 ReadS [BurninSubtitleFontColor]
@@ -81,7 +81,7 @@ $creadList :: ReadS [BurninSubtitleFontColor]
 readsPrec :: Int -&gt; ReadS BurninSubtitleFontColor
 $creadsPrec :: Int -&gt; ReadS BurninSubtitleFontColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679947125"><span id="local-6989586621679947127"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; BurninSubtitleFontColor -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679947134"><span id="local-6989586621679947136"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; BurninSubtitleFontColor -&gt; Bool
 (BurninSubtitleFontColor -&gt; BurninSubtitleFontColor -&gt; Bool)
 -&gt; (BurninSubtitleFontColor -&gt; BurninSubtitleFontColor -&gt; Bool)
 -&gt; Eq BurninSubtitleFontColor
@@ -91,7 +91,7 @@ $c/= :: BurninSubtitleFontColor -&gt; BurninSubtitleFontColor -&gt; Bool
 == :: BurninSubtitleFontColor -&gt; BurninSubtitleFontColor -&gt; Bool
 $c== :: BurninSubtitleFontColor -&gt; BurninSubtitleFontColor -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679947109"><span id="local-6989586621679947111"><span id="local-6989586621679947113"><span id="local-6989586621679947115"><span id="local-6989586621679947117"><span id="local-6989586621679947119"><span id="local-6989586621679947121"><span class="annot"><span class="annottext">Eq BurninSubtitleFontColor
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679947118"><span id="local-6989586621679947120"><span id="local-6989586621679947122"><span id="local-6989586621679947124"><span id="local-6989586621679947126"><span id="local-6989586621679947128"><span id="local-6989586621679947130"><span class="annot"><span class="annottext">Eq BurninSubtitleFontColor
 Eq BurninSubtitleFontColor
 -&gt; (BurninSubtitleFontColor -&gt; BurninSubtitleFontColor -&gt; Ordering)
 -&gt; (BurninSubtitleFontColor -&gt; BurninSubtitleFontColor -&gt; Bool)
@@ -151,7 +151,7 @@ $cfrom :: forall x. BurninSubtitleFontColor -&gt; Rep BurninSubtitleFontColor x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947101"><span id="local-6989586621679947103"><span class="annot"><span class="annottext">Int -&gt; BurninSubtitleFontColor -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947110"><span id="local-6989586621679947112"><span class="annot"><span class="annottext">Int -&gt; BurninSubtitleFontColor -&gt; Int
 BurninSubtitleFontColor -&gt; Int
 (Int -&gt; BurninSubtitleFontColor -&gt; Int)
 -&gt; (BurninSubtitleFontColor -&gt; Int)
@@ -162,54 +162,54 @@ $chash :: BurninSubtitleFontColor -&gt; Int
 hashWithSalt :: Int -&gt; BurninSubtitleFontColor -&gt; Int
 $chashWithSalt :: Int -&gt; BurninSubtitleFontColor -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679947098"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679947107"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; ()
 (BurninSubtitleFontColor -&gt; ()) -&gt; NFData BurninSubtitleFontColor
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BurninSubtitleFontColor -&gt; ()
 $crnf :: BurninSubtitleFontColor -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679947095"><span class="annot"><span class="annottext">Text -&gt; Either String BurninSubtitleFontColor
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679947104"><span class="annot"><span class="annottext">Text -&gt; Either String BurninSubtitleFontColor
 (Text -&gt; Either String BurninSubtitleFontColor)
 -&gt; FromText BurninSubtitleFontColor
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BurninSubtitleFontColor
 $cfromText :: Text -&gt; Either String BurninSubtitleFontColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679947092"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679947101"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; Text
 (BurninSubtitleFontColor -&gt; Text) -&gt; ToText BurninSubtitleFontColor
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BurninSubtitleFontColor -&gt; Text
 $ctoText :: BurninSubtitleFontColor -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679947089"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679947098"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; ByteString
 (BurninSubtitleFontColor -&gt; ByteString)
 -&gt; ToByteString BurninSubtitleFontColor
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BurninSubtitleFontColor -&gt; ByteString
 $ctoBS :: BurninSubtitleFontColor -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679947086"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679947095"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; ByteStringBuilder
 (BurninSubtitleFontColor -&gt; ByteStringBuilder)
 -&gt; ToLog BurninSubtitleFontColor
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BurninSubtitleFontColor -&gt; ByteStringBuilder
 $cbuild :: BurninSubtitleFontColor -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679947083"><span class="annot"><span class="annottext">HeaderName -&gt; BurninSubtitleFontColor -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679947092"><span class="annot"><span class="annottext">HeaderName -&gt; BurninSubtitleFontColor -&gt; [Header]
 (HeaderName -&gt; BurninSubtitleFontColor -&gt; [Header])
 -&gt; ToHeader BurninSubtitleFontColor
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BurninSubtitleFontColor -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BurninSubtitleFontColor -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679947080"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679947089"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; QueryString
 (BurninSubtitleFontColor -&gt; QueryString)
 -&gt; ToQuery BurninSubtitleFontColor
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BurninSubtitleFontColor -&gt; QueryString
 $ctoQuery :: BurninSubtitleFontColor -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679947075"><span id="local-6989586621679947077"><span class="annot"><span class="annottext">Value -&gt; Parser [BurninSubtitleFontColor]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679947084"><span id="local-6989586621679947086"><span class="annot"><span class="annottext">Value -&gt; Parser [BurninSubtitleFontColor]
 Value -&gt; Parser BurninSubtitleFontColor
 (Value -&gt; Parser BurninSubtitleFontColor)
 -&gt; (Value -&gt; Parser [BurninSubtitleFontColor])
@@ -221,7 +221,7 @@ $cparseJSONList :: Value -&gt; Parser [BurninSubtitleFontColor]
 parseJSON :: Value -&gt; Parser BurninSubtitleFontColor
 $cparseJSON :: Value -&gt; Parser BurninSubtitleFontColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679947070"><span id="local-6989586621679947072"><span class="annot"><span class="annottext">FromJSONKeyFunction [BurninSubtitleFontColor]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679947079"><span id="local-6989586621679947081"><span class="annot"><span class="annottext">FromJSONKeyFunction [BurninSubtitleFontColor]
 FromJSONKeyFunction BurninSubtitleFontColor
 FromJSONKeyFunction BurninSubtitleFontColor
 -&gt; FromJSONKeyFunction [BurninSubtitleFontColor]
@@ -233,7 +233,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BurninSubtitleFontColor]
 fromJSONKey :: FromJSONKeyFunction BurninSubtitleFontColor
 $cfromJSONKey :: FromJSONKeyFunction BurninSubtitleFontColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679947061"><span id="local-6989586621679947063"><span id="local-6989586621679947065"><span id="local-6989586621679947067"><span class="annot"><span class="annottext">[BurninSubtitleFontColor] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679947070"><span id="local-6989586621679947072"><span id="local-6989586621679947074"><span id="local-6989586621679947076"><span class="annot"><span class="annottext">[BurninSubtitleFontColor] -&gt; Encoding
 [BurninSubtitleFontColor] -&gt; Value
 BurninSubtitleFontColor -&gt; Encoding
 BurninSubtitleFontColor -&gt; Value
@@ -257,7 +257,7 @@ $ctoEncoding :: BurninSubtitleFontColor -&gt; Encoding
 toJSON :: BurninSubtitleFontColor -&gt; Value
 $ctoJSON :: BurninSubtitleFontColor -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679947056"><span id="local-6989586621679947058"><span class="annot"><span class="annottext">ToJSONKeyFunction [BurninSubtitleFontColor]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679947065"><span id="local-6989586621679947067"><span class="annot"><span class="annottext">ToJSONKeyFunction [BurninSubtitleFontColor]
 ToJSONKeyFunction BurninSubtitleFontColor
 ToJSONKeyFunction BurninSubtitleFontColor
 -&gt; ToJSONKeyFunction [BurninSubtitleFontColor]
@@ -269,14 +269,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BurninSubtitleFontColor]
 toJSONKey :: ToJSONKeyFunction BurninSubtitleFontColor
 $ctoJSONKey :: ToJSONKeyFunction BurninSubtitleFontColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679947053"><span class="annot"><span class="annottext">[Node] -&gt; Either String BurninSubtitleFontColor
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679947062"><span class="annot"><span class="annottext">[Node] -&gt; Either String BurninSubtitleFontColor
 ([Node] -&gt; Either String BurninSubtitleFontColor)
 -&gt; FromXML BurninSubtitleFontColor
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BurninSubtitleFontColor
 $cparseXML :: [Node] -&gt; Either String BurninSubtitleFontColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679947050"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679947059"><span class="annot"><span class="annottext">BurninSubtitleFontColor -&gt; XML
 (BurninSubtitleFontColor -&gt; XML) -&gt; ToXML BurninSubtitleFontColor
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BurninSubtitleFontColor -&gt; XML

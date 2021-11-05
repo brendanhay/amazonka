@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a filter for Session Manager information.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSessionFilter' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679815396"><span id="local-6989586621679815397"></span></span><span class="hs-keyword">data</span><span> </span><span id="SessionFilter"><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter"><span class="hs-identifier hs-var">SessionFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SessionFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter%27"><span class="hs-identifier hs-var">SessionFilter'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679815405"><span id="local-6989586621679815406"></span></span><span class="hs-keyword">data</span><span> </span><span id="SessionFilter"><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter"><span class="hs-identifier hs-var">SessionFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SessionFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter%27"><span class="hs-identifier hs-var">SessionFilter'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the filter.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Akey%3ASessionFilter%27"><span class="annot"><span class="annottext">SessionFilter -&gt; SessionFilterKey
 </span><a href="Network.AWS.SSM.Types.SessionFilter.html#%24sel%3Akey%3ASessionFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilterKey.html#SessionFilterKey"><span class="hs-identifier hs-type">SessionFilterKey</span></a></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Avalue%3ASessionFilter%27"><span class="annot"><span class="annottext">SessionFilter -&gt; Text
 </span><a href="Network.AWS.SSM.Types.SessionFilter.html#%24sel%3Avalue%3ASessionFilter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679815389"><span id="local-6989586621679815391"><span class="annot"><span class="annottext">SessionFilter -&gt; SessionFilter -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679815398"><span id="local-6989586621679815400"><span class="annot"><span class="annottext">SessionFilter -&gt; SessionFilter -&gt; Bool
 (SessionFilter -&gt; SessionFilter -&gt; Bool)
 -&gt; (SessionFilter -&gt; SessionFilter -&gt; Bool) -&gt; Eq SessionFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SessionFilter -&gt; SessionFilter -&gt; Bool
 == :: SessionFilter -&gt; SessionFilter -&gt; Bool
 $c== :: SessionFilter -&gt; SessionFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815380"><span id="local-6989586621679815382"><span id="local-6989586621679815384"><span id="local-6989586621679815386"><span class="annot"><span class="annottext">ReadPrec [SessionFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815389"><span id="local-6989586621679815391"><span id="local-6989586621679815393"><span id="local-6989586621679815395"><span class="annot"><span class="annottext">ReadPrec [SessionFilter]
 ReadPrec SessionFilter
 Int -&gt; ReadS SessionFilter
 ReadS [SessionFilter]
@@ -94,7 +94,7 @@ readList :: ReadS [SessionFilter]
 $creadList :: ReadS [SessionFilter]
 readsPrec :: Int -&gt; ReadS SessionFilter
 $creadsPrec :: Int -&gt; ReadS SessionFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815373"><span id="local-6989586621679815375"><span id="local-6989586621679815377"><span class="annot"><span class="annottext">Int -&gt; SessionFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815382"><span id="local-6989586621679815384"><span id="local-6989586621679815386"><span class="annot"><span class="annottext">Int -&gt; SessionFilter -&gt; ShowS
 [SessionFilter] -&gt; ShowS
 SessionFilter -&gt; String
 (Int -&gt; SessionFilter -&gt; ShowS)
@@ -169,15 +169,15 @@ $cfrom :: forall x. SessionFilter -&gt; Rep SessionFilter x
 </span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter"><span class="hs-identifier hs-type">SessionFilter</span></a></span><span>
 </span><span id="line-117"></span><span id="newSessionFilter"><span class="annot"><span class="annottext">newSessionFilter :: SessionFilterKey -&gt; Text -&gt; SessionFilter
-</span><a href="Network.AWS.SSM.Types.SessionFilter.html#newSessionFilter"><span class="hs-identifier hs-var hs-var">newSessionFilter</span></a></span></span><span> </span><span id="local-6989586621679815367"><span class="annot"><span class="annottext">SessionFilterKey
-</span><a href="#local-6989586621679815367"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679815366"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679815366"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.Types.SessionFilter.html#newSessionFilter"><span class="hs-identifier hs-var hs-var">newSessionFilter</span></a></span></span><span> </span><span id="local-6989586621679815376"><span class="annot"><span class="annottext">SessionFilterKey
+</span><a href="#local-6989586621679815376"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679815375"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679815375"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">SessionFilter' :: SessionFilterKey -&gt; Text -&gt; SessionFilter
 </span><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter%27"><span class="hs-identifier hs-type">SessionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:SessionFilter' :: SessionFilterKey
 </span><a href="Network.AWS.SSM.Types.SessionFilter.html#%24sel%3Akey%3ASessionFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SessionFilterKey
-</span><a href="#local-6989586621679815367"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:SessionFilter' :: Text
+</span><a href="#local-6989586621679815376"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:SessionFilter' :: Text
 </span><a href="Network.AWS.SSM.Types.SessionFilter.html#%24sel%3Avalue%3ASessionFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679815366"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679815375"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The name of the filter.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#sessionFilter_key"><span class="hs-identifier hs-type">sessionFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter"><span class="hs-identifier hs-type">SessionFilter</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilterKey.html#SessionFilterKey"><span class="hs-identifier hs-type">SessionFilterKey</span></a></span><span>
@@ -188,16 +188,16 @@ $cfrom :: forall x. SessionFilter -&gt; Rep SessionFilter x
 -&gt; Lens
      SessionFilter SessionFilter SessionFilterKey SessionFilterKey
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter%27"><span class="hs-identifier hs-type">SessionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815362"><span class="annot"><span class="annottext">SessionFilterKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter%27"><span class="hs-identifier hs-type">SessionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815371"><span class="annot"><span class="annottext">SessionFilterKey
 key :: SessionFilterKey
 $sel:key:SessionFilter' :: SessionFilter -&gt; SessionFilterKey
-</span><a href="#local-6989586621679815362"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SessionFilterKey
-</span><a href="#local-6989586621679815362"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815361"><span class="annot"><span class="annottext">s :: SessionFilter
-</span><a href="#local-6989586621679815361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter%27"><span class="hs-identifier hs-type">SessionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815360"><span class="annot"><span class="annottext">SessionFilterKey
-</span><a href="#local-6989586621679815360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SessionFilter
-</span><a href="#local-6989586621679815361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:SessionFilter' :: SessionFilterKey
+</span><a href="#local-6989586621679815371"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SessionFilterKey
+</span><a href="#local-6989586621679815371"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815370"><span class="annot"><span class="annottext">s :: SessionFilter
+</span><a href="#local-6989586621679815370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter%27"><span class="hs-identifier hs-type">SessionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815369"><span class="annot"><span class="annottext">SessionFilterKey
+</span><a href="#local-6989586621679815369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SessionFilter
+</span><a href="#local-6989586621679815370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:SessionFilter' :: SessionFilterKey
 </span><a href="Network.AWS.SSM.Types.SessionFilter.html#%24sel%3Akey%3ASessionFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SessionFilterKey
-</span><a href="#local-6989586621679815360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter"><span class="hs-identifier hs-type">SessionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter"><span class="hs-identifier hs-type">SessionFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The filter value. Valid values for each filter key are as follows:</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
@@ -237,30 +237,30 @@ $sel:key:SessionFilter' :: SessionFilter -&gt; SessionFilterKey
 -&gt; (SessionFilter -&gt; Text -&gt; SessionFilter)
 -&gt; Lens SessionFilter SessionFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter%27"><span class="hs-identifier hs-type">SessionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815358"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter%27"><span class="hs-identifier hs-type">SessionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815367"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:SessionFilter' :: SessionFilter -&gt; Text
-</span><a href="#local-6989586621679815358"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679815358"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815357"><span class="annot"><span class="annottext">s :: SessionFilter
-</span><a href="#local-6989586621679815357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter%27"><span class="hs-identifier hs-type">SessionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815356"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679815356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SessionFilter
-</span><a href="#local-6989586621679815357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:SessionFilter' :: Text
+</span><a href="#local-6989586621679815367"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679815367"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815366"><span class="annot"><span class="annottext">s :: SessionFilter
+</span><a href="#local-6989586621679815366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter%27"><span class="hs-identifier hs-type">SessionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815365"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679815365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SessionFilter
+</span><a href="#local-6989586621679815366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:SessionFilter' :: Text
 </span><a href="Network.AWS.SSM.Types.SessionFilter.html#%24sel%3Avalue%3ASessionFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679815356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter"><span class="hs-identifier hs-type">SessionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter"><span class="hs-identifier hs-type">SessionFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815352"><span id="local-6989586621679815354"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter"><span class="hs-identifier hs-type">SessionFilter</span></a></span></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815361"><span id="local-6989586621679815363"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter"><span class="hs-identifier hs-type">SessionFilter</span></a></span></span></span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter"><span class="hs-identifier hs-type">SessionFilter</span></a></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter"><span class="hs-identifier hs-type">SessionFilter</span></a></span></span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815341"><span id="local-6989586621679815343"><span id="local-6989586621679815345"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter"><span class="hs-identifier hs-type">SessionFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679815339"><span class="annot"><span class="annottext">toJSON :: SessionFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter%27"><span class="hs-identifier hs-type">SessionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815336"><span id="local-6989586621679815337"><span class="annot"><span class="annottext">Text
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815350"><span id="local-6989586621679815352"><span id="local-6989586621679815354"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter"><span class="hs-identifier hs-type">SessionFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679815348"><span class="annot"><span class="annottext">toJSON :: SessionFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionFilter.html#SessionFilter%27"><span class="hs-identifier hs-type">SessionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815345"><span id="local-6989586621679815346"><span class="annot"><span class="annottext">Text
 SessionFilterKey
 value :: Text
 key :: SessionFilterKey
 $sel:value:SessionFilter' :: SessionFilter -&gt; Text
 $sel:key:SessionFilter' :: SessionFilter -&gt; SessionFilterKey
-</span><a href="#local-6989586621679815336"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679815345"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -272,14 +272,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SessionFilterKey -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SessionFilterKey
-</span><a href="#local-6989586621679815337"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679815346"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679815336"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815345"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span></pre></body></html>

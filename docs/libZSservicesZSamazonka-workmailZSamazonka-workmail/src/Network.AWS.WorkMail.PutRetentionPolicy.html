@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.html"><span class="hs-identifier">Network.AWS.WorkMail.Types</span></a></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newPutRetentionPolicy' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679284171"><span id="local-6989586621679284172"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRetentionPolicy"><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-var">PutRetentionPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRetentionPolicy%27"><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-var">PutRetentionPolicy'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679284180"><span id="local-6989586621679284181"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRetentionPolicy"><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-var">PutRetentionPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRetentionPolicy%27"><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-var">PutRetentionPolicy'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The retention policy ID.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Aid%3APutRetentionPolicy%27"><span class="annot"><span class="annottext">PutRetentionPolicy -&gt; Maybe Text
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#%24sel%3Aid%3APutRetentionPolicy%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AfolderConfigurations%3APutRetentionPolicy%27"><span class="annot"><span class="annottext">PutRetentionPolicy -&gt; [FolderConfiguration]
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#%24sel%3AfolderConfigurations%3APutRetentionPolicy%27"><span class="hs-identifier hs-var hs-var">folderConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284161"><span id="local-6989586621679284163"><span class="annot"><span class="annottext">PutRetentionPolicy -&gt; PutRetentionPolicy -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284170"><span id="local-6989586621679284172"><span class="annot"><span class="annottext">PutRetentionPolicy -&gt; PutRetentionPolicy -&gt; Bool
 (PutRetentionPolicy -&gt; PutRetentionPolicy -&gt; Bool)
 -&gt; (PutRetentionPolicy -&gt; PutRetentionPolicy -&gt; Bool)
 -&gt; Eq PutRetentionPolicy
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutRetentionPolicy -&gt; PutRetentionPolicy -&gt; Bool
 == :: PutRetentionPolicy -&gt; PutRetentionPolicy -&gt; Bool
 $c== :: PutRetentionPolicy -&gt; PutRetentionPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284154"><span id="local-6989586621679284156"><span id="local-6989586621679284158"><span class="annot"><span class="annottext">Int -&gt; PutRetentionPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284163"><span id="local-6989586621679284165"><span id="local-6989586621679284167"><span class="annot"><span class="annottext">Int -&gt; PutRetentionPolicy -&gt; ShowS
 [PutRetentionPolicy] -&gt; ShowS
 PutRetentionPolicy -&gt; String
 (Int -&gt; PutRetentionPolicy -&gt; ShowS)
@@ -126,9 +126,9 @@ $cfrom :: forall x. PutRetentionPolicy -&gt; Rep PutRetentionPolicy x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span>
 </span><span id="line-90"></span><span id="newPutRetentionPolicy"><span class="annot"><span class="annottext">newPutRetentionPolicy :: Text -&gt; Text -&gt; PutRetentionPolicy
-</span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#newPutRetentionPolicy"><span class="hs-identifier hs-var hs-var">newPutRetentionPolicy</span></a></span></span><span> </span><span id="local-6989586621679284149"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284149"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span id="local-6989586621679284148"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284148"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#newPutRetentionPolicy"><span class="hs-identifier hs-var hs-var">newPutRetentionPolicy</span></a></span></span><span> </span><span id="local-6989586621679284158"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284158"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span id="local-6989586621679284157"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284157"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">PutRetentionPolicy' :: Maybe Text
 -&gt; Maybe (Sensitive Text)
 -&gt; Text
@@ -146,10 +146,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationId:PutRetentionPolicy' :: Text
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#%24sel%3AorganizationId%3APutRetentionPolicy%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284149"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284158"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:PutRetentionPolicy' :: Text
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#%24sel%3Aname%3APutRetentionPolicy%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284148"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284157"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:folderConfigurations:PutRetentionPolicy' :: [FolderConfiguration]
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#%24sel%3AfolderConfigurations%3APutRetentionPolicy%27"><span class="hs-identifier hs-var">folderConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[FolderConfiguration]
 forall a. Monoid a =&gt; a
@@ -165,16 +165,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      PutRetentionPolicy PutRetentionPolicy (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284145"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284154"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679284145"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679284145"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284144"><span class="annot"><span class="annottext">s :: PutRetentionPolicy
-</span><a href="#local-6989586621679284144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284143"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679284143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicy
-</span><a href="#local-6989586621679284144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PutRetentionPolicy' :: Maybe Text
+</span><a href="#local-6989586621679284154"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284154"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284153"><span class="annot"><span class="annottext">s :: PutRetentionPolicy
+</span><a href="#local-6989586621679284153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284152"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicy
+</span><a href="#local-6989586621679284153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PutRetentionPolicy' :: Maybe Text
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#%24sel%3Aid%3APutRetentionPolicy%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679284143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The retention policy description.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#putRetentionPolicy_description"><span class="hs-identifier hs-type">putRetentionPolicy_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -189,16 +189,16 @@ $sel:id:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Maybe Text
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284142"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284151"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 description :: Maybe (Sensitive Text)
 $sel:description:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679284142"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679284142"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284141"><span class="annot"><span class="annottext">s :: PutRetentionPolicy
-</span><a href="#local-6989586621679284141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284140"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679284140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicy
-</span><a href="#local-6989586621679284141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:PutRetentionPolicy' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679284151"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679284151"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284150"><span class="annot"><span class="annottext">s :: PutRetentionPolicy
+</span><a href="#local-6989586621679284150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284149"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679284149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicy
+</span><a href="#local-6989586621679284150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:PutRetentionPolicy' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#%24sel%3Adescription%3APutRetentionPolicy%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679284140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679284149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; PutRetentionPolicy -&gt; f PutRetentionPolicy)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -226,16 +226,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (PutRetentionPolicy -&gt; Text -&gt; PutRetentionPolicy)
 -&gt; Lens PutRetentionPolicy PutRetentionPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284136"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284145"><span class="annot"><span class="annottext">Text
 organizationId :: Text
 $sel:organizationId:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Text
-</span><a href="#local-6989586621679284136"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284136"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284135"><span class="annot"><span class="annottext">s :: PutRetentionPolicy
-</span><a href="#local-6989586621679284135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284134"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicy
-</span><a href="#local-6989586621679284135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:PutRetentionPolicy' :: Text
+</span><a href="#local-6989586621679284145"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284145"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284144"><span class="annot"><span class="annottext">s :: PutRetentionPolicy
+</span><a href="#local-6989586621679284144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284143"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicy
+</span><a href="#local-6989586621679284144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:PutRetentionPolicy' :: Text
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#%24sel%3AorganizationId%3APutRetentionPolicy%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The retention policy name.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#putRetentionPolicy_name"><span class="hs-identifier hs-type">putRetentionPolicy_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -244,16 +244,16 @@ $sel:organizationId:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Text
 -&gt; (PutRetentionPolicy -&gt; Text -&gt; PutRetentionPolicy)
 -&gt; Lens PutRetentionPolicy PutRetentionPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284133"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284142"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Text
-</span><a href="#local-6989586621679284133"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284133"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284132"><span class="annot"><span class="annottext">s :: PutRetentionPolicy
-</span><a href="#local-6989586621679284132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284131"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicy
-</span><a href="#local-6989586621679284132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PutRetentionPolicy' :: Text
+</span><a href="#local-6989586621679284142"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284142"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284141"><span class="annot"><span class="annottext">s :: PutRetentionPolicy
+</span><a href="#local-6989586621679284141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284140"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicy
+</span><a href="#local-6989586621679284141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PutRetentionPolicy' :: Text
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#%24sel%3Aname%3APutRetentionPolicy%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The retention policy folder configurations.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#putRetentionPolicy_folderConfigurations"><span class="hs-identifier hs-type">putRetentionPolicy_folderConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span><span class="hs-special">]</span><span>
@@ -268,16 +268,16 @@ $sel:name:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Text
      [FolderConfiguration]
      [FolderConfiguration]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284130"><span class="annot"><span class="annottext">[FolderConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284139"><span class="annot"><span class="annottext">[FolderConfiguration]
 folderConfigurations :: [FolderConfiguration]
 $sel:folderConfigurations:PutRetentionPolicy' :: PutRetentionPolicy -&gt; [FolderConfiguration]
-</span><a href="#local-6989586621679284130"><span class="hs-identifier hs-var hs-var">folderConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[FolderConfiguration]
-</span><a href="#local-6989586621679284130"><span class="hs-identifier hs-var">folderConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284129"><span class="annot"><span class="annottext">s :: PutRetentionPolicy
-</span><a href="#local-6989586621679284129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284128"><span class="annot"><span class="annottext">[FolderConfiguration]
-</span><a href="#local-6989586621679284128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicy
-</span><a href="#local-6989586621679284129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:folderConfigurations:PutRetentionPolicy' :: [FolderConfiguration]
+</span><a href="#local-6989586621679284139"><span class="hs-identifier hs-var hs-var">folderConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[FolderConfiguration]
+</span><a href="#local-6989586621679284139"><span class="hs-identifier hs-var">folderConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284138"><span class="annot"><span class="annottext">s :: PutRetentionPolicy
+</span><a href="#local-6989586621679284138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284137"><span class="annot"><span class="annottext">[FolderConfiguration]
+</span><a href="#local-6989586621679284137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicy
+</span><a href="#local-6989586621679284138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:folderConfigurations:PutRetentionPolicy' :: [FolderConfiguration]
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#%24sel%3AfolderConfigurations%3APutRetentionPolicy%27"><span class="hs-identifier hs-var">folderConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[FolderConfiguration]
-</span><a href="#local-6989586621679284128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([FolderConfiguration] -&gt; f [FolderConfiguration])
+</span><a href="#local-6989586621679284137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([FolderConfiguration] -&gt; f [FolderConfiguration])
  -&gt; PutRetentionPolicy -&gt; f PutRetentionPolicy)
 -&gt; (([FolderConfiguration] -&gt; f [FolderConfiguration])
     -&gt; [FolderConfiguration] -&gt; f [FolderConfiguration])
@@ -294,12 +294,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse"><span class="hs-identifier hs-type">PutRetentionPolicyResponse</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679284123"><span class="annot"><span class="annottext">request :: PutRetentionPolicy -&gt; Request PutRetentionPolicy
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679284132"><span class="annot"><span class="annottext">request :: PutRetentionPolicy -&gt; Request PutRetentionPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutRetentionPolicy -&gt; Request PutRetentionPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679284119"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679284128"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutRetentionPolicy
 -&gt; ClientResponse ClientBody
@@ -325,10 +325,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284116"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284116"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284115"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679284115"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284114"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679284114"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284125"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284125"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284124"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679284124"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284123"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679284123"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutRetentionPolicyResponse
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse%27"><span class="hs-identifier hs-var">PutRetentionPolicyResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutRetentionPolicyResponse)
@@ -339,15 +339,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284116"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284125"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284107"><span id="local-6989586621679284109"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284116"><span id="local-6989586621679284118"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679284100"><span class="annot"><span class="annottext">toHeaders :: PutRetentionPolicy -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679284109"><span class="annot"><span class="annottext">toHeaders :: PutRetentionPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutRetentionPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -374,9 +374,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284090"><span id="local-6989586621679284092"><span id="local-6989586621679284094"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679284088"><span class="annot"><span class="annottext">toJSON :: PutRetentionPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284082"><span id="local-6989586621679284083"><span id="local-6989586621679284084"><span id="local-6989586621679284085"><span id="local-6989586621679284086"><span class="annot"><span class="annottext">[FolderConfiguration]
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284099"><span id="local-6989586621679284101"><span id="local-6989586621679284103"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679284097"><span class="annot"><span class="annottext">toJSON :: PutRetentionPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284091"><span id="local-6989586621679284092"><span id="local-6989586621679284093"><span id="local-6989586621679284094"><span id="local-6989586621679284095"><span class="annot"><span class="annottext">[FolderConfiguration]
 Maybe Text
 Maybe (Sensitive Text)
 Text
@@ -390,7 +390,7 @@ $sel:name:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Text
 $sel:organizationId:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Text
 $sel:description:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Maybe (Sensitive Text)
 $sel:id:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679284082"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679284091"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -402,14 +402,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679284086"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284095"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679284085"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284094"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -417,14 +417,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284084"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284093"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284083"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284092"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -433,20 +433,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-161"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [FolderConfiguration] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[FolderConfiguration]
-</span><a href="#local-6989586621679284082"><span class="hs-identifier hs-var">folderConfigurations</span></a></span><span>
+</span><a href="#local-6989586621679284091"><span class="hs-identifier hs-var">folderConfigurations</span></a></span><span>
 </span><span id="line-162"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679284076"><span class="annot"><span class="annottext">toPath :: PutRetentionPolicy -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679284085"><span class="annot"><span class="annottext">toPath :: PutRetentionPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutRetentionPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679284072"><span class="annot"><span class="annottext">toQuery :: PutRetentionPolicy -&gt; QueryString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679284081"><span class="annot"><span class="annottext">toQuery :: PutRetentionPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutRetentionPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -454,12 +454,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newPutRetentionPolicyResponse' smart constructor.</span><span>
-</span><span id="line-173"></span><span id="local-6989586621679284069"><span id="local-6989586621679284070"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRetentionPolicyResponse"><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse"><span class="hs-identifier hs-var">PutRetentionPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRetentionPolicyResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse%27"><span class="hs-identifier hs-var">PutRetentionPolicyResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span id="local-6989586621679284078"><span id="local-6989586621679284079"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRetentionPolicyResponse"><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse"><span class="hs-identifier hs-var">PutRetentionPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRetentionPolicyResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse%27"><span class="hs-identifier hs-var">PutRetentionPolicyResponse'</span></a></span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-175"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutRetentionPolicyResponse%27"><span class="annot"><span class="annottext">PutRetentionPolicyResponse -&gt; Int
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#%24sel%3AhttpStatus%3APutRetentionPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284064"><span id="local-6989586621679284066"><span class="annot"><span class="annottext">PutRetentionPolicyResponse -&gt; PutRetentionPolicyResponse -&gt; Bool
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284073"><span id="local-6989586621679284075"><span class="annot"><span class="annottext">PutRetentionPolicyResponse -&gt; PutRetentionPolicyResponse -&gt; Bool
 (PutRetentionPolicyResponse -&gt; PutRetentionPolicyResponse -&gt; Bool)
 -&gt; (PutRetentionPolicyResponse
     -&gt; PutRetentionPolicyResponse -&gt; Bool)
@@ -469,7 +469,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutRetentionPolicyResponse -&gt; PutRetentionPolicyResponse -&gt; Bool
 == :: PutRetentionPolicyResponse -&gt; PutRetentionPolicyResponse -&gt; Bool
 $c== :: PutRetentionPolicyResponse -&gt; PutRetentionPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284056"><span id="local-6989586621679284058"><span id="local-6989586621679284060"><span id="local-6989586621679284062"><span class="annot"><span class="annottext">ReadPrec [PutRetentionPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284065"><span id="local-6989586621679284067"><span id="local-6989586621679284069"><span id="local-6989586621679284071"><span class="annot"><span class="annottext">ReadPrec [PutRetentionPolicyResponse]
 ReadPrec PutRetentionPolicyResponse
 Int -&gt; ReadS PutRetentionPolicyResponse
 ReadS [PutRetentionPolicyResponse]
@@ -489,7 +489,7 @@ readList :: ReadS [PutRetentionPolicyResponse]
 $creadList :: ReadS [PutRetentionPolicyResponse]
 readsPrec :: Int -&gt; ReadS PutRetentionPolicyResponse
 $creadsPrec :: Int -&gt; ReadS PutRetentionPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284049"><span id="local-6989586621679284051"><span id="local-6989586621679284053"><span class="annot"><span class="annottext">Int -&gt; PutRetentionPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284058"><span id="local-6989586621679284060"><span id="local-6989586621679284062"><span class="annot"><span class="annottext">Int -&gt; PutRetentionPolicyResponse -&gt; ShowS
 [PutRetentionPolicyResponse] -&gt; ShowS
 PutRetentionPolicyResponse -&gt; String
 (Int -&gt; PutRetentionPolicyResponse -&gt; ShowS)
@@ -535,14 +535,14 @@ PutRetentionPolicyResponse -&gt; Rep PutRetentionPolicyResponse x
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse"><span class="hs-identifier hs-type">PutRetentionPolicyResponse</span></a></span><span>
 </span><span id="line-192"></span><span id="newPutRetentionPolicyResponse"><span class="annot"><span class="annottext">newPutRetentionPolicyResponse :: Int -&gt; PutRetentionPolicyResponse
-</span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#newPutRetentionPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutRetentionPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679284046"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#newPutRetentionPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutRetentionPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679284055"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284055"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">PutRetentionPolicyResponse' :: Int -&gt; PutRetentionPolicyResponse
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse%27"><span class="hs-identifier hs-type">PutRetentionPolicyResponse'</span></a></span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutRetentionPolicyResponse' :: Int
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#%24sel%3AhttpStatus%3APutRetentionPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679284055"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -555,16 +555,16 @@ PutRetentionPolicyResponse -&gt; Rep PutRetentionPolicyResponse x
 -&gt; Lens
      PutRetentionPolicyResponse PutRetentionPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse%27"><span class="hs-identifier hs-type">PutRetentionPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284045"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse%27"><span class="hs-identifier hs-type">PutRetentionPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284054"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutRetentionPolicyResponse' :: PutRetentionPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679284045"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284045"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284044"><span class="annot"><span class="annottext">s :: PutRetentionPolicyResponse
-</span><a href="#local-6989586621679284044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse%27"><span class="hs-identifier hs-type">PutRetentionPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284043"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicyResponse
-</span><a href="#local-6989586621679284044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutRetentionPolicyResponse' :: Int
+</span><a href="#local-6989586621679284054"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284054"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284053"><span class="annot"><span class="annottext">s :: PutRetentionPolicyResponse
+</span><a href="#local-6989586621679284053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse%27"><span class="hs-identifier hs-type">PutRetentionPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284052"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicyResponse
+</span><a href="#local-6989586621679284053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutRetentionPolicyResponse' :: Int
 </span><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#%24sel%3AhttpStatus%3APutRetentionPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse"><span class="hs-identifier hs-type">PutRetentionPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse"><span class="hs-identifier hs-type">PutRetentionPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse"><span class="hs-identifier hs-type">PutRetentionPolicyResponse</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284050"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutRetentionPolicy.html#PutRetentionPolicyResponse"><span class="hs-identifier hs-type">PutRetentionPolicyResponse</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

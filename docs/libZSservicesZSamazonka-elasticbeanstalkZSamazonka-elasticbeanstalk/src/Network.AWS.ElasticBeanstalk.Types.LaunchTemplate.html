@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an Amazon EC2 launch template.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLaunchTemplate' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679303036"><span id="local-6989586621679303037"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplate"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-var">LaunchTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplate%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-var">LaunchTemplate'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679303045"><span id="local-6989586621679303046"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplate"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-var">LaunchTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplate%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-var">LaunchTemplate'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the launch template.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aid%3ALaunchTemplate%27"><span class="annot"><span class="annottext">LaunchTemplate -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#%24sel%3Aid%3ALaunchTemplate%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303030"><span id="local-6989586621679303032"><span class="annot"><span class="annottext">LaunchTemplate -&gt; LaunchTemplate -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303039"><span id="local-6989586621679303041"><span class="annot"><span class="annottext">LaunchTemplate -&gt; LaunchTemplate -&gt; Bool
 (LaunchTemplate -&gt; LaunchTemplate -&gt; Bool)
 -&gt; (LaunchTemplate -&gt; LaunchTemplate -&gt; Bool) -&gt; Eq LaunchTemplate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LaunchTemplate -&gt; LaunchTemplate -&gt; Bool
 == :: LaunchTemplate -&gt; LaunchTemplate -&gt; Bool
 $c== :: LaunchTemplate -&gt; LaunchTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303021"><span id="local-6989586621679303023"><span id="local-6989586621679303025"><span id="local-6989586621679303027"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303030"><span id="local-6989586621679303032"><span id="local-6989586621679303034"><span id="local-6989586621679303036"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplate]
 ReadPrec LaunchTemplate
 Int -&gt; ReadS LaunchTemplate
 ReadS [LaunchTemplate]
@@ -59,7 +59,7 @@ readList :: ReadS [LaunchTemplate]
 $creadList :: ReadS [LaunchTemplate]
 readsPrec :: Int -&gt; ReadS LaunchTemplate
 $creadsPrec :: Int -&gt; ReadS LaunchTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303014"><span id="local-6989586621679303016"><span id="local-6989586621679303018"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303023"><span id="local-6989586621679303025"><span id="local-6989586621679303027"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplate -&gt; ShowS
 [LaunchTemplate] -&gt; ShowS
 LaunchTemplate -&gt; String
 (Int -&gt; LaunchTemplate -&gt; ShowS)
@@ -112,32 +112,32 @@ forall a. Maybe a
 -&gt; (LaunchTemplate -&gt; Maybe Text -&gt; LaunchTemplate)
 -&gt; Lens LaunchTemplate LaunchTemplate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303005"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303014"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:LaunchTemplate' :: LaunchTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621679303005"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679303005"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303004"><span class="annot"><span class="annottext">s :: LaunchTemplate
-</span><a href="#local-6989586621679303004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303003"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679303003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplate
-</span><a href="#local-6989586621679303004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:LaunchTemplate' :: Maybe Text
+</span><a href="#local-6989586621679303014"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303014"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303013"><span class="annot"><span class="annottext">s :: LaunchTemplate
+</span><a href="#local-6989586621679303013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303012"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplate
+</span><a href="#local-6989586621679303013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:LaunchTemplate' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#%24sel%3Aid%3ALaunchTemplate%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679303003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679303000"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LaunchTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679302998"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302998"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679303009"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LaunchTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679303007"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679303007"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; LaunchTemplate
 </span><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-var">LaunchTemplate'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; LaunchTemplate)
 -&gt; Either String (Maybe Text) -&gt; Either String LaunchTemplate
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679303007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302992"><span id="local-6989586621679302994"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303001"><span id="local-6989586621679303003"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span></span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302989"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302998"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span></span><span>
 </span><span id="line-60"></span></pre></body></html>

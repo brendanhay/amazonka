@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- thing type is deprecated, and a date and time when time was deprecated.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newThingTypeMetadata' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679803306"><span id="local-6989586621679803307"></span></span><span class="hs-keyword">data</span><span> </span><span id="ThingTypeMetadata"><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata"><span class="hs-identifier hs-var">ThingTypeMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThingTypeMetadata%27"><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-var">ThingTypeMetadata'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679803315"><span id="local-6989586621679803316"></span></span><span class="hs-keyword">data</span><span> </span><span id="ThingTypeMetadata"><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata"><span class="hs-identifier hs-var">ThingTypeMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThingTypeMetadata%27"><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-var">ThingTypeMetadata'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time when the thing type was deprecated.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AdeprecationDate%3AThingTypeMetadata%27"><span class="annot"><span class="annottext">ThingTypeMetadata -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#%24sel%3AdeprecationDate%3AThingTypeMetadata%27"><span class="hs-identifier hs-var hs-var">deprecationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Adeprecated%3AThingTypeMetadata%27"><span class="annot"><span class="annottext">ThingTypeMetadata -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#%24sel%3Adeprecated%3AThingTypeMetadata%27"><span class="hs-identifier hs-var hs-var">deprecated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679803298"><span id="local-6989586621679803300"><span class="annot"><span class="annottext">ThingTypeMetadata -&gt; ThingTypeMetadata -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679803307"><span id="local-6989586621679803309"><span class="annot"><span class="annottext">ThingTypeMetadata -&gt; ThingTypeMetadata -&gt; Bool
 (ThingTypeMetadata -&gt; ThingTypeMetadata -&gt; Bool)
 -&gt; (ThingTypeMetadata -&gt; ThingTypeMetadata -&gt; Bool)
 -&gt; Eq ThingTypeMetadata
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ThingTypeMetadata -&gt; ThingTypeMetadata -&gt; Bool
 == :: ThingTypeMetadata -&gt; ThingTypeMetadata -&gt; Bool
 $c== :: ThingTypeMetadata -&gt; ThingTypeMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803289"><span id="local-6989586621679803291"><span id="local-6989586621679803293"><span id="local-6989586621679803295"><span class="annot"><span class="annottext">ReadPrec [ThingTypeMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803298"><span id="local-6989586621679803300"><span id="local-6989586621679803302"><span id="local-6989586621679803304"><span class="annot"><span class="annottext">ReadPrec [ThingTypeMetadata]
 ReadPrec ThingTypeMetadata
 Int -&gt; ReadS ThingTypeMetadata
 ReadS [ThingTypeMetadata]
@@ -69,7 +69,7 @@ readList :: ReadS [ThingTypeMetadata]
 $creadList :: ReadS [ThingTypeMetadata]
 readsPrec :: Int -&gt; ReadS ThingTypeMetadata
 $creadsPrec :: Int -&gt; ReadS ThingTypeMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803282"><span id="local-6989586621679803284"><span id="local-6989586621679803286"><span class="annot"><span class="annottext">Int -&gt; ThingTypeMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803291"><span id="local-6989586621679803293"><span id="local-6989586621679803295"><span class="annot"><span class="annottext">Int -&gt; ThingTypeMetadata -&gt; ShowS
 [ThingTypeMetadata] -&gt; ShowS
 ThingTypeMetadata -&gt; String
 (Int -&gt; ThingTypeMetadata -&gt; ShowS)
@@ -139,16 +139,16 @@ forall a. Maybe a
 -&gt; Lens
      ThingTypeMetadata ThingTypeMetadata (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-type">ThingTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803273"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-type">ThingTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803282"><span class="annot"><span class="annottext">Maybe POSIX
 deprecationDate :: Maybe POSIX
 $sel:deprecationDate:ThingTypeMetadata' :: ThingTypeMetadata -&gt; Maybe POSIX
-</span><a href="#local-6989586621679803273"><span class="hs-identifier hs-var hs-var">deprecationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679803273"><span class="hs-identifier hs-var">deprecationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803272"><span class="annot"><span class="annottext">s :: ThingTypeMetadata
-</span><a href="#local-6989586621679803272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-type">ThingTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803271"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679803271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingTypeMetadata
-</span><a href="#local-6989586621679803272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deprecationDate:ThingTypeMetadata' :: Maybe POSIX
+</span><a href="#local-6989586621679803282"><span class="hs-identifier hs-var hs-var">deprecationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679803282"><span class="hs-identifier hs-var">deprecationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803281"><span class="annot"><span class="annottext">s :: ThingTypeMetadata
+</span><a href="#local-6989586621679803281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-type">ThingTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803280"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679803280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingTypeMetadata
+</span><a href="#local-6989586621679803281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deprecationDate:ThingTypeMetadata' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#%24sel%3AdeprecationDate%3AThingTypeMetadata%27"><span class="hs-identifier hs-var">deprecationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679803271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata"><span class="hs-identifier hs-type">ThingTypeMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679803280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata"><span class="hs-identifier hs-type">ThingTypeMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ThingTypeMetadata -&gt; f ThingTypeMetadata)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -174,16 +174,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      ThingTypeMetadata ThingTypeMetadata (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-type">ThingTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803266"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-type">ThingTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803275"><span class="annot"><span class="annottext">Maybe POSIX
 creationDate :: Maybe POSIX
 $sel:creationDate:ThingTypeMetadata' :: ThingTypeMetadata -&gt; Maybe POSIX
-</span><a href="#local-6989586621679803266"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679803266"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803265"><span class="annot"><span class="annottext">s :: ThingTypeMetadata
-</span><a href="#local-6989586621679803265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-type">ThingTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803264"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679803264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingTypeMetadata
-</span><a href="#local-6989586621679803265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ThingTypeMetadata' :: Maybe POSIX
+</span><a href="#local-6989586621679803275"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679803275"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803274"><span class="annot"><span class="annottext">s :: ThingTypeMetadata
+</span><a href="#local-6989586621679803274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-type">ThingTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803273"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679803273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingTypeMetadata
+</span><a href="#local-6989586621679803274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ThingTypeMetadata' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#%24sel%3AcreationDate%3AThingTypeMetadata%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679803264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata"><span class="hs-identifier hs-type">ThingTypeMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679803273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata"><span class="hs-identifier hs-type">ThingTypeMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ThingTypeMetadata -&gt; f ThingTypeMetadata)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -210,19 +210,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      ThingTypeMetadata ThingTypeMetadata (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-type">ThingTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803262"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-type">ThingTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803271"><span class="annot"><span class="annottext">Maybe Bool
 deprecated :: Maybe Bool
 $sel:deprecated:ThingTypeMetadata' :: ThingTypeMetadata -&gt; Maybe Bool
-</span><a href="#local-6989586621679803262"><span class="hs-identifier hs-var hs-var">deprecated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679803262"><span class="hs-identifier hs-var">deprecated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803261"><span class="annot"><span class="annottext">s :: ThingTypeMetadata
-</span><a href="#local-6989586621679803261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-type">ThingTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803260"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679803260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingTypeMetadata
-</span><a href="#local-6989586621679803261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deprecated:ThingTypeMetadata' :: Maybe Bool
+</span><a href="#local-6989586621679803271"><span class="hs-identifier hs-var hs-var">deprecated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679803271"><span class="hs-identifier hs-var">deprecated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803270"><span class="annot"><span class="annottext">s :: ThingTypeMetadata
+</span><a href="#local-6989586621679803270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-type">ThingTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803269"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679803269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingTypeMetadata
+</span><a href="#local-6989586621679803270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deprecated:ThingTypeMetadata' :: Maybe Bool
 </span><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#%24sel%3Adeprecated%3AThingTypeMetadata%27"><span class="hs-identifier hs-var">deprecated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679803260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata"><span class="hs-identifier hs-type">ThingTypeMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679803269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata"><span class="hs-identifier hs-type">ThingTypeMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803257"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata"><span class="hs-identifier hs-type">ThingTypeMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679803255"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ThingTypeMetadata
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803266"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata"><span class="hs-identifier hs-type">ThingTypeMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679803264"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ThingTypeMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ThingTypeMetadata)
@@ -232,8 +232,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ThingTypeMetadata&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679803252"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679803252"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679803261"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679803261"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe Bool -&gt; ThingTypeMetadata
 </span><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata%27"><span class="hs-identifier hs-var">ThingTypeMetadata'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe Bool -&gt; ThingTypeMetadata)
@@ -241,7 +241,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe POSIX -&gt; Maybe Bool -&gt; ThingTypeMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679803252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679803261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deprecationDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -249,7 +249,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Bool -&gt; ThingTypeMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679803252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679803261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -257,13 +257,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser ThingTypeMetadata
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679803252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679803261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deprecated&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803246"><span id="local-6989586621679803248"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata"><span class="hs-identifier hs-type">ThingTypeMetadata</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803255"><span id="local-6989586621679803257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata"><span class="hs-identifier hs-type">ThingTypeMetadata</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata"><span class="hs-identifier hs-type">ThingTypeMetadata</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingTypeMetadata.html#ThingTypeMetadata"><span class="hs-identifier hs-type">ThingTypeMetadata</span></a></span></span><span>
 </span><span id="line-93"></span></pre></body></html>

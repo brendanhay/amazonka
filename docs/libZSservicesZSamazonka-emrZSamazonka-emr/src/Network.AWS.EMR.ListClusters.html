@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-comment">-- clusters that it returns.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newListClusters' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679389601"><span id="local-6989586621679389602"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListClusters"><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-var">ListClusters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListClusters%27"><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-var">ListClusters'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679389610"><span id="local-6989586621679389611"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListClusters"><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-var">ListClusters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListClusters%27"><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-var">ListClusters'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The creation date and time beginning value filter for listing clusters.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AcreatedAfter%3AListClusters%27"><span class="annot"><span class="annottext">ListClusters -&gt; Maybe POSIX
 </span><a href="Network.AWS.EMR.ListClusters.html#%24sel%3AcreatedAfter%3AListClusters%27"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AcreatedBefore%3AListClusters%27"><span class="annot"><span class="annottext">ListClusters -&gt; Maybe POSIX
 </span><a href="Network.AWS.EMR.ListClusters.html#%24sel%3AcreatedBefore%3AListClusters%27"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389592"><span id="local-6989586621679389594"><span class="annot"><span class="annottext">ListClusters -&gt; ListClusters -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389601"><span id="local-6989586621679389603"><span class="annot"><span class="annottext">ListClusters -&gt; ListClusters -&gt; Bool
 (ListClusters -&gt; ListClusters -&gt; Bool)
 -&gt; (ListClusters -&gt; ListClusters -&gt; Bool) -&gt; Eq ListClusters
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListClusters -&gt; ListClusters -&gt; Bool
 == :: ListClusters -&gt; ListClusters -&gt; Bool
 $c== :: ListClusters -&gt; ListClusters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389583"><span id="local-6989586621679389585"><span id="local-6989586621679389587"><span id="local-6989586621679389589"><span class="annot"><span class="annottext">ReadPrec [ListClusters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389592"><span id="local-6989586621679389594"><span id="local-6989586621679389596"><span id="local-6989586621679389598"><span class="annot"><span class="annottext">ReadPrec [ListClusters]
 ReadPrec ListClusters
 Int -&gt; ReadS ListClusters
 ReadS [ListClusters]
@@ -105,7 +105,7 @@ readList :: ReadS [ListClusters]
 $creadList :: ReadS [ListClusters]
 readsPrec :: Int -&gt; ReadS ListClusters
 $creadsPrec :: Int -&gt; ReadS ListClusters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389576"><span id="local-6989586621679389578"><span id="local-6989586621679389580"><span class="annot"><span class="annottext">Int -&gt; ListClusters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389585"><span id="local-6989586621679389587"><span id="local-6989586621679389589"><span class="annot"><span class="annottext">Int -&gt; ListClusters -&gt; ShowS
 [ListClusters] -&gt; ShowS
 ListClusters -&gt; String
 (Int -&gt; ListClusters -&gt; ShowS)
@@ -184,16 +184,16 @@ forall a. Maybe a
 -&gt; (ListClusters -&gt; Maybe POSIX -&gt; ListClusters)
 -&gt; Lens ListClusters ListClusters (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389570"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389579"><span class="annot"><span class="annottext">Maybe POSIX
 createdAfter :: Maybe POSIX
 $sel:createdAfter:ListClusters' :: ListClusters -&gt; Maybe POSIX
-</span><a href="#local-6989586621679389570"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679389570"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389569"><span class="annot"><span class="annottext">s :: ListClusters
-</span><a href="#local-6989586621679389569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389568"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679389568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListClusters
-</span><a href="#local-6989586621679389569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAfter:ListClusters' :: Maybe POSIX
+</span><a href="#local-6989586621679389579"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389579"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389578"><span class="annot"><span class="annottext">s :: ListClusters
+</span><a href="#local-6989586621679389578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389577"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListClusters
+</span><a href="#local-6989586621679389578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAfter:ListClusters' :: Maybe POSIX
 </span><a href="Network.AWS.EMR.ListClusters.html#%24sel%3AcreatedAfter%3AListClusters%27"><span class="hs-identifier hs-var">createdAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679389568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679389577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ListClusters -&gt; f ListClusters)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -217,16 +217,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ListClusters -&gt; Maybe Text -&gt; ListClusters)
 -&gt; Lens ListClusters ListClusters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389564"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389573"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListClusters' :: ListClusters -&gt; Maybe Text
-</span><a href="#local-6989586621679389564"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389564"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389563"><span class="annot"><span class="annottext">s :: ListClusters
-</span><a href="#local-6989586621679389563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389562"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListClusters
-</span><a href="#local-6989586621679389563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListClusters' :: Maybe Text
+</span><a href="#local-6989586621679389573"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389573"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389572"><span class="annot"><span class="annottext">s :: ListClusters
+</span><a href="#local-6989586621679389572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389571"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListClusters
+</span><a href="#local-6989586621679389572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListClusters' :: Maybe Text
 </span><a href="Network.AWS.EMR.ListClusters.html#%24sel%3Amarker%3AListClusters%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The cluster state filters to apply when listing clusters. Clusters that</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- change state while this action runs may be not be returned as expected</span><span>
@@ -242,16 +242,16 @@ $sel:marker:ListClusters' :: ListClusters -&gt; Maybe Text
      (Maybe [ClusterState])
      (Maybe [ClusterState])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389561"><span class="annot"><span class="annottext">Maybe [ClusterState]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389570"><span class="annot"><span class="annottext">Maybe [ClusterState]
 clusterStates :: Maybe [ClusterState]
 $sel:clusterStates:ListClusters' :: ListClusters -&gt; Maybe [ClusterState]
-</span><a href="#local-6989586621679389561"><span class="hs-identifier hs-var hs-var">clusterStates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterState]
-</span><a href="#local-6989586621679389561"><span class="hs-identifier hs-var">clusterStates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389560"><span class="annot"><span class="annottext">s :: ListClusters
-</span><a href="#local-6989586621679389560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389559"><span class="annot"><span class="annottext">Maybe [ClusterState]
-</span><a href="#local-6989586621679389559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListClusters
-</span><a href="#local-6989586621679389560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterStates:ListClusters' :: Maybe [ClusterState]
+</span><a href="#local-6989586621679389570"><span class="hs-identifier hs-var hs-var">clusterStates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterState]
+</span><a href="#local-6989586621679389570"><span class="hs-identifier hs-var">clusterStates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389569"><span class="annot"><span class="annottext">s :: ListClusters
+</span><a href="#local-6989586621679389569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389568"><span class="annot"><span class="annottext">Maybe [ClusterState]
+</span><a href="#local-6989586621679389568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListClusters
+</span><a href="#local-6989586621679389569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterStates:ListClusters' :: Maybe [ClusterState]
 </span><a href="Network.AWS.EMR.ListClusters.html#%24sel%3AclusterStates%3AListClusters%27"><span class="hs-identifier hs-var">clusterStates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterState]
-</span><a href="#local-6989586621679389559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClusterState] -&gt; f (Maybe [ClusterState]))
+</span><a href="#local-6989586621679389568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClusterState] -&gt; f (Maybe [ClusterState]))
  -&gt; ListClusters -&gt; f ListClusters)
 -&gt; ((Maybe [ClusterState] -&gt; f (Maybe [ClusterState]))
     -&gt; Maybe [ClusterState] -&gt; f (Maybe [ClusterState]))
@@ -280,16 +280,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListClusters -&gt; Maybe POSIX -&gt; ListClusters)
 -&gt; Lens ListClusters ListClusters (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389557"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389566"><span class="annot"><span class="annottext">Maybe POSIX
 createdBefore :: Maybe POSIX
 $sel:createdBefore:ListClusters' :: ListClusters -&gt; Maybe POSIX
-</span><a href="#local-6989586621679389557"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679389557"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389556"><span class="annot"><span class="annottext">s :: ListClusters
-</span><a href="#local-6989586621679389556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389555"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679389555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListClusters
-</span><a href="#local-6989586621679389556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBefore:ListClusters' :: Maybe POSIX
+</span><a href="#local-6989586621679389566"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389566"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389565"><span class="annot"><span class="annottext">s :: ListClusters
+</span><a href="#local-6989586621679389565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389564"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListClusters
+</span><a href="#local-6989586621679389565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBefore:ListClusters' :: Maybe POSIX
 </span><a href="Network.AWS.EMR.ListClusters.html#%24sel%3AcreatedBefore%3AListClusters%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679389555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679389564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ListClusters -&gt; f ListClusters)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -307,16 +307,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679389551"><span class="annot"><span class="annottext">page :: ListClusters -&gt; AWSResponse ListClusters -&gt; Maybe ListClusters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679389549"><span class="annot"><span class="annottext">ListClusters
-</span><a href="#local-6989586621679389549"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679389548"><span class="annot"><span class="annottext">AWSResponse ListClusters
-</span><a href="#local-6989586621679389548"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679389560"><span class="annot"><span class="annottext">page :: ListClusters -&gt; AWSResponse ListClusters -&gt; Maybe ListClusters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679389558"><span class="annot"><span class="annottext">ListClusters
+</span><a href="#local-6989586621679389558"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679389557"><span class="annot"><span class="annottext">AWSResponse ListClusters
+</span><a href="#local-6989586621679389557"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListClusters
 ListClustersResponse
-</span><a href="#local-6989586621679389548"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679389557"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">ListClustersResponse
 -&gt; Getting (First Text) ListClustersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -342,7 +342,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-131"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListClusters
 ListClustersResponse
-</span><a href="#local-6989586621679389548"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679389557"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">ListClustersResponse
 -&gt; Getting
      (First [ClusterSummary]) ListClustersResponse [ClusterSummary]
@@ -383,7 +383,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ListClusters
-</span><a href="#local-6989586621679389549"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679389558"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">ListClusters -&gt; (ListClusters -&gt; ListClusters) -&gt; ListClusters
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -396,7 +396,7 @@ Lens ListClusters ListClusters (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListClusters
 ListClustersResponse
-</span><a href="#local-6989586621679389548"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679389557"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">ListClustersResponse
 -&gt; Getting (First Text) ListClustersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -416,12 +416,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse"><span class="hs-identifier hs-type">ListClustersResponse</span></a></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679389539"><span class="annot"><span class="annottext">request :: ListClusters -&gt; Request ListClusters
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679389548"><span class="annot"><span class="annottext">request :: ListClusters -&gt; Request ListClusters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListClusters -&gt; Request ListClusters
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679389535"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679389544"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListClusters
 -&gt; ClientResponse ClientBody
@@ -445,10 +445,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389532"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389532"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389531"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679389531"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389530"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389541"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389541"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389540"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679389540"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389539"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389539"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [ClusterSummary] -&gt; Int -&gt; ListClustersResponse
 </span><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-var">ListClustersResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -458,7 +458,7 @@ MonadResource m =&gt;
      String (Maybe [ClusterSummary] -&gt; Int -&gt; ListClustersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679389539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -468,7 +468,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListClustersResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ClusterSummary]))
+</span><a href="#local-6989586621679389539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ClusterSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Clusters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ClusterSummary]))
@@ -485,15 +485,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389532"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389541"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389521"><span id="local-6989586621679389523"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389530"><span id="local-6989586621679389532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679389514"><span class="annot"><span class="annottext">toHeaders :: ListClusters -&gt; ResponseHeaders
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679389523"><span class="annot"><span class="annottext">toHeaders :: ListClusters -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListClusters -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -520,9 +520,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389504"><span id="local-6989586621679389506"><span id="local-6989586621679389508"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679389502"><span class="annot"><span class="annottext">toJSON :: ListClusters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389497"><span id="local-6989586621679389498"><span id="local-6989586621679389499"><span id="local-6989586621679389500"><span class="annot"><span class="annottext">Maybe [ClusterState]
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389513"><span id="local-6989586621679389515"><span id="local-6989586621679389517"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679389511"><span class="annot"><span class="annottext">toJSON :: ListClusters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters%27"><span class="hs-identifier hs-type">ListClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389506"><span id="local-6989586621679389507"><span id="local-6989586621679389508"><span id="local-6989586621679389509"><span class="annot"><span class="annottext">Maybe [ClusterState]
 Maybe Text
 Maybe POSIX
 createdBefore :: Maybe POSIX
@@ -533,7 +533,7 @@ $sel:createdBefore:ListClusters' :: ListClusters -&gt; Maybe POSIX
 $sel:clusterStates:ListClusters' :: ListClusters -&gt; Maybe [ClusterState]
 $sel:marker:ListClusters' :: ListClusters -&gt; Maybe Text
 $sel:createdAfter:ListClusters' :: ListClusters -&gt; Maybe POSIX
-</span><a href="#local-6989586621679389497"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679389506"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -545,40 +545,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679389500"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389509"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389499"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389508"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClusterStates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ClusterState] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ClusterState] -&gt; Pair) -&gt; Maybe [ClusterState] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterState]
-</span><a href="#local-6989586621679389498"><span class="hs-identifier hs-var">clusterStates</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389507"><span class="hs-identifier hs-var">clusterStates</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreatedBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679389497"><span class="hs-identifier hs-var">createdBefore</span></a></span><span>
+</span><a href="#local-6989586621679389506"><span class="hs-identifier hs-var">createdBefore</span></a></span><span>
 </span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679389491"><span class="annot"><span class="annottext">toPath :: ListClusters -&gt; ByteString
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679389500"><span class="annot"><span class="annottext">toPath :: ListClusters -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListClusters -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClusters"><span class="hs-identifier hs-type">ListClusters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679389487"><span class="annot"><span class="annottext">toQuery :: ListClusters -&gt; QueryString
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679389496"><span class="annot"><span class="annottext">toQuery :: ListClusters -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListClusters -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -589,7 +589,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-191"></span><span class="hs-comment">-- example, the cluster IDs, names, and status.</span><span>
 </span><span id="line-192"></span><span class="hs-comment">--</span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- /See:/ 'newListClustersResponse' smart constructor.</span><span>
-</span><span id="line-194"></span><span id="local-6989586621679389484"><span id="local-6989586621679389485"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListClustersResponse"><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse"><span class="hs-identifier hs-var">ListClustersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListClustersResponse%27"><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-var">ListClustersResponse'</span></a></span></span><span>
+</span><span id="line-194"></span><span id="local-6989586621679389493"><span id="local-6989586621679389494"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListClustersResponse"><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse"><span class="hs-identifier hs-var">ListClustersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListClustersResponse%27"><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-var">ListClustersResponse'</span></a></span></span><span>
 </span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
 </span><span id="line-196"></span><span>    </span><span id="%24sel%3Amarker%3AListClustersResponse%27"><span class="annot"><span class="annottext">ListClustersResponse -&gt; Maybe Text
 </span><a href="Network.AWS.EMR.ListClusters.html#%24sel%3Amarker%3AListClustersResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -600,7 +600,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-200"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListClustersResponse%27"><span class="annot"><span class="annottext">ListClustersResponse -&gt; Int
 </span><a href="Network.AWS.EMR.ListClusters.html#%24sel%3AhttpStatus%3AListClustersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389477"><span id="local-6989586621679389479"><span class="annot"><span class="annottext">ListClustersResponse -&gt; ListClustersResponse -&gt; Bool
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389486"><span id="local-6989586621679389488"><span class="annot"><span class="annottext">ListClustersResponse -&gt; ListClustersResponse -&gt; Bool
 (ListClustersResponse -&gt; ListClustersResponse -&gt; Bool)
 -&gt; (ListClustersResponse -&gt; ListClustersResponse -&gt; Bool)
 -&gt; Eq ListClustersResponse
@@ -609,7 +609,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListClustersResponse -&gt; ListClustersResponse -&gt; Bool
 == :: ListClustersResponse -&gt; ListClustersResponse -&gt; Bool
 $c== :: ListClustersResponse -&gt; ListClustersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389469"><span id="local-6989586621679389471"><span id="local-6989586621679389473"><span id="local-6989586621679389475"><span class="annot"><span class="annottext">ReadPrec [ListClustersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389478"><span id="local-6989586621679389480"><span id="local-6989586621679389482"><span id="local-6989586621679389484"><span class="annot"><span class="annottext">ReadPrec [ListClustersResponse]
 ReadPrec ListClustersResponse
 Int -&gt; ReadS ListClustersResponse
 ReadS [ListClustersResponse]
@@ -629,7 +629,7 @@ readList :: ReadS [ListClustersResponse]
 $creadList :: ReadS [ListClustersResponse]
 readsPrec :: Int -&gt; ReadS ListClustersResponse
 $creadsPrec :: Int -&gt; ReadS ListClustersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389463"><span id="local-6989586621679389465"><span id="local-6989586621679389467"><span class="annot"><span class="annottext">Int -&gt; ListClustersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389472"><span id="local-6989586621679389474"><span id="local-6989586621679389476"><span class="annot"><span class="annottext">Int -&gt; ListClustersResponse -&gt; ShowS
 [ListClustersResponse] -&gt; ShowS
 ListClustersResponse -&gt; String
 (Int -&gt; ListClustersResponse -&gt; ShowS)
@@ -673,8 +673,8 @@ $cfrom :: forall x. ListClustersResponse -&gt; Rep ListClustersResponse x
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse"><span class="hs-identifier hs-type">ListClustersResponse</span></a></span><span>
 </span><span id="line-221"></span><span id="newListClustersResponse"><span class="annot"><span class="annottext">newListClustersResponse :: Int -&gt; ListClustersResponse
-</span><a href="Network.AWS.EMR.ListClusters.html#newListClustersResponse"><span class="hs-identifier hs-var hs-var">newListClustersResponse</span></a></span></span><span> </span><span id="local-6989586621679389460"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389460"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.ListClusters.html#newListClustersResponse"><span class="hs-identifier hs-var hs-var">newListClustersResponse</span></a></span></span><span> </span><span id="local-6989586621679389469"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389469"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>  </span><span class="annot"><span class="annottext">ListClustersResponse' :: Maybe Text -&gt; Maybe [ClusterSummary] -&gt; Int -&gt; ListClustersResponse
 </span><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-type">ListClustersResponse'</span></a></span><span>
 </span><span id="line-223"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListClustersResponse' :: Maybe Text
@@ -687,7 +687,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListClustersResponse' :: Int
 </span><a href="Network.AWS.EMR.ListClusters.html#%24sel%3AhttpStatus%3AListClustersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389460"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679389469"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-226"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
@@ -698,16 +698,16 @@ forall a. Maybe a
 -&gt; (ListClustersResponse -&gt; Maybe Text -&gt; ListClustersResponse)
 -&gt; Lens' ListClustersResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-type">ListClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389459"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-type">ListClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389468"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListClustersResponse' :: ListClustersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679389459"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389459"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389458"><span class="annot"><span class="annottext">s :: ListClustersResponse
-</span><a href="#local-6989586621679389458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-type">ListClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389457"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListClustersResponse
-</span><a href="#local-6989586621679389458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListClustersResponse' :: Maybe Text
+</span><a href="#local-6989586621679389468"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389468"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389467"><span class="annot"><span class="annottext">s :: ListClustersResponse
+</span><a href="#local-6989586621679389467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-type">ListClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389466"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListClustersResponse
+</span><a href="#local-6989586621679389467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListClustersResponse' :: Maybe Text
 </span><a href="Network.AWS.EMR.ListClusters.html#%24sel%3Amarker%3AListClustersResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse"><span class="hs-identifier hs-type">ListClustersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse"><span class="hs-identifier hs-type">ListClustersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | The list of clusters for the account based on the given filters.</span><span>
 </span><span id="line-233"></span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#listClustersResponse_clusters"><span class="hs-identifier hs-type">listClustersResponse_clusters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse"><span class="hs-identifier hs-type">ListClustersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -718,16 +718,16 @@ $sel:marker:ListClustersResponse' :: ListClustersResponse -&gt; Maybe Text
     -&gt; Maybe [ClusterSummary] -&gt; ListClustersResponse)
 -&gt; Lens' ListClustersResponse (Maybe [ClusterSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-type">ListClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389456"><span class="annot"><span class="annottext">Maybe [ClusterSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-type">ListClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389465"><span class="annot"><span class="annottext">Maybe [ClusterSummary]
 clusters :: Maybe [ClusterSummary]
 $sel:clusters:ListClustersResponse' :: ListClustersResponse -&gt; Maybe [ClusterSummary]
-</span><a href="#local-6989586621679389456"><span class="hs-identifier hs-var hs-var">clusters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterSummary]
-</span><a href="#local-6989586621679389456"><span class="hs-identifier hs-var">clusters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389455"><span class="annot"><span class="annottext">s :: ListClustersResponse
-</span><a href="#local-6989586621679389455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-type">ListClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389454"><span class="annot"><span class="annottext">Maybe [ClusterSummary]
-</span><a href="#local-6989586621679389454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListClustersResponse
-</span><a href="#local-6989586621679389455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusters:ListClustersResponse' :: Maybe [ClusterSummary]
+</span><a href="#local-6989586621679389465"><span class="hs-identifier hs-var hs-var">clusters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterSummary]
+</span><a href="#local-6989586621679389465"><span class="hs-identifier hs-var">clusters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389464"><span class="annot"><span class="annottext">s :: ListClustersResponse
+</span><a href="#local-6989586621679389464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-type">ListClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389463"><span class="annot"><span class="annottext">Maybe [ClusterSummary]
+</span><a href="#local-6989586621679389463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListClustersResponse
+</span><a href="#local-6989586621679389464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusters:ListClustersResponse' :: Maybe [ClusterSummary]
 </span><a href="Network.AWS.EMR.ListClusters.html#%24sel%3Aclusters%3AListClustersResponse%27"><span class="hs-identifier hs-var">clusters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterSummary]
-</span><a href="#local-6989586621679389454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse"><span class="hs-identifier hs-type">ListClustersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClusterSummary] -&gt; f (Maybe [ClusterSummary]))
+</span><a href="#local-6989586621679389463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse"><span class="hs-identifier hs-type">ListClustersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClusterSummary] -&gt; f (Maybe [ClusterSummary]))
  -&gt; ListClustersResponse -&gt; f ListClustersResponse)
 -&gt; ((Maybe [ClusterSummary] -&gt; f (Maybe [ClusterSummary]))
     -&gt; Maybe [ClusterSummary] -&gt; f (Maybe [ClusterSummary]))
@@ -757,16 +757,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListClustersResponse -&gt; Int -&gt; ListClustersResponse)
 -&gt; Lens ListClustersResponse ListClustersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-type">ListClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389453"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-type">ListClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389462"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListClustersResponse' :: ListClustersResponse -&gt; Int
-</span><a href="#local-6989586621679389453"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389453"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389452"><span class="annot"><span class="annottext">s :: ListClustersResponse
-</span><a href="#local-6989586621679389452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-type">ListClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389451"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListClustersResponse
-</span><a href="#local-6989586621679389452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListClustersResponse' :: Int
+</span><a href="#local-6989586621679389462"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389462"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389461"><span class="annot"><span class="annottext">s :: ListClustersResponse
+</span><a href="#local-6989586621679389461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse%27"><span class="hs-identifier hs-type">ListClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389460"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListClustersResponse
+</span><a href="#local-6989586621679389461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListClustersResponse' :: Int
 </span><a href="Network.AWS.EMR.ListClusters.html#%24sel%3AhttpStatus%3AListClustersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse"><span class="hs-identifier hs-type">ListClustersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse"><span class="hs-identifier hs-type">ListClustersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389449"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse"><span class="hs-identifier hs-type">ListClustersResponse</span></a></span></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389458"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListClusters.html#ListClustersResponse"><span class="hs-identifier hs-type">ListClustersResponse</span></a></span></span><span>
 </span><span id="line-241"></span></pre></body></html>

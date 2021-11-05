@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621681142997"><span id="local-6989586621681142998"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplacementStrategy"><span class="annot"><a href="Network.AWS.EC2.Types.ReplacementStrategy.html#ReplacementStrategy"><span class="hs-identifier hs-var">ReplacementStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplacementStrategy%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReplacementStrategy.html#ReplacementStrategy%27"><span class="hs-identifier hs-var">ReplacementStrategy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681143006"><span id="local-6989586621681143007"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplacementStrategy"><span class="annot"><a href="Network.AWS.EC2.Types.ReplacementStrategy.html#ReplacementStrategy"><span class="hs-identifier hs-var">ReplacementStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplacementStrategy%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReplacementStrategy.html#ReplacementStrategy%27"><span class="hs-identifier hs-var">ReplacementStrategy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReplacementStrategy"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ReplacementStrategy.html#fromReplacementStrategy"><span class="hs-identifier hs-var hs-var">fromReplacementStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681142989"><span id="local-6989586621681142991"><span id="local-6989586621681142993"><span class="annot"><span class="annottext">Int -&gt; ReplacementStrategy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681142998"><span id="local-6989586621681143000"><span id="local-6989586621681143002"><span class="annot"><span class="annottext">Int -&gt; ReplacementStrategy -&gt; ShowS
 [ReplacementStrategy] -&gt; ShowS
 ReplacementStrategy -&gt; String
 (Int -&gt; ReplacementStrategy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ReplacementStrategy -&gt; String
 showsPrec :: Int -&gt; ReplacementStrategy -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReplacementStrategy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621681142980"><span id="local-6989586621681142982"><span id="local-6989586621681142984"><span id="local-6989586621681142986"><span class="annot"><span class="annottext">ReadPrec [ReplacementStrategy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681142989"><span id="local-6989586621681142991"><span id="local-6989586621681142993"><span id="local-6989586621681142995"><span class="annot"><span class="annottext">ReadPrec [ReplacementStrategy]
 ReadPrec ReplacementStrategy
 Int -&gt; ReadS ReplacementStrategy
 ReadS [ReplacementStrategy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ReplacementStrategy]
 readsPrec :: Int -&gt; ReadS ReplacementStrategy
 $creadsPrec :: Int -&gt; ReadS ReplacementStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681142975"><span id="local-6989586621681142977"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; ReplacementStrategy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681142984"><span id="local-6989586621681142986"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; ReplacementStrategy -&gt; Bool
 (ReplacementStrategy -&gt; ReplacementStrategy -&gt; Bool)
 -&gt; (ReplacementStrategy -&gt; ReplacementStrategy -&gt; Bool)
 -&gt; Eq ReplacementStrategy
@@ -82,7 +82,7 @@ $c/= :: ReplacementStrategy -&gt; ReplacementStrategy -&gt; Bool
 == :: ReplacementStrategy -&gt; ReplacementStrategy -&gt; Bool
 $c== :: ReplacementStrategy -&gt; ReplacementStrategy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681142959"><span id="local-6989586621681142961"><span id="local-6989586621681142963"><span id="local-6989586621681142965"><span id="local-6989586621681142967"><span id="local-6989586621681142969"><span id="local-6989586621681142971"><span class="annot"><span class="annottext">Eq ReplacementStrategy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681142968"><span id="local-6989586621681142970"><span id="local-6989586621681142972"><span id="local-6989586621681142974"><span id="local-6989586621681142976"><span id="local-6989586621681142978"><span id="local-6989586621681142980"><span class="annot"><span class="annottext">Eq ReplacementStrategy
 Eq ReplacementStrategy
 -&gt; (ReplacementStrategy -&gt; ReplacementStrategy -&gt; Ordering)
 -&gt; (ReplacementStrategy -&gt; ReplacementStrategy -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. ReplacementStrategy -&gt; Rep ReplacementStrategy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681142951"><span id="local-6989586621681142953"><span class="annot"><span class="annottext">Int -&gt; ReplacementStrategy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681142960"><span id="local-6989586621681142962"><span class="annot"><span class="annottext">Int -&gt; ReplacementStrategy -&gt; Int
 ReplacementStrategy -&gt; Int
 (Int -&gt; ReplacementStrategy -&gt; Int)
 -&gt; (ReplacementStrategy -&gt; Int) -&gt; Hashable ReplacementStrategy
@@ -145,53 +145,53 @@ $chash :: ReplacementStrategy -&gt; Int
 hashWithSalt :: Int -&gt; ReplacementStrategy -&gt; Int
 $chashWithSalt :: Int -&gt; ReplacementStrategy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681142948"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681142957"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; ()
 (ReplacementStrategy -&gt; ()) -&gt; NFData ReplacementStrategy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReplacementStrategy -&gt; ()
 $crnf :: ReplacementStrategy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681142945"><span class="annot"><span class="annottext">Text -&gt; Either String ReplacementStrategy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681142954"><span class="annot"><span class="annottext">Text -&gt; Either String ReplacementStrategy
 (Text -&gt; Either String ReplacementStrategy)
 -&gt; FromText ReplacementStrategy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReplacementStrategy
 $cfromText :: Text -&gt; Either String ReplacementStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681142942"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681142951"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; Text
 (ReplacementStrategy -&gt; Text) -&gt; ToText ReplacementStrategy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReplacementStrategy -&gt; Text
 $ctoText :: ReplacementStrategy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681142939"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681142948"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; ByteString
 (ReplacementStrategy -&gt; ByteString)
 -&gt; ToByteString ReplacementStrategy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReplacementStrategy -&gt; ByteString
 $ctoBS :: ReplacementStrategy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681142936"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681142945"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; ByteStringBuilder
 (ReplacementStrategy -&gt; ByteStringBuilder)
 -&gt; ToLog ReplacementStrategy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReplacementStrategy -&gt; ByteStringBuilder
 $cbuild :: ReplacementStrategy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681142933"><span class="annot"><span class="annottext">HeaderName -&gt; ReplacementStrategy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681142942"><span class="annot"><span class="annottext">HeaderName -&gt; ReplacementStrategy -&gt; [Header]
 (HeaderName -&gt; ReplacementStrategy -&gt; [Header])
 -&gt; ToHeader ReplacementStrategy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReplacementStrategy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReplacementStrategy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681142930"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681142939"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; QueryString
 (ReplacementStrategy -&gt; QueryString) -&gt; ToQuery ReplacementStrategy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReplacementStrategy -&gt; QueryString
 $ctoQuery :: ReplacementStrategy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681142925"><span id="local-6989586621681142927"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplacementStrategy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681142934"><span id="local-6989586621681142936"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplacementStrategy]
 Value -&gt; Parser ReplacementStrategy
 (Value -&gt; Parser ReplacementStrategy)
 -&gt; (Value -&gt; Parser [ReplacementStrategy])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [ReplacementStrategy]
 parseJSON :: Value -&gt; Parser ReplacementStrategy
 $cparseJSON :: Value -&gt; Parser ReplacementStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681142920"><span id="local-6989586621681142922"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplacementStrategy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681142929"><span id="local-6989586621681142931"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplacementStrategy]
 FromJSONKeyFunction ReplacementStrategy
 FromJSONKeyFunction ReplacementStrategy
 -&gt; FromJSONKeyFunction [ReplacementStrategy]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReplacementStrategy]
 fromJSONKey :: FromJSONKeyFunction ReplacementStrategy
 $cfromJSONKey :: FromJSONKeyFunction ReplacementStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681142911"><span id="local-6989586621681142913"><span id="local-6989586621681142915"><span id="local-6989586621681142917"><span class="annot"><span class="annottext">[ReplacementStrategy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681142920"><span id="local-6989586621681142922"><span id="local-6989586621681142924"><span id="local-6989586621681142926"><span class="annot"><span class="annottext">[ReplacementStrategy] -&gt; Encoding
 [ReplacementStrategy] -&gt; Value
 ReplacementStrategy -&gt; Encoding
 ReplacementStrategy -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: ReplacementStrategy -&gt; Encoding
 toJSON :: ReplacementStrategy -&gt; Value
 $ctoJSON :: ReplacementStrategy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681142906"><span id="local-6989586621681142908"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplacementStrategy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681142915"><span id="local-6989586621681142917"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplacementStrategy]
 ToJSONKeyFunction ReplacementStrategy
 ToJSONKeyFunction ReplacementStrategy
 -&gt; ToJSONKeyFunction [ReplacementStrategy]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReplacementStrategy]
 toJSONKey :: ToJSONKeyFunction ReplacementStrategy
 $ctoJSONKey :: ToJSONKeyFunction ReplacementStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681142903"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplacementStrategy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681142912"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplacementStrategy
 ([Node] -&gt; Either String ReplacementStrategy)
 -&gt; FromXML ReplacementStrategy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReplacementStrategy
 $cparseXML :: [Node] -&gt; Either String ReplacementStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681142900"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681142909"><span class="annot"><span class="annottext">ReplacementStrategy -&gt; XML
 (ReplacementStrategy -&gt; XML) -&gt; ToXML ReplacementStrategy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReplacementStrategy -&gt; XML

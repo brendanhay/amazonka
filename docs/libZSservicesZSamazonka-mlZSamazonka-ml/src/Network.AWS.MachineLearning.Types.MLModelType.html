@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679251018"><span id="local-6989586621679251019"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MLModelType"><span class="annot"><a href="Network.AWS.MachineLearning.Types.MLModelType.html#MLModelType"><span class="hs-identifier hs-var">MLModelType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MLModelType%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.MLModelType.html#MLModelType%27"><span class="hs-identifier hs-var">MLModelType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679251027"><span id="local-6989586621679251028"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MLModelType"><span class="annot"><a href="Network.AWS.MachineLearning.Types.MLModelType.html#MLModelType"><span class="hs-identifier hs-var">MLModelType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MLModelType%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.MLModelType.html#MLModelType%27"><span class="hs-identifier hs-var">MLModelType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMLModelType"><span class="annot"><span class="annottext">MLModelType -&gt; Text
 </span><a href="Network.AWS.MachineLearning.Types.MLModelType.html#fromMLModelType"><span class="hs-identifier hs-var hs-var">fromMLModelType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679251010"><span id="local-6989586621679251012"><span id="local-6989586621679251014"><span class="annot"><span class="annottext">Int -&gt; MLModelType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679251019"><span id="local-6989586621679251021"><span id="local-6989586621679251023"><span class="annot"><span class="annottext">Int -&gt; MLModelType -&gt; ShowS
 [MLModelType] -&gt; ShowS
 MLModelType -&gt; String
 (Int -&gt; MLModelType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: MLModelType -&gt; String
 showsPrec :: Int -&gt; MLModelType -&gt; ShowS
 $cshowsPrec :: Int -&gt; MLModelType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679251001"><span id="local-6989586621679251003"><span id="local-6989586621679251005"><span id="local-6989586621679251007"><span class="annot"><span class="annottext">ReadPrec [MLModelType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679251010"><span id="local-6989586621679251012"><span id="local-6989586621679251014"><span id="local-6989586621679251016"><span class="annot"><span class="annottext">ReadPrec [MLModelType]
 ReadPrec MLModelType
 Int -&gt; ReadS MLModelType
 ReadS [MLModelType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [MLModelType]
 readsPrec :: Int -&gt; ReadS MLModelType
 $creadsPrec :: Int -&gt; ReadS MLModelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679250996"><span id="local-6989586621679250998"><span class="annot"><span class="annottext">MLModelType -&gt; MLModelType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679251005"><span id="local-6989586621679251007"><span class="annot"><span class="annottext">MLModelType -&gt; MLModelType -&gt; Bool
 (MLModelType -&gt; MLModelType -&gt; Bool)
 -&gt; (MLModelType -&gt; MLModelType -&gt; Bool) -&gt; Eq MLModelType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: MLModelType -&gt; MLModelType -&gt; Bool
 == :: MLModelType -&gt; MLModelType -&gt; Bool
 $c== :: MLModelType -&gt; MLModelType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679250980"><span id="local-6989586621679250982"><span id="local-6989586621679250984"><span id="local-6989586621679250986"><span id="local-6989586621679250988"><span id="local-6989586621679250990"><span id="local-6989586621679250992"><span class="annot"><span class="annottext">Eq MLModelType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679250989"><span id="local-6989586621679250991"><span id="local-6989586621679250993"><span id="local-6989586621679250995"><span id="local-6989586621679250997"><span id="local-6989586621679250999"><span id="local-6989586621679251001"><span class="annot"><span class="annottext">Eq MLModelType
 Eq MLModelType
 -&gt; (MLModelType -&gt; MLModelType -&gt; Ordering)
 -&gt; (MLModelType -&gt; MLModelType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. MLModelType -&gt; Rep MLModelType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250972"><span id="local-6989586621679250974"><span class="annot"><span class="annottext">Int -&gt; MLModelType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250981"><span id="local-6989586621679250983"><span class="annot"><span class="annottext">Int -&gt; MLModelType -&gt; Int
 MLModelType -&gt; Int
 (Int -&gt; MLModelType -&gt; Int)
 -&gt; (MLModelType -&gt; Int) -&gt; Hashable MLModelType
@@ -143,49 +143,49 @@ $chash :: MLModelType -&gt; Int
 hashWithSalt :: Int -&gt; MLModelType -&gt; Int
 $chashWithSalt :: Int -&gt; MLModelType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679250969"><span class="annot"><span class="annottext">MLModelType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679250978"><span class="annot"><span class="annottext">MLModelType -&gt; ()
 (MLModelType -&gt; ()) -&gt; NFData MLModelType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MLModelType -&gt; ()
 $crnf :: MLModelType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679250966"><span class="annot"><span class="annottext">Text -&gt; Either String MLModelType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679250975"><span class="annot"><span class="annottext">Text -&gt; Either String MLModelType
 (Text -&gt; Either String MLModelType) -&gt; FromText MLModelType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MLModelType
 $cfromText :: Text -&gt; Either String MLModelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679250963"><span class="annot"><span class="annottext">MLModelType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679250972"><span class="annot"><span class="annottext">MLModelType -&gt; Text
 (MLModelType -&gt; Text) -&gt; ToText MLModelType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MLModelType -&gt; Text
 $ctoText :: MLModelType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679250960"><span class="annot"><span class="annottext">MLModelType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679250969"><span class="annot"><span class="annottext">MLModelType -&gt; ByteString
 (MLModelType -&gt; ByteString) -&gt; ToByteString MLModelType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MLModelType -&gt; ByteString
 $ctoBS :: MLModelType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679250957"><span class="annot"><span class="annottext">MLModelType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679250966"><span class="annot"><span class="annottext">MLModelType -&gt; ByteStringBuilder
 (MLModelType -&gt; ByteStringBuilder) -&gt; ToLog MLModelType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MLModelType -&gt; ByteStringBuilder
 $cbuild :: MLModelType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679250954"><span class="annot"><span class="annottext">HeaderName -&gt; MLModelType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679250963"><span class="annot"><span class="annottext">HeaderName -&gt; MLModelType -&gt; [Header]
 (HeaderName -&gt; MLModelType -&gt; [Header]) -&gt; ToHeader MLModelType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MLModelType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MLModelType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679250951"><span class="annot"><span class="annottext">MLModelType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679250960"><span class="annot"><span class="annottext">MLModelType -&gt; QueryString
 (MLModelType -&gt; QueryString) -&gt; ToQuery MLModelType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MLModelType -&gt; QueryString
 $ctoQuery :: MLModelType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679250946"><span id="local-6989586621679250948"><span class="annot"><span class="annottext">Value -&gt; Parser [MLModelType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679250955"><span id="local-6989586621679250957"><span class="annot"><span class="annottext">Value -&gt; Parser [MLModelType]
 Value -&gt; Parser MLModelType
 (Value -&gt; Parser MLModelType)
 -&gt; (Value -&gt; Parser [MLModelType]) -&gt; FromJSON MLModelType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [MLModelType]
 parseJSON :: Value -&gt; Parser MLModelType
 $cparseJSON :: Value -&gt; Parser MLModelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679250941"><span id="local-6989586621679250943"><span class="annot"><span class="annottext">FromJSONKeyFunction [MLModelType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679250950"><span id="local-6989586621679250952"><span class="annot"><span class="annottext">FromJSONKeyFunction [MLModelType]
 FromJSONKeyFunction MLModelType
 FromJSONKeyFunction MLModelType
 -&gt; FromJSONKeyFunction [MLModelType] -&gt; FromJSONKey MLModelType
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MLModelType]
 fromJSONKey :: FromJSONKeyFunction MLModelType
 $cfromJSONKey :: FromJSONKeyFunction MLModelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679250932"><span id="local-6989586621679250934"><span id="local-6989586621679250936"><span id="local-6989586621679250938"><span class="annot"><span class="annottext">[MLModelType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679250941"><span id="local-6989586621679250943"><span id="local-6989586621679250945"><span id="local-6989586621679250947"><span class="annot"><span class="annottext">[MLModelType] -&gt; Encoding
 [MLModelType] -&gt; Value
 MLModelType -&gt; Encoding
 MLModelType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: MLModelType -&gt; Encoding
 toJSON :: MLModelType -&gt; Value
 $ctoJSON :: MLModelType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679250927"><span id="local-6989586621679250929"><span class="annot"><span class="annottext">ToJSONKeyFunction [MLModelType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679250936"><span id="local-6989586621679250938"><span class="annot"><span class="annottext">ToJSONKeyFunction [MLModelType]
 ToJSONKeyFunction MLModelType
 ToJSONKeyFunction MLModelType
 -&gt; ToJSONKeyFunction [MLModelType] -&gt; ToJSONKey MLModelType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MLModelType]
 toJSONKey :: ToJSONKeyFunction MLModelType
 $ctoJSONKey :: ToJSONKeyFunction MLModelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679250924"><span class="annot"><span class="annottext">[Node] -&gt; Either String MLModelType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679250933"><span class="annot"><span class="annottext">[Node] -&gt; Either String MLModelType
 ([Node] -&gt; Either String MLModelType) -&gt; FromXML MLModelType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MLModelType
 $cparseXML :: [Node] -&gt; Either String MLModelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679250921"><span class="annot"><span class="annottext">MLModelType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679250930"><span class="annot"><span class="annottext">MLModelType -&gt; XML
 (MLModelType -&gt; XML) -&gt; ToXML MLModelType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MLModelType -&gt; XML

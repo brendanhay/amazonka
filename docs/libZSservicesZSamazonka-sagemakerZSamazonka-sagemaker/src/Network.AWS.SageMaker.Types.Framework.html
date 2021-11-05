@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621680307157"><span id="local-6989586621680307158"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Framework"><span class="annot"><a href="Network.AWS.SageMaker.Types.Framework.html#Framework"><span class="hs-identifier hs-var">Framework</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Framework%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Framework.html#Framework%27"><span class="hs-identifier hs-var">Framework'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621680307166"><span id="local-6989586621680307167"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Framework"><span class="annot"><a href="Network.AWS.SageMaker.Types.Framework.html#Framework"><span class="hs-identifier hs-var">Framework</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Framework%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Framework.html#Framework%27"><span class="hs-identifier hs-var">Framework'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFramework"><span class="annot"><span class="annottext">Framework -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.Framework.html#fromFramework"><span class="hs-identifier hs-var hs-var">fromFramework</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680307149"><span id="local-6989586621680307151"><span id="local-6989586621680307153"><span class="annot"><span class="annottext">Int -&gt; Framework -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680307158"><span id="local-6989586621680307160"><span id="local-6989586621680307162"><span class="annot"><span class="annottext">Int -&gt; Framework -&gt; ShowS
 [Framework] -&gt; ShowS
 Framework -&gt; String
 (Int -&gt; Framework -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: Framework -&gt; String
 showsPrec :: Int -&gt; Framework -&gt; ShowS
 $cshowsPrec :: Int -&gt; Framework -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680307140"><span id="local-6989586621680307142"><span id="local-6989586621680307144"><span id="local-6989586621680307146"><span class="annot"><span class="annottext">ReadPrec [Framework]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680307149"><span id="local-6989586621680307151"><span id="local-6989586621680307153"><span id="local-6989586621680307155"><span class="annot"><span class="annottext">ReadPrec [Framework]
 ReadPrec Framework
 Int -&gt; ReadS Framework
 ReadS [Framework]
@@ -79,7 +79,7 @@ $creadList :: ReadS [Framework]
 readsPrec :: Int -&gt; ReadS Framework
 $creadsPrec :: Int -&gt; ReadS Framework
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680307135"><span id="local-6989586621680307137"><span class="annot"><span class="annottext">Framework -&gt; Framework -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680307144"><span id="local-6989586621680307146"><span class="annot"><span class="annottext">Framework -&gt; Framework -&gt; Bool
 (Framework -&gt; Framework -&gt; Bool)
 -&gt; (Framework -&gt; Framework -&gt; Bool) -&gt; Eq Framework
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -88,7 +88,7 @@ $c/= :: Framework -&gt; Framework -&gt; Bool
 == :: Framework -&gt; Framework -&gt; Bool
 $c== :: Framework -&gt; Framework -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680307119"><span id="local-6989586621680307121"><span id="local-6989586621680307123"><span id="local-6989586621680307125"><span id="local-6989586621680307127"><span id="local-6989586621680307129"><span id="local-6989586621680307131"><span class="annot"><span class="annottext">Eq Framework
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680307128"><span id="local-6989586621680307130"><span id="local-6989586621680307132"><span id="local-6989586621680307134"><span id="local-6989586621680307136"><span id="local-6989586621680307138"><span id="local-6989586621680307140"><span class="annot"><span class="annottext">Eq Framework
 Eq Framework
 -&gt; (Framework -&gt; Framework -&gt; Ordering)
 -&gt; (Framework -&gt; Framework -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. Framework -&gt; Rep Framework x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680307111"><span id="local-6989586621680307113"><span class="annot"><span class="annottext">Int -&gt; Framework -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680307120"><span id="local-6989586621680307122"><span class="annot"><span class="annottext">Int -&gt; Framework -&gt; Int
 Framework -&gt; Int
 (Int -&gt; Framework -&gt; Int)
 -&gt; (Framework -&gt; Int) -&gt; Hashable Framework
@@ -148,49 +148,49 @@ $chash :: Framework -&gt; Int
 hashWithSalt :: Int -&gt; Framework -&gt; Int
 $chashWithSalt :: Int -&gt; Framework -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680307108"><span class="annot"><span class="annottext">Framework -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680307117"><span class="annot"><span class="annottext">Framework -&gt; ()
 (Framework -&gt; ()) -&gt; NFData Framework
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Framework -&gt; ()
 $crnf :: Framework -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680307105"><span class="annot"><span class="annottext">Text -&gt; Either String Framework
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680307114"><span class="annot"><span class="annottext">Text -&gt; Either String Framework
 (Text -&gt; Either String Framework) -&gt; FromText Framework
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Framework
 $cfromText :: Text -&gt; Either String Framework
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680307102"><span class="annot"><span class="annottext">Framework -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680307111"><span class="annot"><span class="annottext">Framework -&gt; Text
 (Framework -&gt; Text) -&gt; ToText Framework
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Framework -&gt; Text
 $ctoText :: Framework -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680307099"><span class="annot"><span class="annottext">Framework -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680307108"><span class="annot"><span class="annottext">Framework -&gt; ByteString
 (Framework -&gt; ByteString) -&gt; ToByteString Framework
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Framework -&gt; ByteString
 $ctoBS :: Framework -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680307096"><span class="annot"><span class="annottext">Framework -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680307105"><span class="annot"><span class="annottext">Framework -&gt; ByteStringBuilder
 (Framework -&gt; ByteStringBuilder) -&gt; ToLog Framework
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Framework -&gt; ByteStringBuilder
 $cbuild :: Framework -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680307093"><span class="annot"><span class="annottext">HeaderName -&gt; Framework -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680307102"><span class="annot"><span class="annottext">HeaderName -&gt; Framework -&gt; [Header]
 (HeaderName -&gt; Framework -&gt; [Header]) -&gt; ToHeader Framework
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Framework -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Framework -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680307090"><span class="annot"><span class="annottext">Framework -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680307099"><span class="annot"><span class="annottext">Framework -&gt; QueryString
 (Framework -&gt; QueryString) -&gt; ToQuery Framework
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Framework -&gt; QueryString
 $ctoQuery :: Framework -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680307085"><span id="local-6989586621680307087"><span class="annot"><span class="annottext">Value -&gt; Parser [Framework]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680307094"><span id="local-6989586621680307096"><span class="annot"><span class="annottext">Value -&gt; Parser [Framework]
 Value -&gt; Parser Framework
 (Value -&gt; Parser Framework)
 -&gt; (Value -&gt; Parser [Framework]) -&gt; FromJSON Framework
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [Framework]
 parseJSON :: Value -&gt; Parser Framework
 $cparseJSON :: Value -&gt; Parser Framework
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680307080"><span id="local-6989586621680307082"><span class="annot"><span class="annottext">FromJSONKeyFunction [Framework]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680307089"><span id="local-6989586621680307091"><span class="annot"><span class="annottext">FromJSONKeyFunction [Framework]
 FromJSONKeyFunction Framework
 FromJSONKeyFunction Framework
 -&gt; FromJSONKeyFunction [Framework] -&gt; FromJSONKey Framework
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Framework]
 fromJSONKey :: FromJSONKeyFunction Framework
 $cfromJSONKey :: FromJSONKeyFunction Framework
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680307071"><span id="local-6989586621680307073"><span id="local-6989586621680307075"><span id="local-6989586621680307077"><span class="annot"><span class="annottext">[Framework] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680307080"><span id="local-6989586621680307082"><span id="local-6989586621680307084"><span id="local-6989586621680307086"><span class="annot"><span class="annottext">[Framework] -&gt; Encoding
 [Framework] -&gt; Value
 Framework -&gt; Encoding
 Framework -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: Framework -&gt; Encoding
 toJSON :: Framework -&gt; Value
 $ctoJSON :: Framework -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680307066"><span id="local-6989586621680307068"><span class="annot"><span class="annottext">ToJSONKeyFunction [Framework]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680307075"><span id="local-6989586621680307077"><span class="annot"><span class="annottext">ToJSONKeyFunction [Framework]
 ToJSONKeyFunction Framework
 ToJSONKeyFunction Framework
 -&gt; ToJSONKeyFunction [Framework] -&gt; ToJSONKey Framework
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Framework]
 toJSONKey :: ToJSONKeyFunction Framework
 $ctoJSONKey :: ToJSONKeyFunction Framework
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680307063"><span class="annot"><span class="annottext">[Node] -&gt; Either String Framework
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680307072"><span class="annot"><span class="annottext">[Node] -&gt; Either String Framework
 ([Node] -&gt; Either String Framework) -&gt; FromXML Framework
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Framework
 $cparseXML :: [Node] -&gt; Either String Framework
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680307060"><span class="annot"><span class="annottext">Framework -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680307069"><span class="annot"><span class="annottext">Framework -&gt; XML
 (Framework -&gt; XML) -&gt; ToXML Framework
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Framework -&gt; XML

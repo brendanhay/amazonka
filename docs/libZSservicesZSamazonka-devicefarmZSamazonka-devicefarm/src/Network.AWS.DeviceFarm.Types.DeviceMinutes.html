@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- to run tests. Contains the sum of minutes consumed by all children.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDeviceMinutes' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679362474"><span id="local-6989586621679362475"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceMinutes"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-var">DeviceMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceMinutes%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-var">DeviceMinutes'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679362483"><span id="local-6989586621679362484"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceMinutes"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-var">DeviceMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceMinutes%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-var">DeviceMinutes'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When specified, represents only the sum of metered minutes used by the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- resource to run tests.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Ametered%3ADeviceMinutes%27"><span class="annot"><span class="annottext">DeviceMinutes -&gt; Maybe Double
@@ -41,7 +41,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Aunmetered%3ADeviceMinutes%27"><span class="annot"><span class="annottext">DeviceMinutes -&gt; Maybe Double
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#%24sel%3Aunmetered%3ADeviceMinutes%27"><span class="hs-identifier hs-var hs-var">unmetered</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679362466"><span id="local-6989586621679362468"><span class="annot"><span class="annottext">DeviceMinutes -&gt; DeviceMinutes -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679362475"><span id="local-6989586621679362477"><span class="annot"><span class="annottext">DeviceMinutes -&gt; DeviceMinutes -&gt; Bool
 (DeviceMinutes -&gt; DeviceMinutes -&gt; Bool)
 -&gt; (DeviceMinutes -&gt; DeviceMinutes -&gt; Bool) -&gt; Eq DeviceMinutes
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeviceMinutes -&gt; DeviceMinutes -&gt; Bool
 == :: DeviceMinutes -&gt; DeviceMinutes -&gt; Bool
 $c== :: DeviceMinutes -&gt; DeviceMinutes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362457"><span id="local-6989586621679362459"><span id="local-6989586621679362461"><span id="local-6989586621679362463"><span class="annot"><span class="annottext">ReadPrec [DeviceMinutes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362466"><span id="local-6989586621679362468"><span id="local-6989586621679362470"><span id="local-6989586621679362472"><span class="annot"><span class="annottext">ReadPrec [DeviceMinutes]
 ReadPrec DeviceMinutes
 Int -&gt; ReadS DeviceMinutes
 ReadS [DeviceMinutes]
@@ -69,7 +69,7 @@ readList :: ReadS [DeviceMinutes]
 $creadList :: ReadS [DeviceMinutes]
 readsPrec :: Int -&gt; ReadS DeviceMinutes
 $creadsPrec :: Int -&gt; ReadS DeviceMinutes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362450"><span id="local-6989586621679362452"><span id="local-6989586621679362454"><span class="annot"><span class="annottext">Int -&gt; DeviceMinutes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362459"><span id="local-6989586621679362461"><span id="local-6989586621679362463"><span class="annot"><span class="annottext">Int -&gt; DeviceMinutes -&gt; ShowS
 [DeviceMinutes] -&gt; ShowS
 DeviceMinutes -&gt; String
 (Int -&gt; DeviceMinutes -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
 -&gt; (DeviceMinutes -&gt; Maybe Double -&gt; DeviceMinutes)
 -&gt; Lens DeviceMinutes DeviceMinutes (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-type">DeviceMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362441"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-type">DeviceMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362450"><span class="annot"><span class="annottext">Maybe Double
 metered :: Maybe Double
 $sel:metered:DeviceMinutes' :: DeviceMinutes -&gt; Maybe Double
-</span><a href="#local-6989586621679362441"><span class="hs-identifier hs-var hs-var">metered</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679362441"><span class="hs-identifier hs-var">metered</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362440"><span class="annot"><span class="annottext">s :: DeviceMinutes
-</span><a href="#local-6989586621679362440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-type">DeviceMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362439"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679362439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceMinutes
-</span><a href="#local-6989586621679362440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metered:DeviceMinutes' :: Maybe Double
+</span><a href="#local-6989586621679362450"><span class="hs-identifier hs-var hs-var">metered</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679362450"><span class="hs-identifier hs-var">metered</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362449"><span class="annot"><span class="annottext">s :: DeviceMinutes
+</span><a href="#local-6989586621679362449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-type">DeviceMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362448"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679362448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceMinutes
+</span><a href="#local-6989586621679362449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metered:DeviceMinutes' :: Maybe Double
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#%24sel%3Ametered%3ADeviceMinutes%27"><span class="hs-identifier hs-var">metered</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679362439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679362448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | When specified, represents the total minutes used by the resource to run</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- tests.</span><span>
@@ -160,16 +160,16 @@ $sel:metered:DeviceMinutes' :: DeviceMinutes -&gt; Maybe Double
 -&gt; (DeviceMinutes -&gt; Maybe Double -&gt; DeviceMinutes)
 -&gt; Lens DeviceMinutes DeviceMinutes (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-type">DeviceMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362437"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-type">DeviceMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362446"><span class="annot"><span class="annottext">Maybe Double
 total :: Maybe Double
 $sel:total:DeviceMinutes' :: DeviceMinutes -&gt; Maybe Double
-</span><a href="#local-6989586621679362437"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679362437"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362436"><span class="annot"><span class="annottext">s :: DeviceMinutes
-</span><a href="#local-6989586621679362436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-type">DeviceMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362435"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679362435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceMinutes
-</span><a href="#local-6989586621679362436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:total:DeviceMinutes' :: Maybe Double
+</span><a href="#local-6989586621679362446"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679362446"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362445"><span class="annot"><span class="annottext">s :: DeviceMinutes
+</span><a href="#local-6989586621679362445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-type">DeviceMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362444"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679362444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceMinutes
+</span><a href="#local-6989586621679362445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:total:DeviceMinutes' :: Maybe Double
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#%24sel%3Atotal%3ADeviceMinutes%27"><span class="hs-identifier hs-var">total</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679362435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679362444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | When specified, represents only the sum of unmetered minutes used by the</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- resource to run tests.</span><span>
@@ -180,19 +180,19 @@ $sel:total:DeviceMinutes' :: DeviceMinutes -&gt; Maybe Double
 -&gt; (DeviceMinutes -&gt; Maybe Double -&gt; DeviceMinutes)
 -&gt; Lens DeviceMinutes DeviceMinutes (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-type">DeviceMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362433"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-type">DeviceMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362442"><span class="annot"><span class="annottext">Maybe Double
 unmetered :: Maybe Double
 $sel:unmetered:DeviceMinutes' :: DeviceMinutes -&gt; Maybe Double
-</span><a href="#local-6989586621679362433"><span class="hs-identifier hs-var hs-var">unmetered</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679362433"><span class="hs-identifier hs-var">unmetered</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362432"><span class="annot"><span class="annottext">s :: DeviceMinutes
-</span><a href="#local-6989586621679362432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-type">DeviceMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362431"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679362431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceMinutes
-</span><a href="#local-6989586621679362432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unmetered:DeviceMinutes' :: Maybe Double
+</span><a href="#local-6989586621679362442"><span class="hs-identifier hs-var hs-var">unmetered</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679362442"><span class="hs-identifier hs-var">unmetered</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362441"><span class="annot"><span class="annottext">s :: DeviceMinutes
+</span><a href="#local-6989586621679362441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-type">DeviceMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362440"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679362440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceMinutes
+</span><a href="#local-6989586621679362441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unmetered:DeviceMinutes' :: Maybe Double
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#%24sel%3Aunmetered%3ADeviceMinutes%27"><span class="hs-identifier hs-var">unmetered</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679362431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679362440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679362428"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679362426"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceMinutes
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679362437"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679362435"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceMinutes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeviceMinutes)
@@ -202,8 +202,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeviceMinutes&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679362423"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679362423"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679362432"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679362432"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Double -&gt; Maybe Double -&gt; DeviceMinutes
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes%27"><span class="hs-identifier hs-var">DeviceMinutes'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Double -&gt; Maybe Double -&gt; DeviceMinutes)
@@ -211,7 +211,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Double -&gt; Maybe Double -&gt; DeviceMinutes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679362423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679362432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metered&quot;</span></span><span class="hs-special">)</span><span>
@@ -219,7 +219,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser (Maybe Double -&gt; DeviceMinutes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679362423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679362432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;total&quot;</span></span><span class="hs-special">)</span><span>
@@ -227,13 +227,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser DeviceMinutes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679362423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679362432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;unmetered&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679362417"><span id="local-6989586621679362419"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679362426"><span id="local-6989586621679362428"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679362414"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679362423"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span></span><span>
 </span><span id="line-97"></span></pre></body></html>

@@ -97,7 +97,7 @@
 </span><span id="line-97"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | /See:/ 'newPutMetricData' smart constructor.</span><span>
-</span><span id="line-100"></span><span id="local-6989586621679260235"><span id="local-6989586621679260236"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutMetricData"><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-var">PutMetricData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutMetricData%27"><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData%27"><span class="hs-identifier hs-var">PutMetricData'</span></a></span></span><span>
+</span><span id="line-100"></span><span id="local-6989586621679260244"><span id="local-6989586621679260245"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutMetricData"><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-var">PutMetricData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutMetricData%27"><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData%27"><span class="hs-identifier hs-var">PutMetricData'</span></a></span></span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The namespace for the metric data.</span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-comment">-- To avoid conflicts with Amazon Web Services service namespaces, you</span><span>
@@ -109,7 +109,7 @@
 </span><span id="line-108"></span><span>    </span><span id="%24sel%3AmetricData%3APutMetricData%27"><span class="annot"><span class="annottext">PutMetricData -&gt; [MetricDatum]
 </span><a href="Network.AWS.CloudWatch.PutMetricData.html#%24sel%3AmetricData%3APutMetricData%27"><span class="hs-identifier hs-var hs-var">metricData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260228"><span id="local-6989586621679260230"><span class="annot"><span class="annottext">PutMetricData -&gt; PutMetricData -&gt; Bool
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260237"><span id="local-6989586621679260239"><span class="annot"><span class="annottext">PutMetricData -&gt; PutMetricData -&gt; Bool
 (PutMetricData -&gt; PutMetricData -&gt; Bool)
 -&gt; (PutMetricData -&gt; PutMetricData -&gt; Bool) -&gt; Eq PutMetricData
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -117,7 +117,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutMetricData -&gt; PutMetricData -&gt; Bool
 == :: PutMetricData -&gt; PutMetricData -&gt; Bool
 $c== :: PutMetricData -&gt; PutMetricData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260219"><span id="local-6989586621679260221"><span id="local-6989586621679260223"><span id="local-6989586621679260225"><span class="annot"><span class="annottext">ReadPrec [PutMetricData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260228"><span id="local-6989586621679260230"><span id="local-6989586621679260232"><span id="local-6989586621679260234"><span class="annot"><span class="annottext">ReadPrec [PutMetricData]
 ReadPrec PutMetricData
 Int -&gt; ReadS PutMetricData
 ReadS [PutMetricData]
@@ -137,7 +137,7 @@ readList :: ReadS [PutMetricData]
 $creadList :: ReadS [PutMetricData]
 readsPrec :: Int -&gt; ReadS PutMetricData
 $creadsPrec :: Int -&gt; ReadS PutMetricData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260212"><span id="local-6989586621679260214"><span id="local-6989586621679260216"><span class="annot"><span class="annottext">Int -&gt; PutMetricData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260221"><span id="local-6989586621679260223"><span id="local-6989586621679260225"><span class="annot"><span class="annottext">Int -&gt; PutMetricData -&gt; ShowS
 [PutMetricData] -&gt; ShowS
 PutMetricData -&gt; String
 (Int -&gt; PutMetricData -&gt; ShowS)
@@ -183,13 +183,13 @@ $cfrom :: forall x. PutMetricData -&gt; Rep PutMetricData x
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-type">PutMetricData</span></a></span><span>
 </span><span id="line-131"></span><span id="newPutMetricData"><span class="annot"><span class="annottext">newPutMetricData :: Text -&gt; PutMetricData
-</span><a href="Network.AWS.CloudWatch.PutMetricData.html#newPutMetricData"><span class="hs-identifier hs-var hs-var">newPutMetricData</span></a></span></span><span> </span><span id="local-6989586621679260207"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260207"><span class="hs-identifier hs-var">pNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatch.PutMetricData.html#newPutMetricData"><span class="hs-identifier hs-var hs-var">newPutMetricData</span></a></span></span><span> </span><span id="local-6989586621679260216"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260216"><span class="hs-identifier hs-var">pNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">PutMetricData' :: Text -&gt; [MetricDatum] -&gt; PutMetricData
 </span><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData%27"><span class="hs-identifier hs-type">PutMetricData'</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:namespace:PutMetricData' :: Text
 </span><a href="Network.AWS.CloudWatch.PutMetricData.html#%24sel%3Anamespace%3APutMetricData%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260207"><span class="hs-identifier hs-var">pNamespace_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260216"><span class="hs-identifier hs-var">pNamespace_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricData:PutMetricData' :: [MetricDatum]
 </span><a href="Network.AWS.CloudWatch.PutMetricData.html#%24sel%3AmetricData%3APutMetricData%27"><span class="hs-identifier hs-var">metricData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MetricDatum]
 forall a. Monoid a =&gt; a
@@ -206,16 +206,16 @@ forall a. Monoid a =&gt; a
 -&gt; (PutMetricData -&gt; Text -&gt; PutMetricData)
 -&gt; Lens PutMetricData PutMetricData Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData%27"><span class="hs-identifier hs-type">PutMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260204"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData%27"><span class="hs-identifier hs-type">PutMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260213"><span class="annot"><span class="annottext">Text
 namespace :: Text
 $sel:namespace:PutMetricData' :: PutMetricData -&gt; Text
-</span><a href="#local-6989586621679260204"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260204"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260203"><span class="annot"><span class="annottext">s :: PutMetricData
-</span><a href="#local-6989586621679260203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData%27"><span class="hs-identifier hs-type">PutMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260202"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricData
-</span><a href="#local-6989586621679260203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:PutMetricData' :: Text
+</span><a href="#local-6989586621679260213"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260213"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260212"><span class="annot"><span class="annottext">s :: PutMetricData
+</span><a href="#local-6989586621679260212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData%27"><span class="hs-identifier hs-type">PutMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260211"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricData
+</span><a href="#local-6989586621679260212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:PutMetricData' :: Text
 </span><a href="Network.AWS.CloudWatch.PutMetricData.html#%24sel%3Anamespace%3APutMetricData%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-type">PutMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-type">PutMetricData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The data for the metric. The array can include no more than 20 metrics</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- per call.</span><span>
@@ -226,16 +226,16 @@ $sel:namespace:PutMetricData' :: PutMetricData -&gt; Text
 -&gt; (PutMetricData -&gt; [MetricDatum] -&gt; PutMetricData)
 -&gt; Lens PutMetricData PutMetricData [MetricDatum] [MetricDatum]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData%27"><span class="hs-identifier hs-type">PutMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260201"><span class="annot"><span class="annottext">[MetricDatum]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData%27"><span class="hs-identifier hs-type">PutMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260210"><span class="annot"><span class="annottext">[MetricDatum]
 metricData :: [MetricDatum]
 $sel:metricData:PutMetricData' :: PutMetricData -&gt; [MetricDatum]
-</span><a href="#local-6989586621679260201"><span class="hs-identifier hs-var hs-var">metricData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MetricDatum]
-</span><a href="#local-6989586621679260201"><span class="hs-identifier hs-var">metricData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260200"><span class="annot"><span class="annottext">s :: PutMetricData
-</span><a href="#local-6989586621679260200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData%27"><span class="hs-identifier hs-type">PutMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260199"><span class="annot"><span class="annottext">[MetricDatum]
-</span><a href="#local-6989586621679260199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricData
-</span><a href="#local-6989586621679260200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricData:PutMetricData' :: [MetricDatum]
+</span><a href="#local-6989586621679260210"><span class="hs-identifier hs-var hs-var">metricData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MetricDatum]
+</span><a href="#local-6989586621679260210"><span class="hs-identifier hs-var">metricData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260209"><span class="annot"><span class="annottext">s :: PutMetricData
+</span><a href="#local-6989586621679260209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData%27"><span class="hs-identifier hs-type">PutMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260208"><span class="annot"><span class="annottext">[MetricDatum]
+</span><a href="#local-6989586621679260208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricData
+</span><a href="#local-6989586621679260209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricData:PutMetricData' :: [MetricDatum]
 </span><a href="Network.AWS.CloudWatch.PutMetricData.html#%24sel%3AmetricData%3APutMetricData%27"><span class="hs-identifier hs-var">metricData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MetricDatum]
-</span><a href="#local-6989586621679260199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-type">PutMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MetricDatum] -&gt; f [MetricDatum])
+</span><a href="#local-6989586621679260208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-type">PutMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MetricDatum] -&gt; f [MetricDatum])
  -&gt; PutMetricData -&gt; f PutMetricData)
 -&gt; (([MetricDatum] -&gt; f [MetricDatum])
     -&gt; [MetricDatum] -&gt; f [MetricDatum])
@@ -252,12 +252,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-150"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-151"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-type">PutMetricData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricDataResponse"><span class="hs-identifier hs-type">PutMetricDataResponse</span></a></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679260193"><span class="annot"><span class="annottext">request :: PutMetricData -&gt; Request PutMetricData
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679260202"><span class="annot"><span class="annottext">request :: PutMetricData -&gt; Request PutMetricData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutMetricData -&gt; Request PutMetricData
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679260189"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679260198"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutMetricData
 -&gt; ClientResponse ClientBody
@@ -281,12 +281,12 @@ AWSResponse a
 PutMetricDataResponse
 </span><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricDataResponse%27"><span class="hs-identifier hs-var">PutMetricDataResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260182"><span id="local-6989586621679260184"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-type">PutMetricData</span></a></span></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260191"><span id="local-6989586621679260193"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-type">PutMetricData</span></a></span></span></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260179"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-type">PutMetricData</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260188"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-type">PutMetricData</span></a></span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-type">PutMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679260175"><span class="annot"><span class="annottext">toHeaders :: PutMetricData -&gt; [Header]
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679260184"><span class="annot"><span class="annottext">toHeaders :: PutMetricData -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; PutMetricData -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -294,21 +294,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-type">PutMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679260170"><span class="annot"><span class="annottext">toPath :: PutMetricData -&gt; ByteString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679260179"><span class="annot"><span class="annottext">toPath :: PutMetricData -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutMetricData -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData"><span class="hs-identifier hs-type">PutMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679260166"><span class="annot"><span class="annottext">toQuery :: PutMetricData -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData%27"><span class="hs-identifier hs-type">PutMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260163"><span id="local-6989586621679260164"><span class="annot"><span class="annottext">[MetricDatum]
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679260175"><span class="annot"><span class="annottext">toQuery :: PutMetricData -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricData%27"><span class="hs-identifier hs-type">PutMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260172"><span id="local-6989586621679260173"><span class="annot"><span class="annottext">[MetricDatum]
 Text
 metricData :: [MetricDatum]
 namespace :: Text
 $sel:metricData:PutMetricData' :: PutMetricData -&gt; [MetricDatum]
 $sel:namespace:PutMetricData' :: PutMetricData -&gt; Text
-</span><a href="#local-6989586621679260163"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679260172"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -328,7 +328,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260164"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260173"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MetricData&quot;</span></span><span>
 </span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -339,14 +339,14 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[MetricDatum]
-</span><a href="#local-6989586621679260163"><span class="hs-identifier hs-var">metricData</span></a></span><span>
+</span><a href="#local-6989586621679260172"><span class="hs-identifier hs-var">metricData</span></a></span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | /See:/ 'newPutMetricDataResponse' smart constructor.</span><span>
-</span><span id="line-180"></span><span id="local-6989586621679260159"><span id="local-6989586621679260160"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutMetricDataResponse"><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricDataResponse"><span class="hs-identifier hs-var">PutMetricDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutMetricDataResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricDataResponse%27"><span class="hs-identifier hs-var">PutMetricDataResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span id="local-6989586621679260168"><span id="local-6989586621679260169"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutMetricDataResponse"><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricDataResponse"><span class="hs-identifier hs-var">PutMetricDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutMetricDataResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricDataResponse%27"><span class="hs-identifier hs-var">PutMetricDataResponse'</span></a></span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260155"><span id="local-6989586621679260157"><span class="annot"><span class="annottext">PutMetricDataResponse -&gt; PutMetricDataResponse -&gt; Bool
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260164"><span id="local-6989586621679260166"><span class="annot"><span class="annottext">PutMetricDataResponse -&gt; PutMetricDataResponse -&gt; Bool
 (PutMetricDataResponse -&gt; PutMetricDataResponse -&gt; Bool)
 -&gt; (PutMetricDataResponse -&gt; PutMetricDataResponse -&gt; Bool)
 -&gt; Eq PutMetricDataResponse
@@ -355,7 +355,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutMetricDataResponse -&gt; PutMetricDataResponse -&gt; Bool
 == :: PutMetricDataResponse -&gt; PutMetricDataResponse -&gt; Bool
 $c== :: PutMetricDataResponse -&gt; PutMetricDataResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260147"><span id="local-6989586621679260149"><span id="local-6989586621679260151"><span id="local-6989586621679260153"><span class="annot"><span class="annottext">ReadPrec [PutMetricDataResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260156"><span id="local-6989586621679260158"><span id="local-6989586621679260160"><span id="local-6989586621679260162"><span class="annot"><span class="annottext">ReadPrec [PutMetricDataResponse]
 ReadPrec PutMetricDataResponse
 Int -&gt; ReadS PutMetricDataResponse
 ReadS [PutMetricDataResponse]
@@ -375,7 +375,7 @@ readList :: ReadS [PutMetricDataResponse]
 $creadList :: ReadS [PutMetricDataResponse]
 readsPrec :: Int -&gt; ReadS PutMetricDataResponse
 $creadsPrec :: Int -&gt; ReadS PutMetricDataResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260141"><span id="local-6989586621679260143"><span id="local-6989586621679260145"><span class="annot"><span class="annottext">Int -&gt; PutMetricDataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260150"><span id="local-6989586621679260152"><span id="local-6989586621679260154"><span class="annot"><span class="annottext">Int -&gt; PutMetricDataResponse -&gt; ShowS
 [PutMetricDataResponse] -&gt; ShowS
 PutMetricDataResponse -&gt; String
 (Int -&gt; PutMetricDataResponse -&gt; ShowS)
@@ -411,5 +411,5 @@ $cfrom :: forall x. PutMetricDataResponse -&gt; Rep PutMetricDataResponse x
 </span><a href="Network.AWS.CloudWatch.PutMetricData.html#newPutMetricDataResponse"><span class="hs-identifier hs-var hs-var">newPutMetricDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutMetricDataResponse
 </span><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricDataResponse%27"><span class="hs-identifier hs-var">PutMetricDataResponse'</span></a></span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260137"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricDataResponse"><span class="hs-identifier hs-type">PutMetricDataResponse</span></a></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260146"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricData.html#PutMetricDataResponse"><span class="hs-identifier hs-type">PutMetricDataResponse</span></a></span></span><span>
 </span><span id="line-194"></span></pre></body></html>

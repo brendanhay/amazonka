@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Container for the expiration for the lifecycle of the object.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLifecycleExpiration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679544009"><span id="local-6989586621679544010"></span></span><span class="hs-keyword">data</span><span> </span><span id="LifecycleExpiration"><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-var">LifecycleExpiration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecycleExpiration%27"><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-var">LifecycleExpiration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679544018"><span id="local-6989586621679544019"></span></span><span class="hs-keyword">data</span><span> </span><span id="LifecycleExpiration"><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-var">LifecycleExpiration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecycleExpiration%27"><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-var">LifecycleExpiration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates the lifetime, in days, of the objects that are subject to the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- rule. The value must be a non-zero positive integer.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Adays%3ALifecycleExpiration%27"><span class="annot"><span class="annottext">LifecycleExpiration -&gt; Maybe Int
@@ -43,7 +43,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AexpiredObjectDeleteMarker%3ALifecycleExpiration%27"><span class="annot"><span class="annottext">LifecycleExpiration -&gt; Maybe Bool
 </span><a href="Network.AWS.S3.Types.LifecycleExpiration.html#%24sel%3AexpiredObjectDeleteMarker%3ALifecycleExpiration%27"><span class="hs-identifier hs-var hs-var">expiredObjectDeleteMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679544001"><span id="local-6989586621679544003"><span class="annot"><span class="annottext">LifecycleExpiration -&gt; LifecycleExpiration -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679544010"><span id="local-6989586621679544012"><span class="annot"><span class="annottext">LifecycleExpiration -&gt; LifecycleExpiration -&gt; Bool
 (LifecycleExpiration -&gt; LifecycleExpiration -&gt; Bool)
 -&gt; (LifecycleExpiration -&gt; LifecycleExpiration -&gt; Bool)
 -&gt; Eq LifecycleExpiration
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LifecycleExpiration -&gt; LifecycleExpiration -&gt; Bool
 == :: LifecycleExpiration -&gt; LifecycleExpiration -&gt; Bool
 $c== :: LifecycleExpiration -&gt; LifecycleExpiration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543992"><span id="local-6989586621679543994"><span id="local-6989586621679543996"><span id="local-6989586621679543998"><span class="annot"><span class="annottext">ReadPrec [LifecycleExpiration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679544001"><span id="local-6989586621679544003"><span id="local-6989586621679544005"><span id="local-6989586621679544007"><span class="annot"><span class="annottext">ReadPrec [LifecycleExpiration]
 ReadPrec LifecycleExpiration
 Int -&gt; ReadS LifecycleExpiration
 ReadS [LifecycleExpiration]
@@ -72,7 +72,7 @@ readList :: ReadS [LifecycleExpiration]
 $creadList :: ReadS [LifecycleExpiration]
 readsPrec :: Int -&gt; ReadS LifecycleExpiration
 $creadsPrec :: Int -&gt; ReadS LifecycleExpiration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543985"><span id="local-6989586621679543987"><span id="local-6989586621679543989"><span class="annot"><span class="annottext">Int -&gt; LifecycleExpiration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543994"><span id="local-6989586621679543996"><span id="local-6989586621679543998"><span class="annot"><span class="annottext">Int -&gt; LifecycleExpiration -&gt; ShowS
 [LifecycleExpiration] -&gt; ShowS
 LifecycleExpiration -&gt; String
 (Int -&gt; LifecycleExpiration -&gt; ShowS)
@@ -146,16 +146,16 @@ forall a. Maybe a
 -&gt; Lens
      LifecycleExpiration LifecycleExpiration (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-type">LifecycleExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543976"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-type">LifecycleExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543985"><span class="annot"><span class="annottext">Maybe Int
 days :: Maybe Int
 $sel:days:LifecycleExpiration' :: LifecycleExpiration -&gt; Maybe Int
-</span><a href="#local-6989586621679543976"><span class="hs-identifier hs-var hs-var">days</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679543976"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543975"><span class="annot"><span class="annottext">s :: LifecycleExpiration
-</span><a href="#local-6989586621679543975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-type">LifecycleExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543974"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679543974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleExpiration
-</span><a href="#local-6989586621679543975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:days:LifecycleExpiration' :: Maybe Int
+</span><a href="#local-6989586621679543985"><span class="hs-identifier hs-var hs-var">days</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679543985"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543984"><span class="annot"><span class="annottext">s :: LifecycleExpiration
+</span><a href="#local-6989586621679543984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-type">LifecycleExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543983"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679543983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleExpiration
+</span><a href="#local-6989586621679543984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:days:LifecycleExpiration' :: Maybe Int
 </span><a href="Network.AWS.S3.Types.LifecycleExpiration.html#%24sel%3Adays%3ALifecycleExpiration%27"><span class="hs-identifier hs-var">days</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679543974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-type">LifecycleExpiration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679543983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-type">LifecycleExpiration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | Indicates at what date the object is to be moved or deleted. Should be</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- in GMT ISO 8601 Format.</span><span>
@@ -170,16 +170,16 @@ $sel:days:LifecycleExpiration' :: LifecycleExpiration -&gt; Maybe Int
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-type">LifecycleExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543972"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-type">LifecycleExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543981"><span class="annot"><span class="annottext">Maybe ISO8601
 date :: Maybe ISO8601
 $sel:date:LifecycleExpiration' :: LifecycleExpiration -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679543972"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679543972"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543971"><span class="annot"><span class="annottext">s :: LifecycleExpiration
-</span><a href="#local-6989586621679543971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-type">LifecycleExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543970"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679543970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleExpiration
-</span><a href="#local-6989586621679543971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:date:LifecycleExpiration' :: Maybe ISO8601
+</span><a href="#local-6989586621679543981"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679543981"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543980"><span class="annot"><span class="annottext">s :: LifecycleExpiration
+</span><a href="#local-6989586621679543980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-type">LifecycleExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543979"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679543979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleExpiration
+</span><a href="#local-6989586621679543980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:date:LifecycleExpiration' :: Maybe ISO8601
 </span><a href="Network.AWS.S3.Types.LifecycleExpiration.html#%24sel%3Adate%3ALifecycleExpiration%27"><span class="hs-identifier hs-var">date</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679543970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-type">LifecycleExpiration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679543979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-type">LifecycleExpiration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; LifecycleExpiration -&gt; f LifecycleExpiration)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -209,21 +209,21 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      LifecycleExpiration LifecycleExpiration (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-type">LifecycleExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543965"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-type">LifecycleExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543974"><span class="annot"><span class="annottext">Maybe Bool
 expiredObjectDeleteMarker :: Maybe Bool
 $sel:expiredObjectDeleteMarker:LifecycleExpiration' :: LifecycleExpiration -&gt; Maybe Bool
-</span><a href="#local-6989586621679543965"><span class="hs-identifier hs-var hs-var">expiredObjectDeleteMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679543965"><span class="hs-identifier hs-var">expiredObjectDeleteMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543964"><span class="annot"><span class="annottext">s :: LifecycleExpiration
-</span><a href="#local-6989586621679543964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-type">LifecycleExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543963"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679543963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleExpiration
-</span><a href="#local-6989586621679543964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiredObjectDeleteMarker:LifecycleExpiration' :: Maybe Bool
+</span><a href="#local-6989586621679543974"><span class="hs-identifier hs-var hs-var">expiredObjectDeleteMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679543974"><span class="hs-identifier hs-var">expiredObjectDeleteMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543973"><span class="annot"><span class="annottext">s :: LifecycleExpiration
+</span><a href="#local-6989586621679543973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-type">LifecycleExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543972"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679543972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleExpiration
+</span><a href="#local-6989586621679543973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiredObjectDeleteMarker:LifecycleExpiration' :: Maybe Bool
 </span><a href="Network.AWS.S3.Types.LifecycleExpiration.html#%24sel%3AexpiredObjectDeleteMarker%3ALifecycleExpiration%27"><span class="hs-identifier hs-var">expiredObjectDeleteMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679543963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-type">LifecycleExpiration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679543972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-type">LifecycleExpiration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-type">LifecycleExpiration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679543960"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LifecycleExpiration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679543958"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679543958"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679543969"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LifecycleExpiration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679543967"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679543967"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe ISO8601 -&gt; Maybe Bool -&gt; LifecycleExpiration
 </span><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-var">LifecycleExpiration'</span></a></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe ISO8601 -&gt; Maybe Bool -&gt; LifecycleExpiration)
@@ -232,7 +232,7 @@ $sel:expiredObjectDeleteMarker:LifecycleExpiration' :: LifecycleExpiration -&gt;
      String (Maybe ISO8601 -&gt; Maybe Bool -&gt; LifecycleExpiration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679543958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679543967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Days&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,7 +241,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Bool -&gt; LifecycleExpiration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679543958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679543967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Date&quot;</span></span><span class="hs-special">)</span><span>
@@ -249,18 +249,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Bool) -&gt; Either String LifecycleExpiration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679543958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679543967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExpiredObjectDeleteMarker&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679543952"><span id="local-6989586621679543954"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-type">LifecycleExpiration</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679543961"><span id="local-6989586621679543963"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-type">LifecycleExpiration</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679543949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-type">LifecycleExpiration</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679543958"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-type">LifecycleExpiration</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-type">LifecycleExpiration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679543945"><span class="annot"><span class="annottext">toXML :: LifecycleExpiration -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-type">LifecycleExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543941"><span id="local-6989586621679543942"><span id="local-6989586621679543943"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679543954"><span class="annot"><span class="annottext">toXML :: LifecycleExpiration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleExpiration.html#LifecycleExpiration%27"><span class="hs-identifier hs-type">LifecycleExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543950"><span id="local-6989586621679543951"><span id="local-6989586621679543952"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe ISO8601
 expiredObjectDeleteMarker :: Maybe Bool
@@ -269,7 +269,7 @@ days :: Maybe Int
 $sel:expiredObjectDeleteMarker:LifecycleExpiration' :: LifecycleExpiration -&gt; Maybe Bool
 $sel:date:LifecycleExpiration' :: LifecycleExpiration -&gt; Maybe ISO8601
 $sel:days:LifecycleExpiration' :: LifecycleExpiration -&gt; Maybe Int
-</span><a href="#local-6989586621679543941"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679543950"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -277,17 +277,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Days&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679543943"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679543952"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Date&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe ISO8601 -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679543942"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679543951"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ExpiredObjectDeleteMarker&quot;</span></span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe Bool -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679543941"><span class="hs-identifier hs-var">expiredObjectDeleteMarker</span></a></span><span>
+</span><a href="#local-6989586621679543950"><span class="hs-identifier hs-var">expiredObjectDeleteMarker</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span></pre></body></html>

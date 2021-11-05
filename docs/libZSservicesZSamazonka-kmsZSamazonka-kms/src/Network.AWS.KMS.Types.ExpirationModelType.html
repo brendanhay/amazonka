@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679247789"><span id="local-6989586621679247790"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExpirationModelType"><span class="annot"><a href="Network.AWS.KMS.Types.ExpirationModelType.html#ExpirationModelType"><span class="hs-identifier hs-var">ExpirationModelType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpirationModelType%27"><span class="annot"><a href="Network.AWS.KMS.Types.ExpirationModelType.html#ExpirationModelType%27"><span class="hs-identifier hs-var">ExpirationModelType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679247798"><span id="local-6989586621679247799"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExpirationModelType"><span class="annot"><a href="Network.AWS.KMS.Types.ExpirationModelType.html#ExpirationModelType"><span class="hs-identifier hs-var">ExpirationModelType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpirationModelType%27"><span class="annot"><a href="Network.AWS.KMS.Types.ExpirationModelType.html#ExpirationModelType%27"><span class="hs-identifier hs-var">ExpirationModelType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExpirationModelType"><span class="annot"><span class="annottext">ExpirationModelType -&gt; Text
 </span><a href="Network.AWS.KMS.Types.ExpirationModelType.html#fromExpirationModelType"><span class="hs-identifier hs-var hs-var">fromExpirationModelType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247781"><span id="local-6989586621679247783"><span id="local-6989586621679247785"><span class="annot"><span class="annottext">Int -&gt; ExpirationModelType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247790"><span id="local-6989586621679247792"><span id="local-6989586621679247794"><span class="annot"><span class="annottext">Int -&gt; ExpirationModelType -&gt; ShowS
 [ExpirationModelType] -&gt; ShowS
 ExpirationModelType -&gt; String
 (Int -&gt; ExpirationModelType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ExpirationModelType -&gt; String
 showsPrec :: Int -&gt; ExpirationModelType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ExpirationModelType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679247772"><span id="local-6989586621679247774"><span id="local-6989586621679247776"><span id="local-6989586621679247778"><span class="annot"><span class="annottext">ReadPrec [ExpirationModelType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679247781"><span id="local-6989586621679247783"><span id="local-6989586621679247785"><span id="local-6989586621679247787"><span class="annot"><span class="annottext">ReadPrec [ExpirationModelType]
 ReadPrec ExpirationModelType
 Int -&gt; ReadS ExpirationModelType
 ReadS [ExpirationModelType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ExpirationModelType]
 readsPrec :: Int -&gt; ReadS ExpirationModelType
 $creadsPrec :: Int -&gt; ReadS ExpirationModelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679247767"><span id="local-6989586621679247769"><span class="annot"><span class="annottext">ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679247776"><span id="local-6989586621679247778"><span class="annot"><span class="annottext">ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
 (ExpirationModelType -&gt; ExpirationModelType -&gt; Bool)
 -&gt; (ExpirationModelType -&gt; ExpirationModelType -&gt; Bool)
 -&gt; Eq ExpirationModelType
@@ -82,7 +82,7 @@ $c/= :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
 == :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
 $c== :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679247751"><span id="local-6989586621679247753"><span id="local-6989586621679247755"><span id="local-6989586621679247757"><span id="local-6989586621679247759"><span id="local-6989586621679247761"><span id="local-6989586621679247763"><span class="annot"><span class="annottext">Eq ExpirationModelType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679247760"><span id="local-6989586621679247762"><span id="local-6989586621679247764"><span id="local-6989586621679247766"><span id="local-6989586621679247768"><span id="local-6989586621679247770"><span id="local-6989586621679247772"><span class="annot"><span class="annottext">Eq ExpirationModelType
 Eq ExpirationModelType
 -&gt; (ExpirationModelType -&gt; ExpirationModelType -&gt; Ordering)
 -&gt; (ExpirationModelType -&gt; ExpirationModelType -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. ExpirationModelType -&gt; Rep ExpirationModelType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247743"><span id="local-6989586621679247745"><span class="annot"><span class="annottext">Int -&gt; ExpirationModelType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247752"><span id="local-6989586621679247754"><span class="annot"><span class="annottext">Int -&gt; ExpirationModelType -&gt; Int
 ExpirationModelType -&gt; Int
 (Int -&gt; ExpirationModelType -&gt; Int)
 -&gt; (ExpirationModelType -&gt; Int) -&gt; Hashable ExpirationModelType
@@ -145,53 +145,53 @@ $chash :: ExpirationModelType -&gt; Int
 hashWithSalt :: Int -&gt; ExpirationModelType -&gt; Int
 $chashWithSalt :: Int -&gt; ExpirationModelType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679247740"><span class="annot"><span class="annottext">ExpirationModelType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679247749"><span class="annot"><span class="annottext">ExpirationModelType -&gt; ()
 (ExpirationModelType -&gt; ()) -&gt; NFData ExpirationModelType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ExpirationModelType -&gt; ()
 $crnf :: ExpirationModelType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679247737"><span class="annot"><span class="annottext">Text -&gt; Either String ExpirationModelType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679247746"><span class="annot"><span class="annottext">Text -&gt; Either String ExpirationModelType
 (Text -&gt; Either String ExpirationModelType)
 -&gt; FromText ExpirationModelType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ExpirationModelType
 $cfromText :: Text -&gt; Either String ExpirationModelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679247734"><span class="annot"><span class="annottext">ExpirationModelType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679247743"><span class="annot"><span class="annottext">ExpirationModelType -&gt; Text
 (ExpirationModelType -&gt; Text) -&gt; ToText ExpirationModelType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ExpirationModelType -&gt; Text
 $ctoText :: ExpirationModelType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679247731"><span class="annot"><span class="annottext">ExpirationModelType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679247740"><span class="annot"><span class="annottext">ExpirationModelType -&gt; ByteString
 (ExpirationModelType -&gt; ByteString)
 -&gt; ToByteString ExpirationModelType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ExpirationModelType -&gt; ByteString
 $ctoBS :: ExpirationModelType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679247728"><span class="annot"><span class="annottext">ExpirationModelType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679247737"><span class="annot"><span class="annottext">ExpirationModelType -&gt; ByteStringBuilder
 (ExpirationModelType -&gt; ByteStringBuilder)
 -&gt; ToLog ExpirationModelType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ExpirationModelType -&gt; ByteStringBuilder
 $cbuild :: ExpirationModelType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679247725"><span class="annot"><span class="annottext">HeaderName -&gt; ExpirationModelType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679247734"><span class="annot"><span class="annottext">HeaderName -&gt; ExpirationModelType -&gt; [Header]
 (HeaderName -&gt; ExpirationModelType -&gt; [Header])
 -&gt; ToHeader ExpirationModelType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ExpirationModelType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ExpirationModelType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247722"><span class="annot"><span class="annottext">ExpirationModelType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247731"><span class="annot"><span class="annottext">ExpirationModelType -&gt; QueryString
 (ExpirationModelType -&gt; QueryString) -&gt; ToQuery ExpirationModelType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ExpirationModelType -&gt; QueryString
 $ctoQuery :: ExpirationModelType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247717"><span id="local-6989586621679247719"><span class="annot"><span class="annottext">Value -&gt; Parser [ExpirationModelType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247726"><span id="local-6989586621679247728"><span class="annot"><span class="annottext">Value -&gt; Parser [ExpirationModelType]
 Value -&gt; Parser ExpirationModelType
 (Value -&gt; Parser ExpirationModelType)
 -&gt; (Value -&gt; Parser [ExpirationModelType])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [ExpirationModelType]
 parseJSON :: Value -&gt; Parser ExpirationModelType
 $cparseJSON :: Value -&gt; Parser ExpirationModelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679247712"><span id="local-6989586621679247714"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExpirationModelType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679247721"><span id="local-6989586621679247723"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExpirationModelType]
 FromJSONKeyFunction ExpirationModelType
 FromJSONKeyFunction ExpirationModelType
 -&gt; FromJSONKeyFunction [ExpirationModelType]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ExpirationModelType]
 fromJSONKey :: FromJSONKeyFunction ExpirationModelType
 $cfromJSONKey :: FromJSONKeyFunction ExpirationModelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679247703"><span id="local-6989586621679247705"><span id="local-6989586621679247707"><span id="local-6989586621679247709"><span class="annot"><span class="annottext">[ExpirationModelType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679247712"><span id="local-6989586621679247714"><span id="local-6989586621679247716"><span id="local-6989586621679247718"><span class="annot"><span class="annottext">[ExpirationModelType] -&gt; Encoding
 [ExpirationModelType] -&gt; Value
 ExpirationModelType -&gt; Encoding
 ExpirationModelType -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: ExpirationModelType -&gt; Encoding
 toJSON :: ExpirationModelType -&gt; Value
 $ctoJSON :: ExpirationModelType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679247698"><span id="local-6989586621679247700"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExpirationModelType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679247707"><span id="local-6989586621679247709"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExpirationModelType]
 ToJSONKeyFunction ExpirationModelType
 ToJSONKeyFunction ExpirationModelType
 -&gt; ToJSONKeyFunction [ExpirationModelType]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ExpirationModelType]
 toJSONKey :: ToJSONKeyFunction ExpirationModelType
 $ctoJSONKey :: ToJSONKeyFunction ExpirationModelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679247695"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExpirationModelType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679247704"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExpirationModelType
 ([Node] -&gt; Either String ExpirationModelType)
 -&gt; FromXML ExpirationModelType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ExpirationModelType
 $cparseXML :: [Node] -&gt; Either String ExpirationModelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679247692"><span class="annot"><span class="annottext">ExpirationModelType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679247701"><span class="annot"><span class="annottext">ExpirationModelType -&gt; XML
 (ExpirationModelType -&gt; XML) -&gt; ToXML ExpirationModelType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ExpirationModelType -&gt; XML

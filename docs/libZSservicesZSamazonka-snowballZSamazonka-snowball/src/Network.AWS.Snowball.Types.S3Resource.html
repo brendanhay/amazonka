@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- binary sorted.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newS3Resource' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679226763"><span id="local-6989586621679226764"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Resource"><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-var">S3Resource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Resource%27"><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-var">S3Resource'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679226772"><span id="local-6989586621679226773"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Resource"><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-var">S3Resource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Resource%27"><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-var">S3Resource'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For export jobs, you can provide an optional @KeyRange@ within a</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- specific Amazon S3 bucket. The length of the range is defined at job</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- creation, and has either an inclusive @BeginMarker@, an inclusive</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AtargetOnDeviceServices%3AS3Resource%27"><span class="annot"><span class="annottext">S3Resource -&gt; Maybe [TargetOnDeviceService]
 </span><a href="Network.AWS.Snowball.Types.S3Resource.html#%24sel%3AtargetOnDeviceServices%3AS3Resource%27"><span class="hs-identifier hs-var hs-var">targetOnDeviceServices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-type">TargetOnDeviceService</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226755"><span id="local-6989586621679226757"><span class="annot"><span class="annottext">S3Resource -&gt; S3Resource -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226764"><span id="local-6989586621679226766"><span class="annot"><span class="annottext">S3Resource -&gt; S3Resource -&gt; Bool
 (S3Resource -&gt; S3Resource -&gt; Bool)
 -&gt; (S3Resource -&gt; S3Resource -&gt; Bool) -&gt; Eq S3Resource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3Resource -&gt; S3Resource -&gt; Bool
 == :: S3Resource -&gt; S3Resource -&gt; Bool
 $c== :: S3Resource -&gt; S3Resource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226746"><span id="local-6989586621679226748"><span id="local-6989586621679226750"><span id="local-6989586621679226752"><span class="annot"><span class="annottext">ReadPrec [S3Resource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226755"><span id="local-6989586621679226757"><span id="local-6989586621679226759"><span id="local-6989586621679226761"><span class="annot"><span class="annottext">ReadPrec [S3Resource]
 ReadPrec S3Resource
 Int -&gt; ReadS S3Resource
 ReadS [S3Resource]
@@ -77,7 +77,7 @@ readList :: ReadS [S3Resource]
 $creadList :: ReadS [S3Resource]
 readsPrec :: Int -&gt; ReadS S3Resource
 $creadsPrec :: Int -&gt; ReadS S3Resource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226739"><span id="local-6989586621679226741"><span id="local-6989586621679226743"><span class="annot"><span class="annottext">Int -&gt; S3Resource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226748"><span id="local-6989586621679226750"><span id="local-6989586621679226752"><span class="annot"><span class="annottext">Int -&gt; S3Resource -&gt; ShowS
 [S3Resource] -&gt; ShowS
 S3Resource -&gt; String
 (Int -&gt; S3Resource -&gt; ShowS)
@@ -152,16 +152,16 @@ forall a. Maybe a
 -&gt; (S3Resource -&gt; Maybe KeyRange -&gt; S3Resource)
 -&gt; Lens S3Resource S3Resource (Maybe KeyRange) (Maybe KeyRange)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-type">S3Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226730"><span class="annot"><span class="annottext">Maybe KeyRange
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-type">S3Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226739"><span class="annot"><span class="annottext">Maybe KeyRange
 keyRange :: Maybe KeyRange
 $sel:keyRange:S3Resource' :: S3Resource -&gt; Maybe KeyRange
-</span><a href="#local-6989586621679226730"><span class="hs-identifier hs-var hs-var">keyRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyRange
-</span><a href="#local-6989586621679226730"><span class="hs-identifier hs-var">keyRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226729"><span class="annot"><span class="annottext">s :: S3Resource
-</span><a href="#local-6989586621679226729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-type">S3Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226728"><span class="annot"><span class="annottext">Maybe KeyRange
-</span><a href="#local-6989586621679226728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Resource
-</span><a href="#local-6989586621679226729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyRange:S3Resource' :: Maybe KeyRange
+</span><a href="#local-6989586621679226739"><span class="hs-identifier hs-var hs-var">keyRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyRange
+</span><a href="#local-6989586621679226739"><span class="hs-identifier hs-var">keyRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226738"><span class="annot"><span class="annottext">s :: S3Resource
+</span><a href="#local-6989586621679226738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-type">S3Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226737"><span class="annot"><span class="annottext">Maybe KeyRange
+</span><a href="#local-6989586621679226737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Resource
+</span><a href="#local-6989586621679226738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyRange:S3Resource' :: Maybe KeyRange
 </span><a href="Network.AWS.Snowball.Types.S3Resource.html#%24sel%3AkeyRange%3AS3Resource%27"><span class="hs-identifier hs-var">keyRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyRange
-</span><a href="#local-6989586621679226728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an Amazon S3 bucket.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#s3Resource_bucketArn"><span class="hs-identifier hs-type">s3Resource_bucketArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -170,16 +170,16 @@ $sel:keyRange:S3Resource' :: S3Resource -&gt; Maybe KeyRange
 -&gt; (S3Resource -&gt; Maybe Text -&gt; S3Resource)
 -&gt; Lens S3Resource S3Resource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-type">S3Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226726"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-type">S3Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226735"><span class="annot"><span class="annottext">Maybe Text
 bucketArn :: Maybe Text
 $sel:bucketArn:S3Resource' :: S3Resource -&gt; Maybe Text
-</span><a href="#local-6989586621679226726"><span class="hs-identifier hs-var hs-var">bucketArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226726"><span class="hs-identifier hs-var">bucketArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226725"><span class="annot"><span class="annottext">s :: S3Resource
-</span><a href="#local-6989586621679226725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-type">S3Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226724"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Resource
-</span><a href="#local-6989586621679226725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketArn:S3Resource' :: Maybe Text
+</span><a href="#local-6989586621679226735"><span class="hs-identifier hs-var hs-var">bucketArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226735"><span class="hs-identifier hs-var">bucketArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226734"><span class="annot"><span class="annottext">s :: S3Resource
+</span><a href="#local-6989586621679226734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-type">S3Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226733"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Resource
+</span><a href="#local-6989586621679226734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketArn:S3Resource' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.S3Resource.html#%24sel%3AbucketArn%3AS3Resource%27"><span class="hs-identifier hs-var">bucketArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Specifies the service or services on the Snow Family device that your</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- transferred data will be exported from or imported into. AWS Snow Family</span><span>
@@ -196,16 +196,16 @@ $sel:bucketArn:S3Resource' :: S3Resource -&gt; Maybe Text
      (Maybe [TargetOnDeviceService])
      (Maybe [TargetOnDeviceService])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-type">S3Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226722"><span class="annot"><span class="annottext">Maybe [TargetOnDeviceService]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-type">S3Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226731"><span class="annot"><span class="annottext">Maybe [TargetOnDeviceService]
 targetOnDeviceServices :: Maybe [TargetOnDeviceService]
 $sel:targetOnDeviceServices:S3Resource' :: S3Resource -&gt; Maybe [TargetOnDeviceService]
-</span><a href="#local-6989586621679226722"><span class="hs-identifier hs-var hs-var">targetOnDeviceServices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetOnDeviceService]
-</span><a href="#local-6989586621679226722"><span class="hs-identifier hs-var">targetOnDeviceServices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226721"><span class="annot"><span class="annottext">s :: S3Resource
-</span><a href="#local-6989586621679226721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-type">S3Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226720"><span class="annot"><span class="annottext">Maybe [TargetOnDeviceService]
-</span><a href="#local-6989586621679226720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Resource
-</span><a href="#local-6989586621679226721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetOnDeviceServices:S3Resource' :: Maybe [TargetOnDeviceService]
+</span><a href="#local-6989586621679226731"><span class="hs-identifier hs-var hs-var">targetOnDeviceServices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetOnDeviceService]
+</span><a href="#local-6989586621679226731"><span class="hs-identifier hs-var">targetOnDeviceServices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226730"><span class="annot"><span class="annottext">s :: S3Resource
+</span><a href="#local-6989586621679226730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-type">S3Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226729"><span class="annot"><span class="annottext">Maybe [TargetOnDeviceService]
+</span><a href="#local-6989586621679226729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Resource
+</span><a href="#local-6989586621679226730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetOnDeviceServices:S3Resource' :: Maybe [TargetOnDeviceService]
 </span><a href="Network.AWS.Snowball.Types.S3Resource.html#%24sel%3AtargetOnDeviceServices%3AS3Resource%27"><span class="hs-identifier hs-var">targetOnDeviceServices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetOnDeviceService]
-</span><a href="#local-6989586621679226720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetOnDeviceService]
+</span><a href="#local-6989586621679226729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetOnDeviceService]
   -&gt; f (Maybe [TargetOnDeviceService]))
  -&gt; S3Resource -&gt; f S3Resource)
 -&gt; ((Maybe [TargetOnDeviceService]
@@ -238,8 +238,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226714"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679226712"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Resource
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226723"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679226721"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Resource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser S3Resource) -&gt; Value -&gt; Parser S3Resource
@@ -247,8 +247,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3Resource&quot;</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226709"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226709"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226718"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226718"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe KeyRange
 -&gt; Maybe Text -&gt; Maybe [TargetOnDeviceService] -&gt; S3Resource
 </span><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-var">S3Resource'</span></a></span><span>
@@ -259,7 +259,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe [TargetOnDeviceService] -&gt; S3Resource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KeyRange)
+</span><a href="#local-6989586621679226718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KeyRange)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyRange&quot;</span></span><span class="hs-special">)</span><span>
@@ -268,7 +268,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [TargetOnDeviceService] -&gt; S3Resource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679226718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BucketArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -276,7 +276,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [TargetOnDeviceService]) -&gt; Parser S3Resource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TargetOnDeviceService]))
+</span><a href="#local-6989586621679226718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TargetOnDeviceService]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetOnDeviceServices&quot;</span></span><span>
@@ -290,13 +290,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-105"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226702"><span id="local-6989586621679226704"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226711"><span id="local-6989586621679226713"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226708"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226691"><span id="local-6989586621679226693"><span id="local-6989586621679226695"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679226689"><span class="annot"><span class="annottext">toJSON :: S3Resource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-type">S3Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226685"><span id="local-6989586621679226686"><span id="local-6989586621679226687"><span class="annot"><span class="annottext">Maybe [TargetOnDeviceService]
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226700"><span id="local-6989586621679226702"><span id="local-6989586621679226704"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679226698"><span class="annot"><span class="annottext">toJSON :: S3Resource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource%27"><span class="hs-identifier hs-type">S3Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226694"><span id="local-6989586621679226695"><span id="local-6989586621679226696"><span class="annot"><span class="annottext">Maybe [TargetOnDeviceService]
 Maybe Text
 Maybe KeyRange
 targetOnDeviceServices :: Maybe [TargetOnDeviceService]
@@ -305,7 +305,7 @@ keyRange :: Maybe KeyRange
 $sel:targetOnDeviceServices:S3Resource' :: S3Resource -&gt; Maybe [TargetOnDeviceService]
 $sel:bucketArn:S3Resource' :: S3Resource -&gt; Maybe Text
 $sel:keyRange:S3Resource' :: S3Resource -&gt; Maybe KeyRange
-</span><a href="#local-6989586621679226685"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679226694"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -317,14 +317,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(KeyRange -&gt; Pair) -&gt; Maybe KeyRange -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KeyRange
-</span><a href="#local-6989586621679226687"><span class="hs-identifier hs-var">keyRange</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226696"><span class="hs-identifier hs-var">keyRange</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BucketArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226686"><span class="hs-identifier hs-var">bucketArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226695"><span class="hs-identifier hs-var">bucketArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetOnDeviceServices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TargetOnDeviceService] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -333,7 +333,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [TargetOnDeviceService] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TargetOnDeviceService]
-</span><a href="#local-6989586621679226685"><span class="hs-identifier hs-var">targetOnDeviceServices</span></a></span><span>
+</span><a href="#local-6989586621679226694"><span class="hs-identifier hs-var">targetOnDeviceServices</span></a></span><span>
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span></pre></body></html>

@@ -61,13 +61,13 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.html"><span class="hs-identifier">Network.AWS.Support.Types</span></a></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newDescribeAttachment' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679175073"><span id="local-6989586621679175074"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAttachment"><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-var">DescribeAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAttachment%27"><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment%27"><span class="hs-identifier hs-var">DescribeAttachment'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679175082"><span id="local-6989586621679175083"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAttachment"><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-var">DescribeAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAttachment%27"><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment%27"><span class="hs-identifier hs-var">DescribeAttachment'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the attachment to return. Attachment IDs are returned by the</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- DescribeCommunications operation.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AattachmentId%3ADescribeAttachment%27"><span class="annot"><span class="annottext">DescribeAttachment -&gt; Text
 </span><a href="Network.AWS.Support.DescribeAttachment.html#%24sel%3AattachmentId%3ADescribeAttachment%27"><span class="hs-identifier hs-var hs-var">attachmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175067"><span id="local-6989586621679175069"><span class="annot"><span class="annottext">DescribeAttachment -&gt; DescribeAttachment -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175076"><span id="local-6989586621679175078"><span class="annot"><span class="annottext">DescribeAttachment -&gt; DescribeAttachment -&gt; Bool
 (DescribeAttachment -&gt; DescribeAttachment -&gt; Bool)
 -&gt; (DescribeAttachment -&gt; DescribeAttachment -&gt; Bool)
 -&gt; Eq DescribeAttachment
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAttachment -&gt; DescribeAttachment -&gt; Bool
 == :: DescribeAttachment -&gt; DescribeAttachment -&gt; Bool
 $c== :: DescribeAttachment -&gt; DescribeAttachment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175058"><span id="local-6989586621679175060"><span id="local-6989586621679175062"><span id="local-6989586621679175064"><span class="annot"><span class="annottext">ReadPrec [DescribeAttachment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175067"><span id="local-6989586621679175069"><span id="local-6989586621679175071"><span id="local-6989586621679175073"><span class="annot"><span class="annottext">ReadPrec [DescribeAttachment]
 ReadPrec DescribeAttachment
 Int -&gt; ReadS DescribeAttachment
 ReadS [DescribeAttachment]
@@ -96,7 +96,7 @@ readList :: ReadS [DescribeAttachment]
 $creadList :: ReadS [DescribeAttachment]
 readsPrec :: Int -&gt; ReadS DescribeAttachment
 $creadsPrec :: Int -&gt; ReadS DescribeAttachment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175051"><span id="local-6989586621679175053"><span id="local-6989586621679175055"><span class="annot"><span class="annottext">Int -&gt; DescribeAttachment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175060"><span id="local-6989586621679175062"><span id="local-6989586621679175064"><span class="annot"><span class="annottext">Int -&gt; DescribeAttachment -&gt; ShowS
 [DescribeAttachment] -&gt; ShowS
 DescribeAttachment -&gt; String
 (Int -&gt; DescribeAttachment -&gt; ShowS)
@@ -137,12 +137,12 @@ $cfrom :: forall x. DescribeAttachment -&gt; Rep DescribeAttachment x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-type">DescribeAttachment</span></a></span><span>
 </span><span id="line-85"></span><span id="newDescribeAttachment"><span class="annot"><span class="annottext">newDescribeAttachment :: Text -&gt; DescribeAttachment
-</span><a href="Network.AWS.Support.DescribeAttachment.html#newDescribeAttachment"><span class="hs-identifier hs-var hs-var">newDescribeAttachment</span></a></span></span><span> </span><span id="local-6989586621679175046"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175046"><span class="hs-identifier hs-var">pAttachmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Support.DescribeAttachment.html#newDescribeAttachment"><span class="hs-identifier hs-var hs-var">newDescribeAttachment</span></a></span></span><span> </span><span id="local-6989586621679175055"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175055"><span class="hs-identifier hs-var">pAttachmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">DescribeAttachment' :: Text -&gt; DescribeAttachment
 </span><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment%27"><span class="hs-identifier hs-type">DescribeAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachmentId:DescribeAttachment' :: Text
 </span><a href="Network.AWS.Support.DescribeAttachment.html#%24sel%3AattachmentId%3ADescribeAttachment%27"><span class="hs-identifier hs-var">attachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175046"><span class="hs-identifier hs-var">pAttachmentId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679175055"><span class="hs-identifier hs-var">pAttachmentId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The ID of the attachment to return. Attachment IDs are returned by the</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- DescribeCommunications operation.</span><span>
@@ -152,27 +152,27 @@ $cfrom :: forall x. DescribeAttachment -&gt; Rep DescribeAttachment x
 -&gt; (DescribeAttachment -&gt; Text -&gt; DescribeAttachment)
 -&gt; Lens DescribeAttachment DescribeAttachment Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment%27"><span class="hs-identifier hs-type">DescribeAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175043"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment%27"><span class="hs-identifier hs-type">DescribeAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175052"><span class="annot"><span class="annottext">Text
 attachmentId :: Text
 $sel:attachmentId:DescribeAttachment' :: DescribeAttachment -&gt; Text
-</span><a href="#local-6989586621679175043"><span class="hs-identifier hs-var hs-var">attachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175043"><span class="hs-identifier hs-var">attachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175042"><span class="annot"><span class="annottext">s :: DescribeAttachment
-</span><a href="#local-6989586621679175042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment%27"><span class="hs-identifier hs-type">DescribeAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175041"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttachment
-</span><a href="#local-6989586621679175042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachmentId:DescribeAttachment' :: Text
+</span><a href="#local-6989586621679175052"><span class="hs-identifier hs-var hs-var">attachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175052"><span class="hs-identifier hs-var">attachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175051"><span class="annot"><span class="annottext">s :: DescribeAttachment
+</span><a href="#local-6989586621679175051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment%27"><span class="hs-identifier hs-type">DescribeAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175050"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttachment
+</span><a href="#local-6989586621679175051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachmentId:DescribeAttachment' :: Text
 </span><a href="Network.AWS.Support.DescribeAttachment.html#%24sel%3AattachmentId%3ADescribeAttachment%27"><span class="hs-identifier hs-var">attachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-type">DescribeAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-type">DescribeAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-type">DescribeAttachment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-type">DescribeAttachment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse"><span class="hs-identifier hs-type">DescribeAttachmentResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679175037"><span class="annot"><span class="annottext">request :: DescribeAttachment -&gt; Request DescribeAttachment
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679175046"><span class="annot"><span class="annottext">request :: DescribeAttachment -&gt; Request DescribeAttachment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeAttachment -&gt; Request DescribeAttachment
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Support.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679175033"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679175042"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeAttachment
 -&gt; ClientResponse ClientBody
@@ -198,10 +198,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175030"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175030"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175029"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679175029"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175028"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175028"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175039"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175039"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175038"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679175038"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175037"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175037"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Attachment -&gt; Int -&gt; DescribeAttachmentResponse
 </span><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse%27"><span class="hs-identifier hs-var">DescribeAttachmentResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Attachment -&gt; Int -&gt; DescribeAttachmentResponse)
@@ -209,7 +209,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeAttachmentResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175028"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Attachment)
+</span><a href="#local-6989586621679175037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Attachment)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;attachment&quot;</span></span><span class="hs-special">)</span><span>
@@ -221,15 +221,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175030"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175039"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175020"><span id="local-6989586621679175022"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-type">DescribeAttachment</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175029"><span id="local-6989586621679175031"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-type">DescribeAttachment</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-type">DescribeAttachment</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175026"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-type">DescribeAttachment</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-type">DescribeAttachment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679175013"><span class="annot"><span class="annottext">toHeaders :: DescribeAttachment -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679175022"><span class="annot"><span class="annottext">toHeaders :: DescribeAttachment -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAttachment -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -256,12 +256,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175003"><span id="local-6989586621679175005"><span id="local-6989586621679175007"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-type">DescribeAttachment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679175001"><span class="annot"><span class="annottext">toJSON :: DescribeAttachment -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment%27"><span class="hs-identifier hs-type">DescribeAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174999"><span class="annot"><span class="annottext">Text
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175012"><span id="local-6989586621679175014"><span id="local-6989586621679175016"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-type">DescribeAttachment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679175010"><span class="annot"><span class="annottext">toJSON :: DescribeAttachment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment%27"><span class="hs-identifier hs-type">DescribeAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175008"><span class="annot"><span class="annottext">Text
 attachmentId :: Text
 $sel:attachmentId:DescribeAttachment' :: DescribeAttachment -&gt; Text
-</span><a href="#local-6989586621679174999"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679175008"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -273,18 +273,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;attachmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174999"><span class="hs-identifier hs-var">attachmentId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679175008"><span class="hs-identifier hs-var">attachmentId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-type">DescribeAttachment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679174993"><span class="annot"><span class="annottext">toPath :: DescribeAttachment -&gt; ByteString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679175002"><span class="annot"><span class="annottext">toPath :: DescribeAttachment -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAttachment -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachment"><span class="hs-identifier hs-type">DescribeAttachment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679174989"><span class="annot"><span class="annottext">toQuery :: DescribeAttachment -&gt; QueryString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679174998"><span class="annot"><span class="annottext">toQuery :: DescribeAttachment -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAttachment -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -295,7 +295,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-139"></span><span class="hs-comment">-- DescribeAttachment operation.</span><span>
 </span><span id="line-140"></span><span class="hs-comment">--</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- /See:/ 'newDescribeAttachmentResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679174986"><span id="local-6989586621679174987"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAttachmentResponse"><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse"><span class="hs-identifier hs-var">DescribeAttachmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAttachmentResponse%27"><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse%27"><span class="hs-identifier hs-var">DescribeAttachmentResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679174995"><span id="local-6989586621679174996"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAttachmentResponse"><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse"><span class="hs-identifier hs-var">DescribeAttachmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAttachmentResponse%27"><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse%27"><span class="hs-identifier hs-var">DescribeAttachmentResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This object includes the attachment content and file name.</span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-comment">-- In the previous response syntax, the value for the @data@ parameter</span><span>
@@ -308,7 +308,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAttachmentResponse%27"><span class="annot"><span class="annottext">DescribeAttachmentResponse -&gt; Int
 </span><a href="Network.AWS.Support.DescribeAttachment.html#%24sel%3AhttpStatus%3ADescribeAttachmentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174980"><span id="local-6989586621679174982"><span class="annot"><span class="annottext">DescribeAttachmentResponse -&gt; DescribeAttachmentResponse -&gt; Bool
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174989"><span id="local-6989586621679174991"><span class="annot"><span class="annottext">DescribeAttachmentResponse -&gt; DescribeAttachmentResponse -&gt; Bool
 (DescribeAttachmentResponse -&gt; DescribeAttachmentResponse -&gt; Bool)
 -&gt; (DescribeAttachmentResponse
     -&gt; DescribeAttachmentResponse -&gt; Bool)
@@ -318,7 +318,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAttachmentResponse -&gt; DescribeAttachmentResponse -&gt; Bool
 == :: DescribeAttachmentResponse -&gt; DescribeAttachmentResponse -&gt; Bool
 $c== :: DescribeAttachmentResponse -&gt; DescribeAttachmentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174972"><span id="local-6989586621679174974"><span id="local-6989586621679174976"><span id="local-6989586621679174978"><span class="annot"><span class="annottext">ReadPrec [DescribeAttachmentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174981"><span id="local-6989586621679174983"><span id="local-6989586621679174985"><span id="local-6989586621679174987"><span class="annot"><span class="annottext">ReadPrec [DescribeAttachmentResponse]
 ReadPrec DescribeAttachmentResponse
 Int -&gt; ReadS DescribeAttachmentResponse
 ReadS [DescribeAttachmentResponse]
@@ -338,7 +338,7 @@ readList :: ReadS [DescribeAttachmentResponse]
 $creadList :: ReadS [DescribeAttachmentResponse]
 readsPrec :: Int -&gt; ReadS DescribeAttachmentResponse
 $creadsPrec :: Int -&gt; ReadS DescribeAttachmentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174966"><span id="local-6989586621679174968"><span id="local-6989586621679174970"><span class="annot"><span class="annottext">Int -&gt; DescribeAttachmentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174975"><span id="local-6989586621679174977"><span id="local-6989586621679174979"><span class="annot"><span class="annottext">Int -&gt; DescribeAttachmentResponse -&gt; ShowS
 [DescribeAttachmentResponse] -&gt; ShowS
 DescribeAttachmentResponse -&gt; String
 (Int -&gt; DescribeAttachmentResponse -&gt; ShowS)
@@ -391,8 +391,8 @@ DescribeAttachmentResponse -&gt; Rep DescribeAttachmentResponse x
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse"><span class="hs-identifier hs-type">DescribeAttachmentResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newDescribeAttachmentResponse"><span class="annot"><span class="annottext">newDescribeAttachmentResponse :: Int -&gt; DescribeAttachmentResponse
-</span><a href="Network.AWS.Support.DescribeAttachment.html#newDescribeAttachmentResponse"><span class="hs-identifier hs-var hs-var">newDescribeAttachmentResponse</span></a></span></span><span> </span><span id="local-6989586621679174963"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174963"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Support.DescribeAttachment.html#newDescribeAttachmentResponse"><span class="hs-identifier hs-var hs-var">newDescribeAttachmentResponse</span></a></span></span><span> </span><span id="local-6989586621679174972"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174972"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">DescribeAttachmentResponse' :: Maybe Attachment -&gt; Int -&gt; DescribeAttachmentResponse
 </span><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse%27"><span class="hs-identifier hs-type">DescribeAttachmentResponse'</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attachment:DescribeAttachmentResponse' :: Maybe Attachment
@@ -402,7 +402,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAttachmentResponse' :: Int
 </span><a href="Network.AWS.Support.DescribeAttachment.html#%24sel%3AhttpStatus%3ADescribeAttachmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174963"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679174972"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | This object includes the attachment content and file name.</span><span>
@@ -423,16 +423,16 @@ forall a. Maybe a
      (Maybe Attachment)
      (Maybe Attachment)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse%27"><span class="hs-identifier hs-type">DescribeAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174962"><span class="annot"><span class="annottext">Maybe Attachment
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse%27"><span class="hs-identifier hs-type">DescribeAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174971"><span class="annot"><span class="annottext">Maybe Attachment
 attachment :: Maybe Attachment
 $sel:attachment:DescribeAttachmentResponse' :: DescribeAttachmentResponse -&gt; Maybe Attachment
-</span><a href="#local-6989586621679174962"><span class="hs-identifier hs-var hs-var">attachment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Attachment
-</span><a href="#local-6989586621679174962"><span class="hs-identifier hs-var">attachment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174961"><span class="annot"><span class="annottext">s :: DescribeAttachmentResponse
-</span><a href="#local-6989586621679174961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse%27"><span class="hs-identifier hs-type">DescribeAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174960"><span class="annot"><span class="annottext">Maybe Attachment
-</span><a href="#local-6989586621679174960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttachmentResponse
-</span><a href="#local-6989586621679174961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachment:DescribeAttachmentResponse' :: Maybe Attachment
+</span><a href="#local-6989586621679174971"><span class="hs-identifier hs-var hs-var">attachment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Attachment
+</span><a href="#local-6989586621679174971"><span class="hs-identifier hs-var">attachment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174970"><span class="annot"><span class="annottext">s :: DescribeAttachmentResponse
+</span><a href="#local-6989586621679174970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse%27"><span class="hs-identifier hs-type">DescribeAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174969"><span class="annot"><span class="annottext">Maybe Attachment
+</span><a href="#local-6989586621679174969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttachmentResponse
+</span><a href="#local-6989586621679174970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachment:DescribeAttachmentResponse' :: Maybe Attachment
 </span><a href="Network.AWS.Support.DescribeAttachment.html#%24sel%3Aattachment%3ADescribeAttachmentResponse%27"><span class="hs-identifier hs-var">attachment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Attachment
-</span><a href="#local-6989586621679174960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse"><span class="hs-identifier hs-type">DescribeAttachmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse"><span class="hs-identifier hs-type">DescribeAttachmentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#describeAttachmentResponse_httpStatus"><span class="hs-identifier hs-type">describeAttachmentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse"><span class="hs-identifier hs-type">DescribeAttachmentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -444,16 +444,16 @@ $sel:attachment:DescribeAttachmentResponse' :: DescribeAttachmentResponse -&gt; 
 -&gt; Lens
      DescribeAttachmentResponse DescribeAttachmentResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse%27"><span class="hs-identifier hs-type">DescribeAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174959"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse%27"><span class="hs-identifier hs-type">DescribeAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174968"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeAttachmentResponse' :: DescribeAttachmentResponse -&gt; Int
-</span><a href="#local-6989586621679174959"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174959"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174958"><span class="annot"><span class="annottext">s :: DescribeAttachmentResponse
-</span><a href="#local-6989586621679174958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse%27"><span class="hs-identifier hs-type">DescribeAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174957"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttachmentResponse
-</span><a href="#local-6989586621679174958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAttachmentResponse' :: Int
+</span><a href="#local-6989586621679174968"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174968"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174967"><span class="annot"><span class="annottext">s :: DescribeAttachmentResponse
+</span><a href="#local-6989586621679174967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse%27"><span class="hs-identifier hs-type">DescribeAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174966"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttachmentResponse
+</span><a href="#local-6989586621679174967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAttachmentResponse' :: Int
 </span><a href="Network.AWS.Support.DescribeAttachment.html#%24sel%3AhttpStatus%3ADescribeAttachmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse"><span class="hs-identifier hs-type">DescribeAttachmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse"><span class="hs-identifier hs-type">DescribeAttachmentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174955"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse"><span class="hs-identifier hs-type">DescribeAttachmentResponse</span></a></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174964"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeAttachment.html#DescribeAttachmentResponse"><span class="hs-identifier hs-type">DescribeAttachmentResponse</span></a></span></span><span>
 </span><span id="line-196"></span></pre></body></html>

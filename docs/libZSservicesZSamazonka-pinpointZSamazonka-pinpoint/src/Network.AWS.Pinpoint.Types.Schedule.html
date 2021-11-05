@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Specifies the schedule settings for a campaign.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSchedule' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679611820"><span id="local-6989586621679611821"></span></span><span class="hs-keyword">data</span><span> </span><span id="Schedule"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-var">Schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Schedule%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-var">Schedule'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679611829"><span id="local-6989586621679611830"></span></span><span class="hs-keyword">data</span><span> </span><span id="Schedule"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-var">Schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Schedule%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-var">Schedule'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies how often the campaign is sent or whether the campaign is sent</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- in response to a specific event.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Afrequency%3ASchedule%27"><span class="annot"><span class="annottext">Schedule -&gt; Maybe Frequency
@@ -80,7 +80,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AstartTime%3ASchedule%27"><span class="annot"><span class="annottext">Schedule -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.Schedule.html#%24sel%3AstartTime%3ASchedule%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679611808"><span id="local-6989586621679611810"><span class="annot"><span class="annottext">Schedule -&gt; Schedule -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679611817"><span id="local-6989586621679611819"><span class="annot"><span class="annottext">Schedule -&gt; Schedule -&gt; Bool
 (Schedule -&gt; Schedule -&gt; Bool)
 -&gt; (Schedule -&gt; Schedule -&gt; Bool) -&gt; Eq Schedule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Schedule -&gt; Schedule -&gt; Bool
 == :: Schedule -&gt; Schedule -&gt; Bool
 $c== :: Schedule -&gt; Schedule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611799"><span id="local-6989586621679611801"><span id="local-6989586621679611803"><span id="local-6989586621679611805"><span class="annot"><span class="annottext">ReadPrec [Schedule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611808"><span id="local-6989586621679611810"><span id="local-6989586621679611812"><span id="local-6989586621679611814"><span class="annot"><span class="annottext">ReadPrec [Schedule]
 ReadPrec Schedule
 Int -&gt; ReadS Schedule
 ReadS [Schedule]
@@ -108,7 +108,7 @@ readList :: ReadS [Schedule]
 $creadList :: ReadS [Schedule]
 readsPrec :: Int -&gt; ReadS Schedule
 $creadsPrec :: Int -&gt; ReadS Schedule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611792"><span id="local-6989586621679611794"><span id="local-6989586621679611796"><span class="annot"><span class="annottext">Int -&gt; Schedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611801"><span id="local-6989586621679611803"><span id="local-6989586621679611805"><span class="annot"><span class="annottext">Int -&gt; Schedule -&gt; ShowS
 [Schedule] -&gt; ShowS
 Schedule -&gt; String
 (Int -&gt; Schedule -&gt; ShowS)
@@ -185,8 +185,8 @@ $cfrom :: forall x. Schedule -&gt; Rep Schedule x
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span>
 </span><span id="line-131"></span><span id="newSchedule"><span class="annot"><span class="annottext">newSchedule :: Text -&gt; Schedule
-</span><a href="Network.AWS.Pinpoint.Types.Schedule.html#newSchedule"><span class="hs-identifier hs-var hs-var">newSchedule</span></a></span></span><span> </span><span id="local-6989586621679611786"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679611786"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.Types.Schedule.html#newSchedule"><span class="hs-identifier hs-var hs-var">newSchedule</span></a></span></span><span> </span><span id="local-6989586621679611795"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679611795"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">Schedule' :: Maybe Frequency
 -&gt; Maybe QuietTime
 -&gt; Maybe CampaignEventFilter
@@ -222,7 +222,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:Schedule' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.Schedule.html#%24sel%3AstartTime%3ASchedule%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679611786"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span>
+</span><a href="#local-6989586621679611795"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | Specifies how often the campaign is sent or whether the campaign is sent</span><span>
@@ -233,16 +233,16 @@ forall a. Maybe a
 -&gt; (Schedule -&gt; Maybe Frequency -&gt; Schedule)
 -&gt; Lens Schedule Schedule (Maybe Frequency) (Maybe Frequency)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611782"><span class="annot"><span class="annottext">Maybe Frequency
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611791"><span class="annot"><span class="annottext">Maybe Frequency
 frequency :: Maybe Frequency
 $sel:frequency:Schedule' :: Schedule -&gt; Maybe Frequency
-</span><a href="#local-6989586621679611782"><span class="hs-identifier hs-var hs-var">frequency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Frequency
-</span><a href="#local-6989586621679611782"><span class="hs-identifier hs-var">frequency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611781"><span class="annot"><span class="annottext">s :: Schedule
-</span><a href="#local-6989586621679611781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611780"><span class="annot"><span class="annottext">Maybe Frequency
-</span><a href="#local-6989586621679611780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
-</span><a href="#local-6989586621679611781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frequency:Schedule' :: Maybe Frequency
+</span><a href="#local-6989586621679611791"><span class="hs-identifier hs-var hs-var">frequency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Frequency
+</span><a href="#local-6989586621679611791"><span class="hs-identifier hs-var">frequency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611790"><span class="annot"><span class="annottext">s :: Schedule
+</span><a href="#local-6989586621679611790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611789"><span class="annot"><span class="annottext">Maybe Frequency
+</span><a href="#local-6989586621679611789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
+</span><a href="#local-6989586621679611790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frequency:Schedule' :: Maybe Frequency
 </span><a href="Network.AWS.Pinpoint.Types.Schedule.html#%24sel%3Afrequency%3ASchedule%27"><span class="hs-identifier hs-var">frequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Frequency
-</span><a href="#local-6989586621679611780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679611789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The default quiet time for the campaign. Quiet time is a specific time</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- range when a campaign doesn\'t send messages to endpoints, if all the</span><span>
@@ -267,16 +267,16 @@ $sel:frequency:Schedule' :: Schedule -&gt; Maybe Frequency
 -&gt; (Schedule -&gt; Maybe QuietTime -&gt; Schedule)
 -&gt; Lens Schedule Schedule (Maybe QuietTime) (Maybe QuietTime)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611778"><span class="annot"><span class="annottext">Maybe QuietTime
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611787"><span class="annot"><span class="annottext">Maybe QuietTime
 quietTime :: Maybe QuietTime
 $sel:quietTime:Schedule' :: Schedule -&gt; Maybe QuietTime
-</span><a href="#local-6989586621679611778"><span class="hs-identifier hs-var hs-var">quietTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QuietTime
-</span><a href="#local-6989586621679611778"><span class="hs-identifier hs-var">quietTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611777"><span class="annot"><span class="annottext">s :: Schedule
-</span><a href="#local-6989586621679611777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611776"><span class="annot"><span class="annottext">Maybe QuietTime
-</span><a href="#local-6989586621679611776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
-</span><a href="#local-6989586621679611777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quietTime:Schedule' :: Maybe QuietTime
+</span><a href="#local-6989586621679611787"><span class="hs-identifier hs-var hs-var">quietTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QuietTime
+</span><a href="#local-6989586621679611787"><span class="hs-identifier hs-var">quietTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611786"><span class="annot"><span class="annottext">s :: Schedule
+</span><a href="#local-6989586621679611786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611785"><span class="annot"><span class="annottext">Maybe QuietTime
+</span><a href="#local-6989586621679611785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
+</span><a href="#local-6989586621679611786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quietTime:Schedule' :: Maybe QuietTime
 </span><a href="Network.AWS.Pinpoint.Types.Schedule.html#%24sel%3AquietTime%3ASchedule%27"><span class="hs-identifier hs-var">quietTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QuietTime
-</span><a href="#local-6989586621679611776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679611785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The type of event that causes the campaign to be sent, if the value of</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- the Frequency property is EVENT.</span><span>
@@ -291,16 +291,16 @@ $sel:quietTime:Schedule' :: Schedule -&gt; Maybe QuietTime
      (Maybe CampaignEventFilter)
      (Maybe CampaignEventFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611774"><span class="annot"><span class="annottext">Maybe CampaignEventFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611783"><span class="annot"><span class="annottext">Maybe CampaignEventFilter
 eventFilter :: Maybe CampaignEventFilter
 $sel:eventFilter:Schedule' :: Schedule -&gt; Maybe CampaignEventFilter
-</span><a href="#local-6989586621679611774"><span class="hs-identifier hs-var hs-var">eventFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignEventFilter
-</span><a href="#local-6989586621679611774"><span class="hs-identifier hs-var">eventFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611773"><span class="annot"><span class="annottext">s :: Schedule
-</span><a href="#local-6989586621679611773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611772"><span class="annot"><span class="annottext">Maybe CampaignEventFilter
-</span><a href="#local-6989586621679611772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
-</span><a href="#local-6989586621679611773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventFilter:Schedule' :: Maybe CampaignEventFilter
+</span><a href="#local-6989586621679611783"><span class="hs-identifier hs-var hs-var">eventFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignEventFilter
+</span><a href="#local-6989586621679611783"><span class="hs-identifier hs-var">eventFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611782"><span class="annot"><span class="annottext">s :: Schedule
+</span><a href="#local-6989586621679611782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611781"><span class="annot"><span class="annottext">Maybe CampaignEventFilter
+</span><a href="#local-6989586621679611781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
+</span><a href="#local-6989586621679611782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventFilter:Schedule' :: Maybe CampaignEventFilter
 </span><a href="Network.AWS.Pinpoint.Types.Schedule.html#%24sel%3AeventFilter%3ASchedule%27"><span class="hs-identifier hs-var">eventFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignEventFilter
-</span><a href="#local-6989586621679611772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679611781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | Specifies whether the start and end times for the campaign schedule use</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- each recipient\'s local time. To base the schedule on each recipient\'s</span><span>
@@ -311,16 +311,16 @@ $sel:eventFilter:Schedule' :: Schedule -&gt; Maybe CampaignEventFilter
 -&gt; (Schedule -&gt; Maybe Bool -&gt; Schedule)
 -&gt; Lens Schedule Schedule (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611770"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611779"><span class="annot"><span class="annottext">Maybe Bool
 isLocalTime :: Maybe Bool
 $sel:isLocalTime:Schedule' :: Schedule -&gt; Maybe Bool
-</span><a href="#local-6989586621679611770"><span class="hs-identifier hs-var hs-var">isLocalTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679611770"><span class="hs-identifier hs-var">isLocalTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611769"><span class="annot"><span class="annottext">s :: Schedule
-</span><a href="#local-6989586621679611769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611768"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679611768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
-</span><a href="#local-6989586621679611769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isLocalTime:Schedule' :: Maybe Bool
+</span><a href="#local-6989586621679611779"><span class="hs-identifier hs-var hs-var">isLocalTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679611779"><span class="hs-identifier hs-var">isLocalTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611778"><span class="annot"><span class="annottext">s :: Schedule
+</span><a href="#local-6989586621679611778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611777"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679611777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
+</span><a href="#local-6989586621679611778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isLocalTime:Schedule' :: Maybe Bool
 </span><a href="Network.AWS.Pinpoint.Types.Schedule.html#%24sel%3AisLocalTime%3ASchedule%27"><span class="hs-identifier hs-var">isLocalTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679611768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679611777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The scheduled time, in ISO 8601 format, when the campaign ended or will</span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- end.</span><span>
@@ -330,16 +330,16 @@ $sel:isLocalTime:Schedule' :: Schedule -&gt; Maybe Bool
 -&gt; (Schedule -&gt; Maybe Text -&gt; Schedule)
 -&gt; Lens Schedule Schedule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611766"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611775"><span class="annot"><span class="annottext">Maybe Text
 endTime :: Maybe Text
 $sel:endTime:Schedule' :: Schedule -&gt; Maybe Text
-</span><a href="#local-6989586621679611766"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611766"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611765"><span class="annot"><span class="annottext">s :: Schedule
-</span><a href="#local-6989586621679611765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611764"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
-</span><a href="#local-6989586621679611765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:Schedule' :: Maybe Text
+</span><a href="#local-6989586621679611775"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611775"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611774"><span class="annot"><span class="annottext">s :: Schedule
+</span><a href="#local-6989586621679611774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611773"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
+</span><a href="#local-6989586621679611774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:Schedule' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.Schedule.html#%24sel%3AendTime%3ASchedule%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679611773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The starting UTC offset for the campaign schedule, if the value of the</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- IsLocalTime property is true. Valid values are: UTC, UTC+01, UTC+02,</span><span>
@@ -353,16 +353,16 @@ $sel:endTime:Schedule' :: Schedule -&gt; Maybe Text
 -&gt; (Schedule -&gt; Maybe Text -&gt; Schedule)
 -&gt; Lens Schedule Schedule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611762"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611771"><span class="annot"><span class="annottext">Maybe Text
 timezone :: Maybe Text
 $sel:timezone:Schedule' :: Schedule -&gt; Maybe Text
-</span><a href="#local-6989586621679611762"><span class="hs-identifier hs-var hs-var">timezone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611762"><span class="hs-identifier hs-var">timezone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611761"><span class="annot"><span class="annottext">s :: Schedule
-</span><a href="#local-6989586621679611761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611760"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
-</span><a href="#local-6989586621679611761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timezone:Schedule' :: Maybe Text
+</span><a href="#local-6989586621679611771"><span class="hs-identifier hs-var hs-var">timezone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611771"><span class="hs-identifier hs-var">timezone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611770"><span class="annot"><span class="annottext">s :: Schedule
+</span><a href="#local-6989586621679611770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611769"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
+</span><a href="#local-6989586621679611770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timezone:Schedule' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.Schedule.html#%24sel%3Atimezone%3ASchedule%27"><span class="hs-identifier hs-var">timezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679611769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The scheduled time when the campaign began or will begin. Valid values</span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- are: IMMEDIATE, to start the campaign immediately; or, a specific time</span><span>
@@ -373,27 +373,27 @@ $sel:timezone:Schedule' :: Schedule -&gt; Maybe Text
 -&gt; (Schedule -&gt; Text -&gt; Schedule)
 -&gt; Lens Schedule Schedule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611758"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611767"><span class="annot"><span class="annottext">Text
 startTime :: Text
 $sel:startTime:Schedule' :: Schedule -&gt; Text
-</span><a href="#local-6989586621679611758"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679611758"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611757"><span class="annot"><span class="annottext">s :: Schedule
-</span><a href="#local-6989586621679611757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611756"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679611756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
-</span><a href="#local-6989586621679611757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:Schedule' :: Text
+</span><a href="#local-6989586621679611767"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679611767"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611766"><span class="annot"><span class="annottext">s :: Schedule
+</span><a href="#local-6989586621679611766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611765"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679611765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
+</span><a href="#local-6989586621679611766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:Schedule' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.Schedule.html#%24sel%3AstartTime%3ASchedule%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679611756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679611765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611753"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679611751"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Schedule
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611762"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679611760"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Schedule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Schedule) -&gt; Value -&gt; Parser Schedule
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Schedule&quot;</span></span><span>
-</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679611748"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611748"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679611757"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611757"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">Maybe Frequency
 -&gt; Maybe QuietTime
 -&gt; Maybe CampaignEventFilter
@@ -422,7 +422,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Schedule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Frequency)
+</span><a href="#local-6989586621679611757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Frequency)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Frequency&quot;</span></span><span class="hs-special">)</span><span>
@@ -440,7 +440,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Schedule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QuietTime)
+</span><a href="#local-6989586621679611757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QuietTime)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QuietTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -452,7 +452,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Schedule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CampaignEventFilter)
+</span><a href="#local-6989586621679611757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CampaignEventFilter)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventFilter&quot;</span></span><span class="hs-special">)</span><span>
@@ -461,7 +461,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Schedule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679611757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsLocalTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -469,7 +469,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Text -&gt; Schedule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679611757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -477,26 +477,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Schedule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679611757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timezone&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Schedule) -&gt; Parser Text -&gt; Parser Schedule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679611757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611741"><span id="local-6989586621679611743"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611750"><span id="local-6989586621679611752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span></span><span>
 </span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611738"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span><span>
 </span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611730"><span id="local-6989586621679611732"><span id="local-6989586621679611734"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679611728"><span class="annot"><span class="annottext">toJSON :: Schedule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611720"><span id="local-6989586621679611721"><span id="local-6989586621679611722"><span id="local-6989586621679611723"><span id="local-6989586621679611724"><span id="local-6989586621679611725"><span id="local-6989586621679611726"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611739"><span id="local-6989586621679611741"><span id="local-6989586621679611743"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679611737"><span class="annot"><span class="annottext">toJSON :: Schedule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611729"><span id="local-6989586621679611730"><span id="local-6989586621679611731"><span id="local-6989586621679611732"><span id="local-6989586621679611733"><span id="local-6989586621679611734"><span id="local-6989586621679611735"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe Frequency
 Maybe QuietTime
@@ -516,7 +516,7 @@ $sel:isLocalTime:Schedule' :: Schedule -&gt; Maybe Bool
 $sel:eventFilter:Schedule' :: Schedule -&gt; Maybe CampaignEventFilter
 $sel:quietTime:Schedule' :: Schedule -&gt; Maybe QuietTime
 $sel:frequency:Schedule' :: Schedule -&gt; Maybe Frequency
-</span><a href="#local-6989586621679611720"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679611729"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-220"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -528,14 +528,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Frequency -&gt; Pair) -&gt; Maybe Frequency -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Frequency
-</span><a href="#local-6989586621679611726"><span class="hs-identifier hs-var">frequency</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679611735"><span class="hs-identifier hs-var">frequency</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QuietTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; QuietTime -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(QuietTime -&gt; Pair) -&gt; Maybe QuietTime -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe QuietTime
-</span><a href="#local-6989586621679611725"><span class="hs-identifier hs-var">quietTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679611734"><span class="hs-identifier hs-var">quietTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CampaignEventFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -543,35 +543,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CampaignEventFilter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CampaignEventFilter
-</span><a href="#local-6989586621679611724"><span class="hs-identifier hs-var">eventFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679611733"><span class="hs-identifier hs-var">eventFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsLocalTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679611723"><span class="hs-identifier hs-var">isLocalTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679611732"><span class="hs-identifier hs-var">isLocalTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611722"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679611731"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timezone&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611721"><span class="hs-identifier hs-var">timezone</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679611730"><span class="hs-identifier hs-var">timezone</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679611720"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679611729"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-229"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span></pre></body></html>

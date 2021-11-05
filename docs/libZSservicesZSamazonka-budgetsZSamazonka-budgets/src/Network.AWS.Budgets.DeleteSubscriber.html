@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Request of DeleteSubscriber</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDeleteSubscriber' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679213257"><span id="local-6989586621679213258"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSubscriber"><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-var">DeleteSubscriber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSubscriber%27"><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-var">DeleteSubscriber'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679213266"><span id="local-6989586621679213267"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSubscriber"><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-var">DeleteSubscriber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSubscriber%27"><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-var">DeleteSubscriber'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @accountId@ that is associated with the budget whose subscriber you</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- want to delete.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AaccountId%3ADeleteSubscriber%27"><span class="annot"><span class="annottext">DeleteSubscriber -&gt; Text
@@ -69,7 +69,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3Asubscriber%3ADeleteSubscriber%27"><span class="annot"><span class="annottext">DeleteSubscriber -&gt; Subscriber
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#%24sel%3Asubscriber%3ADeleteSubscriber%27"><span class="hs-identifier hs-var hs-var">subscriber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213248"><span id="local-6989586621679213250"><span class="annot"><span class="annottext">DeleteSubscriber -&gt; DeleteSubscriber -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213257"><span id="local-6989586621679213259"><span class="annot"><span class="annottext">DeleteSubscriber -&gt; DeleteSubscriber -&gt; Bool
 (DeleteSubscriber -&gt; DeleteSubscriber -&gt; Bool)
 -&gt; (DeleteSubscriber -&gt; DeleteSubscriber -&gt; Bool)
 -&gt; Eq DeleteSubscriber
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteSubscriber -&gt; DeleteSubscriber -&gt; Bool
 == :: DeleteSubscriber -&gt; DeleteSubscriber -&gt; Bool
 $c== :: DeleteSubscriber -&gt; DeleteSubscriber -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213241"><span id="local-6989586621679213243"><span id="local-6989586621679213245"><span class="annot"><span class="annottext">Int -&gt; DeleteSubscriber -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213250"><span id="local-6989586621679213252"><span id="local-6989586621679213254"><span class="annot"><span class="annottext">Int -&gt; DeleteSubscriber -&gt; ShowS
 [DeleteSubscriber] -&gt; ShowS
 DeleteSubscriber -&gt; String
 (Int -&gt; DeleteSubscriber -&gt; ShowS)
@@ -132,28 +132,28 @@ $cfrom :: forall x. DeleteSubscriber -&gt; Rep DeleteSubscriber x
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span>
 </span><span id="line-96"></span><span id="newDeleteSubscriber"><span class="annot"><span class="annottext">newDeleteSubscriber :: Text -&gt; Text -&gt; Notification -&gt; Subscriber -&gt; DeleteSubscriber
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#newDeleteSubscriber"><span class="hs-identifier hs-var hs-var">newDeleteSubscriber</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679213236"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213236"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679213235"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213235"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679213234"><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679213234"><span class="hs-identifier hs-var">pNotification_</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679213233"><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679213233"><span class="hs-identifier hs-var">pSubscriber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679213245"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213245"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679213244"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213244"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679213243"><span class="annot"><span class="annottext">Notification
+</span><a href="#local-6989586621679213243"><span class="hs-identifier hs-var">pNotification_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679213242"><span class="annot"><span class="annottext">Subscriber
+</span><a href="#local-6989586621679213242"><span class="hs-identifier hs-var">pSubscriber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">DeleteSubscriber' :: Text -&gt; Text -&gt; Notification -&gt; Subscriber -&gt; DeleteSubscriber
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:DeleteSubscriber' :: Text
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#%24sel%3AaccountId%3ADeleteSubscriber%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213236"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213245"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:budgetName:DeleteSubscriber' :: Text
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#%24sel%3AbudgetName%3ADeleteSubscriber%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213235"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213244"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:notification:DeleteSubscriber' :: Notification
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#%24sel%3Anotification%3ADeleteSubscriber%27"><span class="hs-identifier hs-var">notification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679213234"><span class="hs-identifier hs-var">pNotification_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213243"><span class="hs-identifier hs-var">pNotification_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:subscriber:DeleteSubscriber' :: Subscriber
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#%24sel%3Asubscriber%3ADeleteSubscriber%27"><span class="hs-identifier hs-var">subscriber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679213233"><span class="hs-identifier hs-var">pSubscriber_</span></a></span><span>
+</span><a href="#local-6989586621679213242"><span class="hs-identifier hs-var">pSubscriber_</span></a></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The @accountId@ that is associated with the budget whose subscriber you</span><span>
@@ -164,16 +164,16 @@ $cfrom :: forall x. DeleteSubscriber -&gt; Rep DeleteSubscriber x
 -&gt; (DeleteSubscriber -&gt; Text -&gt; DeleteSubscriber)
 -&gt; Lens DeleteSubscriber DeleteSubscriber Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213230"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213239"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:DeleteSubscriber' :: DeleteSubscriber -&gt; Text
-</span><a href="#local-6989586621679213230"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213230"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213229"><span class="annot"><span class="annottext">s :: DeleteSubscriber
-</span><a href="#local-6989586621679213229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213228"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubscriber
-</span><a href="#local-6989586621679213229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DeleteSubscriber' :: Text
+</span><a href="#local-6989586621679213239"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213239"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213238"><span class="annot"><span class="annottext">s :: DeleteSubscriber
+</span><a href="#local-6989586621679213238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213237"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubscriber
+</span><a href="#local-6989586621679213238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DeleteSubscriber' :: Text
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#%24sel%3AaccountId%3ADeleteSubscriber%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The name of the budget whose subscriber you want to delete.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#deleteSubscriber_budgetName"><span class="hs-identifier hs-type">deleteSubscriber_budgetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -182,16 +182,16 @@ $sel:accountId:DeleteSubscriber' :: DeleteSubscriber -&gt; Text
 -&gt; (DeleteSubscriber -&gt; Text -&gt; DeleteSubscriber)
 -&gt; Lens DeleteSubscriber DeleteSubscriber Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213227"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213236"><span class="annot"><span class="annottext">Text
 budgetName :: Text
 $sel:budgetName:DeleteSubscriber' :: DeleteSubscriber -&gt; Text
-</span><a href="#local-6989586621679213227"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213227"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213226"><span class="annot"><span class="annottext">s :: DeleteSubscriber
-</span><a href="#local-6989586621679213226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213225"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubscriber
-</span><a href="#local-6989586621679213226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:DeleteSubscriber' :: Text
+</span><a href="#local-6989586621679213236"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213236"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213235"><span class="annot"><span class="annottext">s :: DeleteSubscriber
+</span><a href="#local-6989586621679213235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213234"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubscriber
+</span><a href="#local-6989586621679213235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:DeleteSubscriber' :: Text
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#%24sel%3AbudgetName%3ADeleteSubscriber%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The notification whose subscriber you want to delete.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#deleteSubscriber_notification"><span class="hs-identifier hs-type">deleteSubscriber_notification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span><span>
@@ -201,16 +201,16 @@ $sel:budgetName:DeleteSubscriber' :: DeleteSubscriber -&gt; Text
 -&gt; (DeleteSubscriber -&gt; Notification -&gt; DeleteSubscriber)
 -&gt; Lens DeleteSubscriber DeleteSubscriber Notification Notification
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213224"><span class="annot"><span class="annottext">Notification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213233"><span class="annot"><span class="annottext">Notification
 notification :: Notification
 $sel:notification:DeleteSubscriber' :: DeleteSubscriber -&gt; Notification
-</span><a href="#local-6989586621679213224"><span class="hs-identifier hs-var hs-var">notification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679213224"><span class="hs-identifier hs-var">notification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213223"><span class="annot"><span class="annottext">s :: DeleteSubscriber
-</span><a href="#local-6989586621679213223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213222"><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679213222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubscriber
-</span><a href="#local-6989586621679213223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notification:DeleteSubscriber' :: Notification
+</span><a href="#local-6989586621679213233"><span class="hs-identifier hs-var hs-var">notification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Notification
+</span><a href="#local-6989586621679213233"><span class="hs-identifier hs-var">notification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213232"><span class="annot"><span class="annottext">s :: DeleteSubscriber
+</span><a href="#local-6989586621679213232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213231"><span class="annot"><span class="annottext">Notification
+</span><a href="#local-6989586621679213231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubscriber
+</span><a href="#local-6989586621679213232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notification:DeleteSubscriber' :: Notification
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#%24sel%3Anotification%3ADeleteSubscriber%27"><span class="hs-identifier hs-var">notification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679213222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The subscriber that you want to delete.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#deleteSubscriber_subscriber"><span class="hs-identifier hs-type">deleteSubscriber_subscriber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span>
@@ -220,27 +220,27 @@ $sel:notification:DeleteSubscriber' :: DeleteSubscriber -&gt; Notification
 -&gt; (DeleteSubscriber -&gt; Subscriber -&gt; DeleteSubscriber)
 -&gt; Lens DeleteSubscriber DeleteSubscriber Subscriber Subscriber
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213221"><span class="annot"><span class="annottext">Subscriber
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213230"><span class="annot"><span class="annottext">Subscriber
 subscriber :: Subscriber
 $sel:subscriber:DeleteSubscriber' :: DeleteSubscriber -&gt; Subscriber
-</span><a href="#local-6989586621679213221"><span class="hs-identifier hs-var hs-var">subscriber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679213221"><span class="hs-identifier hs-var">subscriber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213220"><span class="annot"><span class="annottext">s :: DeleteSubscriber
-</span><a href="#local-6989586621679213220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213219"><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679213219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubscriber
-</span><a href="#local-6989586621679213220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriber:DeleteSubscriber' :: Subscriber
+</span><a href="#local-6989586621679213230"><span class="hs-identifier hs-var hs-var">subscriber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscriber
+</span><a href="#local-6989586621679213230"><span class="hs-identifier hs-var">subscriber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213229"><span class="annot"><span class="annottext">s :: DeleteSubscriber
+</span><a href="#local-6989586621679213229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213228"><span class="annot"><span class="annottext">Subscriber
+</span><a href="#local-6989586621679213228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubscriber
+</span><a href="#local-6989586621679213229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriber:DeleteSubscriber' :: Subscriber
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#%24sel%3Asubscriber%3ADeleteSubscriber%27"><span class="hs-identifier hs-var">subscriber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679213219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse"><span class="hs-identifier hs-type">DeleteSubscriberResponse</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679213215"><span class="annot"><span class="annottext">request :: DeleteSubscriber -&gt; Request DeleteSubscriber
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679213224"><span class="annot"><span class="annottext">request :: DeleteSubscriber -&gt; Request DeleteSubscriber
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteSubscriber -&gt; Request DeleteSubscriber
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Budgets.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679213211"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679213220"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteSubscriber
 -&gt; ClientResponse ClientBody
@@ -264,10 +264,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679213208"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213208"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679213207"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679213207"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679213206"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679213206"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679213217"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679213217"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679213216"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679213216"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679213215"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679213215"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteSubscriberResponse
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse%27"><span class="hs-identifier hs-var">DeleteSubscriberResponse'</span></a></span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteSubscriberResponse)
@@ -278,15 +278,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213208"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213217"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213199"><span id="local-6989586621679213201"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213208"><span id="local-6989586621679213210"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679213192"><span class="annot"><span class="annottext">toHeaders :: DeleteSubscriber -&gt; ResponseHeaders
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679213201"><span class="annot"><span class="annottext">toHeaders :: DeleteSubscriber -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteSubscriber -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -313,9 +313,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213182"><span id="local-6989586621679213184"><span id="local-6989586621679213186"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679213180"><span class="annot"><span class="annottext">toJSON :: DeleteSubscriber -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213175"><span id="local-6989586621679213176"><span id="local-6989586621679213177"><span id="local-6989586621679213178"><span class="annot"><span class="annottext">Text
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213191"><span id="local-6989586621679213193"><span id="local-6989586621679213195"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679213189"><span class="annot"><span class="annottext">toJSON :: DeleteSubscriber -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber%27"><span class="hs-identifier hs-type">DeleteSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213184"><span id="local-6989586621679213185"><span id="local-6989586621679213186"><span id="local-6989586621679213187"><span class="annot"><span class="annottext">Text
 Subscriber
 Notification
 subscriber :: Subscriber
@@ -326,7 +326,7 @@ $sel:subscriber:DeleteSubscriber' :: DeleteSubscriber -&gt; Subscriber
 $sel:notification:DeleteSubscriber' :: DeleteSubscriber -&gt; Notification
 $sel:budgetName:DeleteSubscriber' :: DeleteSubscriber -&gt; Text
 $sel:accountId:DeleteSubscriber' :: DeleteSubscriber -&gt; Text
-</span><a href="#local-6989586621679213175"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679213184"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -338,40 +338,40 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213178"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213187"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BudgetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213177"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213186"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Notification&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Notification -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679213176"><span class="hs-identifier hs-var">notification</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213185"><span class="hs-identifier hs-var">notification</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Subscriber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Subscriber -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679213175"><span class="hs-identifier hs-var">subscriber</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213184"><span class="hs-identifier hs-var">subscriber</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679213169"><span class="annot"><span class="annottext">toPath :: DeleteSubscriber -&gt; ByteString
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679213178"><span class="annot"><span class="annottext">toPath :: DeleteSubscriber -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteSubscriber -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriber"><span class="hs-identifier hs-type">DeleteSubscriber</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679213165"><span class="annot"><span class="annottext">toQuery :: DeleteSubscriber -&gt; QueryString
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679213174"><span class="annot"><span class="annottext">toQuery :: DeleteSubscriber -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteSubscriber -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -381,12 +381,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-173"></span><span class="hs-comment">-- | Response of DeleteSubscriber</span><span>
 </span><span id="line-174"></span><span class="hs-comment">--</span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- /See:/ 'newDeleteSubscriberResponse' smart constructor.</span><span>
-</span><span id="line-176"></span><span id="local-6989586621679213162"><span id="local-6989586621679213163"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSubscriberResponse"><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse"><span class="hs-identifier hs-var">DeleteSubscriberResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSubscriberResponse%27"><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse%27"><span class="hs-identifier hs-var">DeleteSubscriberResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span id="local-6989586621679213171"><span id="local-6989586621679213172"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSubscriberResponse"><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse"><span class="hs-identifier hs-var">DeleteSubscriberResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSubscriberResponse%27"><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse%27"><span class="hs-identifier hs-var">DeleteSubscriberResponse'</span></a></span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteSubscriberResponse%27"><span class="annot"><span class="annottext">DeleteSubscriberResponse -&gt; Int
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#%24sel%3AhttpStatus%3ADeleteSubscriberResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213157"><span id="local-6989586621679213159"><span class="annot"><span class="annottext">DeleteSubscriberResponse -&gt; DeleteSubscriberResponse -&gt; Bool
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213166"><span id="local-6989586621679213168"><span class="annot"><span class="annottext">DeleteSubscriberResponse -&gt; DeleteSubscriberResponse -&gt; Bool
 (DeleteSubscriberResponse -&gt; DeleteSubscriberResponse -&gt; Bool)
 -&gt; (DeleteSubscriberResponse -&gt; DeleteSubscriberResponse -&gt; Bool)
 -&gt; Eq DeleteSubscriberResponse
@@ -395,7 +395,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteSubscriberResponse -&gt; DeleteSubscriberResponse -&gt; Bool
 == :: DeleteSubscriberResponse -&gt; DeleteSubscriberResponse -&gt; Bool
 $c== :: DeleteSubscriberResponse -&gt; DeleteSubscriberResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213149"><span id="local-6989586621679213151"><span id="local-6989586621679213153"><span id="local-6989586621679213155"><span class="annot"><span class="annottext">ReadPrec [DeleteSubscriberResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213158"><span id="local-6989586621679213160"><span id="local-6989586621679213162"><span id="local-6989586621679213164"><span class="annot"><span class="annottext">ReadPrec [DeleteSubscriberResponse]
 ReadPrec DeleteSubscriberResponse
 Int -&gt; ReadS DeleteSubscriberResponse
 ReadS [DeleteSubscriberResponse]
@@ -415,7 +415,7 @@ readList :: ReadS [DeleteSubscriberResponse]
 $creadList :: ReadS [DeleteSubscriberResponse]
 readsPrec :: Int -&gt; ReadS DeleteSubscriberResponse
 $creadsPrec :: Int -&gt; ReadS DeleteSubscriberResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213142"><span id="local-6989586621679213144"><span id="local-6989586621679213146"><span class="annot"><span class="annottext">Int -&gt; DeleteSubscriberResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213151"><span id="local-6989586621679213153"><span id="local-6989586621679213155"><span class="annot"><span class="annottext">Int -&gt; DeleteSubscriberResponse -&gt; ShowS
 [DeleteSubscriberResponse] -&gt; ShowS
 DeleteSubscriberResponse -&gt; String
 (Int -&gt; DeleteSubscriberResponse -&gt; ShowS)
@@ -461,14 +461,14 @@ DeleteSubscriberResponse -&gt; Rep DeleteSubscriberResponse x
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse"><span class="hs-identifier hs-type">DeleteSubscriberResponse</span></a></span><span>
 </span><span id="line-195"></span><span id="newDeleteSubscriberResponse"><span class="annot"><span class="annottext">newDeleteSubscriberResponse :: Int -&gt; DeleteSubscriberResponse
-</span><a href="Network.AWS.Budgets.DeleteSubscriber.html#newDeleteSubscriberResponse"><span class="hs-identifier hs-var hs-var">newDeleteSubscriberResponse</span></a></span></span><span> </span><span id="local-6989586621679213139"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213139"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Budgets.DeleteSubscriber.html#newDeleteSubscriberResponse"><span class="hs-identifier hs-var hs-var">newDeleteSubscriberResponse</span></a></span></span><span> </span><span id="local-6989586621679213148"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679213148"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">DeleteSubscriberResponse' :: Int -&gt; DeleteSubscriberResponse
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse%27"><span class="hs-identifier hs-type">DeleteSubscriberResponse'</span></a></span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSubscriberResponse' :: Int
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#%24sel%3AhttpStatus%3ADeleteSubscriberResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213139"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679213148"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-199"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -479,16 +479,16 @@ DeleteSubscriberResponse -&gt; Rep DeleteSubscriberResponse x
 -&gt; (DeleteSubscriberResponse -&gt; Int -&gt; DeleteSubscriberResponse)
 -&gt; Lens DeleteSubscriberResponse DeleteSubscriberResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse%27"><span class="hs-identifier hs-type">DeleteSubscriberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213138"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse%27"><span class="hs-identifier hs-type">DeleteSubscriberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213147"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteSubscriberResponse' :: DeleteSubscriberResponse -&gt; Int
-</span><a href="#local-6989586621679213138"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213138"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213137"><span class="annot"><span class="annottext">s :: DeleteSubscriberResponse
-</span><a href="#local-6989586621679213137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse%27"><span class="hs-identifier hs-type">DeleteSubscriberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213136"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubscriberResponse
-</span><a href="#local-6989586621679213137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSubscriberResponse' :: Int
+</span><a href="#local-6989586621679213147"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679213147"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213146"><span class="annot"><span class="annottext">s :: DeleteSubscriberResponse
+</span><a href="#local-6989586621679213146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse%27"><span class="hs-identifier hs-type">DeleteSubscriberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213145"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679213145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubscriberResponse
+</span><a href="#local-6989586621679213146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSubscriberResponse' :: Int
 </span><a href="Network.AWS.Budgets.DeleteSubscriber.html#%24sel%3AhttpStatus%3ADeleteSubscriberResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse"><span class="hs-identifier hs-type">DeleteSubscriberResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse"><span class="hs-identifier hs-type">DeleteSubscriberResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse"><span class="hs-identifier hs-type">DeleteSubscriberResponse</span></a></span></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteSubscriber.html#DeleteSubscriberResponse"><span class="hs-identifier hs-type">DeleteSubscriberResponse</span></a></span></span><span>
 </span><span id="line-206"></span></pre></body></html>

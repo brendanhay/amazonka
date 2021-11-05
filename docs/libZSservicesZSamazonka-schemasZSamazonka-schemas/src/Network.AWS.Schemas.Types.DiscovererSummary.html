@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Schemas.Types.DiscovererSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Schemas.Types.DiscovererSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererState.html"><span class="hs-identifier">Network.AWS.Schemas.Types.DiscovererState</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | /See:/ 'newDiscovererSummary' smart constructor.</span><span>
+</span><span id="line-28"></span><span id="local-6989586621679198837"><span id="local-6989586621679198838"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiscovererSummary"><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-var">DiscovererSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiscovererSummary%27"><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-var">DiscovererSummary'</span></a></span></span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the discoverer.</span><span>
+</span><span id="line-30"></span><span>    </span><span id="%24sel%3Astate%3ADiscovererSummary%27"><span class="annot"><span class="annottext">DiscovererSummary -&gt; Maybe DiscovererState
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3Astate%3ADiscovererSummary%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererState.html#DiscovererState"><span class="hs-identifier hs-type">DiscovererState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- | The Status if the discoverer will discover schemas from events sent from</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- another account.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcrossAccount%3ADiscovererSummary%27"><span class="annot"><span class="annottext">DiscovererSummary -&gt; Maybe Bool
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3AcrossAccount%3ADiscovererSummary%27"><span class="hs-identifier hs-var hs-var">crossAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ARN of the event bus.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsourceArn%3ADiscovererSummary%27"><span class="annot"><span class="annottext">DiscovererSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3AsourceArn%3ADiscovererSummary%27"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the discoverer.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdiscovererId%3ADiscovererSummary%27"><span class="annot"><span class="annottext">DiscovererSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3AdiscovererId%3ADiscovererSummary%27"><span class="hs-identifier hs-var hs-var">discovererId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Tags associated with the resource.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Atags%3ADiscovererSummary%27"><span class="annot"><span class="annottext">DiscovererSummary -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3Atags%3ADiscovererSummary%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ARN of the discoverer.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdiscovererArn%3ADiscovererSummary%27"><span class="annot"><span class="annottext">DiscovererSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3AdiscovererArn%3ADiscovererSummary%27"><span class="hs-identifier hs-var hs-var">discovererArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198826"><span id="local-6989586621679198828"><span class="annot"><span class="annottext">DiscovererSummary -&gt; DiscovererSummary -&gt; Bool
+(DiscovererSummary -&gt; DiscovererSummary -&gt; Bool)
+-&gt; (DiscovererSummary -&gt; DiscovererSummary -&gt; Bool)
+-&gt; Eq DiscovererSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DiscovererSummary -&gt; DiscovererSummary -&gt; Bool
+$c/= :: DiscovererSummary -&gt; DiscovererSummary -&gt; Bool
+== :: DiscovererSummary -&gt; DiscovererSummary -&gt; Bool
+$c== :: DiscovererSummary -&gt; DiscovererSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198817"><span id="local-6989586621679198819"><span id="local-6989586621679198821"><span id="local-6989586621679198823"><span class="annot"><span class="annottext">ReadPrec [DiscovererSummary]
+ReadPrec DiscovererSummary
+Int -&gt; ReadS DiscovererSummary
+ReadS [DiscovererSummary]
+(Int -&gt; ReadS DiscovererSummary)
+-&gt; ReadS [DiscovererSummary]
+-&gt; ReadPrec DiscovererSummary
+-&gt; ReadPrec [DiscovererSummary]
+-&gt; Read DiscovererSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DiscovererSummary]
+$creadListPrec :: ReadPrec [DiscovererSummary]
+readPrec :: ReadPrec DiscovererSummary
+$creadPrec :: ReadPrec DiscovererSummary
+readList :: ReadS [DiscovererSummary]
+$creadList :: ReadS [DiscovererSummary]
+readsPrec :: Int -&gt; ReadS DiscovererSummary
+$creadsPrec :: Int -&gt; ReadS DiscovererSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198810"><span id="local-6989586621679198812"><span id="local-6989586621679198814"><span class="annot"><span class="annottext">Int -&gt; DiscovererSummary -&gt; ShowS
+[DiscovererSummary] -&gt; ShowS
+DiscovererSummary -&gt; String
+(Int -&gt; DiscovererSummary -&gt; ShowS)
+-&gt; (DiscovererSummary -&gt; String)
+-&gt; ([DiscovererSummary] -&gt; ShowS)
+-&gt; Show DiscovererSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DiscovererSummary] -&gt; ShowS
+$cshowList :: [DiscovererSummary] -&gt; ShowS
+show :: DiscovererSummary -&gt; String
+$cshow :: DiscovererSummary -&gt; String
+showsPrec :: Int -&gt; DiscovererSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; DiscovererSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DiscovererSummary -&gt; Rep DiscovererSummary x)
+-&gt; (forall x. Rep DiscovererSummary x -&gt; DiscovererSummary)
+-&gt; Generic DiscovererSummary
+forall x. Rep DiscovererSummary x -&gt; DiscovererSummary
+forall x. DiscovererSummary -&gt; Rep DiscovererSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DiscovererSummary x -&gt; DiscovererSummary
+$cfrom :: forall x. DiscovererSummary -&gt; Rep DiscovererSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'DiscovererSummary' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'state', 'discovererSummary_state' - The state of the discoverer.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'crossAccount', 'discovererSummary_crossAccount' - The Status if the discoverer will discover schemas from events sent from</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- another account.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'sourceArn', 'discovererSummary_sourceArn' - The ARN of the event bus.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'discovererId', 'discovererSummary_discovererId' - The ID of the discoverer.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'tags', 'discovererSummary_tags' - Tags associated with the resource.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'discovererArn', 'discovererSummary_discovererArn' - The ARN of the discoverer.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#newDiscovererSummary"><span class="hs-identifier hs-type">newDiscovererSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span><span>
+</span><span id="line-67"></span><span id="newDiscovererSummary"><span class="annot"><span class="annottext">newDiscovererSummary :: DiscovererSummary
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#newDiscovererSummary"><span class="hs-identifier hs-var hs-var">newDiscovererSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">DiscovererSummary' :: Maybe DiscovererState
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; DiscovererSummary
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-type">DiscovererSummary'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:DiscovererSummary' :: Maybe DiscovererState
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3Astate%3ADiscovererSummary%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiscovererState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:crossAccount:DiscovererSummary' :: Maybe Bool
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3AcrossAccount%3ADiscovererSummary%27"><span class="hs-identifier hs-var">crossAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceArn:DiscovererSummary' :: Maybe Text
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3AsourceArn%3ADiscovererSummary%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:discovererId:DiscovererSummary' :: Maybe Text
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3AdiscovererId%3ADiscovererSummary%27"><span class="hs-identifier hs-var">discovererId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:DiscovererSummary' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3Atags%3ADiscovererSummary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:discovererArn:DiscovererSummary' :: Maybe Text
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3AdiscovererArn%3ADiscovererSummary%27"><span class="hs-identifier hs-var">discovererArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The state of the discoverer.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#discovererSummary_state"><span class="hs-identifier hs-type">discovererSummary_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererState.html#DiscovererState"><span class="hs-identifier hs-type">DiscovererState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="discovererSummary_state"><span class="annot"><span class="annottext">discovererSummary_state :: (Maybe DiscovererState -&gt; f (Maybe DiscovererState))
+-&gt; DiscovererSummary -&gt; f DiscovererSummary
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#discovererSummary_state"><span class="hs-identifier hs-var hs-var">discovererSummary_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DiscovererSummary -&gt; Maybe DiscovererState)
+-&gt; (DiscovererSummary
+    -&gt; Maybe DiscovererState -&gt; DiscovererSummary)
+-&gt; Lens
+     DiscovererSummary
+     DiscovererSummary
+     (Maybe DiscovererState)
+     (Maybe DiscovererState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-type">DiscovererSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198801"><span class="annot"><span class="annottext">Maybe DiscovererState
+state :: Maybe DiscovererState
+$sel:state:DiscovererSummary' :: DiscovererSummary -&gt; Maybe DiscovererState
+</span><a href="#local-6989586621679198801"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DiscovererState
+</span><a href="#local-6989586621679198801"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198800"><span class="annot"><span class="annottext">s :: DiscovererSummary
+</span><a href="#local-6989586621679198800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-type">DiscovererSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198799"><span class="annot"><span class="annottext">Maybe DiscovererState
+</span><a href="#local-6989586621679198799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscovererSummary
+</span><a href="#local-6989586621679198800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:DiscovererSummary' :: Maybe DiscovererState
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3Astate%3ADiscovererSummary%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiscovererState
+</span><a href="#local-6989586621679198799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The Status if the discoverer will discover schemas from events sent from</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- another account.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#discovererSummary_crossAccount"><span class="hs-identifier hs-type">discovererSummary_crossAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="discovererSummary_crossAccount"><span class="annot"><span class="annottext">discovererSummary_crossAccount :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DiscovererSummary -&gt; f DiscovererSummary
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#discovererSummary_crossAccount"><span class="hs-identifier hs-var hs-var">discovererSummary_crossAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DiscovererSummary -&gt; Maybe Bool)
+-&gt; (DiscovererSummary -&gt; Maybe Bool -&gt; DiscovererSummary)
+-&gt; Lens
+     DiscovererSummary DiscovererSummary (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-type">DiscovererSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198797"><span class="annot"><span class="annottext">Maybe Bool
+crossAccount :: Maybe Bool
+$sel:crossAccount:DiscovererSummary' :: DiscovererSummary -&gt; Maybe Bool
+</span><a href="#local-6989586621679198797"><span class="hs-identifier hs-var hs-var">crossAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679198797"><span class="hs-identifier hs-var">crossAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198796"><span class="annot"><span class="annottext">s :: DiscovererSummary
+</span><a href="#local-6989586621679198796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-type">DiscovererSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198795"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679198795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscovererSummary
+</span><a href="#local-6989586621679198796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crossAccount:DiscovererSummary' :: Maybe Bool
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3AcrossAccount%3ADiscovererSummary%27"><span class="hs-identifier hs-var">crossAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679198795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The ARN of the event bus.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#discovererSummary_sourceArn"><span class="hs-identifier hs-type">discovererSummary_sourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="discovererSummary_sourceArn"><span class="annot"><span class="annottext">discovererSummary_sourceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DiscovererSummary -&gt; f DiscovererSummary
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#discovererSummary_sourceArn"><span class="hs-identifier hs-var hs-var">discovererSummary_sourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DiscovererSummary -&gt; Maybe Text)
+-&gt; (DiscovererSummary -&gt; Maybe Text -&gt; DiscovererSummary)
+-&gt; Lens
+     DiscovererSummary DiscovererSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-type">DiscovererSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198793"><span class="annot"><span class="annottext">Maybe Text
+sourceArn :: Maybe Text
+$sel:sourceArn:DiscovererSummary' :: DiscovererSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679198793"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198793"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198792"><span class="annot"><span class="annottext">s :: DiscovererSummary
+</span><a href="#local-6989586621679198792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-type">DiscovererSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198791"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscovererSummary
+</span><a href="#local-6989586621679198792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceArn:DiscovererSummary' :: Maybe Text
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3AsourceArn%3ADiscovererSummary%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The ID of the discoverer.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#discovererSummary_discovererId"><span class="hs-identifier hs-type">discovererSummary_discovererId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="discovererSummary_discovererId"><span class="annot"><span class="annottext">discovererSummary_discovererId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DiscovererSummary -&gt; f DiscovererSummary
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#discovererSummary_discovererId"><span class="hs-identifier hs-var hs-var">discovererSummary_discovererId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DiscovererSummary -&gt; Maybe Text)
+-&gt; (DiscovererSummary -&gt; Maybe Text -&gt; DiscovererSummary)
+-&gt; Lens
+     DiscovererSummary DiscovererSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-type">DiscovererSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198789"><span class="annot"><span class="annottext">Maybe Text
+discovererId :: Maybe Text
+$sel:discovererId:DiscovererSummary' :: DiscovererSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679198789"><span class="hs-identifier hs-var hs-var">discovererId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198789"><span class="hs-identifier hs-var">discovererId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198788"><span class="annot"><span class="annottext">s :: DiscovererSummary
+</span><a href="#local-6989586621679198788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-type">DiscovererSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198787"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscovererSummary
+</span><a href="#local-6989586621679198788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:discovererId:DiscovererSummary' :: Maybe Text
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3AdiscovererId%3ADiscovererSummary%27"><span class="hs-identifier hs-var">discovererId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Tags associated with the resource.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#discovererSummary_tags"><span class="hs-identifier hs-type">discovererSummary_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="discovererSummary_tags"><span class="annot"><span class="annottext">discovererSummary_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DiscovererSummary -&gt; f DiscovererSummary
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#discovererSummary_tags"><span class="hs-identifier hs-var hs-var">discovererSummary_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DiscovererSummary -&gt; Maybe (HashMap Text Text))
+-&gt; (DiscovererSummary
+    -&gt; Maybe (HashMap Text Text) -&gt; DiscovererSummary)
+-&gt; Lens
+     DiscovererSummary
+     DiscovererSummary
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-type">DiscovererSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198785"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:DiscovererSummary' :: DiscovererSummary -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679198785"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679198785"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198784"><span class="annot"><span class="annottext">s :: DiscovererSummary
+</span><a href="#local-6989586621679198784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-type">DiscovererSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198783"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679198783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscovererSummary
+</span><a href="#local-6989586621679198784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DiscovererSummary' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3Atags%3ADiscovererSummary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679198783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; DiscovererSummary -&gt; f DiscovererSummary)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DiscovererSummary
+-&gt; f DiscovererSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The ARN of the discoverer.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#discovererSummary_discovererArn"><span class="hs-identifier hs-type">discovererSummary_discovererArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="discovererSummary_discovererArn"><span class="annot"><span class="annottext">discovererSummary_discovererArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DiscovererSummary -&gt; f DiscovererSummary
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#discovererSummary_discovererArn"><span class="hs-identifier hs-var hs-var">discovererSummary_discovererArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DiscovererSummary -&gt; Maybe Text)
+-&gt; (DiscovererSummary -&gt; Maybe Text -&gt; DiscovererSummary)
+-&gt; Lens
+     DiscovererSummary DiscovererSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-type">DiscovererSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198778"><span class="annot"><span class="annottext">Maybe Text
+discovererArn :: Maybe Text
+$sel:discovererArn:DiscovererSummary' :: DiscovererSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679198778"><span class="hs-identifier hs-var hs-var">discovererArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198778"><span class="hs-identifier hs-var">discovererArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198777"><span class="annot"><span class="annottext">s :: DiscovererSummary
+</span><a href="#local-6989586621679198777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-type">DiscovererSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198776"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscovererSummary
+</span><a href="#local-6989586621679198777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:discovererArn:DiscovererSummary' :: Maybe Text
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#%24sel%3AdiscovererArn%3ADiscovererSummary%27"><span class="hs-identifier hs-var">discovererArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198773"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679198771"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DiscovererSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DiscovererSummary)
+-&gt; Value
+-&gt; Parser DiscovererSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DiscovererSummary&quot;</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198768"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198768"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe DiscovererState
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; DiscovererSummary
+</span><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary%27"><span class="hs-identifier hs-var">DiscovererSummary'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DiscovererState
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; DiscovererSummary)
+-&gt; Parser (Maybe DiscovererState)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; DiscovererSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DiscovererState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; DiscovererSummary)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; DiscovererSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CrossAccount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; DiscovererSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; DiscovererSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; DiscovererSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; DiscovererSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DiscovererId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; DiscovererSummary)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe Text -&gt; DiscovererSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DiscovererSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser DiscovererSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DiscovererArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198761"><span id="local-6989586621679198763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.DiscovererSummary.html#DiscovererSummary"><span class="hs-identifier hs-type">DiscovererSummary</span></a></span></span><span>
+</span><span id="line-119"></span></pre></body></html>

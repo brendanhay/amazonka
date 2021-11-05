@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Hls S3 Settings</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newHlsS3Settings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679915657"><span id="local-6989586621679915658"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsS3Settings"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings"><span class="hs-identifier hs-var">HlsS3Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsS3Settings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings%27"><span class="hs-identifier hs-var">HlsS3Settings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679915666"><span id="local-6989586621679915667"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsS3Settings"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings"><span class="hs-identifier hs-var">HlsS3Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsS3Settings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings%27"><span class="hs-identifier hs-var">HlsS3Settings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the canned ACL to apply to each S3 request. Defaults to none.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AcannedAcl%3AHlsS3Settings%27"><span class="annot"><span class="annottext">HlsS3Settings -&gt; Maybe S3CannedAcl
 </span><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#%24sel%3AcannedAcl%3AHlsS3Settings%27"><span class="hs-identifier hs-var hs-var">cannedAcl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.S3CannedAcl.html#S3CannedAcl"><span class="hs-identifier hs-type">S3CannedAcl</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679915651"><span id="local-6989586621679915653"><span class="annot"><span class="annottext">HlsS3Settings -&gt; HlsS3Settings -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679915660"><span id="local-6989586621679915662"><span class="annot"><span class="annottext">HlsS3Settings -&gt; HlsS3Settings -&gt; Bool
 (HlsS3Settings -&gt; HlsS3Settings -&gt; Bool)
 -&gt; (HlsS3Settings -&gt; HlsS3Settings -&gt; Bool) -&gt; Eq HlsS3Settings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HlsS3Settings -&gt; HlsS3Settings -&gt; Bool
 == :: HlsS3Settings -&gt; HlsS3Settings -&gt; Bool
 $c== :: HlsS3Settings -&gt; HlsS3Settings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915642"><span id="local-6989586621679915644"><span id="local-6989586621679915646"><span id="local-6989586621679915648"><span class="annot"><span class="annottext">ReadPrec [HlsS3Settings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915651"><span id="local-6989586621679915653"><span id="local-6989586621679915655"><span id="local-6989586621679915657"><span class="annot"><span class="annottext">ReadPrec [HlsS3Settings]
 ReadPrec HlsS3Settings
 Int -&gt; ReadS HlsS3Settings
 ReadS [HlsS3Settings]
@@ -60,7 +60,7 @@ readList :: ReadS [HlsS3Settings]
 $creadList :: ReadS [HlsS3Settings]
 readsPrec :: Int -&gt; ReadS HlsS3Settings
 $creadsPrec :: Int -&gt; ReadS HlsS3Settings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915635"><span id="local-6989586621679915637"><span id="local-6989586621679915639"><span class="annot"><span class="annottext">Int -&gt; HlsS3Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915644"><span id="local-6989586621679915646"><span id="local-6989586621679915648"><span class="annot"><span class="annottext">Int -&gt; HlsS3Settings -&gt; ShowS
 [HlsS3Settings] -&gt; ShowS
 HlsS3Settings -&gt; String
 (Int -&gt; HlsS3Settings -&gt; ShowS)
@@ -114,19 +114,19 @@ forall a. Maybe a
 -&gt; Lens
      HlsS3Settings HlsS3Settings (Maybe S3CannedAcl) (Maybe S3CannedAcl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings%27"><span class="hs-identifier hs-type">HlsS3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915626"><span class="annot"><span class="annottext">Maybe S3CannedAcl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings%27"><span class="hs-identifier hs-type">HlsS3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915635"><span class="annot"><span class="annottext">Maybe S3CannedAcl
 cannedAcl :: Maybe S3CannedAcl
 $sel:cannedAcl:HlsS3Settings' :: HlsS3Settings -&gt; Maybe S3CannedAcl
-</span><a href="#local-6989586621679915626"><span class="hs-identifier hs-var hs-var">cannedAcl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3CannedAcl
-</span><a href="#local-6989586621679915626"><span class="hs-identifier hs-var">cannedAcl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915625"><span class="annot"><span class="annottext">s :: HlsS3Settings
-</span><a href="#local-6989586621679915625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings%27"><span class="hs-identifier hs-type">HlsS3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915624"><span class="annot"><span class="annottext">Maybe S3CannedAcl
-</span><a href="#local-6989586621679915624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsS3Settings
-</span><a href="#local-6989586621679915625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cannedAcl:HlsS3Settings' :: Maybe S3CannedAcl
+</span><a href="#local-6989586621679915635"><span class="hs-identifier hs-var hs-var">cannedAcl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3CannedAcl
+</span><a href="#local-6989586621679915635"><span class="hs-identifier hs-var">cannedAcl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915634"><span class="annot"><span class="annottext">s :: HlsS3Settings
+</span><a href="#local-6989586621679915634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings%27"><span class="hs-identifier hs-type">HlsS3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915633"><span class="annot"><span class="annottext">Maybe S3CannedAcl
+</span><a href="#local-6989586621679915633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsS3Settings
+</span><a href="#local-6989586621679915634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cannedAcl:HlsS3Settings' :: Maybe S3CannedAcl
 </span><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#%24sel%3AcannedAcl%3AHlsS3Settings%27"><span class="hs-identifier hs-var">cannedAcl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3CannedAcl
-</span><a href="#local-6989586621679915624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings"><span class="hs-identifier hs-type">HlsS3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679915633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings"><span class="hs-identifier hs-type">HlsS3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915621"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings"><span class="hs-identifier hs-type">HlsS3Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679915619"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsS3Settings
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915630"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings"><span class="hs-identifier hs-type">HlsS3Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679915628"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsS3Settings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HlsS3Settings)
@@ -136,29 +136,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HlsS3Settings&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679915616"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679915616"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679915625"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679915625"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3CannedAcl -&gt; HlsS3Settings
 </span><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings%27"><span class="hs-identifier hs-var">HlsS3Settings'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe S3CannedAcl -&gt; HlsS3Settings)
 -&gt; Parser (Maybe S3CannedAcl) -&gt; Parser HlsS3Settings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679915616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3CannedAcl)
+</span><a href="#local-6989586621679915625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3CannedAcl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cannedAcl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915610"><span id="local-6989586621679915612"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings"><span class="hs-identifier hs-type">HlsS3Settings</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915619"><span id="local-6989586621679915621"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings"><span class="hs-identifier hs-type">HlsS3Settings</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915607"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings"><span class="hs-identifier hs-type">HlsS3Settings</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings"><span class="hs-identifier hs-type">HlsS3Settings</span></a></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915599"><span id="local-6989586621679915601"><span id="local-6989586621679915603"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings"><span class="hs-identifier hs-type">HlsS3Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679915597"><span class="annot"><span class="annottext">toJSON :: HlsS3Settings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings%27"><span class="hs-identifier hs-type">HlsS3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915595"><span class="annot"><span class="annottext">Maybe S3CannedAcl
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915608"><span id="local-6989586621679915610"><span id="local-6989586621679915612"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings"><span class="hs-identifier hs-type">HlsS3Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679915606"><span class="annot"><span class="annottext">toJSON :: HlsS3Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsS3Settings.html#HlsS3Settings%27"><span class="hs-identifier hs-type">HlsS3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915604"><span class="annot"><span class="annottext">Maybe S3CannedAcl
 cannedAcl :: Maybe S3CannedAcl
 $sel:cannedAcl:HlsS3Settings' :: HlsS3Settings -&gt; Maybe S3CannedAcl
-</span><a href="#local-6989586621679915595"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679915604"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -170,6 +170,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3CannedAcl -&gt; Pair) -&gt; Maybe S3CannedAcl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3CannedAcl
-</span><a href="#local-6989586621679915595"><span class="hs-identifier hs-var">cannedAcl</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679915604"><span class="hs-identifier hs-var">cannedAcl</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Provides all fields required for building an in-app message.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInAppMessage' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679605616"><span id="local-6989586621679605617"></span></span><span class="hs-keyword">data</span><span> </span><span id="InAppMessage"><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-var">InAppMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InAppMessage%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage%27"><span class="hs-identifier hs-var">InAppMessage'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679605625"><span id="local-6989586621679605626"></span></span><span class="hs-keyword">data</span><span> </span><span id="InAppMessage"><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-var">InAppMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InAppMessage%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage%27"><span class="hs-identifier hs-var">InAppMessage'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The layout of the message.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Alayout%3AInAppMessage%27"><span class="annot"><span class="annottext">InAppMessage -&gt; Maybe Layout
 </span><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#%24sel%3Alayout%3AInAppMessage%27"><span class="hs-identifier hs-var hs-var">layout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Layout.html#Layout"><span class="hs-identifier hs-type">Layout</span></a></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AcustomConfig%3AInAppMessage%27"><span class="annot"><span class="annottext">InAppMessage -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#%24sel%3AcustomConfig%3AInAppMessage%27"><span class="hs-identifier hs-var hs-var">customConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679605608"><span id="local-6989586621679605610"><span class="annot"><span class="annottext">InAppMessage -&gt; InAppMessage -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679605617"><span id="local-6989586621679605619"><span class="annot"><span class="annottext">InAppMessage -&gt; InAppMessage -&gt; Bool
 (InAppMessage -&gt; InAppMessage -&gt; Bool)
 -&gt; (InAppMessage -&gt; InAppMessage -&gt; Bool) -&gt; Eq InAppMessage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InAppMessage -&gt; InAppMessage -&gt; Bool
 == :: InAppMessage -&gt; InAppMessage -&gt; Bool
 $c== :: InAppMessage -&gt; InAppMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679605599"><span id="local-6989586621679605601"><span id="local-6989586621679605603"><span id="local-6989586621679605605"><span class="annot"><span class="annottext">ReadPrec [InAppMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679605608"><span id="local-6989586621679605610"><span id="local-6989586621679605612"><span id="local-6989586621679605614"><span class="annot"><span class="annottext">ReadPrec [InAppMessage]
 ReadPrec InAppMessage
 Int -&gt; ReadS InAppMessage
 ReadS [InAppMessage]
@@ -67,7 +67,7 @@ readList :: ReadS [InAppMessage]
 $creadList :: ReadS [InAppMessage]
 readsPrec :: Int -&gt; ReadS InAppMessage
 $creadsPrec :: Int -&gt; ReadS InAppMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679605592"><span id="local-6989586621679605594"><span id="local-6989586621679605596"><span class="annot"><span class="annottext">Int -&gt; InAppMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679605601"><span id="local-6989586621679605603"><span id="local-6989586621679605605"><span class="annot"><span class="annottext">Int -&gt; InAppMessage -&gt; ShowS
 [InAppMessage] -&gt; ShowS
 InAppMessage -&gt; String
 (Int -&gt; InAppMessage -&gt; ShowS)
@@ -137,16 +137,16 @@ forall a. Maybe a
 -&gt; (InAppMessage -&gt; Maybe Layout -&gt; InAppMessage)
 -&gt; Lens InAppMessage InAppMessage (Maybe Layout) (Maybe Layout)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage%27"><span class="hs-identifier hs-type">InAppMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605583"><span class="annot"><span class="annottext">Maybe Layout
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage%27"><span class="hs-identifier hs-type">InAppMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605592"><span class="annot"><span class="annottext">Maybe Layout
 layout :: Maybe Layout
 $sel:layout:InAppMessage' :: InAppMessage -&gt; Maybe Layout
-</span><a href="#local-6989586621679605583"><span class="hs-identifier hs-var hs-var">layout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Layout
-</span><a href="#local-6989586621679605583"><span class="hs-identifier hs-var">layout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679605582"><span class="annot"><span class="annottext">s :: InAppMessage
-</span><a href="#local-6989586621679605582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage%27"><span class="hs-identifier hs-type">InAppMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679605581"><span class="annot"><span class="annottext">Maybe Layout
-</span><a href="#local-6989586621679605581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessage
-</span><a href="#local-6989586621679605582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layout:InAppMessage' :: Maybe Layout
+</span><a href="#local-6989586621679605592"><span class="hs-identifier hs-var hs-var">layout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Layout
+</span><a href="#local-6989586621679605592"><span class="hs-identifier hs-var">layout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679605591"><span class="annot"><span class="annottext">s :: InAppMessage
+</span><a href="#local-6989586621679605591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage%27"><span class="hs-identifier hs-type">InAppMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679605590"><span class="annot"><span class="annottext">Maybe Layout
+</span><a href="#local-6989586621679605590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessage
+</span><a href="#local-6989586621679605591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layout:InAppMessage' :: Maybe Layout
 </span><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#%24sel%3Alayout%3AInAppMessage%27"><span class="hs-identifier hs-var">layout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Layout
-</span><a href="#local-6989586621679605581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679605590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | In-app message content.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#inAppMessage_content"><span class="hs-identifier hs-type">inAppMessage_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessageContent.html#InAppMessageContent"><span class="hs-identifier hs-type">InAppMessageContent</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -160,16 +160,16 @@ $sel:layout:InAppMessage' :: InAppMessage -&gt; Maybe Layout
      (Maybe [InAppMessageContent])
      (Maybe [InAppMessageContent])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage%27"><span class="hs-identifier hs-type">InAppMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605579"><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage%27"><span class="hs-identifier hs-type">InAppMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605588"><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
 content :: Maybe [InAppMessageContent]
 $sel:content:InAppMessage' :: InAppMessage -&gt; Maybe [InAppMessageContent]
-</span><a href="#local-6989586621679605579"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
-</span><a href="#local-6989586621679605579"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679605578"><span class="annot"><span class="annottext">s :: InAppMessage
-</span><a href="#local-6989586621679605578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage%27"><span class="hs-identifier hs-type">InAppMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679605577"><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
-</span><a href="#local-6989586621679605577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessage
-</span><a href="#local-6989586621679605578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:InAppMessage' :: Maybe [InAppMessageContent]
+</span><a href="#local-6989586621679605588"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
+</span><a href="#local-6989586621679605588"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679605587"><span class="annot"><span class="annottext">s :: InAppMessage
+</span><a href="#local-6989586621679605587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage%27"><span class="hs-identifier hs-type">InAppMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679605586"><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
+</span><a href="#local-6989586621679605586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessage
+</span><a href="#local-6989586621679605587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:InAppMessage' :: Maybe [InAppMessageContent]
 </span><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#%24sel%3Acontent%3AInAppMessage%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
-</span><a href="#local-6989586621679605577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InAppMessageContent] -&gt; f (Maybe [InAppMessageContent]))
+</span><a href="#local-6989586621679605586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InAppMessageContent] -&gt; f (Maybe [InAppMessageContent]))
  -&gt; InAppMessage -&gt; f InAppMessage)
 -&gt; ((Maybe [InAppMessageContent]
      -&gt; f (Maybe [InAppMessageContent]))
@@ -211,16 +211,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage%27"><span class="hs-identifier hs-type">InAppMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605572"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage%27"><span class="hs-identifier hs-type">InAppMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605581"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 customConfig :: Maybe (HashMap Text Text)
 $sel:customConfig:InAppMessage' :: InAppMessage -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679605572"><span class="hs-identifier hs-var hs-var">customConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679605572"><span class="hs-identifier hs-var">customConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679605571"><span class="annot"><span class="annottext">s :: InAppMessage
-</span><a href="#local-6989586621679605571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage%27"><span class="hs-identifier hs-type">InAppMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679605570"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679605570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessage
-</span><a href="#local-6989586621679605571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customConfig:InAppMessage' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679605581"><span class="hs-identifier hs-var hs-var">customConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679605581"><span class="hs-identifier hs-var">customConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679605580"><span class="annot"><span class="annottext">s :: InAppMessage
+</span><a href="#local-6989586621679605580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage%27"><span class="hs-identifier hs-type">InAppMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679605579"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679605579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessage
+</span><a href="#local-6989586621679605580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customConfig:InAppMessage' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#%24sel%3AcustomConfig%3AInAppMessage%27"><span class="hs-identifier hs-var">customConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679605570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679605579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; InAppMessage -&gt; f InAppMessage)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -249,8 +249,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605567"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679605565"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InAppMessage
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605576"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679605574"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InAppMessage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InAppMessage) -&gt; Value -&gt; Parser InAppMessage
@@ -258,8 +258,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InAppMessage&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679605562"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679605562"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679605571"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679605571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Layout
 -&gt; Maybe [InAppMessageContent]
 -&gt; Maybe (HashMap Text Text)
@@ -275,7 +275,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe (HashMap Text Text) -&gt; InAppMessage)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679605562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Layout)
+</span><a href="#local-6989586621679605571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Layout)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Layout&quot;</span></span><span class="hs-special">)</span><span>
@@ -286,7 +286,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Text) -&gt; InAppMessage)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679605562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InAppMessageContent]))
+</span><a href="#local-6989586621679605571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InAppMessageContent]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InAppMessageContent]))
@@ -300,7 +300,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser InAppMessage
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679605562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679605571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -311,7 +311,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605555"><span id="local-6989586621679605557"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605564"><span id="local-6989586621679605566"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605552"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605561"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

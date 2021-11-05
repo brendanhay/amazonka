@@ -1,0 +1,1245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppFlow.Types.SourceConnectorProperties</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppFlow.Types.SourceConnectorProperties</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.AmplitudeSourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.AmplitudeSourceProperties</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DatadogSourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.DatadogSourceProperties</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DynatraceSourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.DynatraceSourceProperties</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsSourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.GoogleAnalyticsSourceProperties</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.InforNexusSourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.InforNexusSourceProperties</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.MarketoSourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.MarketoSourceProperties</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.S3SourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.S3SourceProperties</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SAPODataSourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.SAPODataSourceProperties</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SalesforceSourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.SalesforceSourceProperties</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ServiceNowSourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.ServiceNowSourceProperties</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SingularSourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.SingularSourceProperties</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackSourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.SlackSourceProperties</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.TrendmicroSourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.TrendmicroSourceProperties</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.VeevaSourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.VeevaSourceProperties</span></a></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskSourceProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.ZendeskSourceProperties</span></a></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- | Specifies the information that is required to query a particular</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- connector.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- /See:/ 'newSourceConnectorProperties' smart constructor.</span><span>
+</span><span id="line-45"></span><span id="local-6989586621679331559"><span id="local-6989586621679331560"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceConnectorProperties"><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-var">SourceConnectorProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceConnectorProperties%27"><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-var">SourceConnectorProperties'</span></a></span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the information that is required for querying ServiceNow.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AserviceNow%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe ServiceNowSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3AserviceNow%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">serviceNow</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ServiceNowSourceProperties.html#ServiceNowSourceProperties"><span class="hs-identifier hs-type">ServiceNowSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Specifies the information that is required for querying Dynatrace.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Adynatrace%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe DynatraceSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Adynatrace%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">dynatrace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DynatraceSourceProperties.html#DynatraceSourceProperties"><span class="hs-identifier hs-type">DynatraceSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Specifies the information that is required for querying Marketo.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Amarketo%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe MarketoSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Amarketo%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">marketo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.MarketoSourceProperties.html#MarketoSourceProperties"><span class="hs-identifier hs-type">MarketoSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Specifies the information that is required for querying Slack.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aslack%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe SlackSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Aslack%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">slack</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackSourceProperties.html#SlackSourceProperties"><span class="hs-identifier hs-type">SlackSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Specifies the information that is required for querying Singular.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Asingular%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe SingularSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Asingular%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">singular</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SingularSourceProperties.html#SingularSourceProperties"><span class="hs-identifier hs-type">SingularSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Specifies the information that is required for querying Infor Nexus.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AinforNexus%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe InforNexusSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3AinforNexus%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">inforNexus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.InforNexusSourceProperties.html#InforNexusSourceProperties"><span class="hs-identifier hs-type">InforNexusSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Specifies the information that is required for querying Amplitude.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aamplitude%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe AmplitudeSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Aamplitude%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">amplitude</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.AmplitudeSourceProperties.html#AmplitudeSourceProperties"><span class="hs-identifier hs-type">AmplitudeSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Specifies the information that is required for querying Datadog.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adatadog%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe DatadogSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Adatadog%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">datadog</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DatadogSourceProperties.html#DatadogSourceProperties"><span class="hs-identifier hs-type">DatadogSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Specifies the information that is required for querying Google</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Analytics.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AgoogleAnalytics%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe GoogleAnalyticsSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3AgoogleAnalytics%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">googleAnalytics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsSourceProperties.html#GoogleAnalyticsSourceProperties"><span class="hs-identifier hs-type">GoogleAnalyticsSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AsAPOData%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe SAPODataSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3AsAPOData%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">sAPOData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SAPODataSourceProperties.html#SAPODataSourceProperties"><span class="hs-identifier hs-type">SAPODataSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Specifies the information that is required for querying Salesforce.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Asalesforce%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe SalesforceSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Asalesforce%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">salesforce</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SalesforceSourceProperties.html#SalesforceSourceProperties"><span class="hs-identifier hs-type">SalesforceSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Specifies the information that is required for querying Zendesk.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Azendesk%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe ZendeskSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Azendesk%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">zendesk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskSourceProperties.html#ZendeskSourceProperties"><span class="hs-identifier hs-type">ZendeskSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Specifies the information that is required for querying Amazon S3.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3As3%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe S3SourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3As3%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.S3SourceProperties.html#S3SourceProperties"><span class="hs-identifier hs-type">S3SourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Specifies the information that is required for querying Trend Micro.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Atrendmicro%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe TrendmicroSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Atrendmicro%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">trendmicro</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.TrendmicroSourceProperties.html#TrendmicroSourceProperties"><span class="hs-identifier hs-type">TrendmicroSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Specifies the information that is required for querying Veeva.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Aveeva%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe VeevaSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Aveeva%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">veeva</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.VeevaSourceProperties.html#VeevaSourceProperties"><span class="hs-identifier hs-type">VeevaSourceProperties</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331539"><span id="local-6989586621679331541"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; SourceConnectorProperties -&gt; Bool
+(SourceConnectorProperties -&gt; SourceConnectorProperties -&gt; Bool)
+-&gt; (SourceConnectorProperties -&gt; SourceConnectorProperties -&gt; Bool)
+-&gt; Eq SourceConnectorProperties
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SourceConnectorProperties -&gt; SourceConnectorProperties -&gt; Bool
+$c/= :: SourceConnectorProperties -&gt; SourceConnectorProperties -&gt; Bool
+== :: SourceConnectorProperties -&gt; SourceConnectorProperties -&gt; Bool
+$c== :: SourceConnectorProperties -&gt; SourceConnectorProperties -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331530"><span id="local-6989586621679331532"><span id="local-6989586621679331534"><span id="local-6989586621679331536"><span class="annot"><span class="annottext">ReadPrec [SourceConnectorProperties]
+ReadPrec SourceConnectorProperties
+Int -&gt; ReadS SourceConnectorProperties
+ReadS [SourceConnectorProperties]
+(Int -&gt; ReadS SourceConnectorProperties)
+-&gt; ReadS [SourceConnectorProperties]
+-&gt; ReadPrec SourceConnectorProperties
+-&gt; ReadPrec [SourceConnectorProperties]
+-&gt; Read SourceConnectorProperties
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SourceConnectorProperties]
+$creadListPrec :: ReadPrec [SourceConnectorProperties]
+readPrec :: ReadPrec SourceConnectorProperties
+$creadPrec :: ReadPrec SourceConnectorProperties
+readList :: ReadS [SourceConnectorProperties]
+$creadList :: ReadS [SourceConnectorProperties]
+readsPrec :: Int -&gt; ReadS SourceConnectorProperties
+$creadsPrec :: Int -&gt; ReadS SourceConnectorProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331523"><span id="local-6989586621679331525"><span id="local-6989586621679331527"><span class="annot"><span class="annottext">Int -&gt; SourceConnectorProperties -&gt; ShowS
+[SourceConnectorProperties] -&gt; ShowS
+SourceConnectorProperties -&gt; String
+(Int -&gt; SourceConnectorProperties -&gt; ShowS)
+-&gt; (SourceConnectorProperties -&gt; String)
+-&gt; ([SourceConnectorProperties] -&gt; ShowS)
+-&gt; Show SourceConnectorProperties
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SourceConnectorProperties] -&gt; ShowS
+$cshowList :: [SourceConnectorProperties] -&gt; ShowS
+show :: SourceConnectorProperties -&gt; String
+$cshow :: SourceConnectorProperties -&gt; String
+showsPrec :: Int -&gt; SourceConnectorProperties -&gt; ShowS
+$cshowsPrec :: Int -&gt; SourceConnectorProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SourceConnectorProperties -&gt; Rep SourceConnectorProperties x)
+-&gt; (forall x.
+    Rep SourceConnectorProperties x -&gt; SourceConnectorProperties)
+-&gt; Generic SourceConnectorProperties
+forall x.
+Rep SourceConnectorProperties x -&gt; SourceConnectorProperties
+forall x.
+SourceConnectorProperties -&gt; Rep SourceConnectorProperties x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SourceConnectorProperties x -&gt; SourceConnectorProperties
+$cfrom :: forall x.
+SourceConnectorProperties -&gt; Rep SourceConnectorProperties x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'SourceConnectorProperties' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'serviceNow', 'sourceConnectorProperties_serviceNow' - Specifies the information that is required for querying ServiceNow.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'dynatrace', 'sourceConnectorProperties_dynatrace' - Specifies the information that is required for querying Dynatrace.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'marketo', 'sourceConnectorProperties_marketo' - Specifies the information that is required for querying Marketo.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'slack', 'sourceConnectorProperties_slack' - Specifies the information that is required for querying Slack.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'singular', 'sourceConnectorProperties_singular' - Specifies the information that is required for querying Singular.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'inforNexus', 'sourceConnectorProperties_inforNexus' - Specifies the information that is required for querying Infor Nexus.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'amplitude', 'sourceConnectorProperties_amplitude' - Specifies the information that is required for querying Amplitude.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'datadog', 'sourceConnectorProperties_datadog' - Specifies the information that is required for querying Datadog.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'googleAnalytics', 'sourceConnectorProperties_googleAnalytics' - Specifies the information that is required for querying Google</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Analytics.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'sAPOData', 'sourceConnectorProperties_sAPOData' - Undocumented member.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'salesforce', 'sourceConnectorProperties_salesforce' - Specifies the information that is required for querying Salesforce.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'zendesk', 'sourceConnectorProperties_zendesk' - Specifies the information that is required for querying Zendesk.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 's3', 'sourceConnectorProperties_s3' - Specifies the information that is required for querying Amazon S3.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'trendmicro', 'sourceConnectorProperties_trendmicro' - Specifies the information that is required for querying Trend Micro.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'veeva', 'sourceConnectorProperties_veeva' - Specifies the information that is required for querying Veeva.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#newSourceConnectorProperties"><span class="hs-identifier hs-type">newSourceConnectorProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span>
+</span><span id="line-119"></span><span id="newSourceConnectorProperties"><span class="annot"><span class="annottext">newSourceConnectorProperties :: SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#newSourceConnectorProperties"><span class="hs-identifier hs-var hs-var">newSourceConnectorProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="annottext">SourceConnectorProperties' :: Maybe ServiceNowSourceProperties
+-&gt; Maybe DynatraceSourceProperties
+-&gt; Maybe MarketoSourceProperties
+-&gt; Maybe SlackSourceProperties
+-&gt; Maybe SingularSourceProperties
+-&gt; Maybe InforNexusSourceProperties
+-&gt; Maybe AmplitudeSourceProperties
+-&gt; Maybe DatadogSourceProperties
+-&gt; Maybe GoogleAnalyticsSourceProperties
+-&gt; Maybe SAPODataSourceProperties
+-&gt; Maybe SalesforceSourceProperties
+-&gt; Maybe ZendeskSourceProperties
+-&gt; Maybe S3SourceProperties
+-&gt; Maybe TrendmicroSourceProperties
+-&gt; Maybe VeevaSourceProperties
+-&gt; SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceNow:SourceConnectorProperties' :: Maybe ServiceNowSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3AserviceNow%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">serviceNow</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Maybe ServiceNowSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:dynatrace:SourceConnectorProperties' :: Maybe DynatraceSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Adynatrace%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">dynatrace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynatraceSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:marketo:SourceConnectorProperties' :: Maybe MarketoSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Amarketo%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">marketo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MarketoSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:slack:SourceConnectorProperties' :: Maybe SlackSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Aslack%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">slack</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SlackSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:singular:SourceConnectorProperties' :: Maybe SingularSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Asingular%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">singular</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SingularSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:inforNexus:SourceConnectorProperties' :: Maybe InforNexusSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3AinforNexus%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">inforNexus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InforNexusSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:amplitude:SourceConnectorProperties' :: Maybe AmplitudeSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Aamplitude%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">amplitude</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AmplitudeSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:datadog:SourceConnectorProperties' :: Maybe DatadogSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Adatadog%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">datadog</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatadogSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:googleAnalytics:SourceConnectorProperties' :: Maybe GoogleAnalyticsSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3AgoogleAnalytics%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">googleAnalytics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GoogleAnalyticsSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:sAPOData:SourceConnectorProperties' :: Maybe SAPODataSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3AsAPOData%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">sAPOData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SAPODataSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:salesforce:SourceConnectorProperties' :: Maybe SalesforceSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Asalesforce%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">salesforce</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:zendesk:SourceConnectorProperties' :: Maybe ZendeskSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Azendesk%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">zendesk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZendeskSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3:SourceConnectorProperties' :: Maybe S3SourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3As3%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">s3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3SourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:trendmicro:SourceConnectorProperties' :: Maybe TrendmicroSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Atrendmicro%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">trendmicro</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrendmicroSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:veeva:SourceConnectorProperties' :: Maybe VeevaSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Aveeva%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">veeva</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VeevaSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | Specifies the information that is required for querying ServiceNow.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_serviceNow"><span class="hs-identifier hs-type">sourceConnectorProperties_serviceNow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ServiceNowSourceProperties.html#ServiceNowSourceProperties"><span class="hs-identifier hs-type">ServiceNowSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="sourceConnectorProperties_serviceNow"><span class="annot"><span class="annottext">sourceConnectorProperties_serviceNow :: (Maybe ServiceNowSourceProperties
+ -&gt; f (Maybe ServiceNowSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_serviceNow"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_serviceNow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe ServiceNowSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe ServiceNowSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe ServiceNowSourceProperties)
+     (Maybe ServiceNowSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331514"><span class="annot"><span class="annottext">Maybe ServiceNowSourceProperties
+serviceNow :: Maybe ServiceNowSourceProperties
+$sel:serviceNow:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe ServiceNowSourceProperties
+</span><a href="#local-6989586621679331514"><span class="hs-identifier hs-var hs-var">serviceNow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceNowSourceProperties
+</span><a href="#local-6989586621679331514"><span class="hs-identifier hs-var">serviceNow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331513"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331512"><span class="annot"><span class="annottext">Maybe ServiceNowSourceProperties
+</span><a href="#local-6989586621679331512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNow:SourceConnectorProperties' :: Maybe ServiceNowSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3AserviceNow%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">serviceNow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceNowSourceProperties
+</span><a href="#local-6989586621679331512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | Specifies the information that is required for querying Dynatrace.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_dynatrace"><span class="hs-identifier hs-type">sourceConnectorProperties_dynatrace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DynatraceSourceProperties.html#DynatraceSourceProperties"><span class="hs-identifier hs-type">DynatraceSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="sourceConnectorProperties_dynatrace"><span class="annot"><span class="annottext">sourceConnectorProperties_dynatrace :: (Maybe DynatraceSourceProperties
+ -&gt; f (Maybe DynatraceSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_dynatrace"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_dynatrace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe DynatraceSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe DynatraceSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe DynatraceSourceProperties)
+     (Maybe DynatraceSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331510"><span class="annot"><span class="annottext">Maybe DynatraceSourceProperties
+dynatrace :: Maybe DynatraceSourceProperties
+$sel:dynatrace:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe DynatraceSourceProperties
+</span><a href="#local-6989586621679331510"><span class="hs-identifier hs-var hs-var">dynatrace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DynatraceSourceProperties
+</span><a href="#local-6989586621679331510"><span class="hs-identifier hs-var">dynatrace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331509"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331508"><span class="annot"><span class="annottext">Maybe DynatraceSourceProperties
+</span><a href="#local-6989586621679331508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynatrace:SourceConnectorProperties' :: Maybe DynatraceSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Adynatrace%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">dynatrace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynatraceSourceProperties
+</span><a href="#local-6989586621679331508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Specifies the information that is required for querying Marketo.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_marketo"><span class="hs-identifier hs-type">sourceConnectorProperties_marketo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.MarketoSourceProperties.html#MarketoSourceProperties"><span class="hs-identifier hs-type">MarketoSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="sourceConnectorProperties_marketo"><span class="annot"><span class="annottext">sourceConnectorProperties_marketo :: (Maybe MarketoSourceProperties
+ -&gt; f (Maybe MarketoSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_marketo"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_marketo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe MarketoSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe MarketoSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe MarketoSourceProperties)
+     (Maybe MarketoSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331506"><span class="annot"><span class="annottext">Maybe MarketoSourceProperties
+marketo :: Maybe MarketoSourceProperties
+$sel:marketo:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe MarketoSourceProperties
+</span><a href="#local-6989586621679331506"><span class="hs-identifier hs-var hs-var">marketo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MarketoSourceProperties
+</span><a href="#local-6989586621679331506"><span class="hs-identifier hs-var">marketo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331505"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331504"><span class="annot"><span class="annottext">Maybe MarketoSourceProperties
+</span><a href="#local-6989586621679331504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marketo:SourceConnectorProperties' :: Maybe MarketoSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Amarketo%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">marketo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MarketoSourceProperties
+</span><a href="#local-6989586621679331504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | Specifies the information that is required for querying Slack.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_slack"><span class="hs-identifier hs-type">sourceConnectorProperties_slack</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackSourceProperties.html#SlackSourceProperties"><span class="hs-identifier hs-type">SlackSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="sourceConnectorProperties_slack"><span class="annot"><span class="annottext">sourceConnectorProperties_slack :: (Maybe SlackSourceProperties -&gt; f (Maybe SlackSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_slack"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_slack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe SlackSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe SlackSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe SlackSourceProperties)
+     (Maybe SlackSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331502"><span class="annot"><span class="annottext">Maybe SlackSourceProperties
+slack :: Maybe SlackSourceProperties
+$sel:slack:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe SlackSourceProperties
+</span><a href="#local-6989586621679331502"><span class="hs-identifier hs-var hs-var">slack</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SlackSourceProperties
+</span><a href="#local-6989586621679331502"><span class="hs-identifier hs-var">slack</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331501"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331500"><span class="annot"><span class="annottext">Maybe SlackSourceProperties
+</span><a href="#local-6989586621679331500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slack:SourceConnectorProperties' :: Maybe SlackSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Aslack%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">slack</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SlackSourceProperties
+</span><a href="#local-6989586621679331500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | Specifies the information that is required for querying Singular.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_singular"><span class="hs-identifier hs-type">sourceConnectorProperties_singular</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SingularSourceProperties.html#SingularSourceProperties"><span class="hs-identifier hs-type">SingularSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="sourceConnectorProperties_singular"><span class="annot"><span class="annottext">sourceConnectorProperties_singular :: (Maybe SingularSourceProperties
+ -&gt; f (Maybe SingularSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_singular"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_singular</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe SingularSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe SingularSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe SingularSourceProperties)
+     (Maybe SingularSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331498"><span class="annot"><span class="annottext">Maybe SingularSourceProperties
+singular :: Maybe SingularSourceProperties
+$sel:singular:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe SingularSourceProperties
+</span><a href="#local-6989586621679331498"><span class="hs-identifier hs-var hs-var">singular</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SingularSourceProperties
+</span><a href="#local-6989586621679331498"><span class="hs-identifier hs-var">singular</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331497"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331496"><span class="annot"><span class="annottext">Maybe SingularSourceProperties
+</span><a href="#local-6989586621679331496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:singular:SourceConnectorProperties' :: Maybe SingularSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Asingular%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">singular</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SingularSourceProperties
+</span><a href="#local-6989586621679331496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | Specifies the information that is required for querying Infor Nexus.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_inforNexus"><span class="hs-identifier hs-type">sourceConnectorProperties_inforNexus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.InforNexusSourceProperties.html#InforNexusSourceProperties"><span class="hs-identifier hs-type">InforNexusSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="sourceConnectorProperties_inforNexus"><span class="annot"><span class="annottext">sourceConnectorProperties_inforNexus :: (Maybe InforNexusSourceProperties
+ -&gt; f (Maybe InforNexusSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_inforNexus"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_inforNexus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe InforNexusSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe InforNexusSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe InforNexusSourceProperties)
+     (Maybe InforNexusSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331494"><span class="annot"><span class="annottext">Maybe InforNexusSourceProperties
+inforNexus :: Maybe InforNexusSourceProperties
+$sel:inforNexus:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe InforNexusSourceProperties
+</span><a href="#local-6989586621679331494"><span class="hs-identifier hs-var hs-var">inforNexus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InforNexusSourceProperties
+</span><a href="#local-6989586621679331494"><span class="hs-identifier hs-var">inforNexus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331493"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331492"><span class="annot"><span class="annottext">Maybe InforNexusSourceProperties
+</span><a href="#local-6989586621679331492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inforNexus:SourceConnectorProperties' :: Maybe InforNexusSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3AinforNexus%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">inforNexus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InforNexusSourceProperties
+</span><a href="#local-6989586621679331492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Specifies the information that is required for querying Amplitude.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_amplitude"><span class="hs-identifier hs-type">sourceConnectorProperties_amplitude</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.AmplitudeSourceProperties.html#AmplitudeSourceProperties"><span class="hs-identifier hs-type">AmplitudeSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="sourceConnectorProperties_amplitude"><span class="annot"><span class="annottext">sourceConnectorProperties_amplitude :: (Maybe AmplitudeSourceProperties
+ -&gt; f (Maybe AmplitudeSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_amplitude"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_amplitude</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe AmplitudeSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe AmplitudeSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe AmplitudeSourceProperties)
+     (Maybe AmplitudeSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331490"><span class="annot"><span class="annottext">Maybe AmplitudeSourceProperties
+amplitude :: Maybe AmplitudeSourceProperties
+$sel:amplitude:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe AmplitudeSourceProperties
+</span><a href="#local-6989586621679331490"><span class="hs-identifier hs-var hs-var">amplitude</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AmplitudeSourceProperties
+</span><a href="#local-6989586621679331490"><span class="hs-identifier hs-var">amplitude</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331489"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331488"><span class="annot"><span class="annottext">Maybe AmplitudeSourceProperties
+</span><a href="#local-6989586621679331488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amplitude:SourceConnectorProperties' :: Maybe AmplitudeSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Aamplitude%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">amplitude</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AmplitudeSourceProperties
+</span><a href="#local-6989586621679331488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | Specifies the information that is required for querying Datadog.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_datadog"><span class="hs-identifier hs-type">sourceConnectorProperties_datadog</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DatadogSourceProperties.html#DatadogSourceProperties"><span class="hs-identifier hs-type">DatadogSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="sourceConnectorProperties_datadog"><span class="annot"><span class="annottext">sourceConnectorProperties_datadog :: (Maybe DatadogSourceProperties
+ -&gt; f (Maybe DatadogSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_datadog"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_datadog</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe DatadogSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe DatadogSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe DatadogSourceProperties)
+     (Maybe DatadogSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331486"><span class="annot"><span class="annottext">Maybe DatadogSourceProperties
+datadog :: Maybe DatadogSourceProperties
+$sel:datadog:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe DatadogSourceProperties
+</span><a href="#local-6989586621679331486"><span class="hs-identifier hs-var hs-var">datadog</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatadogSourceProperties
+</span><a href="#local-6989586621679331486"><span class="hs-identifier hs-var">datadog</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331485"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331484"><span class="annot"><span class="annottext">Maybe DatadogSourceProperties
+</span><a href="#local-6989586621679331484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datadog:SourceConnectorProperties' :: Maybe DatadogSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Adatadog%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">datadog</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatadogSourceProperties
+</span><a href="#local-6989586621679331484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Specifies the information that is required for querying Google</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Analytics.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_googleAnalytics"><span class="hs-identifier hs-type">sourceConnectorProperties_googleAnalytics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsSourceProperties.html#GoogleAnalyticsSourceProperties"><span class="hs-identifier hs-type">GoogleAnalyticsSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="sourceConnectorProperties_googleAnalytics"><span class="annot"><span class="annottext">sourceConnectorProperties_googleAnalytics :: (Maybe GoogleAnalyticsSourceProperties
+ -&gt; f (Maybe GoogleAnalyticsSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_googleAnalytics"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_googleAnalytics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties
+ -&gt; Maybe GoogleAnalyticsSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe GoogleAnalyticsSourceProperties
+    -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe GoogleAnalyticsSourceProperties)
+     (Maybe GoogleAnalyticsSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331482"><span class="annot"><span class="annottext">Maybe GoogleAnalyticsSourceProperties
+googleAnalytics :: Maybe GoogleAnalyticsSourceProperties
+$sel:googleAnalytics:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe GoogleAnalyticsSourceProperties
+</span><a href="#local-6989586621679331482"><span class="hs-identifier hs-var hs-var">googleAnalytics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GoogleAnalyticsSourceProperties
+</span><a href="#local-6989586621679331482"><span class="hs-identifier hs-var">googleAnalytics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331481"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331480"><span class="annot"><span class="annottext">Maybe GoogleAnalyticsSourceProperties
+</span><a href="#local-6989586621679331480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:googleAnalytics:SourceConnectorProperties' :: Maybe GoogleAnalyticsSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3AgoogleAnalytics%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">googleAnalytics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GoogleAnalyticsSourceProperties
+</span><a href="#local-6989586621679331480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_sAPOData"><span class="hs-identifier hs-type">sourceConnectorProperties_sAPOData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SAPODataSourceProperties.html#SAPODataSourceProperties"><span class="hs-identifier hs-type">SAPODataSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="sourceConnectorProperties_sAPOData"><span class="annot"><span class="annottext">sourceConnectorProperties_sAPOData :: (Maybe SAPODataSourceProperties
+ -&gt; f (Maybe SAPODataSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_sAPOData"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_sAPOData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe SAPODataSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe SAPODataSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe SAPODataSourceProperties)
+     (Maybe SAPODataSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331478"><span class="annot"><span class="annottext">Maybe SAPODataSourceProperties
+sAPOData :: Maybe SAPODataSourceProperties
+$sel:sAPOData:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe SAPODataSourceProperties
+</span><a href="#local-6989586621679331478"><span class="hs-identifier hs-var hs-var">sAPOData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SAPODataSourceProperties
+</span><a href="#local-6989586621679331478"><span class="hs-identifier hs-var">sAPOData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331477"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331476"><span class="annot"><span class="annottext">Maybe SAPODataSourceProperties
+</span><a href="#local-6989586621679331476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sAPOData:SourceConnectorProperties' :: Maybe SAPODataSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3AsAPOData%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">sAPOData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SAPODataSourceProperties
+</span><a href="#local-6989586621679331476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | Specifies the information that is required for querying Salesforce.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_salesforce"><span class="hs-identifier hs-type">sourceConnectorProperties_salesforce</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SalesforceSourceProperties.html#SalesforceSourceProperties"><span class="hs-identifier hs-type">SalesforceSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="sourceConnectorProperties_salesforce"><span class="annot"><span class="annottext">sourceConnectorProperties_salesforce :: (Maybe SalesforceSourceProperties
+ -&gt; f (Maybe SalesforceSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_salesforce"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_salesforce</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe SalesforceSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe SalesforceSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe SalesforceSourceProperties)
+     (Maybe SalesforceSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331474"><span class="annot"><span class="annottext">Maybe SalesforceSourceProperties
+salesforce :: Maybe SalesforceSourceProperties
+$sel:salesforce:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe SalesforceSourceProperties
+</span><a href="#local-6989586621679331474"><span class="hs-identifier hs-var hs-var">salesforce</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceSourceProperties
+</span><a href="#local-6989586621679331474"><span class="hs-identifier hs-var">salesforce</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331473"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331472"><span class="annot"><span class="annottext">Maybe SalesforceSourceProperties
+</span><a href="#local-6989586621679331472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:salesforce:SourceConnectorProperties' :: Maybe SalesforceSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Asalesforce%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">salesforce</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceSourceProperties
+</span><a href="#local-6989586621679331472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | Specifies the information that is required for querying Zendesk.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_zendesk"><span class="hs-identifier hs-type">sourceConnectorProperties_zendesk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskSourceProperties.html#ZendeskSourceProperties"><span class="hs-identifier hs-type">ZendeskSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="sourceConnectorProperties_zendesk"><span class="annot"><span class="annottext">sourceConnectorProperties_zendesk :: (Maybe ZendeskSourceProperties
+ -&gt; f (Maybe ZendeskSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_zendesk"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_zendesk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe ZendeskSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe ZendeskSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe ZendeskSourceProperties)
+     (Maybe ZendeskSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331470"><span class="annot"><span class="annottext">Maybe ZendeskSourceProperties
+zendesk :: Maybe ZendeskSourceProperties
+$sel:zendesk:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe ZendeskSourceProperties
+</span><a href="#local-6989586621679331470"><span class="hs-identifier hs-var hs-var">zendesk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ZendeskSourceProperties
+</span><a href="#local-6989586621679331470"><span class="hs-identifier hs-var">zendesk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331469"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331468"><span class="annot"><span class="annottext">Maybe ZendeskSourceProperties
+</span><a href="#local-6989586621679331468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zendesk:SourceConnectorProperties' :: Maybe ZendeskSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Azendesk%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">zendesk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZendeskSourceProperties
+</span><a href="#local-6989586621679331468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | Specifies the information that is required for querying Amazon S3.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_s3"><span class="hs-identifier hs-type">sourceConnectorProperties_s3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.S3SourceProperties.html#S3SourceProperties"><span class="hs-identifier hs-type">S3SourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="sourceConnectorProperties_s3"><span class="annot"><span class="annottext">sourceConnectorProperties_s3 :: (Maybe S3SourceProperties -&gt; f (Maybe S3SourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_s3"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_s3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe S3SourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe S3SourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe S3SourceProperties)
+     (Maybe S3SourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331466"><span class="annot"><span class="annottext">Maybe S3SourceProperties
+s3 :: Maybe S3SourceProperties
+$sel:s3:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe S3SourceProperties
+</span><a href="#local-6989586621679331466"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3SourceProperties
+</span><a href="#local-6989586621679331466"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331465"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331464"><span class="annot"><span class="annottext">Maybe S3SourceProperties
+</span><a href="#local-6989586621679331464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3:SourceConnectorProperties' :: Maybe S3SourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3As3%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">s3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3SourceProperties
+</span><a href="#local-6989586621679331464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Specifies the information that is required for querying Trend Micro.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_trendmicro"><span class="hs-identifier hs-type">sourceConnectorProperties_trendmicro</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.TrendmicroSourceProperties.html#TrendmicroSourceProperties"><span class="hs-identifier hs-type">TrendmicroSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="sourceConnectorProperties_trendmicro"><span class="annot"><span class="annottext">sourceConnectorProperties_trendmicro :: (Maybe TrendmicroSourceProperties
+ -&gt; f (Maybe TrendmicroSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_trendmicro"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_trendmicro</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe TrendmicroSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe TrendmicroSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe TrendmicroSourceProperties)
+     (Maybe TrendmicroSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331462"><span class="annot"><span class="annottext">Maybe TrendmicroSourceProperties
+trendmicro :: Maybe TrendmicroSourceProperties
+$sel:trendmicro:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe TrendmicroSourceProperties
+</span><a href="#local-6989586621679331462"><span class="hs-identifier hs-var hs-var">trendmicro</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrendmicroSourceProperties
+</span><a href="#local-6989586621679331462"><span class="hs-identifier hs-var">trendmicro</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331461"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331460"><span class="annot"><span class="annottext">Maybe TrendmicroSourceProperties
+</span><a href="#local-6989586621679331460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trendmicro:SourceConnectorProperties' :: Maybe TrendmicroSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Atrendmicro%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">trendmicro</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrendmicroSourceProperties
+</span><a href="#local-6989586621679331460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | Specifies the information that is required for querying Veeva.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_veeva"><span class="hs-identifier hs-type">sourceConnectorProperties_veeva</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.VeevaSourceProperties.html#VeevaSourceProperties"><span class="hs-identifier hs-type">VeevaSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="sourceConnectorProperties_veeva"><span class="annot"><span class="annottext">sourceConnectorProperties_veeva :: (Maybe VeevaSourceProperties -&gt; f (Maybe VeevaSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#sourceConnectorProperties_veeva"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_veeva</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe VeevaSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe VeevaSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe VeevaSourceProperties)
+     (Maybe VeevaSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331458"><span class="annot"><span class="annottext">Maybe VeevaSourceProperties
+veeva :: Maybe VeevaSourceProperties
+$sel:veeva:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe VeevaSourceProperties
+</span><a href="#local-6989586621679331458"><span class="hs-identifier hs-var hs-var">veeva</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VeevaSourceProperties
+</span><a href="#local-6989586621679331458"><span class="hs-identifier hs-var">veeva</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331457"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679331457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331456"><span class="annot"><span class="annottext">Maybe VeevaSourceProperties
+</span><a href="#local-6989586621679331456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679331457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:veeva:SourceConnectorProperties' :: Maybe VeevaSourceProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#%24sel%3Aveeva%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">veeva</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VeevaSourceProperties
+</span><a href="#local-6989586621679331456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331453"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679331451"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SourceConnectorProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SourceConnectorProperties)
+-&gt; Value
+-&gt; Parser SourceConnectorProperties
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SourceConnectorProperties&quot;</span></span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331448"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceNowSourceProperties
+-&gt; Maybe DynatraceSourceProperties
+-&gt; Maybe MarketoSourceProperties
+-&gt; Maybe SlackSourceProperties
+-&gt; Maybe SingularSourceProperties
+-&gt; Maybe InforNexusSourceProperties
+-&gt; Maybe AmplitudeSourceProperties
+-&gt; Maybe DatadogSourceProperties
+-&gt; Maybe GoogleAnalyticsSourceProperties
+-&gt; Maybe SAPODataSourceProperties
+-&gt; Maybe SalesforceSourceProperties
+-&gt; Maybe ZendeskSourceProperties
+-&gt; Maybe S3SourceProperties
+-&gt; Maybe TrendmicroSourceProperties
+-&gt; Maybe VeevaSourceProperties
+-&gt; SourceConnectorProperties
+</span><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-var">SourceConnectorProperties'</span></a></span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ServiceNowSourceProperties
+ -&gt; Maybe DynatraceSourceProperties
+ -&gt; Maybe MarketoSourceProperties
+ -&gt; Maybe SlackSourceProperties
+ -&gt; Maybe SingularSourceProperties
+ -&gt; Maybe InforNexusSourceProperties
+ -&gt; Maybe AmplitudeSourceProperties
+ -&gt; Maybe DatadogSourceProperties
+ -&gt; Maybe GoogleAnalyticsSourceProperties
+ -&gt; Maybe SAPODataSourceProperties
+ -&gt; Maybe SalesforceSourceProperties
+ -&gt; Maybe ZendeskSourceProperties
+ -&gt; Maybe S3SourceProperties
+ -&gt; Maybe TrendmicroSourceProperties
+ -&gt; Maybe VeevaSourceProperties
+ -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe ServiceNowSourceProperties)
+-&gt; Parser
+     (Maybe DynatraceSourceProperties
+      -&gt; Maybe MarketoSourceProperties
+      -&gt; Maybe SlackSourceProperties
+      -&gt; Maybe SingularSourceProperties
+      -&gt; Maybe InforNexusSourceProperties
+      -&gt; Maybe AmplitudeSourceProperties
+      -&gt; Maybe DatadogSourceProperties
+      -&gt; Maybe GoogleAnalyticsSourceProperties
+      -&gt; Maybe SAPODataSourceProperties
+      -&gt; Maybe SalesforceSourceProperties
+      -&gt; Maybe ZendeskSourceProperties
+      -&gt; Maybe S3SourceProperties
+      -&gt; Maybe TrendmicroSourceProperties
+      -&gt; Maybe VeevaSourceProperties
+      -&gt; SourceConnectorProperties)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceNowSourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceNow&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DynatraceSourceProperties
+   -&gt; Maybe MarketoSourceProperties
+   -&gt; Maybe SlackSourceProperties
+   -&gt; Maybe SingularSourceProperties
+   -&gt; Maybe InforNexusSourceProperties
+   -&gt; Maybe AmplitudeSourceProperties
+   -&gt; Maybe DatadogSourceProperties
+   -&gt; Maybe GoogleAnalyticsSourceProperties
+   -&gt; Maybe SAPODataSourceProperties
+   -&gt; Maybe SalesforceSourceProperties
+   -&gt; Maybe ZendeskSourceProperties
+   -&gt; Maybe S3SourceProperties
+   -&gt; Maybe TrendmicroSourceProperties
+   -&gt; Maybe VeevaSourceProperties
+   -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe DynatraceSourceProperties)
+-&gt; Parser
+     (Maybe MarketoSourceProperties
+      -&gt; Maybe SlackSourceProperties
+      -&gt; Maybe SingularSourceProperties
+      -&gt; Maybe InforNexusSourceProperties
+      -&gt; Maybe AmplitudeSourceProperties
+      -&gt; Maybe DatadogSourceProperties
+      -&gt; Maybe GoogleAnalyticsSourceProperties
+      -&gt; Maybe SAPODataSourceProperties
+      -&gt; Maybe SalesforceSourceProperties
+      -&gt; Maybe ZendeskSourceProperties
+      -&gt; Maybe S3SourceProperties
+      -&gt; Maybe TrendmicroSourceProperties
+      -&gt; Maybe VeevaSourceProperties
+      -&gt; SourceConnectorProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DynatraceSourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dynatrace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MarketoSourceProperties
+   -&gt; Maybe SlackSourceProperties
+   -&gt; Maybe SingularSourceProperties
+   -&gt; Maybe InforNexusSourceProperties
+   -&gt; Maybe AmplitudeSourceProperties
+   -&gt; Maybe DatadogSourceProperties
+   -&gt; Maybe GoogleAnalyticsSourceProperties
+   -&gt; Maybe SAPODataSourceProperties
+   -&gt; Maybe SalesforceSourceProperties
+   -&gt; Maybe ZendeskSourceProperties
+   -&gt; Maybe S3SourceProperties
+   -&gt; Maybe TrendmicroSourceProperties
+   -&gt; Maybe VeevaSourceProperties
+   -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe MarketoSourceProperties)
+-&gt; Parser
+     (Maybe SlackSourceProperties
+      -&gt; Maybe SingularSourceProperties
+      -&gt; Maybe InforNexusSourceProperties
+      -&gt; Maybe AmplitudeSourceProperties
+      -&gt; Maybe DatadogSourceProperties
+      -&gt; Maybe GoogleAnalyticsSourceProperties
+      -&gt; Maybe SAPODataSourceProperties
+      -&gt; Maybe SalesforceSourceProperties
+      -&gt; Maybe ZendeskSourceProperties
+      -&gt; Maybe S3SourceProperties
+      -&gt; Maybe TrendmicroSourceProperties
+      -&gt; Maybe VeevaSourceProperties
+      -&gt; SourceConnectorProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MarketoSourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marketo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SlackSourceProperties
+   -&gt; Maybe SingularSourceProperties
+   -&gt; Maybe InforNexusSourceProperties
+   -&gt; Maybe AmplitudeSourceProperties
+   -&gt; Maybe DatadogSourceProperties
+   -&gt; Maybe GoogleAnalyticsSourceProperties
+   -&gt; Maybe SAPODataSourceProperties
+   -&gt; Maybe SalesforceSourceProperties
+   -&gt; Maybe ZendeskSourceProperties
+   -&gt; Maybe S3SourceProperties
+   -&gt; Maybe TrendmicroSourceProperties
+   -&gt; Maybe VeevaSourceProperties
+   -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe SlackSourceProperties)
+-&gt; Parser
+     (Maybe SingularSourceProperties
+      -&gt; Maybe InforNexusSourceProperties
+      -&gt; Maybe AmplitudeSourceProperties
+      -&gt; Maybe DatadogSourceProperties
+      -&gt; Maybe GoogleAnalyticsSourceProperties
+      -&gt; Maybe SAPODataSourceProperties
+      -&gt; Maybe SalesforceSourceProperties
+      -&gt; Maybe ZendeskSourceProperties
+      -&gt; Maybe S3SourceProperties
+      -&gt; Maybe TrendmicroSourceProperties
+      -&gt; Maybe VeevaSourceProperties
+      -&gt; SourceConnectorProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SlackSourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Slack&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SingularSourceProperties
+   -&gt; Maybe InforNexusSourceProperties
+   -&gt; Maybe AmplitudeSourceProperties
+   -&gt; Maybe DatadogSourceProperties
+   -&gt; Maybe GoogleAnalyticsSourceProperties
+   -&gt; Maybe SAPODataSourceProperties
+   -&gt; Maybe SalesforceSourceProperties
+   -&gt; Maybe ZendeskSourceProperties
+   -&gt; Maybe S3SourceProperties
+   -&gt; Maybe TrendmicroSourceProperties
+   -&gt; Maybe VeevaSourceProperties
+   -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe SingularSourceProperties)
+-&gt; Parser
+     (Maybe InforNexusSourceProperties
+      -&gt; Maybe AmplitudeSourceProperties
+      -&gt; Maybe DatadogSourceProperties
+      -&gt; Maybe GoogleAnalyticsSourceProperties
+      -&gt; Maybe SAPODataSourceProperties
+      -&gt; Maybe SalesforceSourceProperties
+      -&gt; Maybe ZendeskSourceProperties
+      -&gt; Maybe S3SourceProperties
+      -&gt; Maybe TrendmicroSourceProperties
+      -&gt; Maybe VeevaSourceProperties
+      -&gt; SourceConnectorProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SingularSourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Singular&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InforNexusSourceProperties
+   -&gt; Maybe AmplitudeSourceProperties
+   -&gt; Maybe DatadogSourceProperties
+   -&gt; Maybe GoogleAnalyticsSourceProperties
+   -&gt; Maybe SAPODataSourceProperties
+   -&gt; Maybe SalesforceSourceProperties
+   -&gt; Maybe ZendeskSourceProperties
+   -&gt; Maybe S3SourceProperties
+   -&gt; Maybe TrendmicroSourceProperties
+   -&gt; Maybe VeevaSourceProperties
+   -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe InforNexusSourceProperties)
+-&gt; Parser
+     (Maybe AmplitudeSourceProperties
+      -&gt; Maybe DatadogSourceProperties
+      -&gt; Maybe GoogleAnalyticsSourceProperties
+      -&gt; Maybe SAPODataSourceProperties
+      -&gt; Maybe SalesforceSourceProperties
+      -&gt; Maybe ZendeskSourceProperties
+      -&gt; Maybe S3SourceProperties
+      -&gt; Maybe TrendmicroSourceProperties
+      -&gt; Maybe VeevaSourceProperties
+      -&gt; SourceConnectorProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InforNexusSourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InforNexus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AmplitudeSourceProperties
+   -&gt; Maybe DatadogSourceProperties
+   -&gt; Maybe GoogleAnalyticsSourceProperties
+   -&gt; Maybe SAPODataSourceProperties
+   -&gt; Maybe SalesforceSourceProperties
+   -&gt; Maybe ZendeskSourceProperties
+   -&gt; Maybe S3SourceProperties
+   -&gt; Maybe TrendmicroSourceProperties
+   -&gt; Maybe VeevaSourceProperties
+   -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe AmplitudeSourceProperties)
+-&gt; Parser
+     (Maybe DatadogSourceProperties
+      -&gt; Maybe GoogleAnalyticsSourceProperties
+      -&gt; Maybe SAPODataSourceProperties
+      -&gt; Maybe SalesforceSourceProperties
+      -&gt; Maybe ZendeskSourceProperties
+      -&gt; Maybe S3SourceProperties
+      -&gt; Maybe TrendmicroSourceProperties
+      -&gt; Maybe VeevaSourceProperties
+      -&gt; SourceConnectorProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AmplitudeSourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Amplitude&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DatadogSourceProperties
+   -&gt; Maybe GoogleAnalyticsSourceProperties
+   -&gt; Maybe SAPODataSourceProperties
+   -&gt; Maybe SalesforceSourceProperties
+   -&gt; Maybe ZendeskSourceProperties
+   -&gt; Maybe S3SourceProperties
+   -&gt; Maybe TrendmicroSourceProperties
+   -&gt; Maybe VeevaSourceProperties
+   -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe DatadogSourceProperties)
+-&gt; Parser
+     (Maybe GoogleAnalyticsSourceProperties
+      -&gt; Maybe SAPODataSourceProperties
+      -&gt; Maybe SalesforceSourceProperties
+      -&gt; Maybe ZendeskSourceProperties
+      -&gt; Maybe S3SourceProperties
+      -&gt; Maybe TrendmicroSourceProperties
+      -&gt; Maybe VeevaSourceProperties
+      -&gt; SourceConnectorProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatadogSourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Datadog&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe GoogleAnalyticsSourceProperties
+   -&gt; Maybe SAPODataSourceProperties
+   -&gt; Maybe SalesforceSourceProperties
+   -&gt; Maybe ZendeskSourceProperties
+   -&gt; Maybe S3SourceProperties
+   -&gt; Maybe TrendmicroSourceProperties
+   -&gt; Maybe VeevaSourceProperties
+   -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe GoogleAnalyticsSourceProperties)
+-&gt; Parser
+     (Maybe SAPODataSourceProperties
+      -&gt; Maybe SalesforceSourceProperties
+      -&gt; Maybe ZendeskSourceProperties
+      -&gt; Maybe S3SourceProperties
+      -&gt; Maybe TrendmicroSourceProperties
+      -&gt; Maybe VeevaSourceProperties
+      -&gt; SourceConnectorProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GoogleAnalyticsSourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GoogleAnalytics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SAPODataSourceProperties
+   -&gt; Maybe SalesforceSourceProperties
+   -&gt; Maybe ZendeskSourceProperties
+   -&gt; Maybe S3SourceProperties
+   -&gt; Maybe TrendmicroSourceProperties
+   -&gt; Maybe VeevaSourceProperties
+   -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe SAPODataSourceProperties)
+-&gt; Parser
+     (Maybe SalesforceSourceProperties
+      -&gt; Maybe ZendeskSourceProperties
+      -&gt; Maybe S3SourceProperties
+      -&gt; Maybe TrendmicroSourceProperties
+      -&gt; Maybe VeevaSourceProperties
+      -&gt; SourceConnectorProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SAPODataSourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SAPOData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SalesforceSourceProperties
+   -&gt; Maybe ZendeskSourceProperties
+   -&gt; Maybe S3SourceProperties
+   -&gt; Maybe TrendmicroSourceProperties
+   -&gt; Maybe VeevaSourceProperties
+   -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe SalesforceSourceProperties)
+-&gt; Parser
+     (Maybe ZendeskSourceProperties
+      -&gt; Maybe S3SourceProperties
+      -&gt; Maybe TrendmicroSourceProperties
+      -&gt; Maybe VeevaSourceProperties
+      -&gt; SourceConnectorProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SalesforceSourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Salesforce&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ZendeskSourceProperties
+   -&gt; Maybe S3SourceProperties
+   -&gt; Maybe TrendmicroSourceProperties
+   -&gt; Maybe VeevaSourceProperties
+   -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe ZendeskSourceProperties)
+-&gt; Parser
+     (Maybe S3SourceProperties
+      -&gt; Maybe TrendmicroSourceProperties
+      -&gt; Maybe VeevaSourceProperties
+      -&gt; SourceConnectorProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ZendeskSourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Zendesk&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe S3SourceProperties
+   -&gt; Maybe TrendmicroSourceProperties
+   -&gt; Maybe VeevaSourceProperties
+   -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe S3SourceProperties)
+-&gt; Parser
+     (Maybe TrendmicroSourceProperties
+      -&gt; Maybe VeevaSourceProperties -&gt; SourceConnectorProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3SourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TrendmicroSourceProperties
+   -&gt; Maybe VeevaSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe TrendmicroSourceProperties)
+-&gt; Parser
+     (Maybe VeevaSourceProperties -&gt; SourceConnectorProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrendmicroSourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Trendmicro&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe VeevaSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Parser (Maybe VeevaSourceProperties)
+-&gt; Parser SourceConnectorProperties
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VeevaSourceProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Veeva&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331442"><span id="local-6989586621679331444"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span></span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331431"><span id="local-6989586621679331433"><span id="local-6989586621679331435"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679331429"><span class="annot"><span class="annottext">toJSON :: SourceConnectorProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331413"><span id="local-6989586621679331414"><span id="local-6989586621679331415"><span id="local-6989586621679331416"><span id="local-6989586621679331417"><span id="local-6989586621679331418"><span id="local-6989586621679331419"><span id="local-6989586621679331420"><span id="local-6989586621679331421"><span id="local-6989586621679331422"><span id="local-6989586621679331423"><span id="local-6989586621679331424"><span id="local-6989586621679331425"><span id="local-6989586621679331426"><span id="local-6989586621679331427"><span class="annot"><span class="annottext">Maybe AmplitudeSourceProperties
+Maybe DatadogSourceProperties
+Maybe DynatraceSourceProperties
+Maybe GoogleAnalyticsSourceProperties
+Maybe InforNexusSourceProperties
+Maybe MarketoSourceProperties
+Maybe S3SourceProperties
+Maybe SAPODataSourceProperties
+Maybe SalesforceSourceProperties
+Maybe ServiceNowSourceProperties
+Maybe SingularSourceProperties
+Maybe SlackSourceProperties
+Maybe TrendmicroSourceProperties
+Maybe VeevaSourceProperties
+Maybe ZendeskSourceProperties
+veeva :: Maybe VeevaSourceProperties
+trendmicro :: Maybe TrendmicroSourceProperties
+s3 :: Maybe S3SourceProperties
+zendesk :: Maybe ZendeskSourceProperties
+salesforce :: Maybe SalesforceSourceProperties
+sAPOData :: Maybe SAPODataSourceProperties
+googleAnalytics :: Maybe GoogleAnalyticsSourceProperties
+datadog :: Maybe DatadogSourceProperties
+amplitude :: Maybe AmplitudeSourceProperties
+inforNexus :: Maybe InforNexusSourceProperties
+singular :: Maybe SingularSourceProperties
+slack :: Maybe SlackSourceProperties
+marketo :: Maybe MarketoSourceProperties
+dynatrace :: Maybe DynatraceSourceProperties
+serviceNow :: Maybe ServiceNowSourceProperties
+$sel:veeva:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe VeevaSourceProperties
+$sel:trendmicro:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe TrendmicroSourceProperties
+$sel:s3:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe S3SourceProperties
+$sel:zendesk:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe ZendeskSourceProperties
+$sel:salesforce:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe SalesforceSourceProperties
+$sel:sAPOData:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe SAPODataSourceProperties
+$sel:googleAnalytics:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe GoogleAnalyticsSourceProperties
+$sel:datadog:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe DatadogSourceProperties
+$sel:amplitude:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe AmplitudeSourceProperties
+$sel:inforNexus:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe InforNexusSourceProperties
+$sel:singular:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe SingularSourceProperties
+$sel:slack:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe SlackSourceProperties
+$sel:marketo:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe MarketoSourceProperties
+$sel:dynatrace:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe DynatraceSourceProperties
+$sel:serviceNow:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe ServiceNowSourceProperties
+</span><a href="#local-6989586621679331413"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-231"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceNow&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ServiceNowSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ServiceNowSourceProperties -&gt; Pair)
+-&gt; Maybe ServiceNowSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ServiceNowSourceProperties
+</span><a href="#local-6989586621679331427"><span class="hs-identifier hs-var">serviceNow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dynatrace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DynatraceSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DynatraceSourceProperties -&gt; Pair)
+-&gt; Maybe DynatraceSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DynatraceSourceProperties
+</span><a href="#local-6989586621679331426"><span class="hs-identifier hs-var">dynatrace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marketo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MarketoSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MarketoSourceProperties -&gt; Pair)
+-&gt; Maybe MarketoSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MarketoSourceProperties
+</span><a href="#local-6989586621679331425"><span class="hs-identifier hs-var">marketo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Slack&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SlackSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SlackSourceProperties -&gt; Pair)
+-&gt; Maybe SlackSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SlackSourceProperties
+</span><a href="#local-6989586621679331424"><span class="hs-identifier hs-var">slack</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Singular&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SingularSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SingularSourceProperties -&gt; Pair)
+-&gt; Maybe SingularSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SingularSourceProperties
+</span><a href="#local-6989586621679331423"><span class="hs-identifier hs-var">singular</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InforNexus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InforNexusSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InforNexusSourceProperties -&gt; Pair)
+-&gt; Maybe InforNexusSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InforNexusSourceProperties
+</span><a href="#local-6989586621679331422"><span class="hs-identifier hs-var">inforNexus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Amplitude&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AmplitudeSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AmplitudeSourceProperties -&gt; Pair)
+-&gt; Maybe AmplitudeSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AmplitudeSourceProperties
+</span><a href="#local-6989586621679331421"><span class="hs-identifier hs-var">amplitude</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Datadog&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DatadogSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DatadogSourceProperties -&gt; Pair)
+-&gt; Maybe DatadogSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DatadogSourceProperties
+</span><a href="#local-6989586621679331420"><span class="hs-identifier hs-var">datadog</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GoogleAnalytics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GoogleAnalyticsSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>              </span><span class="annot"><span class="annottext">(GoogleAnalyticsSourceProperties -&gt; Pair)
+-&gt; Maybe GoogleAnalyticsSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GoogleAnalyticsSourceProperties
+</span><a href="#local-6989586621679331419"><span class="hs-identifier hs-var">googleAnalytics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SAPOData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SAPODataSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SAPODataSourceProperties -&gt; Pair)
+-&gt; Maybe SAPODataSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SAPODataSourceProperties
+</span><a href="#local-6989586621679331418"><span class="hs-identifier hs-var">sAPOData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Salesforce&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SalesforceSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SalesforceSourceProperties -&gt; Pair)
+-&gt; Maybe SalesforceSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceSourceProperties
+</span><a href="#local-6989586621679331417"><span class="hs-identifier hs-var">salesforce</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Zendesk&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ZendeskSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ZendeskSourceProperties -&gt; Pair)
+-&gt; Maybe ZendeskSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ZendeskSourceProperties
+</span><a href="#local-6989586621679331416"><span class="hs-identifier hs-var">zendesk</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3SourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3SourceProperties -&gt; Pair)
+-&gt; Maybe S3SourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3SourceProperties
+</span><a href="#local-6989586621679331415"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Trendmicro&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TrendmicroSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TrendmicroSourceProperties -&gt; Pair)
+-&gt; Maybe TrendmicroSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrendmicroSourceProperties
+</span><a href="#local-6989586621679331414"><span class="hs-identifier hs-var">trendmicro</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Veeva&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VeevaSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VeevaSourceProperties -&gt; Pair)
+-&gt; Maybe VeevaSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VeevaSourceProperties
+</span><a href="#local-6989586621679331413"><span class="hs-identifier hs-var">veeva</span></a></span><span>
+</span><span id="line-247"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-248"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span></pre></body></html>

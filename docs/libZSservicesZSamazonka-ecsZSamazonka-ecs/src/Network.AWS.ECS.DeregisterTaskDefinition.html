@@ -63,14 +63,14 @@
 </span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newDeregisterTaskDefinition' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621679477654"><span id="local-6989586621679477655"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterTaskDefinition"><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-var">DeregisterTaskDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterTaskDefinition%27"><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition%27"><span class="hs-identifier hs-var">DeregisterTaskDefinition'</span></a></span></span><span>
+</span><span id="line-66"></span><span id="local-6989586621679477663"><span id="local-6989586621679477664"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterTaskDefinition"><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-var">DeregisterTaskDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterTaskDefinition%27"><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition%27"><span class="hs-identifier hs-var">DeregisterTaskDefinition'</span></a></span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Name (ARN) of the task definition to deregister. You must specify a</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @revision@.</span><span>
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AtaskDefinition%3ADeregisterTaskDefinition%27"><span class="annot"><span class="annottext">DeregisterTaskDefinition -&gt; Text
 </span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#%24sel%3AtaskDefinition%3ADeregisterTaskDefinition%27"><span class="hs-identifier hs-var hs-var">taskDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679477648"><span id="local-6989586621679477650"><span class="annot"><span class="annottext">DeregisterTaskDefinition -&gt; DeregisterTaskDefinition -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679477657"><span id="local-6989586621679477659"><span class="annot"><span class="annottext">DeregisterTaskDefinition -&gt; DeregisterTaskDefinition -&gt; Bool
 (DeregisterTaskDefinition -&gt; DeregisterTaskDefinition -&gt; Bool)
 -&gt; (DeregisterTaskDefinition -&gt; DeregisterTaskDefinition -&gt; Bool)
 -&gt; Eq DeregisterTaskDefinition
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeregisterTaskDefinition -&gt; DeregisterTaskDefinition -&gt; Bool
 == :: DeregisterTaskDefinition -&gt; DeregisterTaskDefinition -&gt; Bool
 $c== :: DeregisterTaskDefinition -&gt; DeregisterTaskDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477639"><span id="local-6989586621679477641"><span id="local-6989586621679477643"><span id="local-6989586621679477645"><span class="annot"><span class="annottext">ReadPrec [DeregisterTaskDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477648"><span id="local-6989586621679477650"><span id="local-6989586621679477652"><span id="local-6989586621679477654"><span class="annot"><span class="annottext">ReadPrec [DeregisterTaskDefinition]
 ReadPrec DeregisterTaskDefinition
 Int -&gt; ReadS DeregisterTaskDefinition
 ReadS [DeregisterTaskDefinition]
@@ -99,7 +99,7 @@ readList :: ReadS [DeregisterTaskDefinition]
 $creadList :: ReadS [DeregisterTaskDefinition]
 readsPrec :: Int -&gt; ReadS DeregisterTaskDefinition
 $creadsPrec :: Int -&gt; ReadS DeregisterTaskDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477632"><span id="local-6989586621679477634"><span id="local-6989586621679477636"><span class="annot"><span class="annottext">Int -&gt; DeregisterTaskDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477641"><span id="local-6989586621679477643"><span id="local-6989586621679477645"><span class="annot"><span class="annottext">Int -&gt; DeregisterTaskDefinition -&gt; ShowS
 [DeregisterTaskDefinition] -&gt; ShowS
 DeregisterTaskDefinition -&gt; String
 (Int -&gt; DeregisterTaskDefinition -&gt; ShowS)
@@ -147,14 +147,14 @@ DeregisterTaskDefinition -&gt; Rep DeregisterTaskDefinition x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-type">DeregisterTaskDefinition</span></a></span><span>
 </span><span id="line-89"></span><span id="newDeregisterTaskDefinition"><span class="annot"><span class="annottext">newDeregisterTaskDefinition :: Text -&gt; DeregisterTaskDefinition
-</span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#newDeregisterTaskDefinition"><span class="hs-identifier hs-var hs-var">newDeregisterTaskDefinition</span></a></span></span><span> </span><span id="local-6989586621679477627"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679477627"><span class="hs-identifier hs-var">pTaskDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#newDeregisterTaskDefinition"><span class="hs-identifier hs-var hs-var">newDeregisterTaskDefinition</span></a></span></span><span> </span><span id="local-6989586621679477636"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477636"><span class="hs-identifier hs-var">pTaskDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">DeregisterTaskDefinition' :: Text -&gt; DeregisterTaskDefinition
 </span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition%27"><span class="hs-identifier hs-type">DeregisterTaskDefinition'</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:taskDefinition:DeregisterTaskDefinition' :: Text
 </span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#%24sel%3AtaskDefinition%3ADeregisterTaskDefinition%27"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679477627"><span class="hs-identifier hs-var">pTaskDefinition_</span></a></span><span>
+</span><a href="#local-6989586621679477636"><span class="hs-identifier hs-var">pTaskDefinition_</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource</span><span>
@@ -167,28 +167,28 @@ DeregisterTaskDefinition -&gt; Rep DeregisterTaskDefinition x
 -&gt; (DeregisterTaskDefinition -&gt; Text -&gt; DeregisterTaskDefinition)
 -&gt; Lens DeregisterTaskDefinition DeregisterTaskDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition%27"><span class="hs-identifier hs-type">DeregisterTaskDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477624"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition%27"><span class="hs-identifier hs-type">DeregisterTaskDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477633"><span class="annot"><span class="annottext">Text
 taskDefinition :: Text
 $sel:taskDefinition:DeregisterTaskDefinition' :: DeregisterTaskDefinition -&gt; Text
-</span><a href="#local-6989586621679477624"><span class="hs-identifier hs-var hs-var">taskDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679477624"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477623"><span class="annot"><span class="annottext">s :: DeregisterTaskDefinition
-</span><a href="#local-6989586621679477623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition%27"><span class="hs-identifier hs-type">DeregisterTaskDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477622"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679477622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTaskDefinition
-</span><a href="#local-6989586621679477623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskDefinition:DeregisterTaskDefinition' :: Text
+</span><a href="#local-6989586621679477633"><span class="hs-identifier hs-var hs-var">taskDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477633"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477632"><span class="annot"><span class="annottext">s :: DeregisterTaskDefinition
+</span><a href="#local-6989586621679477632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition%27"><span class="hs-identifier hs-type">DeregisterTaskDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477631"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTaskDefinition
+</span><a href="#local-6989586621679477632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskDefinition:DeregisterTaskDefinition' :: Text
 </span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#%24sel%3AtaskDefinition%3ADeregisterTaskDefinition%27"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679477622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-type">DeregisterTaskDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679477631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-type">DeregisterTaskDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-type">DeregisterTaskDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-type">DeregisterTaskDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679477618"><span class="annot"><span class="annottext">request :: DeregisterTaskDefinition -&gt; Request DeregisterTaskDefinition
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679477627"><span class="annot"><span class="annottext">request :: DeregisterTaskDefinition -&gt; Request DeregisterTaskDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeregisterTaskDefinition -&gt; Request DeregisterTaskDefinition
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679477614"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679477623"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeregisterTaskDefinition
 -&gt; ClientResponse ClientBody
@@ -214,10 +214,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679477611"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679477611"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679477610"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679477610"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679477609"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679477609"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679477620"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477620"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679477619"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679477619"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679477618"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679477618"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe TaskDefinition -&gt; Int -&gt; DeregisterTaskDefinitionResponse
 </span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-var">DeregisterTaskDefinitionResponse'</span></a></span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TaskDefinition -&gt; Int -&gt; DeregisterTaskDefinitionResponse)
@@ -225,7 +225,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeregisterTaskDefinitionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679477609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TaskDefinition)
+</span><a href="#local-6989586621679477618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TaskDefinition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;taskDefinition&quot;</span></span><span class="hs-special">)</span><span>
@@ -238,15 +238,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679477611"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679477620"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477601"><span id="local-6989586621679477603"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-type">DeregisterTaskDefinition</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477610"><span id="local-6989586621679477612"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-type">DeregisterTaskDefinition</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477598"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-type">DeregisterTaskDefinition</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477607"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-type">DeregisterTaskDefinition</span></a></span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-type">DeregisterTaskDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679477594"><span class="annot"><span class="annottext">toHeaders :: DeregisterTaskDefinition -&gt; ResponseHeaders
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679477603"><span class="annot"><span class="annottext">toHeaders :: DeregisterTaskDefinition -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeregisterTaskDefinition -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -273,12 +273,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477584"><span id="local-6989586621679477586"><span id="local-6989586621679477588"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-type">DeregisterTaskDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679477582"><span class="annot"><span class="annottext">toJSON :: DeregisterTaskDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition%27"><span class="hs-identifier hs-type">DeregisterTaskDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477580"><span class="annot"><span class="annottext">Text
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477593"><span id="local-6989586621679477595"><span id="local-6989586621679477597"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-type">DeregisterTaskDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679477591"><span class="annot"><span class="annottext">toJSON :: DeregisterTaskDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition%27"><span class="hs-identifier hs-type">DeregisterTaskDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477589"><span class="annot"><span class="annottext">Text
 taskDefinition :: Text
 $sel:taskDefinition:DeregisterTaskDefinition' :: DeregisterTaskDefinition -&gt; Text
-</span><a href="#local-6989586621679477580"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679477589"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -291,19 +291,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;taskDefinition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679477580"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679477589"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-type">DeregisterTaskDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679477574"><span class="annot"><span class="annottext">toPath :: DeregisterTaskDefinition -&gt; ByteString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679477583"><span class="annot"><span class="annottext">toPath :: DeregisterTaskDefinition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeregisterTaskDefinition -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinition"><span class="hs-identifier hs-type">DeregisterTaskDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679477570"><span class="annot"><span class="annottext">toQuery :: DeregisterTaskDefinition -&gt; QueryString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679477579"><span class="annot"><span class="annottext">toQuery :: DeregisterTaskDefinition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeregisterTaskDefinition -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -311,7 +311,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newDeregisterTaskDefinitionResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621679477567"><span id="local-6989586621679477568"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterTaskDefinitionResponse"><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse"><span class="hs-identifier hs-var">DeregisterTaskDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterTaskDefinitionResponse%27"><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-var">DeregisterTaskDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span id="local-6989586621679477576"><span id="local-6989586621679477577"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterTaskDefinitionResponse"><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse"><span class="hs-identifier hs-var">DeregisterTaskDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterTaskDefinitionResponse%27"><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-var">DeregisterTaskDefinitionResponse'</span></a></span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The full description of the deregistered task.</span><span>
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AtaskDefinition%3ADeregisterTaskDefinitionResponse%27"><span class="annot"><span class="annottext">DeregisterTaskDefinitionResponse -&gt; Maybe TaskDefinition
 </span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#%24sel%3AtaskDefinition%3ADeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">taskDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinition.html#TaskDefinition"><span class="hs-identifier hs-type">TaskDefinition</span></a></span><span class="hs-special">,</span><span>
@@ -319,7 +319,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeregisterTaskDefinitionResponse%27"><span class="annot"><span class="annottext">DeregisterTaskDefinitionResponse -&gt; Int
 </span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#%24sel%3AhttpStatus%3ADeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679477561"><span id="local-6989586621679477563"><span class="annot"><span class="annottext">DeregisterTaskDefinitionResponse
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679477570"><span id="local-6989586621679477572"><span class="annot"><span class="annottext">DeregisterTaskDefinitionResponse
 -&gt; DeregisterTaskDefinitionResponse -&gt; Bool
 (DeregisterTaskDefinitionResponse
  -&gt; DeregisterTaskDefinitionResponse -&gt; Bool)
@@ -335,7 +335,7 @@ $c/= :: DeregisterTaskDefinitionResponse
 -&gt; DeregisterTaskDefinitionResponse -&gt; Bool
 $c== :: DeregisterTaskDefinitionResponse
 -&gt; DeregisterTaskDefinitionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477553"><span id="local-6989586621679477555"><span id="local-6989586621679477557"><span id="local-6989586621679477559"><span class="annot"><span class="annottext">ReadPrec [DeregisterTaskDefinitionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477562"><span id="local-6989586621679477564"><span id="local-6989586621679477566"><span id="local-6989586621679477568"><span class="annot"><span class="annottext">ReadPrec [DeregisterTaskDefinitionResponse]
 ReadPrec DeregisterTaskDefinitionResponse
 Int -&gt; ReadS DeregisterTaskDefinitionResponse
 ReadS [DeregisterTaskDefinitionResponse]
@@ -355,7 +355,7 @@ readList :: ReadS [DeregisterTaskDefinitionResponse]
 $creadList :: ReadS [DeregisterTaskDefinitionResponse]
 readsPrec :: Int -&gt; ReadS DeregisterTaskDefinitionResponse
 $creadsPrec :: Int -&gt; ReadS DeregisterTaskDefinitionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477547"><span id="local-6989586621679477549"><span id="local-6989586621679477551"><span class="annot"><span class="annottext">Int -&gt; DeregisterTaskDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477556"><span id="local-6989586621679477558"><span id="local-6989586621679477560"><span class="annot"><span class="annottext">Int -&gt; DeregisterTaskDefinitionResponse -&gt; ShowS
 [DeregisterTaskDefinitionResponse] -&gt; ShowS
 DeregisterTaskDefinitionResponse -&gt; String
 (Int -&gt; DeregisterTaskDefinitionResponse -&gt; ShowS)
@@ -409,8 +409,8 @@ DeregisterTaskDefinitionResponse
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse</span></a></span><span>
 </span><span id="line-172"></span><span id="newDeregisterTaskDefinitionResponse"><span class="annot"><span class="annottext">newDeregisterTaskDefinitionResponse :: Int -&gt; DeregisterTaskDefinitionResponse
-</span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#newDeregisterTaskDefinitionResponse"><span class="hs-identifier hs-var hs-var">newDeregisterTaskDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679477544"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679477544"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#newDeregisterTaskDefinitionResponse"><span class="hs-identifier hs-var hs-var">newDeregisterTaskDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679477553"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477553"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">DeregisterTaskDefinitionResponse' :: Maybe TaskDefinition -&gt; Int -&gt; DeregisterTaskDefinitionResponse
 </span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse'</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:taskDefinition:DeregisterTaskDefinitionResponse' :: Maybe TaskDefinition
@@ -420,7 +420,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterTaskDefinitionResponse' :: Int
 </span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#%24sel%3AhttpStatus%3ADeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679477544"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679477553"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The full description of the deregistered task.</span><span>
@@ -437,16 +437,16 @@ forall a. Maybe a
      (Maybe TaskDefinition)
      (Maybe TaskDefinition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477543"><span class="annot"><span class="annottext">Maybe TaskDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477552"><span class="annot"><span class="annottext">Maybe TaskDefinition
 taskDefinition :: Maybe TaskDefinition
 $sel:taskDefinition:DeregisterTaskDefinitionResponse' :: DeregisterTaskDefinitionResponse -&gt; Maybe TaskDefinition
-</span><a href="#local-6989586621679477543"><span class="hs-identifier hs-var hs-var">taskDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskDefinition
-</span><a href="#local-6989586621679477543"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477542"><span class="annot"><span class="annottext">s :: DeregisterTaskDefinitionResponse
-</span><a href="#local-6989586621679477542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477541"><span class="annot"><span class="annottext">Maybe TaskDefinition
-</span><a href="#local-6989586621679477541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTaskDefinitionResponse
-</span><a href="#local-6989586621679477542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskDefinition:DeregisterTaskDefinitionResponse' :: Maybe TaskDefinition
+</span><a href="#local-6989586621679477552"><span class="hs-identifier hs-var hs-var">taskDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskDefinition
+</span><a href="#local-6989586621679477552"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477551"><span class="annot"><span class="annottext">s :: DeregisterTaskDefinitionResponse
+</span><a href="#local-6989586621679477551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477550"><span class="annot"><span class="annottext">Maybe TaskDefinition
+</span><a href="#local-6989586621679477550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTaskDefinitionResponse
+</span><a href="#local-6989586621679477551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskDefinition:DeregisterTaskDefinitionResponse' :: Maybe TaskDefinition
 </span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#%24sel%3AtaskDefinition%3ADeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskDefinition
-</span><a href="#local-6989586621679477541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679477550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#deregisterTaskDefinitionResponse_httpStatus"><span class="hs-identifier hs-type">deregisterTaskDefinitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -462,18 +462,18 @@ $sel:taskDefinition:DeregisterTaskDefinitionResponse' :: DeregisterTaskDefinitio
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477540"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477549"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeregisterTaskDefinitionResponse' :: DeregisterTaskDefinitionResponse -&gt; Int
-</span><a href="#local-6989586621679477540"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679477540"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477539"><span class="annot"><span class="annottext">s :: DeregisterTaskDefinitionResponse
-</span><a href="#local-6989586621679477539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477538"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679477538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTaskDefinitionResponse
-</span><a href="#local-6989586621679477539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterTaskDefinitionResponse' :: Int
+</span><a href="#local-6989586621679477549"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477549"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477548"><span class="annot"><span class="annottext">s :: DeregisterTaskDefinitionResponse
+</span><a href="#local-6989586621679477548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477547"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTaskDefinitionResponse
+</span><a href="#local-6989586621679477548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterTaskDefinitionResponse' :: Int
 </span><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#%24sel%3AhttpStatus%3ADeregisterTaskDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679477538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679477547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679477536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679477545"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DeregisterTaskDefinition.html#DeregisterTaskDefinitionResponse"><span class="hs-identifier hs-type">DeregisterTaskDefinitionResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

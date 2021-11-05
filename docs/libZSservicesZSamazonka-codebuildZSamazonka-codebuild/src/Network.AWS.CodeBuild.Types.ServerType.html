@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679377351"><span id="local-6989586621679377352"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServerType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ServerType.html#ServerType"><span class="hs-identifier hs-var">ServerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ServerType.html#ServerType%27"><span class="hs-identifier hs-var">ServerType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679377360"><span id="local-6989586621679377361"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServerType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ServerType.html#ServerType"><span class="hs-identifier hs-var">ServerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ServerType.html#ServerType%27"><span class="hs-identifier hs-var">ServerType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServerType"><span class="annot"><span class="annottext">ServerType -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.ServerType.html#fromServerType"><span class="hs-identifier hs-var hs-var">fromServerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377343"><span id="local-6989586621679377345"><span id="local-6989586621679377347"><span class="annot"><span class="annottext">Int -&gt; ServerType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377352"><span id="local-6989586621679377354"><span id="local-6989586621679377356"><span class="annot"><span class="annottext">Int -&gt; ServerType -&gt; ShowS
 [ServerType] -&gt; ShowS
 ServerType -&gt; String
 (Int -&gt; ServerType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ServerType -&gt; String
 showsPrec :: Int -&gt; ServerType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ServerType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679377334"><span id="local-6989586621679377336"><span id="local-6989586621679377338"><span id="local-6989586621679377340"><span class="annot"><span class="annottext">ReadPrec [ServerType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679377343"><span id="local-6989586621679377345"><span id="local-6989586621679377347"><span id="local-6989586621679377349"><span class="annot"><span class="annottext">ReadPrec [ServerType]
 ReadPrec ServerType
 Int -&gt; ReadS ServerType
 ReadS [ServerType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ServerType]
 readsPrec :: Int -&gt; ReadS ServerType
 $creadsPrec :: Int -&gt; ReadS ServerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679377329"><span id="local-6989586621679377331"><span class="annot"><span class="annottext">ServerType -&gt; ServerType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679377338"><span id="local-6989586621679377340"><span class="annot"><span class="annottext">ServerType -&gt; ServerType -&gt; Bool
 (ServerType -&gt; ServerType -&gt; Bool)
 -&gt; (ServerType -&gt; ServerType -&gt; Bool) -&gt; Eq ServerType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: ServerType -&gt; ServerType -&gt; Bool
 == :: ServerType -&gt; ServerType -&gt; Bool
 $c== :: ServerType -&gt; ServerType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679377313"><span id="local-6989586621679377315"><span id="local-6989586621679377317"><span id="local-6989586621679377319"><span id="local-6989586621679377321"><span id="local-6989586621679377323"><span id="local-6989586621679377325"><span class="annot"><span class="annottext">Eq ServerType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679377322"><span id="local-6989586621679377324"><span id="local-6989586621679377326"><span id="local-6989586621679377328"><span id="local-6989586621679377330"><span id="local-6989586621679377332"><span id="local-6989586621679377334"><span class="annot"><span class="annottext">Eq ServerType
 Eq ServerType
 -&gt; (ServerType -&gt; ServerType -&gt; Ordering)
 -&gt; (ServerType -&gt; ServerType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ServerType -&gt; Rep ServerType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377305"><span id="local-6989586621679377307"><span class="annot"><span class="annottext">Int -&gt; ServerType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377314"><span id="local-6989586621679377316"><span class="annot"><span class="annottext">Int -&gt; ServerType -&gt; Int
 ServerType -&gt; Int
 (Int -&gt; ServerType -&gt; Int)
 -&gt; (ServerType -&gt; Int) -&gt; Hashable ServerType
@@ -142,49 +142,49 @@ $chash :: ServerType -&gt; Int
 hashWithSalt :: Int -&gt; ServerType -&gt; Int
 $chashWithSalt :: Int -&gt; ServerType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679377302"><span class="annot"><span class="annottext">ServerType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679377311"><span class="annot"><span class="annottext">ServerType -&gt; ()
 (ServerType -&gt; ()) -&gt; NFData ServerType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ServerType -&gt; ()
 $crnf :: ServerType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679377299"><span class="annot"><span class="annottext">Text -&gt; Either String ServerType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679377308"><span class="annot"><span class="annottext">Text -&gt; Either String ServerType
 (Text -&gt; Either String ServerType) -&gt; FromText ServerType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ServerType
 $cfromText :: Text -&gt; Either String ServerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679377296"><span class="annot"><span class="annottext">ServerType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679377305"><span class="annot"><span class="annottext">ServerType -&gt; Text
 (ServerType -&gt; Text) -&gt; ToText ServerType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ServerType -&gt; Text
 $ctoText :: ServerType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679377293"><span class="annot"><span class="annottext">ServerType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679377302"><span class="annot"><span class="annottext">ServerType -&gt; ByteString
 (ServerType -&gt; ByteString) -&gt; ToByteString ServerType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ServerType -&gt; ByteString
 $ctoBS :: ServerType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679377290"><span class="annot"><span class="annottext">ServerType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679377299"><span class="annot"><span class="annottext">ServerType -&gt; ByteStringBuilder
 (ServerType -&gt; ByteStringBuilder) -&gt; ToLog ServerType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ServerType -&gt; ByteStringBuilder
 $cbuild :: ServerType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679377287"><span class="annot"><span class="annottext">HeaderName -&gt; ServerType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679377296"><span class="annot"><span class="annottext">HeaderName -&gt; ServerType -&gt; [Header]
 (HeaderName -&gt; ServerType -&gt; [Header]) -&gt; ToHeader ServerType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ServerType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ServerType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679377284"><span class="annot"><span class="annottext">ServerType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679377293"><span class="annot"><span class="annottext">ServerType -&gt; QueryString
 (ServerType -&gt; QueryString) -&gt; ToQuery ServerType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ServerType -&gt; QueryString
 $ctoQuery :: ServerType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679377279"><span id="local-6989586621679377281"><span class="annot"><span class="annottext">Value -&gt; Parser [ServerType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679377288"><span id="local-6989586621679377290"><span class="annot"><span class="annottext">Value -&gt; Parser [ServerType]
 Value -&gt; Parser ServerType
 (Value -&gt; Parser ServerType)
 -&gt; (Value -&gt; Parser [ServerType]) -&gt; FromJSON ServerType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [ServerType]
 parseJSON :: Value -&gt; Parser ServerType
 $cparseJSON :: Value -&gt; Parser ServerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679377274"><span id="local-6989586621679377276"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServerType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679377283"><span id="local-6989586621679377285"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServerType]
 FromJSONKeyFunction ServerType
 FromJSONKeyFunction ServerType
 -&gt; FromJSONKeyFunction [ServerType] -&gt; FromJSONKey ServerType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ServerType]
 fromJSONKey :: FromJSONKeyFunction ServerType
 $cfromJSONKey :: FromJSONKeyFunction ServerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679377265"><span id="local-6989586621679377267"><span id="local-6989586621679377269"><span id="local-6989586621679377271"><span class="annot"><span class="annottext">[ServerType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679377274"><span id="local-6989586621679377276"><span id="local-6989586621679377278"><span id="local-6989586621679377280"><span class="annot"><span class="annottext">[ServerType] -&gt; Encoding
 [ServerType] -&gt; Value
 ServerType -&gt; Encoding
 ServerType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: ServerType -&gt; Encoding
 toJSON :: ServerType -&gt; Value
 $ctoJSON :: ServerType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679377260"><span id="local-6989586621679377262"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServerType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679377269"><span id="local-6989586621679377271"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServerType]
 ToJSONKeyFunction ServerType
 ToJSONKeyFunction ServerType
 -&gt; ToJSONKeyFunction [ServerType] -&gt; ToJSONKey ServerType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ServerType]
 toJSONKey :: ToJSONKeyFunction ServerType
 $ctoJSONKey :: ToJSONKeyFunction ServerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679377257"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServerType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679377266"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServerType
 ([Node] -&gt; Either String ServerType) -&gt; FromXML ServerType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ServerType
 $cparseXML :: [Node] -&gt; Either String ServerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679377254"><span class="annot"><span class="annottext">ServerType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679377263"><span class="annot"><span class="annottext">ServerType -&gt; XML
 (ServerType -&gt; XML) -&gt; ToXML ServerType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ServerType -&gt; XML

@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679323274"><span id="local-6989586621679323275"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EmotionName"><span class="annot"><a href="Network.AWS.Rekognition.Types.EmotionName.html#EmotionName"><span class="hs-identifier hs-var">EmotionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmotionName%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.EmotionName.html#EmotionName%27"><span class="hs-identifier hs-var">EmotionName'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679323283"><span id="local-6989586621679323284"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EmotionName"><span class="annot"><a href="Network.AWS.Rekognition.Types.EmotionName.html#EmotionName"><span class="hs-identifier hs-var">EmotionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmotionName%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.EmotionName.html#EmotionName%27"><span class="hs-identifier hs-var">EmotionName'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEmotionName"><span class="annot"><span class="annottext">EmotionName -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.EmotionName.html#fromEmotionName"><span class="hs-identifier hs-var hs-var">fromEmotionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323266"><span id="local-6989586621679323268"><span id="local-6989586621679323270"><span class="annot"><span class="annottext">Int -&gt; EmotionName -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323275"><span id="local-6989586621679323277"><span id="local-6989586621679323279"><span class="annot"><span class="annottext">Int -&gt; EmotionName -&gt; ShowS
 [EmotionName] -&gt; ShowS
 EmotionName -&gt; String
 (Int -&gt; EmotionName -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: EmotionName -&gt; String
 showsPrec :: Int -&gt; EmotionName -&gt; ShowS
 $cshowsPrec :: Int -&gt; EmotionName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679323257"><span id="local-6989586621679323259"><span id="local-6989586621679323261"><span id="local-6989586621679323263"><span class="annot"><span class="annottext">ReadPrec [EmotionName]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679323266"><span id="local-6989586621679323268"><span id="local-6989586621679323270"><span id="local-6989586621679323272"><span class="annot"><span class="annottext">ReadPrec [EmotionName]
 ReadPrec EmotionName
 Int -&gt; ReadS EmotionName
 ReadS [EmotionName]
@@ -79,7 +79,7 @@ $creadList :: ReadS [EmotionName]
 readsPrec :: Int -&gt; ReadS EmotionName
 $creadsPrec :: Int -&gt; ReadS EmotionName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679323252"><span id="local-6989586621679323254"><span class="annot"><span class="annottext">EmotionName -&gt; EmotionName -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679323261"><span id="local-6989586621679323263"><span class="annot"><span class="annottext">EmotionName -&gt; EmotionName -&gt; Bool
 (EmotionName -&gt; EmotionName -&gt; Bool)
 -&gt; (EmotionName -&gt; EmotionName -&gt; Bool) -&gt; Eq EmotionName
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -88,7 +88,7 @@ $c/= :: EmotionName -&gt; EmotionName -&gt; Bool
 == :: EmotionName -&gt; EmotionName -&gt; Bool
 $c== :: EmotionName -&gt; EmotionName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679323236"><span id="local-6989586621679323238"><span id="local-6989586621679323240"><span id="local-6989586621679323242"><span id="local-6989586621679323244"><span id="local-6989586621679323246"><span id="local-6989586621679323248"><span class="annot"><span class="annottext">Eq EmotionName
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679323245"><span id="local-6989586621679323247"><span id="local-6989586621679323249"><span id="local-6989586621679323251"><span id="local-6989586621679323253"><span id="local-6989586621679323255"><span id="local-6989586621679323257"><span class="annot"><span class="annottext">Eq EmotionName
 Eq EmotionName
 -&gt; (EmotionName -&gt; EmotionName -&gt; Ordering)
 -&gt; (EmotionName -&gt; EmotionName -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. EmotionName -&gt; Rep EmotionName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323228"><span id="local-6989586621679323230"><span class="annot"><span class="annottext">Int -&gt; EmotionName -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323237"><span id="local-6989586621679323239"><span class="annot"><span class="annottext">Int -&gt; EmotionName -&gt; Int
 EmotionName -&gt; Int
 (Int -&gt; EmotionName -&gt; Int)
 -&gt; (EmotionName -&gt; Int) -&gt; Hashable EmotionName
@@ -149,49 +149,49 @@ $chash :: EmotionName -&gt; Int
 hashWithSalt :: Int -&gt; EmotionName -&gt; Int
 $chashWithSalt :: Int -&gt; EmotionName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679323225"><span class="annot"><span class="annottext">EmotionName -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679323234"><span class="annot"><span class="annottext">EmotionName -&gt; ()
 (EmotionName -&gt; ()) -&gt; NFData EmotionName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EmotionName -&gt; ()
 $crnf :: EmotionName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679323222"><span class="annot"><span class="annottext">Text -&gt; Either String EmotionName
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679323231"><span class="annot"><span class="annottext">Text -&gt; Either String EmotionName
 (Text -&gt; Either String EmotionName) -&gt; FromText EmotionName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EmotionName
 $cfromText :: Text -&gt; Either String EmotionName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679323219"><span class="annot"><span class="annottext">EmotionName -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679323228"><span class="annot"><span class="annottext">EmotionName -&gt; Text
 (EmotionName -&gt; Text) -&gt; ToText EmotionName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EmotionName -&gt; Text
 $ctoText :: EmotionName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679323216"><span class="annot"><span class="annottext">EmotionName -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679323225"><span class="annot"><span class="annottext">EmotionName -&gt; ByteString
 (EmotionName -&gt; ByteString) -&gt; ToByteString EmotionName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EmotionName -&gt; ByteString
 $ctoBS :: EmotionName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679323213"><span class="annot"><span class="annottext">EmotionName -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679323222"><span class="annot"><span class="annottext">EmotionName -&gt; ByteStringBuilder
 (EmotionName -&gt; ByteStringBuilder) -&gt; ToLog EmotionName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EmotionName -&gt; ByteStringBuilder
 $cbuild :: EmotionName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679323210"><span class="annot"><span class="annottext">HeaderName -&gt; EmotionName -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679323219"><span class="annot"><span class="annottext">HeaderName -&gt; EmotionName -&gt; [Header]
 (HeaderName -&gt; EmotionName -&gt; [Header]) -&gt; ToHeader EmotionName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EmotionName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EmotionName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679323207"><span class="annot"><span class="annottext">EmotionName -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679323216"><span class="annot"><span class="annottext">EmotionName -&gt; QueryString
 (EmotionName -&gt; QueryString) -&gt; ToQuery EmotionName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EmotionName -&gt; QueryString
 $ctoQuery :: EmotionName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679323202"><span id="local-6989586621679323204"><span class="annot"><span class="annottext">Value -&gt; Parser [EmotionName]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679323211"><span id="local-6989586621679323213"><span class="annot"><span class="annottext">Value -&gt; Parser [EmotionName]
 Value -&gt; Parser EmotionName
 (Value -&gt; Parser EmotionName)
 -&gt; (Value -&gt; Parser [EmotionName]) -&gt; FromJSON EmotionName
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [EmotionName]
 parseJSON :: Value -&gt; Parser EmotionName
 $cparseJSON :: Value -&gt; Parser EmotionName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679323197"><span id="local-6989586621679323199"><span class="annot"><span class="annottext">FromJSONKeyFunction [EmotionName]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679323206"><span id="local-6989586621679323208"><span class="annot"><span class="annottext">FromJSONKeyFunction [EmotionName]
 FromJSONKeyFunction EmotionName
 FromJSONKeyFunction EmotionName
 -&gt; FromJSONKeyFunction [EmotionName] -&gt; FromJSONKey EmotionName
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EmotionName]
 fromJSONKey :: FromJSONKeyFunction EmotionName
 $cfromJSONKey :: FromJSONKeyFunction EmotionName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679323188"><span id="local-6989586621679323190"><span id="local-6989586621679323192"><span id="local-6989586621679323194"><span class="annot"><span class="annottext">[EmotionName] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679323197"><span id="local-6989586621679323199"><span id="local-6989586621679323201"><span id="local-6989586621679323203"><span class="annot"><span class="annottext">[EmotionName] -&gt; Encoding
 [EmotionName] -&gt; Value
 EmotionName -&gt; Encoding
 EmotionName -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: EmotionName -&gt; Encoding
 toJSON :: EmotionName -&gt; Value
 $ctoJSON :: EmotionName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679323183"><span id="local-6989586621679323185"><span class="annot"><span class="annottext">ToJSONKeyFunction [EmotionName]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679323192"><span id="local-6989586621679323194"><span class="annot"><span class="annottext">ToJSONKeyFunction [EmotionName]
 ToJSONKeyFunction EmotionName
 ToJSONKeyFunction EmotionName
 -&gt; ToJSONKeyFunction [EmotionName] -&gt; ToJSONKey EmotionName
@@ -248,13 +248,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EmotionName]
 toJSONKey :: ToJSONKeyFunction EmotionName
 $ctoJSONKey :: ToJSONKeyFunction EmotionName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679323180"><span class="annot"><span class="annottext">[Node] -&gt; Either String EmotionName
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679323189"><span class="annot"><span class="annottext">[Node] -&gt; Either String EmotionName
 ([Node] -&gt; Either String EmotionName) -&gt; FromXML EmotionName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EmotionName
 $cparseXML :: [Node] -&gt; Either String EmotionName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679323177"><span class="annot"><span class="annottext">EmotionName -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679323186"><span class="annot"><span class="annottext">EmotionName -&gt; XML
 (EmotionName -&gt; XML) -&gt; ToXML EmotionName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EmotionName -&gt; XML

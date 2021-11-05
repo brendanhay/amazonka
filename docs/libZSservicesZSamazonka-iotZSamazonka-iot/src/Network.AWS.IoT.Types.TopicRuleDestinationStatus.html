@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679805016"><span id="local-6989586621679805017"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TopicRuleDestinationStatus"><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus"><span class="hs-identifier hs-var">TopicRuleDestinationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TopicRuleDestinationStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus%27"><span class="hs-identifier hs-var">TopicRuleDestinationStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679805025"><span id="local-6989586621679805026"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TopicRuleDestinationStatus"><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus"><span class="hs-identifier hs-var">TopicRuleDestinationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TopicRuleDestinationStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus%27"><span class="hs-identifier hs-var">TopicRuleDestinationStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTopicRuleDestinationStatus"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; Text
 </span><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#fromTopicRuleDestinationStatus"><span class="hs-identifier hs-var hs-var">fromTopicRuleDestinationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679805008"><span id="local-6989586621679805010"><span id="local-6989586621679805012"><span class="annot"><span class="annottext">Int -&gt; TopicRuleDestinationStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679805017"><span id="local-6989586621679805019"><span id="local-6989586621679805021"><span class="annot"><span class="annottext">Int -&gt; TopicRuleDestinationStatus -&gt; ShowS
 [TopicRuleDestinationStatus] -&gt; ShowS
 TopicRuleDestinationStatus -&gt; String
 (Int -&gt; TopicRuleDestinationStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: TopicRuleDestinationStatus -&gt; String
 showsPrec :: Int -&gt; TopicRuleDestinationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; TopicRuleDestinationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679804999"><span id="local-6989586621679805001"><span id="local-6989586621679805003"><span id="local-6989586621679805005"><span class="annot"><span class="annottext">ReadPrec [TopicRuleDestinationStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679805008"><span id="local-6989586621679805010"><span id="local-6989586621679805012"><span id="local-6989586621679805014"><span class="annot"><span class="annottext">ReadPrec [TopicRuleDestinationStatus]
 ReadPrec TopicRuleDestinationStatus
 Int -&gt; ReadS TopicRuleDestinationStatus
 ReadS [TopicRuleDestinationStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [TopicRuleDestinationStatus]
 readsPrec :: Int -&gt; ReadS TopicRuleDestinationStatus
 $creadsPrec :: Int -&gt; ReadS TopicRuleDestinationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679804994"><span id="local-6989586621679804996"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679805003"><span id="local-6989586621679805005"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
 (TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool)
 -&gt; (TopicRuleDestinationStatus
     -&gt; TopicRuleDestinationStatus -&gt; Bool)
@@ -86,7 +86,7 @@ $c/= :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
 == :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
 $c== :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679804978"><span id="local-6989586621679804980"><span id="local-6989586621679804982"><span id="local-6989586621679804984"><span id="local-6989586621679804986"><span id="local-6989586621679804988"><span id="local-6989586621679804990"><span class="annot"><span class="annottext">Eq TopicRuleDestinationStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679804987"><span id="local-6989586621679804989"><span id="local-6989586621679804991"><span id="local-6989586621679804993"><span id="local-6989586621679804995"><span id="local-6989586621679804997"><span id="local-6989586621679804999"><span class="annot"><span class="annottext">Eq TopicRuleDestinationStatus
 Eq TopicRuleDestinationStatus
 -&gt; (TopicRuleDestinationStatus
     -&gt; TopicRuleDestinationStatus -&gt; Ordering)
@@ -158,7 +158,7 @@ TopicRuleDestinationStatus -&gt; Rep TopicRuleDestinationStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679804970"><span id="local-6989586621679804972"><span class="annot"><span class="annottext">Int -&gt; TopicRuleDestinationStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679804979"><span id="local-6989586621679804981"><span class="annot"><span class="annottext">Int -&gt; TopicRuleDestinationStatus -&gt; Int
 TopicRuleDestinationStatus -&gt; Int
 (Int -&gt; TopicRuleDestinationStatus -&gt; Int)
 -&gt; (TopicRuleDestinationStatus -&gt; Int)
@@ -169,56 +169,56 @@ $chash :: TopicRuleDestinationStatus -&gt; Int
 hashWithSalt :: Int -&gt; TopicRuleDestinationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; TopicRuleDestinationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679804967"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679804976"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; ()
 (TopicRuleDestinationStatus -&gt; ())
 -&gt; NFData TopicRuleDestinationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TopicRuleDestinationStatus -&gt; ()
 $crnf :: TopicRuleDestinationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679804964"><span class="annot"><span class="annottext">Text -&gt; Either String TopicRuleDestinationStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679804973"><span class="annot"><span class="annottext">Text -&gt; Either String TopicRuleDestinationStatus
 (Text -&gt; Either String TopicRuleDestinationStatus)
 -&gt; FromText TopicRuleDestinationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TopicRuleDestinationStatus
 $cfromText :: Text -&gt; Either String TopicRuleDestinationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679804961"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679804970"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; Text
 (TopicRuleDestinationStatus -&gt; Text)
 -&gt; ToText TopicRuleDestinationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TopicRuleDestinationStatus -&gt; Text
 $ctoText :: TopicRuleDestinationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679804958"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679804967"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; ByteString
 (TopicRuleDestinationStatus -&gt; ByteString)
 -&gt; ToByteString TopicRuleDestinationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TopicRuleDestinationStatus -&gt; ByteString
 $ctoBS :: TopicRuleDestinationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679804955"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679804964"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; ByteStringBuilder
 (TopicRuleDestinationStatus -&gt; ByteStringBuilder)
 -&gt; ToLog TopicRuleDestinationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TopicRuleDestinationStatus -&gt; ByteStringBuilder
 $cbuild :: TopicRuleDestinationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679804952"><span class="annot"><span class="annottext">HeaderName -&gt; TopicRuleDestinationStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679804961"><span class="annot"><span class="annottext">HeaderName -&gt; TopicRuleDestinationStatus -&gt; [Header]
 (HeaderName -&gt; TopicRuleDestinationStatus -&gt; [Header])
 -&gt; ToHeader TopicRuleDestinationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TopicRuleDestinationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TopicRuleDestinationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679804949"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679804958"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; QueryString
 (TopicRuleDestinationStatus -&gt; QueryString)
 -&gt; ToQuery TopicRuleDestinationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TopicRuleDestinationStatus -&gt; QueryString
 $ctoQuery :: TopicRuleDestinationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679804944"><span id="local-6989586621679804946"><span class="annot"><span class="annottext">Value -&gt; Parser [TopicRuleDestinationStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679804953"><span id="local-6989586621679804955"><span class="annot"><span class="annottext">Value -&gt; Parser [TopicRuleDestinationStatus]
 Value -&gt; Parser TopicRuleDestinationStatus
 (Value -&gt; Parser TopicRuleDestinationStatus)
 -&gt; (Value -&gt; Parser [TopicRuleDestinationStatus])
@@ -230,7 +230,7 @@ $cparseJSONList :: Value -&gt; Parser [TopicRuleDestinationStatus]
 parseJSON :: Value -&gt; Parser TopicRuleDestinationStatus
 $cparseJSON :: Value -&gt; Parser TopicRuleDestinationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679804939"><span id="local-6989586621679804941"><span class="annot"><span class="annottext">FromJSONKeyFunction [TopicRuleDestinationStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679804948"><span id="local-6989586621679804950"><span class="annot"><span class="annottext">FromJSONKeyFunction [TopicRuleDestinationStatus]
 FromJSONKeyFunction TopicRuleDestinationStatus
 FromJSONKeyFunction TopicRuleDestinationStatus
 -&gt; FromJSONKeyFunction [TopicRuleDestinationStatus]
@@ -242,7 +242,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TopicRuleDestinationStatus]
 fromJSONKey :: FromJSONKeyFunction TopicRuleDestinationStatus
 $cfromJSONKey :: FromJSONKeyFunction TopicRuleDestinationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679804930"><span id="local-6989586621679804932"><span id="local-6989586621679804934"><span id="local-6989586621679804936"><span class="annot"><span class="annottext">[TopicRuleDestinationStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679804939"><span id="local-6989586621679804941"><span id="local-6989586621679804943"><span id="local-6989586621679804945"><span class="annot"><span class="annottext">[TopicRuleDestinationStatus] -&gt; Encoding
 [TopicRuleDestinationStatus] -&gt; Value
 TopicRuleDestinationStatus -&gt; Encoding
 TopicRuleDestinationStatus -&gt; Value
@@ -266,7 +266,7 @@ $ctoEncoding :: TopicRuleDestinationStatus -&gt; Encoding
 toJSON :: TopicRuleDestinationStatus -&gt; Value
 $ctoJSON :: TopicRuleDestinationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679804925"><span id="local-6989586621679804927"><span class="annot"><span class="annottext">ToJSONKeyFunction [TopicRuleDestinationStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679804934"><span id="local-6989586621679804936"><span class="annot"><span class="annottext">ToJSONKeyFunction [TopicRuleDestinationStatus]
 ToJSONKeyFunction TopicRuleDestinationStatus
 ToJSONKeyFunction TopicRuleDestinationStatus
 -&gt; ToJSONKeyFunction [TopicRuleDestinationStatus]
@@ -278,14 +278,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TopicRuleDestinationStatus]
 toJSONKey :: ToJSONKeyFunction TopicRuleDestinationStatus
 $ctoJSONKey :: ToJSONKeyFunction TopicRuleDestinationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679804922"><span class="annot"><span class="annottext">[Node] -&gt; Either String TopicRuleDestinationStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679804931"><span class="annot"><span class="annottext">[Node] -&gt; Either String TopicRuleDestinationStatus
 ([Node] -&gt; Either String TopicRuleDestinationStatus)
 -&gt; FromXML TopicRuleDestinationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TopicRuleDestinationStatus
 $cparseXML :: [Node] -&gt; Either String TopicRuleDestinationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679804919"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679804928"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; XML
 (TopicRuleDestinationStatus -&gt; XML)
 -&gt; ToXML TopicRuleDestinationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

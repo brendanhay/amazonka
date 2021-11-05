@@ -35,7 +35,7 @@
 </span><span id="line-35"></span><span class="hs-comment">-- A summary of the rule groups you are subscribed to.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newSubscribedRuleGroupSummary' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679308181"><span id="local-6989586621679308182"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscribedRuleGroupSummary"><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-var">SubscribedRuleGroupSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscribedRuleGroupSummary%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-var">SubscribedRuleGroupSummary'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679308190"><span id="local-6989586621679308191"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscribedRuleGroupSummary"><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-var">SubscribedRuleGroupSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscribedRuleGroupSummary%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-var">SubscribedRuleGroupSummary'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for a @RuleGroup@.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AruleGroupId%3ASubscribedRuleGroupSummary%27"><span class="annot"><span class="annottext">SubscribedRuleGroupSummary -&gt; Text
 </span><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#%24sel%3AruleGroupId%3ASubscribedRuleGroupSummary%27"><span class="hs-identifier hs-var hs-var">ruleGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AmetricName%3ASubscribedRuleGroupSummary%27"><span class="annot"><span class="annottext">SubscribedRuleGroupSummary -&gt; Text
 </span><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#%24sel%3AmetricName%3ASubscribedRuleGroupSummary%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308173"><span id="local-6989586621679308175"><span class="annot"><span class="annottext">SubscribedRuleGroupSummary -&gt; SubscribedRuleGroupSummary -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308182"><span id="local-6989586621679308184"><span class="annot"><span class="annottext">SubscribedRuleGroupSummary -&gt; SubscribedRuleGroupSummary -&gt; Bool
 (SubscribedRuleGroupSummary -&gt; SubscribedRuleGroupSummary -&gt; Bool)
 -&gt; (SubscribedRuleGroupSummary
     -&gt; SubscribedRuleGroupSummary -&gt; Bool)
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SubscribedRuleGroupSummary -&gt; SubscribedRuleGroupSummary -&gt; Bool
 == :: SubscribedRuleGroupSummary -&gt; SubscribedRuleGroupSummary -&gt; Bool
 $c== :: SubscribedRuleGroupSummary -&gt; SubscribedRuleGroupSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308164"><span id="local-6989586621679308166"><span id="local-6989586621679308168"><span id="local-6989586621679308170"><span class="annot"><span class="annottext">ReadPrec [SubscribedRuleGroupSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308173"><span id="local-6989586621679308175"><span id="local-6989586621679308177"><span id="local-6989586621679308179"><span class="annot"><span class="annottext">ReadPrec [SubscribedRuleGroupSummary]
 ReadPrec SubscribedRuleGroupSummary
 Int -&gt; ReadS SubscribedRuleGroupSummary
 ReadS [SubscribedRuleGroupSummary]
@@ -82,7 +82,7 @@ readList :: ReadS [SubscribedRuleGroupSummary]
 $creadList :: ReadS [SubscribedRuleGroupSummary]
 readsPrec :: Int -&gt; ReadS SubscribedRuleGroupSummary
 $creadsPrec :: Int -&gt; ReadS SubscribedRuleGroupSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308157"><span id="local-6989586621679308159"><span id="local-6989586621679308161"><span class="annot"><span class="annottext">Int -&gt; SubscribedRuleGroupSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308166"><span id="local-6989586621679308168"><span id="local-6989586621679308170"><span class="annot"><span class="annottext">Int -&gt; SubscribedRuleGroupSummary -&gt; ShowS
 [SubscribedRuleGroupSummary] -&gt; ShowS
 SubscribedRuleGroupSummary -&gt; String
 (Int -&gt; SubscribedRuleGroupSummary -&gt; ShowS)
@@ -143,24 +143,24 @@ SubscribedRuleGroupSummary -&gt; Rep SubscribedRuleGroupSummary x
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary</span></a></span><span>
 </span><span id="line-81"></span><span id="newSubscribedRuleGroupSummary"><span class="annot"><span class="annottext">newSubscribedRuleGroupSummary :: Text -&gt; Text -&gt; Text -&gt; SubscribedRuleGroupSummary
 </span><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#newSubscribedRuleGroupSummary"><span class="hs-identifier hs-var hs-var">newSubscribedRuleGroupSummary</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679308151"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308151"><span class="hs-identifier hs-var">pRuleGroupId_</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679308150"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308150"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679308149"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308149"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679308160"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308160"><span class="hs-identifier hs-var">pRuleGroupId_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679308159"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308159"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679308158"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308158"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">SubscribedRuleGroupSummary' :: Text -&gt; Text -&gt; Text -&gt; SubscribedRuleGroupSummary
 </span><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary'</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ruleGroupId:SubscribedRuleGroupSummary' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#%24sel%3AruleGroupId%3ASubscribedRuleGroupSummary%27"><span class="hs-identifier hs-var">ruleGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308151"><span class="hs-identifier hs-var">pRuleGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679308160"><span class="hs-identifier hs-var">pRuleGroupId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:SubscribedRuleGroupSummary' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#%24sel%3Aname%3ASubscribedRuleGroupSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308150"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679308159"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricName:SubscribedRuleGroupSummary' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#%24sel%3AmetricName%3ASubscribedRuleGroupSummary%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308149"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span>
+</span><a href="#local-6989586621679308158"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | A unique identifier for a @RuleGroup@.</span><span>
@@ -173,16 +173,16 @@ SubscribedRuleGroupSummary -&gt; Rep SubscribedRuleGroupSummary x
 -&gt; Lens
      SubscribedRuleGroupSummary SubscribedRuleGroupSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308145"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308154"><span class="annot"><span class="annottext">Text
 ruleGroupId :: Text
 $sel:ruleGroupId:SubscribedRuleGroupSummary' :: SubscribedRuleGroupSummary -&gt; Text
-</span><a href="#local-6989586621679308145"><span class="hs-identifier hs-var hs-var">ruleGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308145"><span class="hs-identifier hs-var">ruleGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308144"><span class="annot"><span class="annottext">s :: SubscribedRuleGroupSummary
-</span><a href="#local-6989586621679308144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308143"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribedRuleGroupSummary
-</span><a href="#local-6989586621679308144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleGroupId:SubscribedRuleGroupSummary' :: Text
+</span><a href="#local-6989586621679308154"><span class="hs-identifier hs-var hs-var">ruleGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308154"><span class="hs-identifier hs-var">ruleGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308153"><span class="annot"><span class="annottext">s :: SubscribedRuleGroupSummary
+</span><a href="#local-6989586621679308153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308152"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribedRuleGroupSummary
+</span><a href="#local-6989586621679308153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleGroupId:SubscribedRuleGroupSummary' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#%24sel%3AruleGroupId%3ASubscribedRuleGroupSummary%27"><span class="hs-identifier hs-var">ruleGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | A friendly name or description of the @RuleGroup@. You can\'t change the</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- name of a @RuleGroup@ after you create it.</span><span>
@@ -195,16 +195,16 @@ $sel:ruleGroupId:SubscribedRuleGroupSummary' :: SubscribedRuleGroupSummary -&gt;
 -&gt; Lens
      SubscribedRuleGroupSummary SubscribedRuleGroupSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308141"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308150"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:SubscribedRuleGroupSummary' :: SubscribedRuleGroupSummary -&gt; Text
-</span><a href="#local-6989586621679308141"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308141"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308140"><span class="annot"><span class="annottext">s :: SubscribedRuleGroupSummary
-</span><a href="#local-6989586621679308140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308139"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribedRuleGroupSummary
-</span><a href="#local-6989586621679308140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SubscribedRuleGroupSummary' :: Text
+</span><a href="#local-6989586621679308150"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308150"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308149"><span class="annot"><span class="annottext">s :: SubscribedRuleGroupSummary
+</span><a href="#local-6989586621679308149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308148"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribedRuleGroupSummary
+</span><a href="#local-6989586621679308149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SubscribedRuleGroupSummary' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#%24sel%3Aname%3ASubscribedRuleGroupSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | A friendly name or description for the metrics for this @RuleGroup@. The</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with</span><span>
@@ -221,19 +221,19 @@ $sel:name:SubscribedRuleGroupSummary' :: SubscribedRuleGroupSummary -&gt; Text
 -&gt; Lens
      SubscribedRuleGroupSummary SubscribedRuleGroupSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308137"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308146"><span class="annot"><span class="annottext">Text
 metricName :: Text
 $sel:metricName:SubscribedRuleGroupSummary' :: SubscribedRuleGroupSummary -&gt; Text
-</span><a href="#local-6989586621679308137"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308137"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308136"><span class="annot"><span class="annottext">s :: SubscribedRuleGroupSummary
-</span><a href="#local-6989586621679308136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308135"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribedRuleGroupSummary
-</span><a href="#local-6989586621679308136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:SubscribedRuleGroupSummary' :: Text
+</span><a href="#local-6989586621679308146"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308146"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308145"><span class="annot"><span class="annottext">s :: SubscribedRuleGroupSummary
+</span><a href="#local-6989586621679308145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308144"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribedRuleGroupSummary
+</span><a href="#local-6989586621679308145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:SubscribedRuleGroupSummary' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#%24sel%3AmetricName%3ASubscribedRuleGroupSummary%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308132"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679308130"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SubscribedRuleGroupSummary
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308141"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679308139"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SubscribedRuleGroupSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SubscribedRuleGroupSummary)
@@ -243,8 +243,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SubscribedRuleGroupSummary&quot;</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308127"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308127"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308136"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308136"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; SubscribedRuleGroupSummary
 </span><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary%27"><span class="hs-identifier hs-var">SubscribedRuleGroupSummary'</span></a></span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Text -&gt; SubscribedRuleGroupSummary)
@@ -252,7 +252,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; SubscribedRuleGroupSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679308136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RuleGroupId&quot;</span></span><span class="hs-special">)</span><span>
@@ -260,7 +260,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; SubscribedRuleGroupSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679308136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -268,13 +268,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser SubscribedRuleGroupSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679308136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetricName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308121"><span id="local-6989586621679308123"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308130"><span id="local-6989586621679308132"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308118"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308127"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary.html#SubscribedRuleGroupSummary"><span class="hs-identifier hs-type">SubscribedRuleGroupSummary</span></a></span></span><span>
 </span><span id="line-124"></span></pre></body></html>

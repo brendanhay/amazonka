@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- bucket.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAccessControlList' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679293204"><span id="local-6989586621679293205"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessControlList"><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList"><span class="hs-identifier hs-var">AccessControlList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessControlList%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList%27"><span class="hs-identifier hs-var">AccessControlList'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679293213"><span id="local-6989586621679293214"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessControlList"><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList"><span class="hs-identifier hs-var">AccessControlList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessControlList%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList%27"><span class="hs-identifier hs-var">AccessControlList'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that indicates whether public write access for the bucket is</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- enabled through an Access Control List (ACL).</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AallowsPublicWriteAccess%3AAccessControlList%27"><span class="annot"><span class="annottext">AccessControlList -&gt; Maybe Bool
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AallowsPublicReadAccess%3AAccessControlList%27"><span class="annot"><span class="annottext">AccessControlList -&gt; Maybe Bool
 </span><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#%24sel%3AallowsPublicReadAccess%3AAccessControlList%27"><span class="hs-identifier hs-var hs-var">allowsPublicReadAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293197"><span id="local-6989586621679293199"><span class="annot"><span class="annottext">AccessControlList -&gt; AccessControlList -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293206"><span id="local-6989586621679293208"><span class="annot"><span class="annottext">AccessControlList -&gt; AccessControlList -&gt; Bool
 (AccessControlList -&gt; AccessControlList -&gt; Bool)
 -&gt; (AccessControlList -&gt; AccessControlList -&gt; Bool)
 -&gt; Eq AccessControlList
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccessControlList -&gt; AccessControlList -&gt; Bool
 == :: AccessControlList -&gt; AccessControlList -&gt; Bool
 $c== :: AccessControlList -&gt; AccessControlList -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293188"><span id="local-6989586621679293190"><span id="local-6989586621679293192"><span id="local-6989586621679293194"><span class="annot"><span class="annottext">ReadPrec [AccessControlList]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293197"><span id="local-6989586621679293199"><span id="local-6989586621679293201"><span id="local-6989586621679293203"><span class="annot"><span class="annottext">ReadPrec [AccessControlList]
 ReadPrec AccessControlList
 Int -&gt; ReadS AccessControlList
 ReadS [AccessControlList]
@@ -66,7 +66,7 @@ readList :: ReadS [AccessControlList]
 $creadList :: ReadS [AccessControlList]
 readsPrec :: Int -&gt; ReadS AccessControlList
 $creadsPrec :: Int -&gt; ReadS AccessControlList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293181"><span id="local-6989586621679293183"><span id="local-6989586621679293185"><span class="annot"><span class="annottext">Int -&gt; AccessControlList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293190"><span id="local-6989586621679293192"><span id="local-6989586621679293194"><span class="annot"><span class="annottext">Int -&gt; AccessControlList -&gt; ShowS
 [AccessControlList] -&gt; ShowS
 AccessControlList -&gt; String
 (Int -&gt; AccessControlList -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
 -&gt; Lens
      AccessControlList AccessControlList (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList%27"><span class="hs-identifier hs-type">AccessControlList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293172"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList%27"><span class="hs-identifier hs-type">AccessControlList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293181"><span class="annot"><span class="annottext">Maybe Bool
 allowsPublicWriteAccess :: Maybe Bool
 $sel:allowsPublicWriteAccess:AccessControlList' :: AccessControlList -&gt; Maybe Bool
-</span><a href="#local-6989586621679293172"><span class="hs-identifier hs-var hs-var">allowsPublicWriteAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679293172"><span class="hs-identifier hs-var">allowsPublicWriteAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293171"><span class="annot"><span class="annottext">s :: AccessControlList
-</span><a href="#local-6989586621679293171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList%27"><span class="hs-identifier hs-type">AccessControlList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293170"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679293170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlList
-</span><a href="#local-6989586621679293171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowsPublicWriteAccess:AccessControlList' :: Maybe Bool
+</span><a href="#local-6989586621679293181"><span class="hs-identifier hs-var hs-var">allowsPublicWriteAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679293181"><span class="hs-identifier hs-var">allowsPublicWriteAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293180"><span class="annot"><span class="annottext">s :: AccessControlList
+</span><a href="#local-6989586621679293180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList%27"><span class="hs-identifier hs-type">AccessControlList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293179"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679293179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlList
+</span><a href="#local-6989586621679293180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowsPublicWriteAccess:AccessControlList' :: Maybe Bool
 </span><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#%24sel%3AallowsPublicWriteAccess%3AAccessControlList%27"><span class="hs-identifier hs-var">allowsPublicWriteAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679293170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList"><span class="hs-identifier hs-type">AccessControlList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList"><span class="hs-identifier hs-type">AccessControlList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | A value that indicates whether public read access for the bucket is</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- enabled through an Access Control List (ACL).</span><span>
@@ -153,19 +153,19 @@ $sel:allowsPublicWriteAccess:AccessControlList' :: AccessControlList -&gt; Maybe
 -&gt; Lens
      AccessControlList AccessControlList (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList%27"><span class="hs-identifier hs-type">AccessControlList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293168"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList%27"><span class="hs-identifier hs-type">AccessControlList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293177"><span class="annot"><span class="annottext">Maybe Bool
 allowsPublicReadAccess :: Maybe Bool
 $sel:allowsPublicReadAccess:AccessControlList' :: AccessControlList -&gt; Maybe Bool
-</span><a href="#local-6989586621679293168"><span class="hs-identifier hs-var hs-var">allowsPublicReadAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679293168"><span class="hs-identifier hs-var">allowsPublicReadAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293167"><span class="annot"><span class="annottext">s :: AccessControlList
-</span><a href="#local-6989586621679293167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList%27"><span class="hs-identifier hs-type">AccessControlList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293166"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679293166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlList
-</span><a href="#local-6989586621679293167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowsPublicReadAccess:AccessControlList' :: Maybe Bool
+</span><a href="#local-6989586621679293177"><span class="hs-identifier hs-var hs-var">allowsPublicReadAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679293177"><span class="hs-identifier hs-var">allowsPublicReadAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293176"><span class="annot"><span class="annottext">s :: AccessControlList
+</span><a href="#local-6989586621679293176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList%27"><span class="hs-identifier hs-type">AccessControlList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293175"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679293175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlList
+</span><a href="#local-6989586621679293176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowsPublicReadAccess:AccessControlList' :: Maybe Bool
 </span><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#%24sel%3AallowsPublicReadAccess%3AAccessControlList%27"><span class="hs-identifier hs-var">allowsPublicReadAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679293166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList"><span class="hs-identifier hs-type">AccessControlList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList"><span class="hs-identifier hs-type">AccessControlList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293163"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList"><span class="hs-identifier hs-type">AccessControlList</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679293161"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessControlList
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293172"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList"><span class="hs-identifier hs-type">AccessControlList</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679293170"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessControlList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AccessControlList)
@@ -175,15 +175,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AccessControlList&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293158"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293158"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293167"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293167"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Bool -&gt; AccessControlList
 </span><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList%27"><span class="hs-identifier hs-var">AccessControlList'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Bool -&gt; AccessControlList)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Bool -&gt; AccessControlList)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679293167"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allowsPublicWriteAccess&quot;</span></span><span class="hs-special">)</span><span>
@@ -191,13 +191,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser AccessControlList
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679293167"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allowsPublicReadAccess&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293152"><span id="local-6989586621679293154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList"><span class="hs-identifier hs-type">AccessControlList</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293161"><span id="local-6989586621679293163"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList"><span class="hs-identifier hs-type">AccessControlList</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList"><span class="hs-identifier hs-type">AccessControlList</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccessControlList.html#AccessControlList"><span class="hs-identifier hs-type">AccessControlList</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

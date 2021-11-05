@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-comment">-- you received through Amazon SES.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- /See:/ 'newSendBounce' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679280724"><span id="local-6989586621679280725"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendBounce"><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-var">SendBounce</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendBounce%27"><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-var">SendBounce'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679280733"><span id="local-6989586621679280734"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendBounce"><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-var">SendBounce</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendBounce%27"><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-var">SendBounce'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Message-related DSN fields. If not specified, Amazon SES will choose the</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- values.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AmessageDsn%3ASendBounce%27"><span class="annot"><span class="annottext">SendBounce -&gt; Maybe MessageDsn
@@ -96,7 +96,7 @@
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3AbouncedRecipientInfoList%3ASendBounce%27"><span class="annot"><span class="annottext">SendBounce -&gt; [BouncedRecipientInfo]
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3AbouncedRecipientInfoList%3ASendBounce%27"><span class="hs-identifier hs-var hs-var">bouncedRecipientInfoList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SES.Types.BouncedRecipientInfo.html#BouncedRecipientInfo"><span class="hs-identifier hs-type">BouncedRecipientInfo</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280713"><span id="local-6989586621679280715"><span class="annot"><span class="annottext">SendBounce -&gt; SendBounce -&gt; Bool
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280722"><span id="local-6989586621679280724"><span class="annot"><span class="annottext">SendBounce -&gt; SendBounce -&gt; Bool
 (SendBounce -&gt; SendBounce -&gt; Bool)
 -&gt; (SendBounce -&gt; SendBounce -&gt; Bool) -&gt; Eq SendBounce
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -104,7 +104,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SendBounce -&gt; SendBounce -&gt; Bool
 == :: SendBounce -&gt; SendBounce -&gt; Bool
 $c== :: SendBounce -&gt; SendBounce -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280704"><span id="local-6989586621679280706"><span id="local-6989586621679280708"><span id="local-6989586621679280710"><span class="annot"><span class="annottext">ReadPrec [SendBounce]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280713"><span id="local-6989586621679280715"><span id="local-6989586621679280717"><span id="local-6989586621679280719"><span class="annot"><span class="annottext">ReadPrec [SendBounce]
 ReadPrec SendBounce
 Int -&gt; ReadS SendBounce
 ReadS [SendBounce]
@@ -124,7 +124,7 @@ readList :: ReadS [SendBounce]
 $creadList :: ReadS [SendBounce]
 readsPrec :: Int -&gt; ReadS SendBounce
 $creadsPrec :: Int -&gt; ReadS SendBounce
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280697"><span id="local-6989586621679280699"><span id="local-6989586621679280701"><span class="annot"><span class="annottext">Int -&gt; SendBounce -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280706"><span id="local-6989586621679280708"><span id="local-6989586621679280710"><span class="annot"><span class="annottext">Int -&gt; SendBounce -&gt; ShowS
 [SendBounce] -&gt; ShowS
 SendBounce -&gt; String
 (Int -&gt; SendBounce -&gt; ShowS)
@@ -186,9 +186,9 @@ $cfrom :: forall x. SendBounce -&gt; Rep SendBounce x
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span>
 </span><span id="line-131"></span><span id="newSendBounce"><span class="annot"><span class="annottext">newSendBounce :: Text -&gt; Text -&gt; SendBounce
-</span><a href="Network.AWS.SES.SendBounce.html#newSendBounce"><span class="hs-identifier hs-var hs-var">newSendBounce</span></a></span></span><span> </span><span id="local-6989586621679280692"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280692"><span class="hs-identifier hs-var">pOriginalMessageId_</span></a></span></span><span> </span><span id="local-6989586621679280691"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280691"><span class="hs-identifier hs-var">pBounceSender_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.SendBounce.html#newSendBounce"><span class="hs-identifier hs-var hs-var">newSendBounce</span></a></span></span><span> </span><span id="local-6989586621679280701"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280701"><span class="hs-identifier hs-var">pOriginalMessageId_</span></a></span></span><span> </span><span id="local-6989586621679280700"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280700"><span class="hs-identifier hs-var">pBounceSender_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">SendBounce' :: Maybe MessageDsn
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -211,10 +211,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:originalMessageId:SendBounce' :: Text
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3AoriginalMessageId%3ASendBounce%27"><span class="hs-identifier hs-var">originalMessageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280692"><span class="hs-identifier hs-var">pOriginalMessageId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679280701"><span class="hs-identifier hs-var">pOriginalMessageId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:bounceSender:SendBounce' :: Text
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3AbounceSender%3ASendBounce%27"><span class="hs-identifier hs-var">bounceSender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280691"><span class="hs-identifier hs-var">pBounceSender_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679280700"><span class="hs-identifier hs-var">pBounceSender_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:bouncedRecipientInfoList:SendBounce' :: [BouncedRecipientInfo]
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3AbouncedRecipientInfoList%3ASendBounce%27"><span class="hs-identifier hs-var">bouncedRecipientInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BouncedRecipientInfo]
 forall a. Monoid a =&gt; a
@@ -230,16 +230,16 @@ forall a. Monoid a =&gt; a
 -&gt; (SendBounce -&gt; Maybe MessageDsn -&gt; SendBounce)
 -&gt; Lens SendBounce SendBounce (Maybe MessageDsn) (Maybe MessageDsn)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280688"><span class="annot"><span class="annottext">Maybe MessageDsn
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280697"><span class="annot"><span class="annottext">Maybe MessageDsn
 messageDsn :: Maybe MessageDsn
 $sel:messageDsn:SendBounce' :: SendBounce -&gt; Maybe MessageDsn
-</span><a href="#local-6989586621679280688"><span class="hs-identifier hs-var hs-var">messageDsn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageDsn
-</span><a href="#local-6989586621679280688"><span class="hs-identifier hs-var">messageDsn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280687"><span class="annot"><span class="annottext">s :: SendBounce
-</span><a href="#local-6989586621679280687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280686"><span class="annot"><span class="annottext">Maybe MessageDsn
-</span><a href="#local-6989586621679280686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
-</span><a href="#local-6989586621679280687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageDsn:SendBounce' :: Maybe MessageDsn
+</span><a href="#local-6989586621679280697"><span class="hs-identifier hs-var hs-var">messageDsn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageDsn
+</span><a href="#local-6989586621679280697"><span class="hs-identifier hs-var">messageDsn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280696"><span class="annot"><span class="annottext">s :: SendBounce
+</span><a href="#local-6989586621679280696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280695"><span class="annot"><span class="annottext">Maybe MessageDsn
+</span><a href="#local-6989586621679280695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
+</span><a href="#local-6989586621679280696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageDsn:SendBounce' :: Maybe MessageDsn
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3AmessageDsn%3ASendBounce%27"><span class="hs-identifier hs-var">messageDsn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageDsn
-</span><a href="#local-6989586621679280686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | Human-readable text for the bounce message to explain the failure. If</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- not specified, the text will be auto-generated based on the bounced</span><span>
@@ -250,16 +250,16 @@ $sel:messageDsn:SendBounce' :: SendBounce -&gt; Maybe MessageDsn
 -&gt; (SendBounce -&gt; Maybe Text -&gt; SendBounce)
 -&gt; Lens SendBounce SendBounce (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280685"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280694"><span class="annot"><span class="annottext">Maybe Text
 explanation :: Maybe Text
 $sel:explanation:SendBounce' :: SendBounce -&gt; Maybe Text
-</span><a href="#local-6989586621679280685"><span class="hs-identifier hs-var hs-var">explanation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280685"><span class="hs-identifier hs-var">explanation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280684"><span class="annot"><span class="annottext">s :: SendBounce
-</span><a href="#local-6989586621679280684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280683"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
-</span><a href="#local-6989586621679280684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:explanation:SendBounce' :: Maybe Text
+</span><a href="#local-6989586621679280694"><span class="hs-identifier hs-var hs-var">explanation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280694"><span class="hs-identifier hs-var">explanation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280693"><span class="annot"><span class="annottext">s :: SendBounce
+</span><a href="#local-6989586621679280693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280692"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
+</span><a href="#local-6989586621679280693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:explanation:SendBounce' :: Maybe Text
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3Aexplanation%3ASendBounce%27"><span class="hs-identifier hs-var">explanation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | This parameter is used only for sending authorization. It is the ARN of</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
@@ -272,16 +272,16 @@ $sel:explanation:SendBounce' :: SendBounce -&gt; Maybe Text
 -&gt; (SendBounce -&gt; Maybe Text -&gt; SendBounce)
 -&gt; Lens SendBounce SendBounce (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280682"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280691"><span class="annot"><span class="annottext">Maybe Text
 bounceSenderArn :: Maybe Text
 $sel:bounceSenderArn:SendBounce' :: SendBounce -&gt; Maybe Text
-</span><a href="#local-6989586621679280682"><span class="hs-identifier hs-var hs-var">bounceSenderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280682"><span class="hs-identifier hs-var">bounceSenderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280681"><span class="annot"><span class="annottext">s :: SendBounce
-</span><a href="#local-6989586621679280681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280680"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
-</span><a href="#local-6989586621679280681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bounceSenderArn:SendBounce' :: Maybe Text
+</span><a href="#local-6989586621679280691"><span class="hs-identifier hs-var hs-var">bounceSenderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280691"><span class="hs-identifier hs-var">bounceSenderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280690"><span class="annot"><span class="annottext">s :: SendBounce
+</span><a href="#local-6989586621679280690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280689"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
+</span><a href="#local-6989586621679280690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bounceSenderArn:SendBounce' :: Maybe Text
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3AbounceSenderArn%3ASendBounce%27"><span class="hs-identifier hs-var">bounceSenderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The message ID of the message to be bounced.</span><span>
 </span><span id="line-161"></span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#sendBounce_originalMessageId"><span class="hs-identifier hs-type">sendBounce_originalMessageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -290,16 +290,16 @@ $sel:bounceSenderArn:SendBounce' :: SendBounce -&gt; Maybe Text
 -&gt; (SendBounce -&gt; Text -&gt; SendBounce)
 -&gt; Lens SendBounce SendBounce Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280679"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280688"><span class="annot"><span class="annottext">Text
 originalMessageId :: Text
 $sel:originalMessageId:SendBounce' :: SendBounce -&gt; Text
-</span><a href="#local-6989586621679280679"><span class="hs-identifier hs-var hs-var">originalMessageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280679"><span class="hs-identifier hs-var">originalMessageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280678"><span class="annot"><span class="annottext">s :: SendBounce
-</span><a href="#local-6989586621679280678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280677"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
-</span><a href="#local-6989586621679280678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originalMessageId:SendBounce' :: Text
+</span><a href="#local-6989586621679280688"><span class="hs-identifier hs-var hs-var">originalMessageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280688"><span class="hs-identifier hs-var">originalMessageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280687"><span class="annot"><span class="annottext">s :: SendBounce
+</span><a href="#local-6989586621679280687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280686"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
+</span><a href="#local-6989586621679280687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originalMessageId:SendBounce' :: Text
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3AoriginalMessageId%3ASendBounce%27"><span class="hs-identifier hs-var">originalMessageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The address to use in the \&quot;From\&quot; header of the bounce message. This</span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- must be an identity that you have verified with Amazon SES.</span><span>
@@ -309,16 +309,16 @@ $sel:originalMessageId:SendBounce' :: SendBounce -&gt; Text
 -&gt; (SendBounce -&gt; Text -&gt; SendBounce)
 -&gt; Lens SendBounce SendBounce Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280676"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280685"><span class="annot"><span class="annottext">Text
 bounceSender :: Text
 $sel:bounceSender:SendBounce' :: SendBounce -&gt; Text
-</span><a href="#local-6989586621679280676"><span class="hs-identifier hs-var hs-var">bounceSender</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280676"><span class="hs-identifier hs-var">bounceSender</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280675"><span class="annot"><span class="annottext">s :: SendBounce
-</span><a href="#local-6989586621679280675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280674"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
-</span><a href="#local-6989586621679280675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bounceSender:SendBounce' :: Text
+</span><a href="#local-6989586621679280685"><span class="hs-identifier hs-var hs-var">bounceSender</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280685"><span class="hs-identifier hs-var">bounceSender</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280684"><span class="annot"><span class="annottext">s :: SendBounce
+</span><a href="#local-6989586621679280684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280683"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
+</span><a href="#local-6989586621679280684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bounceSender:SendBounce' :: Text
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3AbounceSender%3ASendBounce%27"><span class="hs-identifier hs-var">bounceSender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | A list of recipients of the bounced message, including the information</span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- required to create the Delivery Status Notifications (DSNs) for the</span><span>
@@ -332,16 +332,16 @@ $sel:bounceSender:SendBounce' :: SendBounce -&gt; Text
 -&gt; Lens
      SendBounce SendBounce [BouncedRecipientInfo] [BouncedRecipientInfo]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280673"><span class="annot"><span class="annottext">[BouncedRecipientInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280682"><span class="annot"><span class="annottext">[BouncedRecipientInfo]
 bouncedRecipientInfoList :: [BouncedRecipientInfo]
 $sel:bouncedRecipientInfoList:SendBounce' :: SendBounce -&gt; [BouncedRecipientInfo]
-</span><a href="#local-6989586621679280673"><span class="hs-identifier hs-var hs-var">bouncedRecipientInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BouncedRecipientInfo]
-</span><a href="#local-6989586621679280673"><span class="hs-identifier hs-var">bouncedRecipientInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280672"><span class="annot"><span class="annottext">s :: SendBounce
-</span><a href="#local-6989586621679280672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280671"><span class="annot"><span class="annottext">[BouncedRecipientInfo]
-</span><a href="#local-6989586621679280671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
-</span><a href="#local-6989586621679280672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bouncedRecipientInfoList:SendBounce' :: [BouncedRecipientInfo]
+</span><a href="#local-6989586621679280682"><span class="hs-identifier hs-var hs-var">bouncedRecipientInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BouncedRecipientInfo]
+</span><a href="#local-6989586621679280682"><span class="hs-identifier hs-var">bouncedRecipientInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280681"><span class="annot"><span class="annottext">s :: SendBounce
+</span><a href="#local-6989586621679280681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280680"><span class="annot"><span class="annottext">[BouncedRecipientInfo]
+</span><a href="#local-6989586621679280680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
+</span><a href="#local-6989586621679280681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bouncedRecipientInfoList:SendBounce' :: [BouncedRecipientInfo]
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3AbouncedRecipientInfoList%3ASendBounce%27"><span class="hs-identifier hs-var">bouncedRecipientInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BouncedRecipientInfo]
-</span><a href="#local-6989586621679280671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BouncedRecipientInfo] -&gt; f [BouncedRecipientInfo])
+</span><a href="#local-6989586621679280680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BouncedRecipientInfo] -&gt; f [BouncedRecipientInfo])
  -&gt; SendBounce -&gt; f SendBounce)
 -&gt; (([BouncedRecipientInfo] -&gt; f [BouncedRecipientInfo])
     -&gt; [BouncedRecipientInfo] -&gt; f [BouncedRecipientInfo])
@@ -356,12 +356,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679280665"><span class="annot"><span class="annottext">request :: SendBounce -&gt; Request SendBounce
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679280674"><span class="annot"><span class="annottext">request :: SendBounce -&gt; Request SendBounce
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SendBounce -&gt; Request SendBounce
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679280661"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679280670"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SendBounce
 -&gt; ClientResponse ClientBody
@@ -390,10 +390,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SendBounceResult&quot;</span></span><span>
-</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280658"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280658"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679280657"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679280657"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679280656"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679280656"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280667"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280667"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679280666"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679280666"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679280665"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679280665"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; SendBounceResponse
 </span><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-var">SendBounceResponse'</span></a></span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; SendBounceResponse)
@@ -401,7 +401,7 @@ Text
 -&gt; Either String (Int -&gt; SendBounceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679280656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679280665"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageId&quot;</span></span><span class="hs-special">)</span><span>
@@ -413,15 +413,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280658"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280667"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280648"><span id="local-6989586621679280650"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280657"><span id="local-6989586621679280659"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span></span></span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280645"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280654"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679280641"><span class="annot"><span class="annottext">toHeaders :: SendBounce -&gt; ResponseHeaders
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679280650"><span class="annot"><span class="annottext">toHeaders :: SendBounce -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SendBounce -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -429,15 +429,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679280636"><span class="annot"><span class="annottext">toPath :: SendBounce -&gt; ByteString
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679280645"><span class="annot"><span class="annottext">toPath :: SendBounce -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SendBounce -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679280632"><span class="annot"><span class="annottext">toQuery :: SendBounce -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280625"><span id="local-6989586621679280626"><span id="local-6989586621679280627"><span id="local-6989586621679280628"><span id="local-6989586621679280629"><span id="local-6989586621679280630"><span class="annot"><span class="annottext">[BouncedRecipientInfo]
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679280641"><span class="annot"><span class="annottext">toQuery :: SendBounce -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280634"><span id="local-6989586621679280635"><span id="local-6989586621679280636"><span id="local-6989586621679280637"><span id="local-6989586621679280638"><span id="local-6989586621679280639"><span class="annot"><span class="annottext">[BouncedRecipientInfo]
 Maybe Text
 Maybe MessageDsn
 Text
@@ -453,7 +453,7 @@ $sel:originalMessageId:SendBounce' :: SendBounce -&gt; Text
 $sel:bounceSenderArn:SendBounce' :: SendBounce -&gt; Maybe Text
 $sel:explanation:SendBounce' :: SendBounce -&gt; Maybe Text
 $sel:messageDsn:SendBounce' :: SendBounce -&gt; Maybe MessageDsn
-</span><a href="#local-6989586621679280625"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679280634"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -473,27 +473,27 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;MessageDsn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe MessageDsn -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe MessageDsn
-</span><a href="#local-6989586621679280630"><span class="hs-identifier hs-var">messageDsn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679280639"><span class="hs-identifier hs-var">messageDsn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Explanation&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280629"><span class="hs-identifier hs-var">explanation</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679280638"><span class="hs-identifier hs-var">explanation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;BounceSenderArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280628"><span class="hs-identifier hs-var">bounceSenderArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679280637"><span class="hs-identifier hs-var">bounceSenderArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;OriginalMessageId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280627"><span class="hs-identifier hs-var">originalMessageId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679280636"><span class="hs-identifier hs-var">originalMessageId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;BounceSender&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280626"><span class="hs-identifier hs-var">bounceSender</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679280635"><span class="hs-identifier hs-var">bounceSender</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;BouncedRecipientInfoList&quot;</span></span><span>
 </span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -504,13 +504,13 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[BouncedRecipientInfo]
-</span><a href="#local-6989586621679280625"><span class="hs-identifier hs-var">bouncedRecipientInfoList</span></a></span><span>
+</span><a href="#local-6989586621679280634"><span class="hs-identifier hs-var">bouncedRecipientInfoList</span></a></span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | Represents a unique message ID.</span><span>
 </span><span id="line-215"></span><span class="hs-comment">--</span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- /See:/ 'newSendBounceResponse' smart constructor.</span><span>
-</span><span id="line-217"></span><span id="local-6989586621679280621"><span id="local-6989586621679280622"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendBounceResponse"><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-var">SendBounceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendBounceResponse%27"><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-var">SendBounceResponse'</span></a></span></span><span>
+</span><span id="line-217"></span><span id="local-6989586621679280630"><span id="local-6989586621679280631"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendBounceResponse"><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-var">SendBounceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendBounceResponse%27"><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-var">SendBounceResponse'</span></a></span></span><span>
 </span><span id="line-218"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The message ID of the bounce message.</span><span>
 </span><span id="line-219"></span><span>    </span><span id="%24sel%3AmessageId%3ASendBounceResponse%27"><span class="annot"><span class="annottext">SendBounceResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3AmessageId%3ASendBounceResponse%27"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -518,7 +518,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-221"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASendBounceResponse%27"><span class="annot"><span class="annottext">SendBounceResponse -&gt; Int
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3AhttpStatus%3ASendBounceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-222"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280615"><span id="local-6989586621679280617"><span class="annot"><span class="annottext">SendBounceResponse -&gt; SendBounceResponse -&gt; Bool
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280624"><span id="local-6989586621679280626"><span class="annot"><span class="annottext">SendBounceResponse -&gt; SendBounceResponse -&gt; Bool
 (SendBounceResponse -&gt; SendBounceResponse -&gt; Bool)
 -&gt; (SendBounceResponse -&gt; SendBounceResponse -&gt; Bool)
 -&gt; Eq SendBounceResponse
@@ -527,7 +527,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SendBounceResponse -&gt; SendBounceResponse -&gt; Bool
 == :: SendBounceResponse -&gt; SendBounceResponse -&gt; Bool
 $c== :: SendBounceResponse -&gt; SendBounceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280607"><span id="local-6989586621679280609"><span id="local-6989586621679280611"><span id="local-6989586621679280613"><span class="annot"><span class="annottext">ReadPrec [SendBounceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280616"><span id="local-6989586621679280618"><span id="local-6989586621679280620"><span id="local-6989586621679280622"><span class="annot"><span class="annottext">ReadPrec [SendBounceResponse]
 ReadPrec SendBounceResponse
 Int -&gt; ReadS SendBounceResponse
 ReadS [SendBounceResponse]
@@ -547,7 +547,7 @@ readList :: ReadS [SendBounceResponse]
 $creadList :: ReadS [SendBounceResponse]
 readsPrec :: Int -&gt; ReadS SendBounceResponse
 $creadsPrec :: Int -&gt; ReadS SendBounceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280601"><span id="local-6989586621679280603"><span id="local-6989586621679280605"><span class="annot"><span class="annottext">Int -&gt; SendBounceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280610"><span id="local-6989586621679280612"><span id="local-6989586621679280614"><span class="annot"><span class="annottext">Int -&gt; SendBounceResponse -&gt; ShowS
 [SendBounceResponse] -&gt; ShowS
 SendBounceResponse -&gt; String
 (Int -&gt; SendBounceResponse -&gt; ShowS)
@@ -589,8 +589,8 @@ $cfrom :: forall x. SendBounceResponse -&gt; Rep SendBounceResponse x
 </span><span id="line-238"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-239"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span><span>
 </span><span id="line-240"></span><span id="newSendBounceResponse"><span class="annot"><span class="annottext">newSendBounceResponse :: Int -&gt; SendBounceResponse
-</span><a href="Network.AWS.SES.SendBounce.html#newSendBounceResponse"><span class="hs-identifier hs-var hs-var">newSendBounceResponse</span></a></span></span><span> </span><span id="local-6989586621679280598"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280598"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.SendBounce.html#newSendBounceResponse"><span class="hs-identifier hs-var hs-var">newSendBounceResponse</span></a></span></span><span> </span><span id="local-6989586621679280607"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280607"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-241"></span><span>  </span><span class="annot"><span class="annottext">SendBounceResponse' :: Maybe Text -&gt; Int -&gt; SendBounceResponse
 </span><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-type">SendBounceResponse'</span></a></span><span>
 </span><span id="line-242"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:messageId:SendBounceResponse' :: Maybe Text
@@ -599,7 +599,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SendBounceResponse' :: Int
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3AhttpStatus%3ASendBounceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280598"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679280607"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-244"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | The message ID of the bounce message.</span><span>
@@ -611,16 +611,16 @@ forall a. Maybe a
 -&gt; Lens
      SendBounceResponse SendBounceResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-type">SendBounceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280597"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-type">SendBounceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280606"><span class="annot"><span class="annottext">Maybe Text
 messageId :: Maybe Text
 $sel:messageId:SendBounceResponse' :: SendBounceResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679280597"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280597"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280596"><span class="annot"><span class="annottext">s :: SendBounceResponse
-</span><a href="#local-6989586621679280596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-type">SendBounceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280595"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounceResponse
-</span><a href="#local-6989586621679280596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:SendBounceResponse' :: Maybe Text
+</span><a href="#local-6989586621679280606"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280606"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280605"><span class="annot"><span class="annottext">s :: SendBounceResponse
+</span><a href="#local-6989586621679280605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-type">SendBounceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280604"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounceResponse
+</span><a href="#local-6989586621679280605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:SendBounceResponse' :: Maybe Text
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3AmessageId%3ASendBounceResponse%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-251"></span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#sendBounceResponse_httpStatus"><span class="hs-identifier hs-type">sendBounceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -629,16 +629,16 @@ $sel:messageId:SendBounceResponse' :: SendBounceResponse -&gt; Maybe Text
 -&gt; (SendBounceResponse -&gt; Int -&gt; SendBounceResponse)
 -&gt; Lens SendBounceResponse SendBounceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-type">SendBounceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280594"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-type">SendBounceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280603"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SendBounceResponse' :: SendBounceResponse -&gt; Int
-</span><a href="#local-6989586621679280594"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280594"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280593"><span class="annot"><span class="annottext">s :: SendBounceResponse
-</span><a href="#local-6989586621679280593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-type">SendBounceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280592"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounceResponse
-</span><a href="#local-6989586621679280593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendBounceResponse' :: Int
+</span><a href="#local-6989586621679280603"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280603"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280602"><span class="annot"><span class="annottext">s :: SendBounceResponse
+</span><a href="#local-6989586621679280602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-type">SendBounceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280601"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounceResponse
+</span><a href="#local-6989586621679280602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendBounceResponse' :: Int
 </span><a href="Network.AWS.SES.SendBounce.html#%24sel%3AhttpStatus%3ASendBounceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span></span><span>
 </span><span id="line-255"></span></pre></body></html>

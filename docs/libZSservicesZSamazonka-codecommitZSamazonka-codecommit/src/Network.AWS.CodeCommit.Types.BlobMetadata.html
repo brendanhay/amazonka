@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Returns information about a specific Git blob object.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBlobMetadata' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679347867"><span id="local-6989586621679347868"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlobMetadata"><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-var">BlobMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlobMetadata%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-var">BlobMetadata'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679347876"><span id="local-6989586621679347877"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlobMetadata"><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-var">BlobMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlobMetadata%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-var">BlobMetadata'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path to the blob and associated file name, if any.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Apath%3ABlobMetadata%27"><span class="annot"><span class="annottext">BlobMetadata -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#%24sel%3Apath%3ABlobMetadata%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AblobId%3ABlobMetadata%27"><span class="annot"><span class="annottext">BlobMetadata -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#%24sel%3AblobId%3ABlobMetadata%27"><span class="hs-identifier hs-var hs-var">blobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347859"><span id="local-6989586621679347861"><span class="annot"><span class="annottext">BlobMetadata -&gt; BlobMetadata -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347868"><span id="local-6989586621679347870"><span class="annot"><span class="annottext">BlobMetadata -&gt; BlobMetadata -&gt; Bool
 (BlobMetadata -&gt; BlobMetadata -&gt; Bool)
 -&gt; (BlobMetadata -&gt; BlobMetadata -&gt; Bool) -&gt; Eq BlobMetadata
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BlobMetadata -&gt; BlobMetadata -&gt; Bool
 == :: BlobMetadata -&gt; BlobMetadata -&gt; Bool
 $c== :: BlobMetadata -&gt; BlobMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347850"><span id="local-6989586621679347852"><span id="local-6989586621679347854"><span id="local-6989586621679347856"><span class="annot"><span class="annottext">ReadPrec [BlobMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347859"><span id="local-6989586621679347861"><span id="local-6989586621679347863"><span id="local-6989586621679347865"><span class="annot"><span class="annottext">ReadPrec [BlobMetadata]
 ReadPrec BlobMetadata
 Int -&gt; ReadS BlobMetadata
 ReadS [BlobMetadata]
@@ -74,7 +74,7 @@ readList :: ReadS [BlobMetadata]
 $creadList :: ReadS [BlobMetadata]
 readsPrec :: Int -&gt; ReadS BlobMetadata
 $creadsPrec :: Int -&gt; ReadS BlobMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347843"><span id="local-6989586621679347845"><span id="local-6989586621679347847"><span class="annot"><span class="annottext">Int -&gt; BlobMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347852"><span id="local-6989586621679347854"><span id="local-6989586621679347856"><span class="annot"><span class="annottext">Int -&gt; BlobMetadata -&gt; ShowS
 [BlobMetadata] -&gt; ShowS
 BlobMetadata -&gt; String
 (Int -&gt; BlobMetadata -&gt; ShowS)
@@ -149,16 +149,16 @@ forall a. Maybe a
 -&gt; (BlobMetadata -&gt; Maybe Text -&gt; BlobMetadata)
 -&gt; Lens BlobMetadata BlobMetadata (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-type">BlobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347834"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-type">BlobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347843"><span class="annot"><span class="annottext">Maybe Text
 path :: Maybe Text
 $sel:path:BlobMetadata' :: BlobMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679347834"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347834"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347833"><span class="annot"><span class="annottext">s :: BlobMetadata
-</span><a href="#local-6989586621679347833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-type">BlobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347832"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlobMetadata
-</span><a href="#local-6989586621679347833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:BlobMetadata' :: Maybe Text
+</span><a href="#local-6989586621679347843"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347843"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347842"><span class="annot"><span class="annottext">s :: BlobMetadata
+</span><a href="#local-6989586621679347842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-type">BlobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347841"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlobMetadata
+</span><a href="#local-6989586621679347842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:BlobMetadata' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#%24sel%3Apath%3ABlobMetadata%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-type">BlobMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-type">BlobMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The file mode permissions of the blob. File mode permission codes</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- include:</span><span>
@@ -176,16 +176,16 @@ $sel:path:BlobMetadata' :: BlobMetadata -&gt; Maybe Text
 -&gt; (BlobMetadata -&gt; Maybe Text -&gt; BlobMetadata)
 -&gt; Lens BlobMetadata BlobMetadata (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-type">BlobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347830"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-type">BlobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347839"><span class="annot"><span class="annottext">Maybe Text
 mode :: Maybe Text
 $sel:mode:BlobMetadata' :: BlobMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679347830"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347830"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347829"><span class="annot"><span class="annottext">s :: BlobMetadata
-</span><a href="#local-6989586621679347829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-type">BlobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347828"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlobMetadata
-</span><a href="#local-6989586621679347829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:BlobMetadata' :: Maybe Text
+</span><a href="#local-6989586621679347839"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347839"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347838"><span class="annot"><span class="annottext">s :: BlobMetadata
+</span><a href="#local-6989586621679347838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-type">BlobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347837"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlobMetadata
+</span><a href="#local-6989586621679347838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:BlobMetadata' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#%24sel%3Amode%3ABlobMetadata%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-type">BlobMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-type">BlobMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The full ID of the blob.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#blobMetadata_blobId"><span class="hs-identifier hs-type">blobMetadata_blobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-type">BlobMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -194,19 +194,19 @@ $sel:mode:BlobMetadata' :: BlobMetadata -&gt; Maybe Text
 -&gt; (BlobMetadata -&gt; Maybe Text -&gt; BlobMetadata)
 -&gt; Lens BlobMetadata BlobMetadata (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-type">BlobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347826"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-type">BlobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347835"><span class="annot"><span class="annottext">Maybe Text
 blobId :: Maybe Text
 $sel:blobId:BlobMetadata' :: BlobMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679347826"><span class="hs-identifier hs-var hs-var">blobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347826"><span class="hs-identifier hs-var">blobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347825"><span class="annot"><span class="annottext">s :: BlobMetadata
-</span><a href="#local-6989586621679347825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-type">BlobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347824"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlobMetadata
-</span><a href="#local-6989586621679347825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blobId:BlobMetadata' :: Maybe Text
+</span><a href="#local-6989586621679347835"><span class="hs-identifier hs-var hs-var">blobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347835"><span class="hs-identifier hs-var">blobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347834"><span class="annot"><span class="annottext">s :: BlobMetadata
+</span><a href="#local-6989586621679347834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-type">BlobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347833"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlobMetadata
+</span><a href="#local-6989586621679347834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blobId:BlobMetadata' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#%24sel%3AblobId%3ABlobMetadata%27"><span class="hs-identifier hs-var">blobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-type">BlobMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-type">BlobMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347821"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-type">BlobMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679347819"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BlobMetadata
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347830"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-type">BlobMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679347828"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BlobMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BlobMetadata) -&gt; Value -&gt; Parser BlobMetadata
@@ -214,8 +214,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BlobMetadata&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347816"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347816"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347825"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679347825"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; BlobMetadata
 </span><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata%27"><span class="hs-identifier hs-var">BlobMetadata'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; BlobMetadata)
@@ -223,7 +223,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; BlobMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679347825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;path&quot;</span></span><span class="hs-special">)</span><span>
@@ -231,7 +231,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; BlobMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679347825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mode&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,13 +239,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser BlobMetadata
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679347825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;blobId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347810"><span id="local-6989586621679347812"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-type">BlobMetadata</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347819"><span id="local-6989586621679347821"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-type">BlobMetadata</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-type">BlobMetadata</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347816"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BlobMetadata.html#BlobMetadata"><span class="hs-identifier hs-type">BlobMetadata</span></a></span></span><span>
 </span><span id="line-114"></span></pre></body></html>

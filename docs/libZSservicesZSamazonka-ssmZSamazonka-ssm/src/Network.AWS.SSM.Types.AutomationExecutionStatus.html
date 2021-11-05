@@ -45,13 +45,13 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-47"></span><span>
-</span><span id="line-48"></span><span id="local-6989586621679789024"><span id="local-6989586621679789025"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutomationExecutionStatus"><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionStatus.html#AutomationExecutionStatus"><span class="hs-identifier hs-var">AutomationExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomationExecutionStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionStatus.html#AutomationExecutionStatus%27"><span class="hs-identifier hs-var">AutomationExecutionStatus'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679789033"><span id="local-6989586621679789034"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutomationExecutionStatus"><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionStatus.html#AutomationExecutionStatus"><span class="hs-identifier hs-var">AutomationExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomationExecutionStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionStatus.html#AutomationExecutionStatus%27"><span class="hs-identifier hs-var">AutomationExecutionStatus'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutomationExecutionStatus"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; Text
 </span><a href="Network.AWS.SSM.Types.AutomationExecutionStatus.html#fromAutomationExecutionStatus"><span class="hs-identifier hs-var hs-var">fromAutomationExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679789016"><span id="local-6989586621679789018"><span id="local-6989586621679789020"><span class="annot"><span class="annottext">Int -&gt; AutomationExecutionStatus -&gt; ShowS
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679789025"><span id="local-6989586621679789027"><span id="local-6989586621679789029"><span class="annot"><span class="annottext">Int -&gt; AutomationExecutionStatus -&gt; ShowS
 [AutomationExecutionStatus] -&gt; ShowS
 AutomationExecutionStatus -&gt; String
 (Int -&gt; AutomationExecutionStatus -&gt; ShowS)
@@ -67,7 +67,7 @@ $cshow :: AutomationExecutionStatus -&gt; String
 showsPrec :: Int -&gt; AutomationExecutionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutomationExecutionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679789007"><span id="local-6989586621679789009"><span id="local-6989586621679789011"><span id="local-6989586621679789013"><span class="annot"><span class="annottext">ReadPrec [AutomationExecutionStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679789016"><span id="local-6989586621679789018"><span id="local-6989586621679789020"><span id="local-6989586621679789022"><span class="annot"><span class="annottext">ReadPrec [AutomationExecutionStatus]
 ReadPrec AutomationExecutionStatus
 Int -&gt; ReadS AutomationExecutionStatus
 ReadS [AutomationExecutionStatus]
@@ -88,7 +88,7 @@ $creadList :: ReadS [AutomationExecutionStatus]
 readsPrec :: Int -&gt; ReadS AutomationExecutionStatus
 $creadsPrec :: Int -&gt; ReadS AutomationExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679789002"><span id="local-6989586621679789004"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; AutomationExecutionStatus -&gt; Bool
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679789011"><span id="local-6989586621679789013"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; AutomationExecutionStatus -&gt; Bool
 (AutomationExecutionStatus -&gt; AutomationExecutionStatus -&gt; Bool)
 -&gt; (AutomationExecutionStatus -&gt; AutomationExecutionStatus -&gt; Bool)
 -&gt; Eq AutomationExecutionStatus
@@ -98,7 +98,7 @@ $c/= :: AutomationExecutionStatus -&gt; AutomationExecutionStatus -&gt; Bool
 == :: AutomationExecutionStatus -&gt; AutomationExecutionStatus -&gt; Bool
 $c== :: AutomationExecutionStatus -&gt; AutomationExecutionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679788986"><span id="local-6989586621679788988"><span id="local-6989586621679788990"><span id="local-6989586621679788992"><span id="local-6989586621679788994"><span id="local-6989586621679788996"><span id="local-6989586621679788998"><span class="annot"><span class="annottext">Eq AutomationExecutionStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679788995"><span id="local-6989586621679788997"><span id="local-6989586621679788999"><span id="local-6989586621679789001"><span id="local-6989586621679789003"><span id="local-6989586621679789005"><span id="local-6989586621679789007"><span class="annot"><span class="annottext">Eq AutomationExecutionStatus
 Eq AutomationExecutionStatus
 -&gt; (AutomationExecutionStatus
     -&gt; AutomationExecutionStatus -&gt; Ordering)
@@ -163,7 +163,7 @@ AutomationExecutionStatus -&gt; Rep AutomationExecutionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679788978"><span id="local-6989586621679788980"><span class="annot"><span class="annottext">Int -&gt; AutomationExecutionStatus -&gt; Int
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679788987"><span id="local-6989586621679788989"><span class="annot"><span class="annottext">Int -&gt; AutomationExecutionStatus -&gt; Int
 AutomationExecutionStatus -&gt; Int
 (Int -&gt; AutomationExecutionStatus -&gt; Int)
 -&gt; (AutomationExecutionStatus -&gt; Int)
@@ -174,56 +174,56 @@ $chash :: AutomationExecutionStatus -&gt; Int
 hashWithSalt :: Int -&gt; AutomationExecutionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AutomationExecutionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679788975"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; ()
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679788984"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; ()
 (AutomationExecutionStatus -&gt; ())
 -&gt; NFData AutomationExecutionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutomationExecutionStatus -&gt; ()
 $crnf :: AutomationExecutionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679788972"><span class="annot"><span class="annottext">Text -&gt; Either String AutomationExecutionStatus
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679788981"><span class="annot"><span class="annottext">Text -&gt; Either String AutomationExecutionStatus
 (Text -&gt; Either String AutomationExecutionStatus)
 -&gt; FromText AutomationExecutionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutomationExecutionStatus
 $cfromText :: Text -&gt; Either String AutomationExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679788969"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; Text
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679788978"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; Text
 (AutomationExecutionStatus -&gt; Text)
 -&gt; ToText AutomationExecutionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutomationExecutionStatus -&gt; Text
 $ctoText :: AutomationExecutionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679788966"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; ByteString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679788975"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; ByteString
 (AutomationExecutionStatus -&gt; ByteString)
 -&gt; ToByteString AutomationExecutionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutomationExecutionStatus -&gt; ByteString
 $ctoBS :: AutomationExecutionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679788963"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; ByteStringBuilder
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679788972"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; ByteStringBuilder
 (AutomationExecutionStatus -&gt; ByteStringBuilder)
 -&gt; ToLog AutomationExecutionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutomationExecutionStatus -&gt; ByteStringBuilder
 $cbuild :: AutomationExecutionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679788960"><span class="annot"><span class="annottext">HeaderName -&gt; AutomationExecutionStatus -&gt; [Header]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679788969"><span class="annot"><span class="annottext">HeaderName -&gt; AutomationExecutionStatus -&gt; [Header]
 (HeaderName -&gt; AutomationExecutionStatus -&gt; [Header])
 -&gt; ToHeader AutomationExecutionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutomationExecutionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutomationExecutionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679788957"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; QueryString
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679788966"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; QueryString
 (AutomationExecutionStatus -&gt; QueryString)
 -&gt; ToQuery AutomationExecutionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutomationExecutionStatus -&gt; QueryString
 $ctoQuery :: AutomationExecutionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679788952"><span id="local-6989586621679788954"><span class="annot"><span class="annottext">Value -&gt; Parser [AutomationExecutionStatus]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679788961"><span id="local-6989586621679788963"><span class="annot"><span class="annottext">Value -&gt; Parser [AutomationExecutionStatus]
 Value -&gt; Parser AutomationExecutionStatus
 (Value -&gt; Parser AutomationExecutionStatus)
 -&gt; (Value -&gt; Parser [AutomationExecutionStatus])
@@ -235,7 +235,7 @@ $cparseJSONList :: Value -&gt; Parser [AutomationExecutionStatus]
 parseJSON :: Value -&gt; Parser AutomationExecutionStatus
 $cparseJSON :: Value -&gt; Parser AutomationExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679788947"><span id="local-6989586621679788949"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutomationExecutionStatus]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679788956"><span id="local-6989586621679788958"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutomationExecutionStatus]
 FromJSONKeyFunction AutomationExecutionStatus
 FromJSONKeyFunction AutomationExecutionStatus
 -&gt; FromJSONKeyFunction [AutomationExecutionStatus]
@@ -247,7 +247,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutomationExecutionStatus]
 fromJSONKey :: FromJSONKeyFunction AutomationExecutionStatus
 $cfromJSONKey :: FromJSONKeyFunction AutomationExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679788938"><span id="local-6989586621679788940"><span id="local-6989586621679788942"><span id="local-6989586621679788944"><span class="annot"><span class="annottext">[AutomationExecutionStatus] -&gt; Encoding
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679788947"><span id="local-6989586621679788949"><span id="local-6989586621679788951"><span id="local-6989586621679788953"><span class="annot"><span class="annottext">[AutomationExecutionStatus] -&gt; Encoding
 [AutomationExecutionStatus] -&gt; Value
 AutomationExecutionStatus -&gt; Encoding
 AutomationExecutionStatus -&gt; Value
@@ -271,7 +271,7 @@ $ctoEncoding :: AutomationExecutionStatus -&gt; Encoding
 toJSON :: AutomationExecutionStatus -&gt; Value
 $ctoJSON :: AutomationExecutionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679788933"><span id="local-6989586621679788935"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutomationExecutionStatus]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679788942"><span id="local-6989586621679788944"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutomationExecutionStatus]
 ToJSONKeyFunction AutomationExecutionStatus
 ToJSONKeyFunction AutomationExecutionStatus
 -&gt; ToJSONKeyFunction [AutomationExecutionStatus]
@@ -283,14 +283,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutomationExecutionStatus]
 toJSONKey :: ToJSONKeyFunction AutomationExecutionStatus
 $ctoJSONKey :: ToJSONKeyFunction AutomationExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679788930"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutomationExecutionStatus
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679788939"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutomationExecutionStatus
 ([Node] -&gt; Either String AutomationExecutionStatus)
 -&gt; FromXML AutomationExecutionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutomationExecutionStatus
 $cparseXML :: [Node] -&gt; Either String AutomationExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679788927"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; XML
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679788936"><span class="annot"><span class="annottext">AutomationExecutionStatus -&gt; XML
 (AutomationExecutionStatus -&gt; XML)
 -&gt; ToXML AutomationExecutionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

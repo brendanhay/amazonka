@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.html"><span class="hs-identifier">Network.AWS.WAF.Types</span></a></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newListRules' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679311754"><span id="local-6989586621679311755"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRules"><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-var">ListRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRules%27"><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules%27"><span class="hs-identifier hs-var">ListRules'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679311763"><span id="local-6989586621679311764"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRules"><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-var">ListRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRules%27"><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules%27"><span class="hs-identifier hs-var">ListRules'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you specify a value for @Limit@ and you have more @Rules@ than the</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- value of @Limit@, AWS WAF returns a @NextMarker@ value in the response</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- that allows you to list another group of @Rules@. For the second and</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3Alimit%3AListRules%27"><span class="annot"><span class="annottext">ListRules -&gt; Maybe Natural
 </span><a href="Network.AWS.WAF.ListRules.html#%24sel%3Alimit%3AListRules%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311747"><span id="local-6989586621679311749"><span class="annot"><span class="annottext">ListRules -&gt; ListRules -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311756"><span id="local-6989586621679311758"><span class="annot"><span class="annottext">ListRules -&gt; ListRules -&gt; Bool
 (ListRules -&gt; ListRules -&gt; Bool)
 -&gt; (ListRules -&gt; ListRules -&gt; Bool) -&gt; Eq ListRules
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRules -&gt; ListRules -&gt; Bool
 == :: ListRules -&gt; ListRules -&gt; Bool
 $c== :: ListRules -&gt; ListRules -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311738"><span id="local-6989586621679311740"><span id="local-6989586621679311742"><span id="local-6989586621679311744"><span class="annot"><span class="annottext">ReadPrec [ListRules]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311747"><span id="local-6989586621679311749"><span id="local-6989586621679311751"><span id="local-6989586621679311753"><span class="annot"><span class="annottext">ReadPrec [ListRules]
 ReadPrec ListRules
 Int -&gt; ReadS ListRules
 ReadS [ListRules]
@@ -103,7 +103,7 @@ readList :: ReadS [ListRules]
 $creadList :: ReadS [ListRules]
 readsPrec :: Int -&gt; ReadS ListRules
 $creadsPrec :: Int -&gt; ReadS ListRules
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311731"><span id="local-6989586621679311733"><span id="local-6989586621679311735"><span class="annot"><span class="annottext">Int -&gt; ListRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311740"><span id="local-6989586621679311742"><span id="local-6989586621679311744"><span class="annot"><span class="annottext">Int -&gt; ListRules -&gt; ShowS
 [ListRules] -&gt; ShowS
 ListRules -&gt; String
 (Int -&gt; ListRules -&gt; ShowS)
@@ -173,16 +173,16 @@ forall a. Maybe a
 -&gt; (ListRules -&gt; Maybe Text -&gt; ListRules)
 -&gt; Lens ListRules ListRules (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311725"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311734"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListRules' :: ListRules -&gt; Maybe Text
-</span><a href="#local-6989586621679311725"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311725"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311724"><span class="annot"><span class="annottext">s :: ListRules
-</span><a href="#local-6989586621679311724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311723"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRules
-</span><a href="#local-6989586621679311724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListRules' :: Maybe Text
+</span><a href="#local-6989586621679311734"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311734"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311733"><span class="annot"><span class="annottext">s :: ListRules
+</span><a href="#local-6989586621679311733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311732"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRules
+</span><a href="#local-6989586621679311733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListRules' :: Maybe Text
 </span><a href="Network.AWS.WAF.ListRules.html#%24sel%3AnextMarker%3AListRules%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | Specifies the number of @Rules@ that you want AWS WAF to return for this</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- request. If you have more @Rules@ than the number that you specify for</span><span>
@@ -194,28 +194,28 @@ $sel:nextMarker:ListRules' :: ListRules -&gt; Maybe Text
 -&gt; (ListRules -&gt; Maybe Natural -&gt; ListRules)
 -&gt; Lens ListRules ListRules (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311722"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311731"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListRules' :: ListRules -&gt; Maybe Natural
-</span><a href="#local-6989586621679311722"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679311722"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311721"><span class="annot"><span class="annottext">s :: ListRules
-</span><a href="#local-6989586621679311721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311720"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679311720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRules
-</span><a href="#local-6989586621679311721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListRules' :: Maybe Natural
+</span><a href="#local-6989586621679311731"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679311731"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311730"><span class="annot"><span class="annottext">s :: ListRules
+</span><a href="#local-6989586621679311730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311729"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679311729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRules
+</span><a href="#local-6989586621679311730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListRules' :: Maybe Natural
 </span><a href="Network.AWS.WAF.ListRules.html#%24sel%3Alimit%3AListRules%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679311720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679311716"><span class="annot"><span class="annottext">page :: ListRules -&gt; AWSResponse ListRules -&gt; Maybe ListRules
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679311714"><span class="annot"><span class="annottext">ListRules
-</span><a href="#local-6989586621679311714"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679311713"><span class="annot"><span class="annottext">AWSResponse ListRules
-</span><a href="#local-6989586621679311713"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679311725"><span class="annot"><span class="annottext">page :: ListRules -&gt; AWSResponse ListRules -&gt; Maybe ListRules
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679311723"><span class="annot"><span class="annottext">ListRules
+</span><a href="#local-6989586621679311723"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679311722"><span class="annot"><span class="annottext">AWSResponse ListRules
+</span><a href="#local-6989586621679311722"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-122"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRules
 ListRulesResponse
-</span><a href="#local-6989586621679311713"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679311722"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">ListRulesResponse
 -&gt; Getting (First Text) ListRulesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -241,7 +241,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-127"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRules
 ListRulesResponse
-</span><a href="#local-6989586621679311713"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679311722"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">ListRulesResponse
 -&gt; Getting (First [RuleSummary]) ListRulesResponse [RuleSummary]
 -&gt; Maybe [RuleSummary]
@@ -277,7 +277,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ListRules
-</span><a href="#local-6989586621679311714"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679311723"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">ListRules -&gt; (ListRules -&gt; ListRules) -&gt; ListRules
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -290,7 +290,7 @@ Lens ListRules ListRules (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRules
 ListRulesResponse
-</span><a href="#local-6989586621679311713"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679311722"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">ListRulesResponse
 -&gt; Getting (First Text) ListRulesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -310,12 +310,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679311703"><span class="annot"><span class="annottext">request :: ListRules -&gt; Request ListRules
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679311712"><span class="annot"><span class="annottext">request :: ListRules -&gt; Request ListRules
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListRules -&gt; Request ListRules
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAF.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679311699"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679311708"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListRules
 -&gt; ClientResponse ClientBody
@@ -339,10 +339,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311696"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311696"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311695"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679311695"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311694"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311694"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311705"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311705"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311704"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679311704"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311703"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311703"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RuleSummary] -&gt; Maybe Text -&gt; Int -&gt; ListRulesResponse
 </span><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-var">ListRulesResponse'</span></a></span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [RuleSummary] -&gt; Maybe Text -&gt; Int -&gt; ListRulesResponse)
@@ -350,7 +350,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListRulesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RuleSummary]))
+</span><a href="#local-6989586621679311703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RuleSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RuleSummary]))
@@ -364,7 +364,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListRulesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679311703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -376,15 +376,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311696"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311705"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311685"><span id="local-6989586621679311687"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311694"><span id="local-6989586621679311696"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311682"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311691"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679311678"><span class="annot"><span class="annottext">toHeaders :: ListRules -&gt; ResponseHeaders
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679311687"><span class="annot"><span class="annottext">toHeaders :: ListRules -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListRules -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -409,15 +409,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311668"><span id="local-6989586621679311670"><span id="local-6989586621679311672"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679311666"><span class="annot"><span class="annottext">toJSON :: ListRules -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311663"><span id="local-6989586621679311664"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311677"><span id="local-6989586621679311679"><span id="local-6989586621679311681"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679311675"><span class="annot"><span class="annottext">toJSON :: ListRules -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311672"><span id="local-6989586621679311673"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 limit :: Maybe Natural
 nextMarker :: Maybe Text
 $sel:limit:ListRules' :: ListRules -&gt; Maybe Natural
 $sel:nextMarker:ListRules' :: ListRules -&gt; Maybe Text
-</span><a href="#local-6989586621679311663"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679311672"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -429,26 +429,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311664"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311673"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679311663"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679311672"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679311657"><span class="annot"><span class="annottext">toPath :: ListRules -&gt; ByteString
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679311666"><span class="annot"><span class="annottext">toPath :: ListRules -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListRules -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679311653"><span class="annot"><span class="annottext">toQuery :: ListRules -&gt; QueryString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679311662"><span class="annot"><span class="annottext">toQuery :: ListRules -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListRules -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -456,7 +456,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newListRulesResponse' smart constructor.</span><span>
-</span><span id="line-183"></span><span id="local-6989586621679311650"><span id="local-6989586621679311651"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRulesResponse"><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-var">ListRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRulesResponse%27"><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-var">ListRulesResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span id="local-6989586621679311659"><span id="local-6989586621679311660"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRulesResponse"><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-var">ListRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRulesResponse%27"><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-var">ListRulesResponse'</span></a></span></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of RuleSummary objects.</span><span>
 </span><span id="line-185"></span><span>    </span><span id="%24sel%3Arules%3AListRulesResponse%27"><span class="annot"><span class="annottext">ListRulesResponse -&gt; Maybe [RuleSummary]
 </span><a href="Network.AWS.WAF.ListRules.html#%24sel%3Arules%3AListRulesResponse%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAF.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-type">RuleSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -471,7 +471,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-193"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListRulesResponse%27"><span class="annot"><span class="annottext">ListRulesResponse -&gt; Int
 </span><a href="Network.AWS.WAF.ListRules.html#%24sel%3AhttpStatus%3AListRulesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311643"><span id="local-6989586621679311645"><span class="annot"><span class="annottext">ListRulesResponse -&gt; ListRulesResponse -&gt; Bool
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311652"><span id="local-6989586621679311654"><span class="annot"><span class="annottext">ListRulesResponse -&gt; ListRulesResponse -&gt; Bool
 (ListRulesResponse -&gt; ListRulesResponse -&gt; Bool)
 -&gt; (ListRulesResponse -&gt; ListRulesResponse -&gt; Bool)
 -&gt; Eq ListRulesResponse
@@ -480,7 +480,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRulesResponse -&gt; ListRulesResponse -&gt; Bool
 == :: ListRulesResponse -&gt; ListRulesResponse -&gt; Bool
 $c== :: ListRulesResponse -&gt; ListRulesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311635"><span id="local-6989586621679311637"><span id="local-6989586621679311639"><span id="local-6989586621679311641"><span class="annot"><span class="annottext">ReadPrec [ListRulesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311644"><span id="local-6989586621679311646"><span id="local-6989586621679311648"><span id="local-6989586621679311650"><span class="annot"><span class="annottext">ReadPrec [ListRulesResponse]
 ReadPrec ListRulesResponse
 Int -&gt; ReadS ListRulesResponse
 ReadS [ListRulesResponse]
@@ -500,7 +500,7 @@ readList :: ReadS [ListRulesResponse]
 $creadList :: ReadS [ListRulesResponse]
 readsPrec :: Int -&gt; ReadS ListRulesResponse
 $creadsPrec :: Int -&gt; ReadS ListRulesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311629"><span id="local-6989586621679311631"><span id="local-6989586621679311633"><span class="annot"><span class="annottext">Int -&gt; ListRulesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311638"><span id="local-6989586621679311640"><span id="local-6989586621679311642"><span class="annot"><span class="annottext">Int -&gt; ListRulesResponse -&gt; ShowS
 [ListRulesResponse] -&gt; ShowS
 ListRulesResponse -&gt; String
 (Int -&gt; ListRulesResponse -&gt; ShowS)
@@ -548,8 +548,8 @@ $cfrom :: forall x. ListRulesResponse -&gt; Rep ListRulesResponse x
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span>
 </span><span id="line-218"></span><span id="newListRulesResponse"><span class="annot"><span class="annottext">newListRulesResponse :: Int -&gt; ListRulesResponse
-</span><a href="Network.AWS.WAF.ListRules.html#newListRulesResponse"><span class="hs-identifier hs-var hs-var">newListRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679311626"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311626"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.ListRules.html#newListRulesResponse"><span class="hs-identifier hs-var hs-var">newListRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679311635"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311635"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">ListRulesResponse' :: Maybe [RuleSummary] -&gt; Maybe Text -&gt; Int -&gt; ListRulesResponse
 </span><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rules:ListRulesResponse' :: Maybe [RuleSummary]
@@ -562,7 +562,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListRulesResponse' :: Int
 </span><a href="Network.AWS.WAF.ListRules.html#%24sel%3AhttpStatus%3AListRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311626"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679311635"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-223"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | An array of RuleSummary objects.</span><span>
@@ -573,16 +573,16 @@ forall a. Maybe a
 -&gt; (ListRulesResponse -&gt; Maybe [RuleSummary] -&gt; ListRulesResponse)
 -&gt; Lens' ListRulesResponse (Maybe [RuleSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311625"><span class="annot"><span class="annottext">Maybe [RuleSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311634"><span class="annot"><span class="annottext">Maybe [RuleSummary]
 rules :: Maybe [RuleSummary]
 $sel:rules:ListRulesResponse' :: ListRulesResponse -&gt; Maybe [RuleSummary]
-</span><a href="#local-6989586621679311625"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RuleSummary]
-</span><a href="#local-6989586621679311625"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311624"><span class="annot"><span class="annottext">s :: ListRulesResponse
-</span><a href="#local-6989586621679311624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311623"><span class="annot"><span class="annottext">Maybe [RuleSummary]
-</span><a href="#local-6989586621679311623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesResponse
-</span><a href="#local-6989586621679311624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:ListRulesResponse' :: Maybe [RuleSummary]
+</span><a href="#local-6989586621679311634"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RuleSummary]
+</span><a href="#local-6989586621679311634"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311633"><span class="annot"><span class="annottext">s :: ListRulesResponse
+</span><a href="#local-6989586621679311633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311632"><span class="annot"><span class="annottext">Maybe [RuleSummary]
+</span><a href="#local-6989586621679311632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesResponse
+</span><a href="#local-6989586621679311633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:ListRulesResponse' :: Maybe [RuleSummary]
 </span><a href="Network.AWS.WAF.ListRules.html#%24sel%3Arules%3AListRulesResponse%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RuleSummary]
-</span><a href="#local-6989586621679311623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RuleSummary] -&gt; f (Maybe [RuleSummary]))
+</span><a href="#local-6989586621679311632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RuleSummary] -&gt; f (Maybe [RuleSummary]))
  -&gt; ListRulesResponse -&gt; f ListRulesResponse)
 -&gt; ((Maybe [RuleSummary] -&gt; f (Maybe [RuleSummary]))
     -&gt; Maybe [RuleSummary] -&gt; f (Maybe [RuleSummary]))
@@ -615,16 +615,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListRulesResponse -&gt; Maybe Text -&gt; ListRulesResponse)
 -&gt; Lens' ListRulesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311620"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311629"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListRulesResponse' :: ListRulesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679311620"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311620"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311619"><span class="annot"><span class="annottext">s :: ListRulesResponse
-</span><a href="#local-6989586621679311619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311618"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesResponse
-</span><a href="#local-6989586621679311619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListRulesResponse' :: Maybe Text
+</span><a href="#local-6989586621679311629"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311629"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311628"><span class="annot"><span class="annottext">s :: ListRulesResponse
+</span><a href="#local-6989586621679311628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311627"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesResponse
+</span><a href="#local-6989586621679311628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListRulesResponse' :: Maybe Text
 </span><a href="Network.AWS.WAF.ListRules.html#%24sel%3AnextMarker%3AListRulesResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-238"></span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#listRulesResponse_httpStatus"><span class="hs-identifier hs-type">listRulesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -633,16 +633,16 @@ $sel:nextMarker:ListRulesResponse' :: ListRulesResponse -&gt; Maybe Text
 -&gt; (ListRulesResponse -&gt; Int -&gt; ListRulesResponse)
 -&gt; Lens ListRulesResponse ListRulesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311617"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311626"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListRulesResponse' :: ListRulesResponse -&gt; Int
-</span><a href="#local-6989586621679311617"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311617"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311616"><span class="annot"><span class="annottext">s :: ListRulesResponse
-</span><a href="#local-6989586621679311616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311615"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesResponse
-</span><a href="#local-6989586621679311616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRulesResponse' :: Int
+</span><a href="#local-6989586621679311626"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311626"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311625"><span class="annot"><span class="annottext">s :: ListRulesResponse
+</span><a href="#local-6989586621679311625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311624"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesResponse
+</span><a href="#local-6989586621679311625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRulesResponse' :: Int
 </span><a href="Network.AWS.WAF.ListRules.html#%24sel%3AhttpStatus%3AListRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span></span><span>
 </span><span id="line-242"></span></pre></body></html>

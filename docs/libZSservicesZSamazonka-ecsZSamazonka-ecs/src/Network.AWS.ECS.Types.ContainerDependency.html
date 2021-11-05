@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-comment">-- the task or service uses platform version 1.3.0 or later.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newContainerDependency' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679449908"><span id="local-6989586621679449909"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerDependency"><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-var">ContainerDependency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerDependency%27"><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency%27"><span class="hs-identifier hs-var">ContainerDependency'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679449917"><span id="local-6989586621679449918"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerDependency"><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-var">ContainerDependency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerDependency%27"><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency%27"><span class="hs-identifier hs-var">ContainerDependency'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a container.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AcontainerName%3AContainerDependency%27"><span class="annot"><span class="annottext">ContainerDependency -&gt; Text
 </span><a href="Network.AWS.ECS.Types.ContainerDependency.html#%24sel%3AcontainerName%3AContainerDependency%27"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3Acondition%3AContainerDependency%27"><span class="annot"><span class="annottext">ContainerDependency -&gt; ContainerCondition
 </span><a href="Network.AWS.ECS.Types.ContainerDependency.html#%24sel%3Acondition%3AContainerDependency%27"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerCondition.html#ContainerCondition"><span class="hs-identifier hs-type">ContainerCondition</span></a></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449901"><span id="local-6989586621679449903"><span class="annot"><span class="annottext">ContainerDependency -&gt; ContainerDependency -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449910"><span id="local-6989586621679449912"><span class="annot"><span class="annottext">ContainerDependency -&gt; ContainerDependency -&gt; Bool
 (ContainerDependency -&gt; ContainerDependency -&gt; Bool)
 -&gt; (ContainerDependency -&gt; ContainerDependency -&gt; Bool)
 -&gt; Eq ContainerDependency
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContainerDependency -&gt; ContainerDependency -&gt; Bool
 == :: ContainerDependency -&gt; ContainerDependency -&gt; Bool
 $c== :: ContainerDependency -&gt; ContainerDependency -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449892"><span id="local-6989586621679449894"><span id="local-6989586621679449896"><span id="local-6989586621679449898"><span class="annot"><span class="annottext">ReadPrec [ContainerDependency]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449901"><span id="local-6989586621679449903"><span id="local-6989586621679449905"><span id="local-6989586621679449907"><span class="annot"><span class="annottext">ReadPrec [ContainerDependency]
 ReadPrec ContainerDependency
 Int -&gt; ReadS ContainerDependency
 ReadS [ContainerDependency]
@@ -104,7 +104,7 @@ readList :: ReadS [ContainerDependency]
 $creadList :: ReadS [ContainerDependency]
 readsPrec :: Int -&gt; ReadS ContainerDependency
 $creadsPrec :: Int -&gt; ReadS ContainerDependency
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449885"><span id="local-6989586621679449887"><span id="local-6989586621679449889"><span class="annot"><span class="annottext">Int -&gt; ContainerDependency -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449894"><span id="local-6989586621679449896"><span id="local-6989586621679449898"><span class="annot"><span class="annottext">Int -&gt; ContainerDependency -&gt; ShowS
 [ContainerDependency] -&gt; ShowS
 ContainerDependency -&gt; String
 (Int -&gt; ContainerDependency -&gt; ShowS)
@@ -168,18 +168,18 @@ $cfrom :: forall x. ContainerDependency -&gt; Rep ContainerDependency x
 </span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerCondition.html#ContainerCondition"><span class="hs-identifier hs-type">ContainerCondition</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-type">ContainerDependency</span></a></span><span>
 </span><span id="line-115"></span><span id="newContainerDependency"><span class="annot"><span class="annottext">newContainerDependency :: Text -&gt; ContainerCondition -&gt; ContainerDependency
-</span><a href="Network.AWS.ECS.Types.ContainerDependency.html#newContainerDependency"><span class="hs-identifier hs-var hs-var">newContainerDependency</span></a></span></span><span> </span><span id="local-6989586621679449879"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449879"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span id="local-6989586621679449878"><span class="annot"><span class="annottext">ContainerCondition
-</span><a href="#local-6989586621679449878"><span class="hs-identifier hs-var">pCondition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.Types.ContainerDependency.html#newContainerDependency"><span class="hs-identifier hs-var hs-var">newContainerDependency</span></a></span></span><span> </span><span id="local-6989586621679449888"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449888"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span id="local-6989586621679449887"><span class="annot"><span class="annottext">ContainerCondition
+</span><a href="#local-6989586621679449887"><span class="hs-identifier hs-var">pCondition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">ContainerDependency' :: Text -&gt; ContainerCondition -&gt; ContainerDependency
 </span><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency%27"><span class="hs-identifier hs-type">ContainerDependency'</span></a></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerName:ContainerDependency' :: Text
 </span><a href="Network.AWS.ECS.Types.ContainerDependency.html#%24sel%3AcontainerName%3AContainerDependency%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449879"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679449888"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:condition:ContainerDependency' :: ContainerCondition
 </span><a href="Network.AWS.ECS.Types.ContainerDependency.html#%24sel%3Acondition%3AContainerDependency%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContainerCondition
-</span><a href="#local-6989586621679449878"><span class="hs-identifier hs-var">pCondition_</span></a></span><span>
+</span><a href="#local-6989586621679449887"><span class="hs-identifier hs-var">pCondition_</span></a></span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The name of a container.</span><span>
@@ -189,16 +189,16 @@ $cfrom :: forall x. ContainerDependency -&gt; Rep ContainerDependency x
 -&gt; (ContainerDependency -&gt; Text -&gt; ContainerDependency)
 -&gt; Lens ContainerDependency ContainerDependency Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency%27"><span class="hs-identifier hs-type">ContainerDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449874"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency%27"><span class="hs-identifier hs-type">ContainerDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449883"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:ContainerDependency' :: ContainerDependency -&gt; Text
-</span><a href="#local-6989586621679449874"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449874"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449873"><span class="annot"><span class="annottext">s :: ContainerDependency
-</span><a href="#local-6989586621679449873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency%27"><span class="hs-identifier hs-type">ContainerDependency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449872"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDependency
-</span><a href="#local-6989586621679449873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:ContainerDependency' :: Text
+</span><a href="#local-6989586621679449883"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449883"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449882"><span class="annot"><span class="annottext">s :: ContainerDependency
+</span><a href="#local-6989586621679449882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency%27"><span class="hs-identifier hs-type">ContainerDependency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449881"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDependency
+</span><a href="#local-6989586621679449882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:ContainerDependency' :: Text
 </span><a href="Network.AWS.ECS.Types.ContainerDependency.html#%24sel%3AcontainerName%3AContainerDependency%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-type">ContainerDependency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-type">ContainerDependency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The dependency condition of the container. The following are the</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- available conditions and their behavior:</span><span>
@@ -233,19 +233,19 @@ $sel:containerName:ContainerDependency' :: ContainerDependency -&gt; Text
      ContainerCondition
      ContainerCondition
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency%27"><span class="hs-identifier hs-type">ContainerDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449870"><span class="annot"><span class="annottext">ContainerCondition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency%27"><span class="hs-identifier hs-type">ContainerDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449879"><span class="annot"><span class="annottext">ContainerCondition
 condition :: ContainerCondition
 $sel:condition:ContainerDependency' :: ContainerDependency -&gt; ContainerCondition
-</span><a href="#local-6989586621679449870"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerCondition
-</span><a href="#local-6989586621679449870"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449869"><span class="annot"><span class="annottext">s :: ContainerDependency
-</span><a href="#local-6989586621679449869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency%27"><span class="hs-identifier hs-type">ContainerDependency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449868"><span class="annot"><span class="annottext">ContainerCondition
-</span><a href="#local-6989586621679449868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDependency
-</span><a href="#local-6989586621679449869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:ContainerDependency' :: ContainerCondition
+</span><a href="#local-6989586621679449879"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerCondition
+</span><a href="#local-6989586621679449879"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449878"><span class="annot"><span class="annottext">s :: ContainerDependency
+</span><a href="#local-6989586621679449878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency%27"><span class="hs-identifier hs-type">ContainerDependency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449877"><span class="annot"><span class="annottext">ContainerCondition
+</span><a href="#local-6989586621679449877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDependency
+</span><a href="#local-6989586621679449878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:ContainerDependency' :: ContainerCondition
 </span><a href="Network.AWS.ECS.Types.ContainerDependency.html#%24sel%3Acondition%3AContainerDependency%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContainerCondition
-</span><a href="#local-6989586621679449868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-type">ContainerDependency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-type">ContainerDependency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449865"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-type">ContainerDependency</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679449863"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerDependency
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449874"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-type">ContainerDependency</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679449872"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerDependency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ContainerDependency)
@@ -255,8 +255,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ContainerDependency&quot;</span></span><span>
-</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679449860"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679449860"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679449869"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679449869"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; ContainerCondition -&gt; ContainerDependency
 </span><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency%27"><span class="hs-identifier hs-var">ContainerDependency'</span></a></span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; ContainerCondition -&gt; ContainerDependency)
@@ -264,7 +264,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (ContainerCondition -&gt; ContainerDependency)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679449860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679449869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;containerName&quot;</span></span><span class="hs-special">)</span><span>
@@ -272,25 +272,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ContainerCondition -&gt; Parser ContainerDependency
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679449860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ContainerCondition
+</span><a href="#local-6989586621679449869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ContainerCondition
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;condition&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449854"><span id="local-6989586621679449856"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-type">ContainerDependency</span></a></span></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449863"><span id="local-6989586621679449865"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-type">ContainerDependency</span></a></span></span></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449851"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-type">ContainerDependency</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449860"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-type">ContainerDependency</span></a></span></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449843"><span id="local-6989586621679449845"><span id="local-6989586621679449847"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-type">ContainerDependency</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679449841"><span class="annot"><span class="annottext">toJSON :: ContainerDependency -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency%27"><span class="hs-identifier hs-type">ContainerDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449838"><span id="local-6989586621679449839"><span class="annot"><span class="annottext">Text
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449852"><span id="local-6989586621679449854"><span id="local-6989586621679449856"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency"><span class="hs-identifier hs-type">ContainerDependency</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679449850"><span class="annot"><span class="annottext">toJSON :: ContainerDependency -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ContainerDependency.html#ContainerDependency%27"><span class="hs-identifier hs-type">ContainerDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449847"><span id="local-6989586621679449848"><span class="annot"><span class="annottext">Text
 ContainerCondition
 condition :: ContainerCondition
 containerName :: Text
 $sel:condition:ContainerDependency' :: ContainerDependency -&gt; ContainerCondition
 $sel:containerName:ContainerDependency' :: ContainerDependency -&gt; Text
-</span><a href="#local-6989586621679449838"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679449847"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -303,14 +303,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;containerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449839"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679449848"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;condition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContainerCondition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ContainerCondition
-</span><a href="#local-6989586621679449838"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449847"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span></pre></body></html>

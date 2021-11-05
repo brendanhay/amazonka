@@ -1,0 +1,800 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.SearchAvailablePhoneNumbers</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Searches for phone numbers that can be ordered. For US numbers, provide</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- at least one of the following search filters: @AreaCode@, @City@,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @State@, or @TollFreePrefix@. If you provide @City@, you must also</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- provide @State@. Numbers outside the US only support the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @PhoneNumberType@ filter, which you must use.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.SearchAvailablePhoneNumbers</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier">SearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#newSearchAvailablePhoneNumbers"><span class="hs-identifier">newSearchAvailablePhoneNumbers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_phoneNumberType"><span class="hs-identifier">searchAvailablePhoneNumbers_phoneNumberType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_state"><span class="hs-identifier">searchAvailablePhoneNumbers_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_tollFreePrefix"><span class="hs-identifier">searchAvailablePhoneNumbers_tollFreePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_country"><span class="hs-identifier">searchAvailablePhoneNumbers_country</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_nextToken"><span class="hs-identifier">searchAvailablePhoneNumbers_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_city"><span class="hs-identifier">searchAvailablePhoneNumbers_city</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_areaCode"><span class="hs-identifier">searchAvailablePhoneNumbers_areaCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_maxResults"><span class="hs-identifier">searchAvailablePhoneNumbers_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse"><span class="hs-identifier">SearchAvailablePhoneNumbersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#newSearchAvailablePhoneNumbersResponse"><span class="hs-identifier">newSearchAvailablePhoneNumbersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbersResponse_e164PhoneNumbers"><span class="hs-identifier">searchAvailablePhoneNumbersResponse_e164PhoneNumbers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbersResponse_nextToken"><span class="hs-identifier">searchAvailablePhoneNumbersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbersResponse_httpStatus"><span class="hs-identifier">searchAvailablePhoneNumbersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newSearchAvailablePhoneNumbers' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679526471"><span id="local-6989586621679526472"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchAvailablePhoneNumbers"><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-var">SearchAvailablePhoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchAvailablePhoneNumbers%27"><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">SearchAvailablePhoneNumbers'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The phone number type used to filter results. Required for non-US</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- numbers.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AphoneNumberType%3ASearchAvailablePhoneNumbers%27"><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers -&gt; Maybe PhoneNumberType
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AphoneNumberType%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var hs-var">phoneNumberType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberType.html#PhoneNumberType"><span class="hs-identifier hs-type">PhoneNumberType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The state used to filter results. Required only if you provide @City@.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- Only applies to the US.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Astate%3ASearchAvailablePhoneNumbers%27"><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers -&gt; Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3Astate%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The toll-free prefix that you use to filter results. Only applies to the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- US.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AtollFreePrefix%3ASearchAvailablePhoneNumbers%27"><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers -&gt; Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AtollFreePrefix%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var hs-var">tollFreePrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The country used to filter results. Defaults to the US Format: ISO</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- 3166-1 alpha-2.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Acountry%3ASearchAvailablePhoneNumbers%27"><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers -&gt; Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3Acountry%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The token used to retrieve the next page of results.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchAvailablePhoneNumbers%27"><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers -&gt; Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AnextToken%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The city used to filter results. Only applies to the US.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Acity%3ASearchAvailablePhoneNumbers%27"><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers -&gt; Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3Acity%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var hs-var">city</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The area code used to filter results. Only applies to the US.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AareaCode%3ASearchAvailablePhoneNumbers%27"><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers -&gt; Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AareaCode%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var hs-var">areaCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in a single call.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AmaxResults%3ASearchAvailablePhoneNumbers%27"><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers -&gt; Maybe Natural
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AmaxResults%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679526458"><span id="local-6989586621679526460"><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers -&gt; SearchAvailablePhoneNumbers -&gt; Bool
+(SearchAvailablePhoneNumbers
+ -&gt; SearchAvailablePhoneNumbers -&gt; Bool)
+-&gt; (SearchAvailablePhoneNumbers
+    -&gt; SearchAvailablePhoneNumbers -&gt; Bool)
+-&gt; Eq SearchAvailablePhoneNumbers
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchAvailablePhoneNumbers -&gt; SearchAvailablePhoneNumbers -&gt; Bool
+$c/= :: SearchAvailablePhoneNumbers -&gt; SearchAvailablePhoneNumbers -&gt; Bool
+== :: SearchAvailablePhoneNumbers -&gt; SearchAvailablePhoneNumbers -&gt; Bool
+$c== :: SearchAvailablePhoneNumbers -&gt; SearchAvailablePhoneNumbers -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679526449"><span id="local-6989586621679526451"><span id="local-6989586621679526453"><span id="local-6989586621679526455"><span class="annot"><span class="annottext">ReadPrec [SearchAvailablePhoneNumbers]
+ReadPrec SearchAvailablePhoneNumbers
+Int -&gt; ReadS SearchAvailablePhoneNumbers
+ReadS [SearchAvailablePhoneNumbers]
+(Int -&gt; ReadS SearchAvailablePhoneNumbers)
+-&gt; ReadS [SearchAvailablePhoneNumbers]
+-&gt; ReadPrec SearchAvailablePhoneNumbers
+-&gt; ReadPrec [SearchAvailablePhoneNumbers]
+-&gt; Read SearchAvailablePhoneNumbers
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchAvailablePhoneNumbers]
+$creadListPrec :: ReadPrec [SearchAvailablePhoneNumbers]
+readPrec :: ReadPrec SearchAvailablePhoneNumbers
+$creadPrec :: ReadPrec SearchAvailablePhoneNumbers
+readList :: ReadS [SearchAvailablePhoneNumbers]
+$creadList :: ReadS [SearchAvailablePhoneNumbers]
+readsPrec :: Int -&gt; ReadS SearchAvailablePhoneNumbers
+$creadsPrec :: Int -&gt; ReadS SearchAvailablePhoneNumbers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679526442"><span id="local-6989586621679526444"><span id="local-6989586621679526446"><span class="annot"><span class="annottext">Int -&gt; SearchAvailablePhoneNumbers -&gt; ShowS
+[SearchAvailablePhoneNumbers] -&gt; ShowS
+SearchAvailablePhoneNumbers -&gt; String
+(Int -&gt; SearchAvailablePhoneNumbers -&gt; ShowS)
+-&gt; (SearchAvailablePhoneNumbers -&gt; String)
+-&gt; ([SearchAvailablePhoneNumbers] -&gt; ShowS)
+-&gt; Show SearchAvailablePhoneNumbers
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchAvailablePhoneNumbers] -&gt; ShowS
+$cshowList :: [SearchAvailablePhoneNumbers] -&gt; ShowS
+show :: SearchAvailablePhoneNumbers -&gt; String
+$cshow :: SearchAvailablePhoneNumbers -&gt; String
+showsPrec :: Int -&gt; SearchAvailablePhoneNumbers -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchAvailablePhoneNumbers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SearchAvailablePhoneNumbers -&gt; Rep SearchAvailablePhoneNumbers x)
+-&gt; (forall x.
+    Rep SearchAvailablePhoneNumbers x -&gt; SearchAvailablePhoneNumbers)
+-&gt; Generic SearchAvailablePhoneNumbers
+forall x.
+Rep SearchAvailablePhoneNumbers x -&gt; SearchAvailablePhoneNumbers
+forall x.
+SearchAvailablePhoneNumbers -&gt; Rep SearchAvailablePhoneNumbers x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SearchAvailablePhoneNumbers x -&gt; SearchAvailablePhoneNumbers
+$cfrom :: forall x.
+SearchAvailablePhoneNumbers -&gt; Rep SearchAvailablePhoneNumbers x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Create a value of 'SearchAvailablePhoneNumbers' with all optional fields omitted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'phoneNumberType', 'searchAvailablePhoneNumbers_phoneNumberType' - The phone number type used to filter results. Required for non-US</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- numbers.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'state', 'searchAvailablePhoneNumbers_state' - The state used to filter results. Required only if you provide @City@.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Only applies to the US.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'tollFreePrefix', 'searchAvailablePhoneNumbers_tollFreePrefix' - The toll-free prefix that you use to filter results. Only applies to the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- US.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'country', 'searchAvailablePhoneNumbers_country' - The country used to filter results. Defaults to the US Format: ISO</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 3166-1 alpha-2.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'nextToken', 'searchAvailablePhoneNumbers_nextToken' - The token used to retrieve the next page of results.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'city', 'searchAvailablePhoneNumbers_city' - The city used to filter results. Only applies to the US.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'areaCode', 'searchAvailablePhoneNumbers_areaCode' - The area code used to filter results. Only applies to the US.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'maxResults', 'searchAvailablePhoneNumbers_maxResults' - The maximum number of results to return in a single call.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#newSearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">newSearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span>
+</span><span id="line-115"></span><span id="newSearchAvailablePhoneNumbers"><span class="annot"><span class="annottext">newSearchAvailablePhoneNumbers :: SearchAvailablePhoneNumbers
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#newSearchAvailablePhoneNumbers"><span class="hs-identifier hs-var hs-var">newSearchAvailablePhoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers' :: Maybe PhoneNumberType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; SearchAvailablePhoneNumbers
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:phoneNumberType:SearchAvailablePhoneNumbers' :: Maybe PhoneNumberType
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AphoneNumberType%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">phoneNumberType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Maybe PhoneNumberType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:SearchAvailablePhoneNumbers' :: Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3Astate%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:tollFreePrefix:SearchAvailablePhoneNumbers' :: Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AtollFreePrefix%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">tollFreePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:country:SearchAvailablePhoneNumbers' :: Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3Acountry%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">country</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:SearchAvailablePhoneNumbers' :: Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AnextToken%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:city:SearchAvailablePhoneNumbers' :: Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3Acity%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">city</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:areaCode:SearchAvailablePhoneNumbers' :: Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AareaCode%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">areaCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:SearchAvailablePhoneNumbers' :: Maybe Natural
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AmaxResults%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The phone number type used to filter results. Required for non-US</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- numbers.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_phoneNumberType"><span class="hs-identifier hs-type">searchAvailablePhoneNumbers_phoneNumberType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberType.html#PhoneNumberType"><span class="hs-identifier hs-type">PhoneNumberType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="searchAvailablePhoneNumbers_phoneNumberType"><span class="annot"><span class="annottext">searchAvailablePhoneNumbers_phoneNumberType :: (Maybe PhoneNumberType -&gt; f (Maybe PhoneNumberType))
+-&gt; SearchAvailablePhoneNumbers -&gt; f SearchAvailablePhoneNumbers
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_phoneNumberType"><span class="hs-identifier hs-var hs-var">searchAvailablePhoneNumbers_phoneNumberType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAvailablePhoneNumbers -&gt; Maybe PhoneNumberType)
+-&gt; (SearchAvailablePhoneNumbers
+    -&gt; Maybe PhoneNumberType -&gt; SearchAvailablePhoneNumbers)
+-&gt; Lens
+     SearchAvailablePhoneNumbers
+     SearchAvailablePhoneNumbers
+     (Maybe PhoneNumberType)
+     (Maybe PhoneNumberType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526435"><span class="annot"><span class="annottext">Maybe PhoneNumberType
+phoneNumberType :: Maybe PhoneNumberType
+$sel:phoneNumberType:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe PhoneNumberType
+</span><a href="#local-6989586621679526435"><span class="hs-identifier hs-var hs-var">phoneNumberType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberType
+</span><a href="#local-6989586621679526435"><span class="hs-identifier hs-var">phoneNumberType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526434"><span class="annot"><span class="annottext">s :: SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526433"><span class="annot"><span class="annottext">Maybe PhoneNumberType
+</span><a href="#local-6989586621679526433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumberType:SearchAvailablePhoneNumbers' :: Maybe PhoneNumberType
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AphoneNumberType%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">phoneNumberType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberType
+</span><a href="#local-6989586621679526433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The state used to filter results. Required only if you provide @City@.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Only applies to the US.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_state"><span class="hs-identifier hs-type">searchAvailablePhoneNumbers_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="searchAvailablePhoneNumbers_state"><span class="annot"><span class="annottext">searchAvailablePhoneNumbers_state :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchAvailablePhoneNumbers -&gt; f SearchAvailablePhoneNumbers
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_state"><span class="hs-identifier hs-var hs-var">searchAvailablePhoneNumbers_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAvailablePhoneNumbers -&gt; Maybe Text)
+-&gt; (SearchAvailablePhoneNumbers
+    -&gt; Maybe Text -&gt; SearchAvailablePhoneNumbers)
+-&gt; Lens
+     SearchAvailablePhoneNumbers
+     SearchAvailablePhoneNumbers
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526432"><span class="annot"><span class="annottext">Maybe Text
+state :: Maybe Text
+$sel:state:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe Text
+</span><a href="#local-6989586621679526432"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526432"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526431"><span class="annot"><span class="annottext">s :: SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526430"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:SearchAvailablePhoneNumbers' :: Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3Astate%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The toll-free prefix that you use to filter results. Only applies to the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- US.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_tollFreePrefix"><span class="hs-identifier hs-type">searchAvailablePhoneNumbers_tollFreePrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="searchAvailablePhoneNumbers_tollFreePrefix"><span class="annot"><span class="annottext">searchAvailablePhoneNumbers_tollFreePrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchAvailablePhoneNumbers -&gt; f SearchAvailablePhoneNumbers
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_tollFreePrefix"><span class="hs-identifier hs-var hs-var">searchAvailablePhoneNumbers_tollFreePrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAvailablePhoneNumbers -&gt; Maybe Text)
+-&gt; (SearchAvailablePhoneNumbers
+    -&gt; Maybe Text -&gt; SearchAvailablePhoneNumbers)
+-&gt; Lens
+     SearchAvailablePhoneNumbers
+     SearchAvailablePhoneNumbers
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526429"><span class="annot"><span class="annottext">Maybe Text
+tollFreePrefix :: Maybe Text
+$sel:tollFreePrefix:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe Text
+</span><a href="#local-6989586621679526429"><span class="hs-identifier hs-var hs-var">tollFreePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526429"><span class="hs-identifier hs-var">tollFreePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526428"><span class="annot"><span class="annottext">s :: SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526427"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tollFreePrefix:SearchAvailablePhoneNumbers' :: Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AtollFreePrefix%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">tollFreePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The country used to filter results. Defaults to the US Format: ISO</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 3166-1 alpha-2.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_country"><span class="hs-identifier hs-type">searchAvailablePhoneNumbers_country</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="searchAvailablePhoneNumbers_country"><span class="annot"><span class="annottext">searchAvailablePhoneNumbers_country :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchAvailablePhoneNumbers -&gt; f SearchAvailablePhoneNumbers
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_country"><span class="hs-identifier hs-var hs-var">searchAvailablePhoneNumbers_country</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAvailablePhoneNumbers -&gt; Maybe Text)
+-&gt; (SearchAvailablePhoneNumbers
+    -&gt; Maybe Text -&gt; SearchAvailablePhoneNumbers)
+-&gt; Lens
+     SearchAvailablePhoneNumbers
+     SearchAvailablePhoneNumbers
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526426"><span class="annot"><span class="annottext">Maybe Text
+country :: Maybe Text
+$sel:country:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe Text
+</span><a href="#local-6989586621679526426"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526426"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526425"><span class="annot"><span class="annottext">s :: SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526424"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:country:SearchAvailablePhoneNumbers' :: Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3Acountry%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">country</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The token used to retrieve the next page of results.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_nextToken"><span class="hs-identifier hs-type">searchAvailablePhoneNumbers_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="searchAvailablePhoneNumbers_nextToken"><span class="annot"><span class="annottext">searchAvailablePhoneNumbers_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchAvailablePhoneNumbers -&gt; f SearchAvailablePhoneNumbers
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_nextToken"><span class="hs-identifier hs-var hs-var">searchAvailablePhoneNumbers_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAvailablePhoneNumbers -&gt; Maybe Text)
+-&gt; (SearchAvailablePhoneNumbers
+    -&gt; Maybe Text -&gt; SearchAvailablePhoneNumbers)
+-&gt; Lens
+     SearchAvailablePhoneNumbers
+     SearchAvailablePhoneNumbers
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526423"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe Text
+</span><a href="#local-6989586621679526423"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526423"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526422"><span class="annot"><span class="annottext">s :: SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526421"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchAvailablePhoneNumbers' :: Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AnextToken%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The city used to filter results. Only applies to the US.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_city"><span class="hs-identifier hs-type">searchAvailablePhoneNumbers_city</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="searchAvailablePhoneNumbers_city"><span class="annot"><span class="annottext">searchAvailablePhoneNumbers_city :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchAvailablePhoneNumbers -&gt; f SearchAvailablePhoneNumbers
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_city"><span class="hs-identifier hs-var hs-var">searchAvailablePhoneNumbers_city</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAvailablePhoneNumbers -&gt; Maybe Text)
+-&gt; (SearchAvailablePhoneNumbers
+    -&gt; Maybe Text -&gt; SearchAvailablePhoneNumbers)
+-&gt; Lens
+     SearchAvailablePhoneNumbers
+     SearchAvailablePhoneNumbers
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526420"><span class="annot"><span class="annottext">Maybe Text
+city :: Maybe Text
+$sel:city:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe Text
+</span><a href="#local-6989586621679526420"><span class="hs-identifier hs-var hs-var">city</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526420"><span class="hs-identifier hs-var">city</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526419"><span class="annot"><span class="annottext">s :: SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526418"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:city:SearchAvailablePhoneNumbers' :: Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3Acity%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">city</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The area code used to filter results. Only applies to the US.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_areaCode"><span class="hs-identifier hs-type">searchAvailablePhoneNumbers_areaCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="searchAvailablePhoneNumbers_areaCode"><span class="annot"><span class="annottext">searchAvailablePhoneNumbers_areaCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchAvailablePhoneNumbers -&gt; f SearchAvailablePhoneNumbers
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_areaCode"><span class="hs-identifier hs-var hs-var">searchAvailablePhoneNumbers_areaCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAvailablePhoneNumbers -&gt; Maybe Text)
+-&gt; (SearchAvailablePhoneNumbers
+    -&gt; Maybe Text -&gt; SearchAvailablePhoneNumbers)
+-&gt; Lens
+     SearchAvailablePhoneNumbers
+     SearchAvailablePhoneNumbers
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526417"><span class="annot"><span class="annottext">Maybe Text
+areaCode :: Maybe Text
+$sel:areaCode:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe Text
+</span><a href="#local-6989586621679526417"><span class="hs-identifier hs-var hs-var">areaCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526417"><span class="hs-identifier hs-var">areaCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526416"><span class="annot"><span class="annottext">s :: SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526415"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:areaCode:SearchAvailablePhoneNumbers' :: Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AareaCode%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">areaCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The maximum number of results to return in a single call.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_maxResults"><span class="hs-identifier hs-type">searchAvailablePhoneNumbers_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="searchAvailablePhoneNumbers_maxResults"><span class="annot"><span class="annottext">searchAvailablePhoneNumbers_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SearchAvailablePhoneNumbers -&gt; f SearchAvailablePhoneNumbers
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbers_maxResults"><span class="hs-identifier hs-var hs-var">searchAvailablePhoneNumbers_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAvailablePhoneNumbers -&gt; Maybe Natural)
+-&gt; (SearchAvailablePhoneNumbers
+    -&gt; Maybe Natural -&gt; SearchAvailablePhoneNumbers)
+-&gt; Lens
+     SearchAvailablePhoneNumbers
+     SearchAvailablePhoneNumbers
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526414"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe Natural
+</span><a href="#local-6989586621679526414"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679526414"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526413"><span class="annot"><span class="annottext">s :: SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526412"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679526412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAvailablePhoneNumbers
+</span><a href="#local-6989586621679526413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchAvailablePhoneNumbers' :: Maybe Natural
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AmaxResults%3ASearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679526412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-166"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse</span></a></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679526408"><span class="annot"><span class="annottext">request :: SearchAvailablePhoneNumbers -&gt; Request SearchAvailablePhoneNumbers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; SearchAvailablePhoneNumbers
+-&gt; Request SearchAvailablePhoneNumbers
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679526404"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SearchAvailablePhoneNumbers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SearchAvailablePhoneNumbers)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse SearchAvailablePhoneNumbers))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SearchAvailablePhoneNumbers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SearchAvailablePhoneNumbers)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679526401"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679526401"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679526400"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679526400"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679526399"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679526399"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+-&gt; Maybe Text -&gt; Int -&gt; SearchAvailablePhoneNumbersResponse
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-var">SearchAvailablePhoneNumbersResponse'</span></a></span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Sensitive Text]
+ -&gt; Maybe Text -&gt; Int -&gt; SearchAvailablePhoneNumbersResponse)
+-&gt; Either String (Maybe [Sensitive Text])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; SearchAvailablePhoneNumbersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679526399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Sensitive Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;E164PhoneNumbers&quot;</span></span><span>
+</span><span id="line-174"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Sensitive Text]))
+-&gt; Maybe [Sensitive Text] -&gt; Either String (Maybe [Sensitive Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-175"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; SearchAvailablePhoneNumbersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; SearchAvailablePhoneNumbersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679526399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SearchAvailablePhoneNumbersResponse)
+-&gt; Either String Int
+-&gt; Either String SearchAvailablePhoneNumbersResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679526401"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679526390"><span id="local-6989586621679526392"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span></span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679526387"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679526383"><span class="annot"><span class="annottext">toHeaders :: SearchAvailablePhoneNumbers -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SearchAvailablePhoneNumbers -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679526378"><span class="annot"><span class="annottext">toPath :: SearchAvailablePhoneNumbers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SearchAvailablePhoneNumbers -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/search&quot;</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679526374"><span class="annot"><span class="annottext">toQuery :: SearchAvailablePhoneNumbers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbers%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526365"><span id="local-6989586621679526366"><span id="local-6989586621679526367"><span id="local-6989586621679526368"><span id="local-6989586621679526369"><span id="local-6989586621679526370"><span id="local-6989586621679526371"><span id="local-6989586621679526372"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe PhoneNumberType
+maxResults :: Maybe Natural
+areaCode :: Maybe Text
+city :: Maybe Text
+nextToken :: Maybe Text
+country :: Maybe Text
+tollFreePrefix :: Maybe Text
+state :: Maybe Text
+phoneNumberType :: Maybe PhoneNumberType
+$sel:maxResults:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe Natural
+$sel:areaCode:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe Text
+$sel:city:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe Text
+$sel:nextToken:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe Text
+$sel:country:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe Text
+$sel:tollFreePrefix:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe Text
+$sel:state:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe Text
+$sel:phoneNumberType:SearchAvailablePhoneNumbers' :: SearchAvailablePhoneNumbers -&gt; Maybe PhoneNumberType
+</span><a href="#local-6989586621679526365"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;phone-number-type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PhoneNumberType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberType
+</span><a href="#local-6989586621679526372"><span class="hs-identifier hs-var">phoneNumberType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;state&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526371"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;toll-free-prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526370"><span class="hs-identifier hs-var">tollFreePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;country&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526369"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;next-token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526368"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;city&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526367"><span class="hs-identifier hs-var">city</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;area-code&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526366"><span class="hs-identifier hs-var">areaCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;max-results&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679526365"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;type=phone-numbers&quot;</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | /See:/ 'newSearchAvailablePhoneNumbersResponse' smart constructor.</span><span>
+</span><span id="line-205"></span><span id="local-6989586621679526362"><span id="local-6989586621679526363"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchAvailablePhoneNumbersResponse"><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse"><span class="hs-identifier hs-var">SearchAvailablePhoneNumbersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchAvailablePhoneNumbersResponse%27"><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-var">SearchAvailablePhoneNumbersResponse'</span></a></span></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of phone numbers, in E.164 format.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3Ae164PhoneNumbers%3ASearchAvailablePhoneNumbersResponse%27"><span class="annot"><span class="annottext">SearchAvailablePhoneNumbersResponse -&gt; Maybe [Sensitive Text]
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3Ae164PhoneNumbers%3ASearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-var hs-var">e164PhoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- | The token used to retrieve the next page of search results.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchAvailablePhoneNumbersResponse%27"><span class="annot"><span class="annottext">SearchAvailablePhoneNumbersResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AnextToken%3ASearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASearchAvailablePhoneNumbersResponse%27"><span class="annot"><span class="annottext">SearchAvailablePhoneNumbersResponse -&gt; Int
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AhttpStatus%3ASearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679526355"><span id="local-6989586621679526357"><span class="annot"><span class="annottext">SearchAvailablePhoneNumbersResponse
+-&gt; SearchAvailablePhoneNumbersResponse -&gt; Bool
+(SearchAvailablePhoneNumbersResponse
+ -&gt; SearchAvailablePhoneNumbersResponse -&gt; Bool)
+-&gt; (SearchAvailablePhoneNumbersResponse
+    -&gt; SearchAvailablePhoneNumbersResponse -&gt; Bool)
+-&gt; Eq SearchAvailablePhoneNumbersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchAvailablePhoneNumbersResponse
+-&gt; SearchAvailablePhoneNumbersResponse -&gt; Bool
+$c/= :: SearchAvailablePhoneNumbersResponse
+-&gt; SearchAvailablePhoneNumbersResponse -&gt; Bool
+== :: SearchAvailablePhoneNumbersResponse
+-&gt; SearchAvailablePhoneNumbersResponse -&gt; Bool
+$c== :: SearchAvailablePhoneNumbersResponse
+-&gt; SearchAvailablePhoneNumbersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679526349"><span id="local-6989586621679526351"><span id="local-6989586621679526353"><span class="annot"><span class="annottext">Int -&gt; SearchAvailablePhoneNumbersResponse -&gt; ShowS
+[SearchAvailablePhoneNumbersResponse] -&gt; ShowS
+SearchAvailablePhoneNumbersResponse -&gt; String
+(Int -&gt; SearchAvailablePhoneNumbersResponse -&gt; ShowS)
+-&gt; (SearchAvailablePhoneNumbersResponse -&gt; String)
+-&gt; ([SearchAvailablePhoneNumbersResponse] -&gt; ShowS)
+-&gt; Show SearchAvailablePhoneNumbersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchAvailablePhoneNumbersResponse] -&gt; ShowS
+$cshowList :: [SearchAvailablePhoneNumbersResponse] -&gt; ShowS
+show :: SearchAvailablePhoneNumbersResponse -&gt; String
+$cshow :: SearchAvailablePhoneNumbersResponse -&gt; String
+showsPrec :: Int -&gt; SearchAvailablePhoneNumbersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchAvailablePhoneNumbersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SearchAvailablePhoneNumbersResponse
+ -&gt; Rep SearchAvailablePhoneNumbersResponse x)
+-&gt; (forall x.
+    Rep SearchAvailablePhoneNumbersResponse x
+    -&gt; SearchAvailablePhoneNumbersResponse)
+-&gt; Generic SearchAvailablePhoneNumbersResponse
+forall x.
+Rep SearchAvailablePhoneNumbersResponse x
+-&gt; SearchAvailablePhoneNumbersResponse
+forall x.
+SearchAvailablePhoneNumbersResponse
+-&gt; Rep SearchAvailablePhoneNumbersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SearchAvailablePhoneNumbersResponse x
+-&gt; SearchAvailablePhoneNumbersResponse
+$cfrom :: forall x.
+SearchAvailablePhoneNumbersResponse
+-&gt; Rep SearchAvailablePhoneNumbersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Create a value of 'SearchAvailablePhoneNumbersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'e164PhoneNumbers', 'searchAvailablePhoneNumbersResponse_e164PhoneNumbers' - List of phone numbers, in E.164 format.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'nextToken', 'searchAvailablePhoneNumbersResponse_nextToken' - The token used to retrieve the next page of search results.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'httpStatus', 'searchAvailablePhoneNumbersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#newSearchAvailablePhoneNumbersResponse"><span class="hs-identifier hs-type">newSearchAvailablePhoneNumbersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse</span></a></span><span>
+</span><span id="line-232"></span><span id="newSearchAvailablePhoneNumbersResponse"><span class="annot"><span class="annottext">newSearchAvailablePhoneNumbersResponse :: Int -&gt; SearchAvailablePhoneNumbersResponse
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#newSearchAvailablePhoneNumbersResponse"><span class="hs-identifier hs-var hs-var">newSearchAvailablePhoneNumbersResponse</span></a></span></span><span> </span><span id="local-6989586621679526346"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679526346"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="annottext">SearchAvailablePhoneNumbersResponse' :: Maybe [Sensitive Text]
+-&gt; Maybe Text -&gt; Int -&gt; SearchAvailablePhoneNumbersResponse
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse'</span></a></span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:e164PhoneNumbers:SearchAvailablePhoneNumbersResponse' :: Maybe [Sensitive Text]
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3Ae164PhoneNumbers%3ASearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-var">e164PhoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:SearchAvailablePhoneNumbersResponse' :: Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AnextToken%3ASearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SearchAvailablePhoneNumbersResponse' :: Int
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AhttpStatus%3ASearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679526346"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | List of phone numbers, in E.164 format.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbersResponse_e164PhoneNumbers"><span class="hs-identifier hs-type">searchAvailablePhoneNumbersResponse_e164PhoneNumbers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="searchAvailablePhoneNumbersResponse_e164PhoneNumbers"><span class="annot"><span class="annottext">searchAvailablePhoneNumbersResponse_e164PhoneNumbers :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; SearchAvailablePhoneNumbersResponse
+-&gt; f SearchAvailablePhoneNumbersResponse
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbersResponse_e164PhoneNumbers"><span class="hs-identifier hs-var hs-var">searchAvailablePhoneNumbersResponse_e164PhoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAvailablePhoneNumbersResponse -&gt; Maybe [Sensitive Text])
+-&gt; (SearchAvailablePhoneNumbersResponse
+    -&gt; Maybe [Sensitive Text] -&gt; SearchAvailablePhoneNumbersResponse)
+-&gt; Lens
+     SearchAvailablePhoneNumbersResponse
+     SearchAvailablePhoneNumbersResponse
+     (Maybe [Sensitive Text])
+     (Maybe [Sensitive Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526345"><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+e164PhoneNumbers :: Maybe [Sensitive Text]
+$sel:e164PhoneNumbers:SearchAvailablePhoneNumbersResponse' :: SearchAvailablePhoneNumbersResponse -&gt; Maybe [Sensitive Text]
+</span><a href="#local-6989586621679526345"><span class="hs-identifier hs-var hs-var">e164PhoneNumbers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+</span><a href="#local-6989586621679526345"><span class="hs-identifier hs-var">e164PhoneNumbers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526344"><span class="annot"><span class="annottext">s :: SearchAvailablePhoneNumbersResponse
+</span><a href="#local-6989586621679526344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526343"><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+</span><a href="#local-6989586621679526343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAvailablePhoneNumbersResponse
+</span><a href="#local-6989586621679526344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:e164PhoneNumbers:SearchAvailablePhoneNumbersResponse' :: Maybe [Sensitive Text]
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3Ae164PhoneNumbers%3ASearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-var">e164PhoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+</span><a href="#local-6989586621679526343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Sensitive Text] -&gt; f (Maybe [Sensitive Text]))
+ -&gt; SearchAvailablePhoneNumbersResponse
+ -&gt; f SearchAvailablePhoneNumbersResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Sensitive Text] -&gt; f (Maybe [Sensitive Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; SearchAvailablePhoneNumbersResponse
+-&gt; f SearchAvailablePhoneNumbersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Sensitive Text] [Sensitive Text] [Text] [Text]
+-&gt; Iso
+     (Maybe [Sensitive Text])
+     (Maybe [Sensitive Text])
+     (Maybe [Text])
+     (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Sensitive Text] [Sensitive Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The token used to retrieve the next page of search results.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbersResponse_nextToken"><span class="hs-identifier hs-type">searchAvailablePhoneNumbersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="searchAvailablePhoneNumbersResponse_nextToken"><span class="annot"><span class="annottext">searchAvailablePhoneNumbersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchAvailablePhoneNumbersResponse
+-&gt; f SearchAvailablePhoneNumbersResponse
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbersResponse_nextToken"><span class="hs-identifier hs-var hs-var">searchAvailablePhoneNumbersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAvailablePhoneNumbersResponse -&gt; Maybe Text)
+-&gt; (SearchAvailablePhoneNumbersResponse
+    -&gt; Maybe Text -&gt; SearchAvailablePhoneNumbersResponse)
+-&gt; Lens
+     SearchAvailablePhoneNumbersResponse
+     SearchAvailablePhoneNumbersResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526339"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchAvailablePhoneNumbersResponse' :: SearchAvailablePhoneNumbersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679526339"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526339"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526338"><span class="annot"><span class="annottext">s :: SearchAvailablePhoneNumbersResponse
+</span><a href="#local-6989586621679526338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526337"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAvailablePhoneNumbersResponse
+</span><a href="#local-6989586621679526338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchAvailablePhoneNumbersResponse' :: Maybe Text
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AnextToken%3ASearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679526337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbersResponse_httpStatus"><span class="hs-identifier hs-type">searchAvailablePhoneNumbersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-250"></span><span id="searchAvailablePhoneNumbersResponse_httpStatus"><span class="annot"><span class="annottext">searchAvailablePhoneNumbersResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SearchAvailablePhoneNumbersResponse
+-&gt; f SearchAvailablePhoneNumbersResponse
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#searchAvailablePhoneNumbersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">searchAvailablePhoneNumbersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAvailablePhoneNumbersResponse -&gt; Int)
+-&gt; (SearchAvailablePhoneNumbersResponse
+    -&gt; Int -&gt; SearchAvailablePhoneNumbersResponse)
+-&gt; Lens
+     SearchAvailablePhoneNumbersResponse
+     SearchAvailablePhoneNumbersResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526336"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SearchAvailablePhoneNumbersResponse' :: SearchAvailablePhoneNumbersResponse -&gt; Int
+</span><a href="#local-6989586621679526336"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679526336"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526335"><span class="annot"><span class="annottext">s :: SearchAvailablePhoneNumbersResponse
+</span><a href="#local-6989586621679526335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526334"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679526334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAvailablePhoneNumbersResponse
+</span><a href="#local-6989586621679526335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchAvailablePhoneNumbersResponse' :: Int
+</span><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#%24sel%3AhttpStatus%3ASearchAvailablePhoneNumbersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679526334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679526332"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.SearchAvailablePhoneNumbers.html#SearchAvailablePhoneNumbersResponse"><span class="hs-identifier hs-type">SearchAvailablePhoneNumbersResponse</span></a></span></span><span>
+</span><span id="line-255"></span></pre></body></html>

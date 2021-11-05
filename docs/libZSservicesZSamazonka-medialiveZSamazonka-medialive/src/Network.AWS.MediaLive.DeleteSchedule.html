@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-comment">-- | Placeholder documentation for DeleteScheduleRequest</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newDeleteSchedule' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679945304"><span id="local-6989586621679945305"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSchedule"><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-var">DeleteSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSchedule%27"><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule%27"><span class="hs-identifier hs-var">DeleteSchedule'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679945313"><span id="local-6989586621679945314"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSchedule"><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-var">DeleteSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSchedule%27"><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule%27"><span class="hs-identifier hs-var">DeleteSchedule'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Id of the channel whose schedule is being deleted.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AchannelId%3ADeleteSchedule%27"><span class="annot"><span class="annottext">DeleteSchedule -&gt; Text
 </span><a href="Network.AWS.MediaLive.DeleteSchedule.html#%24sel%3AchannelId%3ADeleteSchedule%27"><span class="hs-identifier hs-var hs-var">channelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679945298"><span id="local-6989586621679945300"><span class="annot"><span class="annottext">DeleteSchedule -&gt; DeleteSchedule -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679945307"><span id="local-6989586621679945309"><span class="annot"><span class="annottext">DeleteSchedule -&gt; DeleteSchedule -&gt; Bool
 (DeleteSchedule -&gt; DeleteSchedule -&gt; Bool)
 -&gt; (DeleteSchedule -&gt; DeleteSchedule -&gt; Bool) -&gt; Eq DeleteSchedule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteSchedule -&gt; DeleteSchedule -&gt; Bool
 == :: DeleteSchedule -&gt; DeleteSchedule -&gt; Bool
 $c== :: DeleteSchedule -&gt; DeleteSchedule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679945289"><span id="local-6989586621679945291"><span id="local-6989586621679945293"><span id="local-6989586621679945295"><span class="annot"><span class="annottext">ReadPrec [DeleteSchedule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679945298"><span id="local-6989586621679945300"><span id="local-6989586621679945302"><span id="local-6989586621679945304"><span class="annot"><span class="annottext">ReadPrec [DeleteSchedule]
 ReadPrec DeleteSchedule
 Int -&gt; ReadS DeleteSchedule
 ReadS [DeleteSchedule]
@@ -81,7 +81,7 @@ readList :: ReadS [DeleteSchedule]
 $creadList :: ReadS [DeleteSchedule]
 readsPrec :: Int -&gt; ReadS DeleteSchedule
 $creadsPrec :: Int -&gt; ReadS DeleteSchedule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679945282"><span id="local-6989586621679945284"><span id="local-6989586621679945286"><span class="annot"><span class="annottext">Int -&gt; DeleteSchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679945291"><span id="local-6989586621679945293"><span id="local-6989586621679945295"><span class="annot"><span class="annottext">Int -&gt; DeleteSchedule -&gt; ShowS
 [DeleteSchedule] -&gt; ShowS
 DeleteSchedule -&gt; String
 (Int -&gt; DeleteSchedule -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. DeleteSchedule -&gt; Rep DeleteSchedule x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-type">DeleteSchedule</span></a></span><span>
 </span><span id="line-70"></span><span id="newDeleteSchedule"><span class="annot"><span class="annottext">newDeleteSchedule :: Text -&gt; DeleteSchedule
-</span><a href="Network.AWS.MediaLive.DeleteSchedule.html#newDeleteSchedule"><span class="hs-identifier hs-var hs-var">newDeleteSchedule</span></a></span></span><span> </span><span id="local-6989586621679945277"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679945277"><span class="hs-identifier hs-var">pChannelId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.DeleteSchedule.html#newDeleteSchedule"><span class="hs-identifier hs-var hs-var">newDeleteSchedule</span></a></span></span><span> </span><span id="local-6989586621679945286"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679945286"><span class="hs-identifier hs-var">pChannelId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DeleteSchedule' :: Text -&gt; DeleteSchedule
 </span><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule%27"><span class="hs-identifier hs-type">DeleteSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelId:DeleteSchedule' :: Text
 </span><a href="Network.AWS.MediaLive.DeleteSchedule.html#%24sel%3AchannelId%3ADeleteSchedule%27"><span class="hs-identifier hs-var">channelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679945277"><span class="hs-identifier hs-var">pChannelId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679945286"><span class="hs-identifier hs-var">pChannelId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | Id of the channel whose schedule is being deleted.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#deleteSchedule_channelId"><span class="hs-identifier hs-type">deleteSchedule_channelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-type">DeleteSchedule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,27 +135,27 @@ $cfrom :: forall x. DeleteSchedule -&gt; Rep DeleteSchedule x
 -&gt; (DeleteSchedule -&gt; Text -&gt; DeleteSchedule)
 -&gt; Lens DeleteSchedule DeleteSchedule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule%27"><span class="hs-identifier hs-type">DeleteSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945274"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule%27"><span class="hs-identifier hs-type">DeleteSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945283"><span class="annot"><span class="annottext">Text
 channelId :: Text
 $sel:channelId:DeleteSchedule' :: DeleteSchedule -&gt; Text
-</span><a href="#local-6989586621679945274"><span class="hs-identifier hs-var hs-var">channelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679945274"><span class="hs-identifier hs-var">channelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945273"><span class="annot"><span class="annottext">s :: DeleteSchedule
-</span><a href="#local-6989586621679945273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule%27"><span class="hs-identifier hs-type">DeleteSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945272"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679945272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchedule
-</span><a href="#local-6989586621679945273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelId:DeleteSchedule' :: Text
+</span><a href="#local-6989586621679945283"><span class="hs-identifier hs-var hs-var">channelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679945283"><span class="hs-identifier hs-var">channelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945282"><span class="annot"><span class="annottext">s :: DeleteSchedule
+</span><a href="#local-6989586621679945282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule%27"><span class="hs-identifier hs-type">DeleteSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945281"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679945281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchedule
+</span><a href="#local-6989586621679945282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelId:DeleteSchedule' :: Text
 </span><a href="Network.AWS.MediaLive.DeleteSchedule.html#%24sel%3AchannelId%3ADeleteSchedule%27"><span class="hs-identifier hs-var">channelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679945272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-type">DeleteSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679945281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-type">DeleteSchedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-type">DeleteSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-type">DeleteSchedule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse"><span class="hs-identifier hs-type">DeleteScheduleResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679945268"><span class="annot"><span class="annottext">request :: DeleteSchedule -&gt; Request DeleteSchedule
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679945277"><span class="annot"><span class="annottext">request :: DeleteSchedule -&gt; Request DeleteSchedule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteSchedule -&gt; Request DeleteSchedule
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaLive.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679945264"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679945273"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteSchedule
 -&gt; ClientResponse ClientBody
@@ -179,10 +179,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679945261"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679945261"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679945260"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679945260"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679945259"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679945259"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679945270"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679945270"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679945269"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679945269"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679945268"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679945268"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteScheduleResponse
 </span><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse%27"><span class="hs-identifier hs-var">DeleteScheduleResponse'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteScheduleResponse)
@@ -193,15 +193,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679945261"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679945270"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679945252"><span id="local-6989586621679945254"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-type">DeleteSchedule</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679945261"><span id="local-6989586621679945263"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-type">DeleteSchedule</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679945249"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-type">DeleteSchedule</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679945258"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-type">DeleteSchedule</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-type">DeleteSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679945245"><span class="annot"><span class="annottext">toHeaders :: DeleteSchedule -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679945254"><span class="annot"><span class="annottext">toHeaders :: DeleteSchedule -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteSchedule -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -221,11 +221,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-type">DeleteSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679945239"><span class="annot"><span class="annottext">toPath :: DeleteSchedule -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule%27"><span class="hs-identifier hs-type">DeleteSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945237"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679945248"><span class="annot"><span class="annottext">toPath :: DeleteSchedule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule%27"><span class="hs-identifier hs-type">DeleteSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945246"><span class="annot"><span class="annottext">Text
 channelId :: Text
 $sel:channelId:DeleteSchedule' :: DeleteSchedule -&gt; Text
-</span><a href="#local-6989586621679945237"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679945246"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -233,11 +233,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/prod/channels/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679945237"><span class="hs-identifier hs-var">channelId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679945246"><span class="hs-identifier hs-var">channelId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/schedule&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteSchedule"><span class="hs-identifier hs-type">DeleteSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679945233"><span class="annot"><span class="annottext">toQuery :: DeleteSchedule -&gt; QueryString
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679945242"><span class="annot"><span class="annottext">toQuery :: DeleteSchedule -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteSchedule -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -247,12 +247,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-112"></span><span class="hs-comment">-- | Placeholder documentation for DeleteScheduleResponse</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- /See:/ 'newDeleteScheduleResponse' smart constructor.</span><span>
-</span><span id="line-115"></span><span id="local-6989586621679945230"><span id="local-6989586621679945231"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteScheduleResponse"><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse"><span class="hs-identifier hs-var">DeleteScheduleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteScheduleResponse%27"><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse%27"><span class="hs-identifier hs-var">DeleteScheduleResponse'</span></a></span></span><span>
+</span><span id="line-115"></span><span id="local-6989586621679945239"><span id="local-6989586621679945240"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteScheduleResponse"><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse"><span class="hs-identifier hs-var">DeleteScheduleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteScheduleResponse%27"><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse%27"><span class="hs-identifier hs-var">DeleteScheduleResponse'</span></a></span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-117"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteScheduleResponse%27"><span class="annot"><span class="annottext">DeleteScheduleResponse -&gt; Int
 </span><a href="Network.AWS.MediaLive.DeleteSchedule.html#%24sel%3AhttpStatus%3ADeleteScheduleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679945225"><span id="local-6989586621679945227"><span class="annot"><span class="annottext">DeleteScheduleResponse -&gt; DeleteScheduleResponse -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679945234"><span id="local-6989586621679945236"><span class="annot"><span class="annottext">DeleteScheduleResponse -&gt; DeleteScheduleResponse -&gt; Bool
 (DeleteScheduleResponse -&gt; DeleteScheduleResponse -&gt; Bool)
 -&gt; (DeleteScheduleResponse -&gt; DeleteScheduleResponse -&gt; Bool)
 -&gt; Eq DeleteScheduleResponse
@@ -261,7 +261,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteScheduleResponse -&gt; DeleteScheduleResponse -&gt; Bool
 == :: DeleteScheduleResponse -&gt; DeleteScheduleResponse -&gt; Bool
 $c== :: DeleteScheduleResponse -&gt; DeleteScheduleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679945217"><span id="local-6989586621679945219"><span id="local-6989586621679945221"><span id="local-6989586621679945223"><span class="annot"><span class="annottext">ReadPrec [DeleteScheduleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679945226"><span id="local-6989586621679945228"><span id="local-6989586621679945230"><span id="local-6989586621679945232"><span class="annot"><span class="annottext">ReadPrec [DeleteScheduleResponse]
 ReadPrec DeleteScheduleResponse
 Int -&gt; ReadS DeleteScheduleResponse
 ReadS [DeleteScheduleResponse]
@@ -281,7 +281,7 @@ readList :: ReadS [DeleteScheduleResponse]
 $creadList :: ReadS [DeleteScheduleResponse]
 readsPrec :: Int -&gt; ReadS DeleteScheduleResponse
 $creadsPrec :: Int -&gt; ReadS DeleteScheduleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679945211"><span id="local-6989586621679945213"><span id="local-6989586621679945215"><span class="annot"><span class="annottext">Int -&gt; DeleteScheduleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679945220"><span id="local-6989586621679945222"><span id="local-6989586621679945224"><span class="annot"><span class="annottext">Int -&gt; DeleteScheduleResponse -&gt; ShowS
 [DeleteScheduleResponse] -&gt; ShowS
 DeleteScheduleResponse -&gt; String
 (Int -&gt; DeleteScheduleResponse -&gt; ShowS)
@@ -322,12 +322,12 @@ $cfrom :: forall x. DeleteScheduleResponse -&gt; Rep DeleteScheduleResponse x
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse"><span class="hs-identifier hs-type">DeleteScheduleResponse</span></a></span><span>
 </span><span id="line-134"></span><span id="newDeleteScheduleResponse"><span class="annot"><span class="annottext">newDeleteScheduleResponse :: Int -&gt; DeleteScheduleResponse
-</span><a href="Network.AWS.MediaLive.DeleteSchedule.html#newDeleteScheduleResponse"><span class="hs-identifier hs-var hs-var">newDeleteScheduleResponse</span></a></span></span><span> </span><span id="local-6989586621679945208"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679945208"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.DeleteSchedule.html#newDeleteScheduleResponse"><span class="hs-identifier hs-var hs-var">newDeleteScheduleResponse</span></a></span></span><span> </span><span id="local-6989586621679945217"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679945217"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">DeleteScheduleResponse' :: Int -&gt; DeleteScheduleResponse
 </span><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse%27"><span class="hs-identifier hs-type">DeleteScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteScheduleResponse' :: Int
 </span><a href="Network.AWS.MediaLive.DeleteSchedule.html#%24sel%3AhttpStatus%3ADeleteScheduleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679945208"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679945217"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#deleteScheduleResponse_httpStatus"><span class="hs-identifier hs-type">deleteScheduleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse"><span class="hs-identifier hs-type">DeleteScheduleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -337,16 +337,16 @@ $cfrom :: forall x. DeleteScheduleResponse -&gt; Rep DeleteScheduleResponse x
 -&gt; (DeleteScheduleResponse -&gt; Int -&gt; DeleteScheduleResponse)
 -&gt; Lens DeleteScheduleResponse DeleteScheduleResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse%27"><span class="hs-identifier hs-type">DeleteScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945207"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse%27"><span class="hs-identifier hs-type">DeleteScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945216"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteScheduleResponse' :: DeleteScheduleResponse -&gt; Int
-</span><a href="#local-6989586621679945207"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679945207"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945206"><span class="annot"><span class="annottext">s :: DeleteScheduleResponse
-</span><a href="#local-6989586621679945206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse%27"><span class="hs-identifier hs-type">DeleteScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945205"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679945205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteScheduleResponse
-</span><a href="#local-6989586621679945206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteScheduleResponse' :: Int
+</span><a href="#local-6989586621679945216"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679945216"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945215"><span class="annot"><span class="annottext">s :: DeleteScheduleResponse
+</span><a href="#local-6989586621679945215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse%27"><span class="hs-identifier hs-type">DeleteScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945214"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679945214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteScheduleResponse
+</span><a href="#local-6989586621679945215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteScheduleResponse' :: Int
 </span><a href="Network.AWS.MediaLive.DeleteSchedule.html#%24sel%3AhttpStatus%3ADeleteScheduleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679945205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse"><span class="hs-identifier hs-type">DeleteScheduleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679945214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse"><span class="hs-identifier hs-type">DeleteScheduleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679945203"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse"><span class="hs-identifier hs-type">DeleteScheduleResponse</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679945212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteSchedule.html#DeleteScheduleResponse"><span class="hs-identifier hs-type">DeleteScheduleResponse</span></a></span></span><span>
 </span><span id="line-142"></span></pre></body></html>

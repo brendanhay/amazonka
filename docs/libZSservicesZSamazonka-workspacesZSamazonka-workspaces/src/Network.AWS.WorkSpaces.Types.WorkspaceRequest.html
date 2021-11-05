@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the information used to create a WorkSpace.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newWorkspaceRequest' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679276750"><span id="local-6989586621679276751"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkspaceRequest"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-var">WorkspaceRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceRequest%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-var">WorkspaceRequest'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679276759"><span id="local-6989586621679276760"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkspaceRequest"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-var">WorkspaceRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceRequest%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-var">WorkspaceRequest'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The WorkSpace properties.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AworkspaceProperties%3AWorkspaceRequest%27"><span class="annot"><span class="annottext">WorkspaceRequest -&gt; Maybe WorkspaceProperties
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#%24sel%3AworkspaceProperties%3AWorkspaceRequest%27"><span class="hs-identifier hs-var hs-var">workspaceProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AbundleId%3AWorkspaceRequest%27"><span class="annot"><span class="annottext">WorkspaceRequest -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#%24sel%3AbundleId%3AWorkspaceRequest%27"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276737"><span id="local-6989586621679276739"><span class="annot"><span class="annottext">WorkspaceRequest -&gt; WorkspaceRequest -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276746"><span id="local-6989586621679276748"><span class="annot"><span class="annottext">WorkspaceRequest -&gt; WorkspaceRequest -&gt; Bool
 (WorkspaceRequest -&gt; WorkspaceRequest -&gt; Bool)
 -&gt; (WorkspaceRequest -&gt; WorkspaceRequest -&gt; Bool)
 -&gt; Eq WorkspaceRequest
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WorkspaceRequest -&gt; WorkspaceRequest -&gt; Bool
 == :: WorkspaceRequest -&gt; WorkspaceRequest -&gt; Bool
 $c== :: WorkspaceRequest -&gt; WorkspaceRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276728"><span id="local-6989586621679276730"><span id="local-6989586621679276732"><span id="local-6989586621679276734"><span class="annot"><span class="annottext">ReadPrec [WorkspaceRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276737"><span id="local-6989586621679276739"><span id="local-6989586621679276741"><span id="local-6989586621679276743"><span class="annot"><span class="annottext">ReadPrec [WorkspaceRequest]
 ReadPrec WorkspaceRequest
 Int -&gt; ReadS WorkspaceRequest
 ReadS [WorkspaceRequest]
@@ -87,7 +87,7 @@ readList :: ReadS [WorkspaceRequest]
 $creadList :: ReadS [WorkspaceRequest]
 readsPrec :: Int -&gt; ReadS WorkspaceRequest
 $creadsPrec :: Int -&gt; ReadS WorkspaceRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276721"><span id="local-6989586621679276723"><span id="local-6989586621679276725"><span class="annot"><span class="annottext">Int -&gt; WorkspaceRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276730"><span id="local-6989586621679276732"><span id="local-6989586621679276734"><span class="annot"><span class="annottext">Int -&gt; WorkspaceRequest -&gt; ShowS
 [WorkspaceRequest] -&gt; ShowS
 WorkspaceRequest -&gt; String
 (Int -&gt; WorkspaceRequest -&gt; ShowS)
@@ -150,12 +150,12 @@ $cfrom :: forall x. WorkspaceRequest -&gt; Rep WorkspaceRequest x
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span>
 </span><span id="line-90"></span><span id="newWorkspaceRequest"><span class="annot"><span class="annottext">newWorkspaceRequest :: Text -&gt; Text -&gt; Text -&gt; WorkspaceRequest
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#newWorkspaceRequest"><span class="hs-identifier hs-var hs-var">newWorkspaceRequest</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679276715"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276715"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679276714"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276714"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679276713"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276713"><span class="hs-identifier hs-var">pBundleId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679276724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276724"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679276723"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276723"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679276722"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276722"><span class="hs-identifier hs-var">pBundleId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">WorkspaceRequest' :: Maybe WorkspaceProperties
 -&gt; Maybe Bool
 -&gt; Maybe Text
@@ -189,13 +189,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:directoryId:WorkspaceRequest' :: Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#%24sel%3AdirectoryId%3AWorkspaceRequest%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276715"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276724"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:userName:WorkspaceRequest' :: Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#%24sel%3AuserName%3AWorkspaceRequest%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276714"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276723"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:bundleId:WorkspaceRequest' :: Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#%24sel%3AbundleId%3AWorkspaceRequest%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276713"><span class="hs-identifier hs-var">pBundleId_</span></a></span><span>
+</span><a href="#local-6989586621679276722"><span class="hs-identifier hs-var">pBundleId_</span></a></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The WorkSpace properties.</span><span>
@@ -211,16 +211,16 @@ forall a. Maybe a
      (Maybe WorkspaceProperties)
      (Maybe WorkspaceProperties)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276709"><span class="annot"><span class="annottext">Maybe WorkspaceProperties
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276718"><span class="annot"><span class="annottext">Maybe WorkspaceProperties
 workspaceProperties :: Maybe WorkspaceProperties
 $sel:workspaceProperties:WorkspaceRequest' :: WorkspaceRequest -&gt; Maybe WorkspaceProperties
-</span><a href="#local-6989586621679276709"><span class="hs-identifier hs-var hs-var">workspaceProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkspaceProperties
-</span><a href="#local-6989586621679276709"><span class="hs-identifier hs-var">workspaceProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276708"><span class="annot"><span class="annottext">s :: WorkspaceRequest
-</span><a href="#local-6989586621679276708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276707"><span class="annot"><span class="annottext">Maybe WorkspaceProperties
-</span><a href="#local-6989586621679276707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
-</span><a href="#local-6989586621679276708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceProperties:WorkspaceRequest' :: Maybe WorkspaceProperties
+</span><a href="#local-6989586621679276718"><span class="hs-identifier hs-var hs-var">workspaceProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkspaceProperties
+</span><a href="#local-6989586621679276718"><span class="hs-identifier hs-var">workspaceProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276717"><span class="annot"><span class="annottext">s :: WorkspaceRequest
+</span><a href="#local-6989586621679276717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276716"><span class="annot"><span class="annottext">Maybe WorkspaceProperties
+</span><a href="#local-6989586621679276716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
+</span><a href="#local-6989586621679276717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceProperties:WorkspaceRequest' :: Maybe WorkspaceProperties
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#%24sel%3AworkspaceProperties%3AWorkspaceRequest%27"><span class="hs-identifier hs-var">workspaceProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkspaceProperties
-</span><a href="#local-6989586621679276707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | Indicates whether the data stored on the root volume is encrypted.</span><span>
 </span><span id="line-111"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#workspaceRequest_rootVolumeEncryptionEnabled"><span class="hs-identifier hs-type">workspaceRequest_rootVolumeEncryptionEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -230,16 +230,16 @@ $sel:workspaceProperties:WorkspaceRequest' :: WorkspaceRequest -&gt; Maybe Works
 -&gt; (WorkspaceRequest -&gt; Maybe Bool -&gt; WorkspaceRequest)
 -&gt; Lens WorkspaceRequest WorkspaceRequest (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276705"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276714"><span class="annot"><span class="annottext">Maybe Bool
 rootVolumeEncryptionEnabled :: Maybe Bool
 $sel:rootVolumeEncryptionEnabled:WorkspaceRequest' :: WorkspaceRequest -&gt; Maybe Bool
-</span><a href="#local-6989586621679276705"><span class="hs-identifier hs-var hs-var">rootVolumeEncryptionEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679276705"><span class="hs-identifier hs-var">rootVolumeEncryptionEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276704"><span class="annot"><span class="annottext">s :: WorkspaceRequest
-</span><a href="#local-6989586621679276704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276703"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679276703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
-</span><a href="#local-6989586621679276704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootVolumeEncryptionEnabled:WorkspaceRequest' :: Maybe Bool
+</span><a href="#local-6989586621679276714"><span class="hs-identifier hs-var hs-var">rootVolumeEncryptionEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679276714"><span class="hs-identifier hs-var">rootVolumeEncryptionEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276713"><span class="annot"><span class="annottext">s :: WorkspaceRequest
+</span><a href="#local-6989586621679276713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276712"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679276712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
+</span><a href="#local-6989586621679276713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootVolumeEncryptionEnabled:WorkspaceRequest' :: Maybe Bool
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#%24sel%3ArootVolumeEncryptionEnabled%3AWorkspaceRequest%27"><span class="hs-identifier hs-var">rootVolumeEncryptionEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679276703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The symmetric KMS key used to encrypt data stored on your WorkSpace.</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- Amazon WorkSpaces does not support asymmetric KMS keys.</span><span>
@@ -250,16 +250,16 @@ $sel:rootVolumeEncryptionEnabled:WorkspaceRequest' :: WorkspaceRequest -&gt; May
 -&gt; (WorkspaceRequest -&gt; Maybe Text -&gt; WorkspaceRequest)
 -&gt; Lens WorkspaceRequest WorkspaceRequest (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276701"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276710"><span class="annot"><span class="annottext">Maybe Text
 volumeEncryptionKey :: Maybe Text
 $sel:volumeEncryptionKey:WorkspaceRequest' :: WorkspaceRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679276701"><span class="hs-identifier hs-var hs-var">volumeEncryptionKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679276701"><span class="hs-identifier hs-var">volumeEncryptionKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276700"><span class="annot"><span class="annottext">s :: WorkspaceRequest
-</span><a href="#local-6989586621679276700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276699"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679276699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
-</span><a href="#local-6989586621679276700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeEncryptionKey:WorkspaceRequest' :: Maybe Text
+</span><a href="#local-6989586621679276710"><span class="hs-identifier hs-var hs-var">volumeEncryptionKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276710"><span class="hs-identifier hs-var">volumeEncryptionKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276709"><span class="annot"><span class="annottext">s :: WorkspaceRequest
+</span><a href="#local-6989586621679276709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276708"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
+</span><a href="#local-6989586621679276709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeEncryptionKey:WorkspaceRequest' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#%24sel%3AvolumeEncryptionKey%3AWorkspaceRequest%27"><span class="hs-identifier hs-var">volumeEncryptionKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679276699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | Indicates whether the data stored on the user volume is encrypted.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#workspaceRequest_userVolumeEncryptionEnabled"><span class="hs-identifier hs-type">workspaceRequest_userVolumeEncryptionEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -269,16 +269,16 @@ $sel:volumeEncryptionKey:WorkspaceRequest' :: WorkspaceRequest -&gt; Maybe Text
 -&gt; (WorkspaceRequest -&gt; Maybe Bool -&gt; WorkspaceRequest)
 -&gt; Lens WorkspaceRequest WorkspaceRequest (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276697"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276706"><span class="annot"><span class="annottext">Maybe Bool
 userVolumeEncryptionEnabled :: Maybe Bool
 $sel:userVolumeEncryptionEnabled:WorkspaceRequest' :: WorkspaceRequest -&gt; Maybe Bool
-</span><a href="#local-6989586621679276697"><span class="hs-identifier hs-var hs-var">userVolumeEncryptionEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679276697"><span class="hs-identifier hs-var">userVolumeEncryptionEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276696"><span class="annot"><span class="annottext">s :: WorkspaceRequest
-</span><a href="#local-6989586621679276696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276695"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679276695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
-</span><a href="#local-6989586621679276696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userVolumeEncryptionEnabled:WorkspaceRequest' :: Maybe Bool
+</span><a href="#local-6989586621679276706"><span class="hs-identifier hs-var hs-var">userVolumeEncryptionEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679276706"><span class="hs-identifier hs-var">userVolumeEncryptionEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276705"><span class="annot"><span class="annottext">s :: WorkspaceRequest
+</span><a href="#local-6989586621679276705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276704"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679276704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
+</span><a href="#local-6989586621679276705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userVolumeEncryptionEnabled:WorkspaceRequest' :: Maybe Bool
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#%24sel%3AuserVolumeEncryptionEnabled%3AWorkspaceRequest%27"><span class="hs-identifier hs-var">userVolumeEncryptionEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679276695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The tags for the WorkSpace.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#workspaceRequest_tags"><span class="hs-identifier hs-type">workspaceRequest_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -289,16 +289,16 @@ $sel:userVolumeEncryptionEnabled:WorkspaceRequest' :: WorkspaceRequest -&gt; May
 -&gt; Lens
      WorkspaceRequest WorkspaceRequest (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276693"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276702"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:WorkspaceRequest' :: WorkspaceRequest -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679276693"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679276693"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276692"><span class="annot"><span class="annottext">s :: WorkspaceRequest
-</span><a href="#local-6989586621679276692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276691"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679276691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
-</span><a href="#local-6989586621679276692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:WorkspaceRequest' :: Maybe [Tag]
+</span><a href="#local-6989586621679276702"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679276702"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276701"><span class="annot"><span class="annottext">s :: WorkspaceRequest
+</span><a href="#local-6989586621679276701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276700"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679276700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
+</span><a href="#local-6989586621679276701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:WorkspaceRequest' :: Maybe [Tag]
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#%24sel%3Atags%3AWorkspaceRequest%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679276691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679276700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; WorkspaceRequest -&gt; f WorkspaceRequest)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -323,16 +323,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (WorkspaceRequest -&gt; Text -&gt; WorkspaceRequest)
 -&gt; Lens WorkspaceRequest WorkspaceRequest Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276686"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276695"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:WorkspaceRequest' :: WorkspaceRequest -&gt; Text
-</span><a href="#local-6989586621679276686"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276686"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276685"><span class="annot"><span class="annottext">s :: WorkspaceRequest
-</span><a href="#local-6989586621679276685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276684"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
-</span><a href="#local-6989586621679276685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:WorkspaceRequest' :: Text
+</span><a href="#local-6989586621679276695"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276695"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276694"><span class="annot"><span class="annottext">s :: WorkspaceRequest
+</span><a href="#local-6989586621679276694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276693"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
+</span><a href="#local-6989586621679276694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:WorkspaceRequest' :: Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#%24sel%3AdirectoryId%3AWorkspaceRequest%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The user name of the user for the WorkSpace. This user name must exist</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- in the Directory Service directory for the WorkSpace.</span><span>
@@ -342,16 +342,16 @@ $sel:directoryId:WorkspaceRequest' :: WorkspaceRequest -&gt; Text
 -&gt; (WorkspaceRequest -&gt; Text -&gt; WorkspaceRequest)
 -&gt; Lens WorkspaceRequest WorkspaceRequest Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276682"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276691"><span class="annot"><span class="annottext">Text
 userName :: Text
 $sel:userName:WorkspaceRequest' :: WorkspaceRequest -&gt; Text
-</span><a href="#local-6989586621679276682"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276682"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276681"><span class="annot"><span class="annottext">s :: WorkspaceRequest
-</span><a href="#local-6989586621679276681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276680"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
-</span><a href="#local-6989586621679276681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:WorkspaceRequest' :: Text
+</span><a href="#local-6989586621679276691"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276691"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276690"><span class="annot"><span class="annottext">s :: WorkspaceRequest
+</span><a href="#local-6989586621679276690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276689"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
+</span><a href="#local-6989586621679276690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:WorkspaceRequest' :: Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#%24sel%3AuserName%3AWorkspaceRequest%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The identifier of the bundle for the WorkSpace. You can use</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- DescribeWorkspaceBundles to list the available bundles.</span><span>
@@ -361,19 +361,19 @@ $sel:userName:WorkspaceRequest' :: WorkspaceRequest -&gt; Text
 -&gt; (WorkspaceRequest -&gt; Text -&gt; WorkspaceRequest)
 -&gt; Lens WorkspaceRequest WorkspaceRequest Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276678"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276687"><span class="annot"><span class="annottext">Text
 bundleId :: Text
 $sel:bundleId:WorkspaceRequest' :: WorkspaceRequest -&gt; Text
-</span><a href="#local-6989586621679276678"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276678"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276677"><span class="annot"><span class="annottext">s :: WorkspaceRequest
-</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276676"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
-</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:WorkspaceRequest' :: Text
+</span><a href="#local-6989586621679276687"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276687"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276686"><span class="annot"><span class="annottext">s :: WorkspaceRequest
+</span><a href="#local-6989586621679276686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276685"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceRequest
+</span><a href="#local-6989586621679276686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:WorkspaceRequest' :: Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#%24sel%3AbundleId%3AWorkspaceRequest%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276673"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679276671"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkspaceRequest
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276682"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679276680"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkspaceRequest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WorkspaceRequest)
@@ -383,8 +383,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WorkspaceRequest&quot;</span></span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276668"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276668"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276677"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe WorkspaceProperties
 -&gt; Maybe Bool
 -&gt; Maybe Text
@@ -416,7 +416,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; WorkspaceRequest)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WorkspaceProperties)
+</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WorkspaceProperties)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WorkspaceProperties&quot;</span></span><span class="hs-special">)</span><span>
@@ -440,7 +440,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; WorkspaceRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RootVolumeEncryptionEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -458,7 +458,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe [Tag] -&gt; Text -&gt; Text -&gt; Text -&gt; WorkspaceRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VolumeEncryptionKey&quot;</span></span><span class="hs-special">)</span><span>
@@ -469,7 +469,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Tag] -&gt; Text -&gt; Text -&gt; Text -&gt; WorkspaceRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserVolumeEncryptionEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -478,7 +478,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; WorkspaceRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
@@ -490,7 +490,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; WorkspaceRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span class="hs-special">)</span><span>
@@ -498,7 +498,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; WorkspaceRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span class="hs-special">)</span><span>
@@ -506,19 +506,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser WorkspaceRequest
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BundleId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276660"><span id="local-6989586621679276662"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276669"><span id="local-6989586621679276671"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276649"><span id="local-6989586621679276651"><span id="local-6989586621679276653"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679276647"><span class="annot"><span class="annottext">toJSON :: WorkspaceRequest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276638"><span id="local-6989586621679276639"><span id="local-6989586621679276640"><span id="local-6989586621679276641"><span id="local-6989586621679276642"><span id="local-6989586621679276643"><span id="local-6989586621679276644"><span id="local-6989586621679276645"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276658"><span id="local-6989586621679276660"><span id="local-6989586621679276662"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679276656"><span class="annot"><span class="annottext">toJSON :: WorkspaceRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest%27"><span class="hs-identifier hs-type">WorkspaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276647"><span id="local-6989586621679276648"><span id="local-6989586621679276649"><span id="local-6989586621679276650"><span id="local-6989586621679276651"><span id="local-6989586621679276652"><span id="local-6989586621679276653"><span id="local-6989586621679276654"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Tag]
 Maybe Text
 Maybe WorkspaceProperties
@@ -539,7 +539,7 @@ $sel:userVolumeEncryptionEnabled:WorkspaceRequest' :: WorkspaceRequest -&gt; May
 $sel:volumeEncryptionKey:WorkspaceRequest' :: WorkspaceRequest -&gt; Maybe Text
 $sel:rootVolumeEncryptionEnabled:WorkspaceRequest' :: WorkspaceRequest -&gt; Maybe Bool
 $sel:workspaceProperties:WorkspaceRequest' :: WorkspaceRequest -&gt; Maybe WorkspaceProperties
-</span><a href="#local-6989586621679276638"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679276647"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -553,7 +553,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe WorkspaceProperties -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WorkspaceProperties
-</span><a href="#local-6989586621679276645"><span class="hs-identifier hs-var">workspaceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276654"><span class="hs-identifier hs-var">workspaceProperties</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RootVolumeEncryptionEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -561,7 +561,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679276644"><span class="hs-identifier hs-var">rootVolumeEncryptionEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276653"><span class="hs-identifier hs-var">rootVolumeEncryptionEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VolumeEncryptionKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -569,7 +569,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679276643"><span class="hs-identifier hs-var">volumeEncryptionKey</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276652"><span class="hs-identifier hs-var">volumeEncryptionKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserVolumeEncryptionEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -577,35 +577,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679276642"><span class="hs-identifier hs-var">userVolumeEncryptionEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276651"><span class="hs-identifier hs-var">userVolumeEncryptionEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679276641"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276650"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276640"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276649"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276639"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276648"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BundleId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276638"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276647"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span></pre></body></html>

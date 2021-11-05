@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679699059"><span id="local-6989586621679699060"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SortDirectionType"><span class="annot"><a href="Network.AWS.Glue.Types.SortDirectionType.html#SortDirectionType"><span class="hs-identifier hs-var">SortDirectionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortDirectionType%27"><span class="annot"><a href="Network.AWS.Glue.Types.SortDirectionType.html#SortDirectionType%27"><span class="hs-identifier hs-var">SortDirectionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679699068"><span id="local-6989586621679699069"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SortDirectionType"><span class="annot"><a href="Network.AWS.Glue.Types.SortDirectionType.html#SortDirectionType"><span class="hs-identifier hs-var">SortDirectionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortDirectionType%27"><span class="annot"><a href="Network.AWS.Glue.Types.SortDirectionType.html#SortDirectionType%27"><span class="hs-identifier hs-var">SortDirectionType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSortDirectionType"><span class="annot"><span class="annottext">SortDirectionType -&gt; Text
 </span><a href="Network.AWS.Glue.Types.SortDirectionType.html#fromSortDirectionType"><span class="hs-identifier hs-var hs-var">fromSortDirectionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679699051"><span id="local-6989586621679699053"><span id="local-6989586621679699055"><span class="annot"><span class="annottext">Int -&gt; SortDirectionType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679699060"><span id="local-6989586621679699062"><span id="local-6989586621679699064"><span class="annot"><span class="annottext">Int -&gt; SortDirectionType -&gt; ShowS
 [SortDirectionType] -&gt; ShowS
 SortDirectionType -&gt; String
 (Int -&gt; SortDirectionType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: SortDirectionType -&gt; String
 showsPrec :: Int -&gt; SortDirectionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SortDirectionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679699042"><span id="local-6989586621679699044"><span id="local-6989586621679699046"><span id="local-6989586621679699048"><span class="annot"><span class="annottext">ReadPrec [SortDirectionType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679699051"><span id="local-6989586621679699053"><span id="local-6989586621679699055"><span id="local-6989586621679699057"><span class="annot"><span class="annottext">ReadPrec [SortDirectionType]
 ReadPrec SortDirectionType
 Int -&gt; ReadS SortDirectionType
 ReadS [SortDirectionType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [SortDirectionType]
 readsPrec :: Int -&gt; ReadS SortDirectionType
 $creadsPrec :: Int -&gt; ReadS SortDirectionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679699037"><span id="local-6989586621679699039"><span class="annot"><span class="annottext">SortDirectionType -&gt; SortDirectionType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679699046"><span id="local-6989586621679699048"><span class="annot"><span class="annottext">SortDirectionType -&gt; SortDirectionType -&gt; Bool
 (SortDirectionType -&gt; SortDirectionType -&gt; Bool)
 -&gt; (SortDirectionType -&gt; SortDirectionType -&gt; Bool)
 -&gt; Eq SortDirectionType
@@ -82,7 +82,7 @@ $c/= :: SortDirectionType -&gt; SortDirectionType -&gt; Bool
 == :: SortDirectionType -&gt; SortDirectionType -&gt; Bool
 $c== :: SortDirectionType -&gt; SortDirectionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679699021"><span id="local-6989586621679699023"><span id="local-6989586621679699025"><span id="local-6989586621679699027"><span id="local-6989586621679699029"><span id="local-6989586621679699031"><span id="local-6989586621679699033"><span class="annot"><span class="annottext">Eq SortDirectionType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679699030"><span id="local-6989586621679699032"><span id="local-6989586621679699034"><span id="local-6989586621679699036"><span id="local-6989586621679699038"><span id="local-6989586621679699040"><span id="local-6989586621679699042"><span class="annot"><span class="annottext">Eq SortDirectionType
 Eq SortDirectionType
 -&gt; (SortDirectionType -&gt; SortDirectionType -&gt; Ordering)
 -&gt; (SortDirectionType -&gt; SortDirectionType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. SortDirectionType -&gt; Rep SortDirectionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679699013"><span id="local-6989586621679699015"><span class="annot"><span class="annottext">Int -&gt; SortDirectionType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679699022"><span id="local-6989586621679699024"><span class="annot"><span class="annottext">Int -&gt; SortDirectionType -&gt; Int
 SortDirectionType -&gt; Int
 (Int -&gt; SortDirectionType -&gt; Int)
 -&gt; (SortDirectionType -&gt; Int) -&gt; Hashable SortDirectionType
@@ -143,51 +143,51 @@ $chash :: SortDirectionType -&gt; Int
 hashWithSalt :: Int -&gt; SortDirectionType -&gt; Int
 $chashWithSalt :: Int -&gt; SortDirectionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679699010"><span class="annot"><span class="annottext">SortDirectionType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679699019"><span class="annot"><span class="annottext">SortDirectionType -&gt; ()
 (SortDirectionType -&gt; ()) -&gt; NFData SortDirectionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SortDirectionType -&gt; ()
 $crnf :: SortDirectionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679699007"><span class="annot"><span class="annottext">Text -&gt; Either String SortDirectionType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679699016"><span class="annot"><span class="annottext">Text -&gt; Either String SortDirectionType
 (Text -&gt; Either String SortDirectionType)
 -&gt; FromText SortDirectionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SortDirectionType
 $cfromText :: Text -&gt; Either String SortDirectionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679699004"><span class="annot"><span class="annottext">SortDirectionType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679699013"><span class="annot"><span class="annottext">SortDirectionType -&gt; Text
 (SortDirectionType -&gt; Text) -&gt; ToText SortDirectionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SortDirectionType -&gt; Text
 $ctoText :: SortDirectionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679699001"><span class="annot"><span class="annottext">SortDirectionType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679699010"><span class="annot"><span class="annottext">SortDirectionType -&gt; ByteString
 (SortDirectionType -&gt; ByteString) -&gt; ToByteString SortDirectionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SortDirectionType -&gt; ByteString
 $ctoBS :: SortDirectionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679698998"><span class="annot"><span class="annottext">SortDirectionType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679699007"><span class="annot"><span class="annottext">SortDirectionType -&gt; ByteStringBuilder
 (SortDirectionType -&gt; ByteStringBuilder) -&gt; ToLog SortDirectionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SortDirectionType -&gt; ByteStringBuilder
 $cbuild :: SortDirectionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679698995"><span class="annot"><span class="annottext">HeaderName -&gt; SortDirectionType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679699004"><span class="annot"><span class="annottext">HeaderName -&gt; SortDirectionType -&gt; [Header]
 (HeaderName -&gt; SortDirectionType -&gt; [Header])
 -&gt; ToHeader SortDirectionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SortDirectionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SortDirectionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679698992"><span class="annot"><span class="annottext">SortDirectionType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679699001"><span class="annot"><span class="annottext">SortDirectionType -&gt; QueryString
 (SortDirectionType -&gt; QueryString) -&gt; ToQuery SortDirectionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SortDirectionType -&gt; QueryString
 $ctoQuery :: SortDirectionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679698987"><span id="local-6989586621679698989"><span class="annot"><span class="annottext">Value -&gt; Parser [SortDirectionType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679698996"><span id="local-6989586621679698998"><span class="annot"><span class="annottext">Value -&gt; Parser [SortDirectionType]
 Value -&gt; Parser SortDirectionType
 (Value -&gt; Parser SortDirectionType)
 -&gt; (Value -&gt; Parser [SortDirectionType])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [SortDirectionType]
 parseJSON :: Value -&gt; Parser SortDirectionType
 $cparseJSON :: Value -&gt; Parser SortDirectionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679698982"><span id="local-6989586621679698984"><span class="annot"><span class="annottext">FromJSONKeyFunction [SortDirectionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679698991"><span id="local-6989586621679698993"><span class="annot"><span class="annottext">FromJSONKeyFunction [SortDirectionType]
 FromJSONKeyFunction SortDirectionType
 FromJSONKeyFunction SortDirectionType
 -&gt; FromJSONKeyFunction [SortDirectionType]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SortDirectionType]
 fromJSONKey :: FromJSONKeyFunction SortDirectionType
 $cfromJSONKey :: FromJSONKeyFunction SortDirectionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679698973"><span id="local-6989586621679698975"><span id="local-6989586621679698977"><span id="local-6989586621679698979"><span class="annot"><span class="annottext">[SortDirectionType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679698982"><span id="local-6989586621679698984"><span id="local-6989586621679698986"><span id="local-6989586621679698988"><span class="annot"><span class="annottext">[SortDirectionType] -&gt; Encoding
 [SortDirectionType] -&gt; Value
 SortDirectionType -&gt; Encoding
 SortDirectionType -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: SortDirectionType -&gt; Encoding
 toJSON :: SortDirectionType -&gt; Value
 $ctoJSON :: SortDirectionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679698968"><span id="local-6989586621679698970"><span class="annot"><span class="annottext">ToJSONKeyFunction [SortDirectionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679698977"><span id="local-6989586621679698979"><span class="annot"><span class="annottext">ToJSONKeyFunction [SortDirectionType]
 ToJSONKeyFunction SortDirectionType
 ToJSONKeyFunction SortDirectionType
 -&gt; ToJSONKeyFunction [SortDirectionType]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SortDirectionType]
 toJSONKey :: ToJSONKeyFunction SortDirectionType
 $ctoJSONKey :: ToJSONKeyFunction SortDirectionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679698965"><span class="annot"><span class="annottext">[Node] -&gt; Either String SortDirectionType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679698974"><span class="annot"><span class="annottext">[Node] -&gt; Either String SortDirectionType
 ([Node] -&gt; Either String SortDirectionType)
 -&gt; FromXML SortDirectionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SortDirectionType
 $cparseXML :: [Node] -&gt; Either String SortDirectionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679698962"><span class="annot"><span class="annottext">SortDirectionType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679698971"><span class="annot"><span class="annottext">SortDirectionType -&gt; XML
 (SortDirectionType -&gt; XML) -&gt; ToXML SortDirectionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SortDirectionType -&gt; XML

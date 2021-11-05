@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The evaluation results for the training of a model.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEvaluationResult' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679332078"><span id="local-6989586621679332079"></span></span><span class="hs-keyword">data</span><span> </span><span id="EvaluationResult"><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-var">EvaluationResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EvaluationResult%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-var">EvaluationResult'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679332087"><span id="local-6989586621679332088"></span></span><span class="hs-keyword">data</span><span> </span><span id="EvaluationResult"><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-var">EvaluationResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EvaluationResult%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-var">EvaluationResult'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The S3 bucket that contains the training summary.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Asummary%3AEvaluationResult%27"><span class="annot"><span class="annottext">EvaluationResult -&gt; Maybe Summary
 </span><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#%24sel%3Asummary%3AEvaluationResult%27"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Af1Score%3AEvaluationResult%27"><span class="annot"><span class="annottext">EvaluationResult -&gt; Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#%24sel%3Af1Score%3AEvaluationResult%27"><span class="hs-identifier hs-var hs-var">f1Score</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332071"><span id="local-6989586621679332073"><span class="annot"><span class="annottext">EvaluationResult -&gt; EvaluationResult -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332080"><span id="local-6989586621679332082"><span class="annot"><span class="annottext">EvaluationResult -&gt; EvaluationResult -&gt; Bool
 (EvaluationResult -&gt; EvaluationResult -&gt; Bool)
 -&gt; (EvaluationResult -&gt; EvaluationResult -&gt; Bool)
 -&gt; Eq EvaluationResult
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EvaluationResult -&gt; EvaluationResult -&gt; Bool
 == :: EvaluationResult -&gt; EvaluationResult -&gt; Bool
 $c== :: EvaluationResult -&gt; EvaluationResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332062"><span id="local-6989586621679332064"><span id="local-6989586621679332066"><span id="local-6989586621679332068"><span class="annot"><span class="annottext">ReadPrec [EvaluationResult]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332071"><span id="local-6989586621679332073"><span id="local-6989586621679332075"><span id="local-6989586621679332077"><span class="annot"><span class="annottext">ReadPrec [EvaluationResult]
 ReadPrec EvaluationResult
 Int -&gt; ReadS EvaluationResult
 ReadS [EvaluationResult]
@@ -68,7 +68,7 @@ readList :: ReadS [EvaluationResult]
 $creadList :: ReadS [EvaluationResult]
 readsPrec :: Int -&gt; ReadS EvaluationResult
 $creadsPrec :: Int -&gt; ReadS EvaluationResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332055"><span id="local-6989586621679332057"><span id="local-6989586621679332059"><span class="annot"><span class="annottext">Int -&gt; EvaluationResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332064"><span id="local-6989586621679332066"><span id="local-6989586621679332068"><span class="annot"><span class="annottext">Int -&gt; EvaluationResult -&gt; ShowS
 [EvaluationResult] -&gt; ShowS
 EvaluationResult -&gt; String
 (Int -&gt; EvaluationResult -&gt; ShowS)
@@ -134,16 +134,16 @@ forall a. Maybe a
 -&gt; Lens
      EvaluationResult EvaluationResult (Maybe Summary) (Maybe Summary)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332046"><span class="annot"><span class="annottext">Maybe Summary
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332055"><span class="annot"><span class="annottext">Maybe Summary
 summary :: Maybe Summary
 $sel:summary:EvaluationResult' :: EvaluationResult -&gt; Maybe Summary
-</span><a href="#local-6989586621679332046"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Summary
-</span><a href="#local-6989586621679332046"><span class="hs-identifier hs-var">summary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332045"><span class="annot"><span class="annottext">s :: EvaluationResult
-</span><a href="#local-6989586621679332045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332044"><span class="annot"><span class="annottext">Maybe Summary
-</span><a href="#local-6989586621679332044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationResult
-</span><a href="#local-6989586621679332045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summary:EvaluationResult' :: Maybe Summary
+</span><a href="#local-6989586621679332055"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Summary
+</span><a href="#local-6989586621679332055"><span class="hs-identifier hs-var">summary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332054"><span class="annot"><span class="annottext">s :: EvaluationResult
+</span><a href="#local-6989586621679332054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332053"><span class="annot"><span class="annottext">Maybe Summary
+</span><a href="#local-6989586621679332053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationResult
+</span><a href="#local-6989586621679332054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summary:EvaluationResult' :: Maybe Summary
 </span><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#%24sel%3Asummary%3AEvaluationResult%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Summary
-</span><a href="#local-6989586621679332044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679332053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The F1 score for the evaluation of all labels. The F1 score metric</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- evaluates the overall precision and recall performance of the model as a</span><span>
@@ -158,19 +158,19 @@ $sel:summary:EvaluationResult' :: EvaluationResult -&gt; Maybe Summary
 -&gt; Lens
      EvaluationResult EvaluationResult (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332042"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332051"><span class="annot"><span class="annottext">Maybe Double
 f1Score :: Maybe Double
 $sel:f1Score:EvaluationResult' :: EvaluationResult -&gt; Maybe Double
-</span><a href="#local-6989586621679332042"><span class="hs-identifier hs-var hs-var">f1Score</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679332042"><span class="hs-identifier hs-var">f1Score</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332041"><span class="annot"><span class="annottext">s :: EvaluationResult
-</span><a href="#local-6989586621679332041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332040"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679332040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationResult
-</span><a href="#local-6989586621679332041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:f1Score:EvaluationResult' :: Maybe Double
+</span><a href="#local-6989586621679332051"><span class="hs-identifier hs-var hs-var">f1Score</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679332051"><span class="hs-identifier hs-var">f1Score</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332050"><span class="annot"><span class="annottext">s :: EvaluationResult
+</span><a href="#local-6989586621679332050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332049"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679332049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationResult
+</span><a href="#local-6989586621679332050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:f1Score:EvaluationResult' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#%24sel%3Af1Score%3AEvaluationResult%27"><span class="hs-identifier hs-var">f1Score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679332040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679332049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332037"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679332035"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EvaluationResult
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332046"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679332044"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EvaluationResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EvaluationResult)
@@ -180,8 +180,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EvaluationResult&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332032"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332032"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332041"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679332041"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Summary -&gt; Maybe Double -&gt; EvaluationResult
 </span><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-var">EvaluationResult'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Summary -&gt; Maybe Double -&gt; EvaluationResult)
@@ -189,7 +189,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Double -&gt; EvaluationResult)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Summary)
+</span><a href="#local-6989586621679332041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Summary)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Summary&quot;</span></span><span class="hs-special">)</span><span>
@@ -197,13 +197,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser EvaluationResult
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679332041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;F1Score&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332026"><span id="local-6989586621679332028"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332035"><span id="local-6989586621679332037"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332023"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span></span><span>
 </span><span id="line-90"></span></pre></body></html>

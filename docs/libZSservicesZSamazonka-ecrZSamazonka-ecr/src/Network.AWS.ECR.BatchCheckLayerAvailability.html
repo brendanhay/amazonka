@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newBatchCheckLayerAvailability' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679244694"><span id="local-6989586621679244695"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchCheckLayerAvailability"><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-var">BatchCheckLayerAvailability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchCheckLayerAvailability%27"><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-var">BatchCheckLayerAvailability'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679244703"><span id="local-6989586621679244704"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchCheckLayerAvailability"><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-var">BatchCheckLayerAvailability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchCheckLayerAvailability%27"><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-var">BatchCheckLayerAvailability'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- contains the image layers to check. If you do not specify a registry,</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the default registry is assumed.</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AlayerDigests%3ABatchCheckLayerAvailability%27"><span class="annot"><span class="annottext">BatchCheckLayerAvailability -&gt; NonEmpty Text
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#%24sel%3AlayerDigests%3ABatchCheckLayerAvailability%27"><span class="hs-identifier hs-var hs-var">layerDigests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244686"><span id="local-6989586621679244688"><span class="annot"><span class="annottext">BatchCheckLayerAvailability -&gt; BatchCheckLayerAvailability -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244695"><span id="local-6989586621679244697"><span class="annot"><span class="annottext">BatchCheckLayerAvailability -&gt; BatchCheckLayerAvailability -&gt; Bool
 (BatchCheckLayerAvailability
  -&gt; BatchCheckLayerAvailability -&gt; Bool)
 -&gt; (BatchCheckLayerAvailability
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchCheckLayerAvailability -&gt; BatchCheckLayerAvailability -&gt; Bool
 == :: BatchCheckLayerAvailability -&gt; BatchCheckLayerAvailability -&gt; Bool
 $c== :: BatchCheckLayerAvailability -&gt; BatchCheckLayerAvailability -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244677"><span id="local-6989586621679244679"><span id="local-6989586621679244681"><span id="local-6989586621679244683"><span class="annot"><span class="annottext">ReadPrec [BatchCheckLayerAvailability]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244686"><span id="local-6989586621679244688"><span id="local-6989586621679244690"><span id="local-6989586621679244692"><span class="annot"><span class="annottext">ReadPrec [BatchCheckLayerAvailability]
 ReadPrec BatchCheckLayerAvailability
 Int -&gt; ReadS BatchCheckLayerAvailability
 ReadS [BatchCheckLayerAvailability]
@@ -103,7 +103,7 @@ readList :: ReadS [BatchCheckLayerAvailability]
 $creadList :: ReadS [BatchCheckLayerAvailability]
 readsPrec :: Int -&gt; ReadS BatchCheckLayerAvailability
 $creadsPrec :: Int -&gt; ReadS BatchCheckLayerAvailability
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244670"><span id="local-6989586621679244672"><span id="local-6989586621679244674"><span class="annot"><span class="annottext">Int -&gt; BatchCheckLayerAvailability -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244679"><span id="local-6989586621679244681"><span id="local-6989586621679244683"><span class="annot"><span class="annottext">Int -&gt; BatchCheckLayerAvailability -&gt; ShowS
 [BatchCheckLayerAvailability] -&gt; ShowS
 BatchCheckLayerAvailability -&gt; String
 (Int -&gt; BatchCheckLayerAvailability -&gt; ShowS)
@@ -159,10 +159,10 @@ BatchCheckLayerAvailability -&gt; Rep BatchCheckLayerAvailability x
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span><span>
 </span><span id="line-96"></span><span id="newBatchCheckLayerAvailability"><span class="annot"><span class="annottext">newBatchCheckLayerAvailability :: Text -&gt; NonEmpty Text -&gt; BatchCheckLayerAvailability
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#newBatchCheckLayerAvailability"><span class="hs-identifier hs-var hs-var">newBatchCheckLayerAvailability</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679244665"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244665"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679244664"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679244664"><span class="hs-identifier hs-var">pLayerDigests_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679244674"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244674"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679244673"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679244673"><span class="hs-identifier hs-var">pLayerDigests_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">BatchCheckLayerAvailability' :: Maybe Text -&gt; Text -&gt; NonEmpty Text -&gt; BatchCheckLayerAvailability
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registryId:BatchCheckLayerAvailability' :: Maybe Text
@@ -172,7 +172,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:repositoryName:BatchCheckLayerAvailability' :: Text
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#%24sel%3ArepositoryName%3ABatchCheckLayerAvailability%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244665"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679244674"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:layerDigests:BatchCheckLayerAvailability' :: NonEmpty Text
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#%24sel%3AlayerDigests%3ABatchCheckLayerAvailability%27"><span class="hs-identifier hs-var">layerDigests</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
@@ -183,7 +183,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679244664"><span class="hs-identifier hs-var">pLayerDigests_</span></a></span><span>
+</span><a href="#local-6989586621679244673"><span class="hs-identifier hs-var">pLayerDigests_</span></a></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
@@ -201,16 +201,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244659"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244668"><span class="annot"><span class="annottext">Maybe Text
 registryId :: Maybe Text
 $sel:registryId:BatchCheckLayerAvailability' :: BatchCheckLayerAvailability -&gt; Maybe Text
-</span><a href="#local-6989586621679244659"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244659"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244658"><span class="annot"><span class="annottext">s :: BatchCheckLayerAvailability
-</span><a href="#local-6989586621679244658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244657"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCheckLayerAvailability
-</span><a href="#local-6989586621679244658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:BatchCheckLayerAvailability' :: Maybe Text
+</span><a href="#local-6989586621679244668"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244668"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244667"><span class="annot"><span class="annottext">s :: BatchCheckLayerAvailability
+</span><a href="#local-6989586621679244667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244666"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCheckLayerAvailability
+</span><a href="#local-6989586621679244667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:BatchCheckLayerAvailability' :: Maybe Text
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#%24sel%3AregistryId%3ABatchCheckLayerAvailability%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The name of the repository that is associated with the image layers to</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- check.</span><span>
@@ -223,16 +223,16 @@ $sel:registryId:BatchCheckLayerAvailability' :: BatchCheckLayerAvailability -&gt
 -&gt; Lens
      BatchCheckLayerAvailability BatchCheckLayerAvailability Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244656"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244665"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:BatchCheckLayerAvailability' :: BatchCheckLayerAvailability -&gt; Text
-</span><a href="#local-6989586621679244656"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244656"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244655"><span class="annot"><span class="annottext">s :: BatchCheckLayerAvailability
-</span><a href="#local-6989586621679244655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244654"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCheckLayerAvailability
-</span><a href="#local-6989586621679244655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:BatchCheckLayerAvailability' :: Text
+</span><a href="#local-6989586621679244665"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244665"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244664"><span class="annot"><span class="annottext">s :: BatchCheckLayerAvailability
+</span><a href="#local-6989586621679244664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244663"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCheckLayerAvailability
+</span><a href="#local-6989586621679244664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:BatchCheckLayerAvailability' :: Text
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#%24sel%3ArepositoryName%3ABatchCheckLayerAvailability%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The digests of the image layers to check.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#batchCheckLayerAvailability_layerDigests"><span class="hs-identifier hs-type">batchCheckLayerAvailability_layerDigests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -247,16 +247,16 @@ $sel:repositoryName:BatchCheckLayerAvailability' :: BatchCheckLayerAvailability 
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244653"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244662"><span class="annot"><span class="annottext">NonEmpty Text
 layerDigests :: NonEmpty Text
 $sel:layerDigests:BatchCheckLayerAvailability' :: BatchCheckLayerAvailability -&gt; NonEmpty Text
-</span><a href="#local-6989586621679244653"><span class="hs-identifier hs-var hs-var">layerDigests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679244653"><span class="hs-identifier hs-var">layerDigests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244652"><span class="annot"><span class="annottext">s :: BatchCheckLayerAvailability
-</span><a href="#local-6989586621679244652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244651"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679244651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCheckLayerAvailability
-</span><a href="#local-6989586621679244652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerDigests:BatchCheckLayerAvailability' :: NonEmpty Text
+</span><a href="#local-6989586621679244662"><span class="hs-identifier hs-var hs-var">layerDigests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679244662"><span class="hs-identifier hs-var">layerDigests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244661"><span class="annot"><span class="annottext">s :: BatchCheckLayerAvailability
+</span><a href="#local-6989586621679244661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244660"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679244660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCheckLayerAvailability
+</span><a href="#local-6989586621679244661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerDigests:BatchCheckLayerAvailability' :: NonEmpty Text
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#%24sel%3AlayerDigests%3ABatchCheckLayerAvailability%27"><span class="hs-identifier hs-var">layerDigests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679244651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679244660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; BatchCheckLayerAvailability -&gt; f BatchCheckLayerAvailability)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -273,14 +273,14 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679244646"><span class="annot"><span class="annottext">request :: BatchCheckLayerAvailability -&gt; Request BatchCheckLayerAvailability
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679244655"><span class="annot"><span class="annottext">request :: BatchCheckLayerAvailability -&gt; Request BatchCheckLayerAvailability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; BatchCheckLayerAvailability
 -&gt; Request BatchCheckLayerAvailability
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679244642"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679244651"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchCheckLayerAvailability
 -&gt; ClientResponse ClientBody
@@ -306,10 +306,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244639"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244639"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679244638"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679244638"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679244637"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244637"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244648"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244648"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679244647"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679244647"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679244646"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244646"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe [LayerFailure]
 -&gt; Maybe [Layer] -&gt; Int -&gt; BatchCheckLayerAvailabilityResponse
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-var">BatchCheckLayerAvailabilityResponse'</span></a></span><span>
@@ -321,7 +321,7 @@ MonadResource m =&gt;
      (Maybe [Layer] -&gt; Int -&gt; BatchCheckLayerAvailabilityResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [LayerFailure]))
+</span><a href="#local-6989586621679244646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [LayerFailure]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;failures&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [LayerFailure]))
@@ -337,7 +337,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; BatchCheckLayerAvailabilityResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Layer]))
+</span><a href="#local-6989586621679244646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Layer]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;layers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Layer]))
@@ -355,15 +355,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244639"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244648"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244628"><span id="local-6989586621679244630"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244637"><span id="local-6989586621679244639"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span></span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244634"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679244621"><span class="annot"><span class="annottext">toHeaders :: BatchCheckLayerAvailability -&gt; ResponseHeaders
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679244630"><span class="annot"><span class="annottext">toHeaders :: BatchCheckLayerAvailability -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchCheckLayerAvailability -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -390,9 +390,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244611"><span id="local-6989586621679244613"><span id="local-6989586621679244615"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679244609"><span class="annot"><span class="annottext">toJSON :: BatchCheckLayerAvailability -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244605"><span id="local-6989586621679244606"><span id="local-6989586621679244607"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244620"><span id="local-6989586621679244622"><span id="local-6989586621679244624"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679244618"><span class="annot"><span class="annottext">toJSON :: BatchCheckLayerAvailability -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244614"><span id="local-6989586621679244615"><span id="local-6989586621679244616"><span class="annot"><span class="annottext">Maybe Text
 NonEmpty Text
 Text
 layerDigests :: NonEmpty Text
@@ -401,7 +401,7 @@ registryId :: Maybe Text
 $sel:layerDigests:BatchCheckLayerAvailability' :: BatchCheckLayerAvailability -&gt; NonEmpty Text
 $sel:repositoryName:BatchCheckLayerAvailability' :: BatchCheckLayerAvailability -&gt; Text
 $sel:registryId:BatchCheckLayerAvailability' :: BatchCheckLayerAvailability -&gt; Maybe Text
-</span><a href="#local-6989586621679244605"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679244614"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -413,7 +413,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244607"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679244616"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -421,26 +421,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244606"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679244615"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;layerDigests&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679244605"><span class="hs-identifier hs-var">layerDigests</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244614"><span class="hs-identifier hs-var">layerDigests</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679244599"><span class="annot"><span class="annottext">toPath :: BatchCheckLayerAvailability -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679244608"><span class="annot"><span class="annottext">toPath :: BatchCheckLayerAvailability -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchCheckLayerAvailability -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailability"><span class="hs-identifier hs-type">BatchCheckLayerAvailability</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679244595"><span class="annot"><span class="annottext">toQuery :: BatchCheckLayerAvailability -&gt; QueryString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679244604"><span class="annot"><span class="annottext">toQuery :: BatchCheckLayerAvailability -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchCheckLayerAvailability -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -448,7 +448,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newBatchCheckLayerAvailabilityResponse' smart constructor.</span><span>
-</span><span id="line-173"></span><span id="local-6989586621679244592"><span id="local-6989586621679244593"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchCheckLayerAvailabilityResponse"><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse"><span class="hs-identifier hs-var">BatchCheckLayerAvailabilityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchCheckLayerAvailabilityResponse%27"><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-var">BatchCheckLayerAvailabilityResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span id="local-6989586621679244601"><span id="local-6989586621679244602"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchCheckLayerAvailabilityResponse"><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse"><span class="hs-identifier hs-var">BatchCheckLayerAvailabilityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchCheckLayerAvailabilityResponse%27"><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-var">BatchCheckLayerAvailabilityResponse'</span></a></span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
 </span><span id="line-175"></span><span>    </span><span id="%24sel%3Afailures%3ABatchCheckLayerAvailabilityResponse%27"><span class="annot"><span class="annottext">BatchCheckLayerAvailabilityResponse -&gt; Maybe [LayerFailure]
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#%24sel%3Afailures%3ABatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.LayerFailure.html#LayerFailure"><span class="hs-identifier hs-type">LayerFailure</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -460,7 +460,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-180"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchCheckLayerAvailabilityResponse%27"><span class="annot"><span class="annottext">BatchCheckLayerAvailabilityResponse -&gt; Int
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#%24sel%3AhttpStatus%3ABatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244585"><span id="local-6989586621679244587"><span class="annot"><span class="annottext">BatchCheckLayerAvailabilityResponse
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244594"><span id="local-6989586621679244596"><span class="annot"><span class="annottext">BatchCheckLayerAvailabilityResponse
 -&gt; BatchCheckLayerAvailabilityResponse -&gt; Bool
 (BatchCheckLayerAvailabilityResponse
  -&gt; BatchCheckLayerAvailabilityResponse -&gt; Bool)
@@ -476,7 +476,7 @@ $c/= :: BatchCheckLayerAvailabilityResponse
 -&gt; BatchCheckLayerAvailabilityResponse -&gt; Bool
 $c== :: BatchCheckLayerAvailabilityResponse
 -&gt; BatchCheckLayerAvailabilityResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244577"><span id="local-6989586621679244579"><span id="local-6989586621679244581"><span id="local-6989586621679244583"><span class="annot"><span class="annottext">ReadPrec [BatchCheckLayerAvailabilityResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244586"><span id="local-6989586621679244588"><span id="local-6989586621679244590"><span id="local-6989586621679244592"><span class="annot"><span class="annottext">ReadPrec [BatchCheckLayerAvailabilityResponse]
 ReadPrec BatchCheckLayerAvailabilityResponse
 Int -&gt; ReadS BatchCheckLayerAvailabilityResponse
 ReadS [BatchCheckLayerAvailabilityResponse]
@@ -496,7 +496,7 @@ readList :: ReadS [BatchCheckLayerAvailabilityResponse]
 $creadList :: ReadS [BatchCheckLayerAvailabilityResponse]
 readsPrec :: Int -&gt; ReadS BatchCheckLayerAvailabilityResponse
 $creadsPrec :: Int -&gt; ReadS BatchCheckLayerAvailabilityResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244571"><span id="local-6989586621679244573"><span id="local-6989586621679244575"><span class="annot"><span class="annottext">Int -&gt; BatchCheckLayerAvailabilityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244580"><span id="local-6989586621679244582"><span id="local-6989586621679244584"><span class="annot"><span class="annottext">Int -&gt; BatchCheckLayerAvailabilityResponse -&gt; ShowS
 [BatchCheckLayerAvailabilityResponse] -&gt; ShowS
 BatchCheckLayerAvailabilityResponse -&gt; String
 (Int -&gt; BatchCheckLayerAvailabilityResponse -&gt; ShowS)
@@ -553,8 +553,8 @@ BatchCheckLayerAvailabilityResponse
 </span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-201"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse</span></a></span><span>
 </span><span id="line-202"></span><span id="newBatchCheckLayerAvailabilityResponse"><span class="annot"><span class="annottext">newBatchCheckLayerAvailabilityResponse :: Int -&gt; BatchCheckLayerAvailabilityResponse
-</span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#newBatchCheckLayerAvailabilityResponse"><span class="hs-identifier hs-var hs-var">newBatchCheckLayerAvailabilityResponse</span></a></span></span><span> </span><span id="local-6989586621679244568"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244568"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#newBatchCheckLayerAvailabilityResponse"><span class="hs-identifier hs-var hs-var">newBatchCheckLayerAvailabilityResponse</span></a></span></span><span> </span><span id="local-6989586621679244577"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244577"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-203"></span><span>  </span><span class="annot"><span class="annottext">BatchCheckLayerAvailabilityResponse' :: Maybe [LayerFailure]
 -&gt; Maybe [Layer] -&gt; Int -&gt; BatchCheckLayerAvailabilityResponse
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse'</span></a></span><span>
@@ -569,7 +569,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchCheckLayerAvailabilityResponse' :: Int
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#%24sel%3AhttpStatus%3ABatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244568"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679244577"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
@@ -586,16 +586,16 @@ forall a. Maybe a
      (Maybe [LayerFailure])
      (Maybe [LayerFailure])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244567"><span class="annot"><span class="annottext">Maybe [LayerFailure]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244576"><span class="annot"><span class="annottext">Maybe [LayerFailure]
 failures :: Maybe [LayerFailure]
 $sel:failures:BatchCheckLayerAvailabilityResponse' :: BatchCheckLayerAvailabilityResponse -&gt; Maybe [LayerFailure]
-</span><a href="#local-6989586621679244567"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LayerFailure]
-</span><a href="#local-6989586621679244567"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244566"><span class="annot"><span class="annottext">s :: BatchCheckLayerAvailabilityResponse
-</span><a href="#local-6989586621679244566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244565"><span class="annot"><span class="annottext">Maybe [LayerFailure]
-</span><a href="#local-6989586621679244565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCheckLayerAvailabilityResponse
-</span><a href="#local-6989586621679244566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:BatchCheckLayerAvailabilityResponse' :: Maybe [LayerFailure]
+</span><a href="#local-6989586621679244576"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LayerFailure]
+</span><a href="#local-6989586621679244576"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244575"><span class="annot"><span class="annottext">s :: BatchCheckLayerAvailabilityResponse
+</span><a href="#local-6989586621679244575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244574"><span class="annot"><span class="annottext">Maybe [LayerFailure]
+</span><a href="#local-6989586621679244574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCheckLayerAvailabilityResponse
+</span><a href="#local-6989586621679244575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:BatchCheckLayerAvailabilityResponse' :: Maybe [LayerFailure]
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#%24sel%3Afailures%3ABatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-var">failures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LayerFailure]
-</span><a href="#local-6989586621679244565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LayerFailure] -&gt; f (Maybe [LayerFailure]))
+</span><a href="#local-6989586621679244574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LayerFailure] -&gt; f (Maybe [LayerFailure]))
  -&gt; BatchCheckLayerAvailabilityResponse
  -&gt; f BatchCheckLayerAvailabilityResponse)
 -&gt; ((Maybe [LayerFailure] -&gt; f (Maybe [LayerFailure]))
@@ -632,16 +632,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Layer])
      (Maybe [Layer])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244563"><span class="annot"><span class="annottext">Maybe [Layer]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244572"><span class="annot"><span class="annottext">Maybe [Layer]
 layers :: Maybe [Layer]
 $sel:layers:BatchCheckLayerAvailabilityResponse' :: BatchCheckLayerAvailabilityResponse -&gt; Maybe [Layer]
-</span><a href="#local-6989586621679244563"><span class="hs-identifier hs-var hs-var">layers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Layer]
-</span><a href="#local-6989586621679244563"><span class="hs-identifier hs-var">layers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244562"><span class="annot"><span class="annottext">s :: BatchCheckLayerAvailabilityResponse
-</span><a href="#local-6989586621679244562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244561"><span class="annot"><span class="annottext">Maybe [Layer]
-</span><a href="#local-6989586621679244561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCheckLayerAvailabilityResponse
-</span><a href="#local-6989586621679244562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layers:BatchCheckLayerAvailabilityResponse' :: Maybe [Layer]
+</span><a href="#local-6989586621679244572"><span class="hs-identifier hs-var hs-var">layers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Layer]
+</span><a href="#local-6989586621679244572"><span class="hs-identifier hs-var">layers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244571"><span class="annot"><span class="annottext">s :: BatchCheckLayerAvailabilityResponse
+</span><a href="#local-6989586621679244571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244570"><span class="annot"><span class="annottext">Maybe [Layer]
+</span><a href="#local-6989586621679244570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCheckLayerAvailabilityResponse
+</span><a href="#local-6989586621679244571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layers:BatchCheckLayerAvailabilityResponse' :: Maybe [Layer]
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#%24sel%3Alayers%3ABatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-var">layers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Layer]
-</span><a href="#local-6989586621679244561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Layer] -&gt; f (Maybe [Layer]))
+</span><a href="#local-6989586621679244570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Layer] -&gt; f (Maybe [Layer]))
  -&gt; BatchCheckLayerAvailabilityResponse
  -&gt; f BatchCheckLayerAvailabilityResponse)
 -&gt; ((Maybe [Layer] -&gt; f (Maybe [Layer]))
@@ -674,18 +674,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244560"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244569"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchCheckLayerAvailabilityResponse' :: BatchCheckLayerAvailabilityResponse -&gt; Int
-</span><a href="#local-6989586621679244560"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244560"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244559"><span class="annot"><span class="annottext">s :: BatchCheckLayerAvailabilityResponse
-</span><a href="#local-6989586621679244559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244558"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCheckLayerAvailabilityResponse
-</span><a href="#local-6989586621679244559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchCheckLayerAvailabilityResponse' :: Int
+</span><a href="#local-6989586621679244569"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244569"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244568"><span class="annot"><span class="annottext">s :: BatchCheckLayerAvailabilityResponse
+</span><a href="#local-6989586621679244568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244567"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCheckLayerAvailabilityResponse
+</span><a href="#local-6989586621679244568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchCheckLayerAvailabilityResponse' :: Int
 </span><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#%24sel%3AhttpStatus%3ABatchCheckLayerAvailabilityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679244556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679244565"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.BatchCheckLayerAvailability.html#BatchCheckLayerAvailabilityResponse"><span class="hs-identifier hs-type">BatchCheckLayerAvailabilityResponse</span></a></span></span><span>
 </span><span id="line-226"></span></pre></body></html>

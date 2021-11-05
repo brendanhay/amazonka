@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679545954"><span id="local-6989586621679545955"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectLockRetentionMode"><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockRetentionMode.html#ObjectLockRetentionMode"><span class="hs-identifier hs-var">ObjectLockRetentionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectLockRetentionMode%27"><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockRetentionMode.html#ObjectLockRetentionMode%27"><span class="hs-identifier hs-var">ObjectLockRetentionMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679545963"><span id="local-6989586621679545964"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectLockRetentionMode"><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockRetentionMode.html#ObjectLockRetentionMode"><span class="hs-identifier hs-var">ObjectLockRetentionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectLockRetentionMode%27"><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockRetentionMode.html#ObjectLockRetentionMode%27"><span class="hs-identifier hs-var">ObjectLockRetentionMode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromObjectLockRetentionMode"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; Text
 </span><a href="Network.AWS.S3.Types.ObjectLockRetentionMode.html#fromObjectLockRetentionMode"><span class="hs-identifier hs-var hs-var">fromObjectLockRetentionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679545946"><span id="local-6989586621679545948"><span id="local-6989586621679545950"><span class="annot"><span class="annottext">Int -&gt; ObjectLockRetentionMode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679545955"><span id="local-6989586621679545957"><span id="local-6989586621679545959"><span class="annot"><span class="annottext">Int -&gt; ObjectLockRetentionMode -&gt; ShowS
 [ObjectLockRetentionMode] -&gt; ShowS
 ObjectLockRetentionMode -&gt; String
 (Int -&gt; ObjectLockRetentionMode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ObjectLockRetentionMode -&gt; String
 showsPrec :: Int -&gt; ObjectLockRetentionMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ObjectLockRetentionMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679545937"><span id="local-6989586621679545939"><span id="local-6989586621679545941"><span id="local-6989586621679545943"><span class="annot"><span class="annottext">ReadPrec [ObjectLockRetentionMode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679545946"><span id="local-6989586621679545948"><span id="local-6989586621679545950"><span id="local-6989586621679545952"><span class="annot"><span class="annottext">ReadPrec [ObjectLockRetentionMode]
 ReadPrec ObjectLockRetentionMode
 Int -&gt; ReadS ObjectLockRetentionMode
 ReadS [ObjectLockRetentionMode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ObjectLockRetentionMode]
 readsPrec :: Int -&gt; ReadS ObjectLockRetentionMode
 $creadsPrec :: Int -&gt; ReadS ObjectLockRetentionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679545932"><span id="local-6989586621679545934"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; ObjectLockRetentionMode -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679545941"><span id="local-6989586621679545943"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; ObjectLockRetentionMode -&gt; Bool
 (ObjectLockRetentionMode -&gt; ObjectLockRetentionMode -&gt; Bool)
 -&gt; (ObjectLockRetentionMode -&gt; ObjectLockRetentionMode -&gt; Bool)
 -&gt; Eq ObjectLockRetentionMode
@@ -83,7 +83,7 @@ $c/= :: ObjectLockRetentionMode -&gt; ObjectLockRetentionMode -&gt; Bool
 == :: ObjectLockRetentionMode -&gt; ObjectLockRetentionMode -&gt; Bool
 $c== :: ObjectLockRetentionMode -&gt; ObjectLockRetentionMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679545916"><span id="local-6989586621679545918"><span id="local-6989586621679545920"><span id="local-6989586621679545922"><span id="local-6989586621679545924"><span id="local-6989586621679545926"><span id="local-6989586621679545928"><span class="annot"><span class="annottext">Eq ObjectLockRetentionMode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679545925"><span id="local-6989586621679545927"><span id="local-6989586621679545929"><span id="local-6989586621679545931"><span id="local-6989586621679545933"><span id="local-6989586621679545935"><span id="local-6989586621679545937"><span class="annot"><span class="annottext">Eq ObjectLockRetentionMode
 Eq ObjectLockRetentionMode
 -&gt; (ObjectLockRetentionMode -&gt; ObjectLockRetentionMode -&gt; Ordering)
 -&gt; (ObjectLockRetentionMode -&gt; ObjectLockRetentionMode -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. ObjectLockRetentionMode -&gt; Rep ObjectLockRetentionMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679545908"><span id="local-6989586621679545910"><span class="annot"><span class="annottext">Int -&gt; ObjectLockRetentionMode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679545917"><span id="local-6989586621679545919"><span class="annot"><span class="annottext">Int -&gt; ObjectLockRetentionMode -&gt; Int
 ObjectLockRetentionMode -&gt; Int
 (Int -&gt; ObjectLockRetentionMode -&gt; Int)
 -&gt; (ObjectLockRetentionMode -&gt; Int)
@@ -154,54 +154,54 @@ $chash :: ObjectLockRetentionMode -&gt; Int
 hashWithSalt :: Int -&gt; ObjectLockRetentionMode -&gt; Int
 $chashWithSalt :: Int -&gt; ObjectLockRetentionMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679545905"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679545914"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; ()
 (ObjectLockRetentionMode -&gt; ()) -&gt; NFData ObjectLockRetentionMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ObjectLockRetentionMode -&gt; ()
 $crnf :: ObjectLockRetentionMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679545902"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectLockRetentionMode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679545911"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectLockRetentionMode
 (Text -&gt; Either String ObjectLockRetentionMode)
 -&gt; FromText ObjectLockRetentionMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ObjectLockRetentionMode
 $cfromText :: Text -&gt; Either String ObjectLockRetentionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679545899"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679545908"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; Text
 (ObjectLockRetentionMode -&gt; Text) -&gt; ToText ObjectLockRetentionMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ObjectLockRetentionMode -&gt; Text
 $ctoText :: ObjectLockRetentionMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679545896"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679545905"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; ByteString
 (ObjectLockRetentionMode -&gt; ByteString)
 -&gt; ToByteString ObjectLockRetentionMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ObjectLockRetentionMode -&gt; ByteString
 $ctoBS :: ObjectLockRetentionMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679545893"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679545902"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; ByteStringBuilder
 (ObjectLockRetentionMode -&gt; ByteStringBuilder)
 -&gt; ToLog ObjectLockRetentionMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ObjectLockRetentionMode -&gt; ByteStringBuilder
 $cbuild :: ObjectLockRetentionMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679545890"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectLockRetentionMode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679545899"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectLockRetentionMode -&gt; [Header]
 (HeaderName -&gt; ObjectLockRetentionMode -&gt; [Header])
 -&gt; ToHeader ObjectLockRetentionMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ObjectLockRetentionMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ObjectLockRetentionMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679545887"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679545896"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; QueryString
 (ObjectLockRetentionMode -&gt; QueryString)
 -&gt; ToQuery ObjectLockRetentionMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ObjectLockRetentionMode -&gt; QueryString
 $ctoQuery :: ObjectLockRetentionMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679545882"><span id="local-6989586621679545884"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectLockRetentionMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679545891"><span id="local-6989586621679545893"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectLockRetentionMode]
 Value -&gt; Parser ObjectLockRetentionMode
 (Value -&gt; Parser ObjectLockRetentionMode)
 -&gt; (Value -&gt; Parser [ObjectLockRetentionMode])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [ObjectLockRetentionMode]
 parseJSON :: Value -&gt; Parser ObjectLockRetentionMode
 $cparseJSON :: Value -&gt; Parser ObjectLockRetentionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679545877"><span id="local-6989586621679545879"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectLockRetentionMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679545886"><span id="local-6989586621679545888"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectLockRetentionMode]
 FromJSONKeyFunction ObjectLockRetentionMode
 FromJSONKeyFunction ObjectLockRetentionMode
 -&gt; FromJSONKeyFunction [ObjectLockRetentionMode]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ObjectLockRetentionMode]
 fromJSONKey :: FromJSONKeyFunction ObjectLockRetentionMode
 $cfromJSONKey :: FromJSONKeyFunction ObjectLockRetentionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679545868"><span id="local-6989586621679545870"><span id="local-6989586621679545872"><span id="local-6989586621679545874"><span class="annot"><span class="annottext">[ObjectLockRetentionMode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679545877"><span id="local-6989586621679545879"><span id="local-6989586621679545881"><span id="local-6989586621679545883"><span class="annot"><span class="annottext">[ObjectLockRetentionMode] -&gt; Encoding
 [ObjectLockRetentionMode] -&gt; Value
 ObjectLockRetentionMode -&gt; Encoding
 ObjectLockRetentionMode -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: ObjectLockRetentionMode -&gt; Encoding
 toJSON :: ObjectLockRetentionMode -&gt; Value
 $ctoJSON :: ObjectLockRetentionMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679545863"><span id="local-6989586621679545865"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectLockRetentionMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679545872"><span id="local-6989586621679545874"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectLockRetentionMode]
 ToJSONKeyFunction ObjectLockRetentionMode
 ToJSONKeyFunction ObjectLockRetentionMode
 -&gt; ToJSONKeyFunction [ObjectLockRetentionMode]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ObjectLockRetentionMode]
 toJSONKey :: ToJSONKeyFunction ObjectLockRetentionMode
 $ctoJSONKey :: ToJSONKeyFunction ObjectLockRetentionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679545860"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectLockRetentionMode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679545869"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectLockRetentionMode
 ([Node] -&gt; Either String ObjectLockRetentionMode)
 -&gt; FromXML ObjectLockRetentionMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ObjectLockRetentionMode
 $cparseXML :: [Node] -&gt; Either String ObjectLockRetentionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679545857"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679545866"><span class="annot"><span class="annottext">ObjectLockRetentionMode -&gt; XML
 (ObjectLockRetentionMode -&gt; XML) -&gt; ToXML ObjectLockRetentionMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ObjectLockRetentionMode -&gt; XML

@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newInvalidateProjectCache' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679388422"><span id="local-6989586621679388423"></span></span><span class="hs-keyword">data</span><span> </span><span id="InvalidateProjectCache"><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-var">InvalidateProjectCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InvalidateProjectCache%27"><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache%27"><span class="hs-identifier hs-var">InvalidateProjectCache'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679388431"><span id="local-6989586621679388432"></span></span><span class="hs-keyword">data</span><span> </span><span id="InvalidateProjectCache"><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-var">InvalidateProjectCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InvalidateProjectCache%27"><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache%27"><span class="hs-identifier hs-var">InvalidateProjectCache'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the CodeBuild build project that the cache is reset for.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AprojectName%3AInvalidateProjectCache%27"><span class="annot"><span class="annottext">InvalidateProjectCache -&gt; Text
 </span><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#%24sel%3AprojectName%3AInvalidateProjectCache%27"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388416"><span id="local-6989586621679388418"><span class="annot"><span class="annottext">InvalidateProjectCache -&gt; InvalidateProjectCache -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388425"><span id="local-6989586621679388427"><span class="annot"><span class="annottext">InvalidateProjectCache -&gt; InvalidateProjectCache -&gt; Bool
 (InvalidateProjectCache -&gt; InvalidateProjectCache -&gt; Bool)
 -&gt; (InvalidateProjectCache -&gt; InvalidateProjectCache -&gt; Bool)
 -&gt; Eq InvalidateProjectCache
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InvalidateProjectCache -&gt; InvalidateProjectCache -&gt; Bool
 == :: InvalidateProjectCache -&gt; InvalidateProjectCache -&gt; Bool
 $c== :: InvalidateProjectCache -&gt; InvalidateProjectCache -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388407"><span id="local-6989586621679388409"><span id="local-6989586621679388411"><span id="local-6989586621679388413"><span class="annot"><span class="annottext">ReadPrec [InvalidateProjectCache]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388416"><span id="local-6989586621679388418"><span id="local-6989586621679388420"><span id="local-6989586621679388422"><span class="annot"><span class="annottext">ReadPrec [InvalidateProjectCache]
 ReadPrec InvalidateProjectCache
 Int -&gt; ReadS InvalidateProjectCache
 ReadS [InvalidateProjectCache]
@@ -80,7 +80,7 @@ readList :: ReadS [InvalidateProjectCache]
 $creadList :: ReadS [InvalidateProjectCache]
 readsPrec :: Int -&gt; ReadS InvalidateProjectCache
 $creadsPrec :: Int -&gt; ReadS InvalidateProjectCache
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388400"><span id="local-6989586621679388402"><span id="local-6989586621679388404"><span class="annot"><span class="annottext">Int -&gt; InvalidateProjectCache -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388409"><span id="local-6989586621679388411"><span id="local-6989586621679388413"><span class="annot"><span class="annottext">Int -&gt; InvalidateProjectCache -&gt; ShowS
 [InvalidateProjectCache] -&gt; ShowS
 InvalidateProjectCache -&gt; String
 (Int -&gt; InvalidateProjectCache -&gt; ShowS)
@@ -121,14 +121,14 @@ $cfrom :: forall x. InvalidateProjectCache -&gt; Rep InvalidateProjectCache x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-type">InvalidateProjectCache</span></a></span><span>
 </span><span id="line-68"></span><span id="newInvalidateProjectCache"><span class="annot"><span class="annottext">newInvalidateProjectCache :: Text -&gt; InvalidateProjectCache
-</span><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#newInvalidateProjectCache"><span class="hs-identifier hs-var hs-var">newInvalidateProjectCache</span></a></span></span><span> </span><span id="local-6989586621679388395"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388395"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#newInvalidateProjectCache"><span class="hs-identifier hs-var hs-var">newInvalidateProjectCache</span></a></span></span><span> </span><span id="local-6989586621679388404"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388404"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">InvalidateProjectCache' :: Text -&gt; InvalidateProjectCache
 </span><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache%27"><span class="hs-identifier hs-type">InvalidateProjectCache'</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:projectName:InvalidateProjectCache' :: Text
 </span><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#%24sel%3AprojectName%3AInvalidateProjectCache%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388395"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span>
+</span><a href="#local-6989586621679388404"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The name of the CodeBuild build project that the cache is reset for.</span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. InvalidateProjectCache -&gt; Rep InvalidateProjectCache x
 -&gt; (InvalidateProjectCache -&gt; Text -&gt; InvalidateProjectCache)
 -&gt; Lens InvalidateProjectCache InvalidateProjectCache Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache%27"><span class="hs-identifier hs-type">InvalidateProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388392"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache%27"><span class="hs-identifier hs-type">InvalidateProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388401"><span class="annot"><span class="annottext">Text
 projectName :: Text
 $sel:projectName:InvalidateProjectCache' :: InvalidateProjectCache -&gt; Text
-</span><a href="#local-6989586621679388392"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388392"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388391"><span class="annot"><span class="annottext">s :: InvalidateProjectCache
-</span><a href="#local-6989586621679388391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache%27"><span class="hs-identifier hs-type">InvalidateProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388390"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidateProjectCache
-</span><a href="#local-6989586621679388391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:InvalidateProjectCache' :: Text
+</span><a href="#local-6989586621679388401"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388401"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388400"><span class="annot"><span class="annottext">s :: InvalidateProjectCache
+</span><a href="#local-6989586621679388400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache%27"><span class="hs-identifier hs-type">InvalidateProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388399"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidateProjectCache
+</span><a href="#local-6989586621679388400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:InvalidateProjectCache' :: Text
 </span><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#%24sel%3AprojectName%3AInvalidateProjectCache%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-type">InvalidateProjectCache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-type">InvalidateProjectCache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-type">InvalidateProjectCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-type">InvalidateProjectCache</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse"><span class="hs-identifier hs-type">InvalidateProjectCacheResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679388386"><span class="annot"><span class="annottext">request :: InvalidateProjectCache -&gt; Request InvalidateProjectCache
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679388395"><span class="annot"><span class="annottext">request :: InvalidateProjectCache -&gt; Request InvalidateProjectCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; InvalidateProjectCache -&gt; Request InvalidateProjectCache
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeBuild.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679388382"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679388391"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy InvalidateProjectCache
 -&gt; ClientResponse ClientBody
@@ -185,10 +185,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388379"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388379"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388378"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679388378"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388377"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679388377"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388388"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388388"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388387"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679388387"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388386"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679388386"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; InvalidateProjectCacheResponse
 </span><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse%27"><span class="hs-identifier hs-var">InvalidateProjectCacheResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; InvalidateProjectCacheResponse)
@@ -200,15 +200,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388379"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388388"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388370"><span id="local-6989586621679388372"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-type">InvalidateProjectCache</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388379"><span id="local-6989586621679388381"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-type">InvalidateProjectCache</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388367"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-type">InvalidateProjectCache</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-type">InvalidateProjectCache</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-type">InvalidateProjectCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679388363"><span class="annot"><span class="annottext">toHeaders :: InvalidateProjectCache -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679388372"><span class="annot"><span class="annottext">toHeaders :: InvalidateProjectCache -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; InvalidateProjectCache -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -235,12 +235,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388353"><span id="local-6989586621679388355"><span id="local-6989586621679388357"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-type">InvalidateProjectCache</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679388351"><span class="annot"><span class="annottext">toJSON :: InvalidateProjectCache -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache%27"><span class="hs-identifier hs-type">InvalidateProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388349"><span class="annot"><span class="annottext">Text
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388362"><span id="local-6989586621679388364"><span id="local-6989586621679388366"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-type">InvalidateProjectCache</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679388360"><span class="annot"><span class="annottext">toJSON :: InvalidateProjectCache -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache%27"><span class="hs-identifier hs-type">InvalidateProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388358"><span class="annot"><span class="annottext">Text
 projectName :: Text
 $sel:projectName:InvalidateProjectCache' :: InvalidateProjectCache -&gt; Text
-</span><a href="#local-6989586621679388349"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679388358"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -252,18 +252,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;projectName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388349"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679388358"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-type">InvalidateProjectCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679388343"><span class="annot"><span class="annottext">toPath :: InvalidateProjectCache -&gt; ByteString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679388352"><span class="annot"><span class="annottext">toPath :: InvalidateProjectCache -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; InvalidateProjectCache -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCache"><span class="hs-identifier hs-type">InvalidateProjectCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679388339"><span class="annot"><span class="annottext">toQuery :: InvalidateProjectCache -&gt; QueryString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679388348"><span class="annot"><span class="annottext">toQuery :: InvalidateProjectCache -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; InvalidateProjectCache -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -271,12 +271,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newInvalidateProjectCacheResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621679388336"><span id="local-6989586621679388337"></span></span><span class="hs-keyword">data</span><span> </span><span id="InvalidateProjectCacheResponse"><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse"><span class="hs-identifier hs-var">InvalidateProjectCacheResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InvalidateProjectCacheResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse%27"><span class="hs-identifier hs-var">InvalidateProjectCacheResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span id="local-6989586621679388345"><span id="local-6989586621679388346"></span></span><span class="hs-keyword">data</span><span> </span><span id="InvalidateProjectCacheResponse"><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse"><span class="hs-identifier hs-var">InvalidateProjectCacheResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InvalidateProjectCacheResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse%27"><span class="hs-identifier hs-var">InvalidateProjectCacheResponse'</span></a></span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3AInvalidateProjectCacheResponse%27"><span class="annot"><span class="annottext">InvalidateProjectCacheResponse -&gt; Int
 </span><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#%24sel%3AhttpStatus%3AInvalidateProjectCacheResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388331"><span id="local-6989586621679388333"><span class="annot"><span class="annottext">InvalidateProjectCacheResponse
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388340"><span id="local-6989586621679388342"><span class="annot"><span class="annottext">InvalidateProjectCacheResponse
 -&gt; InvalidateProjectCacheResponse -&gt; Bool
 (InvalidateProjectCacheResponse
  -&gt; InvalidateProjectCacheResponse -&gt; Bool)
@@ -292,7 +292,7 @@ $c/= :: InvalidateProjectCacheResponse
 -&gt; InvalidateProjectCacheResponse -&gt; Bool
 $c== :: InvalidateProjectCacheResponse
 -&gt; InvalidateProjectCacheResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388323"><span id="local-6989586621679388325"><span id="local-6989586621679388327"><span id="local-6989586621679388329"><span class="annot"><span class="annottext">ReadPrec [InvalidateProjectCacheResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388332"><span id="local-6989586621679388334"><span id="local-6989586621679388336"><span id="local-6989586621679388338"><span class="annot"><span class="annottext">ReadPrec [InvalidateProjectCacheResponse]
 ReadPrec InvalidateProjectCacheResponse
 Int -&gt; ReadS InvalidateProjectCacheResponse
 ReadS [InvalidateProjectCacheResponse]
@@ -312,7 +312,7 @@ readList :: ReadS [InvalidateProjectCacheResponse]
 $creadList :: ReadS [InvalidateProjectCacheResponse]
 readsPrec :: Int -&gt; ReadS InvalidateProjectCacheResponse
 $creadsPrec :: Int -&gt; ReadS InvalidateProjectCacheResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388317"><span id="local-6989586621679388319"><span id="local-6989586621679388321"><span class="annot"><span class="annottext">Int -&gt; InvalidateProjectCacheResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388326"><span id="local-6989586621679388328"><span id="local-6989586621679388330"><span class="annot"><span class="annottext">Int -&gt; InvalidateProjectCacheResponse -&gt; ShowS
 [InvalidateProjectCacheResponse] -&gt; ShowS
 InvalidateProjectCacheResponse -&gt; String
 (Int -&gt; InvalidateProjectCacheResponse -&gt; ShowS)
@@ -364,14 +364,14 @@ InvalidateProjectCacheResponse
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse"><span class="hs-identifier hs-type">InvalidateProjectCacheResponse</span></a></span><span>
 </span><span id="line-142"></span><span id="newInvalidateProjectCacheResponse"><span class="annot"><span class="annottext">newInvalidateProjectCacheResponse :: Int -&gt; InvalidateProjectCacheResponse
-</span><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#newInvalidateProjectCacheResponse"><span class="hs-identifier hs-var hs-var">newInvalidateProjectCacheResponse</span></a></span></span><span> </span><span id="local-6989586621679388314"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388314"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#newInvalidateProjectCacheResponse"><span class="hs-identifier hs-var hs-var">newInvalidateProjectCacheResponse</span></a></span></span><span> </span><span id="local-6989586621679388323"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388323"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">InvalidateProjectCacheResponse' :: Int -&gt; InvalidateProjectCacheResponse
 </span><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse%27"><span class="hs-identifier hs-type">InvalidateProjectCacheResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:InvalidateProjectCacheResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#%24sel%3AhttpStatus%3AInvalidateProjectCacheResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388314"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679388323"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -388,18 +388,18 @@ InvalidateProjectCacheResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse%27"><span class="hs-identifier hs-type">InvalidateProjectCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388313"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse%27"><span class="hs-identifier hs-type">InvalidateProjectCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388322"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:InvalidateProjectCacheResponse' :: InvalidateProjectCacheResponse -&gt; Int
-</span><a href="#local-6989586621679388313"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388313"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388312"><span class="annot"><span class="annottext">s :: InvalidateProjectCacheResponse
-</span><a href="#local-6989586621679388312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse%27"><span class="hs-identifier hs-type">InvalidateProjectCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388311"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidateProjectCacheResponse
-</span><a href="#local-6989586621679388312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InvalidateProjectCacheResponse' :: Int
+</span><a href="#local-6989586621679388322"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388322"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388321"><span class="annot"><span class="annottext">s :: InvalidateProjectCacheResponse
+</span><a href="#local-6989586621679388321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse%27"><span class="hs-identifier hs-type">InvalidateProjectCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388320"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidateProjectCacheResponse
+</span><a href="#local-6989586621679388321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InvalidateProjectCacheResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#%24sel%3AhttpStatus%3AInvalidateProjectCacheResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse"><span class="hs-identifier hs-type">InvalidateProjectCacheResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse"><span class="hs-identifier hs-type">InvalidateProjectCacheResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679388309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679388318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.InvalidateProjectCache.html#InvalidateProjectCacheResponse"><span class="hs-identifier hs-type">InvalidateProjectCacheResponse</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

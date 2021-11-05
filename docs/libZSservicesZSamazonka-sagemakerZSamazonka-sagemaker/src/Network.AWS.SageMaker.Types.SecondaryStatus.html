@@ -43,13 +43,13 @@
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-45"></span><span>
-</span><span id="line-46"></span><span id="local-6989586621680341634"><span id="local-6989586621680341635"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SecondaryStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-var">SecondaryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecondaryStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-var">SecondaryStatus'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621680341643"><span id="local-6989586621680341644"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SecondaryStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus"><span class="hs-identifier hs-var">SecondaryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecondaryStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#SecondaryStatus%27"><span class="hs-identifier hs-var">SecondaryStatus'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSecondaryStatus"><span class="annot"><span class="annottext">SecondaryStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.SecondaryStatus.html#fromSecondaryStatus"><span class="hs-identifier hs-var hs-var">fromSecondaryStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-48"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680341626"><span id="local-6989586621680341628"><span id="local-6989586621680341630"><span class="annot"><span class="annottext">Int -&gt; SecondaryStatus -&gt; ShowS
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680341635"><span id="local-6989586621680341637"><span id="local-6989586621680341639"><span class="annot"><span class="annottext">Int -&gt; SecondaryStatus -&gt; ShowS
 [SecondaryStatus] -&gt; ShowS
 SecondaryStatus -&gt; String
 (Int -&gt; SecondaryStatus -&gt; ShowS)
@@ -65,7 +65,7 @@ $cshow :: SecondaryStatus -&gt; String
 showsPrec :: Int -&gt; SecondaryStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; SecondaryStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680341617"><span id="local-6989586621680341619"><span id="local-6989586621680341621"><span id="local-6989586621680341623"><span class="annot"><span class="annottext">ReadPrec [SecondaryStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680341626"><span id="local-6989586621680341628"><span id="local-6989586621680341630"><span id="local-6989586621680341632"><span class="annot"><span class="annottext">ReadPrec [SecondaryStatus]
 ReadPrec SecondaryStatus
 Int -&gt; ReadS SecondaryStatus
 ReadS [SecondaryStatus]
@@ -86,7 +86,7 @@ $creadList :: ReadS [SecondaryStatus]
 readsPrec :: Int -&gt; ReadS SecondaryStatus
 $creadsPrec :: Int -&gt; ReadS SecondaryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680341612"><span id="local-6989586621680341614"><span class="annot"><span class="annottext">SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680341621"><span id="local-6989586621680341623"><span class="annot"><span class="annottext">SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
 (SecondaryStatus -&gt; SecondaryStatus -&gt; Bool)
 -&gt; (SecondaryStatus -&gt; SecondaryStatus -&gt; Bool)
 -&gt; Eq SecondaryStatus
@@ -96,7 +96,7 @@ $c/= :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
 == :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
 $c== :: SecondaryStatus -&gt; SecondaryStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680341596"><span id="local-6989586621680341598"><span id="local-6989586621680341600"><span id="local-6989586621680341602"><span id="local-6989586621680341604"><span id="local-6989586621680341606"><span id="local-6989586621680341608"><span class="annot"><span class="annottext">Eq SecondaryStatus
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680341605"><span id="local-6989586621680341607"><span id="local-6989586621680341609"><span id="local-6989586621680341611"><span id="local-6989586621680341613"><span id="local-6989586621680341615"><span id="local-6989586621680341617"><span class="annot"><span class="annottext">Eq SecondaryStatus
 Eq SecondaryStatus
 -&gt; (SecondaryStatus -&gt; SecondaryStatus -&gt; Ordering)
 -&gt; (SecondaryStatus -&gt; SecondaryStatus -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. SecondaryStatus -&gt; Rep SecondaryStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680341588"><span id="local-6989586621680341590"><span class="annot"><span class="annottext">Int -&gt; SecondaryStatus -&gt; Int
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680341597"><span id="local-6989586621680341599"><span class="annot"><span class="annottext">Int -&gt; SecondaryStatus -&gt; Int
 SecondaryStatus -&gt; Int
 (Int -&gt; SecondaryStatus -&gt; Int)
 -&gt; (SecondaryStatus -&gt; Int) -&gt; Hashable SecondaryStatus
@@ -157,50 +157,50 @@ $chash :: SecondaryStatus -&gt; Int
 hashWithSalt :: Int -&gt; SecondaryStatus -&gt; Int
 $chashWithSalt :: Int -&gt; SecondaryStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680341585"><span class="annot"><span class="annottext">SecondaryStatus -&gt; ()
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680341594"><span class="annot"><span class="annottext">SecondaryStatus -&gt; ()
 (SecondaryStatus -&gt; ()) -&gt; NFData SecondaryStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SecondaryStatus -&gt; ()
 $crnf :: SecondaryStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680341582"><span class="annot"><span class="annottext">Text -&gt; Either String SecondaryStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680341591"><span class="annot"><span class="annottext">Text -&gt; Either String SecondaryStatus
 (Text -&gt; Either String SecondaryStatus) -&gt; FromText SecondaryStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SecondaryStatus
 $cfromText :: Text -&gt; Either String SecondaryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680341579"><span class="annot"><span class="annottext">SecondaryStatus -&gt; Text
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680341588"><span class="annot"><span class="annottext">SecondaryStatus -&gt; Text
 (SecondaryStatus -&gt; Text) -&gt; ToText SecondaryStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SecondaryStatus -&gt; Text
 $ctoText :: SecondaryStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680341576"><span class="annot"><span class="annottext">SecondaryStatus -&gt; ByteString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680341585"><span class="annot"><span class="annottext">SecondaryStatus -&gt; ByteString
 (SecondaryStatus -&gt; ByteString) -&gt; ToByteString SecondaryStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SecondaryStatus -&gt; ByteString
 $ctoBS :: SecondaryStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680341573"><span class="annot"><span class="annottext">SecondaryStatus -&gt; ByteStringBuilder
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680341582"><span class="annot"><span class="annottext">SecondaryStatus -&gt; ByteStringBuilder
 (SecondaryStatus -&gt; ByteStringBuilder) -&gt; ToLog SecondaryStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SecondaryStatus -&gt; ByteStringBuilder
 $cbuild :: SecondaryStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680341570"><span class="annot"><span class="annottext">HeaderName -&gt; SecondaryStatus -&gt; [Header]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680341579"><span class="annot"><span class="annottext">HeaderName -&gt; SecondaryStatus -&gt; [Header]
 (HeaderName -&gt; SecondaryStatus -&gt; [Header])
 -&gt; ToHeader SecondaryStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SecondaryStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SecondaryStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680341567"><span class="annot"><span class="annottext">SecondaryStatus -&gt; QueryString
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680341576"><span class="annot"><span class="annottext">SecondaryStatus -&gt; QueryString
 (SecondaryStatus -&gt; QueryString) -&gt; ToQuery SecondaryStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SecondaryStatus -&gt; QueryString
 $ctoQuery :: SecondaryStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680341562"><span id="local-6989586621680341564"><span class="annot"><span class="annottext">Value -&gt; Parser [SecondaryStatus]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680341571"><span id="local-6989586621680341573"><span class="annot"><span class="annottext">Value -&gt; Parser [SecondaryStatus]
 Value -&gt; Parser SecondaryStatus
 (Value -&gt; Parser SecondaryStatus)
 -&gt; (Value -&gt; Parser [SecondaryStatus]) -&gt; FromJSON SecondaryStatus
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [SecondaryStatus]
 parseJSON :: Value -&gt; Parser SecondaryStatus
 $cparseJSON :: Value -&gt; Parser SecondaryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621680341557"><span id="local-6989586621680341559"><span class="annot"><span class="annottext">FromJSONKeyFunction [SecondaryStatus]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680341566"><span id="local-6989586621680341568"><span class="annot"><span class="annottext">FromJSONKeyFunction [SecondaryStatus]
 FromJSONKeyFunction SecondaryStatus
 FromJSONKeyFunction SecondaryStatus
 -&gt; FromJSONKeyFunction [SecondaryStatus]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SecondaryStatus]
 fromJSONKey :: FromJSONKeyFunction SecondaryStatus
 $cfromJSONKey :: FromJSONKeyFunction SecondaryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621680341548"><span id="local-6989586621680341550"><span id="local-6989586621680341552"><span id="local-6989586621680341554"><span class="annot"><span class="annottext">[SecondaryStatus] -&gt; Encoding
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680341557"><span id="local-6989586621680341559"><span id="local-6989586621680341561"><span id="local-6989586621680341563"><span class="annot"><span class="annottext">[SecondaryStatus] -&gt; Encoding
 [SecondaryStatus] -&gt; Value
 SecondaryStatus -&gt; Encoding
 SecondaryStatus -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: SecondaryStatus -&gt; Encoding
 toJSON :: SecondaryStatus -&gt; Value
 $ctoJSON :: SecondaryStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621680341543"><span id="local-6989586621680341545"><span class="annot"><span class="annottext">ToJSONKeyFunction [SecondaryStatus]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680341552"><span id="local-6989586621680341554"><span class="annot"><span class="annottext">ToJSONKeyFunction [SecondaryStatus]
 ToJSONKeyFunction SecondaryStatus
 ToJSONKeyFunction SecondaryStatus
 -&gt; ToJSONKeyFunction [SecondaryStatus] -&gt; ToJSONKey SecondaryStatus
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SecondaryStatus]
 toJSONKey :: ToJSONKeyFunction SecondaryStatus
 $ctoJSONKey :: ToJSONKeyFunction SecondaryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621680341540"><span class="annot"><span class="annottext">[Node] -&gt; Either String SecondaryStatus
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621680341549"><span class="annot"><span class="annottext">[Node] -&gt; Either String SecondaryStatus
 ([Node] -&gt; Either String SecondaryStatus)
 -&gt; FromXML SecondaryStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SecondaryStatus
 $cparseXML :: [Node] -&gt; Either String SecondaryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621680341537"><span class="annot"><span class="annottext">SecondaryStatus -&gt; XML
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621680341546"><span class="annot"><span class="annottext">SecondaryStatus -&gt; XML
 (SecondaryStatus -&gt; XML) -&gt; ToXML SecondaryStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SecondaryStatus -&gt; XML

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679163259"><span id="local-6989586621679163260"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerLevelMetrics"><span class="annot"><a href="Network.AWS.MediaStore.Types.ContainerLevelMetrics.html#ContainerLevelMetrics"><span class="hs-identifier hs-var">ContainerLevelMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerLevelMetrics%27"><span class="annot"><a href="Network.AWS.MediaStore.Types.ContainerLevelMetrics.html#ContainerLevelMetrics%27"><span class="hs-identifier hs-var">ContainerLevelMetrics'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679163268"><span id="local-6989586621679163269"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerLevelMetrics"><span class="annot"><a href="Network.AWS.MediaStore.Types.ContainerLevelMetrics.html#ContainerLevelMetrics"><span class="hs-identifier hs-var">ContainerLevelMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerLevelMetrics%27"><span class="annot"><a href="Network.AWS.MediaStore.Types.ContainerLevelMetrics.html#ContainerLevelMetrics%27"><span class="hs-identifier hs-var">ContainerLevelMetrics'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContainerLevelMetrics"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; Text
 </span><a href="Network.AWS.MediaStore.Types.ContainerLevelMetrics.html#fromContainerLevelMetrics"><span class="hs-identifier hs-var hs-var">fromContainerLevelMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679163251"><span id="local-6989586621679163253"><span id="local-6989586621679163255"><span class="annot"><span class="annottext">Int -&gt; ContainerLevelMetrics -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679163260"><span id="local-6989586621679163262"><span id="local-6989586621679163264"><span class="annot"><span class="annottext">Int -&gt; ContainerLevelMetrics -&gt; ShowS
 [ContainerLevelMetrics] -&gt; ShowS
 ContainerLevelMetrics -&gt; String
 (Int -&gt; ContainerLevelMetrics -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ContainerLevelMetrics -&gt; String
 showsPrec :: Int -&gt; ContainerLevelMetrics -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContainerLevelMetrics -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679163242"><span id="local-6989586621679163244"><span id="local-6989586621679163246"><span id="local-6989586621679163248"><span class="annot"><span class="annottext">ReadPrec [ContainerLevelMetrics]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679163251"><span id="local-6989586621679163253"><span id="local-6989586621679163255"><span id="local-6989586621679163257"><span class="annot"><span class="annottext">ReadPrec [ContainerLevelMetrics]
 ReadPrec ContainerLevelMetrics
 Int -&gt; ReadS ContainerLevelMetrics
 ReadS [ContainerLevelMetrics]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ContainerLevelMetrics]
 readsPrec :: Int -&gt; ReadS ContainerLevelMetrics
 $creadsPrec :: Int -&gt; ReadS ContainerLevelMetrics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679163237"><span id="local-6989586621679163239"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; ContainerLevelMetrics -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679163246"><span id="local-6989586621679163248"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; ContainerLevelMetrics -&gt; Bool
 (ContainerLevelMetrics -&gt; ContainerLevelMetrics -&gt; Bool)
 -&gt; (ContainerLevelMetrics -&gt; ContainerLevelMetrics -&gt; Bool)
 -&gt; Eq ContainerLevelMetrics
@@ -82,7 +82,7 @@ $c/= :: ContainerLevelMetrics -&gt; ContainerLevelMetrics -&gt; Bool
 == :: ContainerLevelMetrics -&gt; ContainerLevelMetrics -&gt; Bool
 $c== :: ContainerLevelMetrics -&gt; ContainerLevelMetrics -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679163221"><span id="local-6989586621679163223"><span id="local-6989586621679163225"><span id="local-6989586621679163227"><span id="local-6989586621679163229"><span id="local-6989586621679163231"><span id="local-6989586621679163233"><span class="annot"><span class="annottext">Eq ContainerLevelMetrics
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679163230"><span id="local-6989586621679163232"><span id="local-6989586621679163234"><span id="local-6989586621679163236"><span id="local-6989586621679163238"><span id="local-6989586621679163240"><span id="local-6989586621679163242"><span class="annot"><span class="annottext">Eq ContainerLevelMetrics
 Eq ContainerLevelMetrics
 -&gt; (ContainerLevelMetrics -&gt; ContainerLevelMetrics -&gt; Ordering)
 -&gt; (ContainerLevelMetrics -&gt; ContainerLevelMetrics -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. ContainerLevelMetrics -&gt; Rep ContainerLevelMetrics x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679163213"><span id="local-6989586621679163215"><span class="annot"><span class="annottext">Int -&gt; ContainerLevelMetrics -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679163222"><span id="local-6989586621679163224"><span class="annot"><span class="annottext">Int -&gt; ContainerLevelMetrics -&gt; Int
 ContainerLevelMetrics -&gt; Int
 (Int -&gt; ContainerLevelMetrics -&gt; Int)
 -&gt; (ContainerLevelMetrics -&gt; Int) -&gt; Hashable ContainerLevelMetrics
@@ -150,54 +150,54 @@ $chash :: ContainerLevelMetrics -&gt; Int
 hashWithSalt :: Int -&gt; ContainerLevelMetrics -&gt; Int
 $chashWithSalt :: Int -&gt; ContainerLevelMetrics -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679163210"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679163219"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; ()
 (ContainerLevelMetrics -&gt; ()) -&gt; NFData ContainerLevelMetrics
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContainerLevelMetrics -&gt; ()
 $crnf :: ContainerLevelMetrics -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679163207"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerLevelMetrics
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679163216"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerLevelMetrics
 (Text -&gt; Either String ContainerLevelMetrics)
 -&gt; FromText ContainerLevelMetrics
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContainerLevelMetrics
 $cfromText :: Text -&gt; Either String ContainerLevelMetrics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679163204"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679163213"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; Text
 (ContainerLevelMetrics -&gt; Text) -&gt; ToText ContainerLevelMetrics
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContainerLevelMetrics -&gt; Text
 $ctoText :: ContainerLevelMetrics -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679163201"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679163210"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; ByteString
 (ContainerLevelMetrics -&gt; ByteString)
 -&gt; ToByteString ContainerLevelMetrics
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContainerLevelMetrics -&gt; ByteString
 $ctoBS :: ContainerLevelMetrics -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679163198"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679163207"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; ByteStringBuilder
 (ContainerLevelMetrics -&gt; ByteStringBuilder)
 -&gt; ToLog ContainerLevelMetrics
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContainerLevelMetrics -&gt; ByteStringBuilder
 $cbuild :: ContainerLevelMetrics -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679163195"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerLevelMetrics -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679163204"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerLevelMetrics -&gt; [Header]
 (HeaderName -&gt; ContainerLevelMetrics -&gt; [Header])
 -&gt; ToHeader ContainerLevelMetrics
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContainerLevelMetrics -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContainerLevelMetrics -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679163192"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679163201"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; QueryString
 (ContainerLevelMetrics -&gt; QueryString)
 -&gt; ToQuery ContainerLevelMetrics
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContainerLevelMetrics -&gt; QueryString
 $ctoQuery :: ContainerLevelMetrics -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679163187"><span id="local-6989586621679163189"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerLevelMetrics]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679163196"><span id="local-6989586621679163198"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerLevelMetrics]
 Value -&gt; Parser ContainerLevelMetrics
 (Value -&gt; Parser ContainerLevelMetrics)
 -&gt; (Value -&gt; Parser [ContainerLevelMetrics])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [ContainerLevelMetrics]
 parseJSON :: Value -&gt; Parser ContainerLevelMetrics
 $cparseJSON :: Value -&gt; Parser ContainerLevelMetrics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679163182"><span id="local-6989586621679163184"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerLevelMetrics]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679163191"><span id="local-6989586621679163193"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerLevelMetrics]
 FromJSONKeyFunction ContainerLevelMetrics
 FromJSONKeyFunction ContainerLevelMetrics
 -&gt; FromJSONKeyFunction [ContainerLevelMetrics]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContainerLevelMetrics]
 fromJSONKey :: FromJSONKeyFunction ContainerLevelMetrics
 $cfromJSONKey :: FromJSONKeyFunction ContainerLevelMetrics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679163173"><span id="local-6989586621679163175"><span id="local-6989586621679163177"><span id="local-6989586621679163179"><span class="annot"><span class="annottext">[ContainerLevelMetrics] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679163182"><span id="local-6989586621679163184"><span id="local-6989586621679163186"><span id="local-6989586621679163188"><span class="annot"><span class="annottext">[ContainerLevelMetrics] -&gt; Encoding
 [ContainerLevelMetrics] -&gt; Value
 ContainerLevelMetrics -&gt; Encoding
 ContainerLevelMetrics -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: ContainerLevelMetrics -&gt; Encoding
 toJSON :: ContainerLevelMetrics -&gt; Value
 $ctoJSON :: ContainerLevelMetrics -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679163168"><span id="local-6989586621679163170"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerLevelMetrics]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679163177"><span id="local-6989586621679163179"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerLevelMetrics]
 ToJSONKeyFunction ContainerLevelMetrics
 ToJSONKeyFunction ContainerLevelMetrics
 -&gt; ToJSONKeyFunction [ContainerLevelMetrics]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContainerLevelMetrics]
 toJSONKey :: ToJSONKeyFunction ContainerLevelMetrics
 $ctoJSONKey :: ToJSONKeyFunction ContainerLevelMetrics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679163165"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerLevelMetrics
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679163174"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerLevelMetrics
 ([Node] -&gt; Either String ContainerLevelMetrics)
 -&gt; FromXML ContainerLevelMetrics
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContainerLevelMetrics
 $cparseXML :: [Node] -&gt; Either String ContainerLevelMetrics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679163162"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679163171"><span class="annot"><span class="annottext">ContainerLevelMetrics -&gt; XML
 (ContainerLevelMetrics -&gt; XML) -&gt; ToXML ContainerLevelMetrics
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ContainerLevelMetrics -&gt; XML

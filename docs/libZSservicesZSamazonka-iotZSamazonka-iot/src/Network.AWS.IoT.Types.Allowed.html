@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains information that allowed the authorization.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAllowed' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679792421"><span id="local-6989586621679792422"></span></span><span class="hs-keyword">data</span><span> </span><span id="Allowed"><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed"><span class="hs-identifier hs-var">Allowed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Allowed%27"><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed%27"><span class="hs-identifier hs-var">Allowed'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679792430"><span id="local-6989586621679792431"></span></span><span class="hs-keyword">data</span><span> </span><span id="Allowed"><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed"><span class="hs-identifier hs-var">Allowed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Allowed%27"><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed%27"><span class="hs-identifier hs-var">Allowed'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of policies that allowed the authentication.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Apolicies%3AAllowed%27"><span class="annot"><span class="annottext">Allowed -&gt; Maybe [Policy]
 </span><a href="Network.AWS.IoT.Types.Allowed.html#%24sel%3Apolicies%3AAllowed%27"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679792415"><span id="local-6989586621679792417"><span class="annot"><span class="annottext">Allowed -&gt; Allowed -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679792424"><span id="local-6989586621679792426"><span class="annot"><span class="annottext">Allowed -&gt; Allowed -&gt; Bool
 (Allowed -&gt; Allowed -&gt; Bool)
 -&gt; (Allowed -&gt; Allowed -&gt; Bool) -&gt; Eq Allowed
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Allowed -&gt; Allowed -&gt; Bool
 == :: Allowed -&gt; Allowed -&gt; Bool
 $c== :: Allowed -&gt; Allowed -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792406"><span id="local-6989586621679792408"><span id="local-6989586621679792410"><span id="local-6989586621679792412"><span class="annot"><span class="annottext">ReadPrec [Allowed]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792415"><span id="local-6989586621679792417"><span id="local-6989586621679792419"><span id="local-6989586621679792421"><span class="annot"><span class="annottext">ReadPrec [Allowed]
 ReadPrec Allowed
 Int -&gt; ReadS Allowed
 ReadS [Allowed]
@@ -60,7 +60,7 @@ readList :: ReadS [Allowed]
 $creadList :: ReadS [Allowed]
 readsPrec :: Int -&gt; ReadS Allowed
 $creadsPrec :: Int -&gt; ReadS Allowed
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792399"><span id="local-6989586621679792401"><span id="local-6989586621679792403"><span class="annot"><span class="annottext">Int -&gt; Allowed -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792408"><span id="local-6989586621679792410"><span id="local-6989586621679792412"><span class="annot"><span class="annottext">Int -&gt; Allowed -&gt; ShowS
 [Allowed] -&gt; ShowS
 Allowed -&gt; String
 (Int -&gt; Allowed -&gt; ShowS)
@@ -108,16 +108,16 @@ forall a. Maybe a
 -&gt; (Allowed -&gt; Maybe [Policy] -&gt; Allowed)
 -&gt; Lens Allowed Allowed (Maybe [Policy]) (Maybe [Policy])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed%27"><span class="hs-identifier hs-type">Allowed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792390"><span class="annot"><span class="annottext">Maybe [Policy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed%27"><span class="hs-identifier hs-type">Allowed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792399"><span class="annot"><span class="annottext">Maybe [Policy]
 policies :: Maybe [Policy]
 $sel:policies:Allowed' :: Allowed -&gt; Maybe [Policy]
-</span><a href="#local-6989586621679792390"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Policy]
-</span><a href="#local-6989586621679792390"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792389"><span class="annot"><span class="annottext">s :: Allowed
-</span><a href="#local-6989586621679792389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed%27"><span class="hs-identifier hs-type">Allowed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792388"><span class="annot"><span class="annottext">Maybe [Policy]
-</span><a href="#local-6989586621679792388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Allowed
-</span><a href="#local-6989586621679792389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policies:Allowed' :: Maybe [Policy]
+</span><a href="#local-6989586621679792399"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Policy]
+</span><a href="#local-6989586621679792399"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792398"><span class="annot"><span class="annottext">s :: Allowed
+</span><a href="#local-6989586621679792398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed%27"><span class="hs-identifier hs-type">Allowed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792397"><span class="annot"><span class="annottext">Maybe [Policy]
+</span><a href="#local-6989586621679792397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Allowed
+</span><a href="#local-6989586621679792398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policies:Allowed' :: Maybe [Policy]
 </span><a href="Network.AWS.IoT.Types.Allowed.html#%24sel%3Apolicies%3AAllowed%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Policy]
-</span><a href="#local-6989586621679792388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed"><span class="hs-identifier hs-type">Allowed</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Policy] -&gt; f (Maybe [Policy])) -&gt; Allowed -&gt; f Allowed)
+</span><a href="#local-6989586621679792397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed"><span class="hs-identifier hs-type">Allowed</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Policy] -&gt; f (Maybe [Policy])) -&gt; Allowed -&gt; f Allowed)
 -&gt; ((Maybe [Policy] -&gt; f (Maybe [Policy]))
     -&gt; Maybe [Policy] -&gt; f (Maybe [Policy]))
 -&gt; (Maybe [Policy] -&gt; f (Maybe [Policy]))
@@ -134,23 +134,23 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792382"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed"><span class="hs-identifier hs-type">Allowed</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679792380"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Allowed
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792391"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed"><span class="hs-identifier hs-type">Allowed</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679792389"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Allowed
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Allowed) -&gt; Value -&gt; Parser Allowed
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Allowed&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679792377"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792377"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679792386"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679792386"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Policy] -&gt; Allowed
 </span><a href="Network.AWS.IoT.Types.Allowed.html#Allowed%27"><span class="hs-identifier hs-var">Allowed'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Policy] -&gt; Allowed)
 -&gt; Parser (Maybe [Policy]) -&gt; Parser Allowed
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Policy]))
+</span><a href="#local-6989586621679792386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Policy]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;policies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Policy]))
@@ -161,7 +161,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792370"><span id="local-6989586621679792372"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed"><span class="hs-identifier hs-type">Allowed</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792379"><span id="local-6989586621679792381"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed"><span class="hs-identifier hs-type">Allowed</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792367"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed"><span class="hs-identifier hs-type">Allowed</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Allowed.html#Allowed"><span class="hs-identifier hs-type">Allowed</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

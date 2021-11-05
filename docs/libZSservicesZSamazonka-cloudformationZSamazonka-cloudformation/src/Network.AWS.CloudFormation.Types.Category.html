@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679414861"><span id="local-6989586621679414862"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Category"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Category.html#Category"><span class="hs-identifier hs-var">Category</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Category%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Category.html#Category%27"><span class="hs-identifier hs-var">Category'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679414870"><span id="local-6989586621679414871"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Category"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Category.html#Category"><span class="hs-identifier hs-var">Category</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Category%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Category.html#Category%27"><span class="hs-identifier hs-var">Category'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCategory"><span class="annot"><span class="annottext">Category -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.Category.html#fromCategory"><span class="hs-identifier hs-var hs-var">fromCategory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679414853"><span id="local-6989586621679414855"><span id="local-6989586621679414857"><span class="annot"><span class="annottext">Int -&gt; Category -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679414862"><span id="local-6989586621679414864"><span id="local-6989586621679414866"><span class="annot"><span class="annottext">Int -&gt; Category -&gt; ShowS
 [Category] -&gt; ShowS
 Category -&gt; String
 (Int -&gt; Category -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: Category -&gt; String
 showsPrec :: Int -&gt; Category -&gt; ShowS
 $cshowsPrec :: Int -&gt; Category -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679414844"><span id="local-6989586621679414846"><span id="local-6989586621679414848"><span id="local-6989586621679414850"><span class="annot"><span class="annottext">ReadPrec [Category]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679414853"><span id="local-6989586621679414855"><span id="local-6989586621679414857"><span id="local-6989586621679414859"><span class="annot"><span class="annottext">ReadPrec [Category]
 ReadPrec Category
 Int -&gt; ReadS Category
 ReadS [Category]
@@ -72,7 +72,7 @@ $creadList :: ReadS [Category]
 readsPrec :: Int -&gt; ReadS Category
 $creadsPrec :: Int -&gt; ReadS Category
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679414839"><span id="local-6989586621679414841"><span class="annot"><span class="annottext">Category -&gt; Category -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679414848"><span id="local-6989586621679414850"><span class="annot"><span class="annottext">Category -&gt; Category -&gt; Bool
 (Category -&gt; Category -&gt; Bool)
 -&gt; (Category -&gt; Category -&gt; Bool) -&gt; Eq Category
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: Category -&gt; Category -&gt; Bool
 == :: Category -&gt; Category -&gt; Bool
 $c== :: Category -&gt; Category -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679414823"><span id="local-6989586621679414825"><span id="local-6989586621679414827"><span id="local-6989586621679414829"><span id="local-6989586621679414831"><span id="local-6989586621679414833"><span id="local-6989586621679414835"><span class="annot"><span class="annottext">Eq Category
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679414832"><span id="local-6989586621679414834"><span id="local-6989586621679414836"><span id="local-6989586621679414838"><span id="local-6989586621679414840"><span id="local-6989586621679414842"><span id="local-6989586621679414844"><span class="annot"><span class="annottext">Eq Category
 Eq Category
 -&gt; (Category -&gt; Category -&gt; Ordering)
 -&gt; (Category -&gt; Category -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. Category -&gt; Rep Category x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679414815"><span id="local-6989586621679414817"><span class="annot"><span class="annottext">Int -&gt; Category -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679414824"><span id="local-6989586621679414826"><span class="annot"><span class="annottext">Int -&gt; Category -&gt; Int
 Category -&gt; Int
 (Int -&gt; Category -&gt; Int) -&gt; (Category -&gt; Int) -&gt; Hashable Category
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -140,49 +140,49 @@ $chash :: Category -&gt; Int
 hashWithSalt :: Int -&gt; Category -&gt; Int
 $chashWithSalt :: Int -&gt; Category -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679414812"><span class="annot"><span class="annottext">Category -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679414821"><span class="annot"><span class="annottext">Category -&gt; ()
 (Category -&gt; ()) -&gt; NFData Category
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Category -&gt; ()
 $crnf :: Category -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679414809"><span class="annot"><span class="annottext">Text -&gt; Either String Category
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679414818"><span class="annot"><span class="annottext">Text -&gt; Either String Category
 (Text -&gt; Either String Category) -&gt; FromText Category
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Category
 $cfromText :: Text -&gt; Either String Category
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679414806"><span class="annot"><span class="annottext">Category -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679414815"><span class="annot"><span class="annottext">Category -&gt; Text
 (Category -&gt; Text) -&gt; ToText Category
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Category -&gt; Text
 $ctoText :: Category -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679414803"><span class="annot"><span class="annottext">Category -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679414812"><span class="annot"><span class="annottext">Category -&gt; ByteString
 (Category -&gt; ByteString) -&gt; ToByteString Category
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Category -&gt; ByteString
 $ctoBS :: Category -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679414800"><span class="annot"><span class="annottext">Category -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679414809"><span class="annot"><span class="annottext">Category -&gt; ByteStringBuilder
 (Category -&gt; ByteStringBuilder) -&gt; ToLog Category
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Category -&gt; ByteStringBuilder
 $cbuild :: Category -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679414797"><span class="annot"><span class="annottext">HeaderName -&gt; Category -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679414806"><span class="annot"><span class="annottext">HeaderName -&gt; Category -&gt; [Header]
 (HeaderName -&gt; Category -&gt; [Header]) -&gt; ToHeader Category
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Category -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Category -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679414794"><span class="annot"><span class="annottext">Category -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679414803"><span class="annot"><span class="annottext">Category -&gt; QueryString
 (Category -&gt; QueryString) -&gt; ToQuery Category
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Category -&gt; QueryString
 $ctoQuery :: Category -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679414789"><span id="local-6989586621679414791"><span class="annot"><span class="annottext">Value -&gt; Parser [Category]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679414798"><span id="local-6989586621679414800"><span class="annot"><span class="annottext">Value -&gt; Parser [Category]
 Value -&gt; Parser Category
 (Value -&gt; Parser Category)
 -&gt; (Value -&gt; Parser [Category]) -&gt; FromJSON Category
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [Category]
 parseJSON :: Value -&gt; Parser Category
 $cparseJSON :: Value -&gt; Parser Category
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679414784"><span id="local-6989586621679414786"><span class="annot"><span class="annottext">FromJSONKeyFunction [Category]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679414793"><span id="local-6989586621679414795"><span class="annot"><span class="annottext">FromJSONKeyFunction [Category]
 FromJSONKeyFunction Category
 FromJSONKeyFunction Category
 -&gt; FromJSONKeyFunction [Category] -&gt; FromJSONKey Category
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Category]
 fromJSONKey :: FromJSONKeyFunction Category
 $cfromJSONKey :: FromJSONKeyFunction Category
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679414775"><span id="local-6989586621679414777"><span id="local-6989586621679414779"><span id="local-6989586621679414781"><span class="annot"><span class="annottext">[Category] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679414784"><span id="local-6989586621679414786"><span id="local-6989586621679414788"><span id="local-6989586621679414790"><span class="annot"><span class="annottext">[Category] -&gt; Encoding
 [Category] -&gt; Value
 Category -&gt; Encoding
 Category -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: Category -&gt; Encoding
 toJSON :: Category -&gt; Value
 $ctoJSON :: Category -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679414770"><span id="local-6989586621679414772"><span class="annot"><span class="annottext">ToJSONKeyFunction [Category]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679414779"><span id="local-6989586621679414781"><span class="annot"><span class="annottext">ToJSONKeyFunction [Category]
 ToJSONKeyFunction Category
 ToJSONKeyFunction Category
 -&gt; ToJSONKeyFunction [Category] -&gt; ToJSONKey Category
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Category]
 toJSONKey :: ToJSONKeyFunction Category
 $ctoJSONKey :: ToJSONKeyFunction Category
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679414767"><span class="annot"><span class="annottext">[Node] -&gt; Either String Category
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679414776"><span class="annot"><span class="annottext">[Node] -&gt; Either String Category
 ([Node] -&gt; Either String Category) -&gt; FromXML Category
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Category
 $cparseXML :: [Node] -&gt; Either String Category
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679414764"><span class="annot"><span class="annottext">Category -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679414773"><span class="annot"><span class="annottext">Category -&gt; XML
 (Category -&gt; XML) -&gt; ToXML Category
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Category -&gt; XML

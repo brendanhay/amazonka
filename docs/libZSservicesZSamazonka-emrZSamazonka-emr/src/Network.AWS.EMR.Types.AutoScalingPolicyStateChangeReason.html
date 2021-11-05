@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The reason for an AutoScalingPolicyStatus change.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAutoScalingPolicyStateChangeReason' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679365547"><span id="local-6989586621679365548"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingPolicyStateChangeReason"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason"><span class="hs-identifier hs-var">AutoScalingPolicyStateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingPolicyStateChangeReason%27"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason%27"><span class="hs-identifier hs-var">AutoScalingPolicyStateChangeReason'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679365556"><span id="local-6989586621679365557"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingPolicyStateChangeReason"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason"><span class="hs-identifier hs-var">AutoScalingPolicyStateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingPolicyStateChangeReason%27"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason%27"><span class="hs-identifier hs-var">AutoScalingPolicyStateChangeReason'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The code indicating the reason for the change in status.@USER_REQUEST@</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- indicates that the scaling policy status was changed by a user.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @PROVISION_FAILURE@ indicates that the status change was because the</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Amessage%3AAutoScalingPolicyStateChangeReason%27"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReason -&gt; Maybe Text
 </span><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#%24sel%3Amessage%3AAutoScalingPolicyStateChangeReason%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365540"><span id="local-6989586621679365542"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReason
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365549"><span id="local-6989586621679365551"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReason
 -&gt; AutoScalingPolicyStateChangeReason -&gt; Bool
 (AutoScalingPolicyStateChangeReason
  -&gt; AutoScalingPolicyStateChangeReason -&gt; Bool)
@@ -56,7 +56,7 @@ $c/= :: AutoScalingPolicyStateChangeReason
 -&gt; AutoScalingPolicyStateChangeReason -&gt; Bool
 $c== :: AutoScalingPolicyStateChangeReason
 -&gt; AutoScalingPolicyStateChangeReason -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365531"><span id="local-6989586621679365533"><span id="local-6989586621679365535"><span id="local-6989586621679365537"><span class="annot"><span class="annottext">ReadPrec [AutoScalingPolicyStateChangeReason]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365540"><span id="local-6989586621679365542"><span id="local-6989586621679365544"><span id="local-6989586621679365546"><span class="annot"><span class="annottext">ReadPrec [AutoScalingPolicyStateChangeReason]
 ReadPrec AutoScalingPolicyStateChangeReason
 Int -&gt; ReadS AutoScalingPolicyStateChangeReason
 ReadS [AutoScalingPolicyStateChangeReason]
@@ -76,7 +76,7 @@ readList :: ReadS [AutoScalingPolicyStateChangeReason]
 $creadList :: ReadS [AutoScalingPolicyStateChangeReason]
 readsPrec :: Int -&gt; ReadS AutoScalingPolicyStateChangeReason
 $creadsPrec :: Int -&gt; ReadS AutoScalingPolicyStateChangeReason
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365524"><span id="local-6989586621679365526"><span id="local-6989586621679365528"><span class="annot"><span class="annottext">Int -&gt; AutoScalingPolicyStateChangeReason -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365533"><span id="local-6989586621679365535"><span id="local-6989586621679365537"><span class="annot"><span class="annottext">Int -&gt; AutoScalingPolicyStateChangeReason -&gt; ShowS
 [AutoScalingPolicyStateChangeReason] -&gt; ShowS
 AutoScalingPolicyStateChangeReason -&gt; String
 (Int -&gt; AutoScalingPolicyStateChangeReason -&gt; ShowS)
@@ -167,17 +167,17 @@ forall a. Maybe a
      (Maybe AutoScalingPolicyStateChangeReasonCode)
      (Maybe AutoScalingPolicyStateChangeReasonCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason%27"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365515"><span class="annot"><span class="annottext">Maybe AutoScalingPolicyStateChangeReasonCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason%27"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365524"><span class="annot"><span class="annottext">Maybe AutoScalingPolicyStateChangeReasonCode
 code :: Maybe AutoScalingPolicyStateChangeReasonCode
 $sel:code:AutoScalingPolicyStateChangeReason' :: AutoScalingPolicyStateChangeReason
 -&gt; Maybe AutoScalingPolicyStateChangeReasonCode
-</span><a href="#local-6989586621679365515"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingPolicyStateChangeReasonCode
-</span><a href="#local-6989586621679365515"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365514"><span class="annot"><span class="annottext">s :: AutoScalingPolicyStateChangeReason
-</span><a href="#local-6989586621679365514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason%27"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365513"><span class="annot"><span class="annottext">Maybe AutoScalingPolicyStateChangeReasonCode
-</span><a href="#local-6989586621679365513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReason
-</span><a href="#local-6989586621679365514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:AutoScalingPolicyStateChangeReason' :: Maybe AutoScalingPolicyStateChangeReasonCode
+</span><a href="#local-6989586621679365524"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingPolicyStateChangeReasonCode
+</span><a href="#local-6989586621679365524"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365523"><span class="annot"><span class="annottext">s :: AutoScalingPolicyStateChangeReason
+</span><a href="#local-6989586621679365523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason%27"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365522"><span class="annot"><span class="annottext">Maybe AutoScalingPolicyStateChangeReasonCode
+</span><a href="#local-6989586621679365522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReason
+</span><a href="#local-6989586621679365523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:AutoScalingPolicyStateChangeReason' :: Maybe AutoScalingPolicyStateChangeReasonCode
 </span><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#%24sel%3Acode%3AAutoScalingPolicyStateChangeReason%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingPolicyStateChangeReasonCode
-</span><a href="#local-6989586621679365513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | A friendly, more verbose message that accompanies an automatic scaling</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- policy state change.</span><span>
@@ -194,22 +194,22 @@ $sel:code:AutoScalingPolicyStateChangeReason' :: AutoScalingPolicyStateChangeRea
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason%27"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365511"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason%27"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365520"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:AutoScalingPolicyStateChangeReason' :: AutoScalingPolicyStateChangeReason -&gt; Maybe Text
-</span><a href="#local-6989586621679365511"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365511"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365510"><span class="annot"><span class="annottext">s :: AutoScalingPolicyStateChangeReason
-</span><a href="#local-6989586621679365510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason%27"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365509"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReason
-</span><a href="#local-6989586621679365510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:AutoScalingPolicyStateChangeReason' :: Maybe Text
+</span><a href="#local-6989586621679365520"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365520"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365519"><span class="annot"><span class="annottext">s :: AutoScalingPolicyStateChangeReason
+</span><a href="#local-6989586621679365519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason%27"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365518"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReason
+</span><a href="#local-6989586621679365519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:AutoScalingPolicyStateChangeReason' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#%24sel%3Amessage%3AAutoScalingPolicyStateChangeReason%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679365506"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679365515"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason</span></a></span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679365504"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoScalingPolicyStateChangeReason
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679365513"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoScalingPolicyStateChangeReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AutoScalingPolicyStateChangeReason)
@@ -219,8 +219,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AutoScalingPolicyStateChangeReason&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365501"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365501"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365510"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365510"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe AutoScalingPolicyStateChangeReasonCode
 -&gt; Maybe Text -&gt; AutoScalingPolicyStateChangeReason
 </span><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason%27"><span class="hs-identifier hs-var">AutoScalingPolicyStateChangeReason'</span></a></span><span>
@@ -230,7 +230,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; AutoScalingPolicyStateChangeReason)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe AutoScalingPolicyStateChangeReasonCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -239,17 +239,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser AutoScalingPolicyStateChangeReason
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679365510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679365495"><span id="local-6989586621679365497"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679365504"><span id="local-6989586621679365506"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679365492"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679365501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason.html#AutoScalingPolicyStateChangeReason"><span class="hs-identifier hs-type">AutoScalingPolicyStateChangeReason</span></a></span></span><span>
 </span><span id="line-98"></span></pre></body></html>

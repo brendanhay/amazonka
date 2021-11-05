@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- Autopilot model deployment.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newModelDeployConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680317679"><span id="local-6989586621680317680"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelDeployConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-var">ModelDeployConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelDeployConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig%27"><span class="hs-identifier hs-var">ModelDeployConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680317688"><span id="local-6989586621680317689"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelDeployConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-var">ModelDeployConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelDeployConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig%27"><span class="hs-identifier hs-var">ModelDeployConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the endpoint name to use for a one-click Autopilot model</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- deployment if the endpoint name is not generated automatically.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AautoGenerateEndpointName%3AModelDeployConfig%27"><span class="annot"><span class="annottext">ModelDeployConfig -&gt; Maybe Bool
 </span><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#%24sel%3AautoGenerateEndpointName%3AModelDeployConfig%27"><span class="hs-identifier hs-var hs-var">autoGenerateEndpointName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680317672"><span id="local-6989586621680317674"><span class="annot"><span class="annottext">ModelDeployConfig -&gt; ModelDeployConfig -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680317681"><span id="local-6989586621680317683"><span class="annot"><span class="annottext">ModelDeployConfig -&gt; ModelDeployConfig -&gt; Bool
 (ModelDeployConfig -&gt; ModelDeployConfig -&gt; Bool)
 -&gt; (ModelDeployConfig -&gt; ModelDeployConfig -&gt; Bool)
 -&gt; Eq ModelDeployConfig
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModelDeployConfig -&gt; ModelDeployConfig -&gt; Bool
 == :: ModelDeployConfig -&gt; ModelDeployConfig -&gt; Bool
 $c== :: ModelDeployConfig -&gt; ModelDeployConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317663"><span id="local-6989586621680317665"><span id="local-6989586621680317667"><span id="local-6989586621680317669"><span class="annot"><span class="annottext">ReadPrec [ModelDeployConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317672"><span id="local-6989586621680317674"><span id="local-6989586621680317676"><span id="local-6989586621680317678"><span class="annot"><span class="annottext">ReadPrec [ModelDeployConfig]
 ReadPrec ModelDeployConfig
 Int -&gt; ReadS ModelDeployConfig
 ReadS [ModelDeployConfig]
@@ -73,7 +73,7 @@ readList :: ReadS [ModelDeployConfig]
 $creadList :: ReadS [ModelDeployConfig]
 readsPrec :: Int -&gt; ReadS ModelDeployConfig
 $creadsPrec :: Int -&gt; ReadS ModelDeployConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317656"><span id="local-6989586621680317658"><span id="local-6989586621680317660"><span class="annot"><span class="annottext">Int -&gt; ModelDeployConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317665"><span id="local-6989586621680317667"><span id="local-6989586621680317669"><span class="annot"><span class="annottext">Int -&gt; ModelDeployConfig -&gt; ShowS
 [ModelDeployConfig] -&gt; ShowS
 ModelDeployConfig -&gt; String
 (Int -&gt; ModelDeployConfig -&gt; ShowS)
@@ -148,16 +148,16 @@ forall a. Maybe a
 -&gt; Lens
      ModelDeployConfig ModelDeployConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig%27"><span class="hs-identifier hs-type">ModelDeployConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317647"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig%27"><span class="hs-identifier hs-type">ModelDeployConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317656"><span class="annot"><span class="annottext">Maybe Text
 endpointName :: Maybe Text
 $sel:endpointName:ModelDeployConfig' :: ModelDeployConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680317647"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680317647"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317646"><span class="annot"><span class="annottext">s :: ModelDeployConfig
-</span><a href="#local-6989586621680317646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig%27"><span class="hs-identifier hs-type">ModelDeployConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317645"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680317645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelDeployConfig
-</span><a href="#local-6989586621680317646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:ModelDeployConfig' :: Maybe Text
+</span><a href="#local-6989586621680317656"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680317656"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317655"><span class="annot"><span class="annottext">s :: ModelDeployConfig
+</span><a href="#local-6989586621680317655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig%27"><span class="hs-identifier hs-type">ModelDeployConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317654"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680317654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelDeployConfig
+</span><a href="#local-6989586621680317655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:ModelDeployConfig' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#%24sel%3AendpointName%3AModelDeployConfig%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680317645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-type">ModelDeployConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680317654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-type">ModelDeployConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | Set to @True@ to automatically generate an endpoint name for a one-click</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- Autopilot model deployment; set to @False@ otherwise. The default value</span><span>
@@ -173,19 +173,19 @@ $sel:endpointName:ModelDeployConfig' :: ModelDeployConfig -&gt; Maybe Text
 -&gt; Lens
      ModelDeployConfig ModelDeployConfig (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig%27"><span class="hs-identifier hs-type">ModelDeployConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317643"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig%27"><span class="hs-identifier hs-type">ModelDeployConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317652"><span class="annot"><span class="annottext">Maybe Bool
 autoGenerateEndpointName :: Maybe Bool
 $sel:autoGenerateEndpointName:ModelDeployConfig' :: ModelDeployConfig -&gt; Maybe Bool
-</span><a href="#local-6989586621680317643"><span class="hs-identifier hs-var hs-var">autoGenerateEndpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680317643"><span class="hs-identifier hs-var">autoGenerateEndpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317642"><span class="annot"><span class="annottext">s :: ModelDeployConfig
-</span><a href="#local-6989586621680317642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig%27"><span class="hs-identifier hs-type">ModelDeployConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317641"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680317641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelDeployConfig
-</span><a href="#local-6989586621680317642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoGenerateEndpointName:ModelDeployConfig' :: Maybe Bool
+</span><a href="#local-6989586621680317652"><span class="hs-identifier hs-var hs-var">autoGenerateEndpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680317652"><span class="hs-identifier hs-var">autoGenerateEndpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317651"><span class="annot"><span class="annottext">s :: ModelDeployConfig
+</span><a href="#local-6989586621680317651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig%27"><span class="hs-identifier hs-type">ModelDeployConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317650"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680317650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelDeployConfig
+</span><a href="#local-6989586621680317651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoGenerateEndpointName:ModelDeployConfig' :: Maybe Bool
 </span><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#%24sel%3AautoGenerateEndpointName%3AModelDeployConfig%27"><span class="hs-identifier hs-var">autoGenerateEndpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680317641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-type">ModelDeployConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680317650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-type">ModelDeployConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317638"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-type">ModelDeployConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621680317636"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelDeployConfig
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317647"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-type">ModelDeployConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621680317645"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelDeployConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ModelDeployConfig)
@@ -195,15 +195,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ModelDeployConfig&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680317633"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317633"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680317642"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680317642"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Bool -&gt; ModelDeployConfig
 </span><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig%27"><span class="hs-identifier hs-var">ModelDeployConfig'</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Bool -&gt; ModelDeployConfig)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Bool -&gt; ModelDeployConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680317642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndpointName&quot;</span></span><span class="hs-special">)</span><span>
@@ -211,25 +211,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser ModelDeployConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621680317642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AutoGenerateEndpointName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317627"><span id="local-6989586621680317629"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-type">ModelDeployConfig</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317636"><span id="local-6989586621680317638"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-type">ModelDeployConfig</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317624"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-type">ModelDeployConfig</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317633"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-type">ModelDeployConfig</span></a></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317616"><span id="local-6989586621680317618"><span id="local-6989586621680317620"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-type">ModelDeployConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621680317614"><span class="annot"><span class="annottext">toJSON :: ModelDeployConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig%27"><span class="hs-identifier hs-type">ModelDeployConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317611"><span id="local-6989586621680317612"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317625"><span id="local-6989586621680317627"><span id="local-6989586621680317629"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-type">ModelDeployConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621680317623"><span class="annot"><span class="annottext">toJSON :: ModelDeployConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig%27"><span class="hs-identifier hs-type">ModelDeployConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317620"><span id="local-6989586621680317621"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 autoGenerateEndpointName :: Maybe Bool
 endpointName :: Maybe Text
 $sel:autoGenerateEndpointName:ModelDeployConfig' :: ModelDeployConfig -&gt; Maybe Bool
 $sel:endpointName:ModelDeployConfig' :: ModelDeployConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680317611"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680317620"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -241,7 +241,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680317612"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680317621"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AutoGenerateEndpointName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -249,7 +249,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680317611"><span class="hs-identifier hs-var">autoGenerateEndpointName</span></a></span><span>
+</span><a href="#local-6989586621680317620"><span class="hs-identifier hs-var">autoGenerateEndpointName</span></a></span><span>
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span></pre></body></html>

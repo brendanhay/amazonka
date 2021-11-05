@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetRoom' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679384355"><span id="local-6989586621679384356"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRoom"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-var">GetRoom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRoom%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom%27"><span class="hs-identifier hs-var">GetRoom'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679384364"><span id="local-6989586621679384365"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRoom"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-var">GetRoom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRoom%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom%27"><span class="hs-identifier hs-var">GetRoom'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the room for which to request details. Required.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AroomArn%3AGetRoom%27"><span class="annot"><span class="annottext">GetRoom -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.GetRoom.html#%24sel%3AroomArn%3AGetRoom%27"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384349"><span id="local-6989586621679384351"><span class="annot"><span class="annottext">GetRoom -&gt; GetRoom -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384358"><span id="local-6989586621679384360"><span class="annot"><span class="annottext">GetRoom -&gt; GetRoom -&gt; Bool
 (GetRoom -&gt; GetRoom -&gt; Bool)
 -&gt; (GetRoom -&gt; GetRoom -&gt; Bool) -&gt; Eq GetRoom
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRoom -&gt; GetRoom -&gt; Bool
 == :: GetRoom -&gt; GetRoom -&gt; Bool
 $c== :: GetRoom -&gt; GetRoom -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384340"><span id="local-6989586621679384342"><span id="local-6989586621679384344"><span id="local-6989586621679384346"><span class="annot"><span class="annottext">ReadPrec [GetRoom]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384349"><span id="local-6989586621679384351"><span id="local-6989586621679384353"><span id="local-6989586621679384355"><span class="annot"><span class="annottext">ReadPrec [GetRoom]
 ReadPrec GetRoom
 Int -&gt; ReadS GetRoom
 ReadS [GetRoom]
@@ -80,7 +80,7 @@ readList :: ReadS [GetRoom]
 $creadList :: ReadS [GetRoom]
 readsPrec :: Int -&gt; ReadS GetRoom
 $creadsPrec :: Int -&gt; ReadS GetRoom
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384333"><span id="local-6989586621679384335"><span id="local-6989586621679384337"><span class="annot"><span class="annottext">Int -&gt; GetRoom -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384342"><span id="local-6989586621679384344"><span id="local-6989586621679384346"><span class="annot"><span class="annottext">Int -&gt; GetRoom -&gt; ShowS
 [GetRoom] -&gt; ShowS
 GetRoom -&gt; String
 (Int -&gt; GetRoom -&gt; ShowS)
@@ -128,25 +128,25 @@ forall a. Maybe a
 -&gt; (GetRoom -&gt; Maybe Text -&gt; GetRoom)
 -&gt; Lens GetRoom GetRoom (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom%27"><span class="hs-identifier hs-type">GetRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384326"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom%27"><span class="hs-identifier hs-type">GetRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384335"><span class="annot"><span class="annottext">Maybe Text
 roomArn :: Maybe Text
 $sel:roomArn:GetRoom' :: GetRoom -&gt; Maybe Text
-</span><a href="#local-6989586621679384326"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384326"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384325"><span class="annot"><span class="annottext">s :: GetRoom
-</span><a href="#local-6989586621679384325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom%27"><span class="hs-identifier hs-type">GetRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384324"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRoom
-</span><a href="#local-6989586621679384325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomArn:GetRoom' :: Maybe Text
+</span><a href="#local-6989586621679384335"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384335"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384334"><span class="annot"><span class="annottext">s :: GetRoom
+</span><a href="#local-6989586621679384334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom%27"><span class="hs-identifier hs-type">GetRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384333"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRoom
+</span><a href="#local-6989586621679384334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomArn:GetRoom' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.GetRoom.html#%24sel%3AroomArn%3AGetRoom%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-type">GetRoom</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-type">GetRoom</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-type">GetRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-type">GetRoom</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse"><span class="hs-identifier hs-type">GetRoomResponse</span></a></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679384320"><span class="annot"><span class="annottext">request :: GetRoom -&gt; Request GetRoom
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679384329"><span class="annot"><span class="annottext">request :: GetRoom -&gt; Request GetRoom
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetRoom -&gt; Request GetRoom
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679384316"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679384325"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetRoom
 -&gt; ClientResponse ClientBody
@@ -170,10 +170,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384313"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384313"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384312"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679384312"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384311"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384311"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384322"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384322"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384321"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679384321"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384320"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384320"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Room -&gt; Int -&gt; GetRoomResponse
 </span><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse%27"><span class="hs-identifier hs-var">GetRoomResponse'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Room -&gt; Int -&gt; GetRoomResponse)
@@ -181,7 +181,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetRoomResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Room)
+</span><a href="#local-6989586621679384320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Room)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Room&quot;</span></span><span class="hs-special">)</span><span>
@@ -193,15 +193,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384313"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384322"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384303"><span id="local-6989586621679384305"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-type">GetRoom</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384312"><span id="local-6989586621679384314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-type">GetRoom</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-type">GetRoom</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-type">GetRoom</span></a></span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-type">GetRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679384296"><span class="annot"><span class="annottext">toHeaders :: GetRoom -&gt; ResponseHeaders
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679384305"><span class="annot"><span class="annottext">toHeaders :: GetRoom -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetRoom -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -226,12 +226,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384286"><span id="local-6989586621679384288"><span id="local-6989586621679384290"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-type">GetRoom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679384284"><span class="annot"><span class="annottext">toJSON :: GetRoom -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom%27"><span class="hs-identifier hs-type">GetRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384282"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384295"><span id="local-6989586621679384297"><span id="local-6989586621679384299"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-type">GetRoom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679384293"><span class="annot"><span class="annottext">toJSON :: GetRoom -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom%27"><span class="hs-identifier hs-type">GetRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384291"><span class="annot"><span class="annottext">Maybe Text
 roomArn :: Maybe Text
 $sel:roomArn:GetRoom' :: GetRoom -&gt; Maybe Text
-</span><a href="#local-6989586621679384282"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679384291"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -243,18 +243,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384282"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679384291"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-type">GetRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679384276"><span class="annot"><span class="annottext">toPath :: GetRoom -&gt; ByteString
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679384285"><span class="annot"><span class="annottext">toPath :: GetRoom -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetRoom -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoom"><span class="hs-identifier hs-type">GetRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679384272"><span class="annot"><span class="annottext">toQuery :: GetRoom -&gt; QueryString
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679384281"><span class="annot"><span class="annottext">toQuery :: GetRoom -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetRoom -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -262,7 +262,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | /See:/ 'newGetRoomResponse' smart constructor.</span><span>
-</span><span id="line-115"></span><span id="local-6989586621679384269"><span id="local-6989586621679384270"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRoomResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse"><span class="hs-identifier hs-var">GetRoomResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRoomResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse%27"><span class="hs-identifier hs-var">GetRoomResponse'</span></a></span></span><span>
+</span><span id="line-115"></span><span id="local-6989586621679384278"><span id="local-6989586621679384279"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRoomResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse"><span class="hs-identifier hs-var">GetRoomResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRoomResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse%27"><span class="hs-identifier hs-var">GetRoomResponse'</span></a></span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details of the room requested.</span><span>
 </span><span id="line-117"></span><span>    </span><span id="%24sel%3Aroom%3AGetRoomResponse%27"><span class="annot"><span class="annottext">GetRoomResponse -&gt; Maybe Room
 </span><a href="Network.AWS.AlexaBusiness.GetRoom.html#%24sel%3Aroom%3AGetRoomResponse%27"><span class="hs-identifier hs-var hs-var">room</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Room.html#Room"><span class="hs-identifier hs-type">Room</span></a></span><span class="hs-special">,</span><span>
@@ -270,7 +270,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-119"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetRoomResponse%27"><span class="annot"><span class="annottext">GetRoomResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.GetRoom.html#%24sel%3AhttpStatus%3AGetRoomResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384263"><span id="local-6989586621679384265"><span class="annot"><span class="annottext">GetRoomResponse -&gt; GetRoomResponse -&gt; Bool
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384272"><span id="local-6989586621679384274"><span class="annot"><span class="annottext">GetRoomResponse -&gt; GetRoomResponse -&gt; Bool
 (GetRoomResponse -&gt; GetRoomResponse -&gt; Bool)
 -&gt; (GetRoomResponse -&gt; GetRoomResponse -&gt; Bool)
 -&gt; Eq GetRoomResponse
@@ -279,7 +279,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRoomResponse -&gt; GetRoomResponse -&gt; Bool
 == :: GetRoomResponse -&gt; GetRoomResponse -&gt; Bool
 $c== :: GetRoomResponse -&gt; GetRoomResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384255"><span id="local-6989586621679384257"><span id="local-6989586621679384259"><span id="local-6989586621679384261"><span class="annot"><span class="annottext">ReadPrec [GetRoomResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384264"><span id="local-6989586621679384266"><span id="local-6989586621679384268"><span id="local-6989586621679384270"><span class="annot"><span class="annottext">ReadPrec [GetRoomResponse]
 ReadPrec GetRoomResponse
 Int -&gt; ReadS GetRoomResponse
 ReadS [GetRoomResponse]
@@ -299,7 +299,7 @@ readList :: ReadS [GetRoomResponse]
 $creadList :: ReadS [GetRoomResponse]
 readsPrec :: Int -&gt; ReadS GetRoomResponse
 $creadsPrec :: Int -&gt; ReadS GetRoomResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384249"><span id="local-6989586621679384251"><span id="local-6989586621679384253"><span class="annot"><span class="annottext">Int -&gt; GetRoomResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384258"><span id="local-6989586621679384260"><span id="local-6989586621679384262"><span class="annot"><span class="annottext">Int -&gt; GetRoomResponse -&gt; ShowS
 [GetRoomResponse] -&gt; ShowS
 GetRoomResponse -&gt; String
 (Int -&gt; GetRoomResponse -&gt; ShowS)
@@ -341,8 +341,8 @@ $cfrom :: forall x. GetRoomResponse -&gt; Rep GetRoomResponse x
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse"><span class="hs-identifier hs-type">GetRoomResponse</span></a></span><span>
 </span><span id="line-138"></span><span id="newGetRoomResponse"><span class="annot"><span class="annottext">newGetRoomResponse :: Int -&gt; GetRoomResponse
-</span><a href="Network.AWS.AlexaBusiness.GetRoom.html#newGetRoomResponse"><span class="hs-identifier hs-var hs-var">newGetRoomResponse</span></a></span></span><span> </span><span id="local-6989586621679384246"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384246"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.GetRoom.html#newGetRoomResponse"><span class="hs-identifier hs-var hs-var">newGetRoomResponse</span></a></span></span><span> </span><span id="local-6989586621679384255"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384255"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="annottext">GetRoomResponse' :: Maybe Room -&gt; Int -&gt; GetRoomResponse
 </span><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse%27"><span class="hs-identifier hs-type">GetRoomResponse'</span></a></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:room:GetRoomResponse' :: Maybe Room
@@ -351,7 +351,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetRoomResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.GetRoom.html#%24sel%3AhttpStatus%3AGetRoomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384246"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679384255"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The details of the room requested.</span><span>
@@ -362,16 +362,16 @@ forall a. Maybe a
 -&gt; (GetRoomResponse -&gt; Maybe Room -&gt; GetRoomResponse)
 -&gt; Lens GetRoomResponse GetRoomResponse (Maybe Room) (Maybe Room)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse%27"><span class="hs-identifier hs-type">GetRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384245"><span class="annot"><span class="annottext">Maybe Room
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse%27"><span class="hs-identifier hs-type">GetRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384254"><span class="annot"><span class="annottext">Maybe Room
 room :: Maybe Room
 $sel:room:GetRoomResponse' :: GetRoomResponse -&gt; Maybe Room
-</span><a href="#local-6989586621679384245"><span class="hs-identifier hs-var hs-var">room</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Room
-</span><a href="#local-6989586621679384245"><span class="hs-identifier hs-var">room</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384244"><span class="annot"><span class="annottext">s :: GetRoomResponse
-</span><a href="#local-6989586621679384244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse%27"><span class="hs-identifier hs-type">GetRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384243"><span class="annot"><span class="annottext">Maybe Room
-</span><a href="#local-6989586621679384243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRoomResponse
-</span><a href="#local-6989586621679384244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:room:GetRoomResponse' :: Maybe Room
+</span><a href="#local-6989586621679384254"><span class="hs-identifier hs-var hs-var">room</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Room
+</span><a href="#local-6989586621679384254"><span class="hs-identifier hs-var">room</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384253"><span class="annot"><span class="annottext">s :: GetRoomResponse
+</span><a href="#local-6989586621679384253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse%27"><span class="hs-identifier hs-type">GetRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384252"><span class="annot"><span class="annottext">Maybe Room
+</span><a href="#local-6989586621679384252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRoomResponse
+</span><a href="#local-6989586621679384253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:room:GetRoomResponse' :: Maybe Room
 </span><a href="Network.AWS.AlexaBusiness.GetRoom.html#%24sel%3Aroom%3AGetRoomResponse%27"><span class="hs-identifier hs-var">room</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Room
-</span><a href="#local-6989586621679384243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse"><span class="hs-identifier hs-type">GetRoomResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse"><span class="hs-identifier hs-type">GetRoomResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-149"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#getRoomResponse_httpStatus"><span class="hs-identifier hs-type">getRoomResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse"><span class="hs-identifier hs-type">GetRoomResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -380,16 +380,16 @@ $sel:room:GetRoomResponse' :: GetRoomResponse -&gt; Maybe Room
 -&gt; (GetRoomResponse -&gt; Int -&gt; GetRoomResponse)
 -&gt; Lens GetRoomResponse GetRoomResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse%27"><span class="hs-identifier hs-type">GetRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384242"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse%27"><span class="hs-identifier hs-type">GetRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384251"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetRoomResponse' :: GetRoomResponse -&gt; Int
-</span><a href="#local-6989586621679384242"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384242"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384241"><span class="annot"><span class="annottext">s :: GetRoomResponse
-</span><a href="#local-6989586621679384241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse%27"><span class="hs-identifier hs-type">GetRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384240"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRoomResponse
-</span><a href="#local-6989586621679384241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRoomResponse' :: Int
+</span><a href="#local-6989586621679384251"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384251"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384250"><span class="annot"><span class="annottext">s :: GetRoomResponse
+</span><a href="#local-6989586621679384250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse%27"><span class="hs-identifier hs-type">GetRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384249"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRoomResponse
+</span><a href="#local-6989586621679384250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRoomResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.GetRoom.html#%24sel%3AhttpStatus%3AGetRoomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse"><span class="hs-identifier hs-type">GetRoomResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse"><span class="hs-identifier hs-type">GetRoomResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384238"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse"><span class="hs-identifier hs-type">GetRoomResponse</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384247"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetRoom.html#GetRoomResponse"><span class="hs-identifier hs-type">GetRoomResponse</span></a></span></span><span>
 </span><span id="line-153"></span></pre></body></html>

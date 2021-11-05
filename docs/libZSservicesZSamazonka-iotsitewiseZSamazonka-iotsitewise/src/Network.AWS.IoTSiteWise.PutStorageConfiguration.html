@@ -1,0 +1,675 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.PutStorageConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Configures storage settings for IoT SiteWise.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.PutStorageConfiguration</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier">PutStorageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#newPutStorageConfiguration"><span class="hs-identifier">newPutStorageConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfiguration_multiLayerStorage"><span class="hs-identifier">putStorageConfiguration_multiLayerStorage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfiguration_storageType"><span class="hs-identifier">putStorageConfiguration_storageType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse"><span class="hs-identifier">PutStorageConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#newPutStorageConfigurationResponse"><span class="hs-identifier">newPutStorageConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfigurationResponse_multiLayerStorage"><span class="hs-identifier">putStorageConfigurationResponse_multiLayerStorage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfigurationResponse_httpStatus"><span class="hs-identifier">putStorageConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfigurationResponse_storageType"><span class="hs-identifier">putStorageConfigurationResponse_storageType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfigurationResponse_configurationStatus"><span class="hs-identifier">putStorageConfigurationResponse_configurationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newPutStorageConfiguration' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679348678"><span id="local-6989586621679348679"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutStorageConfiguration"><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier hs-var">PutStorageConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutStorageConfiguration%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration%27"><span class="hs-identifier hs-var">PutStorageConfiguration'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies a storage destination. If you specified @MULTI_LAYER_STORAGE@</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- for the storage type, you must specify a @MultiLayerStorage@ object.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AmultiLayerStorage%3APutStorageConfiguration%27"><span class="annot"><span class="annottext">PutStorageConfiguration -&gt; Maybe MultiLayerStorage
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AmultiLayerStorage%3APutStorageConfiguration%27"><span class="hs-identifier hs-var hs-var">multiLayerStorage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MultiLayerStorage.html#MultiLayerStorage"><span class="hs-identifier hs-type">MultiLayerStorage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The type of storage that you specified for your data. The storage type</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- can be one of the following values:</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   @SITEWISE_DEFAULT_STORAGE@ &#8211; IoT SiteWise replicates your data into</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     a service managed database.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @MULTI_LAYER_STORAGE@ &#8211; IoT SiteWise replicates your data into a</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     service managed database and saves a copy of your raw data and</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     metadata in an Amazon S3 object that you specified.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AstorageType%3APutStorageConfiguration%27"><span class="annot"><span class="annottext">PutStorageConfiguration -&gt; StorageType
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AstorageType%3APutStorageConfiguration%27"><span class="hs-identifier hs-var hs-var">storageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.StorageType.html#StorageType"><span class="hs-identifier hs-type">StorageType</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348671"><span id="local-6989586621679348673"><span class="annot"><span class="annottext">PutStorageConfiguration -&gt; PutStorageConfiguration -&gt; Bool
+(PutStorageConfiguration -&gt; PutStorageConfiguration -&gt; Bool)
+-&gt; (PutStorageConfiguration -&gt; PutStorageConfiguration -&gt; Bool)
+-&gt; Eq PutStorageConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutStorageConfiguration -&gt; PutStorageConfiguration -&gt; Bool
+$c/= :: PutStorageConfiguration -&gt; PutStorageConfiguration -&gt; Bool
+== :: PutStorageConfiguration -&gt; PutStorageConfiguration -&gt; Bool
+$c== :: PutStorageConfiguration -&gt; PutStorageConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348662"><span id="local-6989586621679348664"><span id="local-6989586621679348666"><span id="local-6989586621679348668"><span class="annot"><span class="annottext">ReadPrec [PutStorageConfiguration]
+ReadPrec PutStorageConfiguration
+Int -&gt; ReadS PutStorageConfiguration
+ReadS [PutStorageConfiguration]
+(Int -&gt; ReadS PutStorageConfiguration)
+-&gt; ReadS [PutStorageConfiguration]
+-&gt; ReadPrec PutStorageConfiguration
+-&gt; ReadPrec [PutStorageConfiguration]
+-&gt; Read PutStorageConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutStorageConfiguration]
+$creadListPrec :: ReadPrec [PutStorageConfiguration]
+readPrec :: ReadPrec PutStorageConfiguration
+$creadPrec :: ReadPrec PutStorageConfiguration
+readList :: ReadS [PutStorageConfiguration]
+$creadList :: ReadS [PutStorageConfiguration]
+readsPrec :: Int -&gt; ReadS PutStorageConfiguration
+$creadsPrec :: Int -&gt; ReadS PutStorageConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348655"><span id="local-6989586621679348657"><span id="local-6989586621679348659"><span class="annot"><span class="annottext">Int -&gt; PutStorageConfiguration -&gt; ShowS
+[PutStorageConfiguration] -&gt; ShowS
+PutStorageConfiguration -&gt; String
+(Int -&gt; PutStorageConfiguration -&gt; ShowS)
+-&gt; (PutStorageConfiguration -&gt; String)
+-&gt; ([PutStorageConfiguration] -&gt; ShowS)
+-&gt; Show PutStorageConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutStorageConfiguration] -&gt; ShowS
+$cshowList :: [PutStorageConfiguration] -&gt; ShowS
+show :: PutStorageConfiguration -&gt; String
+$cshow :: PutStorageConfiguration -&gt; String
+showsPrec :: Int -&gt; PutStorageConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutStorageConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutStorageConfiguration -&gt; Rep PutStorageConfiguration x)
+-&gt; (forall x.
+    Rep PutStorageConfiguration x -&gt; PutStorageConfiguration)
+-&gt; Generic PutStorageConfiguration
+forall x. Rep PutStorageConfiguration x -&gt; PutStorageConfiguration
+forall x. PutStorageConfiguration -&gt; Rep PutStorageConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutStorageConfiguration x -&gt; PutStorageConfiguration
+$cfrom :: forall x. PutStorageConfiguration -&gt; Rep PutStorageConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'PutStorageConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'multiLayerStorage', 'putStorageConfiguration_multiLayerStorage' - Identifies a storage destination. If you specified @MULTI_LAYER_STORAGE@</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for the storage type, you must specify a @MultiLayerStorage@ object.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'storageType', 'putStorageConfiguration_storageType' - The type of storage that you specified for your data. The storage type</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- can be one of the following values:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- -   @SITEWISE_DEFAULT_STORAGE@ &#8211; IoT SiteWise replicates your data into</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--     a service managed database.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- -   @MULTI_LAYER_STORAGE@ &#8211; IoT SiteWise replicates your data into a</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--     service managed database and saves a copy of your raw data and</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--     metadata in an Amazon S3 object that you specified.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#newPutStorageConfiguration"><span class="hs-identifier hs-type">newPutStorageConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'storageType'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.StorageType.html#StorageType"><span class="hs-identifier hs-type">StorageType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier hs-type">PutStorageConfiguration</span></a></span><span>
+</span><span id="line-94"></span><span id="newPutStorageConfiguration"><span class="annot"><span class="annottext">newPutStorageConfiguration :: StorageType -&gt; PutStorageConfiguration
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#newPutStorageConfiguration"><span class="hs-identifier hs-var hs-var">newPutStorageConfiguration</span></a></span></span><span> </span><span id="local-6989586621679348650"><span class="annot"><span class="annottext">StorageType
+</span><a href="#local-6989586621679348650"><span class="hs-identifier hs-var">pStorageType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">PutStorageConfiguration' :: Maybe MultiLayerStorage -&gt; StorageType -&gt; PutStorageConfiguration
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration%27"><span class="hs-identifier hs-type">PutStorageConfiguration'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:multiLayerStorage:PutStorageConfiguration' :: Maybe MultiLayerStorage
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AmultiLayerStorage%3APutStorageConfiguration%27"><span class="hs-identifier hs-var">multiLayerStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe MultiLayerStorage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageType:PutStorageConfiguration' :: StorageType
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AstorageType%3APutStorageConfiguration%27"><span class="hs-identifier hs-var">storageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StorageType
+</span><a href="#local-6989586621679348650"><span class="hs-identifier hs-var">pStorageType_</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Identifies a storage destination. If you specified @MULTI_LAYER_STORAGE@</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for the storage type, you must specify a @MultiLayerStorage@ object.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfiguration_multiLayerStorage"><span class="hs-identifier hs-type">putStorageConfiguration_multiLayerStorage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier hs-type">PutStorageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MultiLayerStorage.html#MultiLayerStorage"><span class="hs-identifier hs-type">MultiLayerStorage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="putStorageConfiguration_multiLayerStorage"><span class="annot"><span class="annottext">putStorageConfiguration_multiLayerStorage :: (Maybe MultiLayerStorage -&gt; f (Maybe MultiLayerStorage))
+-&gt; PutStorageConfiguration -&gt; f PutStorageConfiguration
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfiguration_multiLayerStorage"><span class="hs-identifier hs-var hs-var">putStorageConfiguration_multiLayerStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutStorageConfiguration -&gt; Maybe MultiLayerStorage)
+-&gt; (PutStorageConfiguration
+    -&gt; Maybe MultiLayerStorage -&gt; PutStorageConfiguration)
+-&gt; Lens
+     PutStorageConfiguration
+     PutStorageConfiguration
+     (Maybe MultiLayerStorage)
+     (Maybe MultiLayerStorage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration%27"><span class="hs-identifier hs-type">PutStorageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348647"><span class="annot"><span class="annottext">Maybe MultiLayerStorage
+multiLayerStorage :: Maybe MultiLayerStorage
+$sel:multiLayerStorage:PutStorageConfiguration' :: PutStorageConfiguration -&gt; Maybe MultiLayerStorage
+</span><a href="#local-6989586621679348647"><span class="hs-identifier hs-var hs-var">multiLayerStorage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiLayerStorage
+</span><a href="#local-6989586621679348647"><span class="hs-identifier hs-var">multiLayerStorage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348646"><span class="annot"><span class="annottext">s :: PutStorageConfiguration
+</span><a href="#local-6989586621679348646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration%27"><span class="hs-identifier hs-type">PutStorageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348645"><span class="annot"><span class="annottext">Maybe MultiLayerStorage
+</span><a href="#local-6989586621679348645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutStorageConfiguration
+</span><a href="#local-6989586621679348646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiLayerStorage:PutStorageConfiguration' :: Maybe MultiLayerStorage
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AmultiLayerStorage%3APutStorageConfiguration%27"><span class="hs-identifier hs-var">multiLayerStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiLayerStorage
+</span><a href="#local-6989586621679348645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier hs-type">PutStorageConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The type of storage that you specified for your data. The storage type</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- can be one of the following values:</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -   @SITEWISE_DEFAULT_STORAGE@ &#8211; IoT SiteWise replicates your data into</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--     a service managed database.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   @MULTI_LAYER_STORAGE@ &#8211; IoT SiteWise replicates your data into a</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     service managed database and saves a copy of your raw data and</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--     metadata in an Amazon S3 object that you specified.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfiguration_storageType"><span class="hs-identifier hs-type">putStorageConfiguration_storageType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier hs-type">PutStorageConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.StorageType.html#StorageType"><span class="hs-identifier hs-type">StorageType</span></a></span><span>
+</span><span id="line-116"></span><span id="putStorageConfiguration_storageType"><span class="annot"><span class="annottext">putStorageConfiguration_storageType :: (StorageType -&gt; f StorageType)
+-&gt; PutStorageConfiguration -&gt; f PutStorageConfiguration
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfiguration_storageType"><span class="hs-identifier hs-var hs-var">putStorageConfiguration_storageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutStorageConfiguration -&gt; StorageType)
+-&gt; (PutStorageConfiguration
+    -&gt; StorageType -&gt; PutStorageConfiguration)
+-&gt; Lens
+     PutStorageConfiguration
+     PutStorageConfiguration
+     StorageType
+     StorageType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration%27"><span class="hs-identifier hs-type">PutStorageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348644"><span class="annot"><span class="annottext">StorageType
+storageType :: StorageType
+$sel:storageType:PutStorageConfiguration' :: PutStorageConfiguration -&gt; StorageType
+</span><a href="#local-6989586621679348644"><span class="hs-identifier hs-var hs-var">storageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageType
+</span><a href="#local-6989586621679348644"><span class="hs-identifier hs-var">storageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348643"><span class="annot"><span class="annottext">s :: PutStorageConfiguration
+</span><a href="#local-6989586621679348643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration%27"><span class="hs-identifier hs-type">PutStorageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348642"><span class="annot"><span class="annottext">StorageType
+</span><a href="#local-6989586621679348642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutStorageConfiguration
+</span><a href="#local-6989586621679348643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageType:PutStorageConfiguration' :: StorageType
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AstorageType%3APutStorageConfiguration%27"><span class="hs-identifier hs-var">storageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StorageType
+</span><a href="#local-6989586621679348642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier hs-type">PutStorageConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier hs-type">PutStorageConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-120"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier hs-type">PutStorageConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse"><span class="hs-identifier hs-type">PutStorageConfigurationResponse</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679348638"><span class="annot"><span class="annottext">request :: PutStorageConfiguration -&gt; Request PutStorageConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutStorageConfiguration -&gt; Request PutStorageConfiguration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTSiteWise.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679348634"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutStorageConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutStorageConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse PutStorageConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutStorageConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutStorageConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348631"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348631"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348630"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679348630"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348629"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348629"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe MultiLayerStorage
+-&gt; Int
+-&gt; StorageType
+-&gt; ConfigurationStatus
+-&gt; PutStorageConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse%27"><span class="hs-identifier hs-var">PutStorageConfigurationResponse'</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MultiLayerStorage
+ -&gt; Int
+ -&gt; StorageType
+ -&gt; ConfigurationStatus
+ -&gt; PutStorageConfigurationResponse)
+-&gt; Either String (Maybe MultiLayerStorage)
+-&gt; Either
+     String
+     (Int
+      -&gt; StorageType
+      -&gt; ConfigurationStatus
+      -&gt; PutStorageConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MultiLayerStorage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;multiLayerStorage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; StorageType
+   -&gt; ConfigurationStatus
+   -&gt; PutStorageConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (StorageType
+      -&gt; ConfigurationStatus -&gt; PutStorageConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348631"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (StorageType
+   -&gt; ConfigurationStatus -&gt; PutStorageConfigurationResponse)
+-&gt; Either String StorageType
+-&gt; Either
+     String (ConfigurationStatus -&gt; PutStorageConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String StorageType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;storageType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (ConfigurationStatus -&gt; PutStorageConfigurationResponse)
+-&gt; Either String ConfigurationStatus
+-&gt; Either String PutStorageConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ConfigurationStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configurationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348620"><span id="local-6989586621679348622"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier hs-type">PutStorageConfiguration</span></a></span></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348617"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier hs-type">PutStorageConfiguration</span></a></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier hs-type">PutStorageConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679348613"><span class="annot"><span class="annottext">toHeaders :: PutStorageConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutStorageConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-144"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348603"><span id="local-6989586621679348605"><span id="local-6989586621679348607"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier hs-type">PutStorageConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679348601"><span class="annot"><span class="annottext">toJSON :: PutStorageConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration%27"><span class="hs-identifier hs-type">PutStorageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348598"><span id="local-6989586621679348599"><span class="annot"><span class="annottext">Maybe MultiLayerStorage
+StorageType
+storageType :: StorageType
+multiLayerStorage :: Maybe MultiLayerStorage
+$sel:storageType:PutStorageConfiguration' :: PutStorageConfiguration -&gt; StorageType
+$sel:multiLayerStorage:PutStorageConfiguration' :: PutStorageConfiguration -&gt; Maybe MultiLayerStorage
+</span><a href="#local-6989586621679348598"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;multiLayerStorage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MultiLayerStorage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">(MultiLayerStorage -&gt; Pair)
+-&gt; Maybe MultiLayerStorage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MultiLayerStorage
+</span><a href="#local-6989586621679348599"><span class="hs-identifier hs-var">multiLayerStorage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;storageType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StorageType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">StorageType
+</span><a href="#local-6989586621679348598"><span class="hs-identifier hs-var">storageType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier hs-type">PutStorageConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679348592"><span class="annot"><span class="annottext">toPath :: PutStorageConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; PutStorageConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/configuration/account/storage&quot;</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfiguration"><span class="hs-identifier hs-type">PutStorageConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679348588"><span class="annot"><span class="annottext">toQuery :: PutStorageConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutStorageConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newPutStorageConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-166"></span><span id="local-6989586621679348585"><span id="local-6989586621679348586"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutStorageConfigurationResponse"><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse"><span class="hs-identifier hs-var">PutStorageConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutStorageConfigurationResponse%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse%27"><span class="hs-identifier hs-var">PutStorageConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains information about the storage destination.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AmultiLayerStorage%3APutStorageConfigurationResponse%27"><span class="annot"><span class="annottext">PutStorageConfigurationResponse -&gt; Maybe MultiLayerStorage
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AmultiLayerStorage%3APutStorageConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">multiLayerStorage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MultiLayerStorage.html#MultiLayerStorage"><span class="hs-identifier hs-type">MultiLayerStorage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutStorageConfigurationResponse%27"><span class="annot"><span class="annottext">PutStorageConfigurationResponse -&gt; Int
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AhttpStatus%3APutStorageConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The type of storage that you specified for your data. The storage type</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- can be one of the following values:</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- -   @SITEWISE_DEFAULT_STORAGE@ &#8211; IoT SiteWise replicates your data into</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">--     a service managed database.</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- -   @MULTI_LAYER_STORAGE@ &#8211; IoT SiteWise replicates your data into a</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">--     service managed database and saves a copy of your raw data and</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">--     metadata in an Amazon S3 object that you specified.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AstorageType%3APutStorageConfigurationResponse%27"><span class="annot"><span class="annottext">PutStorageConfigurationResponse -&gt; StorageType
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AstorageType%3APutStorageConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">storageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.StorageType.html#StorageType"><span class="hs-identifier hs-type">StorageType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AconfigurationStatus%3APutStorageConfigurationResponse%27"><span class="annot"><span class="annottext">PutStorageConfigurationResponse -&gt; ConfigurationStatus
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AconfigurationStatus%3APutStorageConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">configurationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ConfigurationStatus.html#ConfigurationStatus"><span class="hs-identifier hs-type">ConfigurationStatus</span></a></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348577"><span id="local-6989586621679348579"><span class="annot"><span class="annottext">PutStorageConfigurationResponse
+-&gt; PutStorageConfigurationResponse -&gt; Bool
+(PutStorageConfigurationResponse
+ -&gt; PutStorageConfigurationResponse -&gt; Bool)
+-&gt; (PutStorageConfigurationResponse
+    -&gt; PutStorageConfigurationResponse -&gt; Bool)
+-&gt; Eq PutStorageConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutStorageConfigurationResponse
+-&gt; PutStorageConfigurationResponse -&gt; Bool
+$c/= :: PutStorageConfigurationResponse
+-&gt; PutStorageConfigurationResponse -&gt; Bool
+== :: PutStorageConfigurationResponse
+-&gt; PutStorageConfigurationResponse -&gt; Bool
+$c== :: PutStorageConfigurationResponse
+-&gt; PutStorageConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348569"><span id="local-6989586621679348571"><span id="local-6989586621679348573"><span id="local-6989586621679348575"><span class="annot"><span class="annottext">ReadPrec [PutStorageConfigurationResponse]
+ReadPrec PutStorageConfigurationResponse
+Int -&gt; ReadS PutStorageConfigurationResponse
+ReadS [PutStorageConfigurationResponse]
+(Int -&gt; ReadS PutStorageConfigurationResponse)
+-&gt; ReadS [PutStorageConfigurationResponse]
+-&gt; ReadPrec PutStorageConfigurationResponse
+-&gt; ReadPrec [PutStorageConfigurationResponse]
+-&gt; Read PutStorageConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutStorageConfigurationResponse]
+$creadListPrec :: ReadPrec [PutStorageConfigurationResponse]
+readPrec :: ReadPrec PutStorageConfigurationResponse
+$creadPrec :: ReadPrec PutStorageConfigurationResponse
+readList :: ReadS [PutStorageConfigurationResponse]
+$creadList :: ReadS [PutStorageConfigurationResponse]
+readsPrec :: Int -&gt; ReadS PutStorageConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS PutStorageConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348563"><span id="local-6989586621679348565"><span id="local-6989586621679348567"><span class="annot"><span class="annottext">Int -&gt; PutStorageConfigurationResponse -&gt; ShowS
+[PutStorageConfigurationResponse] -&gt; ShowS
+PutStorageConfigurationResponse -&gt; String
+(Int -&gt; PutStorageConfigurationResponse -&gt; ShowS)
+-&gt; (PutStorageConfigurationResponse -&gt; String)
+-&gt; ([PutStorageConfigurationResponse] -&gt; ShowS)
+-&gt; Show PutStorageConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutStorageConfigurationResponse] -&gt; ShowS
+$cshowList :: [PutStorageConfigurationResponse] -&gt; ShowS
+show :: PutStorageConfigurationResponse -&gt; String
+$cshow :: PutStorageConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; PutStorageConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutStorageConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutStorageConfigurationResponse
+ -&gt; Rep PutStorageConfigurationResponse x)
+-&gt; (forall x.
+    Rep PutStorageConfigurationResponse x
+    -&gt; PutStorageConfigurationResponse)
+-&gt; Generic PutStorageConfigurationResponse
+forall x.
+Rep PutStorageConfigurationResponse x
+-&gt; PutStorageConfigurationResponse
+forall x.
+PutStorageConfigurationResponse
+-&gt; Rep PutStorageConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutStorageConfigurationResponse x
+-&gt; PutStorageConfigurationResponse
+$cfrom :: forall x.
+PutStorageConfigurationResponse
+-&gt; Rep PutStorageConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Create a value of 'PutStorageConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'multiLayerStorage', 'putStorageConfigurationResponse_multiLayerStorage' - Contains information about the storage destination.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'putStorageConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'storageType', 'putStorageConfigurationResponse_storageType' - The type of storage that you specified for your data. The storage type</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- can be one of the following values:</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- -   @SITEWISE_DEFAULT_STORAGE@ &#8211; IoT SiteWise replicates your data into</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     a service managed database.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- -   @MULTI_LAYER_STORAGE@ &#8211; IoT SiteWise replicates your data into a</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--     service managed database and saves a copy of your raw data and</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--     metadata in an Amazon S3 object that you specified.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'configurationStatus', 'putStorageConfigurationResponse_configurationStatus' - Undocumented member.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#newPutStorageConfigurationResponse"><span class="hs-identifier hs-type">newPutStorageConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'storageType'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.StorageType.html#StorageType"><span class="hs-identifier hs-type">StorageType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-comment">-- | 'configurationStatus'</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ConfigurationStatus.html#ConfigurationStatus"><span class="hs-identifier hs-type">ConfigurationStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse"><span class="hs-identifier hs-type">PutStorageConfigurationResponse</span></a></span><span>
+</span><span id="line-216"></span><span id="newPutStorageConfigurationResponse"><span class="annot"><span class="annottext">newPutStorageConfigurationResponse :: Int
+-&gt; StorageType
+-&gt; ConfigurationStatus
+-&gt; PutStorageConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#newPutStorageConfigurationResponse"><span class="hs-identifier hs-var hs-var">newPutStorageConfigurationResponse</span></a></span></span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679348560"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348560"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679348559"><span class="annot"><span class="annottext">StorageType
+</span><a href="#local-6989586621679348559"><span class="hs-identifier hs-var">pStorageType_</span></a></span></span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679348558"><span class="annot"><span class="annottext">ConfigurationStatus
+</span><a href="#local-6989586621679348558"><span class="hs-identifier hs-var">pConfigurationStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">PutStorageConfigurationResponse' :: Maybe MultiLayerStorage
+-&gt; Int
+-&gt; StorageType
+-&gt; ConfigurationStatus
+-&gt; PutStorageConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse%27"><span class="hs-identifier hs-type">PutStorageConfigurationResponse'</span></a></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:multiLayerStorage:PutStorageConfigurationResponse' :: Maybe MultiLayerStorage
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AmultiLayerStorage%3APutStorageConfigurationResponse%27"><span class="hs-identifier hs-var">multiLayerStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe MultiLayerStorage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:PutStorageConfigurationResponse' :: Int
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AhttpStatus%3APutStorageConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348560"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:storageType:PutStorageConfigurationResponse' :: StorageType
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AstorageType%3APutStorageConfigurationResponse%27"><span class="hs-identifier hs-var">storageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StorageType
+</span><a href="#local-6989586621679348559"><span class="hs-identifier hs-var">pStorageType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">$sel:configurationStatus:PutStorageConfigurationResponse' :: ConfigurationStatus
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AconfigurationStatus%3APutStorageConfigurationResponse%27"><span class="hs-identifier hs-var">configurationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>          </span><span class="annot"><span class="annottext">ConfigurationStatus
+</span><a href="#local-6989586621679348558"><span class="hs-identifier hs-var">pConfigurationStatus_</span></a></span><span>
+</span><span id="line-227"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | Contains information about the storage destination.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfigurationResponse_multiLayerStorage"><span class="hs-identifier hs-type">putStorageConfigurationResponse_multiLayerStorage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse"><span class="hs-identifier hs-type">PutStorageConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MultiLayerStorage.html#MultiLayerStorage"><span class="hs-identifier hs-type">MultiLayerStorage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="putStorageConfigurationResponse_multiLayerStorage"><span class="annot"><span class="annottext">putStorageConfigurationResponse_multiLayerStorage :: (Maybe MultiLayerStorage -&gt; f (Maybe MultiLayerStorage))
+-&gt; PutStorageConfigurationResponse
+-&gt; f PutStorageConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfigurationResponse_multiLayerStorage"><span class="hs-identifier hs-var hs-var">putStorageConfigurationResponse_multiLayerStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutStorageConfigurationResponse -&gt; Maybe MultiLayerStorage)
+-&gt; (PutStorageConfigurationResponse
+    -&gt; Maybe MultiLayerStorage -&gt; PutStorageConfigurationResponse)
+-&gt; Lens
+     PutStorageConfigurationResponse
+     PutStorageConfigurationResponse
+     (Maybe MultiLayerStorage)
+     (Maybe MultiLayerStorage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse%27"><span class="hs-identifier hs-type">PutStorageConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348557"><span class="annot"><span class="annottext">Maybe MultiLayerStorage
+multiLayerStorage :: Maybe MultiLayerStorage
+$sel:multiLayerStorage:PutStorageConfigurationResponse' :: PutStorageConfigurationResponse -&gt; Maybe MultiLayerStorage
+</span><a href="#local-6989586621679348557"><span class="hs-identifier hs-var hs-var">multiLayerStorage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiLayerStorage
+</span><a href="#local-6989586621679348557"><span class="hs-identifier hs-var">multiLayerStorage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348556"><span class="annot"><span class="annottext">s :: PutStorageConfigurationResponse
+</span><a href="#local-6989586621679348556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse%27"><span class="hs-identifier hs-type">PutStorageConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348555"><span class="annot"><span class="annottext">Maybe MultiLayerStorage
+</span><a href="#local-6989586621679348555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutStorageConfigurationResponse
+</span><a href="#local-6989586621679348556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiLayerStorage:PutStorageConfigurationResponse' :: Maybe MultiLayerStorage
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AmultiLayerStorage%3APutStorageConfigurationResponse%27"><span class="hs-identifier hs-var">multiLayerStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiLayerStorage
+</span><a href="#local-6989586621679348555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse"><span class="hs-identifier hs-type">PutStorageConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">putStorageConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse"><span class="hs-identifier hs-type">PutStorageConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-235"></span><span id="putStorageConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">putStorageConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutStorageConfigurationResponse
+-&gt; f PutStorageConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putStorageConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutStorageConfigurationResponse -&gt; Int)
+-&gt; (PutStorageConfigurationResponse
+    -&gt; Int -&gt; PutStorageConfigurationResponse)
+-&gt; Lens
+     PutStorageConfigurationResponse
+     PutStorageConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse%27"><span class="hs-identifier hs-type">PutStorageConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348554"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutStorageConfigurationResponse' :: PutStorageConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679348554"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348554"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348553"><span class="annot"><span class="annottext">s :: PutStorageConfigurationResponse
+</span><a href="#local-6989586621679348553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse%27"><span class="hs-identifier hs-type">PutStorageConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348552"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutStorageConfigurationResponse
+</span><a href="#local-6989586621679348553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutStorageConfigurationResponse' :: Int
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AhttpStatus%3APutStorageConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse"><span class="hs-identifier hs-type">PutStorageConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The type of storage that you specified for your data. The storage type</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- can be one of the following values:</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   @SITEWISE_DEFAULT_STORAGE@ &#8211; IoT SiteWise replicates your data into</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     a service managed database.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- -   @MULTI_LAYER_STORAGE@ &#8211; IoT SiteWise replicates your data into a</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--     service managed database and saves a copy of your raw data and</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     metadata in an Amazon S3 object that you specified.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfigurationResponse_storageType"><span class="hs-identifier hs-type">putStorageConfigurationResponse_storageType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse"><span class="hs-identifier hs-type">PutStorageConfigurationResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.StorageType.html#StorageType"><span class="hs-identifier hs-type">StorageType</span></a></span><span>
+</span><span id="line-247"></span><span id="putStorageConfigurationResponse_storageType"><span class="annot"><span class="annottext">putStorageConfigurationResponse_storageType :: (StorageType -&gt; f StorageType)
+-&gt; PutStorageConfigurationResponse
+-&gt; f PutStorageConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfigurationResponse_storageType"><span class="hs-identifier hs-var hs-var">putStorageConfigurationResponse_storageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutStorageConfigurationResponse -&gt; StorageType)
+-&gt; (PutStorageConfigurationResponse
+    -&gt; StorageType -&gt; PutStorageConfigurationResponse)
+-&gt; Lens
+     PutStorageConfigurationResponse
+     PutStorageConfigurationResponse
+     StorageType
+     StorageType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse%27"><span class="hs-identifier hs-type">PutStorageConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348551"><span class="annot"><span class="annottext">StorageType
+storageType :: StorageType
+$sel:storageType:PutStorageConfigurationResponse' :: PutStorageConfigurationResponse -&gt; StorageType
+</span><a href="#local-6989586621679348551"><span class="hs-identifier hs-var hs-var">storageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageType
+</span><a href="#local-6989586621679348551"><span class="hs-identifier hs-var">storageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348550"><span class="annot"><span class="annottext">s :: PutStorageConfigurationResponse
+</span><a href="#local-6989586621679348550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse%27"><span class="hs-identifier hs-type">PutStorageConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348549"><span class="annot"><span class="annottext">StorageType
+</span><a href="#local-6989586621679348549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutStorageConfigurationResponse
+</span><a href="#local-6989586621679348550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageType:PutStorageConfigurationResponse' :: StorageType
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AstorageType%3APutStorageConfigurationResponse%27"><span class="hs-identifier hs-var">storageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StorageType
+</span><a href="#local-6989586621679348549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse"><span class="hs-identifier hs-type">PutStorageConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfigurationResponse_configurationStatus"><span class="hs-identifier hs-type">putStorageConfigurationResponse_configurationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse"><span class="hs-identifier hs-type">PutStorageConfigurationResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ConfigurationStatus.html#ConfigurationStatus"><span class="hs-identifier hs-type">ConfigurationStatus</span></a></span><span>
+</span><span id="line-251"></span><span id="putStorageConfigurationResponse_configurationStatus"><span class="annot"><span class="annottext">putStorageConfigurationResponse_configurationStatus :: (ConfigurationStatus -&gt; f ConfigurationStatus)
+-&gt; PutStorageConfigurationResponse
+-&gt; f PutStorageConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#putStorageConfigurationResponse_configurationStatus"><span class="hs-identifier hs-var hs-var">putStorageConfigurationResponse_configurationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutStorageConfigurationResponse -&gt; ConfigurationStatus)
+-&gt; (PutStorageConfigurationResponse
+    -&gt; ConfigurationStatus -&gt; PutStorageConfigurationResponse)
+-&gt; Lens
+     PutStorageConfigurationResponse
+     PutStorageConfigurationResponse
+     ConfigurationStatus
+     ConfigurationStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse%27"><span class="hs-identifier hs-type">PutStorageConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348548"><span class="annot"><span class="annottext">ConfigurationStatus
+configurationStatus :: ConfigurationStatus
+$sel:configurationStatus:PutStorageConfigurationResponse' :: PutStorageConfigurationResponse -&gt; ConfigurationStatus
+</span><a href="#local-6989586621679348548"><span class="hs-identifier hs-var hs-var">configurationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationStatus
+</span><a href="#local-6989586621679348548"><span class="hs-identifier hs-var">configurationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348547"><span class="annot"><span class="annottext">s :: PutStorageConfigurationResponse
+</span><a href="#local-6989586621679348547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse%27"><span class="hs-identifier hs-type">PutStorageConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348546"><span class="annot"><span class="annottext">ConfigurationStatus
+</span><a href="#local-6989586621679348546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutStorageConfigurationResponse
+</span><a href="#local-6989586621679348547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationStatus:PutStorageConfigurationResponse' :: ConfigurationStatus
+</span><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#%24sel%3AconfigurationStatus%3APutStorageConfigurationResponse%27"><span class="hs-identifier hs-var">configurationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConfigurationStatus
+</span><a href="#local-6989586621679348546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse"><span class="hs-identifier hs-type">PutStorageConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679348544"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.PutStorageConfiguration.html#PutStorageConfigurationResponse"><span class="hs-identifier hs-type">PutStorageConfigurationResponse</span></a></span></span><span>
+</span><span id="line-256"></span></pre></body></html>

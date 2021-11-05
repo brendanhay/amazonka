@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679398246"><span id="local-6989586621679398247"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceAttributeType"><span class="annot"><a href="Network.AWS.Connect.Types.InstanceAttributeType.html#InstanceAttributeType"><span class="hs-identifier hs-var">InstanceAttributeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAttributeType%27"><span class="annot"><a href="Network.AWS.Connect.Types.InstanceAttributeType.html#InstanceAttributeType%27"><span class="hs-identifier hs-var">InstanceAttributeType'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679398255"><span id="local-6989586621679398256"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceAttributeType"><span class="annot"><a href="Network.AWS.Connect.Types.InstanceAttributeType.html#InstanceAttributeType"><span class="hs-identifier hs-var">InstanceAttributeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAttributeType%27"><span class="annot"><a href="Network.AWS.Connect.Types.InstanceAttributeType.html#InstanceAttributeType%27"><span class="hs-identifier hs-var">InstanceAttributeType'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceAttributeType"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; Text
 </span><a href="Network.AWS.Connect.Types.InstanceAttributeType.html#fromInstanceAttributeType"><span class="hs-identifier hs-var hs-var">fromInstanceAttributeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398238"><span id="local-6989586621679398240"><span id="local-6989586621679398242"><span class="annot"><span class="annottext">Int -&gt; InstanceAttributeType -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398247"><span id="local-6989586621679398249"><span id="local-6989586621679398251"><span class="annot"><span class="annottext">Int -&gt; InstanceAttributeType -&gt; ShowS
 [InstanceAttributeType] -&gt; ShowS
 InstanceAttributeType -&gt; String
 (Int -&gt; InstanceAttributeType -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: InstanceAttributeType -&gt; String
 showsPrec :: Int -&gt; InstanceAttributeType -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceAttributeType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679398229"><span id="local-6989586621679398231"><span id="local-6989586621679398233"><span id="local-6989586621679398235"><span class="annot"><span class="annottext">ReadPrec [InstanceAttributeType]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679398238"><span id="local-6989586621679398240"><span id="local-6989586621679398242"><span id="local-6989586621679398244"><span class="annot"><span class="annottext">ReadPrec [InstanceAttributeType]
 ReadPrec InstanceAttributeType
 Int -&gt; ReadS InstanceAttributeType
 ReadS [InstanceAttributeType]
@@ -77,7 +77,7 @@ $creadList :: ReadS [InstanceAttributeType]
 readsPrec :: Int -&gt; ReadS InstanceAttributeType
 $creadsPrec :: Int -&gt; ReadS InstanceAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679398224"><span id="local-6989586621679398226"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679398233"><span id="local-6989586621679398235"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
 (InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool)
 -&gt; (InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool)
 -&gt; Eq InstanceAttributeType
@@ -87,7 +87,7 @@ $c/= :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
 == :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
 $c== :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679398208"><span id="local-6989586621679398210"><span id="local-6989586621679398212"><span id="local-6989586621679398214"><span id="local-6989586621679398216"><span id="local-6989586621679398218"><span id="local-6989586621679398220"><span class="annot"><span class="annottext">Eq InstanceAttributeType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679398217"><span id="local-6989586621679398219"><span id="local-6989586621679398221"><span id="local-6989586621679398223"><span id="local-6989586621679398225"><span id="local-6989586621679398227"><span id="local-6989586621679398229"><span class="annot"><span class="annottext">Eq InstanceAttributeType
 Eq InstanceAttributeType
 -&gt; (InstanceAttributeType -&gt; InstanceAttributeType -&gt; Ordering)
 -&gt; (InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. InstanceAttributeType -&gt; Rep InstanceAttributeType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398200"><span id="local-6989586621679398202"><span class="annot"><span class="annottext">Int -&gt; InstanceAttributeType -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398209"><span id="local-6989586621679398211"><span class="annot"><span class="annottext">Int -&gt; InstanceAttributeType -&gt; Int
 InstanceAttributeType -&gt; Int
 (Int -&gt; InstanceAttributeType -&gt; Int)
 -&gt; (InstanceAttributeType -&gt; Int) -&gt; Hashable InstanceAttributeType
@@ -155,54 +155,54 @@ $chash :: InstanceAttributeType -&gt; Int
 hashWithSalt :: Int -&gt; InstanceAttributeType -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceAttributeType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679398197"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679398206"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; ()
 (InstanceAttributeType -&gt; ()) -&gt; NFData InstanceAttributeType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceAttributeType -&gt; ()
 $crnf :: InstanceAttributeType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398194"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceAttributeType
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398203"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceAttributeType
 (Text -&gt; Either String InstanceAttributeType)
 -&gt; FromText InstanceAttributeType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceAttributeType
 $cfromText :: Text -&gt; Either String InstanceAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398191"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398200"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; Text
 (InstanceAttributeType -&gt; Text) -&gt; ToText InstanceAttributeType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceAttributeType -&gt; Text
 $ctoText :: InstanceAttributeType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398188"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398197"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; ByteString
 (InstanceAttributeType -&gt; ByteString)
 -&gt; ToByteString InstanceAttributeType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceAttributeType -&gt; ByteString
 $ctoBS :: InstanceAttributeType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398185"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398194"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; ByteStringBuilder
 (InstanceAttributeType -&gt; ByteStringBuilder)
 -&gt; ToLog InstanceAttributeType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceAttributeType -&gt; ByteStringBuilder
 $cbuild :: InstanceAttributeType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398182"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceAttributeType -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398191"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceAttributeType -&gt; [Header]
 (HeaderName -&gt; InstanceAttributeType -&gt; [Header])
 -&gt; ToHeader InstanceAttributeType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceAttributeType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceAttributeType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398179"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398188"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; QueryString
 (InstanceAttributeType -&gt; QueryString)
 -&gt; ToQuery InstanceAttributeType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceAttributeType -&gt; QueryString
 $ctoQuery :: InstanceAttributeType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679398174"><span id="local-6989586621679398176"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceAttributeType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679398183"><span id="local-6989586621679398185"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceAttributeType]
 Value -&gt; Parser InstanceAttributeType
 (Value -&gt; Parser InstanceAttributeType)
 -&gt; (Value -&gt; Parser [InstanceAttributeType])
@@ -214,7 +214,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceAttributeType]
 parseJSON :: Value -&gt; Parser InstanceAttributeType
 $cparseJSON :: Value -&gt; Parser InstanceAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679398169"><span id="local-6989586621679398171"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceAttributeType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679398178"><span id="local-6989586621679398180"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceAttributeType]
 FromJSONKeyFunction InstanceAttributeType
 FromJSONKeyFunction InstanceAttributeType
 -&gt; FromJSONKeyFunction [InstanceAttributeType]
@@ -226,7 +226,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceAttributeType]
 fromJSONKey :: FromJSONKeyFunction InstanceAttributeType
 $cfromJSONKey :: FromJSONKeyFunction InstanceAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679398160"><span id="local-6989586621679398162"><span id="local-6989586621679398164"><span id="local-6989586621679398166"><span class="annot"><span class="annottext">[InstanceAttributeType] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679398169"><span id="local-6989586621679398171"><span id="local-6989586621679398173"><span id="local-6989586621679398175"><span class="annot"><span class="annottext">[InstanceAttributeType] -&gt; Encoding
 [InstanceAttributeType] -&gt; Value
 InstanceAttributeType -&gt; Encoding
 InstanceAttributeType -&gt; Value
@@ -250,7 +250,7 @@ $ctoEncoding :: InstanceAttributeType -&gt; Encoding
 toJSON :: InstanceAttributeType -&gt; Value
 $ctoJSON :: InstanceAttributeType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679398155"><span id="local-6989586621679398157"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceAttributeType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679398164"><span id="local-6989586621679398166"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceAttributeType]
 ToJSONKeyFunction InstanceAttributeType
 ToJSONKeyFunction InstanceAttributeType
 -&gt; ToJSONKeyFunction [InstanceAttributeType]
@@ -262,14 +262,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceAttributeType]
 toJSONKey :: ToJSONKeyFunction InstanceAttributeType
 $ctoJSONKey :: ToJSONKeyFunction InstanceAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679398152"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceAttributeType
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679398161"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceAttributeType
 ([Node] -&gt; Either String InstanceAttributeType)
 -&gt; FromXML InstanceAttributeType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceAttributeType
 $cparseXML :: [Node] -&gt; Either String InstanceAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679398149"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679398158"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; XML
 (InstanceAttributeType -&gt; XML) -&gt; ToXML InstanceAttributeType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InstanceAttributeType -&gt; XML

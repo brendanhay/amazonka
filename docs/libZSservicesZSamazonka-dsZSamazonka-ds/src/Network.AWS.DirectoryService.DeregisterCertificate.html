@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeregisterCertificate' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679311882"><span id="local-6989586621679311883"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterCertificate"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-var">DeregisterCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterCertificate%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-var">DeregisterCertificate'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679311891"><span id="local-6989586621679311892"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterCertificate"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-var">DeregisterCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterCertificate%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-var">DeregisterCertificate'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the directory.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AdirectoryId%3ADeregisterCertificate%27"><span class="annot"><span class="annottext">DeregisterCertificate -&gt; Text
 </span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#%24sel%3AdirectoryId%3ADeregisterCertificate%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AcertificateId%3ADeregisterCertificate%27"><span class="annot"><span class="annottext">DeregisterCertificate -&gt; Text
 </span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#%24sel%3AcertificateId%3ADeregisterCertificate%27"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311875"><span id="local-6989586621679311877"><span class="annot"><span class="annottext">DeregisterCertificate -&gt; DeregisterCertificate -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311884"><span id="local-6989586621679311886"><span class="annot"><span class="annottext">DeregisterCertificate -&gt; DeregisterCertificate -&gt; Bool
 (DeregisterCertificate -&gt; DeregisterCertificate -&gt; Bool)
 -&gt; (DeregisterCertificate -&gt; DeregisterCertificate -&gt; Bool)
 -&gt; Eq DeregisterCertificate
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeregisterCertificate -&gt; DeregisterCertificate -&gt; Bool
 == :: DeregisterCertificate -&gt; DeregisterCertificate -&gt; Bool
 $c== :: DeregisterCertificate -&gt; DeregisterCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311866"><span id="local-6989586621679311868"><span id="local-6989586621679311870"><span id="local-6989586621679311872"><span class="annot"><span class="annottext">ReadPrec [DeregisterCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311875"><span id="local-6989586621679311877"><span id="local-6989586621679311879"><span id="local-6989586621679311881"><span class="annot"><span class="annottext">ReadPrec [DeregisterCertificate]
 ReadPrec DeregisterCertificate
 Int -&gt; ReadS DeregisterCertificate
 ReadS [DeregisterCertificate]
@@ -85,7 +85,7 @@ readList :: ReadS [DeregisterCertificate]
 $creadList :: ReadS [DeregisterCertificate]
 readsPrec :: Int -&gt; ReadS DeregisterCertificate
 $creadsPrec :: Int -&gt; ReadS DeregisterCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311859"><span id="local-6989586621679311861"><span id="local-6989586621679311863"><span class="annot"><span class="annottext">Int -&gt; DeregisterCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311868"><span id="local-6989586621679311870"><span id="local-6989586621679311872"><span class="annot"><span class="annottext">Int -&gt; DeregisterCertificate -&gt; ShowS
 [DeregisterCertificate] -&gt; ShowS
 DeregisterCertificate -&gt; String
 (Int -&gt; DeregisterCertificate -&gt; ShowS)
@@ -130,18 +130,18 @@ $cfrom :: forall x. DeregisterCertificate -&gt; Rep DeregisterCertificate x
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span>
 </span><span id="line-76"></span><span id="newDeregisterCertificate"><span class="annot"><span class="annottext">newDeregisterCertificate :: Text -&gt; Text -&gt; DeregisterCertificate
 </span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#newDeregisterCertificate"><span class="hs-identifier hs-var hs-var">newDeregisterCertificate</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679311854"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311854"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679311853"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311853"><span class="hs-identifier hs-var">pCertificateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679311863"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311863"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679311862"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311862"><span class="hs-identifier hs-var">pCertificateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">DeregisterCertificate' :: Text -&gt; Text -&gt; DeregisterCertificate
 </span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryId:DeregisterCertificate' :: Text
 </span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#%24sel%3AdirectoryId%3ADeregisterCertificate%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311854"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311863"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:certificateId:DeregisterCertificate' :: Text
 </span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#%24sel%3AcertificateId%3ADeregisterCertificate%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311853"><span class="hs-identifier hs-var">pCertificateId_</span></a></span><span>
+</span><a href="#local-6989586621679311862"><span class="hs-identifier hs-var">pCertificateId_</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The identifier of the directory.</span><span>
@@ -152,16 +152,16 @@ $cfrom :: forall x. DeregisterCertificate -&gt; Rep DeregisterCertificate x
 -&gt; (DeregisterCertificate -&gt; Text -&gt; DeregisterCertificate)
 -&gt; Lens DeregisterCertificate DeregisterCertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311850"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311859"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:DeregisterCertificate' :: DeregisterCertificate -&gt; Text
-</span><a href="#local-6989586621679311850"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311850"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311849"><span class="annot"><span class="annottext">s :: DeregisterCertificate
-</span><a href="#local-6989586621679311849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311848"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterCertificate
-</span><a href="#local-6989586621679311849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:DeregisterCertificate' :: Text
+</span><a href="#local-6989586621679311859"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311859"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311858"><span class="annot"><span class="annottext">s :: DeregisterCertificate
+</span><a href="#local-6989586621679311858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311857"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterCertificate
+</span><a href="#local-6989586621679311858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:DeregisterCertificate' :: Text
 </span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#%24sel%3AdirectoryId%3ADeregisterCertificate%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The identifier of the certificate.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#deregisterCertificate_certificateId"><span class="hs-identifier hs-type">deregisterCertificate_certificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -171,27 +171,27 @@ $sel:directoryId:DeregisterCertificate' :: DeregisterCertificate -&gt; Text
 -&gt; (DeregisterCertificate -&gt; Text -&gt; DeregisterCertificate)
 -&gt; Lens DeregisterCertificate DeregisterCertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311847"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311856"><span class="annot"><span class="annottext">Text
 certificateId :: Text
 $sel:certificateId:DeregisterCertificate' :: DeregisterCertificate -&gt; Text
-</span><a href="#local-6989586621679311847"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311847"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311846"><span class="annot"><span class="annottext">s :: DeregisterCertificate
-</span><a href="#local-6989586621679311846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311845"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterCertificate
-</span><a href="#local-6989586621679311846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:DeregisterCertificate' :: Text
+</span><a href="#local-6989586621679311856"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311856"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311855"><span class="annot"><span class="annottext">s :: DeregisterCertificate
+</span><a href="#local-6989586621679311855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311854"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterCertificate
+</span><a href="#local-6989586621679311855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:DeregisterCertificate' :: Text
 </span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#%24sel%3AcertificateId%3ADeregisterCertificate%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier hs-type">DeregisterCertificateResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679311841"><span class="annot"><span class="annottext">request :: DeregisterCertificate -&gt; Request DeregisterCertificate
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679311850"><span class="annot"><span class="annottext">request :: DeregisterCertificate -&gt; Request DeregisterCertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeregisterCertificate -&gt; Request DeregisterCertificate
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679311837"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679311846"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeregisterCertificate
 -&gt; ClientResponse ClientBody
@@ -217,10 +217,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311834"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311834"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311833"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679311833"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311832"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679311832"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311843"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311843"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311842"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679311842"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311841"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679311841"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeregisterCertificateResponse
 </span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse%27"><span class="hs-identifier hs-var">DeregisterCertificateResponse'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeregisterCertificateResponse)
@@ -231,15 +231,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311834"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311843"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311825"><span id="local-6989586621679311827"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311834"><span id="local-6989586621679311836"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679311818"><span class="annot"><span class="annottext">toHeaders :: DeregisterCertificate -&gt; ResponseHeaders
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679311827"><span class="annot"><span class="annottext">toHeaders :: DeregisterCertificate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeregisterCertificate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -266,14 +266,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311808"><span id="local-6989586621679311810"><span id="local-6989586621679311812"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679311806"><span class="annot"><span class="annottext">toJSON :: DeregisterCertificate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311803"><span id="local-6989586621679311804"><span class="annot"><span class="annottext">Text
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311817"><span id="local-6989586621679311819"><span id="local-6989586621679311821"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679311815"><span class="annot"><span class="annottext">toJSON :: DeregisterCertificate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate%27"><span class="hs-identifier hs-type">DeregisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311812"><span id="local-6989586621679311813"><span class="annot"><span class="annottext">Text
 certificateId :: Text
 directoryId :: Text
 $sel:certificateId:DeregisterCertificate' :: DeregisterCertificate -&gt; Text
 $sel:directoryId:DeregisterCertificate' :: DeregisterCertificate -&gt; Text
-</span><a href="#local-6989586621679311803"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679311812"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -285,7 +285,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311804"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311813"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -293,19 +293,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CertificateId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311803"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311812"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679311797"><span class="annot"><span class="annottext">toPath :: DeregisterCertificate -&gt; ByteString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679311806"><span class="annot"><span class="annottext">toPath :: DeregisterCertificate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeregisterCertificate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificate"><span class="hs-identifier hs-type">DeregisterCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679311793"><span class="annot"><span class="annottext">toQuery :: DeregisterCertificate -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679311802"><span class="annot"><span class="annottext">toQuery :: DeregisterCertificate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeregisterCertificate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -313,12 +313,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newDeregisterCertificateResponse' smart constructor.</span><span>
-</span><span id="line-140"></span><span id="local-6989586621679311790"><span id="local-6989586621679311791"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterCertificateResponse"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier hs-var">DeregisterCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterCertificateResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse%27"><span class="hs-identifier hs-var">DeregisterCertificateResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span id="local-6989586621679311799"><span id="local-6989586621679311800"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterCertificateResponse"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier hs-var">DeregisterCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterCertificateResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse%27"><span class="hs-identifier hs-var">DeregisterCertificateResponse'</span></a></span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeregisterCertificateResponse%27"><span class="annot"><span class="annottext">DeregisterCertificateResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#%24sel%3AhttpStatus%3ADeregisterCertificateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311785"><span id="local-6989586621679311787"><span class="annot"><span class="annottext">DeregisterCertificateResponse
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311794"><span id="local-6989586621679311796"><span class="annot"><span class="annottext">DeregisterCertificateResponse
 -&gt; DeregisterCertificateResponse -&gt; Bool
 (DeregisterCertificateResponse
  -&gt; DeregisterCertificateResponse -&gt; Bool)
@@ -334,7 +334,7 @@ $c/= :: DeregisterCertificateResponse
 -&gt; DeregisterCertificateResponse -&gt; Bool
 $c== :: DeregisterCertificateResponse
 -&gt; DeregisterCertificateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311777"><span id="local-6989586621679311779"><span id="local-6989586621679311781"><span id="local-6989586621679311783"><span class="annot"><span class="annottext">ReadPrec [DeregisterCertificateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311786"><span id="local-6989586621679311788"><span id="local-6989586621679311790"><span id="local-6989586621679311792"><span class="annot"><span class="annottext">ReadPrec [DeregisterCertificateResponse]
 ReadPrec DeregisterCertificateResponse
 Int -&gt; ReadS DeregisterCertificateResponse
 ReadS [DeregisterCertificateResponse]
@@ -354,7 +354,7 @@ readList :: ReadS [DeregisterCertificateResponse]
 $creadList :: ReadS [DeregisterCertificateResponse]
 readsPrec :: Int -&gt; ReadS DeregisterCertificateResponse
 $creadsPrec :: Int -&gt; ReadS DeregisterCertificateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311771"><span id="local-6989586621679311773"><span id="local-6989586621679311775"><span class="annot"><span class="annottext">Int -&gt; DeregisterCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311780"><span id="local-6989586621679311782"><span id="local-6989586621679311784"><span class="annot"><span class="annottext">Int -&gt; DeregisterCertificateResponse -&gt; ShowS
 [DeregisterCertificateResponse] -&gt; ShowS
 DeregisterCertificateResponse -&gt; String
 (Int -&gt; DeregisterCertificateResponse -&gt; ShowS)
@@ -406,14 +406,14 @@ DeregisterCertificateResponse
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier hs-type">DeregisterCertificateResponse</span></a></span><span>
 </span><span id="line-159"></span><span id="newDeregisterCertificateResponse"><span class="annot"><span class="annottext">newDeregisterCertificateResponse :: Int -&gt; DeregisterCertificateResponse
-</span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#newDeregisterCertificateResponse"><span class="hs-identifier hs-var hs-var">newDeregisterCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679311768"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311768"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#newDeregisterCertificateResponse"><span class="hs-identifier hs-var hs-var">newDeregisterCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679311777"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311777"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">DeregisterCertificateResponse' :: Int -&gt; DeregisterCertificateResponse
 </span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse%27"><span class="hs-identifier hs-type">DeregisterCertificateResponse'</span></a></span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterCertificateResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#%24sel%3AhttpStatus%3ADeregisterCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311768"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679311777"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -426,16 +426,16 @@ DeregisterCertificateResponse
 -&gt; Lens
      DeregisterCertificateResponse DeregisterCertificateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse%27"><span class="hs-identifier hs-type">DeregisterCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311767"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse%27"><span class="hs-identifier hs-type">DeregisterCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311776"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeregisterCertificateResponse' :: DeregisterCertificateResponse -&gt; Int
-</span><a href="#local-6989586621679311767"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311767"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311766"><span class="annot"><span class="annottext">s :: DeregisterCertificateResponse
-</span><a href="#local-6989586621679311766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse%27"><span class="hs-identifier hs-type">DeregisterCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311765"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterCertificateResponse
-</span><a href="#local-6989586621679311766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterCertificateResponse' :: Int
+</span><a href="#local-6989586621679311776"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311776"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311775"><span class="annot"><span class="annottext">s :: DeregisterCertificateResponse
+</span><a href="#local-6989586621679311775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse%27"><span class="hs-identifier hs-type">DeregisterCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311774"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterCertificateResponse
+</span><a href="#local-6989586621679311775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterCertificateResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#%24sel%3AhttpStatus%3ADeregisterCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier hs-type">DeregisterCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier hs-type">DeregisterCertificateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311763"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier hs-type">DeregisterCertificateResponse</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterCertificate.html#DeregisterCertificateResponse"><span class="hs-identifier hs-type">DeregisterCertificateResponse</span></a></span></span><span>
 </span><span id="line-170"></span></pre></body></html>

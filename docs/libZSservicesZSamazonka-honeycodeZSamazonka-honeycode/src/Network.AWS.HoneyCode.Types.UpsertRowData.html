@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.HoneyCode.Types.UpsertRowData</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.HoneyCode.Types.UpsertRowData</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html"><span class="hs-identifier">Network.AWS.HoneyCode.Types.CellInput</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Filter.html"><span class="hs-identifier">Network.AWS.HoneyCode.Types.Filter</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Data needed to upsert rows in a table as part of a single item in the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- BatchUpsertTableRows request.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newUpsertRowData' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679181208"><span id="local-6989586621679181209"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpsertRowData"><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData"><span class="hs-identifier hs-var">UpsertRowData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpsertRowData%27"><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData%27"><span class="hs-identifier hs-var">UpsertRowData'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An external identifier that represents a single item in the request that</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- is being upserted as part of the BatchUpsertTableRows request. This can</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- be any string that you can use to identify the item in the request. The</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- BatchUpsertTableRows API puts the batch item id in the results to allow</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- you to link data in the request to data in the results.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AbatchItemId%3AUpsertRowData%27"><span class="annot"><span class="annottext">UpsertRowData -&gt; Text
+</span><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#%24sel%3AbatchItemId%3AUpsertRowData%27"><span class="hs-identifier hs-var hs-var">batchItemId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The filter formula to use to find existing matching rows to update. The</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- formula needs to return zero or more rows. If the formula returns 0</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- rows, then a new row will be appended in the target table. If the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- formula returns one or more rows, then the returned rows will be</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Note that the filter formula needs to return rows from the target table</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- for the upsert operation to succeed. If the filter formula has a syntax</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- error or it doesn\'t evaluate to zero or more rows in the target table</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- for any one item in the input list, then the entire BatchUpsertTableRows</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- request fails and no updates are made to the table.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Afilter%27%3AUpsertRowData%27"><span class="annot"><span class="annottext">UpsertRowData -&gt; Filter
+</span><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#%24sel%3Afilter%27%3AUpsertRowData%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A map representing the cells to update for the matching rows or an</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- appended row. The key is the column id of the cell and the value is the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- CellInput object that represents the data to set in that cell.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcellsToUpdate%3AUpsertRowData%27"><span class="annot"><span class="annottext">UpsertRowData -&gt; HashMap Text CellInput
+</span><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#%24sel%3AcellsToUpdate%3AUpsertRowData%27"><span class="hs-identifier hs-var hs-var">cellsToUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#CellInput"><span class="hs-identifier hs-type">CellInput</span></a></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181200"><span id="local-6989586621679181202"><span class="annot"><span class="annottext">UpsertRowData -&gt; UpsertRowData -&gt; Bool
+(UpsertRowData -&gt; UpsertRowData -&gt; Bool)
+-&gt; (UpsertRowData -&gt; UpsertRowData -&gt; Bool) -&gt; Eq UpsertRowData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpsertRowData -&gt; UpsertRowData -&gt; Bool
+$c/= :: UpsertRowData -&gt; UpsertRowData -&gt; Bool
+== :: UpsertRowData -&gt; UpsertRowData -&gt; Bool
+$c== :: UpsertRowData -&gt; UpsertRowData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181193"><span id="local-6989586621679181195"><span id="local-6989586621679181197"><span class="annot"><span class="annottext">Int -&gt; UpsertRowData -&gt; ShowS
+[UpsertRowData] -&gt; ShowS
+UpsertRowData -&gt; String
+(Int -&gt; UpsertRowData -&gt; ShowS)
+-&gt; (UpsertRowData -&gt; String)
+-&gt; ([UpsertRowData] -&gt; ShowS)
+-&gt; Show UpsertRowData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpsertRowData] -&gt; ShowS
+$cshowList :: [UpsertRowData] -&gt; ShowS
+show :: UpsertRowData -&gt; String
+$cshow :: UpsertRowData -&gt; String
+showsPrec :: Int -&gt; UpsertRowData -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpsertRowData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpsertRowData -&gt; Rep UpsertRowData x)
+-&gt; (forall x. Rep UpsertRowData x -&gt; UpsertRowData)
+-&gt; Generic UpsertRowData
+forall x. Rep UpsertRowData x -&gt; UpsertRowData
+forall x. UpsertRowData -&gt; Rep UpsertRowData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpsertRowData x -&gt; UpsertRowData
+$cfrom :: forall x. UpsertRowData -&gt; Rep UpsertRowData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'UpsertRowData' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'batchItemId', 'upsertRowData_batchItemId' - An external identifier that represents a single item in the request that</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- is being upserted as part of the BatchUpsertTableRows request. This can</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- be any string that you can use to identify the item in the request. The</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- BatchUpsertTableRows API puts the batch item id in the results to allow</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- you to link data in the request to data in the results.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'filter'', 'upsertRowData_filter' - The filter formula to use to find existing matching rows to update. The</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- formula needs to return zero or more rows. If the formula returns 0</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- rows, then a new row will be appended in the target table. If the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- formula returns one or more rows, then the returned rows will be</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Note that the filter formula needs to return rows from the target table</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for the upsert operation to succeed. If the filter formula has a syntax</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- error or it doesn\'t evaluate to zero or more rows in the target table</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for any one item in the input list, then the entire BatchUpsertTableRows</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- request fails and no updates are made to the table.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'cellsToUpdate', 'upsertRowData_cellsToUpdate' - A map representing the cells to update for the matching rows or an</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- appended row. The key is the column id of the cell and the value is the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- CellInput object that represents the data to set in that cell.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#newUpsertRowData"><span class="hs-identifier hs-type">newUpsertRowData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'batchItemId'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'filter''</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData"><span class="hs-identifier hs-type">UpsertRowData</span></a></span><span>
+</span><span id="line-93"></span><span id="newUpsertRowData"><span class="annot"><span class="annottext">newUpsertRowData :: Text -&gt; Filter -&gt; UpsertRowData
+</span><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#newUpsertRowData"><span class="hs-identifier hs-var hs-var">newUpsertRowData</span></a></span></span><span> </span><span id="local-6989586621679181187"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181187"><span class="hs-identifier hs-var">pBatchItemId_</span></a></span></span><span> </span><span id="local-6989586621679181186"><span class="annot"><span class="annottext">Filter
+</span><a href="#local-6989586621679181186"><span class="hs-identifier hs-var">pFilter_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">UpsertRowData' :: Text -&gt; Filter -&gt; HashMap Text CellInput -&gt; UpsertRowData
+</span><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData%27"><span class="hs-identifier hs-type">UpsertRowData'</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:batchItemId:UpsertRowData' :: Text
+</span><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#%24sel%3AbatchItemId%3AUpsertRowData%27"><span class="hs-identifier hs-var">batchItemId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181187"><span class="hs-identifier hs-var">pBatchItemId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':UpsertRowData' :: Filter
+</span><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#%24sel%3Afilter%27%3AUpsertRowData%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Filter
+</span><a href="#local-6989586621679181186"><span class="hs-identifier hs-var">pFilter_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:cellsToUpdate:UpsertRowData' :: HashMap Text CellInput
+</span><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#%24sel%3AcellsToUpdate%3AUpsertRowData%27"><span class="hs-identifier hs-var">cellsToUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text CellInput
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | An external identifier that represents a single item in the request that</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- is being upserted as part of the BatchUpsertTableRows request. This can</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- be any string that you can use to identify the item in the request. The</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- BatchUpsertTableRows API puts the batch item id in the results to allow</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- you to link data in the request to data in the results.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#upsertRowData_batchItemId"><span class="hs-identifier hs-type">upsertRowData_batchItemId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData"><span class="hs-identifier hs-type">UpsertRowData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-106"></span><span id="upsertRowData_batchItemId"><span class="annot"><span class="annottext">upsertRowData_batchItemId :: (Text -&gt; f Text) -&gt; UpsertRowData -&gt; f UpsertRowData
+</span><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#upsertRowData_batchItemId"><span class="hs-identifier hs-var hs-var">upsertRowData_batchItemId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpsertRowData -&gt; Text)
+-&gt; (UpsertRowData -&gt; Text -&gt; UpsertRowData)
+-&gt; Lens UpsertRowData UpsertRowData Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData%27"><span class="hs-identifier hs-type">UpsertRowData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181182"><span class="annot"><span class="annottext">Text
+batchItemId :: Text
+$sel:batchItemId:UpsertRowData' :: UpsertRowData -&gt; Text
+</span><a href="#local-6989586621679181182"><span class="hs-identifier hs-var hs-var">batchItemId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181182"><span class="hs-identifier hs-var">batchItemId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181181"><span class="annot"><span class="annottext">s :: UpsertRowData
+</span><a href="#local-6989586621679181181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData%27"><span class="hs-identifier hs-type">UpsertRowData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181180"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpsertRowData
+</span><a href="#local-6989586621679181181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchItemId:UpsertRowData' :: Text
+</span><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#%24sel%3AbatchItemId%3AUpsertRowData%27"><span class="hs-identifier hs-var">batchItemId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData"><span class="hs-identifier hs-type">UpsertRowData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The filter formula to use to find existing matching rows to update. The</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- formula needs to return zero or more rows. If the formula returns 0</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- rows, then a new row will be appended in the target table. If the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- formula returns one or more rows, then the returned rows will be</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Note that the filter formula needs to return rows from the target table</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- for the upsert operation to succeed. If the filter formula has a syntax</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- error or it doesn\'t evaluate to zero or more rows in the target table</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- for any one item in the input list, then the entire BatchUpsertTableRows</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- request fails and no updates are made to the table.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#upsertRowData_filter"><span class="hs-identifier hs-type">upsertRowData_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData"><span class="hs-identifier hs-type">UpsertRowData</span></a></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span>
+</span><span id="line-120"></span><span id="upsertRowData_filter"><span class="annot"><span class="annottext">upsertRowData_filter :: (Filter -&gt; f Filter) -&gt; UpsertRowData -&gt; f UpsertRowData
+</span><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#upsertRowData_filter"><span class="hs-identifier hs-var hs-var">upsertRowData_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpsertRowData -&gt; Filter)
+-&gt; (UpsertRowData -&gt; Filter -&gt; UpsertRowData)
+-&gt; Lens UpsertRowData UpsertRowData Filter Filter
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData%27"><span class="hs-identifier hs-type">UpsertRowData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181178"><span class="annot"><span class="annottext">Filter
+filter' :: Filter
+$sel:filter':UpsertRowData' :: UpsertRowData -&gt; Filter
+</span><a href="#local-6989586621679181178"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
+</span><a href="#local-6989586621679181178"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181177"><span class="annot"><span class="annottext">s :: UpsertRowData
+</span><a href="#local-6989586621679181177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData%27"><span class="hs-identifier hs-type">UpsertRowData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181176"><span class="annot"><span class="annottext">Filter
+</span><a href="#local-6989586621679181176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpsertRowData
+</span><a href="#local-6989586621679181177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':UpsertRowData' :: Filter
+</span><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#%24sel%3Afilter%27%3AUpsertRowData%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Filter
+</span><a href="#local-6989586621679181176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData"><span class="hs-identifier hs-type">UpsertRowData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | A map representing the cells to update for the matching rows or an</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- appended row. The key is the column id of the cell and the value is the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- CellInput object that represents the data to set in that cell.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#upsertRowData_cellsToUpdate"><span class="hs-identifier hs-type">upsertRowData_cellsToUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData"><span class="hs-identifier hs-type">UpsertRowData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#CellInput"><span class="hs-identifier hs-type">CellInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="upsertRowData_cellsToUpdate"><span class="annot"><span class="annottext">upsertRowData_cellsToUpdate :: (HashMap Text CellInput -&gt; f (HashMap Text CellInput))
+-&gt; UpsertRowData -&gt; f UpsertRowData
+</span><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#upsertRowData_cellsToUpdate"><span class="hs-identifier hs-var hs-var">upsertRowData_cellsToUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpsertRowData -&gt; HashMap Text CellInput)
+-&gt; (UpsertRowData -&gt; HashMap Text CellInput -&gt; UpsertRowData)
+-&gt; Lens
+     UpsertRowData
+     UpsertRowData
+     (HashMap Text CellInput)
+     (HashMap Text CellInput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData%27"><span class="hs-identifier hs-type">UpsertRowData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181174"><span class="annot"><span class="annottext">HashMap Text CellInput
+cellsToUpdate :: HashMap Text CellInput
+$sel:cellsToUpdate:UpsertRowData' :: UpsertRowData -&gt; HashMap Text CellInput
+</span><a href="#local-6989586621679181174"><span class="hs-identifier hs-var hs-var">cellsToUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text CellInput
+</span><a href="#local-6989586621679181174"><span class="hs-identifier hs-var">cellsToUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181173"><span class="annot"><span class="annottext">s :: UpsertRowData
+</span><a href="#local-6989586621679181173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData%27"><span class="hs-identifier hs-type">UpsertRowData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181172"><span class="annot"><span class="annottext">HashMap Text CellInput
+</span><a href="#local-6989586621679181172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpsertRowData
+</span><a href="#local-6989586621679181173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cellsToUpdate:UpsertRowData' :: HashMap Text CellInput
+</span><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#%24sel%3AcellsToUpdate%3AUpsertRowData%27"><span class="hs-identifier hs-var">cellsToUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text CellInput
+</span><a href="#local-6989586621679181172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData"><span class="hs-identifier hs-type">UpsertRowData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text CellInput -&gt; f (HashMap Text CellInput))
+ -&gt; UpsertRowData -&gt; f UpsertRowData)
+-&gt; ((HashMap Text CellInput -&gt; f (HashMap Text CellInput))
+    -&gt; HashMap Text CellInput -&gt; f (HashMap Text CellInput))
+-&gt; (HashMap Text CellInput -&gt; f (HashMap Text CellInput))
+-&gt; UpsertRowData
+-&gt; f UpsertRowData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text CellInput -&gt; f (HashMap Text CellInput))
+-&gt; HashMap Text CellInput -&gt; f (HashMap Text CellInput)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181166"><span id="local-6989586621679181168"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData"><span class="hs-identifier hs-type">UpsertRowData</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData"><span class="hs-identifier hs-type">UpsertRowData</span></a></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181155"><span id="local-6989586621679181157"><span id="local-6989586621679181159"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData"><span class="hs-identifier hs-type">UpsertRowData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679181153"><span class="annot"><span class="annottext">toJSON :: UpsertRowData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.UpsertRowData.html#UpsertRowData%27"><span class="hs-identifier hs-type">UpsertRowData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181149"><span id="local-6989586621679181150"><span id="local-6989586621679181151"><span class="annot"><span class="annottext">Text
+HashMap Text CellInput
+Filter
+cellsToUpdate :: HashMap Text CellInput
+filter' :: Filter
+batchItemId :: Text
+$sel:cellsToUpdate:UpsertRowData' :: UpsertRowData -&gt; HashMap Text CellInput
+$sel:filter':UpsertRowData' :: UpsertRowData -&gt; Filter
+$sel:batchItemId:UpsertRowData' :: UpsertRowData -&gt; Text
+</span><a href="#local-6989586621679181149"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;batchItemId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181151"><span class="hs-identifier hs-var">batchItemId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Filter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Filter
+</span><a href="#local-6989586621679181150"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-139"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cellsToUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text CellInput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text CellInput
+</span><a href="#local-6989586621679181149"><span class="hs-identifier hs-var">cellsToUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span></pre></body></html>

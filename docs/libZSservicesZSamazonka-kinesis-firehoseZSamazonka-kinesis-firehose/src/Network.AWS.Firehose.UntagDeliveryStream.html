@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUntagDeliveryStream' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679284691"><span id="local-6989586621679284692"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagDeliveryStream"><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-var">UntagDeliveryStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagDeliveryStream%27"><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream%27"><span class="hs-identifier hs-var">UntagDeliveryStream'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679284700"><span id="local-6989586621679284701"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagDeliveryStream"><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-var">UntagDeliveryStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagDeliveryStream%27"><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream%27"><span class="hs-identifier hs-var">UntagDeliveryStream'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the delivery stream.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdeliveryStreamName%3AUntagDeliveryStream%27"><span class="annot"><span class="annottext">UntagDeliveryStream -&gt; Text
 </span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#%24sel%3AdeliveryStreamName%3AUntagDeliveryStream%27"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AtagKeys%3AUntagDeliveryStream%27"><span class="annot"><span class="annottext">UntagDeliveryStream -&gt; NonEmpty Text
 </span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#%24sel%3AtagKeys%3AUntagDeliveryStream%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284684"><span id="local-6989586621679284686"><span class="annot"><span class="annottext">UntagDeliveryStream -&gt; UntagDeliveryStream -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284693"><span id="local-6989586621679284695"><span class="annot"><span class="annottext">UntagDeliveryStream -&gt; UntagDeliveryStream -&gt; Bool
 (UntagDeliveryStream -&gt; UntagDeliveryStream -&gt; Bool)
 -&gt; (UntagDeliveryStream -&gt; UntagDeliveryStream -&gt; Bool)
 -&gt; Eq UntagDeliveryStream
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagDeliveryStream -&gt; UntagDeliveryStream -&gt; Bool
 == :: UntagDeliveryStream -&gt; UntagDeliveryStream -&gt; Bool
 $c== :: UntagDeliveryStream -&gt; UntagDeliveryStream -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284675"><span id="local-6989586621679284677"><span id="local-6989586621679284679"><span id="local-6989586621679284681"><span class="annot"><span class="annottext">ReadPrec [UntagDeliveryStream]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284684"><span id="local-6989586621679284686"><span id="local-6989586621679284688"><span id="local-6989586621679284690"><span class="annot"><span class="annottext">ReadPrec [UntagDeliveryStream]
 ReadPrec UntagDeliveryStream
 Int -&gt; ReadS UntagDeliveryStream
 ReadS [UntagDeliveryStream]
@@ -91,7 +91,7 @@ readList :: ReadS [UntagDeliveryStream]
 $creadList :: ReadS [UntagDeliveryStream]
 readsPrec :: Int -&gt; ReadS UntagDeliveryStream
 $creadsPrec :: Int -&gt; ReadS UntagDeliveryStream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284668"><span id="local-6989586621679284670"><span id="local-6989586621679284672"><span class="annot"><span class="annottext">Int -&gt; UntagDeliveryStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284677"><span id="local-6989586621679284679"><span id="local-6989586621679284681"><span class="annot"><span class="annottext">Int -&gt; UntagDeliveryStream -&gt; ShowS
 [UntagDeliveryStream] -&gt; ShowS
 UntagDeliveryStream -&gt; String
 (Int -&gt; UntagDeliveryStream -&gt; ShowS)
@@ -136,15 +136,15 @@ $cfrom :: forall x. UntagDeliveryStream -&gt; Rep UntagDeliveryStream x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span><span>
 </span><span id="line-83"></span><span id="newUntagDeliveryStream"><span class="annot"><span class="annottext">newUntagDeliveryStream :: Text -&gt; NonEmpty Text -&gt; UntagDeliveryStream
-</span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#newUntagDeliveryStream"><span class="hs-identifier hs-var hs-var">newUntagDeliveryStream</span></a></span></span><span> </span><span id="local-6989586621679284663"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284663"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span></span><span> </span><span id="local-6989586621679284662"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679284662"><span class="hs-identifier hs-var">pTagKeys_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#newUntagDeliveryStream"><span class="hs-identifier hs-var hs-var">newUntagDeliveryStream</span></a></span></span><span> </span><span id="local-6989586621679284672"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284672"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span></span><span> </span><span id="local-6989586621679284671"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679284671"><span class="hs-identifier hs-var">pTagKeys_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">UntagDeliveryStream' :: Text -&gt; NonEmpty Text -&gt; UntagDeliveryStream
 </span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream%27"><span class="hs-identifier hs-type">UntagDeliveryStream'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deliveryStreamName:UntagDeliveryStream' :: Text
 </span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#%24sel%3AdeliveryStreamName%3AUntagDeliveryStream%27"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284663"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284672"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:UntagDeliveryStream' :: NonEmpty Text
 </span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#%24sel%3AtagKeys%3AUntagDeliveryStream%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
@@ -154,7 +154,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679284662"><span class="hs-identifier hs-var">pTagKeys_</span></a></span><span>
+</span><a href="#local-6989586621679284671"><span class="hs-identifier hs-var">pTagKeys_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The name of the delivery stream.</span><span>
@@ -164,16 +164,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (UntagDeliveryStream -&gt; Text -&gt; UntagDeliveryStream)
 -&gt; Lens UntagDeliveryStream UntagDeliveryStream Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream%27"><span class="hs-identifier hs-type">UntagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284657"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream%27"><span class="hs-identifier hs-type">UntagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284666"><span class="annot"><span class="annottext">Text
 deliveryStreamName :: Text
 $sel:deliveryStreamName:UntagDeliveryStream' :: UntagDeliveryStream -&gt; Text
-</span><a href="#local-6989586621679284657"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284657"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284656"><span class="annot"><span class="annottext">s :: UntagDeliveryStream
-</span><a href="#local-6989586621679284656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream%27"><span class="hs-identifier hs-type">UntagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284655"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagDeliveryStream
-</span><a href="#local-6989586621679284656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamName:UntagDeliveryStream' :: Text
+</span><a href="#local-6989586621679284666"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284666"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284665"><span class="annot"><span class="annottext">s :: UntagDeliveryStream
+</span><a href="#local-6989586621679284665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream%27"><span class="hs-identifier hs-type">UntagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284664"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagDeliveryStream
+</span><a href="#local-6989586621679284665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamName:UntagDeliveryStream' :: Text
 </span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#%24sel%3AdeliveryStreamName%3AUntagDeliveryStream%27"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | A list of tag keys. Each corresponding tag is removed from the delivery</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- stream.</span><span>
@@ -188,16 +188,16 @@ $sel:deliveryStreamName:UntagDeliveryStream' :: UntagDeliveryStream -&gt; Text
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream%27"><span class="hs-identifier hs-type">UntagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284654"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream%27"><span class="hs-identifier hs-type">UntagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284663"><span class="annot"><span class="annottext">NonEmpty Text
 tagKeys :: NonEmpty Text
 $sel:tagKeys:UntagDeliveryStream' :: UntagDeliveryStream -&gt; NonEmpty Text
-</span><a href="#local-6989586621679284654"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679284654"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284653"><span class="annot"><span class="annottext">s :: UntagDeliveryStream
-</span><a href="#local-6989586621679284653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream%27"><span class="hs-identifier hs-type">UntagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284652"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679284652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagDeliveryStream
-</span><a href="#local-6989586621679284653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagDeliveryStream' :: NonEmpty Text
+</span><a href="#local-6989586621679284663"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679284663"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284662"><span class="annot"><span class="annottext">s :: UntagDeliveryStream
+</span><a href="#local-6989586621679284662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream%27"><span class="hs-identifier hs-type">UntagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284661"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679284661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagDeliveryStream
+</span><a href="#local-6989586621679284662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagDeliveryStream' :: NonEmpty Text
 </span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#%24sel%3AtagKeys%3AUntagDeliveryStream%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679284652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679284661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; UntagDeliveryStream -&gt; f UntagDeliveryStream)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -214,12 +214,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse"><span class="hs-identifier hs-type">UntagDeliveryStreamResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679284647"><span class="annot"><span class="annottext">request :: UntagDeliveryStream -&gt; Request UntagDeliveryStream
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679284656"><span class="annot"><span class="annottext">request :: UntagDeliveryStream -&gt; Request UntagDeliveryStream
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UntagDeliveryStream -&gt; Request UntagDeliveryStream
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Firehose.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679284643"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679284652"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UntagDeliveryStream
 -&gt; ClientResponse ClientBody
@@ -245,10 +245,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284640"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284640"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284639"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679284639"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284638"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679284638"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284649"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284649"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284648"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679284648"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284647"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679284647"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UntagDeliveryStreamResponse
 </span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse%27"><span class="hs-identifier hs-var">UntagDeliveryStreamResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UntagDeliveryStreamResponse)
@@ -259,15 +259,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284640"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284649"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284631"><span id="local-6989586621679284633"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284640"><span id="local-6989586621679284642"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284628"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284637"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679284624"><span class="annot"><span class="annottext">toHeaders :: UntagDeliveryStream -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679284633"><span class="annot"><span class="annottext">toHeaders :: UntagDeliveryStream -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UntagDeliveryStream -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -294,15 +294,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284614"><span id="local-6989586621679284616"><span id="local-6989586621679284618"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679284612"><span class="annot"><span class="annottext">toJSON :: UntagDeliveryStream -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream%27"><span class="hs-identifier hs-type">UntagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284609"><span id="local-6989586621679284610"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284623"><span id="local-6989586621679284625"><span id="local-6989586621679284627"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679284621"><span class="annot"><span class="annottext">toJSON :: UntagDeliveryStream -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream%27"><span class="hs-identifier hs-type">UntagDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284618"><span id="local-6989586621679284619"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 tagKeys :: NonEmpty Text
 deliveryStreamName :: Text
 $sel:tagKeys:UntagDeliveryStream' :: UntagDeliveryStream -&gt; NonEmpty Text
 $sel:deliveryStreamName:UntagDeliveryStream' :: UntagDeliveryStream -&gt; Text
-</span><a href="#local-6989586621679284609"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679284618"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -315,26 +315,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DeliveryStreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284610"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284619"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TagKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679284609"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284618"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679284603"><span class="annot"><span class="annottext">toPath :: UntagDeliveryStream -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679284612"><span class="annot"><span class="annottext">toPath :: UntagDeliveryStream -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UntagDeliveryStream -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStream"><span class="hs-identifier hs-type">UntagDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679284599"><span class="annot"><span class="annottext">toQuery :: UntagDeliveryStream -&gt; QueryString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679284608"><span class="annot"><span class="annottext">toQuery :: UntagDeliveryStream -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UntagDeliveryStream -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -342,12 +342,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newUntagDeliveryStreamResponse' smart constructor.</span><span>
-</span><span id="line-147"></span><span id="local-6989586621679284596"><span id="local-6989586621679284597"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagDeliveryStreamResponse"><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse"><span class="hs-identifier hs-var">UntagDeliveryStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagDeliveryStreamResponse%27"><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse%27"><span class="hs-identifier hs-var">UntagDeliveryStreamResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span id="local-6989586621679284605"><span id="local-6989586621679284606"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagDeliveryStreamResponse"><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse"><span class="hs-identifier hs-var">UntagDeliveryStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagDeliveryStreamResponse%27"><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse%27"><span class="hs-identifier hs-var">UntagDeliveryStreamResponse'</span></a></span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUntagDeliveryStreamResponse%27"><span class="annot"><span class="annottext">UntagDeliveryStreamResponse -&gt; Int
 </span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#%24sel%3AhttpStatus%3AUntagDeliveryStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284591"><span id="local-6989586621679284593"><span class="annot"><span class="annottext">UntagDeliveryStreamResponse -&gt; UntagDeliveryStreamResponse -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284600"><span id="local-6989586621679284602"><span class="annot"><span class="annottext">UntagDeliveryStreamResponse -&gt; UntagDeliveryStreamResponse -&gt; Bool
 (UntagDeliveryStreamResponse
  -&gt; UntagDeliveryStreamResponse -&gt; Bool)
 -&gt; (UntagDeliveryStreamResponse
@@ -358,7 +358,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagDeliveryStreamResponse -&gt; UntagDeliveryStreamResponse -&gt; Bool
 == :: UntagDeliveryStreamResponse -&gt; UntagDeliveryStreamResponse -&gt; Bool
 $c== :: UntagDeliveryStreamResponse -&gt; UntagDeliveryStreamResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284583"><span id="local-6989586621679284585"><span id="local-6989586621679284587"><span id="local-6989586621679284589"><span class="annot"><span class="annottext">ReadPrec [UntagDeliveryStreamResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284592"><span id="local-6989586621679284594"><span id="local-6989586621679284596"><span id="local-6989586621679284598"><span class="annot"><span class="annottext">ReadPrec [UntagDeliveryStreamResponse]
 ReadPrec UntagDeliveryStreamResponse
 Int -&gt; ReadS UntagDeliveryStreamResponse
 ReadS [UntagDeliveryStreamResponse]
@@ -378,7 +378,7 @@ readList :: ReadS [UntagDeliveryStreamResponse]
 $creadList :: ReadS [UntagDeliveryStreamResponse]
 readsPrec :: Int -&gt; ReadS UntagDeliveryStreamResponse
 $creadsPrec :: Int -&gt; ReadS UntagDeliveryStreamResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284577"><span id="local-6989586621679284579"><span id="local-6989586621679284581"><span class="annot"><span class="annottext">Int -&gt; UntagDeliveryStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284586"><span id="local-6989586621679284588"><span id="local-6989586621679284590"><span class="annot"><span class="annottext">Int -&gt; UntagDeliveryStreamResponse -&gt; ShowS
 [UntagDeliveryStreamResponse] -&gt; ShowS
 UntagDeliveryStreamResponse -&gt; String
 (Int -&gt; UntagDeliveryStreamResponse -&gt; ShowS)
@@ -424,14 +424,14 @@ UntagDeliveryStreamResponse -&gt; Rep UntagDeliveryStreamResponse x
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse"><span class="hs-identifier hs-type">UntagDeliveryStreamResponse</span></a></span><span>
 </span><span id="line-166"></span><span id="newUntagDeliveryStreamResponse"><span class="annot"><span class="annottext">newUntagDeliveryStreamResponse :: Int -&gt; UntagDeliveryStreamResponse
-</span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#newUntagDeliveryStreamResponse"><span class="hs-identifier hs-var hs-var">newUntagDeliveryStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679284574"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#newUntagDeliveryStreamResponse"><span class="hs-identifier hs-var hs-var">newUntagDeliveryStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679284583"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284583"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">UntagDeliveryStreamResponse' :: Int -&gt; UntagDeliveryStreamResponse
 </span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse%27"><span class="hs-identifier hs-type">UntagDeliveryStreamResponse'</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UntagDeliveryStreamResponse' :: Int
 </span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#%24sel%3AhttpStatus%3AUntagDeliveryStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679284583"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -444,16 +444,16 @@ UntagDeliveryStreamResponse -&gt; Rep UntagDeliveryStreamResponse x
 -&gt; Lens
      UntagDeliveryStreamResponse UntagDeliveryStreamResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse%27"><span class="hs-identifier hs-type">UntagDeliveryStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284573"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse%27"><span class="hs-identifier hs-type">UntagDeliveryStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284582"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UntagDeliveryStreamResponse' :: UntagDeliveryStreamResponse -&gt; Int
-</span><a href="#local-6989586621679284573"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284573"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284572"><span class="annot"><span class="annottext">s :: UntagDeliveryStreamResponse
-</span><a href="#local-6989586621679284572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse%27"><span class="hs-identifier hs-type">UntagDeliveryStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284571"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagDeliveryStreamResponse
-</span><a href="#local-6989586621679284572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UntagDeliveryStreamResponse' :: Int
+</span><a href="#local-6989586621679284582"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284582"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284581"><span class="annot"><span class="annottext">s :: UntagDeliveryStreamResponse
+</span><a href="#local-6989586621679284581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse%27"><span class="hs-identifier hs-type">UntagDeliveryStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284580"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagDeliveryStreamResponse
+</span><a href="#local-6989586621679284581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UntagDeliveryStreamResponse' :: Int
 </span><a href="Network.AWS.Firehose.UntagDeliveryStream.html#%24sel%3AhttpStatus%3AUntagDeliveryStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse"><span class="hs-identifier hs-type">UntagDeliveryStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse"><span class="hs-identifier hs-type">UntagDeliveryStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse"><span class="hs-identifier hs-type">UntagDeliveryStreamResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284578"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.UntagDeliveryStream.html#UntagDeliveryStreamResponse"><span class="hs-identifier hs-type">UntagDeliveryStreamResponse</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-41"></span><span>
-</span><span id="line-42"></span><span id="local-6989586621679362179"><span id="local-6989586621679362180"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeviceFilterAttribute"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-var">DeviceFilterAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceFilterAttribute%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-var">DeviceFilterAttribute'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679362188"><span id="local-6989586621679362189"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeviceFilterAttribute"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-var">DeviceFilterAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceFilterAttribute%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-var">DeviceFilterAttribute'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeviceFilterAttribute"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceFilterAttribute.html#fromDeviceFilterAttribute"><span class="hs-identifier hs-var hs-var">fromDeviceFilterAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362171"><span id="local-6989586621679362173"><span id="local-6989586621679362175"><span class="annot"><span class="annottext">Int -&gt; DeviceFilterAttribute -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362180"><span id="local-6989586621679362182"><span id="local-6989586621679362184"><span class="annot"><span class="annottext">Int -&gt; DeviceFilterAttribute -&gt; ShowS
 [DeviceFilterAttribute] -&gt; ShowS
 DeviceFilterAttribute -&gt; String
 (Int -&gt; DeviceFilterAttribute -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: DeviceFilterAttribute -&gt; String
 showsPrec :: Int -&gt; DeviceFilterAttribute -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeviceFilterAttribute -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679362162"><span id="local-6989586621679362164"><span id="local-6989586621679362166"><span id="local-6989586621679362168"><span class="annot"><span class="annottext">ReadPrec [DeviceFilterAttribute]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679362171"><span id="local-6989586621679362173"><span id="local-6989586621679362175"><span id="local-6989586621679362177"><span class="annot"><span class="annottext">ReadPrec [DeviceFilterAttribute]
 ReadPrec DeviceFilterAttribute
 Int -&gt; ReadS DeviceFilterAttribute
 ReadS [DeviceFilterAttribute]
@@ -82,7 +82,7 @@ $creadList :: ReadS [DeviceFilterAttribute]
 readsPrec :: Int -&gt; ReadS DeviceFilterAttribute
 $creadsPrec :: Int -&gt; ReadS DeviceFilterAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679362157"><span id="local-6989586621679362159"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679362166"><span id="local-6989586621679362168"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
 (DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool)
 -&gt; (DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool)
 -&gt; Eq DeviceFilterAttribute
@@ -92,7 +92,7 @@ $c/= :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
 == :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
 $c== :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679362141"><span id="local-6989586621679362143"><span id="local-6989586621679362145"><span id="local-6989586621679362147"><span id="local-6989586621679362149"><span id="local-6989586621679362151"><span id="local-6989586621679362153"><span class="annot"><span class="annottext">Eq DeviceFilterAttribute
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679362150"><span id="local-6989586621679362152"><span id="local-6989586621679362154"><span id="local-6989586621679362156"><span id="local-6989586621679362158"><span id="local-6989586621679362160"><span id="local-6989586621679362162"><span class="annot"><span class="annottext">Eq DeviceFilterAttribute
 Eq DeviceFilterAttribute
 -&gt; (DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Ordering)
 -&gt; (DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool)
@@ -150,7 +150,7 @@ $cfrom :: forall x. DeviceFilterAttribute -&gt; Rep DeviceFilterAttribute x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362133"><span id="local-6989586621679362135"><span class="annot"><span class="annottext">Int -&gt; DeviceFilterAttribute -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362142"><span id="local-6989586621679362144"><span class="annot"><span class="annottext">Int -&gt; DeviceFilterAttribute -&gt; Int
 DeviceFilterAttribute -&gt; Int
 (Int -&gt; DeviceFilterAttribute -&gt; Int)
 -&gt; (DeviceFilterAttribute -&gt; Int) -&gt; Hashable DeviceFilterAttribute
@@ -160,54 +160,54 @@ $chash :: DeviceFilterAttribute -&gt; Int
 hashWithSalt :: Int -&gt; DeviceFilterAttribute -&gt; Int
 $chashWithSalt :: Int -&gt; DeviceFilterAttribute -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679362130"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679362139"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; ()
 (DeviceFilterAttribute -&gt; ()) -&gt; NFData DeviceFilterAttribute
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeviceFilterAttribute -&gt; ()
 $crnf :: DeviceFilterAttribute -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679362127"><span class="annot"><span class="annottext">Text -&gt; Either String DeviceFilterAttribute
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679362136"><span class="annot"><span class="annottext">Text -&gt; Either String DeviceFilterAttribute
 (Text -&gt; Either String DeviceFilterAttribute)
 -&gt; FromText DeviceFilterAttribute
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeviceFilterAttribute
 $cfromText :: Text -&gt; Either String DeviceFilterAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679362124"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679362133"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; Text
 (DeviceFilterAttribute -&gt; Text) -&gt; ToText DeviceFilterAttribute
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeviceFilterAttribute -&gt; Text
 $ctoText :: DeviceFilterAttribute -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679362121"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679362130"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; ByteString
 (DeviceFilterAttribute -&gt; ByteString)
 -&gt; ToByteString DeviceFilterAttribute
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeviceFilterAttribute -&gt; ByteString
 $ctoBS :: DeviceFilterAttribute -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679362118"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679362127"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; ByteStringBuilder
 (DeviceFilterAttribute -&gt; ByteStringBuilder)
 -&gt; ToLog DeviceFilterAttribute
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeviceFilterAttribute -&gt; ByteStringBuilder
 $cbuild :: DeviceFilterAttribute -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679362115"><span class="annot"><span class="annottext">HeaderName -&gt; DeviceFilterAttribute -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679362124"><span class="annot"><span class="annottext">HeaderName -&gt; DeviceFilterAttribute -&gt; [Header]
 (HeaderName -&gt; DeviceFilterAttribute -&gt; [Header])
 -&gt; ToHeader DeviceFilterAttribute
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeviceFilterAttribute -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeviceFilterAttribute -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679362112"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679362121"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; QueryString
 (DeviceFilterAttribute -&gt; QueryString)
 -&gt; ToQuery DeviceFilterAttribute
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeviceFilterAttribute -&gt; QueryString
 $ctoQuery :: DeviceFilterAttribute -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679362107"><span id="local-6989586621679362109"><span class="annot"><span class="annottext">Value -&gt; Parser [DeviceFilterAttribute]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679362116"><span id="local-6989586621679362118"><span class="annot"><span class="annottext">Value -&gt; Parser [DeviceFilterAttribute]
 Value -&gt; Parser DeviceFilterAttribute
 (Value -&gt; Parser DeviceFilterAttribute)
 -&gt; (Value -&gt; Parser [DeviceFilterAttribute])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [DeviceFilterAttribute]
 parseJSON :: Value -&gt; Parser DeviceFilterAttribute
 $cparseJSON :: Value -&gt; Parser DeviceFilterAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679362102"><span id="local-6989586621679362104"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeviceFilterAttribute]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679362111"><span id="local-6989586621679362113"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeviceFilterAttribute]
 FromJSONKeyFunction DeviceFilterAttribute
 FromJSONKeyFunction DeviceFilterAttribute
 -&gt; FromJSONKeyFunction [DeviceFilterAttribute]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeviceFilterAttribute]
 fromJSONKey :: FromJSONKeyFunction DeviceFilterAttribute
 $cfromJSONKey :: FromJSONKeyFunction DeviceFilterAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679362093"><span id="local-6989586621679362095"><span id="local-6989586621679362097"><span id="local-6989586621679362099"><span class="annot"><span class="annottext">[DeviceFilterAttribute] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679362102"><span id="local-6989586621679362104"><span id="local-6989586621679362106"><span id="local-6989586621679362108"><span class="annot"><span class="annottext">[DeviceFilterAttribute] -&gt; Encoding
 [DeviceFilterAttribute] -&gt; Value
 DeviceFilterAttribute -&gt; Encoding
 DeviceFilterAttribute -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: DeviceFilterAttribute -&gt; Encoding
 toJSON :: DeviceFilterAttribute -&gt; Value
 $ctoJSON :: DeviceFilterAttribute -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679362088"><span id="local-6989586621679362090"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeviceFilterAttribute]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679362097"><span id="local-6989586621679362099"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeviceFilterAttribute]
 ToJSONKeyFunction DeviceFilterAttribute
 ToJSONKeyFunction DeviceFilterAttribute
 -&gt; ToJSONKeyFunction [DeviceFilterAttribute]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeviceFilterAttribute]
 toJSONKey :: ToJSONKeyFunction DeviceFilterAttribute
 $ctoJSONKey :: ToJSONKeyFunction DeviceFilterAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679362085"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeviceFilterAttribute
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679362094"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeviceFilterAttribute
 ([Node] -&gt; Either String DeviceFilterAttribute)
 -&gt; FromXML DeviceFilterAttribute
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeviceFilterAttribute
 $cparseXML :: [Node] -&gt; Either String DeviceFilterAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679362082"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679362091"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; XML
 (DeviceFilterAttribute -&gt; XML) -&gt; ToXML DeviceFilterAttribute
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeviceFilterAttribute -&gt; XML

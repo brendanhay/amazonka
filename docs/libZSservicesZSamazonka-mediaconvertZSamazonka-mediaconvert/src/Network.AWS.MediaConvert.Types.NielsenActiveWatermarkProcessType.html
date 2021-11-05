@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-comment">-- provide a value for the setting CSID (cbetSourceId). When you choose</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- NAES 2, NW, and CBET (NAES2_AND_NW_AND_CBET), you must provide values</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- for both of these settings.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679997159"><span id="local-6989586621679997160"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NielsenActiveWatermarkProcessType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType.html#NielsenActiveWatermarkProcessType"><span class="hs-identifier hs-var">NielsenActiveWatermarkProcessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NielsenActiveWatermarkProcessType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType.html#NielsenActiveWatermarkProcessType%27"><span class="hs-identifier hs-var">NielsenActiveWatermarkProcessType'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679997168"><span id="local-6989586621679997169"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NielsenActiveWatermarkProcessType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType.html#NielsenActiveWatermarkProcessType"><span class="hs-identifier hs-var">NielsenActiveWatermarkProcessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NielsenActiveWatermarkProcessType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType.html#NielsenActiveWatermarkProcessType%27"><span class="hs-identifier hs-var">NielsenActiveWatermarkProcessType'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNielsenActiveWatermarkProcessType"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType.html#fromNielsenActiveWatermarkProcessType"><span class="hs-identifier hs-var hs-var">fromNielsenActiveWatermarkProcessType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679997151"><span id="local-6989586621679997153"><span id="local-6989586621679997155"><span class="annot"><span class="annottext">Int -&gt; NielsenActiveWatermarkProcessType -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679997160"><span id="local-6989586621679997162"><span id="local-6989586621679997164"><span class="annot"><span class="annottext">Int -&gt; NielsenActiveWatermarkProcessType -&gt; ShowS
 [NielsenActiveWatermarkProcessType] -&gt; ShowS
 NielsenActiveWatermarkProcessType -&gt; String
 (Int -&gt; NielsenActiveWatermarkProcessType -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: NielsenActiveWatermarkProcessType -&gt; String
 showsPrec :: Int -&gt; NielsenActiveWatermarkProcessType -&gt; ShowS
 $cshowsPrec :: Int -&gt; NielsenActiveWatermarkProcessType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679997142"><span id="local-6989586621679997144"><span id="local-6989586621679997146"><span id="local-6989586621679997148"><span class="annot"><span class="annottext">ReadPrec [NielsenActiveWatermarkProcessType]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679997151"><span id="local-6989586621679997153"><span id="local-6989586621679997155"><span id="local-6989586621679997157"><span class="annot"><span class="annottext">ReadPrec [NielsenActiveWatermarkProcessType]
 ReadPrec NielsenActiveWatermarkProcessType
 Int -&gt; ReadS NielsenActiveWatermarkProcessType
 ReadS [NielsenActiveWatermarkProcessType]
@@ -79,7 +79,7 @@ $creadList :: ReadS [NielsenActiveWatermarkProcessType]
 readsPrec :: Int -&gt; ReadS NielsenActiveWatermarkProcessType
 $creadsPrec :: Int -&gt; ReadS NielsenActiveWatermarkProcessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679997137"><span id="local-6989586621679997139"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679997146"><span id="local-6989586621679997148"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType
 -&gt; NielsenActiveWatermarkProcessType -&gt; Bool
 (NielsenActiveWatermarkProcessType
  -&gt; NielsenActiveWatermarkProcessType -&gt; Bool)
@@ -96,7 +96,7 @@ $c/= :: NielsenActiveWatermarkProcessType
 $c== :: NielsenActiveWatermarkProcessType
 -&gt; NielsenActiveWatermarkProcessType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679997121"><span id="local-6989586621679997123"><span id="local-6989586621679997125"><span id="local-6989586621679997127"><span id="local-6989586621679997129"><span id="local-6989586621679997131"><span id="local-6989586621679997133"><span class="annot"><span class="annottext">Eq NielsenActiveWatermarkProcessType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679997130"><span id="local-6989586621679997132"><span id="local-6989586621679997134"><span id="local-6989586621679997136"><span id="local-6989586621679997138"><span id="local-6989586621679997140"><span id="local-6989586621679997142"><span class="annot"><span class="annottext">Eq NielsenActiveWatermarkProcessType
 Eq NielsenActiveWatermarkProcessType
 -&gt; (NielsenActiveWatermarkProcessType
     -&gt; NielsenActiveWatermarkProcessType -&gt; Ordering)
@@ -190,7 +190,7 @@ NielsenActiveWatermarkProcessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679997113"><span id="local-6989586621679997115"><span class="annot"><span class="annottext">Int -&gt; NielsenActiveWatermarkProcessType -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679997122"><span id="local-6989586621679997124"><span class="annot"><span class="annottext">Int -&gt; NielsenActiveWatermarkProcessType -&gt; Int
 NielsenActiveWatermarkProcessType -&gt; Int
 (Int -&gt; NielsenActiveWatermarkProcessType -&gt; Int)
 -&gt; (NielsenActiveWatermarkProcessType -&gt; Int)
@@ -201,56 +201,56 @@ $chash :: NielsenActiveWatermarkProcessType -&gt; Int
 hashWithSalt :: Int -&gt; NielsenActiveWatermarkProcessType -&gt; Int
 $chashWithSalt :: Int -&gt; NielsenActiveWatermarkProcessType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679997110"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679997119"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType -&gt; ()
 (NielsenActiveWatermarkProcessType -&gt; ())
 -&gt; NFData NielsenActiveWatermarkProcessType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NielsenActiveWatermarkProcessType -&gt; ()
 $crnf :: NielsenActiveWatermarkProcessType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679997107"><span class="annot"><span class="annottext">Text -&gt; Either String NielsenActiveWatermarkProcessType
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679997116"><span class="annot"><span class="annottext">Text -&gt; Either String NielsenActiveWatermarkProcessType
 (Text -&gt; Either String NielsenActiveWatermarkProcessType)
 -&gt; FromText NielsenActiveWatermarkProcessType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NielsenActiveWatermarkProcessType
 $cfromText :: Text -&gt; Either String NielsenActiveWatermarkProcessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679997104"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679997113"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType -&gt; Text
 (NielsenActiveWatermarkProcessType -&gt; Text)
 -&gt; ToText NielsenActiveWatermarkProcessType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NielsenActiveWatermarkProcessType -&gt; Text
 $ctoText :: NielsenActiveWatermarkProcessType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679997101"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679997110"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType -&gt; ByteString
 (NielsenActiveWatermarkProcessType -&gt; ByteString)
 -&gt; ToByteString NielsenActiveWatermarkProcessType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NielsenActiveWatermarkProcessType -&gt; ByteString
 $ctoBS :: NielsenActiveWatermarkProcessType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679997098"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679997107"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType -&gt; ByteStringBuilder
 (NielsenActiveWatermarkProcessType -&gt; ByteStringBuilder)
 -&gt; ToLog NielsenActiveWatermarkProcessType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NielsenActiveWatermarkProcessType -&gt; ByteStringBuilder
 $cbuild :: NielsenActiveWatermarkProcessType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679997095"><span class="annot"><span class="annottext">HeaderName -&gt; NielsenActiveWatermarkProcessType -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679997104"><span class="annot"><span class="annottext">HeaderName -&gt; NielsenActiveWatermarkProcessType -&gt; [Header]
 (HeaderName -&gt; NielsenActiveWatermarkProcessType -&gt; [Header])
 -&gt; ToHeader NielsenActiveWatermarkProcessType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NielsenActiveWatermarkProcessType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NielsenActiveWatermarkProcessType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679997092"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679997101"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType -&gt; QueryString
 (NielsenActiveWatermarkProcessType -&gt; QueryString)
 -&gt; ToQuery NielsenActiveWatermarkProcessType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NielsenActiveWatermarkProcessType -&gt; QueryString
 $ctoQuery :: NielsenActiveWatermarkProcessType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679997087"><span id="local-6989586621679997089"><span class="annot"><span class="annottext">Value -&gt; Parser [NielsenActiveWatermarkProcessType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679997096"><span id="local-6989586621679997098"><span class="annot"><span class="annottext">Value -&gt; Parser [NielsenActiveWatermarkProcessType]
 Value -&gt; Parser NielsenActiveWatermarkProcessType
 (Value -&gt; Parser NielsenActiveWatermarkProcessType)
 -&gt; (Value -&gt; Parser [NielsenActiveWatermarkProcessType])
@@ -262,7 +262,7 @@ $cparseJSONList :: Value -&gt; Parser [NielsenActiveWatermarkProcessType]
 parseJSON :: Value -&gt; Parser NielsenActiveWatermarkProcessType
 $cparseJSON :: Value -&gt; Parser NielsenActiveWatermarkProcessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679997082"><span id="local-6989586621679997084"><span class="annot"><span class="annottext">FromJSONKeyFunction [NielsenActiveWatermarkProcessType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679997091"><span id="local-6989586621679997093"><span class="annot"><span class="annottext">FromJSONKeyFunction [NielsenActiveWatermarkProcessType]
 FromJSONKeyFunction NielsenActiveWatermarkProcessType
 FromJSONKeyFunction NielsenActiveWatermarkProcessType
 -&gt; FromJSONKeyFunction [NielsenActiveWatermarkProcessType]
@@ -274,7 +274,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NielsenActiveWatermarkProcessType]
 fromJSONKey :: FromJSONKeyFunction NielsenActiveWatermarkProcessType
 $cfromJSONKey :: FromJSONKeyFunction NielsenActiveWatermarkProcessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679997073"><span id="local-6989586621679997075"><span id="local-6989586621679997077"><span id="local-6989586621679997079"><span class="annot"><span class="annottext">[NielsenActiveWatermarkProcessType] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679997082"><span id="local-6989586621679997084"><span id="local-6989586621679997086"><span id="local-6989586621679997088"><span class="annot"><span class="annottext">[NielsenActiveWatermarkProcessType] -&gt; Encoding
 [NielsenActiveWatermarkProcessType] -&gt; Value
 NielsenActiveWatermarkProcessType -&gt; Encoding
 NielsenActiveWatermarkProcessType -&gt; Value
@@ -298,7 +298,7 @@ $ctoEncoding :: NielsenActiveWatermarkProcessType -&gt; Encoding
 toJSON :: NielsenActiveWatermarkProcessType -&gt; Value
 $ctoJSON :: NielsenActiveWatermarkProcessType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679997068"><span id="local-6989586621679997070"><span class="annot"><span class="annottext">ToJSONKeyFunction [NielsenActiveWatermarkProcessType]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679997077"><span id="local-6989586621679997079"><span class="annot"><span class="annottext">ToJSONKeyFunction [NielsenActiveWatermarkProcessType]
 ToJSONKeyFunction NielsenActiveWatermarkProcessType
 ToJSONKeyFunction NielsenActiveWatermarkProcessType
 -&gt; ToJSONKeyFunction [NielsenActiveWatermarkProcessType]
@@ -310,14 +310,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NielsenActiveWatermarkProcessType]
 toJSONKey :: ToJSONKeyFunction NielsenActiveWatermarkProcessType
 $ctoJSONKey :: ToJSONKeyFunction NielsenActiveWatermarkProcessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679997065"><span class="annot"><span class="annottext">[Node] -&gt; Either String NielsenActiveWatermarkProcessType
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679997074"><span class="annot"><span class="annottext">[Node] -&gt; Either String NielsenActiveWatermarkProcessType
 ([Node] -&gt; Either String NielsenActiveWatermarkProcessType)
 -&gt; FromXML NielsenActiveWatermarkProcessType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NielsenActiveWatermarkProcessType
 $cparseXML :: [Node] -&gt; Either String NielsenActiveWatermarkProcessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679997062"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679997071"><span class="annot"><span class="annottext">NielsenActiveWatermarkProcessType -&gt; XML
 (NielsenActiveWatermarkProcessType -&gt; XML)
 -&gt; ToXML NielsenActiveWatermarkProcessType
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.NetworkManager.Types.LinkAssociation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.NetworkManager.Types.LinkAssociation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociationState.html"><span class="hs-identifier">Network.AWS.NetworkManager.Types.LinkAssociationState</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes the association between a device and a link.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLinkAssociation' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679221269"><span id="local-6989586621679221270"></span></span><span class="hs-keyword">data</span><span> </span><span id="LinkAssociation"><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation"><span class="hs-identifier hs-var">LinkAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LinkAssociation%27"><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation%27"><span class="hs-identifier hs-var">LinkAssociation'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the global network.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AglobalNetworkId%3ALinkAssociation%27"><span class="annot"><span class="annottext">LinkAssociation -&gt; Maybe Text
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#%24sel%3AglobalNetworkId%3ALinkAssociation%27"><span class="hs-identifier hs-var hs-var">globalNetworkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ID of the link.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlinkId%3ALinkAssociation%27"><span class="annot"><span class="annottext">LinkAssociation -&gt; Maybe Text
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#%24sel%3AlinkId%3ALinkAssociation%27"><span class="hs-identifier hs-var hs-var">linkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The device ID for the link association.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdeviceId%3ALinkAssociation%27"><span class="annot"><span class="annottext">LinkAssociation -&gt; Maybe Text
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#%24sel%3AdeviceId%3ALinkAssociation%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The state of the association.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlinkAssociationState%3ALinkAssociation%27"><span class="annot"><span class="annottext">LinkAssociation -&gt; Maybe LinkAssociationState
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#%24sel%3AlinkAssociationState%3ALinkAssociation%27"><span class="hs-identifier hs-var hs-var">linkAssociationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociationState.html#LinkAssociationState"><span class="hs-identifier hs-type">LinkAssociationState</span></a></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221260"><span id="local-6989586621679221262"><span class="annot"><span class="annottext">LinkAssociation -&gt; LinkAssociation -&gt; Bool
+(LinkAssociation -&gt; LinkAssociation -&gt; Bool)
+-&gt; (LinkAssociation -&gt; LinkAssociation -&gt; Bool)
+-&gt; Eq LinkAssociation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LinkAssociation -&gt; LinkAssociation -&gt; Bool
+$c/= :: LinkAssociation -&gt; LinkAssociation -&gt; Bool
+== :: LinkAssociation -&gt; LinkAssociation -&gt; Bool
+$c== :: LinkAssociation -&gt; LinkAssociation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221251"><span id="local-6989586621679221253"><span id="local-6989586621679221255"><span id="local-6989586621679221257"><span class="annot"><span class="annottext">ReadPrec [LinkAssociation]
+ReadPrec LinkAssociation
+Int -&gt; ReadS LinkAssociation
+ReadS [LinkAssociation]
+(Int -&gt; ReadS LinkAssociation)
+-&gt; ReadS [LinkAssociation]
+-&gt; ReadPrec LinkAssociation
+-&gt; ReadPrec [LinkAssociation]
+-&gt; Read LinkAssociation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LinkAssociation]
+$creadListPrec :: ReadPrec [LinkAssociation]
+readPrec :: ReadPrec LinkAssociation
+$creadPrec :: ReadPrec LinkAssociation
+readList :: ReadS [LinkAssociation]
+$creadList :: ReadS [LinkAssociation]
+readsPrec :: Int -&gt; ReadS LinkAssociation
+$creadsPrec :: Int -&gt; ReadS LinkAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221244"><span id="local-6989586621679221246"><span id="local-6989586621679221248"><span class="annot"><span class="annottext">Int -&gt; LinkAssociation -&gt; ShowS
+[LinkAssociation] -&gt; ShowS
+LinkAssociation -&gt; String
+(Int -&gt; LinkAssociation -&gt; ShowS)
+-&gt; (LinkAssociation -&gt; String)
+-&gt; ([LinkAssociation] -&gt; ShowS)
+-&gt; Show LinkAssociation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LinkAssociation] -&gt; ShowS
+$cshowList :: [LinkAssociation] -&gt; ShowS
+show :: LinkAssociation -&gt; String
+$cshow :: LinkAssociation -&gt; String
+showsPrec :: Int -&gt; LinkAssociation -&gt; ShowS
+$cshowsPrec :: Int -&gt; LinkAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LinkAssociation -&gt; Rep LinkAssociation x)
+-&gt; (forall x. Rep LinkAssociation x -&gt; LinkAssociation)
+-&gt; Generic LinkAssociation
+forall x. Rep LinkAssociation x -&gt; LinkAssociation
+forall x. LinkAssociation -&gt; Rep LinkAssociation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LinkAssociation x -&gt; LinkAssociation
+$cfrom :: forall x. LinkAssociation -&gt; Rep LinkAssociation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'LinkAssociation' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'globalNetworkId', 'linkAssociation_globalNetworkId' - The ID of the global network.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'linkId', 'linkAssociation_linkId' - The ID of the link.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'deviceId', 'linkAssociation_deviceId' - The device ID for the link association.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'linkAssociationState', 'linkAssociation_linkAssociationState' - The state of the association.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#newLinkAssociation"><span class="hs-identifier hs-type">newLinkAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation"><span class="hs-identifier hs-type">LinkAssociation</span></a></span><span>
+</span><span id="line-59"></span><span id="newLinkAssociation"><span class="annot"><span class="annottext">newLinkAssociation :: LinkAssociation
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#newLinkAssociation"><span class="hs-identifier hs-var hs-var">newLinkAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">LinkAssociation' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe LinkAssociationState
+-&gt; LinkAssociation
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation%27"><span class="hs-identifier hs-type">LinkAssociation'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalNetworkId:LinkAssociation' :: Maybe Text
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#%24sel%3AglobalNetworkId%3ALinkAssociation%27"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:linkId:LinkAssociation' :: Maybe Text
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#%24sel%3AlinkId%3ALinkAssociation%27"><span class="hs-identifier hs-var">linkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceId:LinkAssociation' :: Maybe Text
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#%24sel%3AdeviceId%3ALinkAssociation%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:linkAssociationState:LinkAssociation' :: Maybe LinkAssociationState
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#%24sel%3AlinkAssociationState%3ALinkAssociation%27"><span class="hs-identifier hs-var">linkAssociationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LinkAssociationState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The ID of the global network.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#linkAssociation_globalNetworkId"><span class="hs-identifier hs-type">linkAssociation_globalNetworkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation"><span class="hs-identifier hs-type">LinkAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="linkAssociation_globalNetworkId"><span class="annot"><span class="annottext">linkAssociation_globalNetworkId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LinkAssociation -&gt; f LinkAssociation
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#linkAssociation_globalNetworkId"><span class="hs-identifier hs-var hs-var">linkAssociation_globalNetworkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinkAssociation -&gt; Maybe Text)
+-&gt; (LinkAssociation -&gt; Maybe Text -&gt; LinkAssociation)
+-&gt; Lens LinkAssociation LinkAssociation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation%27"><span class="hs-identifier hs-type">LinkAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221235"><span class="annot"><span class="annottext">Maybe Text
+globalNetworkId :: Maybe Text
+$sel:globalNetworkId:LinkAssociation' :: LinkAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679221235"><span class="hs-identifier hs-var hs-var">globalNetworkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221235"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221234"><span class="annot"><span class="annottext">s :: LinkAssociation
+</span><a href="#local-6989586621679221234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation%27"><span class="hs-identifier hs-type">LinkAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221233"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinkAssociation
+</span><a href="#local-6989586621679221234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalNetworkId:LinkAssociation' :: Maybe Text
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#%24sel%3AglobalNetworkId%3ALinkAssociation%27"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation"><span class="hs-identifier hs-type">LinkAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The ID of the link.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#linkAssociation_linkId"><span class="hs-identifier hs-type">linkAssociation_linkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation"><span class="hs-identifier hs-type">LinkAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="linkAssociation_linkId"><span class="annot"><span class="annottext">linkAssociation_linkId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LinkAssociation -&gt; f LinkAssociation
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#linkAssociation_linkId"><span class="hs-identifier hs-var hs-var">linkAssociation_linkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinkAssociation -&gt; Maybe Text)
+-&gt; (LinkAssociation -&gt; Maybe Text -&gt; LinkAssociation)
+-&gt; Lens LinkAssociation LinkAssociation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation%27"><span class="hs-identifier hs-type">LinkAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221231"><span class="annot"><span class="annottext">Maybe Text
+linkId :: Maybe Text
+$sel:linkId:LinkAssociation' :: LinkAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679221231"><span class="hs-identifier hs-var hs-var">linkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221231"><span class="hs-identifier hs-var">linkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221230"><span class="annot"><span class="annottext">s :: LinkAssociation
+</span><a href="#local-6989586621679221230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation%27"><span class="hs-identifier hs-type">LinkAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221229"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinkAssociation
+</span><a href="#local-6989586621679221230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkId:LinkAssociation' :: Maybe Text
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#%24sel%3AlinkId%3ALinkAssociation%27"><span class="hs-identifier hs-var">linkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation"><span class="hs-identifier hs-type">LinkAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The device ID for the link association.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#linkAssociation_deviceId"><span class="hs-identifier hs-type">linkAssociation_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation"><span class="hs-identifier hs-type">LinkAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="linkAssociation_deviceId"><span class="annot"><span class="annottext">linkAssociation_deviceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LinkAssociation -&gt; f LinkAssociation
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#linkAssociation_deviceId"><span class="hs-identifier hs-var hs-var">linkAssociation_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinkAssociation -&gt; Maybe Text)
+-&gt; (LinkAssociation -&gt; Maybe Text -&gt; LinkAssociation)
+-&gt; Lens LinkAssociation LinkAssociation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation%27"><span class="hs-identifier hs-type">LinkAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221227"><span class="annot"><span class="annottext">Maybe Text
+deviceId :: Maybe Text
+$sel:deviceId:LinkAssociation' :: LinkAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679221227"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221227"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221226"><span class="annot"><span class="annottext">s :: LinkAssociation
+</span><a href="#local-6989586621679221226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation%27"><span class="hs-identifier hs-type">LinkAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221225"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinkAssociation
+</span><a href="#local-6989586621679221226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:LinkAssociation' :: Maybe Text
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#%24sel%3AdeviceId%3ALinkAssociation%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation"><span class="hs-identifier hs-type">LinkAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The state of the association.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#linkAssociation_linkAssociationState"><span class="hs-identifier hs-type">linkAssociation_linkAssociationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation"><span class="hs-identifier hs-type">LinkAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociationState.html#LinkAssociationState"><span class="hs-identifier hs-type">LinkAssociationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="linkAssociation_linkAssociationState"><span class="annot"><span class="annottext">linkAssociation_linkAssociationState :: (Maybe LinkAssociationState -&gt; f (Maybe LinkAssociationState))
+-&gt; LinkAssociation -&gt; f LinkAssociation
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#linkAssociation_linkAssociationState"><span class="hs-identifier hs-var hs-var">linkAssociation_linkAssociationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinkAssociation -&gt; Maybe LinkAssociationState)
+-&gt; (LinkAssociation
+    -&gt; Maybe LinkAssociationState -&gt; LinkAssociation)
+-&gt; Lens
+     LinkAssociation
+     LinkAssociation
+     (Maybe LinkAssociationState)
+     (Maybe LinkAssociationState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation%27"><span class="hs-identifier hs-type">LinkAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221223"><span class="annot"><span class="annottext">Maybe LinkAssociationState
+linkAssociationState :: Maybe LinkAssociationState
+$sel:linkAssociationState:LinkAssociation' :: LinkAssociation -&gt; Maybe LinkAssociationState
+</span><a href="#local-6989586621679221223"><span class="hs-identifier hs-var hs-var">linkAssociationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LinkAssociationState
+</span><a href="#local-6989586621679221223"><span class="hs-identifier hs-var">linkAssociationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221222"><span class="annot"><span class="annottext">s :: LinkAssociation
+</span><a href="#local-6989586621679221222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation%27"><span class="hs-identifier hs-type">LinkAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221221"><span class="annot"><span class="annottext">Maybe LinkAssociationState
+</span><a href="#local-6989586621679221221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinkAssociation
+</span><a href="#local-6989586621679221222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkAssociationState:LinkAssociation' :: Maybe LinkAssociationState
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#%24sel%3AlinkAssociationState%3ALinkAssociation%27"><span class="hs-identifier hs-var">linkAssociationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LinkAssociationState
+</span><a href="#local-6989586621679221221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation"><span class="hs-identifier hs-type">LinkAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221218"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation"><span class="hs-identifier hs-type">LinkAssociation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679221216"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LinkAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LinkAssociation)
+-&gt; Value
+-&gt; Parser LinkAssociation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LinkAssociation&quot;</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221213"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221213"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe LinkAssociationState
+-&gt; LinkAssociation
+</span><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation%27"><span class="hs-identifier hs-var">LinkAssociation'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe LinkAssociationState
+ -&gt; LinkAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe LinkAssociationState -&gt; LinkAssociation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalNetworkId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe LinkAssociationState -&gt; LinkAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe LinkAssociationState -&gt; LinkAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LinkId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe LinkAssociationState -&gt; LinkAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe LinkAssociationState -&gt; LinkAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe LinkAssociationState -&gt; LinkAssociation)
+-&gt; Parser (Maybe LinkAssociationState) -&gt; Parser LinkAssociation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LinkAssociationState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LinkAssociationState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221207"><span id="local-6989586621679221209"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation"><span class="hs-identifier hs-type">LinkAssociation</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221204"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.LinkAssociation.html#LinkAssociation"><span class="hs-identifier hs-type">LinkAssociation</span></a></span></span><span>
+</span><span id="line-98"></span></pre></body></html>

@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679402458"><span id="local-6989586621679402459"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NodeUpdateStatus"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeUpdateStatus.html#NodeUpdateStatus"><span class="hs-identifier hs-var">NodeUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeUpdateStatus%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeUpdateStatus.html#NodeUpdateStatus%27"><span class="hs-identifier hs-var">NodeUpdateStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679402467"><span id="local-6989586621679402468"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NodeUpdateStatus"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeUpdateStatus.html#NodeUpdateStatus"><span class="hs-identifier hs-var">NodeUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeUpdateStatus%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeUpdateStatus.html#NodeUpdateStatus%27"><span class="hs-identifier hs-var">NodeUpdateStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNodeUpdateStatus"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; Text
 </span><a href="Network.AWS.ElastiCache.Types.NodeUpdateStatus.html#fromNodeUpdateStatus"><span class="hs-identifier hs-var hs-var">fromNodeUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402450"><span id="local-6989586621679402452"><span id="local-6989586621679402454"><span class="annot"><span class="annottext">Int -&gt; NodeUpdateStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402459"><span id="local-6989586621679402461"><span id="local-6989586621679402463"><span class="annot"><span class="annottext">Int -&gt; NodeUpdateStatus -&gt; ShowS
 [NodeUpdateStatus] -&gt; ShowS
 NodeUpdateStatus -&gt; String
 (Int -&gt; NodeUpdateStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: NodeUpdateStatus -&gt; String
 showsPrec :: Int -&gt; NodeUpdateStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; NodeUpdateStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679402441"><span id="local-6989586621679402443"><span id="local-6989586621679402445"><span id="local-6989586621679402447"><span class="annot"><span class="annottext">ReadPrec [NodeUpdateStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679402450"><span id="local-6989586621679402452"><span id="local-6989586621679402454"><span id="local-6989586621679402456"><span class="annot"><span class="annottext">ReadPrec [NodeUpdateStatus]
 ReadPrec NodeUpdateStatus
 Int -&gt; ReadS NodeUpdateStatus
 ReadS [NodeUpdateStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [NodeUpdateStatus]
 readsPrec :: Int -&gt; ReadS NodeUpdateStatus
 $creadsPrec :: Int -&gt; ReadS NodeUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679402436"><span id="local-6989586621679402438"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; NodeUpdateStatus -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679402445"><span id="local-6989586621679402447"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; NodeUpdateStatus -&gt; Bool
 (NodeUpdateStatus -&gt; NodeUpdateStatus -&gt; Bool)
 -&gt; (NodeUpdateStatus -&gt; NodeUpdateStatus -&gt; Bool)
 -&gt; Eq NodeUpdateStatus
@@ -86,7 +86,7 @@ $c/= :: NodeUpdateStatus -&gt; NodeUpdateStatus -&gt; Bool
 == :: NodeUpdateStatus -&gt; NodeUpdateStatus -&gt; Bool
 $c== :: NodeUpdateStatus -&gt; NodeUpdateStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679402420"><span id="local-6989586621679402422"><span id="local-6989586621679402424"><span id="local-6989586621679402426"><span id="local-6989586621679402428"><span id="local-6989586621679402430"><span id="local-6989586621679402432"><span class="annot"><span class="annottext">Eq NodeUpdateStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679402429"><span id="local-6989586621679402431"><span id="local-6989586621679402433"><span id="local-6989586621679402435"><span id="local-6989586621679402437"><span id="local-6989586621679402439"><span id="local-6989586621679402441"><span class="annot"><span class="annottext">Eq NodeUpdateStatus
 Eq NodeUpdateStatus
 -&gt; (NodeUpdateStatus -&gt; NodeUpdateStatus -&gt; Ordering)
 -&gt; (NodeUpdateStatus -&gt; NodeUpdateStatus -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. NodeUpdateStatus -&gt; Rep NodeUpdateStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402412"><span id="local-6989586621679402414"><span class="annot"><span class="annottext">Int -&gt; NodeUpdateStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402421"><span id="local-6989586621679402423"><span class="annot"><span class="annottext">Int -&gt; NodeUpdateStatus -&gt; Int
 NodeUpdateStatus -&gt; Int
 (Int -&gt; NodeUpdateStatus -&gt; Int)
 -&gt; (NodeUpdateStatus -&gt; Int) -&gt; Hashable NodeUpdateStatus
@@ -147,51 +147,51 @@ $chash :: NodeUpdateStatus -&gt; Int
 hashWithSalt :: Int -&gt; NodeUpdateStatus -&gt; Int
 $chashWithSalt :: Int -&gt; NodeUpdateStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679402409"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679402418"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; ()
 (NodeUpdateStatus -&gt; ()) -&gt; NFData NodeUpdateStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NodeUpdateStatus -&gt; ()
 $crnf :: NodeUpdateStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679402406"><span class="annot"><span class="annottext">Text -&gt; Either String NodeUpdateStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679402415"><span class="annot"><span class="annottext">Text -&gt; Either String NodeUpdateStatus
 (Text -&gt; Either String NodeUpdateStatus)
 -&gt; FromText NodeUpdateStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NodeUpdateStatus
 $cfromText :: Text -&gt; Either String NodeUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679402403"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679402412"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; Text
 (NodeUpdateStatus -&gt; Text) -&gt; ToText NodeUpdateStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NodeUpdateStatus -&gt; Text
 $ctoText :: NodeUpdateStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679402400"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679402409"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; ByteString
 (NodeUpdateStatus -&gt; ByteString) -&gt; ToByteString NodeUpdateStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NodeUpdateStatus -&gt; ByteString
 $ctoBS :: NodeUpdateStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679402397"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679402406"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; ByteStringBuilder
 (NodeUpdateStatus -&gt; ByteStringBuilder) -&gt; ToLog NodeUpdateStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NodeUpdateStatus -&gt; ByteStringBuilder
 $cbuild :: NodeUpdateStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679402394"><span class="annot"><span class="annottext">HeaderName -&gt; NodeUpdateStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679402403"><span class="annot"><span class="annottext">HeaderName -&gt; NodeUpdateStatus -&gt; [Header]
 (HeaderName -&gt; NodeUpdateStatus -&gt; [Header])
 -&gt; ToHeader NodeUpdateStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NodeUpdateStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NodeUpdateStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679402391"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679402400"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; QueryString
 (NodeUpdateStatus -&gt; QueryString) -&gt; ToQuery NodeUpdateStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NodeUpdateStatus -&gt; QueryString
 $ctoQuery :: NodeUpdateStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679402386"><span id="local-6989586621679402388"><span class="annot"><span class="annottext">Value -&gt; Parser [NodeUpdateStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679402395"><span id="local-6989586621679402397"><span class="annot"><span class="annottext">Value -&gt; Parser [NodeUpdateStatus]
 Value -&gt; Parser NodeUpdateStatus
 (Value -&gt; Parser NodeUpdateStatus)
 -&gt; (Value -&gt; Parser [NodeUpdateStatus])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [NodeUpdateStatus]
 parseJSON :: Value -&gt; Parser NodeUpdateStatus
 $cparseJSON :: Value -&gt; Parser NodeUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679402381"><span id="local-6989586621679402383"><span class="annot"><span class="annottext">FromJSONKeyFunction [NodeUpdateStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679402390"><span id="local-6989586621679402392"><span class="annot"><span class="annottext">FromJSONKeyFunction [NodeUpdateStatus]
 FromJSONKeyFunction NodeUpdateStatus
 FromJSONKeyFunction NodeUpdateStatus
 -&gt; FromJSONKeyFunction [NodeUpdateStatus]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NodeUpdateStatus]
 fromJSONKey :: FromJSONKeyFunction NodeUpdateStatus
 $cfromJSONKey :: FromJSONKeyFunction NodeUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679402372"><span id="local-6989586621679402374"><span id="local-6989586621679402376"><span id="local-6989586621679402378"><span class="annot"><span class="annottext">[NodeUpdateStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679402381"><span id="local-6989586621679402383"><span id="local-6989586621679402385"><span id="local-6989586621679402387"><span class="annot"><span class="annottext">[NodeUpdateStatus] -&gt; Encoding
 [NodeUpdateStatus] -&gt; Value
 NodeUpdateStatus -&gt; Encoding
 NodeUpdateStatus -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: NodeUpdateStatus -&gt; Encoding
 toJSON :: NodeUpdateStatus -&gt; Value
 $ctoJSON :: NodeUpdateStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679402367"><span id="local-6989586621679402369"><span class="annot"><span class="annottext">ToJSONKeyFunction [NodeUpdateStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679402376"><span id="local-6989586621679402378"><span class="annot"><span class="annottext">ToJSONKeyFunction [NodeUpdateStatus]
 ToJSONKeyFunction NodeUpdateStatus
 ToJSONKeyFunction NodeUpdateStatus
 -&gt; ToJSONKeyFunction [NodeUpdateStatus]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NodeUpdateStatus]
 toJSONKey :: ToJSONKeyFunction NodeUpdateStatus
 $ctoJSONKey :: ToJSONKeyFunction NodeUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679402364"><span class="annot"><span class="annottext">[Node] -&gt; Either String NodeUpdateStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679402373"><span class="annot"><span class="annottext">[Node] -&gt; Either String NodeUpdateStatus
 ([Node] -&gt; Either String NodeUpdateStatus)
 -&gt; FromXML NodeUpdateStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NodeUpdateStatus
 $cparseXML :: [Node] -&gt; Either String NodeUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679402361"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679402370"><span class="annot"><span class="annottext">NodeUpdateStatus -&gt; XML
 (NodeUpdateStatus -&gt; XML) -&gt; ToXML NodeUpdateStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NodeUpdateStatus -&gt; XML

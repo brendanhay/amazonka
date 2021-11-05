@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CodeContentType.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.CodeContentType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CodeContentUpdate.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.CodeContentUpdate</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes code configuration updates for an application. This is</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- supported for a Flink-based Kinesis Data Analytics application or a</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- SQL-based Kinesis Data Analytics application.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newApplicationCodeConfigurationUpdate' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679296183"><span id="local-6989586621679296184"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationCodeConfigurationUpdate"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate"><span class="hs-identifier hs-var">ApplicationCodeConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationCodeConfigurationUpdate%27"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate%27"><span class="hs-identifier hs-var">ApplicationCodeConfigurationUpdate'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes updates to the code content type.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcodeContentTypeUpdate%3AApplicationCodeConfigurationUpdate%27"><span class="annot"><span class="annottext">ApplicationCodeConfigurationUpdate -&gt; Maybe CodeContentType
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#%24sel%3AcodeContentTypeUpdate%3AApplicationCodeConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">codeContentTypeUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CodeContentType.html#CodeContentType"><span class="hs-identifier hs-type">CodeContentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Describes updates to the code content of an application.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcodeContentUpdate%3AApplicationCodeConfigurationUpdate%27"><span class="annot"><span class="annottext">ApplicationCodeConfigurationUpdate -&gt; Maybe CodeContentUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#%24sel%3AcodeContentUpdate%3AApplicationCodeConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">codeContentUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CodeContentUpdate.html#CodeContentUpdate"><span class="hs-identifier hs-type">CodeContentUpdate</span></a></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296176"><span id="local-6989586621679296178"><span class="annot"><span class="annottext">ApplicationCodeConfigurationUpdate
+-&gt; ApplicationCodeConfigurationUpdate -&gt; Bool
+(ApplicationCodeConfigurationUpdate
+ -&gt; ApplicationCodeConfigurationUpdate -&gt; Bool)
+-&gt; (ApplicationCodeConfigurationUpdate
+    -&gt; ApplicationCodeConfigurationUpdate -&gt; Bool)
+-&gt; Eq ApplicationCodeConfigurationUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplicationCodeConfigurationUpdate
+-&gt; ApplicationCodeConfigurationUpdate -&gt; Bool
+$c/= :: ApplicationCodeConfigurationUpdate
+-&gt; ApplicationCodeConfigurationUpdate -&gt; Bool
+== :: ApplicationCodeConfigurationUpdate
+-&gt; ApplicationCodeConfigurationUpdate -&gt; Bool
+$c== :: ApplicationCodeConfigurationUpdate
+-&gt; ApplicationCodeConfigurationUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296167"><span id="local-6989586621679296169"><span id="local-6989586621679296171"><span id="local-6989586621679296173"><span class="annot"><span class="annottext">ReadPrec [ApplicationCodeConfigurationUpdate]
+ReadPrec ApplicationCodeConfigurationUpdate
+Int -&gt; ReadS ApplicationCodeConfigurationUpdate
+ReadS [ApplicationCodeConfigurationUpdate]
+(Int -&gt; ReadS ApplicationCodeConfigurationUpdate)
+-&gt; ReadS [ApplicationCodeConfigurationUpdate]
+-&gt; ReadPrec ApplicationCodeConfigurationUpdate
+-&gt; ReadPrec [ApplicationCodeConfigurationUpdate]
+-&gt; Read ApplicationCodeConfigurationUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplicationCodeConfigurationUpdate]
+$creadListPrec :: ReadPrec [ApplicationCodeConfigurationUpdate]
+readPrec :: ReadPrec ApplicationCodeConfigurationUpdate
+$creadPrec :: ReadPrec ApplicationCodeConfigurationUpdate
+readList :: ReadS [ApplicationCodeConfigurationUpdate]
+$creadList :: ReadS [ApplicationCodeConfigurationUpdate]
+readsPrec :: Int -&gt; ReadS ApplicationCodeConfigurationUpdate
+$creadsPrec :: Int -&gt; ReadS ApplicationCodeConfigurationUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296160"><span id="local-6989586621679296162"><span id="local-6989586621679296164"><span class="annot"><span class="annottext">Int -&gt; ApplicationCodeConfigurationUpdate -&gt; ShowS
+[ApplicationCodeConfigurationUpdate] -&gt; ShowS
+ApplicationCodeConfigurationUpdate -&gt; String
+(Int -&gt; ApplicationCodeConfigurationUpdate -&gt; ShowS)
+-&gt; (ApplicationCodeConfigurationUpdate -&gt; String)
+-&gt; ([ApplicationCodeConfigurationUpdate] -&gt; ShowS)
+-&gt; Show ApplicationCodeConfigurationUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplicationCodeConfigurationUpdate] -&gt; ShowS
+$cshowList :: [ApplicationCodeConfigurationUpdate] -&gt; ShowS
+show :: ApplicationCodeConfigurationUpdate -&gt; String
+$cshow :: ApplicationCodeConfigurationUpdate -&gt; String
+showsPrec :: Int -&gt; ApplicationCodeConfigurationUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplicationCodeConfigurationUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ApplicationCodeConfigurationUpdate
+ -&gt; Rep ApplicationCodeConfigurationUpdate x)
+-&gt; (forall x.
+    Rep ApplicationCodeConfigurationUpdate x
+    -&gt; ApplicationCodeConfigurationUpdate)
+-&gt; Generic ApplicationCodeConfigurationUpdate
+forall x.
+Rep ApplicationCodeConfigurationUpdate x
+-&gt; ApplicationCodeConfigurationUpdate
+forall x.
+ApplicationCodeConfigurationUpdate
+-&gt; Rep ApplicationCodeConfigurationUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ApplicationCodeConfigurationUpdate x
+-&gt; ApplicationCodeConfigurationUpdate
+$cfrom :: forall x.
+ApplicationCodeConfigurationUpdate
+-&gt; Rep ApplicationCodeConfigurationUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'ApplicationCodeConfigurationUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'codeContentTypeUpdate', 'applicationCodeConfigurationUpdate_codeContentTypeUpdate' - Describes updates to the code content type.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'codeContentUpdate', 'applicationCodeConfigurationUpdate_codeContentUpdate' - Describes updates to the code content of an application.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#newApplicationCodeConfigurationUpdate"><span class="hs-identifier hs-type">newApplicationCodeConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate</span></a></span><span>
+</span><span id="line-54"></span><span id="newApplicationCodeConfigurationUpdate"><span class="annot"><span class="annottext">newApplicationCodeConfigurationUpdate :: ApplicationCodeConfigurationUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#newApplicationCodeConfigurationUpdate"><span class="hs-identifier hs-var hs-var">newApplicationCodeConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ApplicationCodeConfigurationUpdate' :: Maybe CodeContentType
+-&gt; Maybe CodeContentUpdate -&gt; ApplicationCodeConfigurationUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:codeContentTypeUpdate:ApplicationCodeConfigurationUpdate' :: Maybe CodeContentType
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#%24sel%3AcodeContentTypeUpdate%3AApplicationCodeConfigurationUpdate%27"><span class="hs-identifier hs-var">codeContentTypeUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe CodeContentType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:codeContentUpdate:ApplicationCodeConfigurationUpdate' :: Maybe CodeContentUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#%24sel%3AcodeContentUpdate%3AApplicationCodeConfigurationUpdate%27"><span class="hs-identifier hs-var">codeContentUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeContentUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Describes updates to the code content type.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#applicationCodeConfigurationUpdate_codeContentTypeUpdate"><span class="hs-identifier hs-type">applicationCodeConfigurationUpdate_codeContentTypeUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CodeContentType.html#CodeContentType"><span class="hs-identifier hs-type">CodeContentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="applicationCodeConfigurationUpdate_codeContentTypeUpdate"><span class="annot"><span class="annottext">applicationCodeConfigurationUpdate_codeContentTypeUpdate :: (Maybe CodeContentType -&gt; f (Maybe CodeContentType))
+-&gt; ApplicationCodeConfigurationUpdate
+-&gt; f ApplicationCodeConfigurationUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#applicationCodeConfigurationUpdate_codeContentTypeUpdate"><span class="hs-identifier hs-var hs-var">applicationCodeConfigurationUpdate_codeContentTypeUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationCodeConfigurationUpdate -&gt; Maybe CodeContentType)
+-&gt; (ApplicationCodeConfigurationUpdate
+    -&gt; Maybe CodeContentType -&gt; ApplicationCodeConfigurationUpdate)
+-&gt; Lens
+     ApplicationCodeConfigurationUpdate
+     ApplicationCodeConfigurationUpdate
+     (Maybe CodeContentType)
+     (Maybe CodeContentType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296151"><span class="annot"><span class="annottext">Maybe CodeContentType
+codeContentTypeUpdate :: Maybe CodeContentType
+$sel:codeContentTypeUpdate:ApplicationCodeConfigurationUpdate' :: ApplicationCodeConfigurationUpdate -&gt; Maybe CodeContentType
+</span><a href="#local-6989586621679296151"><span class="hs-identifier hs-var hs-var">codeContentTypeUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeContentType
+</span><a href="#local-6989586621679296151"><span class="hs-identifier hs-var">codeContentTypeUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296150"><span class="annot"><span class="annottext">s :: ApplicationCodeConfigurationUpdate
+</span><a href="#local-6989586621679296150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296149"><span class="annot"><span class="annottext">Maybe CodeContentType
+</span><a href="#local-6989586621679296149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationCodeConfigurationUpdate
+</span><a href="#local-6989586621679296150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeContentTypeUpdate:ApplicationCodeConfigurationUpdate' :: Maybe CodeContentType
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#%24sel%3AcodeContentTypeUpdate%3AApplicationCodeConfigurationUpdate%27"><span class="hs-identifier hs-var">codeContentTypeUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeContentType
+</span><a href="#local-6989586621679296149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | Describes updates to the code content of an application.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#applicationCodeConfigurationUpdate_codeContentUpdate"><span class="hs-identifier hs-type">applicationCodeConfigurationUpdate_codeContentUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CodeContentUpdate.html#CodeContentUpdate"><span class="hs-identifier hs-type">CodeContentUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="applicationCodeConfigurationUpdate_codeContentUpdate"><span class="annot"><span class="annottext">applicationCodeConfigurationUpdate_codeContentUpdate :: (Maybe CodeContentUpdate -&gt; f (Maybe CodeContentUpdate))
+-&gt; ApplicationCodeConfigurationUpdate
+-&gt; f ApplicationCodeConfigurationUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#applicationCodeConfigurationUpdate_codeContentUpdate"><span class="hs-identifier hs-var hs-var">applicationCodeConfigurationUpdate_codeContentUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationCodeConfigurationUpdate -&gt; Maybe CodeContentUpdate)
+-&gt; (ApplicationCodeConfigurationUpdate
+    -&gt; Maybe CodeContentUpdate -&gt; ApplicationCodeConfigurationUpdate)
+-&gt; Lens
+     ApplicationCodeConfigurationUpdate
+     ApplicationCodeConfigurationUpdate
+     (Maybe CodeContentUpdate)
+     (Maybe CodeContentUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296147"><span class="annot"><span class="annottext">Maybe CodeContentUpdate
+codeContentUpdate :: Maybe CodeContentUpdate
+$sel:codeContentUpdate:ApplicationCodeConfigurationUpdate' :: ApplicationCodeConfigurationUpdate -&gt; Maybe CodeContentUpdate
+</span><a href="#local-6989586621679296147"><span class="hs-identifier hs-var hs-var">codeContentUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeContentUpdate
+</span><a href="#local-6989586621679296147"><span class="hs-identifier hs-var">codeContentUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296146"><span class="annot"><span class="annottext">s :: ApplicationCodeConfigurationUpdate
+</span><a href="#local-6989586621679296146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296145"><span class="annot"><span class="annottext">Maybe CodeContentUpdate
+</span><a href="#local-6989586621679296145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationCodeConfigurationUpdate
+</span><a href="#local-6989586621679296146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeContentUpdate:ApplicationCodeConfigurationUpdate' :: Maybe CodeContentUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#%24sel%3AcodeContentUpdate%3AApplicationCodeConfigurationUpdate%27"><span class="hs-identifier hs-var">codeContentUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeContentUpdate
+</span><a href="#local-6989586621679296145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679296141"><span id="local-6989586621679296143"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate</span></a></span></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679296138"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate</span></a></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679296130"><span id="local-6989586621679296132"><span id="local-6989586621679296134"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate</span></a></span></span></span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679296128"><span class="annot"><span class="annottext">toJSON :: ApplicationCodeConfigurationUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296125"><span id="local-6989586621679296126"><span class="annot"><span class="annottext">Maybe CodeContentType
+Maybe CodeContentUpdate
+codeContentUpdate :: Maybe CodeContentUpdate
+codeContentTypeUpdate :: Maybe CodeContentType
+$sel:codeContentUpdate:ApplicationCodeConfigurationUpdate' :: ApplicationCodeConfigurationUpdate -&gt; Maybe CodeContentUpdate
+$sel:codeContentTypeUpdate:ApplicationCodeConfigurationUpdate' :: ApplicationCodeConfigurationUpdate -&gt; Maybe CodeContentType
+</span><a href="#local-6989586621679296125"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-84"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CodeContentTypeUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CodeContentType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>              </span><span class="annot"><span class="annottext">(CodeContentType -&gt; Pair) -&gt; Maybe CodeContentType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CodeContentType
+</span><a href="#local-6989586621679296126"><span class="hs-identifier hs-var">codeContentTypeUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CodeContentUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CodeContentUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>              </span><span class="annot"><span class="annottext">(CodeContentUpdate -&gt; Pair)
+-&gt; Maybe CodeContentUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CodeContentUpdate
+</span><a href="#local-6989586621679296125"><span class="hs-identifier hs-var">codeContentUpdate</span></a></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span></pre></body></html>

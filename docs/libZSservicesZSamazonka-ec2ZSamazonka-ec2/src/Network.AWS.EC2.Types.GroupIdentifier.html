@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a security group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGroupIdentifier' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681110974"><span id="local-6989586621681110975"></span></span><span class="hs-keyword">data</span><span> </span><span id="GroupIdentifier"><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier"><span class="hs-identifier hs-var">GroupIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupIdentifier%27"><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier%27"><span class="hs-identifier hs-var">GroupIdentifier'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681110983"><span id="local-6989586621681110984"></span></span><span class="hs-keyword">data</span><span> </span><span id="GroupIdentifier"><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier"><span class="hs-identifier hs-var">GroupIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupIdentifier%27"><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier%27"><span class="hs-identifier hs-var">GroupIdentifier'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the security group.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AgroupId%3AGroupIdentifier%27"><span class="annot"><span class="annottext">GroupIdentifier -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.GroupIdentifier.html#%24sel%3AgroupId%3AGroupIdentifier%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AgroupName%3AGroupIdentifier%27"><span class="annot"><span class="annottext">GroupIdentifier -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.GroupIdentifier.html#%24sel%3AgroupName%3AGroupIdentifier%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681110967"><span id="local-6989586621681110969"><span class="annot"><span class="annottext">GroupIdentifier -&gt; GroupIdentifier -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681110976"><span id="local-6989586621681110978"><span class="annot"><span class="annottext">GroupIdentifier -&gt; GroupIdentifier -&gt; Bool
 (GroupIdentifier -&gt; GroupIdentifier -&gt; Bool)
 -&gt; (GroupIdentifier -&gt; GroupIdentifier -&gt; Bool)
 -&gt; Eq GroupIdentifier
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GroupIdentifier -&gt; GroupIdentifier -&gt; Bool
 == :: GroupIdentifier -&gt; GroupIdentifier -&gt; Bool
 $c== :: GroupIdentifier -&gt; GroupIdentifier -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681110958"><span id="local-6989586621681110960"><span id="local-6989586621681110962"><span id="local-6989586621681110964"><span class="annot"><span class="annottext">ReadPrec [GroupIdentifier]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681110967"><span id="local-6989586621681110969"><span id="local-6989586621681110971"><span id="local-6989586621681110973"><span class="annot"><span class="annottext">ReadPrec [GroupIdentifier]
 ReadPrec GroupIdentifier
 Int -&gt; ReadS GroupIdentifier
 ReadS [GroupIdentifier]
@@ -64,7 +64,7 @@ readList :: ReadS [GroupIdentifier]
 $creadList :: ReadS [GroupIdentifier]
 readsPrec :: Int -&gt; ReadS GroupIdentifier
 $creadsPrec :: Int -&gt; ReadS GroupIdentifier
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681110951"><span id="local-6989586621681110953"><span id="local-6989586621681110955"><span class="annot"><span class="annottext">Int -&gt; GroupIdentifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681110960"><span id="local-6989586621681110962"><span id="local-6989586621681110964"><span class="annot"><span class="annottext">Int -&gt; GroupIdentifier -&gt; ShowS
 [GroupIdentifier] -&gt; ShowS
 GroupIdentifier -&gt; String
 (Int -&gt; GroupIdentifier -&gt; ShowS)
@@ -125,16 +125,16 @@ forall a. Maybe a
 -&gt; (GroupIdentifier -&gt; Maybe Text -&gt; GroupIdentifier)
 -&gt; Lens GroupIdentifier GroupIdentifier (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier%27"><span class="hs-identifier hs-type">GroupIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681110942"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier%27"><span class="hs-identifier hs-type">GroupIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681110951"><span class="annot"><span class="annottext">Maybe Text
 groupId :: Maybe Text
 $sel:groupId:GroupIdentifier' :: GroupIdentifier -&gt; Maybe Text
-</span><a href="#local-6989586621681110942"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681110942"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681110941"><span class="annot"><span class="annottext">s :: GroupIdentifier
-</span><a href="#local-6989586621681110941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier%27"><span class="hs-identifier hs-type">GroupIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681110940"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681110940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupIdentifier
-</span><a href="#local-6989586621681110941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:GroupIdentifier' :: Maybe Text
+</span><a href="#local-6989586621681110951"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681110951"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681110950"><span class="annot"><span class="annottext">s :: GroupIdentifier
+</span><a href="#local-6989586621681110950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier%27"><span class="hs-identifier hs-type">GroupIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681110949"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681110949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupIdentifier
+</span><a href="#local-6989586621681110950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:GroupIdentifier' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.GroupIdentifier.html#%24sel%3AgroupId%3AGroupIdentifier%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681110940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier"><span class="hs-identifier hs-type">GroupIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681110949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier"><span class="hs-identifier hs-type">GroupIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The name of the security group.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#groupIdentifier_groupName"><span class="hs-identifier hs-type">groupIdentifier_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier"><span class="hs-identifier hs-type">GroupIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -144,21 +144,21 @@ $sel:groupId:GroupIdentifier' :: GroupIdentifier -&gt; Maybe Text
 -&gt; (GroupIdentifier -&gt; Maybe Text -&gt; GroupIdentifier)
 -&gt; Lens GroupIdentifier GroupIdentifier (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier%27"><span class="hs-identifier hs-type">GroupIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681110938"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier%27"><span class="hs-identifier hs-type">GroupIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681110947"><span class="annot"><span class="annottext">Maybe Text
 groupName :: Maybe Text
 $sel:groupName:GroupIdentifier' :: GroupIdentifier -&gt; Maybe Text
-</span><a href="#local-6989586621681110938"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681110938"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681110937"><span class="annot"><span class="annottext">s :: GroupIdentifier
-</span><a href="#local-6989586621681110937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier%27"><span class="hs-identifier hs-type">GroupIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681110936"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681110936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupIdentifier
-</span><a href="#local-6989586621681110937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GroupIdentifier' :: Maybe Text
+</span><a href="#local-6989586621681110947"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681110947"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681110946"><span class="annot"><span class="annottext">s :: GroupIdentifier
+</span><a href="#local-6989586621681110946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier%27"><span class="hs-identifier hs-type">GroupIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681110945"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681110945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupIdentifier
+</span><a href="#local-6989586621681110946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GroupIdentifier' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.GroupIdentifier.html#%24sel%3AgroupName%3AGroupIdentifier%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681110936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier"><span class="hs-identifier hs-type">GroupIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681110945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier"><span class="hs-identifier hs-type">GroupIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier"><span class="hs-identifier hs-type">GroupIdentifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621681110933"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String GroupIdentifier
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681110931"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681110931"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621681110942"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String GroupIdentifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681110940"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681110940"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; GroupIdentifier
 </span><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier%27"><span class="hs-identifier hs-var">GroupIdentifier'</span></a></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; GroupIdentifier)
@@ -166,7 +166,7 @@ $sel:groupName:GroupIdentifier' :: GroupIdentifier -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; GroupIdentifier)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681110931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681110940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;groupId&quot;</span></span><span class="hs-special">)</span><span>
@@ -174,23 +174,23 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String GroupIdentifier
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681110931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681110940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;groupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681110925"><span id="local-6989586621681110927"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier"><span class="hs-identifier hs-type">GroupIdentifier</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681110934"><span id="local-6989586621681110936"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier"><span class="hs-identifier hs-type">GroupIdentifier</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681110922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier"><span class="hs-identifier hs-type">GroupIdentifier</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681110931"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier"><span class="hs-identifier hs-type">GroupIdentifier</span></a></span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier"><span class="hs-identifier hs-type">GroupIdentifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621681110918"><span class="annot"><span class="annottext">toQuery :: GroupIdentifier -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier%27"><span class="hs-identifier hs-type">GroupIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681110915"><span id="local-6989586621681110916"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621681110927"><span class="annot"><span class="annottext">toQuery :: GroupIdentifier -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier%27"><span class="hs-identifier hs-type">GroupIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681110924"><span id="local-6989586621681110925"><span class="annot"><span class="annottext">Maybe Text
 groupName :: Maybe Text
 groupId :: Maybe Text
 $sel:groupName:GroupIdentifier' :: GroupIdentifier -&gt; Maybe Text
 $sel:groupId:GroupIdentifier' :: GroupIdentifier -&gt; Maybe Text
-</span><a href="#local-6989586621681110915"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681110924"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -198,11 +198,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;GroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681110916"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681110925"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681110915"><span class="hs-identifier hs-var">groupName</span></a></span><span>
+</span><a href="#local-6989586621681110924"><span class="hs-identifier hs-var">groupName</span></a></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span></pre></body></html>

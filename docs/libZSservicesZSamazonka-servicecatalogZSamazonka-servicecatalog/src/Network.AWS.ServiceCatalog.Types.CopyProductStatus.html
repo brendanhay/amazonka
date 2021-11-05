@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679398724"><span id="local-6989586621679398725"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CopyProductStatus"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CopyProductStatus.html#CopyProductStatus"><span class="hs-identifier hs-var">CopyProductStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyProductStatus%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CopyProductStatus.html#CopyProductStatus%27"><span class="hs-identifier hs-var">CopyProductStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679398733"><span id="local-6989586621679398734"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CopyProductStatus"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CopyProductStatus.html#CopyProductStatus"><span class="hs-identifier hs-var">CopyProductStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyProductStatus%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CopyProductStatus.html#CopyProductStatus%27"><span class="hs-identifier hs-var">CopyProductStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCopyProductStatus"><span class="annot"><span class="annottext">CopyProductStatus -&gt; Text
 </span><a href="Network.AWS.ServiceCatalog.Types.CopyProductStatus.html#fromCopyProductStatus"><span class="hs-identifier hs-var hs-var">fromCopyProductStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398716"><span id="local-6989586621679398718"><span id="local-6989586621679398720"><span class="annot"><span class="annottext">Int -&gt; CopyProductStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398725"><span id="local-6989586621679398727"><span id="local-6989586621679398729"><span class="annot"><span class="annottext">Int -&gt; CopyProductStatus -&gt; ShowS
 [CopyProductStatus] -&gt; ShowS
 CopyProductStatus -&gt; String
 (Int -&gt; CopyProductStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: CopyProductStatus -&gt; String
 showsPrec :: Int -&gt; CopyProductStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; CopyProductStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679398707"><span id="local-6989586621679398709"><span id="local-6989586621679398711"><span id="local-6989586621679398713"><span class="annot"><span class="annottext">ReadPrec [CopyProductStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679398716"><span id="local-6989586621679398718"><span id="local-6989586621679398720"><span id="local-6989586621679398722"><span class="annot"><span class="annottext">ReadPrec [CopyProductStatus]
 ReadPrec CopyProductStatus
 Int -&gt; ReadS CopyProductStatus
 ReadS [CopyProductStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [CopyProductStatus]
 readsPrec :: Int -&gt; ReadS CopyProductStatus
 $creadsPrec :: Int -&gt; ReadS CopyProductStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679398702"><span id="local-6989586621679398704"><span class="annot"><span class="annottext">CopyProductStatus -&gt; CopyProductStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679398711"><span id="local-6989586621679398713"><span class="annot"><span class="annottext">CopyProductStatus -&gt; CopyProductStatus -&gt; Bool
 (CopyProductStatus -&gt; CopyProductStatus -&gt; Bool)
 -&gt; (CopyProductStatus -&gt; CopyProductStatus -&gt; Bool)
 -&gt; Eq CopyProductStatus
@@ -83,7 +83,7 @@ $c/= :: CopyProductStatus -&gt; CopyProductStatus -&gt; Bool
 == :: CopyProductStatus -&gt; CopyProductStatus -&gt; Bool
 $c== :: CopyProductStatus -&gt; CopyProductStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679398686"><span id="local-6989586621679398688"><span id="local-6989586621679398690"><span id="local-6989586621679398692"><span id="local-6989586621679398694"><span id="local-6989586621679398696"><span id="local-6989586621679398698"><span class="annot"><span class="annottext">Eq CopyProductStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679398695"><span id="local-6989586621679398697"><span id="local-6989586621679398699"><span id="local-6989586621679398701"><span id="local-6989586621679398703"><span id="local-6989586621679398705"><span id="local-6989586621679398707"><span class="annot"><span class="annottext">Eq CopyProductStatus
 Eq CopyProductStatus
 -&gt; (CopyProductStatus -&gt; CopyProductStatus -&gt; Ordering)
 -&gt; (CopyProductStatus -&gt; CopyProductStatus -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. CopyProductStatus -&gt; Rep CopyProductStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398678"><span id="local-6989586621679398680"><span class="annot"><span class="annottext">Int -&gt; CopyProductStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398687"><span id="local-6989586621679398689"><span class="annot"><span class="annottext">Int -&gt; CopyProductStatus -&gt; Int
 CopyProductStatus -&gt; Int
 (Int -&gt; CopyProductStatus -&gt; Int)
 -&gt; (CopyProductStatus -&gt; Int) -&gt; Hashable CopyProductStatus
@@ -144,51 +144,51 @@ $chash :: CopyProductStatus -&gt; Int
 hashWithSalt :: Int -&gt; CopyProductStatus -&gt; Int
 $chashWithSalt :: Int -&gt; CopyProductStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679398675"><span class="annot"><span class="annottext">CopyProductStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679398684"><span class="annot"><span class="annottext">CopyProductStatus -&gt; ()
 (CopyProductStatus -&gt; ()) -&gt; NFData CopyProductStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CopyProductStatus -&gt; ()
 $crnf :: CopyProductStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679398672"><span class="annot"><span class="annottext">Text -&gt; Either String CopyProductStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679398681"><span class="annot"><span class="annottext">Text -&gt; Either String CopyProductStatus
 (Text -&gt; Either String CopyProductStatus)
 -&gt; FromText CopyProductStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CopyProductStatus
 $cfromText :: Text -&gt; Either String CopyProductStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679398669"><span class="annot"><span class="annottext">CopyProductStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679398678"><span class="annot"><span class="annottext">CopyProductStatus -&gt; Text
 (CopyProductStatus -&gt; Text) -&gt; ToText CopyProductStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CopyProductStatus -&gt; Text
 $ctoText :: CopyProductStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679398666"><span class="annot"><span class="annottext">CopyProductStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679398675"><span class="annot"><span class="annottext">CopyProductStatus -&gt; ByteString
 (CopyProductStatus -&gt; ByteString) -&gt; ToByteString CopyProductStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CopyProductStatus -&gt; ByteString
 $ctoBS :: CopyProductStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679398663"><span class="annot"><span class="annottext">CopyProductStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679398672"><span class="annot"><span class="annottext">CopyProductStatus -&gt; ByteStringBuilder
 (CopyProductStatus -&gt; ByteStringBuilder) -&gt; ToLog CopyProductStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CopyProductStatus -&gt; ByteStringBuilder
 $cbuild :: CopyProductStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398660"><span class="annot"><span class="annottext">HeaderName -&gt; CopyProductStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398669"><span class="annot"><span class="annottext">HeaderName -&gt; CopyProductStatus -&gt; [Header]
 (HeaderName -&gt; CopyProductStatus -&gt; [Header])
 -&gt; ToHeader CopyProductStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CopyProductStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CopyProductStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398657"><span class="annot"><span class="annottext">CopyProductStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398666"><span class="annot"><span class="annottext">CopyProductStatus -&gt; QueryString
 (CopyProductStatus -&gt; QueryString) -&gt; ToQuery CopyProductStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CopyProductStatus -&gt; QueryString
 $ctoQuery :: CopyProductStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398652"><span id="local-6989586621679398654"><span class="annot"><span class="annottext">Value -&gt; Parser [CopyProductStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398661"><span id="local-6989586621679398663"><span class="annot"><span class="annottext">Value -&gt; Parser [CopyProductStatus]
 Value -&gt; Parser CopyProductStatus
 (Value -&gt; Parser CopyProductStatus)
 -&gt; (Value -&gt; Parser [CopyProductStatus])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [CopyProductStatus]
 parseJSON :: Value -&gt; Parser CopyProductStatus
 $cparseJSON :: Value -&gt; Parser CopyProductStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398647"><span id="local-6989586621679398649"><span class="annot"><span class="annottext">FromJSONKeyFunction [CopyProductStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398656"><span id="local-6989586621679398658"><span class="annot"><span class="annottext">FromJSONKeyFunction [CopyProductStatus]
 FromJSONKeyFunction CopyProductStatus
 FromJSONKeyFunction CopyProductStatus
 -&gt; FromJSONKeyFunction [CopyProductStatus]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CopyProductStatus]
 fromJSONKey :: FromJSONKeyFunction CopyProductStatus
 $cfromJSONKey :: FromJSONKeyFunction CopyProductStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398638"><span id="local-6989586621679398640"><span id="local-6989586621679398642"><span id="local-6989586621679398644"><span class="annot"><span class="annottext">[CopyProductStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398647"><span id="local-6989586621679398649"><span id="local-6989586621679398651"><span id="local-6989586621679398653"><span class="annot"><span class="annottext">[CopyProductStatus] -&gt; Encoding
 [CopyProductStatus] -&gt; Value
 CopyProductStatus -&gt; Encoding
 CopyProductStatus -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: CopyProductStatus -&gt; Encoding
 toJSON :: CopyProductStatus -&gt; Value
 $ctoJSON :: CopyProductStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398633"><span id="local-6989586621679398635"><span class="annot"><span class="annottext">ToJSONKeyFunction [CopyProductStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398642"><span id="local-6989586621679398644"><span class="annot"><span class="annottext">ToJSONKeyFunction [CopyProductStatus]
 ToJSONKeyFunction CopyProductStatus
 ToJSONKeyFunction CopyProductStatus
 -&gt; ToJSONKeyFunction [CopyProductStatus]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CopyProductStatus]
 toJSONKey :: ToJSONKeyFunction CopyProductStatus
 $ctoJSONKey :: ToJSONKeyFunction CopyProductStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679398630"><span class="annot"><span class="annottext">[Node] -&gt; Either String CopyProductStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679398639"><span class="annot"><span class="annottext">[Node] -&gt; Either String CopyProductStatus
 ([Node] -&gt; Either String CopyProductStatus)
 -&gt; FromXML CopyProductStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CopyProductStatus
 $cparseXML :: [Node] -&gt; Either String CopyProductStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679398627"><span class="annot"><span class="annottext">CopyProductStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679398636"><span class="annot"><span class="annottext">CopyProductStatus -&gt; XML
 (CopyProductStatus -&gt; XML) -&gt; ToXML CopyProductStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CopyProductStatus -&gt; XML

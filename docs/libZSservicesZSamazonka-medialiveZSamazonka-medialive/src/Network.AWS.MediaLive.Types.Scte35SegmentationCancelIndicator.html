@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-comment">-- SEGMENTATION_EVENT_CANCELED corresponds to 1 in the SCTE-35</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- specification and indicates that this is a cancelation request, in which</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- case complete this field and the existing event ID to cancel.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679918468"><span id="local-6989586621679918469"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Scte35SegmentationCancelIndicator"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SegmentationCancelIndicator.html#Scte35SegmentationCancelIndicator"><span class="hs-identifier hs-var">Scte35SegmentationCancelIndicator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35SegmentationCancelIndicator%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SegmentationCancelIndicator.html#Scte35SegmentationCancelIndicator%27"><span class="hs-identifier hs-var">Scte35SegmentationCancelIndicator'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679918477"><span id="local-6989586621679918478"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Scte35SegmentationCancelIndicator"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SegmentationCancelIndicator.html#Scte35SegmentationCancelIndicator"><span class="hs-identifier hs-var">Scte35SegmentationCancelIndicator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35SegmentationCancelIndicator%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SegmentationCancelIndicator.html#Scte35SegmentationCancelIndicator%27"><span class="hs-identifier hs-var">Scte35SegmentationCancelIndicator'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScte35SegmentationCancelIndicator"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.Scte35SegmentationCancelIndicator.html#fromScte35SegmentationCancelIndicator"><span class="hs-identifier hs-var hs-var">fromScte35SegmentationCancelIndicator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679918460"><span id="local-6989586621679918462"><span id="local-6989586621679918464"><span class="annot"><span class="annottext">Int -&gt; Scte35SegmentationCancelIndicator -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679918469"><span id="local-6989586621679918471"><span id="local-6989586621679918473"><span class="annot"><span class="annottext">Int -&gt; Scte35SegmentationCancelIndicator -&gt; ShowS
 [Scte35SegmentationCancelIndicator] -&gt; ShowS
 Scte35SegmentationCancelIndicator -&gt; String
 (Int -&gt; Scte35SegmentationCancelIndicator -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: Scte35SegmentationCancelIndicator -&gt; String
 showsPrec :: Int -&gt; Scte35SegmentationCancelIndicator -&gt; ShowS
 $cshowsPrec :: Int -&gt; Scte35SegmentationCancelIndicator -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679918451"><span id="local-6989586621679918453"><span id="local-6989586621679918455"><span id="local-6989586621679918457"><span class="annot"><span class="annottext">ReadPrec [Scte35SegmentationCancelIndicator]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679918460"><span id="local-6989586621679918462"><span id="local-6989586621679918464"><span id="local-6989586621679918466"><span class="annot"><span class="annottext">ReadPrec [Scte35SegmentationCancelIndicator]
 ReadPrec Scte35SegmentationCancelIndicator
 Int -&gt; ReadS Scte35SegmentationCancelIndicator
 ReadS [Scte35SegmentationCancelIndicator]
@@ -78,7 +78,7 @@ $creadList :: ReadS [Scte35SegmentationCancelIndicator]
 readsPrec :: Int -&gt; ReadS Scte35SegmentationCancelIndicator
 $creadsPrec :: Int -&gt; ReadS Scte35SegmentationCancelIndicator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679918446"><span id="local-6989586621679918448"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679918455"><span id="local-6989586621679918457"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator
 -&gt; Scte35SegmentationCancelIndicator -&gt; Bool
 (Scte35SegmentationCancelIndicator
  -&gt; Scte35SegmentationCancelIndicator -&gt; Bool)
@@ -95,7 +95,7 @@ $c/= :: Scte35SegmentationCancelIndicator
 $c== :: Scte35SegmentationCancelIndicator
 -&gt; Scte35SegmentationCancelIndicator -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679918430"><span id="local-6989586621679918432"><span id="local-6989586621679918434"><span id="local-6989586621679918436"><span id="local-6989586621679918438"><span id="local-6989586621679918440"><span id="local-6989586621679918442"><span class="annot"><span class="annottext">Eq Scte35SegmentationCancelIndicator
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679918439"><span id="local-6989586621679918441"><span id="local-6989586621679918443"><span id="local-6989586621679918445"><span id="local-6989586621679918447"><span id="local-6989586621679918449"><span id="local-6989586621679918451"><span class="annot"><span class="annottext">Eq Scte35SegmentationCancelIndicator
 Eq Scte35SegmentationCancelIndicator
 -&gt; (Scte35SegmentationCancelIndicator
     -&gt; Scte35SegmentationCancelIndicator -&gt; Ordering)
@@ -189,7 +189,7 @@ Scte35SegmentationCancelIndicator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679918422"><span id="local-6989586621679918424"><span class="annot"><span class="annottext">Int -&gt; Scte35SegmentationCancelIndicator -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679918431"><span id="local-6989586621679918433"><span class="annot"><span class="annottext">Int -&gt; Scte35SegmentationCancelIndicator -&gt; Int
 Scte35SegmentationCancelIndicator -&gt; Int
 (Int -&gt; Scte35SegmentationCancelIndicator -&gt; Int)
 -&gt; (Scte35SegmentationCancelIndicator -&gt; Int)
@@ -200,56 +200,56 @@ $chash :: Scte35SegmentationCancelIndicator -&gt; Int
 hashWithSalt :: Int -&gt; Scte35SegmentationCancelIndicator -&gt; Int
 $chashWithSalt :: Int -&gt; Scte35SegmentationCancelIndicator -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679918419"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679918428"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator -&gt; ()
 (Scte35SegmentationCancelIndicator -&gt; ())
 -&gt; NFData Scte35SegmentationCancelIndicator
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Scte35SegmentationCancelIndicator -&gt; ()
 $crnf :: Scte35SegmentationCancelIndicator -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679918416"><span class="annot"><span class="annottext">Text -&gt; Either String Scte35SegmentationCancelIndicator
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679918425"><span class="annot"><span class="annottext">Text -&gt; Either String Scte35SegmentationCancelIndicator
 (Text -&gt; Either String Scte35SegmentationCancelIndicator)
 -&gt; FromText Scte35SegmentationCancelIndicator
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Scte35SegmentationCancelIndicator
 $cfromText :: Text -&gt; Either String Scte35SegmentationCancelIndicator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679918413"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679918422"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator -&gt; Text
 (Scte35SegmentationCancelIndicator -&gt; Text)
 -&gt; ToText Scte35SegmentationCancelIndicator
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Scte35SegmentationCancelIndicator -&gt; Text
 $ctoText :: Scte35SegmentationCancelIndicator -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679918410"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679918419"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator -&gt; ByteString
 (Scte35SegmentationCancelIndicator -&gt; ByteString)
 -&gt; ToByteString Scte35SegmentationCancelIndicator
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Scte35SegmentationCancelIndicator -&gt; ByteString
 $ctoBS :: Scte35SegmentationCancelIndicator -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679918407"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679918416"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator -&gt; ByteStringBuilder
 (Scte35SegmentationCancelIndicator -&gt; ByteStringBuilder)
 -&gt; ToLog Scte35SegmentationCancelIndicator
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Scte35SegmentationCancelIndicator -&gt; ByteStringBuilder
 $cbuild :: Scte35SegmentationCancelIndicator -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679918404"><span class="annot"><span class="annottext">HeaderName -&gt; Scte35SegmentationCancelIndicator -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679918413"><span class="annot"><span class="annottext">HeaderName -&gt; Scte35SegmentationCancelIndicator -&gt; [Header]
 (HeaderName -&gt; Scte35SegmentationCancelIndicator -&gt; [Header])
 -&gt; ToHeader Scte35SegmentationCancelIndicator
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Scte35SegmentationCancelIndicator -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Scte35SegmentationCancelIndicator -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679918401"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679918410"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator -&gt; QueryString
 (Scte35SegmentationCancelIndicator -&gt; QueryString)
 -&gt; ToQuery Scte35SegmentationCancelIndicator
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Scte35SegmentationCancelIndicator -&gt; QueryString
 $ctoQuery :: Scte35SegmentationCancelIndicator -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679918396"><span id="local-6989586621679918398"><span class="annot"><span class="annottext">Value -&gt; Parser [Scte35SegmentationCancelIndicator]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679918405"><span id="local-6989586621679918407"><span class="annot"><span class="annottext">Value -&gt; Parser [Scte35SegmentationCancelIndicator]
 Value -&gt; Parser Scte35SegmentationCancelIndicator
 (Value -&gt; Parser Scte35SegmentationCancelIndicator)
 -&gt; (Value -&gt; Parser [Scte35SegmentationCancelIndicator])
@@ -261,7 +261,7 @@ $cparseJSONList :: Value -&gt; Parser [Scte35SegmentationCancelIndicator]
 parseJSON :: Value -&gt; Parser Scte35SegmentationCancelIndicator
 $cparseJSON :: Value -&gt; Parser Scte35SegmentationCancelIndicator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679918391"><span id="local-6989586621679918393"><span class="annot"><span class="annottext">FromJSONKeyFunction [Scte35SegmentationCancelIndicator]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679918400"><span id="local-6989586621679918402"><span class="annot"><span class="annottext">FromJSONKeyFunction [Scte35SegmentationCancelIndicator]
 FromJSONKeyFunction Scte35SegmentationCancelIndicator
 FromJSONKeyFunction Scte35SegmentationCancelIndicator
 -&gt; FromJSONKeyFunction [Scte35SegmentationCancelIndicator]
@@ -273,7 +273,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Scte35SegmentationCancelIndicator]
 fromJSONKey :: FromJSONKeyFunction Scte35SegmentationCancelIndicator
 $cfromJSONKey :: FromJSONKeyFunction Scte35SegmentationCancelIndicator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679918382"><span id="local-6989586621679918384"><span id="local-6989586621679918386"><span id="local-6989586621679918388"><span class="annot"><span class="annottext">[Scte35SegmentationCancelIndicator] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679918391"><span id="local-6989586621679918393"><span id="local-6989586621679918395"><span id="local-6989586621679918397"><span class="annot"><span class="annottext">[Scte35SegmentationCancelIndicator] -&gt; Encoding
 [Scte35SegmentationCancelIndicator] -&gt; Value
 Scte35SegmentationCancelIndicator -&gt; Encoding
 Scte35SegmentationCancelIndicator -&gt; Value
@@ -297,7 +297,7 @@ $ctoEncoding :: Scte35SegmentationCancelIndicator -&gt; Encoding
 toJSON :: Scte35SegmentationCancelIndicator -&gt; Value
 $ctoJSON :: Scte35SegmentationCancelIndicator -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679918377"><span id="local-6989586621679918379"><span class="annot"><span class="annottext">ToJSONKeyFunction [Scte35SegmentationCancelIndicator]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679918386"><span id="local-6989586621679918388"><span class="annot"><span class="annottext">ToJSONKeyFunction [Scte35SegmentationCancelIndicator]
 ToJSONKeyFunction Scte35SegmentationCancelIndicator
 ToJSONKeyFunction Scte35SegmentationCancelIndicator
 -&gt; ToJSONKeyFunction [Scte35SegmentationCancelIndicator]
@@ -309,14 +309,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Scte35SegmentationCancelIndicator]
 toJSONKey :: ToJSONKeyFunction Scte35SegmentationCancelIndicator
 $ctoJSONKey :: ToJSONKeyFunction Scte35SegmentationCancelIndicator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679918374"><span class="annot"><span class="annottext">[Node] -&gt; Either String Scte35SegmentationCancelIndicator
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679918383"><span class="annot"><span class="annottext">[Node] -&gt; Either String Scte35SegmentationCancelIndicator
 ([Node] -&gt; Either String Scte35SegmentationCancelIndicator)
 -&gt; FromXML Scte35SegmentationCancelIndicator
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Scte35SegmentationCancelIndicator
 $cparseXML :: [Node] -&gt; Either String Scte35SegmentationCancelIndicator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679918371"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679918380"><span class="annot"><span class="annottext">Scte35SegmentationCancelIndicator -&gt; XML
 (Scte35SegmentationCancelIndicator -&gt; XML)
 -&gt; ToXML Scte35SegmentationCancelIndicator
 forall a. (a -&gt; XML) -&gt; ToXML a

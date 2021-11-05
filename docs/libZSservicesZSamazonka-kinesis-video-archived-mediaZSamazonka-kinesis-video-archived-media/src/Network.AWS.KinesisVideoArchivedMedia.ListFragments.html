@@ -86,7 +86,7 @@
 </span><span id="line-86"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | /See:/ 'newListFragments' smart constructor.</span><span>
-</span><span id="line-89"></span><span id="local-6989586621679165664"><span id="local-6989586621679165665"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFragments"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-var">ListFragments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFragments%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-var">ListFragments'</span></a></span></span><span>
+</span><span id="line-89"></span><span id="local-6989586621679165673"><span id="local-6989586621679165674"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFragments"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-var">ListFragments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFragments%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-var">ListFragments'</span></a></span></span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the timestamp range and timestamp origin for the range of</span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-comment">-- fragments to return.</span><span>
 </span><span id="line-92"></span><span>    </span><span id="%24sel%3AfragmentSelector%3AListFragments%27"><span class="annot"><span class="annottext">ListFragments -&gt; Maybe FragmentSelector
@@ -111,7 +111,7 @@
 </span><span id="line-107"></span><span>    </span><span id="%24sel%3AmaxResults%3AListFragments%27"><span class="annot"><span class="annottext">ListFragments -&gt; Maybe Natural
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#%24sel%3AmaxResults%3AListFragments%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165654"><span id="local-6989586621679165656"><span class="annot"><span class="annottext">ListFragments -&gt; ListFragments -&gt; Bool
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165663"><span id="local-6989586621679165665"><span class="annot"><span class="annottext">ListFragments -&gt; ListFragments -&gt; Bool
 (ListFragments -&gt; ListFragments -&gt; Bool)
 -&gt; (ListFragments -&gt; ListFragments -&gt; Bool) -&gt; Eq ListFragments
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -119,7 +119,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListFragments -&gt; ListFragments -&gt; Bool
 == :: ListFragments -&gt; ListFragments -&gt; Bool
 $c== :: ListFragments -&gt; ListFragments -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165645"><span id="local-6989586621679165647"><span id="local-6989586621679165649"><span id="local-6989586621679165651"><span class="annot"><span class="annottext">ReadPrec [ListFragments]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165654"><span id="local-6989586621679165656"><span id="local-6989586621679165658"><span id="local-6989586621679165660"><span class="annot"><span class="annottext">ReadPrec [ListFragments]
 ReadPrec ListFragments
 Int -&gt; ReadS ListFragments
 ReadS [ListFragments]
@@ -139,7 +139,7 @@ readList :: ReadS [ListFragments]
 $creadList :: ReadS [ListFragments]
 readsPrec :: Int -&gt; ReadS ListFragments
 $creadsPrec :: Int -&gt; ReadS ListFragments
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165638"><span id="local-6989586621679165640"><span id="local-6989586621679165642"><span class="annot"><span class="annottext">Int -&gt; ListFragments -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165647"><span id="local-6989586621679165649"><span id="local-6989586621679165651"><span class="annot"><span class="annottext">Int -&gt; ListFragments -&gt; ShowS
 [ListFragments] -&gt; ShowS
 ListFragments -&gt; String
 (Int -&gt; ListFragments -&gt; ShowS)
@@ -236,16 +236,16 @@ forall a. Maybe a
      (Maybe FragmentSelector)
      (Maybe FragmentSelector)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165632"><span class="annot"><span class="annottext">Maybe FragmentSelector
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165641"><span class="annot"><span class="annottext">Maybe FragmentSelector
 fragmentSelector :: Maybe FragmentSelector
 $sel:fragmentSelector:ListFragments' :: ListFragments -&gt; Maybe FragmentSelector
-</span><a href="#local-6989586621679165632"><span class="hs-identifier hs-var hs-var">fragmentSelector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FragmentSelector
-</span><a href="#local-6989586621679165632"><span class="hs-identifier hs-var">fragmentSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165631"><span class="annot"><span class="annottext">s :: ListFragments
-</span><a href="#local-6989586621679165631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165630"><span class="annot"><span class="annottext">Maybe FragmentSelector
-</span><a href="#local-6989586621679165630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragments
-</span><a href="#local-6989586621679165631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fragmentSelector:ListFragments' :: Maybe FragmentSelector
+</span><a href="#local-6989586621679165641"><span class="hs-identifier hs-var hs-var">fragmentSelector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FragmentSelector
+</span><a href="#local-6989586621679165641"><span class="hs-identifier hs-var">fragmentSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165640"><span class="annot"><span class="annottext">s :: ListFragments
+</span><a href="#local-6989586621679165640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165639"><span class="annot"><span class="annottext">Maybe FragmentSelector
+</span><a href="#local-6989586621679165639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragments
+</span><a href="#local-6989586621679165640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fragmentSelector:ListFragments' :: Maybe FragmentSelector
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#%24sel%3AfragmentSelector%3AListFragments%27"><span class="hs-identifier hs-var">fragmentSelector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FragmentSelector
-</span><a href="#local-6989586621679165630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the stream from which to retrieve a</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- fragment list. Specify either this parameter or the @StreamName@</span><span>
@@ -256,16 +256,16 @@ $sel:fragmentSelector:ListFragments' :: ListFragments -&gt; Maybe FragmentSelect
 -&gt; (ListFragments -&gt; Maybe Text -&gt; ListFragments)
 -&gt; Lens ListFragments ListFragments (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165629"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165638"><span class="annot"><span class="annottext">Maybe Text
 streamARN :: Maybe Text
 $sel:streamARN:ListFragments' :: ListFragments -&gt; Maybe Text
-</span><a href="#local-6989586621679165629"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165629"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165628"><span class="annot"><span class="annottext">s :: ListFragments
-</span><a href="#local-6989586621679165628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165627"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragments
-</span><a href="#local-6989586621679165628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:ListFragments' :: Maybe Text
+</span><a href="#local-6989586621679165638"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165638"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165637"><span class="annot"><span class="annottext">s :: ListFragments
+</span><a href="#local-6989586621679165637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165636"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragments
+</span><a href="#local-6989586621679165637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:ListFragments' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#%24sel%3AstreamARN%3AListFragments%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | A token to specify where to start paginating. This is the</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- ListFragmentsOutput$NextToken from a previously truncated response.</span><span>
@@ -275,16 +275,16 @@ $sel:streamARN:ListFragments' :: ListFragments -&gt; Maybe Text
 -&gt; (ListFragments -&gt; Maybe Text -&gt; ListFragments)
 -&gt; Lens ListFragments ListFragments (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165626"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165635"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListFragments' :: ListFragments -&gt; Maybe Text
-</span><a href="#local-6989586621679165626"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165626"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165625"><span class="annot"><span class="annottext">s :: ListFragments
-</span><a href="#local-6989586621679165625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165624"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragments
-</span><a href="#local-6989586621679165625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFragments' :: Maybe Text
+</span><a href="#local-6989586621679165635"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165635"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165634"><span class="annot"><span class="annottext">s :: ListFragments
+</span><a href="#local-6989586621679165634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165633"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragments
+</span><a href="#local-6989586621679165634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFragments' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#%24sel%3AnextToken%3AListFragments%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The name of the stream from which to retrieve a fragment list. Specify</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- either this parameter or the @StreamARN@ parameter.</span><span>
@@ -294,16 +294,16 @@ $sel:nextToken:ListFragments' :: ListFragments -&gt; Maybe Text
 -&gt; (ListFragments -&gt; Maybe Text -&gt; ListFragments)
 -&gt; Lens ListFragments ListFragments (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165623"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165632"><span class="annot"><span class="annottext">Maybe Text
 streamName :: Maybe Text
 $sel:streamName:ListFragments' :: ListFragments -&gt; Maybe Text
-</span><a href="#local-6989586621679165623"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165623"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165622"><span class="annot"><span class="annottext">s :: ListFragments
-</span><a href="#local-6989586621679165622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165621"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragments
-</span><a href="#local-6989586621679165622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:ListFragments' :: Maybe Text
+</span><a href="#local-6989586621679165632"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165632"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165631"><span class="annot"><span class="annottext">s :: ListFragments
+</span><a href="#local-6989586621679165631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165630"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragments
+</span><a href="#local-6989586621679165631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:ListFragments' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#%24sel%3AstreamName%3AListFragments%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The total number of fragments to return. If the total number of</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- fragments available is more than the value specified in @max-results@,</span><span>
@@ -316,28 +316,28 @@ $sel:streamName:ListFragments' :: ListFragments -&gt; Maybe Text
 -&gt; (ListFragments -&gt; Maybe Natural -&gt; ListFragments)
 -&gt; Lens ListFragments ListFragments (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165620"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165629"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListFragments' :: ListFragments -&gt; Maybe Natural
-</span><a href="#local-6989586621679165620"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679165620"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165619"><span class="annot"><span class="annottext">s :: ListFragments
-</span><a href="#local-6989586621679165619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165618"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679165618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragments
-</span><a href="#local-6989586621679165619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListFragments' :: Maybe Natural
+</span><a href="#local-6989586621679165629"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679165629"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165628"><span class="annot"><span class="annottext">s :: ListFragments
+</span><a href="#local-6989586621679165628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165627"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679165627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragments
+</span><a href="#local-6989586621679165628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListFragments' :: Maybe Natural
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#%24sel%3AmaxResults%3AListFragments%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679165618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679165614"><span class="annot"><span class="annottext">page :: ListFragments -&gt; AWSResponse ListFragments -&gt; Maybe ListFragments
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679165612"><span class="annot"><span class="annottext">ListFragments
-</span><a href="#local-6989586621679165612"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679165611"><span class="annot"><span class="annottext">AWSResponse ListFragments
-</span><a href="#local-6989586621679165611"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679165623"><span class="annot"><span class="annottext">page :: ListFragments -&gt; AWSResponse ListFragments -&gt; Maybe ListFragments
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679165621"><span class="annot"><span class="annottext">ListFragments
+</span><a href="#local-6989586621679165621"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679165620"><span class="annot"><span class="annottext">AWSResponse ListFragments
+</span><a href="#local-6989586621679165620"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-178"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFragments
 ListFragmentsResponse
-</span><a href="#local-6989586621679165611"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679165620"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">ListFragmentsResponse
 -&gt; Getting (First Text) ListFragmentsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -365,7 +365,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-183"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFragments
 ListFragmentsResponse
-</span><a href="#local-6989586621679165611"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679165620"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">ListFragmentsResponse
 -&gt; Getting (First [Fragment]) ListFragmentsResponse [Fragment]
 -&gt; Maybe [Fragment]
@@ -398,7 +398,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ListFragments
-</span><a href="#local-6989586621679165612"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679165621"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-190"></span><span>          </span><span class="annot"><span class="annottext">ListFragments -&gt; (ListFragments -&gt; ListFragments) -&gt; ListFragments
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -411,7 +411,7 @@ Lens ListFragments ListFragments (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFragments
 ListFragmentsResponse
-</span><a href="#local-6989586621679165611"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679165620"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-192"></span><span>          </span><span class="annot"><span class="annottext">ListFragmentsResponse
 -&gt; Getting (First Text) ListFragmentsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -435,12 +435,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-195"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-196"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>      </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse"><span class="hs-identifier hs-type">ListFragmentsResponse</span></a></span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679165601"><span class="annot"><span class="annottext">request :: ListFragments -&gt; Request ListFragments
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679165610"><span class="annot"><span class="annottext">request :: ListFragments -&gt; Request ListFragments
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListFragments -&gt; Request ListFragments
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679165597"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679165606"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListFragments
 -&gt; ClientResponse ClientBody
@@ -464,10 +464,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679165594"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165594"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679165593"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679165593"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679165592"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679165592"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679165603"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165603"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679165602"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679165602"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679165601"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679165601"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Fragment] -&gt; Int -&gt; ListFragmentsResponse
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-var">ListFragmentsResponse'</span></a></span><span>
 </span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Fragment] -&gt; Int -&gt; ListFragmentsResponse)
@@ -475,7 +475,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Fragment] -&gt; Int -&gt; ListFragmentsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679165592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679165601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -484,7 +484,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListFragmentsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679165592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Fragment]))
+</span><a href="#local-6989586621679165601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Fragment]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Fragments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Fragment]))
@@ -501,24 +501,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165594"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165603"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165583"><span id="local-6989586621679165585"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span></span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165592"><span id="local-6989586621679165594"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span></span></span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165580"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165589"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679165576"><span class="annot"><span class="annottext">toHeaders :: ListFragments -&gt; ResponseHeaders
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679165585"><span class="annot"><span class="annottext">toHeaders :: ListFragments -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListFragments -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165567"><span id="local-6989586621679165569"><span id="local-6989586621679165571"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679165565"><span class="annot"><span class="annottext">toJSON :: ListFragments -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165559"><span id="local-6989586621679165560"><span id="local-6989586621679165561"><span id="local-6989586621679165562"><span id="local-6989586621679165563"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165576"><span id="local-6989586621679165578"><span id="local-6989586621679165580"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679165574"><span class="annot"><span class="annottext">toJSON :: ListFragments -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments%27"><span class="hs-identifier hs-type">ListFragments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165568"><span id="local-6989586621679165569"><span id="local-6989586621679165570"><span id="local-6989586621679165571"><span id="local-6989586621679165572"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe FragmentSelector
 maxResults :: Maybe Natural
@@ -531,7 +531,7 @@ $sel:streamName:ListFragments' :: ListFragments -&gt; Maybe Text
 $sel:nextToken:ListFragments' :: ListFragments -&gt; Maybe Text
 $sel:streamARN:ListFragments' :: ListFragments -&gt; Maybe Text
 $sel:fragmentSelector:ListFragments' :: ListFragments -&gt; Maybe FragmentSelector
-</span><a href="#local-6989586621679165559"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679165568"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-218"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -544,47 +544,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-220"></span><span>              </span><span class="annot"><span class="annottext">(FragmentSelector -&gt; Pair) -&gt; Maybe FragmentSelector -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FragmentSelector
-</span><a href="#local-6989586621679165563"><span class="hs-identifier hs-var">fragmentSelector</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679165572"><span class="hs-identifier hs-var">fragmentSelector</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165562"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679165571"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165561"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679165570"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165560"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679165569"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679165559"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679165568"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-225"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-226"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679165553"><span class="annot"><span class="annottext">toPath :: ListFragments -&gt; ByteString
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679165562"><span class="annot"><span class="annottext">toPath :: ListFragments -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListFragments -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/listFragments&quot;</span></span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragments"><span class="hs-identifier hs-type">ListFragments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679165549"><span class="annot"><span class="annottext">toQuery :: ListFragments -&gt; QueryString
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679165558"><span class="annot"><span class="annottext">toQuery :: ListFragments -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListFragments -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -592,7 +592,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | /See:/ 'newListFragmentsResponse' smart constructor.</span><span>
-</span><span id="line-235"></span><span id="local-6989586621679165546"><span id="local-6989586621679165547"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFragmentsResponse"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse"><span class="hs-identifier hs-var">ListFragmentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFragmentsResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-var">ListFragmentsResponse'</span></a></span></span><span>
+</span><span id="line-235"></span><span id="local-6989586621679165555"><span id="local-6989586621679165556"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFragmentsResponse"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse"><span class="hs-identifier hs-var">ListFragmentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFragmentsResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-var">ListFragmentsResponse'</span></a></span></span><span>
 </span><span id="line-236"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the returned list is truncated, the operation returns this token to</span><span>
 </span><span id="line-237"></span><span>    </span><span class="hs-comment">-- use to retrieve the next page of results. This value is @null@ when</span><span>
 </span><span id="line-238"></span><span>    </span><span class="hs-comment">-- there are no more results to return.</span><span>
@@ -606,7 +606,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-244"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListFragmentsResponse%27"><span class="annot"><span class="annottext">ListFragmentsResponse -&gt; Int
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#%24sel%3AhttpStatus%3AListFragmentsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-245"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-246"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165539"><span id="local-6989586621679165541"><span class="annot"><span class="annottext">ListFragmentsResponse -&gt; ListFragmentsResponse -&gt; Bool
+</span><span id="line-246"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165548"><span id="local-6989586621679165550"><span class="annot"><span class="annottext">ListFragmentsResponse -&gt; ListFragmentsResponse -&gt; Bool
 (ListFragmentsResponse -&gt; ListFragmentsResponse -&gt; Bool)
 -&gt; (ListFragmentsResponse -&gt; ListFragmentsResponse -&gt; Bool)
 -&gt; Eq ListFragmentsResponse
@@ -615,7 +615,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListFragmentsResponse -&gt; ListFragmentsResponse -&gt; Bool
 == :: ListFragmentsResponse -&gt; ListFragmentsResponse -&gt; Bool
 $c== :: ListFragmentsResponse -&gt; ListFragmentsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165531"><span id="local-6989586621679165533"><span id="local-6989586621679165535"><span id="local-6989586621679165537"><span class="annot"><span class="annottext">ReadPrec [ListFragmentsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165540"><span id="local-6989586621679165542"><span id="local-6989586621679165544"><span id="local-6989586621679165546"><span class="annot"><span class="annottext">ReadPrec [ListFragmentsResponse]
 ReadPrec ListFragmentsResponse
 Int -&gt; ReadS ListFragmentsResponse
 ReadS [ListFragmentsResponse]
@@ -635,7 +635,7 @@ readList :: ReadS [ListFragmentsResponse]
 $creadList :: ReadS [ListFragmentsResponse]
 readsPrec :: Int -&gt; ReadS ListFragmentsResponse
 $creadsPrec :: Int -&gt; ReadS ListFragmentsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165525"><span id="local-6989586621679165527"><span id="local-6989586621679165529"><span class="annot"><span class="annottext">Int -&gt; ListFragmentsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165534"><span id="local-6989586621679165536"><span id="local-6989586621679165538"><span class="annot"><span class="annottext">Int -&gt; ListFragmentsResponse -&gt; ShowS
 [ListFragmentsResponse] -&gt; ShowS
 ListFragmentsResponse -&gt; String
 (Int -&gt; ListFragmentsResponse -&gt; ShowS)
@@ -682,8 +682,8 @@ $cfrom :: forall x. ListFragmentsResponse -&gt; Rep ListFragmentsResponse x
 </span><span id="line-266"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-267"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse"><span class="hs-identifier hs-type">ListFragmentsResponse</span></a></span><span>
 </span><span id="line-268"></span><span id="newListFragmentsResponse"><span class="annot"><span class="annottext">newListFragmentsResponse :: Int -&gt; ListFragmentsResponse
-</span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#newListFragmentsResponse"><span class="hs-identifier hs-var hs-var">newListFragmentsResponse</span></a></span></span><span> </span><span id="local-6989586621679165522"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165522"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#newListFragmentsResponse"><span class="hs-identifier hs-var hs-var">newListFragmentsResponse</span></a></span></span><span> </span><span id="local-6989586621679165531"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165531"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-269"></span><span>  </span><span class="annot"><span class="annottext">ListFragmentsResponse' :: Maybe Text -&gt; Maybe [Fragment] -&gt; Int -&gt; ListFragmentsResponse
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-type">ListFragmentsResponse'</span></a></span><span>
 </span><span id="line-270"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListFragmentsResponse' :: Maybe Text
@@ -696,7 +696,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListFragmentsResponse' :: Int
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#%24sel%3AhttpStatus%3AListFragmentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165522"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679165531"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-273"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-274"></span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- | If the returned list is truncated, the operation returns this token to</span><span>
@@ -709,16 +709,16 @@ forall a. Maybe a
 -&gt; (ListFragmentsResponse -&gt; Maybe Text -&gt; ListFragmentsResponse)
 -&gt; Lens' ListFragmentsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-type">ListFragmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165521"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-type">ListFragmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165530"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListFragmentsResponse' :: ListFragmentsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679165521"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165521"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165520"><span class="annot"><span class="annottext">s :: ListFragmentsResponse
-</span><a href="#local-6989586621679165520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-type">ListFragmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165519"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragmentsResponse
-</span><a href="#local-6989586621679165520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFragmentsResponse' :: Maybe Text
+</span><a href="#local-6989586621679165530"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165530"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165529"><span class="annot"><span class="annottext">s :: ListFragmentsResponse
+</span><a href="#local-6989586621679165529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-type">ListFragmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165528"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragmentsResponse
+</span><a href="#local-6989586621679165529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFragmentsResponse' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#%24sel%3AnextToken%3AListFragmentsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679165519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse"><span class="hs-identifier hs-type">ListFragmentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse"><span class="hs-identifier hs-type">ListFragmentsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- | A list of archived Fragment objects from the stream that meet the</span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- selector criteria. Results are in no specific order, even across pages.</span><span>
@@ -730,16 +730,16 @@ $sel:nextToken:ListFragmentsResponse' :: ListFragmentsResponse -&gt; Maybe Text
     -&gt; Maybe [Fragment] -&gt; ListFragmentsResponse)
 -&gt; Lens' ListFragmentsResponse (Maybe [Fragment])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-type">ListFragmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165518"><span class="annot"><span class="annottext">Maybe [Fragment]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-type">ListFragmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165527"><span class="annot"><span class="annottext">Maybe [Fragment]
 fragments :: Maybe [Fragment]
 $sel:fragments:ListFragmentsResponse' :: ListFragmentsResponse -&gt; Maybe [Fragment]
-</span><a href="#local-6989586621679165518"><span class="hs-identifier hs-var hs-var">fragments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Fragment]
-</span><a href="#local-6989586621679165518"><span class="hs-identifier hs-var">fragments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165517"><span class="annot"><span class="annottext">s :: ListFragmentsResponse
-</span><a href="#local-6989586621679165517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-type">ListFragmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165516"><span class="annot"><span class="annottext">Maybe [Fragment]
-</span><a href="#local-6989586621679165516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragmentsResponse
-</span><a href="#local-6989586621679165517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fragments:ListFragmentsResponse' :: Maybe [Fragment]
+</span><a href="#local-6989586621679165527"><span class="hs-identifier hs-var hs-var">fragments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Fragment]
+</span><a href="#local-6989586621679165527"><span class="hs-identifier hs-var">fragments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165526"><span class="annot"><span class="annottext">s :: ListFragmentsResponse
+</span><a href="#local-6989586621679165526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-type">ListFragmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165525"><span class="annot"><span class="annottext">Maybe [Fragment]
+</span><a href="#local-6989586621679165525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragmentsResponse
+</span><a href="#local-6989586621679165526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fragments:ListFragmentsResponse' :: Maybe [Fragment]
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#%24sel%3Afragments%3AListFragmentsResponse%27"><span class="hs-identifier hs-var">fragments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Fragment]
-</span><a href="#local-6989586621679165516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse"><span class="hs-identifier hs-type">ListFragmentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Fragment] -&gt; f (Maybe [Fragment]))
+</span><a href="#local-6989586621679165525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse"><span class="hs-identifier hs-type">ListFragmentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Fragment] -&gt; f (Maybe [Fragment]))
  -&gt; ListFragmentsResponse -&gt; f ListFragmentsResponse)
 -&gt; ((Maybe [Fragment] -&gt; f (Maybe [Fragment]))
     -&gt; Maybe [Fragment] -&gt; f (Maybe [Fragment]))
@@ -767,16 +767,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListFragmentsResponse -&gt; Int -&gt; ListFragmentsResponse)
 -&gt; Lens ListFragmentsResponse ListFragmentsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-type">ListFragmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165513"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-type">ListFragmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165522"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListFragmentsResponse' :: ListFragmentsResponse -&gt; Int
-</span><a href="#local-6989586621679165513"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165513"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165512"><span class="annot"><span class="annottext">s :: ListFragmentsResponse
-</span><a href="#local-6989586621679165512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-type">ListFragmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165511"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragmentsResponse
-</span><a href="#local-6989586621679165512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListFragmentsResponse' :: Int
+</span><a href="#local-6989586621679165522"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165522"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165521"><span class="annot"><span class="annottext">s :: ListFragmentsResponse
+</span><a href="#local-6989586621679165521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse%27"><span class="hs-identifier hs-type">ListFragmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165520"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFragmentsResponse
+</span><a href="#local-6989586621679165521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListFragmentsResponse' :: Int
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#%24sel%3AhttpStatus%3AListFragmentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse"><span class="hs-identifier hs-type">ListFragmentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse"><span class="hs-identifier hs-type">ListFragmentsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-289"></span><span>
-</span><span id="line-290"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse"><span class="hs-identifier hs-type">ListFragmentsResponse</span></a></span></span><span>
+</span><span id="line-290"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.ListFragments.html#ListFragmentsResponse"><span class="hs-identifier hs-type">ListFragmentsResponse</span></a></span></span><span>
 </span><span id="line-291"></span></pre></body></html>

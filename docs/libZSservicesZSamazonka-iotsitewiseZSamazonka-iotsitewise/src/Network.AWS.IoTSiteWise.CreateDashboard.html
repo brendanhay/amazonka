@@ -1,0 +1,723 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.CreateDashboard</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a dashboard in an IoT SiteWise Monitor project.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.CreateDashboard</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier">CreateDashboard</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#newCreateDashboard"><span class="hs-identifier">newCreateDashboard</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_clientToken"><span class="hs-identifier">createDashboard_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_dashboardDescription"><span class="hs-identifier">createDashboard_dashboardDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_tags"><span class="hs-identifier">createDashboard_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_projectId"><span class="hs-identifier">createDashboard_projectId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_dashboardName"><span class="hs-identifier">createDashboard_dashboardName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_dashboardDefinition"><span class="hs-identifier">createDashboard_dashboardDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse"><span class="hs-identifier">CreateDashboardResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#newCreateDashboardResponse"><span class="hs-identifier">newCreateDashboardResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboardResponse_httpStatus"><span class="hs-identifier">createDashboardResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboardResponse_dashboardId"><span class="hs-identifier">createDashboardResponse_dashboardId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboardResponse_dashboardArn"><span class="hs-identifier">createDashboardResponse_dashboardArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newCreateDashboard' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679358725"><span id="local-6989586621679358726"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDashboard"><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-var">CreateDashboard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDashboard%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-var">CreateDashboard'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateDashboard%27"><span class="annot"><span class="annottext">CreateDashboard -&gt; Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AclientToken%3ACreateDashboard%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A description for the dashboard.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdashboardDescription%3ACreateDashboard%27"><span class="annot"><span class="annottext">CreateDashboard -&gt; Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardDescription%3ACreateDashboard%27"><span class="hs-identifier hs-var hs-var">dashboardDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A list of key-value pairs that contain metadata for the dashboard. For</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources&gt;</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Atags%3ACreateDashboard%27"><span class="annot"><span class="annottext">CreateDashboard -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3Atags%3ACreateDashboard%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The ID of the project in which to create the dashboard.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AprojectId%3ACreateDashboard%27"><span class="annot"><span class="annottext">CreateDashboard -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AprojectId%3ACreateDashboard%27"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A friendly name for the dashboard.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AdashboardName%3ACreateDashboard%27"><span class="annot"><span class="annottext">CreateDashboard -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardName%3ACreateDashboard%27"><span class="hs-identifier hs-var hs-var">dashboardName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The dashboard definition specified in a JSON literal. For detailed</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html Creating dashboards (CLI)&gt;</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AdashboardDefinition%3ACreateDashboard%27"><span class="annot"><span class="annottext">CreateDashboard -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardDefinition%3ACreateDashboard%27"><span class="hs-identifier hs-var hs-var">dashboardDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358714"><span id="local-6989586621679358716"><span class="annot"><span class="annottext">CreateDashboard -&gt; CreateDashboard -&gt; Bool
+(CreateDashboard -&gt; CreateDashboard -&gt; Bool)
+-&gt; (CreateDashboard -&gt; CreateDashboard -&gt; Bool)
+-&gt; Eq CreateDashboard
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDashboard -&gt; CreateDashboard -&gt; Bool
+$c/= :: CreateDashboard -&gt; CreateDashboard -&gt; Bool
+== :: CreateDashboard -&gt; CreateDashboard -&gt; Bool
+$c== :: CreateDashboard -&gt; CreateDashboard -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358705"><span id="local-6989586621679358707"><span id="local-6989586621679358709"><span id="local-6989586621679358711"><span class="annot"><span class="annottext">ReadPrec [CreateDashboard]
+ReadPrec CreateDashboard
+Int -&gt; ReadS CreateDashboard
+ReadS [CreateDashboard]
+(Int -&gt; ReadS CreateDashboard)
+-&gt; ReadS [CreateDashboard]
+-&gt; ReadPrec CreateDashboard
+-&gt; ReadPrec [CreateDashboard]
+-&gt; Read CreateDashboard
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDashboard]
+$creadListPrec :: ReadPrec [CreateDashboard]
+readPrec :: ReadPrec CreateDashboard
+$creadPrec :: ReadPrec CreateDashboard
+readList :: ReadS [CreateDashboard]
+$creadList :: ReadS [CreateDashboard]
+readsPrec :: Int -&gt; ReadS CreateDashboard
+$creadsPrec :: Int -&gt; ReadS CreateDashboard
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358698"><span id="local-6989586621679358700"><span id="local-6989586621679358702"><span class="annot"><span class="annottext">Int -&gt; CreateDashboard -&gt; ShowS
+[CreateDashboard] -&gt; ShowS
+CreateDashboard -&gt; String
+(Int -&gt; CreateDashboard -&gt; ShowS)
+-&gt; (CreateDashboard -&gt; String)
+-&gt; ([CreateDashboard] -&gt; ShowS)
+-&gt; Show CreateDashboard
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDashboard] -&gt; ShowS
+$cshowList :: [CreateDashboard] -&gt; ShowS
+show :: CreateDashboard -&gt; String
+$cshow :: CreateDashboard -&gt; String
+showsPrec :: Int -&gt; CreateDashboard -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDashboard -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateDashboard -&gt; Rep CreateDashboard x)
+-&gt; (forall x. Rep CreateDashboard x -&gt; CreateDashboard)
+-&gt; Generic CreateDashboard
+forall x. Rep CreateDashboard x -&gt; CreateDashboard
+forall x. CreateDashboard -&gt; Rep CreateDashboard x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateDashboard x -&gt; CreateDashboard
+$cfrom :: forall x. CreateDashboard -&gt; Rep CreateDashboard x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'CreateDashboard' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'clientToken', 'createDashboard_clientToken' - A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'dashboardDescription', 'createDashboard_dashboardDescription' - A description for the dashboard.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'tags', 'createDashboard_tags' - A list of key-value pairs that contain metadata for the dashboard. For</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources&gt;</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'projectId', 'createDashboard_projectId' - The ID of the project in which to create the dashboard.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'dashboardName', 'createDashboard_dashboardName' - A friendly name for the dashboard.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'dashboardDefinition', 'createDashboard_dashboardDefinition' - The dashboard definition specified in a JSON literal. For detailed</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html Creating dashboards (CLI)&gt;</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#newCreateDashboard"><span class="hs-identifier hs-type">newCreateDashboard</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'projectId'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'dashboardName'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'dashboardDefinition'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span>
+</span><span id="line-115"></span><span id="newCreateDashboard"><span class="annot"><span class="annottext">newCreateDashboard :: Text -&gt; Text -&gt; Text -&gt; CreateDashboard
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#newCreateDashboard"><span class="hs-identifier hs-var hs-var">newCreateDashboard</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679358693"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358693"><span class="hs-identifier hs-var">pProjectId_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679358692"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358692"><span class="hs-identifier hs-var">pDashboardName_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679358691"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358691"><span class="hs-identifier hs-var">pDashboardDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">CreateDashboard' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CreateDashboard
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-type">CreateDashboard'</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:CreateDashboard' :: Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AclientToken%3ACreateDashboard%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:dashboardDescription:CreateDashboard' :: Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardDescription%3ACreateDashboard%27"><span class="hs-identifier hs-var">dashboardDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateDashboard' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3Atags%3ACreateDashboard%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:projectId:CreateDashboard' :: Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AprojectId%3ACreateDashboard%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358693"><span class="hs-identifier hs-var">pProjectId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:dashboardName:CreateDashboard' :: Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardName%3ACreateDashboard%27"><span class="hs-identifier hs-var">dashboardName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358692"><span class="hs-identifier hs-var">pDashboardName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:dashboardDefinition:CreateDashboard' :: Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardDefinition%3ACreateDashboard%27"><span class="hs-identifier hs-var">dashboardDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358691"><span class="hs-identifier hs-var">pDashboardDefinition_</span></a></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_clientToken"><span class="hs-identifier hs-type">createDashboard_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="createDashboard_clientToken"><span class="annot"><span class="annottext">createDashboard_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDashboard -&gt; f CreateDashboard
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_clientToken"><span class="hs-identifier hs-var hs-var">createDashboard_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDashboard -&gt; Maybe Text)
+-&gt; (CreateDashboard -&gt; Maybe Text -&gt; CreateDashboard)
+-&gt; Lens CreateDashboard CreateDashboard (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-type">CreateDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358688"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateDashboard' :: CreateDashboard -&gt; Maybe Text
+</span><a href="#local-6989586621679358688"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358688"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358687"><span class="annot"><span class="annottext">s :: CreateDashboard
+</span><a href="#local-6989586621679358687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-type">CreateDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358686"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDashboard
+</span><a href="#local-6989586621679358687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateDashboard' :: Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AclientToken%3ACreateDashboard%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | A description for the dashboard.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_dashboardDescription"><span class="hs-identifier hs-type">createDashboard_dashboardDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="createDashboard_dashboardDescription"><span class="annot"><span class="annottext">createDashboard_dashboardDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDashboard -&gt; f CreateDashboard
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_dashboardDescription"><span class="hs-identifier hs-var hs-var">createDashboard_dashboardDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDashboard -&gt; Maybe Text)
+-&gt; (CreateDashboard -&gt; Maybe Text -&gt; CreateDashboard)
+-&gt; Lens CreateDashboard CreateDashboard (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-type">CreateDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358685"><span class="annot"><span class="annottext">Maybe Text
+dashboardDescription :: Maybe Text
+$sel:dashboardDescription:CreateDashboard' :: CreateDashboard -&gt; Maybe Text
+</span><a href="#local-6989586621679358685"><span class="hs-identifier hs-var hs-var">dashboardDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358685"><span class="hs-identifier hs-var">dashboardDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358684"><span class="annot"><span class="annottext">s :: CreateDashboard
+</span><a href="#local-6989586621679358684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-type">CreateDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358683"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDashboard
+</span><a href="#local-6989586621679358684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardDescription:CreateDashboard' :: Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardDescription%3ACreateDashboard%27"><span class="hs-identifier hs-var">dashboardDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | A list of key-value pairs that contain metadata for the dashboard. For</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources&gt;</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_tags"><span class="hs-identifier hs-type">createDashboard_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="createDashboard_tags"><span class="annot"><span class="annottext">createDashboard_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateDashboard -&gt; f CreateDashboard
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_tags"><span class="hs-identifier hs-var hs-var">createDashboard_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDashboard -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateDashboard
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateDashboard)
+-&gt; Lens
+     CreateDashboard
+     CreateDashboard
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-type">CreateDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358682"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateDashboard' :: CreateDashboard -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679358682"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679358682"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358681"><span class="annot"><span class="annottext">s :: CreateDashboard
+</span><a href="#local-6989586621679358681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-type">CreateDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358680"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679358680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDashboard
+</span><a href="#local-6989586621679358681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDashboard' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3Atags%3ACreateDashboard%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679358680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateDashboard -&gt; f CreateDashboard)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateDashboard
+-&gt; f CreateDashboard
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The ID of the project in which to create the dashboard.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_projectId"><span class="hs-identifier hs-type">createDashboard_projectId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-147"></span><span id="createDashboard_projectId"><span class="annot"><span class="annottext">createDashboard_projectId :: (Text -&gt; f Text) -&gt; CreateDashboard -&gt; f CreateDashboard
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_projectId"><span class="hs-identifier hs-var hs-var">createDashboard_projectId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDashboard -&gt; Text)
+-&gt; (CreateDashboard -&gt; Text -&gt; CreateDashboard)
+-&gt; Lens CreateDashboard CreateDashboard Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-type">CreateDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358676"><span class="annot"><span class="annottext">Text
+projectId :: Text
+$sel:projectId:CreateDashboard' :: CreateDashboard -&gt; Text
+</span><a href="#local-6989586621679358676"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358676"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358675"><span class="annot"><span class="annottext">s :: CreateDashboard
+</span><a href="#local-6989586621679358675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-type">CreateDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358674"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDashboard
+</span><a href="#local-6989586621679358675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:CreateDashboard' :: Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AprojectId%3ACreateDashboard%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | A friendly name for the dashboard.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_dashboardName"><span class="hs-identifier hs-type">createDashboard_dashboardName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-151"></span><span id="createDashboard_dashboardName"><span class="annot"><span class="annottext">createDashboard_dashboardName :: (Text -&gt; f Text) -&gt; CreateDashboard -&gt; f CreateDashboard
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_dashboardName"><span class="hs-identifier hs-var hs-var">createDashboard_dashboardName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDashboard -&gt; Text)
+-&gt; (CreateDashboard -&gt; Text -&gt; CreateDashboard)
+-&gt; Lens CreateDashboard CreateDashboard Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-type">CreateDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358673"><span class="annot"><span class="annottext">Text
+dashboardName :: Text
+$sel:dashboardName:CreateDashboard' :: CreateDashboard -&gt; Text
+</span><a href="#local-6989586621679358673"><span class="hs-identifier hs-var hs-var">dashboardName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358673"><span class="hs-identifier hs-var">dashboardName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358672"><span class="annot"><span class="annottext">s :: CreateDashboard
+</span><a href="#local-6989586621679358672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-type">CreateDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358671"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDashboard
+</span><a href="#local-6989586621679358672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardName:CreateDashboard' :: Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardName%3ACreateDashboard%27"><span class="hs-identifier hs-var">dashboardName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The dashboard definition specified in a JSON literal. For detailed</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html Creating dashboards (CLI)&gt;</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_dashboardDefinition"><span class="hs-identifier hs-type">createDashboard_dashboardDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-158"></span><span id="createDashboard_dashboardDefinition"><span class="annot"><span class="annottext">createDashboard_dashboardDefinition :: (Text -&gt; f Text) -&gt; CreateDashboard -&gt; f CreateDashboard
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboard_dashboardDefinition"><span class="hs-identifier hs-var hs-var">createDashboard_dashboardDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDashboard -&gt; Text)
+-&gt; (CreateDashboard -&gt; Text -&gt; CreateDashboard)
+-&gt; Lens CreateDashboard CreateDashboard Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-type">CreateDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358670"><span class="annot"><span class="annottext">Text
+dashboardDefinition :: Text
+$sel:dashboardDefinition:CreateDashboard' :: CreateDashboard -&gt; Text
+</span><a href="#local-6989586621679358670"><span class="hs-identifier hs-var hs-var">dashboardDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358670"><span class="hs-identifier hs-var">dashboardDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358669"><span class="annot"><span class="annottext">s :: CreateDashboard
+</span><a href="#local-6989586621679358669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-type">CreateDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358668"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDashboard
+</span><a href="#local-6989586621679358669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardDefinition:CreateDashboard' :: Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardDefinition%3ACreateDashboard%27"><span class="hs-identifier hs-var">dashboardDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-162"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse"><span class="hs-identifier hs-type">CreateDashboardResponse</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679358664"><span class="annot"><span class="annottext">request :: CreateDashboard -&gt; Request CreateDashboard
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDashboard -&gt; Request CreateDashboard
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTSiteWise.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679358660"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateDashboard
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateDashboard)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateDashboard))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateDashboard
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateDashboard)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679358657"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358657"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679358656"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679358656"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679358655"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679358655"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; Text -&gt; CreateDashboardResponse
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse%27"><span class="hs-identifier hs-var">CreateDashboardResponse'</span></a></span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; Text -&gt; CreateDashboardResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; Text -&gt; CreateDashboardResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358657"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; CreateDashboardResponse)
+-&gt; Either String Text
+-&gt; Either String (Text -&gt; CreateDashboardResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679358655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dashboardId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateDashboardResponse)
+-&gt; Either String Text -&gt; Either String CreateDashboardResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679358655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dashboardArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358647"><span id="local-6989586621679358649"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358644"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679358640"><span class="annot"><span class="annottext">toHeaders :: CreateDashboard -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDashboard -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-185"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358630"><span id="local-6989586621679358632"><span id="local-6989586621679358634"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679358628"><span class="annot"><span class="annottext">toJSON :: CreateDashboard -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard%27"><span class="hs-identifier hs-type">CreateDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358621"><span id="local-6989586621679358622"><span id="local-6989586621679358623"><span id="local-6989586621679358624"><span id="local-6989586621679358625"><span id="local-6989586621679358626"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Text
+dashboardDefinition :: Text
+dashboardName :: Text
+projectId :: Text
+tags :: Maybe (HashMap Text Text)
+dashboardDescription :: Maybe Text
+clientToken :: Maybe Text
+$sel:dashboardDefinition:CreateDashboard' :: CreateDashboard -&gt; Text
+$sel:dashboardName:CreateDashboard' :: CreateDashboard -&gt; Text
+$sel:projectId:CreateDashboard' :: CreateDashboard -&gt; Text
+$sel:tags:CreateDashboard' :: CreateDashboard -&gt; Maybe (HashMap Text Text)
+$sel:dashboardDescription:CreateDashboard' :: CreateDashboard -&gt; Maybe Text
+$sel:clientToken:CreateDashboard' :: CreateDashboard -&gt; Maybe Text
+</span><a href="#local-6989586621679358621"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-193"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358626"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dashboardDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358625"><span class="hs-identifier hs-var">dashboardDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679358624"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;projectId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358623"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dashboardName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358622"><span class="hs-identifier hs-var">dashboardName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-200"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dashboardDefinition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358621"><span class="hs-identifier hs-var">dashboardDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679358615"><span class="annot"><span class="annottext">toPath :: CreateDashboard -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDashboard -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/dashboards&quot;</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboard"><span class="hs-identifier hs-type">CreateDashboard</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679358611"><span class="annot"><span class="annottext">toQuery :: CreateDashboard -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDashboard -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | /See:/ 'newCreateDashboardResponse' smart constructor.</span><span>
+</span><span id="line-211"></span><span id="local-6989586621679358608"><span id="local-6989586621679358609"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDashboardResponse"><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse"><span class="hs-identifier hs-var">CreateDashboardResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDashboardResponse%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse%27"><span class="hs-identifier hs-var">CreateDashboardResponse'</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDashboardResponse%27"><span class="annot"><span class="annottext">CreateDashboardResponse -&gt; Int
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AhttpStatus%3ACreateDashboardResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- | The ID of the dashboard.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AdashboardId%3ACreateDashboardResponse%27"><span class="annot"><span class="annottext">CreateDashboardResponse -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardId%3ACreateDashboardResponse%27"><span class="hs-identifier hs-var hs-var">dashboardId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- of the dashboard, which has the following format.</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- @arn:${Partition}:iotsitewise:${Region}:${Account}:dashboard\/${DashboardId}@</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3AdashboardArn%3ACreateDashboardResponse%27"><span class="annot"><span class="annottext">CreateDashboardResponse -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardArn%3ACreateDashboardResponse%27"><span class="hs-identifier hs-var hs-var">dashboardArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358601"><span id="local-6989586621679358603"><span class="annot"><span class="annottext">CreateDashboardResponse -&gt; CreateDashboardResponse -&gt; Bool
+(CreateDashboardResponse -&gt; CreateDashboardResponse -&gt; Bool)
+-&gt; (CreateDashboardResponse -&gt; CreateDashboardResponse -&gt; Bool)
+-&gt; Eq CreateDashboardResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDashboardResponse -&gt; CreateDashboardResponse -&gt; Bool
+$c/= :: CreateDashboardResponse -&gt; CreateDashboardResponse -&gt; Bool
+== :: CreateDashboardResponse -&gt; CreateDashboardResponse -&gt; Bool
+$c== :: CreateDashboardResponse -&gt; CreateDashboardResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358593"><span id="local-6989586621679358595"><span id="local-6989586621679358597"><span id="local-6989586621679358599"><span class="annot"><span class="annottext">ReadPrec [CreateDashboardResponse]
+ReadPrec CreateDashboardResponse
+Int -&gt; ReadS CreateDashboardResponse
+ReadS [CreateDashboardResponse]
+(Int -&gt; ReadS CreateDashboardResponse)
+-&gt; ReadS [CreateDashboardResponse]
+-&gt; ReadPrec CreateDashboardResponse
+-&gt; ReadPrec [CreateDashboardResponse]
+-&gt; Read CreateDashboardResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDashboardResponse]
+$creadListPrec :: ReadPrec [CreateDashboardResponse]
+readPrec :: ReadPrec CreateDashboardResponse
+$creadPrec :: ReadPrec CreateDashboardResponse
+readList :: ReadS [CreateDashboardResponse]
+$creadList :: ReadS [CreateDashboardResponse]
+readsPrec :: Int -&gt; ReadS CreateDashboardResponse
+$creadsPrec :: Int -&gt; ReadS CreateDashboardResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358587"><span id="local-6989586621679358589"><span id="local-6989586621679358591"><span class="annot"><span class="annottext">Int -&gt; CreateDashboardResponse -&gt; ShowS
+[CreateDashboardResponse] -&gt; ShowS
+CreateDashboardResponse -&gt; String
+(Int -&gt; CreateDashboardResponse -&gt; ShowS)
+-&gt; (CreateDashboardResponse -&gt; String)
+-&gt; ([CreateDashboardResponse] -&gt; ShowS)
+-&gt; Show CreateDashboardResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDashboardResponse] -&gt; ShowS
+$cshowList :: [CreateDashboardResponse] -&gt; ShowS
+show :: CreateDashboardResponse -&gt; String
+$cshow :: CreateDashboardResponse -&gt; String
+showsPrec :: Int -&gt; CreateDashboardResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDashboardResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateDashboardResponse -&gt; Rep CreateDashboardResponse x)
+-&gt; (forall x.
+    Rep CreateDashboardResponse x -&gt; CreateDashboardResponse)
+-&gt; Generic CreateDashboardResponse
+forall x. Rep CreateDashboardResponse x -&gt; CreateDashboardResponse
+forall x. CreateDashboardResponse -&gt; Rep CreateDashboardResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateDashboardResponse x -&gt; CreateDashboardResponse
+$cfrom :: forall x. CreateDashboardResponse -&gt; Rep CreateDashboardResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Create a value of 'CreateDashboardResponse' with all optional fields omitted.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'httpStatus', 'createDashboardResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'dashboardId', 'createDashboardResponse_dashboardId' - The ID of the dashboard.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'dashboardArn', 'createDashboardResponse_dashboardArn' - The</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- of the dashboard, which has the following format.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- @arn:${Partition}:iotsitewise:${Region}:${Account}:dashboard\/${DashboardId}@</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#newCreateDashboardResponse"><span class="hs-identifier hs-type">newCreateDashboardResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-245"></span><span>  </span><span class="hs-comment">-- | 'dashboardId'</span><span>
+</span><span id="line-246"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-comment">-- | 'dashboardArn'</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-249"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse"><span class="hs-identifier hs-type">CreateDashboardResponse</span></a></span><span>
+</span><span id="line-250"></span><span id="newCreateDashboardResponse"><span class="annot"><span class="annottext">newCreateDashboardResponse :: Int -&gt; Text -&gt; Text -&gt; CreateDashboardResponse
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#newCreateDashboardResponse"><span class="hs-identifier hs-var hs-var">newCreateDashboardResponse</span></a></span></span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679358584"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358584"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679358583"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358583"><span class="hs-identifier hs-var">pDashboardId_</span></a></span></span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679358582"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358582"><span class="hs-identifier hs-var">pDashboardArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><span class="annottext">CreateDashboardResponse' :: Int -&gt; Text -&gt; Text -&gt; CreateDashboardResponse
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse%27"><span class="hs-identifier hs-type">CreateDashboardResponse'</span></a></span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDashboardResponse' :: Int
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AhttpStatus%3ACreateDashboardResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358584"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">$sel:dashboardId:CreateDashboardResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardId%3ACreateDashboardResponse%27"><span class="hs-identifier hs-var">dashboardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358583"><span class="hs-identifier hs-var">pDashboardId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">$sel:dashboardArn:CreateDashboardResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardArn%3ACreateDashboardResponse%27"><span class="hs-identifier hs-var">dashboardArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358582"><span class="hs-identifier hs-var">pDashboardArn_</span></a></span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboardResponse_httpStatus"><span class="hs-identifier hs-type">createDashboardResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse"><span class="hs-identifier hs-type">CreateDashboardResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-262"></span><span id="createDashboardResponse_httpStatus"><span class="annot"><span class="annottext">createDashboardResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateDashboardResponse -&gt; f CreateDashboardResponse
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboardResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createDashboardResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDashboardResponse -&gt; Int)
+-&gt; (CreateDashboardResponse -&gt; Int -&gt; CreateDashboardResponse)
+-&gt; Lens CreateDashboardResponse CreateDashboardResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse%27"><span class="hs-identifier hs-type">CreateDashboardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358581"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateDashboardResponse' :: CreateDashboardResponse -&gt; Int
+</span><a href="#local-6989586621679358581"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358581"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358580"><span class="annot"><span class="annottext">s :: CreateDashboardResponse
+</span><a href="#local-6989586621679358580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse%27"><span class="hs-identifier hs-type">CreateDashboardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358579"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDashboardResponse
+</span><a href="#local-6989586621679358580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDashboardResponse' :: Int
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AhttpStatus%3ACreateDashboardResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse"><span class="hs-identifier hs-type">CreateDashboardResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The ID of the dashboard.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboardResponse_dashboardId"><span class="hs-identifier hs-type">createDashboardResponse_dashboardId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse"><span class="hs-identifier hs-type">CreateDashboardResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-266"></span><span id="createDashboardResponse_dashboardId"><span class="annot"><span class="annottext">createDashboardResponse_dashboardId :: (Text -&gt; f Text)
+-&gt; CreateDashboardResponse -&gt; f CreateDashboardResponse
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboardResponse_dashboardId"><span class="hs-identifier hs-var hs-var">createDashboardResponse_dashboardId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDashboardResponse -&gt; Text)
+-&gt; (CreateDashboardResponse -&gt; Text -&gt; CreateDashboardResponse)
+-&gt; Lens CreateDashboardResponse CreateDashboardResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse%27"><span class="hs-identifier hs-type">CreateDashboardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358578"><span class="annot"><span class="annottext">Text
+dashboardId :: Text
+$sel:dashboardId:CreateDashboardResponse' :: CreateDashboardResponse -&gt; Text
+</span><a href="#local-6989586621679358578"><span class="hs-identifier hs-var hs-var">dashboardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358578"><span class="hs-identifier hs-var">dashboardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358577"><span class="annot"><span class="annottext">s :: CreateDashboardResponse
+</span><a href="#local-6989586621679358577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse%27"><span class="hs-identifier hs-type">CreateDashboardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358576"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDashboardResponse
+</span><a href="#local-6989586621679358577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardId:CreateDashboardResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardId%3ACreateDashboardResponse%27"><span class="hs-identifier hs-var">dashboardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse"><span class="hs-identifier hs-type">CreateDashboardResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- of the dashboard, which has the following format.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- @arn:${Partition}:iotsitewise:${Region}:${Account}:dashboard\/${DashboardId}@</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboardResponse_dashboardArn"><span class="hs-identifier hs-type">createDashboardResponse_dashboardArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse"><span class="hs-identifier hs-type">CreateDashboardResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-274"></span><span id="createDashboardResponse_dashboardArn"><span class="annot"><span class="annottext">createDashboardResponse_dashboardArn :: (Text -&gt; f Text)
+-&gt; CreateDashboardResponse -&gt; f CreateDashboardResponse
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#createDashboardResponse_dashboardArn"><span class="hs-identifier hs-var hs-var">createDashboardResponse_dashboardArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDashboardResponse -&gt; Text)
+-&gt; (CreateDashboardResponse -&gt; Text -&gt; CreateDashboardResponse)
+-&gt; Lens CreateDashboardResponse CreateDashboardResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse%27"><span class="hs-identifier hs-type">CreateDashboardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358575"><span class="annot"><span class="annottext">Text
+dashboardArn :: Text
+$sel:dashboardArn:CreateDashboardResponse' :: CreateDashboardResponse -&gt; Text
+</span><a href="#local-6989586621679358575"><span class="hs-identifier hs-var hs-var">dashboardArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358575"><span class="hs-identifier hs-var">dashboardArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358574"><span class="annot"><span class="annottext">s :: CreateDashboardResponse
+</span><a href="#local-6989586621679358574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse%27"><span class="hs-identifier hs-type">CreateDashboardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358573"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDashboardResponse
+</span><a href="#local-6989586621679358574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardArn:CreateDashboardResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#%24sel%3AdashboardArn%3ACreateDashboardResponse%27"><span class="hs-identifier hs-var">dashboardArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse"><span class="hs-identifier hs-type">CreateDashboardResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358571"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.CreateDashboard.html#CreateDashboardResponse"><span class="hs-identifier hs-type">CreateDashboardResponse</span></a></span></span><span>
+</span><span id="line-277"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- security.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDataCatalogEncryptionSettings' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679685942"><span id="local-6989586621679685943"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataCatalogEncryptionSettings"><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-var">DataCatalogEncryptionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataCatalogEncryptionSettings%27"><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings%27"><span class="hs-identifier hs-var">DataCatalogEncryptionSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679685951"><span id="local-6989586621679685952"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataCatalogEncryptionSettings"><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-var">DataCatalogEncryptionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataCatalogEncryptionSettings%27"><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings%27"><span class="hs-identifier hs-var">DataCatalogEncryptionSettings'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the encryption-at-rest configuration for the Data Catalog.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AencryptionAtRest%3ADataCatalogEncryptionSettings%27"><span class="annot"><span class="annottext">DataCatalogEncryptionSettings -&gt; Maybe EncryptionAtRest
 </span><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#%24sel%3AencryptionAtRest%3ADataCatalogEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">encryptionAtRest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EncryptionAtRest.html#EncryptionAtRest"><span class="hs-identifier hs-type">EncryptionAtRest</span></a></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AconnectionPasswordEncryption%3ADataCatalogEncryptionSettings%27"><span class="annot"><span class="annottext">DataCatalogEncryptionSettings -&gt; Maybe ConnectionPasswordEncryption
 </span><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#%24sel%3AconnectionPasswordEncryption%3ADataCatalogEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">connectionPasswordEncryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionPasswordEncryption.html#ConnectionPasswordEncryption"><span class="hs-identifier hs-type">ConnectionPasswordEncryption</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679685935"><span id="local-6989586621679685937"><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679685944"><span id="local-6989586621679685946"><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
 -&gt; DataCatalogEncryptionSettings -&gt; Bool
 (DataCatalogEncryptionSettings
  -&gt; DataCatalogEncryptionSettings -&gt; Bool)
@@ -57,7 +57,7 @@ $c/= :: DataCatalogEncryptionSettings
 -&gt; DataCatalogEncryptionSettings -&gt; Bool
 $c== :: DataCatalogEncryptionSettings
 -&gt; DataCatalogEncryptionSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679685926"><span id="local-6989586621679685928"><span id="local-6989586621679685930"><span id="local-6989586621679685932"><span class="annot"><span class="annottext">ReadPrec [DataCatalogEncryptionSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679685935"><span id="local-6989586621679685937"><span id="local-6989586621679685939"><span id="local-6989586621679685941"><span class="annot"><span class="annottext">ReadPrec [DataCatalogEncryptionSettings]
 ReadPrec DataCatalogEncryptionSettings
 Int -&gt; ReadS DataCatalogEncryptionSettings
 ReadS [DataCatalogEncryptionSettings]
@@ -77,7 +77,7 @@ readList :: ReadS [DataCatalogEncryptionSettings]
 $creadList :: ReadS [DataCatalogEncryptionSettings]
 readsPrec :: Int -&gt; ReadS DataCatalogEncryptionSettings
 $creadsPrec :: Int -&gt; ReadS DataCatalogEncryptionSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679685919"><span id="local-6989586621679685921"><span id="local-6989586621679685923"><span class="annot"><span class="annottext">Int -&gt; DataCatalogEncryptionSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679685928"><span id="local-6989586621679685930"><span id="local-6989586621679685932"><span class="annot"><span class="annottext">Int -&gt; DataCatalogEncryptionSettings -&gt; ShowS
 [DataCatalogEncryptionSettings] -&gt; ShowS
 DataCatalogEncryptionSettings -&gt; String
 (Int -&gt; DataCatalogEncryptionSettings -&gt; ShowS)
@@ -163,16 +163,16 @@ forall a. Maybe a
      (Maybe EncryptionAtRest)
      (Maybe EncryptionAtRest)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685910"><span class="annot"><span class="annottext">Maybe EncryptionAtRest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685919"><span class="annot"><span class="annottext">Maybe EncryptionAtRest
 encryptionAtRest :: Maybe EncryptionAtRest
 $sel:encryptionAtRest:DataCatalogEncryptionSettings' :: DataCatalogEncryptionSettings -&gt; Maybe EncryptionAtRest
-</span><a href="#local-6989586621679685910"><span class="hs-identifier hs-var hs-var">encryptionAtRest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAtRest
-</span><a href="#local-6989586621679685910"><span class="hs-identifier hs-var">encryptionAtRest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685909"><span class="annot"><span class="annottext">s :: DataCatalogEncryptionSettings
-</span><a href="#local-6989586621679685909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685908"><span class="annot"><span class="annottext">Maybe EncryptionAtRest
-</span><a href="#local-6989586621679685908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
-</span><a href="#local-6989586621679685909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionAtRest:DataCatalogEncryptionSettings' :: Maybe EncryptionAtRest
+</span><a href="#local-6989586621679685919"><span class="hs-identifier hs-var hs-var">encryptionAtRest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAtRest
+</span><a href="#local-6989586621679685919"><span class="hs-identifier hs-var">encryptionAtRest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685918"><span class="annot"><span class="annottext">s :: DataCatalogEncryptionSettings
+</span><a href="#local-6989586621679685918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685917"><span class="annot"><span class="annottext">Maybe EncryptionAtRest
+</span><a href="#local-6989586621679685917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
+</span><a href="#local-6989586621679685918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionAtRest:DataCatalogEncryptionSettings' :: Maybe EncryptionAtRest
 </span><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#%24sel%3AencryptionAtRest%3ADataCatalogEncryptionSettings%27"><span class="hs-identifier hs-var">encryptionAtRest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAtRest
-</span><a href="#local-6989586621679685908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679685917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | When connection password protection is enabled, the Data Catalog uses a</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- customer-provided key to encrypt the password as part of</span><span>
@@ -194,19 +194,19 @@ $sel:encryptionAtRest:DataCatalogEncryptionSettings' :: DataCatalogEncryptionSet
      (Maybe ConnectionPasswordEncryption)
      (Maybe ConnectionPasswordEncryption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685906"><span class="annot"><span class="annottext">Maybe ConnectionPasswordEncryption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685915"><span class="annot"><span class="annottext">Maybe ConnectionPasswordEncryption
 connectionPasswordEncryption :: Maybe ConnectionPasswordEncryption
 $sel:connectionPasswordEncryption:DataCatalogEncryptionSettings' :: DataCatalogEncryptionSettings -&gt; Maybe ConnectionPasswordEncryption
-</span><a href="#local-6989586621679685906"><span class="hs-identifier hs-var hs-var">connectionPasswordEncryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionPasswordEncryption
-</span><a href="#local-6989586621679685906"><span class="hs-identifier hs-var">connectionPasswordEncryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685905"><span class="annot"><span class="annottext">s :: DataCatalogEncryptionSettings
-</span><a href="#local-6989586621679685905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685904"><span class="annot"><span class="annottext">Maybe ConnectionPasswordEncryption
-</span><a href="#local-6989586621679685904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
-</span><a href="#local-6989586621679685905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionPasswordEncryption:DataCatalogEncryptionSettings' :: Maybe ConnectionPasswordEncryption
+</span><a href="#local-6989586621679685915"><span class="hs-identifier hs-var hs-var">connectionPasswordEncryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionPasswordEncryption
+</span><a href="#local-6989586621679685915"><span class="hs-identifier hs-var">connectionPasswordEncryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685914"><span class="annot"><span class="annottext">s :: DataCatalogEncryptionSettings
+</span><a href="#local-6989586621679685914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685913"><span class="annot"><span class="annottext">Maybe ConnectionPasswordEncryption
+</span><a href="#local-6989586621679685913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
+</span><a href="#local-6989586621679685914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionPasswordEncryption:DataCatalogEncryptionSettings' :: Maybe ConnectionPasswordEncryption
 </span><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#%24sel%3AconnectionPasswordEncryption%3ADataCatalogEncryptionSettings%27"><span class="hs-identifier hs-var">connectionPasswordEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionPasswordEncryption
-</span><a href="#local-6989586621679685904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679685913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685901"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679685899"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataCatalogEncryptionSettings
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685910"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679685908"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataCatalogEncryptionSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DataCatalogEncryptionSettings)
@@ -216,8 +216,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DataCatalogEncryptionSettings&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679685896"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679685896"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679685905"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679685905"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe EncryptionAtRest
 -&gt; Maybe ConnectionPasswordEncryption
 -&gt; DataCatalogEncryptionSettings
@@ -231,7 +231,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; DataCatalogEncryptionSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679685896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionAtRest)
+</span><a href="#local-6989586621679685905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionAtRest)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncryptionAtRest&quot;</span></span><span class="hs-special">)</span><span>
@@ -242,27 +242,27 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser DataCatalogEncryptionSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679685896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectionPasswordEncryption)
+</span><a href="#local-6989586621679685905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectionPasswordEncryption)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConnectionPasswordEncryption&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679685890"><span id="local-6989586621679685892"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679685899"><span id="local-6989586621679685901"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685887"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685896"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685879"><span id="local-6989586621679685881"><span id="local-6989586621679685883"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679685877"><span class="annot"><span class="annottext">toJSON :: DataCatalogEncryptionSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685874"><span id="local-6989586621679685875"><span class="annot"><span class="annottext">Maybe ConnectionPasswordEncryption
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685888"><span id="local-6989586621679685890"><span id="local-6989586621679685892"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679685886"><span class="annot"><span class="annottext">toJSON :: DataCatalogEncryptionSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685883"><span id="local-6989586621679685884"><span class="annot"><span class="annottext">Maybe ConnectionPasswordEncryption
 Maybe EncryptionAtRest
 connectionPasswordEncryption :: Maybe ConnectionPasswordEncryption
 encryptionAtRest :: Maybe EncryptionAtRest
 $sel:connectionPasswordEncryption:DataCatalogEncryptionSettings' :: DataCatalogEncryptionSettings -&gt; Maybe ConnectionPasswordEncryption
 $sel:encryptionAtRest:DataCatalogEncryptionSettings' :: DataCatalogEncryptionSettings -&gt; Maybe EncryptionAtRest
-</span><a href="#local-6989586621679685874"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679685883"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -275,7 +275,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">(EncryptionAtRest -&gt; Pair) -&gt; Maybe EncryptionAtRest -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAtRest
-</span><a href="#local-6989586621679685875"><span class="hs-identifier hs-var">encryptionAtRest</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679685884"><span class="hs-identifier hs-var">encryptionAtRest</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConnectionPasswordEncryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConnectionPasswordEncryption -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -284,7 +284,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ConnectionPasswordEncryption -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionPasswordEncryption
-</span><a href="#local-6989586621679685874"><span class="hs-identifier hs-var">connectionPasswordEncryption</span></a></span><span>
+</span><a href="#local-6989586621679685883"><span class="hs-identifier hs-var">connectionPasswordEncryption</span></a></span><span>
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span></pre></body></html>

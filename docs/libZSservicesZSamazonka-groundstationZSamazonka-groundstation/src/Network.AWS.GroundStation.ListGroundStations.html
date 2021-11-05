@@ -1,0 +1,694 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.GroundStation.ListGroundStations</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of ground stations.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GroundStation.ListGroundStations</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier">ListGroundStations</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#newListGroundStations"><span class="hs-identifier">newListGroundStations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStations_satelliteId"><span class="hs-identifier">listGroundStations_satelliteId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStations_nextToken"><span class="hs-identifier">listGroundStations_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStations_maxResults"><span class="hs-identifier">listGroundStations_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse"><span class="hs-identifier">ListGroundStationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#newListGroundStationsResponse"><span class="hs-identifier">newListGroundStationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStationsResponse_nextToken"><span class="hs-identifier">listGroundStationsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStationsResponse_groundStationList"><span class="hs-identifier">listGroundStationsResponse_groundStationList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStationsResponse_httpStatus"><span class="hs-identifier">listGroundStationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.html"><span class="hs-identifier">Network.AWS.GroundStation.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newListGroundStations' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679219083"><span id="local-6989586621679219084"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroundStations"><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-var">ListGroundStations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroundStations%27"><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations%27"><span class="hs-identifier hs-var">ListGroundStations'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Satellite ID to retrieve on-boarded ground stations.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AsatelliteId%3AListGroundStations%27"><span class="annot"><span class="annottext">ListGroundStations -&gt; Maybe Text
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AsatelliteId%3AListGroundStations%27"><span class="hs-identifier hs-var hs-var">satelliteId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Next token that can be supplied in the next call to get the next page of</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- ground stations.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3AListGroundStations%27"><span class="annot"><span class="annottext">ListGroundStations -&gt; Maybe Text
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AnextToken%3AListGroundStations%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Maximum number of ground stations returned.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AListGroundStations%27"><span class="annot"><span class="annottext">ListGroundStations -&gt; Maybe Int
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AmaxResults%3AListGroundStations%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219075"><span id="local-6989586621679219077"><span class="annot"><span class="annottext">ListGroundStations -&gt; ListGroundStations -&gt; Bool
+(ListGroundStations -&gt; ListGroundStations -&gt; Bool)
+-&gt; (ListGroundStations -&gt; ListGroundStations -&gt; Bool)
+-&gt; Eq ListGroundStations
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListGroundStations -&gt; ListGroundStations -&gt; Bool
+$c/= :: ListGroundStations -&gt; ListGroundStations -&gt; Bool
+== :: ListGroundStations -&gt; ListGroundStations -&gt; Bool
+$c== :: ListGroundStations -&gt; ListGroundStations -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219066"><span id="local-6989586621679219068"><span id="local-6989586621679219070"><span id="local-6989586621679219072"><span class="annot"><span class="annottext">ReadPrec [ListGroundStations]
+ReadPrec ListGroundStations
+Int -&gt; ReadS ListGroundStations
+ReadS [ListGroundStations]
+(Int -&gt; ReadS ListGroundStations)
+-&gt; ReadS [ListGroundStations]
+-&gt; ReadPrec ListGroundStations
+-&gt; ReadPrec [ListGroundStations]
+-&gt; Read ListGroundStations
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListGroundStations]
+$creadListPrec :: ReadPrec [ListGroundStations]
+readPrec :: ReadPrec ListGroundStations
+$creadPrec :: ReadPrec ListGroundStations
+readList :: ReadS [ListGroundStations]
+$creadList :: ReadS [ListGroundStations]
+readsPrec :: Int -&gt; ReadS ListGroundStations
+$creadsPrec :: Int -&gt; ReadS ListGroundStations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219059"><span id="local-6989586621679219061"><span id="local-6989586621679219063"><span class="annot"><span class="annottext">Int -&gt; ListGroundStations -&gt; ShowS
+[ListGroundStations] -&gt; ShowS
+ListGroundStations -&gt; String
+(Int -&gt; ListGroundStations -&gt; ShowS)
+-&gt; (ListGroundStations -&gt; String)
+-&gt; ([ListGroundStations] -&gt; ShowS)
+-&gt; Show ListGroundStations
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListGroundStations] -&gt; ShowS
+$cshowList :: [ListGroundStations] -&gt; ShowS
+show :: ListGroundStations -&gt; String
+$cshow :: ListGroundStations -&gt; String
+showsPrec :: Int -&gt; ListGroundStations -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListGroundStations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListGroundStations -&gt; Rep ListGroundStations x)
+-&gt; (forall x. Rep ListGroundStations x -&gt; ListGroundStations)
+-&gt; Generic ListGroundStations
+forall x. Rep ListGroundStations x -&gt; ListGroundStations
+forall x. ListGroundStations -&gt; Rep ListGroundStations x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListGroundStations x -&gt; ListGroundStations
+$cfrom :: forall x. ListGroundStations -&gt; Rep ListGroundStations x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ListGroundStations' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'satelliteId', 'listGroundStations_satelliteId' - Satellite ID to retrieve on-boarded ground stations.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'nextToken', 'listGroundStations_nextToken' - Next token that can be supplied in the next call to get the next page of</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- ground stations.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'maxResults', 'listGroundStations_maxResults' - Maximum number of ground stations returned.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#newListGroundStations"><span class="hs-identifier hs-type">newListGroundStations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span><span>
+</span><span id="line-84"></span><span id="newListGroundStations"><span class="annot"><span class="annottext">newListGroundStations :: ListGroundStations
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#newListGroundStations"><span class="hs-identifier hs-var hs-var">newListGroundStations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ListGroundStations' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; ListGroundStations
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations%27"><span class="hs-identifier hs-type">ListGroundStations'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:satelliteId:ListGroundStations' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AsatelliteId%3AListGroundStations%27"><span class="hs-identifier hs-var">satelliteId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListGroundStations' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AnextToken%3AListGroundStations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListGroundStations' :: Maybe Int
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AmaxResults%3AListGroundStations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Satellite ID to retrieve on-boarded ground stations.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStations_satelliteId"><span class="hs-identifier hs-type">listGroundStations_satelliteId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="listGroundStations_satelliteId"><span class="annot"><span class="annottext">listGroundStations_satelliteId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListGroundStations -&gt; f ListGroundStations
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStations_satelliteId"><span class="hs-identifier hs-var hs-var">listGroundStations_satelliteId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroundStations -&gt; Maybe Text)
+-&gt; (ListGroundStations -&gt; Maybe Text -&gt; ListGroundStations)
+-&gt; Lens
+     ListGroundStations ListGroundStations (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations%27"><span class="hs-identifier hs-type">ListGroundStations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219053"><span class="annot"><span class="annottext">Maybe Text
+satelliteId :: Maybe Text
+$sel:satelliteId:ListGroundStations' :: ListGroundStations -&gt; Maybe Text
+</span><a href="#local-6989586621679219053"><span class="hs-identifier hs-var hs-var">satelliteId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219053"><span class="hs-identifier hs-var">satelliteId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219052"><span class="annot"><span class="annottext">s :: ListGroundStations
+</span><a href="#local-6989586621679219052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations%27"><span class="hs-identifier hs-type">ListGroundStations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219051"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroundStations
+</span><a href="#local-6989586621679219052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:satelliteId:ListGroundStations' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AsatelliteId%3AListGroundStations%27"><span class="hs-identifier hs-var">satelliteId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Next token that can be supplied in the next call to get the next page of</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- ground stations.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStations_nextToken"><span class="hs-identifier hs-type">listGroundStations_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="listGroundStations_nextToken"><span class="annot"><span class="annottext">listGroundStations_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListGroundStations -&gt; f ListGroundStations
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStations_nextToken"><span class="hs-identifier hs-var hs-var">listGroundStations_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroundStations -&gt; Maybe Text)
+-&gt; (ListGroundStations -&gt; Maybe Text -&gt; ListGroundStations)
+-&gt; Lens
+     ListGroundStations ListGroundStations (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations%27"><span class="hs-identifier hs-type">ListGroundStations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219050"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListGroundStations' :: ListGroundStations -&gt; Maybe Text
+</span><a href="#local-6989586621679219050"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219050"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219049"><span class="annot"><span class="annottext">s :: ListGroundStations
+</span><a href="#local-6989586621679219049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations%27"><span class="hs-identifier hs-type">ListGroundStations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219048"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroundStations
+</span><a href="#local-6989586621679219049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroundStations' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AnextToken%3AListGroundStations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Maximum number of ground stations returned.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStations_maxResults"><span class="hs-identifier hs-type">listGroundStations_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="listGroundStations_maxResults"><span class="annot"><span class="annottext">listGroundStations_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListGroundStations -&gt; f ListGroundStations
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStations_maxResults"><span class="hs-identifier hs-var hs-var">listGroundStations_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroundStations -&gt; Maybe Int)
+-&gt; (ListGroundStations -&gt; Maybe Int -&gt; ListGroundStations)
+-&gt; Lens
+     ListGroundStations ListGroundStations (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations%27"><span class="hs-identifier hs-type">ListGroundStations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219047"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:ListGroundStations' :: ListGroundStations -&gt; Maybe Int
+</span><a href="#local-6989586621679219047"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679219047"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219046"><span class="annot"><span class="annottext">s :: ListGroundStations
+</span><a href="#local-6989586621679219046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations%27"><span class="hs-identifier hs-type">ListGroundStations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219045"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679219045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroundStations
+</span><a href="#local-6989586621679219046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListGroundStations' :: Maybe Int
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AmaxResults%3AListGroundStations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679219045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679219041"><span class="annot"><span class="annottext">page :: ListGroundStations
+-&gt; AWSResponse ListGroundStations -&gt; Maybe ListGroundStations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679219039"><span class="annot"><span class="annottext">ListGroundStations
+</span><a href="#local-6989586621679219039"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679219038"><span class="annot"><span class="annottext">AWSResponse ListGroundStations
+</span><a href="#local-6989586621679219038"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroundStations
+ListGroundStationsResponse
+</span><a href="#local-6989586621679219038"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">ListGroundStationsResponse
+-&gt; Getting (First Text) ListGroundStationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListGroundStationsResponse
+-&gt; Const (First Text) ListGroundStationsResponse
+Lens' ListGroundStationsResponse (Maybe Text)
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStationsResponse_nextToken"><span class="hs-identifier hs-var">listGroundStationsResponse_nextToken</span></a></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListGroundStationsResponse
+ -&gt; Const (First Text) ListGroundStationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListGroundStationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-110"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListGroundStations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [GroundStationData] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroundStations
+ListGroundStationsResponse
+</span><a href="#local-6989586621679219038"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListGroundStationsResponse
+-&gt; Getting
+     (First [GroundStationData])
+     ListGroundStationsResponse
+     [GroundStationData]
+-&gt; Maybe [GroundStationData]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [GroundStationData]
+ -&gt; Const (First [GroundStationData]) (Maybe [GroundStationData]))
+-&gt; ListGroundStationsResponse
+-&gt; Const (First [GroundStationData]) ListGroundStationsResponse
+Lens' ListGroundStationsResponse (Maybe [GroundStationData])
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStationsResponse_groundStationList"><span class="hs-identifier hs-var">listGroundStationsResponse_groundStationList</span></a></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [GroundStationData]
+  -&gt; Const (First [GroundStationData]) (Maybe [GroundStationData]))
+ -&gt; ListGroundStationsResponse
+ -&gt; Const (First [GroundStationData]) ListGroundStationsResponse)
+-&gt; (([GroundStationData]
+     -&gt; Const (First [GroundStationData]) [GroundStationData])
+    -&gt; Maybe [GroundStationData]
+    -&gt; Const (First [GroundStationData]) (Maybe [GroundStationData]))
+-&gt; Getting
+     (First [GroundStationData])
+     ListGroundStationsResponse
+     [GroundStationData]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([GroundStationData]
+ -&gt; Const (First [GroundStationData]) [GroundStationData])
+-&gt; Maybe [GroundStationData]
+-&gt; Const (First [GroundStationData]) (Maybe [GroundStationData])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-116"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListGroundStations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">ListGroundStations -&gt; Maybe ListGroundStations
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListGroundStations -&gt; Maybe ListGroundStations)
+-&gt; ListGroundStations -&gt; Maybe ListGroundStations
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ListGroundStations
+</span><a href="#local-6989586621679219039"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">ListGroundStations
+-&gt; (ListGroundStations -&gt; ListGroundStations) -&gt; ListGroundStations
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListGroundStations -&gt; Identity ListGroundStations
+Lens
+  ListGroundStations ListGroundStations (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStations_nextToken"><span class="hs-identifier hs-var">listGroundStations_nextToken</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListGroundStations -&gt; Identity ListGroundStations)
+-&gt; Maybe Text -&gt; ListGroundStations -&gt; ListGroundStations
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroundStations
+ListGroundStationsResponse
+</span><a href="#local-6989586621679219038"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">ListGroundStationsResponse
+-&gt; Getting (First Text) ListGroundStationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListGroundStationsResponse
+-&gt; Const (First Text) ListGroundStationsResponse
+Lens' ListGroundStationsResponse (Maybe Text)
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStationsResponse_nextToken"><span class="hs-identifier hs-var">listGroundStationsResponse_nextToken</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListGroundStationsResponse
+ -&gt; Const (First Text) ListGroundStationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListGroundStationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse"><span class="hs-identifier hs-type">ListGroundStationsResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679219028"><span class="annot"><span class="annottext">request :: ListGroundStations -&gt; Request ListGroundStations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListGroundStations -&gt; Request ListGroundStations
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GroundStation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679219024"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListGroundStations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListGroundStations)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListGroundStations))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListGroundStations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListGroundStations)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679219021"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219021"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679219020"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679219020"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679219019"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219019"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [GroundStationData] -&gt; Int -&gt; ListGroundStationsResponse
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse%27"><span class="hs-identifier hs-var">ListGroundStationsResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [GroundStationData] -&gt; Int -&gt; ListGroundStationsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [GroundStationData] -&gt; Int -&gt; ListGroundStationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [GroundStationData] -&gt; Int -&gt; ListGroundStationsResponse)
+-&gt; Either String (Maybe [GroundStationData])
+-&gt; Either String (Int -&gt; ListGroundStationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [GroundStationData]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;groundStationList&quot;</span></span><span>
+</span><span id="line-137"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [GroundStationData]))
+-&gt; Maybe [GroundStationData]
+-&gt; Either String (Maybe [GroundStationData])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GroundStationData]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-138"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListGroundStationsResponse)
+-&gt; Either String Int -&gt; Either String ListGroundStationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219021"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219010"><span id="local-6989586621679219012"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219007"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679219003"><span class="annot"><span class="annottext">toHeaders :: ListGroundStations -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListGroundStations -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679218997"><span class="annot"><span class="annottext">toPath :: ListGroundStations -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListGroundStations -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/groundstation&quot;</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations"><span class="hs-identifier hs-type">ListGroundStations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679218993"><span class="annot"><span class="annottext">toQuery :: ListGroundStations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStations%27"><span class="hs-identifier hs-type">ListGroundStations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218989"><span id="local-6989586621679218990"><span id="local-6989586621679218991"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+maxResults :: Maybe Int
+nextToken :: Maybe Text
+satelliteId :: Maybe Text
+$sel:maxResults:ListGroundStations' :: ListGroundStations -&gt; Maybe Int
+$sel:nextToken:ListGroundStations' :: ListGroundStations -&gt; Maybe Text
+$sel:satelliteId:ListGroundStations' :: ListGroundStations -&gt; Maybe Text
+</span><a href="#local-6989586621679218989"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;satelliteId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218991"><span class="hs-identifier hs-var">satelliteId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218990"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679218989"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- /See:/ 'newListGroundStationsResponse' smart constructor.</span><span>
+</span><span id="line-171"></span><span id="local-6989586621679218986"><span id="local-6989586621679218987"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroundStationsResponse"><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse"><span class="hs-identifier hs-var">ListGroundStationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroundStationsResponse%27"><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse%27"><span class="hs-identifier hs-var">ListGroundStationsResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Next token that can be supplied in the next call to get the next page of</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- ground stations.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AnextToken%3AListGroundStationsResponse%27"><span class="annot"><span class="annottext">ListGroundStationsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AnextToken%3AListGroundStationsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | List of ground stations.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AgroundStationList%3AListGroundStationsResponse%27"><span class="annot"><span class="annottext">ListGroundStationsResponse -&gt; Maybe [GroundStationData]
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AgroundStationList%3AListGroundStationsResponse%27"><span class="hs-identifier hs-var hs-var">groundStationList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GroundStation.Types.GroundStationData.html#GroundStationData"><span class="hs-identifier hs-type">GroundStationData</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListGroundStationsResponse%27"><span class="annot"><span class="annottext">ListGroundStationsResponse -&gt; Int
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AhttpStatus%3AListGroundStationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218979"><span id="local-6989586621679218981"><span class="annot"><span class="annottext">ListGroundStationsResponse -&gt; ListGroundStationsResponse -&gt; Bool
+(ListGroundStationsResponse -&gt; ListGroundStationsResponse -&gt; Bool)
+-&gt; (ListGroundStationsResponse
+    -&gt; ListGroundStationsResponse -&gt; Bool)
+-&gt; Eq ListGroundStationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListGroundStationsResponse -&gt; ListGroundStationsResponse -&gt; Bool
+$c/= :: ListGroundStationsResponse -&gt; ListGroundStationsResponse -&gt; Bool
+== :: ListGroundStationsResponse -&gt; ListGroundStationsResponse -&gt; Bool
+$c== :: ListGroundStationsResponse -&gt; ListGroundStationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218971"><span id="local-6989586621679218973"><span id="local-6989586621679218975"><span id="local-6989586621679218977"><span class="annot"><span class="annottext">ReadPrec [ListGroundStationsResponse]
+ReadPrec ListGroundStationsResponse
+Int -&gt; ReadS ListGroundStationsResponse
+ReadS [ListGroundStationsResponse]
+(Int -&gt; ReadS ListGroundStationsResponse)
+-&gt; ReadS [ListGroundStationsResponse]
+-&gt; ReadPrec ListGroundStationsResponse
+-&gt; ReadPrec [ListGroundStationsResponse]
+-&gt; Read ListGroundStationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListGroundStationsResponse]
+$creadListPrec :: ReadPrec [ListGroundStationsResponse]
+readPrec :: ReadPrec ListGroundStationsResponse
+$creadPrec :: ReadPrec ListGroundStationsResponse
+readList :: ReadS [ListGroundStationsResponse]
+$creadList :: ReadS [ListGroundStationsResponse]
+readsPrec :: Int -&gt; ReadS ListGroundStationsResponse
+$creadsPrec :: Int -&gt; ReadS ListGroundStationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218965"><span id="local-6989586621679218967"><span id="local-6989586621679218969"><span class="annot"><span class="annottext">Int -&gt; ListGroundStationsResponse -&gt; ShowS
+[ListGroundStationsResponse] -&gt; ShowS
+ListGroundStationsResponse -&gt; String
+(Int -&gt; ListGroundStationsResponse -&gt; ShowS)
+-&gt; (ListGroundStationsResponse -&gt; String)
+-&gt; ([ListGroundStationsResponse] -&gt; ShowS)
+-&gt; Show ListGroundStationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListGroundStationsResponse] -&gt; ShowS
+$cshowList :: [ListGroundStationsResponse] -&gt; ShowS
+show :: ListGroundStationsResponse -&gt; String
+$cshow :: ListGroundStationsResponse -&gt; String
+showsPrec :: Int -&gt; ListGroundStationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListGroundStationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListGroundStationsResponse -&gt; Rep ListGroundStationsResponse x)
+-&gt; (forall x.
+    Rep ListGroundStationsResponse x -&gt; ListGroundStationsResponse)
+-&gt; Generic ListGroundStationsResponse
+forall x.
+Rep ListGroundStationsResponse x -&gt; ListGroundStationsResponse
+forall x.
+ListGroundStationsResponse -&gt; Rep ListGroundStationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListGroundStationsResponse x -&gt; ListGroundStationsResponse
+$cfrom :: forall x.
+ListGroundStationsResponse -&gt; Rep ListGroundStationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'ListGroundStationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'nextToken', 'listGroundStationsResponse_nextToken' - Next token that can be supplied in the next call to get the next page of</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- ground stations.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'groundStationList', 'listGroundStationsResponse_groundStationList' - List of ground stations.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'listGroundStationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#newListGroundStationsResponse"><span class="hs-identifier hs-type">newListGroundStationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse"><span class="hs-identifier hs-type">ListGroundStationsResponse</span></a></span><span>
+</span><span id="line-200"></span><span id="newListGroundStationsResponse"><span class="annot"><span class="annottext">newListGroundStationsResponse :: Int -&gt; ListGroundStationsResponse
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#newListGroundStationsResponse"><span class="hs-identifier hs-var hs-var">newListGroundStationsResponse</span></a></span></span><span> </span><span id="local-6989586621679218962"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679218962"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">ListGroundStationsResponse' :: Maybe Text
+-&gt; Maybe [GroundStationData] -&gt; Int -&gt; ListGroundStationsResponse
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse%27"><span class="hs-identifier hs-type">ListGroundStationsResponse'</span></a></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListGroundStationsResponse' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AnextToken%3AListGroundStationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:groundStationList:ListGroundStationsResponse' :: Maybe [GroundStationData]
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AgroundStationList%3AListGroundStationsResponse%27"><span class="hs-identifier hs-var">groundStationList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroundStationData]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroundStationsResponse' :: Int
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AhttpStatus%3AListGroundStationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679218962"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | Next token that can be supplied in the next call to get the next page of</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- ground stations.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStationsResponse_nextToken"><span class="hs-identifier hs-type">listGroundStationsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse"><span class="hs-identifier hs-type">ListGroundStationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="listGroundStationsResponse_nextToken"><span class="annot"><span class="annottext">listGroundStationsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListGroundStationsResponse -&gt; f ListGroundStationsResponse
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStationsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listGroundStationsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroundStationsResponse -&gt; Maybe Text)
+-&gt; (ListGroundStationsResponse
+    -&gt; Maybe Text -&gt; ListGroundStationsResponse)
+-&gt; Lens' ListGroundStationsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse%27"><span class="hs-identifier hs-type">ListGroundStationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218961"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListGroundStationsResponse' :: ListGroundStationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679218961"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218961"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218960"><span class="annot"><span class="annottext">s :: ListGroundStationsResponse
+</span><a href="#local-6989586621679218960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse%27"><span class="hs-identifier hs-type">ListGroundStationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218959"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroundStationsResponse
+</span><a href="#local-6989586621679218960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroundStationsResponse' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AnextToken%3AListGroundStationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse"><span class="hs-identifier hs-type">ListGroundStationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | List of ground stations.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStationsResponse_groundStationList"><span class="hs-identifier hs-type">listGroundStationsResponse_groundStationList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse"><span class="hs-identifier hs-type">ListGroundStationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GroundStation.Types.GroundStationData.html#GroundStationData"><span class="hs-identifier hs-type">GroundStationData</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="listGroundStationsResponse_groundStationList"><span class="annot"><span class="annottext">listGroundStationsResponse_groundStationList :: (Maybe [GroundStationData] -&gt; f (Maybe [GroundStationData]))
+-&gt; ListGroundStationsResponse -&gt; f ListGroundStationsResponse
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStationsResponse_groundStationList"><span class="hs-identifier hs-var hs-var">listGroundStationsResponse_groundStationList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroundStationsResponse -&gt; Maybe [GroundStationData])
+-&gt; (ListGroundStationsResponse
+    -&gt; Maybe [GroundStationData] -&gt; ListGroundStationsResponse)
+-&gt; Lens' ListGroundStationsResponse (Maybe [GroundStationData])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse%27"><span class="hs-identifier hs-type">ListGroundStationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218958"><span class="annot"><span class="annottext">Maybe [GroundStationData]
+groundStationList :: Maybe [GroundStationData]
+$sel:groundStationList:ListGroundStationsResponse' :: ListGroundStationsResponse -&gt; Maybe [GroundStationData]
+</span><a href="#local-6989586621679218958"><span class="hs-identifier hs-var hs-var">groundStationList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroundStationData]
+</span><a href="#local-6989586621679218958"><span class="hs-identifier hs-var">groundStationList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218957"><span class="annot"><span class="annottext">s :: ListGroundStationsResponse
+</span><a href="#local-6989586621679218957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse%27"><span class="hs-identifier hs-type">ListGroundStationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218956"><span class="annot"><span class="annottext">Maybe [GroundStationData]
+</span><a href="#local-6989586621679218956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroundStationsResponse
+</span><a href="#local-6989586621679218957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groundStationList:ListGroundStationsResponse' :: Maybe [GroundStationData]
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AgroundStationList%3AListGroundStationsResponse%27"><span class="hs-identifier hs-var">groundStationList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroundStationData]
+</span><a href="#local-6989586621679218956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse"><span class="hs-identifier hs-type">ListGroundStationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroundStationData] -&gt; f (Maybe [GroundStationData]))
+ -&gt; ListGroundStationsResponse -&gt; f ListGroundStationsResponse)
+-&gt; ((Maybe [GroundStationData] -&gt; f (Maybe [GroundStationData]))
+    -&gt; Maybe [GroundStationData] -&gt; f (Maybe [GroundStationData]))
+-&gt; (Maybe [GroundStationData] -&gt; f (Maybe [GroundStationData]))
+-&gt; ListGroundStationsResponse
+-&gt; f ListGroundStationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GroundStationData]
+  [GroundStationData]
+  [GroundStationData]
+  [GroundStationData]
+-&gt; Iso
+     (Maybe [GroundStationData])
+     (Maybe [GroundStationData])
+     (Maybe [GroundStationData])
+     (Maybe [GroundStationData])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GroundStationData]
+  [GroundStationData]
+  [GroundStationData]
+  [GroundStationData]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStationsResponse_httpStatus"><span class="hs-identifier hs-type">listGroundStationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse"><span class="hs-identifier hs-type">ListGroundStationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-219"></span><span id="listGroundStationsResponse_httpStatus"><span class="annot"><span class="annottext">listGroundStationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListGroundStationsResponse -&gt; f ListGroundStationsResponse
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#listGroundStationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listGroundStationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroundStationsResponse -&gt; Int)
+-&gt; (ListGroundStationsResponse
+    -&gt; Int -&gt; ListGroundStationsResponse)
+-&gt; Lens
+     ListGroundStationsResponse ListGroundStationsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse%27"><span class="hs-identifier hs-type">ListGroundStationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218953"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListGroundStationsResponse' :: ListGroundStationsResponse -&gt; Int
+</span><a href="#local-6989586621679218953"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679218953"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218952"><span class="annot"><span class="annottext">s :: ListGroundStationsResponse
+</span><a href="#local-6989586621679218952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse%27"><span class="hs-identifier hs-type">ListGroundStationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218951"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679218951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroundStationsResponse
+</span><a href="#local-6989586621679218952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroundStationsResponse' :: Int
+</span><a href="Network.AWS.GroundStation.ListGroundStations.html#%24sel%3AhttpStatus%3AListGroundStationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679218951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse"><span class="hs-identifier hs-type">ListGroundStationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListGroundStations.html#ListGroundStationsResponse"><span class="hs-identifier hs-type">ListGroundStationsResponse</span></a></span></span><span>
+</span><span id="line-222"></span></pre></body></html>

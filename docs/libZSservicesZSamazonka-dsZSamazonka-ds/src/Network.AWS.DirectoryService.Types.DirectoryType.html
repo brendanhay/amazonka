@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679295965"><span id="local-6989586621679295966"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DirectoryType"><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryType.html#DirectoryType"><span class="hs-identifier hs-var">DirectoryType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectoryType%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryType.html#DirectoryType%27"><span class="hs-identifier hs-var">DirectoryType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679295974"><span id="local-6989586621679295975"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DirectoryType"><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryType.html#DirectoryType"><span class="hs-identifier hs-var">DirectoryType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectoryType%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryType.html#DirectoryType%27"><span class="hs-identifier hs-var">DirectoryType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDirectoryType"><span class="annot"><span class="annottext">DirectoryType -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.DirectoryType.html#fromDirectoryType"><span class="hs-identifier hs-var hs-var">fromDirectoryType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295957"><span id="local-6989586621679295959"><span id="local-6989586621679295961"><span class="annot"><span class="annottext">Int -&gt; DirectoryType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295966"><span id="local-6989586621679295968"><span id="local-6989586621679295970"><span class="annot"><span class="annottext">Int -&gt; DirectoryType -&gt; ShowS
 [DirectoryType] -&gt; ShowS
 DirectoryType -&gt; String
 (Int -&gt; DirectoryType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: DirectoryType -&gt; String
 showsPrec :: Int -&gt; DirectoryType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DirectoryType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295948"><span id="local-6989586621679295950"><span id="local-6989586621679295952"><span id="local-6989586621679295954"><span class="annot"><span class="annottext">ReadPrec [DirectoryType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295957"><span id="local-6989586621679295959"><span id="local-6989586621679295961"><span id="local-6989586621679295963"><span class="annot"><span class="annottext">ReadPrec [DirectoryType]
 ReadPrec DirectoryType
 Int -&gt; ReadS DirectoryType
 ReadS [DirectoryType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [DirectoryType]
 readsPrec :: Int -&gt; ReadS DirectoryType
 $creadsPrec :: Int -&gt; ReadS DirectoryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679295943"><span id="local-6989586621679295945"><span class="annot"><span class="annottext">DirectoryType -&gt; DirectoryType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679295952"><span id="local-6989586621679295954"><span class="annot"><span class="annottext">DirectoryType -&gt; DirectoryType -&gt; Bool
 (DirectoryType -&gt; DirectoryType -&gt; Bool)
 -&gt; (DirectoryType -&gt; DirectoryType -&gt; Bool) -&gt; Eq DirectoryType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: DirectoryType -&gt; DirectoryType -&gt; Bool
 == :: DirectoryType -&gt; DirectoryType -&gt; Bool
 $c== :: DirectoryType -&gt; DirectoryType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679295927"><span id="local-6989586621679295929"><span id="local-6989586621679295931"><span id="local-6989586621679295933"><span id="local-6989586621679295935"><span id="local-6989586621679295937"><span id="local-6989586621679295939"><span class="annot"><span class="annottext">Eq DirectoryType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679295936"><span id="local-6989586621679295938"><span id="local-6989586621679295940"><span id="local-6989586621679295942"><span id="local-6989586621679295944"><span id="local-6989586621679295946"><span id="local-6989586621679295948"><span class="annot"><span class="annottext">Eq DirectoryType
 Eq DirectoryType
 -&gt; (DirectoryType -&gt; DirectoryType -&gt; Ordering)
 -&gt; (DirectoryType -&gt; DirectoryType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. DirectoryType -&gt; Rep DirectoryType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295919"><span id="local-6989586621679295921"><span class="annot"><span class="annottext">Int -&gt; DirectoryType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295928"><span id="local-6989586621679295930"><span class="annot"><span class="annottext">Int -&gt; DirectoryType -&gt; Int
 DirectoryType -&gt; Int
 (Int -&gt; DirectoryType -&gt; Int)
 -&gt; (DirectoryType -&gt; Int) -&gt; Hashable DirectoryType
@@ -144,49 +144,49 @@ $chash :: DirectoryType -&gt; Int
 hashWithSalt :: Int -&gt; DirectoryType -&gt; Int
 $chashWithSalt :: Int -&gt; DirectoryType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295916"><span class="annot"><span class="annottext">DirectoryType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295925"><span class="annot"><span class="annottext">DirectoryType -&gt; ()
 (DirectoryType -&gt; ()) -&gt; NFData DirectoryType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DirectoryType -&gt; ()
 $crnf :: DirectoryType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295913"><span class="annot"><span class="annottext">Text -&gt; Either String DirectoryType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295922"><span class="annot"><span class="annottext">Text -&gt; Either String DirectoryType
 (Text -&gt; Either String DirectoryType) -&gt; FromText DirectoryType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DirectoryType
 $cfromText :: Text -&gt; Either String DirectoryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295910"><span class="annot"><span class="annottext">DirectoryType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295919"><span class="annot"><span class="annottext">DirectoryType -&gt; Text
 (DirectoryType -&gt; Text) -&gt; ToText DirectoryType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DirectoryType -&gt; Text
 $ctoText :: DirectoryType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295907"><span class="annot"><span class="annottext">DirectoryType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295916"><span class="annot"><span class="annottext">DirectoryType -&gt; ByteString
 (DirectoryType -&gt; ByteString) -&gt; ToByteString DirectoryType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DirectoryType -&gt; ByteString
 $ctoBS :: DirectoryType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295904"><span class="annot"><span class="annottext">DirectoryType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295913"><span class="annot"><span class="annottext">DirectoryType -&gt; ByteStringBuilder
 (DirectoryType -&gt; ByteStringBuilder) -&gt; ToLog DirectoryType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DirectoryType -&gt; ByteStringBuilder
 $cbuild :: DirectoryType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295901"><span class="annot"><span class="annottext">HeaderName -&gt; DirectoryType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295910"><span class="annot"><span class="annottext">HeaderName -&gt; DirectoryType -&gt; [Header]
 (HeaderName -&gt; DirectoryType -&gt; [Header]) -&gt; ToHeader DirectoryType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DirectoryType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DirectoryType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295898"><span class="annot"><span class="annottext">DirectoryType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295907"><span class="annot"><span class="annottext">DirectoryType -&gt; QueryString
 (DirectoryType -&gt; QueryString) -&gt; ToQuery DirectoryType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DirectoryType -&gt; QueryString
 $ctoQuery :: DirectoryType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295893"><span id="local-6989586621679295895"><span class="annot"><span class="annottext">Value -&gt; Parser [DirectoryType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295902"><span id="local-6989586621679295904"><span class="annot"><span class="annottext">Value -&gt; Parser [DirectoryType]
 Value -&gt; Parser DirectoryType
 (Value -&gt; Parser DirectoryType)
 -&gt; (Value -&gt; Parser [DirectoryType]) -&gt; FromJSON DirectoryType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [DirectoryType]
 parseJSON :: Value -&gt; Parser DirectoryType
 $cparseJSON :: Value -&gt; Parser DirectoryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295888"><span id="local-6989586621679295890"><span class="annot"><span class="annottext">FromJSONKeyFunction [DirectoryType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295897"><span id="local-6989586621679295899"><span class="annot"><span class="annottext">FromJSONKeyFunction [DirectoryType]
 FromJSONKeyFunction DirectoryType
 FromJSONKeyFunction DirectoryType
 -&gt; FromJSONKeyFunction [DirectoryType] -&gt; FromJSONKey DirectoryType
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DirectoryType]
 fromJSONKey :: FromJSONKeyFunction DirectoryType
 $cfromJSONKey :: FromJSONKeyFunction DirectoryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295879"><span id="local-6989586621679295881"><span id="local-6989586621679295883"><span id="local-6989586621679295885"><span class="annot"><span class="annottext">[DirectoryType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295888"><span id="local-6989586621679295890"><span id="local-6989586621679295892"><span id="local-6989586621679295894"><span class="annot"><span class="annottext">[DirectoryType] -&gt; Encoding
 [DirectoryType] -&gt; Value
 DirectoryType -&gt; Encoding
 DirectoryType -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: DirectoryType -&gt; Encoding
 toJSON :: DirectoryType -&gt; Value
 $ctoJSON :: DirectoryType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295874"><span id="local-6989586621679295876"><span class="annot"><span class="annottext">ToJSONKeyFunction [DirectoryType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295883"><span id="local-6989586621679295885"><span class="annot"><span class="annottext">ToJSONKeyFunction [DirectoryType]
 ToJSONKeyFunction DirectoryType
 ToJSONKeyFunction DirectoryType
 -&gt; ToJSONKeyFunction [DirectoryType] -&gt; ToJSONKey DirectoryType
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DirectoryType]
 toJSONKey :: ToJSONKeyFunction DirectoryType
 $ctoJSONKey :: ToJSONKeyFunction DirectoryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679295871"><span class="annot"><span class="annottext">[Node] -&gt; Either String DirectoryType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679295880"><span class="annot"><span class="annottext">[Node] -&gt; Either String DirectoryType
 ([Node] -&gt; Either String DirectoryType) -&gt; FromXML DirectoryType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DirectoryType
 $cparseXML :: [Node] -&gt; Either String DirectoryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679295868"><span class="annot"><span class="annottext">DirectoryType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679295877"><span class="annot"><span class="annottext">DirectoryType -&gt; XML
 (DirectoryType -&gt; XML) -&gt; ToXML DirectoryType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DirectoryType -&gt; XML

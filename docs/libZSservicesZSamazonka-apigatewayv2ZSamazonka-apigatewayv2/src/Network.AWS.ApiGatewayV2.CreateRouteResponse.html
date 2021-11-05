@@ -1,0 +1,1039 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ApiGatewayV2.CreateRouteResponse</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a RouteResponse for a Route.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApiGatewayV2.CreateRouteResponse</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier">CreateRouteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#newCreateRouteResponse"><span class="hs-identifier">newCreateRouteResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_modelSelectionExpression"><span class="hs-identifier">createRouteResponse_modelSelectionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_responseModels"><span class="hs-identifier">createRouteResponse_responseModels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_responseParameters"><span class="hs-identifier">createRouteResponse_responseParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_apiId"><span class="hs-identifier">createRouteResponse_apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_routeId"><span class="hs-identifier">createRouteResponse_routeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_routeResponseKey"><span class="hs-identifier">createRouteResponse_routeResponseKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier">CreateRouteResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#newCreateRouteResponseResponse"><span class="hs-identifier">newCreateRouteResponseResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_modelSelectionExpression"><span class="hs-identifier">createRouteResponseResponse_modelSelectionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_responseModels"><span class="hs-identifier">createRouteResponseResponse_responseModels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_routeResponseId"><span class="hs-identifier">createRouteResponseResponse_routeResponseId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_routeResponseKey"><span class="hs-identifier">createRouteResponseResponse_routeResponseKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_responseParameters"><span class="hs-identifier">createRouteResponseResponse_responseParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_httpStatus"><span class="hs-identifier">createRouteResponseResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.html"><span class="hs-identifier">Network.AWS.ApiGatewayV2.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | Creates a new RouteResponse resource to represent a route response.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newCreateRouteResponse' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679423259"><span id="local-6989586621679423260"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRouteResponse"><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-var">CreateRouteResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRouteResponse%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-var">CreateRouteResponse'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The model selection expression for the route response. Supported only</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- for WebSocket APIs.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmodelSelectionExpression%3ACreateRouteResponse%27"><span class="annot"><span class="annottext">CreateRouteResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AmodelSelectionExpression%3ACreateRouteResponse%27"><span class="hs-identifier hs-var hs-var">modelSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The response models for the route response.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AresponseModels%3ACreateRouteResponse%27"><span class="annot"><span class="annottext">CreateRouteResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AresponseModels%3ACreateRouteResponse%27"><span class="hs-identifier hs-var hs-var">responseModels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The route response parameters.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AresponseParameters%3ACreateRouteResponse%27"><span class="annot"><span class="annottext">CreateRouteResponse -&gt; Maybe (HashMap Text ParameterConstraints)
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AresponseParameters%3ACreateRouteResponse%27"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-type">ParameterConstraints</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The API identifier.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AapiId%3ACreateRouteResponse%27"><span class="annot"><span class="annottext">CreateRouteResponse -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AapiId%3ACreateRouteResponse%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The route ID.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3ArouteId%3ACreateRouteResponse%27"><span class="annot"><span class="annottext">CreateRouteResponse -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3ArouteId%3ACreateRouteResponse%27"><span class="hs-identifier hs-var hs-var">routeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The route response key.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3ArouteResponseKey%3ACreateRouteResponse%27"><span class="annot"><span class="annottext">CreateRouteResponse -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3ArouteResponseKey%3ACreateRouteResponse%27"><span class="hs-identifier hs-var hs-var">routeResponseKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423248"><span id="local-6989586621679423250"><span class="annot"><span class="annottext">CreateRouteResponse -&gt; CreateRouteResponse -&gt; Bool
+(CreateRouteResponse -&gt; CreateRouteResponse -&gt; Bool)
+-&gt; (CreateRouteResponse -&gt; CreateRouteResponse -&gt; Bool)
+-&gt; Eq CreateRouteResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRouteResponse -&gt; CreateRouteResponse -&gt; Bool
+$c/= :: CreateRouteResponse -&gt; CreateRouteResponse -&gt; Bool
+== :: CreateRouteResponse -&gt; CreateRouteResponse -&gt; Bool
+$c== :: CreateRouteResponse -&gt; CreateRouteResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423239"><span id="local-6989586621679423241"><span id="local-6989586621679423243"><span id="local-6989586621679423245"><span class="annot"><span class="annottext">ReadPrec [CreateRouteResponse]
+ReadPrec CreateRouteResponse
+Int -&gt; ReadS CreateRouteResponse
+ReadS [CreateRouteResponse]
+(Int -&gt; ReadS CreateRouteResponse)
+-&gt; ReadS [CreateRouteResponse]
+-&gt; ReadPrec CreateRouteResponse
+-&gt; ReadPrec [CreateRouteResponse]
+-&gt; Read CreateRouteResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRouteResponse]
+$creadListPrec :: ReadPrec [CreateRouteResponse]
+readPrec :: ReadPrec CreateRouteResponse
+$creadPrec :: ReadPrec CreateRouteResponse
+readList :: ReadS [CreateRouteResponse]
+$creadList :: ReadS [CreateRouteResponse]
+readsPrec :: Int -&gt; ReadS CreateRouteResponse
+$creadsPrec :: Int -&gt; ReadS CreateRouteResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423232"><span id="local-6989586621679423234"><span id="local-6989586621679423236"><span class="annot"><span class="annottext">Int -&gt; CreateRouteResponse -&gt; ShowS
+[CreateRouteResponse] -&gt; ShowS
+CreateRouteResponse -&gt; String
+(Int -&gt; CreateRouteResponse -&gt; ShowS)
+-&gt; (CreateRouteResponse -&gt; String)
+-&gt; ([CreateRouteResponse] -&gt; ShowS)
+-&gt; Show CreateRouteResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRouteResponse] -&gt; ShowS
+$cshowList :: [CreateRouteResponse] -&gt; ShowS
+show :: CreateRouteResponse -&gt; String
+$cshow :: CreateRouteResponse -&gt; String
+showsPrec :: Int -&gt; CreateRouteResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRouteResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateRouteResponse -&gt; Rep CreateRouteResponse x)
+-&gt; (forall x. Rep CreateRouteResponse x -&gt; CreateRouteResponse)
+-&gt; Generic CreateRouteResponse
+forall x. Rep CreateRouteResponse x -&gt; CreateRouteResponse
+forall x. CreateRouteResponse -&gt; Rep CreateRouteResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateRouteResponse x -&gt; CreateRouteResponse
+$cfrom :: forall x. CreateRouteResponse -&gt; Rep CreateRouteResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'CreateRouteResponse' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'modelSelectionExpression', 'createRouteResponse_modelSelectionExpression' - The model selection expression for the route response. Supported only</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for WebSocket APIs.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'responseModels', 'createRouteResponse_responseModels' - The response models for the route response.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'responseParameters', 'createRouteResponse_responseParameters' - The route response parameters.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'apiId', 'createRouteResponse_apiId' - The API identifier.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'routeId', 'createRouteResponse_routeId' - The route ID.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'routeResponseKey', 'createRouteResponse_routeResponseKey' - The route response key.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#newCreateRouteResponse"><span class="hs-identifier hs-type">newCreateRouteResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'apiId'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'routeId'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'routeResponseKey'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span>
+</span><span id="line-106"></span><span id="newCreateRouteResponse"><span class="annot"><span class="annottext">newCreateRouteResponse :: Text -&gt; Text -&gt; Text -&gt; CreateRouteResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#newCreateRouteResponse"><span class="hs-identifier hs-var hs-var">newCreateRouteResponse</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679423227"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423227"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679423226"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423226"><span class="hs-identifier hs-var">pRouteId_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679423225"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423225"><span class="hs-identifier hs-var">pRouteResponseKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">CreateRouteResponse' :: Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text ParameterConstraints)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CreateRouteResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:modelSelectionExpression:CreateRouteResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AmodelSelectionExpression%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">modelSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:responseModels:CreateRouteResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AresponseModels%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">responseModels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:responseParameters:CreateRouteResponse' :: Maybe (HashMap Text ParameterConstraints)
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AresponseParameters%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:apiId:CreateRouteResponse' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AapiId%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423227"><span class="hs-identifier hs-var">pApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:routeId:CreateRouteResponse' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3ArouteId%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">routeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423226"><span class="hs-identifier hs-var">pRouteId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:routeResponseKey:CreateRouteResponse' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3ArouteResponseKey%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">routeResponseKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423225"><span class="hs-identifier hs-var">pRouteResponseKey_</span></a></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The model selection expression for the route response. Supported only</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- for WebSocket APIs.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_modelSelectionExpression"><span class="hs-identifier hs-type">createRouteResponse_modelSelectionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="createRouteResponse_modelSelectionExpression"><span class="annot"><span class="annottext">createRouteResponse_modelSelectionExpression :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRouteResponse -&gt; f CreateRouteResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_modelSelectionExpression"><span class="hs-identifier hs-var hs-var">createRouteResponse_modelSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRouteResponse -&gt; Maybe Text)
+-&gt; (CreateRouteResponse -&gt; Maybe Text -&gt; CreateRouteResponse)
+-&gt; Lens
+     CreateRouteResponse CreateRouteResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423222"><span class="annot"><span class="annottext">Maybe Text
+modelSelectionExpression :: Maybe Text
+$sel:modelSelectionExpression:CreateRouteResponse' :: CreateRouteResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679423222"><span class="hs-identifier hs-var hs-var">modelSelectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423222"><span class="hs-identifier hs-var">modelSelectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423221"><span class="annot"><span class="annottext">s :: CreateRouteResponse
+</span><a href="#local-6989586621679423221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423220"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRouteResponse
+</span><a href="#local-6989586621679423221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelSelectionExpression:CreateRouteResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AmodelSelectionExpression%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">modelSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The response models for the route response.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_responseModels"><span class="hs-identifier hs-type">createRouteResponse_responseModels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="createRouteResponse_responseModels"><span class="annot"><span class="annottext">createRouteResponse_responseModels :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateRouteResponse -&gt; f CreateRouteResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_responseModels"><span class="hs-identifier hs-var hs-var">createRouteResponse_responseModels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRouteResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateRouteResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateRouteResponse)
+-&gt; Lens
+     CreateRouteResponse
+     CreateRouteResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423219"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+responseModels :: Maybe (HashMap Text Text)
+$sel:responseModels:CreateRouteResponse' :: CreateRouteResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423219"><span class="hs-identifier hs-var hs-var">responseModels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423219"><span class="hs-identifier hs-var">responseModels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423218"><span class="annot"><span class="annottext">s :: CreateRouteResponse
+</span><a href="#local-6989586621679423218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423217"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRouteResponse
+</span><a href="#local-6989586621679423218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseModels:CreateRouteResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AresponseModels%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">responseModels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateRouteResponse -&gt; f CreateRouteResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateRouteResponse
+-&gt; f CreateRouteResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The route response parameters.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_responseParameters"><span class="hs-identifier hs-type">createRouteResponse_responseParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-type">ParameterConstraints</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="createRouteResponse_responseParameters"><span class="annot"><span class="annottext">createRouteResponse_responseParameters :: (Maybe (HashMap Text ParameterConstraints)
+ -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+-&gt; CreateRouteResponse -&gt; f CreateRouteResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_responseParameters"><span class="hs-identifier hs-var hs-var">createRouteResponse_responseParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRouteResponse -&gt; Maybe (HashMap Text ParameterConstraints))
+-&gt; (CreateRouteResponse
+    -&gt; Maybe (HashMap Text ParameterConstraints)
+    -&gt; CreateRouteResponse)
+-&gt; Lens
+     CreateRouteResponse
+     CreateRouteResponse
+     (Maybe (HashMap Text ParameterConstraints))
+     (Maybe (HashMap Text ParameterConstraints))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423213"><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+responseParameters :: Maybe (HashMap Text ParameterConstraints)
+$sel:responseParameters:CreateRouteResponse' :: CreateRouteResponse -&gt; Maybe (HashMap Text ParameterConstraints)
+</span><a href="#local-6989586621679423213"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+</span><a href="#local-6989586621679423213"><span class="hs-identifier hs-var">responseParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423212"><span class="annot"><span class="annottext">s :: CreateRouteResponse
+</span><a href="#local-6989586621679423212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423211"><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+</span><a href="#local-6989586621679423211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRouteResponse
+</span><a href="#local-6989586621679423212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseParameters:CreateRouteResponse' :: Maybe (HashMap Text ParameterConstraints)
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AresponseParameters%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+</span><a href="#local-6989586621679423211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text ParameterConstraints)
+  -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+ -&gt; CreateRouteResponse -&gt; f CreateRouteResponse)
+-&gt; ((Maybe (HashMap Text ParameterConstraints)
+     -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+    -&gt; Maybe (HashMap Text ParameterConstraints)
+    -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+-&gt; (Maybe (HashMap Text ParameterConstraints)
+    -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+-&gt; CreateRouteResponse
+-&gt; f CreateRouteResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+-&gt; Iso
+     (Maybe (HashMap Text ParameterConstraints))
+     (Maybe (HashMap Text ParameterConstraints))
+     (Maybe (HashMap Text ParameterConstraints))
+     (Maybe (HashMap Text ParameterConstraints))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The API identifier.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_apiId"><span class="hs-identifier hs-type">createRouteResponse_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-135"></span><span id="createRouteResponse_apiId"><span class="annot"><span class="annottext">createRouteResponse_apiId :: (Text -&gt; f Text) -&gt; CreateRouteResponse -&gt; f CreateRouteResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_apiId"><span class="hs-identifier hs-var hs-var">createRouteResponse_apiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRouteResponse -&gt; Text)
+-&gt; (CreateRouteResponse -&gt; Text -&gt; CreateRouteResponse)
+-&gt; Lens CreateRouteResponse CreateRouteResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423210"><span class="annot"><span class="annottext">Text
+apiId :: Text
+$sel:apiId:CreateRouteResponse' :: CreateRouteResponse -&gt; Text
+</span><a href="#local-6989586621679423210"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423210"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423209"><span class="annot"><span class="annottext">s :: CreateRouteResponse
+</span><a href="#local-6989586621679423209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423208"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRouteResponse
+</span><a href="#local-6989586621679423209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:CreateRouteResponse' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AapiId%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The route ID.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_routeId"><span class="hs-identifier hs-type">createRouteResponse_routeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-139"></span><span id="createRouteResponse_routeId"><span class="annot"><span class="annottext">createRouteResponse_routeId :: (Text -&gt; f Text) -&gt; CreateRouteResponse -&gt; f CreateRouteResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_routeId"><span class="hs-identifier hs-var hs-var">createRouteResponse_routeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRouteResponse -&gt; Text)
+-&gt; (CreateRouteResponse -&gt; Text -&gt; CreateRouteResponse)
+-&gt; Lens CreateRouteResponse CreateRouteResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423207"><span class="annot"><span class="annottext">Text
+routeId :: Text
+$sel:routeId:CreateRouteResponse' :: CreateRouteResponse -&gt; Text
+</span><a href="#local-6989586621679423207"><span class="hs-identifier hs-var hs-var">routeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423207"><span class="hs-identifier hs-var">routeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423206"><span class="annot"><span class="annottext">s :: CreateRouteResponse
+</span><a href="#local-6989586621679423206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423205"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRouteResponse
+</span><a href="#local-6989586621679423206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeId:CreateRouteResponse' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3ArouteId%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">routeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The route response key.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_routeResponseKey"><span class="hs-identifier hs-type">createRouteResponse_routeResponseKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-143"></span><span id="createRouteResponse_routeResponseKey"><span class="annot"><span class="annottext">createRouteResponse_routeResponseKey :: (Text -&gt; f Text) -&gt; CreateRouteResponse -&gt; f CreateRouteResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponse_routeResponseKey"><span class="hs-identifier hs-var hs-var">createRouteResponse_routeResponseKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRouteResponse -&gt; Text)
+-&gt; (CreateRouteResponse -&gt; Text -&gt; CreateRouteResponse)
+-&gt; Lens CreateRouteResponse CreateRouteResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423204"><span class="annot"><span class="annottext">Text
+routeResponseKey :: Text
+$sel:routeResponseKey:CreateRouteResponse' :: CreateRouteResponse -&gt; Text
+</span><a href="#local-6989586621679423204"><span class="hs-identifier hs-var hs-var">routeResponseKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423204"><span class="hs-identifier hs-var">routeResponseKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423203"><span class="annot"><span class="annottext">s :: CreateRouteResponse
+</span><a href="#local-6989586621679423203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423202"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRouteResponse
+</span><a href="#local-6989586621679423203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeResponseKey:CreateRouteResponse' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3ArouteResponseKey%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">routeResponseKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679423198"><span class="annot"><span class="annottext">request :: CreateRouteResponse -&gt; Request CreateRouteResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateRouteResponse -&gt; Request CreateRouteResponse
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ApiGatewayV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679423194"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateRouteResponse
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateRouteResponse)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateRouteResponse))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateRouteResponse
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateRouteResponse)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679423191"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423191"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679423190"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679423190"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679423189"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423189"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text ParameterConstraints)
+-&gt; Int
+-&gt; CreateRouteResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-var">CreateRouteResponseResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text ParameterConstraints)
+ -&gt; Int
+ -&gt; CreateRouteResponseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text ParameterConstraints)
+      -&gt; Int
+      -&gt; CreateRouteResponseResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modelSelectionExpression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text ParameterConstraints)
+   -&gt; Int
+   -&gt; CreateRouteResponseResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text ParameterConstraints)
+      -&gt; Int
+      -&gt; CreateRouteResponseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responseModels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text ParameterConstraints)
+   -&gt; Int
+   -&gt; CreateRouteResponseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text ParameterConstraints)
+      -&gt; Int
+      -&gt; CreateRouteResponseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;routeResponseId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text ParameterConstraints)
+   -&gt; Int
+   -&gt; CreateRouteResponseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text ParameterConstraints)
+      -&gt; Int -&gt; CreateRouteResponseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;routeResponseKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text ParameterConstraints)
+   -&gt; Int -&gt; CreateRouteResponseResponse)
+-&gt; Either String (Maybe (HashMap Text ParameterConstraints))
+-&gt; Either String (Int -&gt; CreateRouteResponseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either
+     String (Maybe (Maybe (HashMap Text ParameterConstraints)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responseParameters&quot;</span></span><span>
+</span><span id="line-159"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text ParameterConstraints)))
+-&gt; Maybe (HashMap Text ParameterConstraints)
+-&gt; Either String (Maybe (HashMap Text ParameterConstraints))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-160"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateRouteResponseResponse)
+-&gt; Either String Int -&gt; Either String CreateRouteResponseResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423191"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423180"><span id="local-6989586621679423182"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423177"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679423173"><span class="annot"><span class="annottext">toHeaders :: CreateRouteResponse -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRouteResponse -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-175"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423163"><span id="local-6989586621679423165"><span id="local-6989586621679423167"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679423161"><span class="annot"><span class="annottext">toJSON :: CreateRouteResponse -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423154"><span id="local-6989586621679423155"><span id="local-6989586621679423156"><span id="local-6989586621679423157"><span id="local-6989586621679423158"><span id="local-6989586621679423159"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Maybe (HashMap Text ParameterConstraints)
+Text
+routeResponseKey :: Text
+routeId :: Text
+apiId :: Text
+responseParameters :: Maybe (HashMap Text ParameterConstraints)
+responseModels :: Maybe (HashMap Text Text)
+modelSelectionExpression :: Maybe Text
+$sel:routeResponseKey:CreateRouteResponse' :: CreateRouteResponse -&gt; Text
+$sel:routeId:CreateRouteResponse' :: CreateRouteResponse -&gt; Text
+$sel:apiId:CreateRouteResponse' :: CreateRouteResponse -&gt; Text
+$sel:responseParameters:CreateRouteResponse' :: CreateRouteResponse -&gt; Maybe (HashMap Text ParameterConstraints)
+$sel:responseModels:CreateRouteResponse' :: CreateRouteResponse -&gt; Maybe (HashMap Text Text)
+$sel:modelSelectionExpression:CreateRouteResponse' :: CreateRouteResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679423154"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-183"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modelSelectionExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423159"><span class="hs-identifier hs-var">modelSelectionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responseModels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423158"><span class="hs-identifier hs-var">responseModels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responseParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text ParameterConstraints -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text ParameterConstraints -&gt; Pair)
+-&gt; Maybe (HashMap Text ParameterConstraints) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+</span><a href="#local-6989586621679423157"><span class="hs-identifier hs-var">responseParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-190"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;routeResponseKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423154"><span class="hs-identifier hs-var">routeResponseKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679423148"><span class="annot"><span class="annottext">toPath :: CreateRouteResponse -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423141"><span id="local-6989586621679423142"><span id="local-6989586621679423143"><span id="local-6989586621679423144"><span id="local-6989586621679423145"><span id="local-6989586621679423146"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Maybe (HashMap Text ParameterConstraints)
+Text
+routeResponseKey :: Text
+routeId :: Text
+apiId :: Text
+responseParameters :: Maybe (HashMap Text ParameterConstraints)
+responseModels :: Maybe (HashMap Text Text)
+modelSelectionExpression :: Maybe Text
+$sel:routeResponseKey:CreateRouteResponse' :: CreateRouteResponse -&gt; Text
+$sel:routeId:CreateRouteResponse' :: CreateRouteResponse -&gt; Text
+$sel:apiId:CreateRouteResponse' :: CreateRouteResponse -&gt; Text
+$sel:responseParameters:CreateRouteResponse' :: CreateRouteResponse -&gt; Maybe (HashMap Text ParameterConstraints)
+$sel:responseModels:CreateRouteResponse' :: CreateRouteResponse -&gt; Maybe (HashMap Text Text)
+$sel:modelSelectionExpression:CreateRouteResponse' :: CreateRouteResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679423141"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/apis/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423143"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/routes/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423142"><span class="hs-identifier hs-var">routeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/routeresponses&quot;</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679423137"><span class="annot"><span class="annottext">toQuery :: CreateRouteResponse -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateRouteResponse -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | /See:/ 'newCreateRouteResponseResponse' smart constructor.</span><span>
+</span><span id="line-208"></span><span id="local-6989586621679423134"><span id="local-6989586621679423135"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRouteResponseResponse"><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-var">CreateRouteResponseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRouteResponseResponse%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-var">CreateRouteResponseResponse'</span></a></span></span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the model selection expression of a route response. Supported</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- only for WebSocket APIs.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3AmodelSelectionExpression%3ACreateRouteResponseResponse%27"><span class="annot"><span class="annottext">CreateRouteResponseResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AmodelSelectionExpression%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var hs-var">modelSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | Represents the response models of a route response.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AresponseModels%3ACreateRouteResponseResponse%27"><span class="annot"><span class="annottext">CreateRouteResponseResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AresponseModels%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var hs-var">responseModels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- | Represents the identifier of a route response.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3ArouteResponseId%3ACreateRouteResponseResponse%27"><span class="annot"><span class="annottext">CreateRouteResponseResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3ArouteResponseId%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var hs-var">routeResponseId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | Represents the route response key of a route response.</span><span>
+</span><span id="line-217"></span><span>    </span><span id="%24sel%3ArouteResponseKey%3ACreateRouteResponseResponse%27"><span class="annot"><span class="annottext">CreateRouteResponseResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3ArouteResponseKey%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var hs-var">routeResponseKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- | Represents the response parameters of a route response.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AresponseParameters%3ACreateRouteResponseResponse%27"><span class="annot"><span class="annottext">CreateRouteResponseResponse
+-&gt; Maybe (HashMap Text ParameterConstraints)
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AresponseParameters%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-type">ParameterConstraints</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateRouteResponseResponse%27"><span class="annot"><span class="annottext">CreateRouteResponseResponse -&gt; Int
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AhttpStatus%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423124"><span id="local-6989586621679423126"><span class="annot"><span class="annottext">CreateRouteResponseResponse -&gt; CreateRouteResponseResponse -&gt; Bool
+(CreateRouteResponseResponse
+ -&gt; CreateRouteResponseResponse -&gt; Bool)
+-&gt; (CreateRouteResponseResponse
+    -&gt; CreateRouteResponseResponse -&gt; Bool)
+-&gt; Eq CreateRouteResponseResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRouteResponseResponse -&gt; CreateRouteResponseResponse -&gt; Bool
+$c/= :: CreateRouteResponseResponse -&gt; CreateRouteResponseResponse -&gt; Bool
+== :: CreateRouteResponseResponse -&gt; CreateRouteResponseResponse -&gt; Bool
+$c== :: CreateRouteResponseResponse -&gt; CreateRouteResponseResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423116"><span id="local-6989586621679423118"><span id="local-6989586621679423120"><span id="local-6989586621679423122"><span class="annot"><span class="annottext">ReadPrec [CreateRouteResponseResponse]
+ReadPrec CreateRouteResponseResponse
+Int -&gt; ReadS CreateRouteResponseResponse
+ReadS [CreateRouteResponseResponse]
+(Int -&gt; ReadS CreateRouteResponseResponse)
+-&gt; ReadS [CreateRouteResponseResponse]
+-&gt; ReadPrec CreateRouteResponseResponse
+-&gt; ReadPrec [CreateRouteResponseResponse]
+-&gt; Read CreateRouteResponseResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRouteResponseResponse]
+$creadListPrec :: ReadPrec [CreateRouteResponseResponse]
+readPrec :: ReadPrec CreateRouteResponseResponse
+$creadPrec :: ReadPrec CreateRouteResponseResponse
+readList :: ReadS [CreateRouteResponseResponse]
+$creadList :: ReadS [CreateRouteResponseResponse]
+readsPrec :: Int -&gt; ReadS CreateRouteResponseResponse
+$creadsPrec :: Int -&gt; ReadS CreateRouteResponseResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423110"><span id="local-6989586621679423112"><span id="local-6989586621679423114"><span class="annot"><span class="annottext">Int -&gt; CreateRouteResponseResponse -&gt; ShowS
+[CreateRouteResponseResponse] -&gt; ShowS
+CreateRouteResponseResponse -&gt; String
+(Int -&gt; CreateRouteResponseResponse -&gt; ShowS)
+-&gt; (CreateRouteResponseResponse -&gt; String)
+-&gt; ([CreateRouteResponseResponse] -&gt; ShowS)
+-&gt; Show CreateRouteResponseResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRouteResponseResponse] -&gt; ShowS
+$cshowList :: [CreateRouteResponseResponse] -&gt; ShowS
+show :: CreateRouteResponseResponse -&gt; String
+$cshow :: CreateRouteResponseResponse -&gt; String
+showsPrec :: Int -&gt; CreateRouteResponseResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRouteResponseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateRouteResponseResponse -&gt; Rep CreateRouteResponseResponse x)
+-&gt; (forall x.
+    Rep CreateRouteResponseResponse x -&gt; CreateRouteResponseResponse)
+-&gt; Generic CreateRouteResponseResponse
+forall x.
+Rep CreateRouteResponseResponse x -&gt; CreateRouteResponseResponse
+forall x.
+CreateRouteResponseResponse -&gt; Rep CreateRouteResponseResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateRouteResponseResponse x -&gt; CreateRouteResponseResponse
+$cfrom :: forall x.
+CreateRouteResponseResponse -&gt; Rep CreateRouteResponseResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Create a value of 'CreateRouteResponseResponse' with all optional fields omitted.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'modelSelectionExpression', 'createRouteResponseResponse_modelSelectionExpression' - Represents the model selection expression of a route response. Supported</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- only for WebSocket APIs.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'responseModels', 'createRouteResponseResponse_responseModels' - Represents the response models of a route response.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'routeResponseId', 'createRouteResponseResponse_routeResponseId' - Represents the identifier of a route response.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 'routeResponseKey', 'createRouteResponseResponse_routeResponseKey' - Represents the route response key of a route response.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'responseParameters', 'createRouteResponseResponse_responseParameters' - Represents the response parameters of a route response.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'httpStatus', 'createRouteResponseResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#newCreateRouteResponseResponse"><span class="hs-identifier hs-type">newCreateRouteResponseResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span><span>
+</span><span id="line-249"></span><span id="newCreateRouteResponseResponse"><span class="annot"><span class="annottext">newCreateRouteResponseResponse :: Int -&gt; CreateRouteResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#newCreateRouteResponseResponse"><span class="hs-identifier hs-var hs-var">newCreateRouteResponseResponse</span></a></span></span><span> </span><span id="local-6989586621679423107"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">CreateRouteResponseResponse' :: Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text ParameterConstraints)
+-&gt; Int
+-&gt; CreateRouteResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-type">CreateRouteResponseResponse'</span></a></span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:modelSelectionExpression:CreateRouteResponseResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AmodelSelectionExpression%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var">modelSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:responseModels:CreateRouteResponseResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AresponseModels%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var">responseModels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:routeResponseId:CreateRouteResponseResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3ArouteResponseId%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var">routeResponseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:routeResponseKey:CreateRouteResponseResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3ArouteResponseKey%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var">routeResponseKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:responseParameters:CreateRouteResponseResponse' :: Maybe (HashMap Text ParameterConstraints)
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AresponseParameters%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRouteResponseResponse' :: Int
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AhttpStatus%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | Represents the model selection expression of a route response. Supported</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- only for WebSocket APIs.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_modelSelectionExpression"><span class="hs-identifier hs-type">createRouteResponseResponse_modelSelectionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="createRouteResponseResponse_modelSelectionExpression"><span class="annot"><span class="annottext">createRouteResponseResponse_modelSelectionExpression :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRouteResponseResponse -&gt; f CreateRouteResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_modelSelectionExpression"><span class="hs-identifier hs-var hs-var">createRouteResponseResponse_modelSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRouteResponseResponse -&gt; Maybe Text)
+-&gt; (CreateRouteResponseResponse
+    -&gt; Maybe Text -&gt; CreateRouteResponseResponse)
+-&gt; Lens
+     CreateRouteResponseResponse
+     CreateRouteResponseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-type">CreateRouteResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423106"><span class="annot"><span class="annottext">Maybe Text
+modelSelectionExpression :: Maybe Text
+$sel:modelSelectionExpression:CreateRouteResponseResponse' :: CreateRouteResponseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679423106"><span class="hs-identifier hs-var hs-var">modelSelectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423106"><span class="hs-identifier hs-var">modelSelectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423105"><span class="annot"><span class="annottext">s :: CreateRouteResponseResponse
+</span><a href="#local-6989586621679423105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-type">CreateRouteResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423104"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRouteResponseResponse
+</span><a href="#local-6989586621679423105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelSelectionExpression:CreateRouteResponseResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AmodelSelectionExpression%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var">modelSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | Represents the response models of a route response.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_responseModels"><span class="hs-identifier hs-type">createRouteResponseResponse_responseModels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="createRouteResponseResponse_responseModels"><span class="annot"><span class="annottext">createRouteResponseResponse_responseModels :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateRouteResponseResponse -&gt; f CreateRouteResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_responseModels"><span class="hs-identifier hs-var hs-var">createRouteResponseResponse_responseModels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRouteResponseResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateRouteResponseResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateRouteResponseResponse)
+-&gt; Lens
+     CreateRouteResponseResponse
+     CreateRouteResponseResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-type">CreateRouteResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423103"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+responseModels :: Maybe (HashMap Text Text)
+$sel:responseModels:CreateRouteResponseResponse' :: CreateRouteResponseResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423103"><span class="hs-identifier hs-var hs-var">responseModels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423103"><span class="hs-identifier hs-var">responseModels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423102"><span class="annot"><span class="annottext">s :: CreateRouteResponseResponse
+</span><a href="#local-6989586621679423102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-type">CreateRouteResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423101"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRouteResponseResponse
+</span><a href="#local-6989586621679423102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseModels:CreateRouteResponseResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AresponseModels%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var">responseModels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateRouteResponseResponse -&gt; f CreateRouteResponseResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateRouteResponseResponse
+-&gt; f CreateRouteResponseResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | Represents the identifier of a route response.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_routeResponseId"><span class="hs-identifier hs-type">createRouteResponseResponse_routeResponseId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="createRouteResponseResponse_routeResponseId"><span class="annot"><span class="annottext">createRouteResponseResponse_routeResponseId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRouteResponseResponse -&gt; f CreateRouteResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_routeResponseId"><span class="hs-identifier hs-var hs-var">createRouteResponseResponse_routeResponseId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRouteResponseResponse -&gt; Maybe Text)
+-&gt; (CreateRouteResponseResponse
+    -&gt; Maybe Text -&gt; CreateRouteResponseResponse)
+-&gt; Lens
+     CreateRouteResponseResponse
+     CreateRouteResponseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-type">CreateRouteResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423100"><span class="annot"><span class="annottext">Maybe Text
+routeResponseId :: Maybe Text
+$sel:routeResponseId:CreateRouteResponseResponse' :: CreateRouteResponseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679423100"><span class="hs-identifier hs-var hs-var">routeResponseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423100"><span class="hs-identifier hs-var">routeResponseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423099"><span class="annot"><span class="annottext">s :: CreateRouteResponseResponse
+</span><a href="#local-6989586621679423099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-type">CreateRouteResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423098"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRouteResponseResponse
+</span><a href="#local-6989586621679423099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeResponseId:CreateRouteResponseResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3ArouteResponseId%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var">routeResponseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | Represents the route response key of a route response.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_routeResponseKey"><span class="hs-identifier hs-type">createRouteResponseResponse_routeResponseKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="createRouteResponseResponse_routeResponseKey"><span class="annot"><span class="annottext">createRouteResponseResponse_routeResponseKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRouteResponseResponse -&gt; f CreateRouteResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_routeResponseKey"><span class="hs-identifier hs-var hs-var">createRouteResponseResponse_routeResponseKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRouteResponseResponse -&gt; Maybe Text)
+-&gt; (CreateRouteResponseResponse
+    -&gt; Maybe Text -&gt; CreateRouteResponseResponse)
+-&gt; Lens
+     CreateRouteResponseResponse
+     CreateRouteResponseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-type">CreateRouteResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423097"><span class="annot"><span class="annottext">Maybe Text
+routeResponseKey :: Maybe Text
+$sel:routeResponseKey:CreateRouteResponseResponse' :: CreateRouteResponseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679423097"><span class="hs-identifier hs-var hs-var">routeResponseKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423097"><span class="hs-identifier hs-var">routeResponseKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423096"><span class="annot"><span class="annottext">s :: CreateRouteResponseResponse
+</span><a href="#local-6989586621679423096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-type">CreateRouteResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423095"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRouteResponseResponse
+</span><a href="#local-6989586621679423096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeResponseKey:CreateRouteResponseResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3ArouteResponseKey%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var">routeResponseKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | Represents the response parameters of a route response.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_responseParameters"><span class="hs-identifier hs-type">createRouteResponseResponse_responseParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-type">ParameterConstraints</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="createRouteResponseResponse_responseParameters"><span class="annot"><span class="annottext">createRouteResponseResponse_responseParameters :: (Maybe (HashMap Text ParameterConstraints)
+ -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+-&gt; CreateRouteResponseResponse -&gt; f CreateRouteResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_responseParameters"><span class="hs-identifier hs-var hs-var">createRouteResponseResponse_responseParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRouteResponseResponse
+ -&gt; Maybe (HashMap Text ParameterConstraints))
+-&gt; (CreateRouteResponseResponse
+    -&gt; Maybe (HashMap Text ParameterConstraints)
+    -&gt; CreateRouteResponseResponse)
+-&gt; Lens
+     CreateRouteResponseResponse
+     CreateRouteResponseResponse
+     (Maybe (HashMap Text ParameterConstraints))
+     (Maybe (HashMap Text ParameterConstraints))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-type">CreateRouteResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423094"><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+responseParameters :: Maybe (HashMap Text ParameterConstraints)
+$sel:responseParameters:CreateRouteResponseResponse' :: CreateRouteResponseResponse
+-&gt; Maybe (HashMap Text ParameterConstraints)
+</span><a href="#local-6989586621679423094"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+</span><a href="#local-6989586621679423094"><span class="hs-identifier hs-var">responseParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423093"><span class="annot"><span class="annottext">s :: CreateRouteResponseResponse
+</span><a href="#local-6989586621679423093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-type">CreateRouteResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423092"><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+</span><a href="#local-6989586621679423092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRouteResponseResponse
+</span><a href="#local-6989586621679423093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseParameters:CreateRouteResponseResponse' :: Maybe (HashMap Text ParameterConstraints)
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AresponseParameters%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+</span><a href="#local-6989586621679423092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text ParameterConstraints)
+  -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+ -&gt; CreateRouteResponseResponse -&gt; f CreateRouteResponseResponse)
+-&gt; ((Maybe (HashMap Text ParameterConstraints)
+     -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+    -&gt; Maybe (HashMap Text ParameterConstraints)
+    -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+-&gt; (Maybe (HashMap Text ParameterConstraints)
+    -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+-&gt; CreateRouteResponseResponse
+-&gt; f CreateRouteResponseResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+-&gt; Iso
+     (Maybe (HashMap Text ParameterConstraints))
+     (Maybe (HashMap Text ParameterConstraints))
+     (Maybe (HashMap Text ParameterConstraints))
+     (Maybe (HashMap Text ParameterConstraints))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_httpStatus"><span class="hs-identifier hs-type">createRouteResponseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-283"></span><span id="createRouteResponseResponse_httpStatus"><span class="annot"><span class="annottext">createRouteResponseResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateRouteResponseResponse -&gt; f CreateRouteResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#createRouteResponseResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createRouteResponseResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRouteResponseResponse -&gt; Int)
+-&gt; (CreateRouteResponseResponse
+    -&gt; Int -&gt; CreateRouteResponseResponse)
+-&gt; Lens
+     CreateRouteResponseResponse CreateRouteResponseResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-type">CreateRouteResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423091"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateRouteResponseResponse' :: CreateRouteResponseResponse -&gt; Int
+</span><a href="#local-6989586621679423091"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423091"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423090"><span class="annot"><span class="annottext">s :: CreateRouteResponseResponse
+</span><a href="#local-6989586621679423090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse%27"><span class="hs-identifier hs-type">CreateRouteResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423089"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRouteResponseResponse
+</span><a href="#local-6989586621679423090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRouteResponseResponse' :: Int
+</span><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#%24sel%3AhttpStatus%3ACreateRouteResponseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423087"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.CreateRouteResponse.html#CreateRouteResponseResponse"><span class="hs-identifier hs-type">CreateRouteResponseResponse</span></a></span></span><span>
+</span><span id="line-286"></span></pre></body></html>

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information about the accounts that weren\'t processed.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newUnprocessedAccount' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679302527"><span id="local-6989586621679302528"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnprocessedAccount"><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-var">UnprocessedAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnprocessedAccount%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount%27"><span class="hs-identifier hs-var">UnprocessedAccount'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679302536"><span id="local-6989586621679302537"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnprocessedAccount"><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-var">UnprocessedAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnprocessedAccount%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount%27"><span class="hs-identifier hs-var">UnprocessedAccount'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS account ID.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AaccountId%3AUnprocessedAccount%27"><span class="annot"><span class="annottext">UnprocessedAccount -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#%24sel%3AaccountId%3AUnprocessedAccount%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aresult%3AUnprocessedAccount%27"><span class="annot"><span class="annottext">UnprocessedAccount -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#%24sel%3Aresult%3AUnprocessedAccount%27"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302520"><span id="local-6989586621679302522"><span class="annot"><span class="annottext">UnprocessedAccount -&gt; UnprocessedAccount -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302529"><span id="local-6989586621679302531"><span class="annot"><span class="annottext">UnprocessedAccount -&gt; UnprocessedAccount -&gt; Bool
 (UnprocessedAccount -&gt; UnprocessedAccount -&gt; Bool)
 -&gt; (UnprocessedAccount -&gt; UnprocessedAccount -&gt; Bool)
 -&gt; Eq UnprocessedAccount
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UnprocessedAccount -&gt; UnprocessedAccount -&gt; Bool
 == :: UnprocessedAccount -&gt; UnprocessedAccount -&gt; Bool
 $c== :: UnprocessedAccount -&gt; UnprocessedAccount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302511"><span id="local-6989586621679302513"><span id="local-6989586621679302515"><span id="local-6989586621679302517"><span class="annot"><span class="annottext">ReadPrec [UnprocessedAccount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302520"><span id="local-6989586621679302522"><span id="local-6989586621679302524"><span id="local-6989586621679302526"><span class="annot"><span class="annottext">ReadPrec [UnprocessedAccount]
 ReadPrec UnprocessedAccount
 Int -&gt; ReadS UnprocessedAccount
 ReadS [UnprocessedAccount]
@@ -63,7 +63,7 @@ readList :: ReadS [UnprocessedAccount]
 $creadList :: ReadS [UnprocessedAccount]
 readsPrec :: Int -&gt; ReadS UnprocessedAccount
 $creadsPrec :: Int -&gt; ReadS UnprocessedAccount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302504"><span id="local-6989586621679302506"><span id="local-6989586621679302508"><span class="annot"><span class="annottext">Int -&gt; UnprocessedAccount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302513"><span id="local-6989586621679302515"><span id="local-6989586621679302517"><span class="annot"><span class="annottext">Int -&gt; UnprocessedAccount -&gt; ShowS
 [UnprocessedAccount] -&gt; ShowS
 UnprocessedAccount -&gt; String
 (Int -&gt; UnprocessedAccount -&gt; ShowS)
@@ -107,17 +107,17 @@ $cfrom :: forall x. UnprocessedAccount -&gt; Rep UnprocessedAccount x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span>
 </span><span id="line-54"></span><span id="newUnprocessedAccount"><span class="annot"><span class="annottext">newUnprocessedAccount :: Text -&gt; Text -&gt; UnprocessedAccount
-</span><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#newUnprocessedAccount"><span class="hs-identifier hs-var hs-var">newUnprocessedAccount</span></a></span></span><span> </span><span id="local-6989586621679302498"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302498"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679302497"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302497"><span class="hs-identifier hs-var">pResult_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#newUnprocessedAccount"><span class="hs-identifier hs-var hs-var">newUnprocessedAccount</span></a></span></span><span> </span><span id="local-6989586621679302507"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302507"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679302506"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302506"><span class="hs-identifier hs-var">pResult_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">UnprocessedAccount' :: Text -&gt; Text -&gt; UnprocessedAccount
 </span><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount%27"><span class="hs-identifier hs-type">UnprocessedAccount'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:UnprocessedAccount' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#%24sel%3AaccountId%3AUnprocessedAccount%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302498"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302507"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:result:UnprocessedAccount' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#%24sel%3Aresult%3AUnprocessedAccount%27"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302497"><span class="hs-identifier hs-var">pResult_</span></a></span><span>
+</span><a href="#local-6989586621679302506"><span class="hs-identifier hs-var">pResult_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The AWS account ID.</span><span>
@@ -127,16 +127,16 @@ $cfrom :: forall x. UnprocessedAccount -&gt; Rep UnprocessedAccount x
 -&gt; (UnprocessedAccount -&gt; Text -&gt; UnprocessedAccount)
 -&gt; Lens UnprocessedAccount UnprocessedAccount Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount%27"><span class="hs-identifier hs-type">UnprocessedAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302493"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount%27"><span class="hs-identifier hs-type">UnprocessedAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302502"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:UnprocessedAccount' :: UnprocessedAccount -&gt; Text
-</span><a href="#local-6989586621679302493"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302493"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302492"><span class="annot"><span class="annottext">s :: UnprocessedAccount
-</span><a href="#local-6989586621679302492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount%27"><span class="hs-identifier hs-type">UnprocessedAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302491"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedAccount
-</span><a href="#local-6989586621679302492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:UnprocessedAccount' :: Text
+</span><a href="#local-6989586621679302502"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302502"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302501"><span class="annot"><span class="annottext">s :: UnprocessedAccount
+</span><a href="#local-6989586621679302501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount%27"><span class="hs-identifier hs-type">UnprocessedAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302500"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedAccount
+</span><a href="#local-6989586621679302501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:UnprocessedAccount' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#%24sel%3AaccountId%3AUnprocessedAccount%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | A reason why the account hasn\'t been processed.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#unprocessedAccount_result"><span class="hs-identifier hs-type">unprocessedAccount_result</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -145,19 +145,19 @@ $sel:accountId:UnprocessedAccount' :: UnprocessedAccount -&gt; Text
 -&gt; (UnprocessedAccount -&gt; Text -&gt; UnprocessedAccount)
 -&gt; Lens UnprocessedAccount UnprocessedAccount Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount%27"><span class="hs-identifier hs-type">UnprocessedAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302489"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount%27"><span class="hs-identifier hs-type">UnprocessedAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302498"><span class="annot"><span class="annottext">Text
 result :: Text
 $sel:result:UnprocessedAccount' :: UnprocessedAccount -&gt; Text
-</span><a href="#local-6989586621679302489"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302489"><span class="hs-identifier hs-var">result</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302488"><span class="annot"><span class="annottext">s :: UnprocessedAccount
-</span><a href="#local-6989586621679302488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount%27"><span class="hs-identifier hs-type">UnprocessedAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302487"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedAccount
-</span><a href="#local-6989586621679302488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:result:UnprocessedAccount' :: Text
+</span><a href="#local-6989586621679302498"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302498"><span class="hs-identifier hs-var">result</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302497"><span class="annot"><span class="annottext">s :: UnprocessedAccount
+</span><a href="#local-6989586621679302497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount%27"><span class="hs-identifier hs-type">UnprocessedAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302496"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedAccount
+</span><a href="#local-6989586621679302497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:result:UnprocessedAccount' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#%24sel%3Aresult%3AUnprocessedAccount%27"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302484"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679302482"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UnprocessedAccount
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302493"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679302491"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UnprocessedAccount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UnprocessedAccount)
@@ -167,15 +167,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UnprocessedAccount&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302479"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302479"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302488"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302488"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; UnprocessedAccount
 </span><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount%27"><span class="hs-identifier hs-var">UnprocessedAccount'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; UnprocessedAccount)
 -&gt; Parser Text -&gt; Parser (Text -&gt; UnprocessedAccount)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679302488"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;accountId&quot;</span></span><span class="hs-special">)</span><span>
@@ -183,13 +183,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser UnprocessedAccount
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679302488"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;result&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302473"><span id="local-6989586621679302475"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302482"><span id="local-6989586621679302484"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302470"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302479"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

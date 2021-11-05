@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.Types.FindingsFilterListItem</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.Types.FindingsFilterListItem</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterAction.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.FindingsFilterAction</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides information about a findings filter.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFindingsFilterListItem' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679388037"><span id="local-6989586621679388038"></span></span><span class="hs-keyword">data</span><span> </span><span id="FindingsFilterListItem"><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-var">FindingsFilterListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingsFilterListItem%27"><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem%27"><span class="hs-identifier hs-var">FindingsFilterListItem'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the filter.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aarn%3AFindingsFilterListItem%27"><span class="annot"><span class="annottext">FindingsFilterListItem -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Aarn%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The action that\'s performed on findings that meet the filter criteria.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Possible values are: ARCHIVE, suppress (automatically archive) the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- findings; and, NOOP, don\'t perform any action on the findings.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aaction%3AFindingsFilterListItem%27"><span class="annot"><span class="annottext">FindingsFilterListItem -&gt; Maybe FindingsFilterAction
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Aaction%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterAction.html#FindingsFilterAction"><span class="hs-identifier hs-type">FindingsFilterAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The custom name of the filter.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aname%3AFindingsFilterListItem%27"><span class="annot"><span class="annottext">FindingsFilterListItem -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Aname%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the filter.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aid%3AFindingsFilterListItem%27"><span class="annot"><span class="annottext">FindingsFilterListItem -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Aid%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A map of key-value pairs that identifies the tags (keys and values) that</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- are associated with the filter.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atags%3AFindingsFilterListItem%27"><span class="annot"><span class="annottext">FindingsFilterListItem -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Atags%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388027"><span id="local-6989586621679388029"><span class="annot"><span class="annottext">FindingsFilterListItem -&gt; FindingsFilterListItem -&gt; Bool
+(FindingsFilterListItem -&gt; FindingsFilterListItem -&gt; Bool)
+-&gt; (FindingsFilterListItem -&gt; FindingsFilterListItem -&gt; Bool)
+-&gt; Eq FindingsFilterListItem
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FindingsFilterListItem -&gt; FindingsFilterListItem -&gt; Bool
+$c/= :: FindingsFilterListItem -&gt; FindingsFilterListItem -&gt; Bool
+== :: FindingsFilterListItem -&gt; FindingsFilterListItem -&gt; Bool
+$c== :: FindingsFilterListItem -&gt; FindingsFilterListItem -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388018"><span id="local-6989586621679388020"><span id="local-6989586621679388022"><span id="local-6989586621679388024"><span class="annot"><span class="annottext">ReadPrec [FindingsFilterListItem]
+ReadPrec FindingsFilterListItem
+Int -&gt; ReadS FindingsFilterListItem
+ReadS [FindingsFilterListItem]
+(Int -&gt; ReadS FindingsFilterListItem)
+-&gt; ReadS [FindingsFilterListItem]
+-&gt; ReadPrec FindingsFilterListItem
+-&gt; ReadPrec [FindingsFilterListItem]
+-&gt; Read FindingsFilterListItem
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FindingsFilterListItem]
+$creadListPrec :: ReadPrec [FindingsFilterListItem]
+readPrec :: ReadPrec FindingsFilterListItem
+$creadPrec :: ReadPrec FindingsFilterListItem
+readList :: ReadS [FindingsFilterListItem]
+$creadList :: ReadS [FindingsFilterListItem]
+readsPrec :: Int -&gt; ReadS FindingsFilterListItem
+$creadsPrec :: Int -&gt; ReadS FindingsFilterListItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388011"><span id="local-6989586621679388013"><span id="local-6989586621679388015"><span class="annot"><span class="annottext">Int -&gt; FindingsFilterListItem -&gt; ShowS
+[FindingsFilterListItem] -&gt; ShowS
+FindingsFilterListItem -&gt; String
+(Int -&gt; FindingsFilterListItem -&gt; ShowS)
+-&gt; (FindingsFilterListItem -&gt; String)
+-&gt; ([FindingsFilterListItem] -&gt; ShowS)
+-&gt; Show FindingsFilterListItem
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FindingsFilterListItem] -&gt; ShowS
+$cshowList :: [FindingsFilterListItem] -&gt; ShowS
+show :: FindingsFilterListItem -&gt; String
+$cshow :: FindingsFilterListItem -&gt; String
+showsPrec :: Int -&gt; FindingsFilterListItem -&gt; ShowS
+$cshowsPrec :: Int -&gt; FindingsFilterListItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FindingsFilterListItem -&gt; Rep FindingsFilterListItem x)
+-&gt; (forall x.
+    Rep FindingsFilterListItem x -&gt; FindingsFilterListItem)
+-&gt; Generic FindingsFilterListItem
+forall x. Rep FindingsFilterListItem x -&gt; FindingsFilterListItem
+forall x. FindingsFilterListItem -&gt; Rep FindingsFilterListItem x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FindingsFilterListItem x -&gt; FindingsFilterListItem
+$cfrom :: forall x. FindingsFilterListItem -&gt; Rep FindingsFilterListItem x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'FindingsFilterListItem' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'arn', 'findingsFilterListItem_arn' - The Amazon Resource Name (ARN) of the filter.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'action', 'findingsFilterListItem_action' - The action that\'s performed on findings that meet the filter criteria.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Possible values are: ARCHIVE, suppress (automatically archive) the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- findings; and, NOOP, don\'t perform any action on the findings.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'name', 'findingsFilterListItem_name' - The custom name of the filter.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'id', 'findingsFilterListItem_id' - The unique identifier for the filter.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'tags', 'findingsFilterListItem_tags' - A map of key-value pairs that identifies the tags (keys and values) that</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- are associated with the filter.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#newFindingsFilterListItem"><span class="hs-identifier hs-type">newFindingsFilterListItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-type">FindingsFilterListItem</span></a></span><span>
+</span><span id="line-69"></span><span id="newFindingsFilterListItem"><span class="annot"><span class="annottext">newFindingsFilterListItem :: FindingsFilterListItem
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#newFindingsFilterListItem"><span class="hs-identifier hs-var hs-var">newFindingsFilterListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">FindingsFilterListItem' :: Maybe Text
+-&gt; Maybe FindingsFilterAction
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; FindingsFilterListItem
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem%27"><span class="hs-identifier hs-type">FindingsFilterListItem'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:FindingsFilterListItem' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Aarn%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:action:FindingsFilterListItem' :: Maybe FindingsFilterAction
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Aaction%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FindingsFilterAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:FindingsFilterListItem' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Aname%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:FindingsFilterListItem' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Aid%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:FindingsFilterListItem' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Atags%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the filter.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#findingsFilterListItem_arn"><span class="hs-identifier hs-type">findingsFilterListItem_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-type">FindingsFilterListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="findingsFilterListItem_arn"><span class="annot"><span class="annottext">findingsFilterListItem_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FindingsFilterListItem -&gt; f FindingsFilterListItem
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#findingsFilterListItem_arn"><span class="hs-identifier hs-var hs-var">findingsFilterListItem_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingsFilterListItem -&gt; Maybe Text)
+-&gt; (FindingsFilterListItem -&gt; Maybe Text -&gt; FindingsFilterListItem)
+-&gt; Lens
+     FindingsFilterListItem
+     FindingsFilterListItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem%27"><span class="hs-identifier hs-type">FindingsFilterListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388002"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:FindingsFilterListItem' :: FindingsFilterListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679388002"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388002"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388001"><span class="annot"><span class="annottext">s :: FindingsFilterListItem
+</span><a href="#local-6989586621679388001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem%27"><span class="hs-identifier hs-type">FindingsFilterListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388000"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingsFilterListItem
+</span><a href="#local-6989586621679388001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:FindingsFilterListItem' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Aarn%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-type">FindingsFilterListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The action that\'s performed on findings that meet the filter criteria.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Possible values are: ARCHIVE, suppress (automatically archive) the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- findings; and, NOOP, don\'t perform any action on the findings.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#findingsFilterListItem_action"><span class="hs-identifier hs-type">findingsFilterListItem_action</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-type">FindingsFilterListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterAction.html#FindingsFilterAction"><span class="hs-identifier hs-type">FindingsFilterAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="findingsFilterListItem_action"><span class="annot"><span class="annottext">findingsFilterListItem_action :: (Maybe FindingsFilterAction -&gt; f (Maybe FindingsFilterAction))
+-&gt; FindingsFilterListItem -&gt; f FindingsFilterListItem
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#findingsFilterListItem_action"><span class="hs-identifier hs-var hs-var">findingsFilterListItem_action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingsFilterListItem -&gt; Maybe FindingsFilterAction)
+-&gt; (FindingsFilterListItem
+    -&gt; Maybe FindingsFilterAction -&gt; FindingsFilterListItem)
+-&gt; Lens
+     FindingsFilterListItem
+     FindingsFilterListItem
+     (Maybe FindingsFilterAction)
+     (Maybe FindingsFilterAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem%27"><span class="hs-identifier hs-type">FindingsFilterListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387998"><span class="annot"><span class="annottext">Maybe FindingsFilterAction
+action :: Maybe FindingsFilterAction
+$sel:action:FindingsFilterListItem' :: FindingsFilterListItem -&gt; Maybe FindingsFilterAction
+</span><a href="#local-6989586621679387998"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FindingsFilterAction
+</span><a href="#local-6989586621679387998"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387997"><span class="annot"><span class="annottext">s :: FindingsFilterListItem
+</span><a href="#local-6989586621679387997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem%27"><span class="hs-identifier hs-type">FindingsFilterListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387996"><span class="annot"><span class="annottext">Maybe FindingsFilterAction
+</span><a href="#local-6989586621679387996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingsFilterListItem
+</span><a href="#local-6989586621679387997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:FindingsFilterListItem' :: Maybe FindingsFilterAction
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Aaction%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FindingsFilterAction
+</span><a href="#local-6989586621679387996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-type">FindingsFilterListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The custom name of the filter.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#findingsFilterListItem_name"><span class="hs-identifier hs-type">findingsFilterListItem_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-type">FindingsFilterListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="findingsFilterListItem_name"><span class="annot"><span class="annottext">findingsFilterListItem_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FindingsFilterListItem -&gt; f FindingsFilterListItem
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#findingsFilterListItem_name"><span class="hs-identifier hs-var hs-var">findingsFilterListItem_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingsFilterListItem -&gt; Maybe Text)
+-&gt; (FindingsFilterListItem -&gt; Maybe Text -&gt; FindingsFilterListItem)
+-&gt; Lens
+     FindingsFilterListItem
+     FindingsFilterListItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem%27"><span class="hs-identifier hs-type">FindingsFilterListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387994"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:FindingsFilterListItem' :: FindingsFilterListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679387994"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387994"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387993"><span class="annot"><span class="annottext">s :: FindingsFilterListItem
+</span><a href="#local-6989586621679387993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem%27"><span class="hs-identifier hs-type">FindingsFilterListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387992"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingsFilterListItem
+</span><a href="#local-6989586621679387993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:FindingsFilterListItem' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Aname%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-type">FindingsFilterListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The unique identifier for the filter.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#findingsFilterListItem_id"><span class="hs-identifier hs-type">findingsFilterListItem_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-type">FindingsFilterListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="findingsFilterListItem_id"><span class="annot"><span class="annottext">findingsFilterListItem_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FindingsFilterListItem -&gt; f FindingsFilterListItem
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#findingsFilterListItem_id"><span class="hs-identifier hs-var hs-var">findingsFilterListItem_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingsFilterListItem -&gt; Maybe Text)
+-&gt; (FindingsFilterListItem -&gt; Maybe Text -&gt; FindingsFilterListItem)
+-&gt; Lens
+     FindingsFilterListItem
+     FindingsFilterListItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem%27"><span class="hs-identifier hs-type">FindingsFilterListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387990"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:FindingsFilterListItem' :: FindingsFilterListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679387990"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387990"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387989"><span class="annot"><span class="annottext">s :: FindingsFilterListItem
+</span><a href="#local-6989586621679387989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem%27"><span class="hs-identifier hs-type">FindingsFilterListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387988"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingsFilterListItem
+</span><a href="#local-6989586621679387989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:FindingsFilterListItem' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Aid%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-type">FindingsFilterListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | A map of key-value pairs that identifies the tags (keys and values) that</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- are associated with the filter.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#findingsFilterListItem_tags"><span class="hs-identifier hs-type">findingsFilterListItem_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-type">FindingsFilterListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="findingsFilterListItem_tags"><span class="annot"><span class="annottext">findingsFilterListItem_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; FindingsFilterListItem -&gt; f FindingsFilterListItem
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#findingsFilterListItem_tags"><span class="hs-identifier hs-var hs-var">findingsFilterListItem_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingsFilterListItem -&gt; Maybe (HashMap Text Text))
+-&gt; (FindingsFilterListItem
+    -&gt; Maybe (HashMap Text Text) -&gt; FindingsFilterListItem)
+-&gt; Lens
+     FindingsFilterListItem
+     FindingsFilterListItem
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem%27"><span class="hs-identifier hs-type">FindingsFilterListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387986"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:FindingsFilterListItem' :: FindingsFilterListItem -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679387986"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679387986"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387985"><span class="annot"><span class="annottext">s :: FindingsFilterListItem
+</span><a href="#local-6989586621679387985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem%27"><span class="hs-identifier hs-type">FindingsFilterListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387984"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679387984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingsFilterListItem
+</span><a href="#local-6989586621679387985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:FindingsFilterListItem' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#%24sel%3Atags%3AFindingsFilterListItem%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679387984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-type">FindingsFilterListItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; FindingsFilterListItem -&gt; f FindingsFilterListItem)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; FindingsFilterListItem
+-&gt; f FindingsFilterListItem
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387978"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-type">FindingsFilterListItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679387976"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FindingsFilterListItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FindingsFilterListItem)
+-&gt; Value
+-&gt; Parser FindingsFilterListItem
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FindingsFilterListItem&quot;</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387973"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387973"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe FindingsFilterAction
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; FindingsFilterListItem
+</span><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem%27"><span class="hs-identifier hs-var">FindingsFilterListItem'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe FindingsFilterAction
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; FindingsFilterListItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe FindingsFilterAction
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; FindingsFilterListItem)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FindingsFilterAction
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; FindingsFilterListItem)
+-&gt; Parser (Maybe FindingsFilterAction)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; FindingsFilterListItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FindingsFilterAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;action&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; FindingsFilterListItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; FindingsFilterListItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; FindingsFilterListItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; FindingsFilterListItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; FindingsFilterListItem)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser FindingsFilterListItem
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387966"><span id="local-6989586621679387968"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-type">FindingsFilterListItem</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387963"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingsFilterListItem.html#FindingsFilterListItem"><span class="hs-identifier hs-type">FindingsFilterListItem</span></a></span></span><span>
+</span><span id="line-117"></span></pre></body></html>

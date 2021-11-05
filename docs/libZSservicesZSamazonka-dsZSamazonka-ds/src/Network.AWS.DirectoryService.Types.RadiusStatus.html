@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679298082"><span id="local-6989586621679298083"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RadiusStatus"><span class="annot"><a href="Network.AWS.DirectoryService.Types.RadiusStatus.html#RadiusStatus"><span class="hs-identifier hs-var">RadiusStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RadiusStatus%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.RadiusStatus.html#RadiusStatus%27"><span class="hs-identifier hs-var">RadiusStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679298091"><span id="local-6989586621679298092"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RadiusStatus"><span class="annot"><a href="Network.AWS.DirectoryService.Types.RadiusStatus.html#RadiusStatus"><span class="hs-identifier hs-var">RadiusStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RadiusStatus%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.RadiusStatus.html#RadiusStatus%27"><span class="hs-identifier hs-var">RadiusStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRadiusStatus"><span class="annot"><span class="annottext">RadiusStatus -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.RadiusStatus.html#fromRadiusStatus"><span class="hs-identifier hs-var hs-var">fromRadiusStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298074"><span id="local-6989586621679298076"><span id="local-6989586621679298078"><span class="annot"><span class="annottext">Int -&gt; RadiusStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298083"><span id="local-6989586621679298085"><span id="local-6989586621679298087"><span class="annot"><span class="annottext">Int -&gt; RadiusStatus -&gt; ShowS
 [RadiusStatus] -&gt; ShowS
 RadiusStatus -&gt; String
 (Int -&gt; RadiusStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: RadiusStatus -&gt; String
 showsPrec :: Int -&gt; RadiusStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; RadiusStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679298065"><span id="local-6989586621679298067"><span id="local-6989586621679298069"><span id="local-6989586621679298071"><span class="annot"><span class="annottext">ReadPrec [RadiusStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679298074"><span id="local-6989586621679298076"><span id="local-6989586621679298078"><span id="local-6989586621679298080"><span class="annot"><span class="annottext">ReadPrec [RadiusStatus]
 ReadPrec RadiusStatus
 Int -&gt; ReadS RadiusStatus
 ReadS [RadiusStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [RadiusStatus]
 readsPrec :: Int -&gt; ReadS RadiusStatus
 $creadsPrec :: Int -&gt; ReadS RadiusStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679298060"><span id="local-6989586621679298062"><span class="annot"><span class="annottext">RadiusStatus -&gt; RadiusStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679298069"><span id="local-6989586621679298071"><span class="annot"><span class="annottext">RadiusStatus -&gt; RadiusStatus -&gt; Bool
 (RadiusStatus -&gt; RadiusStatus -&gt; Bool)
 -&gt; (RadiusStatus -&gt; RadiusStatus -&gt; Bool) -&gt; Eq RadiusStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: RadiusStatus -&gt; RadiusStatus -&gt; Bool
 == :: RadiusStatus -&gt; RadiusStatus -&gt; Bool
 $c== :: RadiusStatus -&gt; RadiusStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679298044"><span id="local-6989586621679298046"><span id="local-6989586621679298048"><span id="local-6989586621679298050"><span id="local-6989586621679298052"><span id="local-6989586621679298054"><span id="local-6989586621679298056"><span class="annot"><span class="annottext">Eq RadiusStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679298053"><span id="local-6989586621679298055"><span id="local-6989586621679298057"><span id="local-6989586621679298059"><span id="local-6989586621679298061"><span id="local-6989586621679298063"><span id="local-6989586621679298065"><span class="annot"><span class="annottext">Eq RadiusStatus
 Eq RadiusStatus
 -&gt; (RadiusStatus -&gt; RadiusStatus -&gt; Ordering)
 -&gt; (RadiusStatus -&gt; RadiusStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. RadiusStatus -&gt; Rep RadiusStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298036"><span id="local-6989586621679298038"><span class="annot"><span class="annottext">Int -&gt; RadiusStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298045"><span id="local-6989586621679298047"><span class="annot"><span class="annottext">Int -&gt; RadiusStatus -&gt; Int
 RadiusStatus -&gt; Int
 (Int -&gt; RadiusStatus -&gt; Int)
 -&gt; (RadiusStatus -&gt; Int) -&gt; Hashable RadiusStatus
@@ -143,49 +143,49 @@ $chash :: RadiusStatus -&gt; Int
 hashWithSalt :: Int -&gt; RadiusStatus -&gt; Int
 $chashWithSalt :: Int -&gt; RadiusStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679298033"><span class="annot"><span class="annottext">RadiusStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679298042"><span class="annot"><span class="annottext">RadiusStatus -&gt; ()
 (RadiusStatus -&gt; ()) -&gt; NFData RadiusStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RadiusStatus -&gt; ()
 $crnf :: RadiusStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679298030"><span class="annot"><span class="annottext">Text -&gt; Either String RadiusStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679298039"><span class="annot"><span class="annottext">Text -&gt; Either String RadiusStatus
 (Text -&gt; Either String RadiusStatus) -&gt; FromText RadiusStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RadiusStatus
 $cfromText :: Text -&gt; Either String RadiusStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679298027"><span class="annot"><span class="annottext">RadiusStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679298036"><span class="annot"><span class="annottext">RadiusStatus -&gt; Text
 (RadiusStatus -&gt; Text) -&gt; ToText RadiusStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RadiusStatus -&gt; Text
 $ctoText :: RadiusStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679298024"><span class="annot"><span class="annottext">RadiusStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679298033"><span class="annot"><span class="annottext">RadiusStatus -&gt; ByteString
 (RadiusStatus -&gt; ByteString) -&gt; ToByteString RadiusStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RadiusStatus -&gt; ByteString
 $ctoBS :: RadiusStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298021"><span class="annot"><span class="annottext">RadiusStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298030"><span class="annot"><span class="annottext">RadiusStatus -&gt; ByteStringBuilder
 (RadiusStatus -&gt; ByteStringBuilder) -&gt; ToLog RadiusStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RadiusStatus -&gt; ByteStringBuilder
 $cbuild :: RadiusStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298018"><span class="annot"><span class="annottext">HeaderName -&gt; RadiusStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298027"><span class="annot"><span class="annottext">HeaderName -&gt; RadiusStatus -&gt; [Header]
 (HeaderName -&gt; RadiusStatus -&gt; [Header]) -&gt; ToHeader RadiusStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RadiusStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RadiusStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298015"><span class="annot"><span class="annottext">RadiusStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298024"><span class="annot"><span class="annottext">RadiusStatus -&gt; QueryString
 (RadiusStatus -&gt; QueryString) -&gt; ToQuery RadiusStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RadiusStatus -&gt; QueryString
 $ctoQuery :: RadiusStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298010"><span id="local-6989586621679298012"><span class="annot"><span class="annottext">Value -&gt; Parser [RadiusStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298019"><span id="local-6989586621679298021"><span class="annot"><span class="annottext">Value -&gt; Parser [RadiusStatus]
 Value -&gt; Parser RadiusStatus
 (Value -&gt; Parser RadiusStatus)
 -&gt; (Value -&gt; Parser [RadiusStatus]) -&gt; FromJSON RadiusStatus
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [RadiusStatus]
 parseJSON :: Value -&gt; Parser RadiusStatus
 $cparseJSON :: Value -&gt; Parser RadiusStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298005"><span id="local-6989586621679298007"><span class="annot"><span class="annottext">FromJSONKeyFunction [RadiusStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298014"><span id="local-6989586621679298016"><span class="annot"><span class="annottext">FromJSONKeyFunction [RadiusStatus]
 FromJSONKeyFunction RadiusStatus
 FromJSONKeyFunction RadiusStatus
 -&gt; FromJSONKeyFunction [RadiusStatus] -&gt; FromJSONKey RadiusStatus
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RadiusStatus]
 fromJSONKey :: FromJSONKeyFunction RadiusStatus
 $cfromJSONKey :: FromJSONKeyFunction RadiusStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679297996"><span id="local-6989586621679297998"><span id="local-6989586621679298000"><span id="local-6989586621679298002"><span class="annot"><span class="annottext">[RadiusStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298005"><span id="local-6989586621679298007"><span id="local-6989586621679298009"><span id="local-6989586621679298011"><span class="annot"><span class="annottext">[RadiusStatus] -&gt; Encoding
 [RadiusStatus] -&gt; Value
 RadiusStatus -&gt; Encoding
 RadiusStatus -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: RadiusStatus -&gt; Encoding
 toJSON :: RadiusStatus -&gt; Value
 $ctoJSON :: RadiusStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679297991"><span id="local-6989586621679297993"><span class="annot"><span class="annottext">ToJSONKeyFunction [RadiusStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298000"><span id="local-6989586621679298002"><span class="annot"><span class="annottext">ToJSONKeyFunction [RadiusStatus]
 ToJSONKeyFunction RadiusStatus
 ToJSONKeyFunction RadiusStatus
 -&gt; ToJSONKeyFunction [RadiusStatus] -&gt; ToJSONKey RadiusStatus
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RadiusStatus]
 toJSONKey :: ToJSONKeyFunction RadiusStatus
 $ctoJSONKey :: ToJSONKeyFunction RadiusStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679297988"><span class="annot"><span class="annottext">[Node] -&gt; Either String RadiusStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679297997"><span class="annot"><span class="annottext">[Node] -&gt; Either String RadiusStatus
 ([Node] -&gt; Either String RadiusStatus) -&gt; FromXML RadiusStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RadiusStatus
 $cparseXML :: [Node] -&gt; Either String RadiusStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679297985"><span class="annot"><span class="annottext">RadiusStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679297994"><span class="annot"><span class="annottext">RadiusStatus -&gt; XML
 (RadiusStatus -&gt; XML) -&gt; ToXML RadiusStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RadiusStatus -&gt; XML

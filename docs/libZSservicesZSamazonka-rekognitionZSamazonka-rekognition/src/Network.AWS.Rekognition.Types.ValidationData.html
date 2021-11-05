@@ -40,12 +40,12 @@
 </span><span id="line-40"></span><span class="hs-comment">-- validation data.</span><span>
 </span><span id="line-41"></span><span class="hs-comment">--</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- /See:/ 'newValidationData' smart constructor.</span><span>
-</span><span id="line-43"></span><span id="local-6989586621679334464"><span id="local-6989586621679334465"></span></span><span class="hs-keyword">data</span><span> </span><span id="ValidationData"><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData"><span class="hs-identifier hs-var">ValidationData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidationData%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData%27"><span class="hs-identifier hs-var">ValidationData'</span></a></span></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679334473"><span id="local-6989586621679334474"></span></span><span class="hs-keyword">data</span><span> </span><span id="ValidationData"><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData"><span class="hs-identifier hs-var">ValidationData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidationData%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData%27"><span class="hs-identifier hs-var">ValidationData'</span></a></span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The assets that comprise the validation data.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3Aassets%3AValidationData%27"><span class="annot"><span class="annottext">ValidationData -&gt; Maybe [Asset]
 </span><a href="Network.AWS.Rekognition.Types.ValidationData.html#%24sel%3Aassets%3AValidationData%27"><span class="hs-identifier hs-var hs-var">assets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-type">Asset</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334458"><span id="local-6989586621679334460"><span class="annot"><span class="annottext">ValidationData -&gt; ValidationData -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334467"><span id="local-6989586621679334469"><span class="annot"><span class="annottext">ValidationData -&gt; ValidationData -&gt; Bool
 (ValidationData -&gt; ValidationData -&gt; Bool)
 -&gt; (ValidationData -&gt; ValidationData -&gt; Bool) -&gt; Eq ValidationData
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ValidationData -&gt; ValidationData -&gt; Bool
 == :: ValidationData -&gt; ValidationData -&gt; Bool
 $c== :: ValidationData -&gt; ValidationData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334449"><span id="local-6989586621679334451"><span id="local-6989586621679334453"><span id="local-6989586621679334455"><span class="annot"><span class="annottext">ReadPrec [ValidationData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334458"><span id="local-6989586621679334460"><span id="local-6989586621679334462"><span id="local-6989586621679334464"><span class="annot"><span class="annottext">ReadPrec [ValidationData]
 ReadPrec ValidationData
 Int -&gt; ReadS ValidationData
 ReadS [ValidationData]
@@ -73,7 +73,7 @@ readList :: ReadS [ValidationData]
 $creadList :: ReadS [ValidationData]
 readsPrec :: Int -&gt; ReadS ValidationData
 $creadsPrec :: Int -&gt; ReadS ValidationData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334442"><span id="local-6989586621679334444"><span id="local-6989586621679334446"><span class="annot"><span class="annottext">Int -&gt; ValidationData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334451"><span id="local-6989586621679334453"><span id="local-6989586621679334455"><span class="annot"><span class="annottext">Int -&gt; ValidationData -&gt; ShowS
 [ValidationData] -&gt; ShowS
 ValidationData -&gt; String
 (Int -&gt; ValidationData -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; Lens
      ValidationData ValidationData (Maybe [Asset]) (Maybe [Asset])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData%27"><span class="hs-identifier hs-type">ValidationData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334433"><span class="annot"><span class="annottext">Maybe [Asset]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData%27"><span class="hs-identifier hs-type">ValidationData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334442"><span class="annot"><span class="annottext">Maybe [Asset]
 assets :: Maybe [Asset]
 $sel:assets:ValidationData' :: ValidationData -&gt; Maybe [Asset]
-</span><a href="#local-6989586621679334433"><span class="hs-identifier hs-var hs-var">assets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Asset]
-</span><a href="#local-6989586621679334433"><span class="hs-identifier hs-var">assets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334432"><span class="annot"><span class="annottext">s :: ValidationData
-</span><a href="#local-6989586621679334432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData%27"><span class="hs-identifier hs-type">ValidationData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334431"><span class="annot"><span class="annottext">Maybe [Asset]
-</span><a href="#local-6989586621679334431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidationData
-</span><a href="#local-6989586621679334432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assets:ValidationData' :: Maybe [Asset]
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var hs-var">assets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Asset]
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">assets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334441"><span class="annot"><span class="annottext">s :: ValidationData
+</span><a href="#local-6989586621679334441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData%27"><span class="hs-identifier hs-type">ValidationData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334440"><span class="annot"><span class="annottext">Maybe [Asset]
+</span><a href="#local-6989586621679334440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidationData
+</span><a href="#local-6989586621679334441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assets:ValidationData' :: Maybe [Asset]
 </span><a href="Network.AWS.Rekognition.Types.ValidationData.html#%24sel%3Aassets%3AValidationData%27"><span class="hs-identifier hs-var">assets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Asset]
-</span><a href="#local-6989586621679334431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData"><span class="hs-identifier hs-type">ValidationData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Asset] -&gt; f (Maybe [Asset]))
+</span><a href="#local-6989586621679334440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData"><span class="hs-identifier hs-type">ValidationData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Asset] -&gt; f (Maybe [Asset]))
  -&gt; ValidationData -&gt; f ValidationData)
 -&gt; ((Maybe [Asset] -&gt; f (Maybe [Asset]))
     -&gt; Maybe [Asset] -&gt; f (Maybe [Asset]))
@@ -154,8 +154,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334425"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData"><span class="hs-identifier hs-type">ValidationData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679334423"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ValidationData
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334434"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData"><span class="hs-identifier hs-type">ValidationData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679334432"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ValidationData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ValidationData)
@@ -165,15 +165,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ValidationData&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334420"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679334420"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334429"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334429"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Asset] -&gt; ValidationData
 </span><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData%27"><span class="hs-identifier hs-var">ValidationData'</span></a></span><span>
 </span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Asset] -&gt; ValidationData)
 -&gt; Parser (Maybe [Asset]) -&gt; Parser ValidationData
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679334420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Asset]))
+</span><a href="#local-6989586621679334429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Asset]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Assets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Asset]))
@@ -184,7 +184,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334413"><span id="local-6989586621679334415"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData"><span class="hs-identifier hs-type">ValidationData</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334422"><span id="local-6989586621679334424"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData"><span class="hs-identifier hs-type">ValidationData</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334410"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData"><span class="hs-identifier hs-type">ValidationData</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334419"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ValidationData.html#ValidationData"><span class="hs-identifier hs-type">ValidationData</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

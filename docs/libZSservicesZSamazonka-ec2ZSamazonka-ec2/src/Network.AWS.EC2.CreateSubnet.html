@@ -78,7 +78,7 @@
 </span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | /See:/ 'newCreateSubnet' smart constructor.</span><span>
-</span><span id="line-81"></span><span id="local-6989586621681290427"><span id="local-6989586621681290428"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSubnet"><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-var">CreateSubnet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSubnet%27"><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-var">CreateSubnet'</span></a></span></span><span>
+</span><span id="line-81"></span><span id="local-6989586621681290436"><span id="local-6989586621681290437"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSubnet"><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-var">CreateSubnet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSubnet%27"><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-var">CreateSubnet'</span></a></span></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IPv6 network range for the subnet, in CIDR notation. The subnet size</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">-- must use a \/64 prefix length.</span><span>
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3Aipv6CidrBlock%3ACreateSubnet%27"><span class="annot"><span class="annottext">CreateSubnet -&gt; Maybe Text
@@ -125,7 +125,7 @@
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3AvpcId%3ACreateSubnet%27"><span class="annot"><span class="annottext">CreateSubnet -&gt; Text
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3AvpcId%3ACreateSubnet%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681290414"><span id="local-6989586621681290416"><span class="annot"><span class="annottext">CreateSubnet -&gt; CreateSubnet -&gt; Bool
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681290423"><span id="local-6989586621681290425"><span class="annot"><span class="annottext">CreateSubnet -&gt; CreateSubnet -&gt; Bool
 (CreateSubnet -&gt; CreateSubnet -&gt; Bool)
 -&gt; (CreateSubnet -&gt; CreateSubnet -&gt; Bool) -&gt; Eq CreateSubnet
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -133,7 +133,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateSubnet -&gt; CreateSubnet -&gt; Bool
 == :: CreateSubnet -&gt; CreateSubnet -&gt; Bool
 $c== :: CreateSubnet -&gt; CreateSubnet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681290405"><span id="local-6989586621681290407"><span id="local-6989586621681290409"><span id="local-6989586621681290411"><span class="annot"><span class="annottext">ReadPrec [CreateSubnet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681290414"><span id="local-6989586621681290416"><span id="local-6989586621681290418"><span id="local-6989586621681290420"><span class="annot"><span class="annottext">ReadPrec [CreateSubnet]
 ReadPrec CreateSubnet
 Int -&gt; ReadS CreateSubnet
 ReadS [CreateSubnet]
@@ -153,7 +153,7 @@ readList :: ReadS [CreateSubnet]
 $creadList :: ReadS [CreateSubnet]
 readsPrec :: Int -&gt; ReadS CreateSubnet
 $creadsPrec :: Int -&gt; ReadS CreateSubnet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681290398"><span id="local-6989586621681290400"><span id="local-6989586621681290402"><span class="annot"><span class="annottext">Int -&gt; CreateSubnet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681290407"><span id="local-6989586621681290409"><span id="local-6989586621681290411"><span class="annot"><span class="annottext">Int -&gt; CreateSubnet -&gt; ShowS
 [CreateSubnet] -&gt; ShowS
 CreateSubnet -&gt; String
 (Int -&gt; CreateSubnet -&gt; ShowS)
@@ -230,9 +230,9 @@ $cfrom :: forall x. CreateSubnet -&gt; Rep CreateSubnet x
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span>
 </span><span id="line-172"></span><span id="newCreateSubnet"><span class="annot"><span class="annottext">newCreateSubnet :: Text -&gt; Text -&gt; CreateSubnet
-</span><a href="Network.AWS.EC2.CreateSubnet.html#newCreateSubnet"><span class="hs-identifier hs-var hs-var">newCreateSubnet</span></a></span></span><span> </span><span id="local-6989586621681290393"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681290393"><span class="hs-identifier hs-var">pCidrBlock_</span></a></span></span><span> </span><span id="local-6989586621681290392"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681290392"><span class="hs-identifier hs-var">pVpcId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.CreateSubnet.html#newCreateSubnet"><span class="hs-identifier hs-var hs-var">newCreateSubnet</span></a></span></span><span> </span><span id="local-6989586621681290402"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681290402"><span class="hs-identifier hs-var">pCidrBlock_</span></a></span></span><span> </span><span id="local-6989586621681290401"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681290401"><span class="hs-identifier hs-var">pVpcId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">CreateSubnet' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -269,10 +269,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidrBlock:CreateSubnet' :: Text
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3AcidrBlock%3ACreateSubnet%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681290393"><span class="hs-identifier hs-var">pCidrBlock_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681290402"><span class="hs-identifier hs-var">pCidrBlock_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:CreateSubnet' :: Text
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3AvpcId%3ACreateSubnet%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681290392"><span class="hs-identifier hs-var">pVpcId_</span></a></span><span>
+</span><a href="#local-6989586621681290401"><span class="hs-identifier hs-var">pVpcId_</span></a></span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The IPv6 network range for the subnet, in CIDR notation. The subnet size</span><span>
@@ -283,16 +283,16 @@ forall a. Maybe a
 -&gt; (CreateSubnet -&gt; Maybe Text -&gt; CreateSubnet)
 -&gt; Lens CreateSubnet CreateSubnet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290389"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290398"><span class="annot"><span class="annottext">Maybe Text
 ipv6CidrBlock :: Maybe Text
 $sel:ipv6CidrBlock:CreateSubnet' :: CreateSubnet -&gt; Maybe Text
-</span><a href="#local-6989586621681290389"><span class="hs-identifier hs-var hs-var">ipv6CidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290389"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290388"><span class="annot"><span class="annottext">s :: CreateSubnet
-</span><a href="#local-6989586621681290388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290387"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
-</span><a href="#local-6989586621681290388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6CidrBlock:CreateSubnet' :: Maybe Text
+</span><a href="#local-6989586621681290398"><span class="hs-identifier hs-var hs-var">ipv6CidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681290398"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290397"><span class="annot"><span class="annottext">s :: CreateSubnet
+</span><a href="#local-6989586621681290397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290396"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681290396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
+</span><a href="#local-6989586621681290397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6CidrBlock:CreateSubnet' :: Maybe Text
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3Aipv6CidrBlock%3ACreateSubnet%27"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681290396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | The AZ ID or the Local Zone ID of the subnet.</span><span>
 </span><span id="line-190"></span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#createSubnet_availabilityZoneId"><span class="hs-identifier hs-type">createSubnet_availabilityZoneId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -301,16 +301,16 @@ $sel:ipv6CidrBlock:CreateSubnet' :: CreateSubnet -&gt; Maybe Text
 -&gt; (CreateSubnet -&gt; Maybe Text -&gt; CreateSubnet)
 -&gt; Lens CreateSubnet CreateSubnet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290386"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290395"><span class="annot"><span class="annottext">Maybe Text
 availabilityZoneId :: Maybe Text
 $sel:availabilityZoneId:CreateSubnet' :: CreateSubnet -&gt; Maybe Text
-</span><a href="#local-6989586621681290386"><span class="hs-identifier hs-var hs-var">availabilityZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290386"><span class="hs-identifier hs-var">availabilityZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290385"><span class="annot"><span class="annottext">s :: CreateSubnet
-</span><a href="#local-6989586621681290385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290384"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
-</span><a href="#local-6989586621681290385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZoneId:CreateSubnet' :: Maybe Text
+</span><a href="#local-6989586621681290395"><span class="hs-identifier hs-var hs-var">availabilityZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681290395"><span class="hs-identifier hs-var">availabilityZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290394"><span class="annot"><span class="annottext">s :: CreateSubnet
+</span><a href="#local-6989586621681290394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290393"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681290393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
+</span><a href="#local-6989586621681290394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZoneId:CreateSubnet' :: Maybe Text
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3AavailabilityZoneId%3ACreateSubnet%27"><span class="hs-identifier hs-var">availabilityZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681290393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- ARN, you must also specify the Availability Zone of the Outpost subnet.</span><span>
@@ -320,16 +320,16 @@ $sel:availabilityZoneId:CreateSubnet' :: CreateSubnet -&gt; Maybe Text
 -&gt; (CreateSubnet -&gt; Maybe Text -&gt; CreateSubnet)
 -&gt; Lens CreateSubnet CreateSubnet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290383"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290392"><span class="annot"><span class="annottext">Maybe Text
 outpostArn :: Maybe Text
 $sel:outpostArn:CreateSubnet' :: CreateSubnet -&gt; Maybe Text
-</span><a href="#local-6989586621681290383"><span class="hs-identifier hs-var hs-var">outpostArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290383"><span class="hs-identifier hs-var">outpostArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290382"><span class="annot"><span class="annottext">s :: CreateSubnet
-</span><a href="#local-6989586621681290382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290381"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
-</span><a href="#local-6989586621681290382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outpostArn:CreateSubnet' :: Maybe Text
+</span><a href="#local-6989586621681290392"><span class="hs-identifier hs-var hs-var">outpostArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681290392"><span class="hs-identifier hs-var">outpostArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290391"><span class="annot"><span class="annottext">s :: CreateSubnet
+</span><a href="#local-6989586621681290391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290390"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681290390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
+</span><a href="#local-6989586621681290391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outpostArn:CreateSubnet' :: Maybe Text
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3AoutpostArn%3ACreateSubnet%27"><span class="hs-identifier hs-var">outpostArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681290390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The tags to assign to the subnet.</span><span>
 </span><span id="line-199"></span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#createSubnet_tagSpecifications"><span class="hs-identifier hs-type">createSubnet_tagSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -343,16 +343,16 @@ $sel:outpostArn:CreateSubnet' :: CreateSubnet -&gt; Maybe Text
      (Maybe [TagSpecification])
      (Maybe [TagSpecification])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290380"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290389"><span class="annot"><span class="annottext">Maybe [TagSpecification]
 tagSpecifications :: Maybe [TagSpecification]
 $sel:tagSpecifications:CreateSubnet' :: CreateSubnet -&gt; Maybe [TagSpecification]
-</span><a href="#local-6989586621681290380"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681290380"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290379"><span class="annot"><span class="annottext">s :: CreateSubnet
-</span><a href="#local-6989586621681290379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290378"><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681290378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
-</span><a href="#local-6989586621681290379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateSubnet' :: Maybe [TagSpecification]
+</span><a href="#local-6989586621681290389"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681290389"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290388"><span class="annot"><span class="annottext">s :: CreateSubnet
+</span><a href="#local-6989586621681290388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290387"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681290387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
+</span><a href="#local-6989586621681290388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateSubnet' :: Maybe [TagSpecification]
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3AtagSpecifications%3ACreateSubnet%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681290378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+</span><a href="#local-6989586621681290387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
  -&gt; CreateSubnet -&gt; f CreateSubnet)
 -&gt; ((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
     -&gt; Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
@@ -401,16 +401,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateSubnet -&gt; Maybe Text -&gt; CreateSubnet)
 -&gt; Lens CreateSubnet CreateSubnet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290374"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290383"><span class="annot"><span class="annottext">Maybe Text
 availabilityZone :: Maybe Text
 $sel:availabilityZone:CreateSubnet' :: CreateSubnet -&gt; Maybe Text
-</span><a href="#local-6989586621681290374"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290374"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290373"><span class="annot"><span class="annottext">s :: CreateSubnet
-</span><a href="#local-6989586621681290373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290372"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
-</span><a href="#local-6989586621681290373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:CreateSubnet' :: Maybe Text
+</span><a href="#local-6989586621681290383"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681290383"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290382"><span class="annot"><span class="annottext">s :: CreateSubnet
+</span><a href="#local-6989586621681290382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290381"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681290381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
+</span><a href="#local-6989586621681290382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:CreateSubnet' :: Maybe Text
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3AavailabilityZone%3ACreateSubnet%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681290381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -422,16 +422,16 @@ $sel:availabilityZone:CreateSubnet' :: CreateSubnet -&gt; Maybe Text
 -&gt; (CreateSubnet -&gt; Maybe Bool -&gt; CreateSubnet)
 -&gt; Lens CreateSubnet CreateSubnet (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290371"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290380"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:CreateSubnet' :: CreateSubnet -&gt; Maybe Bool
-</span><a href="#local-6989586621681290371"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681290371"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290370"><span class="annot"><span class="annottext">s :: CreateSubnet
-</span><a href="#local-6989586621681290370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290369"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681290369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
-</span><a href="#local-6989586621681290370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateSubnet' :: Maybe Bool
+</span><a href="#local-6989586621681290380"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681290380"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290379"><span class="annot"><span class="annottext">s :: CreateSubnet
+</span><a href="#local-6989586621681290379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290378"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681290378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
+</span><a href="#local-6989586621681290379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateSubnet' :: Maybe Bool
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3AdryRun%3ACreateSubnet%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681290369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681290378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The IPv4 network range for the subnet, in CIDR notation. For example,</span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- @10.0.0.0\/24@. We modify the specified CIDR block to its canonical</span><span>
@@ -443,16 +443,16 @@ $sel:dryRun:CreateSubnet' :: CreateSubnet -&gt; Maybe Bool
 -&gt; (CreateSubnet -&gt; Text -&gt; CreateSubnet)
 -&gt; Lens CreateSubnet CreateSubnet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290368"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290377"><span class="annot"><span class="annottext">Text
 cidrBlock :: Text
 $sel:cidrBlock:CreateSubnet' :: CreateSubnet -&gt; Text
-</span><a href="#local-6989586621681290368"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681290368"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290367"><span class="annot"><span class="annottext">s :: CreateSubnet
-</span><a href="#local-6989586621681290367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290366"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681290366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
-</span><a href="#local-6989586621681290367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlock:CreateSubnet' :: Text
+</span><a href="#local-6989586621681290377"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681290377"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290376"><span class="annot"><span class="annottext">s :: CreateSubnet
+</span><a href="#local-6989586621681290376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290375"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681290375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
+</span><a href="#local-6989586621681290376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlock:CreateSubnet' :: Text
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3AcidrBlock%3ACreateSubnet%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681290366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681290375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | The ID of the VPC.</span><span>
 </span><span id="line-234"></span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#createSubnet_vpcId"><span class="hs-identifier hs-type">createSubnet_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -461,25 +461,25 @@ $sel:cidrBlock:CreateSubnet' :: CreateSubnet -&gt; Text
 -&gt; (CreateSubnet -&gt; Text -&gt; CreateSubnet)
 -&gt; Lens CreateSubnet CreateSubnet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290365"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290374"><span class="annot"><span class="annottext">Text
 vpcId :: Text
 $sel:vpcId:CreateSubnet' :: CreateSubnet -&gt; Text
-</span><a href="#local-6989586621681290365"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681290365"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290364"><span class="annot"><span class="annottext">s :: CreateSubnet
-</span><a href="#local-6989586621681290364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290363"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681290363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
-</span><a href="#local-6989586621681290364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:CreateSubnet' :: Text
+</span><a href="#local-6989586621681290374"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681290374"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290373"><span class="annot"><span class="annottext">s :: CreateSubnet
+</span><a href="#local-6989586621681290373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290372"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681290372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnet
+</span><a href="#local-6989586621681290373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:CreateSubnet' :: Text
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3AvpcId%3ACreateSubnet%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681290363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681290372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-238"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse"><span class="hs-identifier hs-type">CreateSubnetResponse</span></a></span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621681290359"><span class="annot"><span class="annottext">request :: CreateSubnet -&gt; Request CreateSubnet
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621681290368"><span class="annot"><span class="annottext">request :: CreateSubnet -&gt; Request CreateSubnet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateSubnet -&gt; Request CreateSubnet
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-240"></span><span>  </span><span id="local-6989586621681290355"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621681290364"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateSubnet
 -&gt; ClientResponse ClientBody
@@ -503,10 +503,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-242"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681290352"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681290352"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681290351"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681290351"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681290350"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681290350"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681290361"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681290361"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681290360"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681290360"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681290359"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681290359"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-243"></span><span>          </span><span class="annot"><span class="annottext">Maybe Subnet -&gt; Int -&gt; CreateSubnetResponse
 </span><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse%27"><span class="hs-identifier hs-var">CreateSubnetResponse'</span></a></span><span>
 </span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Subnet -&gt; Int -&gt; CreateSubnetResponse)
@@ -514,7 +514,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateSubnetResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681290350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Subnet)
+</span><a href="#local-6989586621681290359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Subnet)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subnet&quot;</span></span><span class="hs-special">)</span><span>
@@ -526,15 +526,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681290352"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681290361"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681290342"><span id="local-6989586621681290344"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span></span></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681290351"><span id="local-6989586621681290353"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span></span></span><span>
 </span><span id="line-249"></span><span>
-</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681290339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681290348"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span></span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-253"></span><span>  </span><span id="local-6989586621681290335"><span class="annot"><span class="annottext">toHeaders :: CreateSubnet -&gt; ResponseHeaders
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621681290344"><span class="annot"><span class="annottext">toHeaders :: CreateSubnet -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateSubnet -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -542,15 +542,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-256"></span><span>  </span><span id="local-6989586621681290330"><span class="annot"><span class="annottext">toPath :: CreateSubnet -&gt; ByteString
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621681290339"><span class="annot"><span class="annottext">toPath :: CreateSubnet -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateSubnet -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet"><span class="hs-identifier hs-type">CreateSubnet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-259"></span><span>  </span><span id="local-6989586621681290326"><span class="annot"><span class="annottext">toQuery :: CreateSubnet -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290317"><span id="local-6989586621681290318"><span id="local-6989586621681290319"><span id="local-6989586621681290320"><span id="local-6989586621681290321"><span id="local-6989586621681290322"><span id="local-6989586621681290323"><span id="local-6989586621681290324"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621681290335"><span class="annot"><span class="annottext">toQuery :: CreateSubnet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnet%27"><span class="hs-identifier hs-type">CreateSubnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290326"><span id="local-6989586621681290327"><span id="local-6989586621681290328"><span id="local-6989586621681290329"><span id="local-6989586621681290330"><span id="local-6989586621681290331"><span id="local-6989586621681290332"><span id="local-6989586621681290333"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [TagSpecification]
 Maybe Text
 Text
@@ -570,7 +570,7 @@ $sel:tagSpecifications:CreateSubnet' :: CreateSubnet -&gt; Maybe [TagSpecificati
 $sel:outpostArn:CreateSubnet' :: CreateSubnet -&gt; Maybe Text
 $sel:availabilityZoneId:CreateSubnet' :: CreateSubnet -&gt; Maybe Text
 $sel:ipv6CidrBlock:CreateSubnet' :: CreateSubnet -&gt; Maybe Text
-</span><a href="#local-6989586621681290317"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681290326"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-260"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -590,17 +590,17 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Ipv6CidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290324"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681290333"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AvailabilityZoneId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290323"><span class="hs-identifier hs-var">availabilityZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681290332"><span class="hs-identifier hs-var">availabilityZoneId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;OutpostArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290322"><span class="hs-identifier hs-var">outpostArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681290331"><span class="hs-identifier hs-var">outpostArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-268"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -614,32 +614,32 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [TagSpecification] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681290321"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
+</span><a href="#local-6989586621681290330"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
 </span><span id="line-271"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681290320"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681290329"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681290319"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681290328"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;CidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681290318"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681290327"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VpcId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681290317"><span class="hs-identifier hs-var">vpcId</span></a></span><span>
+</span><a href="#local-6989586621681290326"><span class="hs-identifier hs-var">vpcId</span></a></span><span>
 </span><span id="line-276"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-277"></span><span>
 </span><span id="line-278"></span><span class="hs-comment">-- | /See:/ 'newCreateSubnetResponse' smart constructor.</span><span>
-</span><span id="line-279"></span><span id="local-6989586621681290313"><span id="local-6989586621681290314"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSubnetResponse"><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse"><span class="hs-identifier hs-var">CreateSubnetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSubnetResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse%27"><span class="hs-identifier hs-var">CreateSubnetResponse'</span></a></span></span><span>
+</span><span id="line-279"></span><span id="local-6989586621681290322"><span id="local-6989586621681290323"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSubnetResponse"><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse"><span class="hs-identifier hs-var">CreateSubnetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSubnetResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse%27"><span class="hs-identifier hs-var">CreateSubnetResponse'</span></a></span></span><span>
 </span><span id="line-280"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the subnet.</span><span>
 </span><span id="line-281"></span><span>    </span><span id="%24sel%3Asubnet%3ACreateSubnetResponse%27"><span class="annot"><span class="annottext">CreateSubnetResponse -&gt; Maybe Subnet
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3Asubnet%3ACreateSubnetResponse%27"><span class="hs-identifier hs-var hs-var">subnet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span><span class="hs-special">,</span><span>
@@ -647,7 +647,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-283"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateSubnetResponse%27"><span class="annot"><span class="annottext">CreateSubnetResponse -&gt; Int
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3AhttpStatus%3ACreateSubnetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-284"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-285"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681290307"><span id="local-6989586621681290309"><span class="annot"><span class="annottext">CreateSubnetResponse -&gt; CreateSubnetResponse -&gt; Bool
+</span><span id="line-285"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681290316"><span id="local-6989586621681290318"><span class="annot"><span class="annottext">CreateSubnetResponse -&gt; CreateSubnetResponse -&gt; Bool
 (CreateSubnetResponse -&gt; CreateSubnetResponse -&gt; Bool)
 -&gt; (CreateSubnetResponse -&gt; CreateSubnetResponse -&gt; Bool)
 -&gt; Eq CreateSubnetResponse
@@ -656,7 +656,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateSubnetResponse -&gt; CreateSubnetResponse -&gt; Bool
 == :: CreateSubnetResponse -&gt; CreateSubnetResponse -&gt; Bool
 $c== :: CreateSubnetResponse -&gt; CreateSubnetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681290299"><span id="local-6989586621681290301"><span id="local-6989586621681290303"><span id="local-6989586621681290305"><span class="annot"><span class="annottext">ReadPrec [CreateSubnetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681290308"><span id="local-6989586621681290310"><span id="local-6989586621681290312"><span id="local-6989586621681290314"><span class="annot"><span class="annottext">ReadPrec [CreateSubnetResponse]
 ReadPrec CreateSubnetResponse
 Int -&gt; ReadS CreateSubnetResponse
 ReadS [CreateSubnetResponse]
@@ -676,7 +676,7 @@ readList :: ReadS [CreateSubnetResponse]
 $creadList :: ReadS [CreateSubnetResponse]
 readsPrec :: Int -&gt; ReadS CreateSubnetResponse
 $creadsPrec :: Int -&gt; ReadS CreateSubnetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681290293"><span id="local-6989586621681290295"><span id="local-6989586621681290297"><span class="annot"><span class="annottext">Int -&gt; CreateSubnetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681290302"><span id="local-6989586621681290304"><span id="local-6989586621681290306"><span class="annot"><span class="annottext">Int -&gt; CreateSubnetResponse -&gt; ShowS
 [CreateSubnetResponse] -&gt; ShowS
 CreateSubnetResponse -&gt; String
 (Int -&gt; CreateSubnetResponse -&gt; ShowS)
@@ -718,8 +718,8 @@ $cfrom :: forall x. CreateSubnetResponse -&gt; Rep CreateSubnetResponse x
 </span><span id="line-300"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-301"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse"><span class="hs-identifier hs-type">CreateSubnetResponse</span></a></span><span>
 </span><span id="line-302"></span><span id="newCreateSubnetResponse"><span class="annot"><span class="annottext">newCreateSubnetResponse :: Int -&gt; CreateSubnetResponse
-</span><a href="Network.AWS.EC2.CreateSubnet.html#newCreateSubnetResponse"><span class="hs-identifier hs-var hs-var">newCreateSubnetResponse</span></a></span></span><span> </span><span id="local-6989586621681290290"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681290290"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.CreateSubnet.html#newCreateSubnetResponse"><span class="hs-identifier hs-var hs-var">newCreateSubnetResponse</span></a></span></span><span> </span><span id="local-6989586621681290299"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681290299"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-303"></span><span>  </span><span class="annot"><span class="annottext">CreateSubnetResponse' :: Maybe Subnet -&gt; Int -&gt; CreateSubnetResponse
 </span><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse%27"><span class="hs-identifier hs-type">CreateSubnetResponse'</span></a></span><span>
 </span><span id="line-304"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subnet:CreateSubnetResponse' :: Maybe Subnet
@@ -728,7 +728,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-305"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSubnetResponse' :: Int
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3AhttpStatus%3ACreateSubnetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681290290"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681290299"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-306"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- | Information about the subnet.</span><span>
@@ -743,16 +743,16 @@ forall a. Maybe a
      (Maybe Subnet)
      (Maybe Subnet)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse%27"><span class="hs-identifier hs-type">CreateSubnetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290289"><span class="annot"><span class="annottext">Maybe Subnet
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse%27"><span class="hs-identifier hs-type">CreateSubnetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290298"><span class="annot"><span class="annottext">Maybe Subnet
 subnet :: Maybe Subnet
 $sel:subnet:CreateSubnetResponse' :: CreateSubnetResponse -&gt; Maybe Subnet
-</span><a href="#local-6989586621681290289"><span class="hs-identifier hs-var hs-var">subnet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Subnet
-</span><a href="#local-6989586621681290289"><span class="hs-identifier hs-var">subnet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290288"><span class="annot"><span class="annottext">s :: CreateSubnetResponse
-</span><a href="#local-6989586621681290288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse%27"><span class="hs-identifier hs-type">CreateSubnetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290287"><span class="annot"><span class="annottext">Maybe Subnet
-</span><a href="#local-6989586621681290287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnetResponse
-</span><a href="#local-6989586621681290288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnet:CreateSubnetResponse' :: Maybe Subnet
+</span><a href="#local-6989586621681290298"><span class="hs-identifier hs-var hs-var">subnet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Subnet
+</span><a href="#local-6989586621681290298"><span class="hs-identifier hs-var">subnet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290297"><span class="annot"><span class="annottext">s :: CreateSubnetResponse
+</span><a href="#local-6989586621681290297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse%27"><span class="hs-identifier hs-type">CreateSubnetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290296"><span class="annot"><span class="annottext">Maybe Subnet
+</span><a href="#local-6989586621681290296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnetResponse
+</span><a href="#local-6989586621681290297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnet:CreateSubnetResponse' :: Maybe Subnet
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3Asubnet%3ACreateSubnetResponse%27"><span class="hs-identifier hs-var">subnet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Subnet
-</span><a href="#local-6989586621681290287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse"><span class="hs-identifier hs-type">CreateSubnetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681290296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse"><span class="hs-identifier hs-type">CreateSubnetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-313"></span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#createSubnetResponse_httpStatus"><span class="hs-identifier hs-type">createSubnetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse"><span class="hs-identifier hs-type">CreateSubnetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -761,16 +761,16 @@ $sel:subnet:CreateSubnetResponse' :: CreateSubnetResponse -&gt; Maybe Subnet
 -&gt; (CreateSubnetResponse -&gt; Int -&gt; CreateSubnetResponse)
 -&gt; Lens CreateSubnetResponse CreateSubnetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse%27"><span class="hs-identifier hs-type">CreateSubnetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290286"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse%27"><span class="hs-identifier hs-type">CreateSubnetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681290295"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateSubnetResponse' :: CreateSubnetResponse -&gt; Int
-</span><a href="#local-6989586621681290286"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681290286"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290285"><span class="annot"><span class="annottext">s :: CreateSubnetResponse
-</span><a href="#local-6989586621681290285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse%27"><span class="hs-identifier hs-type">CreateSubnetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290284"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681290284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnetResponse
-</span><a href="#local-6989586621681290285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSubnetResponse' :: Int
+</span><a href="#local-6989586621681290295"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681290295"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681290294"><span class="annot"><span class="annottext">s :: CreateSubnetResponse
+</span><a href="#local-6989586621681290294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse%27"><span class="hs-identifier hs-type">CreateSubnetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681290293"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681290293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnetResponse
+</span><a href="#local-6989586621681290294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSubnetResponse' :: Int
 </span><a href="Network.AWS.EC2.CreateSubnet.html#%24sel%3AhttpStatus%3ACreateSubnetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681290284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse"><span class="hs-identifier hs-type">CreateSubnetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681290293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse"><span class="hs-identifier hs-type">CreateSubnetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-315"></span><span>
-</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681290282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse"><span class="hs-identifier hs-type">CreateSubnetResponse</span></a></span></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681290291"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateSubnet.html#CreateSubnetResponse"><span class="hs-identifier hs-type">CreateSubnetResponse</span></a></span></span><span>
 </span><span id="line-317"></span></pre></body></html>

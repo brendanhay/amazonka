@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- if the cacheBehavior\'s behavior is set to \'cache\', then</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newCacheBehaviorPerPath' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679605719"><span id="local-6989586621679605720"></span></span><span class="hs-keyword">data</span><span> </span><span id="CacheBehaviorPerPath"><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-var">CacheBehaviorPerPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheBehaviorPerPath%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath%27"><span class="hs-identifier hs-var">CacheBehaviorPerPath'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679605728"><span id="local-6989586621679605729"></span></span><span class="hs-keyword">data</span><span> </span><span id="CacheBehaviorPerPath"><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-var">CacheBehaviorPerPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheBehaviorPerPath%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath%27"><span class="hs-identifier hs-var">CacheBehaviorPerPath'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path to a directory or file to cached, or not cache. Use an asterisk</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- symbol to specify wildcard directories (@path\/to\/assets\/*@), and file</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- types (@*.html, *jpg, *js@). Directories and file paths are</span><span>
@@ -87,7 +87,7 @@
 </span><span id="line-86"></span><span>    </span><span id="%24sel%3Abehavior%3ACacheBehaviorPerPath%27"><span class="annot"><span class="annottext">CacheBehaviorPerPath -&gt; Maybe BehaviorEnum
 </span><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#%24sel%3Abehavior%3ACacheBehaviorPerPath%27"><span class="hs-identifier hs-var hs-var">behavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.BehaviorEnum.html#BehaviorEnum"><span class="hs-identifier hs-type">BehaviorEnum</span></a></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679605712"><span id="local-6989586621679605714"><span class="annot"><span class="annottext">CacheBehaviorPerPath -&gt; CacheBehaviorPerPath -&gt; Bool
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679605721"><span id="local-6989586621679605723"><span class="annot"><span class="annottext">CacheBehaviorPerPath -&gt; CacheBehaviorPerPath -&gt; Bool
 (CacheBehaviorPerPath -&gt; CacheBehaviorPerPath -&gt; Bool)
 -&gt; (CacheBehaviorPerPath -&gt; CacheBehaviorPerPath -&gt; Bool)
 -&gt; Eq CacheBehaviorPerPath
@@ -96,7 +96,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CacheBehaviorPerPath -&gt; CacheBehaviorPerPath -&gt; Bool
 == :: CacheBehaviorPerPath -&gt; CacheBehaviorPerPath -&gt; Bool
 $c== :: CacheBehaviorPerPath -&gt; CacheBehaviorPerPath -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679605703"><span id="local-6989586621679605705"><span id="local-6989586621679605707"><span id="local-6989586621679605709"><span class="annot"><span class="annottext">ReadPrec [CacheBehaviorPerPath]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679605712"><span id="local-6989586621679605714"><span id="local-6989586621679605716"><span id="local-6989586621679605718"><span class="annot"><span class="annottext">ReadPrec [CacheBehaviorPerPath]
 ReadPrec CacheBehaviorPerPath
 Int -&gt; ReadS CacheBehaviorPerPath
 ReadS [CacheBehaviorPerPath]
@@ -116,7 +116,7 @@ readList :: ReadS [CacheBehaviorPerPath]
 $creadList :: ReadS [CacheBehaviorPerPath]
 readsPrec :: Int -&gt; ReadS CacheBehaviorPerPath
 $creadsPrec :: Int -&gt; ReadS CacheBehaviorPerPath
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679605696"><span id="local-6989586621679605698"><span id="local-6989586621679605700"><span class="annot"><span class="annottext">Int -&gt; CacheBehaviorPerPath -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679605705"><span id="local-6989586621679605707"><span id="local-6989586621679605709"><span class="annot"><span class="annottext">Int -&gt; CacheBehaviorPerPath -&gt; ShowS
 [CacheBehaviorPerPath] -&gt; ShowS
 CacheBehaviorPerPath -&gt; String
 (Int -&gt; CacheBehaviorPerPath -&gt; ShowS)
@@ -254,16 +254,16 @@ forall a. Maybe a
 -&gt; Lens
      CacheBehaviorPerPath CacheBehaviorPerPath (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath%27"><span class="hs-identifier hs-type">CacheBehaviorPerPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605687"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath%27"><span class="hs-identifier hs-type">CacheBehaviorPerPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605696"><span class="annot"><span class="annottext">Maybe Text
 path :: Maybe Text
 $sel:path:CacheBehaviorPerPath' :: CacheBehaviorPerPath -&gt; Maybe Text
-</span><a href="#local-6989586621679605687"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679605687"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679605686"><span class="annot"><span class="annottext">s :: CacheBehaviorPerPath
-</span><a href="#local-6989586621679605686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath%27"><span class="hs-identifier hs-type">CacheBehaviorPerPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679605685"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679605685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehaviorPerPath
-</span><a href="#local-6989586621679605686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:CacheBehaviorPerPath' :: Maybe Text
+</span><a href="#local-6989586621679605696"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679605696"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679605695"><span class="annot"><span class="annottext">s :: CacheBehaviorPerPath
+</span><a href="#local-6989586621679605695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath%27"><span class="hs-identifier hs-type">CacheBehaviorPerPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679605694"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679605694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehaviorPerPath
+</span><a href="#local-6989586621679605695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:CacheBehaviorPerPath' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#%24sel%3Apath%3ACacheBehaviorPerPath%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679605685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679605694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | The cache behavior for the specified path.</span><span>
 </span><span id="line-190"></span><span class="hs-comment">--</span><span>
@@ -284,19 +284,19 @@ $sel:path:CacheBehaviorPerPath' :: CacheBehaviorPerPath -&gt; Maybe Text
      (Maybe BehaviorEnum)
      (Maybe BehaviorEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath%27"><span class="hs-identifier hs-type">CacheBehaviorPerPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605683"><span class="annot"><span class="annottext">Maybe BehaviorEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath%27"><span class="hs-identifier hs-type">CacheBehaviorPerPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605692"><span class="annot"><span class="annottext">Maybe BehaviorEnum
 behavior :: Maybe BehaviorEnum
 $sel:behavior:CacheBehaviorPerPath' :: CacheBehaviorPerPath -&gt; Maybe BehaviorEnum
-</span><a href="#local-6989586621679605683"><span class="hs-identifier hs-var hs-var">behavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorEnum
-</span><a href="#local-6989586621679605683"><span class="hs-identifier hs-var">behavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679605682"><span class="annot"><span class="annottext">s :: CacheBehaviorPerPath
-</span><a href="#local-6989586621679605682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath%27"><span class="hs-identifier hs-type">CacheBehaviorPerPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679605681"><span class="annot"><span class="annottext">Maybe BehaviorEnum
-</span><a href="#local-6989586621679605681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehaviorPerPath
-</span><a href="#local-6989586621679605682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:behavior:CacheBehaviorPerPath' :: Maybe BehaviorEnum
+</span><a href="#local-6989586621679605692"><span class="hs-identifier hs-var hs-var">behavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorEnum
+</span><a href="#local-6989586621679605692"><span class="hs-identifier hs-var">behavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679605691"><span class="annot"><span class="annottext">s :: CacheBehaviorPerPath
+</span><a href="#local-6989586621679605691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath%27"><span class="hs-identifier hs-type">CacheBehaviorPerPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679605690"><span class="annot"><span class="annottext">Maybe BehaviorEnum
+</span><a href="#local-6989586621679605690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehaviorPerPath
+</span><a href="#local-6989586621679605691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:behavior:CacheBehaviorPerPath' :: Maybe BehaviorEnum
 </span><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#%24sel%3Abehavior%3ACacheBehaviorPerPath%27"><span class="hs-identifier hs-var">behavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorEnum
-</span><a href="#local-6989586621679605681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679605690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605678"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679605676"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CacheBehaviorPerPath
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605687"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679605685"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CacheBehaviorPerPath
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CacheBehaviorPerPath)
@@ -306,8 +306,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CacheBehaviorPerPath&quot;</span></span><span>
-</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679605673"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679605673"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679605682"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679605682"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe BehaviorEnum -&gt; CacheBehaviorPerPath
 </span><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath%27"><span class="hs-identifier hs-var">CacheBehaviorPerPath'</span></a></span><span>
 </span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe BehaviorEnum -&gt; CacheBehaviorPerPath)
@@ -315,7 +315,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe BehaviorEnum -&gt; CacheBehaviorPerPath)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679605673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679605682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;path&quot;</span></span><span class="hs-special">)</span><span>
@@ -323,25 +323,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe BehaviorEnum) -&gt; Parser CacheBehaviorPerPath
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679605673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BehaviorEnum)
+</span><a href="#local-6989586621679605682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BehaviorEnum)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;behavior&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605667"><span id="local-6989586621679605669"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span></span></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605676"><span id="local-6989586621679605678"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span></span></span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span></span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605656"><span id="local-6989586621679605658"><span id="local-6989586621679605660"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679605654"><span class="annot"><span class="annottext">toJSON :: CacheBehaviorPerPath -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath%27"><span class="hs-identifier hs-type">CacheBehaviorPerPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605651"><span id="local-6989586621679605652"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605665"><span id="local-6989586621679605667"><span id="local-6989586621679605669"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679605663"><span class="annot"><span class="annottext">toJSON :: CacheBehaviorPerPath -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath%27"><span class="hs-identifier hs-type">CacheBehaviorPerPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605660"><span id="local-6989586621679605661"><span class="annot"><span class="annottext">Maybe Text
 Maybe BehaviorEnum
 behavior :: Maybe BehaviorEnum
 path :: Maybe Text
 $sel:behavior:CacheBehaviorPerPath' :: CacheBehaviorPerPath -&gt; Maybe BehaviorEnum
 $sel:path:CacheBehaviorPerPath' :: CacheBehaviorPerPath -&gt; Maybe Text
-</span><a href="#local-6989586621679605651"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679605660"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-216"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -353,14 +353,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679605652"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679605661"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;behavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BehaviorEnum -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(BehaviorEnum -&gt; Pair) -&gt; Maybe BehaviorEnum -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorEnum
-</span><a href="#local-6989586621679605651"><span class="hs-identifier hs-var">behavior</span></a></span><span>
+</span><a href="#local-6989586621679605660"><span class="hs-identifier hs-var">behavior</span></a></span><span>
 </span><span id="line-219"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-220"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span></pre></body></html>

@@ -66,7 +66,7 @@
 </span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newAddTagsToResource' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679179403"><span id="local-6989586621679179404"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToResource"><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-var">AddTagsToResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToResource%27"><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-var">AddTagsToResource'</span></a></span></span><span>
+</span><span id="line-69"></span><span id="local-6989586621679179412"><span id="local-6989586621679179413"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToResource"><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-var">AddTagsToResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToResource%27"><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-var">AddTagsToResource'</span></a></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AresourceArn%3AAddTagsToResource%27"><span class="annot"><span class="annottext">AddTagsToResource -&gt; Text
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#%24sel%3AresourceArn%3AAddTagsToResource%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3AtagList%3AAddTagsToResource%27"><span class="annot"><span class="annottext">AddTagsToResource -&gt; [Tag]
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#%24sel%3AtagList%3AAddTagsToResource%27"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudHSM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179396"><span id="local-6989586621679179398"><span class="annot"><span class="annottext">AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179405"><span id="local-6989586621679179407"><span class="annot"><span class="annottext">AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
 (AddTagsToResource -&gt; AddTagsToResource -&gt; Bool)
 -&gt; (AddTagsToResource -&gt; AddTagsToResource -&gt; Bool)
 -&gt; Eq AddTagsToResource
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
 == :: AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
 $c== :: AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179387"><span id="local-6989586621679179389"><span id="local-6989586621679179391"><span id="local-6989586621679179393"><span class="annot"><span class="annottext">ReadPrec [AddTagsToResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179396"><span id="local-6989586621679179398"><span id="local-6989586621679179400"><span id="local-6989586621679179402"><span class="annot"><span class="annottext">ReadPrec [AddTagsToResource]
 ReadPrec AddTagsToResource
 Int -&gt; ReadS AddTagsToResource
 ReadS [AddTagsToResource]
@@ -103,7 +103,7 @@ readList :: ReadS [AddTagsToResource]
 $creadList :: ReadS [AddTagsToResource]
 readsPrec :: Int -&gt; ReadS AddTagsToResource
 $creadsPrec :: Int -&gt; ReadS AddTagsToResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179380"><span id="local-6989586621679179382"><span id="local-6989586621679179384"><span class="annot"><span class="annottext">Int -&gt; AddTagsToResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179389"><span id="local-6989586621679179391"><span id="local-6989586621679179393"><span class="annot"><span class="annottext">Int -&gt; AddTagsToResource -&gt; ShowS
 [AddTagsToResource] -&gt; ShowS
 AddTagsToResource -&gt; String
 (Int -&gt; AddTagsToResource -&gt; ShowS)
@@ -145,13 +145,13 @@ $cfrom :: forall x. AddTagsToResource -&gt; Rep AddTagsToResource x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span>
 </span><span id="line-92"></span><span id="newAddTagsToResource"><span class="annot"><span class="annottext">newAddTagsToResource :: Text -&gt; AddTagsToResource
-</span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#newAddTagsToResource"><span class="hs-identifier hs-var hs-var">newAddTagsToResource</span></a></span></span><span> </span><span id="local-6989586621679179375"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179375"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#newAddTagsToResource"><span class="hs-identifier hs-var hs-var">newAddTagsToResource</span></a></span></span><span> </span><span id="local-6989586621679179384"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179384"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">AddTagsToResource' :: Text -&gt; [Tag] -&gt; AddTagsToResource
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceArn:AddTagsToResource' :: Text
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#%24sel%3AresourceArn%3AAddTagsToResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179375"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179384"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagList:AddTagsToResource' :: [Tag]
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#%24sel%3AtagList%3AAddTagsToResource%27"><span class="hs-identifier hs-var">tagList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -165,16 +165,16 @@ forall a. Monoid a =&gt; a
 -&gt; (AddTagsToResource -&gt; Text -&gt; AddTagsToResource)
 -&gt; Lens AddTagsToResource AddTagsToResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179372"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179381"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:AddTagsToResource' :: AddTagsToResource -&gt; Text
-</span><a href="#local-6989586621679179372"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179372"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179371"><span class="annot"><span class="annottext">s :: AddTagsToResource
-</span><a href="#local-6989586621679179371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179370"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResource
-</span><a href="#local-6989586621679179371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:AddTagsToResource' :: Text
+</span><a href="#local-6989586621679179381"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179381"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179380"><span class="annot"><span class="annottext">s :: AddTagsToResource
+</span><a href="#local-6989586621679179380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179379"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResource
+</span><a href="#local-6989586621679179380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:AddTagsToResource' :: Text
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#%24sel%3AresourceArn%3AAddTagsToResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | One or more tags.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#addTagsToResource_tagList"><span class="hs-identifier hs-type">addTagsToResource_tagList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudHSM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
@@ -183,16 +183,16 @@ $sel:resourceArn:AddTagsToResource' :: AddTagsToResource -&gt; Text
 -&gt; (AddTagsToResource -&gt; [Tag] -&gt; AddTagsToResource)
 -&gt; Lens AddTagsToResource AddTagsToResource [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179369"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179378"><span class="annot"><span class="annottext">[Tag]
 tagList :: [Tag]
 $sel:tagList:AddTagsToResource' :: AddTagsToResource -&gt; [Tag]
-</span><a href="#local-6989586621679179369"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679179369"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179368"><span class="annot"><span class="annottext">s :: AddTagsToResource
-</span><a href="#local-6989586621679179368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179367"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679179367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResource
-</span><a href="#local-6989586621679179368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagList:AddTagsToResource' :: [Tag]
+</span><a href="#local-6989586621679179378"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679179378"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179377"><span class="annot"><span class="annottext">s :: AddTagsToResource
+</span><a href="#local-6989586621679179377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179376"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679179376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResource
+</span><a href="#local-6989586621679179377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagList:AddTagsToResource' :: [Tag]
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#%24sel%3AtagList%3AAddTagsToResource%27"><span class="hs-identifier hs-var">tagList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679179367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; AddTagsToResource -&gt; f AddTagsToResource)
+</span><a href="#local-6989586621679179376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; AddTagsToResource -&gt; f AddTagsToResource)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
 -&gt; AddTagsToResource
@@ -206,12 +206,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679179361"><span class="annot"><span class="annottext">request :: AddTagsToResource -&gt; Request AddTagsToResource
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679179370"><span class="annot"><span class="annottext">request :: AddTagsToResource -&gt; Request AddTagsToResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddTagsToResource -&gt; Request AddTagsToResource
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudHSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679179357"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679179366"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AddTagsToResource
 -&gt; ClientResponse ClientBody
@@ -237,10 +237,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179354"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179354"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179353"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679179353"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179352"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179352"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179363"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179363"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179362"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679179362"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179361"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179361"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; AddTagsToResourceResponse
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-var">AddTagsToResourceResponse'</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; AddTagsToResourceResponse)
@@ -252,23 +252,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179354"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179363"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; AddTagsToResourceResponse)
 -&gt; Either String Text -&gt; Either String AddTagsToResourceResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679179361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179344"><span id="local-6989586621679179346"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179353"><span id="local-6989586621679179355"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179341"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179350"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679179337"><span class="annot"><span class="annottext">toHeaders :: AddTagsToResource -&gt; ResponseHeaders
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679179346"><span class="annot"><span class="annottext">toHeaders :: AddTagsToResource -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddTagsToResource -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -295,15 +295,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179327"><span id="local-6989586621679179329"><span id="local-6989586621679179331"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679179325"><span class="annot"><span class="annottext">toJSON :: AddTagsToResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179322"><span id="local-6989586621679179323"><span class="annot"><span class="annottext">[Tag]
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179336"><span id="local-6989586621679179338"><span id="local-6989586621679179340"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679179334"><span class="annot"><span class="annottext">toJSON :: AddTagsToResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179331"><span id="local-6989586621679179332"><span class="annot"><span class="annottext">[Tag]
 Text
 tagList :: [Tag]
 resourceArn :: Text
 $sel:tagList:AddTagsToResource' :: AddTagsToResource -&gt; [Tag]
 $sel:resourceArn:AddTagsToResource' :: AddTagsToResource -&gt; Text
-</span><a href="#local-6989586621679179322"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679179331"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -315,26 +315,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179323"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179332"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TagList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679179322"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179331"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679179316"><span class="annot"><span class="annottext">toPath :: AddTagsToResource -&gt; ByteString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679179325"><span class="annot"><span class="annottext">toPath :: AddTagsToResource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AddTagsToResource -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679179312"><span class="annot"><span class="annottext">toQuery :: AddTagsToResource -&gt; QueryString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679179321"><span class="annot"><span class="annottext">toQuery :: AddTagsToResource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddTagsToResource -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -342,7 +342,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newAddTagsToResourceResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621679179309"><span id="local-6989586621679179310"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToResourceResponse"><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-var">AddTagsToResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToResourceResponse%27"><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-var">AddTagsToResourceResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span id="local-6989586621679179318"><span id="local-6989586621679179319"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToResourceResponse"><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-var">AddTagsToResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToResourceResponse%27"><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-var">AddTagsToResourceResponse'</span></a></span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddTagsToResourceResponse%27"><span class="annot"><span class="annottext">AddTagsToResourceResponse -&gt; Int
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#%24sel%3AhttpStatus%3AAddTagsToResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -350,7 +350,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3Astatus%3AAddTagsToResourceResponse%27"><span class="annot"><span class="annottext">AddTagsToResourceResponse -&gt; Text
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#%24sel%3Astatus%3AAddTagsToResourceResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179303"><span id="local-6989586621679179305"><span class="annot"><span class="annottext">AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179312"><span id="local-6989586621679179314"><span class="annot"><span class="annottext">AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
 (AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool)
 -&gt; (AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool)
 -&gt; Eq AddTagsToResourceResponse
@@ -359,7 +359,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
 == :: AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
 $c== :: AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179295"><span id="local-6989586621679179297"><span id="local-6989586621679179299"><span id="local-6989586621679179301"><span class="annot"><span class="annottext">ReadPrec [AddTagsToResourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179304"><span id="local-6989586621679179306"><span id="local-6989586621679179308"><span id="local-6989586621679179310"><span class="annot"><span class="annottext">ReadPrec [AddTagsToResourceResponse]
 ReadPrec AddTagsToResourceResponse
 Int -&gt; ReadS AddTagsToResourceResponse
 ReadS [AddTagsToResourceResponse]
@@ -379,7 +379,7 @@ readList :: ReadS [AddTagsToResourceResponse]
 $creadList :: ReadS [AddTagsToResourceResponse]
 readsPrec :: Int -&gt; ReadS AddTagsToResourceResponse
 $creadsPrec :: Int -&gt; ReadS AddTagsToResourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179289"><span id="local-6989586621679179291"><span id="local-6989586621679179293"><span class="annot"><span class="annottext">Int -&gt; AddTagsToResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179298"><span id="local-6989586621679179300"><span id="local-6989586621679179302"><span class="annot"><span class="annottext">Int -&gt; AddTagsToResourceResponse -&gt; ShowS
 [AddTagsToResourceResponse] -&gt; ShowS
 AddTagsToResourceResponse -&gt; String
 (Int -&gt; AddTagsToResourceResponse -&gt; ShowS)
@@ -429,18 +429,18 @@ AddTagsToResourceResponse -&gt; Rep AddTagsToResourceResponse x
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span>
 </span><span id="line-179"></span><span id="newAddTagsToResourceResponse"><span class="annot"><span class="annottext">newAddTagsToResourceResponse :: Int -&gt; Text -&gt; AddTagsToResourceResponse
-</span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#newAddTagsToResourceResponse"><span class="hs-identifier hs-var hs-var">newAddTagsToResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679179286"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179286"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679179285"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179285"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#newAddTagsToResourceResponse"><span class="hs-identifier hs-var hs-var">newAddTagsToResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679179295"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179295"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679179294"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179294"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">AddTagsToResourceResponse' :: Int -&gt; Text -&gt; AddTagsToResourceResponse
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsToResourceResponse' :: Int
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#%24sel%3AhttpStatus%3AAddTagsToResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179286"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179295"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:AddTagsToResourceResponse' :: Text
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#%24sel%3Astatus%3AAddTagsToResourceResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179285"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679179294"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -451,16 +451,16 @@ AddTagsToResourceResponse -&gt; Rep AddTagsToResourceResponse x
 -&gt; (AddTagsToResourceResponse -&gt; Int -&gt; AddTagsToResourceResponse)
 -&gt; Lens AddTagsToResourceResponse AddTagsToResourceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179284"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179293"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AddTagsToResourceResponse' :: AddTagsToResourceResponse -&gt; Int
-</span><a href="#local-6989586621679179284"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179284"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179283"><span class="annot"><span class="annottext">s :: AddTagsToResourceResponse
-</span><a href="#local-6989586621679179283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179282"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResourceResponse
-</span><a href="#local-6989586621679179283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsToResourceResponse' :: Int
+</span><a href="#local-6989586621679179293"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179293"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179292"><span class="annot"><span class="annottext">s :: AddTagsToResourceResponse
+</span><a href="#local-6989586621679179292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179291"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResourceResponse
+</span><a href="#local-6989586621679179292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsToResourceResponse' :: Int
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#%24sel%3AhttpStatus%3AAddTagsToResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | The status of the operation.</span><span>
 </span><span id="line-191"></span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#addTagsToResourceResponse_status"><span class="hs-identifier hs-type">addTagsToResourceResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -471,16 +471,16 @@ $sel:httpStatus:AddTagsToResourceResponse' :: AddTagsToResourceResponse -&gt; In
 -&gt; Lens
      AddTagsToResourceResponse AddTagsToResourceResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179281"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179290"><span class="annot"><span class="annottext">Text
 status :: Text
 $sel:status:AddTagsToResourceResponse' :: AddTagsToResourceResponse -&gt; Text
-</span><a href="#local-6989586621679179281"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179281"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179280"><span class="annot"><span class="annottext">s :: AddTagsToResourceResponse
-</span><a href="#local-6989586621679179280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179279"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResourceResponse
-</span><a href="#local-6989586621679179280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AddTagsToResourceResponse' :: Text
+</span><a href="#local-6989586621679179290"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179290"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179289"><span class="annot"><span class="annottext">s :: AddTagsToResourceResponse
+</span><a href="#local-6989586621679179289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179288"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResourceResponse
+</span><a href="#local-6989586621679179289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AddTagsToResourceResponse' :: Text
 </span><a href="Network.AWS.CloudHSM.AddTagsToResource.html#%24sel%3Astatus%3AAddTagsToResourceResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179286"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span></span><span>
 </span><span id="line-195"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Audio Normalization Settings</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAudioNormalizationSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679865921"><span id="local-6989586621679865922"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioNormalizationSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-var">AudioNormalizationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioNormalizationSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-var">AudioNormalizationSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679865930"><span id="local-6989586621679865931"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioNormalizationSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-var">AudioNormalizationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioNormalizationSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-var">AudioNormalizationSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When set to correctAudio the output audio is corrected using the chosen</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- algorithm. If set to measureOnly, the audio will be measured but not</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- adjusted.</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Aalgorithm%3AAudioNormalizationSettings%27"><span class="annot"><span class="annottext">AudioNormalizationSettings -&gt; Maybe AudioNormalizationAlgorithm
 </span><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#%24sel%3Aalgorithm%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var hs-var">algorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679865913"><span id="local-6989586621679865915"><span class="annot"><span class="annottext">AudioNormalizationSettings -&gt; AudioNormalizationSettings -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679865922"><span id="local-6989586621679865924"><span class="annot"><span class="annottext">AudioNormalizationSettings -&gt; AudioNormalizationSettings -&gt; Bool
 (AudioNormalizationSettings -&gt; AudioNormalizationSettings -&gt; Bool)
 -&gt; (AudioNormalizationSettings
     -&gt; AudioNormalizationSettings -&gt; Bool)
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AudioNormalizationSettings -&gt; AudioNormalizationSettings -&gt; Bool
 == :: AudioNormalizationSettings -&gt; AudioNormalizationSettings -&gt; Bool
 $c== :: AudioNormalizationSettings -&gt; AudioNormalizationSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679865904"><span id="local-6989586621679865906"><span id="local-6989586621679865908"><span id="local-6989586621679865910"><span class="annot"><span class="annottext">ReadPrec [AudioNormalizationSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679865913"><span id="local-6989586621679865915"><span id="local-6989586621679865917"><span id="local-6989586621679865919"><span class="annot"><span class="annottext">ReadPrec [AudioNormalizationSettings]
 ReadPrec AudioNormalizationSettings
 Int -&gt; ReadS AudioNormalizationSettings
 ReadS [AudioNormalizationSettings]
@@ -76,7 +76,7 @@ readList :: ReadS [AudioNormalizationSettings]
 $creadList :: ReadS [AudioNormalizationSettings]
 readsPrec :: Int -&gt; ReadS AudioNormalizationSettings
 $creadsPrec :: Int -&gt; ReadS AudioNormalizationSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679865897"><span id="local-6989586621679865899"><span id="local-6989586621679865901"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679865906"><span id="local-6989586621679865908"><span id="local-6989586621679865910"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationSettings -&gt; ShowS
 [AudioNormalizationSettings] -&gt; ShowS
 AudioNormalizationSettings -&gt; String
 (Int -&gt; AudioNormalizationSettings -&gt; ShowS)
@@ -169,17 +169,17 @@ forall a. Maybe a
      (Maybe AudioNormalizationAlgorithmControl)
      (Maybe AudioNormalizationAlgorithmControl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679865888"><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679865897"><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
 algorithmControl :: Maybe AudioNormalizationAlgorithmControl
 $sel:algorithmControl:AudioNormalizationSettings' :: AudioNormalizationSettings
 -&gt; Maybe AudioNormalizationAlgorithmControl
-</span><a href="#local-6989586621679865888"><span class="hs-identifier hs-var hs-var">algorithmControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
-</span><a href="#local-6989586621679865888"><span class="hs-identifier hs-var">algorithmControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679865887"><span class="annot"><span class="annottext">s :: AudioNormalizationSettings
-</span><a href="#local-6989586621679865887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679865886"><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
-</span><a href="#local-6989586621679865886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioNormalizationSettings
-</span><a href="#local-6989586621679865887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmControl:AudioNormalizationSettings' :: Maybe AudioNormalizationAlgorithmControl
+</span><a href="#local-6989586621679865897"><span class="hs-identifier hs-var hs-var">algorithmControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
+</span><a href="#local-6989586621679865897"><span class="hs-identifier hs-var">algorithmControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679865896"><span class="annot"><span class="annottext">s :: AudioNormalizationSettings
+</span><a href="#local-6989586621679865896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679865895"><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
+</span><a href="#local-6989586621679865895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioNormalizationSettings
+</span><a href="#local-6989586621679865896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmControl:AudioNormalizationSettings' :: Maybe AudioNormalizationAlgorithmControl
 </span><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#%24sel%3AalgorithmControl%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">algorithmControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
-</span><a href="#local-6989586621679865886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679865895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | Target LKFS(loudness) to adjust volume to. If no value is entered, a</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- default value will be used according to the chosen algorithm. The CALM</span><span>
@@ -197,16 +197,16 @@ $sel:algorithmControl:AudioNormalizationSettings' :: AudioNormalizationSettings
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679865884"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679865893"><span class="annot"><span class="annottext">Maybe Double
 targetLkfs :: Maybe Double
 $sel:targetLkfs:AudioNormalizationSettings' :: AudioNormalizationSettings -&gt; Maybe Double
-</span><a href="#local-6989586621679865884"><span class="hs-identifier hs-var hs-var">targetLkfs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679865884"><span class="hs-identifier hs-var">targetLkfs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679865883"><span class="annot"><span class="annottext">s :: AudioNormalizationSettings
-</span><a href="#local-6989586621679865883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679865882"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679865882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioNormalizationSettings
-</span><a href="#local-6989586621679865883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetLkfs:AudioNormalizationSettings' :: Maybe Double
+</span><a href="#local-6989586621679865893"><span class="hs-identifier hs-var hs-var">targetLkfs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679865893"><span class="hs-identifier hs-var">targetLkfs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679865892"><span class="annot"><span class="annottext">s :: AudioNormalizationSettings
+</span><a href="#local-6989586621679865892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679865891"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679865891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioNormalizationSettings
+</span><a href="#local-6989586621679865892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetLkfs:AudioNormalizationSettings' :: Maybe Double
 </span><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#%24sel%3AtargetLkfs%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">targetLkfs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679865882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679865891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Audio normalization algorithm to use. itu17701 conforms to the CALM Act</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- specification, itu17702 conforms to the EBU R-128 specification.</span><span>
@@ -223,19 +223,19 @@ $sel:targetLkfs:AudioNormalizationSettings' :: AudioNormalizationSettings -&gt; 
      (Maybe AudioNormalizationAlgorithm)
      (Maybe AudioNormalizationAlgorithm)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679865880"><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithm
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679865889"><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithm
 algorithm :: Maybe AudioNormalizationAlgorithm
 $sel:algorithm:AudioNormalizationSettings' :: AudioNormalizationSettings -&gt; Maybe AudioNormalizationAlgorithm
-</span><a href="#local-6989586621679865880"><span class="hs-identifier hs-var hs-var">algorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithm
-</span><a href="#local-6989586621679865880"><span class="hs-identifier hs-var">algorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679865879"><span class="annot"><span class="annottext">s :: AudioNormalizationSettings
-</span><a href="#local-6989586621679865879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679865878"><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithm
-</span><a href="#local-6989586621679865878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioNormalizationSettings
-</span><a href="#local-6989586621679865879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithm:AudioNormalizationSettings' :: Maybe AudioNormalizationAlgorithm
+</span><a href="#local-6989586621679865889"><span class="hs-identifier hs-var hs-var">algorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithm
+</span><a href="#local-6989586621679865889"><span class="hs-identifier hs-var">algorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679865888"><span class="annot"><span class="annottext">s :: AudioNormalizationSettings
+</span><a href="#local-6989586621679865888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679865887"><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithm
+</span><a href="#local-6989586621679865887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioNormalizationSettings
+</span><a href="#local-6989586621679865888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithm:AudioNormalizationSettings' :: Maybe AudioNormalizationAlgorithm
 </span><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#%24sel%3Aalgorithm%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">algorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithm
-</span><a href="#local-6989586621679865878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679865887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865875"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679865873"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioNormalizationSettings
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865884"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679865882"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioNormalizationSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AudioNormalizationSettings)
@@ -245,8 +245,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AudioNormalizationSettings&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679865870"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679865870"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679865879"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679865879"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
 -&gt; Maybe Double
 -&gt; Maybe AudioNormalizationAlgorithm
@@ -262,7 +262,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe AudioNormalizationAlgorithm -&gt; AudioNormalizationSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679865870"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioNormalizationAlgorithmControl)
+</span><a href="#local-6989586621679865879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioNormalizationAlgorithmControl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;algorithmControl&quot;</span></span><span class="hs-special">)</span><span>
@@ -274,7 +274,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe AudioNormalizationAlgorithm -&gt; AudioNormalizationSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679865870"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679865879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetLkfs&quot;</span></span><span class="hs-special">)</span><span>
@@ -284,19 +284,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser AudioNormalizationSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679865870"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioNormalizationAlgorithm)
+</span><a href="#local-6989586621679865879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioNormalizationAlgorithm)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;algorithm&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865864"><span id="local-6989586621679865866"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865873"><span id="local-6989586621679865875"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865861"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865853"><span id="local-6989586621679865855"><span id="local-6989586621679865857"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679865851"><span class="annot"><span class="annottext">toJSON :: AudioNormalizationSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679865847"><span id="local-6989586621679865848"><span id="local-6989586621679865849"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865862"><span id="local-6989586621679865864"><span id="local-6989586621679865866"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679865860"><span class="annot"><span class="annottext">toJSON :: AudioNormalizationSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679865856"><span id="local-6989586621679865857"><span id="local-6989586621679865858"><span class="annot"><span class="annottext">Maybe Double
 Maybe AudioNormalizationAlgorithm
 Maybe AudioNormalizationAlgorithmControl
 algorithm :: Maybe AudioNormalizationAlgorithm
@@ -306,7 +306,7 @@ $sel:algorithm:AudioNormalizationSettings' :: AudioNormalizationSettings -&gt; M
 $sel:targetLkfs:AudioNormalizationSettings' :: AudioNormalizationSettings -&gt; Maybe Double
 $sel:algorithmControl:AudioNormalizationSettings' :: AudioNormalizationSettings
 -&gt; Maybe AudioNormalizationAlgorithmControl
-</span><a href="#local-6989586621679865847"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679865856"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -320,14 +320,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AudioNormalizationAlgorithmControl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
-</span><a href="#local-6989586621679865849"><span class="hs-identifier hs-var">algorithmControl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679865858"><span class="hs-identifier hs-var">algorithmControl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetLkfs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679865848"><span class="hs-identifier hs-var">targetLkfs</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679865857"><span class="hs-identifier hs-var">targetLkfs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;algorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioNormalizationAlgorithm -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -335,7 +335,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AudioNormalizationAlgorithm -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithm
-</span><a href="#local-6989586621679865847"><span class="hs-identifier hs-var">algorithm</span></a></span><span>
+</span><a href="#local-6989586621679865856"><span class="hs-identifier hs-var">algorithm</span></a></span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span></pre></body></html>

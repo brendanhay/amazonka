@@ -1,0 +1,709 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AppFlow.DescribeConnectorProfiles</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of @connector-profile@ details matching the provided</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- @connector-profile@ names and @connector-types@. Both input lists are</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- optional, and you can use them to filter the result.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- If no names or @connector-types@ are provided, returns all connector</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- profiles in a paginated form. If there is no match, this operation</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- returns an empty list.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppFlow.DescribeConnectorProfiles</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier">DescribeConnectorProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#newDescribeConnectorProfiles"><span class="hs-identifier">newDescribeConnectorProfiles</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfiles_connectorProfileNames"><span class="hs-identifier">describeConnectorProfiles_connectorProfileNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfiles_nextToken"><span class="hs-identifier">describeConnectorProfiles_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfiles_connectorType"><span class="hs-identifier">describeConnectorProfiles_connectorType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfiles_maxResults"><span class="hs-identifier">describeConnectorProfiles_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse"><span class="hs-identifier">DescribeConnectorProfilesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#newDescribeConnectorProfilesResponse"><span class="hs-identifier">newDescribeConnectorProfilesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfilesResponse_connectorProfileDetails"><span class="hs-identifier">describeConnectorProfilesResponse_connectorProfileDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfilesResponse_nextToken"><span class="hs-identifier">describeConnectorProfilesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfilesResponse_httpStatus"><span class="hs-identifier">describeConnectorProfilesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.html"><span class="hs-identifier">Network.AWS.AppFlow.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDescribeConnectorProfiles' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679335651"><span id="local-6989586621679335652"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConnectorProfiles"><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-var">DescribeConnectorProfiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConnectorProfiles%27"><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles%27"><span class="hs-identifier hs-var">DescribeConnectorProfiles'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the connector profile. The name is unique for each</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @ConnectorProfile@ in the Amazon Web Services account.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AconnectorProfileNames%3ADescribeConnectorProfiles%27"><span class="annot"><span class="annottext">DescribeConnectorProfiles -&gt; Maybe [Text]
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AconnectorProfileNames%3ADescribeConnectorProfiles%27"><span class="hs-identifier hs-var hs-var">connectorProfileNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The pagination token for the next page of data.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeConnectorProfiles%27"><span class="annot"><span class="annottext">DescribeConnectorProfiles -&gt; Maybe Text
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AnextToken%3ADescribeConnectorProfiles%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The type of connector, such as Salesforce, Amplitude, and so on.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AconnectorType%3ADescribeConnectorProfiles%27"><span class="annot"><span class="annottext">DescribeConnectorProfiles -&gt; Maybe ConnectorType
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AconnectorType%3ADescribeConnectorProfiles%27"><span class="hs-identifier hs-var hs-var">connectorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Specifies the maximum number of items that should be returned in the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- result set. The default for @maxResults@ is 20 (for all paginated API</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- operations).</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeConnectorProfiles%27"><span class="annot"><span class="annottext">DescribeConnectorProfiles -&gt; Maybe Natural
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AmaxResults%3ADescribeConnectorProfiles%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335642"><span id="local-6989586621679335644"><span class="annot"><span class="annottext">DescribeConnectorProfiles -&gt; DescribeConnectorProfiles -&gt; Bool
+(DescribeConnectorProfiles -&gt; DescribeConnectorProfiles -&gt; Bool)
+-&gt; (DescribeConnectorProfiles -&gt; DescribeConnectorProfiles -&gt; Bool)
+-&gt; Eq DescribeConnectorProfiles
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeConnectorProfiles -&gt; DescribeConnectorProfiles -&gt; Bool
+$c/= :: DescribeConnectorProfiles -&gt; DescribeConnectorProfiles -&gt; Bool
+== :: DescribeConnectorProfiles -&gt; DescribeConnectorProfiles -&gt; Bool
+$c== :: DescribeConnectorProfiles -&gt; DescribeConnectorProfiles -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335633"><span id="local-6989586621679335635"><span id="local-6989586621679335637"><span id="local-6989586621679335639"><span class="annot"><span class="annottext">ReadPrec [DescribeConnectorProfiles]
+ReadPrec DescribeConnectorProfiles
+Int -&gt; ReadS DescribeConnectorProfiles
+ReadS [DescribeConnectorProfiles]
+(Int -&gt; ReadS DescribeConnectorProfiles)
+-&gt; ReadS [DescribeConnectorProfiles]
+-&gt; ReadPrec DescribeConnectorProfiles
+-&gt; ReadPrec [DescribeConnectorProfiles]
+-&gt; Read DescribeConnectorProfiles
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeConnectorProfiles]
+$creadListPrec :: ReadPrec [DescribeConnectorProfiles]
+readPrec :: ReadPrec DescribeConnectorProfiles
+$creadPrec :: ReadPrec DescribeConnectorProfiles
+readList :: ReadS [DescribeConnectorProfiles]
+$creadList :: ReadS [DescribeConnectorProfiles]
+readsPrec :: Int -&gt; ReadS DescribeConnectorProfiles
+$creadsPrec :: Int -&gt; ReadS DescribeConnectorProfiles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335626"><span id="local-6989586621679335628"><span id="local-6989586621679335630"><span class="annot"><span class="annottext">Int -&gt; DescribeConnectorProfiles -&gt; ShowS
+[DescribeConnectorProfiles] -&gt; ShowS
+DescribeConnectorProfiles -&gt; String
+(Int -&gt; DescribeConnectorProfiles -&gt; ShowS)
+-&gt; (DescribeConnectorProfiles -&gt; String)
+-&gt; ([DescribeConnectorProfiles] -&gt; ShowS)
+-&gt; Show DescribeConnectorProfiles
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeConnectorProfiles] -&gt; ShowS
+$cshowList :: [DescribeConnectorProfiles] -&gt; ShowS
+show :: DescribeConnectorProfiles -&gt; String
+$cshow :: DescribeConnectorProfiles -&gt; String
+showsPrec :: Int -&gt; DescribeConnectorProfiles -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeConnectorProfiles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeConnectorProfiles -&gt; Rep DescribeConnectorProfiles x)
+-&gt; (forall x.
+    Rep DescribeConnectorProfiles x -&gt; DescribeConnectorProfiles)
+-&gt; Generic DescribeConnectorProfiles
+forall x.
+Rep DescribeConnectorProfiles x -&gt; DescribeConnectorProfiles
+forall x.
+DescribeConnectorProfiles -&gt; Rep DescribeConnectorProfiles x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeConnectorProfiles x -&gt; DescribeConnectorProfiles
+$cfrom :: forall x.
+DescribeConnectorProfiles -&gt; Rep DescribeConnectorProfiles x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'DescribeConnectorProfiles' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'connectorProfileNames', 'describeConnectorProfiles_connectorProfileNames' - The name of the connector profile. The name is unique for each</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- @ConnectorProfile@ in the Amazon Web Services account.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'nextToken', 'describeConnectorProfiles_nextToken' - The pagination token for the next page of data.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'connectorType', 'describeConnectorProfiles_connectorType' - The type of connector, such as Salesforce, Amplitude, and so on.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'maxResults', 'describeConnectorProfiles_maxResults' - Specifies the maximum number of items that should be returned in the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- result set. The default for @maxResults@ is 20 (for all paginated API</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- operations).</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#newDescribeConnectorProfiles"><span class="hs-identifier hs-type">newDescribeConnectorProfiles</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span><span>
+</span><span id="line-95"></span><span id="newDescribeConnectorProfiles"><span class="annot"><span class="annottext">newDescribeConnectorProfiles :: DescribeConnectorProfiles
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#newDescribeConnectorProfiles"><span class="hs-identifier hs-var hs-var">newDescribeConnectorProfiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">DescribeConnectorProfiles' :: Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe ConnectorType
+-&gt; Maybe Natural
+-&gt; DescribeConnectorProfiles
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles%27"><span class="hs-identifier hs-type">DescribeConnectorProfiles'</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectorProfileNames:DescribeConnectorProfiles' :: Maybe [Text]
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AconnectorProfileNames%3ADescribeConnectorProfiles%27"><span class="hs-identifier hs-var">connectorProfileNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConnectorProfiles' :: Maybe Text
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AnextToken%3ADescribeConnectorProfiles%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectorType:DescribeConnectorProfiles' :: Maybe ConnectorType
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AconnectorType%3ADescribeConnectorProfiles%27"><span class="hs-identifier hs-var">connectorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeConnectorProfiles' :: Maybe Natural
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AmaxResults%3ADescribeConnectorProfiles%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The name of the connector profile. The name is unique for each</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @ConnectorProfile@ in the Amazon Web Services account.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfiles_connectorProfileNames"><span class="hs-identifier hs-type">describeConnectorProfiles_connectorProfileNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="describeConnectorProfiles_connectorProfileNames"><span class="annot"><span class="annottext">describeConnectorProfiles_connectorProfileNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeConnectorProfiles -&gt; f DescribeConnectorProfiles
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfiles_connectorProfileNames"><span class="hs-identifier hs-var hs-var">describeConnectorProfiles_connectorProfileNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConnectorProfiles -&gt; Maybe [Text])
+-&gt; (DescribeConnectorProfiles
+    -&gt; Maybe [Text] -&gt; DescribeConnectorProfiles)
+-&gt; Lens
+     DescribeConnectorProfiles
+     DescribeConnectorProfiles
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles%27"><span class="hs-identifier hs-type">DescribeConnectorProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335619"><span class="annot"><span class="annottext">Maybe [Text]
+connectorProfileNames :: Maybe [Text]
+$sel:connectorProfileNames:DescribeConnectorProfiles' :: DescribeConnectorProfiles -&gt; Maybe [Text]
+</span><a href="#local-6989586621679335619"><span class="hs-identifier hs-var hs-var">connectorProfileNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679335619"><span class="hs-identifier hs-var">connectorProfileNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335618"><span class="annot"><span class="annottext">s :: DescribeConnectorProfiles
+</span><a href="#local-6989586621679335618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles%27"><span class="hs-identifier hs-type">DescribeConnectorProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335617"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679335617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConnectorProfiles
+</span><a href="#local-6989586621679335618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorProfileNames:DescribeConnectorProfiles' :: Maybe [Text]
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AconnectorProfileNames%3ADescribeConnectorProfiles%27"><span class="hs-identifier hs-var">connectorProfileNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679335617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeConnectorProfiles -&gt; f DescribeConnectorProfiles)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeConnectorProfiles
+-&gt; f DescribeConnectorProfiles
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The pagination token for the next page of data.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfiles_nextToken"><span class="hs-identifier hs-type">describeConnectorProfiles_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="describeConnectorProfiles_nextToken"><span class="annot"><span class="annottext">describeConnectorProfiles_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeConnectorProfiles -&gt; f DescribeConnectorProfiles
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfiles_nextToken"><span class="hs-identifier hs-var hs-var">describeConnectorProfiles_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConnectorProfiles -&gt; Maybe Text)
+-&gt; (DescribeConnectorProfiles
+    -&gt; Maybe Text -&gt; DescribeConnectorProfiles)
+-&gt; Lens
+     DescribeConnectorProfiles
+     DescribeConnectorProfiles
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles%27"><span class="hs-identifier hs-type">DescribeConnectorProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335613"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeConnectorProfiles' :: DescribeConnectorProfiles -&gt; Maybe Text
+</span><a href="#local-6989586621679335613"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335613"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335612"><span class="annot"><span class="annottext">s :: DescribeConnectorProfiles
+</span><a href="#local-6989586621679335612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles%27"><span class="hs-identifier hs-type">DescribeConnectorProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335611"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConnectorProfiles
+</span><a href="#local-6989586621679335612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConnectorProfiles' :: Maybe Text
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AnextToken%3ADescribeConnectorProfiles%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The type of connector, such as Salesforce, Amplitude, and so on.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfiles_connectorType"><span class="hs-identifier hs-type">describeConnectorProfiles_connectorType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="describeConnectorProfiles_connectorType"><span class="annot"><span class="annottext">describeConnectorProfiles_connectorType :: (Maybe ConnectorType -&gt; f (Maybe ConnectorType))
+-&gt; DescribeConnectorProfiles -&gt; f DescribeConnectorProfiles
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfiles_connectorType"><span class="hs-identifier hs-var hs-var">describeConnectorProfiles_connectorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConnectorProfiles -&gt; Maybe ConnectorType)
+-&gt; (DescribeConnectorProfiles
+    -&gt; Maybe ConnectorType -&gt; DescribeConnectorProfiles)
+-&gt; Lens
+     DescribeConnectorProfiles
+     DescribeConnectorProfiles
+     (Maybe ConnectorType)
+     (Maybe ConnectorType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles%27"><span class="hs-identifier hs-type">DescribeConnectorProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335610"><span class="annot"><span class="annottext">Maybe ConnectorType
+connectorType :: Maybe ConnectorType
+$sel:connectorType:DescribeConnectorProfiles' :: DescribeConnectorProfiles -&gt; Maybe ConnectorType
+</span><a href="#local-6989586621679335610"><span class="hs-identifier hs-var hs-var">connectorType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorType
+</span><a href="#local-6989586621679335610"><span class="hs-identifier hs-var">connectorType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335609"><span class="annot"><span class="annottext">s :: DescribeConnectorProfiles
+</span><a href="#local-6989586621679335609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles%27"><span class="hs-identifier hs-type">DescribeConnectorProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335608"><span class="annot"><span class="annottext">Maybe ConnectorType
+</span><a href="#local-6989586621679335608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConnectorProfiles
+</span><a href="#local-6989586621679335609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorType:DescribeConnectorProfiles' :: Maybe ConnectorType
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AconnectorType%3ADescribeConnectorProfiles%27"><span class="hs-identifier hs-var">connectorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorType
+</span><a href="#local-6989586621679335608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Specifies the maximum number of items that should be returned in the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- result set. The default for @maxResults@ is 20 (for all paginated API</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- operations).</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfiles_maxResults"><span class="hs-identifier hs-type">describeConnectorProfiles_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="describeConnectorProfiles_maxResults"><span class="annot"><span class="annottext">describeConnectorProfiles_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeConnectorProfiles -&gt; f DescribeConnectorProfiles
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfiles_maxResults"><span class="hs-identifier hs-var hs-var">describeConnectorProfiles_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConnectorProfiles -&gt; Maybe Natural)
+-&gt; (DescribeConnectorProfiles
+    -&gt; Maybe Natural -&gt; DescribeConnectorProfiles)
+-&gt; Lens
+     DescribeConnectorProfiles
+     DescribeConnectorProfiles
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles%27"><span class="hs-identifier hs-type">DescribeConnectorProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335607"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeConnectorProfiles' :: DescribeConnectorProfiles -&gt; Maybe Natural
+</span><a href="#local-6989586621679335607"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679335607"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335606"><span class="annot"><span class="annottext">s :: DescribeConnectorProfiles
+</span><a href="#local-6989586621679335606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles%27"><span class="hs-identifier hs-type">DescribeConnectorProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335605"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679335605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConnectorProfiles
+</span><a href="#local-6989586621679335606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeConnectorProfiles' :: Maybe Natural
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AmaxResults%3ADescribeConnectorProfiles%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679335605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679335601"><span class="annot"><span class="annottext">request :: DescribeConnectorProfiles -&gt; Request DescribeConnectorProfiles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeConnectorProfiles -&gt; Request DescribeConnectorProfiles
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppFlow.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679335597"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeConnectorProfiles
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeConnectorProfiles)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeConnectorProfiles))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeConnectorProfiles
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeConnectorProfiles)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679335594"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335594"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679335593"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679335593"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679335592"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335592"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ConnectorProfile]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeConnectorProfilesResponse
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-var">DescribeConnectorProfilesResponse'</span></a></span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ConnectorProfile]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeConnectorProfilesResponse)
+-&gt; Either String (Maybe [ConnectorProfile])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeConnectorProfilesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ConnectorProfile]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorProfileDetails&quot;</span></span><span>
+</span><span id="line-133"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ConnectorProfile]))
+-&gt; Maybe [ConnectorProfile]
+-&gt; Either String (Maybe [ConnectorProfile])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectorProfile]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeConnectorProfilesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeConnectorProfilesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeConnectorProfilesResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeConnectorProfilesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335594"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335583"><span id="local-6989586621679335585"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335580"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679335576"><span class="annot"><span class="annottext">toHeaders :: DescribeConnectorProfiles -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeConnectorProfiles -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-150"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335566"><span id="local-6989586621679335568"><span id="local-6989586621679335570"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679335564"><span class="annot"><span class="annottext">toJSON :: DescribeConnectorProfiles -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles%27"><span class="hs-identifier hs-type">DescribeConnectorProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335559"><span id="local-6989586621679335560"><span id="local-6989586621679335561"><span id="local-6989586621679335562"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Text]
+Maybe Text
+Maybe ConnectorType
+maxResults :: Maybe Natural
+connectorType :: Maybe ConnectorType
+nextToken :: Maybe Text
+connectorProfileNames :: Maybe [Text]
+$sel:maxResults:DescribeConnectorProfiles' :: DescribeConnectorProfiles -&gt; Maybe Natural
+$sel:connectorType:DescribeConnectorProfiles' :: DescribeConnectorProfiles -&gt; Maybe ConnectorType
+$sel:nextToken:DescribeConnectorProfiles' :: DescribeConnectorProfiles -&gt; Maybe Text
+$sel:connectorProfileNames:DescribeConnectorProfiles' :: DescribeConnectorProfiles -&gt; Maybe [Text]
+</span><a href="#local-6989586621679335559"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorProfileNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679335562"><span class="hs-identifier hs-var">connectorProfileNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335561"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConnectorType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ConnectorType -&gt; Pair) -&gt; Maybe ConnectorType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorType
+</span><a href="#local-6989586621679335560"><span class="hs-identifier hs-var">connectorType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679335559"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679335553"><span class="annot"><span class="annottext">toPath :: DescribeConnectorProfiles -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeConnectorProfiles -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/describe-connector-profiles&quot;</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfiles"><span class="hs-identifier hs-type">DescribeConnectorProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679335549"><span class="annot"><span class="annottext">toQuery :: DescribeConnectorProfiles -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeConnectorProfiles -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newDescribeConnectorProfilesResponse' smart constructor.</span><span>
+</span><span id="line-173"></span><span id="local-6989586621679335546"><span id="local-6989586621679335547"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConnectorProfilesResponse"><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse"><span class="hs-identifier hs-var">DescribeConnectorProfilesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConnectorProfilesResponse%27"><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-var">DescribeConnectorProfilesResponse'</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns information about the connector profiles associated with the</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- flow.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AconnectorProfileDetails%3ADescribeConnectorProfilesResponse%27"><span class="annot"><span class="annottext">DescribeConnectorProfilesResponse -&gt; Maybe [ConnectorProfile]
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AconnectorProfileDetails%3ADescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-var hs-var">connectorProfileDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The pagination token for the next page of data. If @nextToken=null@,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- this means that all records have been fetched.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeConnectorProfilesResponse%27"><span class="annot"><span class="annottext">DescribeConnectorProfilesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AnextToken%3ADescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeConnectorProfilesResponse%27"><span class="annot"><span class="annottext">DescribeConnectorProfilesResponse -&gt; Int
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AhttpStatus%3ADescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335539"><span id="local-6989586621679335541"><span class="annot"><span class="annottext">DescribeConnectorProfilesResponse
+-&gt; DescribeConnectorProfilesResponse -&gt; Bool
+(DescribeConnectorProfilesResponse
+ -&gt; DescribeConnectorProfilesResponse -&gt; Bool)
+-&gt; (DescribeConnectorProfilesResponse
+    -&gt; DescribeConnectorProfilesResponse -&gt; Bool)
+-&gt; Eq DescribeConnectorProfilesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeConnectorProfilesResponse
+-&gt; DescribeConnectorProfilesResponse -&gt; Bool
+$c/= :: DescribeConnectorProfilesResponse
+-&gt; DescribeConnectorProfilesResponse -&gt; Bool
+== :: DescribeConnectorProfilesResponse
+-&gt; DescribeConnectorProfilesResponse -&gt; Bool
+$c== :: DescribeConnectorProfilesResponse
+-&gt; DescribeConnectorProfilesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335531"><span id="local-6989586621679335533"><span id="local-6989586621679335535"><span id="local-6989586621679335537"><span class="annot"><span class="annottext">ReadPrec [DescribeConnectorProfilesResponse]
+ReadPrec DescribeConnectorProfilesResponse
+Int -&gt; ReadS DescribeConnectorProfilesResponse
+ReadS [DescribeConnectorProfilesResponse]
+(Int -&gt; ReadS DescribeConnectorProfilesResponse)
+-&gt; ReadS [DescribeConnectorProfilesResponse]
+-&gt; ReadPrec DescribeConnectorProfilesResponse
+-&gt; ReadPrec [DescribeConnectorProfilesResponse]
+-&gt; Read DescribeConnectorProfilesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeConnectorProfilesResponse]
+$creadListPrec :: ReadPrec [DescribeConnectorProfilesResponse]
+readPrec :: ReadPrec DescribeConnectorProfilesResponse
+$creadPrec :: ReadPrec DescribeConnectorProfilesResponse
+readList :: ReadS [DescribeConnectorProfilesResponse]
+$creadList :: ReadS [DescribeConnectorProfilesResponse]
+readsPrec :: Int -&gt; ReadS DescribeConnectorProfilesResponse
+$creadsPrec :: Int -&gt; ReadS DescribeConnectorProfilesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335525"><span id="local-6989586621679335527"><span id="local-6989586621679335529"><span class="annot"><span class="annottext">Int -&gt; DescribeConnectorProfilesResponse -&gt; ShowS
+[DescribeConnectorProfilesResponse] -&gt; ShowS
+DescribeConnectorProfilesResponse -&gt; String
+(Int -&gt; DescribeConnectorProfilesResponse -&gt; ShowS)
+-&gt; (DescribeConnectorProfilesResponse -&gt; String)
+-&gt; ([DescribeConnectorProfilesResponse] -&gt; ShowS)
+-&gt; Show DescribeConnectorProfilesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeConnectorProfilesResponse] -&gt; ShowS
+$cshowList :: [DescribeConnectorProfilesResponse] -&gt; ShowS
+show :: DescribeConnectorProfilesResponse -&gt; String
+$cshow :: DescribeConnectorProfilesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeConnectorProfilesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeConnectorProfilesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeConnectorProfilesResponse
+ -&gt; Rep DescribeConnectorProfilesResponse x)
+-&gt; (forall x.
+    Rep DescribeConnectorProfilesResponse x
+    -&gt; DescribeConnectorProfilesResponse)
+-&gt; Generic DescribeConnectorProfilesResponse
+forall x.
+Rep DescribeConnectorProfilesResponse x
+-&gt; DescribeConnectorProfilesResponse
+forall x.
+DescribeConnectorProfilesResponse
+-&gt; Rep DescribeConnectorProfilesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeConnectorProfilesResponse x
+-&gt; DescribeConnectorProfilesResponse
+$cfrom :: forall x.
+DescribeConnectorProfilesResponse
+-&gt; Rep DescribeConnectorProfilesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Create a value of 'DescribeConnectorProfilesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'connectorProfileDetails', 'describeConnectorProfilesResponse_connectorProfileDetails' - Returns information about the connector profiles associated with the</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- flow.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'nextToken', 'describeConnectorProfilesResponse_nextToken' - The pagination token for the next page of data. If @nextToken=null@,</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- this means that all records have been fetched.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'httpStatus', 'describeConnectorProfilesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#newDescribeConnectorProfilesResponse"><span class="hs-identifier hs-type">newDescribeConnectorProfilesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse</span></a></span><span>
+</span><span id="line-204"></span><span id="newDescribeConnectorProfilesResponse"><span class="annot"><span class="annottext">newDescribeConnectorProfilesResponse :: Int -&gt; DescribeConnectorProfilesResponse
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#newDescribeConnectorProfilesResponse"><span class="hs-identifier hs-var hs-var">newDescribeConnectorProfilesResponse</span></a></span></span><span> </span><span id="local-6989586621679335522"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335522"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="annottext">DescribeConnectorProfilesResponse' :: Maybe [ConnectorProfile]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeConnectorProfilesResponse
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse'</span></a></span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectorProfileDetails:DescribeConnectorProfilesResponse' :: Maybe [ConnectorProfile]
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AconnectorProfileDetails%3ADescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-var">connectorProfileDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ConnectorProfile]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConnectorProfilesResponse' :: Maybe Text
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AnextToken%3ADescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConnectorProfilesResponse' :: Int
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AhttpStatus%3ADescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335522"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | Returns information about the connector profiles associated with the</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- flow.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfilesResponse_connectorProfileDetails"><span class="hs-identifier hs-type">describeConnectorProfilesResponse_connectorProfileDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorProfile.html#ConnectorProfile"><span class="hs-identifier hs-type">ConnectorProfile</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="describeConnectorProfilesResponse_connectorProfileDetails"><span class="annot"><span class="annottext">describeConnectorProfilesResponse_connectorProfileDetails :: (Maybe [ConnectorProfile] -&gt; f (Maybe [ConnectorProfile]))
+-&gt; DescribeConnectorProfilesResponse
+-&gt; f DescribeConnectorProfilesResponse
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfilesResponse_connectorProfileDetails"><span class="hs-identifier hs-var hs-var">describeConnectorProfilesResponse_connectorProfileDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConnectorProfilesResponse -&gt; Maybe [ConnectorProfile])
+-&gt; (DescribeConnectorProfilesResponse
+    -&gt; Maybe [ConnectorProfile] -&gt; DescribeConnectorProfilesResponse)
+-&gt; Lens
+     DescribeConnectorProfilesResponse
+     DescribeConnectorProfilesResponse
+     (Maybe [ConnectorProfile])
+     (Maybe [ConnectorProfile])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335521"><span class="annot"><span class="annottext">Maybe [ConnectorProfile]
+connectorProfileDetails :: Maybe [ConnectorProfile]
+$sel:connectorProfileDetails:DescribeConnectorProfilesResponse' :: DescribeConnectorProfilesResponse -&gt; Maybe [ConnectorProfile]
+</span><a href="#local-6989586621679335521"><span class="hs-identifier hs-var hs-var">connectorProfileDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectorProfile]
+</span><a href="#local-6989586621679335521"><span class="hs-identifier hs-var">connectorProfileDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335520"><span class="annot"><span class="annottext">s :: DescribeConnectorProfilesResponse
+</span><a href="#local-6989586621679335520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335519"><span class="annot"><span class="annottext">Maybe [ConnectorProfile]
+</span><a href="#local-6989586621679335519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConnectorProfilesResponse
+</span><a href="#local-6989586621679335520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorProfileDetails:DescribeConnectorProfilesResponse' :: Maybe [ConnectorProfile]
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AconnectorProfileDetails%3ADescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-var">connectorProfileDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectorProfile]
+</span><a href="#local-6989586621679335519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConnectorProfile] -&gt; f (Maybe [ConnectorProfile]))
+ -&gt; DescribeConnectorProfilesResponse
+ -&gt; f DescribeConnectorProfilesResponse)
+-&gt; ((Maybe [ConnectorProfile] -&gt; f (Maybe [ConnectorProfile]))
+    -&gt; Maybe [ConnectorProfile] -&gt; f (Maybe [ConnectorProfile]))
+-&gt; (Maybe [ConnectorProfile] -&gt; f (Maybe [ConnectorProfile]))
+-&gt; DescribeConnectorProfilesResponse
+-&gt; f DescribeConnectorProfilesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConnectorProfile]
+  [ConnectorProfile]
+  [ConnectorProfile]
+  [ConnectorProfile]
+-&gt; Iso
+     (Maybe [ConnectorProfile])
+     (Maybe [ConnectorProfile])
+     (Maybe [ConnectorProfile])
+     (Maybe [ConnectorProfile])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConnectorProfile]
+  [ConnectorProfile]
+  [ConnectorProfile]
+  [ConnectorProfile]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The pagination token for the next page of data. If @nextToken=null@,</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- this means that all records have been fetched.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfilesResponse_nextToken"><span class="hs-identifier hs-type">describeConnectorProfilesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="describeConnectorProfilesResponse_nextToken"><span class="annot"><span class="annottext">describeConnectorProfilesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeConnectorProfilesResponse
+-&gt; f DescribeConnectorProfilesResponse
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfilesResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeConnectorProfilesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConnectorProfilesResponse -&gt; Maybe Text)
+-&gt; (DescribeConnectorProfilesResponse
+    -&gt; Maybe Text -&gt; DescribeConnectorProfilesResponse)
+-&gt; Lens
+     DescribeConnectorProfilesResponse
+     DescribeConnectorProfilesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335518"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeConnectorProfilesResponse' :: DescribeConnectorProfilesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679335518"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335518"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335517"><span class="annot"><span class="annottext">s :: DescribeConnectorProfilesResponse
+</span><a href="#local-6989586621679335517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335516"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConnectorProfilesResponse
+</span><a href="#local-6989586621679335517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConnectorProfilesResponse' :: Maybe Text
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AnextToken%3ADescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfilesResponse_httpStatus"><span class="hs-identifier hs-type">describeConnectorProfilesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-224"></span><span id="describeConnectorProfilesResponse_httpStatus"><span class="annot"><span class="annottext">describeConnectorProfilesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeConnectorProfilesResponse
+-&gt; f DescribeConnectorProfilesResponse
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#describeConnectorProfilesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeConnectorProfilesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConnectorProfilesResponse -&gt; Int)
+-&gt; (DescribeConnectorProfilesResponse
+    -&gt; Int -&gt; DescribeConnectorProfilesResponse)
+-&gt; Lens
+     DescribeConnectorProfilesResponse
+     DescribeConnectorProfilesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335515"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeConnectorProfilesResponse' :: DescribeConnectorProfilesResponse -&gt; Int
+</span><a href="#local-6989586621679335515"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335515"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335514"><span class="annot"><span class="annottext">s :: DescribeConnectorProfilesResponse
+</span><a href="#local-6989586621679335514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335513"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConnectorProfilesResponse
+</span><a href="#local-6989586621679335514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConnectorProfilesResponse' :: Int
+</span><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#%24sel%3AhttpStatus%3ADescribeConnectorProfilesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679335511"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.AppFlow.DescribeConnectorProfiles.html#DescribeConnectorProfilesResponse"><span class="hs-identifier hs-type">DescribeConnectorProfilesResponse</span></a></span></span><span>
+</span><span id="line-229"></span></pre></body></html>

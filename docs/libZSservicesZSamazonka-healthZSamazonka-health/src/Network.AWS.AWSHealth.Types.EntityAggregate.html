@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEntityAggregate' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679185780"><span id="local-6989586621679185781"></span></span><span class="hs-keyword">data</span><span> </span><span id="EntityAggregate"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate"><span class="hs-identifier hs-var">EntityAggregate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EntityAggregate%27"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate%27"><span class="hs-identifier hs-var">EntityAggregate'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679185789"><span id="local-6989586621679185790"></span></span><span class="hs-keyword">data</span><span> </span><span id="EntityAggregate"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate"><span class="hs-identifier hs-var">EntityAggregate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EntityAggregate%27"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate%27"><span class="hs-identifier hs-var">EntityAggregate'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of entities that match the criteria for the specified events.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Acount%3AEntityAggregate%27"><span class="annot"><span class="annottext">EntityAggregate -&gt; Maybe Int
 </span><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#%24sel%3Acount%3AEntityAggregate%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AeventArn%3AEntityAggregate%27"><span class="annot"><span class="annottext">EntityAggregate -&gt; Maybe Text
 </span><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#%24sel%3AeventArn%3AEntityAggregate%27"><span class="hs-identifier hs-var hs-var">eventArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185773"><span id="local-6989586621679185775"><span class="annot"><span class="annottext">EntityAggregate -&gt; EntityAggregate -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185782"><span id="local-6989586621679185784"><span class="annot"><span class="annottext">EntityAggregate -&gt; EntityAggregate -&gt; Bool
 (EntityAggregate -&gt; EntityAggregate -&gt; Bool)
 -&gt; (EntityAggregate -&gt; EntityAggregate -&gt; Bool)
 -&gt; Eq EntityAggregate
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EntityAggregate -&gt; EntityAggregate -&gt; Bool
 == :: EntityAggregate -&gt; EntityAggregate -&gt; Bool
 $c== :: EntityAggregate -&gt; EntityAggregate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185764"><span id="local-6989586621679185766"><span id="local-6989586621679185768"><span id="local-6989586621679185770"><span class="annot"><span class="annottext">ReadPrec [EntityAggregate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185773"><span id="local-6989586621679185775"><span id="local-6989586621679185777"><span id="local-6989586621679185779"><span class="annot"><span class="annottext">ReadPrec [EntityAggregate]
 ReadPrec EntityAggregate
 Int -&gt; ReadS EntityAggregate
 ReadS [EntityAggregate]
@@ -72,7 +72,7 @@ readList :: ReadS [EntityAggregate]
 $creadList :: ReadS [EntityAggregate]
 readsPrec :: Int -&gt; ReadS EntityAggregate
 $creadsPrec :: Int -&gt; ReadS EntityAggregate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185757"><span id="local-6989586621679185759"><span id="local-6989586621679185761"><span class="annot"><span class="annottext">Int -&gt; EntityAggregate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185766"><span id="local-6989586621679185768"><span id="local-6989586621679185770"><span class="annot"><span class="annottext">Int -&gt; EntityAggregate -&gt; ShowS
 [EntityAggregate] -&gt; ShowS
 EntityAggregate -&gt; String
 (Int -&gt; EntityAggregate -&gt; ShowS)
@@ -139,16 +139,16 @@ forall a. Maybe a
 -&gt; (EntityAggregate -&gt; Maybe Int -&gt; EntityAggregate)
 -&gt; Lens EntityAggregate EntityAggregate (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate%27"><span class="hs-identifier hs-type">EntityAggregate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185748"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate%27"><span class="hs-identifier hs-type">EntityAggregate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185757"><span class="annot"><span class="annottext">Maybe Int
 count :: Maybe Int
 $sel:count:EntityAggregate' :: EntityAggregate -&gt; Maybe Int
-</span><a href="#local-6989586621679185748"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679185748"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185747"><span class="annot"><span class="annottext">s :: EntityAggregate
-</span><a href="#local-6989586621679185747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate%27"><span class="hs-identifier hs-type">EntityAggregate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185746"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679185746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityAggregate
-</span><a href="#local-6989586621679185747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:EntityAggregate' :: Maybe Int
+</span><a href="#local-6989586621679185757"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679185757"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185756"><span class="annot"><span class="annottext">s :: EntityAggregate
+</span><a href="#local-6989586621679185756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate%27"><span class="hs-identifier hs-type">EntityAggregate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185755"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679185755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityAggregate
+</span><a href="#local-6989586621679185756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:EntityAggregate' :: Maybe Int
 </span><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#%24sel%3Acount%3AEntityAggregate%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679185746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate"><span class="hs-identifier hs-type">EntityAggregate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate"><span class="hs-identifier hs-type">EntityAggregate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The unique identifier for the event. The event ARN has the</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @</span><span>
@@ -164,19 +164,19 @@ $sel:count:EntityAggregate' :: EntityAggregate -&gt; Maybe Int
 -&gt; (EntityAggregate -&gt; Maybe Text -&gt; EntityAggregate)
 -&gt; Lens EntityAggregate EntityAggregate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate%27"><span class="hs-identifier hs-type">EntityAggregate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185744"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate%27"><span class="hs-identifier hs-type">EntityAggregate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185753"><span class="annot"><span class="annottext">Maybe Text
 eventArn :: Maybe Text
 $sel:eventArn:EntityAggregate' :: EntityAggregate -&gt; Maybe Text
-</span><a href="#local-6989586621679185744"><span class="hs-identifier hs-var hs-var">eventArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185744"><span class="hs-identifier hs-var">eventArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185743"><span class="annot"><span class="annottext">s :: EntityAggregate
-</span><a href="#local-6989586621679185743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate%27"><span class="hs-identifier hs-type">EntityAggregate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185742"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityAggregate
-</span><a href="#local-6989586621679185743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventArn:EntityAggregate' :: Maybe Text
+</span><a href="#local-6989586621679185753"><span class="hs-identifier hs-var hs-var">eventArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185753"><span class="hs-identifier hs-var">eventArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185752"><span class="annot"><span class="annottext">s :: EntityAggregate
+</span><a href="#local-6989586621679185752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate%27"><span class="hs-identifier hs-type">EntityAggregate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185751"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityAggregate
+</span><a href="#local-6989586621679185752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventArn:EntityAggregate' :: Maybe Text
 </span><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#%24sel%3AeventArn%3AEntityAggregate%27"><span class="hs-identifier hs-var">eventArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate"><span class="hs-identifier hs-type">EntityAggregate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate"><span class="hs-identifier hs-type">EntityAggregate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185739"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate"><span class="hs-identifier hs-type">EntityAggregate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679185737"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EntityAggregate
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185748"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate"><span class="hs-identifier hs-type">EntityAggregate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679185746"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EntityAggregate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EntityAggregate)
@@ -186,15 +186,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EntityAggregate&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185734"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185734"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185743"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185743"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Text -&gt; EntityAggregate
 </span><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate%27"><span class="hs-identifier hs-var">EntityAggregate'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Text -&gt; EntityAggregate)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe Text -&gt; EntityAggregate)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679185743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;count&quot;</span></span><span class="hs-special">)</span><span>
@@ -202,13 +202,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser EntityAggregate
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679185743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;eventArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185728"><span id="local-6989586621679185730"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate"><span class="hs-identifier hs-type">EntityAggregate</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185737"><span id="local-6989586621679185739"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate"><span class="hs-identifier hs-type">EntityAggregate</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185725"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate"><span class="hs-identifier hs-type">EntityAggregate</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185734"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityAggregate.html#EntityAggregate"><span class="hs-identifier hs-type">EntityAggregate</span></a></span></span><span>
 </span><span id="line-98"></span></pre></body></html>

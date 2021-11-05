@@ -36,7 +36,7 @@
 </span><span id="line-36"></span><span class="hs-comment">-- array.</span><span>
 </span><span id="line-37"></span><span class="hs-comment">--</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newArtwork' smart constructor.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679210752"><span id="local-6989586621679210753"></span></span><span class="hs-keyword">data</span><span> </span><span id="Artwork"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-var">Artwork</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Artwork%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-var">Artwork'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679210761"><span id="local-6989586621679210762"></span></span><span class="hs-keyword">data</span><span> </span><span id="Artwork"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-var">Artwork</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Artwork%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-var">Artwork'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify one of the following values to control scaling of the output</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- album art:</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -105,7 +105,7 @@
 </span><span id="line-99"></span><span>    </span><span id="%24sel%3AmaxWidth%3AArtwork%27"><span class="annot"><span class="annottext">Artwork -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#%24sel%3AmaxWidth%3AArtwork%27"><span class="hs-identifier hs-var hs-var">maxWidth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210740"><span id="local-6989586621679210742"><span class="annot"><span class="annottext">Artwork -&gt; Artwork -&gt; Bool
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210749"><span id="local-6989586621679210751"><span class="annot"><span class="annottext">Artwork -&gt; Artwork -&gt; Bool
 (Artwork -&gt; Artwork -&gt; Bool)
 -&gt; (Artwork -&gt; Artwork -&gt; Bool) -&gt; Eq Artwork
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -113,7 +113,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Artwork -&gt; Artwork -&gt; Bool
 == :: Artwork -&gt; Artwork -&gt; Bool
 $c== :: Artwork -&gt; Artwork -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210731"><span id="local-6989586621679210733"><span id="local-6989586621679210735"><span id="local-6989586621679210737"><span class="annot"><span class="annottext">ReadPrec [Artwork]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210740"><span id="local-6989586621679210742"><span id="local-6989586621679210744"><span id="local-6989586621679210746"><span class="annot"><span class="annottext">ReadPrec [Artwork]
 ReadPrec Artwork
 Int -&gt; ReadS Artwork
 ReadS [Artwork]
@@ -133,7 +133,7 @@ readList :: ReadS [Artwork]
 $creadList :: ReadS [Artwork]
 readsPrec :: Int -&gt; ReadS Artwork
 $creadsPrec :: Int -&gt; ReadS Artwork
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210724"><span id="local-6989586621679210726"><span id="local-6989586621679210728"><span class="annot"><span class="annottext">Int -&gt; Artwork -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210733"><span id="local-6989586621679210735"><span id="local-6989586621679210737"><span class="annot"><span class="annottext">Int -&gt; Artwork -&gt; ShowS
 [Artwork] -&gt; ShowS
 Artwork -&gt; String
 (Int -&gt; Artwork -&gt; ShowS)
@@ -304,16 +304,16 @@ forall a. Maybe a
 -&gt; (Artwork -&gt; Maybe Text -&gt; Artwork)
 -&gt; Lens Artwork Artwork (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210715"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210724"><span class="annot"><span class="annottext">Maybe Text
 sizingPolicy :: Maybe Text
 $sel:sizingPolicy:Artwork' :: Artwork -&gt; Maybe Text
-</span><a href="#local-6989586621679210715"><span class="hs-identifier hs-var hs-var">sizingPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210715"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210714"><span class="annot"><span class="annottext">s :: Artwork
-</span><a href="#local-6989586621679210714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210713"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artwork
-</span><a href="#local-6989586621679210714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizingPolicy:Artwork' :: Maybe Text
+</span><a href="#local-6989586621679210724"><span class="hs-identifier hs-var hs-var">sizingPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210724"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210723"><span class="annot"><span class="annottext">s :: Artwork
+</span><a href="#local-6989586621679210723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210722"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artwork
+</span><a href="#local-6989586621679210723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizingPolicy:Artwork' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#%24sel%3AsizingPolicy%3AArtwork%27"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | The format of album art, if any. Valid formats are @.jpg@ and @.png@.</span><span>
 </span><span id="line-219"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#artwork_albumArtFormat"><span class="hs-identifier hs-type">artwork_albumArtFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -322,16 +322,16 @@ $sel:sizingPolicy:Artwork' :: Artwork -&gt; Maybe Text
 -&gt; (Artwork -&gt; Maybe Text -&gt; Artwork)
 -&gt; Lens Artwork Artwork (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210711"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210720"><span class="annot"><span class="annottext">Maybe Text
 albumArtFormat :: Maybe Text
 $sel:albumArtFormat:Artwork' :: Artwork -&gt; Maybe Text
-</span><a href="#local-6989586621679210711"><span class="hs-identifier hs-var hs-var">albumArtFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210711"><span class="hs-identifier hs-var">albumArtFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210710"><span class="annot"><span class="annottext">s :: Artwork
-</span><a href="#local-6989586621679210710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210709"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artwork
-</span><a href="#local-6989586621679210710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:albumArtFormat:Artwork' :: Maybe Text
+</span><a href="#local-6989586621679210720"><span class="hs-identifier hs-var hs-var">albumArtFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210720"><span class="hs-identifier hs-var">albumArtFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210719"><span class="annot"><span class="annottext">s :: Artwork
+</span><a href="#local-6989586621679210719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210718"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artwork
+</span><a href="#local-6989586621679210719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:albumArtFormat:Artwork' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#%24sel%3AalbumArtFormat%3AArtwork%27"><span class="hs-identifier hs-var">albumArtFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | The maximum height of the output album art in pixels. If you specify</span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- @auto@, Elastic Transcoder uses 600 as the default value. If you specify</span><span>
@@ -342,16 +342,16 @@ $sel:albumArtFormat:Artwork' :: Artwork -&gt; Maybe Text
 -&gt; (Artwork -&gt; Maybe Text -&gt; Artwork)
 -&gt; Lens Artwork Artwork (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210707"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210716"><span class="annot"><span class="annottext">Maybe Text
 maxHeight :: Maybe Text
 $sel:maxHeight:Artwork' :: Artwork -&gt; Maybe Text
-</span><a href="#local-6989586621679210707"><span class="hs-identifier hs-var hs-var">maxHeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210707"><span class="hs-identifier hs-var">maxHeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210706"><span class="annot"><span class="annottext">s :: Artwork
-</span><a href="#local-6989586621679210706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210705"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artwork
-</span><a href="#local-6989586621679210706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxHeight:Artwork' :: Maybe Text
+</span><a href="#local-6989586621679210716"><span class="hs-identifier hs-var hs-var">maxHeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210716"><span class="hs-identifier hs-var">maxHeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210715"><span class="annot"><span class="annottext">s :: Artwork
+</span><a href="#local-6989586621679210715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210714"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artwork
+</span><a href="#local-6989586621679210715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxHeight:Artwork' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#%24sel%3AmaxHeight%3AArtwork%27"><span class="hs-identifier hs-var">maxHeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | The name of the file to be used as album art. To determine which Amazon</span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- S3 bucket contains the specified file, Elastic Transcoder checks the</span><span>
@@ -367,16 +367,16 @@ $sel:maxHeight:Artwork' :: Artwork -&gt; Maybe Text
 -&gt; (Artwork -&gt; Maybe Text -&gt; Artwork)
 -&gt; Lens Artwork Artwork (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210703"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210712"><span class="annot"><span class="annottext">Maybe Text
 inputKey :: Maybe Text
 $sel:inputKey:Artwork' :: Artwork -&gt; Maybe Text
-</span><a href="#local-6989586621679210703"><span class="hs-identifier hs-var hs-var">inputKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210703"><span class="hs-identifier hs-var">inputKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210702"><span class="annot"><span class="annottext">s :: Artwork
-</span><a href="#local-6989586621679210702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210701"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artwork
-</span><a href="#local-6989586621679210702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputKey:Artwork' :: Maybe Text
+</span><a href="#local-6989586621679210712"><span class="hs-identifier hs-var hs-var">inputKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210712"><span class="hs-identifier hs-var">inputKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210711"><span class="annot"><span class="annottext">s :: Artwork
+</span><a href="#local-6989586621679210711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210710"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artwork
+</span><a href="#local-6989586621679210711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputKey:Artwork' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#%24sel%3AinputKey%3AArtwork%27"><span class="hs-identifier hs-var">inputKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add white</span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- bars to the top and bottom and\/or left and right sides of the output</span><span>
@@ -388,16 +388,16 @@ $sel:inputKey:Artwork' :: Artwork -&gt; Maybe Text
 -&gt; (Artwork -&gt; Maybe Text -&gt; Artwork)
 -&gt; Lens Artwork Artwork (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210699"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210708"><span class="annot"><span class="annottext">Maybe Text
 paddingPolicy :: Maybe Text
 $sel:paddingPolicy:Artwork' :: Artwork -&gt; Maybe Text
-</span><a href="#local-6989586621679210699"><span class="hs-identifier hs-var hs-var">paddingPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210699"><span class="hs-identifier hs-var">paddingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210698"><span class="annot"><span class="annottext">s :: Artwork
-</span><a href="#local-6989586621679210698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210697"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artwork
-</span><a href="#local-6989586621679210698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paddingPolicy:Artwork' :: Maybe Text
+</span><a href="#local-6989586621679210708"><span class="hs-identifier hs-var hs-var">paddingPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210708"><span class="hs-identifier hs-var">paddingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210707"><span class="annot"><span class="annottext">s :: Artwork
+</span><a href="#local-6989586621679210707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210706"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artwork
+</span><a href="#local-6989586621679210707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paddingPolicy:Artwork' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#%24sel%3ApaddingPolicy%3AArtwork%27"><span class="hs-identifier hs-var">paddingPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | The encryption settings, if any, that you want Elastic Transcoder to</span><span>
 </span><span id="line-247"></span><span class="hs-comment">-- apply to your artwork.</span><span>
@@ -407,16 +407,16 @@ $sel:paddingPolicy:Artwork' :: Artwork -&gt; Maybe Text
 -&gt; (Artwork -&gt; Maybe Encryption -&gt; Artwork)
 -&gt; Lens Artwork Artwork (Maybe Encryption) (Maybe Encryption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210695"><span class="annot"><span class="annottext">Maybe Encryption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210704"><span class="annot"><span class="annottext">Maybe Encryption
 encryption :: Maybe Encryption
 $sel:encryption:Artwork' :: Artwork -&gt; Maybe Encryption
-</span><a href="#local-6989586621679210695"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679210695"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210694"><span class="annot"><span class="annottext">s :: Artwork
-</span><a href="#local-6989586621679210694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210693"><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679210693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artwork
-</span><a href="#local-6989586621679210694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:Artwork' :: Maybe Encryption
+</span><a href="#local-6989586621679210704"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679210704"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210703"><span class="annot"><span class="annottext">s :: Artwork
+</span><a href="#local-6989586621679210703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210702"><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679210702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artwork
+</span><a href="#local-6989586621679210703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:Artwork' :: Maybe Encryption
 </span><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#%24sel%3Aencryption%3AArtwork%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679210693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-comment">-- | The maximum width of the output album art in pixels. If you specify</span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- @auto@, Elastic Transcoder uses 600 as the default value. If you specify</span><span>
@@ -427,27 +427,27 @@ $sel:encryption:Artwork' :: Artwork -&gt; Maybe Encryption
 -&gt; (Artwork -&gt; Maybe Text -&gt; Artwork)
 -&gt; Lens Artwork Artwork (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210691"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210700"><span class="annot"><span class="annottext">Maybe Text
 maxWidth :: Maybe Text
 $sel:maxWidth:Artwork' :: Artwork -&gt; Maybe Text
-</span><a href="#local-6989586621679210691"><span class="hs-identifier hs-var hs-var">maxWidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210691"><span class="hs-identifier hs-var">maxWidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210690"><span class="annot"><span class="annottext">s :: Artwork
-</span><a href="#local-6989586621679210690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210689"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artwork
-</span><a href="#local-6989586621679210690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxWidth:Artwork' :: Maybe Text
+</span><a href="#local-6989586621679210700"><span class="hs-identifier hs-var hs-var">maxWidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210700"><span class="hs-identifier hs-var">maxWidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210699"><span class="annot"><span class="annottext">s :: Artwork
+</span><a href="#local-6989586621679210699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210698"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artwork
+</span><a href="#local-6989586621679210699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxWidth:Artwork' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#%24sel%3AmaxWidth%3AArtwork%27"><span class="hs-identifier hs-var">maxWidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210686"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-258"></span><span>  </span><span id="local-6989586621679210684"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Artwork
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210695"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679210693"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Artwork
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-259"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Artwork) -&gt; Value -&gt; Parser Artwork
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Artwork&quot;</span></span><span>
-</span><span id="line-261"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210681"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210681"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-261"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210690"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210690"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-262"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -476,7 +476,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Artwork)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SizingPolicy&quot;</span></span><span class="hs-special">)</span><span>
@@ -498,7 +498,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Artwork)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlbumArtFormat&quot;</span></span><span class="hs-special">)</span><span>
@@ -515,7 +515,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Encryption -&gt; Maybe Text -&gt; Artwork)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxHeight&quot;</span></span><span class="hs-special">)</span><span>
@@ -526,7 +526,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Encryption -&gt; Maybe Text -&gt; Artwork)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputKey&quot;</span></span><span class="hs-special">)</span><span>
@@ -535,7 +535,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Encryption -&gt; Maybe Text -&gt; Artwork)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PaddingPolicy&quot;</span></span><span class="hs-special">)</span><span>
@@ -543,7 +543,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Encryption) -&gt; Parser (Maybe Text -&gt; Artwork)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Encryption)
+</span><a href="#local-6989586621679210690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Encryption)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Encryption&quot;</span></span><span class="hs-special">)</span><span>
@@ -551,19 +551,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Artwork
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxWidth&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-271"></span><span>
-</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210675"><span id="local-6989586621679210677"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span></span></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210684"><span id="local-6989586621679210686"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span></span></span><span>
 </span><span id="line-273"></span><span>
-</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210681"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span></span><span>
 </span><span id="line-275"></span><span>
-</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210664"><span id="local-6989586621679210666"><span id="local-6989586621679210668"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-277"></span><span>  </span><span id="local-6989586621679210662"><span class="annot"><span class="annottext">toJSON :: Artwork -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210654"><span id="local-6989586621679210655"><span id="local-6989586621679210656"><span id="local-6989586621679210657"><span id="local-6989586621679210658"><span id="local-6989586621679210659"><span id="local-6989586621679210660"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210673"><span id="local-6989586621679210675"><span id="local-6989586621679210677"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679210671"><span class="annot"><span class="annottext">toJSON :: Artwork -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork%27"><span class="hs-identifier hs-type">Artwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210663"><span id="local-6989586621679210664"><span id="local-6989586621679210665"><span id="local-6989586621679210666"><span id="local-6989586621679210667"><span id="local-6989586621679210668"><span id="local-6989586621679210669"><span class="annot"><span class="annottext">Maybe Text
 Maybe Encryption
 maxWidth :: Maybe Text
 encryption :: Maybe Encryption
@@ -579,7 +579,7 @@ $sel:inputKey:Artwork' :: Artwork -&gt; Maybe Text
 $sel:maxHeight:Artwork' :: Artwork -&gt; Maybe Text
 $sel:albumArtFormat:Artwork' :: Artwork -&gt; Maybe Text
 $sel:sizingPolicy:Artwork' :: Artwork -&gt; Maybe Text
-</span><a href="#local-6989586621679210654"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679210663"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-278"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-279"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -591,7 +591,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210660"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210669"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-281"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlbumArtFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -599,42 +599,42 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-282"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210659"><span class="hs-identifier hs-var">albumArtFormat</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210668"><span class="hs-identifier hs-var">albumArtFormat</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-283"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxHeight&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210658"><span class="hs-identifier hs-var">maxHeight</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210667"><span class="hs-identifier hs-var">maxHeight</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-284"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210657"><span class="hs-identifier hs-var">inputKey</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210666"><span class="hs-identifier hs-var">inputKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-285"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PaddingPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210656"><span class="hs-identifier hs-var">paddingPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210665"><span class="hs-identifier hs-var">paddingPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-286"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Encryption -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Pair) -&gt; Maybe Encryption -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679210655"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210664"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-287"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxWidth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210654"><span class="hs-identifier hs-var">maxWidth</span></a></span><span>
+</span><a href="#local-6989586621679210663"><span class="hs-identifier hs-var">maxWidth</span></a></span><span>
 </span><span id="line-288"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-289"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span></pre></body></html>

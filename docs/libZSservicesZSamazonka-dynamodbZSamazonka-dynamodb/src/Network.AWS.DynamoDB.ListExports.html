@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newListExports' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679389199"><span id="local-6989586621679389200"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListExports"><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-var">ListExports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListExports%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-var">ListExports'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679389208"><span id="local-6989586621679389209"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListExports"><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-var">ListExports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListExports%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-var">ListExports'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) associated with the exported table.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AtableArn%3AListExports%27"><span class="annot"><span class="annottext">ListExports -&gt; Maybe Text
 </span><a href="Network.AWS.DynamoDB.ListExports.html#%24sel%3AtableArn%3AListExports%27"><span class="hs-identifier hs-var hs-var">tableArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxResults%3AListExports%27"><span class="annot"><span class="annottext">ListExports -&gt; Maybe Natural
 </span><a href="Network.AWS.DynamoDB.ListExports.html#%24sel%3AmaxResults%3AListExports%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389191"><span id="local-6989586621679389193"><span class="annot"><span class="annottext">ListExports -&gt; ListExports -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389200"><span id="local-6989586621679389202"><span class="annot"><span class="annottext">ListExports -&gt; ListExports -&gt; Bool
 (ListExports -&gt; ListExports -&gt; Bool)
 -&gt; (ListExports -&gt; ListExports -&gt; Bool) -&gt; Eq ListExports
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListExports -&gt; ListExports -&gt; Bool
 == :: ListExports -&gt; ListExports -&gt; Bool
 $c== :: ListExports -&gt; ListExports -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389182"><span id="local-6989586621679389184"><span id="local-6989586621679389186"><span id="local-6989586621679389188"><span class="annot"><span class="annottext">ReadPrec [ListExports]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389191"><span id="local-6989586621679389193"><span id="local-6989586621679389195"><span id="local-6989586621679389197"><span class="annot"><span class="annottext">ReadPrec [ListExports]
 ReadPrec ListExports
 Int -&gt; ReadS ListExports
 ReadS [ListExports]
@@ -91,7 +91,7 @@ readList :: ReadS [ListExports]
 $creadList :: ReadS [ListExports]
 readsPrec :: Int -&gt; ReadS ListExports
 $creadsPrec :: Int -&gt; ReadS ListExports
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389175"><span id="local-6989586621679389177"><span id="local-6989586621679389179"><span class="annot"><span class="annottext">Int -&gt; ListExports -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389184"><span id="local-6989586621679389186"><span id="local-6989586621679389188"><span class="annot"><span class="annottext">Int -&gt; ListExports -&gt; ShowS
 [ListExports] -&gt; ShowS
 ListExports -&gt; String
 (Int -&gt; ListExports -&gt; ShowS)
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; (ListExports -&gt; Maybe Text -&gt; ListExports)
 -&gt; Lens ListExports ListExports (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-type">ListExports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389168"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-type">ListExports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389177"><span class="annot"><span class="annottext">Maybe Text
 tableArn :: Maybe Text
 $sel:tableArn:ListExports' :: ListExports -&gt; Maybe Text
-</span><a href="#local-6989586621679389168"><span class="hs-identifier hs-var hs-var">tableArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389168"><span class="hs-identifier hs-var">tableArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389167"><span class="annot"><span class="annottext">s :: ListExports
-</span><a href="#local-6989586621679389167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-type">ListExports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389166"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExports
-</span><a href="#local-6989586621679389167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableArn:ListExports' :: Maybe Text
+</span><a href="#local-6989586621679389177"><span class="hs-identifier hs-var hs-var">tableArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389177"><span class="hs-identifier hs-var">tableArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389176"><span class="annot"><span class="annottext">s :: ListExports
+</span><a href="#local-6989586621679389176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-type">ListExports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389175"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExports
+</span><a href="#local-6989586621679389176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableArn:ListExports' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.ListExports.html#%24sel%3AtableArn%3AListExports%27"><span class="hs-identifier hs-var">tableArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | An optional string that, if supplied, must be copied from the output of</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- a previous call to @ListExports@. When provided in this manner, the API</span><span>
@@ -179,16 +179,16 @@ $sel:tableArn:ListExports' :: ListExports -&gt; Maybe Text
 -&gt; (ListExports -&gt; Maybe Text -&gt; ListExports)
 -&gt; Lens ListExports ListExports (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-type">ListExports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389165"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-type">ListExports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389174"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListExports' :: ListExports -&gt; Maybe Text
-</span><a href="#local-6989586621679389165"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389165"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389164"><span class="annot"><span class="annottext">s :: ListExports
-</span><a href="#local-6989586621679389164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-type">ListExports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389163"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExports
-</span><a href="#local-6989586621679389164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListExports' :: Maybe Text
+</span><a href="#local-6989586621679389174"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389174"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389173"><span class="annot"><span class="annottext">s :: ListExports
+</span><a href="#local-6989586621679389173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-type">ListExports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389172"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExports
+</span><a href="#local-6989586621679389173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListExports' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.ListExports.html#%24sel%3AnextToken%3AListExports%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | Maximum number of results to return per page.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#listExports_maxResults"><span class="hs-identifier hs-type">listExports_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -198,25 +198,25 @@ $sel:nextToken:ListExports' :: ListExports -&gt; Maybe Text
 -&gt; (ListExports -&gt; Maybe Natural -&gt; ListExports)
 -&gt; Lens ListExports ListExports (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-type">ListExports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389162"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-type">ListExports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389171"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListExports' :: ListExports -&gt; Maybe Natural
-</span><a href="#local-6989586621679389162"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679389162"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389161"><span class="annot"><span class="annottext">s :: ListExports
-</span><a href="#local-6989586621679389161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-type">ListExports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389160"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679389160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExports
-</span><a href="#local-6989586621679389161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListExports' :: Maybe Natural
+</span><a href="#local-6989586621679389171"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679389171"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389170"><span class="annot"><span class="annottext">s :: ListExports
+</span><a href="#local-6989586621679389170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-type">ListExports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389169"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679389169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExports
+</span><a href="#local-6989586621679389170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListExports' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.ListExports.html#%24sel%3AmaxResults%3AListExports%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679389160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse"><span class="hs-identifier hs-type">ListExportsResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679389156"><span class="annot"><span class="annottext">request :: ListExports -&gt; Request ListExports
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679389165"><span class="annot"><span class="annottext">request :: ListExports -&gt; Request ListExports
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListExports -&gt; Request ListExports
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679389152"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679389161"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListExports
 -&gt; ClientResponse ClientBody
@@ -240,10 +240,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389149"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389149"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389148"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679389148"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389147"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389147"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389158"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389158"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389157"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679389157"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389156"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389156"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ExportSummary] -&gt; Maybe Text -&gt; Int -&gt; ListExportsResponse
 </span><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-var">ListExportsResponse'</span></a></span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ExportSummary] -&gt; Maybe Text -&gt; Int -&gt; ListExportsResponse)
@@ -251,7 +251,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListExportsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ExportSummary]))
+</span><a href="#local-6989586621679389156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ExportSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExportSummaries&quot;</span></span><span>
@@ -267,7 +267,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListExportsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679389156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -279,15 +279,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389149"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389158"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389138"><span id="local-6989586621679389140"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389147"><span id="local-6989586621679389149"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389135"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389144"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679389131"><span class="annot"><span class="annottext">toHeaders :: ListExports -&gt; ResponseHeaders
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679389140"><span class="annot"><span class="annottext">toHeaders :: ListExports -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListExports -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -314,9 +314,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389121"><span id="local-6989586621679389123"><span id="local-6989586621679389125"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679389119"><span class="annot"><span class="annottext">toJSON :: ListExports -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-type">ListExports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389115"><span id="local-6989586621679389116"><span id="local-6989586621679389117"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389130"><span id="local-6989586621679389132"><span id="local-6989586621679389134"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679389128"><span class="annot"><span class="annottext">toJSON :: ListExports -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports%27"><span class="hs-identifier hs-type">ListExports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389124"><span id="local-6989586621679389125"><span id="local-6989586621679389126"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
@@ -324,7 +324,7 @@ tableArn :: Maybe Text
 $sel:maxResults:ListExports' :: ListExports -&gt; Maybe Natural
 $sel:nextToken:ListExports' :: ListExports -&gt; Maybe Text
 $sel:tableArn:ListExports' :: ListExports -&gt; Maybe Text
-</span><a href="#local-6989586621679389115"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679389124"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -336,33 +336,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389117"><span class="hs-identifier hs-var">tableArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389126"><span class="hs-identifier hs-var">tableArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389116"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389125"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679389115"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679389124"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679389109"><span class="annot"><span class="annottext">toPath :: ListExports -&gt; ByteString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679389118"><span class="annot"><span class="annottext">toPath :: ListExports -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListExports -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExports"><span class="hs-identifier hs-type">ListExports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679389105"><span class="annot"><span class="annottext">toQuery :: ListExports -&gt; QueryString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679389114"><span class="annot"><span class="annottext">toQuery :: ListExports -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListExports -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -370,7 +370,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | /See:/ 'newListExportsResponse' smart constructor.</span><span>
-</span><span id="line-153"></span><span id="local-6989586621679389102"><span id="local-6989586621679389103"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListExportsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse"><span class="hs-identifier hs-var">ListExportsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListExportsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-var">ListExportsResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span id="local-6989586621679389111"><span id="local-6989586621679389112"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListExportsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse"><span class="hs-identifier hs-var">ListExportsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListExportsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-var">ListExportsResponse'</span></a></span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of @ExportSummary@ objects.</span><span>
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AexportSummaries%3AListExportsResponse%27"><span class="annot"><span class="annottext">ListExportsResponse -&gt; Maybe [ExportSummary]
 </span><a href="Network.AWS.DynamoDB.ListExports.html#%24sel%3AexportSummaries%3AListExportsResponse%27"><span class="hs-identifier hs-var hs-var">exportSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary"><span class="hs-identifier hs-type">ExportSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -383,7 +383,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListExportsResponse%27"><span class="annot"><span class="annottext">ListExportsResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.ListExports.html#%24sel%3AhttpStatus%3AListExportsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389095"><span id="local-6989586621679389097"><span class="annot"><span class="annottext">ListExportsResponse -&gt; ListExportsResponse -&gt; Bool
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389104"><span id="local-6989586621679389106"><span class="annot"><span class="annottext">ListExportsResponse -&gt; ListExportsResponse -&gt; Bool
 (ListExportsResponse -&gt; ListExportsResponse -&gt; Bool)
 -&gt; (ListExportsResponse -&gt; ListExportsResponse -&gt; Bool)
 -&gt; Eq ListExportsResponse
@@ -392,7 +392,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListExportsResponse -&gt; ListExportsResponse -&gt; Bool
 == :: ListExportsResponse -&gt; ListExportsResponse -&gt; Bool
 $c== :: ListExportsResponse -&gt; ListExportsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389087"><span id="local-6989586621679389089"><span id="local-6989586621679389091"><span id="local-6989586621679389093"><span class="annot"><span class="annottext">ReadPrec [ListExportsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389096"><span id="local-6989586621679389098"><span id="local-6989586621679389100"><span id="local-6989586621679389102"><span class="annot"><span class="annottext">ReadPrec [ListExportsResponse]
 ReadPrec ListExportsResponse
 Int -&gt; ReadS ListExportsResponse
 ReadS [ListExportsResponse]
@@ -412,7 +412,7 @@ readList :: ReadS [ListExportsResponse]
 $creadList :: ReadS [ListExportsResponse]
 readsPrec :: Int -&gt; ReadS ListExportsResponse
 $creadsPrec :: Int -&gt; ReadS ListExportsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389081"><span id="local-6989586621679389083"><span id="local-6989586621679389085"><span class="annot"><span class="annottext">Int -&gt; ListExportsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389090"><span id="local-6989586621679389092"><span id="local-6989586621679389094"><span class="annot"><span class="annottext">Int -&gt; ListExportsResponse -&gt; ShowS
 [ListExportsResponse] -&gt; ShowS
 ListExportsResponse -&gt; String
 (Int -&gt; ListExportsResponse -&gt; ShowS)
@@ -458,8 +458,8 @@ $cfrom :: forall x. ListExportsResponse -&gt; Rep ListExportsResponse x
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse"><span class="hs-identifier hs-type">ListExportsResponse</span></a></span><span>
 </span><span id="line-184"></span><span id="newListExportsResponse"><span class="annot"><span class="annottext">newListExportsResponse :: Int -&gt; ListExportsResponse
-</span><a href="Network.AWS.DynamoDB.ListExports.html#newListExportsResponse"><span class="hs-identifier hs-var hs-var">newListExportsResponse</span></a></span></span><span> </span><span id="local-6989586621679389078"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389078"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.ListExports.html#newListExportsResponse"><span class="hs-identifier hs-var hs-var">newListExportsResponse</span></a></span></span><span> </span><span id="local-6989586621679389087"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389087"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">ListExportsResponse' :: Maybe [ExportSummary] -&gt; Maybe Text -&gt; Int -&gt; ListExportsResponse
 </span><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-type">ListExportsResponse'</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:exportSummaries:ListExportsResponse' :: Maybe [ExportSummary]
@@ -473,7 +473,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListExportsResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.ListExports.html#%24sel%3AhttpStatus%3AListExportsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389078"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679389087"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | A list of @ExportSummary@ objects.</span><span>
@@ -489,16 +489,16 @@ forall a. Maybe a
      (Maybe [ExportSummary])
      (Maybe [ExportSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-type">ListExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389077"><span class="annot"><span class="annottext">Maybe [ExportSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-type">ListExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389086"><span class="annot"><span class="annottext">Maybe [ExportSummary]
 exportSummaries :: Maybe [ExportSummary]
 $sel:exportSummaries:ListExportsResponse' :: ListExportsResponse -&gt; Maybe [ExportSummary]
-</span><a href="#local-6989586621679389077"><span class="hs-identifier hs-var hs-var">exportSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ExportSummary]
-</span><a href="#local-6989586621679389077"><span class="hs-identifier hs-var">exportSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389076"><span class="annot"><span class="annottext">s :: ListExportsResponse
-</span><a href="#local-6989586621679389076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-type">ListExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389075"><span class="annot"><span class="annottext">Maybe [ExportSummary]
-</span><a href="#local-6989586621679389075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExportsResponse
-</span><a href="#local-6989586621679389076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportSummaries:ListExportsResponse' :: Maybe [ExportSummary]
+</span><a href="#local-6989586621679389086"><span class="hs-identifier hs-var hs-var">exportSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ExportSummary]
+</span><a href="#local-6989586621679389086"><span class="hs-identifier hs-var">exportSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389085"><span class="annot"><span class="annottext">s :: ListExportsResponse
+</span><a href="#local-6989586621679389085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-type">ListExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389084"><span class="annot"><span class="annottext">Maybe [ExportSummary]
+</span><a href="#local-6989586621679389084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExportsResponse
+</span><a href="#local-6989586621679389085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportSummaries:ListExportsResponse' :: Maybe [ExportSummary]
 </span><a href="Network.AWS.DynamoDB.ListExports.html#%24sel%3AexportSummaries%3AListExportsResponse%27"><span class="hs-identifier hs-var">exportSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ExportSummary]
-</span><a href="#local-6989586621679389075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse"><span class="hs-identifier hs-type">ListExportsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ExportSummary] -&gt; f (Maybe [ExportSummary]))
+</span><a href="#local-6989586621679389084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse"><span class="hs-identifier hs-type">ListExportsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ExportSummary] -&gt; f (Maybe [ExportSummary]))
  -&gt; ListExportsResponse -&gt; f ListExportsResponse)
 -&gt; ((Maybe [ExportSummary] -&gt; f (Maybe [ExportSummary]))
     -&gt; Maybe [ExportSummary] -&gt; f (Maybe [ExportSummary]))
@@ -532,16 +532,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListExportsResponse ListExportsResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-type">ListExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389071"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-type">ListExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389080"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListExportsResponse' :: ListExportsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679389071"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389071"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389070"><span class="annot"><span class="annottext">s :: ListExportsResponse
-</span><a href="#local-6989586621679389070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-type">ListExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389069"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExportsResponse
-</span><a href="#local-6989586621679389070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListExportsResponse' :: Maybe Text
+</span><a href="#local-6989586621679389080"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389080"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389079"><span class="annot"><span class="annottext">s :: ListExportsResponse
+</span><a href="#local-6989586621679389079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-type">ListExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389078"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExportsResponse
+</span><a href="#local-6989586621679389079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListExportsResponse' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.ListExports.html#%24sel%3AnextToken%3AListExportsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse"><span class="hs-identifier hs-type">ListExportsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse"><span class="hs-identifier hs-type">ListExportsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#listExportsResponse_httpStatus"><span class="hs-identifier hs-type">listExportsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse"><span class="hs-identifier hs-type">ListExportsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -550,16 +550,16 @@ $sel:nextToken:ListExportsResponse' :: ListExportsResponse -&gt; Maybe Text
 -&gt; (ListExportsResponse -&gt; Int -&gt; ListExportsResponse)
 -&gt; Lens ListExportsResponse ListExportsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-type">ListExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389068"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-type">ListExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389077"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListExportsResponse' :: ListExportsResponse -&gt; Int
-</span><a href="#local-6989586621679389068"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389068"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389067"><span class="annot"><span class="annottext">s :: ListExportsResponse
-</span><a href="#local-6989586621679389067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-type">ListExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389066"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExportsResponse
-</span><a href="#local-6989586621679389067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListExportsResponse' :: Int
+</span><a href="#local-6989586621679389077"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389077"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389076"><span class="annot"><span class="annottext">s :: ListExportsResponse
+</span><a href="#local-6989586621679389076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse%27"><span class="hs-identifier hs-type">ListExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389075"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExportsResponse
+</span><a href="#local-6989586621679389076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListExportsResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.ListExports.html#%24sel%3AhttpStatus%3AListExportsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse"><span class="hs-identifier hs-type">ListExportsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse"><span class="hs-identifier hs-type">ListExportsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389064"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse"><span class="hs-identifier hs-type">ListExportsResponse</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389073"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListExports.html#ListExportsResponse"><span class="hs-identifier hs-type">ListExportsResponse</span></a></span></span><span>
 </span><span id="line-207"></span></pre></body></html>

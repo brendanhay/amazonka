@@ -62,12 +62,12 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newCreateKeyGroup' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679421121"><span id="local-6989586621679421122"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKeyGroup"><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-var">CreateKeyGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKeyGroup%27"><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup%27"><span class="hs-identifier hs-var">CreateKeyGroup'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679421130"><span id="local-6989586621679421131"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKeyGroup"><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-var">CreateKeyGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKeyGroup%27"><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup%27"><span class="hs-identifier hs-var">CreateKeyGroup'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A key group configuration.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AkeyGroupConfig%3ACreateKeyGroup%27"><span class="annot"><span class="annottext">CreateKeyGroup -&gt; KeyGroupConfig
 </span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#%24sel%3AkeyGroupConfig%3ACreateKeyGroup%27"><span class="hs-identifier hs-var hs-var">keyGroupConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupConfig.html#KeyGroupConfig"><span class="hs-identifier hs-type">KeyGroupConfig</span></a></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679421115"><span id="local-6989586621679421117"><span class="annot"><span class="annottext">CreateKeyGroup -&gt; CreateKeyGroup -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679421124"><span id="local-6989586621679421126"><span class="annot"><span class="annottext">CreateKeyGroup -&gt; CreateKeyGroup -&gt; Bool
 (CreateKeyGroup -&gt; CreateKeyGroup -&gt; Bool)
 -&gt; (CreateKeyGroup -&gt; CreateKeyGroup -&gt; Bool) -&gt; Eq CreateKeyGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateKeyGroup -&gt; CreateKeyGroup -&gt; Bool
 == :: CreateKeyGroup -&gt; CreateKeyGroup -&gt; Bool
 $c== :: CreateKeyGroup -&gt; CreateKeyGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421106"><span id="local-6989586621679421108"><span id="local-6989586621679421110"><span id="local-6989586621679421112"><span class="annot"><span class="annottext">ReadPrec [CreateKeyGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421115"><span id="local-6989586621679421117"><span id="local-6989586621679421119"><span id="local-6989586621679421121"><span class="annot"><span class="annottext">ReadPrec [CreateKeyGroup]
 ReadPrec CreateKeyGroup
 Int -&gt; ReadS CreateKeyGroup
 ReadS [CreateKeyGroup]
@@ -95,7 +95,7 @@ readList :: ReadS [CreateKeyGroup]
 $creadList :: ReadS [CreateKeyGroup]
 readsPrec :: Int -&gt; ReadS CreateKeyGroup
 $creadsPrec :: Int -&gt; ReadS CreateKeyGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421099"><span id="local-6989586621679421101"><span id="local-6989586621679421103"><span class="annot"><span class="annottext">Int -&gt; CreateKeyGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421108"><span id="local-6989586621679421110"><span id="local-6989586621679421112"><span class="annot"><span class="annottext">Int -&gt; CreateKeyGroup -&gt; ShowS
 [CreateKeyGroup] -&gt; ShowS
 CreateKeyGroup -&gt; String
 (Int -&gt; CreateKeyGroup -&gt; ShowS)
@@ -135,12 +135,12 @@ $cfrom :: forall x. CreateKeyGroup -&gt; Rep CreateKeyGroup x
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupConfig.html#KeyGroupConfig"><span class="hs-identifier hs-type">KeyGroupConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span>
 </span><span id="line-84"></span><span id="newCreateKeyGroup"><span class="annot"><span class="annottext">newCreateKeyGroup :: KeyGroupConfig -&gt; CreateKeyGroup
-</span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#newCreateKeyGroup"><span class="hs-identifier hs-var hs-var">newCreateKeyGroup</span></a></span></span><span> </span><span id="local-6989586621679421094"><span class="annot"><span class="annottext">KeyGroupConfig
-</span><a href="#local-6989586621679421094"><span class="hs-identifier hs-var">pKeyGroupConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#newCreateKeyGroup"><span class="hs-identifier hs-var hs-var">newCreateKeyGroup</span></a></span></span><span> </span><span id="local-6989586621679421103"><span class="annot"><span class="annottext">KeyGroupConfig
+</span><a href="#local-6989586621679421103"><span class="hs-identifier hs-var">pKeyGroupConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">CreateKeyGroup' :: KeyGroupConfig -&gt; CreateKeyGroup
 </span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup%27"><span class="hs-identifier hs-type">CreateKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyGroupConfig:CreateKeyGroup' :: KeyGroupConfig
 </span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#%24sel%3AkeyGroupConfig%3ACreateKeyGroup%27"><span class="hs-identifier hs-var">keyGroupConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyGroupConfig
-</span><a href="#local-6989586621679421094"><span class="hs-identifier hs-var">pKeyGroupConfig_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679421103"><span class="hs-identifier hs-var">pKeyGroupConfig_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | A key group configuration.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#createKeyGroup_keyGroupConfig"><span class="hs-identifier hs-type">createKeyGroup_keyGroupConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupConfig.html#KeyGroupConfig"><span class="hs-identifier hs-type">KeyGroupConfig</span></a></span><span>
@@ -150,27 +150,27 @@ $cfrom :: forall x. CreateKeyGroup -&gt; Rep CreateKeyGroup x
 -&gt; (CreateKeyGroup -&gt; KeyGroupConfig -&gt; CreateKeyGroup)
 -&gt; Lens CreateKeyGroup CreateKeyGroup KeyGroupConfig KeyGroupConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup%27"><span class="hs-identifier hs-type">CreateKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421091"><span class="annot"><span class="annottext">KeyGroupConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup%27"><span class="hs-identifier hs-type">CreateKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421100"><span class="annot"><span class="annottext">KeyGroupConfig
 keyGroupConfig :: KeyGroupConfig
 $sel:keyGroupConfig:CreateKeyGroup' :: CreateKeyGroup -&gt; KeyGroupConfig
-</span><a href="#local-6989586621679421091"><span class="hs-identifier hs-var hs-var">keyGroupConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroupConfig
-</span><a href="#local-6989586621679421091"><span class="hs-identifier hs-var">keyGroupConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421090"><span class="annot"><span class="annottext">s :: CreateKeyGroup
-</span><a href="#local-6989586621679421090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup%27"><span class="hs-identifier hs-type">CreateKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421089"><span class="annot"><span class="annottext">KeyGroupConfig
-</span><a href="#local-6989586621679421089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroup
-</span><a href="#local-6989586621679421090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyGroupConfig:CreateKeyGroup' :: KeyGroupConfig
+</span><a href="#local-6989586621679421100"><span class="hs-identifier hs-var hs-var">keyGroupConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroupConfig
+</span><a href="#local-6989586621679421100"><span class="hs-identifier hs-var">keyGroupConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421099"><span class="annot"><span class="annottext">s :: CreateKeyGroup
+</span><a href="#local-6989586621679421099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup%27"><span class="hs-identifier hs-type">CreateKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421098"><span class="annot"><span class="annottext">KeyGroupConfig
+</span><a href="#local-6989586621679421098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroup
+</span><a href="#local-6989586621679421099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyGroupConfig:CreateKeyGroup' :: KeyGroupConfig
 </span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#%24sel%3AkeyGroupConfig%3ACreateKeyGroup%27"><span class="hs-identifier hs-var">keyGroupConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyGroupConfig
-</span><a href="#local-6989586621679421089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679421098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679421085"><span class="annot"><span class="annottext">request :: CreateKeyGroup -&gt; Request CreateKeyGroup
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679421094"><span class="annot"><span class="annottext">request :: CreateKeyGroup -&gt; Request CreateKeyGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateKeyGroup -&gt; Request CreateKeyGroup
 forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postXML</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679421081"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679421090"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateKeyGroup
 -&gt; ClientResponse ClientBody
@@ -194,10 +194,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679421078"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421078"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679421077"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679421077"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679421076"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679421076"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679421087"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679421087"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679421086"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679421086"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679421085"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421085"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe KeyGroup -&gt; Int -&gt; CreateKeyGroupResponse
 </span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-var">CreateKeyGroupResponse'</span></a></span><span>
@@ -209,7 +209,7 @@ MonadResource m =&gt;
      (Maybe Text -&gt; Maybe KeyGroup -&gt; Int -&gt; CreateKeyGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679421077"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679421086"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -222,7 +222,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe KeyGroup -&gt; Int -&gt; CreateKeyGroupResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679421077"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679421086"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -235,7 +235,7 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe KeyGroup)
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679421076"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679421085"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateKeyGroupResponse)
 -&gt; Either String Int -&gt; Either String CreateKeyGroupResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -244,29 +244,29 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421078"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679421087"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679421067"><span id="local-6989586621679421069"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679421076"><span id="local-6989586621679421078"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679421064"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679421073"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679421060"><span class="annot"><span class="annottext">toElement :: CreateKeyGroup -&gt; Element
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup%27"><span class="hs-identifier hs-type">CreateKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421058"><span class="annot"><span class="annottext">KeyGroupConfig
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679421069"><span class="annot"><span class="annottext">toElement :: CreateKeyGroup -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup%27"><span class="hs-identifier hs-type">CreateKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421067"><span class="annot"><span class="annottext">KeyGroupConfig
 keyGroupConfig :: KeyGroupConfig
 $sel:keyGroupConfig:CreateKeyGroup' :: CreateKeyGroup -&gt; KeyGroupConfig
-</span><a href="#local-6989586621679421058"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679421067"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; KeyGroupConfig -&gt; Element
 forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
 </span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;{http://cloudfront.amazonaws.com/doc/2020-05-31/}KeyGroupConfig&quot;</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">KeyGroupConfig
-</span><a href="#local-6989586621679421058"><span class="hs-identifier hs-var">keyGroupConfig</span></a></span><span>
+</span><a href="#local-6989586621679421067"><span class="hs-identifier hs-var">keyGroupConfig</span></a></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679421054"><span class="annot"><span class="annottext">toHeaders :: CreateKeyGroup -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679421063"><span class="annot"><span class="annottext">toHeaders :: CreateKeyGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateKeyGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -274,14 +274,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679421049"><span class="annot"><span class="annottext">toPath :: CreateKeyGroup -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679421058"><span class="annot"><span class="annottext">toPath :: CreateKeyGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateKeyGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2020-05-31/key-group&quot;</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroup"><span class="hs-identifier hs-type">CreateKeyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679421045"><span class="annot"><span class="annottext">toQuery :: CreateKeyGroup -&gt; QueryString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679421054"><span class="annot"><span class="annottext">toQuery :: CreateKeyGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateKeyGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -289,7 +289,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newCreateKeyGroupResponse' smart constructor.</span><span>
-</span><span id="line-126"></span><span id="local-6989586621679421042"><span id="local-6989586621679421043"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKeyGroupResponse"><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-var">CreateKeyGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKeyGroupResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-var">CreateKeyGroupResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span id="local-6989586621679421051"><span id="local-6989586621679421052"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKeyGroupResponse"><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-var">CreateKeyGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKeyGroupResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-var">CreateKeyGroupResponse'</span></a></span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for this version of the key group.</span><span>
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AeTag%3ACreateKeyGroupResponse%27"><span class="annot"><span class="annottext">CreateKeyGroupResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#%24sel%3AeTag%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -303,7 +303,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateKeyGroupResponse%27"><span class="annot"><span class="annottext">CreateKeyGroupResponse -&gt; Int
 </span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#%24sel%3AhttpStatus%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679421034"><span id="local-6989586621679421036"><span class="annot"><span class="annottext">CreateKeyGroupResponse -&gt; CreateKeyGroupResponse -&gt; Bool
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679421043"><span id="local-6989586621679421045"><span class="annot"><span class="annottext">CreateKeyGroupResponse -&gt; CreateKeyGroupResponse -&gt; Bool
 (CreateKeyGroupResponse -&gt; CreateKeyGroupResponse -&gt; Bool)
 -&gt; (CreateKeyGroupResponse -&gt; CreateKeyGroupResponse -&gt; Bool)
 -&gt; Eq CreateKeyGroupResponse
@@ -312,7 +312,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateKeyGroupResponse -&gt; CreateKeyGroupResponse -&gt; Bool
 == :: CreateKeyGroupResponse -&gt; CreateKeyGroupResponse -&gt; Bool
 $c== :: CreateKeyGroupResponse -&gt; CreateKeyGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421026"><span id="local-6989586621679421028"><span id="local-6989586621679421030"><span id="local-6989586621679421032"><span class="annot"><span class="annottext">ReadPrec [CreateKeyGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421035"><span id="local-6989586621679421037"><span id="local-6989586621679421039"><span id="local-6989586621679421041"><span class="annot"><span class="annottext">ReadPrec [CreateKeyGroupResponse]
 ReadPrec CreateKeyGroupResponse
 Int -&gt; ReadS CreateKeyGroupResponse
 ReadS [CreateKeyGroupResponse]
@@ -332,7 +332,7 @@ readList :: ReadS [CreateKeyGroupResponse]
 $creadList :: ReadS [CreateKeyGroupResponse]
 readsPrec :: Int -&gt; ReadS CreateKeyGroupResponse
 $creadsPrec :: Int -&gt; ReadS CreateKeyGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421020"><span id="local-6989586621679421022"><span id="local-6989586621679421024"><span class="annot"><span class="annottext">Int -&gt; CreateKeyGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421029"><span id="local-6989586621679421031"><span id="local-6989586621679421033"><span class="annot"><span class="annottext">Int -&gt; CreateKeyGroupResponse -&gt; ShowS
 [CreateKeyGroupResponse] -&gt; ShowS
 CreateKeyGroupResponse -&gt; String
 (Int -&gt; CreateKeyGroupResponse -&gt; ShowS)
@@ -379,8 +379,8 @@ $cfrom :: forall x. CreateKeyGroupResponse -&gt; Rep CreateKeyGroupResponse x
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span>
 </span><span id="line-157"></span><span id="newCreateKeyGroupResponse"><span class="annot"><span class="annottext">newCreateKeyGroupResponse :: Int -&gt; CreateKeyGroupResponse
-</span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#newCreateKeyGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateKeyGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679421017"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421017"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#newCreateKeyGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateKeyGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679421026"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679421026"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">CreateKeyGroupResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe KeyGroup -&gt; Int -&gt; CreateKeyGroupResponse
 </span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span>
@@ -398,7 +398,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKeyGroupResponse' :: Int
 </span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#%24sel%3AhttpStatus%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421017"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679421026"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The identifier for this version of the key group.</span><span>
@@ -413,16 +413,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421016"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421025"><span class="annot"><span class="annottext">Maybe Text
 eTag :: Maybe Text
 $sel:eTag:CreateKeyGroupResponse' :: CreateKeyGroupResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679421016"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679421016"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421015"><span class="annot"><span class="annottext">s :: CreateKeyGroupResponse
-</span><a href="#local-6989586621679421015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421014"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679421014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroupResponse
-</span><a href="#local-6989586621679421015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:CreateKeyGroupResponse' :: Maybe Text
+</span><a href="#local-6989586621679421025"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421025"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421024"><span class="annot"><span class="annottext">s :: CreateKeyGroupResponse
+</span><a href="#local-6989586621679421024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421023"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroupResponse
+</span><a href="#local-6989586621679421024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:CreateKeyGroupResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#%24sel%3AeTag%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679421014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679421023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The URL of the key group.</span><span>
 </span><span id="line-170"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_location"><span class="hs-identifier hs-type">createKeyGroupResponse_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -436,16 +436,16 @@ $sel:eTag:CreateKeyGroupResponse' :: CreateKeyGroupResponse -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421013"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421022"><span class="annot"><span class="annottext">Maybe Text
 location :: Maybe Text
 $sel:location:CreateKeyGroupResponse' :: CreateKeyGroupResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679421013"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679421013"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421012"><span class="annot"><span class="annottext">s :: CreateKeyGroupResponse
-</span><a href="#local-6989586621679421012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421011"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679421011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroupResponse
-</span><a href="#local-6989586621679421012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateKeyGroupResponse' :: Maybe Text
+</span><a href="#local-6989586621679421022"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421022"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421021"><span class="annot"><span class="annottext">s :: CreateKeyGroupResponse
+</span><a href="#local-6989586621679421021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421020"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroupResponse
+</span><a href="#local-6989586621679421021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateKeyGroupResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#%24sel%3Alocation%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679421011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679421020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The key group that was just created.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_keyGroup"><span class="hs-identifier hs-type">createKeyGroupResponse_keyGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroup.html#KeyGroup"><span class="hs-identifier hs-type">KeyGroup</span></a></span><span class="hs-special">)</span><span>
@@ -460,16 +460,16 @@ $sel:location:CreateKeyGroupResponse' :: CreateKeyGroupResponse -&gt; Maybe Text
      (Maybe KeyGroup)
      (Maybe KeyGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421010"><span class="annot"><span class="annottext">Maybe KeyGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421019"><span class="annot"><span class="annottext">Maybe KeyGroup
 keyGroup :: Maybe KeyGroup
 $sel:keyGroup:CreateKeyGroupResponse' :: CreateKeyGroupResponse -&gt; Maybe KeyGroup
-</span><a href="#local-6989586621679421010"><span class="hs-identifier hs-var hs-var">keyGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyGroup
-</span><a href="#local-6989586621679421010"><span class="hs-identifier hs-var">keyGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421009"><span class="annot"><span class="annottext">s :: CreateKeyGroupResponse
-</span><a href="#local-6989586621679421009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421008"><span class="annot"><span class="annottext">Maybe KeyGroup
-</span><a href="#local-6989586621679421008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroupResponse
-</span><a href="#local-6989586621679421009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyGroup:CreateKeyGroupResponse' :: Maybe KeyGroup
+</span><a href="#local-6989586621679421019"><span class="hs-identifier hs-var hs-var">keyGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyGroup
+</span><a href="#local-6989586621679421019"><span class="hs-identifier hs-var">keyGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421018"><span class="annot"><span class="annottext">s :: CreateKeyGroupResponse
+</span><a href="#local-6989586621679421018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421017"><span class="annot"><span class="annottext">Maybe KeyGroup
+</span><a href="#local-6989586621679421017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroupResponse
+</span><a href="#local-6989586621679421018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyGroup:CreateKeyGroupResponse' :: Maybe KeyGroup
 </span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#%24sel%3AkeyGroup%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var">keyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyGroup
-</span><a href="#local-6989586621679421008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679421017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#createKeyGroupResponse_httpStatus"><span class="hs-identifier hs-type">createKeyGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -479,16 +479,16 @@ $sel:keyGroup:CreateKeyGroupResponse' :: CreateKeyGroupResponse -&gt; Maybe KeyG
 -&gt; (CreateKeyGroupResponse -&gt; Int -&gt; CreateKeyGroupResponse)
 -&gt; Lens CreateKeyGroupResponse CreateKeyGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421007"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421016"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateKeyGroupResponse' :: CreateKeyGroupResponse -&gt; Int
-</span><a href="#local-6989586621679421007"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421007"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421006"><span class="annot"><span class="annottext">s :: CreateKeyGroupResponse
-</span><a href="#local-6989586621679421006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421005"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroupResponse
-</span><a href="#local-6989586621679421006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKeyGroupResponse' :: Int
+</span><a href="#local-6989586621679421016"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679421016"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421015"><span class="annot"><span class="annottext">s :: CreateKeyGroupResponse
+</span><a href="#local-6989586621679421015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse%27"><span class="hs-identifier hs-type">CreateKeyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421014"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679421014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyGroupResponse
+</span><a href="#local-6989586621679421015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKeyGroupResponse' :: Int
 </span><a href="Network.AWS.CloudFront.CreateKeyGroup.html#%24sel%3AhttpStatus%3ACreateKeyGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679421014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679421003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679421012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateKeyGroup.html#CreateKeyGroupResponse"><span class="hs-identifier hs-type">CreateKeyGroupResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

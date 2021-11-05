@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681095115"><span id="local-6989586621681095116"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ClientVpnEndpointStatusCode"><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnEndpointStatusCode.html#ClientVpnEndpointStatusCode"><span class="hs-identifier hs-var">ClientVpnEndpointStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientVpnEndpointStatusCode%27"><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnEndpointStatusCode.html#ClientVpnEndpointStatusCode%27"><span class="hs-identifier hs-var">ClientVpnEndpointStatusCode'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681095124"><span id="local-6989586621681095125"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ClientVpnEndpointStatusCode"><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnEndpointStatusCode.html#ClientVpnEndpointStatusCode"><span class="hs-identifier hs-var">ClientVpnEndpointStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientVpnEndpointStatusCode%27"><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnEndpointStatusCode.html#ClientVpnEndpointStatusCode%27"><span class="hs-identifier hs-var">ClientVpnEndpointStatusCode'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromClientVpnEndpointStatusCode"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ClientVpnEndpointStatusCode.html#fromClientVpnEndpointStatusCode"><span class="hs-identifier hs-var hs-var">fromClientVpnEndpointStatusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681095107"><span id="local-6989586621681095109"><span id="local-6989586621681095111"><span class="annot"><span class="annottext">Int -&gt; ClientVpnEndpointStatusCode -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681095116"><span id="local-6989586621681095118"><span id="local-6989586621681095120"><span class="annot"><span class="annottext">Int -&gt; ClientVpnEndpointStatusCode -&gt; ShowS
 [ClientVpnEndpointStatusCode] -&gt; ShowS
 ClientVpnEndpointStatusCode -&gt; String
 (Int -&gt; ClientVpnEndpointStatusCode -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ClientVpnEndpointStatusCode -&gt; String
 showsPrec :: Int -&gt; ClientVpnEndpointStatusCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ClientVpnEndpointStatusCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681095098"><span id="local-6989586621681095100"><span id="local-6989586621681095102"><span id="local-6989586621681095104"><span class="annot"><span class="annottext">ReadPrec [ClientVpnEndpointStatusCode]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681095107"><span id="local-6989586621681095109"><span id="local-6989586621681095111"><span id="local-6989586621681095113"><span class="annot"><span class="annottext">ReadPrec [ClientVpnEndpointStatusCode]
 ReadPrec ClientVpnEndpointStatusCode
 Int -&gt; ReadS ClientVpnEndpointStatusCode
 ReadS [ClientVpnEndpointStatusCode]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ClientVpnEndpointStatusCode]
 readsPrec :: Int -&gt; ReadS ClientVpnEndpointStatusCode
 $creadsPrec :: Int -&gt; ReadS ClientVpnEndpointStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681095093"><span id="local-6989586621681095095"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; ClientVpnEndpointStatusCode -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681095102"><span id="local-6989586621681095104"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; ClientVpnEndpointStatusCode -&gt; Bool
 (ClientVpnEndpointStatusCode
  -&gt; ClientVpnEndpointStatusCode -&gt; Bool)
 -&gt; (ClientVpnEndpointStatusCode
@@ -87,7 +87,7 @@ $c/= :: ClientVpnEndpointStatusCode -&gt; ClientVpnEndpointStatusCode -&gt; Bool
 == :: ClientVpnEndpointStatusCode -&gt; ClientVpnEndpointStatusCode -&gt; Bool
 $c== :: ClientVpnEndpointStatusCode -&gt; ClientVpnEndpointStatusCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681095077"><span id="local-6989586621681095079"><span id="local-6989586621681095081"><span id="local-6989586621681095083"><span id="local-6989586621681095085"><span id="local-6989586621681095087"><span id="local-6989586621681095089"><span class="annot"><span class="annottext">Eq ClientVpnEndpointStatusCode
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681095086"><span id="local-6989586621681095088"><span id="local-6989586621681095090"><span id="local-6989586621681095092"><span id="local-6989586621681095094"><span id="local-6989586621681095096"><span id="local-6989586621681095098"><span class="annot"><span class="annottext">Eq ClientVpnEndpointStatusCode
 Eq ClientVpnEndpointStatusCode
 -&gt; (ClientVpnEndpointStatusCode
     -&gt; ClientVpnEndpointStatusCode -&gt; Ordering)
@@ -159,7 +159,7 @@ ClientVpnEndpointStatusCode -&gt; Rep ClientVpnEndpointStatusCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681095069"><span id="local-6989586621681095071"><span class="annot"><span class="annottext">Int -&gt; ClientVpnEndpointStatusCode -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681095078"><span id="local-6989586621681095080"><span class="annot"><span class="annottext">Int -&gt; ClientVpnEndpointStatusCode -&gt; Int
 ClientVpnEndpointStatusCode -&gt; Int
 (Int -&gt; ClientVpnEndpointStatusCode -&gt; Int)
 -&gt; (ClientVpnEndpointStatusCode -&gt; Int)
@@ -170,56 +170,56 @@ $chash :: ClientVpnEndpointStatusCode -&gt; Int
 hashWithSalt :: Int -&gt; ClientVpnEndpointStatusCode -&gt; Int
 $chashWithSalt :: Int -&gt; ClientVpnEndpointStatusCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681095066"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681095075"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; ()
 (ClientVpnEndpointStatusCode -&gt; ())
 -&gt; NFData ClientVpnEndpointStatusCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ClientVpnEndpointStatusCode -&gt; ()
 $crnf :: ClientVpnEndpointStatusCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681095063"><span class="annot"><span class="annottext">Text -&gt; Either String ClientVpnEndpointStatusCode
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681095072"><span class="annot"><span class="annottext">Text -&gt; Either String ClientVpnEndpointStatusCode
 (Text -&gt; Either String ClientVpnEndpointStatusCode)
 -&gt; FromText ClientVpnEndpointStatusCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ClientVpnEndpointStatusCode
 $cfromText :: Text -&gt; Either String ClientVpnEndpointStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681095060"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681095069"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; Text
 (ClientVpnEndpointStatusCode -&gt; Text)
 -&gt; ToText ClientVpnEndpointStatusCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ClientVpnEndpointStatusCode -&gt; Text
 $ctoText :: ClientVpnEndpointStatusCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681095057"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681095066"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; ByteString
 (ClientVpnEndpointStatusCode -&gt; ByteString)
 -&gt; ToByteString ClientVpnEndpointStatusCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ClientVpnEndpointStatusCode -&gt; ByteString
 $ctoBS :: ClientVpnEndpointStatusCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681095054"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681095063"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; ByteStringBuilder
 (ClientVpnEndpointStatusCode -&gt; ByteStringBuilder)
 -&gt; ToLog ClientVpnEndpointStatusCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ClientVpnEndpointStatusCode -&gt; ByteStringBuilder
 $cbuild :: ClientVpnEndpointStatusCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681095051"><span class="annot"><span class="annottext">HeaderName -&gt; ClientVpnEndpointStatusCode -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681095060"><span class="annot"><span class="annottext">HeaderName -&gt; ClientVpnEndpointStatusCode -&gt; [Header]
 (HeaderName -&gt; ClientVpnEndpointStatusCode -&gt; [Header])
 -&gt; ToHeader ClientVpnEndpointStatusCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ClientVpnEndpointStatusCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ClientVpnEndpointStatusCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681095048"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681095057"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; QueryString
 (ClientVpnEndpointStatusCode -&gt; QueryString)
 -&gt; ToQuery ClientVpnEndpointStatusCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ClientVpnEndpointStatusCode -&gt; QueryString
 $ctoQuery :: ClientVpnEndpointStatusCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681095043"><span id="local-6989586621681095045"><span class="annot"><span class="annottext">Value -&gt; Parser [ClientVpnEndpointStatusCode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681095052"><span id="local-6989586621681095054"><span class="annot"><span class="annottext">Value -&gt; Parser [ClientVpnEndpointStatusCode]
 Value -&gt; Parser ClientVpnEndpointStatusCode
 (Value -&gt; Parser ClientVpnEndpointStatusCode)
 -&gt; (Value -&gt; Parser [ClientVpnEndpointStatusCode])
@@ -231,7 +231,7 @@ $cparseJSONList :: Value -&gt; Parser [ClientVpnEndpointStatusCode]
 parseJSON :: Value -&gt; Parser ClientVpnEndpointStatusCode
 $cparseJSON :: Value -&gt; Parser ClientVpnEndpointStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681095038"><span id="local-6989586621681095040"><span class="annot"><span class="annottext">FromJSONKeyFunction [ClientVpnEndpointStatusCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681095047"><span id="local-6989586621681095049"><span class="annot"><span class="annottext">FromJSONKeyFunction [ClientVpnEndpointStatusCode]
 FromJSONKeyFunction ClientVpnEndpointStatusCode
 FromJSONKeyFunction ClientVpnEndpointStatusCode
 -&gt; FromJSONKeyFunction [ClientVpnEndpointStatusCode]
@@ -243,7 +243,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ClientVpnEndpointStatusCode]
 fromJSONKey :: FromJSONKeyFunction ClientVpnEndpointStatusCode
 $cfromJSONKey :: FromJSONKeyFunction ClientVpnEndpointStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681095029"><span id="local-6989586621681095031"><span id="local-6989586621681095033"><span id="local-6989586621681095035"><span class="annot"><span class="annottext">[ClientVpnEndpointStatusCode] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681095038"><span id="local-6989586621681095040"><span id="local-6989586621681095042"><span id="local-6989586621681095044"><span class="annot"><span class="annottext">[ClientVpnEndpointStatusCode] -&gt; Encoding
 [ClientVpnEndpointStatusCode] -&gt; Value
 ClientVpnEndpointStatusCode -&gt; Encoding
 ClientVpnEndpointStatusCode -&gt; Value
@@ -267,7 +267,7 @@ $ctoEncoding :: ClientVpnEndpointStatusCode -&gt; Encoding
 toJSON :: ClientVpnEndpointStatusCode -&gt; Value
 $ctoJSON :: ClientVpnEndpointStatusCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681095024"><span id="local-6989586621681095026"><span class="annot"><span class="annottext">ToJSONKeyFunction [ClientVpnEndpointStatusCode]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681095033"><span id="local-6989586621681095035"><span class="annot"><span class="annottext">ToJSONKeyFunction [ClientVpnEndpointStatusCode]
 ToJSONKeyFunction ClientVpnEndpointStatusCode
 ToJSONKeyFunction ClientVpnEndpointStatusCode
 -&gt; ToJSONKeyFunction [ClientVpnEndpointStatusCode]
@@ -279,14 +279,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ClientVpnEndpointStatusCode]
 toJSONKey :: ToJSONKeyFunction ClientVpnEndpointStatusCode
 $ctoJSONKey :: ToJSONKeyFunction ClientVpnEndpointStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681095021"><span class="annot"><span class="annottext">[Node] -&gt; Either String ClientVpnEndpointStatusCode
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681095030"><span class="annot"><span class="annottext">[Node] -&gt; Either String ClientVpnEndpointStatusCode
 ([Node] -&gt; Either String ClientVpnEndpointStatusCode)
 -&gt; FromXML ClientVpnEndpointStatusCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ClientVpnEndpointStatusCode
 $cparseXML :: [Node] -&gt; Either String ClientVpnEndpointStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681095018"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681095027"><span class="annot"><span class="annottext">ClientVpnEndpointStatusCode -&gt; XML
 (ClientVpnEndpointStatusCode -&gt; XML)
 -&gt; ToXML ClientVpnEndpointStatusCode
 forall a. (a -&gt; XML) -&gt; ToXML a

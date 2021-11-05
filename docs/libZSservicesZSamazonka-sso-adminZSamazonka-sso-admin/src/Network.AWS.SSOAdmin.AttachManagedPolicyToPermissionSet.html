@@ -1,0 +1,570 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Attaches an IAM managed policy ARN to a permission set.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- If the permission set is already referenced by one or more account</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- assignments, you will need to call @ ProvisionPermissionSet @ after this</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- operation. Calling @ProvisionPermissionSet@ applies the corresponding</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- IAM policy updates to all assigned accounts.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier">AttachManagedPolicyToPermissionSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#newAttachManagedPolicyToPermissionSet"><span class="hs-identifier">newAttachManagedPolicyToPermissionSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#attachManagedPolicyToPermissionSet_instanceArn"><span class="hs-identifier">attachManagedPolicyToPermissionSet_instanceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#attachManagedPolicyToPermissionSet_permissionSetArn"><span class="hs-identifier">attachManagedPolicyToPermissionSet_permissionSetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#attachManagedPolicyToPermissionSet_managedPolicyArn"><span class="hs-identifier">attachManagedPolicyToPermissionSet_managedPolicyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSetResponse"><span class="hs-identifier">AttachManagedPolicyToPermissionSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#newAttachManagedPolicyToPermissionSetResponse"><span class="hs-identifier">newAttachManagedPolicyToPermissionSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#attachManagedPolicyToPermissionSetResponse_httpStatus"><span class="hs-identifier">attachManagedPolicyToPermissionSetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.Types.html"><span class="hs-identifier">Network.AWS.SSOAdmin.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newAttachManagedPolicyToPermissionSet' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679207495"><span id="local-6989586621679207496"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachManagedPolicyToPermissionSet"><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-var">AttachManagedPolicyToPermissionSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachManagedPolicyToPermissionSet%27"><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-var">AttachManagedPolicyToPermissionSet'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AinstanceArn%3AAttachManagedPolicyToPermissionSet%27"><span class="annot"><span class="annottext">AttachManagedPolicyToPermissionSet -&gt; Text
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#%24sel%3AinstanceArn%3AAttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ARN of the PermissionSet that the managed policy should be attached</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3ApermissionSetArn%3AAttachManagedPolicyToPermissionSet%27"><span class="annot"><span class="annottext">AttachManagedPolicyToPermissionSet -&gt; Text
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#%24sel%3ApermissionSetArn%3AAttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-var hs-var">permissionSetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The IAM managed policy ARN to be attached to a permission set.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AmanagedPolicyArn%3AAttachManagedPolicyToPermissionSet%27"><span class="annot"><span class="annottext">AttachManagedPolicyToPermissionSet -&gt; Text
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#%24sel%3AmanagedPolicyArn%3AAttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-var hs-var">managedPolicyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207487"><span id="local-6989586621679207489"><span class="annot"><span class="annottext">AttachManagedPolicyToPermissionSet
+-&gt; AttachManagedPolicyToPermissionSet -&gt; Bool
+(AttachManagedPolicyToPermissionSet
+ -&gt; AttachManagedPolicyToPermissionSet -&gt; Bool)
+-&gt; (AttachManagedPolicyToPermissionSet
+    -&gt; AttachManagedPolicyToPermissionSet -&gt; Bool)
+-&gt; Eq AttachManagedPolicyToPermissionSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AttachManagedPolicyToPermissionSet
+-&gt; AttachManagedPolicyToPermissionSet -&gt; Bool
+$c/= :: AttachManagedPolicyToPermissionSet
+-&gt; AttachManagedPolicyToPermissionSet -&gt; Bool
+== :: AttachManagedPolicyToPermissionSet
+-&gt; AttachManagedPolicyToPermissionSet -&gt; Bool
+$c== :: AttachManagedPolicyToPermissionSet
+-&gt; AttachManagedPolicyToPermissionSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207478"><span id="local-6989586621679207480"><span id="local-6989586621679207482"><span id="local-6989586621679207484"><span class="annot"><span class="annottext">ReadPrec [AttachManagedPolicyToPermissionSet]
+ReadPrec AttachManagedPolicyToPermissionSet
+Int -&gt; ReadS AttachManagedPolicyToPermissionSet
+ReadS [AttachManagedPolicyToPermissionSet]
+(Int -&gt; ReadS AttachManagedPolicyToPermissionSet)
+-&gt; ReadS [AttachManagedPolicyToPermissionSet]
+-&gt; ReadPrec AttachManagedPolicyToPermissionSet
+-&gt; ReadPrec [AttachManagedPolicyToPermissionSet]
+-&gt; Read AttachManagedPolicyToPermissionSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AttachManagedPolicyToPermissionSet]
+$creadListPrec :: ReadPrec [AttachManagedPolicyToPermissionSet]
+readPrec :: ReadPrec AttachManagedPolicyToPermissionSet
+$creadPrec :: ReadPrec AttachManagedPolicyToPermissionSet
+readList :: ReadS [AttachManagedPolicyToPermissionSet]
+$creadList :: ReadS [AttachManagedPolicyToPermissionSet]
+readsPrec :: Int -&gt; ReadS AttachManagedPolicyToPermissionSet
+$creadsPrec :: Int -&gt; ReadS AttachManagedPolicyToPermissionSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207471"><span id="local-6989586621679207473"><span id="local-6989586621679207475"><span class="annot"><span class="annottext">Int -&gt; AttachManagedPolicyToPermissionSet -&gt; ShowS
+[AttachManagedPolicyToPermissionSet] -&gt; ShowS
+AttachManagedPolicyToPermissionSet -&gt; String
+(Int -&gt; AttachManagedPolicyToPermissionSet -&gt; ShowS)
+-&gt; (AttachManagedPolicyToPermissionSet -&gt; String)
+-&gt; ([AttachManagedPolicyToPermissionSet] -&gt; ShowS)
+-&gt; Show AttachManagedPolicyToPermissionSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AttachManagedPolicyToPermissionSet] -&gt; ShowS
+$cshowList :: [AttachManagedPolicyToPermissionSet] -&gt; ShowS
+show :: AttachManagedPolicyToPermissionSet -&gt; String
+$cshow :: AttachManagedPolicyToPermissionSet -&gt; String
+showsPrec :: Int -&gt; AttachManagedPolicyToPermissionSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; AttachManagedPolicyToPermissionSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AttachManagedPolicyToPermissionSet
+ -&gt; Rep AttachManagedPolicyToPermissionSet x)
+-&gt; (forall x.
+    Rep AttachManagedPolicyToPermissionSet x
+    -&gt; AttachManagedPolicyToPermissionSet)
+-&gt; Generic AttachManagedPolicyToPermissionSet
+forall x.
+Rep AttachManagedPolicyToPermissionSet x
+-&gt; AttachManagedPolicyToPermissionSet
+forall x.
+AttachManagedPolicyToPermissionSet
+-&gt; Rep AttachManagedPolicyToPermissionSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AttachManagedPolicyToPermissionSet x
+-&gt; AttachManagedPolicyToPermissionSet
+$cfrom :: forall x.
+AttachManagedPolicyToPermissionSet
+-&gt; Rep AttachManagedPolicyToPermissionSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'AttachManagedPolicyToPermissionSet' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'instanceArn', 'attachManagedPolicyToPermissionSet_instanceArn' - The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'permissionSetArn', 'attachManagedPolicyToPermissionSet_permissionSetArn' - The ARN of the PermissionSet that the managed policy should be attached</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'managedPolicyArn', 'attachManagedPolicyToPermissionSet_managedPolicyArn' - The IAM managed policy ARN to be attached to a permission set.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#newAttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">newAttachManagedPolicyToPermissionSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'instanceArn'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'permissionSetArn'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'managedPolicyArn'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span><span>
+</span><span id="line-95"></span><span id="newAttachManagedPolicyToPermissionSet"><span class="annot"><span class="annottext">newAttachManagedPolicyToPermissionSet :: Text -&gt; Text -&gt; Text -&gt; AttachManagedPolicyToPermissionSet
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#newAttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-var hs-var">newAttachManagedPolicyToPermissionSet</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679207466"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207466"><span class="hs-identifier hs-var">pInstanceArn_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679207465"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207465"><span class="hs-identifier hs-var">pPermissionSetArn_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679207464"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207464"><span class="hs-identifier hs-var">pManagedPolicyArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">AttachManagedPolicyToPermissionSet' :: Text -&gt; Text -&gt; Text -&gt; AttachManagedPolicyToPermissionSet
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet'</span></a></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceArn:AttachManagedPolicyToPermissionSet' :: Text
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#%24sel%3AinstanceArn%3AAttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207466"><span class="hs-identifier hs-var">pInstanceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:permissionSetArn:AttachManagedPolicyToPermissionSet' :: Text
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#%24sel%3ApermissionSetArn%3AAttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207465"><span class="hs-identifier hs-var">pPermissionSetArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:managedPolicyArn:AttachManagedPolicyToPermissionSet' :: Text
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#%24sel%3AmanagedPolicyArn%3AAttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-var">managedPolicyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207464"><span class="hs-identifier hs-var">pManagedPolicyArn_</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#attachManagedPolicyToPermissionSet_instanceArn"><span class="hs-identifier hs-type">attachManagedPolicyToPermissionSet_instanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="attachManagedPolicyToPermissionSet_instanceArn"><span class="annot"><span class="annottext">attachManagedPolicyToPermissionSet_instanceArn :: (Text -&gt; f Text)
+-&gt; AttachManagedPolicyToPermissionSet
+-&gt; f AttachManagedPolicyToPermissionSet
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#attachManagedPolicyToPermissionSet_instanceArn"><span class="hs-identifier hs-var hs-var">attachManagedPolicyToPermissionSet_instanceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttachManagedPolicyToPermissionSet -&gt; Text)
+-&gt; (AttachManagedPolicyToPermissionSet
+    -&gt; Text -&gt; AttachManagedPolicyToPermissionSet)
+-&gt; Lens
+     AttachManagedPolicyToPermissionSet
+     AttachManagedPolicyToPermissionSet
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207461"><span class="annot"><span class="annottext">Text
+instanceArn :: Text
+$sel:instanceArn:AttachManagedPolicyToPermissionSet' :: AttachManagedPolicyToPermissionSet -&gt; Text
+</span><a href="#local-6989586621679207461"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207461"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207460"><span class="annot"><span class="annottext">s :: AttachManagedPolicyToPermissionSet
+</span><a href="#local-6989586621679207460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207459"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachManagedPolicyToPermissionSet
+</span><a href="#local-6989586621679207460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceArn:AttachManagedPolicyToPermissionSet' :: Text
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#%24sel%3AinstanceArn%3AAttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The ARN of the PermissionSet that the managed policy should be attached</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#attachManagedPolicyToPermissionSet_permissionSetArn"><span class="hs-identifier hs-type">attachManagedPolicyToPermissionSet_permissionSetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="attachManagedPolicyToPermissionSet_permissionSetArn"><span class="annot"><span class="annottext">attachManagedPolicyToPermissionSet_permissionSetArn :: (Text -&gt; f Text)
+-&gt; AttachManagedPolicyToPermissionSet
+-&gt; f AttachManagedPolicyToPermissionSet
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#attachManagedPolicyToPermissionSet_permissionSetArn"><span class="hs-identifier hs-var hs-var">attachManagedPolicyToPermissionSet_permissionSetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttachManagedPolicyToPermissionSet -&gt; Text)
+-&gt; (AttachManagedPolicyToPermissionSet
+    -&gt; Text -&gt; AttachManagedPolicyToPermissionSet)
+-&gt; Lens
+     AttachManagedPolicyToPermissionSet
+     AttachManagedPolicyToPermissionSet
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207458"><span class="annot"><span class="annottext">Text
+permissionSetArn :: Text
+$sel:permissionSetArn:AttachManagedPolicyToPermissionSet' :: AttachManagedPolicyToPermissionSet -&gt; Text
+</span><a href="#local-6989586621679207458"><span class="hs-identifier hs-var hs-var">permissionSetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207458"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207457"><span class="annot"><span class="annottext">s :: AttachManagedPolicyToPermissionSet
+</span><a href="#local-6989586621679207457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207456"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachManagedPolicyToPermissionSet
+</span><a href="#local-6989586621679207457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionSetArn:AttachManagedPolicyToPermissionSet' :: Text
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#%24sel%3ApermissionSetArn%3AAttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The IAM managed policy ARN to be attached to a permission set.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#attachManagedPolicyToPermissionSet_managedPolicyArn"><span class="hs-identifier hs-type">attachManagedPolicyToPermissionSet_managedPolicyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="attachManagedPolicyToPermissionSet_managedPolicyArn"><span class="annot"><span class="annottext">attachManagedPolicyToPermissionSet_managedPolicyArn :: (Text -&gt; f Text)
+-&gt; AttachManagedPolicyToPermissionSet
+-&gt; f AttachManagedPolicyToPermissionSet
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#attachManagedPolicyToPermissionSet_managedPolicyArn"><span class="hs-identifier hs-var hs-var">attachManagedPolicyToPermissionSet_managedPolicyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttachManagedPolicyToPermissionSet -&gt; Text)
+-&gt; (AttachManagedPolicyToPermissionSet
+    -&gt; Text -&gt; AttachManagedPolicyToPermissionSet)
+-&gt; Lens
+     AttachManagedPolicyToPermissionSet
+     AttachManagedPolicyToPermissionSet
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207455"><span class="annot"><span class="annottext">Text
+managedPolicyArn :: Text
+$sel:managedPolicyArn:AttachManagedPolicyToPermissionSet' :: AttachManagedPolicyToPermissionSet -&gt; Text
+</span><a href="#local-6989586621679207455"><span class="hs-identifier hs-var hs-var">managedPolicyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207455"><span class="hs-identifier hs-var">managedPolicyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207454"><span class="annot"><span class="annottext">s :: AttachManagedPolicyToPermissionSet
+</span><a href="#local-6989586621679207454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207453"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachManagedPolicyToPermissionSet
+</span><a href="#local-6989586621679207454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:managedPolicyArn:AttachManagedPolicyToPermissionSet' :: Text
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#%24sel%3AmanagedPolicyArn%3AAttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-var">managedPolicyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSetResponse"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSetResponse</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679207449"><span class="annot"><span class="annottext">request :: AttachManagedPolicyToPermissionSet
+-&gt; Request AttachManagedPolicyToPermissionSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; AttachManagedPolicyToPermissionSet
+-&gt; Request AttachManagedPolicyToPermissionSet
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SSOAdmin.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679207445"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AttachManagedPolicyToPermissionSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse AttachManagedPolicyToPermissionSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse AttachManagedPolicyToPermissionSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AttachManagedPolicyToPermissionSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse AttachManagedPolicyToPermissionSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679207442"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207442"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679207441"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679207441"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679207440"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679207440"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AttachManagedPolicyToPermissionSetResponse
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSetResponse%27"><span class="hs-identifier hs-var">AttachManagedPolicyToPermissionSetResponse'</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AttachManagedPolicyToPermissionSetResponse)
+-&gt; Either String Int
+-&gt; Either String AttachManagedPolicyToPermissionSetResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207442"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679207433"><span id="local-6989586621679207435"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679207430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679207426"><span class="annot"><span class="annottext">toHeaders :: AttachManagedPolicyToPermissionSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; AttachManagedPolicyToPermissionSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SWBExternalService.AttachManagedPolicyToPermissionSet&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-155"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-159"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679207416"><span id="local-6989586621679207418"><span id="local-6989586621679207420"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span></span></span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679207414"><span class="annot"><span class="annottext">toJSON :: AttachManagedPolicyToPermissionSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet%27"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207410"><span id="local-6989586621679207411"><span id="local-6989586621679207412"><span class="annot"><span class="annottext">Text
+managedPolicyArn :: Text
+permissionSetArn :: Text
+instanceArn :: Text
+$sel:managedPolicyArn:AttachManagedPolicyToPermissionSet' :: AttachManagedPolicyToPermissionSet -&gt; Text
+$sel:permissionSetArn:AttachManagedPolicyToPermissionSet' :: AttachManagedPolicyToPermissionSet -&gt; Text
+$sel:instanceArn:AttachManagedPolicyToPermissionSet' :: AttachManagedPolicyToPermissionSet -&gt; Text
+</span><a href="#local-6989586621679207410"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207412"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-172"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PermissionSetArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207411"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-174"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ManagedPolicyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207410"><span class="hs-identifier hs-var">managedPolicyArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679207404"><span class="annot"><span class="annottext">toPath :: AttachManagedPolicyToPermissionSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AttachManagedPolicyToPermissionSet -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSet"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSet</span></a></span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679207400"><span class="annot"><span class="annottext">toQuery :: AttachManagedPolicyToPermissionSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AttachManagedPolicyToPermissionSet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newAttachManagedPolicyToPermissionSetResponse' smart constructor.</span><span>
+</span><span id="line-191"></span><span id="local-6989586621679207397"><span id="local-6989586621679207398"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachManagedPolicyToPermissionSetResponse"><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSetResponse"><span class="hs-identifier hs-var">AttachManagedPolicyToPermissionSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachManagedPolicyToPermissionSetResponse%27"><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSetResponse%27"><span class="hs-identifier hs-var">AttachManagedPolicyToPermissionSetResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAttachManagedPolicyToPermissionSetResponse%27"><span class="annot"><span class="annottext">AttachManagedPolicyToPermissionSetResponse -&gt; Int
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#%24sel%3AhttpStatus%3AAttachManagedPolicyToPermissionSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207392"><span id="local-6989586621679207394"><span class="annot"><span class="annottext">AttachManagedPolicyToPermissionSetResponse
+-&gt; AttachManagedPolicyToPermissionSetResponse -&gt; Bool
+(AttachManagedPolicyToPermissionSetResponse
+ -&gt; AttachManagedPolicyToPermissionSetResponse -&gt; Bool)
+-&gt; (AttachManagedPolicyToPermissionSetResponse
+    -&gt; AttachManagedPolicyToPermissionSetResponse -&gt; Bool)
+-&gt; Eq AttachManagedPolicyToPermissionSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AttachManagedPolicyToPermissionSetResponse
+-&gt; AttachManagedPolicyToPermissionSetResponse -&gt; Bool
+$c/= :: AttachManagedPolicyToPermissionSetResponse
+-&gt; AttachManagedPolicyToPermissionSetResponse -&gt; Bool
+== :: AttachManagedPolicyToPermissionSetResponse
+-&gt; AttachManagedPolicyToPermissionSetResponse -&gt; Bool
+$c== :: AttachManagedPolicyToPermissionSetResponse
+-&gt; AttachManagedPolicyToPermissionSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207384"><span id="local-6989586621679207386"><span id="local-6989586621679207388"><span id="local-6989586621679207390"><span class="annot"><span class="annottext">ReadPrec [AttachManagedPolicyToPermissionSetResponse]
+ReadPrec AttachManagedPolicyToPermissionSetResponse
+Int -&gt; ReadS AttachManagedPolicyToPermissionSetResponse
+ReadS [AttachManagedPolicyToPermissionSetResponse]
+(Int -&gt; ReadS AttachManagedPolicyToPermissionSetResponse)
+-&gt; ReadS [AttachManagedPolicyToPermissionSetResponse]
+-&gt; ReadPrec AttachManagedPolicyToPermissionSetResponse
+-&gt; ReadPrec [AttachManagedPolicyToPermissionSetResponse]
+-&gt; Read AttachManagedPolicyToPermissionSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AttachManagedPolicyToPermissionSetResponse]
+$creadListPrec :: ReadPrec [AttachManagedPolicyToPermissionSetResponse]
+readPrec :: ReadPrec AttachManagedPolicyToPermissionSetResponse
+$creadPrec :: ReadPrec AttachManagedPolicyToPermissionSetResponse
+readList :: ReadS [AttachManagedPolicyToPermissionSetResponse]
+$creadList :: ReadS [AttachManagedPolicyToPermissionSetResponse]
+readsPrec :: Int -&gt; ReadS AttachManagedPolicyToPermissionSetResponse
+$creadsPrec :: Int -&gt; ReadS AttachManagedPolicyToPermissionSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207378"><span id="local-6989586621679207380"><span id="local-6989586621679207382"><span class="annot"><span class="annottext">Int -&gt; AttachManagedPolicyToPermissionSetResponse -&gt; ShowS
+[AttachManagedPolicyToPermissionSetResponse] -&gt; ShowS
+AttachManagedPolicyToPermissionSetResponse -&gt; String
+(Int -&gt; AttachManagedPolicyToPermissionSetResponse -&gt; ShowS)
+-&gt; (AttachManagedPolicyToPermissionSetResponse -&gt; String)
+-&gt; ([AttachManagedPolicyToPermissionSetResponse] -&gt; ShowS)
+-&gt; Show AttachManagedPolicyToPermissionSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AttachManagedPolicyToPermissionSetResponse] -&gt; ShowS
+$cshowList :: [AttachManagedPolicyToPermissionSetResponse] -&gt; ShowS
+show :: AttachManagedPolicyToPermissionSetResponse -&gt; String
+$cshow :: AttachManagedPolicyToPermissionSetResponse -&gt; String
+showsPrec :: Int -&gt; AttachManagedPolicyToPermissionSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AttachManagedPolicyToPermissionSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AttachManagedPolicyToPermissionSetResponse
+ -&gt; Rep AttachManagedPolicyToPermissionSetResponse x)
+-&gt; (forall x.
+    Rep AttachManagedPolicyToPermissionSetResponse x
+    -&gt; AttachManagedPolicyToPermissionSetResponse)
+-&gt; Generic AttachManagedPolicyToPermissionSetResponse
+forall x.
+Rep AttachManagedPolicyToPermissionSetResponse x
+-&gt; AttachManagedPolicyToPermissionSetResponse
+forall x.
+AttachManagedPolicyToPermissionSetResponse
+-&gt; Rep AttachManagedPolicyToPermissionSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AttachManagedPolicyToPermissionSetResponse x
+-&gt; AttachManagedPolicyToPermissionSetResponse
+$cfrom :: forall x.
+AttachManagedPolicyToPermissionSetResponse
+-&gt; Rep AttachManagedPolicyToPermissionSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Create a value of 'AttachManagedPolicyToPermissionSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'httpStatus', 'attachManagedPolicyToPermissionSetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#newAttachManagedPolicyToPermissionSetResponse"><span class="hs-identifier hs-type">newAttachManagedPolicyToPermissionSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSetResponse"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSetResponse</span></a></span><span>
+</span><span id="line-210"></span><span id="newAttachManagedPolicyToPermissionSetResponse"><span class="annot"><span class="annottext">newAttachManagedPolicyToPermissionSetResponse :: Int -&gt; AttachManagedPolicyToPermissionSetResponse
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#newAttachManagedPolicyToPermissionSetResponse"><span class="hs-identifier hs-var hs-var">newAttachManagedPolicyToPermissionSetResponse</span></a></span></span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679207375"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207375"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">AttachManagedPolicyToPermissionSetResponse' :: Int -&gt; AttachManagedPolicyToPermissionSetResponse
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSetResponse%27"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSetResponse'</span></a></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AttachManagedPolicyToPermissionSetResponse' :: Int
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#%24sel%3AhttpStatus%3AAttachManagedPolicyToPermissionSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207375"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#attachManagedPolicyToPermissionSetResponse_httpStatus"><span class="hs-identifier hs-type">attachManagedPolicyToPermissionSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSetResponse"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-219"></span><span id="attachManagedPolicyToPermissionSetResponse_httpStatus"><span class="annot"><span class="annottext">attachManagedPolicyToPermissionSetResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AttachManagedPolicyToPermissionSetResponse
+-&gt; f AttachManagedPolicyToPermissionSetResponse
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#attachManagedPolicyToPermissionSetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">attachManagedPolicyToPermissionSetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttachManagedPolicyToPermissionSetResponse -&gt; Int)
+-&gt; (AttachManagedPolicyToPermissionSetResponse
+    -&gt; Int -&gt; AttachManagedPolicyToPermissionSetResponse)
+-&gt; Lens
+     AttachManagedPolicyToPermissionSetResponse
+     AttachManagedPolicyToPermissionSetResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSetResponse%27"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207374"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AttachManagedPolicyToPermissionSetResponse' :: AttachManagedPolicyToPermissionSetResponse -&gt; Int
+</span><a href="#local-6989586621679207374"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207374"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207373"><span class="annot"><span class="annottext">s :: AttachManagedPolicyToPermissionSetResponse
+</span><a href="#local-6989586621679207373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSetResponse%27"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207372"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachManagedPolicyToPermissionSetResponse
+</span><a href="#local-6989586621679207373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachManagedPolicyToPermissionSetResponse' :: Int
+</span><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#%24sel%3AhttpStatus%3AAttachManagedPolicyToPermissionSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSetResponse"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679207370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.html#AttachManagedPolicyToPermissionSetResponse"><span class="hs-identifier hs-type">AttachManagedPolicyToPermissionSetResponse</span></a></span></span><span>
+</span><span id="line-224"></span></pre></body></html>

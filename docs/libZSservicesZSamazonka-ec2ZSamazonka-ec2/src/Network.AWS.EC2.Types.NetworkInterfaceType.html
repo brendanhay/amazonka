@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681130670"><span id="local-6989586621681130671"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkInterfaceType"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceType.html#NetworkInterfaceType"><span class="hs-identifier hs-var">NetworkInterfaceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkInterfaceType%27"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceType.html#NetworkInterfaceType%27"><span class="hs-identifier hs-var">NetworkInterfaceType'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681130679"><span id="local-6989586621681130680"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkInterfaceType"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceType.html#NetworkInterfaceType"><span class="hs-identifier hs-var">NetworkInterfaceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkInterfaceType%27"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceType.html#NetworkInterfaceType%27"><span class="hs-identifier hs-var">NetworkInterfaceType'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNetworkInterfaceType"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.NetworkInterfaceType.html#fromNetworkInterfaceType"><span class="hs-identifier hs-var hs-var">fromNetworkInterfaceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681130662"><span id="local-6989586621681130664"><span id="local-6989586621681130666"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfaceType -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681130671"><span id="local-6989586621681130673"><span id="local-6989586621681130675"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfaceType -&gt; ShowS
 [NetworkInterfaceType] -&gt; ShowS
 NetworkInterfaceType -&gt; String
 (Int -&gt; NetworkInterfaceType -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: NetworkInterfaceType -&gt; String
 showsPrec :: Int -&gt; NetworkInterfaceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; NetworkInterfaceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681130653"><span id="local-6989586621681130655"><span id="local-6989586621681130657"><span id="local-6989586621681130659"><span class="annot"><span class="annottext">ReadPrec [NetworkInterfaceType]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681130662"><span id="local-6989586621681130664"><span id="local-6989586621681130666"><span id="local-6989586621681130668"><span class="annot"><span class="annottext">ReadPrec [NetworkInterfaceType]
 ReadPrec NetworkInterfaceType
 Int -&gt; ReadS NetworkInterfaceType
 ReadS [NetworkInterfaceType]
@@ -75,7 +75,7 @@ $creadList :: ReadS [NetworkInterfaceType]
 readsPrec :: Int -&gt; ReadS NetworkInterfaceType
 $creadsPrec :: Int -&gt; ReadS NetworkInterfaceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681130648"><span id="local-6989586621681130650"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; NetworkInterfaceType -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681130657"><span id="local-6989586621681130659"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; NetworkInterfaceType -&gt; Bool
 (NetworkInterfaceType -&gt; NetworkInterfaceType -&gt; Bool)
 -&gt; (NetworkInterfaceType -&gt; NetworkInterfaceType -&gt; Bool)
 -&gt; Eq NetworkInterfaceType
@@ -85,7 +85,7 @@ $c/= :: NetworkInterfaceType -&gt; NetworkInterfaceType -&gt; Bool
 == :: NetworkInterfaceType -&gt; NetworkInterfaceType -&gt; Bool
 $c== :: NetworkInterfaceType -&gt; NetworkInterfaceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681130632"><span id="local-6989586621681130634"><span id="local-6989586621681130636"><span id="local-6989586621681130638"><span id="local-6989586621681130640"><span id="local-6989586621681130642"><span id="local-6989586621681130644"><span class="annot"><span class="annottext">Eq NetworkInterfaceType
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681130641"><span id="local-6989586621681130643"><span id="local-6989586621681130645"><span id="local-6989586621681130647"><span id="local-6989586621681130649"><span id="local-6989586621681130651"><span id="local-6989586621681130653"><span class="annot"><span class="annottext">Eq NetworkInterfaceType
 Eq NetworkInterfaceType
 -&gt; (NetworkInterfaceType -&gt; NetworkInterfaceType -&gt; Ordering)
 -&gt; (NetworkInterfaceType -&gt; NetworkInterfaceType -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. NetworkInterfaceType -&gt; Rep NetworkInterfaceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681130624"><span id="local-6989586621681130626"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfaceType -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681130633"><span id="local-6989586621681130635"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfaceType -&gt; Int
 NetworkInterfaceType -&gt; Int
 (Int -&gt; NetworkInterfaceType -&gt; Int)
 -&gt; (NetworkInterfaceType -&gt; Int) -&gt; Hashable NetworkInterfaceType
@@ -153,54 +153,54 @@ $chash :: NetworkInterfaceType -&gt; Int
 hashWithSalt :: Int -&gt; NetworkInterfaceType -&gt; Int
 $chashWithSalt :: Int -&gt; NetworkInterfaceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681130621"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681130630"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; ()
 (NetworkInterfaceType -&gt; ()) -&gt; NFData NetworkInterfaceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NetworkInterfaceType -&gt; ()
 $crnf :: NetworkInterfaceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681130618"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkInterfaceType
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681130627"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkInterfaceType
 (Text -&gt; Either String NetworkInterfaceType)
 -&gt; FromText NetworkInterfaceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NetworkInterfaceType
 $cfromText :: Text -&gt; Either String NetworkInterfaceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681130615"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681130624"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; Text
 (NetworkInterfaceType -&gt; Text) -&gt; ToText NetworkInterfaceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NetworkInterfaceType -&gt; Text
 $ctoText :: NetworkInterfaceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681130612"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681130621"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; ByteString
 (NetworkInterfaceType -&gt; ByteString)
 -&gt; ToByteString NetworkInterfaceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NetworkInterfaceType -&gt; ByteString
 $ctoBS :: NetworkInterfaceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681130609"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681130618"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; ByteStringBuilder
 (NetworkInterfaceType -&gt; ByteStringBuilder)
 -&gt; ToLog NetworkInterfaceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NetworkInterfaceType -&gt; ByteStringBuilder
 $cbuild :: NetworkInterfaceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681130606"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkInterfaceType -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681130615"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkInterfaceType -&gt; [Header]
 (HeaderName -&gt; NetworkInterfaceType -&gt; [Header])
 -&gt; ToHeader NetworkInterfaceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NetworkInterfaceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NetworkInterfaceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681130603"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681130612"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; QueryString
 (NetworkInterfaceType -&gt; QueryString)
 -&gt; ToQuery NetworkInterfaceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NetworkInterfaceType -&gt; QueryString
 $ctoQuery :: NetworkInterfaceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681130598"><span id="local-6989586621681130600"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkInterfaceType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681130607"><span id="local-6989586621681130609"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkInterfaceType]
 Value -&gt; Parser NetworkInterfaceType
 (Value -&gt; Parser NetworkInterfaceType)
 -&gt; (Value -&gt; Parser [NetworkInterfaceType])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [NetworkInterfaceType]
 parseJSON :: Value -&gt; Parser NetworkInterfaceType
 $cparseJSON :: Value -&gt; Parser NetworkInterfaceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681130593"><span id="local-6989586621681130595"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkInterfaceType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681130602"><span id="local-6989586621681130604"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkInterfaceType]
 FromJSONKeyFunction NetworkInterfaceType
 FromJSONKeyFunction NetworkInterfaceType
 -&gt; FromJSONKeyFunction [NetworkInterfaceType]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NetworkInterfaceType]
 fromJSONKey :: FromJSONKeyFunction NetworkInterfaceType
 $cfromJSONKey :: FromJSONKeyFunction NetworkInterfaceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681130584"><span id="local-6989586621681130586"><span id="local-6989586621681130588"><span id="local-6989586621681130590"><span class="annot"><span class="annottext">[NetworkInterfaceType] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681130593"><span id="local-6989586621681130595"><span id="local-6989586621681130597"><span id="local-6989586621681130599"><span class="annot"><span class="annottext">[NetworkInterfaceType] -&gt; Encoding
 [NetworkInterfaceType] -&gt; Value
 NetworkInterfaceType -&gt; Encoding
 NetworkInterfaceType -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: NetworkInterfaceType -&gt; Encoding
 toJSON :: NetworkInterfaceType -&gt; Value
 $ctoJSON :: NetworkInterfaceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681130579"><span id="local-6989586621681130581"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkInterfaceType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681130588"><span id="local-6989586621681130590"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkInterfaceType]
 ToJSONKeyFunction NetworkInterfaceType
 ToJSONKeyFunction NetworkInterfaceType
 -&gt; ToJSONKeyFunction [NetworkInterfaceType]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NetworkInterfaceType]
 toJSONKey :: ToJSONKeyFunction NetworkInterfaceType
 $ctoJSONKey :: ToJSONKeyFunction NetworkInterfaceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681130576"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkInterfaceType
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681130585"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkInterfaceType
 ([Node] -&gt; Either String NetworkInterfaceType)
 -&gt; FromXML NetworkInterfaceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NetworkInterfaceType
 $cparseXML :: [Node] -&gt; Either String NetworkInterfaceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681130573"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681130582"><span class="annot"><span class="annottext">NetworkInterfaceType -&gt; XML
 (NetworkInterfaceType -&gt; XML) -&gt; ToXML NetworkInterfaceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NetworkInterfaceType -&gt; XML

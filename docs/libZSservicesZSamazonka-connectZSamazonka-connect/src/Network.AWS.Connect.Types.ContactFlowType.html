@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679395069"><span id="local-6989586621679395070"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContactFlowType"><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-var">ContactFlowType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactFlowType%27"><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType%27"><span class="hs-identifier hs-var">ContactFlowType'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679395078"><span id="local-6989586621679395079"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContactFlowType"><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-var">ContactFlowType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactFlowType%27"><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType%27"><span class="hs-identifier hs-var">ContactFlowType'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContactFlowType"><span class="annot"><span class="annottext">ContactFlowType -&gt; Text
 </span><a href="Network.AWS.Connect.Types.ContactFlowType.html#fromContactFlowType"><span class="hs-identifier hs-var hs-var">fromContactFlowType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395061"><span id="local-6989586621679395063"><span id="local-6989586621679395065"><span class="annot"><span class="annottext">Int -&gt; ContactFlowType -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395070"><span id="local-6989586621679395072"><span id="local-6989586621679395074"><span class="annot"><span class="annottext">Int -&gt; ContactFlowType -&gt; ShowS
 [ContactFlowType] -&gt; ShowS
 ContactFlowType -&gt; String
 (Int -&gt; ContactFlowType -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: ContactFlowType -&gt; String
 showsPrec :: Int -&gt; ContactFlowType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContactFlowType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679395052"><span id="local-6989586621679395054"><span id="local-6989586621679395056"><span id="local-6989586621679395058"><span class="annot"><span class="annottext">ReadPrec [ContactFlowType]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679395061"><span id="local-6989586621679395063"><span id="local-6989586621679395065"><span id="local-6989586621679395067"><span class="annot"><span class="annottext">ReadPrec [ContactFlowType]
 ReadPrec ContactFlowType
 Int -&gt; ReadS ContactFlowType
 ReadS [ContactFlowType]
@@ -79,7 +79,7 @@ $creadList :: ReadS [ContactFlowType]
 readsPrec :: Int -&gt; ReadS ContactFlowType
 $creadsPrec :: Int -&gt; ReadS ContactFlowType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679395047"><span id="local-6989586621679395049"><span class="annot"><span class="annottext">ContactFlowType -&gt; ContactFlowType -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679395056"><span id="local-6989586621679395058"><span class="annot"><span class="annottext">ContactFlowType -&gt; ContactFlowType -&gt; Bool
 (ContactFlowType -&gt; ContactFlowType -&gt; Bool)
 -&gt; (ContactFlowType -&gt; ContactFlowType -&gt; Bool)
 -&gt; Eq ContactFlowType
@@ -89,7 +89,7 @@ $c/= :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
 == :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
 $c== :: ContactFlowType -&gt; ContactFlowType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679395031"><span id="local-6989586621679395033"><span id="local-6989586621679395035"><span id="local-6989586621679395037"><span id="local-6989586621679395039"><span id="local-6989586621679395041"><span id="local-6989586621679395043"><span class="annot"><span class="annottext">Eq ContactFlowType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679395040"><span id="local-6989586621679395042"><span id="local-6989586621679395044"><span id="local-6989586621679395046"><span id="local-6989586621679395048"><span id="local-6989586621679395050"><span id="local-6989586621679395052"><span class="annot"><span class="annottext">Eq ContactFlowType
 Eq ContactFlowType
 -&gt; (ContactFlowType -&gt; ContactFlowType -&gt; Ordering)
 -&gt; (ContactFlowType -&gt; ContactFlowType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. ContactFlowType -&gt; Rep ContactFlowType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395023"><span id="local-6989586621679395025"><span class="annot"><span class="annottext">Int -&gt; ContactFlowType -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395032"><span id="local-6989586621679395034"><span class="annot"><span class="annottext">Int -&gt; ContactFlowType -&gt; Int
 ContactFlowType -&gt; Int
 (Int -&gt; ContactFlowType -&gt; Int)
 -&gt; (ContactFlowType -&gt; Int) -&gt; Hashable ContactFlowType
@@ -150,50 +150,50 @@ $chash :: ContactFlowType -&gt; Int
 hashWithSalt :: Int -&gt; ContactFlowType -&gt; Int
 $chashWithSalt :: Int -&gt; ContactFlowType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679395020"><span class="annot"><span class="annottext">ContactFlowType -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679395029"><span class="annot"><span class="annottext">ContactFlowType -&gt; ()
 (ContactFlowType -&gt; ()) -&gt; NFData ContactFlowType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContactFlowType -&gt; ()
 $crnf :: ContactFlowType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679395017"><span class="annot"><span class="annottext">Text -&gt; Either String ContactFlowType
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679395026"><span class="annot"><span class="annottext">Text -&gt; Either String ContactFlowType
 (Text -&gt; Either String ContactFlowType) -&gt; FromText ContactFlowType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContactFlowType
 $cfromText :: Text -&gt; Either String ContactFlowType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679395014"><span class="annot"><span class="annottext">ContactFlowType -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679395023"><span class="annot"><span class="annottext">ContactFlowType -&gt; Text
 (ContactFlowType -&gt; Text) -&gt; ToText ContactFlowType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContactFlowType -&gt; Text
 $ctoText :: ContactFlowType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679395011"><span class="annot"><span class="annottext">ContactFlowType -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679395020"><span class="annot"><span class="annottext">ContactFlowType -&gt; ByteString
 (ContactFlowType -&gt; ByteString) -&gt; ToByteString ContactFlowType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContactFlowType -&gt; ByteString
 $ctoBS :: ContactFlowType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679395008"><span class="annot"><span class="annottext">ContactFlowType -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679395017"><span class="annot"><span class="annottext">ContactFlowType -&gt; ByteStringBuilder
 (ContactFlowType -&gt; ByteStringBuilder) -&gt; ToLog ContactFlowType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContactFlowType -&gt; ByteStringBuilder
 $cbuild :: ContactFlowType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679395005"><span class="annot"><span class="annottext">HeaderName -&gt; ContactFlowType -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679395014"><span class="annot"><span class="annottext">HeaderName -&gt; ContactFlowType -&gt; [Header]
 (HeaderName -&gt; ContactFlowType -&gt; [Header])
 -&gt; ToHeader ContactFlowType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContactFlowType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContactFlowType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679395002"><span class="annot"><span class="annottext">ContactFlowType -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679395011"><span class="annot"><span class="annottext">ContactFlowType -&gt; QueryString
 (ContactFlowType -&gt; QueryString) -&gt; ToQuery ContactFlowType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContactFlowType -&gt; QueryString
 $ctoQuery :: ContactFlowType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679394997"><span id="local-6989586621679394999"><span class="annot"><span class="annottext">Value -&gt; Parser [ContactFlowType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679395006"><span id="local-6989586621679395008"><span class="annot"><span class="annottext">Value -&gt; Parser [ContactFlowType]
 Value -&gt; Parser ContactFlowType
 (Value -&gt; Parser ContactFlowType)
 -&gt; (Value -&gt; Parser [ContactFlowType]) -&gt; FromJSON ContactFlowType
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [ContactFlowType]
 parseJSON :: Value -&gt; Parser ContactFlowType
 $cparseJSON :: Value -&gt; Parser ContactFlowType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679394992"><span id="local-6989586621679394994"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContactFlowType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679395001"><span id="local-6989586621679395003"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContactFlowType]
 FromJSONKeyFunction ContactFlowType
 FromJSONKeyFunction ContactFlowType
 -&gt; FromJSONKeyFunction [ContactFlowType]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContactFlowType]
 fromJSONKey :: FromJSONKeyFunction ContactFlowType
 $cfromJSONKey :: FromJSONKeyFunction ContactFlowType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679394983"><span id="local-6989586621679394985"><span id="local-6989586621679394987"><span id="local-6989586621679394989"><span class="annot"><span class="annottext">[ContactFlowType] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679394992"><span id="local-6989586621679394994"><span id="local-6989586621679394996"><span id="local-6989586621679394998"><span class="annot"><span class="annottext">[ContactFlowType] -&gt; Encoding
 [ContactFlowType] -&gt; Value
 ContactFlowType -&gt; Encoding
 ContactFlowType -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: ContactFlowType -&gt; Encoding
 toJSON :: ContactFlowType -&gt; Value
 $ctoJSON :: ContactFlowType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679394978"><span id="local-6989586621679394980"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContactFlowType]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679394987"><span id="local-6989586621679394989"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContactFlowType]
 ToJSONKeyFunction ContactFlowType
 ToJSONKeyFunction ContactFlowType
 -&gt; ToJSONKeyFunction [ContactFlowType] -&gt; ToJSONKey ContactFlowType
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContactFlowType]
 toJSONKey :: ToJSONKeyFunction ContactFlowType
 $ctoJSONKey :: ToJSONKeyFunction ContactFlowType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679394975"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContactFlowType
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679394984"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContactFlowType
 ([Node] -&gt; Either String ContactFlowType)
 -&gt; FromXML ContactFlowType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContactFlowType
 $cparseXML :: [Node] -&gt; Either String ContactFlowType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679394972"><span class="annot"><span class="annottext">ContactFlowType -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679394981"><span class="annot"><span class="annottext">ContactFlowType -&gt; XML
 (ContactFlowType -&gt; XML) -&gt; ToXML ContactFlowType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ContactFlowType -&gt; XML

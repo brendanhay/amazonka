@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- by the table\'s @LineItemGroupIndex@.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLineItemGroup' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679176790"><span id="local-6989586621679176791"></span></span><span class="hs-keyword">data</span><span> </span><span id="LineItemGroup"><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup"><span class="hs-identifier hs-var">LineItemGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LineItemGroup%27"><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup%27"><span class="hs-identifier hs-var">LineItemGroup'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679176799"><span id="local-6989586621679176800"></span></span><span class="hs-keyword">data</span><span> </span><span id="LineItemGroup"><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup"><span class="hs-identifier hs-var">LineItemGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LineItemGroup%27"><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup%27"><span class="hs-identifier hs-var">LineItemGroup'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The breakdown of information on a particular line of a table.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AlineItems%3ALineItemGroup%27"><span class="annot"><span class="annottext">LineItemGroup -&gt; Maybe [LineItemFields]
 </span><a href="Network.AWS.Textract.Types.LineItemGroup.html#%24sel%3AlineItems%3ALineItemGroup%27"><span class="hs-identifier hs-var hs-var">lineItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemFields.html#LineItemFields"><span class="hs-identifier hs-type">LineItemFields</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AlineItemGroupIndex%3ALineItemGroup%27"><span class="annot"><span class="annottext">LineItemGroup -&gt; Maybe Natural
 </span><a href="Network.AWS.Textract.Types.LineItemGroup.html#%24sel%3AlineItemGroupIndex%3ALineItemGroup%27"><span class="hs-identifier hs-var hs-var">lineItemGroupIndex</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176783"><span id="local-6989586621679176785"><span class="annot"><span class="annottext">LineItemGroup -&gt; LineItemGroup -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176792"><span id="local-6989586621679176794"><span class="annot"><span class="annottext">LineItemGroup -&gt; LineItemGroup -&gt; Bool
 (LineItemGroup -&gt; LineItemGroup -&gt; Bool)
 -&gt; (LineItemGroup -&gt; LineItemGroup -&gt; Bool) -&gt; Eq LineItemGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LineItemGroup -&gt; LineItemGroup -&gt; Bool
 == :: LineItemGroup -&gt; LineItemGroup -&gt; Bool
 $c== :: LineItemGroup -&gt; LineItemGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176774"><span id="local-6989586621679176776"><span id="local-6989586621679176778"><span id="local-6989586621679176780"><span class="annot"><span class="annottext">ReadPrec [LineItemGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176783"><span id="local-6989586621679176785"><span id="local-6989586621679176787"><span id="local-6989586621679176789"><span class="annot"><span class="annottext">ReadPrec [LineItemGroup]
 ReadPrec LineItemGroup
 Int -&gt; ReadS LineItemGroup
 ReadS [LineItemGroup]
@@ -66,7 +66,7 @@ readList :: ReadS [LineItemGroup]
 $creadList :: ReadS [LineItemGroup]
 readsPrec :: Int -&gt; ReadS LineItemGroup
 $creadsPrec :: Int -&gt; ReadS LineItemGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176767"><span id="local-6989586621679176769"><span id="local-6989586621679176771"><span class="annot"><span class="annottext">Int -&gt; LineItemGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176776"><span id="local-6989586621679176778"><span id="local-6989586621679176780"><span class="annot"><span class="annottext">Int -&gt; LineItemGroup -&gt; ShowS
 [LineItemGroup] -&gt; ShowS
 LineItemGroup -&gt; String
 (Int -&gt; LineItemGroup -&gt; ShowS)
@@ -133,16 +133,16 @@ forall a. Maybe a
      (Maybe [LineItemFields])
      (Maybe [LineItemFields])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup%27"><span class="hs-identifier hs-type">LineItemGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176758"><span class="annot"><span class="annottext">Maybe [LineItemFields]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup%27"><span class="hs-identifier hs-type">LineItemGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176767"><span class="annot"><span class="annottext">Maybe [LineItemFields]
 lineItems :: Maybe [LineItemFields]
 $sel:lineItems:LineItemGroup' :: LineItemGroup -&gt; Maybe [LineItemFields]
-</span><a href="#local-6989586621679176758"><span class="hs-identifier hs-var hs-var">lineItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LineItemFields]
-</span><a href="#local-6989586621679176758"><span class="hs-identifier hs-var">lineItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176757"><span class="annot"><span class="annottext">s :: LineItemGroup
-</span><a href="#local-6989586621679176757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup%27"><span class="hs-identifier hs-type">LineItemGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176756"><span class="annot"><span class="annottext">Maybe [LineItemFields]
-</span><a href="#local-6989586621679176756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LineItemGroup
-</span><a href="#local-6989586621679176757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lineItems:LineItemGroup' :: Maybe [LineItemFields]
+</span><a href="#local-6989586621679176767"><span class="hs-identifier hs-var hs-var">lineItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LineItemFields]
+</span><a href="#local-6989586621679176767"><span class="hs-identifier hs-var">lineItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176766"><span class="annot"><span class="annottext">s :: LineItemGroup
+</span><a href="#local-6989586621679176766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup%27"><span class="hs-identifier hs-type">LineItemGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176765"><span class="annot"><span class="annottext">Maybe [LineItemFields]
+</span><a href="#local-6989586621679176765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LineItemGroup
+</span><a href="#local-6989586621679176766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lineItems:LineItemGroup' :: Maybe [LineItemFields]
 </span><a href="Network.AWS.Textract.Types.LineItemGroup.html#%24sel%3AlineItems%3ALineItemGroup%27"><span class="hs-identifier hs-var">lineItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LineItemFields]
-</span><a href="#local-6989586621679176756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup"><span class="hs-identifier hs-type">LineItemGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LineItemFields] -&gt; f (Maybe [LineItemFields]))
+</span><a href="#local-6989586621679176765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup"><span class="hs-identifier hs-type">LineItemGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LineItemFields] -&gt; f (Maybe [LineItemFields]))
  -&gt; LineItemGroup -&gt; f LineItemGroup)
 -&gt; ((Maybe [LineItemFields] -&gt; f (Maybe [LineItemFields]))
     -&gt; Maybe [LineItemFields] -&gt; f (Maybe [LineItemFields]))
@@ -175,19 +175,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (LineItemGroup -&gt; Maybe Natural -&gt; LineItemGroup)
 -&gt; Lens LineItemGroup LineItemGroup (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup%27"><span class="hs-identifier hs-type">LineItemGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176751"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup%27"><span class="hs-identifier hs-type">LineItemGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176760"><span class="annot"><span class="annottext">Maybe Natural
 lineItemGroupIndex :: Maybe Natural
 $sel:lineItemGroupIndex:LineItemGroup' :: LineItemGroup -&gt; Maybe Natural
-</span><a href="#local-6989586621679176751"><span class="hs-identifier hs-var hs-var">lineItemGroupIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679176751"><span class="hs-identifier hs-var">lineItemGroupIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176750"><span class="annot"><span class="annottext">s :: LineItemGroup
-</span><a href="#local-6989586621679176750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup%27"><span class="hs-identifier hs-type">LineItemGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176749"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679176749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LineItemGroup
-</span><a href="#local-6989586621679176750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lineItemGroupIndex:LineItemGroup' :: Maybe Natural
+</span><a href="#local-6989586621679176760"><span class="hs-identifier hs-var hs-var">lineItemGroupIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679176760"><span class="hs-identifier hs-var">lineItemGroupIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176759"><span class="annot"><span class="annottext">s :: LineItemGroup
+</span><a href="#local-6989586621679176759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup%27"><span class="hs-identifier hs-type">LineItemGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176758"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679176758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LineItemGroup
+</span><a href="#local-6989586621679176759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lineItemGroupIndex:LineItemGroup' :: Maybe Natural
 </span><a href="Network.AWS.Textract.Types.LineItemGroup.html#%24sel%3AlineItemGroupIndex%3ALineItemGroup%27"><span class="hs-identifier hs-var">lineItemGroupIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679176749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup"><span class="hs-identifier hs-type">LineItemGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup"><span class="hs-identifier hs-type">LineItemGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176746"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup"><span class="hs-identifier hs-type">LineItemGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679176744"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LineItemGroup
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176755"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup"><span class="hs-identifier hs-type">LineItemGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679176753"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LineItemGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LineItemGroup)
@@ -197,8 +197,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LineItemGroup&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176741"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176741"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176750"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176750"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe [LineItemFields] -&gt; Maybe Natural -&gt; LineItemGroup
 </span><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup%27"><span class="hs-identifier hs-var">LineItemGroup'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [LineItemFields] -&gt; Maybe Natural -&gt; LineItemGroup)
@@ -206,7 +206,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; LineItemGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [LineItemFields]))
+</span><a href="#local-6989586621679176750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [LineItemFields]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LineItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [LineItemFields]))
@@ -219,13 +219,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Natural) -&gt; Parser LineItemGroup
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679176750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LineItemGroupIndex&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176734"><span id="local-6989586621679176736"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup"><span class="hs-identifier hs-type">LineItemGroup</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176743"><span id="local-6989586621679176745"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup"><span class="hs-identifier hs-type">LineItemGroup</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176731"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup"><span class="hs-identifier hs-type">LineItemGroup</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176740"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.LineItemGroup.html#LineItemGroup"><span class="hs-identifier hs-type">LineItemGroup</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

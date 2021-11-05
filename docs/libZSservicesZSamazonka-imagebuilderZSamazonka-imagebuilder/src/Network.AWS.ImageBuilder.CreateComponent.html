@@ -1,0 +1,1040 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ImageBuilder.CreateComponent</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new component that can be used to build, validate, test, and</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- assess your image.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ImageBuilder.CreateComponent</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier">CreateComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#newCreateComponent"><span class="hs-identifier">newCreateComponent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_data"><span class="hs-identifier">createComponent_data</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_supportedOsVersions"><span class="hs-identifier">createComponent_supportedOsVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_uri"><span class="hs-identifier">createComponent_uri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_kmsKeyId"><span class="hs-identifier">createComponent_kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_changeDescription"><span class="hs-identifier">createComponent_changeDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_description"><span class="hs-identifier">createComponent_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_tags"><span class="hs-identifier">createComponent_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_name"><span class="hs-identifier">createComponent_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_semanticVersion"><span class="hs-identifier">createComponent_semanticVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_platform"><span class="hs-identifier">createComponent_platform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_clientToken"><span class="hs-identifier">createComponent_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse"><span class="hs-identifier">CreateComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#newCreateComponentResponse"><span class="hs-identifier">newCreateComponentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponentResponse_requestId"><span class="hs-identifier">createComponentResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponentResponse_clientToken"><span class="hs-identifier">createComponentResponse_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponentResponse_componentBuildVersionArn"><span class="hs-identifier">createComponentResponse_componentBuildVersionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponentResponse_httpStatus"><span class="hs-identifier">createComponentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newCreateComponent' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679331087"><span id="local-6989586621679331088"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateComponent"><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-var">CreateComponent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateComponent%27"><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-var">CreateComponent'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data of the component. Used to specify the data inline. Either</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @data@ or @uri@ can be used to specify the data within the component.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Adata%27%3ACreateComponent%27"><span class="annot"><span class="annottext">CreateComponent -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Adata%27%3ACreateComponent%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The operating system (OS) version supported by the component. If the OS</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- information is available, a prefix match is performed against the base</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- image OS version during image recipe creation.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AsupportedOsVersions%3ACreateComponent%27"><span class="annot"><span class="annottext">CreateComponent -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AsupportedOsVersions%3ACreateComponent%27"><span class="hs-identifier hs-var hs-var">supportedOsVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The uri of the component. Must be an Amazon S3 URL and the requester</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- must have permission to access the Amazon S3 bucket. If you use Amazon</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- S3, you can specify component content up to your service quota. Either</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @data@ or @uri@ can be used to specify the data within the component.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Auri%3ACreateComponent%27"><span class="annot"><span class="annottext">CreateComponent -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Auri%3ACreateComponent%27"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The ID of the KMS key that should be used to encrypt this component.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AkmsKeyId%3ACreateComponent%27"><span class="annot"><span class="annottext">CreateComponent -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AkmsKeyId%3ACreateComponent%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The change description of the component. Describes what change has been</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- made in this version, or what makes this version different from other</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- versions of this component.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AchangeDescription%3ACreateComponent%27"><span class="annot"><span class="annottext">CreateComponent -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AchangeDescription%3ACreateComponent%27"><span class="hs-identifier hs-var hs-var">changeDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The description of the component. Describes the contents of the</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- component.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Adescription%3ACreateComponent%27"><span class="annot"><span class="annottext">CreateComponent -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Adescription%3ACreateComponent%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The tags of the component.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Atags%3ACreateComponent%27"><span class="annot"><span class="annottext">CreateComponent -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Atags%3ACreateComponent%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The name of the component.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Aname%3ACreateComponent%27"><span class="annot"><span class="annottext">CreateComponent -&gt; Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Aname%3ACreateComponent%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The semantic version of the component. This version follows the semantic</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- version syntax.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- The semantic version has four nodes:</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;\/\&lt;build&gt;. You can assign values for the</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- first three, and can filter on all of them.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- __Assignment:__ For the first three nodes you can assign any positive</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- integer value, including zero, with an upper limit of 2^30-1, or</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- 1073741823 for each node. Image Builder automatically assigns the build</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- number to the fourth node.</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- __Patterns:__ You can use any numeric pattern that adheres to the</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- assignment requirements for the nodes that you can assign. For example,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- you might choose a software version pattern, such as 1.0.0, or a date,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- such as 2021.01.01.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AsemanticVersion%3ACreateComponent%27"><span class="annot"><span class="annottext">CreateComponent -&gt; Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AsemanticVersion%3ACreateComponent%27"><span class="hs-identifier hs-var hs-var">semanticVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | The platform of the component.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3Aplatform%3ACreateComponent%27"><span class="annot"><span class="annottext">CreateComponent -&gt; Platform
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Aplatform%3ACreateComponent%27"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform"><span class="hs-identifier hs-type">Platform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | The idempotency token of the component.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateComponent%27"><span class="annot"><span class="annottext">CreateComponent -&gt; Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AclientToken%3ACreateComponent%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331071"><span id="local-6989586621679331073"><span class="annot"><span class="annottext">CreateComponent -&gt; CreateComponent -&gt; Bool
+(CreateComponent -&gt; CreateComponent -&gt; Bool)
+-&gt; (CreateComponent -&gt; CreateComponent -&gt; Bool)
+-&gt; Eq CreateComponent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateComponent -&gt; CreateComponent -&gt; Bool
+$c/= :: CreateComponent -&gt; CreateComponent -&gt; Bool
+== :: CreateComponent -&gt; CreateComponent -&gt; Bool
+$c== :: CreateComponent -&gt; CreateComponent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331062"><span id="local-6989586621679331064"><span id="local-6989586621679331066"><span id="local-6989586621679331068"><span class="annot"><span class="annottext">ReadPrec [CreateComponent]
+ReadPrec CreateComponent
+Int -&gt; ReadS CreateComponent
+ReadS [CreateComponent]
+(Int -&gt; ReadS CreateComponent)
+-&gt; ReadS [CreateComponent]
+-&gt; ReadPrec CreateComponent
+-&gt; ReadPrec [CreateComponent]
+-&gt; Read CreateComponent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateComponent]
+$creadListPrec :: ReadPrec [CreateComponent]
+readPrec :: ReadPrec CreateComponent
+$creadPrec :: ReadPrec CreateComponent
+readList :: ReadS [CreateComponent]
+$creadList :: ReadS [CreateComponent]
+readsPrec :: Int -&gt; ReadS CreateComponent
+$creadsPrec :: Int -&gt; ReadS CreateComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331055"><span id="local-6989586621679331057"><span id="local-6989586621679331059"><span class="annot"><span class="annottext">Int -&gt; CreateComponent -&gt; ShowS
+[CreateComponent] -&gt; ShowS
+CreateComponent -&gt; String
+(Int -&gt; CreateComponent -&gt; ShowS)
+-&gt; (CreateComponent -&gt; String)
+-&gt; ([CreateComponent] -&gt; ShowS)
+-&gt; Show CreateComponent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateComponent] -&gt; ShowS
+$cshowList :: [CreateComponent] -&gt; ShowS
+show :: CreateComponent -&gt; String
+$cshow :: CreateComponent -&gt; String
+showsPrec :: Int -&gt; CreateComponent -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateComponent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateComponent -&gt; Rep CreateComponent x)
+-&gt; (forall x. Rep CreateComponent x -&gt; CreateComponent)
+-&gt; Generic CreateComponent
+forall x. Rep CreateComponent x -&gt; CreateComponent
+forall x. CreateComponent -&gt; Rep CreateComponent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateComponent x -&gt; CreateComponent
+$cfrom :: forall x. CreateComponent -&gt; Rep CreateComponent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Create a value of 'CreateComponent' with all optional fields omitted.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'data'', 'createComponent_data' - The data of the component. Used to specify the data inline. Either</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- @data@ or @uri@ can be used to specify the data within the component.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'supportedOsVersions', 'createComponent_supportedOsVersions' - The operating system (OS) version supported by the component. If the OS</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- information is available, a prefix match is performed against the base</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- image OS version during image recipe creation.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'uri', 'createComponent_uri' - The uri of the component. Must be an Amazon S3 URL and the requester</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- must have permission to access the Amazon S3 bucket. If you use Amazon</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- S3, you can specify component content up to your service quota. Either</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- @data@ or @uri@ can be used to specify the data within the component.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'kmsKeyId', 'createComponent_kmsKeyId' - The ID of the KMS key that should be used to encrypt this component.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'changeDescription', 'createComponent_changeDescription' - The change description of the component. Describes what change has been</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- made in this version, or what makes this version different from other</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- versions of this component.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'description', 'createComponent_description' - The description of the component. Describes the contents of the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- component.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'tags', 'createComponent_tags' - The tags of the component.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'name', 'createComponent_name' - The name of the component.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'semanticVersion', 'createComponent_semanticVersion' - The semantic version of the component. This version follows the semantic</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- version syntax.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- The semantic version has four nodes:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;\/\&lt;build&gt;. You can assign values for the</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- first three, and can filter on all of them.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- __Assignment:__ For the first three nodes you can assign any positive</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- integer value, including zero, with an upper limit of 2^30-1, or</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 1073741823 for each node. Image Builder automatically assigns the build</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- number to the fourth node.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- __Patterns:__ You can use any numeric pattern that adheres to the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- assignment requirements for the nodes that you can assign. For example,</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- you might choose a software version pattern, such as 1.0.0, or a date,</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- such as 2021.01.01.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'platform', 'createComponent_platform' - The platform of the component.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'clientToken', 'createComponent_clientToken' - The idempotency token of the component.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#newCreateComponent"><span class="hs-identifier hs-type">newCreateComponent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-comment">-- | 'semanticVersion'</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-comment">-- | 'platform'</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform"><span class="hs-identifier hs-type">Platform</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'clientToken'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span>
+</span><span id="line-176"></span><span id="newCreateComponent"><span class="annot"><span class="annottext">newCreateComponent :: Text -&gt; Text -&gt; Platform -&gt; Text -&gt; CreateComponent
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#newCreateComponent"><span class="hs-identifier hs-var hs-var">newCreateComponent</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679331050"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331050"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679331049"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331049"><span class="hs-identifier hs-var">pSemanticVersion_</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679331048"><span class="annot"><span class="annottext">Platform
+</span><a href="#local-6989586621679331048"><span class="hs-identifier hs-var">pPlatform_</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679331047"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331047"><span class="hs-identifier hs-var">pClientToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">CreateComponent' :: Maybe Text
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; Platform
+-&gt; Text
+-&gt; CreateComponent
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:data':CreateComponent' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Adata%27%3ACreateComponent%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">$sel:supportedOsVersions:CreateComponent' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AsupportedOsVersions%3ACreateComponent%27"><span class="hs-identifier hs-var">supportedOsVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">$sel:uri:CreateComponent' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Auri%3ACreateComponent%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:kmsKeyId:CreateComponent' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AkmsKeyId%3ACreateComponent%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">$sel:changeDescription:CreateComponent' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AchangeDescription%3ACreateComponent%27"><span class="hs-identifier hs-var">changeDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:CreateComponent' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Adescription%3ACreateComponent%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateComponent' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Atags%3ACreateComponent%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateComponent' :: Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Aname%3ACreateComponent%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331050"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:semanticVersion:CreateComponent' :: Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AsemanticVersion%3ACreateComponent%27"><span class="hs-identifier hs-var">semanticVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331049"><span class="hs-identifier hs-var">pSemanticVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">$sel:platform:CreateComponent' :: Platform
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Aplatform%3ACreateComponent%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Platform
+</span><a href="#local-6989586621679331048"><span class="hs-identifier hs-var">pPlatform_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:CreateComponent' :: Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AclientToken%3ACreateComponent%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331047"><span class="hs-identifier hs-var">pClientToken_</span></a></span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The data of the component. Used to specify the data inline. Either</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- @data@ or @uri@ can be used to specify the data within the component.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_data"><span class="hs-identifier hs-type">createComponent_data</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="createComponent_data"><span class="annot"><span class="annottext">createComponent_data :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateComponent -&gt; f CreateComponent
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_data"><span class="hs-identifier hs-var hs-var">createComponent_data</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponent -&gt; Maybe Text)
+-&gt; (CreateComponent -&gt; Maybe Text -&gt; CreateComponent)
+-&gt; Lens CreateComponent CreateComponent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331044"><span class="annot"><span class="annottext">Maybe Text
+data' :: Maybe Text
+$sel:data':CreateComponent' :: CreateComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679331044"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331044"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331043"><span class="annot"><span class="annottext">s :: CreateComponent
+</span><a href="#local-6989586621679331043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331042"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponent
+</span><a href="#local-6989586621679331043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':CreateComponent' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Adata%27%3ACreateComponent%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The operating system (OS) version supported by the component. If the OS</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- information is available, a prefix match is performed against the base</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- image OS version during image recipe creation.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_supportedOsVersions"><span class="hs-identifier hs-type">createComponent_supportedOsVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="createComponent_supportedOsVersions"><span class="annot"><span class="annottext">createComponent_supportedOsVersions :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; CreateComponent -&gt; f CreateComponent
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_supportedOsVersions"><span class="hs-identifier hs-var hs-var">createComponent_supportedOsVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponent -&gt; Maybe (NonEmpty Text))
+-&gt; (CreateComponent -&gt; Maybe (NonEmpty Text) -&gt; CreateComponent)
+-&gt; Lens
+     CreateComponent
+     CreateComponent
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331041"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+supportedOsVersions :: Maybe (NonEmpty Text)
+$sel:supportedOsVersions:CreateComponent' :: CreateComponent -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679331041"><span class="hs-identifier hs-var hs-var">supportedOsVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679331041"><span class="hs-identifier hs-var">supportedOsVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331040"><span class="annot"><span class="annottext">s :: CreateComponent
+</span><a href="#local-6989586621679331040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331039"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679331039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponent
+</span><a href="#local-6989586621679331040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedOsVersions:CreateComponent' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AsupportedOsVersions%3ACreateComponent%27"><span class="hs-identifier hs-var">supportedOsVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679331039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; CreateComponent -&gt; f CreateComponent)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; CreateComponent
+-&gt; f CreateComponent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The uri of the component. Must be an Amazon S3 URL and the requester</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- must have permission to access the Amazon S3 bucket. If you use Amazon</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- S3, you can specify component content up to your service quota. Either</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- @data@ or @uri@ can be used to specify the data within the component.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_uri"><span class="hs-identifier hs-type">createComponent_uri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="createComponent_uri"><span class="annot"><span class="annottext">createComponent_uri :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateComponent -&gt; f CreateComponent
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_uri"><span class="hs-identifier hs-var hs-var">createComponent_uri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponent -&gt; Maybe Text)
+-&gt; (CreateComponent -&gt; Maybe Text -&gt; CreateComponent)
+-&gt; Lens CreateComponent CreateComponent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331035"><span class="annot"><span class="annottext">Maybe Text
+uri :: Maybe Text
+$sel:uri:CreateComponent' :: CreateComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679331035"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331035"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331034"><span class="annot"><span class="annottext">s :: CreateComponent
+</span><a href="#local-6989586621679331034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331033"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponent
+</span><a href="#local-6989586621679331034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:CreateComponent' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Auri%3ACreateComponent%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The ID of the KMS key that should be used to encrypt this component.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_kmsKeyId"><span class="hs-identifier hs-type">createComponent_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="createComponent_kmsKeyId"><span class="annot"><span class="annottext">createComponent_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateComponent -&gt; f CreateComponent
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_kmsKeyId"><span class="hs-identifier hs-var hs-var">createComponent_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponent -&gt; Maybe Text)
+-&gt; (CreateComponent -&gt; Maybe Text -&gt; CreateComponent)
+-&gt; Lens CreateComponent CreateComponent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331032"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyId :: Maybe Text
+$sel:kmsKeyId:CreateComponent' :: CreateComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679331032"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331032"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331031"><span class="annot"><span class="annottext">s :: CreateComponent
+</span><a href="#local-6989586621679331031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331030"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponent
+</span><a href="#local-6989586621679331031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:CreateComponent' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AkmsKeyId%3ACreateComponent%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The change description of the component. Describes what change has been</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- made in this version, or what makes this version different from other</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- versions of this component.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_changeDescription"><span class="hs-identifier hs-type">createComponent_changeDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="createComponent_changeDescription"><span class="annot"><span class="annottext">createComponent_changeDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateComponent -&gt; f CreateComponent
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_changeDescription"><span class="hs-identifier hs-var hs-var">createComponent_changeDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponent -&gt; Maybe Text)
+-&gt; (CreateComponent -&gt; Maybe Text -&gt; CreateComponent)
+-&gt; Lens CreateComponent CreateComponent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331029"><span class="annot"><span class="annottext">Maybe Text
+changeDescription :: Maybe Text
+$sel:changeDescription:CreateComponent' :: CreateComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679331029"><span class="hs-identifier hs-var hs-var">changeDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331029"><span class="hs-identifier hs-var">changeDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331028"><span class="annot"><span class="annottext">s :: CreateComponent
+</span><a href="#local-6989586621679331028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331027"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponent
+</span><a href="#local-6989586621679331028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeDescription:CreateComponent' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AchangeDescription%3ACreateComponent%27"><span class="hs-identifier hs-var">changeDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The description of the component. Describes the contents of the</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- component.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_description"><span class="hs-identifier hs-type">createComponent_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="createComponent_description"><span class="annot"><span class="annottext">createComponent_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateComponent -&gt; f CreateComponent
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_description"><span class="hs-identifier hs-var hs-var">createComponent_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponent -&gt; Maybe Text)
+-&gt; (CreateComponent -&gt; Maybe Text -&gt; CreateComponent)
+-&gt; Lens CreateComponent CreateComponent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331026"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateComponent' :: CreateComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679331026"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331026"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331025"><span class="annot"><span class="annottext">s :: CreateComponent
+</span><a href="#local-6989586621679331025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331024"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponent
+</span><a href="#local-6989586621679331025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateComponent' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Adescription%3ACreateComponent%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The tags of the component.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_tags"><span class="hs-identifier hs-type">createComponent_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="createComponent_tags"><span class="annot"><span class="annottext">createComponent_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateComponent -&gt; f CreateComponent
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_tags"><span class="hs-identifier hs-var hs-var">createComponent_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponent -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateComponent
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateComponent)
+-&gt; Lens
+     CreateComponent
+     CreateComponent
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331023"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateComponent' :: CreateComponent -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679331023"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679331023"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331022"><span class="annot"><span class="annottext">s :: CreateComponent
+</span><a href="#local-6989586621679331022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331021"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679331021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponent
+</span><a href="#local-6989586621679331022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateComponent' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Atags%3ACreateComponent%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679331021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateComponent -&gt; f CreateComponent)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateComponent
+-&gt; f CreateComponent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The name of the component.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_name"><span class="hs-identifier hs-type">createComponent_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-234"></span><span id="createComponent_name"><span class="annot"><span class="annottext">createComponent_name :: (Text -&gt; f Text) -&gt; CreateComponent -&gt; f CreateComponent
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_name"><span class="hs-identifier hs-var hs-var">createComponent_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponent -&gt; Text)
+-&gt; (CreateComponent -&gt; Text -&gt; CreateComponent)
+-&gt; Lens CreateComponent CreateComponent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331020"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateComponent' :: CreateComponent -&gt; Text
+</span><a href="#local-6989586621679331020"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331020"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331019"><span class="annot"><span class="annottext">s :: CreateComponent
+</span><a href="#local-6989586621679331019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331018"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponent
+</span><a href="#local-6989586621679331019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateComponent' :: Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Aname%3ACreateComponent%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The semantic version of the component. This version follows the semantic</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- version syntax.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- The semantic version has four nodes:</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;\/\&lt;build&gt;. You can assign values for the</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- first three, and can filter on all of them.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- __Assignment:__ For the first three nodes you can assign any positive</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- integer value, including zero, with an upper limit of 2^30-1, or</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 1073741823 for each node. Image Builder automatically assigns the build</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- number to the fourth node.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- __Patterns:__ You can use any numeric pattern that adheres to the</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- assignment requirements for the nodes that you can assign. For example,</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- you might choose a software version pattern, such as 1.0.0, or a date,</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- such as 2021.01.01.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_semanticVersion"><span class="hs-identifier hs-type">createComponent_semanticVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-253"></span><span id="createComponent_semanticVersion"><span class="annot"><span class="annottext">createComponent_semanticVersion :: (Text -&gt; f Text) -&gt; CreateComponent -&gt; f CreateComponent
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_semanticVersion"><span class="hs-identifier hs-var hs-var">createComponent_semanticVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponent -&gt; Text)
+-&gt; (CreateComponent -&gt; Text -&gt; CreateComponent)
+-&gt; Lens CreateComponent CreateComponent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331017"><span class="annot"><span class="annottext">Text
+semanticVersion :: Text
+$sel:semanticVersion:CreateComponent' :: CreateComponent -&gt; Text
+</span><a href="#local-6989586621679331017"><span class="hs-identifier hs-var hs-var">semanticVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331017"><span class="hs-identifier hs-var">semanticVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331016"><span class="annot"><span class="annottext">s :: CreateComponent
+</span><a href="#local-6989586621679331016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331015"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponent
+</span><a href="#local-6989586621679331016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:semanticVersion:CreateComponent' :: Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AsemanticVersion%3ACreateComponent%27"><span class="hs-identifier hs-var">semanticVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The platform of the component.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_platform"><span class="hs-identifier hs-type">createComponent_platform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform"><span class="hs-identifier hs-type">Platform</span></a></span><span>
+</span><span id="line-257"></span><span id="createComponent_platform"><span class="annot"><span class="annottext">createComponent_platform :: (Platform -&gt; f Platform) -&gt; CreateComponent -&gt; f CreateComponent
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_platform"><span class="hs-identifier hs-var hs-var">createComponent_platform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponent -&gt; Platform)
+-&gt; (CreateComponent -&gt; Platform -&gt; CreateComponent)
+-&gt; Lens CreateComponent CreateComponent Platform Platform
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331014"><span class="annot"><span class="annottext">Platform
+platform :: Platform
+$sel:platform:CreateComponent' :: CreateComponent -&gt; Platform
+</span><a href="#local-6989586621679331014"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Platform
+</span><a href="#local-6989586621679331014"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331013"><span class="annot"><span class="annottext">s :: CreateComponent
+</span><a href="#local-6989586621679331013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331012"><span class="annot"><span class="annottext">Platform
+</span><a href="#local-6989586621679331012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponent
+</span><a href="#local-6989586621679331013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:CreateComponent' :: Platform
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3Aplatform%3ACreateComponent%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Platform
+</span><a href="#local-6989586621679331012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The idempotency token of the component.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_clientToken"><span class="hs-identifier hs-type">createComponent_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-261"></span><span id="createComponent_clientToken"><span class="annot"><span class="annottext">createComponent_clientToken :: (Text -&gt; f Text) -&gt; CreateComponent -&gt; f CreateComponent
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponent_clientToken"><span class="hs-identifier hs-var hs-var">createComponent_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponent -&gt; Text)
+-&gt; (CreateComponent -&gt; Text -&gt; CreateComponent)
+-&gt; Lens CreateComponent CreateComponent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331011"><span class="annot"><span class="annottext">Text
+clientToken :: Text
+$sel:clientToken:CreateComponent' :: CreateComponent -&gt; Text
+</span><a href="#local-6989586621679331011"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331011"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331010"><span class="annot"><span class="annottext">s :: CreateComponent
+</span><a href="#local-6989586621679331010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331009"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponent
+</span><a href="#local-6989586621679331010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateComponent' :: Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AclientToken%3ACreateComponent%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-265"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse"><span class="hs-identifier hs-type">CreateComponentResponse</span></a></span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679331005"><span class="annot"><span class="annottext">request :: CreateComponent -&gt; Request CreateComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateComponent -&gt; Request CreateComponent
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ImageBuilder.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679331001"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateComponent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateComponent)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateComponent))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateComponent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateComponent)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330998"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679330998"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679330997"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679330997"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679330996"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330996"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-271"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateComponentResponse
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse%27"><span class="hs-identifier hs-var">CreateComponentResponse'</span></a></span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateComponentResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateComponentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateComponentResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CreateComponentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateComponentResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateComponentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;componentBuildVersionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateComponentResponse)
+-&gt; Either String Int -&gt; Either String CreateComponentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679330998"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330988"><span id="local-6989586621679330990"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span></span></span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330985"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679330981"><span class="annot"><span class="annottext">toHeaders :: CreateComponent -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateComponent -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-285"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-286"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-287"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-288"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-289"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-291"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330971"><span id="local-6989586621679330973"><span id="local-6989586621679330975"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-294"></span><span>  </span><span id="local-6989586621679330969"><span class="annot"><span class="annottext">toJSON :: CreateComponent -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent%27"><span class="hs-identifier hs-type">CreateComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330957"><span id="local-6989586621679330958"><span id="local-6989586621679330959"><span id="local-6989586621679330960"><span id="local-6989586621679330961"><span id="local-6989586621679330962"><span id="local-6989586621679330963"><span id="local-6989586621679330964"><span id="local-6989586621679330965"><span id="local-6989586621679330966"><span id="local-6989586621679330967"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+Maybe Text
+Maybe (HashMap Text Text)
+Text
+Platform
+clientToken :: Text
+platform :: Platform
+semanticVersion :: Text
+name :: Text
+tags :: Maybe (HashMap Text Text)
+description :: Maybe Text
+changeDescription :: Maybe Text
+kmsKeyId :: Maybe Text
+uri :: Maybe Text
+supportedOsVersions :: Maybe (NonEmpty Text)
+data' :: Maybe Text
+$sel:clientToken:CreateComponent' :: CreateComponent -&gt; Text
+$sel:platform:CreateComponent' :: CreateComponent -&gt; Platform
+$sel:semanticVersion:CreateComponent' :: CreateComponent -&gt; Text
+$sel:name:CreateComponent' :: CreateComponent -&gt; Text
+$sel:tags:CreateComponent' :: CreateComponent -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateComponent' :: CreateComponent -&gt; Maybe Text
+$sel:changeDescription:CreateComponent' :: CreateComponent -&gt; Maybe Text
+$sel:kmsKeyId:CreateComponent' :: CreateComponent -&gt; Maybe Text
+$sel:uri:CreateComponent' :: CreateComponent -&gt; Maybe Text
+$sel:supportedOsVersions:CreateComponent' :: CreateComponent -&gt; Maybe (NonEmpty Text)
+$sel:data':CreateComponent' :: CreateComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679330957"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-296"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-297"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;data&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330967"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;supportedOsVersions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679330966"><span class="hs-identifier hs-var">supportedOsVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330965"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330964"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;changeDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330963"><span class="hs-identifier hs-var">changeDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330962"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679330961"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330960"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-308"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;semanticVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330959"><span class="hs-identifier hs-var">semanticVersion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;platform&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Platform -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Platform
+</span><a href="#local-6989586621679330958"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330957"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-312"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621679330951"><span class="annot"><span class="annottext">toPath :: CreateComponent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateComponent -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/CreateComponent&quot;</span></span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponent"><span class="hs-identifier hs-type">CreateComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621679330947"><span class="annot"><span class="annottext">toQuery :: CreateComponent -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateComponent -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | /See:/ 'newCreateComponentResponse' smart constructor.</span><span>
+</span><span id="line-321"></span><span id="local-6989586621679330944"><span id="local-6989586621679330945"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateComponentResponse"><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse"><span class="hs-identifier hs-var">CreateComponentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateComponentResponse%27"><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse%27"><span class="hs-identifier hs-var">CreateComponentResponse'</span></a></span></span><span>
+</span><span id="line-322"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-323"></span><span>    </span><span id="%24sel%3ArequestId%3ACreateComponentResponse%27"><span class="annot"><span class="annottext">CreateComponentResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3ArequestId%3ACreateComponentResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>    </span><span class="hs-comment">-- | The idempotency token used to make this request idempotent.</span><span>
+</span><span id="line-325"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateComponentResponse%27"><span class="annot"><span class="annottext">CreateComponentResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AclientToken%3ACreateComponentResponse%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the component that was created by this</span><span>
+</span><span id="line-327"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-328"></span><span>    </span><span id="%24sel%3AcomponentBuildVersionArn%3ACreateComponentResponse%27"><span class="annot"><span class="annottext">CreateComponentResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AcomponentBuildVersionArn%3ACreateComponentResponse%27"><span class="hs-identifier hs-var hs-var">componentBuildVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-330"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateComponentResponse%27"><span class="annot"><span class="annottext">CreateComponentResponse -&gt; Int
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AhttpStatus%3ACreateComponentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-331"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-332"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330936"><span id="local-6989586621679330938"><span class="annot"><span class="annottext">CreateComponentResponse -&gt; CreateComponentResponse -&gt; Bool
+(CreateComponentResponse -&gt; CreateComponentResponse -&gt; Bool)
+-&gt; (CreateComponentResponse -&gt; CreateComponentResponse -&gt; Bool)
+-&gt; Eq CreateComponentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateComponentResponse -&gt; CreateComponentResponse -&gt; Bool
+$c/= :: CreateComponentResponse -&gt; CreateComponentResponse -&gt; Bool
+== :: CreateComponentResponse -&gt; CreateComponentResponse -&gt; Bool
+$c== :: CreateComponentResponse -&gt; CreateComponentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330928"><span id="local-6989586621679330930"><span id="local-6989586621679330932"><span id="local-6989586621679330934"><span class="annot"><span class="annottext">ReadPrec [CreateComponentResponse]
+ReadPrec CreateComponentResponse
+Int -&gt; ReadS CreateComponentResponse
+ReadS [CreateComponentResponse]
+(Int -&gt; ReadS CreateComponentResponse)
+-&gt; ReadS [CreateComponentResponse]
+-&gt; ReadPrec CreateComponentResponse
+-&gt; ReadPrec [CreateComponentResponse]
+-&gt; Read CreateComponentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateComponentResponse]
+$creadListPrec :: ReadPrec [CreateComponentResponse]
+readPrec :: ReadPrec CreateComponentResponse
+$creadPrec :: ReadPrec CreateComponentResponse
+readList :: ReadS [CreateComponentResponse]
+$creadList :: ReadS [CreateComponentResponse]
+readsPrec :: Int -&gt; ReadS CreateComponentResponse
+$creadsPrec :: Int -&gt; ReadS CreateComponentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330922"><span id="local-6989586621679330924"><span id="local-6989586621679330926"><span class="annot"><span class="annottext">Int -&gt; CreateComponentResponse -&gt; ShowS
+[CreateComponentResponse] -&gt; ShowS
+CreateComponentResponse -&gt; String
+(Int -&gt; CreateComponentResponse -&gt; ShowS)
+-&gt; (CreateComponentResponse -&gt; String)
+-&gt; ([CreateComponentResponse] -&gt; ShowS)
+-&gt; Show CreateComponentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateComponentResponse] -&gt; ShowS
+$cshowList :: [CreateComponentResponse] -&gt; ShowS
+show :: CreateComponentResponse -&gt; String
+$cshow :: CreateComponentResponse -&gt; String
+showsPrec :: Int -&gt; CreateComponentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateComponentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateComponentResponse -&gt; Rep CreateComponentResponse x)
+-&gt; (forall x.
+    Rep CreateComponentResponse x -&gt; CreateComponentResponse)
+-&gt; Generic CreateComponentResponse
+forall x. Rep CreateComponentResponse x -&gt; CreateComponentResponse
+forall x. CreateComponentResponse -&gt; Rep CreateComponentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateComponentResponse x -&gt; CreateComponentResponse
+$cfrom :: forall x. CreateComponentResponse -&gt; Rep CreateComponentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- Create a value of 'CreateComponentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- 'requestId', 'createComponentResponse_requestId' - The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- 'clientToken', 'createComponentResponse_clientToken' - The idempotency token used to make this request idempotent.</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- 'componentBuildVersionArn', 'createComponentResponse_componentBuildVersionArn' - The Amazon Resource Name (ARN) of the component that was created by this</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- 'httpStatus', 'createComponentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-350"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#newCreateComponentResponse"><span class="hs-identifier hs-type">newCreateComponentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-351"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-352"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-353"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse"><span class="hs-identifier hs-type">CreateComponentResponse</span></a></span><span>
+</span><span id="line-354"></span><span id="newCreateComponentResponse"><span class="annot"><span class="annottext">newCreateComponentResponse :: Int -&gt; CreateComponentResponse
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#newCreateComponentResponse"><span class="hs-identifier hs-var hs-var">newCreateComponentResponse</span></a></span></span><span> </span><span id="local-6989586621679330919"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-355"></span><span>  </span><span class="annot"><span class="annottext">CreateComponentResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateComponentResponse
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse%27"><span class="hs-identifier hs-type">CreateComponentResponse'</span></a></span><span>
+</span><span id="line-356"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:CreateComponentResponse' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3ArequestId%3ACreateComponentResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-357"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-358"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientToken:CreateComponentResponse' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AclientToken%3ACreateComponentResponse%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-359"></span><span>      </span><span class="annot"><span class="annottext">$sel:componentBuildVersionArn:CreateComponentResponse' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AcomponentBuildVersionArn%3ACreateComponentResponse%27"><span class="hs-identifier hs-var">componentBuildVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-360"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateComponentResponse' :: Int
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AhttpStatus%3ACreateComponentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-361"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-362"></span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- | The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-364"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponentResponse_requestId"><span class="hs-identifier hs-type">createComponentResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse"><span class="hs-identifier hs-type">CreateComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-365"></span><span id="createComponentResponse_requestId"><span class="annot"><span class="annottext">createComponentResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateComponentResponse -&gt; f CreateComponentResponse
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponentResponse_requestId"><span class="hs-identifier hs-var hs-var">createComponentResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponentResponse -&gt; Maybe Text)
+-&gt; (CreateComponentResponse
+    -&gt; Maybe Text -&gt; CreateComponentResponse)
+-&gt; Lens
+     CreateComponentResponse
+     CreateComponentResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse%27"><span class="hs-identifier hs-type">CreateComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330918"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:CreateComponentResponse' :: CreateComponentResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679330918"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330918"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330917"><span class="annot"><span class="annottext">s :: CreateComponentResponse
+</span><a href="#local-6989586621679330917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse%27"><span class="hs-identifier hs-type">CreateComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330916"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponentResponse
+</span><a href="#local-6989586621679330917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:CreateComponentResponse' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3ArequestId%3ACreateComponentResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse"><span class="hs-identifier hs-type">CreateComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-366"></span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- | The idempotency token used to make this request idempotent.</span><span>
+</span><span id="line-368"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponentResponse_clientToken"><span class="hs-identifier hs-type">createComponentResponse_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse"><span class="hs-identifier hs-type">CreateComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-369"></span><span id="createComponentResponse_clientToken"><span class="annot"><span class="annottext">createComponentResponse_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateComponentResponse -&gt; f CreateComponentResponse
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponentResponse_clientToken"><span class="hs-identifier hs-var hs-var">createComponentResponse_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponentResponse -&gt; Maybe Text)
+-&gt; (CreateComponentResponse
+    -&gt; Maybe Text -&gt; CreateComponentResponse)
+-&gt; Lens
+     CreateComponentResponse
+     CreateComponentResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse%27"><span class="hs-identifier hs-type">CreateComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330915"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateComponentResponse' :: CreateComponentResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679330915"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330915"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330914"><span class="annot"><span class="annottext">s :: CreateComponentResponse
+</span><a href="#local-6989586621679330914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse%27"><span class="hs-identifier hs-type">CreateComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330913"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponentResponse
+</span><a href="#local-6989586621679330914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateComponentResponse' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AclientToken%3ACreateComponentResponse%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse"><span class="hs-identifier hs-type">CreateComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-370"></span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the component that was created by this</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-373"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponentResponse_componentBuildVersionArn"><span class="hs-identifier hs-type">createComponentResponse_componentBuildVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse"><span class="hs-identifier hs-type">CreateComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span id="createComponentResponse_componentBuildVersionArn"><span class="annot"><span class="annottext">createComponentResponse_componentBuildVersionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateComponentResponse -&gt; f CreateComponentResponse
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponentResponse_componentBuildVersionArn"><span class="hs-identifier hs-var hs-var">createComponentResponse_componentBuildVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponentResponse -&gt; Maybe Text)
+-&gt; (CreateComponentResponse
+    -&gt; Maybe Text -&gt; CreateComponentResponse)
+-&gt; Lens
+     CreateComponentResponse
+     CreateComponentResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse%27"><span class="hs-identifier hs-type">CreateComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330912"><span class="annot"><span class="annottext">Maybe Text
+componentBuildVersionArn :: Maybe Text
+$sel:componentBuildVersionArn:CreateComponentResponse' :: CreateComponentResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679330912"><span class="hs-identifier hs-var hs-var">componentBuildVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330912"><span class="hs-identifier hs-var">componentBuildVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330911"><span class="annot"><span class="annottext">s :: CreateComponentResponse
+</span><a href="#local-6989586621679330911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse%27"><span class="hs-identifier hs-type">CreateComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330910"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponentResponse
+</span><a href="#local-6989586621679330911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:componentBuildVersionArn:CreateComponentResponse' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AcomponentBuildVersionArn%3ACreateComponentResponse%27"><span class="hs-identifier hs-var">componentBuildVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse"><span class="hs-identifier hs-type">CreateComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-375"></span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-377"></span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponentResponse_httpStatus"><span class="hs-identifier hs-type">createComponentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse"><span class="hs-identifier hs-type">CreateComponentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-378"></span><span id="createComponentResponse_httpStatus"><span class="annot"><span class="annottext">createComponentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateComponentResponse -&gt; f CreateComponentResponse
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#createComponentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createComponentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateComponentResponse -&gt; Int)
+-&gt; (CreateComponentResponse -&gt; Int -&gt; CreateComponentResponse)
+-&gt; Lens CreateComponentResponse CreateComponentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse%27"><span class="hs-identifier hs-type">CreateComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330909"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateComponentResponse' :: CreateComponentResponse -&gt; Int
+</span><a href="#local-6989586621679330909"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679330909"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330908"><span class="annot"><span class="annottext">s :: CreateComponentResponse
+</span><a href="#local-6989586621679330908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse%27"><span class="hs-identifier hs-type">CreateComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330907"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679330907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComponentResponse
+</span><a href="#local-6989586621679330908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateComponentResponse' :: Int
+</span><a href="Network.AWS.ImageBuilder.CreateComponent.html#%24sel%3AhttpStatus%3ACreateComponentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679330907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse"><span class="hs-identifier hs-type">CreateComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-379"></span><span>
+</span><span id="line-380"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330905"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.CreateComponent.html#CreateComponentResponse"><span class="hs-identifier hs-type">CreateComponentResponse</span></a></span></span><span>
+</span><span id="line-381"></span></pre></body></html>

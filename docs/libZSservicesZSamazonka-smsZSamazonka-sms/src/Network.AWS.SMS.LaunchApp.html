@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.html"><span class="hs-identifier">Network.AWS.SMS.Types</span></a></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newLaunchApp' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679254030"><span id="local-6989586621679254031"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchApp"><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-var">LaunchApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchApp%27"><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp%27"><span class="hs-identifier hs-var">LaunchApp'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679254039"><span id="local-6989586621679254040"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchApp"><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-var">LaunchApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchApp%27"><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp%27"><span class="hs-identifier hs-var">LaunchApp'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the application.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AappId%3ALaunchApp%27"><span class="annot"><span class="annottext">LaunchApp -&gt; Maybe Text
 </span><a href="Network.AWS.SMS.LaunchApp.html#%24sel%3AappId%3ALaunchApp%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254024"><span id="local-6989586621679254026"><span class="annot"><span class="annottext">LaunchApp -&gt; LaunchApp -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254033"><span id="local-6989586621679254035"><span class="annot"><span class="annottext">LaunchApp -&gt; LaunchApp -&gt; Bool
 (LaunchApp -&gt; LaunchApp -&gt; Bool)
 -&gt; (LaunchApp -&gt; LaunchApp -&gt; Bool) -&gt; Eq LaunchApp
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LaunchApp -&gt; LaunchApp -&gt; Bool
 == :: LaunchApp -&gt; LaunchApp -&gt; Bool
 $c== :: LaunchApp -&gt; LaunchApp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254015"><span id="local-6989586621679254017"><span id="local-6989586621679254019"><span id="local-6989586621679254021"><span class="annot"><span class="annottext">ReadPrec [LaunchApp]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254024"><span id="local-6989586621679254026"><span id="local-6989586621679254028"><span id="local-6989586621679254030"><span class="annot"><span class="annottext">ReadPrec [LaunchApp]
 ReadPrec LaunchApp
 Int -&gt; ReadS LaunchApp
 ReadS [LaunchApp]
@@ -79,7 +79,7 @@ readList :: ReadS [LaunchApp]
 $creadList :: ReadS [LaunchApp]
 readsPrec :: Int -&gt; ReadS LaunchApp
 $creadsPrec :: Int -&gt; ReadS LaunchApp
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254008"><span id="local-6989586621679254010"><span id="local-6989586621679254012"><span class="annot"><span class="annottext">Int -&gt; LaunchApp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254017"><span id="local-6989586621679254019"><span id="local-6989586621679254021"><span class="annot"><span class="annottext">Int -&gt; LaunchApp -&gt; ShowS
 [LaunchApp] -&gt; ShowS
 LaunchApp -&gt; String
 (Int -&gt; LaunchApp -&gt; ShowS)
@@ -129,25 +129,25 @@ forall a. Maybe a
 -&gt; (LaunchApp -&gt; Maybe Text -&gt; LaunchApp)
 -&gt; Lens LaunchApp LaunchApp (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp%27"><span class="hs-identifier hs-type">LaunchApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254001"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp%27"><span class="hs-identifier hs-type">LaunchApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254010"><span class="annot"><span class="annottext">Maybe Text
 appId :: Maybe Text
 $sel:appId:LaunchApp' :: LaunchApp -&gt; Maybe Text
-</span><a href="#local-6989586621679254001"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679254001"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254000"><span class="annot"><span class="annottext">s :: LaunchApp
-</span><a href="#local-6989586621679254000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp%27"><span class="hs-identifier hs-type">LaunchApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253999"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchApp
-</span><a href="#local-6989586621679254000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:LaunchApp' :: Maybe Text
+</span><a href="#local-6989586621679254010"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254010"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254009"><span class="annot"><span class="annottext">s :: LaunchApp
+</span><a href="#local-6989586621679254009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp%27"><span class="hs-identifier hs-type">LaunchApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254008"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchApp
+</span><a href="#local-6989586621679254009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:LaunchApp' :: Maybe Text
 </span><a href="Network.AWS.SMS.LaunchApp.html#%24sel%3AappId%3ALaunchApp%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-type">LaunchApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-type">LaunchApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-type">LaunchApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-type">LaunchApp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse"><span class="hs-identifier hs-type">LaunchAppResponse</span></a></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679253995"><span class="annot"><span class="annottext">request :: LaunchApp -&gt; Request LaunchApp
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679254004"><span class="annot"><span class="annottext">request :: LaunchApp -&gt; Request LaunchApp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; LaunchApp -&gt; Request LaunchApp
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679253991"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679254000"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy LaunchApp
 -&gt; ClientResponse ClientBody
@@ -169,10 +169,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253988"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253988"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253987"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679253987"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253986"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679253986"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253997"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253997"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253996"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679253996"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253995"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679253995"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; LaunchAppResponse
 </span><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse%27"><span class="hs-identifier hs-var">LaunchAppResponse'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; LaunchAppResponse)
@@ -183,15 +183,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253988"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253997"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253979"><span id="local-6989586621679253981"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-type">LaunchApp</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253988"><span id="local-6989586621679253990"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-type">LaunchApp</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253976"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-type">LaunchApp</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253985"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-type">LaunchApp</span></a></span></span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-type">LaunchApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679253972"><span class="annot"><span class="annottext">toHeaders :: LaunchApp -&gt; ResponseHeaders
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679253981"><span class="annot"><span class="annottext">toHeaders :: LaunchApp -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; LaunchApp -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -218,12 +218,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253962"><span id="local-6989586621679253964"><span id="local-6989586621679253966"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-type">LaunchApp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679253960"><span class="annot"><span class="annottext">toJSON :: LaunchApp -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp%27"><span class="hs-identifier hs-type">LaunchApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253958"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253971"><span id="local-6989586621679253973"><span id="local-6989586621679253975"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-type">LaunchApp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679253969"><span class="annot"><span class="annottext">toJSON :: LaunchApp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp%27"><span class="hs-identifier hs-type">LaunchApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253967"><span class="annot"><span class="annottext">Maybe Text
 appId :: Maybe Text
 $sel:appId:LaunchApp' :: LaunchApp -&gt; Maybe Text
-</span><a href="#local-6989586621679253958"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679253967"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -235,18 +235,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253958"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679253967"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-type">LaunchApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679253952"><span class="annot"><span class="annottext">toPath :: LaunchApp -&gt; ByteString
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679253961"><span class="annot"><span class="annottext">toPath :: LaunchApp -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; LaunchApp -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchApp"><span class="hs-identifier hs-type">LaunchApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679253948"><span class="annot"><span class="annottext">toQuery :: LaunchApp -&gt; QueryString
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679253957"><span class="annot"><span class="annottext">toQuery :: LaunchApp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; LaunchApp -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -254,12 +254,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | /See:/ 'newLaunchAppResponse' smart constructor.</span><span>
-</span><span id="line-115"></span><span id="local-6989586621679253945"><span id="local-6989586621679253946"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchAppResponse"><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse"><span class="hs-identifier hs-var">LaunchAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchAppResponse%27"><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse%27"><span class="hs-identifier hs-var">LaunchAppResponse'</span></a></span></span><span>
+</span><span id="line-115"></span><span id="local-6989586621679253954"><span id="local-6989586621679253955"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchAppResponse"><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse"><span class="hs-identifier hs-var">LaunchAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchAppResponse%27"><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse%27"><span class="hs-identifier hs-var">LaunchAppResponse'</span></a></span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-117"></span><span>    </span><span id="%24sel%3AhttpStatus%3ALaunchAppResponse%27"><span class="annot"><span class="annottext">LaunchAppResponse -&gt; Int
 </span><a href="Network.AWS.SMS.LaunchApp.html#%24sel%3AhttpStatus%3ALaunchAppResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253940"><span id="local-6989586621679253942"><span class="annot"><span class="annottext">LaunchAppResponse -&gt; LaunchAppResponse -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253949"><span id="local-6989586621679253951"><span class="annot"><span class="annottext">LaunchAppResponse -&gt; LaunchAppResponse -&gt; Bool
 (LaunchAppResponse -&gt; LaunchAppResponse -&gt; Bool)
 -&gt; (LaunchAppResponse -&gt; LaunchAppResponse -&gt; Bool)
 -&gt; Eq LaunchAppResponse
@@ -268,7 +268,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LaunchAppResponse -&gt; LaunchAppResponse -&gt; Bool
 == :: LaunchAppResponse -&gt; LaunchAppResponse -&gt; Bool
 $c== :: LaunchAppResponse -&gt; LaunchAppResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253932"><span id="local-6989586621679253934"><span id="local-6989586621679253936"><span id="local-6989586621679253938"><span class="annot"><span class="annottext">ReadPrec [LaunchAppResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253941"><span id="local-6989586621679253943"><span id="local-6989586621679253945"><span id="local-6989586621679253947"><span class="annot"><span class="annottext">ReadPrec [LaunchAppResponse]
 ReadPrec LaunchAppResponse
 Int -&gt; ReadS LaunchAppResponse
 ReadS [LaunchAppResponse]
@@ -288,7 +288,7 @@ readList :: ReadS [LaunchAppResponse]
 $creadList :: ReadS [LaunchAppResponse]
 readsPrec :: Int -&gt; ReadS LaunchAppResponse
 $creadsPrec :: Int -&gt; ReadS LaunchAppResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253926"><span id="local-6989586621679253928"><span id="local-6989586621679253930"><span class="annot"><span class="annottext">Int -&gt; LaunchAppResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253935"><span id="local-6989586621679253937"><span id="local-6989586621679253939"><span class="annot"><span class="annottext">Int -&gt; LaunchAppResponse -&gt; ShowS
 [LaunchAppResponse] -&gt; ShowS
 LaunchAppResponse -&gt; String
 (Int -&gt; LaunchAppResponse -&gt; ShowS)
@@ -328,12 +328,12 @@ $cfrom :: forall x. LaunchAppResponse -&gt; Rep LaunchAppResponse x
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse"><span class="hs-identifier hs-type">LaunchAppResponse</span></a></span><span>
 </span><span id="line-134"></span><span id="newLaunchAppResponse"><span class="annot"><span class="annottext">newLaunchAppResponse :: Int -&gt; LaunchAppResponse
-</span><a href="Network.AWS.SMS.LaunchApp.html#newLaunchAppResponse"><span class="hs-identifier hs-var hs-var">newLaunchAppResponse</span></a></span></span><span> </span><span id="local-6989586621679253923"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253923"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SMS.LaunchApp.html#newLaunchAppResponse"><span class="hs-identifier hs-var hs-var">newLaunchAppResponse</span></a></span></span><span> </span><span id="local-6989586621679253932"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253932"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">LaunchAppResponse' :: Int -&gt; LaunchAppResponse
 </span><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse%27"><span class="hs-identifier hs-type">LaunchAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:LaunchAppResponse' :: Int
 </span><a href="Network.AWS.SMS.LaunchApp.html#%24sel%3AhttpStatus%3ALaunchAppResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253923"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679253932"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#launchAppResponse_httpStatus"><span class="hs-identifier hs-type">launchAppResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse"><span class="hs-identifier hs-type">LaunchAppResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -342,16 +342,16 @@ $cfrom :: forall x. LaunchAppResponse -&gt; Rep LaunchAppResponse x
 -&gt; (LaunchAppResponse -&gt; Int -&gt; LaunchAppResponse)
 -&gt; Lens LaunchAppResponse LaunchAppResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse%27"><span class="hs-identifier hs-type">LaunchAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253922"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse%27"><span class="hs-identifier hs-type">LaunchAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253931"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:LaunchAppResponse' :: LaunchAppResponse -&gt; Int
-</span><a href="#local-6989586621679253922"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253922"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253921"><span class="annot"><span class="annottext">s :: LaunchAppResponse
-</span><a href="#local-6989586621679253921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse%27"><span class="hs-identifier hs-type">LaunchAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253920"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchAppResponse
-</span><a href="#local-6989586621679253921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:LaunchAppResponse' :: Int
+</span><a href="#local-6989586621679253931"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253931"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253930"><span class="annot"><span class="annottext">s :: LaunchAppResponse
+</span><a href="#local-6989586621679253930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse%27"><span class="hs-identifier hs-type">LaunchAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253929"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchAppResponse
+</span><a href="#local-6989586621679253930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:LaunchAppResponse' :: Int
 </span><a href="Network.AWS.SMS.LaunchApp.html#%24sel%3AhttpStatus%3ALaunchAppResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse"><span class="hs-identifier hs-type">LaunchAppResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse"><span class="hs-identifier hs-type">LaunchAppResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253918"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse"><span class="hs-identifier hs-type">LaunchAppResponse</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253927"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.LaunchApp.html#LaunchAppResponse"><span class="hs-identifier hs-type">LaunchAppResponse</span></a></span></span><span>
 </span><span id="line-142"></span></pre></body></html>

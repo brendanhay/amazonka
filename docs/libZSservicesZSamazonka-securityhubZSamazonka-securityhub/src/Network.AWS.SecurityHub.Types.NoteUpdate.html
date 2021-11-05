@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.NoteUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.NoteUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The updated note.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newNoteUpdate' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679981528"><span id="local-6989586621679981529"></span></span><span class="hs-keyword">data</span><span> </span><span id="NoteUpdate"><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate"><span class="hs-identifier hs-var">NoteUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NoteUpdate%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate%27"><span class="hs-identifier hs-var">NoteUpdate'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated note text.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Atext%3ANoteUpdate%27"><span class="annot"><span class="annottext">NoteUpdate -&gt; Text
+</span><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#%24sel%3Atext%3ANoteUpdate%27"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The principal that updated the note.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AupdatedBy%3ANoteUpdate%27"><span class="annot"><span class="annottext">NoteUpdate -&gt; Text
+</span><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#%24sel%3AupdatedBy%3ANoteUpdate%27"><span class="hs-identifier hs-var hs-var">updatedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679981521"><span id="local-6989586621679981523"><span class="annot"><span class="annottext">NoteUpdate -&gt; NoteUpdate -&gt; Bool
+(NoteUpdate -&gt; NoteUpdate -&gt; Bool)
+-&gt; (NoteUpdate -&gt; NoteUpdate -&gt; Bool) -&gt; Eq NoteUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NoteUpdate -&gt; NoteUpdate -&gt; Bool
+$c/= :: NoteUpdate -&gt; NoteUpdate -&gt; Bool
+== :: NoteUpdate -&gt; NoteUpdate -&gt; Bool
+$c== :: NoteUpdate -&gt; NoteUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679981512"><span id="local-6989586621679981514"><span id="local-6989586621679981516"><span id="local-6989586621679981518"><span class="annot"><span class="annottext">ReadPrec [NoteUpdate]
+ReadPrec NoteUpdate
+Int -&gt; ReadS NoteUpdate
+ReadS [NoteUpdate]
+(Int -&gt; ReadS NoteUpdate)
+-&gt; ReadS [NoteUpdate]
+-&gt; ReadPrec NoteUpdate
+-&gt; ReadPrec [NoteUpdate]
+-&gt; Read NoteUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NoteUpdate]
+$creadListPrec :: ReadPrec [NoteUpdate]
+readPrec :: ReadPrec NoteUpdate
+$creadPrec :: ReadPrec NoteUpdate
+readList :: ReadS [NoteUpdate]
+$creadList :: ReadS [NoteUpdate]
+readsPrec :: Int -&gt; ReadS NoteUpdate
+$creadsPrec :: Int -&gt; ReadS NoteUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679981505"><span id="local-6989586621679981507"><span id="local-6989586621679981509"><span class="annot"><span class="annottext">Int -&gt; NoteUpdate -&gt; ShowS
+[NoteUpdate] -&gt; ShowS
+NoteUpdate -&gt; String
+(Int -&gt; NoteUpdate -&gt; ShowS)
+-&gt; (NoteUpdate -&gt; String)
+-&gt; ([NoteUpdate] -&gt; ShowS)
+-&gt; Show NoteUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NoteUpdate] -&gt; ShowS
+$cshowList :: [NoteUpdate] -&gt; ShowS
+show :: NoteUpdate -&gt; String
+$cshow :: NoteUpdate -&gt; String
+showsPrec :: Int -&gt; NoteUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; NoteUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NoteUpdate -&gt; Rep NoteUpdate x)
+-&gt; (forall x. Rep NoteUpdate x -&gt; NoteUpdate) -&gt; Generic NoteUpdate
+forall x. Rep NoteUpdate x -&gt; NoteUpdate
+forall x. NoteUpdate -&gt; Rep NoteUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NoteUpdate x -&gt; NoteUpdate
+$cfrom :: forall x. NoteUpdate -&gt; Rep NoteUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'NoteUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'text', 'noteUpdate_text' - The updated note text.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'updatedBy', 'noteUpdate_updatedBy' - The principal that updated the note.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#newNoteUpdate"><span class="hs-identifier hs-type">newNoteUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-comment">-- | 'text'</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-comment">-- | 'updatedBy'</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate"><span class="hs-identifier hs-type">NoteUpdate</span></a></span><span>
+</span><span id="line-54"></span><span id="newNoteUpdate"><span class="annot"><span class="annottext">newNoteUpdate :: Text -&gt; Text -&gt; NoteUpdate
+</span><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#newNoteUpdate"><span class="hs-identifier hs-var hs-var">newNoteUpdate</span></a></span></span><span> </span><span id="local-6989586621679981499"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679981499"><span class="hs-identifier hs-var">pText_</span></a></span></span><span> </span><span id="local-6989586621679981498"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679981498"><span class="hs-identifier hs-var">pUpdatedBy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">NoteUpdate' :: Text -&gt; Text -&gt; NoteUpdate
+</span><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate%27"><span class="hs-identifier hs-type">NoteUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:NoteUpdate' :: Text
+</span><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#%24sel%3Atext%3ANoteUpdate%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679981499"><span class="hs-identifier hs-var">pText_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:updatedBy:NoteUpdate' :: Text
+</span><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#%24sel%3AupdatedBy%3ANoteUpdate%27"><span class="hs-identifier hs-var">updatedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679981498"><span class="hs-identifier hs-var">pUpdatedBy_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The updated note text.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#noteUpdate_text"><span class="hs-identifier hs-type">noteUpdate_text</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate"><span class="hs-identifier hs-type">NoteUpdate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span id="noteUpdate_text"><span class="annot"><span class="annottext">noteUpdate_text :: (Text -&gt; f Text) -&gt; NoteUpdate -&gt; f NoteUpdate
+</span><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#noteUpdate_text"><span class="hs-identifier hs-var hs-var">noteUpdate_text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NoteUpdate -&gt; Text)
+-&gt; (NoteUpdate -&gt; Text -&gt; NoteUpdate)
+-&gt; Lens NoteUpdate NoteUpdate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate%27"><span class="hs-identifier hs-type">NoteUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981494"><span class="annot"><span class="annottext">Text
+text :: Text
+$sel:text:NoteUpdate' :: NoteUpdate -&gt; Text
+</span><a href="#local-6989586621679981494"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679981494"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679981493"><span class="annot"><span class="annottext">s :: NoteUpdate
+</span><a href="#local-6989586621679981493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate%27"><span class="hs-identifier hs-type">NoteUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679981492"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679981492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NoteUpdate
+</span><a href="#local-6989586621679981493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:NoteUpdate' :: Text
+</span><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#%24sel%3Atext%3ANoteUpdate%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679981492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate"><span class="hs-identifier hs-type">NoteUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The principal that updated the note.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#noteUpdate_updatedBy"><span class="hs-identifier hs-type">noteUpdate_updatedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate"><span class="hs-identifier hs-type">NoteUpdate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span id="noteUpdate_updatedBy"><span class="annot"><span class="annottext">noteUpdate_updatedBy :: (Text -&gt; f Text) -&gt; NoteUpdate -&gt; f NoteUpdate
+</span><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#noteUpdate_updatedBy"><span class="hs-identifier hs-var hs-var">noteUpdate_updatedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NoteUpdate -&gt; Text)
+-&gt; (NoteUpdate -&gt; Text -&gt; NoteUpdate)
+-&gt; Lens NoteUpdate NoteUpdate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate%27"><span class="hs-identifier hs-type">NoteUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981490"><span class="annot"><span class="annottext">Text
+updatedBy :: Text
+$sel:updatedBy:NoteUpdate' :: NoteUpdate -&gt; Text
+</span><a href="#local-6989586621679981490"><span class="hs-identifier hs-var hs-var">updatedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679981490"><span class="hs-identifier hs-var">updatedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679981489"><span class="annot"><span class="annottext">s :: NoteUpdate
+</span><a href="#local-6989586621679981489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate%27"><span class="hs-identifier hs-type">NoteUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679981488"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679981488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NoteUpdate
+</span><a href="#local-6989586621679981489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedBy:NoteUpdate' :: Text
+</span><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#%24sel%3AupdatedBy%3ANoteUpdate%27"><span class="hs-identifier hs-var">updatedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679981488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate"><span class="hs-identifier hs-type">NoteUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981484"><span id="local-6989586621679981486"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate"><span class="hs-identifier hs-type">NoteUpdate</span></a></span></span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981481"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate"><span class="hs-identifier hs-type">NoteUpdate</span></a></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981473"><span id="local-6989586621679981475"><span id="local-6989586621679981477"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate"><span class="hs-identifier hs-type">NoteUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679981471"><span class="annot"><span class="annottext">toJSON :: NoteUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate%27"><span class="hs-identifier hs-type">NoteUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981468"><span id="local-6989586621679981469"><span class="annot"><span class="annottext">Text
+updatedBy :: Text
+text :: Text
+$sel:updatedBy:NoteUpdate' :: NoteUpdate -&gt; Text
+$sel:text:NoteUpdate' :: NoteUpdate -&gt; Text
+</span><a href="#local-6989586621679981468"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-73"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Text&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679981469"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdatedBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679981468"><span class="hs-identifier hs-var">updatedBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span></pre></body></html>

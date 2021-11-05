@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- the action.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDeltaTime' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679254734"><span id="local-6989586621679254735"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeltaTime"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-var">DeltaTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeltaTime%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime%27"><span class="hs-identifier hs-var">DeltaTime'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679254743"><span id="local-6989586621679254744"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeltaTime"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-var">DeltaTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeltaTime%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime%27"><span class="hs-identifier hs-var">DeltaTime'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of seconds of estimated in-flight lag time of message data.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- When you create dataset contents using message data from a specified</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- timeframe, some message data might still be in flight when processing</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AtimeExpression%3ADeltaTime%27"><span class="annot"><span class="annottext">DeltaTime -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#%24sel%3AtimeExpression%3ADeltaTime%27"><span class="hs-identifier hs-var hs-var">timeExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254727"><span id="local-6989586621679254729"><span class="annot"><span class="annottext">DeltaTime -&gt; DeltaTime -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254736"><span id="local-6989586621679254738"><span class="annot"><span class="annottext">DeltaTime -&gt; DeltaTime -&gt; Bool
 (DeltaTime -&gt; DeltaTime -&gt; Bool)
 -&gt; (DeltaTime -&gt; DeltaTime -&gt; Bool) -&gt; Eq DeltaTime
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeltaTime -&gt; DeltaTime -&gt; Bool
 == :: DeltaTime -&gt; DeltaTime -&gt; Bool
 $c== :: DeltaTime -&gt; DeltaTime -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254718"><span id="local-6989586621679254720"><span id="local-6989586621679254722"><span id="local-6989586621679254724"><span class="annot"><span class="annottext">ReadPrec [DeltaTime]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254727"><span id="local-6989586621679254729"><span id="local-6989586621679254731"><span id="local-6989586621679254733"><span class="annot"><span class="annottext">ReadPrec [DeltaTime]
 ReadPrec DeltaTime
 Int -&gt; ReadS DeltaTime
 ReadS [DeltaTime]
@@ -73,7 +73,7 @@ readList :: ReadS [DeltaTime]
 $creadList :: ReadS [DeltaTime]
 readsPrec :: Int -&gt; ReadS DeltaTime
 $creadsPrec :: Int -&gt; ReadS DeltaTime
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254711"><span id="local-6989586621679254713"><span id="local-6989586621679254715"><span class="annot"><span class="annottext">Int -&gt; DeltaTime -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254720"><span id="local-6989586621679254722"><span id="local-6989586621679254724"><span class="annot"><span class="annottext">Int -&gt; DeltaTime -&gt; ShowS
 [DeltaTime] -&gt; ShowS
 DeltaTime -&gt; String
 (Int -&gt; DeltaTime -&gt; ShowS)
@@ -126,17 +126,17 @@ $cfrom :: forall x. DeltaTime -&gt; Rep DeltaTime x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-type">DeltaTime</span></a></span><span>
 </span><span id="line-75"></span><span id="newDeltaTime"><span class="annot"><span class="annottext">newDeltaTime :: Int -&gt; Text -&gt; DeltaTime
-</span><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#newDeltaTime"><span class="hs-identifier hs-var hs-var">newDeltaTime</span></a></span></span><span> </span><span id="local-6989586621679254705"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254705"><span class="hs-identifier hs-var">pOffsetSeconds_</span></a></span></span><span> </span><span id="local-6989586621679254704"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254704"><span class="hs-identifier hs-var">pTimeExpression_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#newDeltaTime"><span class="hs-identifier hs-var hs-var">newDeltaTime</span></a></span></span><span> </span><span id="local-6989586621679254714"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254714"><span class="hs-identifier hs-var">pOffsetSeconds_</span></a></span></span><span> </span><span id="local-6989586621679254713"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254713"><span class="hs-identifier hs-var">pTimeExpression_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DeltaTime' :: Int -&gt; Text -&gt; DeltaTime
 </span><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime%27"><span class="hs-identifier hs-type">DeltaTime'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:offsetSeconds:DeltaTime' :: Int
 </span><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#%24sel%3AoffsetSeconds%3ADeltaTime%27"><span class="hs-identifier hs-var">offsetSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254705"><span class="hs-identifier hs-var">pOffsetSeconds_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254714"><span class="hs-identifier hs-var">pOffsetSeconds_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeExpression:DeltaTime' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#%24sel%3AtimeExpression%3ADeltaTime%27"><span class="hs-identifier hs-var">timeExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254704"><span class="hs-identifier hs-var">pTimeExpression_</span></a></span><span>
+</span><a href="#local-6989586621679254713"><span class="hs-identifier hs-var">pTimeExpression_</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The number of seconds of estimated in-flight lag time of message data.</span><span>
@@ -154,16 +154,16 @@ $cfrom :: forall x. DeltaTime -&gt; Rep DeltaTime x
 -&gt; (DeltaTime -&gt; Int -&gt; DeltaTime)
 -&gt; Lens DeltaTime DeltaTime Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime%27"><span class="hs-identifier hs-type">DeltaTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254700"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime%27"><span class="hs-identifier hs-type">DeltaTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254709"><span class="annot"><span class="annottext">Int
 offsetSeconds :: Int
 $sel:offsetSeconds:DeltaTime' :: DeltaTime -&gt; Int
-</span><a href="#local-6989586621679254700"><span class="hs-identifier hs-var hs-var">offsetSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254700"><span class="hs-identifier hs-var">offsetSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254699"><span class="annot"><span class="annottext">s :: DeltaTime
-</span><a href="#local-6989586621679254699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime%27"><span class="hs-identifier hs-type">DeltaTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254698"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeltaTime
-</span><a href="#local-6989586621679254699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offsetSeconds:DeltaTime' :: Int
+</span><a href="#local-6989586621679254709"><span class="hs-identifier hs-var hs-var">offsetSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254709"><span class="hs-identifier hs-var">offsetSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254708"><span class="annot"><span class="annottext">s :: DeltaTime
+</span><a href="#local-6989586621679254708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime%27"><span class="hs-identifier hs-type">DeltaTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254707"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeltaTime
+</span><a href="#local-6989586621679254708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offsetSeconds:DeltaTime' :: Int
 </span><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#%24sel%3AoffsetSeconds%3ADeltaTime%27"><span class="hs-identifier hs-var">offsetSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-type">DeltaTime</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-type">DeltaTime</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | An expression by which the time of the message data might be determined.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- This can be the name of a timestamp field or a SQL expression that is</span><span>
@@ -174,59 +174,59 @@ $sel:offsetSeconds:DeltaTime' :: DeltaTime -&gt; Int
 -&gt; (DeltaTime -&gt; Text -&gt; DeltaTime)
 -&gt; Lens DeltaTime DeltaTime Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime%27"><span class="hs-identifier hs-type">DeltaTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254696"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime%27"><span class="hs-identifier hs-type">DeltaTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254705"><span class="annot"><span class="annottext">Text
 timeExpression :: Text
 $sel:timeExpression:DeltaTime' :: DeltaTime -&gt; Text
-</span><a href="#local-6989586621679254696"><span class="hs-identifier hs-var hs-var">timeExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254696"><span class="hs-identifier hs-var">timeExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254695"><span class="annot"><span class="annottext">s :: DeltaTime
-</span><a href="#local-6989586621679254695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime%27"><span class="hs-identifier hs-type">DeltaTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254694"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeltaTime
-</span><a href="#local-6989586621679254695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeExpression:DeltaTime' :: Text
+</span><a href="#local-6989586621679254705"><span class="hs-identifier hs-var hs-var">timeExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254705"><span class="hs-identifier hs-var">timeExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254704"><span class="annot"><span class="annottext">s :: DeltaTime
+</span><a href="#local-6989586621679254704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime%27"><span class="hs-identifier hs-type">DeltaTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254703"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeltaTime
+</span><a href="#local-6989586621679254704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeExpression:DeltaTime' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#%24sel%3AtimeExpression%3ADeltaTime%27"><span class="hs-identifier hs-var">timeExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-type">DeltaTime</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-type">DeltaTime</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254691"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-type">DeltaTime</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679254689"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeltaTime
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254700"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-type">DeltaTime</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679254698"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeltaTime
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser DeltaTime) -&gt; Value -&gt; Parser DeltaTime
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeltaTime&quot;</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254686"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254686"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254695"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679254695"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; DeltaTime
 </span><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime%27"><span class="hs-identifier hs-var">DeltaTime'</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; DeltaTime)
 -&gt; Parser Int -&gt; Parser (Text -&gt; DeltaTime)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679254695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;offsetSeconds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; DeltaTime) -&gt; Parser Text -&gt; Parser DeltaTime
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679254695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeExpression&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254680"><span id="local-6989586621679254682"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-type">DeltaTime</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254689"><span id="local-6989586621679254691"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-type">DeltaTime</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254677"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-type">DeltaTime</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-type">DeltaTime</span></a></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254669"><span id="local-6989586621679254671"><span id="local-6989586621679254673"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-type">DeltaTime</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679254667"><span class="annot"><span class="annottext">toJSON :: DeltaTime -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime%27"><span class="hs-identifier hs-type">DeltaTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254664"><span id="local-6989586621679254665"><span class="annot"><span class="annottext">Int
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254678"><span id="local-6989586621679254680"><span id="local-6989586621679254682"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-type">DeltaTime</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679254676"><span class="annot"><span class="annottext">toJSON :: DeltaTime -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime%27"><span class="hs-identifier hs-type">DeltaTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254673"><span id="local-6989586621679254674"><span class="annot"><span class="annottext">Int
 Text
 timeExpression :: Text
 offsetSeconds :: Int
 $sel:timeExpression:DeltaTime' :: DeltaTime -&gt; Text
 $sel:offsetSeconds:DeltaTime' :: DeltaTime -&gt; Int
-</span><a href="#local-6989586621679254664"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679254673"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -239,7 +239,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;offsetSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254665"><span class="hs-identifier hs-var">offsetSeconds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254674"><span class="hs-identifier hs-var">offsetSeconds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -247,7 +247,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;timeExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254664"><span class="hs-identifier hs-var">timeExpression</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254673"><span class="hs-identifier hs-var">timeExpression</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span></pre></body></html>

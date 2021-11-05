@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ManagedBlockChain.Types.NodeSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ManagedBlockChain.Types.NodeSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeStatus.html"><span class="hs-identifier">Network.AWS.ManagedBlockChain.Types.NodeStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A summary of configuration properties for a node.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newNodeSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679218741"><span id="local-6989586621679218742"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeSummary"><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-var">NodeSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeSummary%27"><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-var">NodeSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the node.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Astatus%3ANodeSummary%27"><span class="annot"><span class="annottext">NodeSummary -&gt; Maybe NodeStatus
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3Astatus%3ANodeSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeStatus.html#NodeStatus"><span class="hs-identifier hs-type">NodeStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the node. For more information about</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- ARNs and their format, see</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)&gt;</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- in the /AWS General Reference/.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aarn%3ANodeSummary%27"><span class="annot"><span class="annottext">NodeSummary -&gt; Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3Aarn%3ANodeSummary%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The EC2 instance type for the node.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AinstanceType%3ANodeSummary%27"><span class="annot"><span class="annottext">NodeSummary -&gt; Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3AinstanceType%3ANodeSummary%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Availability Zone in which the node exists.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AavailabilityZone%3ANodeSummary%27"><span class="annot"><span class="annottext">NodeSummary -&gt; Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3AavailabilityZone%3ANodeSummary%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the node.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aid%3ANodeSummary%27"><span class="annot"><span class="annottext">NodeSummary -&gt; Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3Aid%3ANodeSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The date and time that the node was created.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcreationDate%3ANodeSummary%27"><span class="annot"><span class="annottext">NodeSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3AcreationDate%3ANodeSummary%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218730"><span id="local-6989586621679218732"><span class="annot"><span class="annottext">NodeSummary -&gt; NodeSummary -&gt; Bool
+(NodeSummary -&gt; NodeSummary -&gt; Bool)
+-&gt; (NodeSummary -&gt; NodeSummary -&gt; Bool) -&gt; Eq NodeSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NodeSummary -&gt; NodeSummary -&gt; Bool
+$c/= :: NodeSummary -&gt; NodeSummary -&gt; Bool
+== :: NodeSummary -&gt; NodeSummary -&gt; Bool
+$c== :: NodeSummary -&gt; NodeSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218721"><span id="local-6989586621679218723"><span id="local-6989586621679218725"><span id="local-6989586621679218727"><span class="annot"><span class="annottext">ReadPrec [NodeSummary]
+ReadPrec NodeSummary
+Int -&gt; ReadS NodeSummary
+ReadS [NodeSummary]
+(Int -&gt; ReadS NodeSummary)
+-&gt; ReadS [NodeSummary]
+-&gt; ReadPrec NodeSummary
+-&gt; ReadPrec [NodeSummary]
+-&gt; Read NodeSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NodeSummary]
+$creadListPrec :: ReadPrec [NodeSummary]
+readPrec :: ReadPrec NodeSummary
+$creadPrec :: ReadPrec NodeSummary
+readList :: ReadS [NodeSummary]
+$creadList :: ReadS [NodeSummary]
+readsPrec :: Int -&gt; ReadS NodeSummary
+$creadsPrec :: Int -&gt; ReadS NodeSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218714"><span id="local-6989586621679218716"><span id="local-6989586621679218718"><span class="annot"><span class="annottext">Int -&gt; NodeSummary -&gt; ShowS
+[NodeSummary] -&gt; ShowS
+NodeSummary -&gt; String
+(Int -&gt; NodeSummary -&gt; ShowS)
+-&gt; (NodeSummary -&gt; String)
+-&gt; ([NodeSummary] -&gt; ShowS)
+-&gt; Show NodeSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NodeSummary] -&gt; ShowS
+$cshowList :: [NodeSummary] -&gt; ShowS
+show :: NodeSummary -&gt; String
+$cshow :: NodeSummary -&gt; String
+showsPrec :: Int -&gt; NodeSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; NodeSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NodeSummary -&gt; Rep NodeSummary x)
+-&gt; (forall x. Rep NodeSummary x -&gt; NodeSummary)
+-&gt; Generic NodeSummary
+forall x. Rep NodeSummary x -&gt; NodeSummary
+forall x. NodeSummary -&gt; Rep NodeSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NodeSummary x -&gt; NodeSummary
+$cfrom :: forall x. NodeSummary -&gt; Rep NodeSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'NodeSummary' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'status', 'nodeSummary_status' - The status of the node.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'arn', 'nodeSummary_arn' - The Amazon Resource Name (ARN) of the node. For more information about</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- ARNs and their format, see</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)&gt;</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- in the /AWS General Reference/.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'instanceType', 'nodeSummary_instanceType' - The EC2 instance type for the node.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'availabilityZone', 'nodeSummary_availabilityZone' - The Availability Zone in which the node exists.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'id', 'nodeSummary_id' - The unique identifier of the node.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'creationDate', 'nodeSummary_creationDate' - The date and time that the node was created.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#newNodeSummary"><span class="hs-identifier hs-type">newNodeSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span><span>
+</span><span id="line-73"></span><span id="newNodeSummary"><span class="annot"><span class="annottext">newNodeSummary :: NodeSummary
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#newNodeSummary"><span class="hs-identifier hs-var hs-var">newNodeSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">NodeSummary' :: Maybe NodeStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; NodeSummary
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-type">NodeSummary'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:NodeSummary' :: Maybe NodeStatus
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3Astatus%3ANodeSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:NodeSummary' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3Aarn%3ANodeSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:NodeSummary' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3AinstanceType%3ANodeSummary%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:NodeSummary' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3AavailabilityZone%3ANodeSummary%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:NodeSummary' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3Aid%3ANodeSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:NodeSummary' :: Maybe POSIX
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3AcreationDate%3ANodeSummary%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The status of the node.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#nodeSummary_status"><span class="hs-identifier hs-type">nodeSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeStatus.html#NodeStatus"><span class="hs-identifier hs-type">NodeStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="nodeSummary_status"><span class="annot"><span class="annottext">nodeSummary_status :: (Maybe NodeStatus -&gt; f (Maybe NodeStatus))
+-&gt; NodeSummary -&gt; f NodeSummary
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#nodeSummary_status"><span class="hs-identifier hs-var hs-var">nodeSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSummary -&gt; Maybe NodeStatus)
+-&gt; (NodeSummary -&gt; Maybe NodeStatus -&gt; NodeSummary)
+-&gt; Lens
+     NodeSummary NodeSummary (Maybe NodeStatus) (Maybe NodeStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-type">NodeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218705"><span class="annot"><span class="annottext">Maybe NodeStatus
+status :: Maybe NodeStatus
+$sel:status:NodeSummary' :: NodeSummary -&gt; Maybe NodeStatus
+</span><a href="#local-6989586621679218705"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NodeStatus
+</span><a href="#local-6989586621679218705"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218704"><span class="annot"><span class="annottext">s :: NodeSummary
+</span><a href="#local-6989586621679218704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-type">NodeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218703"><span class="annot"><span class="annottext">Maybe NodeStatus
+</span><a href="#local-6989586621679218703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSummary
+</span><a href="#local-6989586621679218704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:NodeSummary' :: Maybe NodeStatus
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3Astatus%3ANodeSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeStatus
+</span><a href="#local-6989586621679218703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the node. For more information about</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- ARNs and their format, see</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)&gt;</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- in the /AWS General Reference/.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#nodeSummary_arn"><span class="hs-identifier hs-type">nodeSummary_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="nodeSummary_arn"><span class="annot"><span class="annottext">nodeSummary_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeSummary -&gt; f NodeSummary
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#nodeSummary_arn"><span class="hs-identifier hs-var hs-var">nodeSummary_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSummary -&gt; Maybe Text)
+-&gt; (NodeSummary -&gt; Maybe Text -&gt; NodeSummary)
+-&gt; Lens NodeSummary NodeSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-type">NodeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218701"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:NodeSummary' :: NodeSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679218701"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218701"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218700"><span class="annot"><span class="annottext">s :: NodeSummary
+</span><a href="#local-6989586621679218700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-type">NodeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218699"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSummary
+</span><a href="#local-6989586621679218700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:NodeSummary' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3Aarn%3ANodeSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The EC2 instance type for the node.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#nodeSummary_instanceType"><span class="hs-identifier hs-type">nodeSummary_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="nodeSummary_instanceType"><span class="annot"><span class="annottext">nodeSummary_instanceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeSummary -&gt; f NodeSummary
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#nodeSummary_instanceType"><span class="hs-identifier hs-var hs-var">nodeSummary_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSummary -&gt; Maybe Text)
+-&gt; (NodeSummary -&gt; Maybe Text -&gt; NodeSummary)
+-&gt; Lens NodeSummary NodeSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-type">NodeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218697"><span class="annot"><span class="annottext">Maybe Text
+instanceType :: Maybe Text
+$sel:instanceType:NodeSummary' :: NodeSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679218697"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218697"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218696"><span class="annot"><span class="annottext">s :: NodeSummary
+</span><a href="#local-6989586621679218696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-type">NodeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218695"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSummary
+</span><a href="#local-6989586621679218696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:NodeSummary' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3AinstanceType%3ANodeSummary%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The Availability Zone in which the node exists.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#nodeSummary_availabilityZone"><span class="hs-identifier hs-type">nodeSummary_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="nodeSummary_availabilityZone"><span class="annot"><span class="annottext">nodeSummary_availabilityZone :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeSummary -&gt; f NodeSummary
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#nodeSummary_availabilityZone"><span class="hs-identifier hs-var hs-var">nodeSummary_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSummary -&gt; Maybe Text)
+-&gt; (NodeSummary -&gt; Maybe Text -&gt; NodeSummary)
+-&gt; Lens NodeSummary NodeSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-type">NodeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218693"><span class="annot"><span class="annottext">Maybe Text
+availabilityZone :: Maybe Text
+$sel:availabilityZone:NodeSummary' :: NodeSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679218693"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218693"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218692"><span class="annot"><span class="annottext">s :: NodeSummary
+</span><a href="#local-6989586621679218692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-type">NodeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218691"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSummary
+</span><a href="#local-6989586621679218692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:NodeSummary' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3AavailabilityZone%3ANodeSummary%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The unique identifier of the node.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#nodeSummary_id"><span class="hs-identifier hs-type">nodeSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="nodeSummary_id"><span class="annot"><span class="annottext">nodeSummary_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeSummary -&gt; f NodeSummary
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#nodeSummary_id"><span class="hs-identifier hs-var hs-var">nodeSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSummary -&gt; Maybe Text)
+-&gt; (NodeSummary -&gt; Maybe Text -&gt; NodeSummary)
+-&gt; Lens NodeSummary NodeSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-type">NodeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218689"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:NodeSummary' :: NodeSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679218689"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218689"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218688"><span class="annot"><span class="annottext">s :: NodeSummary
+</span><a href="#local-6989586621679218688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-type">NodeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218687"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSummary
+</span><a href="#local-6989586621679218688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:NodeSummary' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3Aid%3ANodeSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The date and time that the node was created.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#nodeSummary_creationDate"><span class="hs-identifier hs-type">nodeSummary_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="nodeSummary_creationDate"><span class="annot"><span class="annottext">nodeSummary_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; NodeSummary -&gt; f NodeSummary
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#nodeSummary_creationDate"><span class="hs-identifier hs-var hs-var">nodeSummary_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSummary -&gt; Maybe POSIX)
+-&gt; (NodeSummary -&gt; Maybe POSIX -&gt; NodeSummary)
+-&gt; Lens NodeSummary NodeSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-type">NodeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218685"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:NodeSummary' :: NodeSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679218685"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679218685"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218684"><span class="annot"><span class="annottext">s :: NodeSummary
+</span><a href="#local-6989586621679218684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-type">NodeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218683"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679218683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSummary
+</span><a href="#local-6989586621679218684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:NodeSummary' :: Maybe POSIX
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#%24sel%3AcreationDate%3ANodeSummary%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679218683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; NodeSummary -&gt; f NodeSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; NodeSummary
+-&gt; f NodeSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218677"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679218675"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodeSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser NodeSummary) -&gt; Value -&gt; Parser NodeSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NodeSummary&quot;</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218672"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218672"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe NodeStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; NodeSummary
+</span><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary%27"><span class="hs-identifier hs-var">NodeSummary'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NodeStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; NodeSummary)
+-&gt; Parser (Maybe NodeStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; NodeSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NodeStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; NodeSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; NodeSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; NodeSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; NodeSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; NodeSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; NodeSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; NodeSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; NodeSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; NodeSummary)
+-&gt; Parser (Maybe POSIX) -&gt; Parser NodeSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218666"><span id="local-6989586621679218668"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218663"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NodeSummary.html#NodeSummary"><span class="hs-identifier hs-type">NodeSummary</span></a></span></span><span>
+</span><span id="line-127"></span></pre></body></html>

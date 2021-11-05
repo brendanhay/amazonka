@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Represents a request to the list artifacts operation.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newListArtifacts' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679381124"><span id="local-6989586621679381125"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListArtifacts"><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-var">ListArtifacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListArtifacts%27"><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-var">ListArtifacts'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679381133"><span id="local-6989586621679381134"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListArtifacts"><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-var">ListArtifacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListArtifacts%27"><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-var">ListArtifacts'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- list.</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3Atype%27%3AListArtifacts%27"><span class="annot"><span class="annottext">ListArtifacts -&gt; ArtifactCategory
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#%24sel%3Atype%27%3AListArtifacts%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ArtifactCategory.html#ArtifactCategory"><span class="hs-identifier hs-type">ArtifactCategory</span></a></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381116"><span id="local-6989586621679381118"><span class="annot"><span class="annottext">ListArtifacts -&gt; ListArtifacts -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381125"><span id="local-6989586621679381127"><span class="annot"><span class="annottext">ListArtifacts -&gt; ListArtifacts -&gt; Bool
 (ListArtifacts -&gt; ListArtifacts -&gt; Bool)
 -&gt; (ListArtifacts -&gt; ListArtifacts -&gt; Bool) -&gt; Eq ListArtifacts
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListArtifacts -&gt; ListArtifacts -&gt; Bool
 == :: ListArtifacts -&gt; ListArtifacts -&gt; Bool
 $c== :: ListArtifacts -&gt; ListArtifacts -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381107"><span id="local-6989586621679381109"><span id="local-6989586621679381111"><span id="local-6989586621679381113"><span class="annot"><span class="annottext">ReadPrec [ListArtifacts]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381116"><span id="local-6989586621679381118"><span id="local-6989586621679381120"><span id="local-6989586621679381122"><span class="annot"><span class="annottext">ReadPrec [ListArtifacts]
 ReadPrec ListArtifacts
 Int -&gt; ReadS ListArtifacts
 ReadS [ListArtifacts]
@@ -103,7 +103,7 @@ readList :: ReadS [ListArtifacts]
 $creadList :: ReadS [ListArtifacts]
 readsPrec :: Int -&gt; ReadS ListArtifacts
 $creadsPrec :: Int -&gt; ReadS ListArtifacts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381100"><span id="local-6989586621679381102"><span id="local-6989586621679381104"><span class="annot"><span class="annottext">Int -&gt; ListArtifacts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381109"><span id="local-6989586621679381111"><span id="local-6989586621679381113"><span class="annot"><span class="annottext">Int -&gt; ListArtifacts -&gt; ShowS
 [ListArtifacts] -&gt; ShowS
 ListArtifacts -&gt; String
 (Int -&gt; ListArtifacts -&gt; ShowS)
@@ -159,9 +159,9 @@ $cfrom :: forall x. ListArtifacts -&gt; Rep ListArtifacts x
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ArtifactCategory.html#ArtifactCategory"><span class="hs-identifier hs-type">ArtifactCategory</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span>
 </span><span id="line-106"></span><span id="newListArtifacts"><span class="annot"><span class="annottext">newListArtifacts :: Text -&gt; ArtifactCategory -&gt; ListArtifacts
-</span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#newListArtifacts"><span class="hs-identifier hs-var hs-var">newListArtifacts</span></a></span></span><span> </span><span id="local-6989586621679381095"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381095"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span id="local-6989586621679381094"><span class="annot"><span class="annottext">ArtifactCategory
-</span><a href="#local-6989586621679381094"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#newListArtifacts"><span class="hs-identifier hs-var hs-var">newListArtifacts</span></a></span></span><span> </span><span id="local-6989586621679381104"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381104"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span id="local-6989586621679381103"><span class="annot"><span class="annottext">ArtifactCategory
+</span><a href="#local-6989586621679381103"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">ListArtifacts' :: Maybe Text -&gt; Text -&gt; ArtifactCategory -&gt; ListArtifacts
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListArtifacts' :: Maybe Text
@@ -170,10 +170,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ListArtifacts' :: Text
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#%24sel%3Aarn%3AListArtifacts%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381095"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679381104"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ListArtifacts' :: ArtifactCategory
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#%24sel%3Atype%27%3AListArtifacts%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactCategory
-</span><a href="#local-6989586621679381094"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679381103"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
@@ -185,16 +185,16 @@ forall a. Maybe a
 -&gt; (ListArtifacts -&gt; Maybe Text -&gt; ListArtifacts)
 -&gt; Lens ListArtifacts ListArtifacts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381092"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381101"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListArtifacts' :: ListArtifacts -&gt; Maybe Text
-</span><a href="#local-6989586621679381092"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381092"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381091"><span class="annot"><span class="annottext">s :: ListArtifacts
-</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381090"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifacts
-</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListArtifacts' :: Maybe Text
+</span><a href="#local-6989586621679381101"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381101"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381100"><span class="annot"><span class="annottext">s :: ListArtifacts
+</span><a href="#local-6989586621679381100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381099"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifacts
+</span><a href="#local-6989586621679381100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListArtifacts' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#%24sel%3AnextToken%3AListArtifacts%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The run, job, suite, or test ARN.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#listArtifacts_arn"><span class="hs-identifier hs-type">listArtifacts_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -203,16 +203,16 @@ $sel:nextToken:ListArtifacts' :: ListArtifacts -&gt; Maybe Text
 -&gt; (ListArtifacts -&gt; Text -&gt; ListArtifacts)
 -&gt; Lens ListArtifacts ListArtifacts Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381089"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381098"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:ListArtifacts' :: ListArtifacts -&gt; Text
-</span><a href="#local-6989586621679381089"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381089"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381088"><span class="annot"><span class="annottext">s :: ListArtifacts
-</span><a href="#local-6989586621679381088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381087"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifacts
-</span><a href="#local-6989586621679381088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ListArtifacts' :: Text
+</span><a href="#local-6989586621679381098"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381098"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381097"><span class="annot"><span class="annottext">s :: ListArtifacts
+</span><a href="#local-6989586621679381097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381096"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifacts
+</span><a href="#local-6989586621679381097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ListArtifacts' :: Text
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#%24sel%3Aarn%3AListArtifacts%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The artifacts\' type.</span><span>
 </span><span id="line-124"></span><span class="hs-comment">--</span><span>
@@ -231,28 +231,28 @@ $sel:arn:ListArtifacts' :: ListArtifacts -&gt; Text
 -&gt; Lens
      ListArtifacts ListArtifacts ArtifactCategory ArtifactCategory
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381086"><span class="annot"><span class="annottext">ArtifactCategory
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381095"><span class="annot"><span class="annottext">ArtifactCategory
 type' :: ArtifactCategory
 $sel:type':ListArtifacts' :: ListArtifacts -&gt; ArtifactCategory
-</span><a href="#local-6989586621679381086"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactCategory
-</span><a href="#local-6989586621679381086"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381085"><span class="annot"><span class="annottext">s :: ListArtifacts
-</span><a href="#local-6989586621679381085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381084"><span class="annot"><span class="annottext">ArtifactCategory
-</span><a href="#local-6989586621679381084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifacts
-</span><a href="#local-6989586621679381085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ListArtifacts' :: ArtifactCategory
+</span><a href="#local-6989586621679381095"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactCategory
+</span><a href="#local-6989586621679381095"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381094"><span class="annot"><span class="annottext">s :: ListArtifacts
+</span><a href="#local-6989586621679381094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381093"><span class="annot"><span class="annottext">ArtifactCategory
+</span><a href="#local-6989586621679381093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifacts
+</span><a href="#local-6989586621679381094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ListArtifacts' :: ArtifactCategory
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#%24sel%3Atype%27%3AListArtifacts%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactCategory
-</span><a href="#local-6989586621679381084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679381080"><span class="annot"><span class="annottext">page :: ListArtifacts -&gt; AWSResponse ListArtifacts -&gt; Maybe ListArtifacts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679381078"><span class="annot"><span class="annottext">ListArtifacts
-</span><a href="#local-6989586621679381078"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679381077"><span class="annot"><span class="annottext">AWSResponse ListArtifacts
-</span><a href="#local-6989586621679381077"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679381089"><span class="annot"><span class="annottext">page :: ListArtifacts -&gt; AWSResponse ListArtifacts -&gt; Maybe ListArtifacts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679381087"><span class="annot"><span class="annottext">ListArtifacts
+</span><a href="#local-6989586621679381087"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679381086"><span class="annot"><span class="annottext">AWSResponse ListArtifacts
+</span><a href="#local-6989586621679381086"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-138"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListArtifacts
 ListArtifactsResponse
-</span><a href="#local-6989586621679381077"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679381086"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">ListArtifactsResponse
 -&gt; Getting (First Text) ListArtifactsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -280,7 +280,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-143"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListArtifacts
 ListArtifactsResponse
-</span><a href="#local-6989586621679381077"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679381086"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">ListArtifactsResponse
 -&gt; Getting (First [Artifact]) ListArtifactsResponse [Artifact]
 -&gt; Maybe [Artifact]
@@ -313,7 +313,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ListArtifacts
-</span><a href="#local-6989586621679381078"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679381087"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">ListArtifacts -&gt; (ListArtifacts -&gt; ListArtifacts) -&gt; ListArtifacts
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -326,7 +326,7 @@ Lens ListArtifacts ListArtifacts (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListArtifacts
 ListArtifactsResponse
-</span><a href="#local-6989586621679381077"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679381086"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">ListArtifactsResponse
 -&gt; Getting (First Text) ListArtifactsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -350,12 +350,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-155"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-156"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679381067"><span class="annot"><span class="annottext">request :: ListArtifacts -&gt; Request ListArtifacts
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679381076"><span class="annot"><span class="annottext">request :: ListArtifacts -&gt; Request ListArtifacts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListArtifacts -&gt; Request ListArtifacts
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679381063"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679381072"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListArtifacts
 -&gt; ClientResponse ClientBody
@@ -379,10 +379,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381060"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381060"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679381059"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679381059"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679381058"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381058"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381069"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381069"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679381068"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679381068"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679381067"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381067"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Artifact] -&gt; Maybe Text -&gt; Int -&gt; ListArtifactsResponse
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-var">ListArtifactsResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Artifact] -&gt; Maybe Text -&gt; Int -&gt; ListArtifactsResponse)
@@ -390,7 +390,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListArtifactsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381058"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Artifact]))
+</span><a href="#local-6989586621679381067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Artifact]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;artifacts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Artifact]))
@@ -404,7 +404,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListArtifactsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381058"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679381067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -416,15 +416,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381060"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381069"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381049"><span id="local-6989586621679381051"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381058"><span id="local-6989586621679381060"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span></span></span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381046"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679381042"><span class="annot"><span class="annottext">toHeaders :: ListArtifacts -&gt; ResponseHeaders
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679381051"><span class="annot"><span class="annottext">toHeaders :: ListArtifacts -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListArtifacts -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -451,9 +451,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381032"><span id="local-6989586621679381034"><span id="local-6989586621679381036"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679381030"><span class="annot"><span class="annottext">toJSON :: ListArtifacts -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381026"><span id="local-6989586621679381027"><span id="local-6989586621679381028"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381041"><span id="local-6989586621679381043"><span id="local-6989586621679381045"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679381039"><span class="annot"><span class="annottext">toJSON :: ListArtifacts -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381035"><span id="local-6989586621679381036"><span id="local-6989586621679381037"><span class="annot"><span class="annottext">Maybe Text
 Text
 ArtifactCategory
 type' :: ArtifactCategory
@@ -462,7 +462,7 @@ nextToken :: Maybe Text
 $sel:type':ListArtifacts' :: ListArtifacts -&gt; ArtifactCategory
 $sel:arn:ListArtifacts' :: ListArtifacts -&gt; Text
 $sel:nextToken:ListArtifacts' :: ListArtifacts -&gt; Maybe Text
-</span><a href="#local-6989586621679381026"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381035"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -474,33 +474,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381028"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679381037"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381027"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679381036"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArtifactCategory -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ArtifactCategory
-</span><a href="#local-6989586621679381026"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381035"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679381020"><span class="annot"><span class="annottext">toPath :: ListArtifacts -&gt; ByteString
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679381029"><span class="annot"><span class="annottext">toPath :: ListArtifacts -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListArtifacts -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679381016"><span class="annot"><span class="annottext">toQuery :: ListArtifacts -&gt; QueryString
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679381025"><span class="annot"><span class="annottext">toQuery :: ListArtifacts -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListArtifacts -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -510,7 +510,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-203"></span><span class="hs-comment">-- | Represents the result of a list artifacts operation.</span><span>
 </span><span id="line-204"></span><span class="hs-comment">--</span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- /See:/ 'newListArtifactsResponse' smart constructor.</span><span>
-</span><span id="line-206"></span><span id="local-6989586621679381013"><span id="local-6989586621679381014"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListArtifactsResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-var">ListArtifactsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListArtifactsResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-var">ListArtifactsResponse'</span></a></span></span><span>
+</span><span id="line-206"></span><span id="local-6989586621679381022"><span id="local-6989586621679381023"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListArtifactsResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-var">ListArtifactsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListArtifactsResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-var">ListArtifactsResponse'</span></a></span></span><span>
 </span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the artifacts.</span><span>
 </span><span id="line-208"></span><span>    </span><span id="%24sel%3Aartifacts%3AListArtifactsResponse%27"><span class="annot"><span class="annottext">ListArtifactsResponse -&gt; Maybe [Artifact]
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#%24sel%3Aartifacts%3AListArtifactsResponse%27"><span class="hs-identifier hs-var hs-var">artifacts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -523,7 +523,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-214"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListArtifactsResponse%27"><span class="annot"><span class="annottext">ListArtifactsResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#%24sel%3AhttpStatus%3AListArtifactsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-215"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-216"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381006"><span id="local-6989586621679381008"><span class="annot"><span class="annottext">ListArtifactsResponse -&gt; ListArtifactsResponse -&gt; Bool
+</span><span id="line-216"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381015"><span id="local-6989586621679381017"><span class="annot"><span class="annottext">ListArtifactsResponse -&gt; ListArtifactsResponse -&gt; Bool
 (ListArtifactsResponse -&gt; ListArtifactsResponse -&gt; Bool)
 -&gt; (ListArtifactsResponse -&gt; ListArtifactsResponse -&gt; Bool)
 -&gt; Eq ListArtifactsResponse
@@ -532,7 +532,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListArtifactsResponse -&gt; ListArtifactsResponse -&gt; Bool
 == :: ListArtifactsResponse -&gt; ListArtifactsResponse -&gt; Bool
 $c== :: ListArtifactsResponse -&gt; ListArtifactsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380998"><span id="local-6989586621679381000"><span id="local-6989586621679381002"><span id="local-6989586621679381004"><span class="annot"><span class="annottext">ReadPrec [ListArtifactsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381007"><span id="local-6989586621679381009"><span id="local-6989586621679381011"><span id="local-6989586621679381013"><span class="annot"><span class="annottext">ReadPrec [ListArtifactsResponse]
 ReadPrec ListArtifactsResponse
 Int -&gt; ReadS ListArtifactsResponse
 ReadS [ListArtifactsResponse]
@@ -552,7 +552,7 @@ readList :: ReadS [ListArtifactsResponse]
 $creadList :: ReadS [ListArtifactsResponse]
 readsPrec :: Int -&gt; ReadS ListArtifactsResponse
 $creadsPrec :: Int -&gt; ReadS ListArtifactsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380992"><span id="local-6989586621679380994"><span id="local-6989586621679380996"><span class="annot"><span class="annottext">Int -&gt; ListArtifactsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381001"><span id="local-6989586621679381003"><span id="local-6989586621679381005"><span class="annot"><span class="annottext">Int -&gt; ListArtifactsResponse -&gt; ShowS
 [ListArtifactsResponse] -&gt; ShowS
 ListArtifactsResponse -&gt; String
 (Int -&gt; ListArtifactsResponse -&gt; ShowS)
@@ -598,8 +598,8 @@ $cfrom :: forall x. ListArtifactsResponse -&gt; Rep ListArtifactsResponse x
 </span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-236"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span>
 </span><span id="line-237"></span><span id="newListArtifactsResponse"><span class="annot"><span class="annottext">newListArtifactsResponse :: Int -&gt; ListArtifactsResponse
-</span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#newListArtifactsResponse"><span class="hs-identifier hs-var hs-var">newListArtifactsResponse</span></a></span></span><span> </span><span id="local-6989586621679380989"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679380989"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#newListArtifactsResponse"><span class="hs-identifier hs-var hs-var">newListArtifactsResponse</span></a></span></span><span> </span><span id="local-6989586621679380998"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380998"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-238"></span><span>  </span><span class="annot"><span class="annottext">ListArtifactsResponse' :: Maybe [Artifact] -&gt; Maybe Text -&gt; Int -&gt; ListArtifactsResponse
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span>
 </span><span id="line-239"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:artifacts:ListArtifactsResponse' :: Maybe [Artifact]
@@ -612,7 +612,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListArtifactsResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#%24sel%3AhttpStatus%3AListArtifactsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679380989"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679380998"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-242"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- | Information about the artifacts.</span><span>
@@ -624,16 +624,16 @@ forall a. Maybe a
     -&gt; Maybe [Artifact] -&gt; ListArtifactsResponse)
 -&gt; Lens' ListArtifactsResponse (Maybe [Artifact])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380988"><span class="annot"><span class="annottext">Maybe [Artifact]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380997"><span class="annot"><span class="annottext">Maybe [Artifact]
 artifacts :: Maybe [Artifact]
 $sel:artifacts:ListArtifactsResponse' :: ListArtifactsResponse -&gt; Maybe [Artifact]
-</span><a href="#local-6989586621679380988"><span class="hs-identifier hs-var hs-var">artifacts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Artifact]
-</span><a href="#local-6989586621679380988"><span class="hs-identifier hs-var">artifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380987"><span class="annot"><span class="annottext">s :: ListArtifactsResponse
-</span><a href="#local-6989586621679380987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380986"><span class="annot"><span class="annottext">Maybe [Artifact]
-</span><a href="#local-6989586621679380986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifactsResponse
-</span><a href="#local-6989586621679380987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifacts:ListArtifactsResponse' :: Maybe [Artifact]
+</span><a href="#local-6989586621679380997"><span class="hs-identifier hs-var hs-var">artifacts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Artifact]
+</span><a href="#local-6989586621679380997"><span class="hs-identifier hs-var">artifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380996"><span class="annot"><span class="annottext">s :: ListArtifactsResponse
+</span><a href="#local-6989586621679380996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380995"><span class="annot"><span class="annottext">Maybe [Artifact]
+</span><a href="#local-6989586621679380995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifactsResponse
+</span><a href="#local-6989586621679380996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifacts:ListArtifactsResponse' :: Maybe [Artifact]
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#%24sel%3Aartifacts%3AListArtifactsResponse%27"><span class="hs-identifier hs-var">artifacts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Artifact]
-</span><a href="#local-6989586621679380986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Artifact] -&gt; f (Maybe [Artifact]))
+</span><a href="#local-6989586621679380995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Artifact] -&gt; f (Maybe [Artifact]))
  -&gt; ListArtifactsResponse -&gt; f ListArtifactsResponse)
 -&gt; ((Maybe [Artifact] -&gt; f (Maybe [Artifact]))
     -&gt; Maybe [Artifact] -&gt; f (Maybe [Artifact]))
@@ -664,16 +664,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListArtifactsResponse -&gt; Maybe Text -&gt; ListArtifactsResponse)
 -&gt; Lens' ListArtifactsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380983"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380992"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListArtifactsResponse' :: ListArtifactsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679380983"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380983"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380982"><span class="annot"><span class="annottext">s :: ListArtifactsResponse
-</span><a href="#local-6989586621679380982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380981"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifactsResponse
-</span><a href="#local-6989586621679380982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListArtifactsResponse' :: Maybe Text
+</span><a href="#local-6989586621679380992"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380992"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380991"><span class="annot"><span class="annottext">s :: ListArtifactsResponse
+</span><a href="#local-6989586621679380991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380990"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifactsResponse
+</span><a href="#local-6989586621679380991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListArtifactsResponse' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#%24sel%3AnextToken%3AListArtifactsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679380990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-255"></span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#listArtifactsResponse_httpStatus"><span class="hs-identifier hs-type">listArtifactsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -682,16 +682,16 @@ $sel:nextToken:ListArtifactsResponse' :: ListArtifactsResponse -&gt; Maybe Text
 -&gt; (ListArtifactsResponse -&gt; Int -&gt; ListArtifactsResponse)
 -&gt; Lens ListArtifactsResponse ListArtifactsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380980"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380989"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListArtifactsResponse' :: ListArtifactsResponse -&gt; Int
-</span><a href="#local-6989586621679380980"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679380980"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380979"><span class="annot"><span class="annottext">s :: ListArtifactsResponse
-</span><a href="#local-6989586621679380979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380978"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679380978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifactsResponse
-</span><a href="#local-6989586621679380979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListArtifactsResponse' :: Int
+</span><a href="#local-6989586621679380989"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380989"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380988"><span class="annot"><span class="annottext">s :: ListArtifactsResponse
+</span><a href="#local-6989586621679380988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380987"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifactsResponse
+</span><a href="#local-6989586621679380988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListArtifactsResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.ListArtifacts.html#%24sel%3AhttpStatus%3AListArtifactsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679380978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679380987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380976"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380985"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span></span><span>
 </span><span id="line-259"></span></pre></body></html>

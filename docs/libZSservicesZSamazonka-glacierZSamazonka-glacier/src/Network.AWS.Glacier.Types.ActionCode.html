@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679214807"><span id="local-6989586621679214808"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActionCode"><span class="annot"><a href="Network.AWS.Glacier.Types.ActionCode.html#ActionCode"><span class="hs-identifier hs-var">ActionCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionCode%27"><span class="annot"><a href="Network.AWS.Glacier.Types.ActionCode.html#ActionCode%27"><span class="hs-identifier hs-var">ActionCode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679214816"><span id="local-6989586621679214817"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActionCode"><span class="annot"><a href="Network.AWS.Glacier.Types.ActionCode.html#ActionCode"><span class="hs-identifier hs-var">ActionCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionCode%27"><span class="annot"><a href="Network.AWS.Glacier.Types.ActionCode.html#ActionCode%27"><span class="hs-identifier hs-var">ActionCode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromActionCode"><span class="annot"><span class="annottext">ActionCode -&gt; Text
 </span><a href="Network.AWS.Glacier.Types.ActionCode.html#fromActionCode"><span class="hs-identifier hs-var hs-var">fromActionCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679214799"><span id="local-6989586621679214801"><span id="local-6989586621679214803"><span class="annot"><span class="annottext">Int -&gt; ActionCode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679214808"><span id="local-6989586621679214810"><span id="local-6989586621679214812"><span class="annot"><span class="annottext">Int -&gt; ActionCode -&gt; ShowS
 [ActionCode] -&gt; ShowS
 ActionCode -&gt; String
 (Int -&gt; ActionCode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ActionCode -&gt; String
 showsPrec :: Int -&gt; ActionCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ActionCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679214790"><span id="local-6989586621679214792"><span id="local-6989586621679214794"><span id="local-6989586621679214796"><span class="annot"><span class="annottext">ReadPrec [ActionCode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679214799"><span id="local-6989586621679214801"><span id="local-6989586621679214803"><span id="local-6989586621679214805"><span class="annot"><span class="annottext">ReadPrec [ActionCode]
 ReadPrec ActionCode
 Int -&gt; ReadS ActionCode
 ReadS [ActionCode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ActionCode]
 readsPrec :: Int -&gt; ReadS ActionCode
 $creadsPrec :: Int -&gt; ReadS ActionCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679214785"><span id="local-6989586621679214787"><span class="annot"><span class="annottext">ActionCode -&gt; ActionCode -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679214794"><span id="local-6989586621679214796"><span class="annot"><span class="annottext">ActionCode -&gt; ActionCode -&gt; Bool
 (ActionCode -&gt; ActionCode -&gt; Bool)
 -&gt; (ActionCode -&gt; ActionCode -&gt; Bool) -&gt; Eq ActionCode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: ActionCode -&gt; ActionCode -&gt; Bool
 == :: ActionCode -&gt; ActionCode -&gt; Bool
 $c== :: ActionCode -&gt; ActionCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679214769"><span id="local-6989586621679214771"><span id="local-6989586621679214773"><span id="local-6989586621679214775"><span id="local-6989586621679214777"><span id="local-6989586621679214779"><span id="local-6989586621679214781"><span class="annot"><span class="annottext">Eq ActionCode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679214778"><span id="local-6989586621679214780"><span id="local-6989586621679214782"><span id="local-6989586621679214784"><span id="local-6989586621679214786"><span id="local-6989586621679214788"><span id="local-6989586621679214790"><span class="annot"><span class="annottext">Eq ActionCode
 Eq ActionCode
 -&gt; (ActionCode -&gt; ActionCode -&gt; Ordering)
 -&gt; (ActionCode -&gt; ActionCode -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ActionCode -&gt; Rep ActionCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679214761"><span id="local-6989586621679214763"><span class="annot"><span class="annottext">Int -&gt; ActionCode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679214770"><span id="local-6989586621679214772"><span class="annot"><span class="annottext">Int -&gt; ActionCode -&gt; Int
 ActionCode -&gt; Int
 (Int -&gt; ActionCode -&gt; Int)
 -&gt; (ActionCode -&gt; Int) -&gt; Hashable ActionCode
@@ -142,49 +142,49 @@ $chash :: ActionCode -&gt; Int
 hashWithSalt :: Int -&gt; ActionCode -&gt; Int
 $chashWithSalt :: Int -&gt; ActionCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679214758"><span class="annot"><span class="annottext">ActionCode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679214767"><span class="annot"><span class="annottext">ActionCode -&gt; ()
 (ActionCode -&gt; ()) -&gt; NFData ActionCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ActionCode -&gt; ()
 $crnf :: ActionCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679214755"><span class="annot"><span class="annottext">Text -&gt; Either String ActionCode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679214764"><span class="annot"><span class="annottext">Text -&gt; Either String ActionCode
 (Text -&gt; Either String ActionCode) -&gt; FromText ActionCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ActionCode
 $cfromText :: Text -&gt; Either String ActionCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679214752"><span class="annot"><span class="annottext">ActionCode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679214761"><span class="annot"><span class="annottext">ActionCode -&gt; Text
 (ActionCode -&gt; Text) -&gt; ToText ActionCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ActionCode -&gt; Text
 $ctoText :: ActionCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679214749"><span class="annot"><span class="annottext">ActionCode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679214758"><span class="annot"><span class="annottext">ActionCode -&gt; ByteString
 (ActionCode -&gt; ByteString) -&gt; ToByteString ActionCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ActionCode -&gt; ByteString
 $ctoBS :: ActionCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679214746"><span class="annot"><span class="annottext">ActionCode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679214755"><span class="annot"><span class="annottext">ActionCode -&gt; ByteStringBuilder
 (ActionCode -&gt; ByteStringBuilder) -&gt; ToLog ActionCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ActionCode -&gt; ByteStringBuilder
 $cbuild :: ActionCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679214743"><span class="annot"><span class="annottext">HeaderName -&gt; ActionCode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679214752"><span class="annot"><span class="annottext">HeaderName -&gt; ActionCode -&gt; [Header]
 (HeaderName -&gt; ActionCode -&gt; [Header]) -&gt; ToHeader ActionCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ActionCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ActionCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679214740"><span class="annot"><span class="annottext">ActionCode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679214749"><span class="annot"><span class="annottext">ActionCode -&gt; QueryString
 (ActionCode -&gt; QueryString) -&gt; ToQuery ActionCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ActionCode -&gt; QueryString
 $ctoQuery :: ActionCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679214735"><span id="local-6989586621679214737"><span class="annot"><span class="annottext">Value -&gt; Parser [ActionCode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679214744"><span id="local-6989586621679214746"><span class="annot"><span class="annottext">Value -&gt; Parser [ActionCode]
 Value -&gt; Parser ActionCode
 (Value -&gt; Parser ActionCode)
 -&gt; (Value -&gt; Parser [ActionCode]) -&gt; FromJSON ActionCode
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [ActionCode]
 parseJSON :: Value -&gt; Parser ActionCode
 $cparseJSON :: Value -&gt; Parser ActionCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679214730"><span id="local-6989586621679214732"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActionCode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679214739"><span id="local-6989586621679214741"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActionCode]
 FromJSONKeyFunction ActionCode
 FromJSONKeyFunction ActionCode
 -&gt; FromJSONKeyFunction [ActionCode] -&gt; FromJSONKey ActionCode
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ActionCode]
 fromJSONKey :: FromJSONKeyFunction ActionCode
 $cfromJSONKey :: FromJSONKeyFunction ActionCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679214721"><span id="local-6989586621679214723"><span id="local-6989586621679214725"><span id="local-6989586621679214727"><span class="annot"><span class="annottext">[ActionCode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679214730"><span id="local-6989586621679214732"><span id="local-6989586621679214734"><span id="local-6989586621679214736"><span class="annot"><span class="annottext">[ActionCode] -&gt; Encoding
 [ActionCode] -&gt; Value
 ActionCode -&gt; Encoding
 ActionCode -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: ActionCode -&gt; Encoding
 toJSON :: ActionCode -&gt; Value
 $ctoJSON :: ActionCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679214716"><span id="local-6989586621679214718"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActionCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679214725"><span id="local-6989586621679214727"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActionCode]
 ToJSONKeyFunction ActionCode
 ToJSONKeyFunction ActionCode
 -&gt; ToJSONKeyFunction [ActionCode] -&gt; ToJSONKey ActionCode
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ActionCode]
 toJSONKey :: ToJSONKeyFunction ActionCode
 $ctoJSONKey :: ToJSONKeyFunction ActionCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679214713"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActionCode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679214722"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActionCode
 ([Node] -&gt; Either String ActionCode) -&gt; FromXML ActionCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ActionCode
 $cparseXML :: [Node] -&gt; Either String ActionCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679214710"><span class="annot"><span class="annottext">ActionCode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679214719"><span class="annot"><span class="annottext">ActionCode -&gt; XML
 (ActionCode -&gt; XML) -&gt; ToXML ActionCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ActionCode -&gt; XML

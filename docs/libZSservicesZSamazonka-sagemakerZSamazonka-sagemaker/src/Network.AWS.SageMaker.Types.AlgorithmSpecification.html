@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker&gt;.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newAlgorithmSpecification' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621680348762"><span id="local-6989586621680348763"></span></span><span class="hs-keyword">data</span><span> </span><span id="AlgorithmSpecification"><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-var">AlgorithmSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlgorithmSpecification%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-var">AlgorithmSpecification'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621680348771"><span id="local-6989586621680348772"></span></span><span class="hs-keyword">data</span><span> </span><span id="AlgorithmSpecification"><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-var">AlgorithmSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlgorithmSpecification%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-var">AlgorithmSpecification'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | To generate and save time-series metrics during training, set to @true@.</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- The default is @false@ and time-series metrics aren\'t generated except</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- in the following cases:</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AtrainingInputMode%3AAlgorithmSpecification%27"><span class="annot"><span class="annottext">AlgorithmSpecification -&gt; TrainingInputMode
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#%24sel%3AtrainingInputMode%3AAlgorithmSpecification%27"><span class="hs-identifier hs-var hs-var">trainingInputMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingInputMode.html#TrainingInputMode"><span class="hs-identifier hs-type">TrainingInputMode</span></a></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680348752"><span id="local-6989586621680348754"><span class="annot"><span class="annottext">AlgorithmSpecification -&gt; AlgorithmSpecification -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680348761"><span id="local-6989586621680348763"><span class="annot"><span class="annottext">AlgorithmSpecification -&gt; AlgorithmSpecification -&gt; Bool
 (AlgorithmSpecification -&gt; AlgorithmSpecification -&gt; Bool)
 -&gt; (AlgorithmSpecification -&gt; AlgorithmSpecification -&gt; Bool)
 -&gt; Eq AlgorithmSpecification
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AlgorithmSpecification -&gt; AlgorithmSpecification -&gt; Bool
 == :: AlgorithmSpecification -&gt; AlgorithmSpecification -&gt; Bool
 $c== :: AlgorithmSpecification -&gt; AlgorithmSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680348743"><span id="local-6989586621680348745"><span id="local-6989586621680348747"><span id="local-6989586621680348749"><span class="annot"><span class="annottext">ReadPrec [AlgorithmSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680348752"><span id="local-6989586621680348754"><span id="local-6989586621680348756"><span id="local-6989586621680348758"><span class="annot"><span class="annottext">ReadPrec [AlgorithmSpecification]
 ReadPrec AlgorithmSpecification
 Int -&gt; ReadS AlgorithmSpecification
 ReadS [AlgorithmSpecification]
@@ -105,7 +105,7 @@ readList :: ReadS [AlgorithmSpecification]
 $creadList :: ReadS [AlgorithmSpecification]
 readsPrec :: Int -&gt; ReadS AlgorithmSpecification
 $creadsPrec :: Int -&gt; ReadS AlgorithmSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680348736"><span id="local-6989586621680348738"><span id="local-6989586621680348740"><span class="annot"><span class="annottext">Int -&gt; AlgorithmSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680348745"><span id="local-6989586621680348747"><span id="local-6989586621680348749"><span class="annot"><span class="annottext">Int -&gt; AlgorithmSpecification -&gt; ShowS
 [AlgorithmSpecification] -&gt; ShowS
 AlgorithmSpecification -&gt; String
 (Int -&gt; AlgorithmSpecification -&gt; ShowS)
@@ -181,8 +181,8 @@ $cfrom :: forall x. AlgorithmSpecification -&gt; Rep AlgorithmSpecification x
 </span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingInputMode.html#TrainingInputMode"><span class="hs-identifier hs-type">TrainingInputMode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span><span>
 </span><span id="line-124"></span><span id="newAlgorithmSpecification"><span class="annot"><span class="annottext">newAlgorithmSpecification :: TrainingInputMode -&gt; AlgorithmSpecification
-</span><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#newAlgorithmSpecification"><span class="hs-identifier hs-var hs-var">newAlgorithmSpecification</span></a></span></span><span> </span><span id="local-6989586621680348730"><span class="annot"><span class="annottext">TrainingInputMode
-</span><a href="#local-6989586621680348730"><span class="hs-identifier hs-var">pTrainingInputMode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#newAlgorithmSpecification"><span class="hs-identifier hs-var hs-var">newAlgorithmSpecification</span></a></span></span><span> </span><span id="local-6989586621680348739"><span class="annot"><span class="annottext">TrainingInputMode
+</span><a href="#local-6989586621680348739"><span class="hs-identifier hs-var">pTrainingInputMode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">AlgorithmSpecification' :: Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -209,7 +209,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:trainingInputMode:AlgorithmSpecification' :: TrainingInputMode
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#%24sel%3AtrainingInputMode%3AAlgorithmSpecification%27"><span class="hs-identifier hs-var">trainingInputMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrainingInputMode
-</span><a href="#local-6989586621680348730"><span class="hs-identifier hs-var">pTrainingInputMode_</span></a></span><span>
+</span><a href="#local-6989586621680348739"><span class="hs-identifier hs-var">pTrainingInputMode_</span></a></span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | To generate and save time-series metrics during training, set to @true@.</span><span>
@@ -239,16 +239,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348726"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348735"><span class="annot"><span class="annottext">Maybe Bool
 enableSageMakerMetricsTimeSeries :: Maybe Bool
 $sel:enableSageMakerMetricsTimeSeries:AlgorithmSpecification' :: AlgorithmSpecification -&gt; Maybe Bool
-</span><a href="#local-6989586621680348726"><span class="hs-identifier hs-var hs-var">enableSageMakerMetricsTimeSeries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680348726"><span class="hs-identifier hs-var">enableSageMakerMetricsTimeSeries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348725"><span class="annot"><span class="annottext">s :: AlgorithmSpecification
-</span><a href="#local-6989586621680348725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348724"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680348724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSpecification
-</span><a href="#local-6989586621680348725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableSageMakerMetricsTimeSeries:AlgorithmSpecification' :: Maybe Bool
+</span><a href="#local-6989586621680348735"><span class="hs-identifier hs-var hs-var">enableSageMakerMetricsTimeSeries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680348735"><span class="hs-identifier hs-var">enableSageMakerMetricsTimeSeries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348734"><span class="annot"><span class="annottext">s :: AlgorithmSpecification
+</span><a href="#local-6989586621680348734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348733"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680348733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSpecification
+</span><a href="#local-6989586621680348734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableSageMakerMetricsTimeSeries:AlgorithmSpecification' :: Maybe Bool
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#%24sel%3AenableSageMakerMetricsTimeSeries%3AAlgorithmSpecification%27"><span class="hs-identifier hs-var">enableSageMakerMetricsTimeSeries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680348724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680348733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The name of the algorithm resource to use for the training job. This</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- must be an algorithm resource that you created or subscribe to on Amazon</span><span>
@@ -265,16 +265,16 @@ $sel:enableSageMakerMetricsTimeSeries:AlgorithmSpecification' :: AlgorithmSpecif
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348722"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348731"><span class="annot"><span class="annottext">Maybe Text
 algorithmName :: Maybe Text
 $sel:algorithmName:AlgorithmSpecification' :: AlgorithmSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621680348722"><span class="hs-identifier hs-var hs-var">algorithmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680348722"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348721"><span class="annot"><span class="annottext">s :: AlgorithmSpecification
-</span><a href="#local-6989586621680348721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348720"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680348720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSpecification
-</span><a href="#local-6989586621680348721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmName:AlgorithmSpecification' :: Maybe Text
+</span><a href="#local-6989586621680348731"><span class="hs-identifier hs-var hs-var">algorithmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680348731"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348730"><span class="annot"><span class="annottext">s :: AlgorithmSpecification
+</span><a href="#local-6989586621680348730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348729"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680348729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSpecification
+</span><a href="#local-6989586621680348730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmName:AlgorithmSpecification' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#%24sel%3AalgorithmName%3AAlgorithmSpecification%27"><span class="hs-identifier hs-var">algorithmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680348720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680348729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The registry path of the Docker image that contains the training</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- algorithm. For information about docker registry paths for built-in</span><span>
@@ -295,16 +295,16 @@ $sel:algorithmName:AlgorithmSpecification' :: AlgorithmSpecification -&gt; Maybe
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348718"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348727"><span class="annot"><span class="annottext">Maybe Text
 trainingImage :: Maybe Text
 $sel:trainingImage:AlgorithmSpecification' :: AlgorithmSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621680348718"><span class="hs-identifier hs-var hs-var">trainingImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680348718"><span class="hs-identifier hs-var">trainingImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348717"><span class="annot"><span class="annottext">s :: AlgorithmSpecification
-</span><a href="#local-6989586621680348717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348716"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680348716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSpecification
-</span><a href="#local-6989586621680348717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingImage:AlgorithmSpecification' :: Maybe Text
+</span><a href="#local-6989586621680348727"><span class="hs-identifier hs-var hs-var">trainingImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680348727"><span class="hs-identifier hs-var">trainingImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348726"><span class="annot"><span class="annottext">s :: AlgorithmSpecification
+</span><a href="#local-6989586621680348726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348725"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680348725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSpecification
+</span><a href="#local-6989586621680348726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingImage:AlgorithmSpecification' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#%24sel%3AtrainingImage%3AAlgorithmSpecification%27"><span class="hs-identifier hs-var">trainingImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680348716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680348725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | A list of metric definition objects. Each object specifies the metric</span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- name and regular expressions used to parse algorithm logs. Amazon</span><span>
@@ -321,16 +321,16 @@ $sel:trainingImage:AlgorithmSpecification' :: AlgorithmSpecification -&gt; Maybe
      (Maybe [MetricDefinition])
      (Maybe [MetricDefinition])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348714"><span class="annot"><span class="annottext">Maybe [MetricDefinition]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348723"><span class="annot"><span class="annottext">Maybe [MetricDefinition]
 metricDefinitions :: Maybe [MetricDefinition]
 $sel:metricDefinitions:AlgorithmSpecification' :: AlgorithmSpecification -&gt; Maybe [MetricDefinition]
-</span><a href="#local-6989586621680348714"><span class="hs-identifier hs-var hs-var">metricDefinitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDefinition]
-</span><a href="#local-6989586621680348714"><span class="hs-identifier hs-var">metricDefinitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348713"><span class="annot"><span class="annottext">s :: AlgorithmSpecification
-</span><a href="#local-6989586621680348713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348712"><span class="annot"><span class="annottext">Maybe [MetricDefinition]
-</span><a href="#local-6989586621680348712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSpecification
-</span><a href="#local-6989586621680348713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricDefinitions:AlgorithmSpecification' :: Maybe [MetricDefinition]
+</span><a href="#local-6989586621680348723"><span class="hs-identifier hs-var hs-var">metricDefinitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDefinition]
+</span><a href="#local-6989586621680348723"><span class="hs-identifier hs-var">metricDefinitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348722"><span class="annot"><span class="annottext">s :: AlgorithmSpecification
+</span><a href="#local-6989586621680348722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348721"><span class="annot"><span class="annottext">Maybe [MetricDefinition]
+</span><a href="#local-6989586621680348721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSpecification
+</span><a href="#local-6989586621680348722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricDefinitions:AlgorithmSpecification' :: Maybe [MetricDefinition]
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#%24sel%3AmetricDefinitions%3AAlgorithmSpecification%27"><span class="hs-identifier hs-var">metricDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDefinition]
-</span><a href="#local-6989586621680348712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricDefinition] -&gt; f (Maybe [MetricDefinition]))
+</span><a href="#local-6989586621680348721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricDefinition] -&gt; f (Maybe [MetricDefinition]))
  -&gt; AlgorithmSpecification -&gt; f AlgorithmSpecification)
 -&gt; ((Maybe [MetricDefinition] -&gt; f (Maybe [MetricDefinition]))
     -&gt; Maybe [MetricDefinition] -&gt; f (Maybe [MetricDefinition]))
@@ -372,19 +372,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      TrainingInputMode
      TrainingInputMode
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348707"><span class="annot"><span class="annottext">TrainingInputMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348716"><span class="annot"><span class="annottext">TrainingInputMode
 trainingInputMode :: TrainingInputMode
 $sel:trainingInputMode:AlgorithmSpecification' :: AlgorithmSpecification -&gt; TrainingInputMode
-</span><a href="#local-6989586621680348707"><span class="hs-identifier hs-var hs-var">trainingInputMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingInputMode
-</span><a href="#local-6989586621680348707"><span class="hs-identifier hs-var">trainingInputMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348706"><span class="annot"><span class="annottext">s :: AlgorithmSpecification
-</span><a href="#local-6989586621680348706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348705"><span class="annot"><span class="annottext">TrainingInputMode
-</span><a href="#local-6989586621680348705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSpecification
-</span><a href="#local-6989586621680348706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingInputMode:AlgorithmSpecification' :: TrainingInputMode
+</span><a href="#local-6989586621680348716"><span class="hs-identifier hs-var hs-var">trainingInputMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingInputMode
+</span><a href="#local-6989586621680348716"><span class="hs-identifier hs-var">trainingInputMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348715"><span class="annot"><span class="annottext">s :: AlgorithmSpecification
+</span><a href="#local-6989586621680348715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348714"><span class="annot"><span class="annottext">TrainingInputMode
+</span><a href="#local-6989586621680348714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSpecification
+</span><a href="#local-6989586621680348715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingInputMode:AlgorithmSpecification' :: TrainingInputMode
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#%24sel%3AtrainingInputMode%3AAlgorithmSpecification%27"><span class="hs-identifier hs-var">trainingInputMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrainingInputMode
-</span><a href="#local-6989586621680348705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680348714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348702"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621680348700"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AlgorithmSpecification
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348711"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621680348709"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AlgorithmSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AlgorithmSpecification)
@@ -394,8 +394,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AlgorithmSpecification&quot;</span></span><span>
-</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680348697"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680348697"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680348706"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680348706"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -418,7 +418,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AlgorithmSpecification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680348697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621680348706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnableSageMakerMetricsTimeSeries&quot;</span></span><span class="hs-special">)</span><span>
@@ -436,7 +436,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AlgorithmSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680348697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680348706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlgorithmName&quot;</span></span><span class="hs-special">)</span><span>
@@ -451,7 +451,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; TrainingInputMode -&gt; AlgorithmSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680348697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680348706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrainingImage&quot;</span></span><span class="hs-special">)</span><span>
@@ -462,7 +462,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (TrainingInputMode -&gt; AlgorithmSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680348697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MetricDefinition]))
+</span><a href="#local-6989586621680348706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MetricDefinition]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetricDefinitions&quot;</span></span><span>
@@ -477,19 +477,19 @@ forall a. Monoid a =&gt; a
 -&gt; Parser TrainingInputMode -&gt; Parser AlgorithmSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680348697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TrainingInputMode
+</span><a href="#local-6989586621680348706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TrainingInputMode
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrainingInputMode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348689"><span id="local-6989586621680348691"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span></span></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348698"><span id="local-6989586621680348700"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span></span></span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348695"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span></span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348678"><span id="local-6989586621680348680"><span id="local-6989586621680348682"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621680348676"><span class="annot"><span class="annottext">toJSON :: AlgorithmSpecification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348670"><span id="local-6989586621680348671"><span id="local-6989586621680348672"><span id="local-6989586621680348673"><span id="local-6989586621680348674"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348687"><span id="local-6989586621680348689"><span id="local-6989586621680348691"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification"><span class="hs-identifier hs-type">AlgorithmSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621680348685"><span class="annot"><span class="annottext">toJSON :: AlgorithmSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSpecification.html#AlgorithmSpecification%27"><span class="hs-identifier hs-type">AlgorithmSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348679"><span id="local-6989586621680348680"><span id="local-6989586621680348681"><span id="local-6989586621680348682"><span id="local-6989586621680348683"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [MetricDefinition]
 Maybe Text
 TrainingInputMode
@@ -503,7 +503,7 @@ $sel:metricDefinitions:AlgorithmSpecification' :: AlgorithmSpecification -&gt; M
 $sel:trainingImage:AlgorithmSpecification' :: AlgorithmSpecification -&gt; Maybe Text
 $sel:algorithmName:AlgorithmSpecification' :: AlgorithmSpecification -&gt; Maybe Text
 $sel:enableSageMakerMetricsTimeSeries:AlgorithmSpecification' :: AlgorithmSpecification -&gt; Maybe Bool
-</span><a href="#local-6989586621680348670"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680348679"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -516,21 +516,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680348674"><span class="hs-identifier hs-var">enableSageMakerMetricsTimeSeries</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680348683"><span class="hs-identifier hs-var">enableSageMakerMetricsTimeSeries</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlgorithmName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680348673"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680348682"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrainingImage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680348672"><span class="hs-identifier hs-var">trainingImage</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680348681"><span class="hs-identifier hs-var">trainingImage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetricDefinitions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MetricDefinition] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -539,7 +539,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [MetricDefinition] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDefinition]
-</span><a href="#local-6989586621680348671"><span class="hs-identifier hs-var">metricDefinitions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680348680"><span class="hs-identifier hs-var">metricDefinitions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -547,7 +547,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TrainingInputMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TrainingInputMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TrainingInputMode
-</span><a href="#local-6989586621680348670"><span class="hs-identifier hs-var">trainingInputMode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680348679"><span class="hs-identifier hs-var">trainingInputMode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-213"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span></pre></body></html>

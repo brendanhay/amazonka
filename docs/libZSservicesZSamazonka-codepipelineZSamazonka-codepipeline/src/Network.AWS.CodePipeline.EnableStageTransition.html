@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-comment">-- | Represents the input of an @EnableStageTransition@ action.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newEnableStageTransition' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679291953"><span id="local-6989586621679291954"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableStageTransition"><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-var">EnableStageTransition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableStageTransition%27"><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-var">EnableStageTransition'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679291962"><span id="local-6989586621679291963"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableStageTransition"><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-var">EnableStageTransition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableStageTransition%27"><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-var">EnableStageTransition'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the pipeline in which you want to enable the flow of</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- artifacts from one stage to another.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3ApipelineName%3AEnableStageTransition%27"><span class="annot"><span class="annottext">EnableStageTransition -&gt; Text
@@ -64,7 +64,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AtransitionType%3AEnableStageTransition%27"><span class="annot"><span class="annottext">EnableStageTransition -&gt; StageTransitionType
 </span><a href="Network.AWS.CodePipeline.EnableStageTransition.html#%24sel%3AtransitionType%3AEnableStageTransition%27"><span class="hs-identifier hs-var hs-var">transitionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageTransitionType.html#StageTransitionType"><span class="hs-identifier hs-type">StageTransitionType</span></a></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291945"><span id="local-6989586621679291947"><span class="annot"><span class="annottext">EnableStageTransition -&gt; EnableStageTransition -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291954"><span id="local-6989586621679291956"><span class="annot"><span class="annottext">EnableStageTransition -&gt; EnableStageTransition -&gt; Bool
 (EnableStageTransition -&gt; EnableStageTransition -&gt; Bool)
 -&gt; (EnableStageTransition -&gt; EnableStageTransition -&gt; Bool)
 -&gt; Eq EnableStageTransition
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnableStageTransition -&gt; EnableStageTransition -&gt; Bool
 == :: EnableStageTransition -&gt; EnableStageTransition -&gt; Bool
 $c== :: EnableStageTransition -&gt; EnableStageTransition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291936"><span id="local-6989586621679291938"><span id="local-6989586621679291940"><span id="local-6989586621679291942"><span class="annot"><span class="annottext">ReadPrec [EnableStageTransition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291945"><span id="local-6989586621679291947"><span id="local-6989586621679291949"><span id="local-6989586621679291951"><span class="annot"><span class="annottext">ReadPrec [EnableStageTransition]
 ReadPrec EnableStageTransition
 Int -&gt; ReadS EnableStageTransition
 ReadS [EnableStageTransition]
@@ -93,7 +93,7 @@ readList :: ReadS [EnableStageTransition]
 $creadList :: ReadS [EnableStageTransition]
 readsPrec :: Int -&gt; ReadS EnableStageTransition
 $creadsPrec :: Int -&gt; ReadS EnableStageTransition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291929"><span id="local-6989586621679291931"><span id="local-6989586621679291933"><span class="annot"><span class="annottext">Int -&gt; EnableStageTransition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291938"><span id="local-6989586621679291940"><span id="local-6989586621679291942"><span class="annot"><span class="annottext">Int -&gt; EnableStageTransition -&gt; ShowS
 [EnableStageTransition] -&gt; ShowS
 EnableStageTransition -&gt; String
 (Int -&gt; EnableStageTransition -&gt; ShowS)
@@ -148,24 +148,24 @@ $cfrom :: forall x. EnableStageTransition -&gt; Rep EnableStageTransition x
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span><span>
 </span><span id="line-93"></span><span id="newEnableStageTransition"><span class="annot"><span class="annottext">newEnableStageTransition :: Text -&gt; Text -&gt; StageTransitionType -&gt; EnableStageTransition
 </span><a href="Network.AWS.CodePipeline.EnableStageTransition.html#newEnableStageTransition"><span class="hs-identifier hs-var hs-var">newEnableStageTransition</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679291924"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291924"><span class="hs-identifier hs-var">pPipelineName_</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679291923"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291923"><span class="hs-identifier hs-var">pStageName_</span></a></span></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679291922"><span class="annot"><span class="annottext">StageTransitionType
-</span><a href="#local-6989586621679291922"><span class="hs-identifier hs-var">pTransitionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679291933"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291933"><span class="hs-identifier hs-var">pPipelineName_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679291932"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291932"><span class="hs-identifier hs-var">pStageName_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679291931"><span class="annot"><span class="annottext">StageTransitionType
+</span><a href="#local-6989586621679291931"><span class="hs-identifier hs-var">pTransitionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">EnableStageTransition' :: Text -&gt; Text -&gt; StageTransitionType -&gt; EnableStageTransition
 </span><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipelineName:EnableStageTransition' :: Text
 </span><a href="Network.AWS.CodePipeline.EnableStageTransition.html#%24sel%3ApipelineName%3AEnableStageTransition%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291924"><span class="hs-identifier hs-var">pPipelineName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679291933"><span class="hs-identifier hs-var">pPipelineName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:stageName:EnableStageTransition' :: Text
 </span><a href="Network.AWS.CodePipeline.EnableStageTransition.html#%24sel%3AstageName%3AEnableStageTransition%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291923"><span class="hs-identifier hs-var">pStageName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679291932"><span class="hs-identifier hs-var">pStageName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:transitionType:EnableStageTransition' :: StageTransitionType
 </span><a href="Network.AWS.CodePipeline.EnableStageTransition.html#%24sel%3AtransitionType%3AEnableStageTransition%27"><span class="hs-identifier hs-var">transitionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StageTransitionType
-</span><a href="#local-6989586621679291922"><span class="hs-identifier hs-var">pTransitionType_</span></a></span><span>
+</span><a href="#local-6989586621679291931"><span class="hs-identifier hs-var">pTransitionType_</span></a></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The name of the pipeline in which you want to enable the flow of</span><span>
@@ -177,16 +177,16 @@ $cfrom :: forall x. EnableStageTransition -&gt; Rep EnableStageTransition x
 -&gt; (EnableStageTransition -&gt; Text -&gt; EnableStageTransition)
 -&gt; Lens EnableStageTransition EnableStageTransition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291919"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291928"><span class="annot"><span class="annottext">Text
 pipelineName :: Text
 $sel:pipelineName:EnableStageTransition' :: EnableStageTransition -&gt; Text
-</span><a href="#local-6989586621679291919"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291919"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291918"><span class="annot"><span class="annottext">s :: EnableStageTransition
-</span><a href="#local-6989586621679291918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291917"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableStageTransition
-</span><a href="#local-6989586621679291918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:EnableStageTransition' :: Text
+</span><a href="#local-6989586621679291928"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291928"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291927"><span class="annot"><span class="annottext">s :: EnableStageTransition
+</span><a href="#local-6989586621679291927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291926"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableStageTransition
+</span><a href="#local-6989586621679291927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:EnableStageTransition' :: Text
 </span><a href="Network.AWS.CodePipeline.EnableStageTransition.html#%24sel%3ApipelineName%3AEnableStageTransition%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The name of the stage where you want to enable the transition of</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- artifacts, either into the stage (inbound) or from that stage to the</span><span>
@@ -198,16 +198,16 @@ $sel:pipelineName:EnableStageTransition' :: EnableStageTransition -&gt; Text
 -&gt; (EnableStageTransition -&gt; Text -&gt; EnableStageTransition)
 -&gt; Lens EnableStageTransition EnableStageTransition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291916"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291925"><span class="annot"><span class="annottext">Text
 stageName :: Text
 $sel:stageName:EnableStageTransition' :: EnableStageTransition -&gt; Text
-</span><a href="#local-6989586621679291916"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291916"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291915"><span class="annot"><span class="annottext">s :: EnableStageTransition
-</span><a href="#local-6989586621679291915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291914"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableStageTransition
-</span><a href="#local-6989586621679291915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageName:EnableStageTransition' :: Text
+</span><a href="#local-6989586621679291925"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291925"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291924"><span class="annot"><span class="annottext">s :: EnableStageTransition
+</span><a href="#local-6989586621679291924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291923"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableStageTransition
+</span><a href="#local-6989586621679291924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageName:EnableStageTransition' :: Text
 </span><a href="Network.AWS.CodePipeline.EnableStageTransition.html#%24sel%3AstageName%3AEnableStageTransition%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | Specifies whether artifacts are allowed to enter the stage and be</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- processed by the actions in that stage (inbound) or whether already</span><span>
@@ -225,27 +225,27 @@ $sel:stageName:EnableStageTransition' :: EnableStageTransition -&gt; Text
      StageTransitionType
      StageTransitionType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291913"><span class="annot"><span class="annottext">StageTransitionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291922"><span class="annot"><span class="annottext">StageTransitionType
 transitionType :: StageTransitionType
 $sel:transitionType:EnableStageTransition' :: EnableStageTransition -&gt; StageTransitionType
-</span><a href="#local-6989586621679291913"><span class="hs-identifier hs-var hs-var">transitionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StageTransitionType
-</span><a href="#local-6989586621679291913"><span class="hs-identifier hs-var">transitionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291912"><span class="annot"><span class="annottext">s :: EnableStageTransition
-</span><a href="#local-6989586621679291912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291911"><span class="annot"><span class="annottext">StageTransitionType
-</span><a href="#local-6989586621679291911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableStageTransition
-</span><a href="#local-6989586621679291912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitionType:EnableStageTransition' :: StageTransitionType
+</span><a href="#local-6989586621679291922"><span class="hs-identifier hs-var hs-var">transitionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StageTransitionType
+</span><a href="#local-6989586621679291922"><span class="hs-identifier hs-var">transitionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291921"><span class="annot"><span class="annottext">s :: EnableStageTransition
+</span><a href="#local-6989586621679291921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291920"><span class="annot"><span class="annottext">StageTransitionType
+</span><a href="#local-6989586621679291920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableStageTransition
+</span><a href="#local-6989586621679291921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitionType:EnableStageTransition' :: StageTransitionType
 </span><a href="Network.AWS.CodePipeline.EnableStageTransition.html#%24sel%3AtransitionType%3AEnableStageTransition%27"><span class="hs-identifier hs-var">transitionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StageTransitionType
-</span><a href="#local-6989586621679291911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransitionResponse"><span class="hs-identifier hs-type">EnableStageTransitionResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679291907"><span class="annot"><span class="annottext">request :: EnableStageTransition -&gt; Request EnableStageTransition
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679291916"><span class="annot"><span class="annottext">request :: EnableStageTransition -&gt; Request EnableStageTransition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; EnableStageTransition -&gt; Request EnableStageTransition
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodePipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679291903"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679291912"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy EnableStageTransition
 -&gt; ClientResponse ClientBody
@@ -271,12 +271,12 @@ AWSResponse a
 EnableStageTransitionResponse
 </span><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransitionResponse%27"><span class="hs-identifier hs-var">EnableStageTransitionResponse'</span></a></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291896"><span id="local-6989586621679291898"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291905"><span id="local-6989586621679291907"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291902"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679291889"><span class="annot"><span class="annottext">toHeaders :: EnableStageTransition -&gt; [Header]
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679291898"><span class="annot"><span class="annottext">toHeaders :: EnableStageTransition -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; EnableStageTransition -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -303,9 +303,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291879"><span id="local-6989586621679291881"><span id="local-6989586621679291883"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679291877"><span class="annot"><span class="annottext">toJSON :: EnableStageTransition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291873"><span id="local-6989586621679291874"><span id="local-6989586621679291875"><span class="annot"><span class="annottext">Text
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291888"><span id="local-6989586621679291890"><span id="local-6989586621679291892"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679291886"><span class="annot"><span class="annottext">toJSON :: EnableStageTransition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition%27"><span class="hs-identifier hs-type">EnableStageTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291882"><span id="local-6989586621679291883"><span id="local-6989586621679291884"><span class="annot"><span class="annottext">Text
 StageTransitionType
 transitionType :: StageTransitionType
 stageName :: Text
@@ -313,7 +313,7 @@ pipelineName :: Text
 $sel:transitionType:EnableStageTransition' :: EnableStageTransition -&gt; StageTransitionType
 $sel:stageName:EnableStageTransition' :: EnableStageTransition -&gt; Text
 $sel:pipelineName:EnableStageTransition' :: EnableStageTransition -&gt; Text
-</span><a href="#local-6989586621679291873"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679291882"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -325,14 +325,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;pipelineName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291875"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stageName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291874"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679291883"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -340,19 +340,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;transitionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StageTransitionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">StageTransitionType
-</span><a href="#local-6989586621679291873"><span class="hs-identifier hs-var">transitionType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291882"><span class="hs-identifier hs-var">transitionType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679291867"><span class="annot"><span class="annottext">toPath :: EnableStageTransition -&gt; ByteString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679291876"><span class="annot"><span class="annottext">toPath :: EnableStageTransition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EnableStageTransition -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransition"><span class="hs-identifier hs-type">EnableStageTransition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679291863"><span class="annot"><span class="annottext">toQuery :: EnableStageTransition -&gt; QueryString
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679291872"><span class="annot"><span class="annottext">toQuery :: EnableStageTransition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; EnableStageTransition -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -360,10 +360,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | /See:/ 'newEnableStageTransitionResponse' smart constructor.</span><span>
-</span><span id="line-167"></span><span id="local-6989586621679291860"><span id="local-6989586621679291861"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableStageTransitionResponse"><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransitionResponse"><span class="hs-identifier hs-var">EnableStageTransitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableStageTransitionResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransitionResponse%27"><span class="hs-identifier hs-var">EnableStageTransitionResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span id="local-6989586621679291869"><span id="local-6989586621679291870"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableStageTransitionResponse"><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransitionResponse"><span class="hs-identifier hs-var">EnableStageTransitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableStageTransitionResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransitionResponse%27"><span class="hs-identifier hs-var">EnableStageTransitionResponse'</span></a></span></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291856"><span id="local-6989586621679291858"><span class="annot"><span class="annottext">EnableStageTransitionResponse
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291865"><span id="local-6989586621679291867"><span class="annot"><span class="annottext">EnableStageTransitionResponse
 -&gt; EnableStageTransitionResponse -&gt; Bool
 (EnableStageTransitionResponse
  -&gt; EnableStageTransitionResponse -&gt; Bool)
@@ -379,7 +379,7 @@ $c/= :: EnableStageTransitionResponse
 -&gt; EnableStageTransitionResponse -&gt; Bool
 $c== :: EnableStageTransitionResponse
 -&gt; EnableStageTransitionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291848"><span id="local-6989586621679291850"><span id="local-6989586621679291852"><span id="local-6989586621679291854"><span class="annot"><span class="annottext">ReadPrec [EnableStageTransitionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291857"><span id="local-6989586621679291859"><span id="local-6989586621679291861"><span id="local-6989586621679291863"><span class="annot"><span class="annottext">ReadPrec [EnableStageTransitionResponse]
 ReadPrec EnableStageTransitionResponse
 Int -&gt; ReadS EnableStageTransitionResponse
 ReadS [EnableStageTransitionResponse]
@@ -399,7 +399,7 @@ readList :: ReadS [EnableStageTransitionResponse]
 $creadList :: ReadS [EnableStageTransitionResponse]
 readsPrec :: Int -&gt; ReadS EnableStageTransitionResponse
 $creadsPrec :: Int -&gt; ReadS EnableStageTransitionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291842"><span id="local-6989586621679291844"><span id="local-6989586621679291846"><span class="annot"><span class="annottext">Int -&gt; EnableStageTransitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291851"><span id="local-6989586621679291853"><span id="local-6989586621679291855"><span class="annot"><span class="annottext">Int -&gt; EnableStageTransitionResponse -&gt; ShowS
 [EnableStageTransitionResponse] -&gt; ShowS
 EnableStageTransitionResponse -&gt; String
 (Int -&gt; EnableStageTransitionResponse -&gt; ShowS)
@@ -448,5 +448,5 @@ EnableStageTransitionResponse
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">EnableStageTransitionResponse
 </span><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransitionResponse%27"><span class="hs-identifier hs-var">EnableStageTransitionResponse'</span></a></span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291838"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransitionResponse"><span class="hs-identifier hs-type">EnableStageTransitionResponse</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291847"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.EnableStageTransition.html#EnableStageTransitionResponse"><span class="hs-identifier hs-type">EnableStageTransitionResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

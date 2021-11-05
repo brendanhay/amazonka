@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679787137"><span id="local-6989586621679787138"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssociationFilterOperatorType"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationFilterOperatorType.html#AssociationFilterOperatorType"><span class="hs-identifier hs-var">AssociationFilterOperatorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationFilterOperatorType%27"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationFilterOperatorType.html#AssociationFilterOperatorType%27"><span class="hs-identifier hs-var">AssociationFilterOperatorType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679787146"><span id="local-6989586621679787147"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssociationFilterOperatorType"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationFilterOperatorType.html#AssociationFilterOperatorType"><span class="hs-identifier hs-var">AssociationFilterOperatorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationFilterOperatorType%27"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationFilterOperatorType.html#AssociationFilterOperatorType%27"><span class="hs-identifier hs-var">AssociationFilterOperatorType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssociationFilterOperatorType"><span class="annot"><span class="annottext">AssociationFilterOperatorType -&gt; Text
 </span><a href="Network.AWS.SSM.Types.AssociationFilterOperatorType.html#fromAssociationFilterOperatorType"><span class="hs-identifier hs-var hs-var">fromAssociationFilterOperatorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679787129"><span id="local-6989586621679787131"><span id="local-6989586621679787133"><span class="annot"><span class="annottext">Int -&gt; AssociationFilterOperatorType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679787138"><span id="local-6989586621679787140"><span id="local-6989586621679787142"><span class="annot"><span class="annottext">Int -&gt; AssociationFilterOperatorType -&gt; ShowS
 [AssociationFilterOperatorType] -&gt; ShowS
 AssociationFilterOperatorType -&gt; String
 (Int -&gt; AssociationFilterOperatorType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AssociationFilterOperatorType -&gt; String
 showsPrec :: Int -&gt; AssociationFilterOperatorType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AssociationFilterOperatorType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679787120"><span id="local-6989586621679787122"><span id="local-6989586621679787124"><span id="local-6989586621679787126"><span class="annot"><span class="annottext">ReadPrec [AssociationFilterOperatorType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679787129"><span id="local-6989586621679787131"><span id="local-6989586621679787133"><span id="local-6989586621679787135"><span class="annot"><span class="annottext">ReadPrec [AssociationFilterOperatorType]
 ReadPrec AssociationFilterOperatorType
 Int -&gt; ReadS AssociationFilterOperatorType
 ReadS [AssociationFilterOperatorType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AssociationFilterOperatorType]
 readsPrec :: Int -&gt; ReadS AssociationFilterOperatorType
 $creadsPrec :: Int -&gt; ReadS AssociationFilterOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679787115"><span id="local-6989586621679787117"><span class="annot"><span class="annottext">AssociationFilterOperatorType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679787124"><span id="local-6989586621679787126"><span class="annot"><span class="annottext">AssociationFilterOperatorType
 -&gt; AssociationFilterOperatorType -&gt; Bool
 (AssociationFilterOperatorType
  -&gt; AssociationFilterOperatorType -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: AssociationFilterOperatorType
 $c== :: AssociationFilterOperatorType
 -&gt; AssociationFilterOperatorType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679787099"><span id="local-6989586621679787101"><span id="local-6989586621679787103"><span id="local-6989586621679787105"><span id="local-6989586621679787107"><span id="local-6989586621679787109"><span id="local-6989586621679787111"><span class="annot"><span class="annottext">Eq AssociationFilterOperatorType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679787108"><span id="local-6989586621679787110"><span id="local-6989586621679787112"><span id="local-6989586621679787114"><span id="local-6989586621679787116"><span id="local-6989586621679787118"><span id="local-6989586621679787120"><span class="annot"><span class="annottext">Eq AssociationFilterOperatorType
 Eq AssociationFilterOperatorType
 -&gt; (AssociationFilterOperatorType
     -&gt; AssociationFilterOperatorType -&gt; Ordering)
@@ -177,7 +177,7 @@ AssociationFilterOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679787091"><span id="local-6989586621679787093"><span class="annot"><span class="annottext">Int -&gt; AssociationFilterOperatorType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679787100"><span id="local-6989586621679787102"><span class="annot"><span class="annottext">Int -&gt; AssociationFilterOperatorType -&gt; Int
 AssociationFilterOperatorType -&gt; Int
 (Int -&gt; AssociationFilterOperatorType -&gt; Int)
 -&gt; (AssociationFilterOperatorType -&gt; Int)
@@ -188,56 +188,56 @@ $chash :: AssociationFilterOperatorType -&gt; Int
 hashWithSalt :: Int -&gt; AssociationFilterOperatorType -&gt; Int
 $chashWithSalt :: Int -&gt; AssociationFilterOperatorType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679787088"><span class="annot"><span class="annottext">AssociationFilterOperatorType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679787097"><span class="annot"><span class="annottext">AssociationFilterOperatorType -&gt; ()
 (AssociationFilterOperatorType -&gt; ())
 -&gt; NFData AssociationFilterOperatorType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AssociationFilterOperatorType -&gt; ()
 $crnf :: AssociationFilterOperatorType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679787085"><span class="annot"><span class="annottext">Text -&gt; Either String AssociationFilterOperatorType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679787094"><span class="annot"><span class="annottext">Text -&gt; Either String AssociationFilterOperatorType
 (Text -&gt; Either String AssociationFilterOperatorType)
 -&gt; FromText AssociationFilterOperatorType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AssociationFilterOperatorType
 $cfromText :: Text -&gt; Either String AssociationFilterOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679787082"><span class="annot"><span class="annottext">AssociationFilterOperatorType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679787091"><span class="annot"><span class="annottext">AssociationFilterOperatorType -&gt; Text
 (AssociationFilterOperatorType -&gt; Text)
 -&gt; ToText AssociationFilterOperatorType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AssociationFilterOperatorType -&gt; Text
 $ctoText :: AssociationFilterOperatorType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679787079"><span class="annot"><span class="annottext">AssociationFilterOperatorType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679787088"><span class="annot"><span class="annottext">AssociationFilterOperatorType -&gt; ByteString
 (AssociationFilterOperatorType -&gt; ByteString)
 -&gt; ToByteString AssociationFilterOperatorType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AssociationFilterOperatorType -&gt; ByteString
 $ctoBS :: AssociationFilterOperatorType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679787076"><span class="annot"><span class="annottext">AssociationFilterOperatorType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679787085"><span class="annot"><span class="annottext">AssociationFilterOperatorType -&gt; ByteStringBuilder
 (AssociationFilterOperatorType -&gt; ByteStringBuilder)
 -&gt; ToLog AssociationFilterOperatorType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AssociationFilterOperatorType -&gt; ByteStringBuilder
 $cbuild :: AssociationFilterOperatorType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679787073"><span class="annot"><span class="annottext">HeaderName -&gt; AssociationFilterOperatorType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679787082"><span class="annot"><span class="annottext">HeaderName -&gt; AssociationFilterOperatorType -&gt; [Header]
 (HeaderName -&gt; AssociationFilterOperatorType -&gt; [Header])
 -&gt; ToHeader AssociationFilterOperatorType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AssociationFilterOperatorType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AssociationFilterOperatorType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679787070"><span class="annot"><span class="annottext">AssociationFilterOperatorType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679787079"><span class="annot"><span class="annottext">AssociationFilterOperatorType -&gt; QueryString
 (AssociationFilterOperatorType -&gt; QueryString)
 -&gt; ToQuery AssociationFilterOperatorType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AssociationFilterOperatorType -&gt; QueryString
 $ctoQuery :: AssociationFilterOperatorType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679787065"><span id="local-6989586621679787067"><span class="annot"><span class="annottext">Value -&gt; Parser [AssociationFilterOperatorType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679787074"><span id="local-6989586621679787076"><span class="annot"><span class="annottext">Value -&gt; Parser [AssociationFilterOperatorType]
 Value -&gt; Parser AssociationFilterOperatorType
 (Value -&gt; Parser AssociationFilterOperatorType)
 -&gt; (Value -&gt; Parser [AssociationFilterOperatorType])
@@ -249,7 +249,7 @@ $cparseJSONList :: Value -&gt; Parser [AssociationFilterOperatorType]
 parseJSON :: Value -&gt; Parser AssociationFilterOperatorType
 $cparseJSON :: Value -&gt; Parser AssociationFilterOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679787060"><span id="local-6989586621679787062"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssociationFilterOperatorType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679787069"><span id="local-6989586621679787071"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssociationFilterOperatorType]
 FromJSONKeyFunction AssociationFilterOperatorType
 FromJSONKeyFunction AssociationFilterOperatorType
 -&gt; FromJSONKeyFunction [AssociationFilterOperatorType]
@@ -261,7 +261,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AssociationFilterOperatorType]
 fromJSONKey :: FromJSONKeyFunction AssociationFilterOperatorType
 $cfromJSONKey :: FromJSONKeyFunction AssociationFilterOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679787051"><span id="local-6989586621679787053"><span id="local-6989586621679787055"><span id="local-6989586621679787057"><span class="annot"><span class="annottext">[AssociationFilterOperatorType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679787060"><span id="local-6989586621679787062"><span id="local-6989586621679787064"><span id="local-6989586621679787066"><span class="annot"><span class="annottext">[AssociationFilterOperatorType] -&gt; Encoding
 [AssociationFilterOperatorType] -&gt; Value
 AssociationFilterOperatorType -&gt; Encoding
 AssociationFilterOperatorType -&gt; Value
@@ -285,7 +285,7 @@ $ctoEncoding :: AssociationFilterOperatorType -&gt; Encoding
 toJSON :: AssociationFilterOperatorType -&gt; Value
 $ctoJSON :: AssociationFilterOperatorType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679787046"><span id="local-6989586621679787048"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssociationFilterOperatorType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679787055"><span id="local-6989586621679787057"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssociationFilterOperatorType]
 ToJSONKeyFunction AssociationFilterOperatorType
 ToJSONKeyFunction AssociationFilterOperatorType
 -&gt; ToJSONKeyFunction [AssociationFilterOperatorType]
@@ -297,14 +297,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AssociationFilterOperatorType]
 toJSONKey :: ToJSONKeyFunction AssociationFilterOperatorType
 $ctoJSONKey :: ToJSONKeyFunction AssociationFilterOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679787043"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssociationFilterOperatorType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679787052"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssociationFilterOperatorType
 ([Node] -&gt; Either String AssociationFilterOperatorType)
 -&gt; FromXML AssociationFilterOperatorType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AssociationFilterOperatorType
 $cparseXML :: [Node] -&gt; Either String AssociationFilterOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679787040"><span class="annot"><span class="annottext">AssociationFilterOperatorType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679787049"><span class="annot"><span class="annottext">AssociationFilterOperatorType -&gt; XML
 (AssociationFilterOperatorType -&gt; XML)
 -&gt; ToXML AssociationFilterOperatorType
 forall a. (a -&gt; XML) -&gt; ToXML a

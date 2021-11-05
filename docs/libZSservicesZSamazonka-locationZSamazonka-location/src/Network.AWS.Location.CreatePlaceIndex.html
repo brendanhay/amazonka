@@ -1,0 +1,944 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Location.CreatePlaceIndex</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a place index resource in your AWS account, which supports</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- functions with geospatial data sourced from your chosen data provider.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Location.CreatePlaceIndex</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier">CreatePlaceIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#newCreatePlaceIndex"><span class="hs-identifier">newCreatePlaceIndex</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_dataSourceConfiguration"><span class="hs-identifier">createPlaceIndex_dataSourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_description"><span class="hs-identifier">createPlaceIndex_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_tags"><span class="hs-identifier">createPlaceIndex_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_dataSource"><span class="hs-identifier">createPlaceIndex_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_indexName"><span class="hs-identifier">createPlaceIndex_indexName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_pricingPlan"><span class="hs-identifier">createPlaceIndex_pricingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse"><span class="hs-identifier">CreatePlaceIndexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#newCreatePlaceIndexResponse"><span class="hs-identifier">newCreatePlaceIndexResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndexResponse_httpStatus"><span class="hs-identifier">createPlaceIndexResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndexResponse_createTime"><span class="hs-identifier">createPlaceIndexResponse_createTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndexResponse_indexArn"><span class="hs-identifier">createPlaceIndexResponse_indexArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndexResponse_indexName"><span class="hs-identifier">createPlaceIndexResponse_indexName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.html"><span class="hs-identifier">Network.AWS.Location.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newCreatePlaceIndex' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679272338"><span id="local-6989586621679272339"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePlaceIndex"><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-var">CreatePlaceIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePlaceIndex%27"><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-var">CreatePlaceIndex'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the data storage option requesting Places.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdataSourceConfiguration%3ACreatePlaceIndex%27"><span class="annot"><span class="annottext">CreatePlaceIndex -&gt; Maybe DataSourceConfiguration
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AdataSourceConfiguration%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var hs-var">dataSourceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.DataSourceConfiguration.html#DataSourceConfiguration"><span class="hs-identifier hs-type">DataSourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The optional description for the place index resource.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Adescription%3ACreatePlaceIndex%27"><span class="annot"><span class="annottext">CreatePlaceIndex -&gt; Maybe Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3Adescription%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Applies one or more tags to the place index resource. A tag is a</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- key-value pair helps manage, identify, search, and filter your resources</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- by labelling them.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- Format: @\&quot;key\&quot; : \&quot;value\&quot;@</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Restrictions:</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   Maximum 50 tags per resource</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   Each resource tag must be unique with a maximum of one value.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   Maximum key length: 128 Unicode characters in UTF-8</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   Maximum value length: 256 Unicode characters in UTF-8</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   Can use alphanumeric characters (A&#8211;Z, a&#8211;z, 0&#8211;9), and the following</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     characters: + - = . _ : \/ \@.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Atags%3ACreatePlaceIndex%27"><span class="annot"><span class="annottext">CreatePlaceIndex -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3Atags%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Specifies the data provider of geospatial data.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- This field is case-sensitive. Enter the valid values as shown. For</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- example, entering @HERE@ returns an error.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- Valid values include:</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   @Esri@ &#8211; For additional information about</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/location/latest/developerguide/esri.html Esri&gt;\'s</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--     coverage in your region of interest, see</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--     &lt;https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm Esri details on geocoding coverage&gt;.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- -   @Here@ &#8211; For additional information about</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/location/latest/developerguide/HERE.html HERE Technologies&gt;\'</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     coverage in your region of interest, see</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     &lt;https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html HERE details on goecoding coverage&gt;.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     Place index resources using HERE Technologies as a data provider</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     can\'t</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html store results&gt;</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     for locations in Japan. For more information, see the</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--     &lt;https://aws.amazon.com/service-terms/ AWS Service Terms&gt; for Amazon</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--     Location Service.</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- For additional information , see</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Data providers&gt;</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- on the /Amazon Location Service Developer Guide/.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AdataSource%3ACreatePlaceIndex%27"><span class="annot"><span class="annottext">CreatePlaceIndex -&gt; Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AdataSource%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The name of the place index resource.</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- Requirements:</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- -   Contain only alphanumeric characters (A&#8211;Z, a&#8211;z, 0&#8211;9), hyphens (-),</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--     periods (.), and underscores (_).</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- -   Must be a unique place index resource name.</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- -   No spaces allowed. For example, @ExamplePlaceIndex@.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AindexName%3ACreatePlaceIndex%27"><span class="annot"><span class="annottext">CreatePlaceIndex -&gt; Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AindexName%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | Specifies the pricing plan for your place index resource.</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- For additional details and restrictions on each pricing plan option, see</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- &lt;https://aws.amazon.com/location/pricing/ Amazon Location Service pricing&gt;.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3ApricingPlan%3ACreatePlaceIndex%27"><span class="annot"><span class="annottext">CreatePlaceIndex -&gt; PricingPlan
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3ApricingPlan%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var hs-var">pricingPlan</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.PricingPlan.html#PricingPlan"><span class="hs-identifier hs-type">PricingPlan</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272327"><span id="local-6989586621679272329"><span class="annot"><span class="annottext">CreatePlaceIndex -&gt; CreatePlaceIndex -&gt; Bool
+(CreatePlaceIndex -&gt; CreatePlaceIndex -&gt; Bool)
+-&gt; (CreatePlaceIndex -&gt; CreatePlaceIndex -&gt; Bool)
+-&gt; Eq CreatePlaceIndex
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreatePlaceIndex -&gt; CreatePlaceIndex -&gt; Bool
+$c/= :: CreatePlaceIndex -&gt; CreatePlaceIndex -&gt; Bool
+== :: CreatePlaceIndex -&gt; CreatePlaceIndex -&gt; Bool
+$c== :: CreatePlaceIndex -&gt; CreatePlaceIndex -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272318"><span id="local-6989586621679272320"><span id="local-6989586621679272322"><span id="local-6989586621679272324"><span class="annot"><span class="annottext">ReadPrec [CreatePlaceIndex]
+ReadPrec CreatePlaceIndex
+Int -&gt; ReadS CreatePlaceIndex
+ReadS [CreatePlaceIndex]
+(Int -&gt; ReadS CreatePlaceIndex)
+-&gt; ReadS [CreatePlaceIndex]
+-&gt; ReadPrec CreatePlaceIndex
+-&gt; ReadPrec [CreatePlaceIndex]
+-&gt; Read CreatePlaceIndex
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreatePlaceIndex]
+$creadListPrec :: ReadPrec [CreatePlaceIndex]
+readPrec :: ReadPrec CreatePlaceIndex
+$creadPrec :: ReadPrec CreatePlaceIndex
+readList :: ReadS [CreatePlaceIndex]
+$creadList :: ReadS [CreatePlaceIndex]
+readsPrec :: Int -&gt; ReadS CreatePlaceIndex
+$creadsPrec :: Int -&gt; ReadS CreatePlaceIndex
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272311"><span id="local-6989586621679272313"><span id="local-6989586621679272315"><span class="annot"><span class="annottext">Int -&gt; CreatePlaceIndex -&gt; ShowS
+[CreatePlaceIndex] -&gt; ShowS
+CreatePlaceIndex -&gt; String
+(Int -&gt; CreatePlaceIndex -&gt; ShowS)
+-&gt; (CreatePlaceIndex -&gt; String)
+-&gt; ([CreatePlaceIndex] -&gt; ShowS)
+-&gt; Show CreatePlaceIndex
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreatePlaceIndex] -&gt; ShowS
+$cshowList :: [CreatePlaceIndex] -&gt; ShowS
+show :: CreatePlaceIndex -&gt; String
+$cshow :: CreatePlaceIndex -&gt; String
+showsPrec :: Int -&gt; CreatePlaceIndex -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreatePlaceIndex -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreatePlaceIndex -&gt; Rep CreatePlaceIndex x)
+-&gt; (forall x. Rep CreatePlaceIndex x -&gt; CreatePlaceIndex)
+-&gt; Generic CreatePlaceIndex
+forall x. Rep CreatePlaceIndex x -&gt; CreatePlaceIndex
+forall x. CreatePlaceIndex -&gt; Rep CreatePlaceIndex x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreatePlaceIndex x -&gt; CreatePlaceIndex
+$cfrom :: forall x. CreatePlaceIndex -&gt; Rep CreatePlaceIndex x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Create a value of 'CreatePlaceIndex' with all optional fields omitted.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'dataSourceConfiguration', 'createPlaceIndex_dataSourceConfiguration' - Specifies the data storage option requesting Places.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'description', 'createPlaceIndex_description' - The optional description for the place index resource.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'tags', 'createPlaceIndex_tags' - Applies one or more tags to the place index resource. A tag is a</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- key-value pair helps manage, identify, search, and filter your resources</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- by labelling them.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Format: @\&quot;key\&quot; : \&quot;value\&quot;@</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Restrictions:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- -   Maximum 50 tags per resource</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   Each resource tag must be unique with a maximum of one value.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   Maximum key length: 128 Unicode characters in UTF-8</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- -   Maximum value length: 256 Unicode characters in UTF-8</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   Can use alphanumeric characters (A&#8211;Z, a&#8211;z, 0&#8211;9), and the following</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     characters: + - = . _ : \/ \@.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'dataSource', 'createPlaceIndex_dataSource' - Specifies the data provider of geospatial data.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- This field is case-sensitive. Enter the valid values as shown. For</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- example, entering @HERE@ returns an error.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Valid values include:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- -   @Esri@ &#8211; For additional information about</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/location/latest/developerguide/esri.html Esri&gt;\'s</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     coverage in your region of interest, see</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--     &lt;https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm Esri details on geocoding coverage&gt;.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- -   @Here@ &#8211; For additional information about</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/location/latest/developerguide/HERE.html HERE Technologies&gt;\'</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--     coverage in your region of interest, see</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--     &lt;https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html HERE details on goecoding coverage&gt;.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--     Place index resources using HERE Technologies as a data provider</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     can\'t</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html store results&gt;</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     for locations in Japan. For more information, see the</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     &lt;https://aws.amazon.com/service-terms/ AWS Service Terms&gt; for Amazon</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     Location Service.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- For additional information , see</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Data providers&gt;</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- on the /Amazon Location Service Developer Guide/.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'indexName', 'createPlaceIndex_indexName' - The name of the place index resource.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Requirements:</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   Contain only alphanumeric characters (A&#8211;Z, a&#8211;z, 0&#8211;9), hyphens (-),</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     periods (.), and underscores (_).</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- -   Must be a unique place index resource name.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- -   No spaces allowed. For example, @ExamplePlaceIndex@.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'pricingPlan', 'createPlaceIndex_pricingPlan' - Specifies the pricing plan for your place index resource.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- For additional details and restrictions on each pricing plan option, see</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/location/pricing/ Amazon Location Service pricing&gt;.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#newCreatePlaceIndex"><span class="hs-identifier hs-type">newCreatePlaceIndex</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-comment">-- | 'dataSource'</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-comment">-- | 'indexName'</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'pricingPlan'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><a href="Network.AWS.Location.Types.PricingPlan.html#PricingPlan"><span class="hs-identifier hs-type">PricingPlan</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span>
+</span><span id="line-211"></span><span id="newCreatePlaceIndex"><span class="annot"><span class="annottext">newCreatePlaceIndex :: Text -&gt; Text -&gt; PricingPlan -&gt; CreatePlaceIndex
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#newCreatePlaceIndex"><span class="hs-identifier hs-var hs-var">newCreatePlaceIndex</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679272306"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272306"><span class="hs-identifier hs-var">pDataSource_</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679272305"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272305"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679272304"><span class="annot"><span class="annottext">PricingPlan
+</span><a href="#local-6989586621679272304"><span class="hs-identifier hs-var">pPricingPlan_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">CreatePlaceIndex' :: Maybe DataSourceConfiguration
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; PricingPlan
+-&gt; CreatePlaceIndex
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-type">CreatePlaceIndex'</span></a></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSourceConfiguration:CreatePlaceIndex' :: Maybe DataSourceConfiguration
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AdataSourceConfiguration%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var">dataSourceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Maybe DataSourceConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:CreatePlaceIndex' :: Maybe Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3Adescription%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreatePlaceIndex' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3Atags%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSource:CreatePlaceIndex' :: Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AdataSource%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272306"><span class="hs-identifier hs-var">pDataSource_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:indexName:CreatePlaceIndex' :: Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AindexName%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272305"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">$sel:pricingPlan:CreatePlaceIndex' :: PricingPlan
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3ApricingPlan%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PricingPlan
+</span><a href="#local-6989586621679272304"><span class="hs-identifier hs-var">pPricingPlan_</span></a></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | Specifies the data storage option requesting Places.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_dataSourceConfiguration"><span class="hs-identifier hs-type">createPlaceIndex_dataSourceConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.DataSourceConfiguration.html#DataSourceConfiguration"><span class="hs-identifier hs-type">DataSourceConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="createPlaceIndex_dataSourceConfiguration"><span class="annot"><span class="annottext">createPlaceIndex_dataSourceConfiguration :: (Maybe DataSourceConfiguration
+ -&gt; f (Maybe DataSourceConfiguration))
+-&gt; CreatePlaceIndex -&gt; f CreatePlaceIndex
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_dataSourceConfiguration"><span class="hs-identifier hs-var hs-var">createPlaceIndex_dataSourceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlaceIndex -&gt; Maybe DataSourceConfiguration)
+-&gt; (CreatePlaceIndex
+    -&gt; Maybe DataSourceConfiguration -&gt; CreatePlaceIndex)
+-&gt; Lens
+     CreatePlaceIndex
+     CreatePlaceIndex
+     (Maybe DataSourceConfiguration)
+     (Maybe DataSourceConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-type">CreatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272301"><span class="annot"><span class="annottext">Maybe DataSourceConfiguration
+dataSourceConfiguration :: Maybe DataSourceConfiguration
+$sel:dataSourceConfiguration:CreatePlaceIndex' :: CreatePlaceIndex -&gt; Maybe DataSourceConfiguration
+</span><a href="#local-6989586621679272301"><span class="hs-identifier hs-var hs-var">dataSourceConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceConfiguration
+</span><a href="#local-6989586621679272301"><span class="hs-identifier hs-var">dataSourceConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272300"><span class="annot"><span class="annottext">s :: CreatePlaceIndex
+</span><a href="#local-6989586621679272300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-type">CreatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272299"><span class="annot"><span class="annottext">Maybe DataSourceConfiguration
+</span><a href="#local-6989586621679272299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlaceIndex
+</span><a href="#local-6989586621679272300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceConfiguration:CreatePlaceIndex' :: Maybe DataSourceConfiguration
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AdataSourceConfiguration%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var">dataSourceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceConfiguration
+</span><a href="#local-6989586621679272299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The optional description for the place index resource.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_description"><span class="hs-identifier hs-type">createPlaceIndex_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="createPlaceIndex_description"><span class="annot"><span class="annottext">createPlaceIndex_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreatePlaceIndex -&gt; f CreatePlaceIndex
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_description"><span class="hs-identifier hs-var hs-var">createPlaceIndex_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlaceIndex -&gt; Maybe Text)
+-&gt; (CreatePlaceIndex -&gt; Maybe Text -&gt; CreatePlaceIndex)
+-&gt; Lens CreatePlaceIndex CreatePlaceIndex (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-type">CreatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272298"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreatePlaceIndex' :: CreatePlaceIndex -&gt; Maybe Text
+</span><a href="#local-6989586621679272298"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272298"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272297"><span class="annot"><span class="annottext">s :: CreatePlaceIndex
+</span><a href="#local-6989586621679272297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-type">CreatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272296"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlaceIndex
+</span><a href="#local-6989586621679272297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreatePlaceIndex' :: Maybe Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3Adescription%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | Applies one or more tags to the place index resource. A tag is a</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- key-value pair helps manage, identify, search, and filter your resources</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- by labelling them.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- Format: @\&quot;key\&quot; : \&quot;value\&quot;@</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- Restrictions:</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- -   Maximum 50 tags per resource</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- -   Each resource tag must be unique with a maximum of one value.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- -   Maximum key length: 128 Unicode characters in UTF-8</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- -   Maximum value length: 256 Unicode characters in UTF-8</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- -   Can use alphanumeric characters (A&#8211;Z, a&#8211;z, 0&#8211;9), and the following</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--     characters: + - = . _ : \/ \@.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_tags"><span class="hs-identifier hs-type">createPlaceIndex_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="createPlaceIndex_tags"><span class="annot"><span class="annottext">createPlaceIndex_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreatePlaceIndex -&gt; f CreatePlaceIndex
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_tags"><span class="hs-identifier hs-var hs-var">createPlaceIndex_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlaceIndex -&gt; Maybe (HashMap Text Text))
+-&gt; (CreatePlaceIndex
+    -&gt; Maybe (HashMap Text Text) -&gt; CreatePlaceIndex)
+-&gt; Lens
+     CreatePlaceIndex
+     CreatePlaceIndex
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-type">CreatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272295"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreatePlaceIndex' :: CreatePlaceIndex -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679272295"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679272295"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272294"><span class="annot"><span class="annottext">s :: CreatePlaceIndex
+</span><a href="#local-6989586621679272294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-type">CreatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272293"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679272293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlaceIndex
+</span><a href="#local-6989586621679272294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreatePlaceIndex' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3Atags%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679272293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreatePlaceIndex -&gt; f CreatePlaceIndex)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreatePlaceIndex
+-&gt; f CreatePlaceIndex
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | Specifies the data provider of geospatial data.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- This field is case-sensitive. Enter the valid values as shown. For</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- example, entering @HERE@ returns an error.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- Valid values include:</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- -   @Esri@ &#8211; For additional information about</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/location/latest/developerguide/esri.html Esri&gt;\'s</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     coverage in your region of interest, see</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--     &lt;https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm Esri details on geocoding coverage&gt;.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- -   @Here@ &#8211; For additional information about</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/location/latest/developerguide/HERE.html HERE Technologies&gt;\'</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--     coverage in your region of interest, see</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--     &lt;https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html HERE details on goecoding coverage&gt;.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--     Place index resources using HERE Technologies as a data provider</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--     can\'t</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html store results&gt;</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--     for locations in Japan. For more information, see the</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--     &lt;https://aws.amazon.com/service-terms/ AWS Service Terms&gt; for Amazon</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--     Location Service.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- For additional information , see</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Data providers&gt;</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- on the /Amazon Location Service Developer Guide/.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_dataSource"><span class="hs-identifier hs-type">createPlaceIndex_dataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-282"></span><span id="createPlaceIndex_dataSource"><span class="annot"><span class="annottext">createPlaceIndex_dataSource :: (Text -&gt; f Text) -&gt; CreatePlaceIndex -&gt; f CreatePlaceIndex
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_dataSource"><span class="hs-identifier hs-var hs-var">createPlaceIndex_dataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlaceIndex -&gt; Text)
+-&gt; (CreatePlaceIndex -&gt; Text -&gt; CreatePlaceIndex)
+-&gt; Lens CreatePlaceIndex CreatePlaceIndex Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-type">CreatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272289"><span class="annot"><span class="annottext">Text
+dataSource :: Text
+$sel:dataSource:CreatePlaceIndex' :: CreatePlaceIndex -&gt; Text
+</span><a href="#local-6989586621679272289"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272289"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272288"><span class="annot"><span class="annottext">s :: CreatePlaceIndex
+</span><a href="#local-6989586621679272288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-type">CreatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272287"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlaceIndex
+</span><a href="#local-6989586621679272288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:CreatePlaceIndex' :: Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AdataSource%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | The name of the place index resource.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- Requirements:</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- -   Contain only alphanumeric characters (A&#8211;Z, a&#8211;z, 0&#8211;9), hyphens (-),</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--     periods (.), and underscores (_).</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- -   Must be a unique place index resource name.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- -   No spaces allowed. For example, @ExamplePlaceIndex@.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_indexName"><span class="hs-identifier hs-type">createPlaceIndex_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-295"></span><span id="createPlaceIndex_indexName"><span class="annot"><span class="annottext">createPlaceIndex_indexName :: (Text -&gt; f Text) -&gt; CreatePlaceIndex -&gt; f CreatePlaceIndex
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_indexName"><span class="hs-identifier hs-var hs-var">createPlaceIndex_indexName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlaceIndex -&gt; Text)
+-&gt; (CreatePlaceIndex -&gt; Text -&gt; CreatePlaceIndex)
+-&gt; Lens CreatePlaceIndex CreatePlaceIndex Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-type">CreatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272286"><span class="annot"><span class="annottext">Text
+indexName :: Text
+$sel:indexName:CreatePlaceIndex' :: CreatePlaceIndex -&gt; Text
+</span><a href="#local-6989586621679272286"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272286"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272285"><span class="annot"><span class="annottext">s :: CreatePlaceIndex
+</span><a href="#local-6989586621679272285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-type">CreatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272284"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlaceIndex
+</span><a href="#local-6989586621679272285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:CreatePlaceIndex' :: Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AindexName%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | Specifies the pricing plan for your place index resource.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- For additional details and restrictions on each pricing plan option, see</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/location/pricing/ Amazon Location Service pricing&gt;.</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_pricingPlan"><span class="hs-identifier hs-type">createPlaceIndex_pricingPlan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.PricingPlan.html#PricingPlan"><span class="hs-identifier hs-type">PricingPlan</span></a></span><span>
+</span><span id="line-302"></span><span id="createPlaceIndex_pricingPlan"><span class="annot"><span class="annottext">createPlaceIndex_pricingPlan :: (PricingPlan -&gt; f PricingPlan)
+-&gt; CreatePlaceIndex -&gt; f CreatePlaceIndex
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndex_pricingPlan"><span class="hs-identifier hs-var hs-var">createPlaceIndex_pricingPlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlaceIndex -&gt; PricingPlan)
+-&gt; (CreatePlaceIndex -&gt; PricingPlan -&gt; CreatePlaceIndex)
+-&gt; Lens CreatePlaceIndex CreatePlaceIndex PricingPlan PricingPlan
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-type">CreatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272283"><span class="annot"><span class="annottext">PricingPlan
+pricingPlan :: PricingPlan
+$sel:pricingPlan:CreatePlaceIndex' :: CreatePlaceIndex -&gt; PricingPlan
+</span><a href="#local-6989586621679272283"><span class="hs-identifier hs-var hs-var">pricingPlan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PricingPlan
+</span><a href="#local-6989586621679272283"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272282"><span class="annot"><span class="annottext">s :: CreatePlaceIndex
+</span><a href="#local-6989586621679272282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-type">CreatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272281"><span class="annot"><span class="annottext">PricingPlan
+</span><a href="#local-6989586621679272281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlaceIndex
+</span><a href="#local-6989586621679272282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pricingPlan:CreatePlaceIndex' :: PricingPlan
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3ApricingPlan%3ACreatePlaceIndex%27"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PricingPlan
+</span><a href="#local-6989586621679272281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-305"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-306"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-307"></span><span>      </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse"><span class="hs-identifier hs-type">CreatePlaceIndexResponse</span></a></span><span>
+</span><span id="line-308"></span><span>  </span><span id="local-6989586621679272277"><span class="annot"><span class="annottext">request :: CreatePlaceIndex -&gt; Request CreatePlaceIndex
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreatePlaceIndex -&gt; Request CreatePlaceIndex
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-309"></span><span>  </span><span id="local-6989586621679272273"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreatePlaceIndex
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreatePlaceIndex)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreatePlaceIndex))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreatePlaceIndex
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreatePlaceIndex)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-311"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272270"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272270"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679272269"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679272269"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679272268"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272268"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-312"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; POSIX -&gt; Text -&gt; Text -&gt; CreatePlaceIndexResponse
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse%27"><span class="hs-identifier hs-var">CreatePlaceIndexResponse'</span></a></span><span>
+</span><span id="line-313"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; POSIX -&gt; Text -&gt; Text -&gt; CreatePlaceIndexResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (POSIX -&gt; Text -&gt; Text -&gt; CreatePlaceIndexResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272270"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>            </span><span class="annot"><span class="annottext">Either String (POSIX -&gt; Text -&gt; Text -&gt; CreatePlaceIndexResponse)
+-&gt; Either String POSIX
+-&gt; Either String (Text -&gt; Text -&gt; CreatePlaceIndexResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; CreatePlaceIndexResponse)
+-&gt; Either String Text
+-&gt; Either String (Text -&gt; CreatePlaceIndexResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreatePlaceIndexResponse)
+-&gt; Either String Text -&gt; Either String CreatePlaceIndexResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272260"><span id="local-6989586621679272262"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span></span></span><span>
+</span><span id="line-320"></span><span>
+</span><span id="line-321"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272257"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span></span><span>
+</span><span id="line-322"></span><span>
+</span><span id="line-323"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-324"></span><span>  </span><span id="local-6989586621679272253"><span class="annot"><span class="annottext">toHeaders :: CreatePlaceIndex -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-325"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePlaceIndex -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-326"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-327"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-328"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-329"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-330"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-332"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span>
+</span><span id="line-334"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272243"><span id="local-6989586621679272245"><span id="local-6989586621679272247"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-335"></span><span>  </span><span id="local-6989586621679272241"><span class="annot"><span class="annottext">toJSON :: CreatePlaceIndex -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex%27"><span class="hs-identifier hs-type">CreatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272234"><span id="local-6989586621679272235"><span id="local-6989586621679272236"><span id="local-6989586621679272237"><span id="local-6989586621679272238"><span id="local-6989586621679272239"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Maybe DataSourceConfiguration
+Text
+PricingPlan
+pricingPlan :: PricingPlan
+indexName :: Text
+dataSource :: Text
+tags :: Maybe (HashMap Text Text)
+description :: Maybe Text
+dataSourceConfiguration :: Maybe DataSourceConfiguration
+$sel:pricingPlan:CreatePlaceIndex' :: CreatePlaceIndex -&gt; PricingPlan
+$sel:indexName:CreatePlaceIndex' :: CreatePlaceIndex -&gt; Text
+$sel:dataSource:CreatePlaceIndex' :: CreatePlaceIndex -&gt; Text
+$sel:tags:CreatePlaceIndex' :: CreatePlaceIndex -&gt; Maybe (HashMap Text Text)
+$sel:description:CreatePlaceIndex' :: CreatePlaceIndex -&gt; Maybe Text
+$sel:dataSourceConfiguration:CreatePlaceIndex' :: CreatePlaceIndex -&gt; Maybe DataSourceConfiguration
+</span><a href="#local-6989586621679272234"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-336"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-337"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-338"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSourceConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataSourceConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>              </span><span class="annot"><span class="annottext">(DataSourceConfiguration -&gt; Pair)
+-&gt; Maybe DataSourceConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceConfiguration
+</span><a href="#local-6989586621679272239"><span class="hs-identifier hs-var">dataSourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272238"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679272237"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272236"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272235"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PricingPlan&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PricingPlan -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PricingPlan
+</span><a href="#local-6989586621679272234"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-346"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-349"></span><span>  </span><span id="local-6989586621679272228"><span class="annot"><span class="annottext">toPath :: CreatePlaceIndex -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreatePlaceIndex -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/places/v0/indexes&quot;</span></span><span>
+</span><span id="line-350"></span><span>
+</span><span id="line-351"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndex"><span class="hs-identifier hs-type">CreatePlaceIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-352"></span><span>  </span><span id="local-6989586621679272224"><span class="annot"><span class="annottext">toQuery :: CreatePlaceIndex -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreatePlaceIndex -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- | /See:/ 'newCreatePlaceIndexResponse' smart constructor.</span><span>
+</span><span id="line-355"></span><span id="local-6989586621679272221"><span id="local-6989586621679272222"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePlaceIndexResponse"><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse"><span class="hs-identifier hs-var">CreatePlaceIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePlaceIndexResponse%27"><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse%27"><span class="hs-identifier hs-var">CreatePlaceIndexResponse'</span></a></span></span><span>
+</span><span id="line-356"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-357"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePlaceIndexResponse%27"><span class="annot"><span class="annottext">CreatePlaceIndexResponse -&gt; Int
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AhttpStatus%3ACreatePlaceIndexResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-358"></span><span>    </span><span class="hs-comment">-- | The timestamp for when the place index resource was created in</span><span>
+</span><span id="line-359"></span><span>    </span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-360"></span><span>    </span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-361"></span><span>    </span><span id="%24sel%3AcreateTime%3ACreatePlaceIndexResponse%27"><span class="annot"><span class="annottext">CreatePlaceIndexResponse -&gt; POSIX
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AcreateTime%3ACreatePlaceIndexResponse%27"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-362"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the place index resource. Used to</span><span>
+</span><span id="line-363"></span><span>    </span><span class="hs-comment">-- specify a resource across AWS.</span><span>
+</span><span id="line-364"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span>    </span><span class="hs-comment">-- -   Format example:</span><span>
+</span><span id="line-366"></span><span>    </span><span class="hs-comment">--     @arn:aws:geo:region:account-id:place-index\/ExamplePlaceIndex@</span><span>
+</span><span id="line-367"></span><span>    </span><span id="%24sel%3AindexArn%3ACreatePlaceIndexResponse%27"><span class="annot"><span class="annottext">CreatePlaceIndexResponse -&gt; Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AindexArn%3ACreatePlaceIndexResponse%27"><span class="hs-identifier hs-var hs-var">indexArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>    </span><span class="hs-comment">-- | The name for the place index resource.</span><span>
+</span><span id="line-369"></span><span>    </span><span id="%24sel%3AindexName%3ACreatePlaceIndexResponse%27"><span class="annot"><span class="annottext">CreatePlaceIndexResponse -&gt; Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AindexName%3ACreatePlaceIndexResponse%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-370"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-371"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272213"><span id="local-6989586621679272215"><span class="annot"><span class="annottext">CreatePlaceIndexResponse -&gt; CreatePlaceIndexResponse -&gt; Bool
+(CreatePlaceIndexResponse -&gt; CreatePlaceIndexResponse -&gt; Bool)
+-&gt; (CreatePlaceIndexResponse -&gt; CreatePlaceIndexResponse -&gt; Bool)
+-&gt; Eq CreatePlaceIndexResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreatePlaceIndexResponse -&gt; CreatePlaceIndexResponse -&gt; Bool
+$c/= :: CreatePlaceIndexResponse -&gt; CreatePlaceIndexResponse -&gt; Bool
+== :: CreatePlaceIndexResponse -&gt; CreatePlaceIndexResponse -&gt; Bool
+$c== :: CreatePlaceIndexResponse -&gt; CreatePlaceIndexResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272205"><span id="local-6989586621679272207"><span id="local-6989586621679272209"><span id="local-6989586621679272211"><span class="annot"><span class="annottext">ReadPrec [CreatePlaceIndexResponse]
+ReadPrec CreatePlaceIndexResponse
+Int -&gt; ReadS CreatePlaceIndexResponse
+ReadS [CreatePlaceIndexResponse]
+(Int -&gt; ReadS CreatePlaceIndexResponse)
+-&gt; ReadS [CreatePlaceIndexResponse]
+-&gt; ReadPrec CreatePlaceIndexResponse
+-&gt; ReadPrec [CreatePlaceIndexResponse]
+-&gt; Read CreatePlaceIndexResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreatePlaceIndexResponse]
+$creadListPrec :: ReadPrec [CreatePlaceIndexResponse]
+readPrec :: ReadPrec CreatePlaceIndexResponse
+$creadPrec :: ReadPrec CreatePlaceIndexResponse
+readList :: ReadS [CreatePlaceIndexResponse]
+$creadList :: ReadS [CreatePlaceIndexResponse]
+readsPrec :: Int -&gt; ReadS CreatePlaceIndexResponse
+$creadsPrec :: Int -&gt; ReadS CreatePlaceIndexResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272199"><span id="local-6989586621679272201"><span id="local-6989586621679272203"><span class="annot"><span class="annottext">Int -&gt; CreatePlaceIndexResponse -&gt; ShowS
+[CreatePlaceIndexResponse] -&gt; ShowS
+CreatePlaceIndexResponse -&gt; String
+(Int -&gt; CreatePlaceIndexResponse -&gt; ShowS)
+-&gt; (CreatePlaceIndexResponse -&gt; String)
+-&gt; ([CreatePlaceIndexResponse] -&gt; ShowS)
+-&gt; Show CreatePlaceIndexResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreatePlaceIndexResponse] -&gt; ShowS
+$cshowList :: [CreatePlaceIndexResponse] -&gt; ShowS
+show :: CreatePlaceIndexResponse -&gt; String
+$cshow :: CreatePlaceIndexResponse -&gt; String
+showsPrec :: Int -&gt; CreatePlaceIndexResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreatePlaceIndexResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreatePlaceIndexResponse -&gt; Rep CreatePlaceIndexResponse x)
+-&gt; (forall x.
+    Rep CreatePlaceIndexResponse x -&gt; CreatePlaceIndexResponse)
+-&gt; Generic CreatePlaceIndexResponse
+forall x.
+Rep CreatePlaceIndexResponse x -&gt; CreatePlaceIndexResponse
+forall x.
+CreatePlaceIndexResponse -&gt; Rep CreatePlaceIndexResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreatePlaceIndexResponse x -&gt; CreatePlaceIndexResponse
+$cfrom :: forall x.
+CreatePlaceIndexResponse -&gt; Rep CreatePlaceIndexResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-372"></span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- Create a value of 'CreatePlaceIndexResponse' with all optional fields omitted.</span><span>
+</span><span id="line-375"></span><span class="hs-comment">--</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-377"></span><span class="hs-comment">--</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-380"></span><span class="hs-comment">--</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- 'httpStatus', 'createPlaceIndexResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-382"></span><span class="hs-comment">--</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- 'createTime', 'createPlaceIndexResponse_createTime' - The timestamp for when the place index resource was created in</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-386"></span><span class="hs-comment">--</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- 'indexArn', 'createPlaceIndexResponse_indexArn' - The Amazon Resource Name (ARN) for the place index resource. Used to</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- specify a resource across AWS.</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- -   Format example:</span><span>
+</span><span id="line-391"></span><span class="hs-comment">--     @arn:aws:geo:region:account-id:place-index\/ExamplePlaceIndex@</span><span>
+</span><span id="line-392"></span><span class="hs-comment">--</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- 'indexName', 'createPlaceIndexResponse_indexName' - The name for the place index resource.</span><span>
+</span><span id="line-394"></span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#newCreatePlaceIndexResponse"><span class="hs-identifier hs-type">newCreatePlaceIndexResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-395"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-396"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-397"></span><span>  </span><span class="hs-comment">-- | 'createTime'</span><span>
+</span><span id="line-398"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-399"></span><span>  </span><span class="hs-comment">-- | 'indexArn'</span><span>
+</span><span id="line-400"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-401"></span><span>  </span><span class="hs-comment">-- | 'indexName'</span><span>
+</span><span id="line-402"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-403"></span><span>  </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse"><span class="hs-identifier hs-type">CreatePlaceIndexResponse</span></a></span><span>
+</span><span id="line-404"></span><span id="newCreatePlaceIndexResponse"><span class="annot"><span class="annottext">newCreatePlaceIndexResponse :: Int -&gt; UTCTime -&gt; Text -&gt; Text -&gt; CreatePlaceIndexResponse
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#newCreatePlaceIndexResponse"><span class="hs-identifier hs-var hs-var">newCreatePlaceIndexResponse</span></a></span></span><span>
+</span><span id="line-405"></span><span>  </span><span id="local-6989586621679272196"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272196"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-406"></span><span>  </span><span id="local-6989586621679272195"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679272195"><span class="hs-identifier hs-var">pCreateTime_</span></a></span></span><span>
+</span><span id="line-407"></span><span>  </span><span id="local-6989586621679272194"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272194"><span class="hs-identifier hs-var">pIndexArn_</span></a></span></span><span>
+</span><span id="line-408"></span><span>  </span><span id="local-6989586621679272193"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272193"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-409"></span><span>    </span><span class="annot"><span class="annottext">CreatePlaceIndexResponse' :: Int -&gt; POSIX -&gt; Text -&gt; Text -&gt; CreatePlaceIndexResponse
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse%27"><span class="hs-identifier hs-type">CreatePlaceIndexResponse'</span></a></span><span>
+</span><span id="line-410"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePlaceIndexResponse' :: Int
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AhttpStatus%3ACreatePlaceIndexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-411"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272196"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-412"></span><span>        </span><span class="annot"><span class="annottext">$sel:createTime:CreatePlaceIndexResponse' :: POSIX
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AcreateTime%3ACreatePlaceIndexResponse%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679272195"><span class="hs-identifier hs-var">pCreateTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-413"></span><span>        </span><span class="annot"><span class="annottext">$sel:indexArn:CreatePlaceIndexResponse' :: Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AindexArn%3ACreatePlaceIndexResponse%27"><span class="hs-identifier hs-var">indexArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272194"><span class="hs-identifier hs-var">pIndexArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-414"></span><span>        </span><span class="annot"><span class="annottext">$sel:indexName:CreatePlaceIndexResponse' :: Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AindexName%3ACreatePlaceIndexResponse%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272193"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span>
+</span><span id="line-415"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-416"></span><span>
+</span><span id="line-417"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-418"></span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndexResponse_httpStatus"><span class="hs-identifier hs-type">createPlaceIndexResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse"><span class="hs-identifier hs-type">CreatePlaceIndexResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-419"></span><span id="createPlaceIndexResponse_httpStatus"><span class="annot"><span class="annottext">createPlaceIndexResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreatePlaceIndexResponse -&gt; f CreatePlaceIndexResponse
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndexResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createPlaceIndexResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlaceIndexResponse -&gt; Int)
+-&gt; (CreatePlaceIndexResponse -&gt; Int -&gt; CreatePlaceIndexResponse)
+-&gt; Lens CreatePlaceIndexResponse CreatePlaceIndexResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse%27"><span class="hs-identifier hs-type">CreatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272190"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreatePlaceIndexResponse' :: CreatePlaceIndexResponse -&gt; Int
+</span><a href="#local-6989586621679272190"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272190"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272189"><span class="annot"><span class="annottext">s :: CreatePlaceIndexResponse
+</span><a href="#local-6989586621679272189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse%27"><span class="hs-identifier hs-type">CreatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272188"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlaceIndexResponse
+</span><a href="#local-6989586621679272189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePlaceIndexResponse' :: Int
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AhttpStatus%3ACreatePlaceIndexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse"><span class="hs-identifier hs-type">CreatePlaceIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-420"></span><span>
+</span><span id="line-421"></span><span class="hs-comment">-- | The timestamp for when the place index resource was created in</span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-424"></span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndexResponse_createTime"><span class="hs-identifier hs-type">createPlaceIndexResponse_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse"><span class="hs-identifier hs-type">CreatePlaceIndexResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-425"></span><span id="createPlaceIndexResponse_createTime"><span class="annot"><span class="annottext">createPlaceIndexResponse_createTime :: (UTCTime -&gt; f UTCTime)
+-&gt; CreatePlaceIndexResponse -&gt; f CreatePlaceIndexResponse
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndexResponse_createTime"><span class="hs-identifier hs-var hs-var">createPlaceIndexResponse_createTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlaceIndexResponse -&gt; POSIX)
+-&gt; (CreatePlaceIndexResponse -&gt; POSIX -&gt; CreatePlaceIndexResponse)
+-&gt; Lens
+     CreatePlaceIndexResponse CreatePlaceIndexResponse POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse%27"><span class="hs-identifier hs-type">CreatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272187"><span class="annot"><span class="annottext">POSIX
+createTime :: POSIX
+$sel:createTime:CreatePlaceIndexResponse' :: CreatePlaceIndexResponse -&gt; POSIX
+</span><a href="#local-6989586621679272187"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679272187"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272186"><span class="annot"><span class="annottext">s :: CreatePlaceIndexResponse
+</span><a href="#local-6989586621679272186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse%27"><span class="hs-identifier hs-type">CreatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272185"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679272185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlaceIndexResponse
+</span><a href="#local-6989586621679272186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:CreatePlaceIndexResponse' :: POSIX
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AcreateTime%3ACreatePlaceIndexResponse%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679272185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse"><span class="hs-identifier hs-type">CreatePlaceIndexResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; CreatePlaceIndexResponse -&gt; f CreatePlaceIndexResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; CreatePlaceIndexResponse
+-&gt; f CreatePlaceIndexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-426"></span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the place index resource. Used to</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- specify a resource across AWS.</span><span>
+</span><span id="line-429"></span><span class="hs-comment">--</span><span>
+</span><span id="line-430"></span><span class="hs-comment">-- -   Format example:</span><span>
+</span><span id="line-431"></span><span class="hs-comment">--     @arn:aws:geo:region:account-id:place-index\/ExamplePlaceIndex@</span><span>
+</span><span id="line-432"></span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndexResponse_indexArn"><span class="hs-identifier hs-type">createPlaceIndexResponse_indexArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse"><span class="hs-identifier hs-type">CreatePlaceIndexResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-433"></span><span id="createPlaceIndexResponse_indexArn"><span class="annot"><span class="annottext">createPlaceIndexResponse_indexArn :: (Text -&gt; f Text)
+-&gt; CreatePlaceIndexResponse -&gt; f CreatePlaceIndexResponse
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndexResponse_indexArn"><span class="hs-identifier hs-var hs-var">createPlaceIndexResponse_indexArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlaceIndexResponse -&gt; Text)
+-&gt; (CreatePlaceIndexResponse -&gt; Text -&gt; CreatePlaceIndexResponse)
+-&gt; Lens CreatePlaceIndexResponse CreatePlaceIndexResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse%27"><span class="hs-identifier hs-type">CreatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272184"><span class="annot"><span class="annottext">Text
+indexArn :: Text
+$sel:indexArn:CreatePlaceIndexResponse' :: CreatePlaceIndexResponse -&gt; Text
+</span><a href="#local-6989586621679272184"><span class="hs-identifier hs-var hs-var">indexArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272184"><span class="hs-identifier hs-var">indexArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272183"><span class="annot"><span class="annottext">s :: CreatePlaceIndexResponse
+</span><a href="#local-6989586621679272183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse%27"><span class="hs-identifier hs-type">CreatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272182"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlaceIndexResponse
+</span><a href="#local-6989586621679272183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexArn:CreatePlaceIndexResponse' :: Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AindexArn%3ACreatePlaceIndexResponse%27"><span class="hs-identifier hs-var">indexArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse"><span class="hs-identifier hs-type">CreatePlaceIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-434"></span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- | The name for the place index resource.</span><span>
+</span><span id="line-436"></span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndexResponse_indexName"><span class="hs-identifier hs-type">createPlaceIndexResponse_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse"><span class="hs-identifier hs-type">CreatePlaceIndexResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-437"></span><span id="createPlaceIndexResponse_indexName"><span class="annot"><span class="annottext">createPlaceIndexResponse_indexName :: (Text -&gt; f Text)
+-&gt; CreatePlaceIndexResponse -&gt; f CreatePlaceIndexResponse
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#createPlaceIndexResponse_indexName"><span class="hs-identifier hs-var hs-var">createPlaceIndexResponse_indexName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlaceIndexResponse -&gt; Text)
+-&gt; (CreatePlaceIndexResponse -&gt; Text -&gt; CreatePlaceIndexResponse)
+-&gt; Lens CreatePlaceIndexResponse CreatePlaceIndexResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse%27"><span class="hs-identifier hs-type">CreatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272181"><span class="annot"><span class="annottext">Text
+indexName :: Text
+$sel:indexName:CreatePlaceIndexResponse' :: CreatePlaceIndexResponse -&gt; Text
+</span><a href="#local-6989586621679272181"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272181"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272180"><span class="annot"><span class="annottext">s :: CreatePlaceIndexResponse
+</span><a href="#local-6989586621679272180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse%27"><span class="hs-identifier hs-type">CreatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272179"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlaceIndexResponse
+</span><a href="#local-6989586621679272180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:CreatePlaceIndexResponse' :: Text
+</span><a href="Network.AWS.Location.CreatePlaceIndex.html#%24sel%3AindexName%3ACreatePlaceIndexResponse%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse"><span class="hs-identifier hs-type">CreatePlaceIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-438"></span><span>
+</span><span id="line-439"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272177"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.CreatePlaceIndex.html#CreatePlaceIndexResponse"><span class="hs-identifier hs-type">CreatePlaceIndexResponse</span></a></span></span><span>
+</span><span id="line-440"></span></pre></body></html>

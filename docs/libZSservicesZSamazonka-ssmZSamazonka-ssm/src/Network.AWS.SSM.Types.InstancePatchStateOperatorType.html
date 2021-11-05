@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679796081"><span id="local-6989586621679796082"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstancePatchStateOperatorType"><span class="annot"><a href="Network.AWS.SSM.Types.InstancePatchStateOperatorType.html#InstancePatchStateOperatorType"><span class="hs-identifier hs-var">InstancePatchStateOperatorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstancePatchStateOperatorType%27"><span class="annot"><a href="Network.AWS.SSM.Types.InstancePatchStateOperatorType.html#InstancePatchStateOperatorType%27"><span class="hs-identifier hs-var">InstancePatchStateOperatorType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679796090"><span id="local-6989586621679796091"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstancePatchStateOperatorType"><span class="annot"><a href="Network.AWS.SSM.Types.InstancePatchStateOperatorType.html#InstancePatchStateOperatorType"><span class="hs-identifier hs-var">InstancePatchStateOperatorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstancePatchStateOperatorType%27"><span class="annot"><a href="Network.AWS.SSM.Types.InstancePatchStateOperatorType.html#InstancePatchStateOperatorType%27"><span class="hs-identifier hs-var">InstancePatchStateOperatorType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstancePatchStateOperatorType"><span class="annot"><span class="annottext">InstancePatchStateOperatorType -&gt; Text
 </span><a href="Network.AWS.SSM.Types.InstancePatchStateOperatorType.html#fromInstancePatchStateOperatorType"><span class="hs-identifier hs-var hs-var">fromInstancePatchStateOperatorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796073"><span id="local-6989586621679796075"><span id="local-6989586621679796077"><span class="annot"><span class="annottext">Int -&gt; InstancePatchStateOperatorType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796082"><span id="local-6989586621679796084"><span id="local-6989586621679796086"><span class="annot"><span class="annottext">Int -&gt; InstancePatchStateOperatorType -&gt; ShowS
 [InstancePatchStateOperatorType] -&gt; ShowS
 InstancePatchStateOperatorType -&gt; String
 (Int -&gt; InstancePatchStateOperatorType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: InstancePatchStateOperatorType -&gt; String
 showsPrec :: Int -&gt; InstancePatchStateOperatorType -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstancePatchStateOperatorType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679796064"><span id="local-6989586621679796066"><span id="local-6989586621679796068"><span id="local-6989586621679796070"><span class="annot"><span class="annottext">ReadPrec [InstancePatchStateOperatorType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679796073"><span id="local-6989586621679796075"><span id="local-6989586621679796077"><span id="local-6989586621679796079"><span class="annot"><span class="annottext">ReadPrec [InstancePatchStateOperatorType]
 ReadPrec InstancePatchStateOperatorType
 Int -&gt; ReadS InstancePatchStateOperatorType
 ReadS [InstancePatchStateOperatorType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [InstancePatchStateOperatorType]
 readsPrec :: Int -&gt; ReadS InstancePatchStateOperatorType
 $creadsPrec :: Int -&gt; ReadS InstancePatchStateOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679796059"><span id="local-6989586621679796061"><span class="annot"><span class="annottext">InstancePatchStateOperatorType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679796068"><span id="local-6989586621679796070"><span class="annot"><span class="annottext">InstancePatchStateOperatorType
 -&gt; InstancePatchStateOperatorType -&gt; Bool
 (InstancePatchStateOperatorType
  -&gt; InstancePatchStateOperatorType -&gt; Bool)
@@ -91,7 +91,7 @@ $c/= :: InstancePatchStateOperatorType
 $c== :: InstancePatchStateOperatorType
 -&gt; InstancePatchStateOperatorType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679796043"><span id="local-6989586621679796045"><span id="local-6989586621679796047"><span id="local-6989586621679796049"><span id="local-6989586621679796051"><span id="local-6989586621679796053"><span id="local-6989586621679796055"><span class="annot"><span class="annottext">Eq InstancePatchStateOperatorType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679796052"><span id="local-6989586621679796054"><span id="local-6989586621679796056"><span id="local-6989586621679796058"><span id="local-6989586621679796060"><span id="local-6989586621679796062"><span id="local-6989586621679796064"><span class="annot"><span class="annottext">Eq InstancePatchStateOperatorType
 Eq InstancePatchStateOperatorType
 -&gt; (InstancePatchStateOperatorType
     -&gt; InstancePatchStateOperatorType -&gt; Ordering)
@@ -180,7 +180,7 @@ InstancePatchStateOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796035"><span id="local-6989586621679796037"><span class="annot"><span class="annottext">Int -&gt; InstancePatchStateOperatorType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796044"><span id="local-6989586621679796046"><span class="annot"><span class="annottext">Int -&gt; InstancePatchStateOperatorType -&gt; Int
 InstancePatchStateOperatorType -&gt; Int
 (Int -&gt; InstancePatchStateOperatorType -&gt; Int)
 -&gt; (InstancePatchStateOperatorType -&gt; Int)
@@ -191,56 +191,56 @@ $chash :: InstancePatchStateOperatorType -&gt; Int
 hashWithSalt :: Int -&gt; InstancePatchStateOperatorType -&gt; Int
 $chashWithSalt :: Int -&gt; InstancePatchStateOperatorType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679796032"><span class="annot"><span class="annottext">InstancePatchStateOperatorType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679796041"><span class="annot"><span class="annottext">InstancePatchStateOperatorType -&gt; ()
 (InstancePatchStateOperatorType -&gt; ())
 -&gt; NFData InstancePatchStateOperatorType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstancePatchStateOperatorType -&gt; ()
 $crnf :: InstancePatchStateOperatorType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679796029"><span class="annot"><span class="annottext">Text -&gt; Either String InstancePatchStateOperatorType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679796038"><span class="annot"><span class="annottext">Text -&gt; Either String InstancePatchStateOperatorType
 (Text -&gt; Either String InstancePatchStateOperatorType)
 -&gt; FromText InstancePatchStateOperatorType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstancePatchStateOperatorType
 $cfromText :: Text -&gt; Either String InstancePatchStateOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679796026"><span class="annot"><span class="annottext">InstancePatchStateOperatorType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679796035"><span class="annot"><span class="annottext">InstancePatchStateOperatorType -&gt; Text
 (InstancePatchStateOperatorType -&gt; Text)
 -&gt; ToText InstancePatchStateOperatorType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstancePatchStateOperatorType -&gt; Text
 $ctoText :: InstancePatchStateOperatorType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679796023"><span class="annot"><span class="annottext">InstancePatchStateOperatorType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679796032"><span class="annot"><span class="annottext">InstancePatchStateOperatorType -&gt; ByteString
 (InstancePatchStateOperatorType -&gt; ByteString)
 -&gt; ToByteString InstancePatchStateOperatorType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstancePatchStateOperatorType -&gt; ByteString
 $ctoBS :: InstancePatchStateOperatorType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679796020"><span class="annot"><span class="annottext">InstancePatchStateOperatorType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679796029"><span class="annot"><span class="annottext">InstancePatchStateOperatorType -&gt; ByteStringBuilder
 (InstancePatchStateOperatorType -&gt; ByteStringBuilder)
 -&gt; ToLog InstancePatchStateOperatorType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstancePatchStateOperatorType -&gt; ByteStringBuilder
 $cbuild :: InstancePatchStateOperatorType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679796017"><span class="annot"><span class="annottext">HeaderName -&gt; InstancePatchStateOperatorType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679796026"><span class="annot"><span class="annottext">HeaderName -&gt; InstancePatchStateOperatorType -&gt; [Header]
 (HeaderName -&gt; InstancePatchStateOperatorType -&gt; [Header])
 -&gt; ToHeader InstancePatchStateOperatorType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstancePatchStateOperatorType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstancePatchStateOperatorType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679796014"><span class="annot"><span class="annottext">InstancePatchStateOperatorType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679796023"><span class="annot"><span class="annottext">InstancePatchStateOperatorType -&gt; QueryString
 (InstancePatchStateOperatorType -&gt; QueryString)
 -&gt; ToQuery InstancePatchStateOperatorType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstancePatchStateOperatorType -&gt; QueryString
 $ctoQuery :: InstancePatchStateOperatorType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679796009"><span id="local-6989586621679796011"><span class="annot"><span class="annottext">Value -&gt; Parser [InstancePatchStateOperatorType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679796018"><span id="local-6989586621679796020"><span class="annot"><span class="annottext">Value -&gt; Parser [InstancePatchStateOperatorType]
 Value -&gt; Parser InstancePatchStateOperatorType
 (Value -&gt; Parser InstancePatchStateOperatorType)
 -&gt; (Value -&gt; Parser [InstancePatchStateOperatorType])
@@ -252,7 +252,7 @@ $cparseJSONList :: Value -&gt; Parser [InstancePatchStateOperatorType]
 parseJSON :: Value -&gt; Parser InstancePatchStateOperatorType
 $cparseJSON :: Value -&gt; Parser InstancePatchStateOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679796004"><span id="local-6989586621679796006"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstancePatchStateOperatorType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679796013"><span id="local-6989586621679796015"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstancePatchStateOperatorType]
 FromJSONKeyFunction InstancePatchStateOperatorType
 FromJSONKeyFunction InstancePatchStateOperatorType
 -&gt; FromJSONKeyFunction [InstancePatchStateOperatorType]
@@ -264,7 +264,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstancePatchStateOperatorType]
 fromJSONKey :: FromJSONKeyFunction InstancePatchStateOperatorType
 $cfromJSONKey :: FromJSONKeyFunction InstancePatchStateOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679795995"><span id="local-6989586621679795997"><span id="local-6989586621679795999"><span id="local-6989586621679796001"><span class="annot"><span class="annottext">[InstancePatchStateOperatorType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679796004"><span id="local-6989586621679796006"><span id="local-6989586621679796008"><span id="local-6989586621679796010"><span class="annot"><span class="annottext">[InstancePatchStateOperatorType] -&gt; Encoding
 [InstancePatchStateOperatorType] -&gt; Value
 InstancePatchStateOperatorType -&gt; Encoding
 InstancePatchStateOperatorType -&gt; Value
@@ -288,7 +288,7 @@ $ctoEncoding :: InstancePatchStateOperatorType -&gt; Encoding
 toJSON :: InstancePatchStateOperatorType -&gt; Value
 $ctoJSON :: InstancePatchStateOperatorType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679795990"><span id="local-6989586621679795992"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstancePatchStateOperatorType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679795999"><span id="local-6989586621679796001"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstancePatchStateOperatorType]
 ToJSONKeyFunction InstancePatchStateOperatorType
 ToJSONKeyFunction InstancePatchStateOperatorType
 -&gt; ToJSONKeyFunction [InstancePatchStateOperatorType]
@@ -300,14 +300,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstancePatchStateOperatorType]
 toJSONKey :: ToJSONKeyFunction InstancePatchStateOperatorType
 $ctoJSONKey :: ToJSONKeyFunction InstancePatchStateOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679795987"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstancePatchStateOperatorType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679795996"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstancePatchStateOperatorType
 ([Node] -&gt; Either String InstancePatchStateOperatorType)
 -&gt; FromXML InstancePatchStateOperatorType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstancePatchStateOperatorType
 $cparseXML :: [Node] -&gt; Either String InstancePatchStateOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679795984"><span class="annot"><span class="annottext">InstancePatchStateOperatorType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679795993"><span class="annot"><span class="annottext">InstancePatchStateOperatorType -&gt; XML
 (InstancePatchStateOperatorType -&gt; XML)
 -&gt; ToXML InstancePatchStateOperatorType
 forall a. (a -&gt; XML) -&gt; ToXML a

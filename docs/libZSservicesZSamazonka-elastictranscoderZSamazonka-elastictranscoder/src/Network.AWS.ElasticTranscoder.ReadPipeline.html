@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | The @ReadPipelineRequest@ structure.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newReadPipeline' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679215186"><span id="local-6989586621679215187"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReadPipeline"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-var">ReadPipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReadPipeline%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline%27"><span class="hs-identifier hs-var">ReadPipeline'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679215195"><span id="local-6989586621679215196"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReadPipeline"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-var">ReadPipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReadPipeline%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline%27"><span class="hs-identifier hs-var">ReadPipeline'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the pipeline to read.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Aid%3AReadPipeline%27"><span class="annot"><span class="annottext">ReadPipeline -&gt; Text
 </span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#%24sel%3Aid%3AReadPipeline%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215180"><span id="local-6989586621679215182"><span class="annot"><span class="annottext">ReadPipeline -&gt; ReadPipeline -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215189"><span id="local-6989586621679215191"><span class="annot"><span class="annottext">ReadPipeline -&gt; ReadPipeline -&gt; Bool
 (ReadPipeline -&gt; ReadPipeline -&gt; Bool)
 -&gt; (ReadPipeline -&gt; ReadPipeline -&gt; Bool) -&gt; Eq ReadPipeline
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReadPipeline -&gt; ReadPipeline -&gt; Bool
 == :: ReadPipeline -&gt; ReadPipeline -&gt; Bool
 $c== :: ReadPipeline -&gt; ReadPipeline -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215171"><span id="local-6989586621679215173"><span id="local-6989586621679215175"><span id="local-6989586621679215177"><span class="annot"><span class="annottext">ReadPrec [ReadPipeline]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215180"><span id="local-6989586621679215182"><span id="local-6989586621679215184"><span id="local-6989586621679215186"><span class="annot"><span class="annottext">ReadPrec [ReadPipeline]
 ReadPrec ReadPipeline
 Int -&gt; ReadS ReadPipeline
 ReadS [ReadPipeline]
@@ -83,7 +83,7 @@ readList :: ReadS [ReadPipeline]
 $creadList :: ReadS [ReadPipeline]
 readsPrec :: Int -&gt; ReadS ReadPipeline
 $creadsPrec :: Int -&gt; ReadS ReadPipeline
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215164"><span id="local-6989586621679215166"><span id="local-6989586621679215168"><span class="annot"><span class="annottext">Int -&gt; ReadPipeline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215173"><span id="local-6989586621679215175"><span id="local-6989586621679215177"><span class="annot"><span class="annottext">Int -&gt; ReadPipeline -&gt; ShowS
 [ReadPipeline] -&gt; ShowS
 ReadPipeline -&gt; String
 (Int -&gt; ReadPipeline -&gt; ShowS)
@@ -123,11 +123,11 @@ $cfrom :: forall x. ReadPipeline -&gt; Rep ReadPipeline x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-type">ReadPipeline</span></a></span><span>
 </span><span id="line-72"></span><span id="newReadPipeline"><span class="annot"><span class="annottext">newReadPipeline :: Text -&gt; ReadPipeline
-</span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#newReadPipeline"><span class="hs-identifier hs-var hs-var">newReadPipeline</span></a></span></span><span> </span><span id="local-6989586621679215159"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215159"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReadPipeline' :: Text -&gt; ReadPipeline
+</span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#newReadPipeline"><span class="hs-identifier hs-var hs-var">newReadPipeline</span></a></span></span><span> </span><span id="local-6989586621679215168"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215168"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReadPipeline' :: Text -&gt; ReadPipeline
 </span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline%27"><span class="hs-identifier hs-type">ReadPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ReadPipeline' :: Text
 </span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#%24sel%3Aid%3AReadPipeline%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215159"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679215168"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The identifier of the pipeline to read.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#readPipeline_id"><span class="hs-identifier hs-type">readPipeline_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-type">ReadPipeline</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -136,25 +136,25 @@ $cfrom :: forall x. ReadPipeline -&gt; Rep ReadPipeline x
 -&gt; (ReadPipeline -&gt; Text -&gt; ReadPipeline)
 -&gt; Lens ReadPipeline ReadPipeline Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline%27"><span class="hs-identifier hs-type">ReadPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215156"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline%27"><span class="hs-identifier hs-type">ReadPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215165"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:ReadPipeline' :: ReadPipeline -&gt; Text
-</span><a href="#local-6989586621679215156"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215156"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215155"><span class="annot"><span class="annottext">s :: ReadPipeline
-</span><a href="#local-6989586621679215155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline%27"><span class="hs-identifier hs-type">ReadPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215154"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadPipeline
-</span><a href="#local-6989586621679215155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ReadPipeline' :: Text
+</span><a href="#local-6989586621679215165"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215165"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215164"><span class="annot"><span class="annottext">s :: ReadPipeline
+</span><a href="#local-6989586621679215164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline%27"><span class="hs-identifier hs-type">ReadPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215163"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadPipeline
+</span><a href="#local-6989586621679215164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ReadPipeline' :: Text
 </span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#%24sel%3Aid%3AReadPipeline%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-type">ReadPipeline</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-type">ReadPipeline</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-type">ReadPipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-type">ReadPipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse"><span class="hs-identifier hs-type">ReadPipelineResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679215150"><span class="annot"><span class="annottext">request :: ReadPipeline -&gt; Request ReadPipeline
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679215159"><span class="annot"><span class="annottext">request :: ReadPipeline -&gt; Request ReadPipeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ReadPipeline -&gt; Request ReadPipeline
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticTranscoder.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679215146"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679215155"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ReadPipeline
 -&gt; ClientResponse ClientBody
@@ -178,10 +178,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215143"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215143"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215142"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679215142"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215141"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215141"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215152"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215152"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215151"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679215151"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215150"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215150"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Warning] -&gt; Maybe Pipeline -&gt; Int -&gt; ReadPipelineResponse
 </span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-var">ReadPipelineResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Warning] -&gt; Maybe Pipeline -&gt; Int -&gt; ReadPipelineResponse)
@@ -189,7 +189,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Pipeline -&gt; Int -&gt; ReadPipelineResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Warning]))
+</span><a href="#local-6989586621679215150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Warning]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Warnings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Warning]))
@@ -203,7 +203,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ReadPipelineResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Pipeline)
+</span><a href="#local-6989586621679215150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Pipeline)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Pipeline&quot;</span></span><span class="hs-special">)</span><span>
@@ -215,15 +215,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215143"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215152"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215132"><span id="local-6989586621679215134"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-type">ReadPipeline</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215141"><span id="local-6989586621679215143"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-type">ReadPipeline</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215129"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-type">ReadPipeline</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215138"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-type">ReadPipeline</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-type">ReadPipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679215125"><span class="annot"><span class="annottext">toHeaders :: ReadPipeline -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679215134"><span class="annot"><span class="annottext">toHeaders :: ReadPipeline -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ReadPipeline -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -231,11 +231,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-type">ReadPipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679215120"><span class="annot"><span class="annottext">toPath :: ReadPipeline -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline%27"><span class="hs-identifier hs-type">ReadPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215118"><span class="annot"><span class="annottext">Text
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679215129"><span class="annot"><span class="annottext">toPath :: ReadPipeline -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline%27"><span class="hs-identifier hs-type">ReadPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215127"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:ReadPipeline' :: ReadPipeline -&gt; Text
-</span><a href="#local-6989586621679215118"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679215127"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -243,10 +243,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2012-09-25/pipelines/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215118"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679215127"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipeline"><span class="hs-identifier hs-type">ReadPipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679215114"><span class="annot"><span class="annottext">toQuery :: ReadPipeline -&gt; QueryString
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679215123"><span class="annot"><span class="annottext">toQuery :: ReadPipeline -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ReadPipeline -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -256,7 +256,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-105"></span><span class="hs-comment">-- | The @ReadPipelineResponse@ structure.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- /See:/ 'newReadPipelineResponse' smart constructor.</span><span>
-</span><span id="line-108"></span><span id="local-6989586621679215111"><span id="local-6989586621679215112"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReadPipelineResponse"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse"><span class="hs-identifier hs-var">ReadPipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReadPipelineResponse%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-var">ReadPipelineResponse'</span></a></span></span><span>
+</span><span id="line-108"></span><span id="local-6989586621679215120"><span id="local-6989586621679215121"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReadPipelineResponse"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse"><span class="hs-identifier hs-var">ReadPipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReadPipelineResponse%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-var">ReadPipelineResponse'</span></a></span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Elastic Transcoder returns a warning if the resources used by your</span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-comment">-- pipeline are not in the same region as the pipeline.</span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -273,7 +273,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3AReadPipelineResponse%27"><span class="annot"><span class="annottext">ReadPipelineResponse -&gt; Int
 </span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#%24sel%3AhttpStatus%3AReadPipelineResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215104"><span id="local-6989586621679215106"><span class="annot"><span class="annottext">ReadPipelineResponse -&gt; ReadPipelineResponse -&gt; Bool
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215113"><span id="local-6989586621679215115"><span class="annot"><span class="annottext">ReadPipelineResponse -&gt; ReadPipelineResponse -&gt; Bool
 (ReadPipelineResponse -&gt; ReadPipelineResponse -&gt; Bool)
 -&gt; (ReadPipelineResponse -&gt; ReadPipelineResponse -&gt; Bool)
 -&gt; Eq ReadPipelineResponse
@@ -282,7 +282,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReadPipelineResponse -&gt; ReadPipelineResponse -&gt; Bool
 == :: ReadPipelineResponse -&gt; ReadPipelineResponse -&gt; Bool
 $c== :: ReadPipelineResponse -&gt; ReadPipelineResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215096"><span id="local-6989586621679215098"><span id="local-6989586621679215100"><span id="local-6989586621679215102"><span class="annot"><span class="annottext">ReadPrec [ReadPipelineResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215105"><span id="local-6989586621679215107"><span id="local-6989586621679215109"><span id="local-6989586621679215111"><span class="annot"><span class="annottext">ReadPrec [ReadPipelineResponse]
 ReadPrec ReadPipelineResponse
 Int -&gt; ReadS ReadPipelineResponse
 ReadS [ReadPipelineResponse]
@@ -302,7 +302,7 @@ readList :: ReadS [ReadPipelineResponse]
 $creadList :: ReadS [ReadPipelineResponse]
 readsPrec :: Int -&gt; ReadS ReadPipelineResponse
 $creadsPrec :: Int -&gt; ReadS ReadPipelineResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215090"><span id="local-6989586621679215092"><span id="local-6989586621679215094"><span class="annot"><span class="annottext">Int -&gt; ReadPipelineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215099"><span id="local-6989586621679215101"><span id="local-6989586621679215103"><span class="annot"><span class="annottext">Int -&gt; ReadPipelineResponse -&gt; ShowS
 [ReadPipelineResponse] -&gt; ShowS
 ReadPipelineResponse -&gt; String
 (Int -&gt; ReadPipelineResponse -&gt; ShowS)
@@ -352,8 +352,8 @@ $cfrom :: forall x. ReadPipelineResponse -&gt; Rep ReadPipelineResponse x
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse"><span class="hs-identifier hs-type">ReadPipelineResponse</span></a></span><span>
 </span><span id="line-147"></span><span id="newReadPipelineResponse"><span class="annot"><span class="annottext">newReadPipelineResponse :: Int -&gt; ReadPipelineResponse
-</span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#newReadPipelineResponse"><span class="hs-identifier hs-var hs-var">newReadPipelineResponse</span></a></span></span><span> </span><span id="local-6989586621679215087"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215087"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#newReadPipelineResponse"><span class="hs-identifier hs-var hs-var">newReadPipelineResponse</span></a></span></span><span> </span><span id="local-6989586621679215096"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215096"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">ReadPipelineResponse' :: Maybe [Warning] -&gt; Maybe Pipeline -&gt; Int -&gt; ReadPipelineResponse
 </span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-type">ReadPipelineResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:warnings:ReadPipelineResponse' :: Maybe [Warning]
@@ -366,7 +366,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ReadPipelineResponse' :: Int
 </span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#%24sel%3AhttpStatus%3AReadPipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215087"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679215096"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | Elastic Transcoder returns a warning if the resources used by your</span><span>
@@ -387,16 +387,16 @@ forall a. Maybe a
      (Maybe [Warning])
      (Maybe [Warning])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-type">ReadPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215086"><span class="annot"><span class="annottext">Maybe [Warning]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-type">ReadPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215095"><span class="annot"><span class="annottext">Maybe [Warning]
 warnings :: Maybe [Warning]
 $sel:warnings:ReadPipelineResponse' :: ReadPipelineResponse -&gt; Maybe [Warning]
-</span><a href="#local-6989586621679215086"><span class="hs-identifier hs-var hs-var">warnings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Warning]
-</span><a href="#local-6989586621679215086"><span class="hs-identifier hs-var">warnings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215085"><span class="annot"><span class="annottext">s :: ReadPipelineResponse
-</span><a href="#local-6989586621679215085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-type">ReadPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215084"><span class="annot"><span class="annottext">Maybe [Warning]
-</span><a href="#local-6989586621679215084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadPipelineResponse
-</span><a href="#local-6989586621679215085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warnings:ReadPipelineResponse' :: Maybe [Warning]
+</span><a href="#local-6989586621679215095"><span class="hs-identifier hs-var hs-var">warnings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Warning]
+</span><a href="#local-6989586621679215095"><span class="hs-identifier hs-var">warnings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215094"><span class="annot"><span class="annottext">s :: ReadPipelineResponse
+</span><a href="#local-6989586621679215094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-type">ReadPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215093"><span class="annot"><span class="annottext">Maybe [Warning]
+</span><a href="#local-6989586621679215093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadPipelineResponse
+</span><a href="#local-6989586621679215094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warnings:ReadPipelineResponse' :: Maybe [Warning]
 </span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#%24sel%3Awarnings%3AReadPipelineResponse%27"><span class="hs-identifier hs-var">warnings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Warning]
-</span><a href="#local-6989586621679215084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse"><span class="hs-identifier hs-type">ReadPipelineResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Warning] -&gt; f (Maybe [Warning]))
+</span><a href="#local-6989586621679215093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse"><span class="hs-identifier hs-type">ReadPipelineResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Warning] -&gt; f (Maybe [Warning]))
  -&gt; ReadPipelineResponse -&gt; f ReadPipelineResponse)
 -&gt; ((Maybe [Warning] -&gt; f (Maybe [Warning]))
     -&gt; Maybe [Warning] -&gt; f (Maybe [Warning]))
@@ -430,16 +430,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Pipeline)
      (Maybe Pipeline)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-type">ReadPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215080"><span class="annot"><span class="annottext">Maybe Pipeline
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-type">ReadPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215089"><span class="annot"><span class="annottext">Maybe Pipeline
 pipeline :: Maybe Pipeline
 $sel:pipeline:ReadPipelineResponse' :: ReadPipelineResponse -&gt; Maybe Pipeline
-</span><a href="#local-6989586621679215080"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Pipeline
-</span><a href="#local-6989586621679215080"><span class="hs-identifier hs-var">pipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215079"><span class="annot"><span class="annottext">s :: ReadPipelineResponse
-</span><a href="#local-6989586621679215079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-type">ReadPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215078"><span class="annot"><span class="annottext">Maybe Pipeline
-</span><a href="#local-6989586621679215078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadPipelineResponse
-</span><a href="#local-6989586621679215079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipeline:ReadPipelineResponse' :: Maybe Pipeline
+</span><a href="#local-6989586621679215089"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Pipeline
+</span><a href="#local-6989586621679215089"><span class="hs-identifier hs-var">pipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215088"><span class="annot"><span class="annottext">s :: ReadPipelineResponse
+</span><a href="#local-6989586621679215088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-type">ReadPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215087"><span class="annot"><span class="annottext">Maybe Pipeline
+</span><a href="#local-6989586621679215087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadPipelineResponse
+</span><a href="#local-6989586621679215088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipeline:ReadPipelineResponse' :: Maybe Pipeline
 </span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#%24sel%3Apipeline%3AReadPipelineResponse%27"><span class="hs-identifier hs-var">pipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Pipeline
-</span><a href="#local-6989586621679215078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse"><span class="hs-identifier hs-type">ReadPipelineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse"><span class="hs-identifier hs-type">ReadPipelineResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-169"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#readPipelineResponse_httpStatus"><span class="hs-identifier hs-type">readPipelineResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse"><span class="hs-identifier hs-type">ReadPipelineResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -448,16 +448,16 @@ $sel:pipeline:ReadPipelineResponse' :: ReadPipelineResponse -&gt; Maybe Pipeline
 -&gt; (ReadPipelineResponse -&gt; Int -&gt; ReadPipelineResponse)
 -&gt; Lens ReadPipelineResponse ReadPipelineResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-type">ReadPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215077"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-type">ReadPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215086"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ReadPipelineResponse' :: ReadPipelineResponse -&gt; Int
-</span><a href="#local-6989586621679215077"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215077"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215076"><span class="annot"><span class="annottext">s :: ReadPipelineResponse
-</span><a href="#local-6989586621679215076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-type">ReadPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215075"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadPipelineResponse
-</span><a href="#local-6989586621679215076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReadPipelineResponse' :: Int
+</span><a href="#local-6989586621679215086"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215086"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215085"><span class="annot"><span class="annottext">s :: ReadPipelineResponse
+</span><a href="#local-6989586621679215085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse%27"><span class="hs-identifier hs-type">ReadPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215084"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadPipelineResponse
+</span><a href="#local-6989586621679215085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReadPipelineResponse' :: Int
 </span><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#%24sel%3AhttpStatus%3AReadPipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse"><span class="hs-identifier hs-type">ReadPipelineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse"><span class="hs-identifier hs-type">ReadPipelineResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215073"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse"><span class="hs-identifier hs-type">ReadPipelineResponse</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215082"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPipeline.html#ReadPipelineResponse"><span class="hs-identifier hs-type">ReadPipelineResponse</span></a></span></span><span>
 </span><span id="line-173"></span></pre></body></html>

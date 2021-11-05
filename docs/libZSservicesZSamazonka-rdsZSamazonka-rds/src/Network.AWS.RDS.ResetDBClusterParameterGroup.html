@@ -66,7 +66,7 @@
 </span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- /See:/ 'newResetDBClusterParameterGroup' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679778663"><span id="local-6989586621679778664"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetDBClusterParameterGroup"><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-var">ResetDBClusterParameterGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetDBClusterParameterGroup%27"><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var">ResetDBClusterParameterGroup'</span></a></span></span><span>
+</span><span id="line-69"></span><span id="local-6989586621679778672"><span id="local-6989586621679778673"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetDBClusterParameterGroup"><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-var">ResetDBClusterParameterGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetDBClusterParameterGroup%27"><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var">ResetDBClusterParameterGroup'</span></a></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that indicates whether to reset all parameters in the DB cluster</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- parameter group to their default values. You can\'t use this parameter</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">-- if there is a list of parameter names specified for the @Parameters@</span><span>
@@ -82,7 +82,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AdbClusterParameterGroupName%3AResetDBClusterParameterGroup%27"><span class="annot"><span class="annottext">ResetDBClusterParameterGroup -&gt; Text
 </span><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#%24sel%3AdbClusterParameterGroupName%3AResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var hs-var">dbClusterParameterGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679778655"><span id="local-6989586621679778657"><span class="annot"><span class="annottext">ResetDBClusterParameterGroup
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679778664"><span id="local-6989586621679778666"><span class="annot"><span class="annottext">ResetDBClusterParameterGroup
 -&gt; ResetDBClusterParameterGroup -&gt; Bool
 (ResetDBClusterParameterGroup
  -&gt; ResetDBClusterParameterGroup -&gt; Bool)
@@ -98,7 +98,7 @@ $c/= :: ResetDBClusterParameterGroup
 -&gt; ResetDBClusterParameterGroup -&gt; Bool
 $c== :: ResetDBClusterParameterGroup
 -&gt; ResetDBClusterParameterGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778646"><span id="local-6989586621679778648"><span id="local-6989586621679778650"><span id="local-6989586621679778652"><span class="annot"><span class="annottext">ReadPrec [ResetDBClusterParameterGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778655"><span id="local-6989586621679778657"><span id="local-6989586621679778659"><span id="local-6989586621679778661"><span class="annot"><span class="annottext">ReadPrec [ResetDBClusterParameterGroup]
 ReadPrec ResetDBClusterParameterGroup
 Int -&gt; ReadS ResetDBClusterParameterGroup
 ReadS [ResetDBClusterParameterGroup]
@@ -118,7 +118,7 @@ readList :: ReadS [ResetDBClusterParameterGroup]
 $creadList :: ReadS [ResetDBClusterParameterGroup]
 readsPrec :: Int -&gt; ReadS ResetDBClusterParameterGroup
 $creadsPrec :: Int -&gt; ReadS ResetDBClusterParameterGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778639"><span id="local-6989586621679778641"><span id="local-6989586621679778643"><span class="annot"><span class="annottext">Int -&gt; ResetDBClusterParameterGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778648"><span id="local-6989586621679778650"><span id="local-6989586621679778652"><span class="annot"><span class="annottext">Int -&gt; ResetDBClusterParameterGroup -&gt; ShowS
 [ResetDBClusterParameterGroup] -&gt; ShowS
 ResetDBClusterParameterGroup -&gt; String
 (Int -&gt; ResetDBClusterParameterGroup -&gt; ShowS)
@@ -174,8 +174,8 @@ ResetDBClusterParameterGroup -&gt; Rep ResetDBClusterParameterGroup x
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span>
 </span><span id="line-106"></span><span id="newResetDBClusterParameterGroup"><span class="annot"><span class="annottext">newResetDBClusterParameterGroup :: Text -&gt; ResetDBClusterParameterGroup
 </span><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#newResetDBClusterParameterGroup"><span class="hs-identifier hs-var hs-var">newResetDBClusterParameterGroup</span></a></span></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679778634"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679778634"><span class="hs-identifier hs-var">pDBClusterParameterGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679778643"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679778643"><span class="hs-identifier hs-var">pDBClusterParameterGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResetDBClusterParameterGroup' :: Maybe Bool
 -&gt; Maybe [Parameter] -&gt; Text -&gt; ResetDBClusterParameterGroup
 </span><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span>
@@ -191,7 +191,7 @@ forall a. Maybe a
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbClusterParameterGroupName:ResetDBClusterParameterGroup' :: Text
 </span><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#%24sel%3AdbClusterParameterGroupName%3AResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var">dbClusterParameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679778634"><span class="hs-identifier hs-var">pDBClusterParameterGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679778643"><span class="hs-identifier hs-var">pDBClusterParameterGroupName_</span></a></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | A value that indicates whether to reset all parameters in the DB cluster</span><span>
@@ -210,16 +210,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778631"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778640"><span class="annot"><span class="annottext">Maybe Bool
 resetAllParameters :: Maybe Bool
 $sel:resetAllParameters:ResetDBClusterParameterGroup' :: ResetDBClusterParameterGroup -&gt; Maybe Bool
-</span><a href="#local-6989586621679778631"><span class="hs-identifier hs-var hs-var">resetAllParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679778631"><span class="hs-identifier hs-var">resetAllParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778630"><span class="annot"><span class="annottext">s :: ResetDBClusterParameterGroup
-</span><a href="#local-6989586621679778630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778629"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679778629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDBClusterParameterGroup
-</span><a href="#local-6989586621679778630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resetAllParameters:ResetDBClusterParameterGroup' :: Maybe Bool
+</span><a href="#local-6989586621679778640"><span class="hs-identifier hs-var hs-var">resetAllParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679778640"><span class="hs-identifier hs-var">resetAllParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778639"><span class="annot"><span class="annottext">s :: ResetDBClusterParameterGroup
+</span><a href="#local-6989586621679778639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778638"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679778638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDBClusterParameterGroup
+</span><a href="#local-6989586621679778639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resetAllParameters:ResetDBClusterParameterGroup' :: Maybe Bool
 </span><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#%24sel%3AresetAllParameters%3AResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var">resetAllParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679778629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679778638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | A list of parameter names in the DB cluster parameter group to reset to</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- the default values. You can\'t use this parameter if the</span><span>
@@ -236,16 +236,16 @@ $sel:resetAllParameters:ResetDBClusterParameterGroup' :: ResetDBClusterParameter
      (Maybe [Parameter])
      (Maybe [Parameter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778628"><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778637"><span class="annot"><span class="annottext">Maybe [Parameter]
 parameters :: Maybe [Parameter]
 $sel:parameters:ResetDBClusterParameterGroup' :: ResetDBClusterParameterGroup -&gt; Maybe [Parameter]
-</span><a href="#local-6989586621679778628"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
-</span><a href="#local-6989586621679778628"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778627"><span class="annot"><span class="annottext">s :: ResetDBClusterParameterGroup
-</span><a href="#local-6989586621679778627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778626"><span class="annot"><span class="annottext">Maybe [Parameter]
-</span><a href="#local-6989586621679778626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDBClusterParameterGroup
-</span><a href="#local-6989586621679778627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:ResetDBClusterParameterGroup' :: Maybe [Parameter]
+</span><a href="#local-6989586621679778637"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679778637"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778636"><span class="annot"><span class="annottext">s :: ResetDBClusterParameterGroup
+</span><a href="#local-6989586621679778636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778635"><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679778635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDBClusterParameterGroup
+</span><a href="#local-6989586621679778636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:ResetDBClusterParameterGroup' :: Maybe [Parameter]
 </span><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#%24sel%3Aparameters%3AResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
-</span><a href="#local-6989586621679778626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+</span><a href="#local-6989586621679778635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
  -&gt; ResetDBClusterParameterGroup -&gt; f ResetDBClusterParameterGroup)
 -&gt; ((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
     -&gt; Maybe [Parameter] -&gt; f (Maybe [Parameter]))
@@ -276,22 +276,22 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ResetDBClusterParameterGroup ResetDBClusterParameterGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778622"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778631"><span class="annot"><span class="annottext">Text
 dbClusterParameterGroupName :: Text
 $sel:dbClusterParameterGroupName:ResetDBClusterParameterGroup' :: ResetDBClusterParameterGroup -&gt; Text
-</span><a href="#local-6989586621679778622"><span class="hs-identifier hs-var hs-var">dbClusterParameterGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679778622"><span class="hs-identifier hs-var">dbClusterParameterGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778621"><span class="annot"><span class="annottext">s :: ResetDBClusterParameterGroup
-</span><a href="#local-6989586621679778621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778620"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679778620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDBClusterParameterGroup
-</span><a href="#local-6989586621679778621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterParameterGroupName:ResetDBClusterParameterGroup' :: Text
+</span><a href="#local-6989586621679778631"><span class="hs-identifier hs-var hs-var">dbClusterParameterGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679778631"><span class="hs-identifier hs-var">dbClusterParameterGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778630"><span class="annot"><span class="annottext">s :: ResetDBClusterParameterGroup
+</span><a href="#local-6989586621679778630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778629"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679778629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDBClusterParameterGroup
+</span><a href="#local-6989586621679778630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterParameterGroupName:ResetDBClusterParameterGroup' :: Text
 </span><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#%24sel%3AdbClusterParameterGroupName%3AResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var">dbClusterParameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679778620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679778629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterParameterGroupNameMessage.html#DBClusterParameterGroupNameMessage"><span class="hs-identifier hs-type">DBClusterParameterGroupNameMessage</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679778616"><span class="annot"><span class="annottext">request :: ResetDBClusterParameterGroup
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679778625"><span class="annot"><span class="annottext">request :: ResetDBClusterParameterGroup
 -&gt; Request ResetDBClusterParameterGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ResetDBClusterParameterGroup
@@ -299,7 +299,7 @@ $sel:dbClusterParameterGroupName:ResetDBClusterParameterGroup' :: ResetDBCluster
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679778612"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679778621"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ResetDBClusterParameterGroup
 -&gt; ClientResponse ClientBody
@@ -330,22 +330,22 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResetDBClusterParameterGroupResult&quot;</span></span><span>
-</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778609"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679778609"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679778608"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679778608"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679778607"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679778607"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String DBClusterParameterGroupNameMessage
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778618"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679778618"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679778617"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679778617"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679778616"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679778616"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String DBClusterParameterGroupNameMessage
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679778607"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679778616"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679778602"><span id="local-6989586621679778604"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679778611"><span id="local-6989586621679778613"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778608"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679778595"><span class="annot"><span class="annottext">toHeaders :: ResetDBClusterParameterGroup -&gt; ResponseHeaders
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679778604"><span class="annot"><span class="annottext">toHeaders :: ResetDBClusterParameterGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ResetDBClusterParameterGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -353,15 +353,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679778590"><span class="annot"><span class="annottext">toPath :: ResetDBClusterParameterGroup -&gt; ByteString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679778599"><span class="annot"><span class="annottext">toPath :: ResetDBClusterParameterGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResetDBClusterParameterGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679778586"><span class="annot"><span class="annottext">toQuery :: ResetDBClusterParameterGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778582"><span id="local-6989586621679778583"><span id="local-6989586621679778584"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679778595"><span class="annot"><span class="annottext">toQuery :: ResetDBClusterParameterGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778591"><span id="local-6989586621679778592"><span id="local-6989586621679778593"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Parameter]
 Text
 dbClusterParameterGroupName :: Text
@@ -370,7 +370,7 @@ resetAllParameters :: Maybe Bool
 $sel:dbClusterParameterGroupName:ResetDBClusterParameterGroup' :: ResetDBClusterParameterGroup -&gt; Text
 $sel:parameters:ResetDBClusterParameterGroup' :: ResetDBClusterParameterGroup -&gt; Maybe [Parameter]
 $sel:resetAllParameters:ResetDBClusterParameterGroup' :: ResetDBClusterParameterGroup -&gt; Maybe Bool
-</span><a href="#local-6989586621679778582"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679778591"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -392,7 +392,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ResetAllParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679778584"><span class="hs-identifier hs-var">resetAllParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679778593"><span class="hs-identifier hs-var">resetAllParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span>
 </span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -410,13 +410,13 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [Parameter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
-</span><a href="#local-6989586621679778583"><span class="hs-identifier hs-var">parameters</span></a></span><span>
+</span><a href="#local-6989586621679778592"><span class="hs-identifier hs-var">parameters</span></a></span><span>
 </span><span id="line-169"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBClusterParameterGroupName&quot;</span></span><span>
 </span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679778582"><span class="hs-identifier hs-var">dbClusterParameterGroupName</span></a></span><span>
+</span><a href="#local-6989586621679778591"><span class="hs-identifier hs-var">dbClusterParameterGroupName</span></a></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span></pre></body></html>

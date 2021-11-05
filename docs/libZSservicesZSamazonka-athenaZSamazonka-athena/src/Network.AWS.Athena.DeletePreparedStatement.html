@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeletePreparedStatement' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679225716"><span id="local-6989586621679225717"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePreparedStatement"><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-var">DeletePreparedStatement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePreparedStatement%27"><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement%27"><span class="hs-identifier hs-var">DeletePreparedStatement'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679225725"><span id="local-6989586621679225726"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePreparedStatement"><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-var">DeletePreparedStatement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePreparedStatement%27"><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement%27"><span class="hs-identifier hs-var">DeletePreparedStatement'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the prepared statement to delete.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AstatementName%3ADeletePreparedStatement%27"><span class="annot"><span class="annottext">DeletePreparedStatement -&gt; Text
 </span><a href="Network.AWS.Athena.DeletePreparedStatement.html#%24sel%3AstatementName%3ADeletePreparedStatement%27"><span class="hs-identifier hs-var hs-var">statementName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AworkGroup%3ADeletePreparedStatement%27"><span class="annot"><span class="annottext">DeletePreparedStatement -&gt; Text
 </span><a href="Network.AWS.Athena.DeletePreparedStatement.html#%24sel%3AworkGroup%3ADeletePreparedStatement%27"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225709"><span id="local-6989586621679225711"><span class="annot"><span class="annottext">DeletePreparedStatement -&gt; DeletePreparedStatement -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225718"><span id="local-6989586621679225720"><span class="annot"><span class="annottext">DeletePreparedStatement -&gt; DeletePreparedStatement -&gt; Bool
 (DeletePreparedStatement -&gt; DeletePreparedStatement -&gt; Bool)
 -&gt; (DeletePreparedStatement -&gt; DeletePreparedStatement -&gt; Bool)
 -&gt; Eq DeletePreparedStatement
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletePreparedStatement -&gt; DeletePreparedStatement -&gt; Bool
 == :: DeletePreparedStatement -&gt; DeletePreparedStatement -&gt; Bool
 $c== :: DeletePreparedStatement -&gt; DeletePreparedStatement -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225700"><span id="local-6989586621679225702"><span id="local-6989586621679225704"><span id="local-6989586621679225706"><span class="annot"><span class="annottext">ReadPrec [DeletePreparedStatement]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225709"><span id="local-6989586621679225711"><span id="local-6989586621679225713"><span id="local-6989586621679225715"><span class="annot"><span class="annottext">ReadPrec [DeletePreparedStatement]
 ReadPrec DeletePreparedStatement
 Int -&gt; ReadS DeletePreparedStatement
 ReadS [DeletePreparedStatement]
@@ -85,7 +85,7 @@ readList :: ReadS [DeletePreparedStatement]
 $creadList :: ReadS [DeletePreparedStatement]
 readsPrec :: Int -&gt; ReadS DeletePreparedStatement
 $creadsPrec :: Int -&gt; ReadS DeletePreparedStatement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225693"><span id="local-6989586621679225695"><span id="local-6989586621679225697"><span class="annot"><span class="annottext">Int -&gt; DeletePreparedStatement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225702"><span id="local-6989586621679225704"><span id="local-6989586621679225706"><span class="annot"><span class="annottext">Int -&gt; DeletePreparedStatement -&gt; ShowS
 [DeletePreparedStatement] -&gt; ShowS
 DeletePreparedStatement -&gt; String
 (Int -&gt; DeletePreparedStatement -&gt; ShowS)
@@ -132,19 +132,19 @@ $cfrom :: forall x. DeletePreparedStatement -&gt; Rep DeletePreparedStatement x
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span><span>
 </span><span id="line-76"></span><span id="newDeletePreparedStatement"><span class="annot"><span class="annottext">newDeletePreparedStatement :: Text -&gt; Text -&gt; DeletePreparedStatement
 </span><a href="Network.AWS.Athena.DeletePreparedStatement.html#newDeletePreparedStatement"><span class="hs-identifier hs-var hs-var">newDeletePreparedStatement</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679225688"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225688"><span class="hs-identifier hs-var">pStatementName_</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679225687"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225687"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679225697"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225697"><span class="hs-identifier hs-var">pStatementName_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679225696"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225696"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">DeletePreparedStatement' :: Text -&gt; Text -&gt; DeletePreparedStatement
 </span><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement%27"><span class="hs-identifier hs-type">DeletePreparedStatement'</span></a></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statementName:DeletePreparedStatement' :: Text
 </span><a href="Network.AWS.Athena.DeletePreparedStatement.html#%24sel%3AstatementName%3ADeletePreparedStatement%27"><span class="hs-identifier hs-var">statementName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225688"><span class="hs-identifier hs-var">pStatementName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225697"><span class="hs-identifier hs-var">pStatementName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:workGroup:DeletePreparedStatement' :: Text
 </span><a href="Network.AWS.Athena.DeletePreparedStatement.html#%24sel%3AworkGroup%3ADeletePreparedStatement%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225687"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span><span>
+</span><a href="#local-6989586621679225696"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The name of the prepared statement to delete.</span><span>
@@ -155,16 +155,16 @@ $cfrom :: forall x. DeletePreparedStatement -&gt; Rep DeletePreparedStatement x
 -&gt; (DeletePreparedStatement -&gt; Text -&gt; DeletePreparedStatement)
 -&gt; Lens DeletePreparedStatement DeletePreparedStatement Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement%27"><span class="hs-identifier hs-type">DeletePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225684"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement%27"><span class="hs-identifier hs-type">DeletePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225693"><span class="annot"><span class="annottext">Text
 statementName :: Text
 $sel:statementName:DeletePreparedStatement' :: DeletePreparedStatement -&gt; Text
-</span><a href="#local-6989586621679225684"><span class="hs-identifier hs-var hs-var">statementName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225684"><span class="hs-identifier hs-var">statementName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225683"><span class="annot"><span class="annottext">s :: DeletePreparedStatement
-</span><a href="#local-6989586621679225683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement%27"><span class="hs-identifier hs-type">DeletePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225682"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePreparedStatement
-</span><a href="#local-6989586621679225683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementName:DeletePreparedStatement' :: Text
+</span><a href="#local-6989586621679225693"><span class="hs-identifier hs-var hs-var">statementName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225693"><span class="hs-identifier hs-var">statementName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225692"><span class="annot"><span class="annottext">s :: DeletePreparedStatement
+</span><a href="#local-6989586621679225692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement%27"><span class="hs-identifier hs-type">DeletePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225691"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePreparedStatement
+</span><a href="#local-6989586621679225692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementName:DeletePreparedStatement' :: Text
 </span><a href="Network.AWS.Athena.DeletePreparedStatement.html#%24sel%3AstatementName%3ADeletePreparedStatement%27"><span class="hs-identifier hs-var">statementName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The workgroup to which the statement to be deleted belongs.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#deletePreparedStatement_workGroup"><span class="hs-identifier hs-type">deletePreparedStatement_workGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -174,28 +174,28 @@ $sel:statementName:DeletePreparedStatement' :: DeletePreparedStatement -&gt; Tex
 -&gt; (DeletePreparedStatement -&gt; Text -&gt; DeletePreparedStatement)
 -&gt; Lens DeletePreparedStatement DeletePreparedStatement Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement%27"><span class="hs-identifier hs-type">DeletePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225681"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement%27"><span class="hs-identifier hs-type">DeletePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225690"><span class="annot"><span class="annottext">Text
 workGroup :: Text
 $sel:workGroup:DeletePreparedStatement' :: DeletePreparedStatement -&gt; Text
-</span><a href="#local-6989586621679225681"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225681"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225680"><span class="annot"><span class="annottext">s :: DeletePreparedStatement
-</span><a href="#local-6989586621679225680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement%27"><span class="hs-identifier hs-type">DeletePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225679"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePreparedStatement
-</span><a href="#local-6989586621679225680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:DeletePreparedStatement' :: Text
+</span><a href="#local-6989586621679225690"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225690"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225689"><span class="annot"><span class="annottext">s :: DeletePreparedStatement
+</span><a href="#local-6989586621679225689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement%27"><span class="hs-identifier hs-type">DeletePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225688"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePreparedStatement
+</span><a href="#local-6989586621679225689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:DeletePreparedStatement' :: Text
 </span><a href="Network.AWS.Athena.DeletePreparedStatement.html#%24sel%3AworkGroup%3ADeletePreparedStatement%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse"><span class="hs-identifier hs-type">DeletePreparedStatementResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679225675"><span class="annot"><span class="annottext">request :: DeletePreparedStatement -&gt; Request DeletePreparedStatement
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679225684"><span class="annot"><span class="annottext">request :: DeletePreparedStatement -&gt; Request DeletePreparedStatement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeletePreparedStatement -&gt; Request DeletePreparedStatement
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679225671"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679225680"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeletePreparedStatement
 -&gt; ClientResponse ClientBody
@@ -221,10 +221,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225668"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225668"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679225667"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679225667"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679225666"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679225666"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225677"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225677"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679225676"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679225676"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679225675"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679225675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeletePreparedStatementResponse
 </span><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse%27"><span class="hs-identifier hs-var">DeletePreparedStatementResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeletePreparedStatementResponse)
@@ -236,15 +236,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225668"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225677"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225659"><span id="local-6989586621679225661"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225668"><span id="local-6989586621679225670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225656"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679225652"><span class="annot"><span class="annottext">toHeaders :: DeletePreparedStatement -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679225661"><span class="annot"><span class="annottext">toHeaders :: DeletePreparedStatement -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeletePreparedStatement -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -271,14 +271,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225642"><span id="local-6989586621679225644"><span id="local-6989586621679225646"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679225640"><span class="annot"><span class="annottext">toJSON :: DeletePreparedStatement -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement%27"><span class="hs-identifier hs-type">DeletePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225637"><span id="local-6989586621679225638"><span class="annot"><span class="annottext">Text
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225651"><span id="local-6989586621679225653"><span id="local-6989586621679225655"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679225649"><span class="annot"><span class="annottext">toJSON :: DeletePreparedStatement -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement%27"><span class="hs-identifier hs-type">DeletePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225646"><span id="local-6989586621679225647"><span class="annot"><span class="annottext">Text
 workGroup :: Text
 statementName :: Text
 $sel:workGroup:DeletePreparedStatement' :: DeletePreparedStatement -&gt; Text
 $sel:statementName:DeletePreparedStatement' :: DeletePreparedStatement -&gt; Text
-</span><a href="#local-6989586621679225637"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679225646"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -291,26 +291,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StatementName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225638"><span class="hs-identifier hs-var">statementName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225647"><span class="hs-identifier hs-var">statementName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WorkGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225637"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225646"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679225631"><span class="annot"><span class="annottext">toPath :: DeletePreparedStatement -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679225640"><span class="annot"><span class="annottext">toPath :: DeletePreparedStatement -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeletePreparedStatement -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatement"><span class="hs-identifier hs-type">DeletePreparedStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679225627"><span class="annot"><span class="annottext">toQuery :: DeletePreparedStatement -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679225636"><span class="annot"><span class="annottext">toQuery :: DeletePreparedStatement -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeletePreparedStatement -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -318,12 +318,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newDeletePreparedStatementResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679225624"><span id="local-6989586621679225625"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePreparedStatementResponse"><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse"><span class="hs-identifier hs-var">DeletePreparedStatementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePreparedStatementResponse%27"><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse%27"><span class="hs-identifier hs-var">DeletePreparedStatementResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679225633"><span id="local-6989586621679225634"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePreparedStatementResponse"><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse"><span class="hs-identifier hs-var">DeletePreparedStatementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePreparedStatementResponse%27"><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse%27"><span class="hs-identifier hs-var">DeletePreparedStatementResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeletePreparedStatementResponse%27"><span class="annot"><span class="annottext">DeletePreparedStatementResponse -&gt; Int
 </span><a href="Network.AWS.Athena.DeletePreparedStatement.html#%24sel%3AhttpStatus%3ADeletePreparedStatementResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225619"><span id="local-6989586621679225621"><span class="annot"><span class="annottext">DeletePreparedStatementResponse
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225628"><span id="local-6989586621679225630"><span class="annot"><span class="annottext">DeletePreparedStatementResponse
 -&gt; DeletePreparedStatementResponse -&gt; Bool
 (DeletePreparedStatementResponse
  -&gt; DeletePreparedStatementResponse -&gt; Bool)
@@ -339,7 +339,7 @@ $c/= :: DeletePreparedStatementResponse
 -&gt; DeletePreparedStatementResponse -&gt; Bool
 $c== :: DeletePreparedStatementResponse
 -&gt; DeletePreparedStatementResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225611"><span id="local-6989586621679225613"><span id="local-6989586621679225615"><span id="local-6989586621679225617"><span class="annot"><span class="annottext">ReadPrec [DeletePreparedStatementResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225620"><span id="local-6989586621679225622"><span id="local-6989586621679225624"><span id="local-6989586621679225626"><span class="annot"><span class="annottext">ReadPrec [DeletePreparedStatementResponse]
 ReadPrec DeletePreparedStatementResponse
 Int -&gt; ReadS DeletePreparedStatementResponse
 ReadS [DeletePreparedStatementResponse]
@@ -359,7 +359,7 @@ readList :: ReadS [DeletePreparedStatementResponse]
 $creadList :: ReadS [DeletePreparedStatementResponse]
 readsPrec :: Int -&gt; ReadS DeletePreparedStatementResponse
 $creadsPrec :: Int -&gt; ReadS DeletePreparedStatementResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225605"><span id="local-6989586621679225607"><span id="local-6989586621679225609"><span class="annot"><span class="annottext">Int -&gt; DeletePreparedStatementResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225614"><span id="local-6989586621679225616"><span id="local-6989586621679225618"><span class="annot"><span class="annottext">Int -&gt; DeletePreparedStatementResponse -&gt; ShowS
 [DeletePreparedStatementResponse] -&gt; ShowS
 DeletePreparedStatementResponse -&gt; String
 (Int -&gt; DeletePreparedStatementResponse -&gt; ShowS)
@@ -411,14 +411,14 @@ DeletePreparedStatementResponse
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse"><span class="hs-identifier hs-type">DeletePreparedStatementResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newDeletePreparedStatementResponse"><span class="annot"><span class="annottext">newDeletePreparedStatementResponse :: Int -&gt; DeletePreparedStatementResponse
-</span><a href="Network.AWS.Athena.DeletePreparedStatement.html#newDeletePreparedStatementResponse"><span class="hs-identifier hs-var hs-var">newDeletePreparedStatementResponse</span></a></span></span><span> </span><span id="local-6989586621679225602"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225602"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.DeletePreparedStatement.html#newDeletePreparedStatementResponse"><span class="hs-identifier hs-var hs-var">newDeletePreparedStatementResponse</span></a></span></span><span> </span><span id="local-6989586621679225611"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225611"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">DeletePreparedStatementResponse' :: Int -&gt; DeletePreparedStatementResponse
 </span><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse%27"><span class="hs-identifier hs-type">DeletePreparedStatementResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePreparedStatementResponse' :: Int
 </span><a href="Network.AWS.Athena.DeletePreparedStatement.html#%24sel%3AhttpStatus%3ADeletePreparedStatementResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225602"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679225611"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -435,18 +435,18 @@ DeletePreparedStatementResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse%27"><span class="hs-identifier hs-type">DeletePreparedStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225601"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse%27"><span class="hs-identifier hs-type">DeletePreparedStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225610"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeletePreparedStatementResponse' :: DeletePreparedStatementResponse -&gt; Int
-</span><a href="#local-6989586621679225601"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225601"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225600"><span class="annot"><span class="annottext">s :: DeletePreparedStatementResponse
-</span><a href="#local-6989586621679225600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse%27"><span class="hs-identifier hs-type">DeletePreparedStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225599"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePreparedStatementResponse
-</span><a href="#local-6989586621679225600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePreparedStatementResponse' :: Int
+</span><a href="#local-6989586621679225610"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225610"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225609"><span class="annot"><span class="annottext">s :: DeletePreparedStatementResponse
+</span><a href="#local-6989586621679225609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse%27"><span class="hs-identifier hs-type">DeletePreparedStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225608"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePreparedStatementResponse
+</span><a href="#local-6989586621679225609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePreparedStatementResponse' :: Int
 </span><a href="Network.AWS.Athena.DeletePreparedStatement.html#%24sel%3AhttpStatus%3ADeletePreparedStatementResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse"><span class="hs-identifier hs-type">DeletePreparedStatementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse"><span class="hs-identifier hs-type">DeletePreparedStatementResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679225597"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679225606"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.DeletePreparedStatement.html#DeletePreparedStatementResponse"><span class="hs-identifier hs-type">DeletePreparedStatementResponse</span></a></span></span><span>
 </span><span id="line-173"></span></pre></body></html>

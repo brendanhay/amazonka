@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newBatchPutScheduledUpdateGroupAction' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679347469"><span id="local-6989586621679347470"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutScheduledUpdateGroupAction"><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-var">BatchPutScheduledUpdateGroupAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutScheduledUpdateGroupAction%27"><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">BatchPutScheduledUpdateGroupAction'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679347478"><span id="local-6989586621679347479"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutScheduledUpdateGroupAction"><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-var">BatchPutScheduledUpdateGroupAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutScheduledUpdateGroupAction%27"><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">BatchPutScheduledUpdateGroupAction'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AautoScalingGroupName%3ABatchPutScheduledUpdateGroupAction%27"><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupAction -&gt; Text
 </span><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#%24sel%3AautoScalingGroupName%3ABatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 -&gt; [ScheduledUpdateGroupActionRequest]
 </span><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#%24sel%3AscheduledUpdateGroupActions%3ABatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var hs-var">scheduledUpdateGroupActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ScheduledUpdateGroupActionRequest.html#ScheduledUpdateGroupActionRequest"><span class="hs-identifier hs-type">ScheduledUpdateGroupActionRequest</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347462"><span id="local-6989586621679347464"><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupAction
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347471"><span id="local-6989586621679347473"><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupAction
 -&gt; BatchPutScheduledUpdateGroupAction -&gt; Bool
 (BatchPutScheduledUpdateGroupAction
  -&gt; BatchPutScheduledUpdateGroupAction -&gt; Bool)
@@ -74,7 +74,7 @@ $c/= :: BatchPutScheduledUpdateGroupAction
 -&gt; BatchPutScheduledUpdateGroupAction -&gt; Bool
 $c== :: BatchPutScheduledUpdateGroupAction
 -&gt; BatchPutScheduledUpdateGroupAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347453"><span id="local-6989586621679347455"><span id="local-6989586621679347457"><span id="local-6989586621679347459"><span class="annot"><span class="annottext">ReadPrec [BatchPutScheduledUpdateGroupAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347462"><span id="local-6989586621679347464"><span id="local-6989586621679347466"><span id="local-6989586621679347468"><span class="annot"><span class="annottext">ReadPrec [BatchPutScheduledUpdateGroupAction]
 ReadPrec BatchPutScheduledUpdateGroupAction
 Int -&gt; ReadS BatchPutScheduledUpdateGroupAction
 ReadS [BatchPutScheduledUpdateGroupAction]
@@ -94,7 +94,7 @@ readList :: ReadS [BatchPutScheduledUpdateGroupAction]
 $creadList :: ReadS [BatchPutScheduledUpdateGroupAction]
 readsPrec :: Int -&gt; ReadS BatchPutScheduledUpdateGroupAction
 $creadsPrec :: Int -&gt; ReadS BatchPutScheduledUpdateGroupAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347446"><span id="local-6989586621679347448"><span id="local-6989586621679347450"><span class="annot"><span class="annottext">Int -&gt; BatchPutScheduledUpdateGroupAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347455"><span id="local-6989586621679347457"><span id="local-6989586621679347459"><span class="annot"><span class="annottext">Int -&gt; BatchPutScheduledUpdateGroupAction -&gt; ShowS
 [BatchPutScheduledUpdateGroupAction] -&gt; ShowS
 BatchPutScheduledUpdateGroupAction -&gt; String
 (Int -&gt; BatchPutScheduledUpdateGroupAction -&gt; ShowS)
@@ -149,8 +149,8 @@ BatchPutScheduledUpdateGroupAction
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction</span></a></span><span>
 </span><span id="line-75"></span><span id="newBatchPutScheduledUpdateGroupAction"><span class="annot"><span class="annottext">newBatchPutScheduledUpdateGroupAction :: Text -&gt; BatchPutScheduledUpdateGroupAction
 </span><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#newBatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-var hs-var">newBatchPutScheduledUpdateGroupAction</span></a></span></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679347441"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347441"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679347450"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347450"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupAction' :: Text
 -&gt; [ScheduledUpdateGroupActionRequest]
 -&gt; BatchPutScheduledUpdateGroupAction
@@ -158,7 +158,7 @@ BatchPutScheduledUpdateGroupAction
 </span><span id="line-78"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:BatchPutScheduledUpdateGroupAction' :: Text
 </span><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#%24sel%3AautoScalingGroupName%3ABatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347441"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347450"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduledUpdateGroupActions:BatchPutScheduledUpdateGroupAction' :: [ScheduledUpdateGroupActionRequest]
 </span><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#%24sel%3AscheduledUpdateGroupActions%3ABatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">scheduledUpdateGroupActions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">[ScheduledUpdateGroupActionRequest]
@@ -180,16 +180,16 @@ forall a. Monoid a =&gt; a
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347438"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347447"><span class="annot"><span class="annottext">Text
 autoScalingGroupName :: Text
 $sel:autoScalingGroupName:BatchPutScheduledUpdateGroupAction' :: BatchPutScheduledUpdateGroupAction -&gt; Text
-</span><a href="#local-6989586621679347438"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347438"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347437"><span class="annot"><span class="annottext">s :: BatchPutScheduledUpdateGroupAction
-</span><a href="#local-6989586621679347437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347436"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupAction
-</span><a href="#local-6989586621679347437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:BatchPutScheduledUpdateGroupAction' :: Text
+</span><a href="#local-6989586621679347447"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347447"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347446"><span class="annot"><span class="annottext">s :: BatchPutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679347446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347445"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679347446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:BatchPutScheduledUpdateGroupAction' :: Text
 </span><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#%24sel%3AautoScalingGroupName%3ABatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | One or more scheduled actions. The maximum number allowed is 50.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#batchPutScheduledUpdateGroupAction_scheduledUpdateGroupActions"><span class="hs-identifier hs-type">batchPutScheduledUpdateGroupAction_scheduledUpdateGroupActions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ScheduledUpdateGroupActionRequest.html#ScheduledUpdateGroupActionRequest"><span class="hs-identifier hs-type">ScheduledUpdateGroupActionRequest</span></a></span><span class="hs-special">]</span><span>
@@ -208,17 +208,17 @@ $sel:autoScalingGroupName:BatchPutScheduledUpdateGroupAction' :: BatchPutSchedul
      [ScheduledUpdateGroupActionRequest]
      [ScheduledUpdateGroupActionRequest]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347435"><span class="annot"><span class="annottext">[ScheduledUpdateGroupActionRequest]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347444"><span class="annot"><span class="annottext">[ScheduledUpdateGroupActionRequest]
 scheduledUpdateGroupActions :: [ScheduledUpdateGroupActionRequest]
 $sel:scheduledUpdateGroupActions:BatchPutScheduledUpdateGroupAction' :: BatchPutScheduledUpdateGroupAction
 -&gt; [ScheduledUpdateGroupActionRequest]
-</span><a href="#local-6989586621679347435"><span class="hs-identifier hs-var hs-var">scheduledUpdateGroupActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ScheduledUpdateGroupActionRequest]
-</span><a href="#local-6989586621679347435"><span class="hs-identifier hs-var">scheduledUpdateGroupActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347434"><span class="annot"><span class="annottext">s :: BatchPutScheduledUpdateGroupAction
-</span><a href="#local-6989586621679347434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347433"><span class="annot"><span class="annottext">[ScheduledUpdateGroupActionRequest]
-</span><a href="#local-6989586621679347433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupAction
-</span><a href="#local-6989586621679347434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledUpdateGroupActions:BatchPutScheduledUpdateGroupAction' :: [ScheduledUpdateGroupActionRequest]
+</span><a href="#local-6989586621679347444"><span class="hs-identifier hs-var hs-var">scheduledUpdateGroupActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ScheduledUpdateGroupActionRequest]
+</span><a href="#local-6989586621679347444"><span class="hs-identifier hs-var">scheduledUpdateGroupActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347443"><span class="annot"><span class="annottext">s :: BatchPutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679347443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347442"><span class="annot"><span class="annottext">[ScheduledUpdateGroupActionRequest]
+</span><a href="#local-6989586621679347442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679347443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledUpdateGroupActions:BatchPutScheduledUpdateGroupAction' :: [ScheduledUpdateGroupActionRequest]
 </span><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#%24sel%3AscheduledUpdateGroupActions%3ABatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">scheduledUpdateGroupActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ScheduledUpdateGroupActionRequest]
-</span><a href="#local-6989586621679347433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ScheduledUpdateGroupActionRequest]
+</span><a href="#local-6989586621679347442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ScheduledUpdateGroupActionRequest]
   -&gt; f [ScheduledUpdateGroupActionRequest])
  -&gt; BatchPutScheduledUpdateGroupAction
  -&gt; f BatchPutScheduledUpdateGroupAction)
@@ -245,7 +245,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679347427"><span class="annot"><span class="annottext">request :: BatchPutScheduledUpdateGroupAction
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679347436"><span class="annot"><span class="annottext">request :: BatchPutScheduledUpdateGroupAction
 -&gt; Request BatchPutScheduledUpdateGroupAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; BatchPutScheduledUpdateGroupAction
@@ -253,7 +253,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679347423"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679347432"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchPutScheduledUpdateGroupAction
 -&gt; ClientResponse ClientBody
@@ -286,10 +286,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BatchPutScheduledUpdateGroupActionResult&quot;</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347420"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347420"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679347419"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679347419"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679347418"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679347418"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347429"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347429"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679347428"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679347428"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679347427"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679347427"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FailedScheduledUpdateGroupActionRequest]
 -&gt; Int -&gt; BatchPutScheduledUpdateGroupActionResponse
 </span><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-var">BatchPutScheduledUpdateGroupActionResponse'</span></a></span><span>
@@ -300,7 +300,7 @@ Text
      String (Int -&gt; BatchPutScheduledUpdateGroupActionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679347418"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679347427"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FailedScheduledUpdateGroupActions&quot;</span></span><span>
@@ -336,22 +336,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347420"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347429"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679347407"><span id="local-6989586621679347409"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679347416"><span id="local-6989586621679347418"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679347404"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679347413"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction</span></a></span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction</span></a></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679347400"><span class="annot"><span class="annottext">toHeaders :: BatchPutScheduledUpdateGroupAction -&gt; ResponseHeaders
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679347409"><span class="annot"><span class="annottext">toHeaders :: BatchPutScheduledUpdateGroupAction -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; BatchPutScheduledUpdateGroupAction -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -363,7 +363,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction</span></a></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679347395"><span class="annot"><span class="annottext">toPath :: BatchPutScheduledUpdateGroupAction -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679347404"><span class="annot"><span class="annottext">toPath :: BatchPutScheduledUpdateGroupAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchPutScheduledUpdateGroupAction -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -373,15 +373,15 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction</span></a></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679347391"><span class="annot"><span class="annottext">toQuery :: BatchPutScheduledUpdateGroupAction -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347388"><span id="local-6989586621679347389"><span class="annot"><span class="annottext">[ScheduledUpdateGroupActionRequest]
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679347400"><span class="annot"><span class="annottext">toQuery :: BatchPutScheduledUpdateGroupAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347397"><span id="local-6989586621679347398"><span class="annot"><span class="annottext">[ScheduledUpdateGroupActionRequest]
 Text
 scheduledUpdateGroupActions :: [ScheduledUpdateGroupActionRequest]
 autoScalingGroupName :: Text
 $sel:scheduledUpdateGroupActions:BatchPutScheduledUpdateGroupAction' :: BatchPutScheduledUpdateGroupAction
 -&gt; [ScheduledUpdateGroupActionRequest]
 $sel:autoScalingGroupName:BatchPutScheduledUpdateGroupAction' :: BatchPutScheduledUpdateGroupAction -&gt; Text
-</span><a href="#local-6989586621679347388"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679347397"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -403,7 +403,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347389"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347398"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ScheduledUpdateGroupActions&quot;</span></span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -416,11 +416,11 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">[ScheduledUpdateGroupActionRequest]
-</span><a href="#local-6989586621679347388"><span class="hs-identifier hs-var">scheduledUpdateGroupActions</span></a></span><span>
+</span><a href="#local-6989586621679347397"><span class="hs-identifier hs-var">scheduledUpdateGroupActions</span></a></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newBatchPutScheduledUpdateGroupActionResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679347384"><span id="local-6989586621679347385"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutScheduledUpdateGroupActionResponse"><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-var">BatchPutScheduledUpdateGroupActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutScheduledUpdateGroupActionResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-var">BatchPutScheduledUpdateGroupActionResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679347393"><span id="local-6989586621679347394"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutScheduledUpdateGroupActionResponse"><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-var">BatchPutScheduledUpdateGroupActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutScheduledUpdateGroupActionResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-var">BatchPutScheduledUpdateGroupActionResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The names of the scheduled actions that could not be created or updated,</span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-comment">-- including an error message.</span><span>
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AfailedScheduledUpdateGroupActions%3ABatchPutScheduledUpdateGroupActionResponse%27"><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupActionResponse
@@ -430,7 +430,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchPutScheduledUpdateGroupActionResponse%27"><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupActionResponse -&gt; Int
 </span><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#%24sel%3AhttpStatus%3ABatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347378"><span id="local-6989586621679347380"><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupActionResponse
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347387"><span id="local-6989586621679347389"><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupActionResponse
 -&gt; BatchPutScheduledUpdateGroupActionResponse -&gt; Bool
 (BatchPutScheduledUpdateGroupActionResponse
  -&gt; BatchPutScheduledUpdateGroupActionResponse -&gt; Bool)
@@ -446,7 +446,7 @@ $c/= :: BatchPutScheduledUpdateGroupActionResponse
 -&gt; BatchPutScheduledUpdateGroupActionResponse -&gt; Bool
 $c== :: BatchPutScheduledUpdateGroupActionResponse
 -&gt; BatchPutScheduledUpdateGroupActionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347370"><span id="local-6989586621679347372"><span id="local-6989586621679347374"><span id="local-6989586621679347376"><span class="annot"><span class="annottext">ReadPrec [BatchPutScheduledUpdateGroupActionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347379"><span id="local-6989586621679347381"><span id="local-6989586621679347383"><span id="local-6989586621679347385"><span class="annot"><span class="annottext">ReadPrec [BatchPutScheduledUpdateGroupActionResponse]
 ReadPrec BatchPutScheduledUpdateGroupActionResponse
 Int -&gt; ReadS BatchPutScheduledUpdateGroupActionResponse
 ReadS [BatchPutScheduledUpdateGroupActionResponse]
@@ -466,7 +466,7 @@ readList :: ReadS [BatchPutScheduledUpdateGroupActionResponse]
 $creadList :: ReadS [BatchPutScheduledUpdateGroupActionResponse]
 readsPrec :: Int -&gt; ReadS BatchPutScheduledUpdateGroupActionResponse
 $creadsPrec :: Int -&gt; ReadS BatchPutScheduledUpdateGroupActionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347364"><span id="local-6989586621679347366"><span id="local-6989586621679347368"><span class="annot"><span class="annottext">Int -&gt; BatchPutScheduledUpdateGroupActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347373"><span id="local-6989586621679347375"><span id="local-6989586621679347377"><span class="annot"><span class="annottext">Int -&gt; BatchPutScheduledUpdateGroupActionResponse -&gt; ShowS
 [BatchPutScheduledUpdateGroupActionResponse] -&gt; ShowS
 BatchPutScheduledUpdateGroupActionResponse -&gt; String
 (Int -&gt; BatchPutScheduledUpdateGroupActionResponse -&gt; ShowS)
@@ -522,8 +522,8 @@ BatchPutScheduledUpdateGroupActionResponse
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse</span></a></span><span>
 </span><span id="line-177"></span><span id="newBatchPutScheduledUpdateGroupActionResponse"><span class="annot"><span class="annottext">newBatchPutScheduledUpdateGroupActionResponse :: Int -&gt; BatchPutScheduledUpdateGroupActionResponse
 </span><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#newBatchPutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-var hs-var">newBatchPutScheduledUpdateGroupActionResponse</span></a></span></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679347361"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347361"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679347370"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347370"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupActionResponse' :: Maybe [FailedScheduledUpdateGroupActionRequest]
 -&gt; Int -&gt; BatchPutScheduledUpdateGroupActionResponse
 </span><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse'</span></a></span><span>
@@ -534,7 +534,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchPutScheduledUpdateGroupActionResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#%24sel%3AhttpStatus%3ABatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347361"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679347370"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The names of the scheduled actions that could not be created or updated,</span><span>
@@ -555,17 +555,17 @@ forall a. Maybe a
      (Maybe [FailedScheduledUpdateGroupActionRequest])
      (Maybe [FailedScheduledUpdateGroupActionRequest])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347360"><span class="annot"><span class="annottext">Maybe [FailedScheduledUpdateGroupActionRequest]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347369"><span class="annot"><span class="annottext">Maybe [FailedScheduledUpdateGroupActionRequest]
 failedScheduledUpdateGroupActions :: Maybe [FailedScheduledUpdateGroupActionRequest]
 $sel:failedScheduledUpdateGroupActions:BatchPutScheduledUpdateGroupActionResponse' :: BatchPutScheduledUpdateGroupActionResponse
 -&gt; Maybe [FailedScheduledUpdateGroupActionRequest]
-</span><a href="#local-6989586621679347360"><span class="hs-identifier hs-var hs-var">failedScheduledUpdateGroupActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedScheduledUpdateGroupActionRequest]
-</span><a href="#local-6989586621679347360"><span class="hs-identifier hs-var">failedScheduledUpdateGroupActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347359"><span class="annot"><span class="annottext">s :: BatchPutScheduledUpdateGroupActionResponse
-</span><a href="#local-6989586621679347359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347358"><span class="annot"><span class="annottext">Maybe [FailedScheduledUpdateGroupActionRequest]
-</span><a href="#local-6989586621679347358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupActionResponse
-</span><a href="#local-6989586621679347359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedScheduledUpdateGroupActions:BatchPutScheduledUpdateGroupActionResponse' :: Maybe [FailedScheduledUpdateGroupActionRequest]
+</span><a href="#local-6989586621679347369"><span class="hs-identifier hs-var hs-var">failedScheduledUpdateGroupActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedScheduledUpdateGroupActionRequest]
+</span><a href="#local-6989586621679347369"><span class="hs-identifier hs-var">failedScheduledUpdateGroupActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347368"><span class="annot"><span class="annottext">s :: BatchPutScheduledUpdateGroupActionResponse
+</span><a href="#local-6989586621679347368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347367"><span class="annot"><span class="annottext">Maybe [FailedScheduledUpdateGroupActionRequest]
+</span><a href="#local-6989586621679347367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupActionResponse
+</span><a href="#local-6989586621679347368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedScheduledUpdateGroupActions:BatchPutScheduledUpdateGroupActionResponse' :: Maybe [FailedScheduledUpdateGroupActionRequest]
 </span><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#%24sel%3AfailedScheduledUpdateGroupActions%3ABatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-var">failedScheduledUpdateGroupActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedScheduledUpdateGroupActionRequest]
-</span><a href="#local-6989586621679347358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedScheduledUpdateGroupActionRequest]
+</span><a href="#local-6989586621679347367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedScheduledUpdateGroupActionRequest]
   -&gt; f (Maybe [FailedScheduledUpdateGroupActionRequest]))
  -&gt; BatchPutScheduledUpdateGroupActionResponse
  -&gt; f BatchPutScheduledUpdateGroupActionResponse)
@@ -613,18 +613,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347356"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347365"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchPutScheduledUpdateGroupActionResponse' :: BatchPutScheduledUpdateGroupActionResponse -&gt; Int
-</span><a href="#local-6989586621679347356"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347356"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347355"><span class="annot"><span class="annottext">s :: BatchPutScheduledUpdateGroupActionResponse
-</span><a href="#local-6989586621679347355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347354"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupActionResponse
-</span><a href="#local-6989586621679347355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchPutScheduledUpdateGroupActionResponse' :: Int
+</span><a href="#local-6989586621679347365"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347365"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347364"><span class="annot"><span class="annottext">s :: BatchPutScheduledUpdateGroupActionResponse
+</span><a href="#local-6989586621679347364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347363"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutScheduledUpdateGroupActionResponse
+</span><a href="#local-6989586621679347364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchPutScheduledUpdateGroupActionResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#%24sel%3AhttpStatus%3ABatchPutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679347352"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679347361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction.html#BatchPutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-type">BatchPutScheduledUpdateGroupActionResponse</span></a></span></span><span>
 </span><span id="line-197"></span></pre></body></html>

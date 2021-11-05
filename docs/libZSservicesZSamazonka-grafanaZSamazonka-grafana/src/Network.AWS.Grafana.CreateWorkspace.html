@@ -1,0 +1,1170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Grafana.CreateWorkspace</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a /workspace/. In a workspace, you can create Grafana dashboards</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- and visualizations to analyze your metrics, logs, and traces. You don\'t</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- have to build, package, or deploy any hardware to run the Grafana</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- server.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Don\'t use @CreateWorkspace@ to modify an existing workspace. Instead,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- use</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspace.html UpdateWorkspace&gt;.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Grafana.CreateWorkspace</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier">CreateWorkspace</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#newCreateWorkspace"><span class="hs-identifier">newCreateWorkspace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceRoleArn"><span class="hs-identifier">createWorkspace_workspaceRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_clientToken"><span class="hs-identifier">createWorkspace_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceDataSources"><span class="hs-identifier">createWorkspace_workspaceDataSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceNotificationDestinations"><span class="hs-identifier">createWorkspace_workspaceNotificationDestinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceName"><span class="hs-identifier">createWorkspace_workspaceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_organizationRoleName"><span class="hs-identifier">createWorkspace_organizationRoleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceDescription"><span class="hs-identifier">createWorkspace_workspaceDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_stackSetName"><span class="hs-identifier">createWorkspace_stackSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceOrganizationalUnits"><span class="hs-identifier">createWorkspace_workspaceOrganizationalUnits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_accountAccessType"><span class="hs-identifier">createWorkspace_accountAccessType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_authenticationProviders"><span class="hs-identifier">createWorkspace_authenticationProviders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_permissionType"><span class="hs-identifier">createWorkspace_permissionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier">CreateWorkspaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#newCreateWorkspaceResponse"><span class="hs-identifier">newCreateWorkspaceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspaceResponse_httpStatus"><span class="hs-identifier">createWorkspaceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspaceResponse_workspace"><span class="hs-identifier">createWorkspaceResponse_workspace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.html"><span class="hs-identifier">Network.AWS.Grafana.Types</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newCreateWorkspace' smart constructor.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679189138"><span id="local-6989586621679189139"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorkspace"><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-var">CreateWorkspace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorkspace%27"><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-var">CreateWorkspace'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The workspace needs an IAM role that grants permissions to the Amazon</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Web Services resources that the workspace will view data from. If you</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- already have a role that you want to use, specify it here. If you omit</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- this field and you specify some Amazon Web Services resources in</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- role with the necessary permissions is automatically created.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AworkspaceRoleArn%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceRoleArn%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">workspaceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | A unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; Maybe Text
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AclientToken%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | Specify the Amazon Web Services data sources that you want to be queried</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- in this workspace. Specifying these data sources here enables Amazon</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- Managed Grafana to create IAM roles and permissions that allow Amazon</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- Managed Grafana to read data from these sources. You must still add them</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- as data sources in the Grafana console in the workspace.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- If you don\'t specify a data source here, you can still add it as a data</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- source in the workspace console later. However, you will then have to</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- manually configure permissions for it.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AworkspaceDataSources%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; Maybe [DataSourceType]
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceDataSources%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">workspaceDataSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Grafana.Types.DataSourceType.html#DataSourceType"><span class="hs-identifier hs-type">DataSourceType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | Specify the Amazon Web Services notification channels that you plan to</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- use in this workspace. Specifying these data sources here enables Amazon</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- Managed Grafana to create IAM roles and permissions that allow Amazon</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- Managed Grafana to use these channels.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AworkspaceNotificationDestinations%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; Maybe [NotificationDestinationType]
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceNotificationDestinations%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">workspaceNotificationDestinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Grafana.Types.NotificationDestinationType.html#NotificationDestinationType"><span class="hs-identifier hs-type">NotificationDestinationType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The name for the workspace. It does not have to be unique.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AworkspaceName%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceName%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">workspaceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The name of an IAM role that already exists to use with Organizations to</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- access Amazon Web Services data sources and notification channels in</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- other accounts in an organization.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AorganizationRoleName%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AorganizationRoleName%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">organizationRoleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | A description for the workspace. This is used only to help you identify</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- this workspace.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AworkspaceDescription%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceDescription%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">workspaceDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The name of the CloudFormation stack set to use to generate IAM roles to</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- be used for this workspace.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AstackSetName%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; Maybe Text
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AstackSetName%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">stackSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | Specifies the organizational units that this workspace is allowed to use</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- data sources from, if this workspace is in an account that is part of an</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- organization.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AworkspaceOrganizationalUnits%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; Maybe (Sensitive [Text])
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceOrganizationalUnits%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">workspaceOrganizationalUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | Specifies whether the workspace can access Amazon Web Services resources</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- in this Amazon Web Services account only, or whether it can also access</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- Amazon Web Services resources in other accounts in the same</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- organization. If you specify @ORGANIZATION@, you must specify which</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- organizational units the workspace can access in the</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- @workspaceOrganizationalUnits@ parameter.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AaccountAccessType%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; AccountAccessType
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AaccountAccessType%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">accountAccessType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.AccountAccessType.html#AccountAccessType"><span class="hs-identifier hs-type">AccountAccessType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | Specifies whether this workspace uses SAML 2.0, Amazon Web Services</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- Single Sign On, or both to authenticate users for using the Grafana</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- console within a workspace. For more information, see</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html User authentication in Amazon Managed Grafana&gt;.</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3AauthenticationProviders%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; [AuthenticationProviderTypes]
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AauthenticationProviders%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">authenticationProviders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes"><span class="hs-identifier hs-type">AuthenticationProviderTypes</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | If you specify @Service Managed@, Amazon Managed Grafana automatically</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- creates the IAM roles and provisions the permissions that the workspace</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- needs to use Amazon Web Services data sources and notification channels.</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- If you specify @CUSTOMER_MANAGED@, you will manage those roles and</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- permissions yourself. If you are creating this workspace in a member</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- account of an organization that is not a delegated administrator</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- account, and you want the workspace to access data sources in other</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- Amazon Web Services accounts in the organization, you must choose</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- @CUSTOMER_MANAGED@.</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels&gt;</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3ApermissionType%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; PermissionType
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3ApermissionType%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">permissionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.PermissionType.html#PermissionType"><span class="hs-identifier hs-type">PermissionType</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189121"><span id="local-6989586621679189123"><span class="annot"><span class="annottext">CreateWorkspace -&gt; CreateWorkspace -&gt; Bool
+(CreateWorkspace -&gt; CreateWorkspace -&gt; Bool)
+-&gt; (CreateWorkspace -&gt; CreateWorkspace -&gt; Bool)
+-&gt; Eq CreateWorkspace
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateWorkspace -&gt; CreateWorkspace -&gt; Bool
+$c/= :: CreateWorkspace -&gt; CreateWorkspace -&gt; Bool
+== :: CreateWorkspace -&gt; CreateWorkspace -&gt; Bool
+$c== :: CreateWorkspace -&gt; CreateWorkspace -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189114"><span id="local-6989586621679189116"><span id="local-6989586621679189118"><span class="annot"><span class="annottext">Int -&gt; CreateWorkspace -&gt; ShowS
+[CreateWorkspace] -&gt; ShowS
+CreateWorkspace -&gt; String
+(Int -&gt; CreateWorkspace -&gt; ShowS)
+-&gt; (CreateWorkspace -&gt; String)
+-&gt; ([CreateWorkspace] -&gt; ShowS)
+-&gt; Show CreateWorkspace
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateWorkspace] -&gt; ShowS
+$cshowList :: [CreateWorkspace] -&gt; ShowS
+show :: CreateWorkspace -&gt; String
+$cshow :: CreateWorkspace -&gt; String
+showsPrec :: Int -&gt; CreateWorkspace -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateWorkspace -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateWorkspace -&gt; Rep CreateWorkspace x)
+-&gt; (forall x. Rep CreateWorkspace x -&gt; CreateWorkspace)
+-&gt; Generic CreateWorkspace
+forall x. Rep CreateWorkspace x -&gt; CreateWorkspace
+forall x. CreateWorkspace -&gt; Rep CreateWorkspace x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateWorkspace x -&gt; CreateWorkspace
+$cfrom :: forall x. CreateWorkspace -&gt; Rep CreateWorkspace x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'CreateWorkspace' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'workspaceRoleArn', 'createWorkspace_workspaceRoleArn' - The workspace needs an IAM role that grants permissions to the Amazon</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Web Services resources that the workspace will view data from. If you</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- already have a role that you want to use, specify it here. If you omit</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- this field and you specify some Amazon Web Services resources in</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- role with the necessary permissions is automatically created.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'clientToken', 'createWorkspace_clientToken' - A unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'workspaceDataSources', 'createWorkspace_workspaceDataSources' - Specify the Amazon Web Services data sources that you want to be queried</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- in this workspace. Specifying these data sources here enables Amazon</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Managed Grafana to create IAM roles and permissions that allow Amazon</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Managed Grafana to read data from these sources. You must still add them</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- as data sources in the Grafana console in the workspace.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- If you don\'t specify a data source here, you can still add it as a data</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- source in the workspace console later. However, you will then have to</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- manually configure permissions for it.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'workspaceNotificationDestinations', 'createWorkspace_workspaceNotificationDestinations' - Specify the Amazon Web Services notification channels that you plan to</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- use in this workspace. Specifying these data sources here enables Amazon</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Managed Grafana to create IAM roles and permissions that allow Amazon</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Managed Grafana to use these channels.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'workspaceName', 'createWorkspace_workspaceName' - The name for the workspace. It does not have to be unique.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'organizationRoleName', 'createWorkspace_organizationRoleName' - The name of an IAM role that already exists to use with Organizations to</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- access Amazon Web Services data sources and notification channels in</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- other accounts in an organization.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'workspaceDescription', 'createWorkspace_workspaceDescription' - A description for the workspace. This is used only to help you identify</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- this workspace.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'stackSetName', 'createWorkspace_stackSetName' - The name of the CloudFormation stack set to use to generate IAM roles to</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- be used for this workspace.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'workspaceOrganizationalUnits', 'createWorkspace_workspaceOrganizationalUnits' - Specifies the organizational units that this workspace is allowed to use</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- data sources from, if this workspace is in an account that is part of an</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- organization.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'accountAccessType', 'createWorkspace_accountAccessType' - Specifies whether the workspace can access Amazon Web Services resources</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- in this Amazon Web Services account only, or whether it can also access</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Amazon Web Services resources in other accounts in the same</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- organization. If you specify @ORGANIZATION@, you must specify which</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- organizational units the workspace can access in the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- @workspaceOrganizationalUnits@ parameter.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'authenticationProviders', 'createWorkspace_authenticationProviders' - Specifies whether this workspace uses SAML 2.0, Amazon Web Services</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- Single Sign On, or both to authenticate users for using the Grafana</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- console within a workspace. For more information, see</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html User authentication in Amazon Managed Grafana&gt;.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'permissionType', 'createWorkspace_permissionType' - If you specify @Service Managed@, Amazon Managed Grafana automatically</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- creates the IAM roles and provisions the permissions that the workspace</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- needs to use Amazon Web Services data sources and notification channels.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- If you specify @CUSTOMER_MANAGED@, you will manage those roles and</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- permissions yourself. If you are creating this workspace in a member</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- account of an organization that is not a delegated administrator</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- account, and you want the workspace to access data sources in other</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Amazon Web Services accounts in the organization, you must choose</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- @CUSTOMER_MANAGED@.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels&gt;</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#newCreateWorkspace"><span class="hs-identifier hs-type">newCreateWorkspace</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-comment">-- | 'accountAccessType'</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.Types.AccountAccessType.html#AccountAccessType"><span class="hs-identifier hs-type">AccountAccessType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-comment">-- | 'permissionType'</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.Types.PermissionType.html#PermissionType"><span class="hs-identifier hs-type">PermissionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span>
+</span><span id="line-219"></span><span id="newCreateWorkspace"><span class="annot"><span class="annottext">newCreateWorkspace :: AccountAccessType -&gt; PermissionType -&gt; CreateWorkspace
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#newCreateWorkspace"><span class="hs-identifier hs-var hs-var">newCreateWorkspace</span></a></span></span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679189109"><span class="annot"><span class="annottext">AccountAccessType
+</span><a href="#local-6989586621679189109"><span class="hs-identifier hs-var">pAccountAccessType_</span></a></span></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679189108"><span class="annot"><span class="annottext">PermissionType
+</span><a href="#local-6989586621679189108"><span class="hs-identifier hs-var">pPermissionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">CreateWorkspace' :: Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe [DataSourceType]
+-&gt; Maybe [NotificationDestinationType]
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive [Text])
+-&gt; AccountAccessType
+-&gt; [AuthenticationProviderTypes]
+-&gt; PermissionType
+-&gt; CreateWorkspace
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workspaceRoleArn:CreateWorkspace' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceRoleArn%3ACreateWorkspace%27"><span class="hs-identifier hs-var">workspaceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:CreateWorkspace' :: Maybe Text
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AclientToken%3ACreateWorkspace%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">$sel:workspaceDataSources:CreateWorkspace' :: Maybe [DataSourceType]
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceDataSources%3ACreateWorkspace%27"><span class="hs-identifier hs-var">workspaceDataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSourceType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">$sel:workspaceNotificationDestinations:CreateWorkspace' :: Maybe [NotificationDestinationType]
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceNotificationDestinations%3ACreateWorkspace%27"><span class="hs-identifier hs-var">workspaceNotificationDestinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NotificationDestinationType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">$sel:workspaceName:CreateWorkspace' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceName%3ACreateWorkspace%27"><span class="hs-identifier hs-var">workspaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">$sel:organizationRoleName:CreateWorkspace' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AorganizationRoleName%3ACreateWorkspace%27"><span class="hs-identifier hs-var">organizationRoleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">$sel:workspaceDescription:CreateWorkspace' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceDescription%3ACreateWorkspace%27"><span class="hs-identifier hs-var">workspaceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackSetName:CreateWorkspace' :: Maybe Text
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AstackSetName%3ACreateWorkspace%27"><span class="hs-identifier hs-var">stackSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">$sel:workspaceOrganizationalUnits:CreateWorkspace' :: Maybe (Sensitive [Text])
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceOrganizationalUnits%3ACreateWorkspace%27"><span class="hs-identifier hs-var">workspaceOrganizationalUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive [Text])
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">$sel:accountAccessType:CreateWorkspace' :: AccountAccessType
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AaccountAccessType%3ACreateWorkspace%27"><span class="hs-identifier hs-var">accountAccessType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccountAccessType
+</span><a href="#local-6989586621679189109"><span class="hs-identifier hs-var">pAccountAccessType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">$sel:authenticationProviders:CreateWorkspace' :: [AuthenticationProviderTypes]
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AauthenticationProviders%3ACreateWorkspace%27"><span class="hs-identifier hs-var">authenticationProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AuthenticationProviderTypes]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">$sel:permissionType:CreateWorkspace' :: PermissionType
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3ApermissionType%3ACreateWorkspace%27"><span class="hs-identifier hs-var">permissionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PermissionType
+</span><a href="#local-6989586621679189108"><span class="hs-identifier hs-var">pPermissionType_</span></a></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The workspace needs an IAM role that grants permissions to the Amazon</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- Web Services resources that the workspace will view data from. If you</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- already have a role that you want to use, specify it here. If you omit</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- this field and you specify some Amazon Web Services resources in</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- role with the necessary permissions is automatically created.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceRoleArn"><span class="hs-identifier hs-type">createWorkspace_workspaceRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="createWorkspace_workspaceRoleArn"><span class="annot"><span class="annottext">createWorkspace_workspaceRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceRoleArn"><span class="hs-identifier hs-var hs-var">createWorkspace_workspaceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; Maybe (Sensitive Text))
+-&gt; (CreateWorkspace -&gt; Maybe (Sensitive Text) -&gt; CreateWorkspace)
+-&gt; Lens
+     CreateWorkspace
+     CreateWorkspace
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189105"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+workspaceRoleArn :: Maybe (Sensitive Text)
+$sel:workspaceRoleArn:CreateWorkspace' :: CreateWorkspace -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189105"><span class="hs-identifier hs-var hs-var">workspaceRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189105"><span class="hs-identifier hs-var">workspaceRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189104"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679189104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189103"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679189104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceRoleArn:CreateWorkspace' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceRoleArn%3ACreateWorkspace%27"><span class="hs-identifier hs-var">workspaceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; CreateWorkspace -&gt; f CreateWorkspace)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorkspace
+-&gt; f CreateWorkspace
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | A unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_clientToken"><span class="hs-identifier hs-type">createWorkspace_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="createWorkspace_clientToken"><span class="annot"><span class="annottext">createWorkspace_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_clientToken"><span class="hs-identifier hs-var hs-var">createWorkspace_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; Maybe Text)
+-&gt; (CreateWorkspace -&gt; Maybe Text -&gt; CreateWorkspace)
+-&gt; Lens CreateWorkspace CreateWorkspace (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189099"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateWorkspace' :: CreateWorkspace -&gt; Maybe Text
+</span><a href="#local-6989586621679189099"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189099"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189098"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679189098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189097"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679189098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateWorkspace' :: Maybe Text
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AclientToken%3ACreateWorkspace%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | Specify the Amazon Web Services data sources that you want to be queried</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- in this workspace. Specifying these data sources here enables Amazon</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- Managed Grafana to create IAM roles and permissions that allow Amazon</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- Managed Grafana to read data from these sources. You must still add them</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- as data sources in the Grafana console in the workspace.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- If you don\'t specify a data source here, you can still add it as a data</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- source in the workspace console later. However, you will then have to</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- manually configure permissions for it.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceDataSources"><span class="hs-identifier hs-type">createWorkspace_workspaceDataSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Grafana.Types.DataSourceType.html#DataSourceType"><span class="hs-identifier hs-type">DataSourceType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="createWorkspace_workspaceDataSources"><span class="annot"><span class="annottext">createWorkspace_workspaceDataSources :: (Maybe [DataSourceType] -&gt; f (Maybe [DataSourceType]))
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceDataSources"><span class="hs-identifier hs-var hs-var">createWorkspace_workspaceDataSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; Maybe [DataSourceType])
+-&gt; (CreateWorkspace -&gt; Maybe [DataSourceType] -&gt; CreateWorkspace)
+-&gt; Lens
+     CreateWorkspace
+     CreateWorkspace
+     (Maybe [DataSourceType])
+     (Maybe [DataSourceType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189096"><span class="annot"><span class="annottext">Maybe [DataSourceType]
+workspaceDataSources :: Maybe [DataSourceType]
+$sel:workspaceDataSources:CreateWorkspace' :: CreateWorkspace -&gt; Maybe [DataSourceType]
+</span><a href="#local-6989586621679189096"><span class="hs-identifier hs-var hs-var">workspaceDataSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSourceType]
+</span><a href="#local-6989586621679189096"><span class="hs-identifier hs-var">workspaceDataSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189095"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679189095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189094"><span class="annot"><span class="annottext">Maybe [DataSourceType]
+</span><a href="#local-6989586621679189094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679189095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceDataSources:CreateWorkspace' :: Maybe [DataSourceType]
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceDataSources%3ACreateWorkspace%27"><span class="hs-identifier hs-var">workspaceDataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSourceType]
+</span><a href="#local-6989586621679189094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DataSourceType] -&gt; f (Maybe [DataSourceType]))
+ -&gt; CreateWorkspace -&gt; f CreateWorkspace)
+-&gt; ((Maybe [DataSourceType] -&gt; f (Maybe [DataSourceType]))
+    -&gt; Maybe [DataSourceType] -&gt; f (Maybe [DataSourceType]))
+-&gt; (Maybe [DataSourceType] -&gt; f (Maybe [DataSourceType]))
+-&gt; CreateWorkspace
+-&gt; f CreateWorkspace
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DataSourceType] [DataSourceType] [DataSourceType] [DataSourceType]
+-&gt; Iso
+     (Maybe [DataSourceType])
+     (Maybe [DataSourceType])
+     (Maybe [DataSourceType])
+     (Maybe [DataSourceType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DataSourceType] [DataSourceType] [DataSourceType] [DataSourceType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | Specify the Amazon Web Services notification channels that you plan to</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- use in this workspace. Specifying these data sources here enables Amazon</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- Managed Grafana to create IAM roles and permissions that allow Amazon</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- Managed Grafana to use these channels.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceNotificationDestinations"><span class="hs-identifier hs-type">createWorkspace_workspaceNotificationDestinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Grafana.Types.NotificationDestinationType.html#NotificationDestinationType"><span class="hs-identifier hs-type">NotificationDestinationType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span id="createWorkspace_workspaceNotificationDestinations"><span class="annot"><span class="annottext">createWorkspace_workspaceNotificationDestinations :: (Maybe [NotificationDestinationType]
+ -&gt; f (Maybe [NotificationDestinationType]))
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceNotificationDestinations"><span class="hs-identifier hs-var hs-var">createWorkspace_workspaceNotificationDestinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; Maybe [NotificationDestinationType])
+-&gt; (CreateWorkspace
+    -&gt; Maybe [NotificationDestinationType] -&gt; CreateWorkspace)
+-&gt; Lens
+     CreateWorkspace
+     CreateWorkspace
+     (Maybe [NotificationDestinationType])
+     (Maybe [NotificationDestinationType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189092"><span class="annot"><span class="annottext">Maybe [NotificationDestinationType]
+workspaceNotificationDestinations :: Maybe [NotificationDestinationType]
+$sel:workspaceNotificationDestinations:CreateWorkspace' :: CreateWorkspace -&gt; Maybe [NotificationDestinationType]
+</span><a href="#local-6989586621679189092"><span class="hs-identifier hs-var hs-var">workspaceNotificationDestinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NotificationDestinationType]
+</span><a href="#local-6989586621679189092"><span class="hs-identifier hs-var">workspaceNotificationDestinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189091"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679189091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189090"><span class="annot"><span class="annottext">Maybe [NotificationDestinationType]
+</span><a href="#local-6989586621679189090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679189091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceNotificationDestinations:CreateWorkspace' :: Maybe [NotificationDestinationType]
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceNotificationDestinations%3ACreateWorkspace%27"><span class="hs-identifier hs-var">workspaceNotificationDestinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NotificationDestinationType]
+</span><a href="#local-6989586621679189090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NotificationDestinationType]
+  -&gt; f (Maybe [NotificationDestinationType]))
+ -&gt; CreateWorkspace -&gt; f CreateWorkspace)
+-&gt; ((Maybe [NotificationDestinationType]
+     -&gt; f (Maybe [NotificationDestinationType]))
+    -&gt; Maybe [NotificationDestinationType]
+    -&gt; f (Maybe [NotificationDestinationType]))
+-&gt; (Maybe [NotificationDestinationType]
+    -&gt; f (Maybe [NotificationDestinationType]))
+-&gt; CreateWorkspace
+-&gt; f CreateWorkspace
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NotificationDestinationType]
+  [NotificationDestinationType]
+  [NotificationDestinationType]
+  [NotificationDestinationType]
+-&gt; Iso
+     (Maybe [NotificationDestinationType])
+     (Maybe [NotificationDestinationType])
+     (Maybe [NotificationDestinationType])
+     (Maybe [NotificationDestinationType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NotificationDestinationType]
+  [NotificationDestinationType]
+  [NotificationDestinationType]
+  [NotificationDestinationType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | The name for the workspace. It does not have to be unique.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceName"><span class="hs-identifier hs-type">createWorkspace_workspaceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span id="createWorkspace_workspaceName"><span class="annot"><span class="annottext">createWorkspace_workspaceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceName"><span class="hs-identifier hs-var hs-var">createWorkspace_workspaceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; Maybe (Sensitive Text))
+-&gt; (CreateWorkspace -&gt; Maybe (Sensitive Text) -&gt; CreateWorkspace)
+-&gt; Lens
+     CreateWorkspace
+     CreateWorkspace
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189089"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+workspaceName :: Maybe (Sensitive Text)
+$sel:workspaceName:CreateWorkspace' :: CreateWorkspace -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189089"><span class="hs-identifier hs-var hs-var">workspaceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189089"><span class="hs-identifier hs-var">workspaceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189088"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679189088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189087"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679189088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceName:CreateWorkspace' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceName%3ACreateWorkspace%27"><span class="hs-identifier hs-var">workspaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; CreateWorkspace -&gt; f CreateWorkspace)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorkspace
+-&gt; f CreateWorkspace
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | The name of an IAM role that already exists to use with Organizations to</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- access Amazon Web Services data sources and notification channels in</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- other accounts in an organization.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_organizationRoleName"><span class="hs-identifier hs-type">createWorkspace_organizationRoleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="createWorkspace_organizationRoleName"><span class="annot"><span class="annottext">createWorkspace_organizationRoleName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_organizationRoleName"><span class="hs-identifier hs-var hs-var">createWorkspace_organizationRoleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; Maybe (Sensitive Text))
+-&gt; (CreateWorkspace -&gt; Maybe (Sensitive Text) -&gt; CreateWorkspace)
+-&gt; Lens
+     CreateWorkspace
+     CreateWorkspace
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189086"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+organizationRoleName :: Maybe (Sensitive Text)
+$sel:organizationRoleName:CreateWorkspace' :: CreateWorkspace -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189086"><span class="hs-identifier hs-var hs-var">organizationRoleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189086"><span class="hs-identifier hs-var">organizationRoleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189085"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679189085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189084"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679189085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationRoleName:CreateWorkspace' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AorganizationRoleName%3ACreateWorkspace%27"><span class="hs-identifier hs-var">organizationRoleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; CreateWorkspace -&gt; f CreateWorkspace)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorkspace
+-&gt; f CreateWorkspace
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | A description for the workspace. This is used only to help you identify</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- this workspace.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceDescription"><span class="hs-identifier hs-type">createWorkspace_workspaceDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span id="createWorkspace_workspaceDescription"><span class="annot"><span class="annottext">createWorkspace_workspaceDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceDescription"><span class="hs-identifier hs-var hs-var">createWorkspace_workspaceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; Maybe (Sensitive Text))
+-&gt; (CreateWorkspace -&gt; Maybe (Sensitive Text) -&gt; CreateWorkspace)
+-&gt; Lens
+     CreateWorkspace
+     CreateWorkspace
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189083"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+workspaceDescription :: Maybe (Sensitive Text)
+$sel:workspaceDescription:CreateWorkspace' :: CreateWorkspace -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189083"><span class="hs-identifier hs-var hs-var">workspaceDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189083"><span class="hs-identifier hs-var">workspaceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189082"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679189082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189081"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679189082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceDescription:CreateWorkspace' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceDescription%3ACreateWorkspace%27"><span class="hs-identifier hs-var">workspaceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; CreateWorkspace -&gt; f CreateWorkspace)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorkspace
+-&gt; f CreateWorkspace
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | The name of the CloudFormation stack set to use to generate IAM roles to</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- be used for this workspace.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_stackSetName"><span class="hs-identifier hs-type">createWorkspace_stackSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span id="createWorkspace_stackSetName"><span class="annot"><span class="annottext">createWorkspace_stackSetName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_stackSetName"><span class="hs-identifier hs-var hs-var">createWorkspace_stackSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; Maybe Text)
+-&gt; (CreateWorkspace -&gt; Maybe Text -&gt; CreateWorkspace)
+-&gt; Lens CreateWorkspace CreateWorkspace (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189080"><span class="annot"><span class="annottext">Maybe Text
+stackSetName :: Maybe Text
+$sel:stackSetName:CreateWorkspace' :: CreateWorkspace -&gt; Maybe Text
+</span><a href="#local-6989586621679189080"><span class="hs-identifier hs-var hs-var">stackSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189080"><span class="hs-identifier hs-var">stackSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189079"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679189079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189078"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679189079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackSetName:CreateWorkspace' :: Maybe Text
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AstackSetName%3ACreateWorkspace%27"><span class="hs-identifier hs-var">stackSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- | Specifies the organizational units that this workspace is allowed to use</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- data sources from, if this workspace is in an account that is part of an</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- organization.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceOrganizationalUnits"><span class="hs-identifier hs-type">createWorkspace_workspaceOrganizationalUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span id="createWorkspace_workspaceOrganizationalUnits"><span class="annot"><span class="annottext">createWorkspace_workspaceOrganizationalUnits :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_workspaceOrganizationalUnits"><span class="hs-identifier hs-var hs-var">createWorkspace_workspaceOrganizationalUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; Maybe (Sensitive [Text]))
+-&gt; (CreateWorkspace -&gt; Maybe (Sensitive [Text]) -&gt; CreateWorkspace)
+-&gt; Lens
+     CreateWorkspace
+     CreateWorkspace
+     (Maybe (Sensitive [Text]))
+     (Maybe (Sensitive [Text]))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189077"><span class="annot"><span class="annottext">Maybe (Sensitive [Text])
+workspaceOrganizationalUnits :: Maybe (Sensitive [Text])
+$sel:workspaceOrganizationalUnits:CreateWorkspace' :: CreateWorkspace -&gt; Maybe (Sensitive [Text])
+</span><a href="#local-6989586621679189077"><span class="hs-identifier hs-var hs-var">workspaceOrganizationalUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive [Text])
+</span><a href="#local-6989586621679189077"><span class="hs-identifier hs-var">workspaceOrganizationalUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189076"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679189076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189075"><span class="annot"><span class="annottext">Maybe (Sensitive [Text])
+</span><a href="#local-6989586621679189075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679189076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceOrganizationalUnits:CreateWorkspace' :: Maybe (Sensitive [Text])
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AworkspaceOrganizationalUnits%3ACreateWorkspace%27"><span class="hs-identifier hs-var">workspaceOrganizationalUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive [Text])
+</span><a href="#local-6989586621679189075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive [Text]) -&gt; f (Maybe (Sensitive [Text])))
+ -&gt; CreateWorkspace -&gt; f CreateWorkspace)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe (Sensitive [Text]) -&gt; f (Maybe (Sensitive [Text])))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateWorkspace
+-&gt; f CreateWorkspace
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive [Text]) (Sensitive [Text]) [Text] [Text]
+-&gt; Iso
+     (Maybe (Sensitive [Text]))
+     (Maybe (Sensitive [Text]))
+     (Maybe [Text])
+     (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AnIso (Sensitive [Text]) (Sensitive [Text]) [Text] [Text]
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive [Text]) (Sensitive [Text]) [Text] [Text]
+-&gt; (Exchange [Text] [Text] [Text] (Identity [Text])
+    -&gt; Exchange [Text] [Text] [Text] (Identity [Text]))
+-&gt; AnIso (Sensitive [Text]) (Sensitive [Text]) [Text] [Text]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Exchange [Text] [Text] [Text] (Identity [Text])
+-&gt; Exchange [Text] [Text] [Text] (Identity [Text])
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | Specifies whether the workspace can access Amazon Web Services resources</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- in this Amazon Web Services account only, or whether it can also access</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- Amazon Web Services resources in other accounts in the same</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- organization. If you specify @ORGANIZATION@, you must specify which</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- organizational units the workspace can access in the</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- @workspaceOrganizationalUnits@ parameter.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_accountAccessType"><span class="hs-identifier hs-type">createWorkspace_accountAccessType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.AccountAccessType.html#AccountAccessType"><span class="hs-identifier hs-type">AccountAccessType</span></a></span><span>
+</span><span id="line-304"></span><span id="createWorkspace_accountAccessType"><span class="annot"><span class="annottext">createWorkspace_accountAccessType :: (AccountAccessType -&gt; f AccountAccessType)
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_accountAccessType"><span class="hs-identifier hs-var hs-var">createWorkspace_accountAccessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; AccountAccessType)
+-&gt; (CreateWorkspace -&gt; AccountAccessType -&gt; CreateWorkspace)
+-&gt; Lens
+     CreateWorkspace CreateWorkspace AccountAccessType AccountAccessType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189074"><span class="annot"><span class="annottext">AccountAccessType
+accountAccessType :: AccountAccessType
+$sel:accountAccessType:CreateWorkspace' :: CreateWorkspace -&gt; AccountAccessType
+</span><a href="#local-6989586621679189074"><span class="hs-identifier hs-var hs-var">accountAccessType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAccessType
+</span><a href="#local-6989586621679189074"><span class="hs-identifier hs-var">accountAccessType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189073"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679189073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189072"><span class="annot"><span class="annottext">AccountAccessType
+</span><a href="#local-6989586621679189072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679189073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountAccessType:CreateWorkspace' :: AccountAccessType
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AaccountAccessType%3ACreateWorkspace%27"><span class="hs-identifier hs-var">accountAccessType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccountAccessType
+</span><a href="#local-6989586621679189072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | Specifies whether this workspace uses SAML 2.0, Amazon Web Services</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- Single Sign On, or both to authenticate users for using the Grafana</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- console within a workspace. For more information, see</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html User authentication in Amazon Managed Grafana&gt;.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_authenticationProviders"><span class="hs-identifier hs-type">createWorkspace_authenticationProviders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes"><span class="hs-identifier hs-type">AuthenticationProviderTypes</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-311"></span><span id="createWorkspace_authenticationProviders"><span class="annot"><span class="annottext">createWorkspace_authenticationProviders :: ([AuthenticationProviderTypes] -&gt; f [AuthenticationProviderTypes])
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_authenticationProviders"><span class="hs-identifier hs-var hs-var">createWorkspace_authenticationProviders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; [AuthenticationProviderTypes])
+-&gt; (CreateWorkspace
+    -&gt; [AuthenticationProviderTypes] -&gt; CreateWorkspace)
+-&gt; Lens
+     CreateWorkspace
+     CreateWorkspace
+     [AuthenticationProviderTypes]
+     [AuthenticationProviderTypes]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189071"><span class="annot"><span class="annottext">[AuthenticationProviderTypes]
+authenticationProviders :: [AuthenticationProviderTypes]
+$sel:authenticationProviders:CreateWorkspace' :: CreateWorkspace -&gt; [AuthenticationProviderTypes]
+</span><a href="#local-6989586621679189071"><span class="hs-identifier hs-var hs-var">authenticationProviders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AuthenticationProviderTypes]
+</span><a href="#local-6989586621679189071"><span class="hs-identifier hs-var">authenticationProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189070"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679189070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189069"><span class="annot"><span class="annottext">[AuthenticationProviderTypes]
+</span><a href="#local-6989586621679189069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679189070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationProviders:CreateWorkspace' :: [AuthenticationProviderTypes]
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AauthenticationProviders%3ACreateWorkspace%27"><span class="hs-identifier hs-var">authenticationProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AuthenticationProviderTypes]
+</span><a href="#local-6989586621679189069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AuthenticationProviderTypes] -&gt; f [AuthenticationProviderTypes])
+ -&gt; CreateWorkspace -&gt; f CreateWorkspace)
+-&gt; (([AuthenticationProviderTypes]
+     -&gt; f [AuthenticationProviderTypes])
+    -&gt; [AuthenticationProviderTypes]
+    -&gt; f [AuthenticationProviderTypes])
+-&gt; ([AuthenticationProviderTypes]
+    -&gt; f [AuthenticationProviderTypes])
+-&gt; CreateWorkspace
+-&gt; f CreateWorkspace
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AuthenticationProviderTypes] -&gt; f [AuthenticationProviderTypes])
+-&gt; [AuthenticationProviderTypes] -&gt; f [AuthenticationProviderTypes]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | If you specify @Service Managed@, Amazon Managed Grafana automatically</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- creates the IAM roles and provisions the permissions that the workspace</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- needs to use Amazon Web Services data sources and notification channels.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- If you specify @CUSTOMER_MANAGED@, you will manage those roles and</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- permissions yourself. If you are creating this workspace in a member</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- account of an organization that is not a delegated administrator</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- account, and you want the workspace to access data sources in other</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- Amazon Web Services accounts in the organization, you must choose</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- @CUSTOMER_MANAGED@.</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels&gt;</span><span>
+</span><span id="line-326"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_permissionType"><span class="hs-identifier hs-type">createWorkspace_permissionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.PermissionType.html#PermissionType"><span class="hs-identifier hs-type">PermissionType</span></a></span><span>
+</span><span id="line-327"></span><span id="createWorkspace_permissionType"><span class="annot"><span class="annottext">createWorkspace_permissionType :: (PermissionType -&gt; f PermissionType)
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspace_permissionType"><span class="hs-identifier hs-var hs-var">createWorkspace_permissionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; PermissionType)
+-&gt; (CreateWorkspace -&gt; PermissionType -&gt; CreateWorkspace)
+-&gt; Lens
+     CreateWorkspace CreateWorkspace PermissionType PermissionType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189068"><span class="annot"><span class="annottext">PermissionType
+permissionType :: PermissionType
+$sel:permissionType:CreateWorkspace' :: CreateWorkspace -&gt; PermissionType
+</span><a href="#local-6989586621679189068"><span class="hs-identifier hs-var hs-var">permissionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PermissionType
+</span><a href="#local-6989586621679189068"><span class="hs-identifier hs-var">permissionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189067"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679189067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189066"><span class="annot"><span class="annottext">PermissionType
+</span><a href="#local-6989586621679189066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679189067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionType:CreateWorkspace' :: PermissionType
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3ApermissionType%3ACreateWorkspace%27"><span class="hs-identifier hs-var">permissionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PermissionType
+</span><a href="#local-6989586621679189066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-330"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-331"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-332"></span><span>      </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span>
+</span><span id="line-333"></span><span>  </span><span id="local-6989586621679189062"><span class="annot"><span class="annottext">request :: CreateWorkspace -&gt; Request CreateWorkspace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateWorkspace -&gt; Request CreateWorkspace
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Grafana.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-334"></span><span>  </span><span id="local-6989586621679189058"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateWorkspace
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateWorkspace)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-335"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateWorkspace))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateWorkspace
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateWorkspace)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-336"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679189055"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189055"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679189054"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679189054"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679189053"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189053"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-337"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; WorkspaceDescription -&gt; CreateWorkspaceResponse
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-var">CreateWorkspaceResponse'</span></a></span><span>
+</span><span id="line-338"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; WorkspaceDescription -&gt; CreateWorkspaceResponse)
+-&gt; Either String Int
+-&gt; Either String (WorkspaceDescription -&gt; CreateWorkspaceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189055"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>            </span><span class="annot"><span class="annottext">Either String (WorkspaceDescription -&gt; CreateWorkspaceResponse)
+-&gt; Either String WorkspaceDescription
+-&gt; Either String CreateWorkspaceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String WorkspaceDescription
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workspace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189045"><span id="local-6989586621679189047"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span></span></span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span></span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-347"></span><span>  </span><span id="local-6989586621679189038"><span class="annot"><span class="annottext">toHeaders :: CreateWorkspace -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-348"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateWorkspace -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-349"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-350"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-351"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-352"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-353"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-355"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span>
+</span><span id="line-357"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189028"><span id="local-6989586621679189030"><span id="local-6989586621679189032"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-358"></span><span>  </span><span id="local-6989586621679189026"><span class="annot"><span class="annottext">toJSON :: CreateWorkspace -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189013"><span id="local-6989586621679189014"><span id="local-6989586621679189015"><span id="local-6989586621679189016"><span id="local-6989586621679189017"><span id="local-6989586621679189018"><span id="local-6989586621679189019"><span id="local-6989586621679189020"><span id="local-6989586621679189021"><span id="local-6989586621679189022"><span id="local-6989586621679189023"><span id="local-6989586621679189024"><span class="annot"><span class="annottext">[AuthenticationProviderTypes]
+Maybe [DataSourceType]
+Maybe [NotificationDestinationType]
+Maybe Text
+Maybe (Sensitive [Text])
+Maybe (Sensitive Text)
+AccountAccessType
+PermissionType
+permissionType :: PermissionType
+authenticationProviders :: [AuthenticationProviderTypes]
+accountAccessType :: AccountAccessType
+workspaceOrganizationalUnits :: Maybe (Sensitive [Text])
+stackSetName :: Maybe Text
+workspaceDescription :: Maybe (Sensitive Text)
+organizationRoleName :: Maybe (Sensitive Text)
+workspaceName :: Maybe (Sensitive Text)
+workspaceNotificationDestinations :: Maybe [NotificationDestinationType]
+workspaceDataSources :: Maybe [DataSourceType]
+clientToken :: Maybe Text
+workspaceRoleArn :: Maybe (Sensitive Text)
+$sel:permissionType:CreateWorkspace' :: CreateWorkspace -&gt; PermissionType
+$sel:authenticationProviders:CreateWorkspace' :: CreateWorkspace -&gt; [AuthenticationProviderTypes]
+$sel:accountAccessType:CreateWorkspace' :: CreateWorkspace -&gt; AccountAccessType
+$sel:workspaceOrganizationalUnits:CreateWorkspace' :: CreateWorkspace -&gt; Maybe (Sensitive [Text])
+$sel:stackSetName:CreateWorkspace' :: CreateWorkspace -&gt; Maybe Text
+$sel:workspaceDescription:CreateWorkspace' :: CreateWorkspace -&gt; Maybe (Sensitive Text)
+$sel:organizationRoleName:CreateWorkspace' :: CreateWorkspace -&gt; Maybe (Sensitive Text)
+$sel:workspaceName:CreateWorkspace' :: CreateWorkspace -&gt; Maybe (Sensitive Text)
+$sel:workspaceNotificationDestinations:CreateWorkspace' :: CreateWorkspace -&gt; Maybe [NotificationDestinationType]
+$sel:workspaceDataSources:CreateWorkspace' :: CreateWorkspace -&gt; Maybe [DataSourceType]
+$sel:clientToken:CreateWorkspace' :: CreateWorkspace -&gt; Maybe Text
+$sel:workspaceRoleArn:CreateWorkspace' :: CreateWorkspace -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189013"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-359"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-360"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-361"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workspaceRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-362"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189024"><span class="hs-identifier hs-var">workspaceRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-363"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189023"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workspaceDataSources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DataSourceType] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-365"></span><span>              </span><span class="annot"><span class="annottext">([DataSourceType] -&gt; Pair) -&gt; Maybe [DataSourceType] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DataSourceType]
+</span><a href="#local-6989586621679189022"><span class="hs-identifier hs-var">workspaceDataSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workspaceNotificationDestinations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [NotificationDestinationType] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-367"></span><span>              </span><span class="annot"><span class="annottext">([NotificationDestinationType] -&gt; Pair)
+-&gt; Maybe [NotificationDestinationType] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NotificationDestinationType]
+</span><a href="#local-6989586621679189021"><span class="hs-identifier hs-var">workspaceNotificationDestinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workspaceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189020"><span class="hs-identifier hs-var">workspaceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;organizationRoleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-370"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189019"><span class="hs-identifier hs-var">organizationRoleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-371"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workspaceDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-372"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679189018"><span class="hs-identifier hs-var">workspaceDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-373"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stackSetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189017"><span class="hs-identifier hs-var">stackSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-374"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workspaceOrganizationalUnits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-375"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive [Text] -&gt; Pair)
+-&gt; Maybe (Sensitive [Text]) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive [Text])
+</span><a href="#local-6989586621679189016"><span class="hs-identifier hs-var">workspaceOrganizationalUnits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-377"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;accountAccessType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccountAccessType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AccountAccessType
+</span><a href="#local-6989586621679189015"><span class="hs-identifier hs-var">accountAccessType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-379"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authenticationProviders&quot;</span></span><span>
+</span><span id="line-380"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [AuthenticationProviderTypes] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[AuthenticationProviderTypes]
+</span><a href="#local-6989586621679189014"><span class="hs-identifier hs-var">authenticationProviders</span></a></span><span>
+</span><span id="line-381"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-382"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-383"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;permissionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PermissionType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PermissionType
+</span><a href="#local-6989586621679189013"><span class="hs-identifier hs-var">permissionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-384"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-385"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-386"></span><span>
+</span><span id="line-387"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-388"></span><span>  </span><span id="local-6989586621679189007"><span class="annot"><span class="annottext">toPath :: CreateWorkspace -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateWorkspace -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/workspaces&quot;</span></span><span>
+</span><span id="line-389"></span><span>
+</span><span id="line-390"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-391"></span><span>  </span><span id="local-6989586621679189003"><span class="annot"><span class="annottext">toQuery :: CreateWorkspace -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateWorkspace -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-392"></span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- | /See:/ 'newCreateWorkspaceResponse' smart constructor.</span><span>
+</span><span id="line-394"></span><span id="local-6989586621679189000"><span id="local-6989586621679189001"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorkspaceResponse"><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-var">CreateWorkspaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorkspaceResponse%27"><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-var">CreateWorkspaceResponse'</span></a></span></span><span>
+</span><span id="line-395"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-396"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateWorkspaceResponse%27"><span class="annot"><span class="annottext">CreateWorkspaceResponse -&gt; Int
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AhttpStatus%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-397"></span><span>    </span><span class="hs-comment">-- | A structure containing data about the workspace that was created.</span><span>
+</span><span id="line-398"></span><span>    </span><span id="%24sel%3Aworkspace%3ACreateWorkspaceResponse%27"><span class="annot"><span class="annottext">CreateWorkspaceResponse -&gt; WorkspaceDescription
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3Aworkspace%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var hs-var">workspace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span>
+</span><span id="line-399"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-400"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188994"><span id="local-6989586621679188996"><span class="annot"><span class="annottext">CreateWorkspaceResponse -&gt; CreateWorkspaceResponse -&gt; Bool
+(CreateWorkspaceResponse -&gt; CreateWorkspaceResponse -&gt; Bool)
+-&gt; (CreateWorkspaceResponse -&gt; CreateWorkspaceResponse -&gt; Bool)
+-&gt; Eq CreateWorkspaceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateWorkspaceResponse -&gt; CreateWorkspaceResponse -&gt; Bool
+$c/= :: CreateWorkspaceResponse -&gt; CreateWorkspaceResponse -&gt; Bool
+== :: CreateWorkspaceResponse -&gt; CreateWorkspaceResponse -&gt; Bool
+$c== :: CreateWorkspaceResponse -&gt; CreateWorkspaceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188988"><span id="local-6989586621679188990"><span id="local-6989586621679188992"><span class="annot"><span class="annottext">Int -&gt; CreateWorkspaceResponse -&gt; ShowS
+[CreateWorkspaceResponse] -&gt; ShowS
+CreateWorkspaceResponse -&gt; String
+(Int -&gt; CreateWorkspaceResponse -&gt; ShowS)
+-&gt; (CreateWorkspaceResponse -&gt; String)
+-&gt; ([CreateWorkspaceResponse] -&gt; ShowS)
+-&gt; Show CreateWorkspaceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateWorkspaceResponse] -&gt; ShowS
+$cshowList :: [CreateWorkspaceResponse] -&gt; ShowS
+show :: CreateWorkspaceResponse -&gt; String
+$cshow :: CreateWorkspaceResponse -&gt; String
+showsPrec :: Int -&gt; CreateWorkspaceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateWorkspaceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateWorkspaceResponse -&gt; Rep CreateWorkspaceResponse x)
+-&gt; (forall x.
+    Rep CreateWorkspaceResponse x -&gt; CreateWorkspaceResponse)
+-&gt; Generic CreateWorkspaceResponse
+forall x. Rep CreateWorkspaceResponse x -&gt; CreateWorkspaceResponse
+forall x. CreateWorkspaceResponse -&gt; Rep CreateWorkspaceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateWorkspaceResponse x -&gt; CreateWorkspaceResponse
+$cfrom :: forall x. CreateWorkspaceResponse -&gt; Rep CreateWorkspaceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-401"></span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- Create a value of 'CreateWorkspaceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-406"></span><span class="hs-comment">--</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-409"></span><span class="hs-comment">--</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- 'httpStatus', 'createWorkspaceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-411"></span><span class="hs-comment">--</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- 'workspace', 'createWorkspaceResponse_workspace' - A structure containing data about the workspace that was created.</span><span>
+</span><span id="line-413"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#newCreateWorkspaceResponse"><span class="hs-identifier hs-type">newCreateWorkspaceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-414"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-415"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-416"></span><span>  </span><span class="hs-comment">-- | 'workspace'</span><span>
+</span><span id="line-417"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-418"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span>
+</span><span id="line-419"></span><span id="newCreateWorkspaceResponse"><span class="annot"><span class="annottext">newCreateWorkspaceResponse :: Int -&gt; WorkspaceDescription -&gt; CreateWorkspaceResponse
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#newCreateWorkspaceResponse"><span class="hs-identifier hs-var hs-var">newCreateWorkspaceResponse</span></a></span></span><span> </span><span id="local-6989586621679188985"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188985"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679188984"><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679188984"><span class="hs-identifier hs-var">pWorkspace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-420"></span><span>  </span><span class="annot"><span class="annottext">CreateWorkspaceResponse' :: Int -&gt; WorkspaceDescription -&gt; CreateWorkspaceResponse
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span>
+</span><span id="line-421"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWorkspaceResponse' :: Int
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AhttpStatus%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188985"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-422"></span><span>      </span><span class="annot"><span class="annottext">$sel:workspace:CreateWorkspaceResponse' :: WorkspaceDescription
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3Aworkspace%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var">workspace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679188984"><span class="hs-identifier hs-var">pWorkspace_</span></a></span><span>
+</span><span id="line-423"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-424"></span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-426"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspaceResponse_httpStatus"><span class="hs-identifier hs-type">createWorkspaceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-427"></span><span id="createWorkspaceResponse_httpStatus"><span class="annot"><span class="annottext">createWorkspaceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateWorkspaceResponse -&gt; f CreateWorkspaceResponse
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspaceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createWorkspaceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspaceResponse -&gt; Int)
+-&gt; (CreateWorkspaceResponse -&gt; Int -&gt; CreateWorkspaceResponse)
+-&gt; Lens CreateWorkspaceResponse CreateWorkspaceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188983"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateWorkspaceResponse' :: CreateWorkspaceResponse -&gt; Int
+</span><a href="#local-6989586621679188983"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188983"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188982"><span class="annot"><span class="annottext">s :: CreateWorkspaceResponse
+</span><a href="#local-6989586621679188982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188981"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspaceResponse
+</span><a href="#local-6989586621679188982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWorkspaceResponse' :: Int
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3AhttpStatus%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-428"></span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- | A structure containing data about the workspace that was created.</span><span>
+</span><span id="line-430"></span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspaceResponse_workspace"><span class="hs-identifier hs-type">createWorkspaceResponse_workspace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span>
+</span><span id="line-431"></span><span id="createWorkspaceResponse_workspace"><span class="annot"><span class="annottext">createWorkspaceResponse_workspace :: (WorkspaceDescription -&gt; f WorkspaceDescription)
+-&gt; CreateWorkspaceResponse -&gt; f CreateWorkspaceResponse
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#createWorkspaceResponse_workspace"><span class="hs-identifier hs-var hs-var">createWorkspaceResponse_workspace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspaceResponse -&gt; WorkspaceDescription)
+-&gt; (CreateWorkspaceResponse
+    -&gt; WorkspaceDescription -&gt; CreateWorkspaceResponse)
+-&gt; Lens
+     CreateWorkspaceResponse
+     CreateWorkspaceResponse
+     WorkspaceDescription
+     WorkspaceDescription
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188980"><span class="annot"><span class="annottext">WorkspaceDescription
+workspace :: WorkspaceDescription
+$sel:workspace:CreateWorkspaceResponse' :: CreateWorkspaceResponse -&gt; WorkspaceDescription
+</span><a href="#local-6989586621679188980"><span class="hs-identifier hs-var hs-var">workspace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679188980"><span class="hs-identifier hs-var">workspace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188979"><span class="annot"><span class="annottext">s :: CreateWorkspaceResponse
+</span><a href="#local-6989586621679188979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188978"><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679188978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspaceResponse
+</span><a href="#local-6989586621679188979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspace:CreateWorkspaceResponse' :: WorkspaceDescription
+</span><a href="Network.AWS.Grafana.CreateWorkspace.html#%24sel%3Aworkspace%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var">workspace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679188978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-432"></span><span>
+</span><span id="line-433"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188976"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span></span><span>
+</span><span id="line-434"></span></pre></body></html>

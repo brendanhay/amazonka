@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeGuruReviewer.Types.CodeArtifacts</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeGuruReviewer.Types.CodeArtifacts</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Code artifacts are source code artifacts and build artifacts used in a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- repository analysis or a pull request review.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- -   Source code artifacts are source code files in a Git repository that</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--     are compressed into a .zip file.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   Build artifacts are .jar or .class files that are compressed in a</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     .zip file.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newCodeArtifacts' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679197637"><span id="local-6989586621679197638"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeArtifacts"><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts"><span class="hs-identifier hs-var">CodeArtifacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeArtifacts%27"><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts%27"><span class="hs-identifier hs-var">CodeArtifacts'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The S3 object key for a build artifacts .zip file that contains .jar or</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- .class files. This is required for a code review with security analysis.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/code-review-security.html Create code reviews with security analysis&gt;</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- in the /Amazon CodeGuru Reviewer User Guide/.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AbuildArtifactsObjectKey%3ACodeArtifacts%27"><span class="annot"><span class="annottext">CodeArtifacts -&gt; Maybe Text
+</span><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#%24sel%3AbuildArtifactsObjectKey%3ACodeArtifacts%27"><span class="hs-identifier hs-var hs-var">buildArtifactsObjectKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The S3 object key for a source code .zip file. This is required for all</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- code reviews.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AsourceCodeArtifactsObjectKey%3ACodeArtifacts%27"><span class="annot"><span class="annottext">CodeArtifacts -&gt; Text
+</span><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#%24sel%3AsourceCodeArtifactsObjectKey%3ACodeArtifacts%27"><span class="hs-identifier hs-var hs-var">sourceCodeArtifactsObjectKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197630"><span id="local-6989586621679197632"><span class="annot"><span class="annottext">CodeArtifacts -&gt; CodeArtifacts -&gt; Bool
+(CodeArtifacts -&gt; CodeArtifacts -&gt; Bool)
+-&gt; (CodeArtifacts -&gt; CodeArtifacts -&gt; Bool) -&gt; Eq CodeArtifacts
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CodeArtifacts -&gt; CodeArtifacts -&gt; Bool
+$c/= :: CodeArtifacts -&gt; CodeArtifacts -&gt; Bool
+== :: CodeArtifacts -&gt; CodeArtifacts -&gt; Bool
+$c== :: CodeArtifacts -&gt; CodeArtifacts -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197621"><span id="local-6989586621679197623"><span id="local-6989586621679197625"><span id="local-6989586621679197627"><span class="annot"><span class="annottext">ReadPrec [CodeArtifacts]
+ReadPrec CodeArtifacts
+Int -&gt; ReadS CodeArtifacts
+ReadS [CodeArtifacts]
+(Int -&gt; ReadS CodeArtifacts)
+-&gt; ReadS [CodeArtifacts]
+-&gt; ReadPrec CodeArtifacts
+-&gt; ReadPrec [CodeArtifacts]
+-&gt; Read CodeArtifacts
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CodeArtifacts]
+$creadListPrec :: ReadPrec [CodeArtifacts]
+readPrec :: ReadPrec CodeArtifacts
+$creadPrec :: ReadPrec CodeArtifacts
+readList :: ReadS [CodeArtifacts]
+$creadList :: ReadS [CodeArtifacts]
+readsPrec :: Int -&gt; ReadS CodeArtifacts
+$creadsPrec :: Int -&gt; ReadS CodeArtifacts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197614"><span id="local-6989586621679197616"><span id="local-6989586621679197618"><span class="annot"><span class="annottext">Int -&gt; CodeArtifacts -&gt; ShowS
+[CodeArtifacts] -&gt; ShowS
+CodeArtifacts -&gt; String
+(Int -&gt; CodeArtifacts -&gt; ShowS)
+-&gt; (CodeArtifacts -&gt; String)
+-&gt; ([CodeArtifacts] -&gt; ShowS)
+-&gt; Show CodeArtifacts
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CodeArtifacts] -&gt; ShowS
+$cshowList :: [CodeArtifacts] -&gt; ShowS
+show :: CodeArtifacts -&gt; String
+$cshow :: CodeArtifacts -&gt; String
+showsPrec :: Int -&gt; CodeArtifacts -&gt; ShowS
+$cshowsPrec :: Int -&gt; CodeArtifacts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CodeArtifacts -&gt; Rep CodeArtifacts x)
+-&gt; (forall x. Rep CodeArtifacts x -&gt; CodeArtifacts)
+-&gt; Generic CodeArtifacts
+forall x. Rep CodeArtifacts x -&gt; CodeArtifacts
+forall x. CodeArtifacts -&gt; Rep CodeArtifacts x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CodeArtifacts x -&gt; CodeArtifacts
+$cfrom :: forall x. CodeArtifacts -&gt; Rep CodeArtifacts x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'CodeArtifacts' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'buildArtifactsObjectKey', 'codeArtifacts_buildArtifactsObjectKey' - The S3 object key for a build artifacts .zip file that contains .jar or</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- .class files. This is required for a code review with security analysis.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/code-review-security.html Create code reviews with security analysis&gt;</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- in the /Amazon CodeGuru Reviewer User Guide/.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'sourceCodeArtifactsObjectKey', 'codeArtifacts_sourceCodeArtifactsObjectKey' - The S3 object key for a source code .zip file. This is required for all</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- code reviews.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#newCodeArtifacts"><span class="hs-identifier hs-type">newCodeArtifacts</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'sourceCodeArtifactsObjectKey'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts"><span class="hs-identifier hs-type">CodeArtifacts</span></a></span><span>
+</span><span id="line-69"></span><span id="newCodeArtifacts"><span class="annot"><span class="annottext">newCodeArtifacts :: Text -&gt; CodeArtifacts
+</span><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#newCodeArtifacts"><span class="hs-identifier hs-var hs-var">newCodeArtifacts</span></a></span></span><span> </span><span id="local-6989586621679197608"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197608"><span class="hs-identifier hs-var">pSourceCodeArtifactsObjectKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">CodeArtifacts' :: Maybe Text -&gt; Text -&gt; CodeArtifacts
+</span><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts%27"><span class="hs-identifier hs-type">CodeArtifacts'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:buildArtifactsObjectKey:CodeArtifacts' :: Maybe Text
+</span><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#%24sel%3AbuildArtifactsObjectKey%3ACodeArtifacts%27"><span class="hs-identifier hs-var">buildArtifactsObjectKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceCodeArtifactsObjectKey:CodeArtifacts' :: Text
+</span><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#%24sel%3AsourceCodeArtifactsObjectKey%3ACodeArtifacts%27"><span class="hs-identifier hs-var">sourceCodeArtifactsObjectKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197608"><span class="hs-identifier hs-var">pSourceCodeArtifactsObjectKey_</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The S3 object key for a build artifacts .zip file that contains .jar or</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- .class files. This is required for a code review with security analysis.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/code-review-security.html Create code reviews with security analysis&gt;</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- in the /Amazon CodeGuru Reviewer User Guide/.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#codeArtifacts_buildArtifactsObjectKey"><span class="hs-identifier hs-type">codeArtifacts_buildArtifactsObjectKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts"><span class="hs-identifier hs-type">CodeArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="codeArtifacts_buildArtifactsObjectKey"><span class="annot"><span class="annottext">codeArtifacts_buildArtifactsObjectKey :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CodeArtifacts -&gt; f CodeArtifacts
+</span><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#codeArtifacts_buildArtifactsObjectKey"><span class="hs-identifier hs-var hs-var">codeArtifacts_buildArtifactsObjectKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeArtifacts -&gt; Maybe Text)
+-&gt; (CodeArtifacts -&gt; Maybe Text -&gt; CodeArtifacts)
+-&gt; Lens CodeArtifacts CodeArtifacts (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts%27"><span class="hs-identifier hs-type">CodeArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197604"><span class="annot"><span class="annottext">Maybe Text
+buildArtifactsObjectKey :: Maybe Text
+$sel:buildArtifactsObjectKey:CodeArtifacts' :: CodeArtifacts -&gt; Maybe Text
+</span><a href="#local-6989586621679197604"><span class="hs-identifier hs-var hs-var">buildArtifactsObjectKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197604"><span class="hs-identifier hs-var">buildArtifactsObjectKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197603"><span class="annot"><span class="annottext">s :: CodeArtifacts
+</span><a href="#local-6989586621679197603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts%27"><span class="hs-identifier hs-type">CodeArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197602"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeArtifacts
+</span><a href="#local-6989586621679197603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildArtifactsObjectKey:CodeArtifacts' :: Maybe Text
+</span><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#%24sel%3AbuildArtifactsObjectKey%3ACodeArtifacts%27"><span class="hs-identifier hs-var">buildArtifactsObjectKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts"><span class="hs-identifier hs-type">CodeArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The S3 object key for a source code .zip file. This is required for all</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- code reviews.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#codeArtifacts_sourceCodeArtifactsObjectKey"><span class="hs-identifier hs-type">codeArtifacts_sourceCodeArtifactsObjectKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts"><span class="hs-identifier hs-type">CodeArtifacts</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="codeArtifacts_sourceCodeArtifactsObjectKey"><span class="annot"><span class="annottext">codeArtifacts_sourceCodeArtifactsObjectKey :: (Text -&gt; f Text) -&gt; CodeArtifacts -&gt; f CodeArtifacts
+</span><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#codeArtifacts_sourceCodeArtifactsObjectKey"><span class="hs-identifier hs-var hs-var">codeArtifacts_sourceCodeArtifactsObjectKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeArtifacts -&gt; Text)
+-&gt; (CodeArtifacts -&gt; Text -&gt; CodeArtifacts)
+-&gt; Lens CodeArtifacts CodeArtifacts Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts%27"><span class="hs-identifier hs-type">CodeArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197600"><span class="annot"><span class="annottext">Text
+sourceCodeArtifactsObjectKey :: Text
+$sel:sourceCodeArtifactsObjectKey:CodeArtifacts' :: CodeArtifacts -&gt; Text
+</span><a href="#local-6989586621679197600"><span class="hs-identifier hs-var hs-var">sourceCodeArtifactsObjectKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197600"><span class="hs-identifier hs-var">sourceCodeArtifactsObjectKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197599"><span class="annot"><span class="annottext">s :: CodeArtifacts
+</span><a href="#local-6989586621679197599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts%27"><span class="hs-identifier hs-type">CodeArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197598"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeArtifacts
+</span><a href="#local-6989586621679197599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCodeArtifactsObjectKey:CodeArtifacts' :: Text
+</span><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#%24sel%3AsourceCodeArtifactsObjectKey%3ACodeArtifacts%27"><span class="hs-identifier hs-var">sourceCodeArtifactsObjectKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts"><span class="hs-identifier hs-type">CodeArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197595"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts"><span class="hs-identifier hs-type">CodeArtifacts</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679197593"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CodeArtifacts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CodeArtifacts)
+-&gt; Value
+-&gt; Parser CodeArtifacts
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CodeArtifacts&quot;</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197590"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197590"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; CodeArtifacts
+</span><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts%27"><span class="hs-identifier hs-var">CodeArtifacts'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; CodeArtifacts)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; CodeArtifacts)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197590"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BuildArtifactsObjectKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; CodeArtifacts)
+-&gt; Parser Text -&gt; Parser CodeArtifacts
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197590"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceCodeArtifactsObjectKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197583"><span id="local-6989586621679197585"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts"><span class="hs-identifier hs-type">CodeArtifacts</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197580"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts"><span class="hs-identifier hs-type">CodeArtifacts</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197572"><span id="local-6989586621679197574"><span id="local-6989586621679197576"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts"><span class="hs-identifier hs-type">CodeArtifacts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679197570"><span class="annot"><span class="annottext">toJSON :: CodeArtifacts -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.html#CodeArtifacts%27"><span class="hs-identifier hs-type">CodeArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197567"><span id="local-6989586621679197568"><span class="annot"><span class="annottext">Maybe Text
+Text
+sourceCodeArtifactsObjectKey :: Text
+buildArtifactsObjectKey :: Maybe Text
+$sel:sourceCodeArtifactsObjectKey:CodeArtifacts' :: CodeArtifacts -&gt; Text
+$sel:buildArtifactsObjectKey:CodeArtifacts' :: CodeArtifacts -&gt; Maybe Text
+</span><a href="#local-6989586621679197567"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BuildArtifactsObjectKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197568"><span class="hs-identifier hs-var">buildArtifactsObjectKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceCodeArtifactsObjectKey&quot;</span></span><span>
+</span><span id="line-112"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197567"><span class="hs-identifier hs-var">sourceCodeArtifactsObjectKey</span></a></span><span>
+</span><span id="line-113"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span></pre></body></html>

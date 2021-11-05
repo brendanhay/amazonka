@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621681102329"><span id="local-6989586621681102330"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EbsOptimizedSupport"><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport"><span class="hs-identifier hs-var">EbsOptimizedSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EbsOptimizedSupport%27"><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport%27"><span class="hs-identifier hs-var">EbsOptimizedSupport'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681102338"><span id="local-6989586621681102339"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EbsOptimizedSupport"><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport"><span class="hs-identifier hs-var">EbsOptimizedSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EbsOptimizedSupport%27"><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport%27"><span class="hs-identifier hs-var">EbsOptimizedSupport'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEbsOptimizedSupport"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; Text
 </span><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#fromEbsOptimizedSupport"><span class="hs-identifier hs-var hs-var">fromEbsOptimizedSupport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681102321"><span id="local-6989586621681102323"><span id="local-6989586621681102325"><span class="annot"><span class="annottext">Int -&gt; EbsOptimizedSupport -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681102330"><span id="local-6989586621681102332"><span id="local-6989586621681102334"><span class="annot"><span class="annottext">Int -&gt; EbsOptimizedSupport -&gt; ShowS
 [EbsOptimizedSupport] -&gt; ShowS
 EbsOptimizedSupport -&gt; String
 (Int -&gt; EbsOptimizedSupport -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: EbsOptimizedSupport -&gt; String
 showsPrec :: Int -&gt; EbsOptimizedSupport -&gt; ShowS
 $cshowsPrec :: Int -&gt; EbsOptimizedSupport -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681102312"><span id="local-6989586621681102314"><span id="local-6989586621681102316"><span id="local-6989586621681102318"><span class="annot"><span class="annottext">ReadPrec [EbsOptimizedSupport]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681102321"><span id="local-6989586621681102323"><span id="local-6989586621681102325"><span id="local-6989586621681102327"><span class="annot"><span class="annottext">ReadPrec [EbsOptimizedSupport]
 ReadPrec EbsOptimizedSupport
 Int -&gt; ReadS EbsOptimizedSupport
 ReadS [EbsOptimizedSupport]
@@ -74,7 +74,7 @@ $creadList :: ReadS [EbsOptimizedSupport]
 readsPrec :: Int -&gt; ReadS EbsOptimizedSupport
 $creadsPrec :: Int -&gt; ReadS EbsOptimizedSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681102307"><span id="local-6989586621681102309"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681102316"><span id="local-6989586621681102318"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
 (EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool)
 -&gt; (EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool)
 -&gt; Eq EbsOptimizedSupport
@@ -84,7 +84,7 @@ $c/= :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
 == :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
 $c== :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681102291"><span id="local-6989586621681102293"><span id="local-6989586621681102295"><span id="local-6989586621681102297"><span id="local-6989586621681102299"><span id="local-6989586621681102301"><span id="local-6989586621681102303"><span class="annot"><span class="annottext">Eq EbsOptimizedSupport
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681102300"><span id="local-6989586621681102302"><span id="local-6989586621681102304"><span id="local-6989586621681102306"><span id="local-6989586621681102308"><span id="local-6989586621681102310"><span id="local-6989586621681102312"><span class="annot"><span class="annottext">Eq EbsOptimizedSupport
 Eq EbsOptimizedSupport
 -&gt; (EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Ordering)
 -&gt; (EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. EbsOptimizedSupport -&gt; Rep EbsOptimizedSupport x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681102283"><span id="local-6989586621681102285"><span class="annot"><span class="annottext">Int -&gt; EbsOptimizedSupport -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681102292"><span id="local-6989586621681102294"><span class="annot"><span class="annottext">Int -&gt; EbsOptimizedSupport -&gt; Int
 EbsOptimizedSupport -&gt; Int
 (Int -&gt; EbsOptimizedSupport -&gt; Int)
 -&gt; (EbsOptimizedSupport -&gt; Int) -&gt; Hashable EbsOptimizedSupport
@@ -147,53 +147,53 @@ $chash :: EbsOptimizedSupport -&gt; Int
 hashWithSalt :: Int -&gt; EbsOptimizedSupport -&gt; Int
 $chashWithSalt :: Int -&gt; EbsOptimizedSupport -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681102280"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681102289"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; ()
 (EbsOptimizedSupport -&gt; ()) -&gt; NFData EbsOptimizedSupport
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EbsOptimizedSupport -&gt; ()
 $crnf :: EbsOptimizedSupport -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681102277"><span class="annot"><span class="annottext">Text -&gt; Either String EbsOptimizedSupport
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681102286"><span class="annot"><span class="annottext">Text -&gt; Either String EbsOptimizedSupport
 (Text -&gt; Either String EbsOptimizedSupport)
 -&gt; FromText EbsOptimizedSupport
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EbsOptimizedSupport
 $cfromText :: Text -&gt; Either String EbsOptimizedSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681102274"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681102283"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; Text
 (EbsOptimizedSupport -&gt; Text) -&gt; ToText EbsOptimizedSupport
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EbsOptimizedSupport -&gt; Text
 $ctoText :: EbsOptimizedSupport -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681102271"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681102280"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; ByteString
 (EbsOptimizedSupport -&gt; ByteString)
 -&gt; ToByteString EbsOptimizedSupport
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EbsOptimizedSupport -&gt; ByteString
 $ctoBS :: EbsOptimizedSupport -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681102268"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681102277"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; ByteStringBuilder
 (EbsOptimizedSupport -&gt; ByteStringBuilder)
 -&gt; ToLog EbsOptimizedSupport
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EbsOptimizedSupport -&gt; ByteStringBuilder
 $cbuild :: EbsOptimizedSupport -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681102265"><span class="annot"><span class="annottext">HeaderName -&gt; EbsOptimizedSupport -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681102274"><span class="annot"><span class="annottext">HeaderName -&gt; EbsOptimizedSupport -&gt; [Header]
 (HeaderName -&gt; EbsOptimizedSupport -&gt; [Header])
 -&gt; ToHeader EbsOptimizedSupport
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EbsOptimizedSupport -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EbsOptimizedSupport -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681102262"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681102271"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; QueryString
 (EbsOptimizedSupport -&gt; QueryString) -&gt; ToQuery EbsOptimizedSupport
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EbsOptimizedSupport -&gt; QueryString
 $ctoQuery :: EbsOptimizedSupport -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681102257"><span id="local-6989586621681102259"><span class="annot"><span class="annottext">Value -&gt; Parser [EbsOptimizedSupport]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681102266"><span id="local-6989586621681102268"><span class="annot"><span class="annottext">Value -&gt; Parser [EbsOptimizedSupport]
 Value -&gt; Parser EbsOptimizedSupport
 (Value -&gt; Parser EbsOptimizedSupport)
 -&gt; (Value -&gt; Parser [EbsOptimizedSupport])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [EbsOptimizedSupport]
 parseJSON :: Value -&gt; Parser EbsOptimizedSupport
 $cparseJSON :: Value -&gt; Parser EbsOptimizedSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681102252"><span id="local-6989586621681102254"><span class="annot"><span class="annottext">FromJSONKeyFunction [EbsOptimizedSupport]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681102261"><span id="local-6989586621681102263"><span class="annot"><span class="annottext">FromJSONKeyFunction [EbsOptimizedSupport]
 FromJSONKeyFunction EbsOptimizedSupport
 FromJSONKeyFunction EbsOptimizedSupport
 -&gt; FromJSONKeyFunction [EbsOptimizedSupport]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EbsOptimizedSupport]
 fromJSONKey :: FromJSONKeyFunction EbsOptimizedSupport
 $cfromJSONKey :: FromJSONKeyFunction EbsOptimizedSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681102243"><span id="local-6989586621681102245"><span id="local-6989586621681102247"><span id="local-6989586621681102249"><span class="annot"><span class="annottext">[EbsOptimizedSupport] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681102252"><span id="local-6989586621681102254"><span id="local-6989586621681102256"><span id="local-6989586621681102258"><span class="annot"><span class="annottext">[EbsOptimizedSupport] -&gt; Encoding
 [EbsOptimizedSupport] -&gt; Value
 EbsOptimizedSupport -&gt; Encoding
 EbsOptimizedSupport -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: EbsOptimizedSupport -&gt; Encoding
 toJSON :: EbsOptimizedSupport -&gt; Value
 $ctoJSON :: EbsOptimizedSupport -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681102238"><span id="local-6989586621681102240"><span class="annot"><span class="annottext">ToJSONKeyFunction [EbsOptimizedSupport]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681102247"><span id="local-6989586621681102249"><span class="annot"><span class="annottext">ToJSONKeyFunction [EbsOptimizedSupport]
 ToJSONKeyFunction EbsOptimizedSupport
 ToJSONKeyFunction EbsOptimizedSupport
 -&gt; ToJSONKeyFunction [EbsOptimizedSupport]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EbsOptimizedSupport]
 toJSONKey :: ToJSONKeyFunction EbsOptimizedSupport
 $ctoJSONKey :: ToJSONKeyFunction EbsOptimizedSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681102235"><span class="annot"><span class="annottext">[Node] -&gt; Either String EbsOptimizedSupport
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681102244"><span class="annot"><span class="annottext">[Node] -&gt; Either String EbsOptimizedSupport
 ([Node] -&gt; Either String EbsOptimizedSupport)
 -&gt; FromXML EbsOptimizedSupport
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EbsOptimizedSupport
 $cparseXML :: [Node] -&gt; Either String EbsOptimizedSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681102232"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681102241"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; XML
 (EbsOptimizedSupport -&gt; XML) -&gt; ToXML EbsOptimizedSupport
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EbsOptimizedSupport -&gt; XML

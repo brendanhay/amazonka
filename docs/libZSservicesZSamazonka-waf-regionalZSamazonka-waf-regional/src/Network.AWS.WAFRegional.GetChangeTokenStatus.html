@@ -66,13 +66,13 @@
 </span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.html"><span class="hs-identifier">Network.AWS.WAFRegional.Types</span></a></span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newGetChangeTokenStatus' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679321177"><span id="local-6989586621679321178"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetChangeTokenStatus"><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-var">GetChangeTokenStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetChangeTokenStatus%27"><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus%27"><span class="hs-identifier hs-var">GetChangeTokenStatus'</span></a></span></span><span>
+</span><span id="line-69"></span><span id="local-6989586621679321186"><span id="local-6989586621679321187"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetChangeTokenStatus"><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-var">GetChangeTokenStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetChangeTokenStatus%27"><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus%27"><span class="hs-identifier hs-var">GetChangeTokenStatus'</span></a></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The change token for which you want to get the status. This change token</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- was previously returned in the @GetChangeToken@ response.</span><span>
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AchangeToken%3AGetChangeTokenStatus%27"><span class="annot"><span class="annottext">GetChangeTokenStatus -&gt; Text
 </span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#%24sel%3AchangeToken%3AGetChangeTokenStatus%27"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321171"><span id="local-6989586621679321173"><span class="annot"><span class="annottext">GetChangeTokenStatus -&gt; GetChangeTokenStatus -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321180"><span id="local-6989586621679321182"><span class="annot"><span class="annottext">GetChangeTokenStatus -&gt; GetChangeTokenStatus -&gt; Bool
 (GetChangeTokenStatus -&gt; GetChangeTokenStatus -&gt; Bool)
 -&gt; (GetChangeTokenStatus -&gt; GetChangeTokenStatus -&gt; Bool)
 -&gt; Eq GetChangeTokenStatus
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetChangeTokenStatus -&gt; GetChangeTokenStatus -&gt; Bool
 == :: GetChangeTokenStatus -&gt; GetChangeTokenStatus -&gt; Bool
 $c== :: GetChangeTokenStatus -&gt; GetChangeTokenStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321162"><span id="local-6989586621679321164"><span id="local-6989586621679321166"><span id="local-6989586621679321168"><span class="annot"><span class="annottext">ReadPrec [GetChangeTokenStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321171"><span id="local-6989586621679321173"><span id="local-6989586621679321175"><span id="local-6989586621679321177"><span class="annot"><span class="annottext">ReadPrec [GetChangeTokenStatus]
 ReadPrec GetChangeTokenStatus
 Int -&gt; ReadS GetChangeTokenStatus
 ReadS [GetChangeTokenStatus]
@@ -101,7 +101,7 @@ readList :: ReadS [GetChangeTokenStatus]
 $creadList :: ReadS [GetChangeTokenStatus]
 readsPrec :: Int -&gt; ReadS GetChangeTokenStatus
 $creadsPrec :: Int -&gt; ReadS GetChangeTokenStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321155"><span id="local-6989586621679321157"><span id="local-6989586621679321159"><span class="annot"><span class="annottext">Int -&gt; GetChangeTokenStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321164"><span id="local-6989586621679321166"><span id="local-6989586621679321168"><span class="annot"><span class="annottext">Int -&gt; GetChangeTokenStatus -&gt; ShowS
 [GetChangeTokenStatus] -&gt; ShowS
 GetChangeTokenStatus -&gt; String
 (Int -&gt; GetChangeTokenStatus -&gt; ShowS)
@@ -142,12 +142,12 @@ $cfrom :: forall x. GetChangeTokenStatus -&gt; Rep GetChangeTokenStatus x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-type">GetChangeTokenStatus</span></a></span><span>
 </span><span id="line-90"></span><span id="newGetChangeTokenStatus"><span class="annot"><span class="annottext">newGetChangeTokenStatus :: Text -&gt; GetChangeTokenStatus
-</span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#newGetChangeTokenStatus"><span class="hs-identifier hs-var hs-var">newGetChangeTokenStatus</span></a></span></span><span> </span><span id="local-6989586621679321150"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321150"><span class="hs-identifier hs-var">pChangeToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#newGetChangeTokenStatus"><span class="hs-identifier hs-var hs-var">newGetChangeTokenStatus</span></a></span></span><span> </span><span id="local-6989586621679321159"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321159"><span class="hs-identifier hs-var">pChangeToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">GetChangeTokenStatus' :: Text -&gt; GetChangeTokenStatus
 </span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus%27"><span class="hs-identifier hs-type">GetChangeTokenStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:GetChangeTokenStatus' :: Text
 </span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#%24sel%3AchangeToken%3AGetChangeTokenStatus%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321150"><span class="hs-identifier hs-var">pChangeToken_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679321159"><span class="hs-identifier hs-var">pChangeToken_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The change token for which you want to get the status. This change token</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- was previously returned in the @GetChangeToken@ response.</span><span>
@@ -157,27 +157,27 @@ $cfrom :: forall x. GetChangeTokenStatus -&gt; Rep GetChangeTokenStatus x
 -&gt; (GetChangeTokenStatus -&gt; Text -&gt; GetChangeTokenStatus)
 -&gt; Lens GetChangeTokenStatus GetChangeTokenStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus%27"><span class="hs-identifier hs-type">GetChangeTokenStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321147"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus%27"><span class="hs-identifier hs-type">GetChangeTokenStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321156"><span class="annot"><span class="annottext">Text
 changeToken :: Text
 $sel:changeToken:GetChangeTokenStatus' :: GetChangeTokenStatus -&gt; Text
-</span><a href="#local-6989586621679321147"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321147"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321146"><span class="annot"><span class="annottext">s :: GetChangeTokenStatus
-</span><a href="#local-6989586621679321146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus%27"><span class="hs-identifier hs-type">GetChangeTokenStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321145"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChangeTokenStatus
-</span><a href="#local-6989586621679321146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:GetChangeTokenStatus' :: Text
+</span><a href="#local-6989586621679321156"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321156"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321155"><span class="annot"><span class="annottext">s :: GetChangeTokenStatus
+</span><a href="#local-6989586621679321155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus%27"><span class="hs-identifier hs-type">GetChangeTokenStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321154"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChangeTokenStatus
+</span><a href="#local-6989586621679321155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:GetChangeTokenStatus' :: Text
 </span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#%24sel%3AchangeToken%3AGetChangeTokenStatus%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-type">GetChangeTokenStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-type">GetChangeTokenStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-type">GetChangeTokenStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-type">GetChangeTokenStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679321141"><span class="annot"><span class="annottext">request :: GetChangeTokenStatus -&gt; Request GetChangeTokenStatus
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679321150"><span class="annot"><span class="annottext">request :: GetChangeTokenStatus -&gt; Request GetChangeTokenStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetChangeTokenStatus -&gt; Request GetChangeTokenStatus
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAFRegional.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679321137"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679321146"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetChangeTokenStatus
 -&gt; ClientResponse ClientBody
@@ -203,10 +203,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679321134"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321134"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679321133"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679321133"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679321132"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679321132"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679321143"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321143"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679321142"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679321142"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679321141"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321141"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe ChangeTokenStatus -&gt; Int -&gt; GetChangeTokenStatusResponse
 </span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse%27"><span class="hs-identifier hs-var">GetChangeTokenStatusResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ChangeTokenStatus -&gt; Int -&gt; GetChangeTokenStatusResponse)
@@ -214,7 +214,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetChangeTokenStatusResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679321132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ChangeTokenStatus)
+</span><a href="#local-6989586621679321141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ChangeTokenStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChangeTokenStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -226,15 +226,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321134"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321143"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321124"><span id="local-6989586621679321126"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-type">GetChangeTokenStatus</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321133"><span id="local-6989586621679321135"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-type">GetChangeTokenStatus</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321121"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-type">GetChangeTokenStatus</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321130"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-type">GetChangeTokenStatus</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-type">GetChangeTokenStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679321117"><span class="annot"><span class="annottext">toHeaders :: GetChangeTokenStatus -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679321126"><span class="annot"><span class="annottext">toHeaders :: GetChangeTokenStatus -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetChangeTokenStatus -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -261,12 +261,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321107"><span id="local-6989586621679321109"><span id="local-6989586621679321111"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-type">GetChangeTokenStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679321105"><span class="annot"><span class="annottext">toJSON :: GetChangeTokenStatus -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus%27"><span class="hs-identifier hs-type">GetChangeTokenStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321103"><span class="annot"><span class="annottext">Text
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321116"><span id="local-6989586621679321118"><span id="local-6989586621679321120"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-type">GetChangeTokenStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679321114"><span class="annot"><span class="annottext">toJSON :: GetChangeTokenStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus%27"><span class="hs-identifier hs-type">GetChangeTokenStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321112"><span class="annot"><span class="annottext">Text
 changeToken :: Text
 $sel:changeToken:GetChangeTokenStatus' :: GetChangeTokenStatus -&gt; Text
-</span><a href="#local-6989586621679321103"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679321112"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -278,18 +278,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321103"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679321112"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-type">GetChangeTokenStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679321097"><span class="annot"><span class="annottext">toPath :: GetChangeTokenStatus -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679321106"><span class="annot"><span class="annottext">toPath :: GetChangeTokenStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetChangeTokenStatus -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatus"><span class="hs-identifier hs-type">GetChangeTokenStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679321093"><span class="annot"><span class="annottext">toQuery :: GetChangeTokenStatus -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679321102"><span class="annot"><span class="annottext">toQuery :: GetChangeTokenStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetChangeTokenStatus -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -297,7 +297,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newGetChangeTokenStatusResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679321090"><span id="local-6989586621679321091"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetChangeTokenStatusResponse"><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse"><span class="hs-identifier hs-var">GetChangeTokenStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetChangeTokenStatusResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse%27"><span class="hs-identifier hs-var">GetChangeTokenStatusResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679321099"><span id="local-6989586621679321100"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetChangeTokenStatusResponse"><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse"><span class="hs-identifier hs-var">GetChangeTokenStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetChangeTokenStatusResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse%27"><span class="hs-identifier hs-var">GetChangeTokenStatusResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the change token.</span><span>
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AchangeTokenStatus%3AGetChangeTokenStatusResponse%27"><span class="annot"><span class="annottext">GetChangeTokenStatusResponse -&gt; Maybe ChangeTokenStatus
 </span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#%24sel%3AchangeTokenStatus%3AGetChangeTokenStatusResponse%27"><span class="hs-identifier hs-var hs-var">changeTokenStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.ChangeTokenStatus.html#ChangeTokenStatus"><span class="hs-identifier hs-type">ChangeTokenStatus</span></a></span><span class="hs-special">,</span><span>
@@ -305,7 +305,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetChangeTokenStatusResponse%27"><span class="annot"><span class="annottext">GetChangeTokenStatusResponse -&gt; Int
 </span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#%24sel%3AhttpStatus%3AGetChangeTokenStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321084"><span id="local-6989586621679321086"><span class="annot"><span class="annottext">GetChangeTokenStatusResponse
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321093"><span id="local-6989586621679321095"><span class="annot"><span class="annottext">GetChangeTokenStatusResponse
 -&gt; GetChangeTokenStatusResponse -&gt; Bool
 (GetChangeTokenStatusResponse
  -&gt; GetChangeTokenStatusResponse -&gt; Bool)
@@ -321,7 +321,7 @@ $c/= :: GetChangeTokenStatusResponse
 -&gt; GetChangeTokenStatusResponse -&gt; Bool
 $c== :: GetChangeTokenStatusResponse
 -&gt; GetChangeTokenStatusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321076"><span id="local-6989586621679321078"><span id="local-6989586621679321080"><span id="local-6989586621679321082"><span class="annot"><span class="annottext">ReadPrec [GetChangeTokenStatusResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321085"><span id="local-6989586621679321087"><span id="local-6989586621679321089"><span id="local-6989586621679321091"><span class="annot"><span class="annottext">ReadPrec [GetChangeTokenStatusResponse]
 ReadPrec GetChangeTokenStatusResponse
 Int -&gt; ReadS GetChangeTokenStatusResponse
 ReadS [GetChangeTokenStatusResponse]
@@ -341,7 +341,7 @@ readList :: ReadS [GetChangeTokenStatusResponse]
 $creadList :: ReadS [GetChangeTokenStatusResponse]
 readsPrec :: Int -&gt; ReadS GetChangeTokenStatusResponse
 $creadsPrec :: Int -&gt; ReadS GetChangeTokenStatusResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321070"><span id="local-6989586621679321072"><span id="local-6989586621679321074"><span class="annot"><span class="annottext">Int -&gt; GetChangeTokenStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321079"><span id="local-6989586621679321081"><span id="local-6989586621679321083"><span class="annot"><span class="annottext">Int -&gt; GetChangeTokenStatusResponse -&gt; ShowS
 [GetChangeTokenStatusResponse] -&gt; ShowS
 GetChangeTokenStatusResponse -&gt; String
 (Int -&gt; GetChangeTokenStatusResponse -&gt; ShowS)
@@ -389,8 +389,8 @@ GetChangeTokenStatusResponse -&gt; Rep GetChangeTokenStatusResponse x
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newGetChangeTokenStatusResponse"><span class="annot"><span class="annottext">newGetChangeTokenStatusResponse :: Int -&gt; GetChangeTokenStatusResponse
-</span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#newGetChangeTokenStatusResponse"><span class="hs-identifier hs-var hs-var">newGetChangeTokenStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679321067"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321067"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#newGetChangeTokenStatusResponse"><span class="hs-identifier hs-var hs-var">newGetChangeTokenStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679321076"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321076"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">GetChangeTokenStatusResponse' :: Maybe ChangeTokenStatus -&gt; Int -&gt; GetChangeTokenStatusResponse
 </span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse%27"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:changeTokenStatus:GetChangeTokenStatusResponse' :: Maybe ChangeTokenStatus
@@ -400,7 +400,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetChangeTokenStatusResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#%24sel%3AhttpStatus%3AGetChangeTokenStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321067"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679321076"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The status of the change token.</span><span>
@@ -416,16 +416,16 @@ forall a. Maybe a
      (Maybe ChangeTokenStatus)
      (Maybe ChangeTokenStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse%27"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321066"><span class="annot"><span class="annottext">Maybe ChangeTokenStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse%27"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321075"><span class="annot"><span class="annottext">Maybe ChangeTokenStatus
 changeTokenStatus :: Maybe ChangeTokenStatus
 $sel:changeTokenStatus:GetChangeTokenStatusResponse' :: GetChangeTokenStatusResponse -&gt; Maybe ChangeTokenStatus
-</span><a href="#local-6989586621679321066"><span class="hs-identifier hs-var hs-var">changeTokenStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeTokenStatus
-</span><a href="#local-6989586621679321066"><span class="hs-identifier hs-var">changeTokenStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321065"><span class="annot"><span class="annottext">s :: GetChangeTokenStatusResponse
-</span><a href="#local-6989586621679321065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse%27"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321064"><span class="annot"><span class="annottext">Maybe ChangeTokenStatus
-</span><a href="#local-6989586621679321064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChangeTokenStatusResponse
-</span><a href="#local-6989586621679321065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeTokenStatus:GetChangeTokenStatusResponse' :: Maybe ChangeTokenStatus
+</span><a href="#local-6989586621679321075"><span class="hs-identifier hs-var hs-var">changeTokenStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeTokenStatus
+</span><a href="#local-6989586621679321075"><span class="hs-identifier hs-var">changeTokenStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321074"><span class="annot"><span class="annottext">s :: GetChangeTokenStatusResponse
+</span><a href="#local-6989586621679321074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse%27"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321073"><span class="annot"><span class="annottext">Maybe ChangeTokenStatus
+</span><a href="#local-6989586621679321073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChangeTokenStatusResponse
+</span><a href="#local-6989586621679321074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeTokenStatus:GetChangeTokenStatusResponse' :: Maybe ChangeTokenStatus
 </span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#%24sel%3AchangeTokenStatus%3AGetChangeTokenStatusResponse%27"><span class="hs-identifier hs-var">changeTokenStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeTokenStatus
-</span><a href="#local-6989586621679321064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-179"></span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#getChangeTokenStatusResponse_httpStatus"><span class="hs-identifier hs-type">getChangeTokenStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -437,16 +437,16 @@ $sel:changeTokenStatus:GetChangeTokenStatusResponse' :: GetChangeTokenStatusResp
 -&gt; Lens
      GetChangeTokenStatusResponse GetChangeTokenStatusResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse%27"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321063"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse%27"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321072"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetChangeTokenStatusResponse' :: GetChangeTokenStatusResponse -&gt; Int
-</span><a href="#local-6989586621679321063"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321063"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321062"><span class="annot"><span class="annottext">s :: GetChangeTokenStatusResponse
-</span><a href="#local-6989586621679321062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse%27"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321061"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChangeTokenStatusResponse
-</span><a href="#local-6989586621679321062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetChangeTokenStatusResponse' :: Int
+</span><a href="#local-6989586621679321072"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321072"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321071"><span class="annot"><span class="annottext">s :: GetChangeTokenStatusResponse
+</span><a href="#local-6989586621679321071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse%27"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321070"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChangeTokenStatusResponse
+</span><a href="#local-6989586621679321071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetChangeTokenStatusResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#%24sel%3AhttpStatus%3AGetChangeTokenStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321059"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321068"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.GetChangeTokenStatus.html#GetChangeTokenStatusResponse"><span class="hs-identifier hs-type">GetChangeTokenStatusResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- resource in your recording group changes in configuration.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newScope' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679408791"><span id="local-6989586621679408792"></span></span><span class="hs-keyword">data</span><span> </span><span id="Scope"><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-var">Scope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scope%27"><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-var">Scope'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679408800"><span id="local-6989586621679408801"></span></span><span class="hs-keyword">data</span><span> </span><span id="Scope"><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-var">Scope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scope%27"><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-var">Scope'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource types of only those Amazon Web Services resources that you</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- want to trigger an evaluation for the rule. You can only specify one</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- type if you also specify a resource ID for @ComplianceResourceId@.</span><span>
@@ -52,14 +52,14 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AtagKey%3AScope%27"><span class="annot"><span class="annottext">Scope -&gt; Maybe Text
 </span><a href="Network.AWS.Config.Types.Scope.html#%24sel%3AtagKey%3AScope%27"><span class="hs-identifier hs-var hs-var">tagKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408782"><span id="local-6989586621679408784"><span class="annot"><span class="annottext">Scope -&gt; Scope -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408791"><span id="local-6989586621679408793"><span class="annot"><span class="annottext">Scope -&gt; Scope -&gt; Bool
 (Scope -&gt; Scope -&gt; Bool) -&gt; (Scope -&gt; Scope -&gt; Bool) -&gt; Eq Scope
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Scope -&gt; Scope -&gt; Bool
 $c/= :: Scope -&gt; Scope -&gt; Bool
 == :: Scope -&gt; Scope -&gt; Bool
 $c== :: Scope -&gt; Scope -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408773"><span id="local-6989586621679408775"><span id="local-6989586621679408777"><span id="local-6989586621679408779"><span class="annot"><span class="annottext">ReadPrec [Scope]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408782"><span id="local-6989586621679408784"><span id="local-6989586621679408786"><span id="local-6989586621679408788"><span class="annot"><span class="annottext">ReadPrec [Scope]
 ReadPrec Scope
 Int -&gt; ReadS Scope
 ReadS [Scope]
@@ -79,7 +79,7 @@ readList :: ReadS [Scope]
 $creadList :: ReadS [Scope]
 readsPrec :: Int -&gt; ReadS Scope
 $creadsPrec :: Int -&gt; ReadS Scope
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408766"><span id="local-6989586621679408768"><span id="local-6989586621679408770"><span class="annot"><span class="annottext">Int -&gt; Scope -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408775"><span id="local-6989586621679408777"><span id="local-6989586621679408779"><span class="annot"><span class="annottext">Int -&gt; Scope -&gt; ShowS
 [Scope] -&gt; ShowS
 Scope -&gt; String
 (Int -&gt; Scope -&gt; ShowS)
@@ -157,16 +157,16 @@ forall a. Maybe a
 -&gt; (Scope -&gt; Maybe [Text] -&gt; Scope)
 -&gt; Lens Scope Scope (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408757"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408766"><span class="annot"><span class="annottext">Maybe [Text]
 complianceResourceTypes :: Maybe [Text]
 $sel:complianceResourceTypes:Scope' :: Scope -&gt; Maybe [Text]
-</span><a href="#local-6989586621679408757"><span class="hs-identifier hs-var hs-var">complianceResourceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679408757"><span class="hs-identifier hs-var">complianceResourceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408756"><span class="annot"><span class="annottext">s :: Scope
-</span><a href="#local-6989586621679408756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408755"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679408755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scope
-</span><a href="#local-6989586621679408756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceResourceTypes:Scope' :: Maybe [Text]
+</span><a href="#local-6989586621679408766"><span class="hs-identifier hs-var hs-var">complianceResourceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408766"><span class="hs-identifier hs-var">complianceResourceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408765"><span class="annot"><span class="annottext">s :: Scope
+</span><a href="#local-6989586621679408765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408764"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scope
+</span><a href="#local-6989586621679408765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceResourceTypes:Scope' :: Maybe [Text]
 </span><a href="Network.AWS.Config.Types.Scope.html#%24sel%3AcomplianceResourceTypes%3AScope%27"><span class="hs-identifier hs-var">complianceResourceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679408755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Scope -&gt; f Scope)
+</span><a href="#local-6989586621679408764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Scope -&gt; f Scope)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -191,16 +191,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Scope -&gt; Maybe Text -&gt; Scope)
 -&gt; Lens Scope Scope (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408750"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408759"><span class="annot"><span class="annottext">Maybe Text
 complianceResourceId :: Maybe Text
 $sel:complianceResourceId:Scope' :: Scope -&gt; Maybe Text
-</span><a href="#local-6989586621679408750"><span class="hs-identifier hs-var hs-var">complianceResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408750"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408749"><span class="annot"><span class="annottext">s :: Scope
-</span><a href="#local-6989586621679408749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408748"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scope
-</span><a href="#local-6989586621679408749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceResourceId:Scope' :: Maybe Text
+</span><a href="#local-6989586621679408759"><span class="hs-identifier hs-var hs-var">complianceResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408759"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408758"><span class="annot"><span class="annottext">s :: Scope
+</span><a href="#local-6989586621679408758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408757"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scope
+</span><a href="#local-6989586621679408758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceResourceId:Scope' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.Scope.html#%24sel%3AcomplianceResourceId%3AScope%27"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The tag value applied to only those Amazon Web Services resources that</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- you want to trigger an evaluation for the rule. If you specify a value</span><span>
@@ -211,16 +211,16 @@ $sel:complianceResourceId:Scope' :: Scope -&gt; Maybe Text
 -&gt; (Scope -&gt; Maybe Text -&gt; Scope)
 -&gt; Lens Scope Scope (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408746"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408755"><span class="annot"><span class="annottext">Maybe Text
 tagValue :: Maybe Text
 $sel:tagValue:Scope' :: Scope -&gt; Maybe Text
-</span><a href="#local-6989586621679408746"><span class="hs-identifier hs-var hs-var">tagValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408746"><span class="hs-identifier hs-var">tagValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408745"><span class="annot"><span class="annottext">s :: Scope
-</span><a href="#local-6989586621679408745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408744"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scope
-</span><a href="#local-6989586621679408745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagValue:Scope' :: Maybe Text
+</span><a href="#local-6989586621679408755"><span class="hs-identifier hs-var hs-var">tagValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408755"><span class="hs-identifier hs-var">tagValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408754"><span class="annot"><span class="annottext">s :: Scope
+</span><a href="#local-6989586621679408754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408753"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scope
+</span><a href="#local-6989586621679408754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagValue:Scope' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.Scope.html#%24sel%3AtagValue%3AScope%27"><span class="hs-identifier hs-var">tagValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The tag key that is applied to only those Amazon Web Services resources</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- that you want to trigger an evaluation for the rule.</span><span>
@@ -230,27 +230,27 @@ $sel:tagValue:Scope' :: Scope -&gt; Maybe Text
 -&gt; (Scope -&gt; Maybe Text -&gt; Scope)
 -&gt; Lens Scope Scope (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408742"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408751"><span class="annot"><span class="annottext">Maybe Text
 tagKey :: Maybe Text
 $sel:tagKey:Scope' :: Scope -&gt; Maybe Text
-</span><a href="#local-6989586621679408742"><span class="hs-identifier hs-var hs-var">tagKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408742"><span class="hs-identifier hs-var">tagKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408741"><span class="annot"><span class="annottext">s :: Scope
-</span><a href="#local-6989586621679408741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408740"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scope
-</span><a href="#local-6989586621679408741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKey:Scope' :: Maybe Text
+</span><a href="#local-6989586621679408751"><span class="hs-identifier hs-var hs-var">tagKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408751"><span class="hs-identifier hs-var">tagKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408750"><span class="annot"><span class="annottext">s :: Scope
+</span><a href="#local-6989586621679408750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408749"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scope
+</span><a href="#local-6989586621679408750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKey:Scope' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.Scope.html#%24sel%3AtagKey%3AScope%27"><span class="hs-identifier hs-var">tagKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408737"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679408735"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Scope
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408746"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679408744"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Scope
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Scope) -&gt; Value -&gt; Parser Scope
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Scope&quot;</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679408732"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408732"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679408741"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408741"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Scope
 </span><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-var">Scope'</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Scope)
@@ -258,7 +258,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Scope)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679408741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComplianceResourceTypes&quot;</span></span><span>
@@ -274,7 +274,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Scope)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679408741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComplianceResourceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -282,26 +282,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Scope)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679408741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TagValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Scope) -&gt; Parser (Maybe Text) -&gt; Parser Scope
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679408741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TagKey&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408725"><span id="local-6989586621679408727"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408734"><span id="local-6989586621679408736"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408722"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408731"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408714"><span id="local-6989586621679408716"><span id="local-6989586621679408718"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679408712"><span class="annot"><span class="annottext">toJSON :: Scope -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408707"><span id="local-6989586621679408708"><span id="local-6989586621679408709"><span id="local-6989586621679408710"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408723"><span id="local-6989586621679408725"><span id="local-6989586621679408727"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679408721"><span class="annot"><span class="annottext">toJSON :: Scope -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408716"><span id="local-6989586621679408717"><span id="local-6989586621679408718"><span id="local-6989586621679408719"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 tagKey :: Maybe Text
 tagValue :: Maybe Text
@@ -311,7 +311,7 @@ $sel:tagKey:Scope' :: Scope -&gt; Maybe Text
 $sel:tagValue:Scope' :: Scope -&gt; Maybe Text
 $sel:complianceResourceId:Scope' :: Scope -&gt; Maybe Text
 $sel:complianceResourceTypes:Scope' :: Scope -&gt; Maybe [Text]
-</span><a href="#local-6989586621679408707"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679408716"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -324,7 +324,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679408710"><span class="hs-identifier hs-var">complianceResourceTypes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679408719"><span class="hs-identifier hs-var">complianceResourceTypes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComplianceResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -332,21 +332,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408709"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679408718"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TagValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408708"><span class="hs-identifier hs-var">tagValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">tagValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TagKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408707"><span class="hs-identifier hs-var">tagKey</span></a></span><span>
+</span><a href="#local-6989586621679408716"><span class="hs-identifier hs-var">tagKey</span></a></span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span></pre></body></html>

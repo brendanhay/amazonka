@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | When set to SINGLE_FILE, a single output file is generated, which is</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- internally segmented using the Fragment Length and Segment Length. When</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- set to SEGMENTED_FILES, separate segment files will be created.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679950430"><span id="local-6989586621679950431"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafSegmentControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafSegmentControl.html#CmafSegmentControl"><span class="hs-identifier hs-var">CmafSegmentControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafSegmentControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafSegmentControl.html#CmafSegmentControl%27"><span class="hs-identifier hs-var">CmafSegmentControl'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679950439"><span id="local-6989586621679950440"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafSegmentControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafSegmentControl.html#CmafSegmentControl"><span class="hs-identifier hs-var">CmafSegmentControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafSegmentControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafSegmentControl.html#CmafSegmentControl%27"><span class="hs-identifier hs-var">CmafSegmentControl'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmafSegmentControl"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.CmafSegmentControl.html#fromCmafSegmentControl"><span class="hs-identifier hs-var hs-var">fromCmafSegmentControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950422"><span id="local-6989586621679950424"><span id="local-6989586621679950426"><span class="annot"><span class="annottext">Int -&gt; CmafSegmentControl -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950431"><span id="local-6989586621679950433"><span id="local-6989586621679950435"><span class="annot"><span class="annottext">Int -&gt; CmafSegmentControl -&gt; ShowS
 [CmafSegmentControl] -&gt; ShowS
 CmafSegmentControl -&gt; String
 (Int -&gt; CmafSegmentControl -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: CmafSegmentControl -&gt; String
 showsPrec :: Int -&gt; CmafSegmentControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; CmafSegmentControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679950413"><span id="local-6989586621679950415"><span id="local-6989586621679950417"><span id="local-6989586621679950419"><span class="annot"><span class="annottext">ReadPrec [CmafSegmentControl]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679950422"><span id="local-6989586621679950424"><span id="local-6989586621679950426"><span id="local-6989586621679950428"><span class="annot"><span class="annottext">ReadPrec [CmafSegmentControl]
 ReadPrec CmafSegmentControl
 Int -&gt; ReadS CmafSegmentControl
 ReadS [CmafSegmentControl]
@@ -75,7 +75,7 @@ $creadList :: ReadS [CmafSegmentControl]
 readsPrec :: Int -&gt; ReadS CmafSegmentControl
 $creadsPrec :: Int -&gt; ReadS CmafSegmentControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679950408"><span id="local-6989586621679950410"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; CmafSegmentControl -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679950417"><span id="local-6989586621679950419"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; CmafSegmentControl -&gt; Bool
 (CmafSegmentControl -&gt; CmafSegmentControl -&gt; Bool)
 -&gt; (CmafSegmentControl -&gt; CmafSegmentControl -&gt; Bool)
 -&gt; Eq CmafSegmentControl
@@ -85,7 +85,7 @@ $c/= :: CmafSegmentControl -&gt; CmafSegmentControl -&gt; Bool
 == :: CmafSegmentControl -&gt; CmafSegmentControl -&gt; Bool
 $c== :: CmafSegmentControl -&gt; CmafSegmentControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679950392"><span id="local-6989586621679950394"><span id="local-6989586621679950396"><span id="local-6989586621679950398"><span id="local-6989586621679950400"><span id="local-6989586621679950402"><span id="local-6989586621679950404"><span class="annot"><span class="annottext">Eq CmafSegmentControl
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679950401"><span id="local-6989586621679950403"><span id="local-6989586621679950405"><span id="local-6989586621679950407"><span id="local-6989586621679950409"><span id="local-6989586621679950411"><span id="local-6989586621679950413"><span class="annot"><span class="annottext">Eq CmafSegmentControl
 Eq CmafSegmentControl
 -&gt; (CmafSegmentControl -&gt; CmafSegmentControl -&gt; Ordering)
 -&gt; (CmafSegmentControl -&gt; CmafSegmentControl -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. CmafSegmentControl -&gt; Rep CmafSegmentControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950384"><span id="local-6989586621679950386"><span class="annot"><span class="annottext">Int -&gt; CmafSegmentControl -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950393"><span id="local-6989586621679950395"><span class="annot"><span class="annottext">Int -&gt; CmafSegmentControl -&gt; Int
 CmafSegmentControl -&gt; Int
 (Int -&gt; CmafSegmentControl -&gt; Int)
 -&gt; (CmafSegmentControl -&gt; Int) -&gt; Hashable CmafSegmentControl
@@ -146,53 +146,53 @@ $chash :: CmafSegmentControl -&gt; Int
 hashWithSalt :: Int -&gt; CmafSegmentControl -&gt; Int
 $chashWithSalt :: Int -&gt; CmafSegmentControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679950381"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679950390"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; ()
 (CmafSegmentControl -&gt; ()) -&gt; NFData CmafSegmentControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CmafSegmentControl -&gt; ()
 $crnf :: CmafSegmentControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679950378"><span class="annot"><span class="annottext">Text -&gt; Either String CmafSegmentControl
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679950387"><span class="annot"><span class="annottext">Text -&gt; Either String CmafSegmentControl
 (Text -&gt; Either String CmafSegmentControl)
 -&gt; FromText CmafSegmentControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CmafSegmentControl
 $cfromText :: Text -&gt; Either String CmafSegmentControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679950375"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679950384"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; Text
 (CmafSegmentControl -&gt; Text) -&gt; ToText CmafSegmentControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CmafSegmentControl -&gt; Text
 $ctoText :: CmafSegmentControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679950372"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679950381"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; ByteString
 (CmafSegmentControl -&gt; ByteString)
 -&gt; ToByteString CmafSegmentControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CmafSegmentControl -&gt; ByteString
 $ctoBS :: CmafSegmentControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679950369"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679950378"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; ByteStringBuilder
 (CmafSegmentControl -&gt; ByteStringBuilder)
 -&gt; ToLog CmafSegmentControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CmafSegmentControl -&gt; ByteStringBuilder
 $cbuild :: CmafSegmentControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679950366"><span class="annot"><span class="annottext">HeaderName -&gt; CmafSegmentControl -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679950375"><span class="annot"><span class="annottext">HeaderName -&gt; CmafSegmentControl -&gt; [Header]
 (HeaderName -&gt; CmafSegmentControl -&gt; [Header])
 -&gt; ToHeader CmafSegmentControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CmafSegmentControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CmafSegmentControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679950363"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679950372"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; QueryString
 (CmafSegmentControl -&gt; QueryString) -&gt; ToQuery CmafSegmentControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CmafSegmentControl -&gt; QueryString
 $ctoQuery :: CmafSegmentControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679950358"><span id="local-6989586621679950360"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafSegmentControl]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679950367"><span id="local-6989586621679950369"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafSegmentControl]
 Value -&gt; Parser CmafSegmentControl
 (Value -&gt; Parser CmafSegmentControl)
 -&gt; (Value -&gt; Parser [CmafSegmentControl])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [CmafSegmentControl]
 parseJSON :: Value -&gt; Parser CmafSegmentControl
 $cparseJSON :: Value -&gt; Parser CmafSegmentControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679950353"><span id="local-6989586621679950355"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafSegmentControl]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679950362"><span id="local-6989586621679950364"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafSegmentControl]
 FromJSONKeyFunction CmafSegmentControl
 FromJSONKeyFunction CmafSegmentControl
 -&gt; FromJSONKeyFunction [CmafSegmentControl]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CmafSegmentControl]
 fromJSONKey :: FromJSONKeyFunction CmafSegmentControl
 $cfromJSONKey :: FromJSONKeyFunction CmafSegmentControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679950344"><span id="local-6989586621679950346"><span id="local-6989586621679950348"><span id="local-6989586621679950350"><span class="annot"><span class="annottext">[CmafSegmentControl] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679950353"><span id="local-6989586621679950355"><span id="local-6989586621679950357"><span id="local-6989586621679950359"><span class="annot"><span class="annottext">[CmafSegmentControl] -&gt; Encoding
 [CmafSegmentControl] -&gt; Value
 CmafSegmentControl -&gt; Encoding
 CmafSegmentControl -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: CmafSegmentControl -&gt; Encoding
 toJSON :: CmafSegmentControl -&gt; Value
 $ctoJSON :: CmafSegmentControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679950339"><span id="local-6989586621679950341"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafSegmentControl]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679950348"><span id="local-6989586621679950350"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafSegmentControl]
 ToJSONKeyFunction CmafSegmentControl
 ToJSONKeyFunction CmafSegmentControl
 -&gt; ToJSONKeyFunction [CmafSegmentControl]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CmafSegmentControl]
 toJSONKey :: ToJSONKeyFunction CmafSegmentControl
 $ctoJSONKey :: ToJSONKeyFunction CmafSegmentControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679950336"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafSegmentControl
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679950345"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafSegmentControl
 ([Node] -&gt; Either String CmafSegmentControl)
 -&gt; FromXML CmafSegmentControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CmafSegmentControl
 $cparseXML :: [Node] -&gt; Either String CmafSegmentControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679950333"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679950342"><span class="annot"><span class="annottext">CmafSegmentControl -&gt; XML
 (CmafSegmentControl -&gt; XML) -&gt; ToXML CmafSegmentControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CmafSegmentControl -&gt; XML

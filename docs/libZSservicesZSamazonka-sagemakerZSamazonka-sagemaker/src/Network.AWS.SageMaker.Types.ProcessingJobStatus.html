@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621680330464"><span id="local-6989586621680330465"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProcessingJobStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus"><span class="hs-identifier hs-var">ProcessingJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingJobStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus%27"><span class="hs-identifier hs-var">ProcessingJobStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680330473"><span id="local-6989586621680330474"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProcessingJobStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus"><span class="hs-identifier hs-var">ProcessingJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingJobStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingJobStatus.html#ProcessingJobStatus%27"><span class="hs-identifier hs-var">ProcessingJobStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProcessingJobStatus"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ProcessingJobStatus.html#fromProcessingJobStatus"><span class="hs-identifier hs-var hs-var">fromProcessingJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680330456"><span id="local-6989586621680330458"><span id="local-6989586621680330460"><span class="annot"><span class="annottext">Int -&gt; ProcessingJobStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680330465"><span id="local-6989586621680330467"><span id="local-6989586621680330469"><span class="annot"><span class="annottext">Int -&gt; ProcessingJobStatus -&gt; ShowS
 [ProcessingJobStatus] -&gt; ShowS
 ProcessingJobStatus -&gt; String
 (Int -&gt; ProcessingJobStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ProcessingJobStatus -&gt; String
 showsPrec :: Int -&gt; ProcessingJobStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProcessingJobStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680330447"><span id="local-6989586621680330449"><span id="local-6989586621680330451"><span id="local-6989586621680330453"><span class="annot"><span class="annottext">ReadPrec [ProcessingJobStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680330456"><span id="local-6989586621680330458"><span id="local-6989586621680330460"><span id="local-6989586621680330462"><span class="annot"><span class="annottext">ReadPrec [ProcessingJobStatus]
 ReadPrec ProcessingJobStatus
 Int -&gt; ReadS ProcessingJobStatus
 ReadS [ProcessingJobStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ProcessingJobStatus]
 readsPrec :: Int -&gt; ReadS ProcessingJobStatus
 $creadsPrec :: Int -&gt; ReadS ProcessingJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680330442"><span id="local-6989586621680330444"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680330451"><span id="local-6989586621680330453"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
 (ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool)
 -&gt; (ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool)
 -&gt; Eq ProcessingJobStatus
@@ -85,7 +85,7 @@ $c/= :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
 == :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
 $c== :: ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680330426"><span id="local-6989586621680330428"><span id="local-6989586621680330430"><span id="local-6989586621680330432"><span id="local-6989586621680330434"><span id="local-6989586621680330436"><span id="local-6989586621680330438"><span class="annot"><span class="annottext">Eq ProcessingJobStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680330435"><span id="local-6989586621680330437"><span id="local-6989586621680330439"><span id="local-6989586621680330441"><span id="local-6989586621680330443"><span id="local-6989586621680330445"><span id="local-6989586621680330447"><span class="annot"><span class="annottext">Eq ProcessingJobStatus
 Eq ProcessingJobStatus
 -&gt; (ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Ordering)
 -&gt; (ProcessingJobStatus -&gt; ProcessingJobStatus -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. ProcessingJobStatus -&gt; Rep ProcessingJobStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680330418"><span id="local-6989586621680330420"><span class="annot"><span class="annottext">Int -&gt; ProcessingJobStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680330427"><span id="local-6989586621680330429"><span class="annot"><span class="annottext">Int -&gt; ProcessingJobStatus -&gt; Int
 ProcessingJobStatus -&gt; Int
 (Int -&gt; ProcessingJobStatus -&gt; Int)
 -&gt; (ProcessingJobStatus -&gt; Int) -&gt; Hashable ProcessingJobStatus
@@ -148,53 +148,53 @@ $chash :: ProcessingJobStatus -&gt; Int
 hashWithSalt :: Int -&gt; ProcessingJobStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ProcessingJobStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680330415"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680330424"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; ()
 (ProcessingJobStatus -&gt; ()) -&gt; NFData ProcessingJobStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProcessingJobStatus -&gt; ()
 $crnf :: ProcessingJobStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680330412"><span class="annot"><span class="annottext">Text -&gt; Either String ProcessingJobStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680330421"><span class="annot"><span class="annottext">Text -&gt; Either String ProcessingJobStatus
 (Text -&gt; Either String ProcessingJobStatus)
 -&gt; FromText ProcessingJobStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProcessingJobStatus
 $cfromText :: Text -&gt; Either String ProcessingJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680330409"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680330418"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; Text
 (ProcessingJobStatus -&gt; Text) -&gt; ToText ProcessingJobStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProcessingJobStatus -&gt; Text
 $ctoText :: ProcessingJobStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680330406"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680330415"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; ByteString
 (ProcessingJobStatus -&gt; ByteString)
 -&gt; ToByteString ProcessingJobStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProcessingJobStatus -&gt; ByteString
 $ctoBS :: ProcessingJobStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680330403"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680330412"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; ByteStringBuilder
 (ProcessingJobStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ProcessingJobStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProcessingJobStatus -&gt; ByteStringBuilder
 $cbuild :: ProcessingJobStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680330400"><span class="annot"><span class="annottext">HeaderName -&gt; ProcessingJobStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680330409"><span class="annot"><span class="annottext">HeaderName -&gt; ProcessingJobStatus -&gt; [Header]
 (HeaderName -&gt; ProcessingJobStatus -&gt; [Header])
 -&gt; ToHeader ProcessingJobStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProcessingJobStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProcessingJobStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680330397"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680330406"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; QueryString
 (ProcessingJobStatus -&gt; QueryString) -&gt; ToQuery ProcessingJobStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProcessingJobStatus -&gt; QueryString
 $ctoQuery :: ProcessingJobStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680330392"><span id="local-6989586621680330394"><span class="annot"><span class="annottext">Value -&gt; Parser [ProcessingJobStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680330401"><span id="local-6989586621680330403"><span class="annot"><span class="annottext">Value -&gt; Parser [ProcessingJobStatus]
 Value -&gt; Parser ProcessingJobStatus
 (Value -&gt; Parser ProcessingJobStatus)
 -&gt; (Value -&gt; Parser [ProcessingJobStatus])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [ProcessingJobStatus]
 parseJSON :: Value -&gt; Parser ProcessingJobStatus
 $cparseJSON :: Value -&gt; Parser ProcessingJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680330387"><span id="local-6989586621680330389"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProcessingJobStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680330396"><span id="local-6989586621680330398"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProcessingJobStatus]
 FromJSONKeyFunction ProcessingJobStatus
 FromJSONKeyFunction ProcessingJobStatus
 -&gt; FromJSONKeyFunction [ProcessingJobStatus]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProcessingJobStatus]
 fromJSONKey :: FromJSONKeyFunction ProcessingJobStatus
 $cfromJSONKey :: FromJSONKeyFunction ProcessingJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680330378"><span id="local-6989586621680330380"><span id="local-6989586621680330382"><span id="local-6989586621680330384"><span class="annot"><span class="annottext">[ProcessingJobStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680330387"><span id="local-6989586621680330389"><span id="local-6989586621680330391"><span id="local-6989586621680330393"><span class="annot"><span class="annottext">[ProcessingJobStatus] -&gt; Encoding
 [ProcessingJobStatus] -&gt; Value
 ProcessingJobStatus -&gt; Encoding
 ProcessingJobStatus -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: ProcessingJobStatus -&gt; Encoding
 toJSON :: ProcessingJobStatus -&gt; Value
 $ctoJSON :: ProcessingJobStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680330373"><span id="local-6989586621680330375"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProcessingJobStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680330382"><span id="local-6989586621680330384"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProcessingJobStatus]
 ToJSONKeyFunction ProcessingJobStatus
 ToJSONKeyFunction ProcessingJobStatus
 -&gt; ToJSONKeyFunction [ProcessingJobStatus]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProcessingJobStatus]
 toJSONKey :: ToJSONKeyFunction ProcessingJobStatus
 $ctoJSONKey :: ToJSONKeyFunction ProcessingJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680330370"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProcessingJobStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680330379"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProcessingJobStatus
 ([Node] -&gt; Either String ProcessingJobStatus)
 -&gt; FromXML ProcessingJobStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProcessingJobStatus
 $cparseXML :: [Node] -&gt; Either String ProcessingJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680330367"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680330376"><span class="annot"><span class="annottext">ProcessingJobStatus -&gt; XML
 (ProcessingJobStatus -&gt; XML) -&gt; ToXML ProcessingJobStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProcessingJobStatus -&gt; XML

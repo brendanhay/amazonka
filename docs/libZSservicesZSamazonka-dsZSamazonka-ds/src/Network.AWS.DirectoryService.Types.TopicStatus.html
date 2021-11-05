@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679301329"><span id="local-6989586621679301330"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TopicStatus"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TopicStatus.html#TopicStatus"><span class="hs-identifier hs-var">TopicStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TopicStatus%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TopicStatus.html#TopicStatus%27"><span class="hs-identifier hs-var">TopicStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679301338"><span id="local-6989586621679301339"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TopicStatus"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TopicStatus.html#TopicStatus"><span class="hs-identifier hs-var">TopicStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TopicStatus%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TopicStatus.html#TopicStatus%27"><span class="hs-identifier hs-var">TopicStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTopicStatus"><span class="annot"><span class="annottext">TopicStatus -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.TopicStatus.html#fromTopicStatus"><span class="hs-identifier hs-var hs-var">fromTopicStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301321"><span id="local-6989586621679301323"><span id="local-6989586621679301325"><span class="annot"><span class="annottext">Int -&gt; TopicStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301330"><span id="local-6989586621679301332"><span id="local-6989586621679301334"><span class="annot"><span class="annottext">Int -&gt; TopicStatus -&gt; ShowS
 [TopicStatus] -&gt; ShowS
 TopicStatus -&gt; String
 (Int -&gt; TopicStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: TopicStatus -&gt; String
 showsPrec :: Int -&gt; TopicStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; TopicStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679301312"><span id="local-6989586621679301314"><span id="local-6989586621679301316"><span id="local-6989586621679301318"><span class="annot"><span class="annottext">ReadPrec [TopicStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679301321"><span id="local-6989586621679301323"><span id="local-6989586621679301325"><span id="local-6989586621679301327"><span class="annot"><span class="annottext">ReadPrec [TopicStatus]
 ReadPrec TopicStatus
 Int -&gt; ReadS TopicStatus
 ReadS [TopicStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [TopicStatus]
 readsPrec :: Int -&gt; ReadS TopicStatus
 $creadsPrec :: Int -&gt; ReadS TopicStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679301307"><span id="local-6989586621679301309"><span class="annot"><span class="annottext">TopicStatus -&gt; TopicStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679301316"><span id="local-6989586621679301318"><span class="annot"><span class="annottext">TopicStatus -&gt; TopicStatus -&gt; Bool
 (TopicStatus -&gt; TopicStatus -&gt; Bool)
 -&gt; (TopicStatus -&gt; TopicStatus -&gt; Bool) -&gt; Eq TopicStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: TopicStatus -&gt; TopicStatus -&gt; Bool
 == :: TopicStatus -&gt; TopicStatus -&gt; Bool
 $c== :: TopicStatus -&gt; TopicStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679301291"><span id="local-6989586621679301293"><span id="local-6989586621679301295"><span id="local-6989586621679301297"><span id="local-6989586621679301299"><span id="local-6989586621679301301"><span id="local-6989586621679301303"><span class="annot"><span class="annottext">Eq TopicStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679301300"><span id="local-6989586621679301302"><span id="local-6989586621679301304"><span id="local-6989586621679301306"><span id="local-6989586621679301308"><span id="local-6989586621679301310"><span id="local-6989586621679301312"><span class="annot"><span class="annottext">Eq TopicStatus
 Eq TopicStatus
 -&gt; (TopicStatus -&gt; TopicStatus -&gt; Ordering)
 -&gt; (TopicStatus -&gt; TopicStatus -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. TopicStatus -&gt; Rep TopicStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301283"><span id="local-6989586621679301285"><span class="annot"><span class="annottext">Int -&gt; TopicStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301292"><span id="local-6989586621679301294"><span class="annot"><span class="annottext">Int -&gt; TopicStatus -&gt; Int
 TopicStatus -&gt; Int
 (Int -&gt; TopicStatus -&gt; Int)
 -&gt; (TopicStatus -&gt; Int) -&gt; Hashable TopicStatus
@@ -144,49 +144,49 @@ $chash :: TopicStatus -&gt; Int
 hashWithSalt :: Int -&gt; TopicStatus -&gt; Int
 $chashWithSalt :: Int -&gt; TopicStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679301280"><span class="annot"><span class="annottext">TopicStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679301289"><span class="annot"><span class="annottext">TopicStatus -&gt; ()
 (TopicStatus -&gt; ()) -&gt; NFData TopicStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TopicStatus -&gt; ()
 $crnf :: TopicStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679301277"><span class="annot"><span class="annottext">Text -&gt; Either String TopicStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679301286"><span class="annot"><span class="annottext">Text -&gt; Either String TopicStatus
 (Text -&gt; Either String TopicStatus) -&gt; FromText TopicStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TopicStatus
 $cfromText :: Text -&gt; Either String TopicStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301274"><span class="annot"><span class="annottext">TopicStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301283"><span class="annot"><span class="annottext">TopicStatus -&gt; Text
 (TopicStatus -&gt; Text) -&gt; ToText TopicStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TopicStatus -&gt; Text
 $ctoText :: TopicStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679301271"><span class="annot"><span class="annottext">TopicStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679301280"><span class="annot"><span class="annottext">TopicStatus -&gt; ByteString
 (TopicStatus -&gt; ByteString) -&gt; ToByteString TopicStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TopicStatus -&gt; ByteString
 $ctoBS :: TopicStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301268"><span class="annot"><span class="annottext">TopicStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301277"><span class="annot"><span class="annottext">TopicStatus -&gt; ByteStringBuilder
 (TopicStatus -&gt; ByteStringBuilder) -&gt; ToLog TopicStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TopicStatus -&gt; ByteStringBuilder
 $cbuild :: TopicStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301265"><span class="annot"><span class="annottext">HeaderName -&gt; TopicStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301274"><span class="annot"><span class="annottext">HeaderName -&gt; TopicStatus -&gt; [Header]
 (HeaderName -&gt; TopicStatus -&gt; [Header]) -&gt; ToHeader TopicStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TopicStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TopicStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301262"><span class="annot"><span class="annottext">TopicStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301271"><span class="annot"><span class="annottext">TopicStatus -&gt; QueryString
 (TopicStatus -&gt; QueryString) -&gt; ToQuery TopicStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TopicStatus -&gt; QueryString
 $ctoQuery :: TopicStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301257"><span id="local-6989586621679301259"><span class="annot"><span class="annottext">Value -&gt; Parser [TopicStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301266"><span id="local-6989586621679301268"><span class="annot"><span class="annottext">Value -&gt; Parser [TopicStatus]
 Value -&gt; Parser TopicStatus
 (Value -&gt; Parser TopicStatus)
 -&gt; (Value -&gt; Parser [TopicStatus]) -&gt; FromJSON TopicStatus
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [TopicStatus]
 parseJSON :: Value -&gt; Parser TopicStatus
 $cparseJSON :: Value -&gt; Parser TopicStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301252"><span id="local-6989586621679301254"><span class="annot"><span class="annottext">FromJSONKeyFunction [TopicStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301261"><span id="local-6989586621679301263"><span class="annot"><span class="annottext">FromJSONKeyFunction [TopicStatus]
 FromJSONKeyFunction TopicStatus
 FromJSONKeyFunction TopicStatus
 -&gt; FromJSONKeyFunction [TopicStatus] -&gt; FromJSONKey TopicStatus
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TopicStatus]
 fromJSONKey :: FromJSONKeyFunction TopicStatus
 $cfromJSONKey :: FromJSONKeyFunction TopicStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301243"><span id="local-6989586621679301245"><span id="local-6989586621679301247"><span id="local-6989586621679301249"><span class="annot"><span class="annottext">[TopicStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301252"><span id="local-6989586621679301254"><span id="local-6989586621679301256"><span id="local-6989586621679301258"><span class="annot"><span class="annottext">[TopicStatus] -&gt; Encoding
 [TopicStatus] -&gt; Value
 TopicStatus -&gt; Encoding
 TopicStatus -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: TopicStatus -&gt; Encoding
 toJSON :: TopicStatus -&gt; Value
 $ctoJSON :: TopicStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301238"><span id="local-6989586621679301240"><span class="annot"><span class="annottext">ToJSONKeyFunction [TopicStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301247"><span id="local-6989586621679301249"><span class="annot"><span class="annottext">ToJSONKeyFunction [TopicStatus]
 ToJSONKeyFunction TopicStatus
 ToJSONKeyFunction TopicStatus
 -&gt; ToJSONKeyFunction [TopicStatus] -&gt; ToJSONKey TopicStatus
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TopicStatus]
 toJSONKey :: ToJSONKeyFunction TopicStatus
 $ctoJSONKey :: ToJSONKeyFunction TopicStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301235"><span class="annot"><span class="annottext">[Node] -&gt; Either String TopicStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301244"><span class="annot"><span class="annottext">[Node] -&gt; Either String TopicStatus
 ([Node] -&gt; Either String TopicStatus) -&gt; FromXML TopicStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TopicStatus
 $cparseXML :: [Node] -&gt; Either String TopicStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679301232"><span class="annot"><span class="annottext">TopicStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679301241"><span class="annot"><span class="annottext">TopicStatus -&gt; XML
 (TopicStatus -&gt; XML) -&gt; ToXML TopicStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TopicStatus -&gt; XML

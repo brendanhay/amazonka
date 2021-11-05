@@ -58,14 +58,14 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.html"><span class="hs-identifier">Network.AWS.Support.Types</span></a></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newResolveCase' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679172693"><span id="local-6989586621679172694"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResolveCase"><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-var">ResolveCase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolveCase%27"><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase%27"><span class="hs-identifier hs-var">ResolveCase'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679172702"><span id="local-6989586621679172703"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResolveCase"><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-var">ResolveCase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolveCase%27"><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase%27"><span class="hs-identifier hs-var">ResolveCase'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The support case ID requested or returned in the call. The case ID is an</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- alphanumeric string formatted as shown in this example:</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- case-/12345678910-2013-c4c1d2bf33c5cf47/</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AcaseId%3AResolveCase%27"><span class="annot"><span class="annottext">ResolveCase -&gt; Maybe Text
 </span><a href="Network.AWS.Support.ResolveCase.html#%24sel%3AcaseId%3AResolveCase%27"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172687"><span id="local-6989586621679172689"><span class="annot"><span class="annottext">ResolveCase -&gt; ResolveCase -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172696"><span id="local-6989586621679172698"><span class="annot"><span class="annottext">ResolveCase -&gt; ResolveCase -&gt; Bool
 (ResolveCase -&gt; ResolveCase -&gt; Bool)
 -&gt; (ResolveCase -&gt; ResolveCase -&gt; Bool) -&gt; Eq ResolveCase
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResolveCase -&gt; ResolveCase -&gt; Bool
 == :: ResolveCase -&gt; ResolveCase -&gt; Bool
 $c== :: ResolveCase -&gt; ResolveCase -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172678"><span id="local-6989586621679172680"><span id="local-6989586621679172682"><span id="local-6989586621679172684"><span class="annot"><span class="annottext">ReadPrec [ResolveCase]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172687"><span id="local-6989586621679172689"><span id="local-6989586621679172691"><span id="local-6989586621679172693"><span class="annot"><span class="annottext">ReadPrec [ResolveCase]
 ReadPrec ResolveCase
 Int -&gt; ReadS ResolveCase
 ReadS [ResolveCase]
@@ -93,7 +93,7 @@ readList :: ReadS [ResolveCase]
 $creadList :: ReadS [ResolveCase]
 readsPrec :: Int -&gt; ReadS ResolveCase
 $creadsPrec :: Int -&gt; ReadS ResolveCase
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172671"><span id="local-6989586621679172673"><span id="local-6989586621679172675"><span class="annot"><span class="annottext">Int -&gt; ResolveCase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172680"><span id="local-6989586621679172682"><span id="local-6989586621679172684"><span class="annot"><span class="annottext">Int -&gt; ResolveCase -&gt; ShowS
 [ResolveCase] -&gt; ShowS
 ResolveCase -&gt; String
 (Int -&gt; ResolveCase -&gt; ShowS)
@@ -149,25 +149,25 @@ forall a. Maybe a
 -&gt; (ResolveCase -&gt; Maybe Text -&gt; ResolveCase)
 -&gt; Lens ResolveCase ResolveCase (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase%27"><span class="hs-identifier hs-type">ResolveCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172664"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase%27"><span class="hs-identifier hs-type">ResolveCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172673"><span class="annot"><span class="annottext">Maybe Text
 caseId :: Maybe Text
 $sel:caseId:ResolveCase' :: ResolveCase -&gt; Maybe Text
-</span><a href="#local-6989586621679172664"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172664"><span class="hs-identifier hs-var">caseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172663"><span class="annot"><span class="annottext">s :: ResolveCase
-</span><a href="#local-6989586621679172663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase%27"><span class="hs-identifier hs-type">ResolveCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172662"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveCase
-</span><a href="#local-6989586621679172663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caseId:ResolveCase' :: Maybe Text
+</span><a href="#local-6989586621679172673"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172673"><span class="hs-identifier hs-var">caseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172672"><span class="annot"><span class="annottext">s :: ResolveCase
+</span><a href="#local-6989586621679172672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase%27"><span class="hs-identifier hs-type">ResolveCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172671"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveCase
+</span><a href="#local-6989586621679172672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caseId:ResolveCase' :: Maybe Text
 </span><a href="Network.AWS.Support.ResolveCase.html#%24sel%3AcaseId%3AResolveCase%27"><span class="hs-identifier hs-var">caseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-type">ResolveCase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-type">ResolveCase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-type">ResolveCase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-type">ResolveCase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse"><span class="hs-identifier hs-type">ResolveCaseResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679172658"><span class="annot"><span class="annottext">request :: ResolveCase -&gt; Request ResolveCase
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679172667"><span class="annot"><span class="annottext">request :: ResolveCase -&gt; Request ResolveCase
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ResolveCase -&gt; Request ResolveCase
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Support.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679172654"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679172663"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ResolveCase
 -&gt; ClientResponse ClientBody
@@ -191,10 +191,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679172651"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679172651"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679172650"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679172650"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679172649"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172649"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679172660"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172660"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679172659"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679172659"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679172658"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172658"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ResolveCaseResponse
 </span><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-var">ResolveCaseResponse'</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ResolveCaseResponse)
@@ -202,7 +202,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ResolveCaseResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172649"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679172658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;initialCaseStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -211,7 +211,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ResolveCaseResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172649"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679172658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;finalCaseStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -223,15 +223,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679172651"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172660"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172641"><span id="local-6989586621679172643"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-type">ResolveCase</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172650"><span id="local-6989586621679172652"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-type">ResolveCase</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172638"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-type">ResolveCase</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-type">ResolveCase</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-type">ResolveCase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679172634"><span class="annot"><span class="annottext">toHeaders :: ResolveCase -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679172643"><span class="annot"><span class="annottext">toHeaders :: ResolveCase -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ResolveCase -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -258,12 +258,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172624"><span id="local-6989586621679172626"><span id="local-6989586621679172628"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-type">ResolveCase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679172622"><span class="annot"><span class="annottext">toJSON :: ResolveCase -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase%27"><span class="hs-identifier hs-type">ResolveCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172620"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172633"><span id="local-6989586621679172635"><span id="local-6989586621679172637"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-type">ResolveCase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679172631"><span class="annot"><span class="annottext">toJSON :: ResolveCase -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase%27"><span class="hs-identifier hs-type">ResolveCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172629"><span class="annot"><span class="annottext">Maybe Text
 caseId :: Maybe Text
 $sel:caseId:ResolveCase' :: ResolveCase -&gt; Maybe Text
-</span><a href="#local-6989586621679172620"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679172629"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -275,18 +275,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172620"><span class="hs-identifier hs-var">caseId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679172629"><span class="hs-identifier hs-var">caseId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-type">ResolveCase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679172614"><span class="annot"><span class="annottext">toPath :: ResolveCase -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679172623"><span class="annot"><span class="annottext">toPath :: ResolveCase -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResolveCase -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCase"><span class="hs-identifier hs-type">ResolveCase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679172610"><span class="annot"><span class="annottext">toQuery :: ResolveCase -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679172619"><span class="annot"><span class="annottext">toQuery :: ResolveCase -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ResolveCase -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -296,7 +296,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span class="hs-comment">-- | The status of the case returned by the ResolveCase operation.</span><span>
 </span><span id="line-136"></span><span class="hs-comment">--</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- /See:/ 'newResolveCaseResponse' smart constructor.</span><span>
-</span><span id="line-138"></span><span id="local-6989586621679172607"><span id="local-6989586621679172608"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResolveCaseResponse"><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse"><span class="hs-identifier hs-var">ResolveCaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolveCaseResponse%27"><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-var">ResolveCaseResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span id="local-6989586621679172616"><span id="local-6989586621679172617"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResolveCaseResponse"><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse"><span class="hs-identifier hs-var">ResolveCaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolveCaseResponse%27"><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-var">ResolveCaseResponse'</span></a></span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the case when the ResolveCase request was sent.</span><span>
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AinitialCaseStatus%3AResolveCaseResponse%27"><span class="annot"><span class="annottext">ResolveCaseResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Support.ResolveCase.html#%24sel%3AinitialCaseStatus%3AResolveCaseResponse%27"><span class="hs-identifier hs-var hs-var">initialCaseStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -307,7 +307,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AResolveCaseResponse%27"><span class="annot"><span class="annottext">ResolveCaseResponse -&gt; Int
 </span><a href="Network.AWS.Support.ResolveCase.html#%24sel%3AhttpStatus%3AResolveCaseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172600"><span id="local-6989586621679172602"><span class="annot"><span class="annottext">ResolveCaseResponse -&gt; ResolveCaseResponse -&gt; Bool
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172609"><span id="local-6989586621679172611"><span class="annot"><span class="annottext">ResolveCaseResponse -&gt; ResolveCaseResponse -&gt; Bool
 (ResolveCaseResponse -&gt; ResolveCaseResponse -&gt; Bool)
 -&gt; (ResolveCaseResponse -&gt; ResolveCaseResponse -&gt; Bool)
 -&gt; Eq ResolveCaseResponse
@@ -316,7 +316,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResolveCaseResponse -&gt; ResolveCaseResponse -&gt; Bool
 == :: ResolveCaseResponse -&gt; ResolveCaseResponse -&gt; Bool
 $c== :: ResolveCaseResponse -&gt; ResolveCaseResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172592"><span id="local-6989586621679172594"><span id="local-6989586621679172596"><span id="local-6989586621679172598"><span class="annot"><span class="annottext">ReadPrec [ResolveCaseResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172601"><span id="local-6989586621679172603"><span id="local-6989586621679172605"><span id="local-6989586621679172607"><span class="annot"><span class="annottext">ReadPrec [ResolveCaseResponse]
 ReadPrec ResolveCaseResponse
 Int -&gt; ReadS ResolveCaseResponse
 ReadS [ResolveCaseResponse]
@@ -336,7 +336,7 @@ readList :: ReadS [ResolveCaseResponse]
 $creadList :: ReadS [ResolveCaseResponse]
 readsPrec :: Int -&gt; ReadS ResolveCaseResponse
 $creadsPrec :: Int -&gt; ReadS ResolveCaseResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172586"><span id="local-6989586621679172588"><span id="local-6989586621679172590"><span class="annot"><span class="annottext">Int -&gt; ResolveCaseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172595"><span id="local-6989586621679172597"><span id="local-6989586621679172599"><span class="annot"><span class="annottext">Int -&gt; ResolveCaseResponse -&gt; ShowS
 [ResolveCaseResponse] -&gt; ShowS
 ResolveCaseResponse -&gt; String
 (Int -&gt; ResolveCaseResponse -&gt; ShowS)
@@ -380,8 +380,8 @@ $cfrom :: forall x. ResolveCaseResponse -&gt; Rep ResolveCaseResponse x
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse"><span class="hs-identifier hs-type">ResolveCaseResponse</span></a></span><span>
 </span><span id="line-165"></span><span id="newResolveCaseResponse"><span class="annot"><span class="annottext">newResolveCaseResponse :: Int -&gt; ResolveCaseResponse
-</span><a href="Network.AWS.Support.ResolveCase.html#newResolveCaseResponse"><span class="hs-identifier hs-var hs-var">newResolveCaseResponse</span></a></span></span><span> </span><span id="local-6989586621679172583"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679172583"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Support.ResolveCase.html#newResolveCaseResponse"><span class="hs-identifier hs-var hs-var">newResolveCaseResponse</span></a></span></span><span> </span><span id="local-6989586621679172592"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172592"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">ResolveCaseResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ResolveCaseResponse
 </span><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-type">ResolveCaseResponse'</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:initialCaseStatus:ResolveCaseResponse' :: Maybe Text
@@ -395,7 +395,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ResolveCaseResponse' :: Int
 </span><a href="Network.AWS.Support.ResolveCase.html#%24sel%3AhttpStatus%3AResolveCaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679172583"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679172592"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The status of the case when the ResolveCase request was sent.</span><span>
@@ -407,16 +407,16 @@ forall a. Maybe a
 -&gt; Lens
      ResolveCaseResponse ResolveCaseResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-type">ResolveCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172582"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-type">ResolveCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172591"><span class="annot"><span class="annottext">Maybe Text
 initialCaseStatus :: Maybe Text
 $sel:initialCaseStatus:ResolveCaseResponse' :: ResolveCaseResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679172582"><span class="hs-identifier hs-var hs-var">initialCaseStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172582"><span class="hs-identifier hs-var">initialCaseStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172581"><span class="annot"><span class="annottext">s :: ResolveCaseResponse
-</span><a href="#local-6989586621679172581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-type">ResolveCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172580"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveCaseResponse
-</span><a href="#local-6989586621679172581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initialCaseStatus:ResolveCaseResponse' :: Maybe Text
+</span><a href="#local-6989586621679172591"><span class="hs-identifier hs-var hs-var">initialCaseStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172591"><span class="hs-identifier hs-var">initialCaseStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172590"><span class="annot"><span class="annottext">s :: ResolveCaseResponse
+</span><a href="#local-6989586621679172590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-type">ResolveCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172589"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveCaseResponse
+</span><a href="#local-6989586621679172590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initialCaseStatus:ResolveCaseResponse' :: Maybe Text
 </span><a href="Network.AWS.Support.ResolveCase.html#%24sel%3AinitialCaseStatus%3AResolveCaseResponse%27"><span class="hs-identifier hs-var">initialCaseStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse"><span class="hs-identifier hs-type">ResolveCaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse"><span class="hs-identifier hs-type">ResolveCaseResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The status of the case after the ResolveCase request was processed.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#resolveCaseResponse_finalCaseStatus"><span class="hs-identifier hs-type">resolveCaseResponse_finalCaseStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse"><span class="hs-identifier hs-type">ResolveCaseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -427,16 +427,16 @@ $sel:initialCaseStatus:ResolveCaseResponse' :: ResolveCaseResponse -&gt; Maybe T
 -&gt; Lens
      ResolveCaseResponse ResolveCaseResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-type">ResolveCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172579"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-type">ResolveCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172588"><span class="annot"><span class="annottext">Maybe Text
 finalCaseStatus :: Maybe Text
 $sel:finalCaseStatus:ResolveCaseResponse' :: ResolveCaseResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679172579"><span class="hs-identifier hs-var hs-var">finalCaseStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172579"><span class="hs-identifier hs-var">finalCaseStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172578"><span class="annot"><span class="annottext">s :: ResolveCaseResponse
-</span><a href="#local-6989586621679172578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-type">ResolveCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172577"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveCaseResponse
-</span><a href="#local-6989586621679172578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalCaseStatus:ResolveCaseResponse' :: Maybe Text
+</span><a href="#local-6989586621679172588"><span class="hs-identifier hs-var hs-var">finalCaseStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172588"><span class="hs-identifier hs-var">finalCaseStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172587"><span class="annot"><span class="annottext">s :: ResolveCaseResponse
+</span><a href="#local-6989586621679172587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-type">ResolveCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172586"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveCaseResponse
+</span><a href="#local-6989586621679172587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalCaseStatus:ResolveCaseResponse' :: Maybe Text
 </span><a href="Network.AWS.Support.ResolveCase.html#%24sel%3AfinalCaseStatus%3AResolveCaseResponse%27"><span class="hs-identifier hs-var">finalCaseStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse"><span class="hs-identifier hs-type">ResolveCaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse"><span class="hs-identifier hs-type">ResolveCaseResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#resolveCaseResponse_httpStatus"><span class="hs-identifier hs-type">resolveCaseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse"><span class="hs-identifier hs-type">ResolveCaseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -445,16 +445,16 @@ $sel:finalCaseStatus:ResolveCaseResponse' :: ResolveCaseResponse -&gt; Maybe Tex
 -&gt; (ResolveCaseResponse -&gt; Int -&gt; ResolveCaseResponse)
 -&gt; Lens ResolveCaseResponse ResolveCaseResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-type">ResolveCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172576"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-type">ResolveCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172585"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ResolveCaseResponse' :: ResolveCaseResponse -&gt; Int
-</span><a href="#local-6989586621679172576"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679172576"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172575"><span class="annot"><span class="annottext">s :: ResolveCaseResponse
-</span><a href="#local-6989586621679172575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-type">ResolveCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172574"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679172574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveCaseResponse
-</span><a href="#local-6989586621679172575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResolveCaseResponse' :: Int
+</span><a href="#local-6989586621679172585"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172585"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172584"><span class="annot"><span class="annottext">s :: ResolveCaseResponse
+</span><a href="#local-6989586621679172584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse%27"><span class="hs-identifier hs-type">ResolveCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172583"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveCaseResponse
+</span><a href="#local-6989586621679172584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResolveCaseResponse' :: Int
 </span><a href="Network.AWS.Support.ResolveCase.html#%24sel%3AhttpStatus%3AResolveCaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679172574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse"><span class="hs-identifier hs-type">ResolveCaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse"><span class="hs-identifier hs-type">ResolveCaseResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172572"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse"><span class="hs-identifier hs-type">ResolveCaseResponse</span></a></span></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172581"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.ResolveCase.html#ResolveCaseResponse"><span class="hs-identifier hs-type">ResolveCaseResponse</span></a></span></span><span>
 </span><span id="line-186"></span></pre></body></html>

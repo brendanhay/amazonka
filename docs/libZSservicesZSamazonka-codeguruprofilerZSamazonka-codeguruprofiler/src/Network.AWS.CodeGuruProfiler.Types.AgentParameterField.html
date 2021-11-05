@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeGuruProfiler.Types.AgentParameterField</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeGuruProfiler.Types.AgentParameterField</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField"><span class="hs-identifier">AgentParameterField</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_MaxStackDepth"><span class="hs-identifier">AgentParameterField_MaxStackDepth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_MemoryUsageLimitPercent"><span class="hs-identifier">AgentParameterField_MemoryUsageLimitPercent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_MinimumTimeForReportingInMilliseconds"><span class="hs-identifier">AgentParameterField_MinimumTimeForReportingInMilliseconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_ReportingIntervalInMilliseconds"><span class="hs-identifier">AgentParameterField_ReportingIntervalInMilliseconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_SamplingIntervalInMilliseconds"><span class="hs-identifier">AgentParameterField_SamplingIntervalInMilliseconds</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679197162"><span id="local-6989586621679197163"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AgentParameterField"><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField"><span class="hs-identifier hs-var">AgentParameterField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AgentParameterField%27"><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField%27"><span class="hs-identifier hs-var">AgentParameterField'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAgentParameterField"><span class="annot"><span class="annottext">AgentParameterField -&gt; Text
+</span><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#fromAgentParameterField"><span class="hs-identifier hs-var hs-var">fromAgentParameterField</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679197154"><span id="local-6989586621679197156"><span id="local-6989586621679197158"><span class="annot"><span class="annottext">Int -&gt; AgentParameterField -&gt; ShowS
+[AgentParameterField] -&gt; ShowS
+AgentParameterField -&gt; String
+(Int -&gt; AgentParameterField -&gt; ShowS)
+-&gt; (AgentParameterField -&gt; String)
+-&gt; ([AgentParameterField] -&gt; ShowS)
+-&gt; Show AgentParameterField
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AgentParameterField] -&gt; ShowS
+$cshowList :: [AgentParameterField] -&gt; ShowS
+show :: AgentParameterField -&gt; String
+$cshow :: AgentParameterField -&gt; String
+showsPrec :: Int -&gt; AgentParameterField -&gt; ShowS
+$cshowsPrec :: Int -&gt; AgentParameterField -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679197145"><span id="local-6989586621679197147"><span id="local-6989586621679197149"><span id="local-6989586621679197151"><span class="annot"><span class="annottext">ReadPrec [AgentParameterField]
+ReadPrec AgentParameterField
+Int -&gt; ReadS AgentParameterField
+ReadS [AgentParameterField]
+(Int -&gt; ReadS AgentParameterField)
+-&gt; ReadS [AgentParameterField]
+-&gt; ReadPrec AgentParameterField
+-&gt; ReadPrec [AgentParameterField]
+-&gt; Read AgentParameterField
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AgentParameterField]
+$creadListPrec :: ReadPrec [AgentParameterField]
+readPrec :: ReadPrec AgentParameterField
+$creadPrec :: ReadPrec AgentParameterField
+readList :: ReadS [AgentParameterField]
+$creadList :: ReadS [AgentParameterField]
+readsPrec :: Int -&gt; ReadS AgentParameterField
+$creadsPrec :: Int -&gt; ReadS AgentParameterField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679197140"><span id="local-6989586621679197142"><span class="annot"><span class="annottext">AgentParameterField -&gt; AgentParameterField -&gt; Bool
+(AgentParameterField -&gt; AgentParameterField -&gt; Bool)
+-&gt; (AgentParameterField -&gt; AgentParameterField -&gt; Bool)
+-&gt; Eq AgentParameterField
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AgentParameterField -&gt; AgentParameterField -&gt; Bool
+$c/= :: AgentParameterField -&gt; AgentParameterField -&gt; Bool
+== :: AgentParameterField -&gt; AgentParameterField -&gt; Bool
+$c== :: AgentParameterField -&gt; AgentParameterField -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679197124"><span id="local-6989586621679197126"><span id="local-6989586621679197128"><span id="local-6989586621679197130"><span id="local-6989586621679197132"><span id="local-6989586621679197134"><span id="local-6989586621679197136"><span class="annot"><span class="annottext">Eq AgentParameterField
+Eq AgentParameterField
+-&gt; (AgentParameterField -&gt; AgentParameterField -&gt; Ordering)
+-&gt; (AgentParameterField -&gt; AgentParameterField -&gt; Bool)
+-&gt; (AgentParameterField -&gt; AgentParameterField -&gt; Bool)
+-&gt; (AgentParameterField -&gt; AgentParameterField -&gt; Bool)
+-&gt; (AgentParameterField -&gt; AgentParameterField -&gt; Bool)
+-&gt; (AgentParameterField
+    -&gt; AgentParameterField -&gt; AgentParameterField)
+-&gt; (AgentParameterField
+    -&gt; AgentParameterField -&gt; AgentParameterField)
+-&gt; Ord AgentParameterField
+AgentParameterField -&gt; AgentParameterField -&gt; Bool
+AgentParameterField -&gt; AgentParameterField -&gt; Ordering
+AgentParameterField -&gt; AgentParameterField -&gt; AgentParameterField
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AgentParameterField -&gt; AgentParameterField -&gt; AgentParameterField
+$cmin :: AgentParameterField -&gt; AgentParameterField -&gt; AgentParameterField
+max :: AgentParameterField -&gt; AgentParameterField -&gt; AgentParameterField
+$cmax :: AgentParameterField -&gt; AgentParameterField -&gt; AgentParameterField
+&gt;= :: AgentParameterField -&gt; AgentParameterField -&gt; Bool
+$c&gt;= :: AgentParameterField -&gt; AgentParameterField -&gt; Bool
+&gt; :: AgentParameterField -&gt; AgentParameterField -&gt; Bool
+$c&gt; :: AgentParameterField -&gt; AgentParameterField -&gt; Bool
+&lt;= :: AgentParameterField -&gt; AgentParameterField -&gt; Bool
+$c&lt;= :: AgentParameterField -&gt; AgentParameterField -&gt; Bool
+&lt; :: AgentParameterField -&gt; AgentParameterField -&gt; Bool
+$c&lt; :: AgentParameterField -&gt; AgentParameterField -&gt; Bool
+compare :: AgentParameterField -&gt; AgentParameterField -&gt; Ordering
+$ccompare :: AgentParameterField -&gt; AgentParameterField -&gt; Ordering
+$cp1Ord :: Eq AgentParameterField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AgentParameterField -&gt; Rep AgentParameterField x)
+-&gt; (forall x. Rep AgentParameterField x -&gt; AgentParameterField)
+-&gt; Generic AgentParameterField
+forall x. Rep AgentParameterField x -&gt; AgentParameterField
+forall x. AgentParameterField -&gt; Rep AgentParameterField x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AgentParameterField x -&gt; AgentParameterField
+$cfrom :: forall x. AgentParameterField -&gt; Rep AgentParameterField x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679197116"><span id="local-6989586621679197118"><span class="annot"><span class="annottext">Int -&gt; AgentParameterField -&gt; Int
+AgentParameterField -&gt; Int
+(Int -&gt; AgentParameterField -&gt; Int)
+-&gt; (AgentParameterField -&gt; Int) -&gt; Hashable AgentParameterField
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AgentParameterField -&gt; Int
+$chash :: AgentParameterField -&gt; Int
+hashWithSalt :: Int -&gt; AgentParameterField -&gt; Int
+$chashWithSalt :: Int -&gt; AgentParameterField -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679197113"><span class="annot"><span class="annottext">AgentParameterField -&gt; ()
+(AgentParameterField -&gt; ()) -&gt; NFData AgentParameterField
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AgentParameterField -&gt; ()
+$crnf :: AgentParameterField -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679197110"><span class="annot"><span class="annottext">Text -&gt; Either String AgentParameterField
+(Text -&gt; Either String AgentParameterField)
+-&gt; FromText AgentParameterField
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AgentParameterField
+$cfromText :: Text -&gt; Either String AgentParameterField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679197107"><span class="annot"><span class="annottext">AgentParameterField -&gt; Text
+(AgentParameterField -&gt; Text) -&gt; ToText AgentParameterField
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AgentParameterField -&gt; Text
+$ctoText :: AgentParameterField -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679197104"><span class="annot"><span class="annottext">AgentParameterField -&gt; ByteString
+(AgentParameterField -&gt; ByteString)
+-&gt; ToByteString AgentParameterField
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AgentParameterField -&gt; ByteString
+$ctoBS :: AgentParameterField -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679197101"><span class="annot"><span class="annottext">AgentParameterField -&gt; ByteStringBuilder
+(AgentParameterField -&gt; ByteStringBuilder)
+-&gt; ToLog AgentParameterField
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AgentParameterField -&gt; ByteStringBuilder
+$cbuild :: AgentParameterField -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679197098"><span class="annot"><span class="annottext">HeaderName -&gt; AgentParameterField -&gt; [Header]
+(HeaderName -&gt; AgentParameterField -&gt; [Header])
+-&gt; ToHeader AgentParameterField
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AgentParameterField -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AgentParameterField -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679197095"><span class="annot"><span class="annottext">AgentParameterField -&gt; QueryString
+(AgentParameterField -&gt; QueryString) -&gt; ToQuery AgentParameterField
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AgentParameterField -&gt; QueryString
+$ctoQuery :: AgentParameterField -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679197090"><span id="local-6989586621679197092"><span class="annot"><span class="annottext">Value -&gt; Parser [AgentParameterField]
+Value -&gt; Parser AgentParameterField
+(Value -&gt; Parser AgentParameterField)
+-&gt; (Value -&gt; Parser [AgentParameterField])
+-&gt; FromJSON AgentParameterField
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AgentParameterField]
+$cparseJSONList :: Value -&gt; Parser [AgentParameterField]
+parseJSON :: Value -&gt; Parser AgentParameterField
+$cparseJSON :: Value -&gt; Parser AgentParameterField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679197085"><span id="local-6989586621679197087"><span class="annot"><span class="annottext">FromJSONKeyFunction [AgentParameterField]
+FromJSONKeyFunction AgentParameterField
+FromJSONKeyFunction AgentParameterField
+-&gt; FromJSONKeyFunction [AgentParameterField]
+-&gt; FromJSONKey AgentParameterField
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AgentParameterField]
+$cfromJSONKeyList :: FromJSONKeyFunction [AgentParameterField]
+fromJSONKey :: FromJSONKeyFunction AgentParameterField
+$cfromJSONKey :: FromJSONKeyFunction AgentParameterField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679197076"><span id="local-6989586621679197078"><span id="local-6989586621679197080"><span id="local-6989586621679197082"><span class="annot"><span class="annottext">[AgentParameterField] -&gt; Encoding
+[AgentParameterField] -&gt; Value
+AgentParameterField -&gt; Encoding
+AgentParameterField -&gt; Value
+(AgentParameterField -&gt; Value)
+-&gt; (AgentParameterField -&gt; Encoding)
+-&gt; ([AgentParameterField] -&gt; Value)
+-&gt; ([AgentParameterField] -&gt; Encoding)
+-&gt; ToJSON AgentParameterField
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AgentParameterField] -&gt; Encoding
+$ctoEncodingList :: [AgentParameterField] -&gt; Encoding
+toJSONList :: [AgentParameterField] -&gt; Value
+$ctoJSONList :: [AgentParameterField] -&gt; Value
+toEncoding :: AgentParameterField -&gt; Encoding
+$ctoEncoding :: AgentParameterField -&gt; Encoding
+toJSON :: AgentParameterField -&gt; Value
+$ctoJSON :: AgentParameterField -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679197071"><span id="local-6989586621679197073"><span class="annot"><span class="annottext">ToJSONKeyFunction [AgentParameterField]
+ToJSONKeyFunction AgentParameterField
+ToJSONKeyFunction AgentParameterField
+-&gt; ToJSONKeyFunction [AgentParameterField]
+-&gt; ToJSONKey AgentParameterField
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AgentParameterField]
+$ctoJSONKeyList :: ToJSONKeyFunction [AgentParameterField]
+toJSONKey :: ToJSONKeyFunction AgentParameterField
+$ctoJSONKey :: ToJSONKeyFunction AgentParameterField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679197068"><span class="annot"><span class="annottext">[Node] -&gt; Either String AgentParameterField
+([Node] -&gt; Either String AgentParameterField)
+-&gt; FromXML AgentParameterField
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AgentParameterField
+$cparseXML :: [Node] -&gt; Either String AgentParameterField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679197065"><span class="annot"><span class="annottext">AgentParameterField -&gt; XML
+(AgentParameterField -&gt; XML) -&gt; ToXML AgentParameterField
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AgentParameterField -&gt; XML
+$ctoXML :: AgentParameterField -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_MaxStackDepth"><span class="hs-identifier hs-type">AgentParameterField_MaxStackDepth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField"><span class="hs-identifier hs-type">AgentParameterField</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAgentParameterField_MaxStackDepth"><span id="%24mAgentParameterField_MaxStackDepth"><span id="AgentParameterField_MaxStackDepth"><span class="annot"><span class="annottext">$bAgentParameterField_MaxStackDepth :: AgentParameterField
+$mAgentParameterField_MaxStackDepth :: forall r. AgentParameterField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#%24bAgentParameterField_MaxStackDepth"><span class="hs-identifier hs-var hs-var hs-var">AgentParameterField_MaxStackDepth</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField%27"><span class="hs-identifier hs-type">AgentParameterField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MaxStackDepth&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_MemoryUsageLimitPercent"><span class="hs-identifier hs-type">AgentParameterField_MemoryUsageLimitPercent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField"><span class="hs-identifier hs-type">AgentParameterField</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAgentParameterField_MemoryUsageLimitPercent"><span id="%24mAgentParameterField_MemoryUsageLimitPercent"><span id="AgentParameterField_MemoryUsageLimitPercent"><span class="annot"><span class="annottext">$bAgentParameterField_MemoryUsageLimitPercent :: AgentParameterField
+$mAgentParameterField_MemoryUsageLimitPercent :: forall r. AgentParameterField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#%24bAgentParameterField_MemoryUsageLimitPercent"><span class="hs-identifier hs-var hs-var hs-var">AgentParameterField_MemoryUsageLimitPercent</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField%27"><span class="hs-identifier hs-type">AgentParameterField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MemoryUsageLimitPercent&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_MinimumTimeForReportingInMilliseconds"><span class="hs-identifier hs-type">AgentParameterField_MinimumTimeForReportingInMilliseconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField"><span class="hs-identifier hs-type">AgentParameterField</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAgentParameterField_MinimumTimeForReportingInMilliseconds"><span id="%24mAgentParameterField_MinimumTimeForReportingInMilliseconds"><span id="AgentParameterField_MinimumTimeForReportingInMilliseconds"><span class="annot"><span class="annottext">$bAgentParameterField_MinimumTimeForReportingInMilliseconds :: AgentParameterField
+$mAgentParameterField_MinimumTimeForReportingInMilliseconds :: forall r. AgentParameterField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#%24bAgentParameterField_MinimumTimeForReportingInMilliseconds"><span class="hs-identifier hs-var hs-var hs-var">AgentParameterField_MinimumTimeForReportingInMilliseconds</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField%27"><span class="hs-identifier hs-type">AgentParameterField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MinimumTimeForReportingInMilliseconds&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_ReportingIntervalInMilliseconds"><span class="hs-identifier hs-type">AgentParameterField_ReportingIntervalInMilliseconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField"><span class="hs-identifier hs-type">AgentParameterField</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAgentParameterField_ReportingIntervalInMilliseconds"><span id="%24mAgentParameterField_ReportingIntervalInMilliseconds"><span id="AgentParameterField_ReportingIntervalInMilliseconds"><span class="annot"><span class="annottext">$bAgentParameterField_ReportingIntervalInMilliseconds :: AgentParameterField
+$mAgentParameterField_ReportingIntervalInMilliseconds :: forall r. AgentParameterField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#%24bAgentParameterField_ReportingIntervalInMilliseconds"><span class="hs-identifier hs-var hs-var hs-var">AgentParameterField_ReportingIntervalInMilliseconds</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField%27"><span class="hs-identifier hs-type">AgentParameterField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ReportingIntervalInMilliseconds&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_SamplingIntervalInMilliseconds"><span class="hs-identifier hs-type">AgentParameterField_SamplingIntervalInMilliseconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField"><span class="hs-identifier hs-type">AgentParameterField</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAgentParameterField_SamplingIntervalInMilliseconds"><span id="%24mAgentParameterField_SamplingIntervalInMilliseconds"><span id="AgentParameterField_SamplingIntervalInMilliseconds"><span class="annot"><span class="annottext">$bAgentParameterField_SamplingIntervalInMilliseconds :: AgentParameterField
+$mAgentParameterField_SamplingIntervalInMilliseconds :: forall r. AgentParameterField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#%24bAgentParameterField_SamplingIntervalInMilliseconds"><span class="hs-identifier hs-var hs-var hs-var">AgentParameterField_SamplingIntervalInMilliseconds</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField%27"><span class="hs-identifier hs-type">AgentParameterField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SamplingIntervalInMilliseconds&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_MaxStackDepth"><span class="hs-pragma hs-type">AgentParameterField_MaxStackDepth</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_MemoryUsageLimitPercent"><span class="hs-pragma hs-type">AgentParameterField_MemoryUsageLimitPercent</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_MinimumTimeForReportingInMilliseconds"><span class="hs-pragma hs-type">AgentParameterField_MinimumTimeForReportingInMilliseconds</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_ReportingIntervalInMilliseconds"><span class="hs-pragma hs-type">AgentParameterField_ReportingIntervalInMilliseconds</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField_SamplingIntervalInMilliseconds"><span class="hs-pragma hs-type">AgentParameterField_SamplingIntervalInMilliseconds</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AgentParameterField.html#AgentParameterField%27"><span class="hs-pragma hs-type">AgentParameterField'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

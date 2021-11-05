@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Information about the file that you\'re transcoding.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newJobInput' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679212969"><span id="local-6989586621679212970"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobInput"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-var">JobInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobInput%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-var">JobInput'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679212978"><span id="local-6989586621679212979"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobInput"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-var">JobInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobInput%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-var">JobInput'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The frame rate of the input file. If you want Elastic Transcoder to</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- automatically detect the frame rate of the input file, specify @auto@.</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- If you want to specify the frame rate for the input file, enter one of</span><span>
@@ -152,7 +152,7 @@
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AinputCaptions%3AJobInput%27"><span class="annot"><span class="annottext">JobInput -&gt; Maybe InputCaptions
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#%24sel%3AinputCaptions%3AJobInput%27"><span class="hs-identifier hs-var hs-var">inputCaptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.InputCaptions.html#InputCaptions"><span class="hs-identifier hs-type">InputCaptions</span></a></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212954"><span id="local-6989586621679212956"><span class="annot"><span class="annottext">JobInput -&gt; JobInput -&gt; Bool
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212963"><span id="local-6989586621679212965"><span class="annot"><span class="annottext">JobInput -&gt; JobInput -&gt; Bool
 (JobInput -&gt; JobInput -&gt; Bool)
 -&gt; (JobInput -&gt; JobInput -&gt; Bool) -&gt; Eq JobInput
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -160,7 +160,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobInput -&gt; JobInput -&gt; Bool
 == :: JobInput -&gt; JobInput -&gt; Bool
 $c== :: JobInput -&gt; JobInput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212945"><span id="local-6989586621679212947"><span id="local-6989586621679212949"><span id="local-6989586621679212951"><span class="annot"><span class="annottext">ReadPrec [JobInput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212954"><span id="local-6989586621679212956"><span id="local-6989586621679212958"><span id="local-6989586621679212960"><span class="annot"><span class="annottext">ReadPrec [JobInput]
 ReadPrec JobInput
 Int -&gt; ReadS JobInput
 ReadS [JobInput]
@@ -180,7 +180,7 @@ readList :: ReadS [JobInput]
 $creadList :: ReadS [JobInput]
 readsPrec :: Int -&gt; ReadS JobInput
 $creadsPrec :: Int -&gt; ReadS JobInput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212938"><span id="local-6989586621679212940"><span id="local-6989586621679212942"><span class="annot"><span class="annottext">Int -&gt; JobInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212947"><span id="local-6989586621679212949"><span id="local-6989586621679212951"><span class="annot"><span class="annottext">Int -&gt; JobInput -&gt; ShowS
 [JobInput] -&gt; ShowS
 JobInput -&gt; String
 (Int -&gt; JobInput -&gt; ShowS)
@@ -393,16 +393,16 @@ forall a. Maybe a
 -&gt; (JobInput -&gt; Maybe Text -&gt; JobInput)
 -&gt; Lens JobInput JobInput (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212929"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212938"><span class="annot"><span class="annottext">Maybe Text
 frameRate :: Maybe Text
 $sel:frameRate:JobInput' :: JobInput -&gt; Maybe Text
-</span><a href="#local-6989586621679212929"><span class="hs-identifier hs-var hs-var">frameRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212929"><span class="hs-identifier hs-var">frameRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212928"><span class="annot"><span class="annottext">s :: JobInput
-</span><a href="#local-6989586621679212928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212927"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
-</span><a href="#local-6989586621679212928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameRate:JobInput' :: Maybe Text
+</span><a href="#local-6989586621679212938"><span class="hs-identifier hs-var hs-var">frameRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212938"><span class="hs-identifier hs-var">frameRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212937"><span class="annot"><span class="annottext">s :: JobInput
+</span><a href="#local-6989586621679212937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212936"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
+</span><a href="#local-6989586621679212937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameRate:JobInput' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#%24sel%3AframeRate%3AJobInput%27"><span class="hs-identifier hs-var">frameRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-291"></span><span>
 </span><span id="line-292"></span><span class="hs-comment">-- | This value must be @auto@, which causes Elastic Transcoder to</span><span>
 </span><span id="line-293"></span><span class="hs-comment">-- automatically detect the resolution of the input file.</span><span>
@@ -412,16 +412,16 @@ $sel:frameRate:JobInput' :: JobInput -&gt; Maybe Text
 -&gt; (JobInput -&gt; Maybe Text -&gt; JobInput)
 -&gt; Lens JobInput JobInput (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212925"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212934"><span class="annot"><span class="annottext">Maybe Text
 resolution :: Maybe Text
 $sel:resolution:JobInput' :: JobInput -&gt; Maybe Text
-</span><a href="#local-6989586621679212925"><span class="hs-identifier hs-var hs-var">resolution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212925"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212924"><span class="annot"><span class="annottext">s :: JobInput
-</span><a href="#local-6989586621679212924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212923"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
-</span><a href="#local-6989586621679212924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolution:JobInput' :: Maybe Text
+</span><a href="#local-6989586621679212934"><span class="hs-identifier hs-var hs-var">resolution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212934"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212933"><span class="annot"><span class="annottext">s :: JobInput
+</span><a href="#local-6989586621679212933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212932"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
+</span><a href="#local-6989586621679212933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolution:JobInput' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#%24sel%3Aresolution%3AJobInput%27"><span class="hs-identifier hs-var">resolution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-296"></span><span>
 </span><span id="line-297"></span><span class="hs-comment">-- | The aspect ratio of the input file. If you want Elastic Transcoder to</span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- automatically detect the aspect ratio of the input file, specify @auto@.</span><span>
@@ -438,16 +438,16 @@ $sel:resolution:JobInput' :: JobInput -&gt; Maybe Text
 -&gt; (JobInput -&gt; Maybe Text -&gt; JobInput)
 -&gt; Lens JobInput JobInput (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212921"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212930"><span class="annot"><span class="annottext">Maybe Text
 aspectRatio :: Maybe Text
 $sel:aspectRatio:JobInput' :: JobInput -&gt; Maybe Text
-</span><a href="#local-6989586621679212921"><span class="hs-identifier hs-var hs-var">aspectRatio</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212921"><span class="hs-identifier hs-var">aspectRatio</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212920"><span class="annot"><span class="annottext">s :: JobInput
-</span><a href="#local-6989586621679212920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212919"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
-</span><a href="#local-6989586621679212920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aspectRatio:JobInput' :: Maybe Text
+</span><a href="#local-6989586621679212930"><span class="hs-identifier hs-var hs-var">aspectRatio</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212930"><span class="hs-identifier hs-var">aspectRatio</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212929"><span class="annot"><span class="annottext">s :: JobInput
+</span><a href="#local-6989586621679212929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212928"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
+</span><a href="#local-6989586621679212929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aspectRatio:JobInput' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#%24sel%3AaspectRatio%3AJobInput%27"><span class="hs-identifier hs-var">aspectRatio</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-308"></span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- | Settings for clipping an input. Each input can have different clip</span><span>
 </span><span id="line-310"></span><span class="hs-comment">-- settings.</span><span>
@@ -457,16 +457,16 @@ $sel:aspectRatio:JobInput' :: JobInput -&gt; Maybe Text
 -&gt; (JobInput -&gt; Maybe TimeSpan -&gt; JobInput)
 -&gt; Lens JobInput JobInput (Maybe TimeSpan) (Maybe TimeSpan)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212917"><span class="annot"><span class="annottext">Maybe TimeSpan
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212926"><span class="annot"><span class="annottext">Maybe TimeSpan
 timeSpan :: Maybe TimeSpan
 $sel:timeSpan:JobInput' :: JobInput -&gt; Maybe TimeSpan
-</span><a href="#local-6989586621679212917"><span class="hs-identifier hs-var hs-var">timeSpan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeSpan
-</span><a href="#local-6989586621679212917"><span class="hs-identifier hs-var">timeSpan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212916"><span class="annot"><span class="annottext">s :: JobInput
-</span><a href="#local-6989586621679212916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212915"><span class="annot"><span class="annottext">Maybe TimeSpan
-</span><a href="#local-6989586621679212915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
-</span><a href="#local-6989586621679212916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeSpan:JobInput' :: Maybe TimeSpan
+</span><a href="#local-6989586621679212926"><span class="hs-identifier hs-var hs-var">timeSpan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeSpan
+</span><a href="#local-6989586621679212926"><span class="hs-identifier hs-var">timeSpan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212925"><span class="annot"><span class="annottext">s :: JobInput
+</span><a href="#local-6989586621679212925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212924"><span class="annot"><span class="annottext">Maybe TimeSpan
+</span><a href="#local-6989586621679212924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
+</span><a href="#local-6989586621679212925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeSpan:JobInput' :: Maybe TimeSpan
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#%24sel%3AtimeSpan%3AJobInput%27"><span class="hs-identifier hs-var">timeSpan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimeSpan
-</span><a href="#local-6989586621679212915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-313"></span><span>
 </span><span id="line-314"></span><span class="hs-comment">-- | The encryption settings, if any, that are used for decrypting your input</span><span>
 </span><span id="line-315"></span><span class="hs-comment">-- files. If your input file is encrypted, you must specify the mode that</span><span>
@@ -478,16 +478,16 @@ $sel:timeSpan:JobInput' :: JobInput -&gt; Maybe TimeSpan
 -&gt; (JobInput -&gt; Maybe Encryption -&gt; JobInput)
 -&gt; Lens JobInput JobInput (Maybe Encryption) (Maybe Encryption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212913"><span class="annot"><span class="annottext">Maybe Encryption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212922"><span class="annot"><span class="annottext">Maybe Encryption
 encryption :: Maybe Encryption
 $sel:encryption:JobInput' :: JobInput -&gt; Maybe Encryption
-</span><a href="#local-6989586621679212913"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679212913"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212912"><span class="annot"><span class="annottext">s :: JobInput
-</span><a href="#local-6989586621679212912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212911"><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679212911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
-</span><a href="#local-6989586621679212912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:JobInput' :: Maybe Encryption
+</span><a href="#local-6989586621679212922"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679212922"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212921"><span class="annot"><span class="annottext">s :: JobInput
+</span><a href="#local-6989586621679212921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212920"><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679212920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
+</span><a href="#local-6989586621679212921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:JobInput' :: Maybe Encryption
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#%24sel%3Aencryption%3AJobInput%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679212911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-319"></span><span>
 </span><span id="line-320"></span><span class="hs-comment">-- | The name of the file to transcode. Elsewhere in the body of the JSON</span><span>
 </span><span id="line-321"></span><span class="hs-comment">-- block is the the ID of the pipeline to use for processing the job. The</span><span>
@@ -503,16 +503,16 @@ $sel:encryption:JobInput' :: JobInput -&gt; Maybe Encryption
 -&gt; (JobInput -&gt; Maybe Text -&gt; JobInput)
 -&gt; Lens JobInput JobInput (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212909"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212918"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
 $sel:key:JobInput' :: JobInput -&gt; Maybe Text
-</span><a href="#local-6989586621679212909"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212909"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212908"><span class="annot"><span class="annottext">s :: JobInput
-</span><a href="#local-6989586621679212908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212907"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
-</span><a href="#local-6989586621679212908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:JobInput' :: Maybe Text
+</span><a href="#local-6989586621679212918"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212918"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212917"><span class="annot"><span class="annottext">s :: JobInput
+</span><a href="#local-6989586621679212917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212916"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
+</span><a href="#local-6989586621679212917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:JobInput' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#%24sel%3Akey%3AJobInput%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-330"></span><span>
 </span><span id="line-331"></span><span class="hs-comment">-- | The detected properties of the input file.</span><span>
 </span><span id="line-332"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#jobInput_detectedProperties"><span class="hs-identifier hs-type">jobInput_detectedProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.DetectedProperties.html#DetectedProperties"><span class="hs-identifier hs-type">DetectedProperties</span></a></span><span class="hs-special">)</span><span>
@@ -526,16 +526,16 @@ $sel:key:JobInput' :: JobInput -&gt; Maybe Text
      (Maybe DetectedProperties)
      (Maybe DetectedProperties)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212905"><span class="annot"><span class="annottext">Maybe DetectedProperties
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212914"><span class="annot"><span class="annottext">Maybe DetectedProperties
 detectedProperties :: Maybe DetectedProperties
 $sel:detectedProperties:JobInput' :: JobInput -&gt; Maybe DetectedProperties
-</span><a href="#local-6989586621679212905"><span class="hs-identifier hs-var hs-var">detectedProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DetectedProperties
-</span><a href="#local-6989586621679212905"><span class="hs-identifier hs-var">detectedProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212904"><span class="annot"><span class="annottext">s :: JobInput
-</span><a href="#local-6989586621679212904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212903"><span class="annot"><span class="annottext">Maybe DetectedProperties
-</span><a href="#local-6989586621679212903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
-</span><a href="#local-6989586621679212904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectedProperties:JobInput' :: Maybe DetectedProperties
+</span><a href="#local-6989586621679212914"><span class="hs-identifier hs-var hs-var">detectedProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DetectedProperties
+</span><a href="#local-6989586621679212914"><span class="hs-identifier hs-var">detectedProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212913"><span class="annot"><span class="annottext">s :: JobInput
+</span><a href="#local-6989586621679212913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212912"><span class="annot"><span class="annottext">Maybe DetectedProperties
+</span><a href="#local-6989586621679212912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
+</span><a href="#local-6989586621679212913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectedProperties:JobInput' :: Maybe DetectedProperties
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#%24sel%3AdetectedProperties%3AJobInput%27"><span class="hs-identifier hs-var">detectedProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DetectedProperties
-</span><a href="#local-6989586621679212903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-334"></span><span>
 </span><span id="line-335"></span><span class="hs-comment">-- | The container type for the input file. If you want Elastic Transcoder to</span><span>
 </span><span id="line-336"></span><span class="hs-comment">-- automatically detect the container type of the input file, specify</span><span>
@@ -550,16 +550,16 @@ $sel:detectedProperties:JobInput' :: JobInput -&gt; Maybe DetectedProperties
 -&gt; (JobInput -&gt; Maybe Text -&gt; JobInput)
 -&gt; Lens JobInput JobInput (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212901"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212910"><span class="annot"><span class="annottext">Maybe Text
 container :: Maybe Text
 $sel:container:JobInput' :: JobInput -&gt; Maybe Text
-</span><a href="#local-6989586621679212901"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212901"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212900"><span class="annot"><span class="annottext">s :: JobInput
-</span><a href="#local-6989586621679212900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212899"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
-</span><a href="#local-6989586621679212900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:container:JobInput' :: Maybe Text
+</span><a href="#local-6989586621679212910"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212910"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212909"><span class="annot"><span class="annottext">s :: JobInput
+</span><a href="#local-6989586621679212909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212908"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
+</span><a href="#local-6989586621679212909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:container:JobInput' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#%24sel%3Acontainer%3AJobInput%27"><span class="hs-identifier hs-var">container</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-344"></span><span>
 </span><span id="line-345"></span><span class="hs-comment">-- | Whether the input file is interlaced. If you want Elastic Transcoder to</span><span>
 </span><span id="line-346"></span><span class="hs-comment">-- automatically detect whether the input file is interlaced, specify</span><span>
@@ -576,16 +576,16 @@ $sel:container:JobInput' :: JobInput -&gt; Maybe Text
 -&gt; (JobInput -&gt; Maybe Text -&gt; JobInput)
 -&gt; Lens JobInput JobInput (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212897"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212906"><span class="annot"><span class="annottext">Maybe Text
 interlaced :: Maybe Text
 $sel:interlaced:JobInput' :: JobInput -&gt; Maybe Text
-</span><a href="#local-6989586621679212897"><span class="hs-identifier hs-var hs-var">interlaced</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212897"><span class="hs-identifier hs-var">interlaced</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212896"><span class="annot"><span class="annottext">s :: JobInput
-</span><a href="#local-6989586621679212896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212895"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
-</span><a href="#local-6989586621679212896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interlaced:JobInput' :: Maybe Text
+</span><a href="#local-6989586621679212906"><span class="hs-identifier hs-var hs-var">interlaced</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212906"><span class="hs-identifier hs-var">interlaced</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212905"><span class="annot"><span class="annottext">s :: JobInput
+</span><a href="#local-6989586621679212905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212904"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
+</span><a href="#local-6989586621679212905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interlaced:JobInput' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#%24sel%3Ainterlaced%3AJobInput%27"><span class="hs-identifier hs-var">interlaced</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-356"></span><span>
 </span><span id="line-357"></span><span class="hs-comment">-- | You can configure Elastic Transcoder to transcode captions, or</span><span>
 </span><span id="line-358"></span><span class="hs-comment">-- subtitles, from one format to another. All captions must be in UTF-8.</span><span>
@@ -645,27 +645,27 @@ $sel:interlaced:JobInput' :: JobInput -&gt; Maybe Text
 -&gt; Lens
      JobInput JobInput (Maybe InputCaptions) (Maybe InputCaptions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212893"><span class="annot"><span class="annottext">Maybe InputCaptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212902"><span class="annot"><span class="annottext">Maybe InputCaptions
 inputCaptions :: Maybe InputCaptions
 $sel:inputCaptions:JobInput' :: JobInput -&gt; Maybe InputCaptions
-</span><a href="#local-6989586621679212893"><span class="hs-identifier hs-var hs-var">inputCaptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputCaptions
-</span><a href="#local-6989586621679212893"><span class="hs-identifier hs-var">inputCaptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212892"><span class="annot"><span class="annottext">s :: JobInput
-</span><a href="#local-6989586621679212892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212891"><span class="annot"><span class="annottext">Maybe InputCaptions
-</span><a href="#local-6989586621679212891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
-</span><a href="#local-6989586621679212892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputCaptions:JobInput' :: Maybe InputCaptions
+</span><a href="#local-6989586621679212902"><span class="hs-identifier hs-var hs-var">inputCaptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputCaptions
+</span><a href="#local-6989586621679212902"><span class="hs-identifier hs-var">inputCaptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212901"><span class="annot"><span class="annottext">s :: JobInput
+</span><a href="#local-6989586621679212901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212900"><span class="annot"><span class="annottext">Maybe InputCaptions
+</span><a href="#local-6989586621679212900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobInput
+</span><a href="#local-6989586621679212901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputCaptions:JobInput' :: Maybe InputCaptions
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#%24sel%3AinputCaptions%3AJobInput%27"><span class="hs-identifier hs-var">inputCaptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputCaptions
-</span><a href="#local-6989586621679212891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-409"></span><span>
-</span><span id="line-410"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212888"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-411"></span><span>  </span><span id="local-6989586621679212886"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobInput
+</span><span id="line-410"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212897"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-411"></span><span>  </span><span id="local-6989586621679212895"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobInput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-412"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser JobInput) -&gt; Value -&gt; Parser JobInput
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-413"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobInput&quot;</span></span><span>
-</span><span id="line-414"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212883"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212883"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-414"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212892"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212892"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-415"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -703,7 +703,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; JobInput)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FrameRate&quot;</span></span><span class="hs-special">)</span><span>
@@ -731,7 +731,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; JobInput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Resolution&quot;</span></span><span class="hs-special">)</span><span>
@@ -757,7 +757,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; JobInput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AspectRatio&quot;</span></span><span class="hs-special">)</span><span>
@@ -781,7 +781,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; JobInput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeSpan)
+</span><a href="#local-6989586621679212892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeSpan)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimeSpan&quot;</span></span><span class="hs-special">)</span><span>
@@ -803,7 +803,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; JobInput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Encryption)
+</span><a href="#local-6989586621679212892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Encryption)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Encryption&quot;</span></span><span class="hs-special">)</span><span>
@@ -820,7 +820,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe InputCaptions -&gt; JobInput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
@@ -832,7 +832,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe InputCaptions -&gt; JobInput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DetectedProperties)
+</span><a href="#local-6989586621679212892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DetectedProperties)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DetectedProperties&quot;</span></span><span class="hs-special">)</span><span>
@@ -842,7 +842,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe InputCaptions -&gt; JobInput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Container&quot;</span></span><span class="hs-special">)</span><span>
@@ -850,7 +850,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe InputCaptions -&gt; JobInput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Interlaced&quot;</span></span><span class="hs-special">)</span><span>
@@ -858,19 +858,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe InputCaptions) -&gt; Parser JobInput
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputCaptions)
+</span><a href="#local-6989586621679212892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputCaptions)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputCaptions&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-426"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-427"></span><span>
-</span><span id="line-428"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212877"><span id="local-6989586621679212879"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span></span></span><span>
+</span><span id="line-428"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212886"><span id="local-6989586621679212888"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span></span></span><span>
 </span><span id="line-429"></span><span>
-</span><span id="line-430"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212874"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span></span><span>
+</span><span id="line-430"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span></span><span>
 </span><span id="line-431"></span><span>
-</span><span id="line-432"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212866"><span id="local-6989586621679212868"><span id="local-6989586621679212870"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-433"></span><span>  </span><span id="local-6989586621679212864"><span class="annot"><span class="annottext">toJSON :: JobInput -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212853"><span id="local-6989586621679212854"><span id="local-6989586621679212855"><span id="local-6989586621679212856"><span id="local-6989586621679212857"><span id="local-6989586621679212858"><span id="local-6989586621679212859"><span id="local-6989586621679212860"><span id="local-6989586621679212861"><span id="local-6989586621679212862"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-432"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212875"><span id="local-6989586621679212877"><span id="local-6989586621679212879"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-433"></span><span>  </span><span id="local-6989586621679212873"><span class="annot"><span class="annottext">toJSON :: JobInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobInput.html#JobInput%27"><span class="hs-identifier hs-type">JobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212862"><span id="local-6989586621679212863"><span id="local-6989586621679212864"><span id="local-6989586621679212865"><span id="local-6989586621679212866"><span id="local-6989586621679212867"><span id="local-6989586621679212868"><span id="local-6989586621679212869"><span id="local-6989586621679212870"><span id="local-6989586621679212871"><span class="annot"><span class="annottext">Maybe Text
 Maybe DetectedProperties
 Maybe Encryption
 Maybe InputCaptions
@@ -895,7 +895,7 @@ $sel:timeSpan:JobInput' :: JobInput -&gt; Maybe TimeSpan
 $sel:aspectRatio:JobInput' :: JobInput -&gt; Maybe Text
 $sel:resolution:JobInput' :: JobInput -&gt; Maybe Text
 $sel:frameRate:JobInput' :: JobInput -&gt; Maybe Text
-</span><a href="#local-6989586621679212853"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679212862"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-434"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-435"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -907,42 +907,42 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212862"><span class="hs-identifier hs-var">frameRate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212871"><span class="hs-identifier hs-var">frameRate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-437"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Resolution&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212861"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212870"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-438"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AspectRatio&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212860"><span class="hs-identifier hs-var">aspectRatio</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212869"><span class="hs-identifier hs-var">aspectRatio</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-439"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimeSpan&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimeSpan -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TimeSpan -&gt; Pair) -&gt; Maybe TimeSpan -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimeSpan
-</span><a href="#local-6989586621679212859"><span class="hs-identifier hs-var">timeSpan</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212868"><span class="hs-identifier hs-var">timeSpan</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-440"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Encryption -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Pair) -&gt; Maybe Encryption -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679212858"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212867"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-441"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212857"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212866"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-442"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DetectedProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DetectedProperties -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -951,28 +951,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DetectedProperties -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DetectedProperties
-</span><a href="#local-6989586621679212856"><span class="hs-identifier hs-var">detectedProperties</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212865"><span class="hs-identifier hs-var">detectedProperties</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-444"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Container&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212855"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212864"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-445"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Interlaced&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212854"><span class="hs-identifier hs-var">interlaced</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212863"><span class="hs-identifier hs-var">interlaced</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-446"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputCaptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputCaptions -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputCaptions -&gt; Pair) -&gt; Maybe InputCaptions -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputCaptions
-</span><a href="#local-6989586621679212853"><span class="hs-identifier hs-var">inputCaptions</span></a></span><span>
+</span><a href="#local-6989586621679212862"><span class="hs-identifier hs-var">inputCaptions</span></a></span><span>
 </span><span id="line-447"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-448"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-449"></span></pre></body></html>

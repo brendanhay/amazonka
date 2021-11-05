@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The dollar value of the anomaly.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newImpact' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679330672"><span id="local-6989586621679330673"></span></span><span class="hs-keyword">data</span><span> </span><span id="Impact"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact"><span class="hs-identifier hs-var">Impact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Impact%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact%27"><span class="hs-identifier hs-var">Impact'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679330681"><span id="local-6989586621679330682"></span></span><span class="hs-keyword">data</span><span> </span><span id="Impact"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact"><span class="hs-identifier hs-var">Impact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Impact%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact%27"><span class="hs-identifier hs-var">Impact'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cumulative dollar value that\'s observed for an anomaly.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AtotalImpact%3AImpact%27"><span class="annot"><span class="annottext">Impact -&gt; Maybe Double
 </span><a href="Network.AWS.CostExplorer.Types.Impact.html#%24sel%3AtotalImpact%3AImpact%27"><span class="hs-identifier hs-var hs-var">totalImpact</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AmaxImpact%3AImpact%27"><span class="annot"><span class="annottext">Impact -&gt; Double
 </span><a href="Network.AWS.CostExplorer.Types.Impact.html#%24sel%3AmaxImpact%3AImpact%27"><span class="hs-identifier hs-var hs-var">maxImpact</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330665"><span id="local-6989586621679330667"><span class="annot"><span class="annottext">Impact -&gt; Impact -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330674"><span id="local-6989586621679330676"><span class="annot"><span class="annottext">Impact -&gt; Impact -&gt; Bool
 (Impact -&gt; Impact -&gt; Bool)
 -&gt; (Impact -&gt; Impact -&gt; Bool) -&gt; Eq Impact
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Impact -&gt; Impact -&gt; Bool
 == :: Impact -&gt; Impact -&gt; Bool
 $c== :: Impact -&gt; Impact -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330656"><span id="local-6989586621679330658"><span id="local-6989586621679330660"><span id="local-6989586621679330662"><span class="annot"><span class="annottext">ReadPrec [Impact]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330665"><span id="local-6989586621679330667"><span id="local-6989586621679330669"><span id="local-6989586621679330671"><span class="annot"><span class="annottext">ReadPrec [Impact]
 ReadPrec Impact
 Int -&gt; ReadS Impact
 ReadS [Impact]
@@ -62,7 +62,7 @@ readList :: ReadS [Impact]
 $creadList :: ReadS [Impact]
 readsPrec :: Int -&gt; ReadS Impact
 $creadsPrec :: Int -&gt; ReadS Impact
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330649"><span id="local-6989586621679330651"><span id="local-6989586621679330653"><span class="annot"><span class="annottext">Int -&gt; Impact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330658"><span id="local-6989586621679330660"><span id="local-6989586621679330662"><span class="annot"><span class="annottext">Int -&gt; Impact -&gt; ShowS
 [Impact] -&gt; ShowS
 Impact -&gt; String
 (Int -&gt; Impact -&gt; ShowS)
@@ -101,8 +101,8 @@ $cfrom :: forall x. Impact -&gt; Rep Impact x
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact"><span class="hs-identifier hs-type">Impact</span></a></span><span>
 </span><span id="line-52"></span><span id="newImpact"><span class="annot"><span class="annottext">newImpact :: Double -&gt; Impact
-</span><a href="Network.AWS.CostExplorer.Types.Impact.html#newImpact"><span class="hs-identifier hs-var hs-var">newImpact</span></a></span></span><span> </span><span id="local-6989586621679330643"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679330643"><span class="hs-identifier hs-var">pMaxImpact_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CostExplorer.Types.Impact.html#newImpact"><span class="hs-identifier hs-var hs-var">newImpact</span></a></span></span><span> </span><span id="local-6989586621679330652"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679330652"><span class="hs-identifier hs-var">pMaxImpact_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">Impact' :: Maybe Double -&gt; Double -&gt; Impact
 </span><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact%27"><span class="hs-identifier hs-type">Impact'</span></a></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:totalImpact:Impact' :: Maybe Double
@@ -111,7 +111,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxImpact:Impact' :: Double
 </span><a href="Network.AWS.CostExplorer.Types.Impact.html#%24sel%3AmaxImpact%3AImpact%27"><span class="hs-identifier hs-var">maxImpact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679330643"><span class="hs-identifier hs-var">pMaxImpact_</span></a></span><span>
+</span><a href="#local-6989586621679330652"><span class="hs-identifier hs-var">pMaxImpact_</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | The cumulative dollar value that\'s observed for an anomaly.</span><span>
@@ -121,16 +121,16 @@ forall a. Maybe a
 -&gt; (Impact -&gt; Maybe Double -&gt; Impact)
 -&gt; Lens Impact Impact (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact%27"><span class="hs-identifier hs-type">Impact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330639"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact%27"><span class="hs-identifier hs-type">Impact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330648"><span class="annot"><span class="annottext">Maybe Double
 totalImpact :: Maybe Double
 $sel:totalImpact:Impact' :: Impact -&gt; Maybe Double
-</span><a href="#local-6989586621679330639"><span class="hs-identifier hs-var hs-var">totalImpact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679330639"><span class="hs-identifier hs-var">totalImpact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330638"><span class="annot"><span class="annottext">s :: Impact
-</span><a href="#local-6989586621679330638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact%27"><span class="hs-identifier hs-type">Impact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330637"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679330637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Impact
-</span><a href="#local-6989586621679330638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalImpact:Impact' :: Maybe Double
+</span><a href="#local-6989586621679330648"><span class="hs-identifier hs-var hs-var">totalImpact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330648"><span class="hs-identifier hs-var">totalImpact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330647"><span class="annot"><span class="annottext">s :: Impact
+</span><a href="#local-6989586621679330647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact%27"><span class="hs-identifier hs-type">Impact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330646"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Impact
+</span><a href="#local-6989586621679330647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalImpact:Impact' :: Maybe Double
 </span><a href="Network.AWS.CostExplorer.Types.Impact.html#%24sel%3AtotalImpact%3AImpact%27"><span class="hs-identifier hs-var">totalImpact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679330637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact"><span class="hs-identifier hs-type">Impact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679330646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact"><span class="hs-identifier hs-type">Impact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The maximum dollar value that\'s observed for an anomaly.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#impact_maxImpact"><span class="hs-identifier hs-type">impact_maxImpact</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact"><span class="hs-identifier hs-type">Impact</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
@@ -138,47 +138,47 @@ $sel:totalImpact:Impact' :: Impact -&gt; Maybe Double
 </span><a href="Network.AWS.CostExplorer.Types.Impact.html#impact_maxImpact"><span class="hs-identifier hs-var hs-var">impact_maxImpact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Impact -&gt; Double)
 -&gt; (Impact -&gt; Double -&gt; Impact) -&gt; Lens Impact Impact Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact%27"><span class="hs-identifier hs-type">Impact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330635"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact%27"><span class="hs-identifier hs-type">Impact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330644"><span class="annot"><span class="annottext">Double
 maxImpact :: Double
 $sel:maxImpact:Impact' :: Impact -&gt; Double
-</span><a href="#local-6989586621679330635"><span class="hs-identifier hs-var hs-var">maxImpact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679330635"><span class="hs-identifier hs-var">maxImpact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330634"><span class="annot"><span class="annottext">s :: Impact
-</span><a href="#local-6989586621679330634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact%27"><span class="hs-identifier hs-type">Impact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330633"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679330633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Impact
-</span><a href="#local-6989586621679330634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxImpact:Impact' :: Double
+</span><a href="#local-6989586621679330644"><span class="hs-identifier hs-var hs-var">maxImpact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679330644"><span class="hs-identifier hs-var">maxImpact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330643"><span class="annot"><span class="annottext">s :: Impact
+</span><a href="#local-6989586621679330643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact%27"><span class="hs-identifier hs-type">Impact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330642"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679330642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Impact
+</span><a href="#local-6989586621679330643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxImpact:Impact' :: Double
 </span><a href="Network.AWS.CostExplorer.Types.Impact.html#%24sel%3AmaxImpact%3AImpact%27"><span class="hs-identifier hs-var">maxImpact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679330633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact"><span class="hs-identifier hs-type">Impact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679330642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact"><span class="hs-identifier hs-type">Impact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330630"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact"><span class="hs-identifier hs-type">Impact</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679330628"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Impact
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330639"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact"><span class="hs-identifier hs-type">Impact</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679330637"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Impact
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Impact) -&gt; Value -&gt; Parser Impact
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Impact&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330625"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330625"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330634"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330634"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Double -&gt; Impact
 </span><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact%27"><span class="hs-identifier hs-var">Impact'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Double -&gt; Impact)
 -&gt; Parser (Maybe Double) -&gt; Parser (Double -&gt; Impact)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679330634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TotalImpact&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Double -&gt; Impact) -&gt; Parser Double -&gt; Parser Impact
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679330634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxImpact&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330618"><span id="local-6989586621679330620"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact"><span class="hs-identifier hs-type">Impact</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330627"><span id="local-6989586621679330629"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact"><span class="hs-identifier hs-type">Impact</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330615"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact"><span class="hs-identifier hs-type">Impact</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330624"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Impact.html#Impact"><span class="hs-identifier hs-type">Impact</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

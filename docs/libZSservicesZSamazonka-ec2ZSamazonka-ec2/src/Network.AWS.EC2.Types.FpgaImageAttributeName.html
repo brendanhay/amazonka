@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681109998"><span id="local-6989586621681109999"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FpgaImageAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.FpgaImageAttributeName.html#FpgaImageAttributeName"><span class="hs-identifier hs-var">FpgaImageAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FpgaImageAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.FpgaImageAttributeName.html#FpgaImageAttributeName%27"><span class="hs-identifier hs-var">FpgaImageAttributeName'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681110007"><span id="local-6989586621681110008"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FpgaImageAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.FpgaImageAttributeName.html#FpgaImageAttributeName"><span class="hs-identifier hs-var">FpgaImageAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FpgaImageAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.FpgaImageAttributeName.html#FpgaImageAttributeName%27"><span class="hs-identifier hs-var">FpgaImageAttributeName'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFpgaImageAttributeName"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; Text
 </span><a href="Network.AWS.EC2.Types.FpgaImageAttributeName.html#fromFpgaImageAttributeName"><span class="hs-identifier hs-var hs-var">fromFpgaImageAttributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681109990"><span id="local-6989586621681109992"><span id="local-6989586621681109994"><span class="annot"><span class="annottext">Int -&gt; FpgaImageAttributeName -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681109999"><span id="local-6989586621681110001"><span id="local-6989586621681110003"><span class="annot"><span class="annottext">Int -&gt; FpgaImageAttributeName -&gt; ShowS
 [FpgaImageAttributeName] -&gt; ShowS
 FpgaImageAttributeName -&gt; String
 (Int -&gt; FpgaImageAttributeName -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: FpgaImageAttributeName -&gt; String
 showsPrec :: Int -&gt; FpgaImageAttributeName -&gt; ShowS
 $cshowsPrec :: Int -&gt; FpgaImageAttributeName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681109981"><span id="local-6989586621681109983"><span id="local-6989586621681109985"><span id="local-6989586621681109987"><span class="annot"><span class="annottext">ReadPrec [FpgaImageAttributeName]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681109990"><span id="local-6989586621681109992"><span id="local-6989586621681109994"><span id="local-6989586621681109996"><span class="annot"><span class="annottext">ReadPrec [FpgaImageAttributeName]
 ReadPrec FpgaImageAttributeName
 Int -&gt; ReadS FpgaImageAttributeName
 ReadS [FpgaImageAttributeName]
@@ -75,7 +75,7 @@ $creadList :: ReadS [FpgaImageAttributeName]
 readsPrec :: Int -&gt; ReadS FpgaImageAttributeName
 $creadsPrec :: Int -&gt; ReadS FpgaImageAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681109976"><span id="local-6989586621681109978"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; FpgaImageAttributeName -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681109985"><span id="local-6989586621681109987"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; FpgaImageAttributeName -&gt; Bool
 (FpgaImageAttributeName -&gt; FpgaImageAttributeName -&gt; Bool)
 -&gt; (FpgaImageAttributeName -&gt; FpgaImageAttributeName -&gt; Bool)
 -&gt; Eq FpgaImageAttributeName
@@ -85,7 +85,7 @@ $c/= :: FpgaImageAttributeName -&gt; FpgaImageAttributeName -&gt; Bool
 == :: FpgaImageAttributeName -&gt; FpgaImageAttributeName -&gt; Bool
 $c== :: FpgaImageAttributeName -&gt; FpgaImageAttributeName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681109960"><span id="local-6989586621681109962"><span id="local-6989586621681109964"><span id="local-6989586621681109966"><span id="local-6989586621681109968"><span id="local-6989586621681109970"><span id="local-6989586621681109972"><span class="annot"><span class="annottext">Eq FpgaImageAttributeName
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681109969"><span id="local-6989586621681109971"><span id="local-6989586621681109973"><span id="local-6989586621681109975"><span id="local-6989586621681109977"><span id="local-6989586621681109979"><span id="local-6989586621681109981"><span class="annot"><span class="annottext">Eq FpgaImageAttributeName
 Eq FpgaImageAttributeName
 -&gt; (FpgaImageAttributeName -&gt; FpgaImageAttributeName -&gt; Ordering)
 -&gt; (FpgaImageAttributeName -&gt; FpgaImageAttributeName -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. FpgaImageAttributeName -&gt; Rep FpgaImageAttributeName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681109952"><span id="local-6989586621681109954"><span class="annot"><span class="annottext">Int -&gt; FpgaImageAttributeName -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681109961"><span id="local-6989586621681109963"><span class="annot"><span class="annottext">Int -&gt; FpgaImageAttributeName -&gt; Int
 FpgaImageAttributeName -&gt; Int
 (Int -&gt; FpgaImageAttributeName -&gt; Int)
 -&gt; (FpgaImageAttributeName -&gt; Int)
@@ -155,54 +155,54 @@ $chash :: FpgaImageAttributeName -&gt; Int
 hashWithSalt :: Int -&gt; FpgaImageAttributeName -&gt; Int
 $chashWithSalt :: Int -&gt; FpgaImageAttributeName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681109949"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681109958"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; ()
 (FpgaImageAttributeName -&gt; ()) -&gt; NFData FpgaImageAttributeName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FpgaImageAttributeName -&gt; ()
 $crnf :: FpgaImageAttributeName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681109946"><span class="annot"><span class="annottext">Text -&gt; Either String FpgaImageAttributeName
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681109955"><span class="annot"><span class="annottext">Text -&gt; Either String FpgaImageAttributeName
 (Text -&gt; Either String FpgaImageAttributeName)
 -&gt; FromText FpgaImageAttributeName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FpgaImageAttributeName
 $cfromText :: Text -&gt; Either String FpgaImageAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681109943"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681109952"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; Text
 (FpgaImageAttributeName -&gt; Text) -&gt; ToText FpgaImageAttributeName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FpgaImageAttributeName -&gt; Text
 $ctoText :: FpgaImageAttributeName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681109940"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681109949"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; ByteString
 (FpgaImageAttributeName -&gt; ByteString)
 -&gt; ToByteString FpgaImageAttributeName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FpgaImageAttributeName -&gt; ByteString
 $ctoBS :: FpgaImageAttributeName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681109937"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681109946"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; ByteStringBuilder
 (FpgaImageAttributeName -&gt; ByteStringBuilder)
 -&gt; ToLog FpgaImageAttributeName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FpgaImageAttributeName -&gt; ByteStringBuilder
 $cbuild :: FpgaImageAttributeName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681109934"><span class="annot"><span class="annottext">HeaderName -&gt; FpgaImageAttributeName -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681109943"><span class="annot"><span class="annottext">HeaderName -&gt; FpgaImageAttributeName -&gt; [Header]
 (HeaderName -&gt; FpgaImageAttributeName -&gt; [Header])
 -&gt; ToHeader FpgaImageAttributeName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FpgaImageAttributeName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FpgaImageAttributeName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681109931"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681109940"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; QueryString
 (FpgaImageAttributeName -&gt; QueryString)
 -&gt; ToQuery FpgaImageAttributeName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FpgaImageAttributeName -&gt; QueryString
 $ctoQuery :: FpgaImageAttributeName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681109926"><span id="local-6989586621681109928"><span class="annot"><span class="annottext">Value -&gt; Parser [FpgaImageAttributeName]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681109935"><span id="local-6989586621681109937"><span class="annot"><span class="annottext">Value -&gt; Parser [FpgaImageAttributeName]
 Value -&gt; Parser FpgaImageAttributeName
 (Value -&gt; Parser FpgaImageAttributeName)
 -&gt; (Value -&gt; Parser [FpgaImageAttributeName])
@@ -214,7 +214,7 @@ $cparseJSONList :: Value -&gt; Parser [FpgaImageAttributeName]
 parseJSON :: Value -&gt; Parser FpgaImageAttributeName
 $cparseJSON :: Value -&gt; Parser FpgaImageAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681109921"><span id="local-6989586621681109923"><span class="annot"><span class="annottext">FromJSONKeyFunction [FpgaImageAttributeName]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681109930"><span id="local-6989586621681109932"><span class="annot"><span class="annottext">FromJSONKeyFunction [FpgaImageAttributeName]
 FromJSONKeyFunction FpgaImageAttributeName
 FromJSONKeyFunction FpgaImageAttributeName
 -&gt; FromJSONKeyFunction [FpgaImageAttributeName]
@@ -226,7 +226,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FpgaImageAttributeName]
 fromJSONKey :: FromJSONKeyFunction FpgaImageAttributeName
 $cfromJSONKey :: FromJSONKeyFunction FpgaImageAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681109912"><span id="local-6989586621681109914"><span id="local-6989586621681109916"><span id="local-6989586621681109918"><span class="annot"><span class="annottext">[FpgaImageAttributeName] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681109921"><span id="local-6989586621681109923"><span id="local-6989586621681109925"><span id="local-6989586621681109927"><span class="annot"><span class="annottext">[FpgaImageAttributeName] -&gt; Encoding
 [FpgaImageAttributeName] -&gt; Value
 FpgaImageAttributeName -&gt; Encoding
 FpgaImageAttributeName -&gt; Value
@@ -250,7 +250,7 @@ $ctoEncoding :: FpgaImageAttributeName -&gt; Encoding
 toJSON :: FpgaImageAttributeName -&gt; Value
 $ctoJSON :: FpgaImageAttributeName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681109907"><span id="local-6989586621681109909"><span class="annot"><span class="annottext">ToJSONKeyFunction [FpgaImageAttributeName]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681109916"><span id="local-6989586621681109918"><span class="annot"><span class="annottext">ToJSONKeyFunction [FpgaImageAttributeName]
 ToJSONKeyFunction FpgaImageAttributeName
 ToJSONKeyFunction FpgaImageAttributeName
 -&gt; ToJSONKeyFunction [FpgaImageAttributeName]
@@ -262,14 +262,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FpgaImageAttributeName]
 toJSONKey :: ToJSONKeyFunction FpgaImageAttributeName
 $ctoJSONKey :: ToJSONKeyFunction FpgaImageAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681109904"><span class="annot"><span class="annottext">[Node] -&gt; Either String FpgaImageAttributeName
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681109913"><span class="annot"><span class="annottext">[Node] -&gt; Either String FpgaImageAttributeName
 ([Node] -&gt; Either String FpgaImageAttributeName)
 -&gt; FromXML FpgaImageAttributeName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FpgaImageAttributeName
 $cparseXML :: [Node] -&gt; Either String FpgaImageAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681109901"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681109910"><span class="annot"><span class="annottext">FpgaImageAttributeName -&gt; XML
 (FpgaImageAttributeName -&gt; XML) -&gt; ToXML FpgaImageAttributeName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FpgaImageAttributeName -&gt; XML

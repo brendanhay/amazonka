@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The value to be compared with the @metric@.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMetricValue' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679790472"><span id="local-6989586621679790473"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricValue"><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-var">MetricValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricValue%27"><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-var">MetricValue'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679790481"><span id="local-6989586621679790482"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricValue"><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-var">MetricValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricValue%27"><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-var">MetricValue'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the @comparisonOperator@ calls for a set of CIDRs, use this to</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- specify that set to be compared with the @metric@.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Acidrs%3AMetricValue%27"><span class="annot"><span class="annottext">MetricValue -&gt; Maybe [Text]
@@ -49,7 +49,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Astrings%3AMetricValue%27"><span class="annot"><span class="annottext">MetricValue -&gt; Maybe [Text]
 </span><a href="Network.AWS.IoT.Types.MetricValue.html#%24sel%3Astrings%3AMetricValue%27"><span class="hs-identifier hs-var hs-var">strings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790461"><span id="local-6989586621679790463"><span class="annot"><span class="annottext">MetricValue -&gt; MetricValue -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790470"><span id="local-6989586621679790472"><span class="annot"><span class="annottext">MetricValue -&gt; MetricValue -&gt; Bool
 (MetricValue -&gt; MetricValue -&gt; Bool)
 -&gt; (MetricValue -&gt; MetricValue -&gt; Bool) -&gt; Eq MetricValue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricValue -&gt; MetricValue -&gt; Bool
 == :: MetricValue -&gt; MetricValue -&gt; Bool
 $c== :: MetricValue -&gt; MetricValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790452"><span id="local-6989586621679790454"><span id="local-6989586621679790456"><span id="local-6989586621679790458"><span class="annot"><span class="annottext">ReadPrec [MetricValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790461"><span id="local-6989586621679790463"><span id="local-6989586621679790465"><span id="local-6989586621679790467"><span class="annot"><span class="annottext">ReadPrec [MetricValue]
 ReadPrec MetricValue
 Int -&gt; ReadS MetricValue
 ReadS [MetricValue]
@@ -77,7 +77,7 @@ readList :: ReadS [MetricValue]
 $creadList :: ReadS [MetricValue]
 readsPrec :: Int -&gt; ReadS MetricValue
 $creadsPrec :: Int -&gt; ReadS MetricValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790445"><span id="local-6989586621679790447"><span id="local-6989586621679790449"><span class="annot"><span class="annottext">Int -&gt; MetricValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790454"><span id="local-6989586621679790456"><span id="local-6989586621679790458"><span class="annot"><span class="annottext">Int -&gt; MetricValue -&gt; ShowS
 [MetricValue] -&gt; ShowS
 MetricValue -&gt; String
 (Int -&gt; MetricValue -&gt; ShowS)
@@ -171,16 +171,16 @@ forall a. Maybe a
 -&gt; (MetricValue -&gt; Maybe [Text] -&gt; MetricValue)
 -&gt; Lens MetricValue MetricValue (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790436"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790445"><span class="annot"><span class="annottext">Maybe [Text]
 cidrs :: Maybe [Text]
 $sel:cidrs:MetricValue' :: MetricValue -&gt; Maybe [Text]
-</span><a href="#local-6989586621679790436"><span class="hs-identifier hs-var hs-var">cidrs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679790436"><span class="hs-identifier hs-var">cidrs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790435"><span class="annot"><span class="annottext">s :: MetricValue
-</span><a href="#local-6989586621679790435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790434"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679790434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
-</span><a href="#local-6989586621679790435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrs:MetricValue' :: Maybe [Text]
+</span><a href="#local-6989586621679790445"><span class="hs-identifier hs-var hs-var">cidrs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679790445"><span class="hs-identifier hs-var">cidrs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790444"><span class="annot"><span class="annottext">s :: MetricValue
+</span><a href="#local-6989586621679790444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790443"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679790443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
+</span><a href="#local-6989586621679790444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrs:MetricValue' :: Maybe [Text]
 </span><a href="Network.AWS.IoT.Types.MetricValue.html#%24sel%3Acidrs%3AMetricValue%27"><span class="hs-identifier hs-var">cidrs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679790434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679790443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; MetricValue -&gt; f MetricValue)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -206,16 +206,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (MetricValue -&gt; Maybe Natural -&gt; MetricValue)
 -&gt; Lens MetricValue MetricValue (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790429"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790438"><span class="annot"><span class="annottext">Maybe Natural
 count :: Maybe Natural
 $sel:count:MetricValue' :: MetricValue -&gt; Maybe Natural
-</span><a href="#local-6989586621679790429"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679790429"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790428"><span class="annot"><span class="annottext">s :: MetricValue
-</span><a href="#local-6989586621679790428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790427"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679790427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
-</span><a href="#local-6989586621679790428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:MetricValue' :: Maybe Natural
+</span><a href="#local-6989586621679790438"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679790438"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790437"><span class="annot"><span class="annottext">s :: MetricValue
+</span><a href="#local-6989586621679790437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790436"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679790436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
+</span><a href="#local-6989586621679790437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:MetricValue' :: Maybe Natural
 </span><a href="Network.AWS.IoT.Types.MetricValue.html#%24sel%3Acount%3AMetricValue%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679790427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679790436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | If the @comparisonOperator@ calls for a set of ports, use this to</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- specify that set to be compared with the @metric@.</span><span>
@@ -226,16 +226,16 @@ $sel:count:MetricValue' :: MetricValue -&gt; Maybe Natural
 -&gt; (MetricValue -&gt; Maybe [Natural] -&gt; MetricValue)
 -&gt; Lens MetricValue MetricValue (Maybe [Natural]) (Maybe [Natural])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790425"><span class="annot"><span class="annottext">Maybe [Natural]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790434"><span class="annot"><span class="annottext">Maybe [Natural]
 ports :: Maybe [Natural]
 $sel:ports:MetricValue' :: MetricValue -&gt; Maybe [Natural]
-</span><a href="#local-6989586621679790425"><span class="hs-identifier hs-var hs-var">ports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
-</span><a href="#local-6989586621679790425"><span class="hs-identifier hs-var">ports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790424"><span class="annot"><span class="annottext">s :: MetricValue
-</span><a href="#local-6989586621679790424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790423"><span class="annot"><span class="annottext">Maybe [Natural]
-</span><a href="#local-6989586621679790423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
-</span><a href="#local-6989586621679790424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ports:MetricValue' :: Maybe [Natural]
+</span><a href="#local-6989586621679790434"><span class="hs-identifier hs-var hs-var">ports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679790434"><span class="hs-identifier hs-var">ports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790433"><span class="annot"><span class="annottext">s :: MetricValue
+</span><a href="#local-6989586621679790433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790432"><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679790432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
+</span><a href="#local-6989586621679790433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ports:MetricValue' :: Maybe [Natural]
 </span><a href="Network.AWS.IoT.Types.MetricValue.html#%24sel%3Aports%3AMetricValue%27"><span class="hs-identifier hs-var">ports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
-</span><a href="#local-6989586621679790423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Natural] -&gt; f (Maybe [Natural]))
+</span><a href="#local-6989586621679790432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Natural] -&gt; f (Maybe [Natural]))
  -&gt; MetricValue -&gt; f MetricValue)
 -&gt; ((Maybe [Natural] -&gt; f (Maybe [Natural]))
     -&gt; Maybe [Natural] -&gt; f (Maybe [Natural]))
@@ -264,16 +264,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (MetricValue -&gt; Maybe [Double] -&gt; MetricValue)
 -&gt; Lens MetricValue MetricValue (Maybe [Double]) (Maybe [Double])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790421"><span class="annot"><span class="annottext">Maybe [Double]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790430"><span class="annot"><span class="annottext">Maybe [Double]
 numbers :: Maybe [Double]
 $sel:numbers:MetricValue' :: MetricValue -&gt; Maybe [Double]
-</span><a href="#local-6989586621679790421"><span class="hs-identifier hs-var hs-var">numbers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679790421"><span class="hs-identifier hs-var">numbers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790420"><span class="annot"><span class="annottext">s :: MetricValue
-</span><a href="#local-6989586621679790420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790419"><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679790419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
-</span><a href="#local-6989586621679790420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numbers:MetricValue' :: Maybe [Double]
+</span><a href="#local-6989586621679790430"><span class="hs-identifier hs-var hs-var">numbers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679790430"><span class="hs-identifier hs-var">numbers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790429"><span class="annot"><span class="annottext">s :: MetricValue
+</span><a href="#local-6989586621679790429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790428"><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679790428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
+</span><a href="#local-6989586621679790429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numbers:MetricValue' :: Maybe [Double]
 </span><a href="Network.AWS.IoT.Types.MetricValue.html#%24sel%3Anumbers%3AMetricValue%27"><span class="hs-identifier hs-var">numbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679790419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Double] -&gt; f (Maybe [Double]))
+</span><a href="#local-6989586621679790428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Double] -&gt; f (Maybe [Double]))
  -&gt; MetricValue -&gt; f MetricValue)
 -&gt; ((Maybe [Double] -&gt; f (Maybe [Double]))
     -&gt; Maybe [Double] -&gt; f (Maybe [Double]))
@@ -298,16 +298,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (MetricValue -&gt; Maybe Double -&gt; MetricValue)
 -&gt; Lens MetricValue MetricValue (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790417"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790426"><span class="annot"><span class="annottext">Maybe Double
 number :: Maybe Double
 $sel:number:MetricValue' :: MetricValue -&gt; Maybe Double
-</span><a href="#local-6989586621679790417"><span class="hs-identifier hs-var hs-var">number</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679790417"><span class="hs-identifier hs-var">number</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790416"><span class="annot"><span class="annottext">s :: MetricValue
-</span><a href="#local-6989586621679790416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790415"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679790415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
-</span><a href="#local-6989586621679790416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:number:MetricValue' :: Maybe Double
+</span><a href="#local-6989586621679790426"><span class="hs-identifier hs-var hs-var">number</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679790426"><span class="hs-identifier hs-var">number</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790425"><span class="annot"><span class="annottext">s :: MetricValue
+</span><a href="#local-6989586621679790425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790424"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679790424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
+</span><a href="#local-6989586621679790425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:number:MetricValue' :: Maybe Double
 </span><a href="Network.AWS.IoT.Types.MetricValue.html#%24sel%3Anumber%3AMetricValue%27"><span class="hs-identifier hs-var">number</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679790415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679790424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The string values of a metric.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#metricValue_strings"><span class="hs-identifier hs-type">metricValue_strings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -316,16 +316,16 @@ $sel:number:MetricValue' :: MetricValue -&gt; Maybe Double
 -&gt; (MetricValue -&gt; Maybe [Text] -&gt; MetricValue)
 -&gt; Lens MetricValue MetricValue (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790413"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790422"><span class="annot"><span class="annottext">Maybe [Text]
 strings :: Maybe [Text]
 $sel:strings:MetricValue' :: MetricValue -&gt; Maybe [Text]
-</span><a href="#local-6989586621679790413"><span class="hs-identifier hs-var hs-var">strings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679790413"><span class="hs-identifier hs-var">strings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790412"><span class="annot"><span class="annottext">s :: MetricValue
-</span><a href="#local-6989586621679790412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790411"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679790411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
-</span><a href="#local-6989586621679790412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:strings:MetricValue' :: Maybe [Text]
+</span><a href="#local-6989586621679790422"><span class="hs-identifier hs-var hs-var">strings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679790422"><span class="hs-identifier hs-var">strings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790421"><span class="annot"><span class="annottext">s :: MetricValue
+</span><a href="#local-6989586621679790421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790420"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679790420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
+</span><a href="#local-6989586621679790421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:strings:MetricValue' :: Maybe [Text]
 </span><a href="Network.AWS.IoT.Types.MetricValue.html#%24sel%3Astrings%3AMetricValue%27"><span class="hs-identifier hs-var">strings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679790411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679790420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; MetricValue -&gt; f MetricValue)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -342,8 +342,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790408"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679790406"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricValue
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790417"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679790415"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MetricValue) -&gt; Value -&gt; Parser MetricValue
@@ -351,8 +351,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MetricValue&quot;</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679790403"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790403"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679790412"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790412"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe Natural
 -&gt; Maybe [Natural]
@@ -378,7 +378,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; MetricValue)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679790412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cidrs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -400,7 +400,7 @@ forall a. Monoid a =&gt; a
       -&gt; Maybe [Double] -&gt; Maybe Double -&gt; Maybe [Text] -&gt; MetricValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679790412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;count&quot;</span></span><span class="hs-special">)</span><span>
@@ -412,7 +412,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe [Double] -&gt; Maybe Double -&gt; Maybe [Text] -&gt; MetricValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Natural]))
+</span><a href="#local-6989586621679790412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Natural]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ports&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Natural]))
@@ -427,7 +427,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Double -&gt; Maybe [Text] -&gt; MetricValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Double]))
+</span><a href="#local-6989586621679790412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Double]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;numbers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Double]))
@@ -440,7 +440,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Double) -&gt; Parser (Maybe [Text] -&gt; MetricValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679790412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;number&quot;</span></span><span class="hs-special">)</span><span>
@@ -448,7 +448,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text]) -&gt; Parser MetricValue
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679790412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;strings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -459,13 +459,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790396"><span id="local-6989586621679790398"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790405"><span id="local-6989586621679790407"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790393"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790402"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790385"><span id="local-6989586621679790387"><span id="local-6989586621679790389"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679790383"><span class="annot"><span class="annottext">toJSON :: MetricValue -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790376"><span id="local-6989586621679790377"><span id="local-6989586621679790378"><span id="local-6989586621679790379"><span id="local-6989586621679790380"><span id="local-6989586621679790381"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790394"><span id="local-6989586621679790396"><span id="local-6989586621679790398"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679790392"><span class="annot"><span class="annottext">toJSON :: MetricValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790385"><span id="local-6989586621679790386"><span id="local-6989586621679790387"><span id="local-6989586621679790388"><span id="local-6989586621679790389"><span id="local-6989586621679790390"><span class="annot"><span class="annottext">Maybe Double
 Maybe Natural
 Maybe [Double]
 Maybe [Natural]
@@ -482,7 +482,7 @@ $sel:numbers:MetricValue' :: MetricValue -&gt; Maybe [Double]
 $sel:ports:MetricValue' :: MetricValue -&gt; Maybe [Natural]
 $sel:count:MetricValue' :: MetricValue -&gt; Maybe Natural
 $sel:cidrs:MetricValue' :: MetricValue -&gt; Maybe [Text]
-</span><a href="#local-6989586621679790376"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679790385"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -494,42 +494,42 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679790381"><span class="hs-identifier hs-var">cidrs</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679790390"><span class="hs-identifier hs-var">cidrs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;count&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679790380"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679790389"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ports&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Natural] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Natural] -&gt; Pair) -&gt; Maybe [Natural] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
-</span><a href="#local-6989586621679790379"><span class="hs-identifier hs-var">ports</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679790388"><span class="hs-identifier hs-var">ports</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;numbers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Double] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Double] -&gt; Pair) -&gt; Maybe [Double] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679790378"><span class="hs-identifier hs-var">numbers</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679790387"><span class="hs-identifier hs-var">numbers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;number&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679790377"><span class="hs-identifier hs-var">number</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679790386"><span class="hs-identifier hs-var">number</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;strings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679790376"><span class="hs-identifier hs-var">strings</span></a></span><span>
+</span><a href="#local-6989586621679790385"><span class="hs-identifier hs-var">strings</span></a></span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span></pre></body></html>

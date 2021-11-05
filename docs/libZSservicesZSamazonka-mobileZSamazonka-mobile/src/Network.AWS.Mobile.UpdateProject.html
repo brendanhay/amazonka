@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | Request structure used for requests to update project configuration.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newUpdateProject' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679156318"><span id="local-6989586621679156319"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProject"><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-var">UpdateProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProject%27"><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-var">UpdateProject'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679156327"><span id="local-6989586621679156328"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProject"><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-var">UpdateProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProject%27"><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-var">UpdateProject'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ZIP or YAML file which contains project configuration to be updated.</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- This should be the contents of the file downloaded from the URL provided</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- in an export project operation.</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AprojectId%3AUpdateProject%27"><span class="annot"><span class="annottext">UpdateProject -&gt; Text
 </span><a href="Network.AWS.Mobile.UpdateProject.html#%24sel%3AprojectId%3AUpdateProject%27"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156311"><span id="local-6989586621679156313"><span class="annot"><span class="annottext">UpdateProject -&gt; UpdateProject -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156320"><span id="local-6989586621679156322"><span class="annot"><span class="annottext">UpdateProject -&gt; UpdateProject -&gt; Bool
 (UpdateProject -&gt; UpdateProject -&gt; Bool)
 -&gt; (UpdateProject -&gt; UpdateProject -&gt; Bool) -&gt; Eq UpdateProject
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateProject -&gt; UpdateProject -&gt; Bool
 == :: UpdateProject -&gt; UpdateProject -&gt; Bool
 $c== :: UpdateProject -&gt; UpdateProject -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156302"><span id="local-6989586621679156304"><span id="local-6989586621679156306"><span id="local-6989586621679156308"><span class="annot"><span class="annottext">ReadPrec [UpdateProject]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156311"><span id="local-6989586621679156313"><span id="local-6989586621679156315"><span id="local-6989586621679156317"><span class="annot"><span class="annottext">ReadPrec [UpdateProject]
 ReadPrec UpdateProject
 Int -&gt; ReadS UpdateProject
 ReadS [UpdateProject]
@@ -88,7 +88,7 @@ readList :: ReadS [UpdateProject]
 $creadList :: ReadS [UpdateProject]
 readsPrec :: Int -&gt; ReadS UpdateProject
 $creadsPrec :: Int -&gt; ReadS UpdateProject
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156295"><span id="local-6989586621679156297"><span id="local-6989586621679156299"><span class="annot"><span class="annottext">Int -&gt; UpdateProject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156304"><span id="local-6989586621679156306"><span id="local-6989586621679156308"><span class="annot"><span class="annottext">Int -&gt; UpdateProject -&gt; ShowS
 [UpdateProject] -&gt; ShowS
 UpdateProject -&gt; String
 (Int -&gt; UpdateProject -&gt; ShowS)
@@ -132,8 +132,8 @@ $cfrom :: forall x. UpdateProject -&gt; Rep UpdateProject x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span>
 </span><span id="line-80"></span><span id="newUpdateProject"><span class="annot"><span class="annottext">newUpdateProject :: Text -&gt; UpdateProject
-</span><a href="Network.AWS.Mobile.UpdateProject.html#newUpdateProject"><span class="hs-identifier hs-var hs-var">newUpdateProject</span></a></span></span><span> </span><span id="local-6989586621679156290"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679156290"><span class="hs-identifier hs-var">pProjectId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Mobile.UpdateProject.html#newUpdateProject"><span class="hs-identifier hs-var hs-var">newUpdateProject</span></a></span></span><span> </span><span id="local-6989586621679156299"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156299"><span class="hs-identifier hs-var">pProjectId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">UpdateProject' :: Maybe ByteString -&gt; Text -&gt; UpdateProject
 </span><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contents:UpdateProject' :: Maybe ByteString
@@ -142,7 +142,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectId:UpdateProject' :: Text
 </span><a href="Network.AWS.Mobile.UpdateProject.html#%24sel%3AprojectId%3AUpdateProject%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679156290"><span class="hs-identifier hs-var">pProjectId_</span></a></span><span>
+</span><a href="#local-6989586621679156299"><span class="hs-identifier hs-var">pProjectId_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | ZIP or YAML file which contains project configuration to be updated.</span><span>
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; Lens
      UpdateProject UpdateProject (Maybe ByteString) (Maybe ByteString)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156287"><span class="annot"><span class="annottext">Maybe ByteString
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156296"><span class="annot"><span class="annottext">Maybe ByteString
 contents :: Maybe ByteString
 $sel:contents:UpdateProject' :: UpdateProject -&gt; Maybe ByteString
-</span><a href="#local-6989586621679156287"><span class="hs-identifier hs-var hs-var">contents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679156287"><span class="hs-identifier hs-var">contents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156286"><span class="annot"><span class="annottext">s :: UpdateProject
-</span><a href="#local-6989586621679156286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156285"><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679156285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProject
-</span><a href="#local-6989586621679156286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contents:UpdateProject' :: Maybe ByteString
+</span><a href="#local-6989586621679156296"><span class="hs-identifier hs-var hs-var">contents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679156296"><span class="hs-identifier hs-var">contents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156295"><span class="annot"><span class="annottext">s :: UpdateProject
+</span><a href="#local-6989586621679156295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156294"><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679156294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProject
+</span><a href="#local-6989586621679156295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contents:UpdateProject' :: Maybe ByteString
 </span><a href="Network.AWS.Mobile.UpdateProject.html#%24sel%3Acontents%3AUpdateProject%27"><span class="hs-identifier hs-var">contents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679156285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679156294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | Unique project identifier.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#updateProject_projectId"><span class="hs-identifier hs-type">updateProject_projectId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -174,27 +174,27 @@ $sel:contents:UpdateProject' :: UpdateProject -&gt; Maybe ByteString
 -&gt; (UpdateProject -&gt; Text -&gt; UpdateProject)
 -&gt; Lens UpdateProject UpdateProject Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156284"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156293"><span class="annot"><span class="annottext">Text
 projectId :: Text
 $sel:projectId:UpdateProject' :: UpdateProject -&gt; Text
-</span><a href="#local-6989586621679156284"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679156284"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156283"><span class="annot"><span class="annottext">s :: UpdateProject
-</span><a href="#local-6989586621679156283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156282"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679156282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProject
-</span><a href="#local-6989586621679156283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:UpdateProject' :: Text
+</span><a href="#local-6989586621679156293"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156293"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156292"><span class="annot"><span class="annottext">s :: UpdateProject
+</span><a href="#local-6989586621679156292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156291"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProject
+</span><a href="#local-6989586621679156292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:UpdateProject' :: Text
 </span><a href="Network.AWS.Mobile.UpdateProject.html#%24sel%3AprojectId%3AUpdateProject%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679156282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679156291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679156278"><span class="annot"><span class="annottext">request :: UpdateProject -&gt; Request UpdateProject
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679156287"><span class="annot"><span class="annottext">request :: UpdateProject -&gt; Request UpdateProject
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateProject -&gt; Request UpdateProject
 forall a. (ToRequest a, ToBody a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postBody</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Mobile.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679156274"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679156283"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateProject
 -&gt; ClientResponse ClientBody
@@ -218,10 +218,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679156271"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679156271"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679156270"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679156270"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679156269"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679156269"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679156280"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156280"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679156279"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679156279"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679156278"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679156278"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProjectDetails -&gt; Int -&gt; UpdateProjectResponse
 </span><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-var">UpdateProjectResponse'</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ProjectDetails -&gt; Int -&gt; UpdateProjectResponse)
@@ -229,7 +229,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateProjectResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679156269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ProjectDetails)
+</span><a href="#local-6989586621679156278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ProjectDetails)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;details&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,28 +241,28 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679156271"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679156280"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156261"><span id="local-6989586621679156263"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156270"><span id="local-6989586621679156272"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156258"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156267"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToBody</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679156254"><span class="annot"><span class="annottext">toBody :: UpdateProject -&gt; RequestBody
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156251"><span id="local-6989586621679156252"><span class="annot"><span class="annottext">Maybe ByteString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679156263"><span class="annot"><span class="annottext">toBody :: UpdateProject -&gt; RequestBody
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156260"><span id="local-6989586621679156261"><span class="annot"><span class="annottext">Maybe ByteString
 Text
 projectId :: Text
 contents :: Maybe ByteString
 $sel:projectId:UpdateProject' :: UpdateProject -&gt; Text
 $sel:contents:UpdateProject' :: UpdateProject -&gt; Maybe ByteString
-</span><a href="#local-6989586621679156251"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; RequestBody
+</span><a href="#local-6989586621679156260"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; RequestBody
 forall a. ToBody a =&gt; a -&gt; RequestBody
 </span><span class="hs-identifier hs-var">Core.toBody</span></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679156252"><span class="hs-identifier hs-var">contents</span></a></span><span>
+</span><a href="#local-6989586621679156261"><span class="hs-identifier hs-var">contents</span></a></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679156248"><span class="annot"><span class="annottext">toHeaders :: UpdateProject -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679156257"><span class="annot"><span class="annottext">toHeaders :: UpdateProject -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateProject -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -282,33 +282,33 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679156242"><span class="annot"><span class="annottext">toPath :: UpdateProject -&gt; ByteString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679156251"><span class="annot"><span class="annottext">toPath :: UpdateProject -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateProject -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/update&quot;</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679156238"><span class="annot"><span class="annottext">toQuery :: UpdateProject -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156235"><span id="local-6989586621679156236"><span class="annot"><span class="annottext">Maybe ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679156247"><span class="annot"><span class="annottext">toQuery :: UpdateProject -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156244"><span id="local-6989586621679156245"><span class="annot"><span class="annottext">Maybe ByteString
 Text
 projectId :: Text
 contents :: Maybe ByteString
 $sel:projectId:UpdateProject' :: UpdateProject -&gt; Text
 $sel:contents:UpdateProject' :: UpdateProject -&gt; Maybe ByteString
-</span><a href="#local-6989586621679156235"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679156244"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;projectId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679156235"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679156244"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | Result structure used for requests to updated project configuration.</span><span>
 </span><span id="line-135"></span><span class="hs-comment">--</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- /See:/ 'newUpdateProjectResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679156232"><span id="local-6989586621679156233"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProjectResponse"><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-var">UpdateProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProjectResponse%27"><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-var">UpdateProjectResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679156241"><span id="local-6989586621679156242"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProjectResponse"><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-var">UpdateProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProjectResponse%27"><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-var">UpdateProjectResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Detailed information about the updated AWS Mobile Hub project.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3Adetails%3AUpdateProjectResponse%27"><span class="annot"><span class="annottext">UpdateProjectResponse -&gt; Maybe ProjectDetails
 </span><a href="Network.AWS.Mobile.UpdateProject.html#%24sel%3Adetails%3AUpdateProjectResponse%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectDetails.html#ProjectDetails"><span class="hs-identifier hs-type">ProjectDetails</span></a></span><span class="hs-special">,</span><span>
@@ -316,7 +316,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateProjectResponse%27"><span class="annot"><span class="annottext">UpdateProjectResponse -&gt; Int
 </span><a href="Network.AWS.Mobile.UpdateProject.html#%24sel%3AhttpStatus%3AUpdateProjectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156226"><span id="local-6989586621679156228"><span class="annot"><span class="annottext">UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156235"><span id="local-6989586621679156237"><span class="annot"><span class="annottext">UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
 (UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool)
 -&gt; (UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool)
 -&gt; Eq UpdateProjectResponse
@@ -325,7 +325,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
 == :: UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
 $c== :: UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156218"><span id="local-6989586621679156220"><span id="local-6989586621679156222"><span id="local-6989586621679156224"><span class="annot"><span class="annottext">ReadPrec [UpdateProjectResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156227"><span id="local-6989586621679156229"><span id="local-6989586621679156231"><span id="local-6989586621679156233"><span class="annot"><span class="annottext">ReadPrec [UpdateProjectResponse]
 ReadPrec UpdateProjectResponse
 Int -&gt; ReadS UpdateProjectResponse
 ReadS [UpdateProjectResponse]
@@ -345,7 +345,7 @@ readList :: ReadS [UpdateProjectResponse]
 $creadList :: ReadS [UpdateProjectResponse]
 readsPrec :: Int -&gt; ReadS UpdateProjectResponse
 $creadsPrec :: Int -&gt; ReadS UpdateProjectResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156212"><span id="local-6989586621679156214"><span id="local-6989586621679156216"><span class="annot"><span class="annottext">Int -&gt; UpdateProjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156221"><span id="local-6989586621679156223"><span id="local-6989586621679156225"><span class="annot"><span class="annottext">Int -&gt; UpdateProjectResponse -&gt; ShowS
 [UpdateProjectResponse] -&gt; ShowS
 UpdateProjectResponse -&gt; String
 (Int -&gt; UpdateProjectResponse -&gt; ShowS)
@@ -387,8 +387,8 @@ $cfrom :: forall x. UpdateProjectResponse -&gt; Rep UpdateProjectResponse x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newUpdateProjectResponse"><span class="annot"><span class="annottext">newUpdateProjectResponse :: Int -&gt; UpdateProjectResponse
-</span><a href="Network.AWS.Mobile.UpdateProject.html#newUpdateProjectResponse"><span class="hs-identifier hs-var hs-var">newUpdateProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679156209"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679156209"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Mobile.UpdateProject.html#newUpdateProjectResponse"><span class="hs-identifier hs-var hs-var">newUpdateProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679156218"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156218"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">UpdateProjectResponse' :: Maybe ProjectDetails -&gt; Int -&gt; UpdateProjectResponse
 </span><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:details:UpdateProjectResponse' :: Maybe ProjectDetails
@@ -397,7 +397,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProjectResponse' :: Int
 </span><a href="Network.AWS.Mobile.UpdateProject.html#%24sel%3AhttpStatus%3AUpdateProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679156209"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679156218"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | Detailed information about the updated AWS Mobile Hub project.</span><span>
@@ -413,16 +413,16 @@ forall a. Maybe a
      (Maybe ProjectDetails)
      (Maybe ProjectDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156208"><span class="annot"><span class="annottext">Maybe ProjectDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156217"><span class="annot"><span class="annottext">Maybe ProjectDetails
 details :: Maybe ProjectDetails
 $sel:details:UpdateProjectResponse' :: UpdateProjectResponse -&gt; Maybe ProjectDetails
-</span><a href="#local-6989586621679156208"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectDetails
-</span><a href="#local-6989586621679156208"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156207"><span class="annot"><span class="annottext">s :: UpdateProjectResponse
-</span><a href="#local-6989586621679156207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156206"><span class="annot"><span class="annottext">Maybe ProjectDetails
-</span><a href="#local-6989586621679156206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProjectResponse
-</span><a href="#local-6989586621679156207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:UpdateProjectResponse' :: Maybe ProjectDetails
+</span><a href="#local-6989586621679156217"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectDetails
+</span><a href="#local-6989586621679156217"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156216"><span class="annot"><span class="annottext">s :: UpdateProjectResponse
+</span><a href="#local-6989586621679156216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156215"><span class="annot"><span class="annottext">Maybe ProjectDetails
+</span><a href="#local-6989586621679156215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProjectResponse
+</span><a href="#local-6989586621679156216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:UpdateProjectResponse' :: Maybe ProjectDetails
 </span><a href="Network.AWS.Mobile.UpdateProject.html#%24sel%3Adetails%3AUpdateProjectResponse%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectDetails
-</span><a href="#local-6989586621679156206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679156215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#updateProjectResponse_httpStatus"><span class="hs-identifier hs-type">updateProjectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -431,16 +431,16 @@ $sel:details:UpdateProjectResponse' :: UpdateProjectResponse -&gt; Maybe Project
 -&gt; (UpdateProjectResponse -&gt; Int -&gt; UpdateProjectResponse)
 -&gt; Lens UpdateProjectResponse UpdateProjectResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156205"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156214"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateProjectResponse' :: UpdateProjectResponse -&gt; Int
-</span><a href="#local-6989586621679156205"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679156205"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156204"><span class="annot"><span class="annottext">s :: UpdateProjectResponse
-</span><a href="#local-6989586621679156204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156203"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679156203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProjectResponse
-</span><a href="#local-6989586621679156204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProjectResponse' :: Int
+</span><a href="#local-6989586621679156214"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156214"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156213"><span class="annot"><span class="annottext">s :: UpdateProjectResponse
+</span><a href="#local-6989586621679156213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156212"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProjectResponse
+</span><a href="#local-6989586621679156213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProjectResponse' :: Int
 </span><a href="Network.AWS.Mobile.UpdateProject.html#%24sel%3AhttpStatus%3AUpdateProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679156203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679156212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156201"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156210"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- property names that begin with the specified text.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPropertyNameQuery' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680335832"><span id="local-6989586621680335833"></span></span><span class="hs-keyword">data</span><span> </span><span id="PropertyNameQuery"><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery"><span class="hs-identifier hs-var">PropertyNameQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PropertyNameQuery%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery%27"><span class="hs-identifier hs-var">PropertyNameQuery'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680335841"><span id="local-6989586621680335842"></span></span><span class="hs-keyword">data</span><span> </span><span id="PropertyNameQuery"><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery"><span class="hs-identifier hs-var">PropertyNameQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PropertyNameQuery%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery%27"><span class="hs-identifier hs-var">PropertyNameQuery'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Text that begins a property\'s name.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3ApropertyNameHint%3APropertyNameQuery%27"><span class="annot"><span class="annottext">PropertyNameQuery -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#%24sel%3ApropertyNameHint%3APropertyNameQuery%27"><span class="hs-identifier hs-var hs-var">propertyNameHint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680335826"><span id="local-6989586621680335828"><span class="annot"><span class="annottext">PropertyNameQuery -&gt; PropertyNameQuery -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680335835"><span id="local-6989586621680335837"><span class="annot"><span class="annottext">PropertyNameQuery -&gt; PropertyNameQuery -&gt; Bool
 (PropertyNameQuery -&gt; PropertyNameQuery -&gt; Bool)
 -&gt; (PropertyNameQuery -&gt; PropertyNameQuery -&gt; Bool)
 -&gt; Eq PropertyNameQuery
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PropertyNameQuery -&gt; PropertyNameQuery -&gt; Bool
 == :: PropertyNameQuery -&gt; PropertyNameQuery -&gt; Bool
 $c== :: PropertyNameQuery -&gt; PropertyNameQuery -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680335817"><span id="local-6989586621680335819"><span id="local-6989586621680335821"><span id="local-6989586621680335823"><span class="annot"><span class="annottext">ReadPrec [PropertyNameQuery]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680335826"><span id="local-6989586621680335828"><span id="local-6989586621680335830"><span id="local-6989586621680335832"><span class="annot"><span class="annottext">ReadPrec [PropertyNameQuery]
 ReadPrec PropertyNameQuery
 Int -&gt; ReadS PropertyNameQuery
 ReadS [PropertyNameQuery]
@@ -61,7 +61,7 @@ readList :: ReadS [PropertyNameQuery]
 $creadList :: ReadS [PropertyNameQuery]
 readsPrec :: Int -&gt; ReadS PropertyNameQuery
 $creadsPrec :: Int -&gt; ReadS PropertyNameQuery
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680335810"><span id="local-6989586621680335812"><span id="local-6989586621680335814"><span class="annot"><span class="annottext">Int -&gt; PropertyNameQuery -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680335819"><span id="local-6989586621680335821"><span id="local-6989586621680335823"><span class="annot"><span class="annottext">Int -&gt; PropertyNameQuery -&gt; ShowS
 [PropertyNameQuery] -&gt; ShowS
 PropertyNameQuery -&gt; String
 (Int -&gt; PropertyNameQuery -&gt; ShowS)
@@ -101,14 +101,14 @@ $cfrom :: forall x. PropertyNameQuery -&gt; Rep PropertyNameQuery x
 </span><span id="line-47"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery"><span class="hs-identifier hs-type">PropertyNameQuery</span></a></span><span>
 </span><span id="line-49"></span><span id="newPropertyNameQuery"><span class="annot"><span class="annottext">newPropertyNameQuery :: Text -&gt; PropertyNameQuery
-</span><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#newPropertyNameQuery"><span class="hs-identifier hs-var hs-var">newPropertyNameQuery</span></a></span></span><span> </span><span id="local-6989586621680335804"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680335804"><span class="hs-identifier hs-var">pPropertyNameHint_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#newPropertyNameQuery"><span class="hs-identifier hs-var hs-var">newPropertyNameQuery</span></a></span></span><span> </span><span id="local-6989586621680335813"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335813"><span class="hs-identifier hs-var">pPropertyNameHint_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">PropertyNameQuery' :: Text -&gt; PropertyNameQuery
 </span><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery%27"><span class="hs-identifier hs-type">PropertyNameQuery'</span></a></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:propertyNameHint:PropertyNameQuery' :: Text
 </span><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#%24sel%3ApropertyNameHint%3APropertyNameQuery%27"><span class="hs-identifier hs-var">propertyNameHint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680335804"><span class="hs-identifier hs-var">pPropertyNameHint_</span></a></span><span>
+</span><a href="#local-6989586621680335813"><span class="hs-identifier hs-var">pPropertyNameHint_</span></a></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | Text that begins a property\'s name.</span><span>
@@ -118,27 +118,27 @@ $cfrom :: forall x. PropertyNameQuery -&gt; Rep PropertyNameQuery x
 -&gt; (PropertyNameQuery -&gt; Text -&gt; PropertyNameQuery)
 -&gt; Lens PropertyNameQuery PropertyNameQuery Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery%27"><span class="hs-identifier hs-type">PropertyNameQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335800"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery%27"><span class="hs-identifier hs-type">PropertyNameQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335809"><span class="annot"><span class="annottext">Text
 propertyNameHint :: Text
 $sel:propertyNameHint:PropertyNameQuery' :: PropertyNameQuery -&gt; Text
-</span><a href="#local-6989586621680335800"><span class="hs-identifier hs-var hs-var">propertyNameHint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680335800"><span class="hs-identifier hs-var">propertyNameHint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335799"><span class="annot"><span class="annottext">s :: PropertyNameQuery
-</span><a href="#local-6989586621680335799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery%27"><span class="hs-identifier hs-type">PropertyNameQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335798"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680335798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyNameQuery
-</span><a href="#local-6989586621680335799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyNameHint:PropertyNameQuery' :: Text
+</span><a href="#local-6989586621680335809"><span class="hs-identifier hs-var hs-var">propertyNameHint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335809"><span class="hs-identifier hs-var">propertyNameHint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335808"><span class="annot"><span class="annottext">s :: PropertyNameQuery
+</span><a href="#local-6989586621680335808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery%27"><span class="hs-identifier hs-type">PropertyNameQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335807"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyNameQuery
+</span><a href="#local-6989586621680335808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyNameHint:PropertyNameQuery' :: Text
 </span><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#%24sel%3ApropertyNameHint%3APropertyNameQuery%27"><span class="hs-identifier hs-var">propertyNameHint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680335798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery"><span class="hs-identifier hs-type">PropertyNameQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680335807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery"><span class="hs-identifier hs-type">PropertyNameQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335794"><span id="local-6989586621680335796"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery"><span class="hs-identifier hs-type">PropertyNameQuery</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335803"><span id="local-6989586621680335805"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery"><span class="hs-identifier hs-type">PropertyNameQuery</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335791"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery"><span class="hs-identifier hs-type">PropertyNameQuery</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335800"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery"><span class="hs-identifier hs-type">PropertyNameQuery</span></a></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335783"><span id="local-6989586621680335785"><span id="local-6989586621680335787"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery"><span class="hs-identifier hs-type">PropertyNameQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621680335781"><span class="annot"><span class="annottext">toJSON :: PropertyNameQuery -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery%27"><span class="hs-identifier hs-type">PropertyNameQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335779"><span class="annot"><span class="annottext">Text
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335792"><span id="local-6989586621680335794"><span id="local-6989586621680335796"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery"><span class="hs-identifier hs-type">PropertyNameQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621680335790"><span class="annot"><span class="annottext">toJSON :: PropertyNameQuery -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameQuery.html#PropertyNameQuery%27"><span class="hs-identifier hs-type">PropertyNameQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335788"><span class="annot"><span class="annottext">Text
 propertyNameHint :: Text
 $sel:propertyNameHint:PropertyNameQuery' :: PropertyNameQuery -&gt; Text
-</span><a href="#local-6989586621680335779"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680335788"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -151,7 +151,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;PropertyNameHint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680335779"><span class="hs-identifier hs-var">propertyNameHint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680335788"><span class="hs-identifier hs-var">propertyNameHint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span></pre></body></html>

@@ -47,13 +47,13 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetCatalogImportStatus' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679732082"><span id="local-6989586621679732083"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCatalogImportStatus"><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-var">GetCatalogImportStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCatalogImportStatus%27"><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus%27"><span class="hs-identifier hs-var">GetCatalogImportStatus'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679732091"><span id="local-6989586621679732092"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCatalogImportStatus"><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-var">GetCatalogImportStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCatalogImportStatus%27"><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus%27"><span class="hs-identifier hs-var">GetCatalogImportStatus'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the catalog to migrate. Currently, this should be the Amazon</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Web Services account ID.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AcatalogId%3AGetCatalogImportStatus%27"><span class="annot"><span class="annottext">GetCatalogImportStatus -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.GetCatalogImportStatus.html#%24sel%3AcatalogId%3AGetCatalogImportStatus%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679732076"><span id="local-6989586621679732078"><span class="annot"><span class="annottext">GetCatalogImportStatus -&gt; GetCatalogImportStatus -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679732085"><span id="local-6989586621679732087"><span class="annot"><span class="annottext">GetCatalogImportStatus -&gt; GetCatalogImportStatus -&gt; Bool
 (GetCatalogImportStatus -&gt; GetCatalogImportStatus -&gt; Bool)
 -&gt; (GetCatalogImportStatus -&gt; GetCatalogImportStatus -&gt; Bool)
 -&gt; Eq GetCatalogImportStatus
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCatalogImportStatus -&gt; GetCatalogImportStatus -&gt; Bool
 == :: GetCatalogImportStatus -&gt; GetCatalogImportStatus -&gt; Bool
 $c== :: GetCatalogImportStatus -&gt; GetCatalogImportStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732067"><span id="local-6989586621679732069"><span id="local-6989586621679732071"><span id="local-6989586621679732073"><span class="annot"><span class="annottext">ReadPrec [GetCatalogImportStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732076"><span id="local-6989586621679732078"><span id="local-6989586621679732080"><span id="local-6989586621679732082"><span class="annot"><span class="annottext">ReadPrec [GetCatalogImportStatus]
 ReadPrec GetCatalogImportStatus
 Int -&gt; ReadS GetCatalogImportStatus
 ReadS [GetCatalogImportStatus]
@@ -82,7 +82,7 @@ readList :: ReadS [GetCatalogImportStatus]
 $creadList :: ReadS [GetCatalogImportStatus]
 readsPrec :: Int -&gt; ReadS GetCatalogImportStatus
 $creadsPrec :: Int -&gt; ReadS GetCatalogImportStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732060"><span id="local-6989586621679732062"><span id="local-6989586621679732064"><span class="annot"><span class="annottext">Int -&gt; GetCatalogImportStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732069"><span id="local-6989586621679732071"><span id="local-6989586621679732073"><span class="annot"><span class="annottext">Int -&gt; GetCatalogImportStatus -&gt; ShowS
 [GetCatalogImportStatus] -&gt; ShowS
 GetCatalogImportStatus -&gt; String
 (Int -&gt; GetCatalogImportStatus -&gt; ShowS)
@@ -145,27 +145,27 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus%27"><span class="hs-identifier hs-type">GetCatalogImportStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732053"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus%27"><span class="hs-identifier hs-type">GetCatalogImportStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732062"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:GetCatalogImportStatus' :: GetCatalogImportStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679732053"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732053"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732052"><span class="annot"><span class="annottext">s :: GetCatalogImportStatus
-</span><a href="#local-6989586621679732052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus%27"><span class="hs-identifier hs-type">GetCatalogImportStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732051"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCatalogImportStatus
-</span><a href="#local-6989586621679732052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetCatalogImportStatus' :: Maybe Text
+</span><a href="#local-6989586621679732062"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679732062"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732061"><span class="annot"><span class="annottext">s :: GetCatalogImportStatus
+</span><a href="#local-6989586621679732061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus%27"><span class="hs-identifier hs-type">GetCatalogImportStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732060"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679732060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCatalogImportStatus
+</span><a href="#local-6989586621679732061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetCatalogImportStatus' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetCatalogImportStatus.html#%24sel%3AcatalogId%3AGetCatalogImportStatus%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-type">GetCatalogImportStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679732060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-type">GetCatalogImportStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-type">GetCatalogImportStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-type">GetCatalogImportStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679732047"><span class="annot"><span class="annottext">request :: GetCatalogImportStatus -&gt; Request GetCatalogImportStatus
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679732056"><span class="annot"><span class="annottext">request :: GetCatalogImportStatus -&gt; Request GetCatalogImportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetCatalogImportStatus -&gt; Request GetCatalogImportStatus
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679732043"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679732052"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetCatalogImportStatus
 -&gt; ClientResponse ClientBody
@@ -191,10 +191,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679732040"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679732040"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679732039"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679732039"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679732038"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679732038"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679732049"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732049"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679732048"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679732048"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679732047"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679732047"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe CatalogImportStatus -&gt; Int -&gt; GetCatalogImportStatusResponse
 </span><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse%27"><span class="hs-identifier hs-var">GetCatalogImportStatusResponse'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CatalogImportStatus
@@ -203,7 +203,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetCatalogImportStatusResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679732038"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CatalogImportStatus)
+</span><a href="#local-6989586621679732047"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CatalogImportStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImportStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -216,15 +216,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679732040"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679732049"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732030"><span id="local-6989586621679732032"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-type">GetCatalogImportStatus</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732039"><span id="local-6989586621679732041"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-type">GetCatalogImportStatus</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732027"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-type">GetCatalogImportStatus</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732036"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-type">GetCatalogImportStatus</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-type">GetCatalogImportStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679732023"><span class="annot"><span class="annottext">toHeaders :: GetCatalogImportStatus -&gt; ResponseHeaders
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679732032"><span class="annot"><span class="annottext">toHeaders :: GetCatalogImportStatus -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCatalogImportStatus -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -251,12 +251,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732013"><span id="local-6989586621679732015"><span id="local-6989586621679732017"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-type">GetCatalogImportStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679732011"><span class="annot"><span class="annottext">toJSON :: GetCatalogImportStatus -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus%27"><span class="hs-identifier hs-type">GetCatalogImportStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732009"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732022"><span id="local-6989586621679732024"><span id="local-6989586621679732026"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-type">GetCatalogImportStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679732020"><span class="annot"><span class="annottext">toJSON :: GetCatalogImportStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus%27"><span class="hs-identifier hs-type">GetCatalogImportStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732018"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:GetCatalogImportStatus' :: GetCatalogImportStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679732009"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679732018"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -268,18 +268,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732009"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679732018"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-type">GetCatalogImportStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679732003"><span class="annot"><span class="annottext">toPath :: GetCatalogImportStatus -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679732012"><span class="annot"><span class="annottext">toPath :: GetCatalogImportStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetCatalogImportStatus -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatus"><span class="hs-identifier hs-type">GetCatalogImportStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679731999"><span class="annot"><span class="annottext">toQuery :: GetCatalogImportStatus -&gt; QueryString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679732008"><span class="annot"><span class="annottext">toQuery :: GetCatalogImportStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCatalogImportStatus -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -287,7 +287,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newGetCatalogImportStatusResponse' smart constructor.</span><span>
-</span><span id="line-126"></span><span id="local-6989586621679731996"><span id="local-6989586621679731997"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCatalogImportStatusResponse"><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse"><span class="hs-identifier hs-var">GetCatalogImportStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCatalogImportStatusResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse%27"><span class="hs-identifier hs-var">GetCatalogImportStatusResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span id="local-6989586621679732005"><span id="local-6989586621679732006"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCatalogImportStatusResponse"><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse"><span class="hs-identifier hs-var">GetCatalogImportStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCatalogImportStatusResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse%27"><span class="hs-identifier hs-var">GetCatalogImportStatusResponse'</span></a></span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the specified catalog migration.</span><span>
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AimportStatus%3AGetCatalogImportStatusResponse%27"><span class="annot"><span class="annottext">GetCatalogImportStatusResponse -&gt; Maybe CatalogImportStatus
 </span><a href="Network.AWS.Glue.GetCatalogImportStatus.html#%24sel%3AimportStatus%3AGetCatalogImportStatusResponse%27"><span class="hs-identifier hs-var hs-var">importStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogImportStatus.html#CatalogImportStatus"><span class="hs-identifier hs-type">CatalogImportStatus</span></a></span><span class="hs-special">,</span><span>
@@ -295,7 +295,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCatalogImportStatusResponse%27"><span class="annot"><span class="annottext">GetCatalogImportStatusResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetCatalogImportStatus.html#%24sel%3AhttpStatus%3AGetCatalogImportStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679731990"><span id="local-6989586621679731992"><span class="annot"><span class="annottext">GetCatalogImportStatusResponse
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679731999"><span id="local-6989586621679732001"><span class="annot"><span class="annottext">GetCatalogImportStatusResponse
 -&gt; GetCatalogImportStatusResponse -&gt; Bool
 (GetCatalogImportStatusResponse
  -&gt; GetCatalogImportStatusResponse -&gt; Bool)
@@ -311,7 +311,7 @@ $c/= :: GetCatalogImportStatusResponse
 -&gt; GetCatalogImportStatusResponse -&gt; Bool
 $c== :: GetCatalogImportStatusResponse
 -&gt; GetCatalogImportStatusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731982"><span id="local-6989586621679731984"><span id="local-6989586621679731986"><span id="local-6989586621679731988"><span class="annot"><span class="annottext">ReadPrec [GetCatalogImportStatusResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731991"><span id="local-6989586621679731993"><span id="local-6989586621679731995"><span id="local-6989586621679731997"><span class="annot"><span class="annottext">ReadPrec [GetCatalogImportStatusResponse]
 ReadPrec GetCatalogImportStatusResponse
 Int -&gt; ReadS GetCatalogImportStatusResponse
 ReadS [GetCatalogImportStatusResponse]
@@ -331,7 +331,7 @@ readList :: ReadS [GetCatalogImportStatusResponse]
 $creadList :: ReadS [GetCatalogImportStatusResponse]
 readsPrec :: Int -&gt; ReadS GetCatalogImportStatusResponse
 $creadsPrec :: Int -&gt; ReadS GetCatalogImportStatusResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731976"><span id="local-6989586621679731978"><span id="local-6989586621679731980"><span class="annot"><span class="annottext">Int -&gt; GetCatalogImportStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731985"><span id="local-6989586621679731987"><span id="local-6989586621679731989"><span class="annot"><span class="annottext">Int -&gt; GetCatalogImportStatusResponse -&gt; ShowS
 [GetCatalogImportStatusResponse] -&gt; ShowS
 GetCatalogImportStatusResponse -&gt; String
 (Int -&gt; GetCatalogImportStatusResponse -&gt; ShowS)
@@ -385,8 +385,8 @@ GetCatalogImportStatusResponse
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse</span></a></span><span>
 </span><span id="line-149"></span><span id="newGetCatalogImportStatusResponse"><span class="annot"><span class="annottext">newGetCatalogImportStatusResponse :: Int -&gt; GetCatalogImportStatusResponse
-</span><a href="Network.AWS.Glue.GetCatalogImportStatus.html#newGetCatalogImportStatusResponse"><span class="hs-identifier hs-var hs-var">newGetCatalogImportStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679731973"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731973"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetCatalogImportStatus.html#newGetCatalogImportStatusResponse"><span class="hs-identifier hs-var hs-var">newGetCatalogImportStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679731982"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679731982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">GetCatalogImportStatusResponse' :: Maybe CatalogImportStatus -&gt; Int -&gt; GetCatalogImportStatusResponse
 </span><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse%27"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse'</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:importStatus:GetCatalogImportStatusResponse' :: Maybe CatalogImportStatus
@@ -396,7 +396,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCatalogImportStatusResponse' :: Int
 </span><a href="Network.AWS.Glue.GetCatalogImportStatus.html#%24sel%3AhttpStatus%3AGetCatalogImportStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731973"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679731982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The status of the specified catalog migration.</span><span>
@@ -413,16 +413,16 @@ forall a. Maybe a
      (Maybe CatalogImportStatus)
      (Maybe CatalogImportStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse%27"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731972"><span class="annot"><span class="annottext">Maybe CatalogImportStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse%27"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731981"><span class="annot"><span class="annottext">Maybe CatalogImportStatus
 importStatus :: Maybe CatalogImportStatus
 $sel:importStatus:GetCatalogImportStatusResponse' :: GetCatalogImportStatusResponse -&gt; Maybe CatalogImportStatus
-</span><a href="#local-6989586621679731972"><span class="hs-identifier hs-var hs-var">importStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CatalogImportStatus
-</span><a href="#local-6989586621679731972"><span class="hs-identifier hs-var">importStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731971"><span class="annot"><span class="annottext">s :: GetCatalogImportStatusResponse
-</span><a href="#local-6989586621679731971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse%27"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731970"><span class="annot"><span class="annottext">Maybe CatalogImportStatus
-</span><a href="#local-6989586621679731970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCatalogImportStatusResponse
-</span><a href="#local-6989586621679731971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importStatus:GetCatalogImportStatusResponse' :: Maybe CatalogImportStatus
+</span><a href="#local-6989586621679731981"><span class="hs-identifier hs-var hs-var">importStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CatalogImportStatus
+</span><a href="#local-6989586621679731981"><span class="hs-identifier hs-var">importStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731980"><span class="annot"><span class="annottext">s :: GetCatalogImportStatusResponse
+</span><a href="#local-6989586621679731980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse%27"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731979"><span class="annot"><span class="annottext">Maybe CatalogImportStatus
+</span><a href="#local-6989586621679731979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCatalogImportStatusResponse
+</span><a href="#local-6989586621679731980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importStatus:GetCatalogImportStatusResponse' :: Maybe CatalogImportStatus
 </span><a href="Network.AWS.Glue.GetCatalogImportStatus.html#%24sel%3AimportStatus%3AGetCatalogImportStatusResponse%27"><span class="hs-identifier hs-var">importStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CatalogImportStatus
-</span><a href="#local-6989586621679731970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679731979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#getCatalogImportStatusResponse_httpStatus"><span class="hs-identifier hs-type">getCatalogImportStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -438,18 +438,18 @@ $sel:importStatus:GetCatalogImportStatusResponse' :: GetCatalogImportStatusRespo
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse%27"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731969"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse%27"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731978"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetCatalogImportStatusResponse' :: GetCatalogImportStatusResponse -&gt; Int
-</span><a href="#local-6989586621679731969"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731969"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731968"><span class="annot"><span class="annottext">s :: GetCatalogImportStatusResponse
-</span><a href="#local-6989586621679731968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse%27"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731967"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCatalogImportStatusResponse
-</span><a href="#local-6989586621679731968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCatalogImportStatusResponse' :: Int
+</span><a href="#local-6989586621679731978"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679731978"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731977"><span class="annot"><span class="annottext">s :: GetCatalogImportStatusResponse
+</span><a href="#local-6989586621679731977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse%27"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731976"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679731976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCatalogImportStatusResponse
+</span><a href="#local-6989586621679731977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCatalogImportStatusResponse' :: Int
 </span><a href="Network.AWS.Glue.GetCatalogImportStatus.html#%24sel%3AhttpStatus%3AGetCatalogImportStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679731976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679731965"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679731974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetCatalogImportStatus.html#GetCatalogImportStatusResponse"><span class="hs-identifier hs-type">GetCatalogImportStatusResponse</span></a></span></span><span>
 </span><span id="line-167"></span></pre></body></html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ApiGatewayV2.GetTags</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a collection of Tag resources.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApiGatewayV2.GetTags</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags"><span class="hs-identifier">GetTags</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#newGetTags"><span class="hs-identifier">newGetTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#getTags_resourceArn"><span class="hs-identifier">getTags_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse"><span class="hs-identifier">GetTagsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#newGetTagsResponse"><span class="hs-identifier">newGetTagsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#getTagsResponse_tags"><span class="hs-identifier">getTagsResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#getTagsResponse_httpStatus"><span class="hs-identifier">getTagsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.html"><span class="hs-identifier">Network.AWS.ApiGatewayV2.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetTags' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679413322"><span id="local-6989586621679413323"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTags"><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags"><span class="hs-identifier hs-var">GetTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTags%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags%27"><span class="hs-identifier hs-var">GetTags'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource ARN for the tag.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AresourceArn%3AGetTags%27"><span class="annot"><span class="annottext">GetTags -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#%24sel%3AresourceArn%3AGetTags%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413316"><span id="local-6989586621679413318"><span class="annot"><span class="annottext">GetTags -&gt; GetTags -&gt; Bool
+(GetTags -&gt; GetTags -&gt; Bool)
+-&gt; (GetTags -&gt; GetTags -&gt; Bool) -&gt; Eq GetTags
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetTags -&gt; GetTags -&gt; Bool
+$c/= :: GetTags -&gt; GetTags -&gt; Bool
+== :: GetTags -&gt; GetTags -&gt; Bool
+$c== :: GetTags -&gt; GetTags -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413307"><span id="local-6989586621679413309"><span id="local-6989586621679413311"><span id="local-6989586621679413313"><span class="annot"><span class="annottext">ReadPrec [GetTags]
+ReadPrec GetTags
+Int -&gt; ReadS GetTags
+ReadS [GetTags]
+(Int -&gt; ReadS GetTags)
+-&gt; ReadS [GetTags]
+-&gt; ReadPrec GetTags
+-&gt; ReadPrec [GetTags]
+-&gt; Read GetTags
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetTags]
+$creadListPrec :: ReadPrec [GetTags]
+readPrec :: ReadPrec GetTags
+$creadPrec :: ReadPrec GetTags
+readList :: ReadS [GetTags]
+$creadList :: ReadS [GetTags]
+readsPrec :: Int -&gt; ReadS GetTags
+$creadsPrec :: Int -&gt; ReadS GetTags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413300"><span id="local-6989586621679413302"><span id="local-6989586621679413304"><span class="annot"><span class="annottext">Int -&gt; GetTags -&gt; ShowS
+[GetTags] -&gt; ShowS
+GetTags -&gt; String
+(Int -&gt; GetTags -&gt; ShowS)
+-&gt; (GetTags -&gt; String) -&gt; ([GetTags] -&gt; ShowS) -&gt; Show GetTags
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetTags] -&gt; ShowS
+$cshowList :: [GetTags] -&gt; ShowS
+show :: GetTags -&gt; String
+$cshow :: GetTags -&gt; String
+showsPrec :: Int -&gt; GetTags -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetTags -&gt; Rep GetTags x)
+-&gt; (forall x. Rep GetTags x -&gt; GetTags) -&gt; Generic GetTags
+forall x. Rep GetTags x -&gt; GetTags
+forall x. GetTags -&gt; Rep GetTags x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetTags x -&gt; GetTags
+$cfrom :: forall x. GetTags -&gt; Rep GetTags x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetTags' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'resourceArn', 'getTags_resourceArn' - The resource ARN for the tag.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#newGetTags"><span class="hs-identifier hs-type">newGetTags</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'resourceArn'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetTags"><span class="annot"><span class="annottext">newGetTags :: Text -&gt; GetTags
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#newGetTags"><span class="hs-identifier hs-var hs-var">newGetTags</span></a></span></span><span> </span><span id="local-6989586621679413295"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413295"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetTags' :: Text -&gt; GetTags
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags%27"><span class="hs-identifier hs-type">GetTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:GetTags' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#%24sel%3AresourceArn%3AGetTags%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413295"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The resource ARN for the tag.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#getTags_resourceArn"><span class="hs-identifier hs-type">getTags_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="getTags_resourceArn"><span class="annot"><span class="annottext">getTags_resourceArn :: (Text -&gt; f Text) -&gt; GetTags -&gt; f GetTags
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#getTags_resourceArn"><span class="hs-identifier hs-var hs-var">getTags_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTags -&gt; Text)
+-&gt; (GetTags -&gt; Text -&gt; GetTags) -&gt; Lens GetTags GetTags Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags%27"><span class="hs-identifier hs-type">GetTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413292"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:GetTags' :: GetTags -&gt; Text
+</span><a href="#local-6989586621679413292"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413292"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413291"><span class="annot"><span class="annottext">s :: GetTags
+</span><a href="#local-6989586621679413291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags%27"><span class="hs-identifier hs-type">GetTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413290"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTags
+</span><a href="#local-6989586621679413291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:GetTags' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#%24sel%3AresourceArn%3AGetTags%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679413286"><span class="annot"><span class="annottext">request :: GetTags -&gt; Request GetTags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetTags -&gt; Request GetTags
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ApiGatewayV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679413282"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetTags
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetTags)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetTags))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetTags
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetTags)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679413279"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413279"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679413278"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679413278"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679413277"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679413277"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Int -&gt; GetTagsResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-var">GetTagsResponse'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Int -&gt; GetTagsResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; GetTagsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679413277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetTagsResponse)
+-&gt; Either String Int -&gt; Either String GetTagsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413279"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413268"><span id="local-6989586621679413270"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413265"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679413261"><span class="annot"><span class="annottext">toHeaders :: GetTags -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetTags -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-98"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679413255"><span class="annot"><span class="annottext">toPath :: GetTags -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags%27"><span class="hs-identifier hs-type">GetTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413253"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:GetTags' :: GetTags -&gt; Text
+</span><a href="#local-6989586621679413253"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/tags/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413253"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTags"><span class="hs-identifier hs-type">GetTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679413249"><span class="annot"><span class="annottext">toQuery :: GetTags -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetTags -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newGetTagsResponse' smart constructor.</span><span>
+</span><span id="line-111"></span><span id="local-6989586621679413246"><span id="local-6989586621679413247"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTagsResponse"><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-var">GetTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTagsResponse%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-var">GetTagsResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Atags%3AGetTagsResponse%27"><span class="annot"><span class="annottext">GetTagsResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#%24sel%3Atags%3AGetTagsResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTagsResponse%27"><span class="annot"><span class="annottext">GetTagsResponse -&gt; Int
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#%24sel%3AhttpStatus%3AGetTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413240"><span id="local-6989586621679413242"><span class="annot"><span class="annottext">GetTagsResponse -&gt; GetTagsResponse -&gt; Bool
+(GetTagsResponse -&gt; GetTagsResponse -&gt; Bool)
+-&gt; (GetTagsResponse -&gt; GetTagsResponse -&gt; Bool)
+-&gt; Eq GetTagsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetTagsResponse -&gt; GetTagsResponse -&gt; Bool
+$c/= :: GetTagsResponse -&gt; GetTagsResponse -&gt; Bool
+== :: GetTagsResponse -&gt; GetTagsResponse -&gt; Bool
+$c== :: GetTagsResponse -&gt; GetTagsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413232"><span id="local-6989586621679413234"><span id="local-6989586621679413236"><span id="local-6989586621679413238"><span class="annot"><span class="annottext">ReadPrec [GetTagsResponse]
+ReadPrec GetTagsResponse
+Int -&gt; ReadS GetTagsResponse
+ReadS [GetTagsResponse]
+(Int -&gt; ReadS GetTagsResponse)
+-&gt; ReadS [GetTagsResponse]
+-&gt; ReadPrec GetTagsResponse
+-&gt; ReadPrec [GetTagsResponse]
+-&gt; Read GetTagsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetTagsResponse]
+$creadListPrec :: ReadPrec [GetTagsResponse]
+readPrec :: ReadPrec GetTagsResponse
+$creadPrec :: ReadPrec GetTagsResponse
+readList :: ReadS [GetTagsResponse]
+$creadList :: ReadS [GetTagsResponse]
+readsPrec :: Int -&gt; ReadS GetTagsResponse
+$creadsPrec :: Int -&gt; ReadS GetTagsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413226"><span id="local-6989586621679413228"><span id="local-6989586621679413230"><span class="annot"><span class="annottext">Int -&gt; GetTagsResponse -&gt; ShowS
+[GetTagsResponse] -&gt; ShowS
+GetTagsResponse -&gt; String
+(Int -&gt; GetTagsResponse -&gt; ShowS)
+-&gt; (GetTagsResponse -&gt; String)
+-&gt; ([GetTagsResponse] -&gt; ShowS)
+-&gt; Show GetTagsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetTagsResponse] -&gt; ShowS
+$cshowList :: [GetTagsResponse] -&gt; ShowS
+show :: GetTagsResponse -&gt; String
+$cshow :: GetTagsResponse -&gt; String
+showsPrec :: Int -&gt; GetTagsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetTagsResponse -&gt; Rep GetTagsResponse x)
+-&gt; (forall x. Rep GetTagsResponse x -&gt; GetTagsResponse)
+-&gt; Generic GetTagsResponse
+forall x. Rep GetTagsResponse x -&gt; GetTagsResponse
+forall x. GetTagsResponse -&gt; Rep GetTagsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetTagsResponse x -&gt; GetTagsResponse
+$cfrom :: forall x. GetTagsResponse -&gt; Rep GetTagsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Create a value of 'GetTagsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'tags', 'getTagsResponse_tags' - Undocumented member.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'httpStatus', 'getTagsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#newGetTagsResponse"><span class="hs-identifier hs-type">newGetTagsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span><span>
+</span><span id="line-133"></span><span id="newGetTagsResponse"><span class="annot"><span class="annottext">newGetTagsResponse :: Int -&gt; GetTagsResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#newGetTagsResponse"><span class="hs-identifier hs-var hs-var">newGetTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679413223"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413223"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">GetTagsResponse' :: Maybe (HashMap Text Text) -&gt; Int -&gt; GetTagsResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-type">GetTagsResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:GetTagsResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#%24sel%3Atags%3AGetTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTagsResponse' :: Int
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#%24sel%3AhttpStatus%3AGetTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413223"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#getTagsResponse_tags"><span class="hs-identifier hs-type">getTagsResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="getTagsResponse_tags"><span class="annot"><span class="annottext">getTagsResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetTagsResponse -&gt; f GetTagsResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#getTagsResponse_tags"><span class="hs-identifier hs-var hs-var">getTagsResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTagsResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (GetTagsResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; GetTagsResponse)
+-&gt; Lens
+     GetTagsResponse
+     GetTagsResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-type">GetTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413222"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:GetTagsResponse' :: GetTagsResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679413222"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679413222"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413221"><span class="annot"><span class="annottext">s :: GetTagsResponse
+</span><a href="#local-6989586621679413221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-type">GetTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413220"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679413220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTagsResponse
+</span><a href="#local-6989586621679413221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetTagsResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#%24sel%3Atags%3AGetTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679413220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; GetTagsResponse -&gt; f GetTagsResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetTagsResponse
+-&gt; f GetTagsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#getTagsResponse_httpStatus"><span class="hs-identifier hs-type">getTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span id="getTagsResponse_httpStatus"><span class="annot"><span class="annottext">getTagsResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetTagsResponse -&gt; f GetTagsResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#getTagsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getTagsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTagsResponse -&gt; Int)
+-&gt; (GetTagsResponse -&gt; Int -&gt; GetTagsResponse)
+-&gt; Lens GetTagsResponse GetTagsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-type">GetTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413216"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetTagsResponse' :: GetTagsResponse -&gt; Int
+</span><a href="#local-6989586621679413216"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413216"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413215"><span class="annot"><span class="annottext">s :: GetTagsResponse
+</span><a href="#local-6989586621679413215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse%27"><span class="hs-identifier hs-type">GetTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413214"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTagsResponse
+</span><a href="#local-6989586621679413215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTagsResponse' :: Int
+</span><a href="Network.AWS.ApiGatewayV2.GetTags.html#%24sel%3AhttpStatus%3AGetTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetTags.html#GetTagsResponse"><span class="hs-identifier hs-type">GetTagsResponse</span></a></span></span><span>
+</span><span id="line-148"></span></pre></body></html>

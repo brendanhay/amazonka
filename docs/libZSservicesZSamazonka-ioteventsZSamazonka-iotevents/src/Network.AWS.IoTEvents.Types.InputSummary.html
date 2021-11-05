@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTEvents.Types.InputSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTEvents.Types.InputSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputStatus.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.InputStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about the input.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInputSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679241527"><span id="local-6989586621679241528"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputSummary"><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-var">InputSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputSummary%27"><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-var">InputSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time the input was created.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcreationTime%3AInputSummary%27"><span class="annot"><span class="annottext">InputSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AcreationTime%3AInputSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The status of the input.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AInputSummary%27"><span class="annot"><span class="annottext">InputSummary -&gt; Maybe InputStatus
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3Astatus%3AInputSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputStatus.html#InputStatus"><span class="hs-identifier hs-type">InputStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the input.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AinputName%3AInputSummary%27"><span class="annot"><span class="annottext">InputSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AinputName%3AInputSummary%27"><span class="hs-identifier hs-var hs-var">inputName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A brief description of the input.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AinputDescription%3AInputSummary%27"><span class="annot"><span class="annottext">InputSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AinputDescription%3AInputSummary%27"><span class="hs-identifier hs-var hs-var">inputDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ARN of the input.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AinputArn%3AInputSummary%27"><span class="annot"><span class="annottext">InputSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AinputArn%3AInputSummary%27"><span class="hs-identifier hs-var hs-var">inputArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The last time the input was updated.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3AInputSummary%27"><span class="annot"><span class="annottext">InputSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AlastUpdateTime%3AInputSummary%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241516"><span id="local-6989586621679241518"><span class="annot"><span class="annottext">InputSummary -&gt; InputSummary -&gt; Bool
+(InputSummary -&gt; InputSummary -&gt; Bool)
+-&gt; (InputSummary -&gt; InputSummary -&gt; Bool) -&gt; Eq InputSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputSummary -&gt; InputSummary -&gt; Bool
+$c/= :: InputSummary -&gt; InputSummary -&gt; Bool
+== :: InputSummary -&gt; InputSummary -&gt; Bool
+$c== :: InputSummary -&gt; InputSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241507"><span id="local-6989586621679241509"><span id="local-6989586621679241511"><span id="local-6989586621679241513"><span class="annot"><span class="annottext">ReadPrec [InputSummary]
+ReadPrec InputSummary
+Int -&gt; ReadS InputSummary
+ReadS [InputSummary]
+(Int -&gt; ReadS InputSummary)
+-&gt; ReadS [InputSummary]
+-&gt; ReadPrec InputSummary
+-&gt; ReadPrec [InputSummary]
+-&gt; Read InputSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputSummary]
+$creadListPrec :: ReadPrec [InputSummary]
+readPrec :: ReadPrec InputSummary
+$creadPrec :: ReadPrec InputSummary
+readList :: ReadS [InputSummary]
+$creadList :: ReadS [InputSummary]
+readsPrec :: Int -&gt; ReadS InputSummary
+$creadsPrec :: Int -&gt; ReadS InputSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241500"><span id="local-6989586621679241502"><span id="local-6989586621679241504"><span class="annot"><span class="annottext">Int -&gt; InputSummary -&gt; ShowS
+[InputSummary] -&gt; ShowS
+InputSummary -&gt; String
+(Int -&gt; InputSummary -&gt; ShowS)
+-&gt; (InputSummary -&gt; String)
+-&gt; ([InputSummary] -&gt; ShowS)
+-&gt; Show InputSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputSummary] -&gt; ShowS
+$cshowList :: [InputSummary] -&gt; ShowS
+show :: InputSummary -&gt; String
+$cshow :: InputSummary -&gt; String
+showsPrec :: Int -&gt; InputSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InputSummary -&gt; Rep InputSummary x)
+-&gt; (forall x. Rep InputSummary x -&gt; InputSummary)
+-&gt; Generic InputSummary
+forall x. Rep InputSummary x -&gt; InputSummary
+forall x. InputSummary -&gt; Rep InputSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InputSummary x -&gt; InputSummary
+$cfrom :: forall x. InputSummary -&gt; Rep InputSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'InputSummary' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'creationTime', 'inputSummary_creationTime' - The time the input was created.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'status', 'inputSummary_status' - The status of the input.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'inputName', 'inputSummary_inputName' - The name of the input.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'inputDescription', 'inputSummary_inputDescription' - A brief description of the input.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'inputArn', 'inputSummary_inputArn' - The ARN of the input.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'lastUpdateTime', 'inputSummary_lastUpdateTime' - The last time the input was updated.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#newInputSummary"><span class="hs-identifier hs-type">newInputSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span><span>
+</span><span id="line-67"></span><span id="newInputSummary"><span class="annot"><span class="annottext">newInputSummary :: InputSummary
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#newInputSummary"><span class="hs-identifier hs-var hs-var">newInputSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">InputSummary' :: Maybe POSIX
+-&gt; Maybe InputStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; InputSummary
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-type">InputSummary'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:InputSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AcreationTime%3AInputSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:InputSummary' :: Maybe InputStatus
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3Astatus%3AInputSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputName:InputSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AinputName%3AInputSummary%27"><span class="hs-identifier hs-var">inputName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputDescription:InputSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AinputDescription%3AInputSummary%27"><span class="hs-identifier hs-var">inputDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputArn:InputSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AinputArn%3AInputSummary%27"><span class="hs-identifier hs-var">inputArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:InputSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AlastUpdateTime%3AInputSummary%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The time the input was created.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#inputSummary_creationTime"><span class="hs-identifier hs-type">inputSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="inputSummary_creationTime"><span class="annot"><span class="annottext">inputSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InputSummary -&gt; f InputSummary
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#inputSummary_creationTime"><span class="hs-identifier hs-var hs-var">inputSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSummary -&gt; Maybe POSIX)
+-&gt; (InputSummary -&gt; Maybe POSIX -&gt; InputSummary)
+-&gt; Lens InputSummary InputSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-type">InputSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241491"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:InputSummary' :: InputSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679241491"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679241491"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241490"><span class="annot"><span class="annottext">s :: InputSummary
+</span><a href="#local-6989586621679241490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-type">InputSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241489"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679241489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSummary
+</span><a href="#local-6989586621679241490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:InputSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AcreationTime%3AInputSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679241489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; InputSummary -&gt; f InputSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InputSummary
+-&gt; f InputSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The status of the input.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#inputSummary_status"><span class="hs-identifier hs-type">inputSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputStatus.html#InputStatus"><span class="hs-identifier hs-type">InputStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="inputSummary_status"><span class="annot"><span class="annottext">inputSummary_status :: (Maybe InputStatus -&gt; f (Maybe InputStatus))
+-&gt; InputSummary -&gt; f InputSummary
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#inputSummary_status"><span class="hs-identifier hs-var hs-var">inputSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSummary -&gt; Maybe InputStatus)
+-&gt; (InputSummary -&gt; Maybe InputStatus -&gt; InputSummary)
+-&gt; Lens
+     InputSummary InputSummary (Maybe InputStatus) (Maybe InputStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-type">InputSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241484"><span class="annot"><span class="annottext">Maybe InputStatus
+status :: Maybe InputStatus
+$sel:status:InputSummary' :: InputSummary -&gt; Maybe InputStatus
+</span><a href="#local-6989586621679241484"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputStatus
+</span><a href="#local-6989586621679241484"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241483"><span class="annot"><span class="annottext">s :: InputSummary
+</span><a href="#local-6989586621679241483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-type">InputSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241482"><span class="annot"><span class="annottext">Maybe InputStatus
+</span><a href="#local-6989586621679241482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSummary
+</span><a href="#local-6989586621679241483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:InputSummary' :: Maybe InputStatus
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3Astatus%3AInputSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputStatus
+</span><a href="#local-6989586621679241482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The name of the input.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#inputSummary_inputName"><span class="hs-identifier hs-type">inputSummary_inputName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="inputSummary_inputName"><span class="annot"><span class="annottext">inputSummary_inputName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; InputSummary -&gt; f InputSummary
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#inputSummary_inputName"><span class="hs-identifier hs-var hs-var">inputSummary_inputName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSummary -&gt; Maybe Text)
+-&gt; (InputSummary -&gt; Maybe Text -&gt; InputSummary)
+-&gt; Lens InputSummary InputSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-type">InputSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241480"><span class="annot"><span class="annottext">Maybe Text
+inputName :: Maybe Text
+$sel:inputName:InputSummary' :: InputSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679241480"><span class="hs-identifier hs-var hs-var">inputName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241480"><span class="hs-identifier hs-var">inputName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241479"><span class="annot"><span class="annottext">s :: InputSummary
+</span><a href="#local-6989586621679241479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-type">InputSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241478"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSummary
+</span><a href="#local-6989586621679241479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputName:InputSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AinputName%3AInputSummary%27"><span class="hs-identifier hs-var">inputName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | A brief description of the input.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#inputSummary_inputDescription"><span class="hs-identifier hs-type">inputSummary_inputDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="inputSummary_inputDescription"><span class="annot"><span class="annottext">inputSummary_inputDescription :: (Maybe Text -&gt; f (Maybe Text)) -&gt; InputSummary -&gt; f InputSummary
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#inputSummary_inputDescription"><span class="hs-identifier hs-var hs-var">inputSummary_inputDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSummary -&gt; Maybe Text)
+-&gt; (InputSummary -&gt; Maybe Text -&gt; InputSummary)
+-&gt; Lens InputSummary InputSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-type">InputSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241476"><span class="annot"><span class="annottext">Maybe Text
+inputDescription :: Maybe Text
+$sel:inputDescription:InputSummary' :: InputSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679241476"><span class="hs-identifier hs-var hs-var">inputDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241476"><span class="hs-identifier hs-var">inputDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241475"><span class="annot"><span class="annottext">s :: InputSummary
+</span><a href="#local-6989586621679241475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-type">InputSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241474"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSummary
+</span><a href="#local-6989586621679241475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDescription:InputSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AinputDescription%3AInputSummary%27"><span class="hs-identifier hs-var">inputDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The ARN of the input.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#inputSummary_inputArn"><span class="hs-identifier hs-type">inputSummary_inputArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="inputSummary_inputArn"><span class="annot"><span class="annottext">inputSummary_inputArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; InputSummary -&gt; f InputSummary
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#inputSummary_inputArn"><span class="hs-identifier hs-var hs-var">inputSummary_inputArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSummary -&gt; Maybe Text)
+-&gt; (InputSummary -&gt; Maybe Text -&gt; InputSummary)
+-&gt; Lens InputSummary InputSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-type">InputSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241472"><span class="annot"><span class="annottext">Maybe Text
+inputArn :: Maybe Text
+$sel:inputArn:InputSummary' :: InputSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679241472"><span class="hs-identifier hs-var hs-var">inputArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241472"><span class="hs-identifier hs-var">inputArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241471"><span class="annot"><span class="annottext">s :: InputSummary
+</span><a href="#local-6989586621679241471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-type">InputSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241470"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSummary
+</span><a href="#local-6989586621679241471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputArn:InputSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AinputArn%3AInputSummary%27"><span class="hs-identifier hs-var">inputArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The last time the input was updated.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#inputSummary_lastUpdateTime"><span class="hs-identifier hs-type">inputSummary_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="inputSummary_lastUpdateTime"><span class="annot"><span class="annottext">inputSummary_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InputSummary -&gt; f InputSummary
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#inputSummary_lastUpdateTime"><span class="hs-identifier hs-var hs-var">inputSummary_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSummary -&gt; Maybe POSIX)
+-&gt; (InputSummary -&gt; Maybe POSIX -&gt; InputSummary)
+-&gt; Lens InputSummary InputSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-type">InputSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241468"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdateTime :: Maybe POSIX
+$sel:lastUpdateTime:InputSummary' :: InputSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679241468"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679241468"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241467"><span class="annot"><span class="annottext">s :: InputSummary
+</span><a href="#local-6989586621679241467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-type">InputSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241466"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679241466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSummary
+</span><a href="#local-6989586621679241467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:InputSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#%24sel%3AlastUpdateTime%3AInputSummary%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679241466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; InputSummary -&gt; f InputSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InputSummary
+-&gt; f InputSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241463"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679241461"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InputSummary) -&gt; Value -&gt; Parser InputSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InputSummary&quot;</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241458"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241458"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe InputStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; InputSummary
+</span><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary%27"><span class="hs-identifier hs-var">InputSummary'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe InputStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; InputSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe InputStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; InputSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; InputSummary)
+-&gt; Parser (Maybe InputStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; InputSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; InputSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; InputSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; InputSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; InputSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; InputSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; InputSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; InputSummary)
+-&gt; Parser (Maybe POSIX) -&gt; Parser InputSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241452"><span id="local-6989586621679241454"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241449"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.InputSummary.html#InputSummary"><span class="hs-identifier hs-type">InputSummary</span></a></span></span><span>
+</span><span id="line-118"></span></pre></body></html>

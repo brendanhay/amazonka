@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.DataSourceErrorInfoType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.DataSourceErrorInfoType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType"><span class="hs-identifier">DataSourceErrorInfoType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_ACCESS_DENIED"><span class="hs-identifier">DataSourceErrorInfoType_ACCESS_DENIED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_CONFLICT"><span class="hs-identifier">DataSourceErrorInfoType_CONFLICT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_COPY_SOURCE_NOT_FOUND"><span class="hs-identifier">DataSourceErrorInfoType_COPY_SOURCE_NOT_FOUND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_ENGINE_VERSION_NOT_SUPPORTED"><span class="hs-identifier">DataSourceErrorInfoType_ENGINE_VERSION_NOT_SUPPORTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_GENERIC_SQL_FAILURE"><span class="hs-identifier">DataSourceErrorInfoType_GENERIC_SQL_FAILURE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_TIMEOUT"><span class="hs-identifier">DataSourceErrorInfoType_TIMEOUT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_UNKNOWN"><span class="hs-identifier">DataSourceErrorInfoType_UNKNOWN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_UNKNOWN_HOST"><span class="hs-identifier">DataSourceErrorInfoType_UNKNOWN_HOST</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679553567"><span id="local-6989586621679553568"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataSourceErrorInfoType"><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType"><span class="hs-identifier hs-var">DataSourceErrorInfoType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataSourceErrorInfoType%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType%27"><span class="hs-identifier hs-var">DataSourceErrorInfoType'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDataSourceErrorInfoType"><span class="annot"><span class="annottext">DataSourceErrorInfoType -&gt; Text
+</span><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#fromDataSourceErrorInfoType"><span class="hs-identifier hs-var hs-var">fromDataSourceErrorInfoType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679553559"><span id="local-6989586621679553561"><span id="local-6989586621679553563"><span class="annot"><span class="annottext">Int -&gt; DataSourceErrorInfoType -&gt; ShowS
+[DataSourceErrorInfoType] -&gt; ShowS
+DataSourceErrorInfoType -&gt; String
+(Int -&gt; DataSourceErrorInfoType -&gt; ShowS)
+-&gt; (DataSourceErrorInfoType -&gt; String)
+-&gt; ([DataSourceErrorInfoType] -&gt; ShowS)
+-&gt; Show DataSourceErrorInfoType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataSourceErrorInfoType] -&gt; ShowS
+$cshowList :: [DataSourceErrorInfoType] -&gt; ShowS
+show :: DataSourceErrorInfoType -&gt; String
+$cshow :: DataSourceErrorInfoType -&gt; String
+showsPrec :: Int -&gt; DataSourceErrorInfoType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataSourceErrorInfoType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679553550"><span id="local-6989586621679553552"><span id="local-6989586621679553554"><span id="local-6989586621679553556"><span class="annot"><span class="annottext">ReadPrec [DataSourceErrorInfoType]
+ReadPrec DataSourceErrorInfoType
+Int -&gt; ReadS DataSourceErrorInfoType
+ReadS [DataSourceErrorInfoType]
+(Int -&gt; ReadS DataSourceErrorInfoType)
+-&gt; ReadS [DataSourceErrorInfoType]
+-&gt; ReadPrec DataSourceErrorInfoType
+-&gt; ReadPrec [DataSourceErrorInfoType]
+-&gt; Read DataSourceErrorInfoType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataSourceErrorInfoType]
+$creadListPrec :: ReadPrec [DataSourceErrorInfoType]
+readPrec :: ReadPrec DataSourceErrorInfoType
+$creadPrec :: ReadPrec DataSourceErrorInfoType
+readList :: ReadS [DataSourceErrorInfoType]
+$creadList :: ReadS [DataSourceErrorInfoType]
+readsPrec :: Int -&gt; ReadS DataSourceErrorInfoType
+$creadsPrec :: Int -&gt; ReadS DataSourceErrorInfoType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679553545"><span id="local-6989586621679553547"><span class="annot"><span class="annottext">DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool
+(DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool)
+-&gt; (DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool)
+-&gt; Eq DataSourceErrorInfoType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool
+$c/= :: DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool
+== :: DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool
+$c== :: DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679553529"><span id="local-6989586621679553531"><span id="local-6989586621679553533"><span id="local-6989586621679553535"><span id="local-6989586621679553537"><span id="local-6989586621679553539"><span id="local-6989586621679553541"><span class="annot"><span class="annottext">Eq DataSourceErrorInfoType
+Eq DataSourceErrorInfoType
+-&gt; (DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Ordering)
+-&gt; (DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool)
+-&gt; (DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool)
+-&gt; (DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool)
+-&gt; (DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool)
+-&gt; (DataSourceErrorInfoType
+    -&gt; DataSourceErrorInfoType -&gt; DataSourceErrorInfoType)
+-&gt; (DataSourceErrorInfoType
+    -&gt; DataSourceErrorInfoType -&gt; DataSourceErrorInfoType)
+-&gt; Ord DataSourceErrorInfoType
+DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool
+DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Ordering
+DataSourceErrorInfoType
+-&gt; DataSourceErrorInfoType -&gt; DataSourceErrorInfoType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DataSourceErrorInfoType
+-&gt; DataSourceErrorInfoType -&gt; DataSourceErrorInfoType
+$cmin :: DataSourceErrorInfoType
+-&gt; DataSourceErrorInfoType -&gt; DataSourceErrorInfoType
+max :: DataSourceErrorInfoType
+-&gt; DataSourceErrorInfoType -&gt; DataSourceErrorInfoType
+$cmax :: DataSourceErrorInfoType
+-&gt; DataSourceErrorInfoType -&gt; DataSourceErrorInfoType
+&gt;= :: DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool
+$c&gt;= :: DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool
+&gt; :: DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool
+$c&gt; :: DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool
+&lt;= :: DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool
+$c&lt;= :: DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool
+&lt; :: DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool
+$c&lt; :: DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Bool
+compare :: DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Ordering
+$ccompare :: DataSourceErrorInfoType -&gt; DataSourceErrorInfoType -&gt; Ordering
+$cp1Ord :: Eq DataSourceErrorInfoType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DataSourceErrorInfoType -&gt; Rep DataSourceErrorInfoType x)
+-&gt; (forall x.
+    Rep DataSourceErrorInfoType x -&gt; DataSourceErrorInfoType)
+-&gt; Generic DataSourceErrorInfoType
+forall x. Rep DataSourceErrorInfoType x -&gt; DataSourceErrorInfoType
+forall x. DataSourceErrorInfoType -&gt; Rep DataSourceErrorInfoType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DataSourceErrorInfoType x -&gt; DataSourceErrorInfoType
+$cfrom :: forall x. DataSourceErrorInfoType -&gt; Rep DataSourceErrorInfoType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679553521"><span id="local-6989586621679553523"><span class="annot"><span class="annottext">Int -&gt; DataSourceErrorInfoType -&gt; Int
+DataSourceErrorInfoType -&gt; Int
+(Int -&gt; DataSourceErrorInfoType -&gt; Int)
+-&gt; (DataSourceErrorInfoType -&gt; Int)
+-&gt; Hashable DataSourceErrorInfoType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DataSourceErrorInfoType -&gt; Int
+$chash :: DataSourceErrorInfoType -&gt; Int
+hashWithSalt :: Int -&gt; DataSourceErrorInfoType -&gt; Int
+$chashWithSalt :: Int -&gt; DataSourceErrorInfoType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679553518"><span class="annot"><span class="annottext">DataSourceErrorInfoType -&gt; ()
+(DataSourceErrorInfoType -&gt; ()) -&gt; NFData DataSourceErrorInfoType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DataSourceErrorInfoType -&gt; ()
+$crnf :: DataSourceErrorInfoType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679553515"><span class="annot"><span class="annottext">Text -&gt; Either String DataSourceErrorInfoType
+(Text -&gt; Either String DataSourceErrorInfoType)
+-&gt; FromText DataSourceErrorInfoType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DataSourceErrorInfoType
+$cfromText :: Text -&gt; Either String DataSourceErrorInfoType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679553512"><span class="annot"><span class="annottext">DataSourceErrorInfoType -&gt; Text
+(DataSourceErrorInfoType -&gt; Text) -&gt; ToText DataSourceErrorInfoType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DataSourceErrorInfoType -&gt; Text
+$ctoText :: DataSourceErrorInfoType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679553509"><span class="annot"><span class="annottext">DataSourceErrorInfoType -&gt; ByteString
+(DataSourceErrorInfoType -&gt; ByteString)
+-&gt; ToByteString DataSourceErrorInfoType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DataSourceErrorInfoType -&gt; ByteString
+$ctoBS :: DataSourceErrorInfoType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679553506"><span class="annot"><span class="annottext">DataSourceErrorInfoType -&gt; ByteStringBuilder
+(DataSourceErrorInfoType -&gt; ByteStringBuilder)
+-&gt; ToLog DataSourceErrorInfoType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DataSourceErrorInfoType -&gt; ByteStringBuilder
+$cbuild :: DataSourceErrorInfoType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679553503"><span class="annot"><span class="annottext">HeaderName -&gt; DataSourceErrorInfoType -&gt; [Header]
+(HeaderName -&gt; DataSourceErrorInfoType -&gt; [Header])
+-&gt; ToHeader DataSourceErrorInfoType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DataSourceErrorInfoType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DataSourceErrorInfoType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679553500"><span class="annot"><span class="annottext">DataSourceErrorInfoType -&gt; QueryString
+(DataSourceErrorInfoType -&gt; QueryString)
+-&gt; ToQuery DataSourceErrorInfoType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DataSourceErrorInfoType -&gt; QueryString
+$ctoQuery :: DataSourceErrorInfoType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679553495"><span id="local-6989586621679553497"><span class="annot"><span class="annottext">Value -&gt; Parser [DataSourceErrorInfoType]
+Value -&gt; Parser DataSourceErrorInfoType
+(Value -&gt; Parser DataSourceErrorInfoType)
+-&gt; (Value -&gt; Parser [DataSourceErrorInfoType])
+-&gt; FromJSON DataSourceErrorInfoType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DataSourceErrorInfoType]
+$cparseJSONList :: Value -&gt; Parser [DataSourceErrorInfoType]
+parseJSON :: Value -&gt; Parser DataSourceErrorInfoType
+$cparseJSON :: Value -&gt; Parser DataSourceErrorInfoType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679553490"><span id="local-6989586621679553492"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataSourceErrorInfoType]
+FromJSONKeyFunction DataSourceErrorInfoType
+FromJSONKeyFunction DataSourceErrorInfoType
+-&gt; FromJSONKeyFunction [DataSourceErrorInfoType]
+-&gt; FromJSONKey DataSourceErrorInfoType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DataSourceErrorInfoType]
+$cfromJSONKeyList :: FromJSONKeyFunction [DataSourceErrorInfoType]
+fromJSONKey :: FromJSONKeyFunction DataSourceErrorInfoType
+$cfromJSONKey :: FromJSONKeyFunction DataSourceErrorInfoType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679553481"><span id="local-6989586621679553483"><span id="local-6989586621679553485"><span id="local-6989586621679553487"><span class="annot"><span class="annottext">[DataSourceErrorInfoType] -&gt; Encoding
+[DataSourceErrorInfoType] -&gt; Value
+DataSourceErrorInfoType -&gt; Encoding
+DataSourceErrorInfoType -&gt; Value
+(DataSourceErrorInfoType -&gt; Value)
+-&gt; (DataSourceErrorInfoType -&gt; Encoding)
+-&gt; ([DataSourceErrorInfoType] -&gt; Value)
+-&gt; ([DataSourceErrorInfoType] -&gt; Encoding)
+-&gt; ToJSON DataSourceErrorInfoType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DataSourceErrorInfoType] -&gt; Encoding
+$ctoEncodingList :: [DataSourceErrorInfoType] -&gt; Encoding
+toJSONList :: [DataSourceErrorInfoType] -&gt; Value
+$ctoJSONList :: [DataSourceErrorInfoType] -&gt; Value
+toEncoding :: DataSourceErrorInfoType -&gt; Encoding
+$ctoEncoding :: DataSourceErrorInfoType -&gt; Encoding
+toJSON :: DataSourceErrorInfoType -&gt; Value
+$ctoJSON :: DataSourceErrorInfoType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679553476"><span id="local-6989586621679553478"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataSourceErrorInfoType]
+ToJSONKeyFunction DataSourceErrorInfoType
+ToJSONKeyFunction DataSourceErrorInfoType
+-&gt; ToJSONKeyFunction [DataSourceErrorInfoType]
+-&gt; ToJSONKey DataSourceErrorInfoType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DataSourceErrorInfoType]
+$ctoJSONKeyList :: ToJSONKeyFunction [DataSourceErrorInfoType]
+toJSONKey :: ToJSONKeyFunction DataSourceErrorInfoType
+$ctoJSONKey :: ToJSONKeyFunction DataSourceErrorInfoType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679553473"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataSourceErrorInfoType
+([Node] -&gt; Either String DataSourceErrorInfoType)
+-&gt; FromXML DataSourceErrorInfoType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DataSourceErrorInfoType
+$cparseXML :: [Node] -&gt; Either String DataSourceErrorInfoType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679553470"><span class="annot"><span class="annottext">DataSourceErrorInfoType -&gt; XML
+(DataSourceErrorInfoType -&gt; XML) -&gt; ToXML DataSourceErrorInfoType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DataSourceErrorInfoType -&gt; XML
+$ctoXML :: DataSourceErrorInfoType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_ACCESS_DENIED"><span class="hs-identifier hs-type">DataSourceErrorInfoType_ACCESS_DENIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType"><span class="hs-identifier hs-type">DataSourceErrorInfoType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceErrorInfoType_ACCESS_DENIED"><span id="%24mDataSourceErrorInfoType_ACCESS_DENIED"><span id="DataSourceErrorInfoType_ACCESS_DENIED"><span class="annot"><span class="annottext">$bDataSourceErrorInfoType_ACCESS_DENIED :: DataSourceErrorInfoType
+$mDataSourceErrorInfoType_ACCESS_DENIED :: forall r.
+DataSourceErrorInfoType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#%24bDataSourceErrorInfoType_ACCESS_DENIED"><span class="hs-identifier hs-var hs-var hs-var">DataSourceErrorInfoType_ACCESS_DENIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType%27"><span class="hs-identifier hs-type">DataSourceErrorInfoType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACCESS_DENIED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_CONFLICT"><span class="hs-identifier hs-type">DataSourceErrorInfoType_CONFLICT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType"><span class="hs-identifier hs-type">DataSourceErrorInfoType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceErrorInfoType_CONFLICT"><span id="%24mDataSourceErrorInfoType_CONFLICT"><span id="DataSourceErrorInfoType_CONFLICT"><span class="annot"><span class="annottext">$bDataSourceErrorInfoType_CONFLICT :: DataSourceErrorInfoType
+$mDataSourceErrorInfoType_CONFLICT :: forall r.
+DataSourceErrorInfoType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#%24bDataSourceErrorInfoType_CONFLICT"><span class="hs-identifier hs-var hs-var hs-var">DataSourceErrorInfoType_CONFLICT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType%27"><span class="hs-identifier hs-type">DataSourceErrorInfoType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONFLICT&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_COPY_SOURCE_NOT_FOUND"><span class="hs-identifier hs-type">DataSourceErrorInfoType_COPY_SOURCE_NOT_FOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType"><span class="hs-identifier hs-type">DataSourceErrorInfoType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceErrorInfoType_COPY_SOURCE_NOT_FOUND"><span id="%24mDataSourceErrorInfoType_COPY_SOURCE_NOT_FOUND"><span id="DataSourceErrorInfoType_COPY_SOURCE_NOT_FOUND"><span class="annot"><span class="annottext">$bDataSourceErrorInfoType_COPY_SOURCE_NOT_FOUND :: DataSourceErrorInfoType
+$mDataSourceErrorInfoType_COPY_SOURCE_NOT_FOUND :: forall r.
+DataSourceErrorInfoType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#%24bDataSourceErrorInfoType_COPY_SOURCE_NOT_FOUND"><span class="hs-identifier hs-var hs-var hs-var">DataSourceErrorInfoType_COPY_SOURCE_NOT_FOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType%27"><span class="hs-identifier hs-type">DataSourceErrorInfoType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COPY_SOURCE_NOT_FOUND&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_ENGINE_VERSION_NOT_SUPPORTED"><span class="hs-identifier hs-type">DataSourceErrorInfoType_ENGINE_VERSION_NOT_SUPPORTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType"><span class="hs-identifier hs-type">DataSourceErrorInfoType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceErrorInfoType_ENGINE_VERSION_NOT_SUPPORTED"><span id="%24mDataSourceErrorInfoType_ENGINE_VERSION_NOT_SUPPORTED"><span id="DataSourceErrorInfoType_ENGINE_VERSION_NOT_SUPPORTED"><span class="annot"><span class="annottext">$bDataSourceErrorInfoType_ENGINE_VERSION_NOT_SUPPORTED :: DataSourceErrorInfoType
+$mDataSourceErrorInfoType_ENGINE_VERSION_NOT_SUPPORTED :: forall r.
+DataSourceErrorInfoType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#%24bDataSourceErrorInfoType_ENGINE_VERSION_NOT_SUPPORTED"><span class="hs-identifier hs-var hs-var hs-var">DataSourceErrorInfoType_ENGINE_VERSION_NOT_SUPPORTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType%27"><span class="hs-identifier hs-type">DataSourceErrorInfoType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENGINE_VERSION_NOT_SUPPORTED&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_GENERIC_SQL_FAILURE"><span class="hs-identifier hs-type">DataSourceErrorInfoType_GENERIC_SQL_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType"><span class="hs-identifier hs-type">DataSourceErrorInfoType</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceErrorInfoType_GENERIC_SQL_FAILURE"><span id="%24mDataSourceErrorInfoType_GENERIC_SQL_FAILURE"><span id="DataSourceErrorInfoType_GENERIC_SQL_FAILURE"><span class="annot"><span class="annottext">$bDataSourceErrorInfoType_GENERIC_SQL_FAILURE :: DataSourceErrorInfoType
+$mDataSourceErrorInfoType_GENERIC_SQL_FAILURE :: forall r.
+DataSourceErrorInfoType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#%24bDataSourceErrorInfoType_GENERIC_SQL_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">DataSourceErrorInfoType_GENERIC_SQL_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType%27"><span class="hs-identifier hs-type">DataSourceErrorInfoType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GENERIC_SQL_FAILURE&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_TIMEOUT"><span class="hs-identifier hs-type">DataSourceErrorInfoType_TIMEOUT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType"><span class="hs-identifier hs-type">DataSourceErrorInfoType</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceErrorInfoType_TIMEOUT"><span id="%24mDataSourceErrorInfoType_TIMEOUT"><span id="DataSourceErrorInfoType_TIMEOUT"><span class="annot"><span class="annottext">$bDataSourceErrorInfoType_TIMEOUT :: DataSourceErrorInfoType
+$mDataSourceErrorInfoType_TIMEOUT :: forall r.
+DataSourceErrorInfoType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#%24bDataSourceErrorInfoType_TIMEOUT"><span class="hs-identifier hs-var hs-var hs-var">DataSourceErrorInfoType_TIMEOUT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType%27"><span class="hs-identifier hs-type">DataSourceErrorInfoType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TIMEOUT&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_UNKNOWN"><span class="hs-identifier hs-type">DataSourceErrorInfoType_UNKNOWN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType"><span class="hs-identifier hs-type">DataSourceErrorInfoType</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceErrorInfoType_UNKNOWN"><span id="%24mDataSourceErrorInfoType_UNKNOWN"><span id="DataSourceErrorInfoType_UNKNOWN"><span class="annot"><span class="annottext">$bDataSourceErrorInfoType_UNKNOWN :: DataSourceErrorInfoType
+$mDataSourceErrorInfoType_UNKNOWN :: forall r.
+DataSourceErrorInfoType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#%24bDataSourceErrorInfoType_UNKNOWN"><span class="hs-identifier hs-var hs-var hs-var">DataSourceErrorInfoType_UNKNOWN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType%27"><span class="hs-identifier hs-type">DataSourceErrorInfoType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNKNOWN&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_UNKNOWN_HOST"><span class="hs-identifier hs-type">DataSourceErrorInfoType_UNKNOWN_HOST</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType"><span class="hs-identifier hs-type">DataSourceErrorInfoType</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceErrorInfoType_UNKNOWN_HOST"><span id="%24mDataSourceErrorInfoType_UNKNOWN_HOST"><span id="DataSourceErrorInfoType_UNKNOWN_HOST"><span class="annot"><span class="annottext">$bDataSourceErrorInfoType_UNKNOWN_HOST :: DataSourceErrorInfoType
+$mDataSourceErrorInfoType_UNKNOWN_HOST :: forall r.
+DataSourceErrorInfoType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#%24bDataSourceErrorInfoType_UNKNOWN_HOST"><span class="hs-identifier hs-var hs-var hs-var">DataSourceErrorInfoType_UNKNOWN_HOST</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType%27"><span class="hs-identifier hs-type">DataSourceErrorInfoType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNKNOWN_HOST&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_ACCESS_DENIED"><span class="hs-pragma hs-type">DataSourceErrorInfoType_ACCESS_DENIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_CONFLICT"><span class="hs-pragma hs-type">DataSourceErrorInfoType_CONFLICT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_COPY_SOURCE_NOT_FOUND"><span class="hs-pragma hs-type">DataSourceErrorInfoType_COPY_SOURCE_NOT_FOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_ENGINE_VERSION_NOT_SUPPORTED"><span class="hs-pragma hs-type">DataSourceErrorInfoType_ENGINE_VERSION_NOT_SUPPORTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_GENERIC_SQL_FAILURE"><span class="hs-pragma hs-type">DataSourceErrorInfoType_GENERIC_SQL_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_TIMEOUT"><span class="hs-pragma hs-type">DataSourceErrorInfoType_TIMEOUT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_UNKNOWN"><span class="hs-pragma hs-type">DataSourceErrorInfoType_UNKNOWN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType_UNKNOWN_HOST"><span class="hs-pragma hs-type">DataSourceErrorInfoType_UNKNOWN_HOST</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSourceErrorInfoType.html#DataSourceErrorInfoType%27"><span class="hs-pragma hs-type">DataSourceErrorInfoType'</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-101"></span></pre></body></html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Signer.Types.SigningStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Signer.Types.SigningStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus"><span class="hs-identifier">SigningStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus_Failed"><span class="hs-identifier">SigningStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus_InProgress"><span class="hs-identifier">SigningStatus_InProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus_Succeeded"><span class="hs-identifier">SigningStatus_Succeeded</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679201121"><span id="local-6989586621679201122"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SigningStatus"><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus"><span class="hs-identifier hs-var">SigningStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SigningStatus%27"><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus%27"><span class="hs-identifier hs-var">SigningStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSigningStatus"><span class="annot"><span class="annottext">SigningStatus -&gt; Text
+</span><a href="Network.AWS.Signer.Types.SigningStatus.html#fromSigningStatus"><span class="hs-identifier hs-var hs-var">fromSigningStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201113"><span id="local-6989586621679201115"><span id="local-6989586621679201117"><span class="annot"><span class="annottext">Int -&gt; SigningStatus -&gt; ShowS
+[SigningStatus] -&gt; ShowS
+SigningStatus -&gt; String
+(Int -&gt; SigningStatus -&gt; ShowS)
+-&gt; (SigningStatus -&gt; String)
+-&gt; ([SigningStatus] -&gt; ShowS)
+-&gt; Show SigningStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SigningStatus] -&gt; ShowS
+$cshowList :: [SigningStatus] -&gt; ShowS
+show :: SigningStatus -&gt; String
+$cshow :: SigningStatus -&gt; String
+showsPrec :: Int -&gt; SigningStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; SigningStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679201104"><span id="local-6989586621679201106"><span id="local-6989586621679201108"><span id="local-6989586621679201110"><span class="annot"><span class="annottext">ReadPrec [SigningStatus]
+ReadPrec SigningStatus
+Int -&gt; ReadS SigningStatus
+ReadS [SigningStatus]
+(Int -&gt; ReadS SigningStatus)
+-&gt; ReadS [SigningStatus]
+-&gt; ReadPrec SigningStatus
+-&gt; ReadPrec [SigningStatus]
+-&gt; Read SigningStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SigningStatus]
+$creadListPrec :: ReadPrec [SigningStatus]
+readPrec :: ReadPrec SigningStatus
+$creadPrec :: ReadPrec SigningStatus
+readList :: ReadS [SigningStatus]
+$creadList :: ReadS [SigningStatus]
+readsPrec :: Int -&gt; ReadS SigningStatus
+$creadsPrec :: Int -&gt; ReadS SigningStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679201099"><span id="local-6989586621679201101"><span class="annot"><span class="annottext">SigningStatus -&gt; SigningStatus -&gt; Bool
+(SigningStatus -&gt; SigningStatus -&gt; Bool)
+-&gt; (SigningStatus -&gt; SigningStatus -&gt; Bool) -&gt; Eq SigningStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SigningStatus -&gt; SigningStatus -&gt; Bool
+$c/= :: SigningStatus -&gt; SigningStatus -&gt; Bool
+== :: SigningStatus -&gt; SigningStatus -&gt; Bool
+$c== :: SigningStatus -&gt; SigningStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679201083"><span id="local-6989586621679201085"><span id="local-6989586621679201087"><span id="local-6989586621679201089"><span id="local-6989586621679201091"><span id="local-6989586621679201093"><span id="local-6989586621679201095"><span class="annot"><span class="annottext">Eq SigningStatus
+Eq SigningStatus
+-&gt; (SigningStatus -&gt; SigningStatus -&gt; Ordering)
+-&gt; (SigningStatus -&gt; SigningStatus -&gt; Bool)
+-&gt; (SigningStatus -&gt; SigningStatus -&gt; Bool)
+-&gt; (SigningStatus -&gt; SigningStatus -&gt; Bool)
+-&gt; (SigningStatus -&gt; SigningStatus -&gt; Bool)
+-&gt; (SigningStatus -&gt; SigningStatus -&gt; SigningStatus)
+-&gt; (SigningStatus -&gt; SigningStatus -&gt; SigningStatus)
+-&gt; Ord SigningStatus
+SigningStatus -&gt; SigningStatus -&gt; Bool
+SigningStatus -&gt; SigningStatus -&gt; Ordering
+SigningStatus -&gt; SigningStatus -&gt; SigningStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SigningStatus -&gt; SigningStatus -&gt; SigningStatus
+$cmin :: SigningStatus -&gt; SigningStatus -&gt; SigningStatus
+max :: SigningStatus -&gt; SigningStatus -&gt; SigningStatus
+$cmax :: SigningStatus -&gt; SigningStatus -&gt; SigningStatus
+&gt;= :: SigningStatus -&gt; SigningStatus -&gt; Bool
+$c&gt;= :: SigningStatus -&gt; SigningStatus -&gt; Bool
+&gt; :: SigningStatus -&gt; SigningStatus -&gt; Bool
+$c&gt; :: SigningStatus -&gt; SigningStatus -&gt; Bool
+&lt;= :: SigningStatus -&gt; SigningStatus -&gt; Bool
+$c&lt;= :: SigningStatus -&gt; SigningStatus -&gt; Bool
+&lt; :: SigningStatus -&gt; SigningStatus -&gt; Bool
+$c&lt; :: SigningStatus -&gt; SigningStatus -&gt; Bool
+compare :: SigningStatus -&gt; SigningStatus -&gt; Ordering
+$ccompare :: SigningStatus -&gt; SigningStatus -&gt; Ordering
+$cp1Ord :: Eq SigningStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SigningStatus -&gt; Rep SigningStatus x)
+-&gt; (forall x. Rep SigningStatus x -&gt; SigningStatus)
+-&gt; Generic SigningStatus
+forall x. Rep SigningStatus x -&gt; SigningStatus
+forall x. SigningStatus -&gt; Rep SigningStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SigningStatus x -&gt; SigningStatus
+$cfrom :: forall x. SigningStatus -&gt; Rep SigningStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201075"><span id="local-6989586621679201077"><span class="annot"><span class="annottext">Int -&gt; SigningStatus -&gt; Int
+SigningStatus -&gt; Int
+(Int -&gt; SigningStatus -&gt; Int)
+-&gt; (SigningStatus -&gt; Int) -&gt; Hashable SigningStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SigningStatus -&gt; Int
+$chash :: SigningStatus -&gt; Int
+hashWithSalt :: Int -&gt; SigningStatus -&gt; Int
+$chashWithSalt :: Int -&gt; SigningStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679201072"><span class="annot"><span class="annottext">SigningStatus -&gt; ()
+(SigningStatus -&gt; ()) -&gt; NFData SigningStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SigningStatus -&gt; ()
+$crnf :: SigningStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679201069"><span class="annot"><span class="annottext">Text -&gt; Either String SigningStatus
+(Text -&gt; Either String SigningStatus) -&gt; FromText SigningStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SigningStatus
+$cfromText :: Text -&gt; Either String SigningStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679201066"><span class="annot"><span class="annottext">SigningStatus -&gt; Text
+(SigningStatus -&gt; Text) -&gt; ToText SigningStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SigningStatus -&gt; Text
+$ctoText :: SigningStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679201063"><span class="annot"><span class="annottext">SigningStatus -&gt; ByteString
+(SigningStatus -&gt; ByteString) -&gt; ToByteString SigningStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SigningStatus -&gt; ByteString
+$ctoBS :: SigningStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679201060"><span class="annot"><span class="annottext">SigningStatus -&gt; ByteStringBuilder
+(SigningStatus -&gt; ByteStringBuilder) -&gt; ToLog SigningStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SigningStatus -&gt; ByteStringBuilder
+$cbuild :: SigningStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679201057"><span class="annot"><span class="annottext">HeaderName -&gt; SigningStatus -&gt; [Header]
+(HeaderName -&gt; SigningStatus -&gt; [Header]) -&gt; ToHeader SigningStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SigningStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SigningStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679201054"><span class="annot"><span class="annottext">SigningStatus -&gt; QueryString
+(SigningStatus -&gt; QueryString) -&gt; ToQuery SigningStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SigningStatus -&gt; QueryString
+$ctoQuery :: SigningStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679201049"><span id="local-6989586621679201051"><span class="annot"><span class="annottext">Value -&gt; Parser [SigningStatus]
+Value -&gt; Parser SigningStatus
+(Value -&gt; Parser SigningStatus)
+-&gt; (Value -&gt; Parser [SigningStatus]) -&gt; FromJSON SigningStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SigningStatus]
+$cparseJSONList :: Value -&gt; Parser [SigningStatus]
+parseJSON :: Value -&gt; Parser SigningStatus
+$cparseJSON :: Value -&gt; Parser SigningStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679201044"><span id="local-6989586621679201046"><span class="annot"><span class="annottext">FromJSONKeyFunction [SigningStatus]
+FromJSONKeyFunction SigningStatus
+FromJSONKeyFunction SigningStatus
+-&gt; FromJSONKeyFunction [SigningStatus] -&gt; FromJSONKey SigningStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SigningStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [SigningStatus]
+fromJSONKey :: FromJSONKeyFunction SigningStatus
+$cfromJSONKey :: FromJSONKeyFunction SigningStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679201035"><span id="local-6989586621679201037"><span id="local-6989586621679201039"><span id="local-6989586621679201041"><span class="annot"><span class="annottext">[SigningStatus] -&gt; Encoding
+[SigningStatus] -&gt; Value
+SigningStatus -&gt; Encoding
+SigningStatus -&gt; Value
+(SigningStatus -&gt; Value)
+-&gt; (SigningStatus -&gt; Encoding)
+-&gt; ([SigningStatus] -&gt; Value)
+-&gt; ([SigningStatus] -&gt; Encoding)
+-&gt; ToJSON SigningStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SigningStatus] -&gt; Encoding
+$ctoEncodingList :: [SigningStatus] -&gt; Encoding
+toJSONList :: [SigningStatus] -&gt; Value
+$ctoJSONList :: [SigningStatus] -&gt; Value
+toEncoding :: SigningStatus -&gt; Encoding
+$ctoEncoding :: SigningStatus -&gt; Encoding
+toJSON :: SigningStatus -&gt; Value
+$ctoJSON :: SigningStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679201030"><span id="local-6989586621679201032"><span class="annot"><span class="annottext">ToJSONKeyFunction [SigningStatus]
+ToJSONKeyFunction SigningStatus
+ToJSONKeyFunction SigningStatus
+-&gt; ToJSONKeyFunction [SigningStatus] -&gt; ToJSONKey SigningStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SigningStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [SigningStatus]
+toJSONKey :: ToJSONKeyFunction SigningStatus
+$ctoJSONKey :: ToJSONKeyFunction SigningStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679201027"><span class="annot"><span class="annottext">[Node] -&gt; Either String SigningStatus
+([Node] -&gt; Either String SigningStatus) -&gt; FromXML SigningStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SigningStatus
+$cparseXML :: [Node] -&gt; Either String SigningStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679201024"><span class="annot"><span class="annottext">SigningStatus -&gt; XML
+(SigningStatus -&gt; XML) -&gt; ToXML SigningStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SigningStatus -&gt; XML
+$ctoXML :: SigningStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus_Failed"><span class="hs-identifier hs-type">SigningStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus"><span class="hs-identifier hs-type">SigningStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSigningStatus_Failed"><span id="%24mSigningStatus_Failed"><span id="SigningStatus_Failed"><span class="annot"><span class="annottext">$bSigningStatus_Failed :: SigningStatus
+$mSigningStatus_Failed :: forall r. SigningStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Signer.Types.SigningStatus.html#%24bSigningStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">SigningStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus%27"><span class="hs-identifier hs-type">SigningStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus_InProgress"><span class="hs-identifier hs-type">SigningStatus_InProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus"><span class="hs-identifier hs-type">SigningStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSigningStatus_InProgress"><span id="%24mSigningStatus_InProgress"><span id="SigningStatus_InProgress"><span class="annot"><span class="annottext">$bSigningStatus_InProgress :: SigningStatus
+$mSigningStatus_InProgress :: forall r. SigningStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Signer.Types.SigningStatus.html#%24bSigningStatus_InProgress"><span class="hs-identifier hs-var hs-var hs-var">SigningStatus_InProgress</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus%27"><span class="hs-identifier hs-type">SigningStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InProgress&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus_Succeeded"><span class="hs-identifier hs-type">SigningStatus_Succeeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus"><span class="hs-identifier hs-type">SigningStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSigningStatus_Succeeded"><span id="%24mSigningStatus_Succeeded"><span id="SigningStatus_Succeeded"><span class="annot"><span class="annottext">$bSigningStatus_Succeeded :: SigningStatus
+$mSigningStatus_Succeeded :: forall r. SigningStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Signer.Types.SigningStatus.html#%24bSigningStatus_Succeeded"><span class="hs-identifier hs-var hs-var hs-var">SigningStatus_Succeeded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus%27"><span class="hs-identifier hs-type">SigningStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Succeeded&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus_Failed"><span class="hs-pragma hs-type">SigningStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus_InProgress"><span class="hs-pragma hs-type">SigningStatus_InProgress</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus_Succeeded"><span class="hs-pragma hs-type">SigningStatus_Succeeded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Signer.Types.SigningStatus.html#SigningStatus%27"><span class="hs-pragma hs-type">SigningStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

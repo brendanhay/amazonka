@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-lambda.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newLambdaAction' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679273140"><span id="local-6989586621679273141"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaAction"><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-var">LambdaAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaAction%27"><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-var">LambdaAction'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679273149"><span id="local-6989586621679273150"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaAction"><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-var">LambdaAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaAction%27"><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-var">LambdaAction'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The invocation type of the AWS Lambda function. An invocation type of</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @RequestResponse@ means that the execution of the function will</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- immediately result in a response, and a value of @Event@ means that the</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AfunctionArn%3ALambdaAction%27"><span class="annot"><span class="annottext">LambdaAction -&gt; Text
 </span><a href="Network.AWS.SES.Types.LambdaAction.html#%24sel%3AfunctionArn%3ALambdaAction%27"><span class="hs-identifier hs-var hs-var">functionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273132"><span id="local-6989586621679273134"><span class="annot"><span class="annottext">LambdaAction -&gt; LambdaAction -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273141"><span id="local-6989586621679273143"><span class="annot"><span class="annottext">LambdaAction -&gt; LambdaAction -&gt; Bool
 (LambdaAction -&gt; LambdaAction -&gt; Bool)
 -&gt; (LambdaAction -&gt; LambdaAction -&gt; Bool) -&gt; Eq LambdaAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LambdaAction -&gt; LambdaAction -&gt; Bool
 == :: LambdaAction -&gt; LambdaAction -&gt; Bool
 $c== :: LambdaAction -&gt; LambdaAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273123"><span id="local-6989586621679273125"><span id="local-6989586621679273127"><span id="local-6989586621679273129"><span class="annot"><span class="annottext">ReadPrec [LambdaAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273132"><span id="local-6989586621679273134"><span id="local-6989586621679273136"><span id="local-6989586621679273138"><span class="annot"><span class="annottext">ReadPrec [LambdaAction]
 ReadPrec LambdaAction
 Int -&gt; ReadS LambdaAction
 ReadS [LambdaAction]
@@ -95,7 +95,7 @@ readList :: ReadS [LambdaAction]
 $creadList :: ReadS [LambdaAction]
 readsPrec :: Int -&gt; ReadS LambdaAction
 $creadsPrec :: Int -&gt; ReadS LambdaAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273116"><span id="local-6989586621679273118"><span id="local-6989586621679273120"><span class="annot"><span class="annottext">Int -&gt; LambdaAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273125"><span id="local-6989586621679273127"><span id="local-6989586621679273129"><span class="annot"><span class="annottext">Int -&gt; LambdaAction -&gt; ShowS
 [LambdaAction] -&gt; ShowS
 LambdaAction -&gt; String
 (Int -&gt; LambdaAction -&gt; ShowS)
@@ -157,8 +157,8 @@ $cfrom :: forall x. LambdaAction -&gt; Rep LambdaAction x
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span>
 </span><span id="line-104"></span><span id="newLambdaAction"><span class="annot"><span class="annottext">newLambdaAction :: Text -&gt; LambdaAction
-</span><a href="Network.AWS.SES.Types.LambdaAction.html#newLambdaAction"><span class="hs-identifier hs-var hs-var">newLambdaAction</span></a></span></span><span> </span><span id="local-6989586621679273110"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273110"><span class="hs-identifier hs-var">pFunctionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.Types.LambdaAction.html#newLambdaAction"><span class="hs-identifier hs-var hs-var">newLambdaAction</span></a></span></span><span> </span><span id="local-6989586621679273119"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273119"><span class="hs-identifier hs-var">pFunctionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">LambdaAction' :: Maybe InvocationType -&gt; Maybe Text -&gt; Text -&gt; LambdaAction
 </span><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:invocationType:LambdaAction' :: Maybe InvocationType
@@ -171,7 +171,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:functionArn:LambdaAction' :: Text
 </span><a href="Network.AWS.SES.Types.LambdaAction.html#%24sel%3AfunctionArn%3ALambdaAction%27"><span class="hs-identifier hs-var">functionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273110"><span class="hs-identifier hs-var">pFunctionArn_</span></a></span><span>
+</span><a href="#local-6989586621679273119"><span class="hs-identifier hs-var">pFunctionArn_</span></a></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The invocation type of the AWS Lambda function. An invocation type of</span><span>
@@ -196,16 +196,16 @@ forall a. Maybe a
      (Maybe InvocationType)
      (Maybe InvocationType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273106"><span class="annot"><span class="annottext">Maybe InvocationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273115"><span class="annot"><span class="annottext">Maybe InvocationType
 invocationType :: Maybe InvocationType
 $sel:invocationType:LambdaAction' :: LambdaAction -&gt; Maybe InvocationType
-</span><a href="#local-6989586621679273106"><span class="hs-identifier hs-var hs-var">invocationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InvocationType
-</span><a href="#local-6989586621679273106"><span class="hs-identifier hs-var">invocationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273105"><span class="annot"><span class="annottext">s :: LambdaAction
-</span><a href="#local-6989586621679273105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273104"><span class="annot"><span class="annottext">Maybe InvocationType
-</span><a href="#local-6989586621679273104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaAction
-</span><a href="#local-6989586621679273105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invocationType:LambdaAction' :: Maybe InvocationType
+</span><a href="#local-6989586621679273115"><span class="hs-identifier hs-var hs-var">invocationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InvocationType
+</span><a href="#local-6989586621679273115"><span class="hs-identifier hs-var">invocationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273114"><span class="annot"><span class="annottext">s :: LambdaAction
+</span><a href="#local-6989586621679273114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273113"><span class="annot"><span class="annottext">Maybe InvocationType
+</span><a href="#local-6989586621679273113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaAction
+</span><a href="#local-6989586621679273114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invocationType:LambdaAction' :: Maybe InvocationType
 </span><a href="Network.AWS.SES.Types.LambdaAction.html#%24sel%3AinvocationType%3ALambdaAction%27"><span class="hs-identifier hs-var">invocationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InvocationType
-</span><a href="#local-6989586621679273104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- the Lambda action is taken. An example of an Amazon SNS topic ARN is</span><span>
@@ -218,16 +218,16 @@ $sel:invocationType:LambdaAction' :: LambdaAction -&gt; Maybe InvocationType
 -&gt; (LambdaAction -&gt; Maybe Text -&gt; LambdaAction)
 -&gt; Lens LambdaAction LambdaAction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273102"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273111"><span class="annot"><span class="annottext">Maybe Text
 topicArn :: Maybe Text
 $sel:topicArn:LambdaAction' :: LambdaAction -&gt; Maybe Text
-</span><a href="#local-6989586621679273102"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273102"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273101"><span class="annot"><span class="annottext">s :: LambdaAction
-</span><a href="#local-6989586621679273101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273100"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaAction
-</span><a href="#local-6989586621679273101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:LambdaAction' :: Maybe Text
+</span><a href="#local-6989586621679273111"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273111"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273110"><span class="annot"><span class="annottext">s :: LambdaAction
+</span><a href="#local-6989586621679273110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273109"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaAction
+</span><a href="#local-6989586621679273110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:LambdaAction' :: Maybe Text
 </span><a href="Network.AWS.SES.Types.LambdaAction.html#%24sel%3AtopicArn%3ALambdaAction%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Lambda function. An example of</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- an AWS Lambda function ARN is</span><span>
@@ -240,21 +240,21 @@ $sel:topicArn:LambdaAction' :: LambdaAction -&gt; Maybe Text
 -&gt; (LambdaAction -&gt; Text -&gt; LambdaAction)
 -&gt; Lens LambdaAction LambdaAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273098"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273107"><span class="annot"><span class="annottext">Text
 functionArn :: Text
 $sel:functionArn:LambdaAction' :: LambdaAction -&gt; Text
-</span><a href="#local-6989586621679273098"><span class="hs-identifier hs-var hs-var">functionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273098"><span class="hs-identifier hs-var">functionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273097"><span class="annot"><span class="annottext">s :: LambdaAction
-</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273096"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaAction
-</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionArn:LambdaAction' :: Text
+</span><a href="#local-6989586621679273107"><span class="hs-identifier hs-var hs-var">functionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273107"><span class="hs-identifier hs-var">functionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273106"><span class="annot"><span class="annottext">s :: LambdaAction
+</span><a href="#local-6989586621679273106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273105"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaAction
+</span><a href="#local-6989586621679273106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionArn:LambdaAction' :: Text
 </span><a href="Network.AWS.SES.Types.LambdaAction.html#%24sel%3AfunctionArn%3ALambdaAction%27"><span class="hs-identifier hs-var">functionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679273093"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LambdaAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679273091"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679273091"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679273102"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LambdaAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679273100"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679273100"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">Maybe InvocationType -&gt; Maybe Text -&gt; Text -&gt; LambdaAction
 </span><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-var">LambdaAction'</span></a></span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">(Maybe InvocationType -&gt; Maybe Text -&gt; Text -&gt; LambdaAction)
@@ -262,7 +262,7 @@ $sel:functionArn:LambdaAction' :: LambdaAction -&gt; Text
 -&gt; Either String (Maybe Text -&gt; Text -&gt; LambdaAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679273091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InvocationType)
+</span><a href="#local-6989586621679273100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InvocationType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InvocationType&quot;</span></span><span class="hs-special">)</span><span>
@@ -271,7 +271,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; LambdaAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679273091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679273100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -279,18 +279,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Text -&gt; Either String LambdaAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679273091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679273100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FunctionArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273084"><span id="local-6989586621679273086"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273093"><span id="local-6989586621679273095"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273081"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679273077"><span class="annot"><span class="annottext">toQuery :: LambdaAction -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273073"><span id="local-6989586621679273074"><span id="local-6989586621679273075"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679273086"><span class="annot"><span class="annottext">toQuery :: LambdaAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273082"><span id="local-6989586621679273083"><span id="local-6989586621679273084"><span class="annot"><span class="annottext">Maybe Text
 Maybe InvocationType
 Text
 functionArn :: Text
@@ -299,7 +299,7 @@ invocationType :: Maybe InvocationType
 $sel:functionArn:LambdaAction' :: LambdaAction -&gt; Text
 $sel:topicArn:LambdaAction' :: LambdaAction -&gt; Maybe Text
 $sel:invocationType:LambdaAction' :: LambdaAction -&gt; Maybe InvocationType
-</span><a href="#local-6989586621679273073"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679273082"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -307,16 +307,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;InvocationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe InvocationType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe InvocationType
-</span><a href="#local-6989586621679273075"><span class="hs-identifier hs-var">invocationType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273084"><span class="hs-identifier hs-var">invocationType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273074"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273083"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;FunctionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273073"><span class="hs-identifier hs-var">functionArn</span></a></span><span>
+</span><a href="#local-6989586621679273082"><span class="hs-identifier hs-var">functionArn</span></a></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span></pre></body></html>

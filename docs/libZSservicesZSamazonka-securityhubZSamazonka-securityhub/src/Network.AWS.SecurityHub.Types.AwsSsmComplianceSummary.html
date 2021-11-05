@@ -1,0 +1,1512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Provides the details about the compliance status for a patch.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAwsSsmComplianceSummary' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679974725"><span id="local-6989586621679974726"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsSsmComplianceSummary"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-var">AwsSsmComplianceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsSsmComplianceSummary%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">AwsSsmComplianceSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current patch compliance status.</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- The possible status values are:</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   @COMPLIANT@</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   @NON_COMPLIANT@</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   @UNSPECIFIED_DATA@</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Astatus%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3Astatus%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- of @LOW@.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AnonCompliantLowCount%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantLowCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">nonCompliantLowCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @HIGH@.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcompliantHighCount%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantHighCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">compliantHighCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- of @UNSPECIFIED@.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AnonCompliantUnspecifiedCount%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantUnspecifiedCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">nonCompliantUnspecifiedCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The type of execution that was used determine compliance.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AexecutionType%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AexecutionType%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">executionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @INFORMATIONAL@.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AcompliantInformationalCount%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantInformationalCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">compliantInformationalCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- of @HIGH@.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnonCompliantHighCount%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantHighCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">nonCompliantHighCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- of @MEDIUM@.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnonCompliantMediumCount%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantMediumCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">nonCompliantMediumCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The highest severity for the patches.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AoverallSeverity%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AoverallSeverity%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">overallSeverity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- @CRITICAL@.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AcompliantCriticalCount%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantCriticalCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">compliantCriticalCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- of @INFORMATIONAL@.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AnonCompliantInformationalCount%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantInformationalCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">nonCompliantInformationalCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The type of resource for which the compliance was determined. For</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @AwsSsmPatchCompliance@, @ComplianceType@ is @Patch@.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AcomplianceType%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcomplianceType%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- @UNSPECIFIED@.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AcompliantUnspecifiedCount%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantUnspecifiedCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">compliantUnspecifiedCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | For the patch items that are noncompliant, the number of items that have</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- a severity of @CRITICAL@.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AnonCompliantCriticalCount%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantCriticalCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">nonCompliantCriticalCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The identifier of the patch baseline. The patch baseline lists the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- patches that are approved for installation.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3ApatchBaselineId%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3ApatchBaselineId%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">patchBaselineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @LOW@.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AcompliantLowCount%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantLowCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">compliantLowCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The identifier of the patch group for which compliance was determined. A</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- patch group uses tags to group EC2 instances that should have the same</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- patch compliance.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3ApatchGroup%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3ApatchGroup%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">patchGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- @MEDIUM@.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AcompliantMediumCount%3AAwsSsmComplianceSummary%27"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantMediumCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var hs-var">compliantMediumCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679974702"><span id="local-6989586621679974704"><span class="annot"><span class="annottext">AwsSsmComplianceSummary -&gt; AwsSsmComplianceSummary -&gt; Bool
+(AwsSsmComplianceSummary -&gt; AwsSsmComplianceSummary -&gt; Bool)
+-&gt; (AwsSsmComplianceSummary -&gt; AwsSsmComplianceSummary -&gt; Bool)
+-&gt; Eq AwsSsmComplianceSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsSsmComplianceSummary -&gt; AwsSsmComplianceSummary -&gt; Bool
+$c/= :: AwsSsmComplianceSummary -&gt; AwsSsmComplianceSummary -&gt; Bool
+== :: AwsSsmComplianceSummary -&gt; AwsSsmComplianceSummary -&gt; Bool
+$c== :: AwsSsmComplianceSummary -&gt; AwsSsmComplianceSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679974693"><span id="local-6989586621679974695"><span id="local-6989586621679974697"><span id="local-6989586621679974699"><span class="annot"><span class="annottext">ReadPrec [AwsSsmComplianceSummary]
+ReadPrec AwsSsmComplianceSummary
+Int -&gt; ReadS AwsSsmComplianceSummary
+ReadS [AwsSsmComplianceSummary]
+(Int -&gt; ReadS AwsSsmComplianceSummary)
+-&gt; ReadS [AwsSsmComplianceSummary]
+-&gt; ReadPrec AwsSsmComplianceSummary
+-&gt; ReadPrec [AwsSsmComplianceSummary]
+-&gt; Read AwsSsmComplianceSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsSsmComplianceSummary]
+$creadListPrec :: ReadPrec [AwsSsmComplianceSummary]
+readPrec :: ReadPrec AwsSsmComplianceSummary
+$creadPrec :: ReadPrec AwsSsmComplianceSummary
+readList :: ReadS [AwsSsmComplianceSummary]
+$creadList :: ReadS [AwsSsmComplianceSummary]
+readsPrec :: Int -&gt; ReadS AwsSsmComplianceSummary
+$creadsPrec :: Int -&gt; ReadS AwsSsmComplianceSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679974686"><span id="local-6989586621679974688"><span id="local-6989586621679974690"><span class="annot"><span class="annottext">Int -&gt; AwsSsmComplianceSummary -&gt; ShowS
+[AwsSsmComplianceSummary] -&gt; ShowS
+AwsSsmComplianceSummary -&gt; String
+(Int -&gt; AwsSsmComplianceSummary -&gt; ShowS)
+-&gt; (AwsSsmComplianceSummary -&gt; String)
+-&gt; ([AwsSsmComplianceSummary] -&gt; ShowS)
+-&gt; Show AwsSsmComplianceSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsSsmComplianceSummary] -&gt; ShowS
+$cshowList :: [AwsSsmComplianceSummary] -&gt; ShowS
+show :: AwsSsmComplianceSummary -&gt; String
+$cshow :: AwsSsmComplianceSummary -&gt; String
+showsPrec :: Int -&gt; AwsSsmComplianceSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsSsmComplianceSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsSsmComplianceSummary -&gt; Rep AwsSsmComplianceSummary x)
+-&gt; (forall x.
+    Rep AwsSsmComplianceSummary x -&gt; AwsSsmComplianceSummary)
+-&gt; Generic AwsSsmComplianceSummary
+forall x. Rep AwsSsmComplianceSummary x -&gt; AwsSsmComplianceSummary
+forall x. AwsSsmComplianceSummary -&gt; Rep AwsSsmComplianceSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AwsSsmComplianceSummary x -&gt; AwsSsmComplianceSummary
+$cfrom :: forall x. AwsSsmComplianceSummary -&gt; Rep AwsSsmComplianceSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Create a value of 'AwsSsmComplianceSummary' with all optional fields omitted.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'status', 'awsSsmComplianceSummary_status' - The current patch compliance status.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- The possible status values are:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   @COMPLIANT@</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   @NON_COMPLIANT@</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -   @UNSPECIFIED_DATA@</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'nonCompliantLowCount', 'awsSsmComplianceSummary_nonCompliantLowCount' - For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- of @LOW@.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'compliantHighCount', 'awsSsmComplianceSummary_compliantHighCount' - For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- @HIGH@.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'nonCompliantUnspecifiedCount', 'awsSsmComplianceSummary_nonCompliantUnspecifiedCount' - For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- of @UNSPECIFIED@.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'executionType', 'awsSsmComplianceSummary_executionType' - The type of execution that was used determine compliance.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'compliantInformationalCount', 'awsSsmComplianceSummary_compliantInformationalCount' - For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @INFORMATIONAL@.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'nonCompliantHighCount', 'awsSsmComplianceSummary_nonCompliantHighCount' - For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- of @HIGH@.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'nonCompliantMediumCount', 'awsSsmComplianceSummary_nonCompliantMediumCount' - For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- of @MEDIUM@.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'overallSeverity', 'awsSsmComplianceSummary_overallSeverity' - The highest severity for the patches.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'compliantCriticalCount', 'awsSsmComplianceSummary_compliantCriticalCount' - For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- @CRITICAL@.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'nonCompliantInformationalCount', 'awsSsmComplianceSummary_nonCompliantInformationalCount' - For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- of @INFORMATIONAL@.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'complianceType', 'awsSsmComplianceSummary_complianceType' - The type of resource for which the compliance was determined. For</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- @AwsSsmPatchCompliance@, @ComplianceType@ is @Patch@.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'compliantUnspecifiedCount', 'awsSsmComplianceSummary_compliantUnspecifiedCount' - For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @UNSPECIFIED@.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'nonCompliantCriticalCount', 'awsSsmComplianceSummary_nonCompliantCriticalCount' - For the patch items that are noncompliant, the number of items that have</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- a severity of @CRITICAL@.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'patchBaselineId', 'awsSsmComplianceSummary_patchBaselineId' - The identifier of the patch baseline. The patch baseline lists the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- patches that are approved for installation.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'compliantLowCount', 'awsSsmComplianceSummary_compliantLowCount' - For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- @LOW@.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'patchGroup', 'awsSsmComplianceSummary_patchGroup' - The identifier of the patch group for which compliance was determined. A</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- patch group uses tags to group EC2 instances that should have the same</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- patch compliance.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'compliantMediumCount', 'awsSsmComplianceSummary_compliantMediumCount' - For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- @MEDIUM@.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#newAwsSsmComplianceSummary"><span class="hs-identifier hs-type">newAwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span>
+</span><span id="line-162"></span><span id="newAwsSsmComplianceSummary"><span class="annot"><span class="annottext">newAwsSsmComplianceSummary :: AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#newAwsSsmComplianceSummary"><span class="hs-identifier hs-var hs-var">newAwsSsmComplianceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:AwsSsmComplianceSummary' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3Astatus%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonCompliantLowCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantLowCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">nonCompliantLowCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:compliantHighCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantHighCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">compliantHighCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonCompliantUnspecifiedCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantUnspecifiedCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">nonCompliantUnspecifiedCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionType:AwsSsmComplianceSummary' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AexecutionType%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">executionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:compliantInformationalCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantInformationalCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">compliantInformationalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonCompliantHighCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantHighCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">nonCompliantHighCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonCompliantMediumCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantMediumCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">nonCompliantMediumCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:overallSeverity:AwsSsmComplianceSummary' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AoverallSeverity%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">overallSeverity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:compliantCriticalCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantCriticalCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">compliantCriticalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonCompliantInformationalCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantInformationalCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">nonCompliantInformationalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:complianceType:AwsSsmComplianceSummary' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcomplianceType%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:compliantUnspecifiedCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantUnspecifiedCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">compliantUnspecifiedCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonCompliantCriticalCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantCriticalCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">nonCompliantCriticalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:patchBaselineId:AwsSsmComplianceSummary' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3ApatchBaselineId%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">patchBaselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:compliantLowCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantLowCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">compliantLowCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:patchGroup:AwsSsmComplianceSummary' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3ApatchGroup%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">patchGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:compliantMediumCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantMediumCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">compliantMediumCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The current patch compliance status.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- The possible status values are:</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   @COMPLIANT@</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- -   @NON_COMPLIANT@</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   @UNSPECIFIED_DATA@</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_status"><span class="hs-identifier hs-type">awsSsmComplianceSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="awsSsmComplianceSummary_status"><span class="annot"><span class="annottext">awsSsmComplianceSummary_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_status"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Text)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Text -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974677"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679974677"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974677"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974676"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974675"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AwsSsmComplianceSummary' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3Astatus%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- of @LOW@.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_nonCompliantLowCount"><span class="hs-identifier hs-type">awsSsmComplianceSummary_nonCompliantLowCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="awsSsmComplianceSummary_nonCompliantLowCount"><span class="annot"><span class="annottext">awsSsmComplianceSummary_nonCompliantLowCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_nonCompliantLowCount"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_nonCompliantLowCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Int)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974673"><span class="annot"><span class="annottext">Maybe Int
+nonCompliantLowCount :: Maybe Int
+$sel:nonCompliantLowCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679974673"><span class="hs-identifier hs-var hs-var">nonCompliantLowCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974673"><span class="hs-identifier hs-var">nonCompliantLowCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974672"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974671"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonCompliantLowCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantLowCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">nonCompliantLowCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- @HIGH@.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_compliantHighCount"><span class="hs-identifier hs-type">awsSsmComplianceSummary_compliantHighCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="awsSsmComplianceSummary_compliantHighCount"><span class="annot"><span class="annottext">awsSsmComplianceSummary_compliantHighCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_compliantHighCount"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_compliantHighCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Int)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974669"><span class="annot"><span class="annottext">Maybe Int
+compliantHighCount :: Maybe Int
+$sel:compliantHighCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679974669"><span class="hs-identifier hs-var hs-var">compliantHighCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974669"><span class="hs-identifier hs-var">compliantHighCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974668"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974667"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compliantHighCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantHighCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">compliantHighCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- of @UNSPECIFIED@.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_nonCompliantUnspecifiedCount"><span class="hs-identifier hs-type">awsSsmComplianceSummary_nonCompliantUnspecifiedCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="awsSsmComplianceSummary_nonCompliantUnspecifiedCount"><span class="annot"><span class="annottext">awsSsmComplianceSummary_nonCompliantUnspecifiedCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_nonCompliantUnspecifiedCount"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_nonCompliantUnspecifiedCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Int)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974665"><span class="annot"><span class="annottext">Maybe Int
+nonCompliantUnspecifiedCount :: Maybe Int
+$sel:nonCompliantUnspecifiedCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679974665"><span class="hs-identifier hs-var hs-var">nonCompliantUnspecifiedCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974665"><span class="hs-identifier hs-var">nonCompliantUnspecifiedCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974664"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974663"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonCompliantUnspecifiedCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantUnspecifiedCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">nonCompliantUnspecifiedCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The type of execution that was used determine compliance.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_executionType"><span class="hs-identifier hs-type">awsSsmComplianceSummary_executionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="awsSsmComplianceSummary_executionType"><span class="annot"><span class="annottext">awsSsmComplianceSummary_executionType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_executionType"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_executionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Text)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Text -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974661"><span class="annot"><span class="annottext">Maybe Text
+executionType :: Maybe Text
+$sel:executionType:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679974661"><span class="hs-identifier hs-var hs-var">executionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974661"><span class="hs-identifier hs-var">executionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974660"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974659"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionType:AwsSsmComplianceSummary' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AexecutionType%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">executionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- @INFORMATIONAL@.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_compliantInformationalCount"><span class="hs-identifier hs-type">awsSsmComplianceSummary_compliantInformationalCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="awsSsmComplianceSummary_compliantInformationalCount"><span class="annot"><span class="annottext">awsSsmComplianceSummary_compliantInformationalCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_compliantInformationalCount"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_compliantInformationalCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Int)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974657"><span class="annot"><span class="annottext">Maybe Int
+compliantInformationalCount :: Maybe Int
+$sel:compliantInformationalCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679974657"><span class="hs-identifier hs-var hs-var">compliantInformationalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974657"><span class="hs-identifier hs-var">compliantInformationalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974656"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974655"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compliantInformationalCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantInformationalCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">compliantInformationalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- of @HIGH@.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_nonCompliantHighCount"><span class="hs-identifier hs-type">awsSsmComplianceSummary_nonCompliantHighCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="awsSsmComplianceSummary_nonCompliantHighCount"><span class="annot"><span class="annottext">awsSsmComplianceSummary_nonCompliantHighCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_nonCompliantHighCount"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_nonCompliantHighCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Int)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974653"><span class="annot"><span class="annottext">Maybe Int
+nonCompliantHighCount :: Maybe Int
+$sel:nonCompliantHighCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679974653"><span class="hs-identifier hs-var hs-var">nonCompliantHighCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974653"><span class="hs-identifier hs-var">nonCompliantHighCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974652"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974651"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonCompliantHighCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantHighCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">nonCompliantHighCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- of @MEDIUM@.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_nonCompliantMediumCount"><span class="hs-identifier hs-type">awsSsmComplianceSummary_nonCompliantMediumCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="awsSsmComplianceSummary_nonCompliantMediumCount"><span class="annot"><span class="annottext">awsSsmComplianceSummary_nonCompliantMediumCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_nonCompliantMediumCount"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_nonCompliantMediumCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Int)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974649"><span class="annot"><span class="annottext">Maybe Int
+nonCompliantMediumCount :: Maybe Int
+$sel:nonCompliantMediumCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679974649"><span class="hs-identifier hs-var hs-var">nonCompliantMediumCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974649"><span class="hs-identifier hs-var">nonCompliantMediumCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974648"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974647"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonCompliantMediumCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantMediumCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">nonCompliantMediumCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The highest severity for the patches.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_overallSeverity"><span class="hs-identifier hs-type">awsSsmComplianceSummary_overallSeverity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="awsSsmComplianceSummary_overallSeverity"><span class="annot"><span class="annottext">awsSsmComplianceSummary_overallSeverity :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_overallSeverity"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_overallSeverity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Text)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Text -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974645"><span class="annot"><span class="annottext">Maybe Text
+overallSeverity :: Maybe Text
+$sel:overallSeverity:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679974645"><span class="hs-identifier hs-var hs-var">overallSeverity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974645"><span class="hs-identifier hs-var">overallSeverity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974644"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974643"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overallSeverity:AwsSsmComplianceSummary' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AoverallSeverity%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">overallSeverity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- @CRITICAL@.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_compliantCriticalCount"><span class="hs-identifier hs-type">awsSsmComplianceSummary_compliantCriticalCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="awsSsmComplianceSummary_compliantCriticalCount"><span class="annot"><span class="annottext">awsSsmComplianceSummary_compliantCriticalCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_compliantCriticalCount"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_compliantCriticalCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Int)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974641"><span class="annot"><span class="annottext">Maybe Int
+compliantCriticalCount :: Maybe Int
+$sel:compliantCriticalCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679974641"><span class="hs-identifier hs-var hs-var">compliantCriticalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974641"><span class="hs-identifier hs-var">compliantCriticalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974640"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974639"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compliantCriticalCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantCriticalCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">compliantCriticalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | For the patches that are noncompliant, the number that have a severity</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- of @INFORMATIONAL@.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_nonCompliantInformationalCount"><span class="hs-identifier hs-type">awsSsmComplianceSummary_nonCompliantInformationalCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="awsSsmComplianceSummary_nonCompliantInformationalCount"><span class="annot"><span class="annottext">awsSsmComplianceSummary_nonCompliantInformationalCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_nonCompliantInformationalCount"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_nonCompliantInformationalCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Int)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974637"><span class="annot"><span class="annottext">Maybe Int
+nonCompliantInformationalCount :: Maybe Int
+$sel:nonCompliantInformationalCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679974637"><span class="hs-identifier hs-var hs-var">nonCompliantInformationalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974637"><span class="hs-identifier hs-var">nonCompliantInformationalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974636"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974635"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonCompliantInformationalCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantInformationalCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">nonCompliantInformationalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The type of resource for which the compliance was determined. For</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- @AwsSsmPatchCompliance@, @ComplianceType@ is @Patch@.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_complianceType"><span class="hs-identifier hs-type">awsSsmComplianceSummary_complianceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="awsSsmComplianceSummary_complianceType"><span class="annot"><span class="annottext">awsSsmComplianceSummary_complianceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_complianceType"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_complianceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Text)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Text -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974633"><span class="annot"><span class="annottext">Maybe Text
+complianceType :: Maybe Text
+$sel:complianceType:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679974633"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974633"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974632"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974631"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:AwsSsmComplianceSummary' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcomplianceType%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- @UNSPECIFIED@.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_compliantUnspecifiedCount"><span class="hs-identifier hs-type">awsSsmComplianceSummary_compliantUnspecifiedCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="awsSsmComplianceSummary_compliantUnspecifiedCount"><span class="annot"><span class="annottext">awsSsmComplianceSummary_compliantUnspecifiedCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_compliantUnspecifiedCount"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_compliantUnspecifiedCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Int)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974629"><span class="annot"><span class="annottext">Maybe Int
+compliantUnspecifiedCount :: Maybe Int
+$sel:compliantUnspecifiedCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679974629"><span class="hs-identifier hs-var hs-var">compliantUnspecifiedCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974629"><span class="hs-identifier hs-var">compliantUnspecifiedCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974628"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974627"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compliantUnspecifiedCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantUnspecifiedCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">compliantUnspecifiedCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | For the patch items that are noncompliant, the number of items that have</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- a severity of @CRITICAL@.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_nonCompliantCriticalCount"><span class="hs-identifier hs-type">awsSsmComplianceSummary_nonCompliantCriticalCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="awsSsmComplianceSummary_nonCompliantCriticalCount"><span class="annot"><span class="annottext">awsSsmComplianceSummary_nonCompliantCriticalCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_nonCompliantCriticalCount"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_nonCompliantCriticalCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Int)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974625"><span class="annot"><span class="annottext">Maybe Int
+nonCompliantCriticalCount :: Maybe Int
+$sel:nonCompliantCriticalCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679974625"><span class="hs-identifier hs-var hs-var">nonCompliantCriticalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974625"><span class="hs-identifier hs-var">nonCompliantCriticalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974624"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974623"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonCompliantCriticalCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AnonCompliantCriticalCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">nonCompliantCriticalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The identifier of the patch baseline. The patch baseline lists the</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- patches that are approved for installation.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_patchBaselineId"><span class="hs-identifier hs-type">awsSsmComplianceSummary_patchBaselineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="awsSsmComplianceSummary_patchBaselineId"><span class="annot"><span class="annottext">awsSsmComplianceSummary_patchBaselineId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_patchBaselineId"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_patchBaselineId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Text)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Text -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974621"><span class="annot"><span class="annottext">Maybe Text
+patchBaselineId :: Maybe Text
+$sel:patchBaselineId:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679974621"><span class="hs-identifier hs-var hs-var">patchBaselineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974621"><span class="hs-identifier hs-var">patchBaselineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974620"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974619"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchBaselineId:AwsSsmComplianceSummary' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3ApatchBaselineId%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">patchBaselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- @LOW@.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_compliantLowCount"><span class="hs-identifier hs-type">awsSsmComplianceSummary_compliantLowCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="awsSsmComplianceSummary_compliantLowCount"><span class="annot"><span class="annottext">awsSsmComplianceSummary_compliantLowCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_compliantLowCount"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_compliantLowCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Int)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974617"><span class="annot"><span class="annottext">Maybe Int
+compliantLowCount :: Maybe Int
+$sel:compliantLowCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679974617"><span class="hs-identifier hs-var hs-var">compliantLowCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974617"><span class="hs-identifier hs-var">compliantLowCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974616"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974615"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compliantLowCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantLowCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">compliantLowCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The identifier of the patch group for which compliance was determined. A</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- patch group uses tags to group EC2 instances that should have the same</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- patch compliance.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_patchGroup"><span class="hs-identifier hs-type">awsSsmComplianceSummary_patchGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span id="awsSsmComplianceSummary_patchGroup"><span class="annot"><span class="annottext">awsSsmComplianceSummary_patchGroup :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_patchGroup"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_patchGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Text)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Text -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974613"><span class="annot"><span class="annottext">Maybe Text
+patchGroup :: Maybe Text
+$sel:patchGroup:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679974613"><span class="hs-identifier hs-var hs-var">patchGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974613"><span class="hs-identifier hs-var">patchGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974612"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974611"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchGroup:AwsSsmComplianceSummary' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3ApatchGroup%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">patchGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | For the patches that are compliant, the number that have a severity of</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- @MEDIUM@.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_compliantMediumCount"><span class="hs-identifier hs-type">awsSsmComplianceSummary_compliantMediumCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="awsSsmComplianceSummary_compliantMediumCount"><span class="annot"><span class="annottext">awsSsmComplianceSummary_compliantMediumCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsSsmComplianceSummary -&gt; f AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#awsSsmComplianceSummary_compliantMediumCount"><span class="hs-identifier hs-var hs-var">awsSsmComplianceSummary_compliantMediumCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsSsmComplianceSummary -&gt; Maybe Int)
+-&gt; (AwsSsmComplianceSummary
+    -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Lens
+     AwsSsmComplianceSummary
+     AwsSsmComplianceSummary
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974609"><span class="annot"><span class="annottext">Maybe Int
+compliantMediumCount :: Maybe Int
+$sel:compliantMediumCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679974609"><span class="hs-identifier hs-var hs-var">compliantMediumCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974609"><span class="hs-identifier hs-var">compliantMediumCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679974608"><span class="annot"><span class="annottext">s :: AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679974607"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsSsmComplianceSummary
+</span><a href="#local-6989586621679974608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compliantMediumCount:AwsSsmComplianceSummary' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#%24sel%3AcompliantMediumCount%3AAwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">compliantMediumCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679974604"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679974602"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsSsmComplianceSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsSsmComplianceSummary)
+-&gt; Value
+-&gt; Parser AwsSsmComplianceSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-283"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsSsmComplianceSummary&quot;</span></span><span>
+</span><span id="line-284"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679974599"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-285"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; AwsSsmComplianceSummary
+</span><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-var">AwsSsmComplianceSummary'</span></a></span><span>
+</span><span id="line-286"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonCompliantLowCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompliantHighCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonCompliantUnspecifiedCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExecutionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompliantInformationalCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonCompliantHighCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonCompliantMediumCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OverallSeverity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompliantCriticalCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonCompliantInformationalCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComplianceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompliantUnspecifiedCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonCompliantCriticalCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int -&gt; Maybe Text -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PatchBaselineId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int -&gt; Maybe Text -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompliantLowCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int -&gt; AwsSsmComplianceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PatchGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; AwsSsmComplianceSummary)
+-&gt; Parser (Maybe Int) -&gt; Parser AwsSsmComplianceSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679974599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompliantMediumCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679974593"><span id="local-6989586621679974595"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span></span></span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679974590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span></span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679974582"><span id="local-6989586621679974584"><span id="local-6989586621679974586"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary"><span class="hs-identifier hs-type">AwsSsmComplianceSummary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-311"></span><span>  </span><span id="local-6989586621679974580"><span class="annot"><span class="annottext">toJSON :: AwsSsmComplianceSummary -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSsmComplianceSummary.html#AwsSsmComplianceSummary%27"><span class="hs-identifier hs-type">AwsSsmComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679974561"><span id="local-6989586621679974562"><span id="local-6989586621679974563"><span id="local-6989586621679974564"><span id="local-6989586621679974565"><span id="local-6989586621679974566"><span id="local-6989586621679974567"><span id="local-6989586621679974568"><span id="local-6989586621679974569"><span id="local-6989586621679974570"><span id="local-6989586621679974571"><span id="local-6989586621679974572"><span id="local-6989586621679974573"><span id="local-6989586621679974574"><span id="local-6989586621679974575"><span id="local-6989586621679974576"><span id="local-6989586621679974577"><span id="local-6989586621679974578"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+compliantMediumCount :: Maybe Int
+patchGroup :: Maybe Text
+compliantLowCount :: Maybe Int
+patchBaselineId :: Maybe Text
+nonCompliantCriticalCount :: Maybe Int
+compliantUnspecifiedCount :: Maybe Int
+complianceType :: Maybe Text
+nonCompliantInformationalCount :: Maybe Int
+compliantCriticalCount :: Maybe Int
+overallSeverity :: Maybe Text
+nonCompliantMediumCount :: Maybe Int
+nonCompliantHighCount :: Maybe Int
+compliantInformationalCount :: Maybe Int
+executionType :: Maybe Text
+nonCompliantUnspecifiedCount :: Maybe Int
+compliantHighCount :: Maybe Int
+nonCompliantLowCount :: Maybe Int
+status :: Maybe Text
+$sel:compliantMediumCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+$sel:patchGroup:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Text
+$sel:compliantLowCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+$sel:patchBaselineId:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Text
+$sel:nonCompliantCriticalCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+$sel:compliantUnspecifiedCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+$sel:complianceType:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Text
+$sel:nonCompliantInformationalCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+$sel:compliantCriticalCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+$sel:overallSeverity:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Text
+$sel:nonCompliantMediumCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+$sel:nonCompliantHighCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+$sel:compliantInformationalCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+$sel:executionType:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Text
+$sel:nonCompliantUnspecifiedCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+$sel:compliantHighCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+$sel:nonCompliantLowCount:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Int
+$sel:status:AwsSsmComplianceSummary' :: AwsSsmComplianceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679974561"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-313"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-314"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974578"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonCompliantLowCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974577"><span class="hs-identifier hs-var">nonCompliantLowCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompliantHighCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974576"><span class="hs-identifier hs-var">compliantHighCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonCompliantUnspecifiedCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974575"><span class="hs-identifier hs-var">nonCompliantUnspecifiedCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExecutionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974574"><span class="hs-identifier hs-var">executionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompliantInformationalCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974573"><span class="hs-identifier hs-var">compliantInformationalCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonCompliantHighCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974572"><span class="hs-identifier hs-var">nonCompliantHighCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonCompliantMediumCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974571"><span class="hs-identifier hs-var">nonCompliantMediumCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OverallSeverity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974570"><span class="hs-identifier hs-var">overallSeverity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompliantCriticalCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974569"><span class="hs-identifier hs-var">compliantCriticalCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonCompliantInformationalCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974568"><span class="hs-identifier hs-var">nonCompliantInformationalCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComplianceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974567"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompliantUnspecifiedCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974566"><span class="hs-identifier hs-var">compliantUnspecifiedCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonCompliantCriticalCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974565"><span class="hs-identifier hs-var">nonCompliantCriticalCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PatchBaselineId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974564"><span class="hs-identifier hs-var">patchBaselineId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompliantLowCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974563"><span class="hs-identifier hs-var">compliantLowCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PatchGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679974562"><span class="hs-identifier hs-var">patchGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompliantMediumCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-346"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679974561"><span class="hs-identifier hs-var">compliantMediumCount</span></a></span><span>
+</span><span id="line-347"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-348"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680293028"><span id="local-6989586621680293029"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoMLJobObjectiveType"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjectiveType.html#AutoMLJobObjectiveType"><span class="hs-identifier hs-var">AutoMLJobObjectiveType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLJobObjectiveType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjectiveType.html#AutoMLJobObjectiveType%27"><span class="hs-identifier hs-var">AutoMLJobObjectiveType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680293037"><span id="local-6989586621680293038"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoMLJobObjectiveType"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjectiveType.html#AutoMLJobObjectiveType"><span class="hs-identifier hs-var">AutoMLJobObjectiveType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLJobObjectiveType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjectiveType.html#AutoMLJobObjectiveType%27"><span class="hs-identifier hs-var">AutoMLJobObjectiveType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoMLJobObjectiveType"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobObjectiveType.html#fromAutoMLJobObjectiveType"><span class="hs-identifier hs-var hs-var">fromAutoMLJobObjectiveType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680293020"><span id="local-6989586621680293022"><span id="local-6989586621680293024"><span class="annot"><span class="annottext">Int -&gt; AutoMLJobObjectiveType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680293029"><span id="local-6989586621680293031"><span id="local-6989586621680293033"><span class="annot"><span class="annottext">Int -&gt; AutoMLJobObjectiveType -&gt; ShowS
 [AutoMLJobObjectiveType] -&gt; ShowS
 AutoMLJobObjectiveType -&gt; String
 (Int -&gt; AutoMLJobObjectiveType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AutoMLJobObjectiveType -&gt; String
 showsPrec :: Int -&gt; AutoMLJobObjectiveType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutoMLJobObjectiveType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680293011"><span id="local-6989586621680293013"><span id="local-6989586621680293015"><span id="local-6989586621680293017"><span class="annot"><span class="annottext">ReadPrec [AutoMLJobObjectiveType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680293020"><span id="local-6989586621680293022"><span id="local-6989586621680293024"><span id="local-6989586621680293026"><span class="annot"><span class="annottext">ReadPrec [AutoMLJobObjectiveType]
 ReadPrec AutoMLJobObjectiveType
 Int -&gt; ReadS AutoMLJobObjectiveType
 ReadS [AutoMLJobObjectiveType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AutoMLJobObjectiveType]
 readsPrec :: Int -&gt; ReadS AutoMLJobObjectiveType
 $creadsPrec :: Int -&gt; ReadS AutoMLJobObjectiveType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680293006"><span id="local-6989586621680293008"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; AutoMLJobObjectiveType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680293015"><span id="local-6989586621680293017"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; AutoMLJobObjectiveType -&gt; Bool
 (AutoMLJobObjectiveType -&gt; AutoMLJobObjectiveType -&gt; Bool)
 -&gt; (AutoMLJobObjectiveType -&gt; AutoMLJobObjectiveType -&gt; Bool)
 -&gt; Eq AutoMLJobObjectiveType
@@ -82,7 +82,7 @@ $c/= :: AutoMLJobObjectiveType -&gt; AutoMLJobObjectiveType -&gt; Bool
 == :: AutoMLJobObjectiveType -&gt; AutoMLJobObjectiveType -&gt; Bool
 $c== :: AutoMLJobObjectiveType -&gt; AutoMLJobObjectiveType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680292990"><span id="local-6989586621680292992"><span id="local-6989586621680292994"><span id="local-6989586621680292996"><span id="local-6989586621680292998"><span id="local-6989586621680293000"><span id="local-6989586621680293002"><span class="annot"><span class="annottext">Eq AutoMLJobObjectiveType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680292999"><span id="local-6989586621680293001"><span id="local-6989586621680293003"><span id="local-6989586621680293005"><span id="local-6989586621680293007"><span id="local-6989586621680293009"><span id="local-6989586621680293011"><span class="annot"><span class="annottext">Eq AutoMLJobObjectiveType
 Eq AutoMLJobObjectiveType
 -&gt; (AutoMLJobObjectiveType -&gt; AutoMLJobObjectiveType -&gt; Ordering)
 -&gt; (AutoMLJobObjectiveType -&gt; AutoMLJobObjectiveType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. AutoMLJobObjectiveType -&gt; Rep AutoMLJobObjectiveType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680292982"><span id="local-6989586621680292984"><span class="annot"><span class="annottext">Int -&gt; AutoMLJobObjectiveType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680292991"><span id="local-6989586621680292993"><span class="annot"><span class="annottext">Int -&gt; AutoMLJobObjectiveType -&gt; Int
 AutoMLJobObjectiveType -&gt; Int
 (Int -&gt; AutoMLJobObjectiveType -&gt; Int)
 -&gt; (AutoMLJobObjectiveType -&gt; Int)
@@ -152,54 +152,54 @@ $chash :: AutoMLJobObjectiveType -&gt; Int
 hashWithSalt :: Int -&gt; AutoMLJobObjectiveType -&gt; Int
 $chashWithSalt :: Int -&gt; AutoMLJobObjectiveType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680292979"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680292988"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; ()
 (AutoMLJobObjectiveType -&gt; ()) -&gt; NFData AutoMLJobObjectiveType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutoMLJobObjectiveType -&gt; ()
 $crnf :: AutoMLJobObjectiveType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680292976"><span class="annot"><span class="annottext">Text -&gt; Either String AutoMLJobObjectiveType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680292985"><span class="annot"><span class="annottext">Text -&gt; Either String AutoMLJobObjectiveType
 (Text -&gt; Either String AutoMLJobObjectiveType)
 -&gt; FromText AutoMLJobObjectiveType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutoMLJobObjectiveType
 $cfromText :: Text -&gt; Either String AutoMLJobObjectiveType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680292973"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680292982"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; Text
 (AutoMLJobObjectiveType -&gt; Text) -&gt; ToText AutoMLJobObjectiveType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutoMLJobObjectiveType -&gt; Text
 $ctoText :: AutoMLJobObjectiveType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680292970"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680292979"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; ByteString
 (AutoMLJobObjectiveType -&gt; ByteString)
 -&gt; ToByteString AutoMLJobObjectiveType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutoMLJobObjectiveType -&gt; ByteString
 $ctoBS :: AutoMLJobObjectiveType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680292967"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680292976"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; ByteStringBuilder
 (AutoMLJobObjectiveType -&gt; ByteStringBuilder)
 -&gt; ToLog AutoMLJobObjectiveType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutoMLJobObjectiveType -&gt; ByteStringBuilder
 $cbuild :: AutoMLJobObjectiveType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680292964"><span class="annot"><span class="annottext">HeaderName -&gt; AutoMLJobObjectiveType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680292973"><span class="annot"><span class="annottext">HeaderName -&gt; AutoMLJobObjectiveType -&gt; [Header]
 (HeaderName -&gt; AutoMLJobObjectiveType -&gt; [Header])
 -&gt; ToHeader AutoMLJobObjectiveType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutoMLJobObjectiveType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutoMLJobObjectiveType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680292961"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680292970"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; QueryString
 (AutoMLJobObjectiveType -&gt; QueryString)
 -&gt; ToQuery AutoMLJobObjectiveType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutoMLJobObjectiveType -&gt; QueryString
 $ctoQuery :: AutoMLJobObjectiveType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680292956"><span id="local-6989586621680292958"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoMLJobObjectiveType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680292965"><span id="local-6989586621680292967"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoMLJobObjectiveType]
 Value -&gt; Parser AutoMLJobObjectiveType
 (Value -&gt; Parser AutoMLJobObjectiveType)
 -&gt; (Value -&gt; Parser [AutoMLJobObjectiveType])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [AutoMLJobObjectiveType]
 parseJSON :: Value -&gt; Parser AutoMLJobObjectiveType
 $cparseJSON :: Value -&gt; Parser AutoMLJobObjectiveType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680292951"><span id="local-6989586621680292953"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoMLJobObjectiveType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680292960"><span id="local-6989586621680292962"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoMLJobObjectiveType]
 FromJSONKeyFunction AutoMLJobObjectiveType
 FromJSONKeyFunction AutoMLJobObjectiveType
 -&gt; FromJSONKeyFunction [AutoMLJobObjectiveType]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutoMLJobObjectiveType]
 fromJSONKey :: FromJSONKeyFunction AutoMLJobObjectiveType
 $cfromJSONKey :: FromJSONKeyFunction AutoMLJobObjectiveType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680292942"><span id="local-6989586621680292944"><span id="local-6989586621680292946"><span id="local-6989586621680292948"><span class="annot"><span class="annottext">[AutoMLJobObjectiveType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680292951"><span id="local-6989586621680292953"><span id="local-6989586621680292955"><span id="local-6989586621680292957"><span class="annot"><span class="annottext">[AutoMLJobObjectiveType] -&gt; Encoding
 [AutoMLJobObjectiveType] -&gt; Value
 AutoMLJobObjectiveType -&gt; Encoding
 AutoMLJobObjectiveType -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: AutoMLJobObjectiveType -&gt; Encoding
 toJSON :: AutoMLJobObjectiveType -&gt; Value
 $ctoJSON :: AutoMLJobObjectiveType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680292937"><span id="local-6989586621680292939"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoMLJobObjectiveType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680292946"><span id="local-6989586621680292948"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoMLJobObjectiveType]
 ToJSONKeyFunction AutoMLJobObjectiveType
 ToJSONKeyFunction AutoMLJobObjectiveType
 -&gt; ToJSONKeyFunction [AutoMLJobObjectiveType]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutoMLJobObjectiveType]
 toJSONKey :: ToJSONKeyFunction AutoMLJobObjectiveType
 $ctoJSONKey :: ToJSONKeyFunction AutoMLJobObjectiveType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680292934"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoMLJobObjectiveType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680292943"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoMLJobObjectiveType
 ([Node] -&gt; Either String AutoMLJobObjectiveType)
 -&gt; FromXML AutoMLJobObjectiveType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutoMLJobObjectiveType
 $cparseXML :: [Node] -&gt; Either String AutoMLJobObjectiveType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680292931"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680292940"><span class="annot"><span class="annottext">AutoMLJobObjectiveType -&gt; XML
 (AutoMLJobObjectiveType -&gt; XML) -&gt; ToXML AutoMLJobObjectiveType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AutoMLJobObjectiveType -&gt; XML

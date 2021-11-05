@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName"><span class="hs-identifier">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Prefix"><span class="hs-identifier">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Suffix"><span class="hs-identifier">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Suffix</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679971680"><span id="local-6989586621679971681"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AwsS3BucketNotificationConfigurationS3KeyFilterRuleName"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName"><span class="hs-identifier hs-var">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsS3BucketNotificationConfigurationS3KeyFilterRuleName%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName%27"><span class="hs-identifier hs-var">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAwsS3BucketNotificationConfigurationS3KeyFilterRuleName"><span class="annot"><span class="annottext">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#fromAwsS3BucketNotificationConfigurationS3KeyFilterRuleName"><span class="hs-identifier hs-var hs-var">fromAwsS3BucketNotificationConfigurationS3KeyFilterRuleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679971672"><span id="local-6989586621679971674"><span id="local-6989586621679971676"><span class="annot"><span class="annottext">Int
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; ShowS
+[AwsS3BucketNotificationConfigurationS3KeyFilterRuleName] -&gt; ShowS
+AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; String
+(Int
+ -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+ -&gt; ShowS)
+-&gt; (AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+    -&gt; String)
+-&gt; ([AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+    -&gt; ShowS)
+-&gt; Show AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName] -&gt; ShowS
+$cshowList :: [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName] -&gt; ShowS
+show :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; String
+$cshow :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; String
+showsPrec :: Int
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; ShowS
+$cshowsPrec :: Int
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679971663"><span id="local-6989586621679971665"><span id="local-6989586621679971667"><span id="local-6989586621679971669"><span class="annot"><span class="annottext">ReadPrec [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+ReadPrec AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+Int
+-&gt; ReadS AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+ReadS [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+(Int
+ -&gt; ReadS AwsS3BucketNotificationConfigurationS3KeyFilterRuleName)
+-&gt; ReadS [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+-&gt; ReadPrec AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; ReadPrec
+     [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+-&gt; Read AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+$creadListPrec :: ReadPrec [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+readPrec :: ReadPrec AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+$creadPrec :: ReadPrec AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+readList :: ReadS [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+$creadList :: ReadS [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+readsPrec :: Int
+-&gt; ReadS AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+$creadsPrec :: Int
+-&gt; ReadS AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679971658"><span id="local-6989586621679971660"><span class="annot"><span class="annottext">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool
+(AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+ -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool)
+-&gt; (AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+    -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool)
+-&gt; Eq AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool
+$c/= :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool
+== :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool
+$c== :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679971642"><span id="local-6989586621679971644"><span id="local-6989586621679971646"><span id="local-6989586621679971648"><span id="local-6989586621679971650"><span id="local-6989586621679971652"><span id="local-6989586621679971654"><span class="annot"><span class="annottext">Eq AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+Eq AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; (AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+    -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+    -&gt; Ordering)
+-&gt; (AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+    -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool)
+-&gt; (AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+    -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool)
+-&gt; (AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+    -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool)
+-&gt; (AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+    -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool)
+-&gt; (AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+    -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+    -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName)
+-&gt; (AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+    -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+    -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName)
+-&gt; Ord AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool
+AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; Ordering
+AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+$cmin :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+max :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+$cmax :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+&gt;= :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool
+$c&gt;= :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool
+&gt; :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool
+$c&gt; :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool
+&lt;= :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool
+$c&lt;= :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool
+&lt; :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool
+$c&lt; :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Bool
+compare :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; Ordering
+$ccompare :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; Ordering
+$cp1Ord :: Eq AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+ -&gt; Rep AwsS3BucketNotificationConfigurationS3KeyFilterRuleName x)
+-&gt; (forall x.
+    Rep AwsS3BucketNotificationConfigurationS3KeyFilterRuleName x
+    -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName)
+-&gt; Generic AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall x.
+Rep AwsS3BucketNotificationConfigurationS3KeyFilterRuleName x
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall x.
+AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; Rep AwsS3BucketNotificationConfigurationS3KeyFilterRuleName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AwsS3BucketNotificationConfigurationS3KeyFilterRuleName x
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+$cfrom :: forall x.
+AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; Rep AwsS3BucketNotificationConfigurationS3KeyFilterRuleName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679971634"><span id="local-6989586621679971636"><span class="annot"><span class="annottext">Int
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Int
+AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Int
+(Int
+ -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Int)
+-&gt; (AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Int)
+-&gt; Hashable AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Int
+$chash :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Int
+hashWithSalt :: Int
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Int
+$chashWithSalt :: Int
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679971631"><span class="annot"><span class="annottext">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; ()
+(AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; ())
+-&gt; NFData AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; ()
+$crnf :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679971628"><span class="annot"><span class="annottext">Text
+-&gt; Either
+     String AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+(Text
+ -&gt; Either
+      String AwsS3BucketNotificationConfigurationS3KeyFilterRuleName)
+-&gt; FromText AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text
+-&gt; Either
+     String AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+$cfromText :: Text
+-&gt; Either
+     String AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679971625"><span class="annot"><span class="annottext">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Text
+(AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Text)
+-&gt; ToText AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Text
+$ctoText :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679971622"><span class="annot"><span class="annottext">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; ByteString
+(AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+ -&gt; ByteString)
+-&gt; ToByteString
+     AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; ByteString
+$ctoBS :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679971619"><span class="annot"><span class="annottext">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; ByteStringBuilder
+(AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+ -&gt; ByteStringBuilder)
+-&gt; ToLog AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; ByteStringBuilder
+$cbuild :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679971616"><span class="annot"><span class="annottext">HeaderName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; [Header]
+(HeaderName
+ -&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+ -&gt; [Header])
+-&gt; ToHeader AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; [Header]
+$ctoHeader :: HeaderName
+-&gt; AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679971613"><span class="annot"><span class="annottext">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; QueryString
+(AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+ -&gt; QueryString)
+-&gt; ToQuery AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; QueryString
+$ctoQuery :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679971608"><span id="local-6989586621679971610"><span class="annot"><span class="annottext">Value
+-&gt; Parser [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+Value
+-&gt; Parser AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+(Value
+ -&gt; Parser AwsS3BucketNotificationConfigurationS3KeyFilterRuleName)
+-&gt; (Value
+    -&gt; Parser
+         [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName])
+-&gt; FromJSON AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value
+-&gt; Parser [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+$cparseJSONList :: Value
+-&gt; Parser [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+parseJSON :: Value
+-&gt; Parser AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+$cparseJSON :: Value
+-&gt; Parser AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679971603"><span id="local-6989586621679971605"><span class="annot"><span class="annottext">FromJSONKeyFunction
+  [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+FromJSONKeyFunction
+  AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+FromJSONKeyFunction
+  AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; FromJSONKeyFunction
+     [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+-&gt; FromJSONKey
+     AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction
+  [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+$cfromJSONKeyList :: FromJSONKeyFunction
+  [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+fromJSONKey :: FromJSONKeyFunction
+  AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+$cfromJSONKey :: FromJSONKeyFunction
+  AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679971594"><span id="local-6989586621679971596"><span id="local-6989586621679971598"><span id="local-6989586621679971600"><span class="annot"><span class="annottext">[AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+-&gt; Encoding
+[AwsS3BucketNotificationConfigurationS3KeyFilterRuleName] -&gt; Value
+AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Encoding
+AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Value
+(AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Value)
+-&gt; (AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+    -&gt; Encoding)
+-&gt; ([AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+    -&gt; Value)
+-&gt; ([AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+    -&gt; Encoding)
+-&gt; ToJSON AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+-&gt; Encoding
+$ctoEncodingList :: [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+-&gt; Encoding
+toJSONList :: [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName] -&gt; Value
+$ctoJSONList :: [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName] -&gt; Value
+toEncoding :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Encoding
+$ctoEncoding :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Encoding
+toJSON :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Value
+$ctoJSON :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679971589"><span id="local-6989586621679971591"><span class="annot"><span class="annottext">ToJSONKeyFunction
+  [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+ToJSONKeyFunction
+  AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+ToJSONKeyFunction
+  AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; ToJSONKeyFunction
+     [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+-&gt; ToJSONKey
+     AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction
+  [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+$ctoJSONKeyList :: ToJSONKeyFunction
+  [AwsS3BucketNotificationConfigurationS3KeyFilterRuleName]
+toJSONKey :: ToJSONKeyFunction
+  AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+$ctoJSONKey :: ToJSONKeyFunction
+  AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679971586"><span class="annot"><span class="annottext">[Node]
+-&gt; Either
+     String AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+([Node]
+ -&gt; Either
+      String AwsS3BucketNotificationConfigurationS3KeyFilterRuleName)
+-&gt; FromXML AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node]
+-&gt; Either
+     String AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+$cparseXML :: [Node]
+-&gt; Either
+     String AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679971583"><span class="annot"><span class="annottext">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; XML
+(AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; XML)
+-&gt; ToXML AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; XML
+$ctoXML :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Prefix"><span class="hs-identifier hs-type">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName"><span class="hs-identifier hs-type">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Prefix"><span id="%24mAwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Prefix"><span id="AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Prefix"><span class="annot"><span class="annottext">$bAwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Prefix :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+$mAwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Prefix :: forall r.
+AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#%24bAwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Prefix"><span class="hs-identifier hs-var hs-var hs-var">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Prefix</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName%27"><span class="hs-identifier hs-type">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Prefix&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Suffix"><span class="hs-identifier hs-type">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Suffix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName"><span class="hs-identifier hs-type">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Suffix"><span id="%24mAwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Suffix"><span id="AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Suffix"><span class="annot"><span class="annottext">$bAwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Suffix :: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+$mAwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Suffix :: forall r.
+AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#%24bAwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Suffix"><span class="hs-identifier hs-var hs-var hs-var">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Suffix</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName%27"><span class="hs-identifier hs-type">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Suffix&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Prefix"><span class="hs-pragma hs-type">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Prefix</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Suffix"><span class="hs-pragma hs-type">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName_Suffix</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName.html#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName%27"><span class="hs-pragma hs-type">AwsS3BucketNotificationConfigurationS3KeyFilterRuleName'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

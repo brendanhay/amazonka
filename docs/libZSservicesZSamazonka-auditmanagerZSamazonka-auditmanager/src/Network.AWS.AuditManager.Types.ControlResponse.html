@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AuditManager.Types.ControlResponse</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AuditManager.Types.ControlResponse</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse"><span class="hs-identifier">ControlResponse</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse_AUTOMATE"><span class="hs-identifier">ControlResponse_AUTOMATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse_DEFER"><span class="hs-identifier">ControlResponse_DEFER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse_IGNORE"><span class="hs-identifier">ControlResponse_IGNORE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse_MANUAL"><span class="hs-identifier">ControlResponse_MANUAL</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679291398"><span id="local-6989586621679291399"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ControlResponse"><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse"><span class="hs-identifier hs-var">ControlResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ControlResponse%27"><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse%27"><span class="hs-identifier hs-var">ControlResponse'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromControlResponse"><span class="annot"><span class="annottext">ControlResponse -&gt; Text
+</span><a href="Network.AWS.AuditManager.Types.ControlResponse.html#fromControlResponse"><span class="hs-identifier hs-var hs-var">fromControlResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679291390"><span id="local-6989586621679291392"><span id="local-6989586621679291394"><span class="annot"><span class="annottext">Int -&gt; ControlResponse -&gt; ShowS
+[ControlResponse] -&gt; ShowS
+ControlResponse -&gt; String
+(Int -&gt; ControlResponse -&gt; ShowS)
+-&gt; (ControlResponse -&gt; String)
+-&gt; ([ControlResponse] -&gt; ShowS)
+-&gt; Show ControlResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ControlResponse] -&gt; ShowS
+$cshowList :: [ControlResponse] -&gt; ShowS
+show :: ControlResponse -&gt; String
+$cshow :: ControlResponse -&gt; String
+showsPrec :: Int -&gt; ControlResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ControlResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679291381"><span id="local-6989586621679291383"><span id="local-6989586621679291385"><span id="local-6989586621679291387"><span class="annot"><span class="annottext">ReadPrec [ControlResponse]
+ReadPrec ControlResponse
+Int -&gt; ReadS ControlResponse
+ReadS [ControlResponse]
+(Int -&gt; ReadS ControlResponse)
+-&gt; ReadS [ControlResponse]
+-&gt; ReadPrec ControlResponse
+-&gt; ReadPrec [ControlResponse]
+-&gt; Read ControlResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ControlResponse]
+$creadListPrec :: ReadPrec [ControlResponse]
+readPrec :: ReadPrec ControlResponse
+$creadPrec :: ReadPrec ControlResponse
+readList :: ReadS [ControlResponse]
+$creadList :: ReadS [ControlResponse]
+readsPrec :: Int -&gt; ReadS ControlResponse
+$creadsPrec :: Int -&gt; ReadS ControlResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679291376"><span id="local-6989586621679291378"><span class="annot"><span class="annottext">ControlResponse -&gt; ControlResponse -&gt; Bool
+(ControlResponse -&gt; ControlResponse -&gt; Bool)
+-&gt; (ControlResponse -&gt; ControlResponse -&gt; Bool)
+-&gt; Eq ControlResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ControlResponse -&gt; ControlResponse -&gt; Bool
+$c/= :: ControlResponse -&gt; ControlResponse -&gt; Bool
+== :: ControlResponse -&gt; ControlResponse -&gt; Bool
+$c== :: ControlResponse -&gt; ControlResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679291360"><span id="local-6989586621679291362"><span id="local-6989586621679291364"><span id="local-6989586621679291366"><span id="local-6989586621679291368"><span id="local-6989586621679291370"><span id="local-6989586621679291372"><span class="annot"><span class="annottext">Eq ControlResponse
+Eq ControlResponse
+-&gt; (ControlResponse -&gt; ControlResponse -&gt; Ordering)
+-&gt; (ControlResponse -&gt; ControlResponse -&gt; Bool)
+-&gt; (ControlResponse -&gt; ControlResponse -&gt; Bool)
+-&gt; (ControlResponse -&gt; ControlResponse -&gt; Bool)
+-&gt; (ControlResponse -&gt; ControlResponse -&gt; Bool)
+-&gt; (ControlResponse -&gt; ControlResponse -&gt; ControlResponse)
+-&gt; (ControlResponse -&gt; ControlResponse -&gt; ControlResponse)
+-&gt; Ord ControlResponse
+ControlResponse -&gt; ControlResponse -&gt; Bool
+ControlResponse -&gt; ControlResponse -&gt; Ordering
+ControlResponse -&gt; ControlResponse -&gt; ControlResponse
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ControlResponse -&gt; ControlResponse -&gt; ControlResponse
+$cmin :: ControlResponse -&gt; ControlResponse -&gt; ControlResponse
+max :: ControlResponse -&gt; ControlResponse -&gt; ControlResponse
+$cmax :: ControlResponse -&gt; ControlResponse -&gt; ControlResponse
+&gt;= :: ControlResponse -&gt; ControlResponse -&gt; Bool
+$c&gt;= :: ControlResponse -&gt; ControlResponse -&gt; Bool
+&gt; :: ControlResponse -&gt; ControlResponse -&gt; Bool
+$c&gt; :: ControlResponse -&gt; ControlResponse -&gt; Bool
+&lt;= :: ControlResponse -&gt; ControlResponse -&gt; Bool
+$c&lt;= :: ControlResponse -&gt; ControlResponse -&gt; Bool
+&lt; :: ControlResponse -&gt; ControlResponse -&gt; Bool
+$c&lt; :: ControlResponse -&gt; ControlResponse -&gt; Bool
+compare :: ControlResponse -&gt; ControlResponse -&gt; Ordering
+$ccompare :: ControlResponse -&gt; ControlResponse -&gt; Ordering
+$cp1Ord :: Eq ControlResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ControlResponse -&gt; Rep ControlResponse x)
+-&gt; (forall x. Rep ControlResponse x -&gt; ControlResponse)
+-&gt; Generic ControlResponse
+forall x. Rep ControlResponse x -&gt; ControlResponse
+forall x. ControlResponse -&gt; Rep ControlResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ControlResponse x -&gt; ControlResponse
+$cfrom :: forall x. ControlResponse -&gt; Rep ControlResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679291352"><span id="local-6989586621679291354"><span class="annot"><span class="annottext">Int -&gt; ControlResponse -&gt; Int
+ControlResponse -&gt; Int
+(Int -&gt; ControlResponse -&gt; Int)
+-&gt; (ControlResponse -&gt; Int) -&gt; Hashable ControlResponse
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ControlResponse -&gt; Int
+$chash :: ControlResponse -&gt; Int
+hashWithSalt :: Int -&gt; ControlResponse -&gt; Int
+$chashWithSalt :: Int -&gt; ControlResponse -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679291349"><span class="annot"><span class="annottext">ControlResponse -&gt; ()
+(ControlResponse -&gt; ()) -&gt; NFData ControlResponse
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ControlResponse -&gt; ()
+$crnf :: ControlResponse -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679291346"><span class="annot"><span class="annottext">Text -&gt; Either String ControlResponse
+(Text -&gt; Either String ControlResponse) -&gt; FromText ControlResponse
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ControlResponse
+$cfromText :: Text -&gt; Either String ControlResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679291343"><span class="annot"><span class="annottext">ControlResponse -&gt; Text
+(ControlResponse -&gt; Text) -&gt; ToText ControlResponse
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ControlResponse -&gt; Text
+$ctoText :: ControlResponse -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679291340"><span class="annot"><span class="annottext">ControlResponse -&gt; ByteString
+(ControlResponse -&gt; ByteString) -&gt; ToByteString ControlResponse
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ControlResponse -&gt; ByteString
+$ctoBS :: ControlResponse -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679291337"><span class="annot"><span class="annottext">ControlResponse -&gt; ByteStringBuilder
+(ControlResponse -&gt; ByteStringBuilder) -&gt; ToLog ControlResponse
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ControlResponse -&gt; ByteStringBuilder
+$cbuild :: ControlResponse -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679291334"><span class="annot"><span class="annottext">HeaderName -&gt; ControlResponse -&gt; [Header]
+(HeaderName -&gt; ControlResponse -&gt; [Header])
+-&gt; ToHeader ControlResponse
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ControlResponse -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ControlResponse -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679291331"><span class="annot"><span class="annottext">ControlResponse -&gt; QueryString
+(ControlResponse -&gt; QueryString) -&gt; ToQuery ControlResponse
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ControlResponse -&gt; QueryString
+$ctoQuery :: ControlResponse -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679291326"><span id="local-6989586621679291328"><span class="annot"><span class="annottext">Value -&gt; Parser [ControlResponse]
+Value -&gt; Parser ControlResponse
+(Value -&gt; Parser ControlResponse)
+-&gt; (Value -&gt; Parser [ControlResponse]) -&gt; FromJSON ControlResponse
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ControlResponse]
+$cparseJSONList :: Value -&gt; Parser [ControlResponse]
+parseJSON :: Value -&gt; Parser ControlResponse
+$cparseJSON :: Value -&gt; Parser ControlResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679291321"><span id="local-6989586621679291323"><span class="annot"><span class="annottext">FromJSONKeyFunction [ControlResponse]
+FromJSONKeyFunction ControlResponse
+FromJSONKeyFunction ControlResponse
+-&gt; FromJSONKeyFunction [ControlResponse]
+-&gt; FromJSONKey ControlResponse
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ControlResponse]
+$cfromJSONKeyList :: FromJSONKeyFunction [ControlResponse]
+fromJSONKey :: FromJSONKeyFunction ControlResponse
+$cfromJSONKey :: FromJSONKeyFunction ControlResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679291312"><span id="local-6989586621679291314"><span id="local-6989586621679291316"><span id="local-6989586621679291318"><span class="annot"><span class="annottext">[ControlResponse] -&gt; Encoding
+[ControlResponse] -&gt; Value
+ControlResponse -&gt; Encoding
+ControlResponse -&gt; Value
+(ControlResponse -&gt; Value)
+-&gt; (ControlResponse -&gt; Encoding)
+-&gt; ([ControlResponse] -&gt; Value)
+-&gt; ([ControlResponse] -&gt; Encoding)
+-&gt; ToJSON ControlResponse
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ControlResponse] -&gt; Encoding
+$ctoEncodingList :: [ControlResponse] -&gt; Encoding
+toJSONList :: [ControlResponse] -&gt; Value
+$ctoJSONList :: [ControlResponse] -&gt; Value
+toEncoding :: ControlResponse -&gt; Encoding
+$ctoEncoding :: ControlResponse -&gt; Encoding
+toJSON :: ControlResponse -&gt; Value
+$ctoJSON :: ControlResponse -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679291307"><span id="local-6989586621679291309"><span class="annot"><span class="annottext">ToJSONKeyFunction [ControlResponse]
+ToJSONKeyFunction ControlResponse
+ToJSONKeyFunction ControlResponse
+-&gt; ToJSONKeyFunction [ControlResponse] -&gt; ToJSONKey ControlResponse
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ControlResponse]
+$ctoJSONKeyList :: ToJSONKeyFunction [ControlResponse]
+toJSONKey :: ToJSONKeyFunction ControlResponse
+$ctoJSONKey :: ToJSONKeyFunction ControlResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679291304"><span class="annot"><span class="annottext">[Node] -&gt; Either String ControlResponse
+([Node] -&gt; Either String ControlResponse)
+-&gt; FromXML ControlResponse
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ControlResponse
+$cparseXML :: [Node] -&gt; Either String ControlResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679291301"><span class="annot"><span class="annottext">ControlResponse -&gt; XML
+(ControlResponse -&gt; XML) -&gt; ToXML ControlResponse
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ControlResponse -&gt; XML
+$ctoXML :: ControlResponse -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse_AUTOMATE"><span class="hs-identifier hs-type">ControlResponse_AUTOMATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse"><span class="hs-identifier hs-type">ControlResponse</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bControlResponse_AUTOMATE"><span id="%24mControlResponse_AUTOMATE"><span id="ControlResponse_AUTOMATE"><span class="annot"><span class="annottext">$bControlResponse_AUTOMATE :: ControlResponse
+$mControlResponse_AUTOMATE :: forall r. ControlResponse -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.ControlResponse.html#%24bControlResponse_AUTOMATE"><span class="hs-identifier hs-var hs-var hs-var">ControlResponse_AUTOMATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse%27"><span class="hs-identifier hs-type">ControlResponse'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTOMATE&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse_DEFER"><span class="hs-identifier hs-type">ControlResponse_DEFER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse"><span class="hs-identifier hs-type">ControlResponse</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bControlResponse_DEFER"><span id="%24mControlResponse_DEFER"><span id="ControlResponse_DEFER"><span class="annot"><span class="annottext">$bControlResponse_DEFER :: ControlResponse
+$mControlResponse_DEFER :: forall r. ControlResponse -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.ControlResponse.html#%24bControlResponse_DEFER"><span class="hs-identifier hs-var hs-var hs-var">ControlResponse_DEFER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse%27"><span class="hs-identifier hs-type">ControlResponse'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEFER&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse_IGNORE"><span class="hs-identifier hs-type">ControlResponse_IGNORE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse"><span class="hs-identifier hs-type">ControlResponse</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bControlResponse_IGNORE"><span id="%24mControlResponse_IGNORE"><span id="ControlResponse_IGNORE"><span class="annot"><span class="annottext">$bControlResponse_IGNORE :: ControlResponse
+$mControlResponse_IGNORE :: forall r. ControlResponse -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.ControlResponse.html#%24bControlResponse_IGNORE"><span class="hs-identifier hs-var hs-var hs-var">ControlResponse_IGNORE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse%27"><span class="hs-identifier hs-type">ControlResponse'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IGNORE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse_MANUAL"><span class="hs-identifier hs-type">ControlResponse_MANUAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse"><span class="hs-identifier hs-type">ControlResponse</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bControlResponse_MANUAL"><span id="%24mControlResponse_MANUAL"><span id="ControlResponse_MANUAL"><span class="annot"><span class="annottext">$bControlResponse_MANUAL :: ControlResponse
+$mControlResponse_MANUAL :: forall r. ControlResponse -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.ControlResponse.html#%24bControlResponse_MANUAL"><span class="hs-identifier hs-var hs-var hs-var">ControlResponse_MANUAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse%27"><span class="hs-identifier hs-type">ControlResponse'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MANUAL&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse_AUTOMATE"><span class="hs-pragma hs-type">ControlResponse_AUTOMATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse_DEFER"><span class="hs-pragma hs-type">ControlResponse_DEFER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse_IGNORE"><span class="hs-pragma hs-type">ControlResponse_IGNORE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse_MANUAL"><span class="hs-pragma hs-type">ControlResponse_MANUAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlResponse.html#ControlResponse%27"><span class="hs-pragma hs-type">ControlResponse'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

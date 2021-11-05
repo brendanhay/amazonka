@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Provides the details of the @ActivityTaskStarted@ event.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newActivityTaskStartedEventAttributes' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679342316"><span id="local-6989586621679342317"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivityTaskStartedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes"><span class="hs-identifier hs-var">ActivityTaskStartedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityTaskStartedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-var">ActivityTaskStartedEventAttributes'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679342325"><span id="local-6989586621679342326"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivityTaskStartedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes"><span class="hs-identifier hs-var">ActivityTaskStartedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityTaskStartedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-var">ActivityTaskStartedEventAttributes'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identity of the worker that was assigned this task. This aids</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- diagnostics when problems arise. The form of this identity is user</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- defined.</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AscheduledEventId%3AActivityTaskStartedEventAttributes%27"><span class="annot"><span class="annottext">ActivityTaskStartedEventAttributes -&gt; Integer
 </span><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#%24sel%3AscheduledEventId%3AActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342309"><span id="local-6989586621679342311"><span class="annot"><span class="annottext">ActivityTaskStartedEventAttributes
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342318"><span id="local-6989586621679342320"><span class="annot"><span class="annottext">ActivityTaskStartedEventAttributes
 -&gt; ActivityTaskStartedEventAttributes -&gt; Bool
 (ActivityTaskStartedEventAttributes
  -&gt; ActivityTaskStartedEventAttributes -&gt; Bool)
@@ -55,7 +55,7 @@ $c/= :: ActivityTaskStartedEventAttributes
 -&gt; ActivityTaskStartedEventAttributes -&gt; Bool
 $c== :: ActivityTaskStartedEventAttributes
 -&gt; ActivityTaskStartedEventAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342300"><span id="local-6989586621679342302"><span id="local-6989586621679342304"><span id="local-6989586621679342306"><span class="annot"><span class="annottext">ReadPrec [ActivityTaskStartedEventAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342309"><span id="local-6989586621679342311"><span id="local-6989586621679342313"><span id="local-6989586621679342315"><span class="annot"><span class="annottext">ReadPrec [ActivityTaskStartedEventAttributes]
 ReadPrec ActivityTaskStartedEventAttributes
 Int -&gt; ReadS ActivityTaskStartedEventAttributes
 ReadS [ActivityTaskStartedEventAttributes]
@@ -75,7 +75,7 @@ readList :: ReadS [ActivityTaskStartedEventAttributes]
 $creadList :: ReadS [ActivityTaskStartedEventAttributes]
 readsPrec :: Int -&gt; ReadS ActivityTaskStartedEventAttributes
 $creadsPrec :: Int -&gt; ReadS ActivityTaskStartedEventAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342293"><span id="local-6989586621679342295"><span id="local-6989586621679342297"><span class="annot"><span class="annottext">Int -&gt; ActivityTaskStartedEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342302"><span id="local-6989586621679342304"><span id="local-6989586621679342306"><span class="annot"><span class="annottext">Int -&gt; ActivityTaskStartedEventAttributes -&gt; ShowS
 [ActivityTaskStartedEventAttributes] -&gt; ShowS
 ActivityTaskStartedEventAttributes -&gt; String
 (Int -&gt; ActivityTaskStartedEventAttributes -&gt; ShowS)
@@ -135,8 +135,8 @@ ActivityTaskStartedEventAttributes
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes</span></a></span><span>
 </span><span id="line-62"></span><span id="newActivityTaskStartedEventAttributes"><span class="annot"><span class="annottext">newActivityTaskStartedEventAttributes :: Integer -&gt; ActivityTaskStartedEventAttributes
 </span><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#newActivityTaskStartedEventAttributes"><span class="hs-identifier hs-var hs-var">newActivityTaskStartedEventAttributes</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679342287"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342287"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679342296"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342296"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">ActivityTaskStartedEventAttributes' :: Maybe Text -&gt; Integer -&gt; ActivityTaskStartedEventAttributes
 </span><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes'</span></a></span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identity:ActivityTaskStartedEventAttributes' :: Maybe Text
@@ -146,7 +146,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduledEventId:ActivityTaskStartedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#%24sel%3AscheduledEventId%3AActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342287"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span><span>
+</span><a href="#local-6989586621679342296"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | Identity of the worker that was assigned this task. This aids</span><span>
@@ -165,16 +165,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342283"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342292"><span class="annot"><span class="annottext">Maybe Text
 identity :: Maybe Text
 $sel:identity:ActivityTaskStartedEventAttributes' :: ActivityTaskStartedEventAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679342283"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342283"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342282"><span class="annot"><span class="annottext">s :: ActivityTaskStartedEventAttributes
-</span><a href="#local-6989586621679342282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342281"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskStartedEventAttributes
-</span><a href="#local-6989586621679342282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identity:ActivityTaskStartedEventAttributes' :: Maybe Text
+</span><a href="#local-6989586621679342292"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342292"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342291"><span class="annot"><span class="annottext">s :: ActivityTaskStartedEventAttributes
+</span><a href="#local-6989586621679342291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342290"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskStartedEventAttributes
+</span><a href="#local-6989586621679342291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identity:ActivityTaskStartedEventAttributes' :: Maybe Text
 </span><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#%24sel%3Aidentity%3AActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-var">identity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- activity task was scheduled. This information can be useful for</span><span>
@@ -193,22 +193,22 @@ $sel:identity:ActivityTaskStartedEventAttributes' :: ActivityTaskStartedEventAtt
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342279"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342288"><span class="annot"><span class="annottext">Integer
 scheduledEventId :: Integer
 $sel:scheduledEventId:ActivityTaskStartedEventAttributes' :: ActivityTaskStartedEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679342279"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342279"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342278"><span class="annot"><span class="annottext">s :: ActivityTaskStartedEventAttributes
-</span><a href="#local-6989586621679342278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342277"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskStartedEventAttributes
-</span><a href="#local-6989586621679342278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:ActivityTaskStartedEventAttributes' :: Integer
+</span><a href="#local-6989586621679342288"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342288"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342287"><span class="annot"><span class="annottext">s :: ActivityTaskStartedEventAttributes
+</span><a href="#local-6989586621679342287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342286"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskStartedEventAttributes
+</span><a href="#local-6989586621679342287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:ActivityTaskStartedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#%24sel%3AscheduledEventId%3AActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679342274"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679342283"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes</span></a></span></span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679342272"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActivityTaskStartedEventAttributes
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679342281"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActivityTaskStartedEventAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActivityTaskStartedEventAttributes)
@@ -218,8 +218,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActivityTaskStartedEventAttributes&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342269"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342269"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342278"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342278"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Integer -&gt; ActivityTaskStartedEventAttributes
 </span><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes%27"><span class="hs-identifier hs-var">ActivityTaskStartedEventAttributes'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Integer -&gt; ActivityTaskStartedEventAttributes)
@@ -227,7 +227,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Integer -&gt; ActivityTaskStartedEventAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679342278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;identity&quot;</span></span><span class="hs-special">)</span><span>
@@ -235,17 +235,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Integer -&gt; Parser ActivityTaskStartedEventAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679342278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scheduledEventId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679342262"><span id="local-6989586621679342264"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679342271"><span id="local-6989586621679342273"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679342259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679342268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes.html#ActivityTaskStartedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskStartedEventAttributes</span></a></span></span><span>
 </span><span id="line-103"></span></pre></body></html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MemoryDb.UpdateACL</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Changes the list of users that belong to the Access Control List.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MemoryDb.UpdateACL</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier">UpdateACL</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#newUpdateACL"><span class="hs-identifier">newUpdateACL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACL_userNamesToAdd"><span class="hs-identifier">updateACL_userNamesToAdd</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACL_userNamesToRemove"><span class="hs-identifier">updateACL_userNamesToRemove</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACL_aCLName"><span class="hs-identifier">updateACL_aCLName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse"><span class="hs-identifier">UpdateACLResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#newUpdateACLResponse"><span class="hs-identifier">newUpdateACLResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACLResponse_acl"><span class="hs-identifier">updateACLResponse_acl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACLResponse_httpStatus"><span class="hs-identifier">updateACLResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.html"><span class="hs-identifier">Network.AWS.MemoryDb.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateACL' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679254373"><span id="local-6989586621679254374"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateACL"><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-var">UpdateACL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateACL%27"><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL%27"><span class="hs-identifier hs-var">UpdateACL'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of users to add to the Access Control List</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AuserNamesToAdd%3AUpdateACL%27"><span class="annot"><span class="annottext">UpdateACL -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3AuserNamesToAdd%3AUpdateACL%27"><span class="hs-identifier hs-var hs-var">userNamesToAdd</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The list of users to remove from the Access Control List</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AuserNamesToRemove%3AUpdateACL%27"><span class="annot"><span class="annottext">UpdateACL -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3AuserNamesToRemove%3AUpdateACL%27"><span class="hs-identifier hs-var hs-var">userNamesToRemove</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name of the Access Control List</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AaCLName%3AUpdateACL%27"><span class="annot"><span class="annottext">UpdateACL -&gt; Text
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3AaCLName%3AUpdateACL%27"><span class="hs-identifier hs-var hs-var">aCLName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254365"><span id="local-6989586621679254367"><span class="annot"><span class="annottext">UpdateACL -&gt; UpdateACL -&gt; Bool
+(UpdateACL -&gt; UpdateACL -&gt; Bool)
+-&gt; (UpdateACL -&gt; UpdateACL -&gt; Bool) -&gt; Eq UpdateACL
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateACL -&gt; UpdateACL -&gt; Bool
+$c/= :: UpdateACL -&gt; UpdateACL -&gt; Bool
+== :: UpdateACL -&gt; UpdateACL -&gt; Bool
+$c== :: UpdateACL -&gt; UpdateACL -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254356"><span id="local-6989586621679254358"><span id="local-6989586621679254360"><span id="local-6989586621679254362"><span class="annot"><span class="annottext">ReadPrec [UpdateACL]
+ReadPrec UpdateACL
+Int -&gt; ReadS UpdateACL
+ReadS [UpdateACL]
+(Int -&gt; ReadS UpdateACL)
+-&gt; ReadS [UpdateACL]
+-&gt; ReadPrec UpdateACL
+-&gt; ReadPrec [UpdateACL]
+-&gt; Read UpdateACL
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateACL]
+$creadListPrec :: ReadPrec [UpdateACL]
+readPrec :: ReadPrec UpdateACL
+$creadPrec :: ReadPrec UpdateACL
+readList :: ReadS [UpdateACL]
+$creadList :: ReadS [UpdateACL]
+readsPrec :: Int -&gt; ReadS UpdateACL
+$creadsPrec :: Int -&gt; ReadS UpdateACL
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254349"><span id="local-6989586621679254351"><span id="local-6989586621679254353"><span class="annot"><span class="annottext">Int -&gt; UpdateACL -&gt; ShowS
+[UpdateACL] -&gt; ShowS
+UpdateACL -&gt; String
+(Int -&gt; UpdateACL -&gt; ShowS)
+-&gt; (UpdateACL -&gt; String)
+-&gt; ([UpdateACL] -&gt; ShowS)
+-&gt; Show UpdateACL
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateACL] -&gt; ShowS
+$cshowList :: [UpdateACL] -&gt; ShowS
+show :: UpdateACL -&gt; String
+$cshow :: UpdateACL -&gt; String
+showsPrec :: Int -&gt; UpdateACL -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateACL -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateACL -&gt; Rep UpdateACL x)
+-&gt; (forall x. Rep UpdateACL x -&gt; UpdateACL) -&gt; Generic UpdateACL
+forall x. Rep UpdateACL x -&gt; UpdateACL
+forall x. UpdateACL -&gt; Rep UpdateACL x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateACL x -&gt; UpdateACL
+$cfrom :: forall x. UpdateACL -&gt; Rep UpdateACL x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'UpdateACL' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'userNamesToAdd', 'updateACL_userNamesToAdd' - The list of users to add to the Access Control List</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'userNamesToRemove', 'updateACL_userNamesToRemove' - The list of users to remove from the Access Control List</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'aCLName', 'updateACL_aCLName' - The name of the Access Control List</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#newUpdateACL"><span class="hs-identifier hs-type">newUpdateACL</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'aCLName'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span><span>
+</span><span id="line-79"></span><span id="newUpdateACL"><span class="annot"><span class="annottext">newUpdateACL :: Text -&gt; UpdateACL
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#newUpdateACL"><span class="hs-identifier hs-var hs-var">newUpdateACL</span></a></span></span><span> </span><span id="local-6989586621679254344"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254344"><span class="hs-identifier hs-var">pACLName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">UpdateACL' :: Maybe (NonEmpty Text) -&gt; Maybe (NonEmpty Text) -&gt; Text -&gt; UpdateACL
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL%27"><span class="hs-identifier hs-type">UpdateACL'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userNamesToAdd:UpdateACL' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3AuserNamesToAdd%3AUpdateACL%27"><span class="hs-identifier hs-var">userNamesToAdd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:userNamesToRemove:UpdateACL' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3AuserNamesToRemove%3AUpdateACL%27"><span class="hs-identifier hs-var">userNamesToRemove</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:aCLName:UpdateACL' :: Text
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3AaCLName%3AUpdateACL%27"><span class="hs-identifier hs-var">aCLName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254344"><span class="hs-identifier hs-var">pACLName_</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The list of users to add to the Access Control List</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACL_userNamesToAdd"><span class="hs-identifier hs-type">updateACL_userNamesToAdd</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="updateACL_userNamesToAdd"><span class="annot"><span class="annottext">updateACL_userNamesToAdd :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; UpdateACL -&gt; f UpdateACL
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACL_userNamesToAdd"><span class="hs-identifier hs-var hs-var">updateACL_userNamesToAdd</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateACL -&gt; Maybe (NonEmpty Text))
+-&gt; (UpdateACL -&gt; Maybe (NonEmpty Text) -&gt; UpdateACL)
+-&gt; Lens
+     UpdateACL UpdateACL (Maybe (NonEmpty Text)) (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL%27"><span class="hs-identifier hs-type">UpdateACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254341"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+userNamesToAdd :: Maybe (NonEmpty Text)
+$sel:userNamesToAdd:UpdateACL' :: UpdateACL -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679254341"><span class="hs-identifier hs-var hs-var">userNamesToAdd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679254341"><span class="hs-identifier hs-var">userNamesToAdd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254340"><span class="annot"><span class="annottext">s :: UpdateACL
+</span><a href="#local-6989586621679254340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL%27"><span class="hs-identifier hs-type">UpdateACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254339"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679254339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateACL
+</span><a href="#local-6989586621679254340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userNamesToAdd:UpdateACL' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3AuserNamesToAdd%3AUpdateACL%27"><span class="hs-identifier hs-var">userNamesToAdd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679254339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; UpdateACL -&gt; f UpdateACL)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; UpdateACL
+-&gt; f UpdateACL
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The list of users to remove from the Access Control List</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACL_userNamesToRemove"><span class="hs-identifier hs-type">updateACL_userNamesToRemove</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="updateACL_userNamesToRemove"><span class="annot"><span class="annottext">updateACL_userNamesToRemove :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; UpdateACL -&gt; f UpdateACL
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACL_userNamesToRemove"><span class="hs-identifier hs-var hs-var">updateACL_userNamesToRemove</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateACL -&gt; Maybe (NonEmpty Text))
+-&gt; (UpdateACL -&gt; Maybe (NonEmpty Text) -&gt; UpdateACL)
+-&gt; Lens
+     UpdateACL UpdateACL (Maybe (NonEmpty Text)) (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL%27"><span class="hs-identifier hs-type">UpdateACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254335"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+userNamesToRemove :: Maybe (NonEmpty Text)
+$sel:userNamesToRemove:UpdateACL' :: UpdateACL -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679254335"><span class="hs-identifier hs-var hs-var">userNamesToRemove</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679254335"><span class="hs-identifier hs-var">userNamesToRemove</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254334"><span class="annot"><span class="annottext">s :: UpdateACL
+</span><a href="#local-6989586621679254334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL%27"><span class="hs-identifier hs-type">UpdateACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254333"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679254333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateACL
+</span><a href="#local-6989586621679254334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userNamesToRemove:UpdateACL' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3AuserNamesToRemove%3AUpdateACL%27"><span class="hs-identifier hs-var">userNamesToRemove</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679254333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; UpdateACL -&gt; f UpdateACL)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; UpdateACL
+-&gt; f UpdateACL
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the Access Control List</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACL_aCLName"><span class="hs-identifier hs-type">updateACL_aCLName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="updateACL_aCLName"><span class="annot"><span class="annottext">updateACL_aCLName :: (Text -&gt; f Text) -&gt; UpdateACL -&gt; f UpdateACL
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACL_aCLName"><span class="hs-identifier hs-var hs-var">updateACL_aCLName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateACL -&gt; Text)
+-&gt; (UpdateACL -&gt; Text -&gt; UpdateACL)
+-&gt; Lens UpdateACL UpdateACL Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL%27"><span class="hs-identifier hs-type">UpdateACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254332"><span class="annot"><span class="annottext">Text
+aCLName :: Text
+$sel:aCLName:UpdateACL' :: UpdateACL -&gt; Text
+</span><a href="#local-6989586621679254332"><span class="hs-identifier hs-var hs-var">aCLName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254332"><span class="hs-identifier hs-var">aCLName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254331"><span class="annot"><span class="annottext">s :: UpdateACL
+</span><a href="#local-6989586621679254331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL%27"><span class="hs-identifier hs-type">UpdateACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254330"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateACL
+</span><a href="#local-6989586621679254331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aCLName:UpdateACL' :: Text
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3AaCLName%3AUpdateACL%27"><span class="hs-identifier hs-var">aCLName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse"><span class="hs-identifier hs-type">UpdateACLResponse</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679254326"><span class="annot"><span class="annottext">request :: UpdateACL -&gt; Request UpdateACL
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateACL -&gt; Request UpdateACL
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MemoryDb.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679254322"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateACL
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateACL)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateACL))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateACL
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateACL)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254319"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254319"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679254318"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679254318"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679254317"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679254317"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe ACL -&gt; Int -&gt; UpdateACLResponse
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse%27"><span class="hs-identifier hs-var">UpdateACLResponse'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ACL -&gt; Int -&gt; UpdateACLResponse)
+-&gt; Either String (Maybe ACL)
+-&gt; Either String (Int -&gt; UpdateACLResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679254317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ACL)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ACL&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateACLResponse)
+-&gt; Either String Int -&gt; Either String UpdateACLResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254319"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254309"><span id="local-6989586621679254311"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679254302"><span class="annot"><span class="annottext">toHeaders :: UpdateACL -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateACL -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonMemoryDB.UpdateACL&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-122"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254292"><span id="local-6989586621679254294"><span id="local-6989586621679254296"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679254290"><span class="annot"><span class="annottext">toJSON :: UpdateACL -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL%27"><span class="hs-identifier hs-type">UpdateACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254286"><span id="local-6989586621679254287"><span id="local-6989586621679254288"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+Text
+aCLName :: Text
+userNamesToRemove :: Maybe (NonEmpty Text)
+userNamesToAdd :: Maybe (NonEmpty Text)
+$sel:aCLName:UpdateACL' :: UpdateACL -&gt; Text
+$sel:userNamesToRemove:UpdateACL' :: UpdateACL -&gt; Maybe (NonEmpty Text)
+$sel:userNamesToAdd:UpdateACL' :: UpdateACL -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679254286"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserNamesToAdd&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679254288"><span class="hs-identifier hs-var">userNamesToAdd</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserNamesToRemove&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679254287"><span class="hs-identifier hs-var">userNamesToRemove</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ACLName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254286"><span class="hs-identifier hs-var">aCLName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679254280"><span class="annot"><span class="annottext">toPath :: UpdateACL -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateACL -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACL"><span class="hs-identifier hs-type">UpdateACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679254276"><span class="annot"><span class="annottext">toQuery :: UpdateACL -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateACL -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newUpdateACLResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621679254273"><span id="local-6989586621679254274"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateACLResponse"><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse"><span class="hs-identifier hs-var">UpdateACLResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateACLResponse%27"><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse%27"><span class="hs-identifier hs-var">UpdateACLResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated Access Control List</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3Aacl%3AUpdateACLResponse%27"><span class="annot"><span class="annottext">UpdateACLResponse -&gt; Maybe ACL
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3Aacl%3AUpdateACLResponse%27"><span class="hs-identifier hs-var hs-var">acl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.ACL.html#ACL"><span class="hs-identifier hs-type">ACL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateACLResponse%27"><span class="annot"><span class="annottext">UpdateACLResponse -&gt; Int
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3AhttpStatus%3AUpdateACLResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254267"><span id="local-6989586621679254269"><span class="annot"><span class="annottext">UpdateACLResponse -&gt; UpdateACLResponse -&gt; Bool
+(UpdateACLResponse -&gt; UpdateACLResponse -&gt; Bool)
+-&gt; (UpdateACLResponse -&gt; UpdateACLResponse -&gt; Bool)
+-&gt; Eq UpdateACLResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateACLResponse -&gt; UpdateACLResponse -&gt; Bool
+$c/= :: UpdateACLResponse -&gt; UpdateACLResponse -&gt; Bool
+== :: UpdateACLResponse -&gt; UpdateACLResponse -&gt; Bool
+$c== :: UpdateACLResponse -&gt; UpdateACLResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254259"><span id="local-6989586621679254261"><span id="local-6989586621679254263"><span id="local-6989586621679254265"><span class="annot"><span class="annottext">ReadPrec [UpdateACLResponse]
+ReadPrec UpdateACLResponse
+Int -&gt; ReadS UpdateACLResponse
+ReadS [UpdateACLResponse]
+(Int -&gt; ReadS UpdateACLResponse)
+-&gt; ReadS [UpdateACLResponse]
+-&gt; ReadPrec UpdateACLResponse
+-&gt; ReadPrec [UpdateACLResponse]
+-&gt; Read UpdateACLResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateACLResponse]
+$creadListPrec :: ReadPrec [UpdateACLResponse]
+readPrec :: ReadPrec UpdateACLResponse
+$creadPrec :: ReadPrec UpdateACLResponse
+readList :: ReadS [UpdateACLResponse]
+$creadList :: ReadS [UpdateACLResponse]
+readsPrec :: Int -&gt; ReadS UpdateACLResponse
+$creadsPrec :: Int -&gt; ReadS UpdateACLResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254253"><span id="local-6989586621679254255"><span id="local-6989586621679254257"><span class="annot"><span class="annottext">Int -&gt; UpdateACLResponse -&gt; ShowS
+[UpdateACLResponse] -&gt; ShowS
+UpdateACLResponse -&gt; String
+(Int -&gt; UpdateACLResponse -&gt; ShowS)
+-&gt; (UpdateACLResponse -&gt; String)
+-&gt; ([UpdateACLResponse] -&gt; ShowS)
+-&gt; Show UpdateACLResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateACLResponse] -&gt; ShowS
+$cshowList :: [UpdateACLResponse] -&gt; ShowS
+show :: UpdateACLResponse -&gt; String
+$cshow :: UpdateACLResponse -&gt; String
+showsPrec :: Int -&gt; UpdateACLResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateACLResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateACLResponse -&gt; Rep UpdateACLResponse x)
+-&gt; (forall x. Rep UpdateACLResponse x -&gt; UpdateACLResponse)
+-&gt; Generic UpdateACLResponse
+forall x. Rep UpdateACLResponse x -&gt; UpdateACLResponse
+forall x. UpdateACLResponse -&gt; Rep UpdateACLResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateACLResponse x -&gt; UpdateACLResponse
+$cfrom :: forall x. UpdateACLResponse -&gt; Rep UpdateACLResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Create a value of 'UpdateACLResponse' with all optional fields omitted.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'acl', 'updateACLResponse_acl' - The updated Access Control List</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'httpStatus', 'updateACLResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#newUpdateACLResponse"><span class="hs-identifier hs-type">newUpdateACLResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse"><span class="hs-identifier hs-type">UpdateACLResponse</span></a></span><span>
+</span><span id="line-168"></span><span id="newUpdateACLResponse"><span class="annot"><span class="annottext">newUpdateACLResponse :: Int -&gt; UpdateACLResponse
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#newUpdateACLResponse"><span class="hs-identifier hs-var hs-var">newUpdateACLResponse</span></a></span></span><span> </span><span id="local-6989586621679254250"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254250"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">UpdateACLResponse' :: Maybe ACL -&gt; Int -&gt; UpdateACLResponse
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse%27"><span class="hs-identifier hs-type">UpdateACLResponse'</span></a></span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:acl:UpdateACLResponse' :: Maybe ACL
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3Aacl%3AUpdateACLResponse%27"><span class="hs-identifier hs-var">acl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ACL
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateACLResponse' :: Int
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3AhttpStatus%3AUpdateACLResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254250"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The updated Access Control List</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACLResponse_acl"><span class="hs-identifier hs-type">updateACLResponse_acl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse"><span class="hs-identifier hs-type">UpdateACLResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.ACL.html#ACL"><span class="hs-identifier hs-type">ACL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="updateACLResponse_acl"><span class="annot"><span class="annottext">updateACLResponse_acl :: (Maybe ACL -&gt; f (Maybe ACL))
+-&gt; UpdateACLResponse -&gt; f UpdateACLResponse
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACLResponse_acl"><span class="hs-identifier hs-var hs-var">updateACLResponse_acl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateACLResponse -&gt; Maybe ACL)
+-&gt; (UpdateACLResponse -&gt; Maybe ACL -&gt; UpdateACLResponse)
+-&gt; Lens UpdateACLResponse UpdateACLResponse (Maybe ACL) (Maybe ACL)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse%27"><span class="hs-identifier hs-type">UpdateACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254249"><span class="annot"><span class="annottext">Maybe ACL
+acl :: Maybe ACL
+$sel:acl:UpdateACLResponse' :: UpdateACLResponse -&gt; Maybe ACL
+</span><a href="#local-6989586621679254249"><span class="hs-identifier hs-var hs-var">acl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ACL
+</span><a href="#local-6989586621679254249"><span class="hs-identifier hs-var">acl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254248"><span class="annot"><span class="annottext">s :: UpdateACLResponse
+</span><a href="#local-6989586621679254248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse%27"><span class="hs-identifier hs-type">UpdateACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254247"><span class="annot"><span class="annottext">Maybe ACL
+</span><a href="#local-6989586621679254247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateACLResponse
+</span><a href="#local-6989586621679254248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acl:UpdateACLResponse' :: Maybe ACL
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3Aacl%3AUpdateACLResponse%27"><span class="hs-identifier hs-var">acl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ACL
+</span><a href="#local-6989586621679254247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse"><span class="hs-identifier hs-type">UpdateACLResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACLResponse_httpStatus"><span class="hs-identifier hs-type">updateACLResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse"><span class="hs-identifier hs-type">UpdateACLResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-180"></span><span id="updateACLResponse_httpStatus"><span class="annot"><span class="annottext">updateACLResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateACLResponse -&gt; f UpdateACLResponse
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#updateACLResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateACLResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateACLResponse -&gt; Int)
+-&gt; (UpdateACLResponse -&gt; Int -&gt; UpdateACLResponse)
+-&gt; Lens UpdateACLResponse UpdateACLResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse%27"><span class="hs-identifier hs-type">UpdateACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254246"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateACLResponse' :: UpdateACLResponse -&gt; Int
+</span><a href="#local-6989586621679254246"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254246"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254245"><span class="annot"><span class="annottext">s :: UpdateACLResponse
+</span><a href="#local-6989586621679254245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse%27"><span class="hs-identifier hs-type">UpdateACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254244"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateACLResponse
+</span><a href="#local-6989586621679254245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateACLResponse' :: Int
+</span><a href="Network.AWS.MemoryDb.UpdateACL.html#%24sel%3AhttpStatus%3AUpdateACLResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse"><span class="hs-identifier hs-type">UpdateACLResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.UpdateACL.html#UpdateACLResponse"><span class="hs-identifier hs-type">UpdateACLResponse</span></a></span></span><span>
+</span><span id="line-183"></span></pre></body></html>

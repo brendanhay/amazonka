@@ -50,14 +50,14 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newTestMetricFilter' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679224093"><span id="local-6989586621679224094"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestMetricFilter"><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-var">TestMetricFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestMetricFilter%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter%27"><span class="hs-identifier hs-var">TestMetricFilter'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679224102"><span id="local-6989586621679224103"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestMetricFilter"><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-var">TestMetricFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestMetricFilter%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter%27"><span class="hs-identifier hs-var">TestMetricFilter'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AfilterPattern%3ATestMetricFilter%27"><span class="annot"><span class="annottext">TestMetricFilter -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#%24sel%3AfilterPattern%3ATestMetricFilter%27"><span class="hs-identifier hs-var hs-var">filterPattern</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The log event messages to test.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AlogEventMessages%3ATestMetricFilter%27"><span class="annot"><span class="annottext">TestMetricFilter -&gt; NonEmpty Text
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#%24sel%3AlogEventMessages%3ATestMetricFilter%27"><span class="hs-identifier hs-var hs-var">logEventMessages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224086"><span id="local-6989586621679224088"><span class="annot"><span class="annottext">TestMetricFilter -&gt; TestMetricFilter -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224095"><span id="local-6989586621679224097"><span class="annot"><span class="annottext">TestMetricFilter -&gt; TestMetricFilter -&gt; Bool
 (TestMetricFilter -&gt; TestMetricFilter -&gt; Bool)
 -&gt; (TestMetricFilter -&gt; TestMetricFilter -&gt; Bool)
 -&gt; Eq TestMetricFilter
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TestMetricFilter -&gt; TestMetricFilter -&gt; Bool
 == :: TestMetricFilter -&gt; TestMetricFilter -&gt; Bool
 $c== :: TestMetricFilter -&gt; TestMetricFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224077"><span id="local-6989586621679224079"><span id="local-6989586621679224081"><span id="local-6989586621679224083"><span class="annot"><span class="annottext">ReadPrec [TestMetricFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224086"><span id="local-6989586621679224088"><span id="local-6989586621679224090"><span id="local-6989586621679224092"><span class="annot"><span class="annottext">ReadPrec [TestMetricFilter]
 ReadPrec TestMetricFilter
 Int -&gt; ReadS TestMetricFilter
 ReadS [TestMetricFilter]
@@ -86,7 +86,7 @@ readList :: ReadS [TestMetricFilter]
 $creadList :: ReadS [TestMetricFilter]
 readsPrec :: Int -&gt; ReadS TestMetricFilter
 $creadsPrec :: Int -&gt; ReadS TestMetricFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224070"><span id="local-6989586621679224072"><span id="local-6989586621679224074"><span class="annot"><span class="annottext">Int -&gt; TestMetricFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224079"><span id="local-6989586621679224081"><span id="local-6989586621679224083"><span class="annot"><span class="annottext">Int -&gt; TestMetricFilter -&gt; ShowS
 [TestMetricFilter] -&gt; ShowS
 TestMetricFilter -&gt; String
 (Int -&gt; TestMetricFilter -&gt; ShowS)
@@ -131,15 +131,15 @@ $cfrom :: forall x. TestMetricFilter -&gt; Rep TestMetricFilter x
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span><span>
 </span><span id="line-77"></span><span id="newTestMetricFilter"><span class="annot"><span class="annottext">newTestMetricFilter :: Text -&gt; NonEmpty Text -&gt; TestMetricFilter
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#newTestMetricFilter"><span class="hs-identifier hs-var hs-var">newTestMetricFilter</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679224065"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224065"><span class="hs-identifier hs-var">pFilterPattern_</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679224064"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679224064"><span class="hs-identifier hs-var">pLogEventMessages_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679224074"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224074"><span class="hs-identifier hs-var">pFilterPattern_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679224073"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679224073"><span class="hs-identifier hs-var">pLogEventMessages_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">TestMetricFilter' :: Text -&gt; NonEmpty Text -&gt; TestMetricFilter
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter%27"><span class="hs-identifier hs-type">TestMetricFilter'</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filterPattern:TestMetricFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#%24sel%3AfilterPattern%3ATestMetricFilter%27"><span class="hs-identifier hs-var">filterPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224065"><span class="hs-identifier hs-var">pFilterPattern_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224074"><span class="hs-identifier hs-var">pFilterPattern_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:logEventMessages:TestMetricFilter' :: NonEmpty Text
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#%24sel%3AlogEventMessages%3ATestMetricFilter%27"><span class="hs-identifier hs-var">logEventMessages</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
@@ -150,7 +150,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679224064"><span class="hs-identifier hs-var">pLogEventMessages_</span></a></span><span>
+</span><a href="#local-6989586621679224073"><span class="hs-identifier hs-var">pLogEventMessages_</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -160,16 +160,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (TestMetricFilter -&gt; Text -&gt; TestMetricFilter)
 -&gt; Lens TestMetricFilter TestMetricFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter%27"><span class="hs-identifier hs-type">TestMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224059"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter%27"><span class="hs-identifier hs-type">TestMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224068"><span class="annot"><span class="annottext">Text
 filterPattern :: Text
 $sel:filterPattern:TestMetricFilter' :: TestMetricFilter -&gt; Text
-</span><a href="#local-6989586621679224059"><span class="hs-identifier hs-var hs-var">filterPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224059"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224058"><span class="annot"><span class="annottext">s :: TestMetricFilter
-</span><a href="#local-6989586621679224058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter%27"><span class="hs-identifier hs-type">TestMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224057"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestMetricFilter
-</span><a href="#local-6989586621679224058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterPattern:TestMetricFilter' :: Text
+</span><a href="#local-6989586621679224068"><span class="hs-identifier hs-var hs-var">filterPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224068"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224067"><span class="annot"><span class="annottext">s :: TestMetricFilter
+</span><a href="#local-6989586621679224067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter%27"><span class="hs-identifier hs-type">TestMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224066"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestMetricFilter
+</span><a href="#local-6989586621679224067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterPattern:TestMetricFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#%24sel%3AfilterPattern%3ATestMetricFilter%27"><span class="hs-identifier hs-var">filterPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The log event messages to test.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#testMetricFilter_logEventMessages"><span class="hs-identifier hs-type">testMetricFilter_logEventMessages</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -180,16 +180,16 @@ $sel:filterPattern:TestMetricFilter' :: TestMetricFilter -&gt; Text
 -&gt; Lens
      TestMetricFilter TestMetricFilter (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter%27"><span class="hs-identifier hs-type">TestMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224056"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter%27"><span class="hs-identifier hs-type">TestMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224065"><span class="annot"><span class="annottext">NonEmpty Text
 logEventMessages :: NonEmpty Text
 $sel:logEventMessages:TestMetricFilter' :: TestMetricFilter -&gt; NonEmpty Text
-</span><a href="#local-6989586621679224056"><span class="hs-identifier hs-var hs-var">logEventMessages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679224056"><span class="hs-identifier hs-var">logEventMessages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224055"><span class="annot"><span class="annottext">s :: TestMetricFilter
-</span><a href="#local-6989586621679224055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter%27"><span class="hs-identifier hs-type">TestMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224054"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679224054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestMetricFilter
-</span><a href="#local-6989586621679224055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logEventMessages:TestMetricFilter' :: NonEmpty Text
+</span><a href="#local-6989586621679224065"><span class="hs-identifier hs-var hs-var">logEventMessages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679224065"><span class="hs-identifier hs-var">logEventMessages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224064"><span class="annot"><span class="annottext">s :: TestMetricFilter
+</span><a href="#local-6989586621679224064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter%27"><span class="hs-identifier hs-type">TestMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224063"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679224063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestMetricFilter
+</span><a href="#local-6989586621679224064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logEventMessages:TestMetricFilter' :: NonEmpty Text
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#%24sel%3AlogEventMessages%3ATestMetricFilter%27"><span class="hs-identifier hs-var">logEventMessages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679224054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679224063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; TestMetricFilter -&gt; f TestMetricFilter)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -206,12 +206,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse"><span class="hs-identifier hs-type">TestMetricFilterResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679224049"><span class="annot"><span class="annottext">request :: TestMetricFilter -&gt; Request TestMetricFilter
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679224058"><span class="annot"><span class="annottext">request :: TestMetricFilter -&gt; Request TestMetricFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TestMetricFilter -&gt; Request TestMetricFilter
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679224045"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679224054"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TestMetricFilter
 -&gt; ClientResponse ClientBody
@@ -235,10 +235,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224042"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224042"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679224041"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679224041"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679224040"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224040"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224051"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224051"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679224050"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679224050"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679224049"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224049"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe [MetricFilterMatchRecord] -&gt; Int -&gt; TestMetricFilterResponse
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse%27"><span class="hs-identifier hs-var">TestMetricFilterResponse'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [MetricFilterMatchRecord]
@@ -247,7 +247,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; TestMetricFilterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [MetricFilterMatchRecord]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -266,15 +266,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224042"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224051"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224031"><span id="local-6989586621679224033"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224040"><span id="local-6989586621679224042"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224028"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679224024"><span class="annot"><span class="annottext">toHeaders :: TestMetricFilter -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679224033"><span class="annot"><span class="annottext">toHeaders :: TestMetricFilter -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TestMetricFilter -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -301,15 +301,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224014"><span id="local-6989586621679224016"><span id="local-6989586621679224018"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679224012"><span class="annot"><span class="annottext">toJSON :: TestMetricFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter%27"><span class="hs-identifier hs-type">TestMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224009"><span id="local-6989586621679224010"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224023"><span id="local-6989586621679224025"><span id="local-6989586621679224027"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679224021"><span class="annot"><span class="annottext">toJSON :: TestMetricFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter%27"><span class="hs-identifier hs-type">TestMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224018"><span id="local-6989586621679224019"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 logEventMessages :: NonEmpty Text
 filterPattern :: Text
 $sel:logEventMessages:TestMetricFilter' :: TestMetricFilter -&gt; NonEmpty Text
 $sel:filterPattern:TestMetricFilter' :: TestMetricFilter -&gt; Text
-</span><a href="#local-6989586621679224009"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679224018"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -322,7 +322,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;filterPattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224010"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224019"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -330,19 +330,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;logEventMessages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679224009"><span class="hs-identifier hs-var">logEventMessages</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224018"><span class="hs-identifier hs-var">logEventMessages</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679224003"><span class="annot"><span class="annottext">toPath :: TestMetricFilter -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679224012"><span class="annot"><span class="annottext">toPath :: TestMetricFilter -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TestMetricFilter -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilter"><span class="hs-identifier hs-type">TestMetricFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679223999"><span class="annot"><span class="annottext">toQuery :: TestMetricFilter -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679224008"><span class="annot"><span class="annottext">toQuery :: TestMetricFilter -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TestMetricFilter -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -350,7 +350,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newTestMetricFilterResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679223996"><span id="local-6989586621679223997"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestMetricFilterResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse"><span class="hs-identifier hs-var">TestMetricFilterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestMetricFilterResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse%27"><span class="hs-identifier hs-var">TestMetricFilterResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679224005"><span id="local-6989586621679224006"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestMetricFilterResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse"><span class="hs-identifier hs-var">TestMetricFilterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestMetricFilterResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse%27"><span class="hs-identifier hs-var">TestMetricFilterResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The matched events.</span><span>
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3Amatches%3ATestMetricFilterResponse%27"><span class="annot"><span class="annottext">TestMetricFilterResponse -&gt; Maybe [MetricFilterMatchRecord]
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#%24sel%3Amatches%3ATestMetricFilterResponse%27"><span class="hs-identifier hs-var hs-var">matches</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilterMatchRecord.html#MetricFilterMatchRecord"><span class="hs-identifier hs-type">MetricFilterMatchRecord</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -358,7 +358,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATestMetricFilterResponse%27"><span class="annot"><span class="annottext">TestMetricFilterResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#%24sel%3AhttpStatus%3ATestMetricFilterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223990"><span id="local-6989586621679223992"><span class="annot"><span class="annottext">TestMetricFilterResponse -&gt; TestMetricFilterResponse -&gt; Bool
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223999"><span id="local-6989586621679224001"><span class="annot"><span class="annottext">TestMetricFilterResponse -&gt; TestMetricFilterResponse -&gt; Bool
 (TestMetricFilterResponse -&gt; TestMetricFilterResponse -&gt; Bool)
 -&gt; (TestMetricFilterResponse -&gt; TestMetricFilterResponse -&gt; Bool)
 -&gt; Eq TestMetricFilterResponse
@@ -367,7 +367,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TestMetricFilterResponse -&gt; TestMetricFilterResponse -&gt; Bool
 == :: TestMetricFilterResponse -&gt; TestMetricFilterResponse -&gt; Bool
 $c== :: TestMetricFilterResponse -&gt; TestMetricFilterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223982"><span id="local-6989586621679223984"><span id="local-6989586621679223986"><span id="local-6989586621679223988"><span class="annot"><span class="annottext">ReadPrec [TestMetricFilterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223991"><span id="local-6989586621679223993"><span id="local-6989586621679223995"><span id="local-6989586621679223997"><span class="annot"><span class="annottext">ReadPrec [TestMetricFilterResponse]
 ReadPrec TestMetricFilterResponse
 Int -&gt; ReadS TestMetricFilterResponse
 ReadS [TestMetricFilterResponse]
@@ -387,7 +387,7 @@ readList :: ReadS [TestMetricFilterResponse]
 $creadList :: ReadS [TestMetricFilterResponse]
 readsPrec :: Int -&gt; ReadS TestMetricFilterResponse
 $creadsPrec :: Int -&gt; ReadS TestMetricFilterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223976"><span id="local-6989586621679223978"><span id="local-6989586621679223980"><span class="annot"><span class="annottext">Int -&gt; TestMetricFilterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223985"><span id="local-6989586621679223987"><span id="local-6989586621679223989"><span class="annot"><span class="annottext">Int -&gt; TestMetricFilterResponse -&gt; ShowS
 [TestMetricFilterResponse] -&gt; ShowS
 TestMetricFilterResponse -&gt; String
 (Int -&gt; TestMetricFilterResponse -&gt; ShowS)
@@ -435,8 +435,8 @@ TestMetricFilterResponse -&gt; Rep TestMetricFilterResponse x
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse"><span class="hs-identifier hs-type">TestMetricFilterResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newTestMetricFilterResponse"><span class="annot"><span class="annottext">newTestMetricFilterResponse :: Int -&gt; TestMetricFilterResponse
-</span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#newTestMetricFilterResponse"><span class="hs-identifier hs-var hs-var">newTestMetricFilterResponse</span></a></span></span><span> </span><span id="local-6989586621679223973"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223973"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#newTestMetricFilterResponse"><span class="hs-identifier hs-var hs-var">newTestMetricFilterResponse</span></a></span></span><span> </span><span id="local-6989586621679223982"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">TestMetricFilterResponse' :: Maybe [MetricFilterMatchRecord] -&gt; Int -&gt; TestMetricFilterResponse
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse%27"><span class="hs-identifier hs-type">TestMetricFilterResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:matches:TestMetricFilterResponse' :: Maybe [MetricFilterMatchRecord]
@@ -446,7 +446,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:TestMetricFilterResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#%24sel%3AhttpStatus%3ATestMetricFilterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223973"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679223982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The matched events.</span><span>
@@ -463,16 +463,16 @@ forall a. Maybe a
      (Maybe [MetricFilterMatchRecord])
      (Maybe [MetricFilterMatchRecord])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse%27"><span class="hs-identifier hs-type">TestMetricFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223972"><span class="annot"><span class="annottext">Maybe [MetricFilterMatchRecord]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse%27"><span class="hs-identifier hs-type">TestMetricFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223981"><span class="annot"><span class="annottext">Maybe [MetricFilterMatchRecord]
 matches :: Maybe [MetricFilterMatchRecord]
 $sel:matches:TestMetricFilterResponse' :: TestMetricFilterResponse -&gt; Maybe [MetricFilterMatchRecord]
-</span><a href="#local-6989586621679223972"><span class="hs-identifier hs-var hs-var">matches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricFilterMatchRecord]
-</span><a href="#local-6989586621679223972"><span class="hs-identifier hs-var">matches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223971"><span class="annot"><span class="annottext">s :: TestMetricFilterResponse
-</span><a href="#local-6989586621679223971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse%27"><span class="hs-identifier hs-type">TestMetricFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223970"><span class="annot"><span class="annottext">Maybe [MetricFilterMatchRecord]
-</span><a href="#local-6989586621679223970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestMetricFilterResponse
-</span><a href="#local-6989586621679223971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matches:TestMetricFilterResponse' :: Maybe [MetricFilterMatchRecord]
+</span><a href="#local-6989586621679223981"><span class="hs-identifier hs-var hs-var">matches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricFilterMatchRecord]
+</span><a href="#local-6989586621679223981"><span class="hs-identifier hs-var">matches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223980"><span class="annot"><span class="annottext">s :: TestMetricFilterResponse
+</span><a href="#local-6989586621679223980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse%27"><span class="hs-identifier hs-type">TestMetricFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223979"><span class="annot"><span class="annottext">Maybe [MetricFilterMatchRecord]
+</span><a href="#local-6989586621679223979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestMetricFilterResponse
+</span><a href="#local-6989586621679223980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matches:TestMetricFilterResponse' :: Maybe [MetricFilterMatchRecord]
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#%24sel%3Amatches%3ATestMetricFilterResponse%27"><span class="hs-identifier hs-var">matches</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricFilterMatchRecord]
-</span><a href="#local-6989586621679223970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse"><span class="hs-identifier hs-type">TestMetricFilterResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricFilterMatchRecord]
+</span><a href="#local-6989586621679223979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse"><span class="hs-identifier hs-type">TestMetricFilterResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricFilterMatchRecord]
   -&gt; f (Maybe [MetricFilterMatchRecord]))
  -&gt; TestMetricFilterResponse -&gt; f TestMetricFilterResponse)
 -&gt; ((Maybe [MetricFilterMatchRecord]
@@ -513,16 +513,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (TestMetricFilterResponse -&gt; Int -&gt; TestMetricFilterResponse)
 -&gt; Lens TestMetricFilterResponse TestMetricFilterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse%27"><span class="hs-identifier hs-type">TestMetricFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223968"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse%27"><span class="hs-identifier hs-type">TestMetricFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223977"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TestMetricFilterResponse' :: TestMetricFilterResponse -&gt; Int
-</span><a href="#local-6989586621679223968"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223968"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223967"><span class="annot"><span class="annottext">s :: TestMetricFilterResponse
-</span><a href="#local-6989586621679223967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse%27"><span class="hs-identifier hs-type">TestMetricFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223966"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestMetricFilterResponse
-</span><a href="#local-6989586621679223967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestMetricFilterResponse' :: Int
+</span><a href="#local-6989586621679223977"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223977"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223976"><span class="annot"><span class="annottext">s :: TestMetricFilterResponse
+</span><a href="#local-6989586621679223976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse%27"><span class="hs-identifier hs-type">TestMetricFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223975"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestMetricFilterResponse
+</span><a href="#local-6989586621679223976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestMetricFilterResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#%24sel%3AhttpStatus%3ATestMetricFilterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse"><span class="hs-identifier hs-type">TestMetricFilterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse"><span class="hs-identifier hs-type">TestMetricFilterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223964"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse"><span class="hs-identifier hs-type">TestMetricFilterResponse</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.TestMetricFilter.html#TestMetricFilterResponse"><span class="hs-identifier hs-type">TestMetricFilterResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

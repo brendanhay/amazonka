@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Personalize.Types.DatasetImportJobSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Personalize.Types.DatasetImportJobSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Provides a summary of the properties of a dataset import job. For a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- complete listing, call the DescribeDatasetImportJob API.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDatasetImportJobSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679269352"><span id="local-6989586621679269353"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatasetImportJobSummary"><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-var">DatasetImportJobSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetImportJobSummary%27"><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-var">DatasetImportJobSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a dataset import job fails, the reason behind the failure.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AfailureReason%3ADatasetImportJobSummary%27"><span class="annot"><span class="annottext">DatasetImportJobSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AfailureReason%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The status of the dataset import job.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- A dataset import job can be in one of the following states:</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astatus%3ADatasetImportJobSummary%27"><span class="annot"><span class="annottext">DatasetImportJobSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3Astatus%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the dataset import job.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AjobName%3ADatasetImportJobSummary%27"><span class="annot"><span class="annottext">DatasetImportJobSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AjobName%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The date and time (in Unix time) that the dataset import job status was</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- last updated.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlastUpdatedDateTime%3ADatasetImportJobSummary%27"><span class="annot"><span class="annottext">DatasetImportJobSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AlastUpdatedDateTime%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var hs-var">lastUpdatedDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset import job.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AdatasetImportJobArn%3ADatasetImportJobSummary%27"><span class="annot"><span class="annottext">DatasetImportJobSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AdatasetImportJobArn%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var hs-var">datasetImportJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The date and time (in Unix time) that the dataset import job was</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcreationDateTime%3ADatasetImportJobSummary%27"><span class="annot"><span class="annottext">DatasetImportJobSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AcreationDateTime%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269341"><span id="local-6989586621679269343"><span class="annot"><span class="annottext">DatasetImportJobSummary -&gt; DatasetImportJobSummary -&gt; Bool
+(DatasetImportJobSummary -&gt; DatasetImportJobSummary -&gt; Bool)
+-&gt; (DatasetImportJobSummary -&gt; DatasetImportJobSummary -&gt; Bool)
+-&gt; Eq DatasetImportJobSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DatasetImportJobSummary -&gt; DatasetImportJobSummary -&gt; Bool
+$c/= :: DatasetImportJobSummary -&gt; DatasetImportJobSummary -&gt; Bool
+== :: DatasetImportJobSummary -&gt; DatasetImportJobSummary -&gt; Bool
+$c== :: DatasetImportJobSummary -&gt; DatasetImportJobSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269332"><span id="local-6989586621679269334"><span id="local-6989586621679269336"><span id="local-6989586621679269338"><span class="annot"><span class="annottext">ReadPrec [DatasetImportJobSummary]
+ReadPrec DatasetImportJobSummary
+Int -&gt; ReadS DatasetImportJobSummary
+ReadS [DatasetImportJobSummary]
+(Int -&gt; ReadS DatasetImportJobSummary)
+-&gt; ReadS [DatasetImportJobSummary]
+-&gt; ReadPrec DatasetImportJobSummary
+-&gt; ReadPrec [DatasetImportJobSummary]
+-&gt; Read DatasetImportJobSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DatasetImportJobSummary]
+$creadListPrec :: ReadPrec [DatasetImportJobSummary]
+readPrec :: ReadPrec DatasetImportJobSummary
+$creadPrec :: ReadPrec DatasetImportJobSummary
+readList :: ReadS [DatasetImportJobSummary]
+$creadList :: ReadS [DatasetImportJobSummary]
+readsPrec :: Int -&gt; ReadS DatasetImportJobSummary
+$creadsPrec :: Int -&gt; ReadS DatasetImportJobSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269325"><span id="local-6989586621679269327"><span id="local-6989586621679269329"><span class="annot"><span class="annottext">Int -&gt; DatasetImportJobSummary -&gt; ShowS
+[DatasetImportJobSummary] -&gt; ShowS
+DatasetImportJobSummary -&gt; String
+(Int -&gt; DatasetImportJobSummary -&gt; ShowS)
+-&gt; (DatasetImportJobSummary -&gt; String)
+-&gt; ([DatasetImportJobSummary] -&gt; ShowS)
+-&gt; Show DatasetImportJobSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DatasetImportJobSummary] -&gt; ShowS
+$cshowList :: [DatasetImportJobSummary] -&gt; ShowS
+show :: DatasetImportJobSummary -&gt; String
+$cshow :: DatasetImportJobSummary -&gt; String
+showsPrec :: Int -&gt; DatasetImportJobSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; DatasetImportJobSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DatasetImportJobSummary -&gt; Rep DatasetImportJobSummary x)
+-&gt; (forall x.
+    Rep DatasetImportJobSummary x -&gt; DatasetImportJobSummary)
+-&gt; Generic DatasetImportJobSummary
+forall x. Rep DatasetImportJobSummary x -&gt; DatasetImportJobSummary
+forall x. DatasetImportJobSummary -&gt; Rep DatasetImportJobSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DatasetImportJobSummary x -&gt; DatasetImportJobSummary
+$cfrom :: forall x. DatasetImportJobSummary -&gt; Rep DatasetImportJobSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'DatasetImportJobSummary' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'failureReason', 'datasetImportJobSummary_failureReason' - If a dataset import job fails, the reason behind the failure.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'status', 'datasetImportJobSummary_status' - The status of the dataset import job.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- A dataset import job can be in one of the following states:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- -   CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'jobName', 'datasetImportJobSummary_jobName' - The name of the dataset import job.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'lastUpdatedDateTime', 'datasetImportJobSummary_lastUpdatedDateTime' - The date and time (in Unix time) that the dataset import job status was</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- last updated.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'datasetImportJobArn', 'datasetImportJobSummary_datasetImportJobArn' - The Amazon Resource Name (ARN) of the dataset import job.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'creationDateTime', 'datasetImportJobSummary_creationDateTime' - The date and time (in Unix time) that the dataset import job was</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#newDatasetImportJobSummary"><span class="hs-identifier hs-type">newDatasetImportJobSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span><span>
+</span><span id="line-79"></span><span id="newDatasetImportJobSummary"><span class="annot"><span class="annottext">newDatasetImportJobSummary :: DatasetImportJobSummary
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#newDatasetImportJobSummary"><span class="hs-identifier hs-var hs-var">newDatasetImportJobSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DatasetImportJobSummary' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; DatasetImportJobSummary
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-type">DatasetImportJobSummary'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureReason:DatasetImportJobSummary' :: Maybe Text
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AfailureReason%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DatasetImportJobSummary' :: Maybe Text
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3Astatus%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobName:DatasetImportJobSummary' :: Maybe Text
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AjobName%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedDateTime:DatasetImportJobSummary' :: Maybe POSIX
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AlastUpdatedDateTime%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetImportJobArn:DatasetImportJobSummary' :: Maybe Text
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AdatasetImportJobArn%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var">datasetImportJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDateTime:DatasetImportJobSummary' :: Maybe POSIX
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AcreationDateTime%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | If a dataset import job fails, the reason behind the failure.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#datasetImportJobSummary_failureReason"><span class="hs-identifier hs-type">datasetImportJobSummary_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="datasetImportJobSummary_failureReason"><span class="annot"><span class="annottext">datasetImportJobSummary_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DatasetImportJobSummary -&gt; f DatasetImportJobSummary
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#datasetImportJobSummary_failureReason"><span class="hs-identifier hs-var hs-var">datasetImportJobSummary_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetImportJobSummary -&gt; Maybe Text)
+-&gt; (DatasetImportJobSummary
+    -&gt; Maybe Text -&gt; DatasetImportJobSummary)
+-&gt; Lens
+     DatasetImportJobSummary
+     DatasetImportJobSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-type">DatasetImportJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269316"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:DatasetImportJobSummary' :: DatasetImportJobSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679269316"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269316"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269315"><span class="annot"><span class="annottext">s :: DatasetImportJobSummary
+</span><a href="#local-6989586621679269315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-type">DatasetImportJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269314"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetImportJobSummary
+</span><a href="#local-6989586621679269315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:DatasetImportJobSummary' :: Maybe Text
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AfailureReason%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The status of the dataset import job.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- A dataset import job can be in one of the following states:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#datasetImportJobSummary_status"><span class="hs-identifier hs-type">datasetImportJobSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="datasetImportJobSummary_status"><span class="annot"><span class="annottext">datasetImportJobSummary_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DatasetImportJobSummary -&gt; f DatasetImportJobSummary
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#datasetImportJobSummary_status"><span class="hs-identifier hs-var hs-var">datasetImportJobSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetImportJobSummary -&gt; Maybe Text)
+-&gt; (DatasetImportJobSummary
+    -&gt; Maybe Text -&gt; DatasetImportJobSummary)
+-&gt; Lens
+     DatasetImportJobSummary
+     DatasetImportJobSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-type">DatasetImportJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269312"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:DatasetImportJobSummary' :: DatasetImportJobSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679269312"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269312"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269311"><span class="annot"><span class="annottext">s :: DatasetImportJobSummary
+</span><a href="#local-6989586621679269311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-type">DatasetImportJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269310"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetImportJobSummary
+</span><a href="#local-6989586621679269311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DatasetImportJobSummary' :: Maybe Text
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3Astatus%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The name of the dataset import job.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#datasetImportJobSummary_jobName"><span class="hs-identifier hs-type">datasetImportJobSummary_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="datasetImportJobSummary_jobName"><span class="annot"><span class="annottext">datasetImportJobSummary_jobName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DatasetImportJobSummary -&gt; f DatasetImportJobSummary
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#datasetImportJobSummary_jobName"><span class="hs-identifier hs-var hs-var">datasetImportJobSummary_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetImportJobSummary -&gt; Maybe Text)
+-&gt; (DatasetImportJobSummary
+    -&gt; Maybe Text -&gt; DatasetImportJobSummary)
+-&gt; Lens
+     DatasetImportJobSummary
+     DatasetImportJobSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-type">DatasetImportJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269308"><span class="annot"><span class="annottext">Maybe Text
+jobName :: Maybe Text
+$sel:jobName:DatasetImportJobSummary' :: DatasetImportJobSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679269308"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269308"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269307"><span class="annot"><span class="annottext">s :: DatasetImportJobSummary
+</span><a href="#local-6989586621679269307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-type">DatasetImportJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269306"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetImportJobSummary
+</span><a href="#local-6989586621679269307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:DatasetImportJobSummary' :: Maybe Text
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AjobName%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The date and time (in Unix time) that the dataset import job status was</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- last updated.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#datasetImportJobSummary_lastUpdatedDateTime"><span class="hs-identifier hs-type">datasetImportJobSummary_lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="datasetImportJobSummary_lastUpdatedDateTime"><span class="annot"><span class="annottext">datasetImportJobSummary_lastUpdatedDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetImportJobSummary -&gt; f DatasetImportJobSummary
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#datasetImportJobSummary_lastUpdatedDateTime"><span class="hs-identifier hs-var hs-var">datasetImportJobSummary_lastUpdatedDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetImportJobSummary -&gt; Maybe POSIX)
+-&gt; (DatasetImportJobSummary
+    -&gt; Maybe POSIX -&gt; DatasetImportJobSummary)
+-&gt; Lens
+     DatasetImportJobSummary
+     DatasetImportJobSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-type">DatasetImportJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269304"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedDateTime :: Maybe POSIX
+$sel:lastUpdatedDateTime:DatasetImportJobSummary' :: DatasetImportJobSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679269304"><span class="hs-identifier hs-var hs-var">lastUpdatedDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679269304"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269303"><span class="annot"><span class="annottext">s :: DatasetImportJobSummary
+</span><a href="#local-6989586621679269303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-type">DatasetImportJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269302"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679269302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetImportJobSummary
+</span><a href="#local-6989586621679269303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDateTime:DatasetImportJobSummary' :: Maybe POSIX
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AlastUpdatedDateTime%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679269302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DatasetImportJobSummary -&gt; f DatasetImportJobSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetImportJobSummary
+-&gt; f DatasetImportJobSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset import job.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#datasetImportJobSummary_datasetImportJobArn"><span class="hs-identifier hs-type">datasetImportJobSummary_datasetImportJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="datasetImportJobSummary_datasetImportJobArn"><span class="annot"><span class="annottext">datasetImportJobSummary_datasetImportJobArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DatasetImportJobSummary -&gt; f DatasetImportJobSummary
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#datasetImportJobSummary_datasetImportJobArn"><span class="hs-identifier hs-var hs-var">datasetImportJobSummary_datasetImportJobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetImportJobSummary -&gt; Maybe Text)
+-&gt; (DatasetImportJobSummary
+    -&gt; Maybe Text -&gt; DatasetImportJobSummary)
+-&gt; Lens
+     DatasetImportJobSummary
+     DatasetImportJobSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-type">DatasetImportJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269297"><span class="annot"><span class="annottext">Maybe Text
+datasetImportJobArn :: Maybe Text
+$sel:datasetImportJobArn:DatasetImportJobSummary' :: DatasetImportJobSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679269297"><span class="hs-identifier hs-var hs-var">datasetImportJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269297"><span class="hs-identifier hs-var">datasetImportJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269296"><span class="annot"><span class="annottext">s :: DatasetImportJobSummary
+</span><a href="#local-6989586621679269296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-type">DatasetImportJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269295"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetImportJobSummary
+</span><a href="#local-6989586621679269296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetImportJobArn:DatasetImportJobSummary' :: Maybe Text
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AdatasetImportJobArn%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var">datasetImportJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The date and time (in Unix time) that the dataset import job was</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#datasetImportJobSummary_creationDateTime"><span class="hs-identifier hs-type">datasetImportJobSummary_creationDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="datasetImportJobSummary_creationDateTime"><span class="annot"><span class="annottext">datasetImportJobSummary_creationDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetImportJobSummary -&gt; f DatasetImportJobSummary
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#datasetImportJobSummary_creationDateTime"><span class="hs-identifier hs-var hs-var">datasetImportJobSummary_creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetImportJobSummary -&gt; Maybe POSIX)
+-&gt; (DatasetImportJobSummary
+    -&gt; Maybe POSIX -&gt; DatasetImportJobSummary)
+-&gt; Lens
+     DatasetImportJobSummary
+     DatasetImportJobSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-type">DatasetImportJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269293"><span class="annot"><span class="annottext">Maybe POSIX
+creationDateTime :: Maybe POSIX
+$sel:creationDateTime:DatasetImportJobSummary' :: DatasetImportJobSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679269293"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679269293"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269292"><span class="annot"><span class="annottext">s :: DatasetImportJobSummary
+</span><a href="#local-6989586621679269292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-type">DatasetImportJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269291"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679269291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetImportJobSummary
+</span><a href="#local-6989586621679269292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:DatasetImportJobSummary' :: Maybe POSIX
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#%24sel%3AcreationDateTime%3ADatasetImportJobSummary%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679269291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DatasetImportJobSummary -&gt; f DatasetImportJobSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetImportJobSummary
+-&gt; f DatasetImportJobSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269288"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679269286"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatasetImportJobSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DatasetImportJobSummary)
+-&gt; Value
+-&gt; Parser DatasetImportJobSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DatasetImportJobSummary&quot;</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679269283"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269283"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; DatasetImportJobSummary
+</span><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary%27"><span class="hs-identifier hs-var">DatasetImportJobSummary'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; DatasetImportJobSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; DatasetImportJobSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; DatasetImportJobSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; DatasetImportJobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; DatasetImportJobSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; DatasetImportJobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; DatasetImportJobSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; DatasetImportJobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; DatasetImportJobSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; DatasetImportJobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetImportJobArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; DatasetImportJobSummary)
+-&gt; Parser (Maybe POSIX) -&gt; Parser DatasetImportJobSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269277"><span id="local-6989586621679269279"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269274"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetImportJobSummary.html#DatasetImportJobSummary"><span class="hs-identifier hs-type">DatasetImportJobSummary</span></a></span></span><span>
+</span><span id="line-137"></span></pre></body></html>

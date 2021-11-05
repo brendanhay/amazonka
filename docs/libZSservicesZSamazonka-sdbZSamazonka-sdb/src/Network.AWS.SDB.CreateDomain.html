@@ -51,14 +51,14 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.html"><span class="hs-identifier">Network.AWS.SDB.Types</span></a></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newCreateDomain' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679151488"><span id="local-6989586621679151489"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomain"><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-var">CreateDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomain%27"><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-var">CreateDomain'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679151497"><span id="local-6989586621679151498"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomain"><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-var">CreateDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomain%27"><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-var">CreateDomain'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the domain to create. The name can range between 3 and 255</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- characters and can contain the following characters: a-z, A-Z, 0-9,</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- \'_\', \'-\', and \'.\'.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdomainName%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Text
 </span><a href="Network.AWS.SDB.CreateDomain.html#%24sel%3AdomainName%3ACreateDomain%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151482"><span id="local-6989586621679151484"><span class="annot"><span class="annottext">CreateDomain -&gt; CreateDomain -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151491"><span id="local-6989586621679151493"><span class="annot"><span class="annottext">CreateDomain -&gt; CreateDomain -&gt; Bool
 (CreateDomain -&gt; CreateDomain -&gt; Bool)
 -&gt; (CreateDomain -&gt; CreateDomain -&gt; Bool) -&gt; Eq CreateDomain
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDomain -&gt; CreateDomain -&gt; Bool
 == :: CreateDomain -&gt; CreateDomain -&gt; Bool
 $c== :: CreateDomain -&gt; CreateDomain -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151473"><span id="local-6989586621679151475"><span id="local-6989586621679151477"><span id="local-6989586621679151479"><span class="annot"><span class="annottext">ReadPrec [CreateDomain]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151482"><span id="local-6989586621679151484"><span id="local-6989586621679151486"><span id="local-6989586621679151488"><span class="annot"><span class="annottext">ReadPrec [CreateDomain]
 ReadPrec CreateDomain
 Int -&gt; ReadS CreateDomain
 ReadS [CreateDomain]
@@ -86,7 +86,7 @@ readList :: ReadS [CreateDomain]
 $creadList :: ReadS [CreateDomain]
 readsPrec :: Int -&gt; ReadS CreateDomain
 $creadsPrec :: Int -&gt; ReadS CreateDomain
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151466"><span id="local-6989586621679151468"><span id="local-6989586621679151470"><span class="annot"><span class="annottext">Int -&gt; CreateDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151475"><span id="local-6989586621679151477"><span id="local-6989586621679151479"><span class="annot"><span class="annottext">Int -&gt; CreateDomain -&gt; ShowS
 [CreateDomain] -&gt; ShowS
 CreateDomain -&gt; String
 (Int -&gt; CreateDomain -&gt; ShowS)
@@ -128,12 +128,12 @@ $cfrom :: forall x. CreateDomain -&gt; Rep CreateDomain x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span>
 </span><span id="line-77"></span><span id="newCreateDomain"><span class="annot"><span class="annottext">newCreateDomain :: Text -&gt; CreateDomain
-</span><a href="Network.AWS.SDB.CreateDomain.html#newCreateDomain"><span class="hs-identifier hs-var hs-var">newCreateDomain</span></a></span></span><span> </span><span id="local-6989586621679151461"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151461"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SDB.CreateDomain.html#newCreateDomain"><span class="hs-identifier hs-var hs-var">newCreateDomain</span></a></span></span><span> </span><span id="local-6989586621679151470"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151470"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">CreateDomain' :: Text -&gt; CreateDomain
 </span><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:CreateDomain' :: Text
 </span><a href="Network.AWS.SDB.CreateDomain.html#%24sel%3AdomainName%3ACreateDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151461"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679151470"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The name of the domain to create. The name can range between 3 and 255</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- characters and can contain the following characters: a-z, A-Z, 0-9,</span><span>
@@ -144,25 +144,25 @@ $cfrom :: forall x. CreateDomain -&gt; Rep CreateDomain x
 -&gt; (CreateDomain -&gt; Text -&gt; CreateDomain)
 -&gt; Lens CreateDomain CreateDomain Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151458"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151467"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:CreateDomain' :: CreateDomain -&gt; Text
-</span><a href="#local-6989586621679151458"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151458"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151457"><span class="annot"><span class="annottext">s :: CreateDomain
-</span><a href="#local-6989586621679151457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151456"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
-</span><a href="#local-6989586621679151457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:CreateDomain' :: Text
+</span><a href="#local-6989586621679151467"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151467"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151466"><span class="annot"><span class="annottext">s :: CreateDomain
+</span><a href="#local-6989586621679151466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151465"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
+</span><a href="#local-6989586621679151466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:CreateDomain' :: Text
 </span><a href="Network.AWS.SDB.CreateDomain.html#%24sel%3AdomainName%3ACreateDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679151452"><span class="annot"><span class="annottext">request :: CreateDomain -&gt; Request CreateDomain
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679151461"><span class="annot"><span class="annottext">request :: CreateDomain -&gt; Request CreateDomain
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDomain -&gt; Request CreateDomain
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679151448"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679151457"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDomain
 -&gt; ClientResponse ClientBody
@@ -185,12 +185,12 @@ AWSResponse a
 CreateDomainResponse
 </span><a href="Network.AWS.SDB.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-var">CreateDomainResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151441"><span id="local-6989586621679151443"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151450"><span id="local-6989586621679151452"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679151434"><span class="annot"><span class="annottext">toHeaders :: CreateDomain -&gt; [Header]
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679151443"><span class="annot"><span class="annottext">toHeaders :: CreateDomain -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; CreateDomain -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -198,18 +198,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679151429"><span class="annot"><span class="annottext">toPath :: CreateDomain -&gt; ByteString
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679151438"><span class="annot"><span class="annottext">toPath :: CreateDomain -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDomain -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679151425"><span class="annot"><span class="annottext">toQuery :: CreateDomain -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151423"><span class="annot"><span class="annottext">Text
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679151434"><span class="annot"><span class="annottext">toQuery :: CreateDomain -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151432"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:CreateDomain' :: CreateDomain -&gt; Text
-</span><a href="#local-6989586621679151423"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679151432"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -229,14 +229,14 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151423"><span class="hs-identifier hs-var">domainName</span></a></span><span>
+</span><a href="#local-6989586621679151432"><span class="hs-identifier hs-var">domainName</span></a></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | /See:/ 'newCreateDomainResponse' smart constructor.</span><span>
-</span><span id="line-112"></span><span id="local-6989586621679151420"><span id="local-6989586621679151421"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomainResponse"><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-var">CreateDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomainResponse%27"><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-var">CreateDomainResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span id="local-6989586621679151429"><span id="local-6989586621679151430"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomainResponse"><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-var">CreateDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomainResponse%27"><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-var">CreateDomainResponse'</span></a></span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151416"><span id="local-6989586621679151418"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151425"><span id="local-6989586621679151427"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
 (CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool)
 -&gt; (CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool)
 -&gt; Eq CreateDomainResponse
@@ -245,7 +245,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
 == :: CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
 $c== :: CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151408"><span id="local-6989586621679151410"><span id="local-6989586621679151412"><span id="local-6989586621679151414"><span class="annot"><span class="annottext">ReadPrec [CreateDomainResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151417"><span id="local-6989586621679151419"><span id="local-6989586621679151421"><span id="local-6989586621679151423"><span class="annot"><span class="annottext">ReadPrec [CreateDomainResponse]
 ReadPrec CreateDomainResponse
 Int -&gt; ReadS CreateDomainResponse
 ReadS [CreateDomainResponse]
@@ -265,7 +265,7 @@ readList :: ReadS [CreateDomainResponse]
 $creadList :: ReadS [CreateDomainResponse]
 readsPrec :: Int -&gt; ReadS CreateDomainResponse
 $creadsPrec :: Int -&gt; ReadS CreateDomainResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151402"><span id="local-6989586621679151404"><span id="local-6989586621679151406"><span class="annot"><span class="annottext">Int -&gt; CreateDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151411"><span id="local-6989586621679151413"><span id="local-6989586621679151415"><span class="annot"><span class="annottext">Int -&gt; CreateDomainResponse -&gt; ShowS
 [CreateDomainResponse] -&gt; ShowS
 CreateDomainResponse -&gt; String
 (Int -&gt; CreateDomainResponse -&gt; ShowS)
@@ -301,5 +301,5 @@ $cfrom :: forall x. CreateDomainResponse -&gt; Rep CreateDomainResponse x
 </span><a href="Network.AWS.SDB.CreateDomain.html#newCreateDomainResponse"><span class="hs-identifier hs-var hs-var">newCreateDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CreateDomainResponse
 </span><a href="Network.AWS.SDB.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-var">CreateDomainResponse'</span></a></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151398"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151407"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span></span><span>
 </span><span id="line-126"></span></pre></body></html>

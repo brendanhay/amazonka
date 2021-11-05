@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679790271"><span id="local-6989586621679790272"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CommandPluginStatus"><span class="annot"><a href="Network.AWS.SSM.Types.CommandPluginStatus.html#CommandPluginStatus"><span class="hs-identifier hs-var">CommandPluginStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommandPluginStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.CommandPluginStatus.html#CommandPluginStatus%27"><span class="hs-identifier hs-var">CommandPluginStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679790280"><span id="local-6989586621679790281"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CommandPluginStatus"><span class="annot"><a href="Network.AWS.SSM.Types.CommandPluginStatus.html#CommandPluginStatus"><span class="hs-identifier hs-var">CommandPluginStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommandPluginStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.CommandPluginStatus.html#CommandPluginStatus%27"><span class="hs-identifier hs-var">CommandPluginStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCommandPluginStatus"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; Text
 </span><a href="Network.AWS.SSM.Types.CommandPluginStatus.html#fromCommandPluginStatus"><span class="hs-identifier hs-var hs-var">fromCommandPluginStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790263"><span id="local-6989586621679790265"><span id="local-6989586621679790267"><span class="annot"><span class="annottext">Int -&gt; CommandPluginStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790272"><span id="local-6989586621679790274"><span id="local-6989586621679790276"><span class="annot"><span class="annottext">Int -&gt; CommandPluginStatus -&gt; ShowS
 [CommandPluginStatus] -&gt; ShowS
 CommandPluginStatus -&gt; String
 (Int -&gt; CommandPluginStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: CommandPluginStatus -&gt; String
 showsPrec :: Int -&gt; CommandPluginStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; CommandPluginStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679790254"><span id="local-6989586621679790256"><span id="local-6989586621679790258"><span id="local-6989586621679790260"><span class="annot"><span class="annottext">ReadPrec [CommandPluginStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679790263"><span id="local-6989586621679790265"><span id="local-6989586621679790267"><span id="local-6989586621679790269"><span class="annot"><span class="annottext">ReadPrec [CommandPluginStatus]
 ReadPrec CommandPluginStatus
 Int -&gt; ReadS CommandPluginStatus
 ReadS [CommandPluginStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [CommandPluginStatus]
 readsPrec :: Int -&gt; ReadS CommandPluginStatus
 $creadsPrec :: Int -&gt; ReadS CommandPluginStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679790249"><span id="local-6989586621679790251"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; CommandPluginStatus -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679790258"><span id="local-6989586621679790260"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; CommandPluginStatus -&gt; Bool
 (CommandPluginStatus -&gt; CommandPluginStatus -&gt; Bool)
 -&gt; (CommandPluginStatus -&gt; CommandPluginStatus -&gt; Bool)
 -&gt; Eq CommandPluginStatus
@@ -86,7 +86,7 @@ $c/= :: CommandPluginStatus -&gt; CommandPluginStatus -&gt; Bool
 == :: CommandPluginStatus -&gt; CommandPluginStatus -&gt; Bool
 $c== :: CommandPluginStatus -&gt; CommandPluginStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679790233"><span id="local-6989586621679790235"><span id="local-6989586621679790237"><span id="local-6989586621679790239"><span id="local-6989586621679790241"><span id="local-6989586621679790243"><span id="local-6989586621679790245"><span class="annot"><span class="annottext">Eq CommandPluginStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679790242"><span id="local-6989586621679790244"><span id="local-6989586621679790246"><span id="local-6989586621679790248"><span id="local-6989586621679790250"><span id="local-6989586621679790252"><span id="local-6989586621679790254"><span class="annot"><span class="annottext">Eq CommandPluginStatus
 Eq CommandPluginStatus
 -&gt; (CommandPluginStatus -&gt; CommandPluginStatus -&gt; Ordering)
 -&gt; (CommandPluginStatus -&gt; CommandPluginStatus -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. CommandPluginStatus -&gt; Rep CommandPluginStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790225"><span id="local-6989586621679790227"><span class="annot"><span class="annottext">Int -&gt; CommandPluginStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790234"><span id="local-6989586621679790236"><span class="annot"><span class="annottext">Int -&gt; CommandPluginStatus -&gt; Int
 CommandPluginStatus -&gt; Int
 (Int -&gt; CommandPluginStatus -&gt; Int)
 -&gt; (CommandPluginStatus -&gt; Int) -&gt; Hashable CommandPluginStatus
@@ -149,53 +149,53 @@ $chash :: CommandPluginStatus -&gt; Int
 hashWithSalt :: Int -&gt; CommandPluginStatus -&gt; Int
 $chashWithSalt :: Int -&gt; CommandPluginStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679790222"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679790231"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; ()
 (CommandPluginStatus -&gt; ()) -&gt; NFData CommandPluginStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CommandPluginStatus -&gt; ()
 $crnf :: CommandPluginStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679790219"><span class="annot"><span class="annottext">Text -&gt; Either String CommandPluginStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679790228"><span class="annot"><span class="annottext">Text -&gt; Either String CommandPluginStatus
 (Text -&gt; Either String CommandPluginStatus)
 -&gt; FromText CommandPluginStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CommandPluginStatus
 $cfromText :: Text -&gt; Either String CommandPluginStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679790216"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679790225"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; Text
 (CommandPluginStatus -&gt; Text) -&gt; ToText CommandPluginStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CommandPluginStatus -&gt; Text
 $ctoText :: CommandPluginStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679790213"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679790222"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; ByteString
 (CommandPluginStatus -&gt; ByteString)
 -&gt; ToByteString CommandPluginStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CommandPluginStatus -&gt; ByteString
 $ctoBS :: CommandPluginStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679790210"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679790219"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; ByteStringBuilder
 (CommandPluginStatus -&gt; ByteStringBuilder)
 -&gt; ToLog CommandPluginStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CommandPluginStatus -&gt; ByteStringBuilder
 $cbuild :: CommandPluginStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679790207"><span class="annot"><span class="annottext">HeaderName -&gt; CommandPluginStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679790216"><span class="annot"><span class="annottext">HeaderName -&gt; CommandPluginStatus -&gt; [Header]
 (HeaderName -&gt; CommandPluginStatus -&gt; [Header])
 -&gt; ToHeader CommandPluginStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CommandPluginStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CommandPluginStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679790204"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679790213"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; QueryString
 (CommandPluginStatus -&gt; QueryString) -&gt; ToQuery CommandPluginStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CommandPluginStatus -&gt; QueryString
 $ctoQuery :: CommandPluginStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679790199"><span id="local-6989586621679790201"><span class="annot"><span class="annottext">Value -&gt; Parser [CommandPluginStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679790208"><span id="local-6989586621679790210"><span class="annot"><span class="annottext">Value -&gt; Parser [CommandPluginStatus]
 Value -&gt; Parser CommandPluginStatus
 (Value -&gt; Parser CommandPluginStatus)
 -&gt; (Value -&gt; Parser [CommandPluginStatus])
@@ -207,7 +207,7 @@ $cparseJSONList :: Value -&gt; Parser [CommandPluginStatus]
 parseJSON :: Value -&gt; Parser CommandPluginStatus
 $cparseJSON :: Value -&gt; Parser CommandPluginStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679790194"><span id="local-6989586621679790196"><span class="annot"><span class="annottext">FromJSONKeyFunction [CommandPluginStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679790203"><span id="local-6989586621679790205"><span class="annot"><span class="annottext">FromJSONKeyFunction [CommandPluginStatus]
 FromJSONKeyFunction CommandPluginStatus
 FromJSONKeyFunction CommandPluginStatus
 -&gt; FromJSONKeyFunction [CommandPluginStatus]
@@ -219,7 +219,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CommandPluginStatus]
 fromJSONKey :: FromJSONKeyFunction CommandPluginStatus
 $cfromJSONKey :: FromJSONKeyFunction CommandPluginStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679790185"><span id="local-6989586621679790187"><span id="local-6989586621679790189"><span id="local-6989586621679790191"><span class="annot"><span class="annottext">[CommandPluginStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679790194"><span id="local-6989586621679790196"><span id="local-6989586621679790198"><span id="local-6989586621679790200"><span class="annot"><span class="annottext">[CommandPluginStatus] -&gt; Encoding
 [CommandPluginStatus] -&gt; Value
 CommandPluginStatus -&gt; Encoding
 CommandPluginStatus -&gt; Value
@@ -243,7 +243,7 @@ $ctoEncoding :: CommandPluginStatus -&gt; Encoding
 toJSON :: CommandPluginStatus -&gt; Value
 $ctoJSON :: CommandPluginStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679790180"><span id="local-6989586621679790182"><span class="annot"><span class="annottext">ToJSONKeyFunction [CommandPluginStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679790189"><span id="local-6989586621679790191"><span class="annot"><span class="annottext">ToJSONKeyFunction [CommandPluginStatus]
 ToJSONKeyFunction CommandPluginStatus
 ToJSONKeyFunction CommandPluginStatus
 -&gt; ToJSONKeyFunction [CommandPluginStatus]
@@ -255,14 +255,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CommandPluginStatus]
 toJSONKey :: ToJSONKeyFunction CommandPluginStatus
 $ctoJSONKey :: ToJSONKeyFunction CommandPluginStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679790177"><span class="annot"><span class="annottext">[Node] -&gt; Either String CommandPluginStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679790186"><span class="annot"><span class="annottext">[Node] -&gt; Either String CommandPluginStatus
 ([Node] -&gt; Either String CommandPluginStatus)
 -&gt; FromXML CommandPluginStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CommandPluginStatus
 $cparseXML :: [Node] -&gt; Either String CommandPluginStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679790174"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679790183"><span class="annot"><span class="annottext">CommandPluginStatus -&gt; XML
 (CommandPluginStatus -&gt; XML) -&gt; ToXML CommandPluginStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CommandPluginStatus -&gt; XML

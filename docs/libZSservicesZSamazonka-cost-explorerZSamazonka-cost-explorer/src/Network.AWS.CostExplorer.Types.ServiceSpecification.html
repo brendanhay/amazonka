@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- for.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newServiceSpecification' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679337387"><span id="local-6989586621679337388"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceSpecification"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-var">ServiceSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceSpecification%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification%27"><span class="hs-identifier hs-var">ServiceSpecification'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679337396"><span id="local-6989586621679337397"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceSpecification"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-var">ServiceSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceSpecification%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification%27"><span class="hs-identifier hs-var">ServiceSpecification'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon EC2 hardware specifications that you want Amazon Web Services</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- to provide recommendations for.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AeC2Specification%3AServiceSpecification%27"><span class="annot"><span class="annottext">ServiceSpecification -&gt; Maybe EC2Specification
 </span><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#%24sel%3AeC2Specification%3AServiceSpecification%27"><span class="hs-identifier hs-var hs-var">eC2Specification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification"><span class="hs-identifier hs-type">EC2Specification</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337381"><span id="local-6989586621679337383"><span class="annot"><span class="annottext">ServiceSpecification -&gt; ServiceSpecification -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337390"><span id="local-6989586621679337392"><span class="annot"><span class="annottext">ServiceSpecification -&gt; ServiceSpecification -&gt; Bool
 (ServiceSpecification -&gt; ServiceSpecification -&gt; Bool)
 -&gt; (ServiceSpecification -&gt; ServiceSpecification -&gt; Bool)
 -&gt; Eq ServiceSpecification
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ServiceSpecification -&gt; ServiceSpecification -&gt; Bool
 == :: ServiceSpecification -&gt; ServiceSpecification -&gt; Bool
 $c== :: ServiceSpecification -&gt; ServiceSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337372"><span id="local-6989586621679337374"><span id="local-6989586621679337376"><span id="local-6989586621679337378"><span class="annot"><span class="annottext">ReadPrec [ServiceSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337381"><span id="local-6989586621679337383"><span id="local-6989586621679337385"><span id="local-6989586621679337387"><span class="annot"><span class="annottext">ReadPrec [ServiceSpecification]
 ReadPrec ServiceSpecification
 Int -&gt; ReadS ServiceSpecification
 ReadS [ServiceSpecification]
@@ -63,7 +63,7 @@ readList :: ReadS [ServiceSpecification]
 $creadList :: ReadS [ServiceSpecification]
 readsPrec :: Int -&gt; ReadS ServiceSpecification
 $creadsPrec :: Int -&gt; ReadS ServiceSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337365"><span id="local-6989586621679337367"><span id="local-6989586621679337369"><span class="annot"><span class="annottext">Int -&gt; ServiceSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337374"><span id="local-6989586621679337376"><span id="local-6989586621679337378"><span class="annot"><span class="annottext">Int -&gt; ServiceSpecification -&gt; ShowS
 [ServiceSpecification] -&gt; ShowS
 ServiceSpecification -&gt; String
 (Int -&gt; ServiceSpecification -&gt; ShowS)
@@ -126,19 +126,19 @@ forall a. Maybe a
      (Maybe EC2Specification)
      (Maybe EC2Specification)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification%27"><span class="hs-identifier hs-type">ServiceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337356"><span class="annot"><span class="annottext">Maybe EC2Specification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification%27"><span class="hs-identifier hs-type">ServiceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337365"><span class="annot"><span class="annottext">Maybe EC2Specification
 eC2Specification :: Maybe EC2Specification
 $sel:eC2Specification:ServiceSpecification' :: ServiceSpecification -&gt; Maybe EC2Specification
-</span><a href="#local-6989586621679337356"><span class="hs-identifier hs-var hs-var">eC2Specification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2Specification
-</span><a href="#local-6989586621679337356"><span class="hs-identifier hs-var">eC2Specification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337355"><span class="annot"><span class="annottext">s :: ServiceSpecification
-</span><a href="#local-6989586621679337355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification%27"><span class="hs-identifier hs-type">ServiceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337354"><span class="annot"><span class="annottext">Maybe EC2Specification
-</span><a href="#local-6989586621679337354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSpecification
-</span><a href="#local-6989586621679337355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2Specification:ServiceSpecification' :: Maybe EC2Specification
+</span><a href="#local-6989586621679337365"><span class="hs-identifier hs-var hs-var">eC2Specification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2Specification
+</span><a href="#local-6989586621679337365"><span class="hs-identifier hs-var">eC2Specification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337364"><span class="annot"><span class="annottext">s :: ServiceSpecification
+</span><a href="#local-6989586621679337364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification%27"><span class="hs-identifier hs-type">ServiceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337363"><span class="annot"><span class="annottext">Maybe EC2Specification
+</span><a href="#local-6989586621679337363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSpecification
+</span><a href="#local-6989586621679337364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2Specification:ServiceSpecification' :: Maybe EC2Specification
 </span><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#%24sel%3AeC2Specification%3AServiceSpecification%27"><span class="hs-identifier hs-var">eC2Specification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2Specification
-</span><a href="#local-6989586621679337354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-type">ServiceSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679337363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-type">ServiceSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337351"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-type">ServiceSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679337349"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServiceSpecification
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337360"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-type">ServiceSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679337358"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServiceSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ServiceSpecification)
@@ -148,30 +148,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ServiceSpecification&quot;</span></span><span>
-</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679337346"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679337346"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679337355"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337355"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">Maybe EC2Specification -&gt; ServiceSpecification
 </span><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification%27"><span class="hs-identifier hs-var">ServiceSpecification'</span></a></span><span>
 </span><span id="line-67"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EC2Specification -&gt; ServiceSpecification)
 -&gt; Parser (Maybe EC2Specification) -&gt; Parser ServiceSpecification
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679337346"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2Specification)
+</span><a href="#local-6989586621679337355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2Specification)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EC2Specification&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337340"><span id="local-6989586621679337342"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-type">ServiceSpecification</span></a></span></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337349"><span id="local-6989586621679337351"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-type">ServiceSpecification</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337337"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-type">ServiceSpecification</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-type">ServiceSpecification</span></a></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337329"><span id="local-6989586621679337331"><span id="local-6989586621679337333"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-type">ServiceSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679337327"><span class="annot"><span class="annottext">toJSON :: ServiceSpecification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification%27"><span class="hs-identifier hs-type">ServiceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337325"><span class="annot"><span class="annottext">Maybe EC2Specification
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337338"><span id="local-6989586621679337340"><span id="local-6989586621679337342"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-type">ServiceSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679337336"><span class="annot"><span class="annottext">toJSON :: ServiceSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification%27"><span class="hs-identifier hs-type">ServiceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337334"><span class="annot"><span class="annottext">Maybe EC2Specification
 eC2Specification :: Maybe EC2Specification
 $sel:eC2Specification:ServiceSpecification' :: ServiceSpecification -&gt; Maybe EC2Specification
-</span><a href="#local-6989586621679337325"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679337334"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -184,7 +184,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-79"></span><span>              </span><span class="annot"><span class="annottext">(EC2Specification -&gt; Pair) -&gt; Maybe EC2Specification -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EC2Specification
-</span><a href="#local-6989586621679337325"><span class="hs-identifier hs-var">eC2Specification</span></a></span><span>
+</span><a href="#local-6989586621679337334"><span class="hs-identifier hs-var">eC2Specification</span></a></span><span>
 </span><span id="line-80"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span></pre></body></html>

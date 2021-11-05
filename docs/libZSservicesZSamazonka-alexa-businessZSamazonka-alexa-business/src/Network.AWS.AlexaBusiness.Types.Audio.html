@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- @ffmpeg -i \&lt;input-file&gt; -ac 2 -codec:a libmp3lame -b:a 48k -ar 16000 \&lt;output-file.mp3&gt;@</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newAudio' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679369332"><span id="local-6989586621679369333"></span></span><span class="hs-keyword">data</span><span> </span><span id="Audio"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-var">Audio</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Audio%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio%27"><span class="hs-identifier hs-var">Audio'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679369341"><span id="local-6989586621679369342"></span></span><span class="hs-keyword">data</span><span> </span><span id="Audio"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-var">Audio</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Audio%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio%27"><span class="hs-identifier hs-var">Audio'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The locale of the audio message. Currently, en-US is supported.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Alocale%3AAudio%27"><span class="annot"><span class="annottext">Audio -&gt; Locale
 </span><a href="Network.AWS.AlexaBusiness.Types.Audio.html#%24sel%3Alocale%3AAudio%27"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">,</span><span>
@@ -49,14 +49,14 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3Alocation%3AAudio%27"><span class="annot"><span class="annottext">Audio -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Audio.html#%24sel%3Alocation%3AAudio%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369325"><span id="local-6989586621679369327"><span class="annot"><span class="annottext">Audio -&gt; Audio -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369334"><span id="local-6989586621679369336"><span class="annot"><span class="annottext">Audio -&gt; Audio -&gt; Bool
 (Audio -&gt; Audio -&gt; Bool) -&gt; (Audio -&gt; Audio -&gt; Bool) -&gt; Eq Audio
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Audio -&gt; Audio -&gt; Bool
 $c/= :: Audio -&gt; Audio -&gt; Bool
 == :: Audio -&gt; Audio -&gt; Bool
 $c== :: Audio -&gt; Audio -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369316"><span id="local-6989586621679369318"><span id="local-6989586621679369320"><span id="local-6989586621679369322"><span class="annot"><span class="annottext">ReadPrec [Audio]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369325"><span id="local-6989586621679369327"><span id="local-6989586621679369329"><span id="local-6989586621679369331"><span class="annot"><span class="annottext">ReadPrec [Audio]
 ReadPrec Audio
 Int -&gt; ReadS Audio
 ReadS [Audio]
@@ -76,7 +76,7 @@ readList :: ReadS [Audio]
 $creadList :: ReadS [Audio]
 readsPrec :: Int -&gt; ReadS Audio
 $creadsPrec :: Int -&gt; ReadS Audio
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369309"><span id="local-6989586621679369311"><span id="local-6989586621679369313"><span class="annot"><span class="annottext">Int -&gt; Audio -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369318"><span id="local-6989586621679369320"><span id="local-6989586621679369322"><span class="annot"><span class="annottext">Int -&gt; Audio -&gt; ShowS
 [Audio] -&gt; ShowS
 Audio -&gt; String
 (Int -&gt; Audio -&gt; ShowS)
@@ -120,15 +120,15 @@ $cfrom :: forall x. Audio -&gt; Rep Audio x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span><span>
 </span><span id="line-72"></span><span id="newAudio"><span class="annot"><span class="annottext">newAudio :: Locale -&gt; Text -&gt; Audio
-</span><a href="Network.AWS.AlexaBusiness.Types.Audio.html#newAudio"><span class="hs-identifier hs-var hs-var">newAudio</span></a></span></span><span> </span><span id="local-6989586621679369303"><span class="annot"><span class="annottext">Locale
-</span><a href="#local-6989586621679369303"><span class="hs-identifier hs-var">pLocale_</span></a></span></span><span> </span><span id="local-6989586621679369302"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369302"><span class="hs-identifier hs-var">pLocation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.Types.Audio.html#newAudio"><span class="hs-identifier hs-var hs-var">newAudio</span></a></span></span><span> </span><span id="local-6989586621679369312"><span class="annot"><span class="annottext">Locale
+</span><a href="#local-6989586621679369312"><span class="hs-identifier hs-var">pLocale_</span></a></span></span><span> </span><span id="local-6989586621679369311"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369311"><span class="hs-identifier hs-var">pLocation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">Audio' :: Locale -&gt; Text -&gt; Audio
 </span><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio%27"><span class="hs-identifier hs-type">Audio'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:Audio' :: Locale
 </span><a href="Network.AWS.AlexaBusiness.Types.Audio.html#%24sel%3Alocale%3AAudio%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Locale
-</span><a href="#local-6989586621679369303"><span class="hs-identifier hs-var">pLocale_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:location:Audio' :: Text
+</span><a href="#local-6989586621679369312"><span class="hs-identifier hs-var">pLocale_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:location:Audio' :: Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Audio.html#%24sel%3Alocation%3AAudio%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369302"><span class="hs-identifier hs-var">pLocation_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679369311"><span class="hs-identifier hs-var">pLocation_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The locale of the audio message. Currently, en-US is supported.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#audio_locale"><span class="hs-identifier hs-type">audio_locale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span>
@@ -136,16 +136,16 @@ $cfrom :: forall x. Audio -&gt; Rep Audio x
 </span><a href="Network.AWS.AlexaBusiness.Types.Audio.html#audio_locale"><span class="hs-identifier hs-var hs-var">audio_locale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Audio -&gt; Locale)
 -&gt; (Audio -&gt; Locale -&gt; Audio) -&gt; Lens Audio Audio Locale Locale
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio%27"><span class="hs-identifier hs-type">Audio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369298"><span class="annot"><span class="annottext">Locale
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio%27"><span class="hs-identifier hs-type">Audio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369307"><span class="annot"><span class="annottext">Locale
 locale :: Locale
 $sel:locale:Audio' :: Audio -&gt; Locale
-</span><a href="#local-6989586621679369298"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Locale
-</span><a href="#local-6989586621679369298"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369297"><span class="annot"><span class="annottext">s :: Audio
-</span><a href="#local-6989586621679369297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio%27"><span class="hs-identifier hs-type">Audio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369296"><span class="annot"><span class="annottext">Locale
-</span><a href="#local-6989586621679369296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Audio
-</span><a href="#local-6989586621679369297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:Audio' :: Locale
+</span><a href="#local-6989586621679369307"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Locale
+</span><a href="#local-6989586621679369307"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369306"><span class="annot"><span class="annottext">s :: Audio
+</span><a href="#local-6989586621679369306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio%27"><span class="hs-identifier hs-type">Audio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369305"><span class="annot"><span class="annottext">Locale
+</span><a href="#local-6989586621679369305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Audio
+</span><a href="#local-6989586621679369306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:Audio' :: Locale
 </span><a href="Network.AWS.AlexaBusiness.Types.Audio.html#%24sel%3Alocale%3AAudio%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Locale
-</span><a href="#local-6989586621679369296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The location of the audio file. Currently, S3 URLs are supported. Only</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- S3 locations comprised of safe characters are valid. For more</span><span>
@@ -156,30 +156,30 @@ $sel:locale:Audio' :: Audio -&gt; Locale
 </span><a href="Network.AWS.AlexaBusiness.Types.Audio.html#audio_location"><span class="hs-identifier hs-var hs-var">audio_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Audio -&gt; Text)
 -&gt; (Audio -&gt; Text -&gt; Audio) -&gt; Lens Audio Audio Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio%27"><span class="hs-identifier hs-type">Audio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369294"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio%27"><span class="hs-identifier hs-type">Audio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369303"><span class="annot"><span class="annottext">Text
 location :: Text
 $sel:location:Audio' :: Audio -&gt; Text
-</span><a href="#local-6989586621679369294"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369294"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369293"><span class="annot"><span class="annottext">s :: Audio
-</span><a href="#local-6989586621679369293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio%27"><span class="hs-identifier hs-type">Audio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369292"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Audio
-</span><a href="#local-6989586621679369293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:Audio' :: Text
+</span><a href="#local-6989586621679369303"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369303"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369302"><span class="annot"><span class="annottext">s :: Audio
+</span><a href="#local-6989586621679369302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio%27"><span class="hs-identifier hs-type">Audio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369301"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Audio
+</span><a href="#local-6989586621679369302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:Audio' :: Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Audio.html#%24sel%3Alocation%3AAudio%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369288"><span id="local-6989586621679369290"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369297"><span id="local-6989586621679369299"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369285"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369277"><span id="local-6989586621679369279"><span id="local-6989586621679369281"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679369275"><span class="annot"><span class="annottext">toJSON :: Audio -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio%27"><span class="hs-identifier hs-type">Audio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369272"><span id="local-6989586621679369273"><span class="annot"><span class="annottext">Text
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369286"><span id="local-6989586621679369288"><span id="local-6989586621679369290"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679369284"><span class="annot"><span class="annottext">toJSON :: Audio -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio%27"><span class="hs-identifier hs-type">Audio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369281"><span id="local-6989586621679369282"><span class="annot"><span class="annottext">Text
 Locale
 location :: Text
 locale :: Locale
 $sel:location:Audio' :: Audio -&gt; Text
 $sel:locale:Audio' :: Audio -&gt; Locale
-</span><a href="#local-6989586621679369272"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679369281"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -191,14 +191,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Locale&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Locale -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Locale
-</span><a href="#local-6989586621679369273"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679369282"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369272"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369281"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

@@ -63,12 +63,12 @@
 </span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newGetQueryResults' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621679226980"><span id="local-6989586621679226981"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQueryResults"><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-var">GetQueryResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQueryResults%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults%27"><span class="hs-identifier hs-var">GetQueryResults'</span></a></span></span><span>
+</span><span id="line-66"></span><span id="local-6989586621679226989"><span id="local-6989586621679226990"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQueryResults"><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-var">GetQueryResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQueryResults%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults%27"><span class="hs-identifier hs-var">GetQueryResults'</span></a></span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID number of the query.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AqueryId%3AGetQueryResults%27"><span class="annot"><span class="annottext">GetQueryResults -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#%24sel%3AqueryId%3AGetQueryResults%27"><span class="hs-identifier hs-var hs-var">queryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226974"><span id="local-6989586621679226976"><span class="annot"><span class="annottext">GetQueryResults -&gt; GetQueryResults -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226983"><span id="local-6989586621679226985"><span class="annot"><span class="annottext">GetQueryResults -&gt; GetQueryResults -&gt; Bool
 (GetQueryResults -&gt; GetQueryResults -&gt; Bool)
 -&gt; (GetQueryResults -&gt; GetQueryResults -&gt; Bool)
 -&gt; Eq GetQueryResults
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetQueryResults -&gt; GetQueryResults -&gt; Bool
 == :: GetQueryResults -&gt; GetQueryResults -&gt; Bool
 $c== :: GetQueryResults -&gt; GetQueryResults -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226965"><span id="local-6989586621679226967"><span id="local-6989586621679226969"><span id="local-6989586621679226971"><span class="annot"><span class="annottext">ReadPrec [GetQueryResults]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226974"><span id="local-6989586621679226976"><span id="local-6989586621679226978"><span id="local-6989586621679226980"><span class="annot"><span class="annottext">ReadPrec [GetQueryResults]
 ReadPrec GetQueryResults
 Int -&gt; ReadS GetQueryResults
 ReadS [GetQueryResults]
@@ -97,7 +97,7 @@ readList :: ReadS [GetQueryResults]
 $creadList :: ReadS [GetQueryResults]
 readsPrec :: Int -&gt; ReadS GetQueryResults
 $creadsPrec :: Int -&gt; ReadS GetQueryResults
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226958"><span id="local-6989586621679226960"><span id="local-6989586621679226962"><span class="annot"><span class="annottext">Int -&gt; GetQueryResults -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226967"><span id="local-6989586621679226969"><span id="local-6989586621679226971"><span class="annot"><span class="annottext">Int -&gt; GetQueryResults -&gt; ShowS
 [GetQueryResults] -&gt; ShowS
 GetQueryResults -&gt; String
 (Int -&gt; GetQueryResults -&gt; ShowS)
@@ -137,12 +137,12 @@ $cfrom :: forall x. GetQueryResults -&gt; Rep GetQueryResults x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span>
 </span><span id="line-85"></span><span id="newGetQueryResults"><span class="annot"><span class="annottext">newGetQueryResults :: Text -&gt; GetQueryResults
-</span><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#newGetQueryResults"><span class="hs-identifier hs-var hs-var">newGetQueryResults</span></a></span></span><span> </span><span id="local-6989586621679226953"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226953"><span class="hs-identifier hs-var">pQueryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#newGetQueryResults"><span class="hs-identifier hs-var hs-var">newGetQueryResults</span></a></span></span><span> </span><span id="local-6989586621679226962"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226962"><span class="hs-identifier hs-var">pQueryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">GetQueryResults' :: Text -&gt; GetQueryResults
 </span><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults%27"><span class="hs-identifier hs-type">GetQueryResults'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryId:GetQueryResults' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#%24sel%3AqueryId%3AGetQueryResults%27"><span class="hs-identifier hs-var">queryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226953"><span class="hs-identifier hs-var">pQueryId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679226962"><span class="hs-identifier hs-var">pQueryId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The ID number of the query.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#getQueryResults_queryId"><span class="hs-identifier hs-type">getQueryResults_queryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -151,27 +151,27 @@ $cfrom :: forall x. GetQueryResults -&gt; Rep GetQueryResults x
 -&gt; (GetQueryResults -&gt; Text -&gt; GetQueryResults)
 -&gt; Lens GetQueryResults GetQueryResults Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults%27"><span class="hs-identifier hs-type">GetQueryResults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226950"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults%27"><span class="hs-identifier hs-type">GetQueryResults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226959"><span class="annot"><span class="annottext">Text
 queryId :: Text
 $sel:queryId:GetQueryResults' :: GetQueryResults -&gt; Text
-</span><a href="#local-6989586621679226950"><span class="hs-identifier hs-var hs-var">queryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226950"><span class="hs-identifier hs-var">queryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226949"><span class="annot"><span class="annottext">s :: GetQueryResults
-</span><a href="#local-6989586621679226949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults%27"><span class="hs-identifier hs-type">GetQueryResults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226948"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResults
-</span><a href="#local-6989586621679226949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryId:GetQueryResults' :: Text
+</span><a href="#local-6989586621679226959"><span class="hs-identifier hs-var hs-var">queryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226959"><span class="hs-identifier hs-var">queryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226958"><span class="annot"><span class="annottext">s :: GetQueryResults
+</span><a href="#local-6989586621679226958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults%27"><span class="hs-identifier hs-type">GetQueryResults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226957"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResults
+</span><a href="#local-6989586621679226958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryId:GetQueryResults' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#%24sel%3AqueryId%3AGetQueryResults%27"><span class="hs-identifier hs-var">queryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679226944"><span class="annot"><span class="annottext">request :: GetQueryResults -&gt; Request GetQueryResults
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679226953"><span class="annot"><span class="annottext">request :: GetQueryResults -&gt; Request GetQueryResults
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetQueryResults -&gt; Request GetQueryResults
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679226940"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679226949"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetQueryResults
 -&gt; ClientResponse ClientBody
@@ -195,10 +195,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226937"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226937"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226936"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679226936"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226935"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226935"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226946"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226946"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226945"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679226945"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226944"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226944"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueryStatus
 -&gt; Maybe [[ResultField]]
 -&gt; Maybe QueryStatistics
@@ -217,7 +217,7 @@ MonadResource m =&gt;
       -&gt; Maybe QueryStatistics -&gt; Int -&gt; GetQueryResultsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe QueryStatus)
+</span><a href="#local-6989586621679226944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe QueryStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
@@ -230,7 +230,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe QueryStatistics -&gt; Int -&gt; GetQueryResultsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [[ResultField]]))
+</span><a href="#local-6989586621679226944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [[ResultField]]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;results&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [[ResultField]]))
@@ -245,7 +245,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; GetQueryResultsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe QueryStatistics)
+</span><a href="#local-6989586621679226944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe QueryStatistics)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statistics&quot;</span></span><span class="hs-special">)</span><span>
@@ -257,15 +257,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226937"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226946"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226926"><span id="local-6989586621679226928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226935"><span id="local-6989586621679226937"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679226919"><span class="annot"><span class="annottext">toHeaders :: GetQueryResults -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679226928"><span class="annot"><span class="annottext">toHeaders :: GetQueryResults -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetQueryResults -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -292,12 +292,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226909"><span id="local-6989586621679226911"><span id="local-6989586621679226913"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679226907"><span class="annot"><span class="annottext">toJSON :: GetQueryResults -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults%27"><span class="hs-identifier hs-type">GetQueryResults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226905"><span class="annot"><span class="annottext">Text
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226918"><span id="local-6989586621679226920"><span id="local-6989586621679226922"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679226916"><span class="annot"><span class="annottext">toJSON :: GetQueryResults -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults%27"><span class="hs-identifier hs-type">GetQueryResults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226914"><span class="annot"><span class="annottext">Text
 queryId :: Text
 $sel:queryId:GetQueryResults' :: GetQueryResults -&gt; Text
-</span><a href="#local-6989586621679226905"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679226914"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -309,18 +309,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;queryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226905"><span class="hs-identifier hs-var">queryId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679226914"><span class="hs-identifier hs-var">queryId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679226899"><span class="annot"><span class="annottext">toPath :: GetQueryResults -&gt; ByteString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679226908"><span class="annot"><span class="annottext">toPath :: GetQueryResults -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetQueryResults -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679226895"><span class="annot"><span class="annottext">toQuery :: GetQueryResults -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679226904"><span class="annot"><span class="annottext">toQuery :: GetQueryResults -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetQueryResults -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -328,7 +328,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newGetQueryResultsResponse' smart constructor.</span><span>
-</span><span id="line-140"></span><span id="local-6989586621679226892"><span id="local-6989586621679226893"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQueryResultsResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-var">GetQueryResultsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQueryResultsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-var">GetQueryResultsResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span id="local-6989586621679226901"><span id="local-6989586621679226902"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQueryResultsResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-var">GetQueryResultsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQueryResultsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-var">GetQueryResultsResponse'</span></a></span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the most recent running of the query. Possible values are</span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-comment">-- @Cancelled@, @Complete@, @Failed@, @Running@, @Scheduled@, @Timeout@,</span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-comment">-- and @Unknown@.</span><span>
@@ -356,7 +356,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetQueryResultsResponse%27"><span class="annot"><span class="annottext">GetQueryResultsResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#%24sel%3AhttpStatus%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226884"><span id="local-6989586621679226886"><span class="annot"><span class="annottext">GetQueryResultsResponse -&gt; GetQueryResultsResponse -&gt; Bool
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226893"><span id="local-6989586621679226895"><span class="annot"><span class="annottext">GetQueryResultsResponse -&gt; GetQueryResultsResponse -&gt; Bool
 (GetQueryResultsResponse -&gt; GetQueryResultsResponse -&gt; Bool)
 -&gt; (GetQueryResultsResponse -&gt; GetQueryResultsResponse -&gt; Bool)
 -&gt; Eq GetQueryResultsResponse
@@ -365,7 +365,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetQueryResultsResponse -&gt; GetQueryResultsResponse -&gt; Bool
 == :: GetQueryResultsResponse -&gt; GetQueryResultsResponse -&gt; Bool
 $c== :: GetQueryResultsResponse -&gt; GetQueryResultsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226876"><span id="local-6989586621679226878"><span id="local-6989586621679226880"><span id="local-6989586621679226882"><span class="annot"><span class="annottext">ReadPrec [GetQueryResultsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226885"><span id="local-6989586621679226887"><span id="local-6989586621679226889"><span id="local-6989586621679226891"><span class="annot"><span class="annottext">ReadPrec [GetQueryResultsResponse]
 ReadPrec GetQueryResultsResponse
 Int -&gt; ReadS GetQueryResultsResponse
 ReadS [GetQueryResultsResponse]
@@ -385,7 +385,7 @@ readList :: ReadS [GetQueryResultsResponse]
 $creadList :: ReadS [GetQueryResultsResponse]
 readsPrec :: Int -&gt; ReadS GetQueryResultsResponse
 $creadsPrec :: Int -&gt; ReadS GetQueryResultsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226870"><span id="local-6989586621679226872"><span id="local-6989586621679226874"><span class="annot"><span class="annottext">Int -&gt; GetQueryResultsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226879"><span id="local-6989586621679226881"><span id="local-6989586621679226883"><span class="annot"><span class="annottext">Int -&gt; GetQueryResultsResponse -&gt; ShowS
 [GetQueryResultsResponse] -&gt; ShowS
 GetQueryResultsResponse -&gt; String
 (Int -&gt; GetQueryResultsResponse -&gt; ShowS)
@@ -447,8 +447,8 @@ $cfrom :: forall x. GetQueryResultsResponse -&gt; Rep GetQueryResultsResponse x
 </span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span>
 </span><span id="line-199"></span><span id="newGetQueryResultsResponse"><span class="annot"><span class="annottext">newGetQueryResultsResponse :: Int -&gt; GetQueryResultsResponse
-</span><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#newGetQueryResultsResponse"><span class="hs-identifier hs-var hs-var">newGetQueryResultsResponse</span></a></span></span><span> </span><span id="local-6989586621679226867"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226867"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#newGetQueryResultsResponse"><span class="hs-identifier hs-var hs-var">newGetQueryResultsResponse</span></a></span></span><span> </span><span id="local-6989586621679226876"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226876"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">GetQueryResultsResponse' :: Maybe QueryStatus
 -&gt; Maybe [[ResultField]]
 -&gt; Maybe QueryStatistics
@@ -469,7 +469,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetQueryResultsResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#%24sel%3AhttpStatus%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226867"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679226876"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The status of the most recent running of the query. Possible values are</span><span>
@@ -491,16 +491,16 @@ forall a. Maybe a
      (Maybe QueryStatus)
      (Maybe QueryStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226866"><span class="annot"><span class="annottext">Maybe QueryStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226875"><span class="annot"><span class="annottext">Maybe QueryStatus
 status :: Maybe QueryStatus
 $sel:status:GetQueryResultsResponse' :: GetQueryResultsResponse -&gt; Maybe QueryStatus
-</span><a href="#local-6989586621679226866"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatus
-</span><a href="#local-6989586621679226866"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226865"><span class="annot"><span class="annottext">s :: GetQueryResultsResponse
-</span><a href="#local-6989586621679226865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226864"><span class="annot"><span class="annottext">Maybe QueryStatus
-</span><a href="#local-6989586621679226864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResultsResponse
-</span><a href="#local-6989586621679226865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetQueryResultsResponse' :: Maybe QueryStatus
+</span><a href="#local-6989586621679226875"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatus
+</span><a href="#local-6989586621679226875"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226874"><span class="annot"><span class="annottext">s :: GetQueryResultsResponse
+</span><a href="#local-6989586621679226874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226873"><span class="annot"><span class="annottext">Maybe QueryStatus
+</span><a href="#local-6989586621679226873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResultsResponse
+</span><a href="#local-6989586621679226874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetQueryResultsResponse' :: Maybe QueryStatus
 </span><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#%24sel%3Astatus%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatus
-</span><a href="#local-6989586621679226864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | The log events that matched the query criteria during the most recent</span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- time it ran.</span><span>
@@ -520,16 +520,16 @@ $sel:status:GetQueryResultsResponse' :: GetQueryResultsResponse -&gt; Maybe Quer
      (Maybe [[ResultField]])
      (Maybe [[ResultField]])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226863"><span class="annot"><span class="annottext">Maybe [[ResultField]]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226872"><span class="annot"><span class="annottext">Maybe [[ResultField]]
 results :: Maybe [[ResultField]]
 $sel:results:GetQueryResultsResponse' :: GetQueryResultsResponse -&gt; Maybe [[ResultField]]
-</span><a href="#local-6989586621679226863"><span class="hs-identifier hs-var hs-var">results</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [[ResultField]]
-</span><a href="#local-6989586621679226863"><span class="hs-identifier hs-var">results</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226862"><span class="annot"><span class="annottext">s :: GetQueryResultsResponse
-</span><a href="#local-6989586621679226862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226861"><span class="annot"><span class="annottext">Maybe [[ResultField]]
-</span><a href="#local-6989586621679226861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResultsResponse
-</span><a href="#local-6989586621679226862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:results:GetQueryResultsResponse' :: Maybe [[ResultField]]
+</span><a href="#local-6989586621679226872"><span class="hs-identifier hs-var hs-var">results</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [[ResultField]]
+</span><a href="#local-6989586621679226872"><span class="hs-identifier hs-var">results</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226871"><span class="annot"><span class="annottext">s :: GetQueryResultsResponse
+</span><a href="#local-6989586621679226871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226870"><span class="annot"><span class="annottext">Maybe [[ResultField]]
+</span><a href="#local-6989586621679226870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResultsResponse
+</span><a href="#local-6989586621679226871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:results:GetQueryResultsResponse' :: Maybe [[ResultField]]
 </span><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#%24sel%3Aresults%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var">results</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [[ResultField]]
-</span><a href="#local-6989586621679226861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [[ResultField]] -&gt; f (Maybe [[ResultField]]))
+</span><a href="#local-6989586621679226870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [[ResultField]] -&gt; f (Maybe [[ResultField]]))
  -&gt; GetQueryResultsResponse -&gt; f GetQueryResultsResponse)
 -&gt; ((Maybe [[ResultField]] -&gt; f (Maybe [[ResultField]]))
     -&gt; Maybe [[ResultField]] -&gt; f (Maybe [[ResultField]]))
@@ -568,16 +568,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe QueryStatistics)
      (Maybe QueryStatistics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226857"><span class="annot"><span class="annottext">Maybe QueryStatistics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226866"><span class="annot"><span class="annottext">Maybe QueryStatistics
 statistics :: Maybe QueryStatistics
 $sel:statistics:GetQueryResultsResponse' :: GetQueryResultsResponse -&gt; Maybe QueryStatistics
-</span><a href="#local-6989586621679226857"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatistics
-</span><a href="#local-6989586621679226857"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226856"><span class="annot"><span class="annottext">s :: GetQueryResultsResponse
-</span><a href="#local-6989586621679226856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226855"><span class="annot"><span class="annottext">Maybe QueryStatistics
-</span><a href="#local-6989586621679226855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResultsResponse
-</span><a href="#local-6989586621679226856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistics:GetQueryResultsResponse' :: Maybe QueryStatistics
+</span><a href="#local-6989586621679226866"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatistics
+</span><a href="#local-6989586621679226866"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226865"><span class="annot"><span class="annottext">s :: GetQueryResultsResponse
+</span><a href="#local-6989586621679226865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226864"><span class="annot"><span class="annottext">Maybe QueryStatistics
+</span><a href="#local-6989586621679226864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResultsResponse
+</span><a href="#local-6989586621679226865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistics:GetQueryResultsResponse' :: Maybe QueryStatistics
 </span><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#%24sel%3Astatistics%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var">statistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatistics
-</span><a href="#local-6989586621679226855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-234"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#getQueryResultsResponse_httpStatus"><span class="hs-identifier hs-type">getQueryResultsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -587,16 +587,16 @@ $sel:statistics:GetQueryResultsResponse' :: GetQueryResultsResponse -&gt; Maybe 
 -&gt; (GetQueryResultsResponse -&gt; Int -&gt; GetQueryResultsResponse)
 -&gt; Lens GetQueryResultsResponse GetQueryResultsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226854"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226863"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetQueryResultsResponse' :: GetQueryResultsResponse -&gt; Int
-</span><a href="#local-6989586621679226854"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226854"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226853"><span class="annot"><span class="annottext">s :: GetQueryResultsResponse
-</span><a href="#local-6989586621679226853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226852"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResultsResponse
-</span><a href="#local-6989586621679226853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetQueryResultsResponse' :: Int
+</span><a href="#local-6989586621679226863"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226863"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226862"><span class="annot"><span class="annottext">s :: GetQueryResultsResponse
+</span><a href="#local-6989586621679226862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226861"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResultsResponse
+</span><a href="#local-6989586621679226862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetQueryResultsResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#%24sel%3AhttpStatus%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
-</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226850"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span></span><span>
 </span><span id="line-238"></span></pre></body></html>

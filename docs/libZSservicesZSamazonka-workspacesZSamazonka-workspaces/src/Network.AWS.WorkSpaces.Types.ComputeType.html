@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the compute type of the bundle.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newComputeType' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679270015"><span id="local-6989586621679270016"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComputeType"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-var">ComputeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComputeType%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType%27"><span class="hs-identifier hs-var">ComputeType'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679270024"><span id="local-6989586621679270025"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComputeType"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-var">ComputeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComputeType%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType%27"><span class="hs-identifier hs-var">ComputeType'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The compute type.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aname%3AComputeType%27"><span class="annot"><span class="annottext">ComputeType -&gt; Maybe Compute
 </span><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#%24sel%3Aname%3AComputeType%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Compute.html#Compute"><span class="hs-identifier hs-type">Compute</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270009"><span id="local-6989586621679270011"><span class="annot"><span class="annottext">ComputeType -&gt; ComputeType -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270018"><span id="local-6989586621679270020"><span class="annot"><span class="annottext">ComputeType -&gt; ComputeType -&gt; Bool
 (ComputeType -&gt; ComputeType -&gt; Bool)
 -&gt; (ComputeType -&gt; ComputeType -&gt; Bool) -&gt; Eq ComputeType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ComputeType -&gt; ComputeType -&gt; Bool
 == :: ComputeType -&gt; ComputeType -&gt; Bool
 $c== :: ComputeType -&gt; ComputeType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270000"><span id="local-6989586621679270002"><span id="local-6989586621679270004"><span id="local-6989586621679270006"><span class="annot"><span class="annottext">ReadPrec [ComputeType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270009"><span id="local-6989586621679270011"><span id="local-6989586621679270013"><span id="local-6989586621679270015"><span class="annot"><span class="annottext">ReadPrec [ComputeType]
 ReadPrec ComputeType
 Int -&gt; ReadS ComputeType
 ReadS [ComputeType]
@@ -60,7 +60,7 @@ readList :: ReadS [ComputeType]
 $creadList :: ReadS [ComputeType]
 readsPrec :: Int -&gt; ReadS ComputeType
 $creadsPrec :: Int -&gt; ReadS ComputeType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269993"><span id="local-6989586621679269995"><span id="local-6989586621679269997"><span class="annot"><span class="annottext">Int -&gt; ComputeType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270002"><span id="local-6989586621679270004"><span id="local-6989586621679270006"><span class="annot"><span class="annottext">Int -&gt; ComputeType -&gt; ShowS
 [ComputeType] -&gt; ShowS
 ComputeType -&gt; String
 (Int -&gt; ComputeType -&gt; ShowS)
@@ -112,19 +112,19 @@ forall a. Maybe a
 -&gt; (ComputeType -&gt; Maybe Compute -&gt; ComputeType)
 -&gt; Lens ComputeType ComputeType (Maybe Compute) (Maybe Compute)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType%27"><span class="hs-identifier hs-type">ComputeType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269984"><span class="annot"><span class="annottext">Maybe Compute
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType%27"><span class="hs-identifier hs-type">ComputeType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269993"><span class="annot"><span class="annottext">Maybe Compute
 name :: Maybe Compute
 $sel:name:ComputeType' :: ComputeType -&gt; Maybe Compute
-</span><a href="#local-6989586621679269984"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Compute
-</span><a href="#local-6989586621679269984"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269983"><span class="annot"><span class="annottext">s :: ComputeType
-</span><a href="#local-6989586621679269983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType%27"><span class="hs-identifier hs-type">ComputeType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269982"><span class="annot"><span class="annottext">Maybe Compute
-</span><a href="#local-6989586621679269982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeType
-</span><a href="#local-6989586621679269983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ComputeType' :: Maybe Compute
+</span><a href="#local-6989586621679269993"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Compute
+</span><a href="#local-6989586621679269993"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269992"><span class="annot"><span class="annottext">s :: ComputeType
+</span><a href="#local-6989586621679269992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType%27"><span class="hs-identifier hs-type">ComputeType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269991"><span class="annot"><span class="annottext">Maybe Compute
+</span><a href="#local-6989586621679269991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeType
+</span><a href="#local-6989586621679269992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ComputeType' :: Maybe Compute
 </span><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#%24sel%3Aname%3AComputeType%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Compute
-</span><a href="#local-6989586621679269982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679269991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269979"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679269977"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ComputeType
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269988"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679269986"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ComputeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ComputeType) -&gt; Value -&gt; Parser ComputeType
@@ -132,27 +132,27 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ComputeType&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269974"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679269974"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Compute -&gt; ComputeType
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269983"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269983"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Compute -&gt; ComputeType
 </span><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType%27"><span class="hs-identifier hs-var">ComputeType'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Compute -&gt; ComputeType)
 -&gt; Parser (Maybe Compute) -&gt; Parser ComputeType
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679269974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Compute)
+</span><a href="#local-6989586621679269983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Compute)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269968"><span id="local-6989586621679269970"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269977"><span id="local-6989586621679269979"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269965"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269957"><span id="local-6989586621679269959"><span id="local-6989586621679269961"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679269955"><span class="annot"><span class="annottext">toJSON :: ComputeType -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType%27"><span class="hs-identifier hs-type">ComputeType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269953"><span class="annot"><span class="annottext">Maybe Compute
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269966"><span id="local-6989586621679269968"><span id="local-6989586621679269970"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679269964"><span class="annot"><span class="annottext">toJSON :: ComputeType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ComputeType.html#ComputeType%27"><span class="hs-identifier hs-type">ComputeType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269962"><span class="annot"><span class="annottext">Maybe Compute
 name :: Maybe Compute
 $sel:name:ComputeType' :: ComputeType -&gt; Maybe Compute
-</span><a href="#local-6989586621679269953"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679269962"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -164,6 +164,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Compute -&gt; Pair) -&gt; Maybe Compute -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Compute
-</span><a href="#local-6989586621679269953"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679269962"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679304979"><span id="local-6989586621679304980"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApplicationRevisionSortBy"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ApplicationRevisionSortBy.html#ApplicationRevisionSortBy"><span class="hs-identifier hs-var">ApplicationRevisionSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationRevisionSortBy%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ApplicationRevisionSortBy.html#ApplicationRevisionSortBy%27"><span class="hs-identifier hs-var">ApplicationRevisionSortBy'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679304988"><span id="local-6989586621679304989"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApplicationRevisionSortBy"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ApplicationRevisionSortBy.html#ApplicationRevisionSortBy"><span class="hs-identifier hs-var">ApplicationRevisionSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationRevisionSortBy%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ApplicationRevisionSortBy.html#ApplicationRevisionSortBy%27"><span class="hs-identifier hs-var">ApplicationRevisionSortBy'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromApplicationRevisionSortBy"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.Types.ApplicationRevisionSortBy.html#fromApplicationRevisionSortBy"><span class="hs-identifier hs-var hs-var">fromApplicationRevisionSortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679304971"><span id="local-6989586621679304973"><span id="local-6989586621679304975"><span class="annot"><span class="annottext">Int -&gt; ApplicationRevisionSortBy -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679304980"><span id="local-6989586621679304982"><span id="local-6989586621679304984"><span class="annot"><span class="annottext">Int -&gt; ApplicationRevisionSortBy -&gt; ShowS
 [ApplicationRevisionSortBy] -&gt; ShowS
 ApplicationRevisionSortBy -&gt; String
 (Int -&gt; ApplicationRevisionSortBy -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ApplicationRevisionSortBy -&gt; String
 showsPrec :: Int -&gt; ApplicationRevisionSortBy -&gt; ShowS
 $cshowsPrec :: Int -&gt; ApplicationRevisionSortBy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679304962"><span id="local-6989586621679304964"><span id="local-6989586621679304966"><span id="local-6989586621679304968"><span class="annot"><span class="annottext">ReadPrec [ApplicationRevisionSortBy]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679304971"><span id="local-6989586621679304973"><span id="local-6989586621679304975"><span id="local-6989586621679304977"><span class="annot"><span class="annottext">ReadPrec [ApplicationRevisionSortBy]
 ReadPrec ApplicationRevisionSortBy
 Int -&gt; ReadS ApplicationRevisionSortBy
 ReadS [ApplicationRevisionSortBy]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ApplicationRevisionSortBy]
 readsPrec :: Int -&gt; ReadS ApplicationRevisionSortBy
 $creadsPrec :: Int -&gt; ReadS ApplicationRevisionSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679304957"><span id="local-6989586621679304959"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; ApplicationRevisionSortBy -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679304966"><span id="local-6989586621679304968"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; ApplicationRevisionSortBy -&gt; Bool
 (ApplicationRevisionSortBy -&gt; ApplicationRevisionSortBy -&gt; Bool)
 -&gt; (ApplicationRevisionSortBy -&gt; ApplicationRevisionSortBy -&gt; Bool)
 -&gt; Eq ApplicationRevisionSortBy
@@ -83,7 +83,7 @@ $c/= :: ApplicationRevisionSortBy -&gt; ApplicationRevisionSortBy -&gt; Bool
 == :: ApplicationRevisionSortBy -&gt; ApplicationRevisionSortBy -&gt; Bool
 $c== :: ApplicationRevisionSortBy -&gt; ApplicationRevisionSortBy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679304941"><span id="local-6989586621679304943"><span id="local-6989586621679304945"><span id="local-6989586621679304947"><span id="local-6989586621679304949"><span id="local-6989586621679304951"><span id="local-6989586621679304953"><span class="annot"><span class="annottext">Eq ApplicationRevisionSortBy
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679304950"><span id="local-6989586621679304952"><span id="local-6989586621679304954"><span id="local-6989586621679304956"><span id="local-6989586621679304958"><span id="local-6989586621679304960"><span id="local-6989586621679304962"><span class="annot"><span class="annottext">Eq ApplicationRevisionSortBy
 Eq ApplicationRevisionSortBy
 -&gt; (ApplicationRevisionSortBy
     -&gt; ApplicationRevisionSortBy -&gt; Ordering)
@@ -148,7 +148,7 @@ ApplicationRevisionSortBy -&gt; Rep ApplicationRevisionSortBy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679304933"><span id="local-6989586621679304935"><span class="annot"><span class="annottext">Int -&gt; ApplicationRevisionSortBy -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679304942"><span id="local-6989586621679304944"><span class="annot"><span class="annottext">Int -&gt; ApplicationRevisionSortBy -&gt; Int
 ApplicationRevisionSortBy -&gt; Int
 (Int -&gt; ApplicationRevisionSortBy -&gt; Int)
 -&gt; (ApplicationRevisionSortBy -&gt; Int)
@@ -159,56 +159,56 @@ $chash :: ApplicationRevisionSortBy -&gt; Int
 hashWithSalt :: Int -&gt; ApplicationRevisionSortBy -&gt; Int
 $chashWithSalt :: Int -&gt; ApplicationRevisionSortBy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679304930"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679304939"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; ()
 (ApplicationRevisionSortBy -&gt; ())
 -&gt; NFData ApplicationRevisionSortBy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ApplicationRevisionSortBy -&gt; ()
 $crnf :: ApplicationRevisionSortBy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679304927"><span class="annot"><span class="annottext">Text -&gt; Either String ApplicationRevisionSortBy
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679304936"><span class="annot"><span class="annottext">Text -&gt; Either String ApplicationRevisionSortBy
 (Text -&gt; Either String ApplicationRevisionSortBy)
 -&gt; FromText ApplicationRevisionSortBy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ApplicationRevisionSortBy
 $cfromText :: Text -&gt; Either String ApplicationRevisionSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679304924"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679304933"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; Text
 (ApplicationRevisionSortBy -&gt; Text)
 -&gt; ToText ApplicationRevisionSortBy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ApplicationRevisionSortBy -&gt; Text
 $ctoText :: ApplicationRevisionSortBy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679304921"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679304930"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; ByteString
 (ApplicationRevisionSortBy -&gt; ByteString)
 -&gt; ToByteString ApplicationRevisionSortBy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ApplicationRevisionSortBy -&gt; ByteString
 $ctoBS :: ApplicationRevisionSortBy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679304918"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679304927"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; ByteStringBuilder
 (ApplicationRevisionSortBy -&gt; ByteStringBuilder)
 -&gt; ToLog ApplicationRevisionSortBy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ApplicationRevisionSortBy -&gt; ByteStringBuilder
 $cbuild :: ApplicationRevisionSortBy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679304915"><span class="annot"><span class="annottext">HeaderName -&gt; ApplicationRevisionSortBy -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679304924"><span class="annot"><span class="annottext">HeaderName -&gt; ApplicationRevisionSortBy -&gt; [Header]
 (HeaderName -&gt; ApplicationRevisionSortBy -&gt; [Header])
 -&gt; ToHeader ApplicationRevisionSortBy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ApplicationRevisionSortBy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ApplicationRevisionSortBy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679304912"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679304921"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; QueryString
 (ApplicationRevisionSortBy -&gt; QueryString)
 -&gt; ToQuery ApplicationRevisionSortBy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ApplicationRevisionSortBy -&gt; QueryString
 $ctoQuery :: ApplicationRevisionSortBy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679304907"><span id="local-6989586621679304909"><span class="annot"><span class="annottext">Value -&gt; Parser [ApplicationRevisionSortBy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679304916"><span id="local-6989586621679304918"><span class="annot"><span class="annottext">Value -&gt; Parser [ApplicationRevisionSortBy]
 Value -&gt; Parser ApplicationRevisionSortBy
 (Value -&gt; Parser ApplicationRevisionSortBy)
 -&gt; (Value -&gt; Parser [ApplicationRevisionSortBy])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [ApplicationRevisionSortBy]
 parseJSON :: Value -&gt; Parser ApplicationRevisionSortBy
 $cparseJSON :: Value -&gt; Parser ApplicationRevisionSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679304902"><span id="local-6989586621679304904"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApplicationRevisionSortBy]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679304911"><span id="local-6989586621679304913"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApplicationRevisionSortBy]
 FromJSONKeyFunction ApplicationRevisionSortBy
 FromJSONKeyFunction ApplicationRevisionSortBy
 -&gt; FromJSONKeyFunction [ApplicationRevisionSortBy]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ApplicationRevisionSortBy]
 fromJSONKey :: FromJSONKeyFunction ApplicationRevisionSortBy
 $cfromJSONKey :: FromJSONKeyFunction ApplicationRevisionSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679304893"><span id="local-6989586621679304895"><span id="local-6989586621679304897"><span id="local-6989586621679304899"><span class="annot"><span class="annottext">[ApplicationRevisionSortBy] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679304902"><span id="local-6989586621679304904"><span id="local-6989586621679304906"><span id="local-6989586621679304908"><span class="annot"><span class="annottext">[ApplicationRevisionSortBy] -&gt; Encoding
 [ApplicationRevisionSortBy] -&gt; Value
 ApplicationRevisionSortBy -&gt; Encoding
 ApplicationRevisionSortBy -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: ApplicationRevisionSortBy -&gt; Encoding
 toJSON :: ApplicationRevisionSortBy -&gt; Value
 $ctoJSON :: ApplicationRevisionSortBy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679304888"><span id="local-6989586621679304890"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApplicationRevisionSortBy]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679304897"><span id="local-6989586621679304899"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApplicationRevisionSortBy]
 ToJSONKeyFunction ApplicationRevisionSortBy
 ToJSONKeyFunction ApplicationRevisionSortBy
 -&gt; ToJSONKeyFunction [ApplicationRevisionSortBy]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ApplicationRevisionSortBy]
 toJSONKey :: ToJSONKeyFunction ApplicationRevisionSortBy
 $ctoJSONKey :: ToJSONKeyFunction ApplicationRevisionSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679304885"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApplicationRevisionSortBy
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679304894"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApplicationRevisionSortBy
 ([Node] -&gt; Either String ApplicationRevisionSortBy)
 -&gt; FromXML ApplicationRevisionSortBy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ApplicationRevisionSortBy
 $cparseXML :: [Node] -&gt; Either String ApplicationRevisionSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679304882"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679304891"><span class="annot"><span class="annottext">ApplicationRevisionSortBy -&gt; XML
 (ApplicationRevisionSortBy -&gt; XML)
 -&gt; ToXML ApplicationRevisionSortBy
 forall a. (a -&gt; XML) -&gt; ToXML a

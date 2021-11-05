@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Fmp4 Hls Settings</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFmp4HlsSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679877553"><span id="local-6989586621679877554"></span></span><span class="hs-keyword">data</span><span> </span><span id="Fmp4HlsSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-var">Fmp4HlsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Fmp4HlsSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-var">Fmp4HlsSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679877562"><span id="local-6989586621679877563"></span></span><span class="hs-keyword">data</span><span> </span><span id="Fmp4HlsSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-var">Fmp4HlsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Fmp4HlsSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-var">Fmp4HlsSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If set to passthrough, Nielsen inaudible tones for media tracking will</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- be detected in the input audio and an equivalent ID3 tag will be</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- inserted in the output.</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AtimedMetadataBehavior%3AFmp4HlsSettings%27"><span class="annot"><span class="annottext">Fmp4HlsSettings -&gt; Maybe Fmp4TimedMetadataBehavior
 </span><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#%24sel%3AtimedMetadataBehavior%3AFmp4HlsSettings%27"><span class="hs-identifier hs-var hs-var">timedMetadataBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior"><span class="hs-identifier hs-type">Fmp4TimedMetadataBehavior</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679877545"><span id="local-6989586621679877547"><span class="annot"><span class="annottext">Fmp4HlsSettings -&gt; Fmp4HlsSettings -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679877554"><span id="local-6989586621679877556"><span class="annot"><span class="annottext">Fmp4HlsSettings -&gt; Fmp4HlsSettings -&gt; Bool
 (Fmp4HlsSettings -&gt; Fmp4HlsSettings -&gt; Bool)
 -&gt; (Fmp4HlsSettings -&gt; Fmp4HlsSettings -&gt; Bool)
 -&gt; Eq Fmp4HlsSettings
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Fmp4HlsSettings -&gt; Fmp4HlsSettings -&gt; Bool
 == :: Fmp4HlsSettings -&gt; Fmp4HlsSettings -&gt; Bool
 $c== :: Fmp4HlsSettings -&gt; Fmp4HlsSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679877536"><span id="local-6989586621679877538"><span id="local-6989586621679877540"><span id="local-6989586621679877542"><span class="annot"><span class="annottext">ReadPrec [Fmp4HlsSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679877545"><span id="local-6989586621679877547"><span id="local-6989586621679877549"><span id="local-6989586621679877551"><span class="annot"><span class="annottext">ReadPrec [Fmp4HlsSettings]
 ReadPrec Fmp4HlsSettings
 Int -&gt; ReadS Fmp4HlsSettings
 ReadS [Fmp4HlsSettings]
@@ -73,7 +73,7 @@ readList :: ReadS [Fmp4HlsSettings]
 $creadList :: ReadS [Fmp4HlsSettings]
 readsPrec :: Int -&gt; ReadS Fmp4HlsSettings
 $creadsPrec :: Int -&gt; ReadS Fmp4HlsSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679877529"><span id="local-6989586621679877531"><span id="local-6989586621679877533"><span class="annot"><span class="annottext">Int -&gt; Fmp4HlsSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679877538"><span id="local-6989586621679877540"><span id="local-6989586621679877542"><span class="annot"><span class="annottext">Int -&gt; Fmp4HlsSettings -&gt; ShowS
 [Fmp4HlsSettings] -&gt; ShowS
 Fmp4HlsSettings -&gt; String
 (Int -&gt; Fmp4HlsSettings -&gt; ShowS)
@@ -154,16 +154,16 @@ forall a. Maybe a
      (Maybe Fmp4NielsenId3Behavior)
      (Maybe Fmp4NielsenId3Behavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679877520"><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679877529"><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
 nielsenId3Behavior :: Maybe Fmp4NielsenId3Behavior
 $sel:nielsenId3Behavior:Fmp4HlsSettings' :: Fmp4HlsSettings -&gt; Maybe Fmp4NielsenId3Behavior
-</span><a href="#local-6989586621679877520"><span class="hs-identifier hs-var hs-var">nielsenId3Behavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
-</span><a href="#local-6989586621679877520"><span class="hs-identifier hs-var">nielsenId3Behavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679877519"><span class="annot"><span class="annottext">s :: Fmp4HlsSettings
-</span><a href="#local-6989586621679877519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679877518"><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
-</span><a href="#local-6989586621679877518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Fmp4HlsSettings
-</span><a href="#local-6989586621679877519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenId3Behavior:Fmp4HlsSettings' :: Maybe Fmp4NielsenId3Behavior
+</span><a href="#local-6989586621679877529"><span class="hs-identifier hs-var hs-var">nielsenId3Behavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
+</span><a href="#local-6989586621679877529"><span class="hs-identifier hs-var">nielsenId3Behavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679877528"><span class="annot"><span class="annottext">s :: Fmp4HlsSettings
+</span><a href="#local-6989586621679877528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679877527"><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
+</span><a href="#local-6989586621679877527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Fmp4HlsSettings
+</span><a href="#local-6989586621679877528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenId3Behavior:Fmp4HlsSettings' :: Maybe Fmp4NielsenId3Behavior
 </span><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#%24sel%3AnielsenId3Behavior%3AFmp4HlsSettings%27"><span class="hs-identifier hs-var">nielsenId3Behavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
-</span><a href="#local-6989586621679877518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679877527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | List all the audio groups that are used with the video output stream.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- Input all the audio GROUP-IDs that are associated to the video, separate</span><span>
@@ -175,16 +175,16 @@ $sel:nielsenId3Behavior:Fmp4HlsSettings' :: Fmp4HlsSettings -&gt; Maybe Fmp4Niel
 -&gt; (Fmp4HlsSettings -&gt; Maybe Text -&gt; Fmp4HlsSettings)
 -&gt; Lens Fmp4HlsSettings Fmp4HlsSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679877516"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679877525"><span class="annot"><span class="annottext">Maybe Text
 audioRenditionSets :: Maybe Text
 $sel:audioRenditionSets:Fmp4HlsSettings' :: Fmp4HlsSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679877516"><span class="hs-identifier hs-var hs-var">audioRenditionSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679877516"><span class="hs-identifier hs-var">audioRenditionSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679877515"><span class="annot"><span class="annottext">s :: Fmp4HlsSettings
-</span><a href="#local-6989586621679877515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679877514"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679877514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Fmp4HlsSettings
-</span><a href="#local-6989586621679877515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioRenditionSets:Fmp4HlsSettings' :: Maybe Text
+</span><a href="#local-6989586621679877525"><span class="hs-identifier hs-var hs-var">audioRenditionSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679877525"><span class="hs-identifier hs-var">audioRenditionSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679877524"><span class="annot"><span class="annottext">s :: Fmp4HlsSettings
+</span><a href="#local-6989586621679877524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679877523"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679877523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Fmp4HlsSettings
+</span><a href="#local-6989586621679877524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioRenditionSets:Fmp4HlsSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#%24sel%3AaudioRenditionSets%3AFmp4HlsSettings%27"><span class="hs-identifier hs-var">audioRenditionSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679877514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679877523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | When set to passthrough, timed metadata is passed through from input to</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- output.</span><span>
@@ -201,19 +201,19 @@ $sel:audioRenditionSets:Fmp4HlsSettings' :: Fmp4HlsSettings -&gt; Maybe Text
      (Maybe Fmp4TimedMetadataBehavior)
      (Maybe Fmp4TimedMetadataBehavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679877512"><span class="annot"><span class="annottext">Maybe Fmp4TimedMetadataBehavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679877521"><span class="annot"><span class="annottext">Maybe Fmp4TimedMetadataBehavior
 timedMetadataBehavior :: Maybe Fmp4TimedMetadataBehavior
 $sel:timedMetadataBehavior:Fmp4HlsSettings' :: Fmp4HlsSettings -&gt; Maybe Fmp4TimedMetadataBehavior
-</span><a href="#local-6989586621679877512"><span class="hs-identifier hs-var hs-var">timedMetadataBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4TimedMetadataBehavior
-</span><a href="#local-6989586621679877512"><span class="hs-identifier hs-var">timedMetadataBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679877511"><span class="annot"><span class="annottext">s :: Fmp4HlsSettings
-</span><a href="#local-6989586621679877511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679877510"><span class="annot"><span class="annottext">Maybe Fmp4TimedMetadataBehavior
-</span><a href="#local-6989586621679877510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Fmp4HlsSettings
-</span><a href="#local-6989586621679877511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedMetadataBehavior:Fmp4HlsSettings' :: Maybe Fmp4TimedMetadataBehavior
+</span><a href="#local-6989586621679877521"><span class="hs-identifier hs-var hs-var">timedMetadataBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4TimedMetadataBehavior
+</span><a href="#local-6989586621679877521"><span class="hs-identifier hs-var">timedMetadataBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679877520"><span class="annot"><span class="annottext">s :: Fmp4HlsSettings
+</span><a href="#local-6989586621679877520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679877519"><span class="annot"><span class="annottext">Maybe Fmp4TimedMetadataBehavior
+</span><a href="#local-6989586621679877519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Fmp4HlsSettings
+</span><a href="#local-6989586621679877520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedMetadataBehavior:Fmp4HlsSettings' :: Maybe Fmp4TimedMetadataBehavior
 </span><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#%24sel%3AtimedMetadataBehavior%3AFmp4HlsSettings%27"><span class="hs-identifier hs-var">timedMetadataBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4TimedMetadataBehavior
-</span><a href="#local-6989586621679877510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679877519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679877507"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679877505"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Fmp4HlsSettings
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679877516"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679877514"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Fmp4HlsSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Fmp4HlsSettings)
@@ -223,8 +223,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Fmp4HlsSettings&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679877502"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679877502"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679877511"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679877511"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
 -&gt; Maybe Text -&gt; Maybe Fmp4TimedMetadataBehavior -&gt; Fmp4HlsSettings
 </span><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-var">Fmp4HlsSettings'</span></a></span><span>
@@ -237,7 +237,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Fmp4TimedMetadataBehavior -&gt; Fmp4HlsSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679877502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Fmp4NielsenId3Behavior)
+</span><a href="#local-6989586621679877511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Fmp4NielsenId3Behavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nielsenId3Behavior&quot;</span></span><span class="hs-special">)</span><span>
@@ -247,7 +247,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Fmp4TimedMetadataBehavior -&gt; Fmp4HlsSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679877502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679877511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioRenditionSets&quot;</span></span><span class="hs-special">)</span><span>
@@ -256,19 +256,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Fmp4HlsSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679877502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Fmp4TimedMetadataBehavior)
+</span><a href="#local-6989586621679877511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Fmp4TimedMetadataBehavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timedMetadataBehavior&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679877496"><span id="local-6989586621679877498"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679877505"><span id="local-6989586621679877507"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679877493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679877502"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679877485"><span id="local-6989586621679877487"><span id="local-6989586621679877489"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679877483"><span class="annot"><span class="annottext">toJSON :: Fmp4HlsSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679877479"><span id="local-6989586621679877480"><span id="local-6989586621679877481"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679877494"><span id="local-6989586621679877496"><span id="local-6989586621679877498"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679877492"><span class="annot"><span class="annottext">toJSON :: Fmp4HlsSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679877488"><span id="local-6989586621679877489"><span id="local-6989586621679877490"><span class="annot"><span class="annottext">Maybe Text
 Maybe Fmp4NielsenId3Behavior
 Maybe Fmp4TimedMetadataBehavior
 timedMetadataBehavior :: Maybe Fmp4TimedMetadataBehavior
@@ -277,7 +277,7 @@ nielsenId3Behavior :: Maybe Fmp4NielsenId3Behavior
 $sel:timedMetadataBehavior:Fmp4HlsSettings' :: Fmp4HlsSettings -&gt; Maybe Fmp4TimedMetadataBehavior
 $sel:audioRenditionSets:Fmp4HlsSettings' :: Fmp4HlsSettings -&gt; Maybe Text
 $sel:nielsenId3Behavior:Fmp4HlsSettings' :: Fmp4HlsSettings -&gt; Maybe Fmp4NielsenId3Behavior
-</span><a href="#local-6989586621679877479"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679877488"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -291,7 +291,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Fmp4NielsenId3Behavior -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
-</span><a href="#local-6989586621679877481"><span class="hs-identifier hs-var">nielsenId3Behavior</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679877490"><span class="hs-identifier hs-var">nielsenId3Behavior</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioRenditionSets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -299,7 +299,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679877480"><span class="hs-identifier hs-var">audioRenditionSets</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679877489"><span class="hs-identifier hs-var">audioRenditionSets</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timedMetadataBehavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Fmp4TimedMetadataBehavior -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -308,7 +308,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Fmp4TimedMetadataBehavior -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4TimedMetadataBehavior
-</span><a href="#local-6989586621679877479"><span class="hs-identifier hs-var">timedMetadataBehavior</span></a></span><span>
+</span><a href="#local-6989586621679877488"><span class="hs-identifier hs-var">timedMetadataBehavior</span></a></span><span>
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span></pre></body></html>

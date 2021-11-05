@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Kafka.Types.ClusterState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Kafka.Types.ClusterState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState"><span class="hs-identifier">ClusterState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_ACTIVE"><span class="hs-identifier">ClusterState_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_CREATING"><span class="hs-identifier">ClusterState_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_DELETING"><span class="hs-identifier">ClusterState_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_FAILED"><span class="hs-identifier">ClusterState_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_HEALING"><span class="hs-identifier">ClusterState_HEALING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_MAINTENANCE"><span class="hs-identifier">ClusterState_MAINTENANCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_REBOOTING_BROKER"><span class="hs-identifier">ClusterState_REBOOTING_BROKER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_UPDATING"><span class="hs-identifier">ClusterState_UPDATING</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- | The state of a Kafka cluster.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679229263"><span id="local-6989586621679229264"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ClusterState"><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-var">ClusterState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterState%27"><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState%27"><span class="hs-identifier hs-var">ClusterState'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromClusterState"><span class="annot"><span class="annottext">ClusterState -&gt; Text
+</span><a href="Network.AWS.Kafka.Types.ClusterState.html#fromClusterState"><span class="hs-identifier hs-var hs-var">fromClusterState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679229255"><span id="local-6989586621679229257"><span id="local-6989586621679229259"><span class="annot"><span class="annottext">Int -&gt; ClusterState -&gt; ShowS
+[ClusterState] -&gt; ShowS
+ClusterState -&gt; String
+(Int -&gt; ClusterState -&gt; ShowS)
+-&gt; (ClusterState -&gt; String)
+-&gt; ([ClusterState] -&gt; ShowS)
+-&gt; Show ClusterState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ClusterState] -&gt; ShowS
+$cshowList :: [ClusterState] -&gt; ShowS
+show :: ClusterState -&gt; String
+$cshow :: ClusterState -&gt; String
+showsPrec :: Int -&gt; ClusterState -&gt; ShowS
+$cshowsPrec :: Int -&gt; ClusterState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679229246"><span id="local-6989586621679229248"><span id="local-6989586621679229250"><span id="local-6989586621679229252"><span class="annot"><span class="annottext">ReadPrec [ClusterState]
+ReadPrec ClusterState
+Int -&gt; ReadS ClusterState
+ReadS [ClusterState]
+(Int -&gt; ReadS ClusterState)
+-&gt; ReadS [ClusterState]
+-&gt; ReadPrec ClusterState
+-&gt; ReadPrec [ClusterState]
+-&gt; Read ClusterState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ClusterState]
+$creadListPrec :: ReadPrec [ClusterState]
+readPrec :: ReadPrec ClusterState
+$creadPrec :: ReadPrec ClusterState
+readList :: ReadS [ClusterState]
+$creadList :: ReadS [ClusterState]
+readsPrec :: Int -&gt; ReadS ClusterState
+$creadsPrec :: Int -&gt; ReadS ClusterState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679229241"><span id="local-6989586621679229243"><span class="annot"><span class="annottext">ClusterState -&gt; ClusterState -&gt; Bool
+(ClusterState -&gt; ClusterState -&gt; Bool)
+-&gt; (ClusterState -&gt; ClusterState -&gt; Bool) -&gt; Eq ClusterState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ClusterState -&gt; ClusterState -&gt; Bool
+$c/= :: ClusterState -&gt; ClusterState -&gt; Bool
+== :: ClusterState -&gt; ClusterState -&gt; Bool
+$c== :: ClusterState -&gt; ClusterState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679229225"><span id="local-6989586621679229227"><span id="local-6989586621679229229"><span id="local-6989586621679229231"><span id="local-6989586621679229233"><span id="local-6989586621679229235"><span id="local-6989586621679229237"><span class="annot"><span class="annottext">Eq ClusterState
+Eq ClusterState
+-&gt; (ClusterState -&gt; ClusterState -&gt; Ordering)
+-&gt; (ClusterState -&gt; ClusterState -&gt; Bool)
+-&gt; (ClusterState -&gt; ClusterState -&gt; Bool)
+-&gt; (ClusterState -&gt; ClusterState -&gt; Bool)
+-&gt; (ClusterState -&gt; ClusterState -&gt; Bool)
+-&gt; (ClusterState -&gt; ClusterState -&gt; ClusterState)
+-&gt; (ClusterState -&gt; ClusterState -&gt; ClusterState)
+-&gt; Ord ClusterState
+ClusterState -&gt; ClusterState -&gt; Bool
+ClusterState -&gt; ClusterState -&gt; Ordering
+ClusterState -&gt; ClusterState -&gt; ClusterState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ClusterState -&gt; ClusterState -&gt; ClusterState
+$cmin :: ClusterState -&gt; ClusterState -&gt; ClusterState
+max :: ClusterState -&gt; ClusterState -&gt; ClusterState
+$cmax :: ClusterState -&gt; ClusterState -&gt; ClusterState
+&gt;= :: ClusterState -&gt; ClusterState -&gt; Bool
+$c&gt;= :: ClusterState -&gt; ClusterState -&gt; Bool
+&gt; :: ClusterState -&gt; ClusterState -&gt; Bool
+$c&gt; :: ClusterState -&gt; ClusterState -&gt; Bool
+&lt;= :: ClusterState -&gt; ClusterState -&gt; Bool
+$c&lt;= :: ClusterState -&gt; ClusterState -&gt; Bool
+&lt; :: ClusterState -&gt; ClusterState -&gt; Bool
+$c&lt; :: ClusterState -&gt; ClusterState -&gt; Bool
+compare :: ClusterState -&gt; ClusterState -&gt; Ordering
+$ccompare :: ClusterState -&gt; ClusterState -&gt; Ordering
+$cp1Ord :: Eq ClusterState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ClusterState -&gt; Rep ClusterState x)
+-&gt; (forall x. Rep ClusterState x -&gt; ClusterState)
+-&gt; Generic ClusterState
+forall x. Rep ClusterState x -&gt; ClusterState
+forall x. ClusterState -&gt; Rep ClusterState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ClusterState x -&gt; ClusterState
+$cfrom :: forall x. ClusterState -&gt; Rep ClusterState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679229217"><span id="local-6989586621679229219"><span class="annot"><span class="annottext">Int -&gt; ClusterState -&gt; Int
+ClusterState -&gt; Int
+(Int -&gt; ClusterState -&gt; Int)
+-&gt; (ClusterState -&gt; Int) -&gt; Hashable ClusterState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ClusterState -&gt; Int
+$chash :: ClusterState -&gt; Int
+hashWithSalt :: Int -&gt; ClusterState -&gt; Int
+$chashWithSalt :: Int -&gt; ClusterState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679229214"><span class="annot"><span class="annottext">ClusterState -&gt; ()
+(ClusterState -&gt; ()) -&gt; NFData ClusterState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ClusterState -&gt; ()
+$crnf :: ClusterState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679229211"><span class="annot"><span class="annottext">Text -&gt; Either String ClusterState
+(Text -&gt; Either String ClusterState) -&gt; FromText ClusterState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ClusterState
+$cfromText :: Text -&gt; Either String ClusterState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679229208"><span class="annot"><span class="annottext">ClusterState -&gt; Text
+(ClusterState -&gt; Text) -&gt; ToText ClusterState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ClusterState -&gt; Text
+$ctoText :: ClusterState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679229205"><span class="annot"><span class="annottext">ClusterState -&gt; ByteString
+(ClusterState -&gt; ByteString) -&gt; ToByteString ClusterState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ClusterState -&gt; ByteString
+$ctoBS :: ClusterState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679229202"><span class="annot"><span class="annottext">ClusterState -&gt; ByteStringBuilder
+(ClusterState -&gt; ByteStringBuilder) -&gt; ToLog ClusterState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ClusterState -&gt; ByteStringBuilder
+$cbuild :: ClusterState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679229199"><span class="annot"><span class="annottext">HeaderName -&gt; ClusterState -&gt; [Header]
+(HeaderName -&gt; ClusterState -&gt; [Header]) -&gt; ToHeader ClusterState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ClusterState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ClusterState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679229196"><span class="annot"><span class="annottext">ClusterState -&gt; QueryString
+(ClusterState -&gt; QueryString) -&gt; ToQuery ClusterState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ClusterState -&gt; QueryString
+$ctoQuery :: ClusterState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679229191"><span id="local-6989586621679229193"><span class="annot"><span class="annottext">Value -&gt; Parser [ClusterState]
+Value -&gt; Parser ClusterState
+(Value -&gt; Parser ClusterState)
+-&gt; (Value -&gt; Parser [ClusterState]) -&gt; FromJSON ClusterState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ClusterState]
+$cparseJSONList :: Value -&gt; Parser [ClusterState]
+parseJSON :: Value -&gt; Parser ClusterState
+$cparseJSON :: Value -&gt; Parser ClusterState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679229186"><span id="local-6989586621679229188"><span class="annot"><span class="annottext">FromJSONKeyFunction [ClusterState]
+FromJSONKeyFunction ClusterState
+FromJSONKeyFunction ClusterState
+-&gt; FromJSONKeyFunction [ClusterState] -&gt; FromJSONKey ClusterState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ClusterState]
+$cfromJSONKeyList :: FromJSONKeyFunction [ClusterState]
+fromJSONKey :: FromJSONKeyFunction ClusterState
+$cfromJSONKey :: FromJSONKeyFunction ClusterState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679229177"><span id="local-6989586621679229179"><span id="local-6989586621679229181"><span id="local-6989586621679229183"><span class="annot"><span class="annottext">[ClusterState] -&gt; Encoding
+[ClusterState] -&gt; Value
+ClusterState -&gt; Encoding
+ClusterState -&gt; Value
+(ClusterState -&gt; Value)
+-&gt; (ClusterState -&gt; Encoding)
+-&gt; ([ClusterState] -&gt; Value)
+-&gt; ([ClusterState] -&gt; Encoding)
+-&gt; ToJSON ClusterState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ClusterState] -&gt; Encoding
+$ctoEncodingList :: [ClusterState] -&gt; Encoding
+toJSONList :: [ClusterState] -&gt; Value
+$ctoJSONList :: [ClusterState] -&gt; Value
+toEncoding :: ClusterState -&gt; Encoding
+$ctoEncoding :: ClusterState -&gt; Encoding
+toJSON :: ClusterState -&gt; Value
+$ctoJSON :: ClusterState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679229172"><span id="local-6989586621679229174"><span class="annot"><span class="annottext">ToJSONKeyFunction [ClusterState]
+ToJSONKeyFunction ClusterState
+ToJSONKeyFunction ClusterState
+-&gt; ToJSONKeyFunction [ClusterState] -&gt; ToJSONKey ClusterState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ClusterState]
+$ctoJSONKeyList :: ToJSONKeyFunction [ClusterState]
+toJSONKey :: ToJSONKeyFunction ClusterState
+$ctoJSONKey :: ToJSONKeyFunction ClusterState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679229169"><span class="annot"><span class="annottext">[Node] -&gt; Either String ClusterState
+([Node] -&gt; Either String ClusterState) -&gt; FromXML ClusterState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ClusterState
+$cparseXML :: [Node] -&gt; Either String ClusterState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679229166"><span class="annot"><span class="annottext">ClusterState -&gt; XML
+(ClusterState -&gt; XML) -&gt; ToXML ClusterState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ClusterState -&gt; XML
+$ctoXML :: ClusterState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_ACTIVE"><span class="hs-identifier hs-type">ClusterState_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-type">ClusterState</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClusterState_ACTIVE"><span id="%24mClusterState_ACTIVE"><span id="ClusterState_ACTIVE"><span class="annot"><span class="annottext">$bClusterState_ACTIVE :: ClusterState
+$mClusterState_ACTIVE :: forall r. ClusterState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kafka.Types.ClusterState.html#%24bClusterState_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">ClusterState_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState%27"><span class="hs-identifier hs-type">ClusterState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_CREATING"><span class="hs-identifier hs-type">ClusterState_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-type">ClusterState</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClusterState_CREATING"><span id="%24mClusterState_CREATING"><span id="ClusterState_CREATING"><span class="annot"><span class="annottext">$bClusterState_CREATING :: ClusterState
+$mClusterState_CREATING :: forall r. ClusterState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kafka.Types.ClusterState.html#%24bClusterState_CREATING"><span class="hs-identifier hs-var hs-var hs-var">ClusterState_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState%27"><span class="hs-identifier hs-type">ClusterState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_DELETING"><span class="hs-identifier hs-type">ClusterState_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-type">ClusterState</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClusterState_DELETING"><span id="%24mClusterState_DELETING"><span id="ClusterState_DELETING"><span class="annot"><span class="annottext">$bClusterState_DELETING :: ClusterState
+$mClusterState_DELETING :: forall r. ClusterState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kafka.Types.ClusterState.html#%24bClusterState_DELETING"><span class="hs-identifier hs-var hs-var hs-var">ClusterState_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState%27"><span class="hs-identifier hs-type">ClusterState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_FAILED"><span class="hs-identifier hs-type">ClusterState_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-type">ClusterState</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClusterState_FAILED"><span id="%24mClusterState_FAILED"><span id="ClusterState_FAILED"><span class="annot"><span class="annottext">$bClusterState_FAILED :: ClusterState
+$mClusterState_FAILED :: forall r. ClusterState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kafka.Types.ClusterState.html#%24bClusterState_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ClusterState_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState%27"><span class="hs-identifier hs-type">ClusterState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_HEALING"><span class="hs-identifier hs-type">ClusterState_HEALING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-type">ClusterState</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClusterState_HEALING"><span id="%24mClusterState_HEALING"><span id="ClusterState_HEALING"><span class="annot"><span class="annottext">$bClusterState_HEALING :: ClusterState
+$mClusterState_HEALING :: forall r. ClusterState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kafka.Types.ClusterState.html#%24bClusterState_HEALING"><span class="hs-identifier hs-var hs-var hs-var">ClusterState_HEALING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState%27"><span class="hs-identifier hs-type">ClusterState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HEALING&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_MAINTENANCE"><span class="hs-identifier hs-type">ClusterState_MAINTENANCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-type">ClusterState</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClusterState_MAINTENANCE"><span id="%24mClusterState_MAINTENANCE"><span id="ClusterState_MAINTENANCE"><span class="annot"><span class="annottext">$bClusterState_MAINTENANCE :: ClusterState
+$mClusterState_MAINTENANCE :: forall r. ClusterState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kafka.Types.ClusterState.html#%24bClusterState_MAINTENANCE"><span class="hs-identifier hs-var hs-var hs-var">ClusterState_MAINTENANCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState%27"><span class="hs-identifier hs-type">ClusterState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MAINTENANCE&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_REBOOTING_BROKER"><span class="hs-identifier hs-type">ClusterState_REBOOTING_BROKER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-type">ClusterState</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClusterState_REBOOTING_BROKER"><span id="%24mClusterState_REBOOTING_BROKER"><span id="ClusterState_REBOOTING_BROKER"><span class="annot"><span class="annottext">$bClusterState_REBOOTING_BROKER :: ClusterState
+$mClusterState_REBOOTING_BROKER :: forall r. ClusterState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kafka.Types.ClusterState.html#%24bClusterState_REBOOTING_BROKER"><span class="hs-identifier hs-var hs-var hs-var">ClusterState_REBOOTING_BROKER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState%27"><span class="hs-identifier hs-type">ClusterState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REBOOTING_BROKER&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_UPDATING"><span class="hs-identifier hs-type">ClusterState_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-type">ClusterState</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClusterState_UPDATING"><span id="%24mClusterState_UPDATING"><span id="ClusterState_UPDATING"><span class="annot"><span class="annottext">$bClusterState_UPDATING :: ClusterState
+$mClusterState_UPDATING :: forall r. ClusterState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Kafka.Types.ClusterState.html#%24bClusterState_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">ClusterState_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState%27"><span class="hs-identifier hs-type">ClusterState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_ACTIVE"><span class="hs-pragma hs-type">ClusterState_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_CREATING"><span class="hs-pragma hs-type">ClusterState_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_DELETING"><span class="hs-pragma hs-type">ClusterState_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_FAILED"><span class="hs-pragma hs-type">ClusterState_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_HEALING"><span class="hs-pragma hs-type">ClusterState_HEALING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_MAINTENANCE"><span class="hs-pragma hs-type">ClusterState_MAINTENANCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_REBOOTING_BROKER"><span class="hs-pragma hs-type">ClusterState_REBOOTING_BROKER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState_UPDATING"><span class="hs-pragma hs-type">ClusterState_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.Kafka.Types.ClusterState.html#ClusterState%27"><span class="hs-pragma hs-type">ClusterState'</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-102"></span></pre></body></html>

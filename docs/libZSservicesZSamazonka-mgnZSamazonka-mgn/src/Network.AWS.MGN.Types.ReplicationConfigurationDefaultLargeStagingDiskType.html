@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType"><span class="hs-identifier">ReplicationConfigurationDefaultLargeStagingDiskType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType_GP2"><span class="hs-identifier">ReplicationConfigurationDefaultLargeStagingDiskType_GP2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType_ST1"><span class="hs-identifier">ReplicationConfigurationDefaultLargeStagingDiskType_ST1</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679229181"><span id="local-6989586621679229182"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicationConfigurationDefaultLargeStagingDiskType"><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType"><span class="hs-identifier hs-var">ReplicationConfigurationDefaultLargeStagingDiskType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationConfigurationDefaultLargeStagingDiskType%27"><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType%27"><span class="hs-identifier hs-var">ReplicationConfigurationDefaultLargeStagingDiskType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReplicationConfigurationDefaultLargeStagingDiskType"><span class="annot"><span class="annottext">ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Text
+</span><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#fromReplicationConfigurationDefaultLargeStagingDiskType"><span class="hs-identifier hs-var hs-var">fromReplicationConfigurationDefaultLargeStagingDiskType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679229173"><span id="local-6989586621679229175"><span id="local-6989586621679229177"><span class="annot"><span class="annottext">Int -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; ShowS
+[ReplicationConfigurationDefaultLargeStagingDiskType] -&gt; ShowS
+ReplicationConfigurationDefaultLargeStagingDiskType -&gt; String
+(Int
+ -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; ShowS)
+-&gt; (ReplicationConfigurationDefaultLargeStagingDiskType -&gt; String)
+-&gt; ([ReplicationConfigurationDefaultLargeStagingDiskType] -&gt; ShowS)
+-&gt; Show ReplicationConfigurationDefaultLargeStagingDiskType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplicationConfigurationDefaultLargeStagingDiskType] -&gt; ShowS
+$cshowList :: [ReplicationConfigurationDefaultLargeStagingDiskType] -&gt; ShowS
+show :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; String
+$cshow :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; String
+showsPrec :: Int -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679229164"><span id="local-6989586621679229166"><span id="local-6989586621679229168"><span id="local-6989586621679229170"><span class="annot"><span class="annottext">ReadPrec [ReplicationConfigurationDefaultLargeStagingDiskType]
+ReadPrec ReplicationConfigurationDefaultLargeStagingDiskType
+Int -&gt; ReadS ReplicationConfigurationDefaultLargeStagingDiskType
+ReadS [ReplicationConfigurationDefaultLargeStagingDiskType]
+(Int -&gt; ReadS ReplicationConfigurationDefaultLargeStagingDiskType)
+-&gt; ReadS [ReplicationConfigurationDefaultLargeStagingDiskType]
+-&gt; ReadPrec ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReadPrec [ReplicationConfigurationDefaultLargeStagingDiskType]
+-&gt; Read ReplicationConfigurationDefaultLargeStagingDiskType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReplicationConfigurationDefaultLargeStagingDiskType]
+$creadListPrec :: ReadPrec [ReplicationConfigurationDefaultLargeStagingDiskType]
+readPrec :: ReadPrec ReplicationConfigurationDefaultLargeStagingDiskType
+$creadPrec :: ReadPrec ReplicationConfigurationDefaultLargeStagingDiskType
+readList :: ReadS [ReplicationConfigurationDefaultLargeStagingDiskType]
+$creadList :: ReadS [ReplicationConfigurationDefaultLargeStagingDiskType]
+readsPrec :: Int -&gt; ReadS ReplicationConfigurationDefaultLargeStagingDiskType
+$creadsPrec :: Int -&gt; ReadS ReplicationConfigurationDefaultLargeStagingDiskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679229159"><span id="local-6989586621679229161"><span class="annot"><span class="annottext">ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool
+(ReplicationConfigurationDefaultLargeStagingDiskType
+ -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool)
+-&gt; (ReplicationConfigurationDefaultLargeStagingDiskType
+    -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool)
+-&gt; Eq ReplicationConfigurationDefaultLargeStagingDiskType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool
+$c/= :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool
+== :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool
+$c== :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679229143"><span id="local-6989586621679229145"><span id="local-6989586621679229147"><span id="local-6989586621679229149"><span id="local-6989586621679229151"><span id="local-6989586621679229153"><span id="local-6989586621679229155"><span class="annot"><span class="annottext">Eq ReplicationConfigurationDefaultLargeStagingDiskType
+Eq ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; (ReplicationConfigurationDefaultLargeStagingDiskType
+    -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Ordering)
+-&gt; (ReplicationConfigurationDefaultLargeStagingDiskType
+    -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool)
+-&gt; (ReplicationConfigurationDefaultLargeStagingDiskType
+    -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool)
+-&gt; (ReplicationConfigurationDefaultLargeStagingDiskType
+    -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool)
+-&gt; (ReplicationConfigurationDefaultLargeStagingDiskType
+    -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool)
+-&gt; (ReplicationConfigurationDefaultLargeStagingDiskType
+    -&gt; ReplicationConfigurationDefaultLargeStagingDiskType
+    -&gt; ReplicationConfigurationDefaultLargeStagingDiskType)
+-&gt; (ReplicationConfigurationDefaultLargeStagingDiskType
+    -&gt; ReplicationConfigurationDefaultLargeStagingDiskType
+    -&gt; ReplicationConfigurationDefaultLargeStagingDiskType)
+-&gt; Ord ReplicationConfigurationDefaultLargeStagingDiskType
+ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool
+ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Ordering
+ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType
+$cmin :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType
+max :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType
+$cmax :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType
+&gt;= :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool
+$c&gt;= :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool
+&gt; :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool
+$c&gt; :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool
+&lt;= :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool
+$c&lt;= :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool
+&lt; :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool
+$c&lt; :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Bool
+compare :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Ordering
+$ccompare :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Ordering
+$cp1Ord :: Eq ReplicationConfigurationDefaultLargeStagingDiskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ReplicationConfigurationDefaultLargeStagingDiskType
+ -&gt; Rep ReplicationConfigurationDefaultLargeStagingDiskType x)
+-&gt; (forall x.
+    Rep ReplicationConfigurationDefaultLargeStagingDiskType x
+    -&gt; ReplicationConfigurationDefaultLargeStagingDiskType)
+-&gt; Generic ReplicationConfigurationDefaultLargeStagingDiskType
+forall x.
+Rep ReplicationConfigurationDefaultLargeStagingDiskType x
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType
+forall x.
+ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; Rep ReplicationConfigurationDefaultLargeStagingDiskType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ReplicationConfigurationDefaultLargeStagingDiskType x
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType
+$cfrom :: forall x.
+ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; Rep ReplicationConfigurationDefaultLargeStagingDiskType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679229135"><span id="local-6989586621679229137"><span class="annot"><span class="annottext">Int -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Int
+ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Int
+(Int -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Int)
+-&gt; (ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Int)
+-&gt; Hashable ReplicationConfigurationDefaultLargeStagingDiskType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Int
+$chash :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Int
+hashWithSalt :: Int -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Int
+$chashWithSalt :: Int -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679229132"><span class="annot"><span class="annottext">ReplicationConfigurationDefaultLargeStagingDiskType -&gt; ()
+(ReplicationConfigurationDefaultLargeStagingDiskType -&gt; ())
+-&gt; NFData ReplicationConfigurationDefaultLargeStagingDiskType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; ()
+$crnf :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679229129"><span class="annot"><span class="annottext">Text
+-&gt; Either
+     String ReplicationConfigurationDefaultLargeStagingDiskType
+(Text
+ -&gt; Either
+      String ReplicationConfigurationDefaultLargeStagingDiskType)
+-&gt; FromText ReplicationConfigurationDefaultLargeStagingDiskType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text
+-&gt; Either
+     String ReplicationConfigurationDefaultLargeStagingDiskType
+$cfromText :: Text
+-&gt; Either
+     String ReplicationConfigurationDefaultLargeStagingDiskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679229126"><span class="annot"><span class="annottext">ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Text
+(ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Text)
+-&gt; ToText ReplicationConfigurationDefaultLargeStagingDiskType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Text
+$ctoText :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679229123"><span class="annot"><span class="annottext">ReplicationConfigurationDefaultLargeStagingDiskType -&gt; ByteString
+(ReplicationConfigurationDefaultLargeStagingDiskType -&gt; ByteString)
+-&gt; ToByteString ReplicationConfigurationDefaultLargeStagingDiskType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; ByteString
+$ctoBS :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679229120"><span class="annot"><span class="annottext">ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ByteStringBuilder
+(ReplicationConfigurationDefaultLargeStagingDiskType
+ -&gt; ByteStringBuilder)
+-&gt; ToLog ReplicationConfigurationDefaultLargeStagingDiskType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ByteStringBuilder
+$cbuild :: ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679229117"><span class="annot"><span class="annottext">HeaderName
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; [Header]
+(HeaderName
+ -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; [Header])
+-&gt; ToHeader ReplicationConfigurationDefaultLargeStagingDiskType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; [Header]
+$ctoHeader :: HeaderName
+-&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679229114"><span class="annot"><span class="annottext">ReplicationConfigurationDefaultLargeStagingDiskType -&gt; QueryString
+(ReplicationConfigurationDefaultLargeStagingDiskType
+ -&gt; QueryString)
+-&gt; ToQuery ReplicationConfigurationDefaultLargeStagingDiskType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; QueryString
+$ctoQuery :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679229109"><span id="local-6989586621679229111"><span class="annot"><span class="annottext">Value
+-&gt; Parser [ReplicationConfigurationDefaultLargeStagingDiskType]
+Value -&gt; Parser ReplicationConfigurationDefaultLargeStagingDiskType
+(Value
+ -&gt; Parser ReplicationConfigurationDefaultLargeStagingDiskType)
+-&gt; (Value
+    -&gt; Parser [ReplicationConfigurationDefaultLargeStagingDiskType])
+-&gt; FromJSON ReplicationConfigurationDefaultLargeStagingDiskType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value
+-&gt; Parser [ReplicationConfigurationDefaultLargeStagingDiskType]
+$cparseJSONList :: Value
+-&gt; Parser [ReplicationConfigurationDefaultLargeStagingDiskType]
+parseJSON :: Value -&gt; Parser ReplicationConfigurationDefaultLargeStagingDiskType
+$cparseJSON :: Value -&gt; Parser ReplicationConfigurationDefaultLargeStagingDiskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679229104"><span id="local-6989586621679229106"><span class="annot"><span class="annottext">FromJSONKeyFunction
+  [ReplicationConfigurationDefaultLargeStagingDiskType]
+FromJSONKeyFunction
+  ReplicationConfigurationDefaultLargeStagingDiskType
+FromJSONKeyFunction
+  ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; FromJSONKeyFunction
+     [ReplicationConfigurationDefaultLargeStagingDiskType]
+-&gt; FromJSONKey ReplicationConfigurationDefaultLargeStagingDiskType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction
+  [ReplicationConfigurationDefaultLargeStagingDiskType]
+$cfromJSONKeyList :: FromJSONKeyFunction
+  [ReplicationConfigurationDefaultLargeStagingDiskType]
+fromJSONKey :: FromJSONKeyFunction
+  ReplicationConfigurationDefaultLargeStagingDiskType
+$cfromJSONKey :: FromJSONKeyFunction
+  ReplicationConfigurationDefaultLargeStagingDiskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679229095"><span id="local-6989586621679229097"><span id="local-6989586621679229099"><span id="local-6989586621679229101"><span class="annot"><span class="annottext">[ReplicationConfigurationDefaultLargeStagingDiskType] -&gt; Encoding
+[ReplicationConfigurationDefaultLargeStagingDiskType] -&gt; Value
+ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Encoding
+ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Value
+(ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Value)
+-&gt; (ReplicationConfigurationDefaultLargeStagingDiskType
+    -&gt; Encoding)
+-&gt; ([ReplicationConfigurationDefaultLargeStagingDiskType] -&gt; Value)
+-&gt; ([ReplicationConfigurationDefaultLargeStagingDiskType]
+    -&gt; Encoding)
+-&gt; ToJSON ReplicationConfigurationDefaultLargeStagingDiskType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReplicationConfigurationDefaultLargeStagingDiskType] -&gt; Encoding
+$ctoEncodingList :: [ReplicationConfigurationDefaultLargeStagingDiskType] -&gt; Encoding
+toJSONList :: [ReplicationConfigurationDefaultLargeStagingDiskType] -&gt; Value
+$ctoJSONList :: [ReplicationConfigurationDefaultLargeStagingDiskType] -&gt; Value
+toEncoding :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Encoding
+$ctoEncoding :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Encoding
+toJSON :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Value
+$ctoJSON :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679229090"><span id="local-6989586621679229092"><span class="annot"><span class="annottext">ToJSONKeyFunction
+  [ReplicationConfigurationDefaultLargeStagingDiskType]
+ToJSONKeyFunction
+  ReplicationConfigurationDefaultLargeStagingDiskType
+ToJSONKeyFunction
+  ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; ToJSONKeyFunction
+     [ReplicationConfigurationDefaultLargeStagingDiskType]
+-&gt; ToJSONKey ReplicationConfigurationDefaultLargeStagingDiskType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction
+  [ReplicationConfigurationDefaultLargeStagingDiskType]
+$ctoJSONKeyList :: ToJSONKeyFunction
+  [ReplicationConfigurationDefaultLargeStagingDiskType]
+toJSONKey :: ToJSONKeyFunction
+  ReplicationConfigurationDefaultLargeStagingDiskType
+$ctoJSONKey :: ToJSONKeyFunction
+  ReplicationConfigurationDefaultLargeStagingDiskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679229087"><span class="annot"><span class="annottext">[Node]
+-&gt; Either
+     String ReplicationConfigurationDefaultLargeStagingDiskType
+([Node]
+ -&gt; Either
+      String ReplicationConfigurationDefaultLargeStagingDiskType)
+-&gt; FromXML ReplicationConfigurationDefaultLargeStagingDiskType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node]
+-&gt; Either
+     String ReplicationConfigurationDefaultLargeStagingDiskType
+$cparseXML :: [Node]
+-&gt; Either
+     String ReplicationConfigurationDefaultLargeStagingDiskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679229084"><span class="annot"><span class="annottext">ReplicationConfigurationDefaultLargeStagingDiskType -&gt; XML
+(ReplicationConfigurationDefaultLargeStagingDiskType -&gt; XML)
+-&gt; ToXML ReplicationConfigurationDefaultLargeStagingDiskType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; XML
+$ctoXML :: ReplicationConfigurationDefaultLargeStagingDiskType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType_GP2"><span class="hs-identifier hs-type">ReplicationConfigurationDefaultLargeStagingDiskType_GP2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType"><span class="hs-identifier hs-type">ReplicationConfigurationDefaultLargeStagingDiskType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplicationConfigurationDefaultLargeStagingDiskType_GP2"><span id="%24mReplicationConfigurationDefaultLargeStagingDiskType_GP2"><span id="ReplicationConfigurationDefaultLargeStagingDiskType_GP2"><span class="annot"><span class="annottext">$bReplicationConfigurationDefaultLargeStagingDiskType_GP2 :: ReplicationConfigurationDefaultLargeStagingDiskType
+$mReplicationConfigurationDefaultLargeStagingDiskType_GP2 :: forall r.
+ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#%24bReplicationConfigurationDefaultLargeStagingDiskType_GP2"><span class="hs-identifier hs-var hs-var hs-var">ReplicationConfigurationDefaultLargeStagingDiskType_GP2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType%27"><span class="hs-identifier hs-type">ReplicationConfigurationDefaultLargeStagingDiskType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GP2&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType_ST1"><span class="hs-identifier hs-type">ReplicationConfigurationDefaultLargeStagingDiskType_ST1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType"><span class="hs-identifier hs-type">ReplicationConfigurationDefaultLargeStagingDiskType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplicationConfigurationDefaultLargeStagingDiskType_ST1"><span id="%24mReplicationConfigurationDefaultLargeStagingDiskType_ST1"><span id="ReplicationConfigurationDefaultLargeStagingDiskType_ST1"><span class="annot"><span class="annottext">$bReplicationConfigurationDefaultLargeStagingDiskType_ST1 :: ReplicationConfigurationDefaultLargeStagingDiskType
+$mReplicationConfigurationDefaultLargeStagingDiskType_ST1 :: forall r.
+ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#%24bReplicationConfigurationDefaultLargeStagingDiskType_ST1"><span class="hs-identifier hs-var hs-var hs-var">ReplicationConfigurationDefaultLargeStagingDiskType_ST1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType%27"><span class="hs-identifier hs-type">ReplicationConfigurationDefaultLargeStagingDiskType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ST1&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType_GP2"><span class="hs-pragma hs-type">ReplicationConfigurationDefaultLargeStagingDiskType_GP2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType_ST1"><span class="hs-pragma hs-type">ReplicationConfigurationDefaultLargeStagingDiskType_ST1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType%27"><span class="hs-pragma hs-type">ReplicationConfigurationDefaultLargeStagingDiskType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

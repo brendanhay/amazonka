@@ -1,0 +1,763 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the Compute Optimizer enrollment (opt-in) status of organization</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- member accounts, if your account is an organization management account.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- To get the enrollment status of standalone accounts, use the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- GetEnrollmentStatus action.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier">GetEnrollmentStatusesForOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#newGetEnrollmentStatusesForOrganization"><span class="hs-identifier">newGetEnrollmentStatusesForOrganization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganization_filters"><span class="hs-identifier">getEnrollmentStatusesForOrganization_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganization_nextToken"><span class="hs-identifier">getEnrollmentStatusesForOrganization_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganization_maxResults"><span class="hs-identifier">getEnrollmentStatusesForOrganization_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse"><span class="hs-identifier">GetEnrollmentStatusesForOrganizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#newGetEnrollmentStatusesForOrganizationResponse"><span class="hs-identifier">newGetEnrollmentStatusesForOrganizationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses"><span class="hs-identifier">getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganizationResponse_nextToken"><span class="hs-identifier">getEnrollmentStatusesForOrganizationResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganizationResponse_httpStatus"><span class="hs-identifier">getEnrollmentStatusesForOrganizationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.html"><span class="hs-identifier">Network.AWS.ComputeOptimizer.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetEnrollmentStatusesForOrganization' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679245919"><span id="local-6989586621679245920"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEnrollmentStatusesForOrganization"><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-var">GetEnrollmentStatusesForOrganization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEnrollmentStatusesForOrganization%27"><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-var">GetEnrollmentStatusesForOrganization'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects to specify a filter that returns a more specific</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- list of account enrollment statuses.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Afilters%3AGetEnrollmentStatusesForOrganization%27"><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganization -&gt; Maybe [EnrollmentFilter]
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3Afilters%3AGetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.EnrollmentFilter.html#EnrollmentFilter"><span class="hs-identifier hs-type">EnrollmentFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The token to advance to the next page of account enrollment statuses.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3AGetEnrollmentStatusesForOrganization%27"><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganization -&gt; Maybe Text
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AnextToken%3AGetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of account enrollment statuses to return with a</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- single request. You can specify up to 100 statuses to return with each</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- To retrieve the remaining results, make another request with the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- returned @nextToken@ value.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetEnrollmentStatusesForOrganization%27"><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganization -&gt; Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AmaxResults%3AGetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245911"><span id="local-6989586621679245913"><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganization
+-&gt; GetEnrollmentStatusesForOrganization -&gt; Bool
+(GetEnrollmentStatusesForOrganization
+ -&gt; GetEnrollmentStatusesForOrganization -&gt; Bool)
+-&gt; (GetEnrollmentStatusesForOrganization
+    -&gt; GetEnrollmentStatusesForOrganization -&gt; Bool)
+-&gt; Eq GetEnrollmentStatusesForOrganization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEnrollmentStatusesForOrganization
+-&gt; GetEnrollmentStatusesForOrganization -&gt; Bool
+$c/= :: GetEnrollmentStatusesForOrganization
+-&gt; GetEnrollmentStatusesForOrganization -&gt; Bool
+== :: GetEnrollmentStatusesForOrganization
+-&gt; GetEnrollmentStatusesForOrganization -&gt; Bool
+$c== :: GetEnrollmentStatusesForOrganization
+-&gt; GetEnrollmentStatusesForOrganization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245902"><span id="local-6989586621679245904"><span id="local-6989586621679245906"><span id="local-6989586621679245908"><span class="annot"><span class="annottext">ReadPrec [GetEnrollmentStatusesForOrganization]
+ReadPrec GetEnrollmentStatusesForOrganization
+Int -&gt; ReadS GetEnrollmentStatusesForOrganization
+ReadS [GetEnrollmentStatusesForOrganization]
+(Int -&gt; ReadS GetEnrollmentStatusesForOrganization)
+-&gt; ReadS [GetEnrollmentStatusesForOrganization]
+-&gt; ReadPrec GetEnrollmentStatusesForOrganization
+-&gt; ReadPrec [GetEnrollmentStatusesForOrganization]
+-&gt; Read GetEnrollmentStatusesForOrganization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetEnrollmentStatusesForOrganization]
+$creadListPrec :: ReadPrec [GetEnrollmentStatusesForOrganization]
+readPrec :: ReadPrec GetEnrollmentStatusesForOrganization
+$creadPrec :: ReadPrec GetEnrollmentStatusesForOrganization
+readList :: ReadS [GetEnrollmentStatusesForOrganization]
+$creadList :: ReadS [GetEnrollmentStatusesForOrganization]
+readsPrec :: Int -&gt; ReadS GetEnrollmentStatusesForOrganization
+$creadsPrec :: Int -&gt; ReadS GetEnrollmentStatusesForOrganization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245895"><span id="local-6989586621679245897"><span id="local-6989586621679245899"><span class="annot"><span class="annottext">Int -&gt; GetEnrollmentStatusesForOrganization -&gt; ShowS
+[GetEnrollmentStatusesForOrganization] -&gt; ShowS
+GetEnrollmentStatusesForOrganization -&gt; String
+(Int -&gt; GetEnrollmentStatusesForOrganization -&gt; ShowS)
+-&gt; (GetEnrollmentStatusesForOrganization -&gt; String)
+-&gt; ([GetEnrollmentStatusesForOrganization] -&gt; ShowS)
+-&gt; Show GetEnrollmentStatusesForOrganization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEnrollmentStatusesForOrganization] -&gt; ShowS
+$cshowList :: [GetEnrollmentStatusesForOrganization] -&gt; ShowS
+show :: GetEnrollmentStatusesForOrganization -&gt; String
+$cshow :: GetEnrollmentStatusesForOrganization -&gt; String
+showsPrec :: Int -&gt; GetEnrollmentStatusesForOrganization -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEnrollmentStatusesForOrganization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetEnrollmentStatusesForOrganization
+ -&gt; Rep GetEnrollmentStatusesForOrganization x)
+-&gt; (forall x.
+    Rep GetEnrollmentStatusesForOrganization x
+    -&gt; GetEnrollmentStatusesForOrganization)
+-&gt; Generic GetEnrollmentStatusesForOrganization
+forall x.
+Rep GetEnrollmentStatusesForOrganization x
+-&gt; GetEnrollmentStatusesForOrganization
+forall x.
+GetEnrollmentStatusesForOrganization
+-&gt; Rep GetEnrollmentStatusesForOrganization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetEnrollmentStatusesForOrganization x
+-&gt; GetEnrollmentStatusesForOrganization
+$cfrom :: forall x.
+GetEnrollmentStatusesForOrganization
+-&gt; Rep GetEnrollmentStatusesForOrganization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'GetEnrollmentStatusesForOrganization' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'filters', 'getEnrollmentStatusesForOrganization_filters' - An array of objects to specify a filter that returns a more specific</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- list of account enrollment statuses.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'nextToken', 'getEnrollmentStatusesForOrganization_nextToken' - The token to advance to the next page of account enrollment statuses.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'maxResults', 'getEnrollmentStatusesForOrganization_maxResults' - The maximum number of account enrollment statuses to return with a</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- single request. You can specify up to 100 statuses to return with each</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- To retrieve the remaining results, make another request with the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- returned @nextToken@ value.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#newGetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">newGetEnrollmentStatusesForOrganization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span><span>
+</span><span id="line-94"></span><span id="newGetEnrollmentStatusesForOrganization"><span class="annot"><span class="annottext">newGetEnrollmentStatusesForOrganization :: GetEnrollmentStatusesForOrganization
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#newGetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-var hs-var">newGetEnrollmentStatusesForOrganization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganization' :: Maybe [EnrollmentFilter]
+-&gt; Maybe Text -&gt; Maybe Int -&gt; GetEnrollmentStatusesForOrganization
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:GetEnrollmentStatusesForOrganization' :: Maybe [EnrollmentFilter]
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3Afilters%3AGetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe [EnrollmentFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetEnrollmentStatusesForOrganization' :: Maybe Text
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AnextToken%3AGetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetEnrollmentStatusesForOrganization' :: Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AmaxResults%3AGetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | An array of objects to specify a filter that returns a more specific</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- list of account enrollment statuses.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganization_filters"><span class="hs-identifier hs-type">getEnrollmentStatusesForOrganization_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.EnrollmentFilter.html#EnrollmentFilter"><span class="hs-identifier hs-type">EnrollmentFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="getEnrollmentStatusesForOrganization_filters"><span class="annot"><span class="annottext">getEnrollmentStatusesForOrganization_filters :: (Maybe [EnrollmentFilter] -&gt; f (Maybe [EnrollmentFilter]))
+-&gt; GetEnrollmentStatusesForOrganization
+-&gt; f GetEnrollmentStatusesForOrganization
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganization_filters"><span class="hs-identifier hs-var hs-var">getEnrollmentStatusesForOrganization_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnrollmentStatusesForOrganization -&gt; Maybe [EnrollmentFilter])
+-&gt; (GetEnrollmentStatusesForOrganization
+    -&gt; Maybe [EnrollmentFilter]
+    -&gt; GetEnrollmentStatusesForOrganization)
+-&gt; Lens
+     GetEnrollmentStatusesForOrganization
+     GetEnrollmentStatusesForOrganization
+     (Maybe [EnrollmentFilter])
+     (Maybe [EnrollmentFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245888"><span class="annot"><span class="annottext">Maybe [EnrollmentFilter]
+filters :: Maybe [EnrollmentFilter]
+$sel:filters:GetEnrollmentStatusesForOrganization' :: GetEnrollmentStatusesForOrganization -&gt; Maybe [EnrollmentFilter]
+</span><a href="#local-6989586621679245888"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EnrollmentFilter]
+</span><a href="#local-6989586621679245888"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245887"><span class="annot"><span class="annottext">s :: GetEnrollmentStatusesForOrganization
+</span><a href="#local-6989586621679245887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245886"><span class="annot"><span class="annottext">Maybe [EnrollmentFilter]
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganization
+</span><a href="#local-6989586621679245887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:GetEnrollmentStatusesForOrganization' :: Maybe [EnrollmentFilter]
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3Afilters%3AGetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EnrollmentFilter]
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EnrollmentFilter] -&gt; f (Maybe [EnrollmentFilter]))
+ -&gt; GetEnrollmentStatusesForOrganization
+ -&gt; f GetEnrollmentStatusesForOrganization)
+-&gt; ((Maybe [EnrollmentFilter] -&gt; f (Maybe [EnrollmentFilter]))
+    -&gt; Maybe [EnrollmentFilter] -&gt; f (Maybe [EnrollmentFilter]))
+-&gt; (Maybe [EnrollmentFilter] -&gt; f (Maybe [EnrollmentFilter]))
+-&gt; GetEnrollmentStatusesForOrganization
+-&gt; f GetEnrollmentStatusesForOrganization
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EnrollmentFilter]
+  [EnrollmentFilter]
+  [EnrollmentFilter]
+  [EnrollmentFilter]
+-&gt; Iso
+     (Maybe [EnrollmentFilter])
+     (Maybe [EnrollmentFilter])
+     (Maybe [EnrollmentFilter])
+     (Maybe [EnrollmentFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EnrollmentFilter]
+  [EnrollmentFilter]
+  [EnrollmentFilter]
+  [EnrollmentFilter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The token to advance to the next page of account enrollment statuses.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganization_nextToken"><span class="hs-identifier hs-type">getEnrollmentStatusesForOrganization_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="getEnrollmentStatusesForOrganization_nextToken"><span class="annot"><span class="annottext">getEnrollmentStatusesForOrganization_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetEnrollmentStatusesForOrganization
+-&gt; f GetEnrollmentStatusesForOrganization
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganization_nextToken"><span class="hs-identifier hs-var hs-var">getEnrollmentStatusesForOrganization_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnrollmentStatusesForOrganization -&gt; Maybe Text)
+-&gt; (GetEnrollmentStatusesForOrganization
+    -&gt; Maybe Text -&gt; GetEnrollmentStatusesForOrganization)
+-&gt; Lens
+     GetEnrollmentStatusesForOrganization
+     GetEnrollmentStatusesForOrganization
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245882"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetEnrollmentStatusesForOrganization' :: GetEnrollmentStatusesForOrganization -&gt; Maybe Text
+</span><a href="#local-6989586621679245882"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245882"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245881"><span class="annot"><span class="annottext">s :: GetEnrollmentStatusesForOrganization
+</span><a href="#local-6989586621679245881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245880"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganization
+</span><a href="#local-6989586621679245881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetEnrollmentStatusesForOrganization' :: Maybe Text
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AnextToken%3AGetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The maximum number of account enrollment statuses to return with a</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- single request. You can specify up to 100 statuses to return with each</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- To retrieve the remaining results, make another request with the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- returned @nextToken@ value.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganization_maxResults"><span class="hs-identifier hs-type">getEnrollmentStatusesForOrganization_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="getEnrollmentStatusesForOrganization_maxResults"><span class="annot"><span class="annottext">getEnrollmentStatusesForOrganization_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; GetEnrollmentStatusesForOrganization
+-&gt; f GetEnrollmentStatusesForOrganization
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganization_maxResults"><span class="hs-identifier hs-var hs-var">getEnrollmentStatusesForOrganization_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnrollmentStatusesForOrganization -&gt; Maybe Int)
+-&gt; (GetEnrollmentStatusesForOrganization
+    -&gt; Maybe Int -&gt; GetEnrollmentStatusesForOrganization)
+-&gt; Lens
+     GetEnrollmentStatusesForOrganization
+     GetEnrollmentStatusesForOrganization
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245879"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:GetEnrollmentStatusesForOrganization' :: GetEnrollmentStatusesForOrganization -&gt; Maybe Int
+</span><a href="#local-6989586621679245879"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679245879"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245878"><span class="annot"><span class="annottext">s :: GetEnrollmentStatusesForOrganization
+</span><a href="#local-6989586621679245878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245877"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679245877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganization
+</span><a href="#local-6989586621679245878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetEnrollmentStatusesForOrganization' :: Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AmaxResults%3AGetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679245877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679245873"><span class="annot"><span class="annottext">request :: GetEnrollmentStatusesForOrganization
+-&gt; Request GetEnrollmentStatusesForOrganization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetEnrollmentStatusesForOrganization
+-&gt; Request GetEnrollmentStatusesForOrganization
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ComputeOptimizer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679245869"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetEnrollmentStatusesForOrganization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse GetEnrollmentStatusesForOrganization)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse GetEnrollmentStatusesForOrganization))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetEnrollmentStatusesForOrganization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse GetEnrollmentStatusesForOrganization)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245866"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245866"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679245865"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679245865"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679245864"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245864"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AccountEnrollmentStatus]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetEnrollmentStatusesForOrganizationResponse
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-var">GetEnrollmentStatusesForOrganizationResponse'</span></a></span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AccountEnrollmentStatus]
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; GetEnrollmentStatusesForOrganizationResponse)
+-&gt; Either String (Maybe [AccountEnrollmentStatus])
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; GetEnrollmentStatusesForOrganizationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [AccountEnrollmentStatus]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;accountEnrollmentStatuses&quot;</span></span><span>
+</span><span id="line-133"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AccountEnrollmentStatus]))
+-&gt; Maybe [AccountEnrollmentStatus]
+-&gt; Either String (Maybe [AccountEnrollmentStatus])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AccountEnrollmentStatus]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; GetEnrollmentStatusesForOrganizationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; GetEnrollmentStatusesForOrganizationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetEnrollmentStatusesForOrganizationResponse)
+-&gt; Either String Int
+-&gt; Either String GetEnrollmentStatusesForOrganizationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245866"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679245855"><span id="local-6989586621679245857"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679245852"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679245848"><span class="annot"><span class="annottext">toHeaders :: GetEnrollmentStatusesForOrganization -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetEnrollmentStatusesForOrganization -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ComputeOptimizerService.GetEnrollmentStatusesForOrganization&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-157"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-161"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679245838"><span id="local-6989586621679245840"><span id="local-6989586621679245842"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span></span></span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679245836"><span class="annot"><span class="annottext">toJSON :: GetEnrollmentStatusesForOrganization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245832"><span id="local-6989586621679245833"><span id="local-6989586621679245834"><span class="annot"><span class="annottext">Maybe Int
+Maybe [EnrollmentFilter]
+Maybe Text
+maxResults :: Maybe Int
+nextToken :: Maybe Text
+filters :: Maybe [EnrollmentFilter]
+$sel:maxResults:GetEnrollmentStatusesForOrganization' :: GetEnrollmentStatusesForOrganization -&gt; Maybe Int
+$sel:nextToken:GetEnrollmentStatusesForOrganization' :: GetEnrollmentStatusesForOrganization -&gt; Maybe Text
+$sel:filters:GetEnrollmentStatusesForOrganization' :: GetEnrollmentStatusesForOrganization -&gt; Maybe [EnrollmentFilter]
+</span><a href="#local-6989586621679245832"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [EnrollmentFilter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([EnrollmentFilter] -&gt; Pair)
+-&gt; Maybe [EnrollmentFilter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EnrollmentFilter]
+</span><a href="#local-6989586621679245834"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245833"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679245832"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679245826"><span class="annot"><span class="annottext">toPath :: GetEnrollmentStatusesForOrganization -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetEnrollmentStatusesForOrganization -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganization"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganization</span></a></span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679245822"><span class="annot"><span class="annottext">toQuery :: GetEnrollmentStatusesForOrganization -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetEnrollmentStatusesForOrganization -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newGetEnrollmentStatusesForOrganizationResponse' smart constructor.</span><span>
+</span><span id="line-191"></span><span id="local-6989586621679245819"><span id="local-6989586621679245820"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEnrollmentStatusesForOrganizationResponse"><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse"><span class="hs-identifier hs-var">GetEnrollmentStatusesForOrganizationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEnrollmentStatusesForOrganizationResponse%27"><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-var">GetEnrollmentStatusesForOrganizationResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the enrollment statuses of</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- organization member accounts.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AaccountEnrollmentStatuses%3AGetEnrollmentStatusesForOrganizationResponse%27"><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganizationResponse
+-&gt; Maybe [AccountEnrollmentStatus]
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AaccountEnrollmentStatuses%3AGetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-var hs-var">accountEnrollmentStatuses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AccountEnrollmentStatus.html#AccountEnrollmentStatus"><span class="hs-identifier hs-type">AccountEnrollmentStatus</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The token to use to advance to the next page of account enrollment</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- statuses.</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- This value is null when there are no more pages of account enrollment</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- statuses to return.</span><span>
+</span><span id="line-200"></span><span>    </span><span id="%24sel%3AnextToken%3AGetEnrollmentStatusesForOrganizationResponse%27"><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganizationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AnextToken%3AGetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-202"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetEnrollmentStatusesForOrganizationResponse%27"><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganizationResponse -&gt; Int
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AhttpStatus%3AGetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245812"><span id="local-6989586621679245814"><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganizationResponse
+-&gt; GetEnrollmentStatusesForOrganizationResponse -&gt; Bool
+(GetEnrollmentStatusesForOrganizationResponse
+ -&gt; GetEnrollmentStatusesForOrganizationResponse -&gt; Bool)
+-&gt; (GetEnrollmentStatusesForOrganizationResponse
+    -&gt; GetEnrollmentStatusesForOrganizationResponse -&gt; Bool)
+-&gt; Eq GetEnrollmentStatusesForOrganizationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEnrollmentStatusesForOrganizationResponse
+-&gt; GetEnrollmentStatusesForOrganizationResponse -&gt; Bool
+$c/= :: GetEnrollmentStatusesForOrganizationResponse
+-&gt; GetEnrollmentStatusesForOrganizationResponse -&gt; Bool
+== :: GetEnrollmentStatusesForOrganizationResponse
+-&gt; GetEnrollmentStatusesForOrganizationResponse -&gt; Bool
+$c== :: GetEnrollmentStatusesForOrganizationResponse
+-&gt; GetEnrollmentStatusesForOrganizationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245804"><span id="local-6989586621679245806"><span id="local-6989586621679245808"><span id="local-6989586621679245810"><span class="annot"><span class="annottext">ReadPrec [GetEnrollmentStatusesForOrganizationResponse]
+ReadPrec GetEnrollmentStatusesForOrganizationResponse
+Int -&gt; ReadS GetEnrollmentStatusesForOrganizationResponse
+ReadS [GetEnrollmentStatusesForOrganizationResponse]
+(Int -&gt; ReadS GetEnrollmentStatusesForOrganizationResponse)
+-&gt; ReadS [GetEnrollmentStatusesForOrganizationResponse]
+-&gt; ReadPrec GetEnrollmentStatusesForOrganizationResponse
+-&gt; ReadPrec [GetEnrollmentStatusesForOrganizationResponse]
+-&gt; Read GetEnrollmentStatusesForOrganizationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetEnrollmentStatusesForOrganizationResponse]
+$creadListPrec :: ReadPrec [GetEnrollmentStatusesForOrganizationResponse]
+readPrec :: ReadPrec GetEnrollmentStatusesForOrganizationResponse
+$creadPrec :: ReadPrec GetEnrollmentStatusesForOrganizationResponse
+readList :: ReadS [GetEnrollmentStatusesForOrganizationResponse]
+$creadList :: ReadS [GetEnrollmentStatusesForOrganizationResponse]
+readsPrec :: Int -&gt; ReadS GetEnrollmentStatusesForOrganizationResponse
+$creadsPrec :: Int -&gt; ReadS GetEnrollmentStatusesForOrganizationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245798"><span id="local-6989586621679245800"><span id="local-6989586621679245802"><span class="annot"><span class="annottext">Int -&gt; GetEnrollmentStatusesForOrganizationResponse -&gt; ShowS
+[GetEnrollmentStatusesForOrganizationResponse] -&gt; ShowS
+GetEnrollmentStatusesForOrganizationResponse -&gt; String
+(Int -&gt; GetEnrollmentStatusesForOrganizationResponse -&gt; ShowS)
+-&gt; (GetEnrollmentStatusesForOrganizationResponse -&gt; String)
+-&gt; ([GetEnrollmentStatusesForOrganizationResponse] -&gt; ShowS)
+-&gt; Show GetEnrollmentStatusesForOrganizationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEnrollmentStatusesForOrganizationResponse] -&gt; ShowS
+$cshowList :: [GetEnrollmentStatusesForOrganizationResponse] -&gt; ShowS
+show :: GetEnrollmentStatusesForOrganizationResponse -&gt; String
+$cshow :: GetEnrollmentStatusesForOrganizationResponse -&gt; String
+showsPrec :: Int -&gt; GetEnrollmentStatusesForOrganizationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEnrollmentStatusesForOrganizationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetEnrollmentStatusesForOrganizationResponse
+ -&gt; Rep GetEnrollmentStatusesForOrganizationResponse x)
+-&gt; (forall x.
+    Rep GetEnrollmentStatusesForOrganizationResponse x
+    -&gt; GetEnrollmentStatusesForOrganizationResponse)
+-&gt; Generic GetEnrollmentStatusesForOrganizationResponse
+forall x.
+Rep GetEnrollmentStatusesForOrganizationResponse x
+-&gt; GetEnrollmentStatusesForOrganizationResponse
+forall x.
+GetEnrollmentStatusesForOrganizationResponse
+-&gt; Rep GetEnrollmentStatusesForOrganizationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetEnrollmentStatusesForOrganizationResponse x
+-&gt; GetEnrollmentStatusesForOrganizationResponse
+$cfrom :: forall x.
+GetEnrollmentStatusesForOrganizationResponse
+-&gt; Rep GetEnrollmentStatusesForOrganizationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Create a value of 'GetEnrollmentStatusesForOrganizationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'accountEnrollmentStatuses', 'getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses' - An array of objects that describe the enrollment statuses of</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- organization member accounts.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'nextToken', 'getEnrollmentStatusesForOrganizationResponse_nextToken' - The token to use to advance to the next page of account enrollment</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- statuses.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- This value is null when there are no more pages of account enrollment</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- statuses to return.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'httpStatus', 'getEnrollmentStatusesForOrganizationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#newGetEnrollmentStatusesForOrganizationResponse"><span class="hs-identifier hs-type">newGetEnrollmentStatusesForOrganizationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse</span></a></span><span>
+</span><span id="line-228"></span><span id="newGetEnrollmentStatusesForOrganizationResponse"><span class="annot"><span class="annottext">newGetEnrollmentStatusesForOrganizationResponse :: Int -&gt; GetEnrollmentStatusesForOrganizationResponse
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#newGetEnrollmentStatusesForOrganizationResponse"><span class="hs-identifier hs-var hs-var">newGetEnrollmentStatusesForOrganizationResponse</span></a></span></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679245795"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245795"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganizationResponse' :: Maybe [AccountEnrollmentStatus]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetEnrollmentStatusesForOrganizationResponse
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse'</span></a></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountEnrollmentStatuses:GetEnrollmentStatusesForOrganizationResponse' :: Maybe [AccountEnrollmentStatus]
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AaccountEnrollmentStatuses%3AGetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-var">accountEnrollmentStatuses</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AccountEnrollmentStatus]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextToken:GetEnrollmentStatusesForOrganizationResponse' :: Maybe Text
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AnextToken%3AGetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetEnrollmentStatusesForOrganizationResponse' :: Int
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AhttpStatus%3AGetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245795"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | An array of objects that describe the enrollment statuses of</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- organization member accounts.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses"><span class="hs-identifier hs-type">getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AccountEnrollmentStatus.html#AccountEnrollmentStatus"><span class="hs-identifier hs-type">AccountEnrollmentStatus</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses"><span class="annot"><span class="annottext">getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses :: (Maybe [AccountEnrollmentStatus]
+ -&gt; f (Maybe [AccountEnrollmentStatus]))
+-&gt; GetEnrollmentStatusesForOrganizationResponse
+-&gt; f GetEnrollmentStatusesForOrganizationResponse
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses"><span class="hs-identifier hs-var hs-var">getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnrollmentStatusesForOrganizationResponse
+ -&gt; Maybe [AccountEnrollmentStatus])
+-&gt; (GetEnrollmentStatusesForOrganizationResponse
+    -&gt; Maybe [AccountEnrollmentStatus]
+    -&gt; GetEnrollmentStatusesForOrganizationResponse)
+-&gt; Lens
+     GetEnrollmentStatusesForOrganizationResponse
+     GetEnrollmentStatusesForOrganizationResponse
+     (Maybe [AccountEnrollmentStatus])
+     (Maybe [AccountEnrollmentStatus])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245794"><span class="annot"><span class="annottext">Maybe [AccountEnrollmentStatus]
+accountEnrollmentStatuses :: Maybe [AccountEnrollmentStatus]
+$sel:accountEnrollmentStatuses:GetEnrollmentStatusesForOrganizationResponse' :: GetEnrollmentStatusesForOrganizationResponse
+-&gt; Maybe [AccountEnrollmentStatus]
+</span><a href="#local-6989586621679245794"><span class="hs-identifier hs-var hs-var">accountEnrollmentStatuses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AccountEnrollmentStatus]
+</span><a href="#local-6989586621679245794"><span class="hs-identifier hs-var">accountEnrollmentStatuses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245793"><span class="annot"><span class="annottext">s :: GetEnrollmentStatusesForOrganizationResponse
+</span><a href="#local-6989586621679245793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245792"><span class="annot"><span class="annottext">Maybe [AccountEnrollmentStatus]
+</span><a href="#local-6989586621679245792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganizationResponse
+</span><a href="#local-6989586621679245793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountEnrollmentStatuses:GetEnrollmentStatusesForOrganizationResponse' :: Maybe [AccountEnrollmentStatus]
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AaccountEnrollmentStatuses%3AGetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-var">accountEnrollmentStatuses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AccountEnrollmentStatus]
+</span><a href="#local-6989586621679245792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AccountEnrollmentStatus]
+  -&gt; f (Maybe [AccountEnrollmentStatus]))
+ -&gt; GetEnrollmentStatusesForOrganizationResponse
+ -&gt; f GetEnrollmentStatusesForOrganizationResponse)
+-&gt; ((Maybe [AccountEnrollmentStatus]
+     -&gt; f (Maybe [AccountEnrollmentStatus]))
+    -&gt; Maybe [AccountEnrollmentStatus]
+    -&gt; f (Maybe [AccountEnrollmentStatus]))
+-&gt; (Maybe [AccountEnrollmentStatus]
+    -&gt; f (Maybe [AccountEnrollmentStatus]))
+-&gt; GetEnrollmentStatusesForOrganizationResponse
+-&gt; f GetEnrollmentStatusesForOrganizationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AccountEnrollmentStatus]
+  [AccountEnrollmentStatus]
+  [AccountEnrollmentStatus]
+  [AccountEnrollmentStatus]
+-&gt; Iso
+     (Maybe [AccountEnrollmentStatus])
+     (Maybe [AccountEnrollmentStatus])
+     (Maybe [AccountEnrollmentStatus])
+     (Maybe [AccountEnrollmentStatus])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AccountEnrollmentStatus]
+  [AccountEnrollmentStatus]
+  [AccountEnrollmentStatus]
+  [AccountEnrollmentStatus]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The token to use to advance to the next page of account enrollment</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- statuses.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- This value is null when there are no more pages of account enrollment</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- statuses to return.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganizationResponse_nextToken"><span class="hs-identifier hs-type">getEnrollmentStatusesForOrganizationResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="getEnrollmentStatusesForOrganizationResponse_nextToken"><span class="annot"><span class="annottext">getEnrollmentStatusesForOrganizationResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetEnrollmentStatusesForOrganizationResponse
+-&gt; f GetEnrollmentStatusesForOrganizationResponse
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganizationResponse_nextToken"><span class="hs-identifier hs-var hs-var">getEnrollmentStatusesForOrganizationResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnrollmentStatusesForOrganizationResponse -&gt; Maybe Text)
+-&gt; (GetEnrollmentStatusesForOrganizationResponse
+    -&gt; Maybe Text -&gt; GetEnrollmentStatusesForOrganizationResponse)
+-&gt; Lens
+     GetEnrollmentStatusesForOrganizationResponse
+     GetEnrollmentStatusesForOrganizationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245791"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetEnrollmentStatusesForOrganizationResponse' :: GetEnrollmentStatusesForOrganizationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679245791"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245791"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245790"><span class="annot"><span class="annottext">s :: GetEnrollmentStatusesForOrganizationResponse
+</span><a href="#local-6989586621679245790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245789"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganizationResponse
+</span><a href="#local-6989586621679245790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetEnrollmentStatusesForOrganizationResponse' :: Maybe Text
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AnextToken%3AGetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganizationResponse_httpStatus"><span class="hs-identifier hs-type">getEnrollmentStatusesForOrganizationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-252"></span><span id="getEnrollmentStatusesForOrganizationResponse_httpStatus"><span class="annot"><span class="annottext">getEnrollmentStatusesForOrganizationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetEnrollmentStatusesForOrganizationResponse
+-&gt; f GetEnrollmentStatusesForOrganizationResponse
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#getEnrollmentStatusesForOrganizationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getEnrollmentStatusesForOrganizationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnrollmentStatusesForOrganizationResponse -&gt; Int)
+-&gt; (GetEnrollmentStatusesForOrganizationResponse
+    -&gt; Int -&gt; GetEnrollmentStatusesForOrganizationResponse)
+-&gt; Lens
+     GetEnrollmentStatusesForOrganizationResponse
+     GetEnrollmentStatusesForOrganizationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245788"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetEnrollmentStatusesForOrganizationResponse' :: GetEnrollmentStatusesForOrganizationResponse -&gt; Int
+</span><a href="#local-6989586621679245788"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245788"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245787"><span class="annot"><span class="annottext">s :: GetEnrollmentStatusesForOrganizationResponse
+</span><a href="#local-6989586621679245787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245786"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnrollmentStatusesForOrganizationResponse
+</span><a href="#local-6989586621679245787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetEnrollmentStatusesForOrganizationResponse' :: Int
+</span><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#%24sel%3AhttpStatus%3AGetEnrollmentStatusesForOrganizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679245784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization.html#GetEnrollmentStatusesForOrganizationResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusesForOrganizationResponse</span></a></span></span><span>
+</span><span id="line-257"></span></pre></body></html>

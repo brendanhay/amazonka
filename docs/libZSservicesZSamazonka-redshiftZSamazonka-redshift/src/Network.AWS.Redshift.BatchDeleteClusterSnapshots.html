@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newBatchDeleteClusterSnapshots' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679528963"><span id="local-6989586621679528964"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteClusterSnapshots"><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots"><span class="hs-identifier hs-var">BatchDeleteClusterSnapshots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteClusterSnapshots%27"><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots%27"><span class="hs-identifier hs-var">BatchDeleteClusterSnapshots'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679528972"><span id="local-6989586621679528973"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteClusterSnapshots"><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots"><span class="hs-identifier hs-var">BatchDeleteClusterSnapshots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteClusterSnapshots%27"><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots%27"><span class="hs-identifier hs-var">BatchDeleteClusterSnapshots'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of identifiers for the snapshots that you want to delete.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3Aidentifiers%3ABatchDeleteClusterSnapshots%27"><span class="annot"><span class="annottext">BatchDeleteClusterSnapshots -&gt; [DeleteClusterSnapshotMessage]
 </span><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#%24sel%3Aidentifiers%3ABatchDeleteClusterSnapshots%27"><span class="hs-identifier hs-var hs-var">identifiers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679528957"><span id="local-6989586621679528959"><span class="annot"><span class="annottext">BatchDeleteClusterSnapshots -&gt; BatchDeleteClusterSnapshots -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679528966"><span id="local-6989586621679528968"><span class="annot"><span class="annottext">BatchDeleteClusterSnapshots -&gt; BatchDeleteClusterSnapshots -&gt; Bool
 (BatchDeleteClusterSnapshots
  -&gt; BatchDeleteClusterSnapshots -&gt; Bool)
 -&gt; (BatchDeleteClusterSnapshots
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchDeleteClusterSnapshots -&gt; BatchDeleteClusterSnapshots -&gt; Bool
 == :: BatchDeleteClusterSnapshots -&gt; BatchDeleteClusterSnapshots -&gt; Bool
 $c== :: BatchDeleteClusterSnapshots -&gt; BatchDeleteClusterSnapshots -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528948"><span id="local-6989586621679528950"><span id="local-6989586621679528952"><span id="local-6989586621679528954"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteClusterSnapshots]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528957"><span id="local-6989586621679528959"><span id="local-6989586621679528961"><span id="local-6989586621679528963"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteClusterSnapshots]
 ReadPrec BatchDeleteClusterSnapshots
 Int -&gt; ReadS BatchDeleteClusterSnapshots
 ReadS [BatchDeleteClusterSnapshots]
@@ -84,7 +84,7 @@ readList :: ReadS [BatchDeleteClusterSnapshots]
 $creadList :: ReadS [BatchDeleteClusterSnapshots]
 readsPrec :: Int -&gt; ReadS BatchDeleteClusterSnapshots
 $creadsPrec :: Int -&gt; ReadS BatchDeleteClusterSnapshots
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528941"><span id="local-6989586621679528943"><span id="local-6989586621679528945"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteClusterSnapshots -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528950"><span id="local-6989586621679528952"><span id="local-6989586621679528954"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteClusterSnapshots -&gt; ShowS
 [BatchDeleteClusterSnapshots] -&gt; ShowS
 BatchDeleteClusterSnapshots -&gt; String
 (Int -&gt; BatchDeleteClusterSnapshots -&gt; ShowS)
@@ -152,16 +152,16 @@ forall a. Monoid a =&gt; a
      [DeleteClusterSnapshotMessage]
      [DeleteClusterSnapshotMessage]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528934"><span class="annot"><span class="annottext">[DeleteClusterSnapshotMessage]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528943"><span class="annot"><span class="annottext">[DeleteClusterSnapshotMessage]
 identifiers :: [DeleteClusterSnapshotMessage]
 $sel:identifiers:BatchDeleteClusterSnapshots' :: BatchDeleteClusterSnapshots -&gt; [DeleteClusterSnapshotMessage]
-</span><a href="#local-6989586621679528934"><span class="hs-identifier hs-var hs-var">identifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[DeleteClusterSnapshotMessage]
-</span><a href="#local-6989586621679528934"><span class="hs-identifier hs-var">identifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528933"><span class="annot"><span class="annottext">s :: BatchDeleteClusterSnapshots
-</span><a href="#local-6989586621679528933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528932"><span class="annot"><span class="annottext">[DeleteClusterSnapshotMessage]
-</span><a href="#local-6989586621679528932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteClusterSnapshots
-</span><a href="#local-6989586621679528933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identifiers:BatchDeleteClusterSnapshots' :: [DeleteClusterSnapshotMessage]
+</span><a href="#local-6989586621679528943"><span class="hs-identifier hs-var hs-var">identifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[DeleteClusterSnapshotMessage]
+</span><a href="#local-6989586621679528943"><span class="hs-identifier hs-var">identifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528942"><span class="annot"><span class="annottext">s :: BatchDeleteClusterSnapshots
+</span><a href="#local-6989586621679528942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528941"><span class="annot"><span class="annottext">[DeleteClusterSnapshotMessage]
+</span><a href="#local-6989586621679528941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteClusterSnapshots
+</span><a href="#local-6989586621679528942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identifiers:BatchDeleteClusterSnapshots' :: [DeleteClusterSnapshotMessage]
 </span><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#%24sel%3Aidentifiers%3ABatchDeleteClusterSnapshots%27"><span class="hs-identifier hs-var">identifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[DeleteClusterSnapshotMessage]
-</span><a href="#local-6989586621679528932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([DeleteClusterSnapshotMessage]
+</span><a href="#local-6989586621679528941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([DeleteClusterSnapshotMessage]
   -&gt; f [DeleteClusterSnapshotMessage])
  -&gt; BatchDeleteClusterSnapshots -&gt; f BatchDeleteClusterSnapshots)
 -&gt; (([DeleteClusterSnapshotMessage]
@@ -184,14 +184,14 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679528926"><span class="annot"><span class="annottext">request :: BatchDeleteClusterSnapshots -&gt; Request BatchDeleteClusterSnapshots
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679528935"><span class="annot"><span class="annottext">request :: BatchDeleteClusterSnapshots -&gt; Request BatchDeleteClusterSnapshots
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; BatchDeleteClusterSnapshots
 -&gt; Request BatchDeleteClusterSnapshots
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679528922"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679528931"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchDeleteClusterSnapshots
 -&gt; ClientResponse ClientBody
@@ -222,10 +222,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BatchDeleteClusterSnapshotsResult&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679528919"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679528919"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679528918"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679528918"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679528917"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679528917"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679528928"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528928"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679528927"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679528927"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679528926"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679528926"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe [SnapshotErrorMessage]
 -&gt; Int
@@ -242,7 +242,7 @@ Text
       -&gt; Int -&gt; BatchDeleteClusterSnapshotsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679528917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679528926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -272,7 +272,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; BatchDeleteClusterSnapshotsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679528917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679528926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -303,15 +303,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679528919"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679528928"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679528906"><span id="local-6989586621679528908"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679528915"><span id="local-6989586621679528917"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679528903"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679528912"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679528899"><span class="annot"><span class="annottext">toHeaders :: BatchDeleteClusterSnapshots -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679528908"><span class="annot"><span class="annottext">toHeaders :: BatchDeleteClusterSnapshots -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchDeleteClusterSnapshots -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -319,18 +319,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679528894"><span class="annot"><span class="annottext">toPath :: BatchDeleteClusterSnapshots -&gt; ByteString
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679528903"><span class="annot"><span class="annottext">toPath :: BatchDeleteClusterSnapshots -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchDeleteClusterSnapshots -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679528890"><span class="annot"><span class="annottext">toQuery :: BatchDeleteClusterSnapshots -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528888"><span class="annot"><span class="annottext">[DeleteClusterSnapshotMessage]
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679528899"><span class="annot"><span class="annottext">toQuery :: BatchDeleteClusterSnapshots -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshots%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528897"><span class="annot"><span class="annottext">[DeleteClusterSnapshotMessage]
 identifiers :: [DeleteClusterSnapshotMessage]
 $sel:identifiers:BatchDeleteClusterSnapshots' :: BatchDeleteClusterSnapshots -&gt; [DeleteClusterSnapshotMessage]
-</span><a href="#local-6989586621679528888"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679528897"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -360,11 +360,11 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DeleteClusterSnapshotMessage&quot;</span></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">[DeleteClusterSnapshotMessage]
-</span><a href="#local-6989586621679528888"><span class="hs-identifier hs-var">identifiers</span></a></span><span>
+</span><a href="#local-6989586621679528897"><span class="hs-identifier hs-var">identifiers</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newBatchDeleteClusterSnapshotsResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621679528884"><span id="local-6989586621679528885"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteClusterSnapshotsResponse"><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse"><span class="hs-identifier hs-var">BatchDeleteClusterSnapshotsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteClusterSnapshotsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">BatchDeleteClusterSnapshotsResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span id="local-6989586621679528893"><span id="local-6989586621679528894"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteClusterSnapshotsResponse"><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse"><span class="hs-identifier hs-var">BatchDeleteClusterSnapshotsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteClusterSnapshotsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">BatchDeleteClusterSnapshotsResponse'</span></a></span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the snapshot identifiers that were deleted.</span><span>
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3Aresources%3ABatchDeleteClusterSnapshotsResponse%27"><span class="annot"><span class="annottext">BatchDeleteClusterSnapshotsResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#%24sel%3Aresources%3ABatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -375,7 +375,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchDeleteClusterSnapshotsResponse%27"><span class="annot"><span class="annottext">BatchDeleteClusterSnapshotsResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#%24sel%3AhttpStatus%3ABatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679528877"><span id="local-6989586621679528879"><span class="annot"><span class="annottext">BatchDeleteClusterSnapshotsResponse
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679528886"><span id="local-6989586621679528888"><span class="annot"><span class="annottext">BatchDeleteClusterSnapshotsResponse
 -&gt; BatchDeleteClusterSnapshotsResponse -&gt; Bool
 (BatchDeleteClusterSnapshotsResponse
  -&gt; BatchDeleteClusterSnapshotsResponse -&gt; Bool)
@@ -391,7 +391,7 @@ $c/= :: BatchDeleteClusterSnapshotsResponse
 -&gt; BatchDeleteClusterSnapshotsResponse -&gt; Bool
 $c== :: BatchDeleteClusterSnapshotsResponse
 -&gt; BatchDeleteClusterSnapshotsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528869"><span id="local-6989586621679528871"><span id="local-6989586621679528873"><span id="local-6989586621679528875"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteClusterSnapshotsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528878"><span id="local-6989586621679528880"><span id="local-6989586621679528882"><span id="local-6989586621679528884"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteClusterSnapshotsResponse]
 ReadPrec BatchDeleteClusterSnapshotsResponse
 Int -&gt; ReadS BatchDeleteClusterSnapshotsResponse
 ReadS [BatchDeleteClusterSnapshotsResponse]
@@ -411,7 +411,7 @@ readList :: ReadS [BatchDeleteClusterSnapshotsResponse]
 $creadList :: ReadS [BatchDeleteClusterSnapshotsResponse]
 readsPrec :: Int -&gt; ReadS BatchDeleteClusterSnapshotsResponse
 $creadsPrec :: Int -&gt; ReadS BatchDeleteClusterSnapshotsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528863"><span id="local-6989586621679528865"><span id="local-6989586621679528867"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteClusterSnapshotsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528872"><span id="local-6989586621679528874"><span id="local-6989586621679528876"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteClusterSnapshotsResponse -&gt; ShowS
 [BatchDeleteClusterSnapshotsResponse] -&gt; ShowS
 BatchDeleteClusterSnapshotsResponse -&gt; String
 (Int -&gt; BatchDeleteClusterSnapshotsResponse -&gt; ShowS)
@@ -467,8 +467,8 @@ BatchDeleteClusterSnapshotsResponse
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse</span></a></span><span>
 </span><span id="line-150"></span><span id="newBatchDeleteClusterSnapshotsResponse"><span class="annot"><span class="annottext">newBatchDeleteClusterSnapshotsResponse :: Int -&gt; BatchDeleteClusterSnapshotsResponse
-</span><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#newBatchDeleteClusterSnapshotsResponse"><span class="hs-identifier hs-var hs-var">newBatchDeleteClusterSnapshotsResponse</span></a></span></span><span> </span><span id="local-6989586621679528860"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679528860"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#newBatchDeleteClusterSnapshotsResponse"><span class="hs-identifier hs-var hs-var">newBatchDeleteClusterSnapshotsResponse</span></a></span></span><span> </span><span id="local-6989586621679528869"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528869"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteClusterSnapshotsResponse' :: Maybe [Text]
 -&gt; Maybe [SnapshotErrorMessage]
 -&gt; Int
@@ -485,7 +485,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteClusterSnapshotsResponse' :: Int
 </span><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#%24sel%3AhttpStatus%3ABatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679528860"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679528869"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | A list of the snapshot identifiers that were deleted.</span><span>
@@ -502,16 +502,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528859"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528868"><span class="annot"><span class="annottext">Maybe [Text]
 resources :: Maybe [Text]
 $sel:resources:BatchDeleteClusterSnapshotsResponse' :: BatchDeleteClusterSnapshotsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679528859"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679528859"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528858"><span class="annot"><span class="annottext">s :: BatchDeleteClusterSnapshotsResponse
-</span><a href="#local-6989586621679528858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528857"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679528857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteClusterSnapshotsResponse
-</span><a href="#local-6989586621679528858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:BatchDeleteClusterSnapshotsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679528868"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679528868"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528867"><span class="annot"><span class="annottext">s :: BatchDeleteClusterSnapshotsResponse
+</span><a href="#local-6989586621679528867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528866"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679528866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteClusterSnapshotsResponse
+</span><a href="#local-6989586621679528867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:BatchDeleteClusterSnapshotsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#%24sel%3Aresources%3ABatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679528857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679528866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; BatchDeleteClusterSnapshotsResponse
  -&gt; f BatchDeleteClusterSnapshotsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -545,16 +545,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [SnapshotErrorMessage])
      (Maybe [SnapshotErrorMessage])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528855"><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528864"><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
 errors :: Maybe [SnapshotErrorMessage]
 $sel:errors:BatchDeleteClusterSnapshotsResponse' :: BatchDeleteClusterSnapshotsResponse -&gt; Maybe [SnapshotErrorMessage]
-</span><a href="#local-6989586621679528855"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
-</span><a href="#local-6989586621679528855"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528854"><span class="annot"><span class="annottext">s :: BatchDeleteClusterSnapshotsResponse
-</span><a href="#local-6989586621679528854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528853"><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
-</span><a href="#local-6989586621679528853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteClusterSnapshotsResponse
-</span><a href="#local-6989586621679528854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchDeleteClusterSnapshotsResponse' :: Maybe [SnapshotErrorMessage]
+</span><a href="#local-6989586621679528864"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
+</span><a href="#local-6989586621679528864"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528863"><span class="annot"><span class="annottext">s :: BatchDeleteClusterSnapshotsResponse
+</span><a href="#local-6989586621679528863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528862"><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
+</span><a href="#local-6989586621679528862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteClusterSnapshotsResponse
+</span><a href="#local-6989586621679528863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchDeleteClusterSnapshotsResponse' :: Maybe [SnapshotErrorMessage]
 </span><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#%24sel%3Aerrors%3ABatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
-</span><a href="#local-6989586621679528853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SnapshotErrorMessage] -&gt; f (Maybe [SnapshotErrorMessage]))
+</span><a href="#local-6989586621679528862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SnapshotErrorMessage] -&gt; f (Maybe [SnapshotErrorMessage]))
  -&gt; BatchDeleteClusterSnapshotsResponse
  -&gt; f BatchDeleteClusterSnapshotsResponse)
 -&gt; ((Maybe [SnapshotErrorMessage]
@@ -601,18 +601,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528852"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528861"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchDeleteClusterSnapshotsResponse' :: BatchDeleteClusterSnapshotsResponse -&gt; Int
-</span><a href="#local-6989586621679528852"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679528852"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528851"><span class="annot"><span class="annottext">s :: BatchDeleteClusterSnapshotsResponse
-</span><a href="#local-6989586621679528851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528850"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679528850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteClusterSnapshotsResponse
-</span><a href="#local-6989586621679528851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteClusterSnapshotsResponse' :: Int
+</span><a href="#local-6989586621679528861"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528861"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528860"><span class="annot"><span class="annottext">s :: BatchDeleteClusterSnapshotsResponse
+</span><a href="#local-6989586621679528860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528859"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteClusterSnapshotsResponse
+</span><a href="#local-6989586621679528860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteClusterSnapshotsResponse' :: Int
 </span><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#%24sel%3AhttpStatus%3ABatchDeleteClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679528850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679528859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679528848"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679528857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.BatchDeleteClusterSnapshots.html#BatchDeleteClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchDeleteClusterSnapshotsResponse</span></a></span></span><span>
 </span><span id="line-173"></span></pre></body></html>

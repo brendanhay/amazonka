@@ -1,0 +1,773 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Generates an embed URL that you can use to embed an Amazon QuickSight</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- experience in your website. This action can be used for any type of user</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- registered in an Amazon QuickSight account. Before you use this action,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- make sure that you have configured the relevant Amazon QuickSight</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- resource and permissions.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- The following rules apply to the generated URL:</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- -   It contains a temporary bearer token. It is valid for 5 minutes</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     after it is generated. Once redeemed within this period, it cannot</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     be re-used again.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   The URL validity period should not be confused with the actual</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     session lifetime that can be customized using the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     @ SessionLifetimeInMinutes @ parameter.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     The resulting user session is valid for 15 minutes (default) to 10</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     hours (maximum).</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- -   You are charged only when the URL is used or there is interaction</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     with Amazon QuickSight.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html Embedded Analytics&gt;</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- in the /Amazon QuickSight User Guide/.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- For more information about the high-level steps for embedding and for an</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- interactive demo of the ways you can customize embedding, visit the</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html Amazon QuickSight Developer Portal&gt;.</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier">GenerateEmbedUrlForRegisteredUser</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#newGenerateEmbedUrlForRegisteredUser"><span class="hs-identifier">newGenerateEmbedUrlForRegisteredUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes"><span class="hs-identifier">generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUser_awsAccountId"><span class="hs-identifier">generateEmbedUrlForRegisteredUser_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUser_userArn"><span class="hs-identifier">generateEmbedUrlForRegisteredUser_userArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUser_experienceConfiguration"><span class="hs-identifier">generateEmbedUrlForRegisteredUser_experienceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse"><span class="hs-identifier">GenerateEmbedUrlForRegisteredUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#newGenerateEmbedUrlForRegisteredUserResponse"><span class="hs-identifier">newGenerateEmbedUrlForRegisteredUserResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUserResponse_status"><span class="hs-identifier">generateEmbedUrlForRegisteredUserResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUserResponse_embedUrl"><span class="hs-identifier">generateEmbedUrlForRegisteredUserResponse_embedUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUserResponse_requestId"><span class="hs-identifier">generateEmbedUrlForRegisteredUserResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.html"><span class="hs-identifier">Network.AWS.QuickSight.Types</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | /See:/ 'newGenerateEmbedUrlForRegisteredUser' smart constructor.</span><span>
+</span><span id="line-82"></span><span id="local-6989586621679583052"><span id="local-6989586621679583053"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateEmbedUrlForRegisteredUser"><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-var">GenerateEmbedUrlForRegisteredUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateEmbedUrlForRegisteredUser%27"><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-var">GenerateEmbedUrlForRegisteredUser'</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | How many minutes the session is valid. The session lifetime must be in</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- [15-600] minutes range.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AsessionLifetimeInMinutes%3AGenerateEmbedUrlForRegisteredUser%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUser -&gt; Maybe Natural
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AsessionLifetimeInMinutes%3AGenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-var hs-var">sessionLifetimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The ID for the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- that you\'re embedding.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AawsAccountId%3AGenerateEmbedUrlForRegisteredUser%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUser -&gt; Text
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AawsAccountId%3AGenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name for the registered user.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AuserArn%3AGenerateEmbedUrlForRegisteredUser%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUser -&gt; Text
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AuserArn%3AGenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The experience you are embedding. For registered users, you can embed</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- Amazon QuickSight dashboards, the entire Amazon QuickSight console, or</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- the Amazon QuickSight Q search bar.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AexperienceConfiguration%3AGenerateEmbedUrlForRegisteredUser%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUser
+-&gt; RegisteredUserEmbeddingExperienceConfiguration
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AexperienceConfiguration%3AGenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-var hs-var">experienceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RegisteredUserEmbeddingExperienceConfiguration.html#RegisteredUserEmbeddingExperienceConfiguration"><span class="hs-identifier hs-type">RegisteredUserEmbeddingExperienceConfiguration</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679583043"><span id="local-6989586621679583045"><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUser
+-&gt; GenerateEmbedUrlForRegisteredUser -&gt; Bool
+(GenerateEmbedUrlForRegisteredUser
+ -&gt; GenerateEmbedUrlForRegisteredUser -&gt; Bool)
+-&gt; (GenerateEmbedUrlForRegisteredUser
+    -&gt; GenerateEmbedUrlForRegisteredUser -&gt; Bool)
+-&gt; Eq GenerateEmbedUrlForRegisteredUser
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GenerateEmbedUrlForRegisteredUser
+-&gt; GenerateEmbedUrlForRegisteredUser -&gt; Bool
+$c/= :: GenerateEmbedUrlForRegisteredUser
+-&gt; GenerateEmbedUrlForRegisteredUser -&gt; Bool
+== :: GenerateEmbedUrlForRegisteredUser
+-&gt; GenerateEmbedUrlForRegisteredUser -&gt; Bool
+$c== :: GenerateEmbedUrlForRegisteredUser
+-&gt; GenerateEmbedUrlForRegisteredUser -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679583034"><span id="local-6989586621679583036"><span id="local-6989586621679583038"><span id="local-6989586621679583040"><span class="annot"><span class="annottext">ReadPrec [GenerateEmbedUrlForRegisteredUser]
+ReadPrec GenerateEmbedUrlForRegisteredUser
+Int -&gt; ReadS GenerateEmbedUrlForRegisteredUser
+ReadS [GenerateEmbedUrlForRegisteredUser]
+(Int -&gt; ReadS GenerateEmbedUrlForRegisteredUser)
+-&gt; ReadS [GenerateEmbedUrlForRegisteredUser]
+-&gt; ReadPrec GenerateEmbedUrlForRegisteredUser
+-&gt; ReadPrec [GenerateEmbedUrlForRegisteredUser]
+-&gt; Read GenerateEmbedUrlForRegisteredUser
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GenerateEmbedUrlForRegisteredUser]
+$creadListPrec :: ReadPrec [GenerateEmbedUrlForRegisteredUser]
+readPrec :: ReadPrec GenerateEmbedUrlForRegisteredUser
+$creadPrec :: ReadPrec GenerateEmbedUrlForRegisteredUser
+readList :: ReadS [GenerateEmbedUrlForRegisteredUser]
+$creadList :: ReadS [GenerateEmbedUrlForRegisteredUser]
+readsPrec :: Int -&gt; ReadS GenerateEmbedUrlForRegisteredUser
+$creadsPrec :: Int -&gt; ReadS GenerateEmbedUrlForRegisteredUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679583027"><span id="local-6989586621679583029"><span id="local-6989586621679583031"><span class="annot"><span class="annottext">Int -&gt; GenerateEmbedUrlForRegisteredUser -&gt; ShowS
+[GenerateEmbedUrlForRegisteredUser] -&gt; ShowS
+GenerateEmbedUrlForRegisteredUser -&gt; String
+(Int -&gt; GenerateEmbedUrlForRegisteredUser -&gt; ShowS)
+-&gt; (GenerateEmbedUrlForRegisteredUser -&gt; String)
+-&gt; ([GenerateEmbedUrlForRegisteredUser] -&gt; ShowS)
+-&gt; Show GenerateEmbedUrlForRegisteredUser
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GenerateEmbedUrlForRegisteredUser] -&gt; ShowS
+$cshowList :: [GenerateEmbedUrlForRegisteredUser] -&gt; ShowS
+show :: GenerateEmbedUrlForRegisteredUser -&gt; String
+$cshow :: GenerateEmbedUrlForRegisteredUser -&gt; String
+showsPrec :: Int -&gt; GenerateEmbedUrlForRegisteredUser -&gt; ShowS
+$cshowsPrec :: Int -&gt; GenerateEmbedUrlForRegisteredUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GenerateEmbedUrlForRegisteredUser
+ -&gt; Rep GenerateEmbedUrlForRegisteredUser x)
+-&gt; (forall x.
+    Rep GenerateEmbedUrlForRegisteredUser x
+    -&gt; GenerateEmbedUrlForRegisteredUser)
+-&gt; Generic GenerateEmbedUrlForRegisteredUser
+forall x.
+Rep GenerateEmbedUrlForRegisteredUser x
+-&gt; GenerateEmbedUrlForRegisteredUser
+forall x.
+GenerateEmbedUrlForRegisteredUser
+-&gt; Rep GenerateEmbedUrlForRegisteredUser x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GenerateEmbedUrlForRegisteredUser x
+-&gt; GenerateEmbedUrlForRegisteredUser
+$cfrom :: forall x.
+GenerateEmbedUrlForRegisteredUser
+-&gt; Rep GenerateEmbedUrlForRegisteredUser x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Create a value of 'GenerateEmbedUrlForRegisteredUser' with all optional fields omitted.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'sessionLifetimeInMinutes', 'generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be in</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- [15-600] minutes range.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'awsAccountId', 'generateEmbedUrlForRegisteredUser_awsAccountId' - The ID for the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- that you\'re embedding.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'userArn', 'generateEmbedUrlForRegisteredUser_userArn' - The Amazon Resource Name for the registered user.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'experienceConfiguration', 'generateEmbedUrlForRegisteredUser_experienceConfiguration' - The experience you are embedding. For registered users, you can embed</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Amazon QuickSight dashboards, the entire Amazon QuickSight console, or</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- the Amazon QuickSight Q search bar.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#newGenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">newGenerateEmbedUrlForRegisteredUser</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'userArn'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'experienceConfiguration'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RegisteredUserEmbeddingExperienceConfiguration.html#RegisteredUserEmbeddingExperienceConfiguration"><span class="hs-identifier hs-type">RegisteredUserEmbeddingExperienceConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span><span>
+</span><span id="line-125"></span><span id="newGenerateEmbedUrlForRegisteredUser"><span class="annot"><span class="annottext">newGenerateEmbedUrlForRegisteredUser :: Text
+-&gt; Text
+-&gt; RegisteredUserEmbeddingExperienceConfiguration
+-&gt; GenerateEmbedUrlForRegisteredUser
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#newGenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-var hs-var">newGenerateEmbedUrlForRegisteredUser</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679583022"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583022"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679583021"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583021"><span class="hs-identifier hs-var">pUserArn_</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679583020"><span class="annot"><span class="annottext">RegisteredUserEmbeddingExperienceConfiguration
+</span><a href="#local-6989586621679583020"><span class="hs-identifier hs-var">pExperienceConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUser' :: Maybe Natural
+-&gt; Text
+-&gt; Text
+-&gt; RegisteredUserEmbeddingExperienceConfiguration
+-&gt; GenerateEmbedUrlForRegisteredUser
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser'</span></a></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sessionLifetimeInMinutes:GenerateEmbedUrlForRegisteredUser' :: Maybe Natural
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AsessionLifetimeInMinutes%3AGenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsAccountId:GenerateEmbedUrlForRegisteredUser' :: Text
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AawsAccountId%3AGenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583022"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:userArn:GenerateEmbedUrlForRegisteredUser' :: Text
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AuserArn%3AGenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583021"><span class="hs-identifier hs-var">pUserArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:experienceConfiguration:GenerateEmbedUrlForRegisteredUser' :: RegisteredUserEmbeddingExperienceConfiguration
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AexperienceConfiguration%3AGenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-var">experienceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">RegisteredUserEmbeddingExperienceConfiguration
+</span><a href="#local-6989586621679583020"><span class="hs-identifier hs-var">pExperienceConfiguration_</span></a></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | How many minutes the session is valid. The session lifetime must be in</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- [15-600] minutes range.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes"><span class="hs-identifier hs-type">generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes"><span class="annot"><span class="annottext">generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GenerateEmbedUrlForRegisteredUser
+-&gt; f GenerateEmbedUrlForRegisteredUser
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForRegisteredUser -&gt; Maybe Natural)
+-&gt; (GenerateEmbedUrlForRegisteredUser
+    -&gt; Maybe Natural -&gt; GenerateEmbedUrlForRegisteredUser)
+-&gt; Lens
+     GenerateEmbedUrlForRegisteredUser
+     GenerateEmbedUrlForRegisteredUser
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679583017"><span class="annot"><span class="annottext">Maybe Natural
+sessionLifetimeInMinutes :: Maybe Natural
+$sel:sessionLifetimeInMinutes:GenerateEmbedUrlForRegisteredUser' :: GenerateEmbedUrlForRegisteredUser -&gt; Maybe Natural
+</span><a href="#local-6989586621679583017"><span class="hs-identifier hs-var hs-var">sessionLifetimeInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679583017"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679583016"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForRegisteredUser
+</span><a href="#local-6989586621679583016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679583015"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679583015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUser
+</span><a href="#local-6989586621679583016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionLifetimeInMinutes:GenerateEmbedUrlForRegisteredUser' :: Maybe Natural
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AsessionLifetimeInMinutes%3AGenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679583015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The ID for the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- that you\'re embedding.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUser_awsAccountId"><span class="hs-identifier hs-type">generateEmbedUrlForRegisteredUser_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-146"></span><span id="generateEmbedUrlForRegisteredUser_awsAccountId"><span class="annot"><span class="annottext">generateEmbedUrlForRegisteredUser_awsAccountId :: (Text -&gt; f Text)
+-&gt; GenerateEmbedUrlForRegisteredUser
+-&gt; f GenerateEmbedUrlForRegisteredUser
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUser_awsAccountId"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForRegisteredUser_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForRegisteredUser -&gt; Text)
+-&gt; (GenerateEmbedUrlForRegisteredUser
+    -&gt; Text -&gt; GenerateEmbedUrlForRegisteredUser)
+-&gt; Lens
+     GenerateEmbedUrlForRegisteredUser
+     GenerateEmbedUrlForRegisteredUser
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679583014"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:GenerateEmbedUrlForRegisteredUser' :: GenerateEmbedUrlForRegisteredUser -&gt; Text
+</span><a href="#local-6989586621679583014"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583014"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679583013"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForRegisteredUser
+</span><a href="#local-6989586621679583013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679583012"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUser
+</span><a href="#local-6989586621679583013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:GenerateEmbedUrlForRegisteredUser' :: Text
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AawsAccountId%3AGenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The Amazon Resource Name for the registered user.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUser_userArn"><span class="hs-identifier hs-type">generateEmbedUrlForRegisteredUser_userArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-150"></span><span id="generateEmbedUrlForRegisteredUser_userArn"><span class="annot"><span class="annottext">generateEmbedUrlForRegisteredUser_userArn :: (Text -&gt; f Text)
+-&gt; GenerateEmbedUrlForRegisteredUser
+-&gt; f GenerateEmbedUrlForRegisteredUser
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUser_userArn"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForRegisteredUser_userArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForRegisteredUser -&gt; Text)
+-&gt; (GenerateEmbedUrlForRegisteredUser
+    -&gt; Text -&gt; GenerateEmbedUrlForRegisteredUser)
+-&gt; Lens
+     GenerateEmbedUrlForRegisteredUser
+     GenerateEmbedUrlForRegisteredUser
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679583011"><span class="annot"><span class="annottext">Text
+userArn :: Text
+$sel:userArn:GenerateEmbedUrlForRegisteredUser' :: GenerateEmbedUrlForRegisteredUser -&gt; Text
+</span><a href="#local-6989586621679583011"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583011"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679583010"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForRegisteredUser
+</span><a href="#local-6989586621679583010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679583009"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUser
+</span><a href="#local-6989586621679583010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:GenerateEmbedUrlForRegisteredUser' :: Text
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AuserArn%3AGenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The experience you are embedding. For registered users, you can embed</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Amazon QuickSight dashboards, the entire Amazon QuickSight console, or</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- the Amazon QuickSight Q search bar.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUser_experienceConfiguration"><span class="hs-identifier hs-type">generateEmbedUrlForRegisteredUser_experienceConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RegisteredUserEmbeddingExperienceConfiguration.html#RegisteredUserEmbeddingExperienceConfiguration"><span class="hs-identifier hs-type">RegisteredUserEmbeddingExperienceConfiguration</span></a></span><span>
+</span><span id="line-156"></span><span id="generateEmbedUrlForRegisteredUser_experienceConfiguration"><span class="annot"><span class="annottext">generateEmbedUrlForRegisteredUser_experienceConfiguration :: (RegisteredUserEmbeddingExperienceConfiguration
+ -&gt; f RegisteredUserEmbeddingExperienceConfiguration)
+-&gt; GenerateEmbedUrlForRegisteredUser
+-&gt; f GenerateEmbedUrlForRegisteredUser
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUser_experienceConfiguration"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForRegisteredUser_experienceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForRegisteredUser
+ -&gt; RegisteredUserEmbeddingExperienceConfiguration)
+-&gt; (GenerateEmbedUrlForRegisteredUser
+    -&gt; RegisteredUserEmbeddingExperienceConfiguration
+    -&gt; GenerateEmbedUrlForRegisteredUser)
+-&gt; Lens
+     GenerateEmbedUrlForRegisteredUser
+     GenerateEmbedUrlForRegisteredUser
+     RegisteredUserEmbeddingExperienceConfiguration
+     RegisteredUserEmbeddingExperienceConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679583008"><span class="annot"><span class="annottext">RegisteredUserEmbeddingExperienceConfiguration
+experienceConfiguration :: RegisteredUserEmbeddingExperienceConfiguration
+$sel:experienceConfiguration:GenerateEmbedUrlForRegisteredUser' :: GenerateEmbedUrlForRegisteredUser
+-&gt; RegisteredUserEmbeddingExperienceConfiguration
+</span><a href="#local-6989586621679583008"><span class="hs-identifier hs-var hs-var">experienceConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisteredUserEmbeddingExperienceConfiguration
+</span><a href="#local-6989586621679583008"><span class="hs-identifier hs-var">experienceConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679583007"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForRegisteredUser
+</span><a href="#local-6989586621679583007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679583006"><span class="annot"><span class="annottext">RegisteredUserEmbeddingExperienceConfiguration
+</span><a href="#local-6989586621679583006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUser
+</span><a href="#local-6989586621679583007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experienceConfiguration:GenerateEmbedUrlForRegisteredUser' :: RegisteredUserEmbeddingExperienceConfiguration
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AexperienceConfiguration%3AGenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-var">experienceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegisteredUserEmbeddingExperienceConfiguration
+</span><a href="#local-6989586621679583006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-163"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679583002"><span class="annot"><span class="annottext">request :: GenerateEmbedUrlForRegisteredUser
+-&gt; Request GenerateEmbedUrlForRegisteredUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GenerateEmbedUrlForRegisteredUser
+-&gt; Request GenerateEmbedUrlForRegisteredUser
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679582998"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GenerateEmbedUrlForRegisteredUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GenerateEmbedUrlForRegisteredUser)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GenerateEmbedUrlForRegisteredUser))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GenerateEmbedUrlForRegisteredUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GenerateEmbedUrlForRegisteredUser)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679582995"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582995"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679582994"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679582994"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679582993"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679582993"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; Sensitive Text
+-&gt; Text
+-&gt; GenerateEmbedUrlForRegisteredUserResponse
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-var">GenerateEmbedUrlForRegisteredUserResponse'</span></a></span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; Sensitive Text
+ -&gt; Text
+ -&gt; GenerateEmbedUrlForRegisteredUserResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Sensitive Text
+      -&gt; Text -&gt; GenerateEmbedUrlForRegisteredUserResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582995"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Sensitive Text
+   -&gt; Text -&gt; GenerateEmbedUrlForRegisteredUserResponse)
+-&gt; Either String (Sensitive Text)
+-&gt; Either
+     String (Text -&gt; GenerateEmbedUrlForRegisteredUserResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679582993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Sensitive Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EmbedUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">Either String (Text -&gt; GenerateEmbedUrlForRegisteredUserResponse)
+-&gt; Either String Text
+-&gt; Either String GenerateEmbedUrlForRegisteredUserResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679582993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679582985"><span id="local-6989586621679582987"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span></span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679582982"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679582978"><span class="annot"><span class="annottext">toHeaders :: GenerateEmbedUrlForRegisteredUser -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GenerateEmbedUrlForRegisteredUser -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-191"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-193"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679582968"><span id="local-6989586621679582970"><span id="local-6989586621679582972"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span></span></span></span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679582966"><span class="annot"><span class="annottext">toJSON :: GenerateEmbedUrlForRegisteredUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582961"><span id="local-6989586621679582962"><span id="local-6989586621679582963"><span id="local-6989586621679582964"><span class="annot"><span class="annottext">Maybe Natural
+Text
+RegisteredUserEmbeddingExperienceConfiguration
+experienceConfiguration :: RegisteredUserEmbeddingExperienceConfiguration
+userArn :: Text
+awsAccountId :: Text
+sessionLifetimeInMinutes :: Maybe Natural
+$sel:experienceConfiguration:GenerateEmbedUrlForRegisteredUser' :: GenerateEmbedUrlForRegisteredUser
+-&gt; RegisteredUserEmbeddingExperienceConfiguration
+$sel:userArn:GenerateEmbedUrlForRegisteredUser' :: GenerateEmbedUrlForRegisteredUser -&gt; Text
+$sel:awsAccountId:GenerateEmbedUrlForRegisteredUser' :: GenerateEmbedUrlForRegisteredUser -&gt; Text
+$sel:sessionLifetimeInMinutes:GenerateEmbedUrlForRegisteredUser' :: GenerateEmbedUrlForRegisteredUser -&gt; Maybe Natural
+</span><a href="#local-6989586621679582961"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-204"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SessionLifetimeInMinutes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679582964"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582962"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-208"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExperienceConfiguration&quot;</span></span><span>
+</span><span id="line-209"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; RegisteredUserEmbeddingExperienceConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RegisteredUserEmbeddingExperienceConfiguration
+</span><a href="#local-6989586621679582961"><span class="hs-identifier hs-var">experienceConfiguration</span></a></span><span>
+</span><span id="line-210"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679582955"><span class="annot"><span class="annottext">toPath :: GenerateEmbedUrlForRegisteredUser -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582950"><span id="local-6989586621679582951"><span id="local-6989586621679582952"><span id="local-6989586621679582953"><span class="annot"><span class="annottext">Maybe Natural
+Text
+RegisteredUserEmbeddingExperienceConfiguration
+experienceConfiguration :: RegisteredUserEmbeddingExperienceConfiguration
+userArn :: Text
+awsAccountId :: Text
+sessionLifetimeInMinutes :: Maybe Natural
+$sel:experienceConfiguration:GenerateEmbedUrlForRegisteredUser' :: GenerateEmbedUrlForRegisteredUser
+-&gt; RegisteredUserEmbeddingExperienceConfiguration
+$sel:userArn:GenerateEmbedUrlForRegisteredUser' :: GenerateEmbedUrlForRegisteredUser -&gt; Text
+$sel:awsAccountId:GenerateEmbedUrlForRegisteredUser' :: GenerateEmbedUrlForRegisteredUser -&gt; Text
+$sel:sessionLifetimeInMinutes:GenerateEmbedUrlForRegisteredUser' :: GenerateEmbedUrlForRegisteredUser -&gt; Maybe Natural
+</span><a href="#local-6989586621679582950"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582952"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/embed-url/registered-user&quot;</span></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUser</span></a></span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679582946"><span class="annot"><span class="annottext">toQuery :: GenerateEmbedUrlForRegisteredUser -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GenerateEmbedUrlForRegisteredUser -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | /See:/ 'newGenerateEmbedUrlForRegisteredUserResponse' smart constructor.</span><span>
+</span><span id="line-232"></span><span id="local-6989586621679582943"><span id="local-6989586621679582944"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateEmbedUrlForRegisteredUserResponse"><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse"><span class="hs-identifier hs-var">GenerateEmbedUrlForRegisteredUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateEmbedUrlForRegisteredUserResponse%27"><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-var">GenerateEmbedUrlForRegisteredUserResponse'</span></a></span></span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-234"></span><span>    </span><span id="%24sel%3Astatus%3AGenerateEmbedUrlForRegisteredUserResponse%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUserResponse -&gt; Int
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3Astatus%3AGenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- | The embed URL for the Amazon QuickSight dashboard, console, or Q search</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- bar.</span><span>
+</span><span id="line-237"></span><span>    </span><span id="%24sel%3AembedUrl%3AGenerateEmbedUrlForRegisteredUserResponse%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUserResponse -&gt; Sensitive Text
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AembedUrl%3AGenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-var hs-var">embedUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-239"></span><span>    </span><span id="%24sel%3ArequestId%3AGenerateEmbedUrlForRegisteredUserResponse%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUserResponse -&gt; Text
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3ArequestId%3AGenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-240"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-241"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679582936"><span id="local-6989586621679582938"><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUserResponse
+-&gt; GenerateEmbedUrlForRegisteredUserResponse -&gt; Bool
+(GenerateEmbedUrlForRegisteredUserResponse
+ -&gt; GenerateEmbedUrlForRegisteredUserResponse -&gt; Bool)
+-&gt; (GenerateEmbedUrlForRegisteredUserResponse
+    -&gt; GenerateEmbedUrlForRegisteredUserResponse -&gt; Bool)
+-&gt; Eq GenerateEmbedUrlForRegisteredUserResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GenerateEmbedUrlForRegisteredUserResponse
+-&gt; GenerateEmbedUrlForRegisteredUserResponse -&gt; Bool
+$c/= :: GenerateEmbedUrlForRegisteredUserResponse
+-&gt; GenerateEmbedUrlForRegisteredUserResponse -&gt; Bool
+== :: GenerateEmbedUrlForRegisteredUserResponse
+-&gt; GenerateEmbedUrlForRegisteredUserResponse -&gt; Bool
+$c== :: GenerateEmbedUrlForRegisteredUserResponse
+-&gt; GenerateEmbedUrlForRegisteredUserResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582930"><span id="local-6989586621679582932"><span id="local-6989586621679582934"><span class="annot"><span class="annottext">Int -&gt; GenerateEmbedUrlForRegisteredUserResponse -&gt; ShowS
+[GenerateEmbedUrlForRegisteredUserResponse] -&gt; ShowS
+GenerateEmbedUrlForRegisteredUserResponse -&gt; String
+(Int -&gt; GenerateEmbedUrlForRegisteredUserResponse -&gt; ShowS)
+-&gt; (GenerateEmbedUrlForRegisteredUserResponse -&gt; String)
+-&gt; ([GenerateEmbedUrlForRegisteredUserResponse] -&gt; ShowS)
+-&gt; Show GenerateEmbedUrlForRegisteredUserResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GenerateEmbedUrlForRegisteredUserResponse] -&gt; ShowS
+$cshowList :: [GenerateEmbedUrlForRegisteredUserResponse] -&gt; ShowS
+show :: GenerateEmbedUrlForRegisteredUserResponse -&gt; String
+$cshow :: GenerateEmbedUrlForRegisteredUserResponse -&gt; String
+showsPrec :: Int -&gt; GenerateEmbedUrlForRegisteredUserResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GenerateEmbedUrlForRegisteredUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GenerateEmbedUrlForRegisteredUserResponse
+ -&gt; Rep GenerateEmbedUrlForRegisteredUserResponse x)
+-&gt; (forall x.
+    Rep GenerateEmbedUrlForRegisteredUserResponse x
+    -&gt; GenerateEmbedUrlForRegisteredUserResponse)
+-&gt; Generic GenerateEmbedUrlForRegisteredUserResponse
+forall x.
+Rep GenerateEmbedUrlForRegisteredUserResponse x
+-&gt; GenerateEmbedUrlForRegisteredUserResponse
+forall x.
+GenerateEmbedUrlForRegisteredUserResponse
+-&gt; Rep GenerateEmbedUrlForRegisteredUserResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GenerateEmbedUrlForRegisteredUserResponse x
+-&gt; GenerateEmbedUrlForRegisteredUserResponse
+$cfrom :: forall x.
+GenerateEmbedUrlForRegisteredUserResponse
+-&gt; Rep GenerateEmbedUrlForRegisteredUserResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- Create a value of 'GenerateEmbedUrlForRegisteredUserResponse' with all optional fields omitted.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 'status', 'generateEmbedUrlForRegisteredUserResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- 'embedUrl', 'generateEmbedUrlForRegisteredUserResponse_embedUrl' - The embed URL for the Amazon QuickSight dashboard, console, or Q search</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- bar.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- 'requestId', 'generateEmbedUrlForRegisteredUserResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#newGenerateEmbedUrlForRegisteredUserResponse"><span class="hs-identifier hs-type">newGenerateEmbedUrlForRegisteredUserResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-258"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-259"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-comment">-- | 'embedUrl'</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-262"></span><span>  </span><span class="hs-comment">-- | 'requestId'</span><span>
+</span><span id="line-263"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-264"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse</span></a></span><span>
+</span><span id="line-265"></span><span id="newGenerateEmbedUrlForRegisteredUserResponse"><span class="annot"><span class="annottext">newGenerateEmbedUrlForRegisteredUserResponse :: Int -&gt; Text -&gt; Text -&gt; GenerateEmbedUrlForRegisteredUserResponse
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#newGenerateEmbedUrlForRegisteredUserResponse"><span class="hs-identifier hs-var hs-var">newGenerateEmbedUrlForRegisteredUserResponse</span></a></span></span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679582927"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582927"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679582926"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582926"><span class="hs-identifier hs-var">pEmbedUrl_</span></a></span></span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679582925"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582925"><span class="hs-identifier hs-var">pRequestId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUserResponse' :: Int
+-&gt; Sensitive Text
+-&gt; Text
+-&gt; GenerateEmbedUrlForRegisteredUserResponse
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse'</span></a></span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:GenerateEmbedUrlForRegisteredUserResponse' :: Int
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3Astatus%3AGenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-271"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582927"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">$sel:embedUrl:GenerateEmbedUrlForRegisteredUserResponse' :: Sensitive Text
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AembedUrl%3AGenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-var">embedUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-273"></span><span>          </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582926"><span class="hs-identifier hs-var">pEmbedUrl_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">$sel:requestId:GenerateEmbedUrlForRegisteredUserResponse' :: Text
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3ArequestId%3AGenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582925"><span class="hs-identifier hs-var">pRequestId_</span></a></span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUserResponse_status"><span class="hs-identifier hs-type">generateEmbedUrlForRegisteredUserResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-280"></span><span id="generateEmbedUrlForRegisteredUserResponse_status"><span class="annot"><span class="annottext">generateEmbedUrlForRegisteredUserResponse_status :: (Int -&gt; f Int)
+-&gt; GenerateEmbedUrlForRegisteredUserResponse
+-&gt; f GenerateEmbedUrlForRegisteredUserResponse
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUserResponse_status"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForRegisteredUserResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForRegisteredUserResponse -&gt; Int)
+-&gt; (GenerateEmbedUrlForRegisteredUserResponse
+    -&gt; Int -&gt; GenerateEmbedUrlForRegisteredUserResponse)
+-&gt; Lens
+     GenerateEmbedUrlForRegisteredUserResponse
+     GenerateEmbedUrlForRegisteredUserResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582922"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:GenerateEmbedUrlForRegisteredUserResponse' :: GenerateEmbedUrlForRegisteredUserResponse -&gt; Int
+</span><a href="#local-6989586621679582922"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582922"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582921"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForRegisteredUserResponse
+</span><a href="#local-6989586621679582921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582920"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUserResponse
+</span><a href="#local-6989586621679582921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GenerateEmbedUrlForRegisteredUserResponse' :: Int
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3Astatus%3AGenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The embed URL for the Amazon QuickSight dashboard, console, or Q search</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- bar.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUserResponse_embedUrl"><span class="hs-identifier hs-type">generateEmbedUrlForRegisteredUserResponse_embedUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-285"></span><span id="generateEmbedUrlForRegisteredUserResponse_embedUrl"><span class="annot"><span class="annottext">generateEmbedUrlForRegisteredUserResponse_embedUrl :: (Text -&gt; f Text)
+-&gt; GenerateEmbedUrlForRegisteredUserResponse
+-&gt; f GenerateEmbedUrlForRegisteredUserResponse
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUserResponse_embedUrl"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForRegisteredUserResponse_embedUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForRegisteredUserResponse -&gt; Sensitive Text)
+-&gt; (GenerateEmbedUrlForRegisteredUserResponse
+    -&gt; Sensitive Text -&gt; GenerateEmbedUrlForRegisteredUserResponse)
+-&gt; Lens
+     GenerateEmbedUrlForRegisteredUserResponse
+     GenerateEmbedUrlForRegisteredUserResponse
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582919"><span class="annot"><span class="annottext">Sensitive Text
+embedUrl :: Sensitive Text
+$sel:embedUrl:GenerateEmbedUrlForRegisteredUserResponse' :: GenerateEmbedUrlForRegisteredUserResponse -&gt; Sensitive Text
+</span><a href="#local-6989586621679582919"><span class="hs-identifier hs-var hs-var">embedUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679582919"><span class="hs-identifier hs-var">embedUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582918"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForRegisteredUserResponse
+</span><a href="#local-6989586621679582918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582917"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679582917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUserResponse
+</span><a href="#local-6989586621679582918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:embedUrl:GenerateEmbedUrlForRegisteredUserResponse' :: Sensitive Text
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3AembedUrl%3AGenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-var">embedUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679582917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; GenerateEmbedUrlForRegisteredUserResponse
+ -&gt; f GenerateEmbedUrlForRegisteredUserResponse)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; GenerateEmbedUrlForRegisteredUserResponse
+-&gt; f GenerateEmbedUrlForRegisteredUserResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUserResponse_requestId"><span class="hs-identifier hs-type">generateEmbedUrlForRegisteredUserResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-289"></span><span id="generateEmbedUrlForRegisteredUserResponse_requestId"><span class="annot"><span class="annottext">generateEmbedUrlForRegisteredUserResponse_requestId :: (Text -&gt; f Text)
+-&gt; GenerateEmbedUrlForRegisteredUserResponse
+-&gt; f GenerateEmbedUrlForRegisteredUserResponse
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#generateEmbedUrlForRegisteredUserResponse_requestId"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForRegisteredUserResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForRegisteredUserResponse -&gt; Text)
+-&gt; (GenerateEmbedUrlForRegisteredUserResponse
+    -&gt; Text -&gt; GenerateEmbedUrlForRegisteredUserResponse)
+-&gt; Lens
+     GenerateEmbedUrlForRegisteredUserResponse
+     GenerateEmbedUrlForRegisteredUserResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582915"><span class="annot"><span class="annottext">Text
+requestId :: Text
+$sel:requestId:GenerateEmbedUrlForRegisteredUserResponse' :: GenerateEmbedUrlForRegisteredUserResponse -&gt; Text
+</span><a href="#local-6989586621679582915"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582915"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582914"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForRegisteredUserResponse
+</span><a href="#local-6989586621679582914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582913"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForRegisteredUserResponse
+</span><a href="#local-6989586621679582914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:GenerateEmbedUrlForRegisteredUserResponse' :: Text
+</span><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#%24sel%3ArequestId%3AGenerateEmbedUrlForRegisteredUserResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621679582911"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser.html#GenerateEmbedUrlForRegisteredUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForRegisteredUserResponse</span></a></span></span><span>
+</span><span id="line-294"></span></pre></body></html>

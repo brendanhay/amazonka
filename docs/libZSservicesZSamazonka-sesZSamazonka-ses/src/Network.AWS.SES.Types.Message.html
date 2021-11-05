@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Represents the message to be sent, composed of a subject and a body.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMessage' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679273242"><span id="local-6989586621679273243"></span></span><span class="hs-keyword">data</span><span> </span><span id="Message"><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-var">Message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Message%27"><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message%27"><span class="hs-identifier hs-var">Message'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679273251"><span id="local-6989586621679273252"></span></span><span class="hs-keyword">data</span><span> </span><span id="Message"><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-var">Message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Message%27"><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message%27"><span class="hs-identifier hs-var">Message'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The subject of the message: A short summary of the content, which will</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- appear in the recipient\'s inbox.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Asubject%3AMessage%27"><span class="annot"><span class="annottext">Message -&gt; Content
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Abody%3AMessage%27"><span class="annot"><span class="annottext">Message -&gt; Body
 </span><a href="Network.AWS.SES.Types.Message.html#%24sel%3Abody%3AMessage%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273235"><span id="local-6989586621679273237"><span class="annot"><span class="annottext">Message -&gt; Message -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273244"><span id="local-6989586621679273246"><span class="annot"><span class="annottext">Message -&gt; Message -&gt; Bool
 (Message -&gt; Message -&gt; Bool)
 -&gt; (Message -&gt; Message -&gt; Bool) -&gt; Eq Message
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Message -&gt; Message -&gt; Bool
 == :: Message -&gt; Message -&gt; Bool
 $c== :: Message -&gt; Message -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273226"><span id="local-6989586621679273228"><span id="local-6989586621679273230"><span id="local-6989586621679273232"><span class="annot"><span class="annottext">ReadPrec [Message]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273235"><span id="local-6989586621679273237"><span id="local-6989586621679273239"><span id="local-6989586621679273241"><span class="annot"><span class="annottext">ReadPrec [Message]
 ReadPrec Message
 Int -&gt; ReadS Message
 ReadS [Message]
@@ -65,7 +65,7 @@ readList :: ReadS [Message]
 $creadList :: ReadS [Message]
 readsPrec :: Int -&gt; ReadS Message
 $creadsPrec :: Int -&gt; ReadS Message
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273219"><span id="local-6989586621679273221"><span id="local-6989586621679273223"><span class="annot"><span class="annottext">Int -&gt; Message -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273228"><span id="local-6989586621679273230"><span id="local-6989586621679273232"><span class="annot"><span class="annottext">Int -&gt; Message -&gt; ShowS
 [Message] -&gt; ShowS
 Message -&gt; String
 (Int -&gt; Message -&gt; ShowS)
@@ -107,15 +107,15 @@ $cfrom :: forall x. Message -&gt; Rep Message x
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span>
 </span><span id="line-58"></span><span id="newMessage"><span class="annot"><span class="annottext">newMessage :: Content -&gt; Body -&gt; Message
-</span><a href="Network.AWS.SES.Types.Message.html#newMessage"><span class="hs-identifier hs-var hs-var">newMessage</span></a></span></span><span> </span><span id="local-6989586621679273213"><span class="annot"><span class="annottext">Content
-</span><a href="#local-6989586621679273213"><span class="hs-identifier hs-var">pSubject_</span></a></span></span><span> </span><span id="local-6989586621679273212"><span class="annot"><span class="annottext">Body
-</span><a href="#local-6989586621679273212"><span class="hs-identifier hs-var">pBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.Types.Message.html#newMessage"><span class="hs-identifier hs-var hs-var">newMessage</span></a></span></span><span> </span><span id="local-6989586621679273222"><span class="annot"><span class="annottext">Content
+</span><a href="#local-6989586621679273222"><span class="hs-identifier hs-var">pSubject_</span></a></span></span><span> </span><span id="local-6989586621679273221"><span class="annot"><span class="annottext">Body
+</span><a href="#local-6989586621679273221"><span class="hs-identifier hs-var">pBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">Message' :: Content -&gt; Body -&gt; Message
 </span><a href="Network.AWS.SES.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:Message' :: Content
 </span><a href="Network.AWS.SES.Types.Message.html#%24sel%3Asubject%3AMessage%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Content
-</span><a href="#local-6989586621679273213"><span class="hs-identifier hs-var">pSubject_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:body:Message' :: Body
+</span><a href="#local-6989586621679273222"><span class="hs-identifier hs-var">pSubject_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:body:Message' :: Body
 </span><a href="Network.AWS.SES.Types.Message.html#%24sel%3Abody%3AMessage%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Body
-</span><a href="#local-6989586621679273212"><span class="hs-identifier hs-var">pBody_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679273221"><span class="hs-identifier hs-var">pBody_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The subject of the message: A short summary of the content, which will</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- appear in the recipient\'s inbox.</span><span>
@@ -125,16 +125,16 @@ $cfrom :: forall x. Message -&gt; Rep Message x
 -&gt; (Message -&gt; Content -&gt; Message)
 -&gt; Lens Message Message Content Content
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273208"><span class="annot"><span class="annottext">Content
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273217"><span class="annot"><span class="annottext">Content
 subject :: Content
 $sel:subject:Message' :: Message -&gt; Content
-</span><a href="#local-6989586621679273208"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Content
-</span><a href="#local-6989586621679273208"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273207"><span class="annot"><span class="annottext">s :: Message
-</span><a href="#local-6989586621679273207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273206"><span class="annot"><span class="annottext">Content
-</span><a href="#local-6989586621679273206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679273207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:Message' :: Content
+</span><a href="#local-6989586621679273217"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Content
+</span><a href="#local-6989586621679273217"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273216"><span class="annot"><span class="annottext">s :: Message
+</span><a href="#local-6989586621679273216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273215"><span class="annot"><span class="annottext">Content
+</span><a href="#local-6989586621679273215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679273216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:Message' :: Content
 </span><a href="Network.AWS.SES.Types.Message.html#%24sel%3Asubject%3AMessage%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Content
-</span><a href="#local-6989586621679273206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The message body.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#message_body"><span class="hs-identifier hs-type">message_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span>
@@ -142,30 +142,30 @@ $sel:subject:Message' :: Message -&gt; Content
 </span><a href="Network.AWS.SES.Types.Message.html#message_body"><span class="hs-identifier hs-var hs-var">message_body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Message -&gt; Body)
 -&gt; (Message -&gt; Body -&gt; Message) -&gt; Lens Message Message Body Body
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273204"><span class="annot"><span class="annottext">Body
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273213"><span class="annot"><span class="annottext">Body
 body :: Body
 $sel:body:Message' :: Message -&gt; Body
-</span><a href="#local-6989586621679273204"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Body
-</span><a href="#local-6989586621679273204"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273203"><span class="annot"><span class="annottext">s :: Message
-</span><a href="#local-6989586621679273203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273202"><span class="annot"><span class="annottext">Body
-</span><a href="#local-6989586621679273202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679273203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:Message' :: Body
+</span><a href="#local-6989586621679273213"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Body
+</span><a href="#local-6989586621679273213"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273212"><span class="annot"><span class="annottext">s :: Message
+</span><a href="#local-6989586621679273212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273211"><span class="annot"><span class="annottext">Body
+</span><a href="#local-6989586621679273211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679273212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:Message' :: Body
 </span><a href="Network.AWS.SES.Types.Message.html#%24sel%3Abody%3AMessage%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Body
-</span><a href="#local-6989586621679273202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273198"><span id="local-6989586621679273200"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273207"><span id="local-6989586621679273209"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273195"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273204"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679273191"><span class="annot"><span class="annottext">toQuery :: Message -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273188"><span id="local-6989586621679273189"><span class="annot"><span class="annottext">Content
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679273200"><span class="annot"><span class="annottext">toQuery :: Message -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273197"><span id="local-6989586621679273198"><span class="annot"><span class="annottext">Content
 Body
 body :: Body
 subject :: Content
 $sel:body:Message' :: Message -&gt; Body
 $sel:subject:Message' :: Message -&gt; Content
-</span><a href="#local-6989586621679273188"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679273197"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -173,9 +173,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Subject&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Content -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Content
-</span><a href="#local-6989586621679273189"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679273198"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Body&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Body -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Body
-</span><a href="#local-6989586621679273188"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679273197"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span></pre></body></html>

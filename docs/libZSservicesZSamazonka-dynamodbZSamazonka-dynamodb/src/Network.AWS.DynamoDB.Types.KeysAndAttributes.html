@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- partition key and the sort key.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newKeysAndAttributes' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679374139"><span id="local-6989586621679374140"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeysAndAttributes"><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-var">KeysAndAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeysAndAttributes%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-var">KeysAndAttributes'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679374148"><span id="local-6989586621679374149"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeysAndAttributes"><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-var">KeysAndAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeysAndAttributes%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-var">KeysAndAttributes'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string that identifies one or more attributes to retrieve from the</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- table. These attributes can include scalars, sets, or elements of a JSON</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- document. The attributes in the @ProjectionExpression@ must be separated</span><span>
@@ -103,7 +103,7 @@
 </span><span id="line-99"></span><span>    </span><span id="%24sel%3Akeys%3AKeysAndAttributes%27"><span class="annot"><span class="annottext">KeysAndAttributes -&gt; NonEmpty (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#%24sel%3Akeys%3AKeysAndAttributes%27"><span class="hs-identifier hs-var hs-var">keys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374129"><span id="local-6989586621679374131"><span class="annot"><span class="annottext">KeysAndAttributes -&gt; KeysAndAttributes -&gt; Bool
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374138"><span id="local-6989586621679374140"><span class="annot"><span class="annottext">KeysAndAttributes -&gt; KeysAndAttributes -&gt; Bool
 (KeysAndAttributes -&gt; KeysAndAttributes -&gt; Bool)
 -&gt; (KeysAndAttributes -&gt; KeysAndAttributes -&gt; Bool)
 -&gt; Eq KeysAndAttributes
@@ -112,7 +112,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KeysAndAttributes -&gt; KeysAndAttributes -&gt; Bool
 == :: KeysAndAttributes -&gt; KeysAndAttributes -&gt; Bool
 $c== :: KeysAndAttributes -&gt; KeysAndAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374120"><span id="local-6989586621679374122"><span id="local-6989586621679374124"><span id="local-6989586621679374126"><span class="annot"><span class="annottext">ReadPrec [KeysAndAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374129"><span id="local-6989586621679374131"><span id="local-6989586621679374133"><span id="local-6989586621679374135"><span class="annot"><span class="annottext">ReadPrec [KeysAndAttributes]
 ReadPrec KeysAndAttributes
 Int -&gt; ReadS KeysAndAttributes
 ReadS [KeysAndAttributes]
@@ -132,7 +132,7 @@ readList :: ReadS [KeysAndAttributes]
 $creadList :: ReadS [KeysAndAttributes]
 readsPrec :: Int -&gt; ReadS KeysAndAttributes
 $creadsPrec :: Int -&gt; ReadS KeysAndAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374113"><span id="local-6989586621679374115"><span id="local-6989586621679374117"><span class="annot"><span class="annottext">Int -&gt; KeysAndAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374122"><span id="local-6989586621679374124"><span id="local-6989586621679374126"><span class="annot"><span class="annottext">Int -&gt; KeysAndAttributes -&gt; ShowS
 [KeysAndAttributes] -&gt; ShowS
 KeysAndAttributes -&gt; String
 (Int -&gt; KeysAndAttributes -&gt; ShowS)
@@ -233,8 +233,8 @@ $cfrom :: forall x. KeysAndAttributes -&gt; Rep KeysAndAttributes x
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span>
 </span><span id="line-177"></span><span id="newKeysAndAttributes"><span class="annot"><span class="annottext">newKeysAndAttributes :: NonEmpty (HashMap Text AttributeValue) -&gt; KeysAndAttributes
-</span><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#newKeysAndAttributes"><span class="hs-identifier hs-var hs-var">newKeysAndAttributes</span></a></span></span><span> </span><span id="local-6989586621679374107"><span class="annot"><span class="annottext">NonEmpty (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679374107"><span class="hs-identifier hs-var">pKeys_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#newKeysAndAttributes"><span class="hs-identifier hs-var hs-var">newKeysAndAttributes</span></a></span></span><span> </span><span id="local-6989586621679374116"><span class="annot"><span class="annottext">NonEmpty (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679374116"><span class="hs-identifier hs-var">pKeys_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">KeysAndAttributes' :: Maybe Text
 -&gt; Maybe (NonEmpty Text)
 -&gt; Maybe (HashMap Text Text)
@@ -277,7 +277,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty (HashMap Text AttributeValue)
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679374107"><span class="hs-identifier hs-var">pKeys_</span></a></span><span>
+</span><a href="#local-6989586621679374116"><span class="hs-identifier hs-var">pKeys_</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | A string that identifies one or more attributes to retrieve from the</span><span>
@@ -300,16 +300,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      KeysAndAttributes KeysAndAttributes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374101"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374110"><span class="annot"><span class="annottext">Maybe Text
 projectionExpression :: Maybe Text
 $sel:projectionExpression:KeysAndAttributes' :: KeysAndAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679374101"><span class="hs-identifier hs-var hs-var">projectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374101"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374100"><span class="annot"><span class="annottext">s :: KeysAndAttributes
-</span><a href="#local-6989586621679374100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374099"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeysAndAttributes
-</span><a href="#local-6989586621679374100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectionExpression:KeysAndAttributes' :: Maybe Text
+</span><a href="#local-6989586621679374110"><span class="hs-identifier hs-var hs-var">projectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374110"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374109"><span class="annot"><span class="annottext">s :: KeysAndAttributes
+</span><a href="#local-6989586621679374109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374108"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeysAndAttributes
+</span><a href="#local-6989586621679374109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectionExpression:KeysAndAttributes' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#%24sel%3AprojectionExpression%3AKeysAndAttributes%27"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more</span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- information, see</span><span>
@@ -327,16 +327,16 @@ $sel:projectionExpression:KeysAndAttributes' :: KeysAndAttributes -&gt; Maybe Te
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374097"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374106"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 attributesToGet :: Maybe (NonEmpty Text)
 $sel:attributesToGet:KeysAndAttributes' :: KeysAndAttributes -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679374097"><span class="hs-identifier hs-var hs-var">attributesToGet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679374097"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374096"><span class="annot"><span class="annottext">s :: KeysAndAttributes
-</span><a href="#local-6989586621679374096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374095"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679374095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeysAndAttributes
-</span><a href="#local-6989586621679374096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributesToGet:KeysAndAttributes' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679374106"><span class="hs-identifier hs-var hs-var">attributesToGet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679374106"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374105"><span class="annot"><span class="annottext">s :: KeysAndAttributes
+</span><a href="#local-6989586621679374105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374104"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679374104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeysAndAttributes
+</span><a href="#local-6989586621679374105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributesToGet:KeysAndAttributes' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#%24sel%3AattributesToGet%3AKeysAndAttributes%27"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679374095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679374104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; KeysAndAttributes -&gt; f KeysAndAttributes)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -408,16 +408,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374091"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374100"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 expressionAttributeNames :: Maybe (HashMap Text Text)
 $sel:expressionAttributeNames:KeysAndAttributes' :: KeysAndAttributes -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679374091"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679374091"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374090"><span class="annot"><span class="annottext">s :: KeysAndAttributes
-</span><a href="#local-6989586621679374090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374089"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679374089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeysAndAttributes
-</span><a href="#local-6989586621679374090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:KeysAndAttributes' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679374100"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679374100"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374099"><span class="annot"><span class="annottext">s :: KeysAndAttributes
+</span><a href="#local-6989586621679374099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374098"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679374098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeysAndAttributes
+</span><a href="#local-6989586621679374099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:KeysAndAttributes' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#%24sel%3AexpressionAttributeNames%3AKeysAndAttributes%27"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679374089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679374098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; KeysAndAttributes -&gt; f KeysAndAttributes)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -457,16 +457,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      KeysAndAttributes KeysAndAttributes (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374087"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374096"><span class="annot"><span class="annottext">Maybe Bool
 consistentRead :: Maybe Bool
 $sel:consistentRead:KeysAndAttributes' :: KeysAndAttributes -&gt; Maybe Bool
-</span><a href="#local-6989586621679374087"><span class="hs-identifier hs-var hs-var">consistentRead</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374087"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374086"><span class="annot"><span class="annottext">s :: KeysAndAttributes
-</span><a href="#local-6989586621679374086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374085"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeysAndAttributes
-</span><a href="#local-6989586621679374086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consistentRead:KeysAndAttributes' :: Maybe Bool
+</span><a href="#local-6989586621679374096"><span class="hs-identifier hs-var hs-var">consistentRead</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374096"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374095"><span class="annot"><span class="annottext">s :: KeysAndAttributes
+</span><a href="#local-6989586621679374095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374094"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeysAndAttributes
+</span><a href="#local-6989586621679374095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consistentRead:KeysAndAttributes' :: Maybe Bool
 </span><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#%24sel%3AconsistentRead%3AKeysAndAttributes%27"><span class="hs-identifier hs-var">consistentRead</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- | The primary key attribute values that define the items and the</span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- attributes associated with the items.</span><span>
@@ -483,16 +483,16 @@ $sel:consistentRead:KeysAndAttributes' :: KeysAndAttributes -&gt; Maybe Bool
      (NonEmpty (HashMap Text AttributeValue))
      (NonEmpty (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374083"><span class="annot"><span class="annottext">NonEmpty (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374092"><span class="annot"><span class="annottext">NonEmpty (HashMap Text AttributeValue)
 keys :: NonEmpty (HashMap Text AttributeValue)
 $sel:keys:KeysAndAttributes' :: KeysAndAttributes -&gt; NonEmpty (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679374083"><span class="hs-identifier hs-var hs-var">keys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679374083"><span class="hs-identifier hs-var">keys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374082"><span class="annot"><span class="annottext">s :: KeysAndAttributes
-</span><a href="#local-6989586621679374082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374081"><span class="annot"><span class="annottext">NonEmpty (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679374081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeysAndAttributes
-</span><a href="#local-6989586621679374082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keys:KeysAndAttributes' :: NonEmpty (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679374092"><span class="hs-identifier hs-var hs-var">keys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679374092"><span class="hs-identifier hs-var">keys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374091"><span class="annot"><span class="annottext">s :: KeysAndAttributes
+</span><a href="#local-6989586621679374091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374090"><span class="annot"><span class="annottext">NonEmpty (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679374090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeysAndAttributes
+</span><a href="#local-6989586621679374091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keys:KeysAndAttributes' :: NonEmpty (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#%24sel%3Akeys%3AKeysAndAttributes%27"><span class="hs-identifier hs-var">keys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679374081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679374090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty (HashMap Text AttributeValue)
   -&gt; f (NonEmpty (HashMap Text AttributeValue)))
  -&gt; KeysAndAttributes -&gt; f KeysAndAttributes)
 -&gt; ((NonEmpty (HashMap Text AttributeValue)
@@ -511,8 +511,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-259"></span><span>
-</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374078"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-261"></span><span>  </span><span id="local-6989586621679374076"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeysAndAttributes
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374087"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679374085"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeysAndAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-262"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KeysAndAttributes)
@@ -522,8 +522,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-263"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KeysAndAttributes&quot;</span></span><span>
-</span><span id="line-264"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374073"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374073"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374082"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374082"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-265"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe (NonEmpty Text)
 -&gt; Maybe (HashMap Text Text)
@@ -546,7 +546,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; KeysAndAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679374082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProjectionExpression&quot;</span></span><span class="hs-special">)</span><span>
@@ -564,7 +564,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KeysAndAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679374082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttributesToGet&quot;</span></span><span class="hs-special">)</span><span>
@@ -579,7 +579,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; NonEmpty (HashMap Text AttributeValue) -&gt; KeysAndAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679374082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExpressionAttributeNames&quot;</span></span><span>
@@ -598,7 +598,7 @@ forall a. Monoid a =&gt; a
      (NonEmpty (HashMap Text AttributeValue) -&gt; KeysAndAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679374082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsistentRead&quot;</span></span><span class="hs-special">)</span><span>
@@ -608,19 +608,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser KeysAndAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty (HashMap Text AttributeValue))
+</span><a href="#local-6989586621679374082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty (HashMap Text AttributeValue))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Keys&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span><span>
-</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374065"><span id="local-6989586621679374067"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span></span></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374074"><span id="local-6989586621679374076"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span></span></span><span>
 </span><span id="line-276"></span><span>
-</span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374062"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span></span><span>
 </span><span id="line-278"></span><span>
-</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374054"><span id="local-6989586621679374056"><span id="local-6989586621679374058"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-280"></span><span>  </span><span id="local-6989586621679374052"><span class="annot"><span class="annottext">toJSON :: KeysAndAttributes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374046"><span id="local-6989586621679374047"><span id="local-6989586621679374048"><span id="local-6989586621679374049"><span id="local-6989586621679374050"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374063"><span id="local-6989586621679374065"><span id="local-6989586621679374067"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes"><span class="hs-identifier hs-type">KeysAndAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679374061"><span class="annot"><span class="annottext">toJSON :: KeysAndAttributes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeysAndAttributes.html#KeysAndAttributes%27"><span class="hs-identifier hs-type">KeysAndAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374055"><span id="local-6989586621679374056"><span id="local-6989586621679374057"><span id="local-6989586621679374058"><span id="local-6989586621679374059"><span class="annot"><span class="annottext">Maybe Bool
 Maybe (NonEmpty Text)
 Maybe Text
 Maybe (HashMap Text Text)
@@ -635,7 +635,7 @@ $sel:consistentRead:KeysAndAttributes' :: KeysAndAttributes -&gt; Maybe Bool
 $sel:expressionAttributeNames:KeysAndAttributes' :: KeysAndAttributes -&gt; Maybe (HashMap Text Text)
 $sel:attributesToGet:KeysAndAttributes' :: KeysAndAttributes -&gt; Maybe (NonEmpty Text)
 $sel:projectionExpression:KeysAndAttributes' :: KeysAndAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679374046"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679374055"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-281"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-282"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -648,7 +648,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-284"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374050"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374059"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-285"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttributesToGet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -656,7 +656,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-286"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679374049"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374058"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-287"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExpressionAttributeNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -665,7 +665,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679374048"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374057"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-289"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsistentRead&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -673,14 +673,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-290"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374047"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374056"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Keys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty (HashMap Text AttributeValue) -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679374046"><span class="hs-identifier hs-var">keys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374055"><span class="hs-identifier hs-var">keys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-293"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-294"></span></pre></body></html>

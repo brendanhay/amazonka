@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- CloudFormation returns only the @AllowedValues@ property.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newParameterConstraints' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679418030"><span id="local-6989586621679418031"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParameterConstraints"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-var">ParameterConstraints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParameterConstraints%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints%27"><span class="hs-identifier hs-var">ParameterConstraints'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679418039"><span id="local-6989586621679418040"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParameterConstraints"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-var">ParameterConstraints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParameterConstraints%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints%27"><span class="hs-identifier hs-var">ParameterConstraints'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of values that are permitted for a parameter.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AallowedValues%3AParameterConstraints%27"><span class="annot"><span class="annottext">ParameterConstraints -&gt; Maybe [Text]
 </span><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#%24sel%3AallowedValues%3AParameterConstraints%27"><span class="hs-identifier hs-var hs-var">allowedValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418024"><span id="local-6989586621679418026"><span class="annot"><span class="annottext">ParameterConstraints -&gt; ParameterConstraints -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418033"><span id="local-6989586621679418035"><span class="annot"><span class="annottext">ParameterConstraints -&gt; ParameterConstraints -&gt; Bool
 (ParameterConstraints -&gt; ParameterConstraints -&gt; Bool)
 -&gt; (ParameterConstraints -&gt; ParameterConstraints -&gt; Bool)
 -&gt; Eq ParameterConstraints
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ParameterConstraints -&gt; ParameterConstraints -&gt; Bool
 == :: ParameterConstraints -&gt; ParameterConstraints -&gt; Bool
 $c== :: ParameterConstraints -&gt; ParameterConstraints -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418015"><span id="local-6989586621679418017"><span id="local-6989586621679418019"><span id="local-6989586621679418021"><span class="annot"><span class="annottext">ReadPrec [ParameterConstraints]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418024"><span id="local-6989586621679418026"><span id="local-6989586621679418028"><span id="local-6989586621679418030"><span class="annot"><span class="annottext">ReadPrec [ParameterConstraints]
 ReadPrec ParameterConstraints
 Int -&gt; ReadS ParameterConstraints
 ReadS [ParameterConstraints]
@@ -62,7 +62,7 @@ readList :: ReadS [ParameterConstraints]
 $creadList :: ReadS [ParameterConstraints]
 readsPrec :: Int -&gt; ReadS ParameterConstraints
 $creadsPrec :: Int -&gt; ReadS ParameterConstraints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418008"><span id="local-6989586621679418010"><span id="local-6989586621679418012"><span class="annot"><span class="annottext">Int -&gt; ParameterConstraints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418017"><span id="local-6989586621679418019"><span id="local-6989586621679418021"><span class="annot"><span class="annottext">Int -&gt; ParameterConstraints -&gt; ShowS
 [ParameterConstraints] -&gt; ShowS
 ParameterConstraints -&gt; String
 (Int -&gt; ParameterConstraints -&gt; ShowS)
@@ -122,16 +122,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints%27"><span class="hs-identifier hs-type">ParameterConstraints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417999"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints%27"><span class="hs-identifier hs-type">ParameterConstraints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418008"><span class="annot"><span class="annottext">Maybe [Text]
 allowedValues :: Maybe [Text]
 $sel:allowedValues:ParameterConstraints' :: ParameterConstraints -&gt; Maybe [Text]
-</span><a href="#local-6989586621679417999"><span class="hs-identifier hs-var hs-var">allowedValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679417999"><span class="hs-identifier hs-var">allowedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417998"><span class="annot"><span class="annottext">s :: ParameterConstraints
-</span><a href="#local-6989586621679417998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints%27"><span class="hs-identifier hs-type">ParameterConstraints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417997"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679417997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterConstraints
-</span><a href="#local-6989586621679417998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedValues:ParameterConstraints' :: Maybe [Text]
+</span><a href="#local-6989586621679418008"><span class="hs-identifier hs-var hs-var">allowedValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679418008"><span class="hs-identifier hs-var">allowedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418007"><span class="annot"><span class="annottext">s :: ParameterConstraints
+</span><a href="#local-6989586621679418007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints%27"><span class="hs-identifier hs-type">ParameterConstraints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418006"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterConstraints
+</span><a href="#local-6989586621679418007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedValues:ParameterConstraints' :: Maybe [Text]
 </span><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#%24sel%3AallowedValues%3AParameterConstraints%27"><span class="hs-identifier hs-var">allowedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679417997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-type">ParameterConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-type">ParameterConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ParameterConstraints -&gt; f ParameterConstraints)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -149,9 +149,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-type">ParameterConstraints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679417991"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ParameterConstraints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679417989"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679417989"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679418000"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ParameterConstraints
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679417998"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679417998"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; ParameterConstraints
 </span><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints%27"><span class="hs-identifier hs-var">ParameterConstraints'</span></a></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; ParameterConstraints)
@@ -159,7 +159,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Either String ParameterConstraints
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679417989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679417998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowedValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -182,7 +182,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417980"><span id="local-6989586621679417982"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-type">ParameterConstraints</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417989"><span id="local-6989586621679417991"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-type">ParameterConstraints</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417977"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-type">ParameterConstraints</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417986"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-type">ParameterConstraints</span></a></span></span><span>
 </span><span id="line-68"></span></pre></body></html>

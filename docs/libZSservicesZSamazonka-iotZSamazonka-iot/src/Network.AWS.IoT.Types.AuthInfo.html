@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A collection of authorization information.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAuthInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679777062"><span id="local-6989586621679777063"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthInfo"><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-var">AuthInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthInfo%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo%27"><span class="hs-identifier hs-var">AuthInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679777071"><span id="local-6989586621679777072"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthInfo"><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-var">AuthInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthInfo%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo%27"><span class="hs-identifier hs-var">AuthInfo'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of action for which the principal is being authorized.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AactionType%3AAuthInfo%27"><span class="annot"><span class="annottext">AuthInfo -&gt; Maybe ActionType
 </span><a href="Network.AWS.IoT.Types.AuthInfo.html#%24sel%3AactionType%3AAuthInfo%27"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aresources%3AAuthInfo%27"><span class="annot"><span class="annottext">AuthInfo -&gt; [Text]
 </span><a href="Network.AWS.IoT.Types.AuthInfo.html#%24sel%3Aresources%3AAuthInfo%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679777055"><span id="local-6989586621679777057"><span class="annot"><span class="annottext">AuthInfo -&gt; AuthInfo -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679777064"><span id="local-6989586621679777066"><span class="annot"><span class="annottext">AuthInfo -&gt; AuthInfo -&gt; Bool
 (AuthInfo -&gt; AuthInfo -&gt; Bool)
 -&gt; (AuthInfo -&gt; AuthInfo -&gt; Bool) -&gt; Eq AuthInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AuthInfo -&gt; AuthInfo -&gt; Bool
 == :: AuthInfo -&gt; AuthInfo -&gt; Bool
 $c== :: AuthInfo -&gt; AuthInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777046"><span id="local-6989586621679777048"><span id="local-6989586621679777050"><span id="local-6989586621679777052"><span class="annot"><span class="annottext">ReadPrec [AuthInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777055"><span id="local-6989586621679777057"><span id="local-6989586621679777059"><span id="local-6989586621679777061"><span class="annot"><span class="annottext">ReadPrec [AuthInfo]
 ReadPrec AuthInfo
 Int -&gt; ReadS AuthInfo
 ReadS [AuthInfo]
@@ -64,7 +64,7 @@ readList :: ReadS [AuthInfo]
 $creadList :: ReadS [AuthInfo]
 readsPrec :: Int -&gt; ReadS AuthInfo
 $creadsPrec :: Int -&gt; ReadS AuthInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777039"><span id="local-6989586621679777041"><span id="local-6989586621679777043"><span class="annot"><span class="annottext">Int -&gt; AuthInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777048"><span id="local-6989586621679777050"><span id="local-6989586621679777052"><span class="annot"><span class="annottext">Int -&gt; AuthInfo -&gt; ShowS
 [AuthInfo] -&gt; ShowS
 AuthInfo -&gt; String
 (Int -&gt; AuthInfo -&gt; ShowS)
@@ -123,16 +123,16 @@ forall a. Monoid a =&gt; a
 -&gt; (AuthInfo -&gt; Maybe ActionType -&gt; AuthInfo)
 -&gt; Lens AuthInfo AuthInfo (Maybe ActionType) (Maybe ActionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo%27"><span class="hs-identifier hs-type">AuthInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777030"><span class="annot"><span class="annottext">Maybe ActionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo%27"><span class="hs-identifier hs-type">AuthInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777039"><span class="annot"><span class="annottext">Maybe ActionType
 actionType :: Maybe ActionType
 $sel:actionType:AuthInfo' :: AuthInfo -&gt; Maybe ActionType
-</span><a href="#local-6989586621679777030"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
-</span><a href="#local-6989586621679777030"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777029"><span class="annot"><span class="annottext">s :: AuthInfo
-</span><a href="#local-6989586621679777029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo%27"><span class="hs-identifier hs-type">AuthInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777028"><span class="annot"><span class="annottext">Maybe ActionType
-</span><a href="#local-6989586621679777028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthInfo
-</span><a href="#local-6989586621679777029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionType:AuthInfo' :: Maybe ActionType
+</span><a href="#local-6989586621679777039"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
+</span><a href="#local-6989586621679777039"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777038"><span class="annot"><span class="annottext">s :: AuthInfo
+</span><a href="#local-6989586621679777038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo%27"><span class="hs-identifier hs-type">AuthInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777037"><span class="annot"><span class="annottext">Maybe ActionType
+</span><a href="#local-6989586621679777037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthInfo
+</span><a href="#local-6989586621679777038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionType:AuthInfo' :: Maybe ActionType
 </span><a href="Network.AWS.IoT.Types.AuthInfo.html#%24sel%3AactionType%3AAuthInfo%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
-</span><a href="#local-6989586621679777028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-type">AuthInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679777037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-type">AuthInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The resources for which the principal is being authorized to perform the</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- specified action.</span><span>
@@ -142,16 +142,16 @@ $sel:actionType:AuthInfo' :: AuthInfo -&gt; Maybe ActionType
 -&gt; (AuthInfo -&gt; [Text] -&gt; AuthInfo)
 -&gt; Lens AuthInfo AuthInfo [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo%27"><span class="hs-identifier hs-type">AuthInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777026"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo%27"><span class="hs-identifier hs-type">AuthInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777035"><span class="annot"><span class="annottext">[Text]
 resources :: [Text]
 $sel:resources:AuthInfo' :: AuthInfo -&gt; [Text]
-</span><a href="#local-6989586621679777026"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679777026"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777025"><span class="annot"><span class="annottext">s :: AuthInfo
-</span><a href="#local-6989586621679777025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo%27"><span class="hs-identifier hs-type">AuthInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777024"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679777024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthInfo
-</span><a href="#local-6989586621679777025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:AuthInfo' :: [Text]
+</span><a href="#local-6989586621679777035"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679777035"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777034"><span class="annot"><span class="annottext">s :: AuthInfo
+</span><a href="#local-6989586621679777034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo%27"><span class="hs-identifier hs-type">AuthInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777033"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679777033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthInfo
+</span><a href="#local-6989586621679777034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:AuthInfo' :: [Text]
 </span><a href="Network.AWS.IoT.Types.AuthInfo.html#%24sel%3Aresources%3AAuthInfo%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679777024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-type">AuthInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; AuthInfo -&gt; f AuthInfo)
+</span><a href="#local-6989586621679777033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-type">AuthInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; AuthInfo -&gt; f AuthInfo)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; AuthInfo
@@ -161,30 +161,30 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777019"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-type">AuthInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679777017"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AuthInfo
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777028"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-type">AuthInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679777026"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AuthInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser AuthInfo) -&gt; Value -&gt; Parser AuthInfo
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AuthInfo&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679777014"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679777014"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679777023"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679777023"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe ActionType -&gt; [Text] -&gt; AuthInfo
 </span><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo%27"><span class="hs-identifier hs-var">AuthInfo'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ActionType -&gt; [Text] -&gt; AuthInfo)
 -&gt; Parser (Maybe ActionType) -&gt; Parser ([Text] -&gt; AuthInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679777014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionType)
+</span><a href="#local-6989586621679777023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;actionType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Text] -&gt; AuthInfo) -&gt; Parser [Text] -&gt; Parser AuthInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679777014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621679777023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
@@ -194,19 +194,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777007"><span id="local-6989586621679777009"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-type">AuthInfo</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777016"><span id="local-6989586621679777018"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-type">AuthInfo</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-type">AuthInfo</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777013"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-type">AuthInfo</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679776996"><span id="local-6989586621679776998"><span id="local-6989586621679777000"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-type">AuthInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679776994"><span class="annot"><span class="annottext">toJSON :: AuthInfo -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo%27"><span class="hs-identifier hs-type">AuthInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776991"><span id="local-6989586621679776992"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777005"><span id="local-6989586621679777007"><span id="local-6989586621679777009"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-type">AuthInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679777003"><span class="annot"><span class="annottext">toJSON :: AuthInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo%27"><span class="hs-identifier hs-type">AuthInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777000"><span id="local-6989586621679777001"><span class="annot"><span class="annottext">[Text]
 Maybe ActionType
 resources :: [Text]
 actionType :: Maybe ActionType
 $sel:resources:AuthInfo' :: AuthInfo -&gt; [Text]
 $sel:actionType:AuthInfo' :: AuthInfo -&gt; Maybe ActionType
-</span><a href="#local-6989586621679776991"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679777000"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -218,14 +218,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ActionType -&gt; Pair) -&gt; Maybe ActionType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
-</span><a href="#local-6989586621679776992"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679777001"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679776991"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679777000"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

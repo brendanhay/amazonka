@@ -67,12 +67,12 @@
 </span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newDeleteLag' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679298564"><span id="local-6989586621679298565"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLag"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-var">DeleteLag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLag%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag%27"><span class="hs-identifier hs-var">DeleteLag'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679298573"><span id="local-6989586621679298574"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLag"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-var">DeleteLag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLag%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag%27"><span class="hs-identifier hs-var">DeleteLag'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the LAG.</span><span>
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AlagId%3ADeleteLag%27"><span class="annot"><span class="annottext">DeleteLag -&gt; Text
 </span><a href="Network.AWS.DirectConnect.DeleteLag.html#%24sel%3AlagId%3ADeleteLag%27"><span class="hs-identifier hs-var hs-var">lagId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298558"><span id="local-6989586621679298560"><span class="annot"><span class="annottext">DeleteLag -&gt; DeleteLag -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298567"><span id="local-6989586621679298569"><span class="annot"><span class="annottext">DeleteLag -&gt; DeleteLag -&gt; Bool
 (DeleteLag -&gt; DeleteLag -&gt; Bool)
 -&gt; (DeleteLag -&gt; DeleteLag -&gt; Bool) -&gt; Eq DeleteLag
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLag -&gt; DeleteLag -&gt; Bool
 == :: DeleteLag -&gt; DeleteLag -&gt; Bool
 $c== :: DeleteLag -&gt; DeleteLag -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298549"><span id="local-6989586621679298551"><span id="local-6989586621679298553"><span id="local-6989586621679298555"><span class="annot"><span class="annottext">ReadPrec [DeleteLag]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298558"><span id="local-6989586621679298560"><span id="local-6989586621679298562"><span id="local-6989586621679298564"><span class="annot"><span class="annottext">ReadPrec [DeleteLag]
 ReadPrec DeleteLag
 Int -&gt; ReadS DeleteLag
 ReadS [DeleteLag]
@@ -100,7 +100,7 @@ readList :: ReadS [DeleteLag]
 $creadList :: ReadS [DeleteLag]
 readsPrec :: Int -&gt; ReadS DeleteLag
 $creadsPrec :: Int -&gt; ReadS DeleteLag
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298542"><span id="local-6989586621679298544"><span id="local-6989586621679298546"><span class="annot"><span class="annottext">Int -&gt; DeleteLag -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298551"><span id="local-6989586621679298553"><span id="local-6989586621679298555"><span class="annot"><span class="annottext">Int -&gt; DeleteLag -&gt; ShowS
 [DeleteLag] -&gt; ShowS
 DeleteLag -&gt; String
 (Int -&gt; DeleteLag -&gt; ShowS)
@@ -139,11 +139,11 @@ $cfrom :: forall x. DeleteLag -&gt; Rep DeleteLag x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span><span>
 </span><span id="line-89"></span><span id="newDeleteLag"><span class="annot"><span class="annottext">newDeleteLag :: Text -&gt; DeleteLag
-</span><a href="Network.AWS.DirectConnect.DeleteLag.html#newDeleteLag"><span class="hs-identifier hs-var hs-var">newDeleteLag</span></a></span></span><span> </span><span id="local-6989586621679298537"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679298537"><span class="hs-identifier hs-var">pLagId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteLag' :: Text -&gt; DeleteLag
+</span><a href="Network.AWS.DirectConnect.DeleteLag.html#newDeleteLag"><span class="hs-identifier hs-var hs-var">newDeleteLag</span></a></span></span><span> </span><span id="local-6989586621679298546"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298546"><span class="hs-identifier hs-var">pLagId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteLag' :: Text -&gt; DeleteLag
 </span><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag%27"><span class="hs-identifier hs-type">DeleteLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lagId:DeleteLag' :: Text
 </span><a href="Network.AWS.DirectConnect.DeleteLag.html#%24sel%3AlagId%3ADeleteLag%27"><span class="hs-identifier hs-var">lagId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679298537"><span class="hs-identifier hs-var">pLagId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679298546"><span class="hs-identifier hs-var">pLagId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The ID of the LAG.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#deleteLag_lagId"><span class="hs-identifier hs-type">deleteLag_lagId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -152,25 +152,25 @@ $cfrom :: forall x. DeleteLag -&gt; Rep DeleteLag x
 -&gt; (DeleteLag -&gt; Text -&gt; DeleteLag)
 -&gt; Lens DeleteLag DeleteLag Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag%27"><span class="hs-identifier hs-type">DeleteLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298534"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag%27"><span class="hs-identifier hs-type">DeleteLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298543"><span class="annot"><span class="annottext">Text
 lagId :: Text
 $sel:lagId:DeleteLag' :: DeleteLag -&gt; Text
-</span><a href="#local-6989586621679298534"><span class="hs-identifier hs-var hs-var">lagId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679298534"><span class="hs-identifier hs-var">lagId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298533"><span class="annot"><span class="annottext">s :: DeleteLag
-</span><a href="#local-6989586621679298533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag%27"><span class="hs-identifier hs-type">DeleteLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298532"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679298532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLag
-</span><a href="#local-6989586621679298533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lagId:DeleteLag' :: Text
+</span><a href="#local-6989586621679298543"><span class="hs-identifier hs-var hs-var">lagId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298543"><span class="hs-identifier hs-var">lagId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298542"><span class="annot"><span class="annottext">s :: DeleteLag
+</span><a href="#local-6989586621679298542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag%27"><span class="hs-identifier hs-type">DeleteLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298541"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLag
+</span><a href="#local-6989586621679298542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lagId:DeleteLag' :: Text
 </span><a href="Network.AWS.DirectConnect.DeleteLag.html#%24sel%3AlagId%3ADeleteLag%27"><span class="hs-identifier hs-var">lagId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679298532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Lag.html#Lag"><span class="hs-identifier hs-type">Lag</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679298528"><span class="annot"><span class="annottext">request :: DeleteLag -&gt; Request DeleteLag
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679298537"><span class="annot"><span class="annottext">request :: DeleteLag -&gt; Request DeleteLag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteLag -&gt; Request DeleteLag
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679298524"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679298533"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteLag
 -&gt; ClientResponse ClientBody
@@ -194,20 +194,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298521"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679298521"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679298520"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679298520"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679298519"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679298519"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Lag
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298530"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298530"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679298529"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679298529"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679298528"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298528"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Lag
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679298519"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298528"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298514"><span id="local-6989586621679298516"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298523"><span id="local-6989586621679298525"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298511"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679298507"><span class="annot"><span class="annottext">toHeaders :: DeleteLag -&gt; ResponseHeaders
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679298516"><span class="annot"><span class="annottext">toHeaders :: DeleteLag -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteLag -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -232,12 +232,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298497"><span id="local-6989586621679298499"><span id="local-6989586621679298501"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679298495"><span class="annot"><span class="annottext">toJSON :: DeleteLag -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag%27"><span class="hs-identifier hs-type">DeleteLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298493"><span class="annot"><span class="annottext">Text
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298506"><span id="local-6989586621679298508"><span id="local-6989586621679298510"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679298504"><span class="annot"><span class="annottext">toJSON :: DeleteLag -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag%27"><span class="hs-identifier hs-type">DeleteLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298502"><span class="annot"><span class="annottext">Text
 lagId :: Text
 $sel:lagId:DeleteLag' :: DeleteLag -&gt; Text
-</span><a href="#local-6989586621679298493"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679298502"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -249,18 +249,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;lagId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679298493"><span class="hs-identifier hs-var">lagId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679298502"><span class="hs-identifier hs-var">lagId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679298487"><span class="annot"><span class="annottext">toPath :: DeleteLag -&gt; ByteString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679298496"><span class="annot"><span class="annottext">toPath :: DeleteLag -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteLag -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteLag.html#DeleteLag"><span class="hs-identifier hs-type">DeleteLag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679298483"><span class="annot"><span class="annottext">toQuery :: DeleteLag -&gt; QueryString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679298492"><span class="annot"><span class="annottext">toQuery :: DeleteLag -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteLag -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

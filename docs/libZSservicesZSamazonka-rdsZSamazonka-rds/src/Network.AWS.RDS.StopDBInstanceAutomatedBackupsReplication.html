@@ -51,14 +51,14 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newStopDBInstanceAutomatedBackupsReplication' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679773975"><span id="local-6989586621679773976"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDBInstanceAutomatedBackupsReplication"><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication"><span class="hs-identifier hs-var">StopDBInstanceAutomatedBackupsReplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDBInstanceAutomatedBackupsReplication%27"><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication%27"><span class="hs-identifier hs-var">StopDBInstanceAutomatedBackupsReplication'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679773984"><span id="local-6989586621679773985"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDBInstanceAutomatedBackupsReplication"><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication"><span class="hs-identifier hs-var">StopDBInstanceAutomatedBackupsReplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDBInstanceAutomatedBackupsReplication%27"><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication%27"><span class="hs-identifier hs-var">StopDBInstanceAutomatedBackupsReplication'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the source DB instance for which to</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- stop replicating automated backups, for example,</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @arn:aws:rds:us-west-2:123456789012:db:mydatabase@.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AsourceDBInstanceArn%3AStopDBInstanceAutomatedBackupsReplication%27"><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplication -&gt; Text
 </span><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#%24sel%3AsourceDBInstanceArn%3AStopDBInstanceAutomatedBackupsReplication%27"><span class="hs-identifier hs-var hs-var">sourceDBInstanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679773969"><span id="local-6989586621679773971"><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplication
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679773978"><span id="local-6989586621679773980"><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplication
 -&gt; StopDBInstanceAutomatedBackupsReplication -&gt; Bool
 (StopDBInstanceAutomatedBackupsReplication
  -&gt; StopDBInstanceAutomatedBackupsReplication -&gt; Bool)
@@ -74,7 +74,7 @@ $c/= :: StopDBInstanceAutomatedBackupsReplication
 -&gt; StopDBInstanceAutomatedBackupsReplication -&gt; Bool
 $c== :: StopDBInstanceAutomatedBackupsReplication
 -&gt; StopDBInstanceAutomatedBackupsReplication -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773960"><span id="local-6989586621679773962"><span id="local-6989586621679773964"><span id="local-6989586621679773966"><span class="annot"><span class="annottext">ReadPrec [StopDBInstanceAutomatedBackupsReplication]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773969"><span id="local-6989586621679773971"><span id="local-6989586621679773973"><span id="local-6989586621679773975"><span class="annot"><span class="annottext">ReadPrec [StopDBInstanceAutomatedBackupsReplication]
 ReadPrec StopDBInstanceAutomatedBackupsReplication
 Int -&gt; ReadS StopDBInstanceAutomatedBackupsReplication
 ReadS [StopDBInstanceAutomatedBackupsReplication]
@@ -94,7 +94,7 @@ readList :: ReadS [StopDBInstanceAutomatedBackupsReplication]
 $creadList :: ReadS [StopDBInstanceAutomatedBackupsReplication]
 readsPrec :: Int -&gt; ReadS StopDBInstanceAutomatedBackupsReplication
 $creadsPrec :: Int -&gt; ReadS StopDBInstanceAutomatedBackupsReplication
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773953"><span id="local-6989586621679773955"><span id="local-6989586621679773957"><span class="annot"><span class="annottext">Int -&gt; StopDBInstanceAutomatedBackupsReplication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773962"><span id="local-6989586621679773964"><span id="local-6989586621679773966"><span class="annot"><span class="annottext">Int -&gt; StopDBInstanceAutomatedBackupsReplication -&gt; ShowS
 [StopDBInstanceAutomatedBackupsReplication] -&gt; ShowS
 StopDBInstanceAutomatedBackupsReplication -&gt; String
 (Int -&gt; StopDBInstanceAutomatedBackupsReplication -&gt; ShowS)
@@ -149,14 +149,14 @@ StopDBInstanceAutomatedBackupsReplication
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication</span></a></span><span>
 </span><span id="line-77"></span><span id="newStopDBInstanceAutomatedBackupsReplication"><span class="annot"><span class="annottext">newStopDBInstanceAutomatedBackupsReplication :: Text -&gt; StopDBInstanceAutomatedBackupsReplication
 </span><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#newStopDBInstanceAutomatedBackupsReplication"><span class="hs-identifier hs-var hs-var">newStopDBInstanceAutomatedBackupsReplication</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679773948"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773948"><span class="hs-identifier hs-var">pSourceDBInstanceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679773957"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679773957"><span class="hs-identifier hs-var">pSourceDBInstanceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplication' :: Text -&gt; StopDBInstanceAutomatedBackupsReplication
 </span><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication'</span></a></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceDBInstanceArn:StopDBInstanceAutomatedBackupsReplication' :: Text
 </span><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#%24sel%3AsourceDBInstanceArn%3AStopDBInstanceAutomatedBackupsReplication%27"><span class="hs-identifier hs-var">sourceDBInstanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773948"><span class="hs-identifier hs-var">pSourceDBInstanceArn_</span></a></span><span>
+</span><a href="#local-6989586621679773957"><span class="hs-identifier hs-var">pSourceDBInstanceArn_</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the source DB instance for which to</span><span>
@@ -175,16 +175,16 @@ StopDBInstanceAutomatedBackupsReplication
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773945"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773954"><span class="annot"><span class="annottext">Text
 sourceDBInstanceArn :: Text
 $sel:sourceDBInstanceArn:StopDBInstanceAutomatedBackupsReplication' :: StopDBInstanceAutomatedBackupsReplication -&gt; Text
-</span><a href="#local-6989586621679773945"><span class="hs-identifier hs-var hs-var">sourceDBInstanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773945"><span class="hs-identifier hs-var">sourceDBInstanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773944"><span class="annot"><span class="annottext">s :: StopDBInstanceAutomatedBackupsReplication
-</span><a href="#local-6989586621679773944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773943"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplication
-</span><a href="#local-6989586621679773944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceDBInstanceArn:StopDBInstanceAutomatedBackupsReplication' :: Text
+</span><a href="#local-6989586621679773954"><span class="hs-identifier hs-var hs-var">sourceDBInstanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679773954"><span class="hs-identifier hs-var">sourceDBInstanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773953"><span class="annot"><span class="annottext">s :: StopDBInstanceAutomatedBackupsReplication
+</span><a href="#local-6989586621679773953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773952"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679773952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplication
+</span><a href="#local-6989586621679773953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceDBInstanceArn:StopDBInstanceAutomatedBackupsReplication' :: Text
 </span><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#%24sel%3AsourceDBInstanceArn%3AStopDBInstanceAutomatedBackupsReplication%27"><span class="hs-identifier hs-var">sourceDBInstanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679773952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -194,7 +194,7 @@ $sel:sourceDBInstanceArn:StopDBInstanceAutomatedBackupsReplication' :: StopDBIns
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679773939"><span class="annot"><span class="annottext">request :: StopDBInstanceAutomatedBackupsReplication
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679773948"><span class="annot"><span class="annottext">request :: StopDBInstanceAutomatedBackupsReplication
 -&gt; Request StopDBInstanceAutomatedBackupsReplication
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; StopDBInstanceAutomatedBackupsReplication
@@ -202,7 +202,7 @@ $sel:sourceDBInstanceArn:StopDBInstanceAutomatedBackupsReplication' :: StopDBIns
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679773935"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679773944"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopDBInstanceAutomatedBackupsReplication
 -&gt; ClientResponse ClientBody
@@ -238,10 +238,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StopDBInstanceAutomatedBackupsReplicationResult&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679773932"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773932"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679773931"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679773931"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679773930"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679773930"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679773941"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679773941"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679773940"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679773940"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679773939"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679773939"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBInstanceAutomatedBackup
 -&gt; Int -&gt; StopDBInstanceAutomatedBackupsReplicationResponse
 </span><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-var">StopDBInstanceAutomatedBackupsReplicationResponse'</span></a></span><span>
@@ -252,7 +252,7 @@ Text
      String (Int -&gt; StopDBInstanceAutomatedBackupsReplicationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679773930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBInstanceAutomatedBackup)
+</span><a href="#local-6989586621679773939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBInstanceAutomatedBackup)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBInstanceAutomatedBackup&quot;</span></span><span class="hs-special">)</span><span>
@@ -266,22 +266,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773932"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679773941"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679773922"><span id="local-6989586621679773924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679773931"><span id="local-6989586621679773933"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679773919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679773928"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication</span></a></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679773915"><span class="annot"><span class="annottext">toHeaders :: StopDBInstanceAutomatedBackupsReplication -&gt; ResponseHeaders
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679773924"><span class="annot"><span class="annottext">toHeaders :: StopDBInstanceAutomatedBackupsReplication -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; StopDBInstanceAutomatedBackupsReplication -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -293,7 +293,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication</span></a></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679773910"><span class="annot"><span class="annottext">toPath :: StopDBInstanceAutomatedBackupsReplication -&gt; ByteString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679773919"><span class="annot"><span class="annottext">toPath :: StopDBInstanceAutomatedBackupsReplication -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
 -&gt; StopDBInstanceAutomatedBackupsReplication -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -304,12 +304,12 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication</span></a></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679773906"><span class="annot"><span class="annottext">toQuery :: StopDBInstanceAutomatedBackupsReplication -&gt; QueryString
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679773915"><span class="annot"><span class="annottext">toQuery :: StopDBInstanceAutomatedBackupsReplication -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span>
-</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773904"><span class="annot"><span class="annottext">Text
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplication%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773913"><span class="annot"><span class="annottext">Text
 sourceDBInstanceArn :: Text
 $sel:sourceDBInstanceArn:StopDBInstanceAutomatedBackupsReplication' :: StopDBInstanceAutomatedBackupsReplication -&gt; Text
-</span><a href="#local-6989586621679773904"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679773913"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -331,11 +331,11 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;SourceDBInstanceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773904"><span class="hs-identifier hs-var">sourceDBInstanceArn</span></a></span><span>
+</span><a href="#local-6989586621679773913"><span class="hs-identifier hs-var">sourceDBInstanceArn</span></a></span><span>
 </span><span id="line-142"></span><span>        </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newStopDBInstanceAutomatedBackupsReplicationResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679773901"><span id="local-6989586621679773902"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDBInstanceAutomatedBackupsReplicationResponse"><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse"><span class="hs-identifier hs-var">StopDBInstanceAutomatedBackupsReplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-var">StopDBInstanceAutomatedBackupsReplicationResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679773910"><span id="local-6989586621679773911"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDBInstanceAutomatedBackupsReplicationResponse"><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse"><span class="hs-identifier hs-var">StopDBInstanceAutomatedBackupsReplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-var">StopDBInstanceAutomatedBackupsReplicationResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbInstanceAutomatedBackup%3AStopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplicationResponse
 -&gt; Maybe DBInstanceAutomatedBackup
 </span><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#%24sel%3AdbInstanceAutomatedBackup%3AStopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-var hs-var">dbInstanceAutomatedBackup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceAutomatedBackup.html#DBInstanceAutomatedBackup"><span class="hs-identifier hs-type">DBInstanceAutomatedBackup</span></a></span><span class="hs-special">,</span><span>
@@ -343,7 +343,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplicationResponse -&gt; Int
 </span><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#%24sel%3AhttpStatus%3AStopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679773895"><span id="local-6989586621679773897"><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplicationResponse
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679773904"><span id="local-6989586621679773906"><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplicationResponse
 -&gt; StopDBInstanceAutomatedBackupsReplicationResponse -&gt; Bool
 (StopDBInstanceAutomatedBackupsReplicationResponse
  -&gt; StopDBInstanceAutomatedBackupsReplicationResponse -&gt; Bool)
@@ -359,7 +359,7 @@ $c/= :: StopDBInstanceAutomatedBackupsReplicationResponse
 -&gt; StopDBInstanceAutomatedBackupsReplicationResponse -&gt; Bool
 $c== :: StopDBInstanceAutomatedBackupsReplicationResponse
 -&gt; StopDBInstanceAutomatedBackupsReplicationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773887"><span id="local-6989586621679773889"><span id="local-6989586621679773891"><span id="local-6989586621679773893"><span class="annot"><span class="annottext">ReadPrec [StopDBInstanceAutomatedBackupsReplicationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773896"><span id="local-6989586621679773898"><span id="local-6989586621679773900"><span id="local-6989586621679773902"><span class="annot"><span class="annottext">ReadPrec [StopDBInstanceAutomatedBackupsReplicationResponse]
 ReadPrec StopDBInstanceAutomatedBackupsReplicationResponse
 Int -&gt; ReadS StopDBInstanceAutomatedBackupsReplicationResponse
 ReadS [StopDBInstanceAutomatedBackupsReplicationResponse]
@@ -379,7 +379,7 @@ readList :: ReadS [StopDBInstanceAutomatedBackupsReplicationResponse]
 $creadList :: ReadS [StopDBInstanceAutomatedBackupsReplicationResponse]
 readsPrec :: Int -&gt; ReadS StopDBInstanceAutomatedBackupsReplicationResponse
 $creadsPrec :: Int -&gt; ReadS StopDBInstanceAutomatedBackupsReplicationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773881"><span id="local-6989586621679773883"><span id="local-6989586621679773885"><span class="annot"><span class="annottext">Int -&gt; StopDBInstanceAutomatedBackupsReplicationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773890"><span id="local-6989586621679773892"><span id="local-6989586621679773894"><span class="annot"><span class="annottext">Int -&gt; StopDBInstanceAutomatedBackupsReplicationResponse -&gt; ShowS
 [StopDBInstanceAutomatedBackupsReplicationResponse] -&gt; ShowS
 StopDBInstanceAutomatedBackupsReplicationResponse -&gt; String
 (Int -&gt; StopDBInstanceAutomatedBackupsReplicationResponse -&gt; ShowS)
@@ -434,8 +434,8 @@ StopDBInstanceAutomatedBackupsReplicationResponse
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newStopDBInstanceAutomatedBackupsReplicationResponse"><span class="annot"><span class="annottext">newStopDBInstanceAutomatedBackupsReplicationResponse :: Int -&gt; StopDBInstanceAutomatedBackupsReplicationResponse
 </span><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#newStopDBInstanceAutomatedBackupsReplicationResponse"><span class="hs-identifier hs-var hs-var">newStopDBInstanceAutomatedBackupsReplicationResponse</span></a></span></span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679773878"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773878"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679773887"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679773887"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplicationResponse' :: Maybe DBInstanceAutomatedBackup
 -&gt; Int -&gt; StopDBInstanceAutomatedBackupsReplicationResponse
 </span><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse'</span></a></span><span>
@@ -447,7 +447,7 @@ forall a. Maybe a
 </span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:StopDBInstanceAutomatedBackupsReplicationResponse' :: Int
 </span><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#%24sel%3AhttpStatus%3AStopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773878"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679773887"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -467,17 +467,17 @@ forall a. Maybe a
      (Maybe DBInstanceAutomatedBackup)
      (Maybe DBInstanceAutomatedBackup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773877"><span class="annot"><span class="annottext">Maybe DBInstanceAutomatedBackup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773886"><span class="annot"><span class="annottext">Maybe DBInstanceAutomatedBackup
 dbInstanceAutomatedBackup :: Maybe DBInstanceAutomatedBackup
 $sel:dbInstanceAutomatedBackup:StopDBInstanceAutomatedBackupsReplicationResponse' :: StopDBInstanceAutomatedBackupsReplicationResponse
 -&gt; Maybe DBInstanceAutomatedBackup
-</span><a href="#local-6989586621679773877"><span class="hs-identifier hs-var hs-var">dbInstanceAutomatedBackup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBInstanceAutomatedBackup
-</span><a href="#local-6989586621679773877"><span class="hs-identifier hs-var">dbInstanceAutomatedBackup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773876"><span class="annot"><span class="annottext">s :: StopDBInstanceAutomatedBackupsReplicationResponse
-</span><a href="#local-6989586621679773876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773875"><span class="annot"><span class="annottext">Maybe DBInstanceAutomatedBackup
-</span><a href="#local-6989586621679773875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplicationResponse
-</span><a href="#local-6989586621679773876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceAutomatedBackup:StopDBInstanceAutomatedBackupsReplicationResponse' :: Maybe DBInstanceAutomatedBackup
+</span><a href="#local-6989586621679773886"><span class="hs-identifier hs-var hs-var">dbInstanceAutomatedBackup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBInstanceAutomatedBackup
+</span><a href="#local-6989586621679773886"><span class="hs-identifier hs-var">dbInstanceAutomatedBackup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773885"><span class="annot"><span class="annottext">s :: StopDBInstanceAutomatedBackupsReplicationResponse
+</span><a href="#local-6989586621679773885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773884"><span class="annot"><span class="annottext">Maybe DBInstanceAutomatedBackup
+</span><a href="#local-6989586621679773884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplicationResponse
+</span><a href="#local-6989586621679773885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceAutomatedBackup:StopDBInstanceAutomatedBackupsReplicationResponse' :: Maybe DBInstanceAutomatedBackup
 </span><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#%24sel%3AdbInstanceAutomatedBackup%3AStopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-var">dbInstanceAutomatedBackup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBInstanceAutomatedBackup
-</span><a href="#local-6989586621679773875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679773884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-181"></span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#stopDBInstanceAutomatedBackupsReplicationResponse_httpStatus"><span class="hs-identifier hs-type">stopDBInstanceAutomatedBackupsReplicationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -493,18 +493,18 @@ $sel:dbInstanceAutomatedBackup:StopDBInstanceAutomatedBackupsReplicationResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773874"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773883"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopDBInstanceAutomatedBackupsReplicationResponse' :: StopDBInstanceAutomatedBackupsReplicationResponse -&gt; Int
-</span><a href="#local-6989586621679773874"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773874"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773873"><span class="annot"><span class="annottext">s :: StopDBInstanceAutomatedBackupsReplicationResponse
-</span><a href="#local-6989586621679773873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773872"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplicationResponse
-</span><a href="#local-6989586621679773873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopDBInstanceAutomatedBackupsReplicationResponse' :: Int
+</span><a href="#local-6989586621679773883"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679773883"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773882"><span class="annot"><span class="annottext">s :: StopDBInstanceAutomatedBackupsReplicationResponse
+</span><a href="#local-6989586621679773882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773881"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679773881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDBInstanceAutomatedBackupsReplicationResponse
+</span><a href="#local-6989586621679773882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopDBInstanceAutomatedBackupsReplicationResponse' :: Int
 </span><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#%24sel%3AhttpStatus%3AStopDBInstanceAutomatedBackupsReplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679773881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679773870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679773879"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication.html#StopDBInstanceAutomatedBackupsReplicationResponse"><span class="hs-identifier hs-type">StopDBInstanceAutomatedBackupsReplicationResponse</span></a></span></span><span>
 </span><span id="line-187"></span></pre></body></html>

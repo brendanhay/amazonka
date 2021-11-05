@@ -1,0 +1,648 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ComprehendMedical.Types.Attribute</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ComprehendMedical.Types.Attribute</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.EntitySubType.html"><span class="hs-identifier">Network.AWS.ComprehendMedical.Types.EntitySubType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.EntityType.html"><span class="hs-identifier">Network.AWS.ComprehendMedical.Types.EntityType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RelationshipType.html"><span class="hs-identifier">Network.AWS.ComprehendMedical.Types.RelationshipType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Trait.html"><span class="hs-identifier">Network.AWS.ComprehendMedical.Types.Trait</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | An extracted segment of the text that is an attribute of an entity, or</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- otherwise related to an entity, such as the dosage of a medication</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- taken. It contains information about the attribute such as id, begin and</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- end offset within the input text, and the segment of the input text.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newAttribute' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679210821"><span id="local-6989586621679210822"></span></span><span class="hs-keyword">data</span><span> </span><span id="Attribute"><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-var">Attribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Attribute%27"><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-var">Attribute'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The level of confidence that Amazon Comprehend Medical has that this</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- attribute is correctly related to this entity.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ArelationshipScore%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Maybe Double
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3ArelationshipScore%3AAttribute%27"><span class="hs-identifier hs-var hs-var">relationshipScore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The 0-based character offset in the input text that shows where the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- attribute begins. The offset returns the UTF-8 code point in the string.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AbeginOffset%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3AbeginOffset%3AAttribute%27"><span class="hs-identifier hs-var hs-var">beginOffset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The segment of input text extracted as this attribute.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Atext%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Maybe Text
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Atext%3AAttribute%27"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The category of attribute.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Acategory%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Maybe EntityType
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Acategory%3AAttribute%27"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The level of confidence that Amazon Comprehend Medical has that the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- segment of text is correctly recognized as an attribute.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Ascore%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Maybe Double
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Ascore%3AAttribute%27"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Contextual information for this attribute.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Atraits%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Maybe [Trait]
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Atraits%3AAttribute%27"><span class="hs-identifier hs-var hs-var">traits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Trait.html#Trait"><span class="hs-identifier hs-type">Trait</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The type of relationship between the entity and attribute. Type for the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- relationship is @OVERLAP@, indicating that the entity occurred at the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- same time as the @Date_Expression@.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3ArelationshipType%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Maybe RelationshipType
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3ArelationshipType%3AAttribute%27"><span class="hs-identifier hs-var hs-var">relationshipType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The 0-based character offset in the input text that shows where the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- attribute ends. The offset returns the UTF-8 code point in the string.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AendOffset%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3AendOffset%3AAttribute%27"><span class="hs-identifier hs-var hs-var">endOffset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The numeric identifier for this attribute. This is a monotonically</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- increasing id unique within this response rather than a global unique</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- identifier.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aid%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Aid%3AAttribute%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The type of attribute.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Atype%27%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Maybe EntitySubType
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Atype%27%3AAttribute%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210806"><span id="local-6989586621679210808"><span class="annot"><span class="annottext">Attribute -&gt; Attribute -&gt; Bool
+(Attribute -&gt; Attribute -&gt; Bool)
+-&gt; (Attribute -&gt; Attribute -&gt; Bool) -&gt; Eq Attribute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Attribute -&gt; Attribute -&gt; Bool
+$c/= :: Attribute -&gt; Attribute -&gt; Bool
+== :: Attribute -&gt; Attribute -&gt; Bool
+$c== :: Attribute -&gt; Attribute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210797"><span id="local-6989586621679210799"><span id="local-6989586621679210801"><span id="local-6989586621679210803"><span class="annot"><span class="annottext">ReadPrec [Attribute]
+ReadPrec Attribute
+Int -&gt; ReadS Attribute
+ReadS [Attribute]
+(Int -&gt; ReadS Attribute)
+-&gt; ReadS [Attribute]
+-&gt; ReadPrec Attribute
+-&gt; ReadPrec [Attribute]
+-&gt; Read Attribute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Attribute]
+$creadListPrec :: ReadPrec [Attribute]
+readPrec :: ReadPrec Attribute
+$creadPrec :: ReadPrec Attribute
+readList :: ReadS [Attribute]
+$creadList :: ReadS [Attribute]
+readsPrec :: Int -&gt; ReadS Attribute
+$creadsPrec :: Int -&gt; ReadS Attribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210790"><span id="local-6989586621679210792"><span id="local-6989586621679210794"><span class="annot"><span class="annottext">Int -&gt; Attribute -&gt; ShowS
+[Attribute] -&gt; ShowS
+Attribute -&gt; String
+(Int -&gt; Attribute -&gt; ShowS)
+-&gt; (Attribute -&gt; String)
+-&gt; ([Attribute] -&gt; ShowS)
+-&gt; Show Attribute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Attribute] -&gt; ShowS
+$cshowList :: [Attribute] -&gt; ShowS
+show :: Attribute -&gt; String
+$cshow :: Attribute -&gt; String
+showsPrec :: Int -&gt; Attribute -&gt; ShowS
+$cshowsPrec :: Int -&gt; Attribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Attribute -&gt; Rep Attribute x)
+-&gt; (forall x. Rep Attribute x -&gt; Attribute) -&gt; Generic Attribute
+forall x. Rep Attribute x -&gt; Attribute
+forall x. Attribute -&gt; Rep Attribute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Attribute x -&gt; Attribute
+$cfrom :: forall x. Attribute -&gt; Rep Attribute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'Attribute' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'relationshipScore', 'attribute_relationshipScore' - The level of confidence that Amazon Comprehend Medical has that this</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- attribute is correctly related to this entity.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'beginOffset', 'attribute_beginOffset' - The 0-based character offset in the input text that shows where the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- attribute begins. The offset returns the UTF-8 code point in the string.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'text', 'attribute_text' - The segment of input text extracted as this attribute.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'category', 'attribute_category' - The category of attribute.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'score', 'attribute_score' - The level of confidence that Amazon Comprehend Medical has that the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- segment of text is correctly recognized as an attribute.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'traits', 'attribute_traits' - Contextual information for this attribute.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'relationshipType', 'attribute_relationshipType' - The type of relationship between the entity and attribute. Type for the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- relationship is @OVERLAP@, indicating that the entity occurred at the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- same time as the @Date_Expression@.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'endOffset', 'attribute_endOffset' - The 0-based character offset in the input text that shows where the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- attribute ends. The offset returns the UTF-8 code point in the string.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'id', 'attribute_id' - The numeric identifier for this attribute. This is a monotonically</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- increasing id unique within this response rather than a global unique</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- identifier.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'type'', 'attribute_type' - The type of attribute.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#newAttribute"><span class="hs-identifier hs-type">newAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span>
+</span><span id="line-105"></span><span id="newAttribute"><span class="annot"><span class="annottext">newAttribute :: Attribute
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#newAttribute"><span class="hs-identifier hs-var hs-var">newAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">Attribute' :: Maybe Double
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe EntityType
+-&gt; Maybe Double
+-&gt; Maybe [Trait]
+-&gt; Maybe RelationshipType
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe EntitySubType
+-&gt; Attribute
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:relationshipScore:Attribute' :: Maybe Double
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3ArelationshipScore%3AAttribute%27"><span class="hs-identifier hs-var">relationshipScore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:beginOffset:Attribute' :: Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3AbeginOffset%3AAttribute%27"><span class="hs-identifier hs-var">beginOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:text:Attribute' :: Maybe Text
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Atext%3AAttribute%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:category:Attribute' :: Maybe EntityType
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Acategory%3AAttribute%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:score:Attribute' :: Maybe Double
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Ascore%3AAttribute%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:traits:Attribute' :: Maybe [Trait]
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Atraits%3AAttribute%27"><span class="hs-identifier hs-var">traits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Trait]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:relationshipType:Attribute' :: Maybe RelationshipType
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3ArelationshipType%3AAttribute%27"><span class="hs-identifier hs-var">relationshipType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelationshipType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:endOffset:Attribute' :: Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3AendOffset%3AAttribute%27"><span class="hs-identifier hs-var">endOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Attribute' :: Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Aid%3AAttribute%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Attribute' :: Maybe EntitySubType
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Atype%27%3AAttribute%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntitySubType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The level of confidence that Amazon Comprehend Medical has that this</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- attribute is correctly related to this entity.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_relationshipScore"><span class="hs-identifier hs-type">attribute_relationshipScore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="attribute_relationshipScore"><span class="annot"><span class="annottext">attribute_relationshipScore :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Attribute -&gt; f Attribute
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_relationshipScore"><span class="hs-identifier hs-var hs-var">attribute_relationshipScore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Attribute -&gt; Maybe Double)
+-&gt; (Attribute -&gt; Maybe Double -&gt; Attribute)
+-&gt; Lens Attribute Attribute (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210781"><span class="annot"><span class="annottext">Maybe Double
+relationshipScore :: Maybe Double
+$sel:relationshipScore:Attribute' :: Attribute -&gt; Maybe Double
+</span><a href="#local-6989586621679210781"><span class="hs-identifier hs-var hs-var">relationshipScore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679210781"><span class="hs-identifier hs-var">relationshipScore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210780"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679210780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210779"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679210779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679210780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationshipScore:Attribute' :: Maybe Double
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3ArelationshipScore%3AAttribute%27"><span class="hs-identifier hs-var">relationshipScore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679210779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The 0-based character offset in the input text that shows where the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- attribute begins. The offset returns the UTF-8 code point in the string.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_beginOffset"><span class="hs-identifier hs-type">attribute_beginOffset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="attribute_beginOffset"><span class="annot"><span class="annottext">attribute_beginOffset :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Attribute -&gt; f Attribute
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_beginOffset"><span class="hs-identifier hs-var hs-var">attribute_beginOffset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Attribute -&gt; Maybe Int)
+-&gt; (Attribute -&gt; Maybe Int -&gt; Attribute)
+-&gt; Lens Attribute Attribute (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210777"><span class="annot"><span class="annottext">Maybe Int
+beginOffset :: Maybe Int
+$sel:beginOffset:Attribute' :: Attribute -&gt; Maybe Int
+</span><a href="#local-6989586621679210777"><span class="hs-identifier hs-var hs-var">beginOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210777"><span class="hs-identifier hs-var">beginOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210776"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679210776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210775"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679210776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beginOffset:Attribute' :: Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3AbeginOffset%3AAttribute%27"><span class="hs-identifier hs-var">beginOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The segment of input text extracted as this attribute.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_text"><span class="hs-identifier hs-type">attribute_text</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="attribute_text"><span class="annot"><span class="annottext">attribute_text :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Attribute -&gt; f Attribute
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_text"><span class="hs-identifier hs-var hs-var">attribute_text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Attribute -&gt; Maybe Text)
+-&gt; (Attribute -&gt; Maybe Text -&gt; Attribute)
+-&gt; Lens Attribute Attribute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210773"><span class="annot"><span class="annottext">Maybe Text
+text :: Maybe Text
+$sel:text:Attribute' :: Attribute -&gt; Maybe Text
+</span><a href="#local-6989586621679210773"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210773"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210772"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679210772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210771"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679210772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:Attribute' :: Maybe Text
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Atext%3AAttribute%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The category of attribute.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_category"><span class="hs-identifier hs-type">attribute_category</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="attribute_category"><span class="annot"><span class="annottext">attribute_category :: (Maybe EntityType -&gt; f (Maybe EntityType))
+-&gt; Attribute -&gt; f Attribute
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_category"><span class="hs-identifier hs-var hs-var">attribute_category</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Attribute -&gt; Maybe EntityType)
+-&gt; (Attribute -&gt; Maybe EntityType -&gt; Attribute)
+-&gt; Lens Attribute Attribute (Maybe EntityType) (Maybe EntityType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210769"><span class="annot"><span class="annottext">Maybe EntityType
+category :: Maybe EntityType
+$sel:category:Attribute' :: Attribute -&gt; Maybe EntityType
+</span><a href="#local-6989586621679210769"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityType
+</span><a href="#local-6989586621679210769"><span class="hs-identifier hs-var">category</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210768"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679210768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210767"><span class="annot"><span class="annottext">Maybe EntityType
+</span><a href="#local-6989586621679210767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679210768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:category:Attribute' :: Maybe EntityType
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Acategory%3AAttribute%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityType
+</span><a href="#local-6989586621679210767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The level of confidence that Amazon Comprehend Medical has that the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- segment of text is correctly recognized as an attribute.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_score"><span class="hs-identifier hs-type">attribute_score</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="attribute_score"><span class="annot"><span class="annottext">attribute_score :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Attribute -&gt; f Attribute
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_score"><span class="hs-identifier hs-var hs-var">attribute_score</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Attribute -&gt; Maybe Double)
+-&gt; (Attribute -&gt; Maybe Double -&gt; Attribute)
+-&gt; Lens Attribute Attribute (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210765"><span class="annot"><span class="annottext">Maybe Double
+score :: Maybe Double
+$sel:score:Attribute' :: Attribute -&gt; Maybe Double
+</span><a href="#local-6989586621679210765"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679210765"><span class="hs-identifier hs-var">score</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210764"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679210764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210763"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679210763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679210764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:score:Attribute' :: Maybe Double
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Ascore%3AAttribute%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679210763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | Contextual information for this attribute.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_traits"><span class="hs-identifier hs-type">attribute_traits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Trait.html#Trait"><span class="hs-identifier hs-type">Trait</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="attribute_traits"><span class="annot"><span class="annottext">attribute_traits :: (Maybe [Trait] -&gt; f (Maybe [Trait])) -&gt; Attribute -&gt; f Attribute
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_traits"><span class="hs-identifier hs-var hs-var">attribute_traits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Attribute -&gt; Maybe [Trait])
+-&gt; (Attribute -&gt; Maybe [Trait] -&gt; Attribute)
+-&gt; Lens Attribute Attribute (Maybe [Trait]) (Maybe [Trait])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210761"><span class="annot"><span class="annottext">Maybe [Trait]
+traits :: Maybe [Trait]
+$sel:traits:Attribute' :: Attribute -&gt; Maybe [Trait]
+</span><a href="#local-6989586621679210761"><span class="hs-identifier hs-var hs-var">traits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Trait]
+</span><a href="#local-6989586621679210761"><span class="hs-identifier hs-var">traits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210760"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679210760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210759"><span class="annot"><span class="annottext">Maybe [Trait]
+</span><a href="#local-6989586621679210759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679210760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:traits:Attribute' :: Maybe [Trait]
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Atraits%3AAttribute%27"><span class="hs-identifier hs-var">traits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Trait]
+</span><a href="#local-6989586621679210759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Trait] -&gt; f (Maybe [Trait])) -&gt; Attribute -&gt; f Attribute)
+-&gt; ((Maybe [Trait] -&gt; f (Maybe [Trait]))
+    -&gt; Maybe [Trait] -&gt; f (Maybe [Trait]))
+-&gt; (Maybe [Trait] -&gt; f (Maybe [Trait]))
+-&gt; Attribute
+-&gt; f Attribute
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Trait] [Trait] [Trait] [Trait]
+-&gt; Iso
+     (Maybe [Trait]) (Maybe [Trait]) (Maybe [Trait]) (Maybe [Trait])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Trait] [Trait] [Trait] [Trait]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The type of relationship between the entity and attribute. Type for the</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- relationship is @OVERLAP@, indicating that the entity occurred at the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- same time as the @Date_Expression@.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_relationshipType"><span class="hs-identifier hs-type">attribute_relationshipType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="attribute_relationshipType"><span class="annot"><span class="annottext">attribute_relationshipType :: (Maybe RelationshipType -&gt; f (Maybe RelationshipType))
+-&gt; Attribute -&gt; f Attribute
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_relationshipType"><span class="hs-identifier hs-var hs-var">attribute_relationshipType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Attribute -&gt; Maybe RelationshipType)
+-&gt; (Attribute -&gt; Maybe RelationshipType -&gt; Attribute)
+-&gt; Lens
+     Attribute
+     Attribute
+     (Maybe RelationshipType)
+     (Maybe RelationshipType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210754"><span class="annot"><span class="annottext">Maybe RelationshipType
+relationshipType :: Maybe RelationshipType
+$sel:relationshipType:Attribute' :: Attribute -&gt; Maybe RelationshipType
+</span><a href="#local-6989586621679210754"><span class="hs-identifier hs-var hs-var">relationshipType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelationshipType
+</span><a href="#local-6989586621679210754"><span class="hs-identifier hs-var">relationshipType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210753"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679210753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210752"><span class="annot"><span class="annottext">Maybe RelationshipType
+</span><a href="#local-6989586621679210752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679210753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationshipType:Attribute' :: Maybe RelationshipType
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3ArelationshipType%3AAttribute%27"><span class="hs-identifier hs-var">relationshipType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelationshipType
+</span><a href="#local-6989586621679210752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The 0-based character offset in the input text that shows where the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- attribute ends. The offset returns the UTF-8 code point in the string.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_endOffset"><span class="hs-identifier hs-type">attribute_endOffset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="attribute_endOffset"><span class="annot"><span class="annottext">attribute_endOffset :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Attribute -&gt; f Attribute
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_endOffset"><span class="hs-identifier hs-var hs-var">attribute_endOffset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Attribute -&gt; Maybe Int)
+-&gt; (Attribute -&gt; Maybe Int -&gt; Attribute)
+-&gt; Lens Attribute Attribute (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210750"><span class="annot"><span class="annottext">Maybe Int
+endOffset :: Maybe Int
+$sel:endOffset:Attribute' :: Attribute -&gt; Maybe Int
+</span><a href="#local-6989586621679210750"><span class="hs-identifier hs-var hs-var">endOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210750"><span class="hs-identifier hs-var">endOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210749"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679210749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210748"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679210749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endOffset:Attribute' :: Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3AendOffset%3AAttribute%27"><span class="hs-identifier hs-var">endOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The numeric identifier for this attribute. This is a monotonically</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- increasing id unique within this response rather than a global unique</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- identifier.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_id"><span class="hs-identifier hs-type">attribute_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="attribute_id"><span class="annot"><span class="annottext">attribute_id :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Attribute -&gt; f Attribute
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_id"><span class="hs-identifier hs-var hs-var">attribute_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Attribute -&gt; Maybe Int)
+-&gt; (Attribute -&gt; Maybe Int -&gt; Attribute)
+-&gt; Lens Attribute Attribute (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210746"><span class="annot"><span class="annottext">Maybe Int
+id :: Maybe Int
+$sel:id:Attribute' :: Attribute -&gt; Maybe Int
+</span><a href="#local-6989586621679210746"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210746"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210745"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679210745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210744"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679210745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Attribute' :: Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Aid%3AAttribute%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The type of attribute.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_type"><span class="hs-identifier hs-type">attribute_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="attribute_type"><span class="annot"><span class="annottext">attribute_type :: (Maybe EntitySubType -&gt; f (Maybe EntitySubType))
+-&gt; Attribute -&gt; f Attribute
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#attribute_type"><span class="hs-identifier hs-var hs-var">attribute_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Attribute -&gt; Maybe EntitySubType)
+-&gt; (Attribute -&gt; Maybe EntitySubType -&gt; Attribute)
+-&gt; Lens
+     Attribute Attribute (Maybe EntitySubType) (Maybe EntitySubType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210742"><span class="annot"><span class="annottext">Maybe EntitySubType
+type' :: Maybe EntitySubType
+$sel:type':Attribute' :: Attribute -&gt; Maybe EntitySubType
+</span><a href="#local-6989586621679210742"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntitySubType
+</span><a href="#local-6989586621679210742"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210741"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679210741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210740"><span class="annot"><span class="annottext">Maybe EntitySubType
+</span><a href="#local-6989586621679210740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679210741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Attribute' :: Maybe EntitySubType
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#%24sel%3Atype%27%3AAttribute%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntitySubType
+</span><a href="#local-6989586621679210740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210737"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679210735"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Attribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Attribute) -&gt; Value -&gt; Parser Attribute
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Attribute&quot;</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210732"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210732"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe EntityType
+-&gt; Maybe Double
+-&gt; Maybe [Trait]
+-&gt; Maybe RelationshipType
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe EntitySubType
+-&gt; Attribute
+</span><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-var">Attribute'</span></a></span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe EntityType
+ -&gt; Maybe Double
+ -&gt; Maybe [Trait]
+ -&gt; Maybe RelationshipType
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe EntitySubType
+ -&gt; Attribute)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe EntityType
+      -&gt; Maybe Double
+      -&gt; Maybe [Trait]
+      -&gt; Maybe RelationshipType
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe EntitySubType
+      -&gt; Attribute)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RelationshipScore&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe EntityType
+   -&gt; Maybe Double
+   -&gt; Maybe [Trait]
+   -&gt; Maybe RelationshipType
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe EntitySubType
+   -&gt; Attribute)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe EntityType
+      -&gt; Maybe Double
+      -&gt; Maybe [Trait]
+      -&gt; Maybe RelationshipType
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe EntitySubType
+      -&gt; Attribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BeginOffset&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe EntityType
+   -&gt; Maybe Double
+   -&gt; Maybe [Trait]
+   -&gt; Maybe RelationshipType
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe EntitySubType
+   -&gt; Attribute)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe EntityType
+      -&gt; Maybe Double
+      -&gt; Maybe [Trait]
+      -&gt; Maybe RelationshipType
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe EntitySubType
+      -&gt; Attribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Text&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EntityType
+   -&gt; Maybe Double
+   -&gt; Maybe [Trait]
+   -&gt; Maybe RelationshipType
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe EntitySubType
+   -&gt; Attribute)
+-&gt; Parser (Maybe EntityType)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe [Trait]
+      -&gt; Maybe RelationshipType
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe EntitySubType
+      -&gt; Attribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntityType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Category&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe [Trait]
+   -&gt; Maybe RelationshipType
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe EntitySubType
+   -&gt; Attribute)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe [Trait]
+      -&gt; Maybe RelationshipType
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe EntitySubType
+      -&gt; Attribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Score&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Trait]
+   -&gt; Maybe RelationshipType
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe EntitySubType
+   -&gt; Attribute)
+-&gt; Parser (Maybe [Trait])
+-&gt; Parser
+     (Maybe RelationshipType
+      -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe EntitySubType -&gt; Attribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Trait]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Traits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Trait]))
+-&gt; Maybe [Trait] -&gt; Parser (Maybe [Trait])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Trait]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RelationshipType
+   -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe EntitySubType -&gt; Attribute)
+-&gt; Parser (Maybe RelationshipType)
+-&gt; Parser
+     (Maybe Int -&gt; Maybe Int -&gt; Maybe EntitySubType -&gt; Attribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RelationshipType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RelationshipType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Int -&gt; Maybe EntitySubType -&gt; Attribute)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Int -&gt; Maybe EntitySubType -&gt; Attribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndOffset&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe EntitySubType -&gt; Attribute)
+-&gt; Parser (Maybe Int) -&gt; Parser (Maybe EntitySubType -&gt; Attribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EntitySubType -&gt; Attribute)
+-&gt; Parser (Maybe EntitySubType) -&gt; Parser Attribute
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntitySubType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210725"><span id="local-6989586621679210727"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span></span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210722"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

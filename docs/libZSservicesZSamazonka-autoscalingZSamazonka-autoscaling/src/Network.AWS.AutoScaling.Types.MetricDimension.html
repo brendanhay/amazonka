@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes the dimension of a metric.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMetricDimension' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679329014"><span id="local-6989586621679329015"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricDimension"><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-var">MetricDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricDimension%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-var">MetricDimension'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679329023"><span id="local-6989586621679329024"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricDimension"><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-var">MetricDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricDimension%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-var">MetricDimension'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the dimension.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AMetricDimension%27"><span class="annot"><span class="annottext">MetricDimension -&gt; Text
 </span><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#%24sel%3Aname%3AMetricDimension%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalue%3AMetricDimension%27"><span class="annot"><span class="annottext">MetricDimension -&gt; Text
 </span><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#%24sel%3Avalue%3AMetricDimension%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329007"><span id="local-6989586621679329009"><span class="annot"><span class="annottext">MetricDimension -&gt; MetricDimension -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329016"><span id="local-6989586621679329018"><span class="annot"><span class="annottext">MetricDimension -&gt; MetricDimension -&gt; Bool
 (MetricDimension -&gt; MetricDimension -&gt; Bool)
 -&gt; (MetricDimension -&gt; MetricDimension -&gt; Bool)
 -&gt; Eq MetricDimension
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricDimension -&gt; MetricDimension -&gt; Bool
 == :: MetricDimension -&gt; MetricDimension -&gt; Bool
 $c== :: MetricDimension -&gt; MetricDimension -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328998"><span id="local-6989586621679329000"><span id="local-6989586621679329002"><span id="local-6989586621679329004"><span class="annot"><span class="annottext">ReadPrec [MetricDimension]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329007"><span id="local-6989586621679329009"><span id="local-6989586621679329011"><span id="local-6989586621679329013"><span class="annot"><span class="annottext">ReadPrec [MetricDimension]
 ReadPrec MetricDimension
 Int -&gt; ReadS MetricDimension
 ReadS [MetricDimension]
@@ -63,7 +63,7 @@ readList :: ReadS [MetricDimension]
 $creadList :: ReadS [MetricDimension]
 readsPrec :: Int -&gt; ReadS MetricDimension
 $creadsPrec :: Int -&gt; ReadS MetricDimension
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328991"><span id="local-6989586621679328993"><span id="local-6989586621679328995"><span class="annot"><span class="annottext">Int -&gt; MetricDimension -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329000"><span id="local-6989586621679329002"><span id="local-6989586621679329004"><span class="annot"><span class="annottext">Int -&gt; MetricDimension -&gt; ShowS
 [MetricDimension] -&gt; ShowS
 MetricDimension -&gt; String
 (Int -&gt; MetricDimension -&gt; ShowS)
@@ -107,15 +107,15 @@ $cfrom :: forall x. MetricDimension -&gt; Rep MetricDimension x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span>
 </span><span id="line-54"></span><span id="newMetricDimension"><span class="annot"><span class="annottext">newMetricDimension :: Text -&gt; Text -&gt; MetricDimension
-</span><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#newMetricDimension"><span class="hs-identifier hs-var hs-var">newMetricDimension</span></a></span></span><span> </span><span id="local-6989586621679328985"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328985"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679328984"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328984"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#newMetricDimension"><span class="hs-identifier hs-var hs-var">newMetricDimension</span></a></span></span><span> </span><span id="local-6989586621679328994"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328994"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679328993"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328993"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">MetricDimension' :: Text -&gt; Text -&gt; MetricDimension
 </span><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MetricDimension' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#%24sel%3Aname%3AMetricDimension%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328985"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:MetricDimension' :: Text
+</span><a href="#local-6989586621679328994"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:MetricDimension' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#%24sel%3Avalue%3AMetricDimension%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328984"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679328993"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | The name of the dimension.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#metricDimension_name"><span class="hs-identifier hs-type">metricDimension_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -124,16 +124,16 @@ $cfrom :: forall x. MetricDimension -&gt; Rep MetricDimension x
 -&gt; (MetricDimension -&gt; Text -&gt; MetricDimension)
 -&gt; Lens MetricDimension MetricDimension Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328980"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328989"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:MetricDimension' :: MetricDimension -&gt; Text
-</span><a href="#local-6989586621679328980"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328980"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328979"><span class="annot"><span class="annottext">s :: MetricDimension
-</span><a href="#local-6989586621679328979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328978"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDimension
-</span><a href="#local-6989586621679328979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MetricDimension' :: Text
+</span><a href="#local-6989586621679328989"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328989"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328988"><span class="annot"><span class="annottext">s :: MetricDimension
+</span><a href="#local-6989586621679328988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328987"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDimension
+</span><a href="#local-6989586621679328988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MetricDimension' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#%24sel%3Aname%3AMetricDimension%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The value of the dimension.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#metricDimension_value"><span class="hs-identifier hs-type">metricDimension_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -142,51 +142,51 @@ $sel:name:MetricDimension' :: MetricDimension -&gt; Text
 -&gt; (MetricDimension -&gt; Text -&gt; MetricDimension)
 -&gt; Lens MetricDimension MetricDimension Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328976"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328985"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:MetricDimension' :: MetricDimension -&gt; Text
-</span><a href="#local-6989586621679328976"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328976"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328975"><span class="annot"><span class="annottext">s :: MetricDimension
-</span><a href="#local-6989586621679328975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328974"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDimension
-</span><a href="#local-6989586621679328975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:MetricDimension' :: Text
+</span><a href="#local-6989586621679328985"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328985"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328984"><span class="annot"><span class="annottext">s :: MetricDimension
+</span><a href="#local-6989586621679328984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328983"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDimension
+</span><a href="#local-6989586621679328984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:MetricDimension' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#%24sel%3Avalue%3AMetricDimension%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679328971"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MetricDimension
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679328969"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679328969"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679328980"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MetricDimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679328978"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679328978"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; MetricDimension
 </span><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-var">MetricDimension'</span></a></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; MetricDimension)
 -&gt; Either String Text -&gt; Either String (Text -&gt; MetricDimension)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679328969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679328978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Text -&gt; MetricDimension)
 -&gt; Either String Text -&gt; Either String MetricDimension
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679328969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679328978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328963"><span id="local-6989586621679328965"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328972"><span id="local-6989586621679328974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679328956"><span class="annot"><span class="annottext">toQuery :: MetricDimension -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328953"><span id="local-6989586621679328954"><span class="annot"><span class="annottext">Text
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679328965"><span class="annot"><span class="annottext">toQuery :: MetricDimension -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328962"><span id="local-6989586621679328963"><span class="annot"><span class="annottext">Text
 value :: Text
 name :: Text
 $sel:value:MetricDimension' :: MetricDimension -&gt; Text
 $sel:name:MetricDimension' :: MetricDimension -&gt; Text
-</span><a href="#local-6989586621679328953"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679328962"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -194,9 +194,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328954"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679328963"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328953"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679328962"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span></pre></body></html>

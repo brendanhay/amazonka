@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The ID of the outpost subnet.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSubnetOutpost' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679406673"><span id="local-6989586621679406674"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubnetOutpost"><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost"><span class="hs-identifier hs-var">SubnetOutpost</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubnetOutpost%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost%27"><span class="hs-identifier hs-var">SubnetOutpost'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679406682"><span id="local-6989586621679406683"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubnetOutpost"><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost"><span class="hs-identifier hs-var">SubnetOutpost</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubnetOutpost%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost%27"><span class="hs-identifier hs-var">SubnetOutpost'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The outpost ARN of the subnet.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AsubnetOutpostArn%3ASubnetOutpost%27"><span class="annot"><span class="annottext">SubnetOutpost -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#%24sel%3AsubnetOutpostArn%3ASubnetOutpost%27"><span class="hs-identifier hs-var hs-var">subnetOutpostArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406667"><span id="local-6989586621679406669"><span class="annot"><span class="annottext">SubnetOutpost -&gt; SubnetOutpost -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406676"><span id="local-6989586621679406678"><span class="annot"><span class="annottext">SubnetOutpost -&gt; SubnetOutpost -&gt; Bool
 (SubnetOutpost -&gt; SubnetOutpost -&gt; Bool)
 -&gt; (SubnetOutpost -&gt; SubnetOutpost -&gt; Bool) -&gt; Eq SubnetOutpost
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SubnetOutpost -&gt; SubnetOutpost -&gt; Bool
 == :: SubnetOutpost -&gt; SubnetOutpost -&gt; Bool
 $c== :: SubnetOutpost -&gt; SubnetOutpost -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406658"><span id="local-6989586621679406660"><span id="local-6989586621679406662"><span id="local-6989586621679406664"><span class="annot"><span class="annottext">ReadPrec [SubnetOutpost]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406667"><span id="local-6989586621679406669"><span id="local-6989586621679406671"><span id="local-6989586621679406673"><span class="annot"><span class="annottext">ReadPrec [SubnetOutpost]
 ReadPrec SubnetOutpost
 Int -&gt; ReadS SubnetOutpost
 ReadS [SubnetOutpost]
@@ -59,7 +59,7 @@ readList :: ReadS [SubnetOutpost]
 $creadList :: ReadS [SubnetOutpost]
 readsPrec :: Int -&gt; ReadS SubnetOutpost
 $creadsPrec :: Int -&gt; ReadS SubnetOutpost
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406651"><span id="local-6989586621679406653"><span id="local-6989586621679406655"><span class="annot"><span class="annottext">Int -&gt; SubnetOutpost -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406660"><span id="local-6989586621679406662"><span id="local-6989586621679406664"><span class="annot"><span class="annottext">Int -&gt; SubnetOutpost -&gt; ShowS
 [SubnetOutpost] -&gt; ShowS
 SubnetOutpost -&gt; String
 (Int -&gt; SubnetOutpost -&gt; ShowS)
@@ -111,33 +111,33 @@ forall a. Maybe a
 -&gt; (SubnetOutpost -&gt; Maybe Text -&gt; SubnetOutpost)
 -&gt; Lens SubnetOutpost SubnetOutpost (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost%27"><span class="hs-identifier hs-type">SubnetOutpost'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406642"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost%27"><span class="hs-identifier hs-type">SubnetOutpost'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406651"><span class="annot"><span class="annottext">Maybe Text
 subnetOutpostArn :: Maybe Text
 $sel:subnetOutpostArn:SubnetOutpost' :: SubnetOutpost -&gt; Maybe Text
-</span><a href="#local-6989586621679406642"><span class="hs-identifier hs-var hs-var">subnetOutpostArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406642"><span class="hs-identifier hs-var">subnetOutpostArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406641"><span class="annot"><span class="annottext">s :: SubnetOutpost
-</span><a href="#local-6989586621679406641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost%27"><span class="hs-identifier hs-type">SubnetOutpost'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406640"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetOutpost
-</span><a href="#local-6989586621679406641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetOutpostArn:SubnetOutpost' :: Maybe Text
+</span><a href="#local-6989586621679406651"><span class="hs-identifier hs-var hs-var">subnetOutpostArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406651"><span class="hs-identifier hs-var">subnetOutpostArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406650"><span class="annot"><span class="annottext">s :: SubnetOutpost
+</span><a href="#local-6989586621679406650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost%27"><span class="hs-identifier hs-type">SubnetOutpost'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406649"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetOutpost
+</span><a href="#local-6989586621679406650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetOutpostArn:SubnetOutpost' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#%24sel%3AsubnetOutpostArn%3ASubnetOutpost%27"><span class="hs-identifier hs-var">subnetOutpostArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost"><span class="hs-identifier hs-type">SubnetOutpost</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679406649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost"><span class="hs-identifier hs-type">SubnetOutpost</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost"><span class="hs-identifier hs-type">SubnetOutpost</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679406637"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SubnetOutpost
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679406635"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406635"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679406646"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SubnetOutpost
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679406644"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679406644"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; SubnetOutpost
 </span><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost%27"><span class="hs-identifier hs-var">SubnetOutpost'</span></a></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; SubnetOutpost)
 -&gt; Either String (Maybe Text) -&gt; Either String SubnetOutpost
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679406644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubnetOutpostArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406629"><span id="local-6989586621679406631"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost"><span class="hs-identifier hs-type">SubnetOutpost</span></a></span></span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406638"><span id="local-6989586621679406640"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost"><span class="hs-identifier hs-type">SubnetOutpost</span></a></span></span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406626"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost"><span class="hs-identifier hs-type">SubnetOutpost</span></a></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406635"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SubnetOutpost.html#SubnetOutpost"><span class="hs-identifier hs-type">SubnetOutpost</span></a></span></span><span>
 </span><span id="line-61"></span></pre></body></html>

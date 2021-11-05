@@ -54,12 +54,12 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | The input for the ListPolicyVersions operation.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newListPolicyVersions' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679822571"><span id="local-6989586621679822572"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPolicyVersions"><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-var">ListPolicyVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPolicyVersions%27"><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions%27"><span class="hs-identifier hs-var">ListPolicyVersions'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679822580"><span id="local-6989586621679822581"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPolicyVersions"><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-var">ListPolicyVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPolicyVersions%27"><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions%27"><span class="hs-identifier hs-var">ListPolicyVersions'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The policy name.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3ApolicyName%3AListPolicyVersions%27"><span class="annot"><span class="annottext">ListPolicyVersions -&gt; Text
 </span><a href="Network.AWS.IoT.ListPolicyVersions.html#%24sel%3ApolicyName%3AListPolicyVersions%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679822565"><span id="local-6989586621679822567"><span class="annot"><span class="annottext">ListPolicyVersions -&gt; ListPolicyVersions -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679822574"><span id="local-6989586621679822576"><span class="annot"><span class="annottext">ListPolicyVersions -&gt; ListPolicyVersions -&gt; Bool
 (ListPolicyVersions -&gt; ListPolicyVersions -&gt; Bool)
 -&gt; (ListPolicyVersions -&gt; ListPolicyVersions -&gt; Bool)
 -&gt; Eq ListPolicyVersions
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListPolicyVersions -&gt; ListPolicyVersions -&gt; Bool
 == :: ListPolicyVersions -&gt; ListPolicyVersions -&gt; Bool
 $c== :: ListPolicyVersions -&gt; ListPolicyVersions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679822556"><span id="local-6989586621679822558"><span id="local-6989586621679822560"><span id="local-6989586621679822562"><span class="annot"><span class="annottext">ReadPrec [ListPolicyVersions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679822565"><span id="local-6989586621679822567"><span id="local-6989586621679822569"><span id="local-6989586621679822571"><span class="annot"><span class="annottext">ReadPrec [ListPolicyVersions]
 ReadPrec ListPolicyVersions
 Int -&gt; ReadS ListPolicyVersions
 ReadS [ListPolicyVersions]
@@ -88,7 +88,7 @@ readList :: ReadS [ListPolicyVersions]
 $creadList :: ReadS [ListPolicyVersions]
 readsPrec :: Int -&gt; ReadS ListPolicyVersions
 $creadsPrec :: Int -&gt; ReadS ListPolicyVersions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679822549"><span id="local-6989586621679822551"><span id="local-6989586621679822553"><span class="annot"><span class="annottext">Int -&gt; ListPolicyVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679822558"><span id="local-6989586621679822560"><span id="local-6989586621679822562"><span class="annot"><span class="annottext">Int -&gt; ListPolicyVersions -&gt; ShowS
 [ListPolicyVersions] -&gt; ShowS
 ListPolicyVersions -&gt; String
 (Int -&gt; ListPolicyVersions -&gt; ShowS)
@@ -128,12 +128,12 @@ $cfrom :: forall x. ListPolicyVersions -&gt; Rep ListPolicyVersions x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-type">ListPolicyVersions</span></a></span><span>
 </span><span id="line-76"></span><span id="newListPolicyVersions"><span class="annot"><span class="annottext">newListPolicyVersions :: Text -&gt; ListPolicyVersions
-</span><a href="Network.AWS.IoT.ListPolicyVersions.html#newListPolicyVersions"><span class="hs-identifier hs-var hs-var">newListPolicyVersions</span></a></span></span><span> </span><span id="local-6989586621679822544"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679822544"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListPolicyVersions.html#newListPolicyVersions"><span class="hs-identifier hs-var hs-var">newListPolicyVersions</span></a></span></span><span> </span><span id="local-6989586621679822553"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679822553"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">ListPolicyVersions' :: Text -&gt; ListPolicyVersions
 </span><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions%27"><span class="hs-identifier hs-type">ListPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:ListPolicyVersions' :: Text
 </span><a href="Network.AWS.IoT.ListPolicyVersions.html#%24sel%3ApolicyName%3AListPolicyVersions%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679822544"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679822553"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The policy name.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#listPolicyVersions_policyName"><span class="hs-identifier hs-type">listPolicyVersions_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-type">ListPolicyVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -142,27 +142,27 @@ $cfrom :: forall x. ListPolicyVersions -&gt; Rep ListPolicyVersions x
 -&gt; (ListPolicyVersions -&gt; Text -&gt; ListPolicyVersions)
 -&gt; Lens ListPolicyVersions ListPolicyVersions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions%27"><span class="hs-identifier hs-type">ListPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822541"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions%27"><span class="hs-identifier hs-type">ListPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822550"><span class="annot"><span class="annottext">Text
 policyName :: Text
 $sel:policyName:ListPolicyVersions' :: ListPolicyVersions -&gt; Text
-</span><a href="#local-6989586621679822541"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679822541"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679822540"><span class="annot"><span class="annottext">s :: ListPolicyVersions
-</span><a href="#local-6989586621679822540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions%27"><span class="hs-identifier hs-type">ListPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822539"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679822539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyVersions
-</span><a href="#local-6989586621679822540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:ListPolicyVersions' :: Text
+</span><a href="#local-6989586621679822550"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679822550"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679822549"><span class="annot"><span class="annottext">s :: ListPolicyVersions
+</span><a href="#local-6989586621679822549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions%27"><span class="hs-identifier hs-type">ListPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822548"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679822548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyVersions
+</span><a href="#local-6989586621679822549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:ListPolicyVersions' :: Text
 </span><a href="Network.AWS.IoT.ListPolicyVersions.html#%24sel%3ApolicyName%3AListPolicyVersions%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679822539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-type">ListPolicyVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679822548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-type">ListPolicyVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-type">ListPolicyVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-type">ListPolicyVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse"><span class="hs-identifier hs-type">ListPolicyVersionsResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679822535"><span class="annot"><span class="annottext">request :: ListPolicyVersions -&gt; Request ListPolicyVersions
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679822544"><span class="annot"><span class="annottext">request :: ListPolicyVersions -&gt; Request ListPolicyVersions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListPolicyVersions -&gt; Request ListPolicyVersions
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679822531"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679822540"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListPolicyVersions
 -&gt; ClientResponse ClientBody
@@ -188,10 +188,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679822528"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679822528"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679822527"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679822527"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679822526"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679822526"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679822537"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679822537"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679822536"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679822536"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679822535"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679822535"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PolicyVersion] -&gt; Int -&gt; ListPolicyVersionsResponse
 </span><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse%27"><span class="hs-identifier hs-var">ListPolicyVersionsResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PolicyVersion] -&gt; Int -&gt; ListPolicyVersionsResponse)
@@ -199,7 +199,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ListPolicyVersionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679822526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PolicyVersion]))
+</span><a href="#local-6989586621679822535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PolicyVersion]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;policyVersions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PolicyVersion]))
@@ -216,15 +216,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679822528"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679822537"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679822517"><span id="local-6989586621679822519"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-type">ListPolicyVersions</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679822526"><span id="local-6989586621679822528"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-type">ListPolicyVersions</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679822514"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-type">ListPolicyVersions</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679822523"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-type">ListPolicyVersions</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-type">ListPolicyVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679822510"><span class="annot"><span class="annottext">toHeaders :: ListPolicyVersions -&gt; ResponseHeaders
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679822519"><span class="annot"><span class="annottext">toHeaders :: ListPolicyVersions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPolicyVersions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -232,11 +232,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-type">ListPolicyVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679822505"><span class="annot"><span class="annottext">toPath :: ListPolicyVersions -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions%27"><span class="hs-identifier hs-type">ListPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822503"><span class="annot"><span class="annottext">Text
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679822514"><span class="annot"><span class="annottext">toPath :: ListPolicyVersions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions%27"><span class="hs-identifier hs-type">ListPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822512"><span class="annot"><span class="annottext">Text
 policyName :: Text
 $sel:policyName:ListPolicyVersions' :: ListPolicyVersions -&gt; Text
-</span><a href="#local-6989586621679822503"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679822512"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -244,11 +244,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/policies/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679822503"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679822512"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/version&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersions"><span class="hs-identifier hs-type">ListPolicyVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679822499"><span class="annot"><span class="annottext">toQuery :: ListPolicyVersions -&gt; QueryString
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679822508"><span class="annot"><span class="annottext">toQuery :: ListPolicyVersions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListPolicyVersions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -258,7 +258,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-111"></span><span class="hs-comment">-- | The output from the ListPolicyVersions operation.</span><span>
 </span><span id="line-112"></span><span class="hs-comment">--</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- /See:/ 'newListPolicyVersionsResponse' smart constructor.</span><span>
-</span><span id="line-114"></span><span id="local-6989586621679822496"><span id="local-6989586621679822497"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPolicyVersionsResponse"><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse"><span class="hs-identifier hs-var">ListPolicyVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPolicyVersionsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse%27"><span class="hs-identifier hs-var">ListPolicyVersionsResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span id="local-6989586621679822505"><span id="local-6989586621679822506"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPolicyVersionsResponse"><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse"><span class="hs-identifier hs-var">ListPolicyVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPolicyVersionsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse%27"><span class="hs-identifier hs-var">ListPolicyVersionsResponse'</span></a></span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The policy versions.</span><span>
 </span><span id="line-116"></span><span>    </span><span id="%24sel%3ApolicyVersions%3AListPolicyVersionsResponse%27"><span class="annot"><span class="annottext">ListPolicyVersionsResponse -&gt; Maybe [PolicyVersion]
 </span><a href="Network.AWS.IoT.ListPolicyVersions.html#%24sel%3ApolicyVersions%3AListPolicyVersionsResponse%27"><span class="hs-identifier hs-var hs-var">policyVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -266,7 +266,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPolicyVersionsResponse%27"><span class="annot"><span class="annottext">ListPolicyVersionsResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListPolicyVersions.html#%24sel%3AhttpStatus%3AListPolicyVersionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679822490"><span id="local-6989586621679822492"><span class="annot"><span class="annottext">ListPolicyVersionsResponse -&gt; ListPolicyVersionsResponse -&gt; Bool
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679822499"><span id="local-6989586621679822501"><span class="annot"><span class="annottext">ListPolicyVersionsResponse -&gt; ListPolicyVersionsResponse -&gt; Bool
 (ListPolicyVersionsResponse -&gt; ListPolicyVersionsResponse -&gt; Bool)
 -&gt; (ListPolicyVersionsResponse
     -&gt; ListPolicyVersionsResponse -&gt; Bool)
@@ -276,7 +276,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListPolicyVersionsResponse -&gt; ListPolicyVersionsResponse -&gt; Bool
 == :: ListPolicyVersionsResponse -&gt; ListPolicyVersionsResponse -&gt; Bool
 $c== :: ListPolicyVersionsResponse -&gt; ListPolicyVersionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679822482"><span id="local-6989586621679822484"><span id="local-6989586621679822486"><span id="local-6989586621679822488"><span class="annot"><span class="annottext">ReadPrec [ListPolicyVersionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679822491"><span id="local-6989586621679822493"><span id="local-6989586621679822495"><span id="local-6989586621679822497"><span class="annot"><span class="annottext">ReadPrec [ListPolicyVersionsResponse]
 ReadPrec ListPolicyVersionsResponse
 Int -&gt; ReadS ListPolicyVersionsResponse
 ReadS [ListPolicyVersionsResponse]
@@ -296,7 +296,7 @@ readList :: ReadS [ListPolicyVersionsResponse]
 $creadList :: ReadS [ListPolicyVersionsResponse]
 readsPrec :: Int -&gt; ReadS ListPolicyVersionsResponse
 $creadsPrec :: Int -&gt; ReadS ListPolicyVersionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679822476"><span id="local-6989586621679822478"><span id="local-6989586621679822480"><span class="annot"><span class="annottext">Int -&gt; ListPolicyVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679822485"><span id="local-6989586621679822487"><span id="local-6989586621679822489"><span class="annot"><span class="annottext">Int -&gt; ListPolicyVersionsResponse -&gt; ShowS
 [ListPolicyVersionsResponse] -&gt; ShowS
 ListPolicyVersionsResponse -&gt; String
 (Int -&gt; ListPolicyVersionsResponse -&gt; ShowS)
@@ -344,8 +344,8 @@ ListPolicyVersionsResponse -&gt; Rep ListPolicyVersionsResponse x
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse"><span class="hs-identifier hs-type">ListPolicyVersionsResponse</span></a></span><span>
 </span><span id="line-137"></span><span id="newListPolicyVersionsResponse"><span class="annot"><span class="annottext">newListPolicyVersionsResponse :: Int -&gt; ListPolicyVersionsResponse
-</span><a href="Network.AWS.IoT.ListPolicyVersions.html#newListPolicyVersionsResponse"><span class="hs-identifier hs-var hs-var">newListPolicyVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679822473"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679822473"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListPolicyVersions.html#newListPolicyVersionsResponse"><span class="hs-identifier hs-var hs-var">newListPolicyVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679822482"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679822482"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">ListPolicyVersionsResponse' :: Maybe [PolicyVersion] -&gt; Int -&gt; ListPolicyVersionsResponse
 </span><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListPolicyVersionsResponse'</span></a></span><span>
 </span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyVersions:ListPolicyVersionsResponse' :: Maybe [PolicyVersion]
@@ -355,7 +355,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPolicyVersionsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListPolicyVersions.html#%24sel%3AhttpStatus%3AListPolicyVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679822473"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679822482"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The policy versions.</span><span>
@@ -371,16 +371,16 @@ forall a. Maybe a
      (Maybe [PolicyVersion])
      (Maybe [PolicyVersion])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822472"><span class="annot"><span class="annottext">Maybe [PolicyVersion]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822481"><span class="annot"><span class="annottext">Maybe [PolicyVersion]
 policyVersions :: Maybe [PolicyVersion]
 $sel:policyVersions:ListPolicyVersionsResponse' :: ListPolicyVersionsResponse -&gt; Maybe [PolicyVersion]
-</span><a href="#local-6989586621679822472"><span class="hs-identifier hs-var hs-var">policyVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyVersion]
-</span><a href="#local-6989586621679822472"><span class="hs-identifier hs-var">policyVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679822471"><span class="annot"><span class="annottext">s :: ListPolicyVersionsResponse
-</span><a href="#local-6989586621679822471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822470"><span class="annot"><span class="annottext">Maybe [PolicyVersion]
-</span><a href="#local-6989586621679822470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyVersionsResponse
-</span><a href="#local-6989586621679822471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyVersions:ListPolicyVersionsResponse' :: Maybe [PolicyVersion]
+</span><a href="#local-6989586621679822481"><span class="hs-identifier hs-var hs-var">policyVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyVersion]
+</span><a href="#local-6989586621679822481"><span class="hs-identifier hs-var">policyVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679822480"><span class="annot"><span class="annottext">s :: ListPolicyVersionsResponse
+</span><a href="#local-6989586621679822480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822479"><span class="annot"><span class="annottext">Maybe [PolicyVersion]
+</span><a href="#local-6989586621679822479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyVersionsResponse
+</span><a href="#local-6989586621679822480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyVersions:ListPolicyVersionsResponse' :: Maybe [PolicyVersion]
 </span><a href="Network.AWS.IoT.ListPolicyVersions.html#%24sel%3ApolicyVersions%3AListPolicyVersionsResponse%27"><span class="hs-identifier hs-var">policyVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyVersion]
-</span><a href="#local-6989586621679822470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse"><span class="hs-identifier hs-type">ListPolicyVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyVersion] -&gt; f (Maybe [PolicyVersion]))
+</span><a href="#local-6989586621679822479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse"><span class="hs-identifier hs-type">ListPolicyVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyVersion] -&gt; f (Maybe [PolicyVersion]))
  -&gt; ListPolicyVersionsResponse -&gt; f ListPolicyVersionsResponse)
 -&gt; ((Maybe [PolicyVersion] -&gt; f (Maybe [PolicyVersion]))
     -&gt; Maybe [PolicyVersion] -&gt; f (Maybe [PolicyVersion]))
@@ -413,16 +413,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListPolicyVersionsResponse ListPolicyVersionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822466"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822475"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListPolicyVersionsResponse' :: ListPolicyVersionsResponse -&gt; Int
-</span><a href="#local-6989586621679822466"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679822466"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679822465"><span class="annot"><span class="annottext">s :: ListPolicyVersionsResponse
-</span><a href="#local-6989586621679822465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822464"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679822464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyVersionsResponse
-</span><a href="#local-6989586621679822465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPolicyVersionsResponse' :: Int
+</span><a href="#local-6989586621679822475"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679822475"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679822474"><span class="annot"><span class="annottext">s :: ListPolicyVersionsResponse
+</span><a href="#local-6989586621679822474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822473"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679822473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyVersionsResponse
+</span><a href="#local-6989586621679822474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPolicyVersionsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListPolicyVersions.html#%24sel%3AhttpStatus%3AListPolicyVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679822464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse"><span class="hs-identifier hs-type">ListPolicyVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679822473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse"><span class="hs-identifier hs-type">ListPolicyVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679822462"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse"><span class="hs-identifier hs-type">ListPolicyVersionsResponse</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679822471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListPolicyVersions.html#ListPolicyVersionsResponse"><span class="hs-identifier hs-type">ListPolicyVersionsResponse</span></a></span></span><span>
 </span><span id="line-153"></span></pre></body></html>

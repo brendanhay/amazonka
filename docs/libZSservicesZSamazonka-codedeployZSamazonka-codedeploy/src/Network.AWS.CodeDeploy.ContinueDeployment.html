@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newContinueDeployment' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679325780"><span id="local-6989586621679325781"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContinueDeployment"><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-var">ContinueDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinueDeployment%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment%27"><span class="hs-identifier hs-var">ContinueDeployment'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679325789"><span id="local-6989586621679325790"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContinueDeployment"><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-var">ContinueDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinueDeployment%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment%27"><span class="hs-identifier hs-var">ContinueDeployment'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of a blue\/green deployment for which you want to start</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- rerouting traffic to the replacement environment.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdeploymentId%3AContinueDeployment%27"><span class="annot"><span class="annottext">ContinueDeployment -&gt; Maybe Text
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AdeploymentWaitType%3AContinueDeployment%27"><span class="annot"><span class="annottext">ContinueDeployment -&gt; Maybe DeploymentWaitType
 </span><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#%24sel%3AdeploymentWaitType%3AContinueDeployment%27"><span class="hs-identifier hs-var hs-var">deploymentWaitType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentWaitType.html#DeploymentWaitType"><span class="hs-identifier hs-type">DeploymentWaitType</span></a></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325773"><span id="local-6989586621679325775"><span class="annot"><span class="annottext">ContinueDeployment -&gt; ContinueDeployment -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325782"><span id="local-6989586621679325784"><span class="annot"><span class="annottext">ContinueDeployment -&gt; ContinueDeployment -&gt; Bool
 (ContinueDeployment -&gt; ContinueDeployment -&gt; Bool)
 -&gt; (ContinueDeployment -&gt; ContinueDeployment -&gt; Bool)
 -&gt; Eq ContinueDeployment
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContinueDeployment -&gt; ContinueDeployment -&gt; Bool
 == :: ContinueDeployment -&gt; ContinueDeployment -&gt; Bool
 $c== :: ContinueDeployment -&gt; ContinueDeployment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325764"><span id="local-6989586621679325766"><span id="local-6989586621679325768"><span id="local-6989586621679325770"><span class="annot"><span class="annottext">ReadPrec [ContinueDeployment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325773"><span id="local-6989586621679325775"><span id="local-6989586621679325777"><span id="local-6989586621679325779"><span class="annot"><span class="annottext">ReadPrec [ContinueDeployment]
 ReadPrec ContinueDeployment
 Int -&gt; ReadS ContinueDeployment
 ReadS [ContinueDeployment]
@@ -90,7 +90,7 @@ readList :: ReadS [ContinueDeployment]
 $creadList :: ReadS [ContinueDeployment]
 readsPrec :: Int -&gt; ReadS ContinueDeployment
 $creadsPrec :: Int -&gt; ReadS ContinueDeployment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325757"><span id="local-6989586621679325759"><span id="local-6989586621679325761"><span class="annot"><span class="annottext">Int -&gt; ContinueDeployment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325766"><span id="local-6989586621679325768"><span id="local-6989586621679325770"><span class="annot"><span class="annottext">Int -&gt; ContinueDeployment -&gt; ShowS
 [ContinueDeployment] -&gt; ShowS
 ContinueDeployment -&gt; String
 (Int -&gt; ContinueDeployment -&gt; ShowS)
@@ -157,16 +157,16 @@ forall a. Maybe a
 -&gt; Lens
      ContinueDeployment ContinueDeployment (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment%27"><span class="hs-identifier hs-type">ContinueDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325750"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment%27"><span class="hs-identifier hs-type">ContinueDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325759"><span class="annot"><span class="annottext">Maybe Text
 deploymentId :: Maybe Text
 $sel:deploymentId:ContinueDeployment' :: ContinueDeployment -&gt; Maybe Text
-</span><a href="#local-6989586621679325750"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325750"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325749"><span class="annot"><span class="annottext">s :: ContinueDeployment
-</span><a href="#local-6989586621679325749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment%27"><span class="hs-identifier hs-type">ContinueDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325748"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinueDeployment
-</span><a href="#local-6989586621679325749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:ContinueDeployment' :: Maybe Text
+</span><a href="#local-6989586621679325759"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325759"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325758"><span class="annot"><span class="annottext">s :: ContinueDeployment
+</span><a href="#local-6989586621679325758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment%27"><span class="hs-identifier hs-type">ContinueDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325757"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinueDeployment
+</span><a href="#local-6989586621679325758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:ContinueDeployment' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#%24sel%3AdeploymentId%3AContinueDeployment%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The status of the deployment\'s waiting period. @READY_WAIT@ indicates</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- that the deployment is ready to start shifting traffic.</span><span>
@@ -184,27 +184,27 @@ $sel:deploymentId:ContinueDeployment' :: ContinueDeployment -&gt; Maybe Text
      (Maybe DeploymentWaitType)
      (Maybe DeploymentWaitType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment%27"><span class="hs-identifier hs-type">ContinueDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325747"><span class="annot"><span class="annottext">Maybe DeploymentWaitType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment%27"><span class="hs-identifier hs-type">ContinueDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325756"><span class="annot"><span class="annottext">Maybe DeploymentWaitType
 deploymentWaitType :: Maybe DeploymentWaitType
 $sel:deploymentWaitType:ContinueDeployment' :: ContinueDeployment -&gt; Maybe DeploymentWaitType
-</span><a href="#local-6989586621679325747"><span class="hs-identifier hs-var hs-var">deploymentWaitType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentWaitType
-</span><a href="#local-6989586621679325747"><span class="hs-identifier hs-var">deploymentWaitType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325746"><span class="annot"><span class="annottext">s :: ContinueDeployment
-</span><a href="#local-6989586621679325746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment%27"><span class="hs-identifier hs-type">ContinueDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325745"><span class="annot"><span class="annottext">Maybe DeploymentWaitType
-</span><a href="#local-6989586621679325745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinueDeployment
-</span><a href="#local-6989586621679325746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentWaitType:ContinueDeployment' :: Maybe DeploymentWaitType
+</span><a href="#local-6989586621679325756"><span class="hs-identifier hs-var hs-var">deploymentWaitType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentWaitType
+</span><a href="#local-6989586621679325756"><span class="hs-identifier hs-var">deploymentWaitType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325755"><span class="annot"><span class="annottext">s :: ContinueDeployment
+</span><a href="#local-6989586621679325755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment%27"><span class="hs-identifier hs-type">ContinueDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325754"><span class="annot"><span class="annottext">Maybe DeploymentWaitType
+</span><a href="#local-6989586621679325754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinueDeployment
+</span><a href="#local-6989586621679325755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentWaitType:ContinueDeployment' :: Maybe DeploymentWaitType
 </span><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#%24sel%3AdeploymentWaitType%3AContinueDeployment%27"><span class="hs-identifier hs-var">deploymentWaitType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentWaitType
-</span><a href="#local-6989586621679325745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeploymentResponse"><span class="hs-identifier hs-type">ContinueDeploymentResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679325741"><span class="annot"><span class="annottext">request :: ContinueDeployment -&gt; Request ContinueDeployment
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679325750"><span class="annot"><span class="annottext">request :: ContinueDeployment -&gt; Request ContinueDeployment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ContinueDeployment -&gt; Request ContinueDeployment
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679325737"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679325746"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ContinueDeployment
 -&gt; ClientResponse ClientBody
@@ -230,12 +230,12 @@ AWSResponse a
 ContinueDeploymentResponse
 </span><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeploymentResponse%27"><span class="hs-identifier hs-var">ContinueDeploymentResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325730"><span id="local-6989586621679325732"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325739"><span id="local-6989586621679325741"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325727"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679325723"><span class="annot"><span class="annottext">toHeaders :: ContinueDeployment -&gt; [Header]
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679325732"><span class="annot"><span class="annottext">toHeaders :: ContinueDeployment -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; ContinueDeployment -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -262,15 +262,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325713"><span id="local-6989586621679325715"><span id="local-6989586621679325717"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679325711"><span class="annot"><span class="annottext">toJSON :: ContinueDeployment -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment%27"><span class="hs-identifier hs-type">ContinueDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325708"><span id="local-6989586621679325709"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325722"><span id="local-6989586621679325724"><span id="local-6989586621679325726"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679325720"><span class="annot"><span class="annottext">toJSON :: ContinueDeployment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment%27"><span class="hs-identifier hs-type">ContinueDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325717"><span id="local-6989586621679325718"><span class="annot"><span class="annottext">Maybe Text
 Maybe DeploymentWaitType
 deploymentWaitType :: Maybe DeploymentWaitType
 deploymentId :: Maybe Text
 $sel:deploymentWaitType:ContinueDeployment' :: ContinueDeployment -&gt; Maybe DeploymentWaitType
 $sel:deploymentId:ContinueDeployment' :: ContinueDeployment -&gt; Maybe Text
-</span><a href="#local-6989586621679325708"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679325717"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -282,7 +282,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325709"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679325718"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deploymentWaitType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeploymentWaitType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -291,19 +291,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DeploymentWaitType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentWaitType
-</span><a href="#local-6989586621679325708"><span class="hs-identifier hs-var">deploymentWaitType</span></a></span><span>
+</span><a href="#local-6989586621679325717"><span class="hs-identifier hs-var">deploymentWaitType</span></a></span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679325701"><span class="annot"><span class="annottext">toPath :: ContinueDeployment -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679325710"><span class="annot"><span class="annottext">toPath :: ContinueDeployment -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ContinueDeployment -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeployment"><span class="hs-identifier hs-type">ContinueDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679325697"><span class="annot"><span class="annottext">toQuery :: ContinueDeployment -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679325706"><span class="annot"><span class="annottext">toQuery :: ContinueDeployment -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ContinueDeployment -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -311,10 +311,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newContinueDeploymentResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679325694"><span id="local-6989586621679325695"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContinueDeploymentResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeploymentResponse"><span class="hs-identifier hs-var">ContinueDeploymentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinueDeploymentResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeploymentResponse%27"><span class="hs-identifier hs-var">ContinueDeploymentResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679325703"><span id="local-6989586621679325704"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContinueDeploymentResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeploymentResponse"><span class="hs-identifier hs-var">ContinueDeploymentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinueDeploymentResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeploymentResponse%27"><span class="hs-identifier hs-var">ContinueDeploymentResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325690"><span id="local-6989586621679325692"><span class="annot"><span class="annottext">ContinueDeploymentResponse -&gt; ContinueDeploymentResponse -&gt; Bool
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325699"><span id="local-6989586621679325701"><span class="annot"><span class="annottext">ContinueDeploymentResponse -&gt; ContinueDeploymentResponse -&gt; Bool
 (ContinueDeploymentResponse -&gt; ContinueDeploymentResponse -&gt; Bool)
 -&gt; (ContinueDeploymentResponse
     -&gt; ContinueDeploymentResponse -&gt; Bool)
@@ -324,7 +324,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContinueDeploymentResponse -&gt; ContinueDeploymentResponse -&gt; Bool
 == :: ContinueDeploymentResponse -&gt; ContinueDeploymentResponse -&gt; Bool
 $c== :: ContinueDeploymentResponse -&gt; ContinueDeploymentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325682"><span id="local-6989586621679325684"><span id="local-6989586621679325686"><span id="local-6989586621679325688"><span class="annot"><span class="annottext">ReadPrec [ContinueDeploymentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325691"><span id="local-6989586621679325693"><span id="local-6989586621679325695"><span id="local-6989586621679325697"><span class="annot"><span class="annottext">ReadPrec [ContinueDeploymentResponse]
 ReadPrec ContinueDeploymentResponse
 Int -&gt; ReadS ContinueDeploymentResponse
 ReadS [ContinueDeploymentResponse]
@@ -344,7 +344,7 @@ readList :: ReadS [ContinueDeploymentResponse]
 $creadList :: ReadS [ContinueDeploymentResponse]
 readsPrec :: Int -&gt; ReadS ContinueDeploymentResponse
 $creadsPrec :: Int -&gt; ReadS ContinueDeploymentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325676"><span id="local-6989586621679325678"><span id="local-6989586621679325680"><span class="annot"><span class="annottext">Int -&gt; ContinueDeploymentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325685"><span id="local-6989586621679325687"><span id="local-6989586621679325689"><span class="annot"><span class="annottext">Int -&gt; ContinueDeploymentResponse -&gt; ShowS
 [ContinueDeploymentResponse] -&gt; ShowS
 ContinueDeploymentResponse -&gt; String
 (Int -&gt; ContinueDeploymentResponse -&gt; ShowS)
@@ -387,5 +387,5 @@ ContinueDeploymentResponse -&gt; Rep ContinueDeploymentResponse x
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">ContinueDeploymentResponse
 </span><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeploymentResponse%27"><span class="hs-identifier hs-var">ContinueDeploymentResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeploymentResponse"><span class="hs-identifier hs-type">ContinueDeploymentResponse</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325681"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ContinueDeployment.html#ContinueDeploymentResponse"><span class="hs-identifier hs-type">ContinueDeploymentResponse</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

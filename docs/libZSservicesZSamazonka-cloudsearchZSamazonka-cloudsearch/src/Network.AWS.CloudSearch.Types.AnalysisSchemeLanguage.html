@@ -64,13 +64,13 @@
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | An &lt;http://tools.ietf.org/html/rfc4646 IETF RFC 4646&gt; language code or</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- @mul@ for multiple languages.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679206642"><span id="local-6989586621679206643"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnalysisSchemeLanguage"><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-var">AnalysisSchemeLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisSchemeLanguage%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-var">AnalysisSchemeLanguage'</span></a></span></span><span>
+</span><span id="line-67"></span><span id="local-6989586621679206651"><span id="local-6989586621679206652"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnalysisSchemeLanguage"><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage"><span class="hs-identifier hs-var">AnalysisSchemeLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisSchemeLanguage%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.html#AnalysisSchemeLanguage%27"><span class="hs-identifier hs-var">AnalysisSchemeLanguage'</span></a></span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAnalysisSchemeLanguage"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; Text
 </span><a href="Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.html#fromAnalysisSchemeLanguage"><span class="hs-identifier hs-var hs-var">fromAnalysisSchemeLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206634"><span id="local-6989586621679206636"><span id="local-6989586621679206638"><span class="annot"><span class="annottext">Int -&gt; AnalysisSchemeLanguage -&gt; ShowS
+</span><span id="line-72"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206643"><span id="local-6989586621679206645"><span id="local-6989586621679206647"><span class="annot"><span class="annottext">Int -&gt; AnalysisSchemeLanguage -&gt; ShowS
 [AnalysisSchemeLanguage] -&gt; ShowS
 AnalysisSchemeLanguage -&gt; String
 (Int -&gt; AnalysisSchemeLanguage -&gt; ShowS)
@@ -86,7 +86,7 @@ $cshow :: AnalysisSchemeLanguage -&gt; String
 showsPrec :: Int -&gt; AnalysisSchemeLanguage -&gt; ShowS
 $cshowsPrec :: Int -&gt; AnalysisSchemeLanguage -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679206625"><span id="local-6989586621679206627"><span id="local-6989586621679206629"><span id="local-6989586621679206631"><span class="annot"><span class="annottext">ReadPrec [AnalysisSchemeLanguage]
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679206634"><span id="local-6989586621679206636"><span id="local-6989586621679206638"><span id="local-6989586621679206640"><span class="annot"><span class="annottext">ReadPrec [AnalysisSchemeLanguage]
 ReadPrec AnalysisSchemeLanguage
 Int -&gt; ReadS AnalysisSchemeLanguage
 ReadS [AnalysisSchemeLanguage]
@@ -107,7 +107,7 @@ $creadList :: ReadS [AnalysisSchemeLanguage]
 readsPrec :: Int -&gt; ReadS AnalysisSchemeLanguage
 $creadsPrec :: Int -&gt; ReadS AnalysisSchemeLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679206620"><span id="local-6989586621679206622"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679206629"><span id="local-6989586621679206631"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
 (AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool)
 -&gt; (AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool)
 -&gt; Eq AnalysisSchemeLanguage
@@ -117,7 +117,7 @@ $c/= :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
 == :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
 $c== :: AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679206604"><span id="local-6989586621679206606"><span id="local-6989586621679206608"><span id="local-6989586621679206610"><span id="local-6989586621679206612"><span id="local-6989586621679206614"><span id="local-6989586621679206616"><span class="annot"><span class="annottext">Eq AnalysisSchemeLanguage
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679206613"><span id="local-6989586621679206615"><span id="local-6989586621679206617"><span id="local-6989586621679206619"><span id="local-6989586621679206621"><span id="local-6989586621679206623"><span id="local-6989586621679206625"><span class="annot"><span class="annottext">Eq AnalysisSchemeLanguage
 Eq AnalysisSchemeLanguage
 -&gt; (AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Ordering)
 -&gt; (AnalysisSchemeLanguage -&gt; AnalysisSchemeLanguage -&gt; Bool)
@@ -176,7 +176,7 @@ $cfrom :: forall x. AnalysisSchemeLanguage -&gt; Rep AnalysisSchemeLanguage x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206596"><span id="local-6989586621679206598"><span class="annot"><span class="annottext">Int -&gt; AnalysisSchemeLanguage -&gt; Int
+</span><span id="line-79"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206605"><span id="local-6989586621679206607"><span class="annot"><span class="annottext">Int -&gt; AnalysisSchemeLanguage -&gt; Int
 AnalysisSchemeLanguage -&gt; Int
 (Int -&gt; AnalysisSchemeLanguage -&gt; Int)
 -&gt; (AnalysisSchemeLanguage -&gt; Int)
@@ -187,54 +187,54 @@ $chash :: AnalysisSchemeLanguage -&gt; Int
 hashWithSalt :: Int -&gt; AnalysisSchemeLanguage -&gt; Int
 $chashWithSalt :: Int -&gt; AnalysisSchemeLanguage -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679206593"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; ()
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679206602"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; ()
 (AnalysisSchemeLanguage -&gt; ()) -&gt; NFData AnalysisSchemeLanguage
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AnalysisSchemeLanguage -&gt; ()
 $crnf :: AnalysisSchemeLanguage -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621679206590"><span class="annot"><span class="annottext">Text -&gt; Either String AnalysisSchemeLanguage
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679206599"><span class="annot"><span class="annottext">Text -&gt; Either String AnalysisSchemeLanguage
 (Text -&gt; Either String AnalysisSchemeLanguage)
 -&gt; FromText AnalysisSchemeLanguage
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AnalysisSchemeLanguage
 $cfromText :: Text -&gt; Either String AnalysisSchemeLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621679206587"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; Text
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679206596"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; Text
 (AnalysisSchemeLanguage -&gt; Text) -&gt; ToText AnalysisSchemeLanguage
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AnalysisSchemeLanguage -&gt; Text
 $ctoText :: AnalysisSchemeLanguage -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span id="local-6989586621679206584"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; ByteString
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679206593"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; ByteString
 (AnalysisSchemeLanguage -&gt; ByteString)
 -&gt; ToByteString AnalysisSchemeLanguage
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AnalysisSchemeLanguage -&gt; ByteString
 $ctoBS :: AnalysisSchemeLanguage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span id="local-6989586621679206581"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; ByteStringBuilder
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621679206590"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; ByteStringBuilder
 (AnalysisSchemeLanguage -&gt; ByteStringBuilder)
 -&gt; ToLog AnalysisSchemeLanguage
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AnalysisSchemeLanguage -&gt; ByteStringBuilder
 $cbuild :: AnalysisSchemeLanguage -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span id="local-6989586621679206578"><span class="annot"><span class="annottext">HeaderName -&gt; AnalysisSchemeLanguage -&gt; [Header]
+</span><span id="line-85"></span><span>      </span><span id="local-6989586621679206587"><span class="annot"><span class="annottext">HeaderName -&gt; AnalysisSchemeLanguage -&gt; [Header]
 (HeaderName -&gt; AnalysisSchemeLanguage -&gt; [Header])
 -&gt; ToHeader AnalysisSchemeLanguage
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AnalysisSchemeLanguage -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AnalysisSchemeLanguage -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span id="local-6989586621679206575"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; QueryString
+</span><span id="line-86"></span><span>      </span><span id="local-6989586621679206584"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; QueryString
 (AnalysisSchemeLanguage -&gt; QueryString)
 -&gt; ToQuery AnalysisSchemeLanguage
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AnalysisSchemeLanguage -&gt; QueryString
 $ctoQuery :: AnalysisSchemeLanguage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span id="local-6989586621679206570"><span id="local-6989586621679206572"><span class="annot"><span class="annottext">Value -&gt; Parser [AnalysisSchemeLanguage]
+</span><span id="line-87"></span><span>      </span><span id="local-6989586621679206579"><span id="local-6989586621679206581"><span class="annot"><span class="annottext">Value -&gt; Parser [AnalysisSchemeLanguage]
 Value -&gt; Parser AnalysisSchemeLanguage
 (Value -&gt; Parser AnalysisSchemeLanguage)
 -&gt; (Value -&gt; Parser [AnalysisSchemeLanguage])
@@ -246,7 +246,7 @@ $cparseJSONList :: Value -&gt; Parser [AnalysisSchemeLanguage]
 parseJSON :: Value -&gt; Parser AnalysisSchemeLanguage
 $cparseJSON :: Value -&gt; Parser AnalysisSchemeLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span id="local-6989586621679206565"><span id="local-6989586621679206567"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnalysisSchemeLanguage]
+</span><span id="line-88"></span><span>      </span><span id="local-6989586621679206574"><span id="local-6989586621679206576"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnalysisSchemeLanguage]
 FromJSONKeyFunction AnalysisSchemeLanguage
 FromJSONKeyFunction AnalysisSchemeLanguage
 -&gt; FromJSONKeyFunction [AnalysisSchemeLanguage]
@@ -258,7 +258,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AnalysisSchemeLanguage]
 fromJSONKey :: FromJSONKeyFunction AnalysisSchemeLanguage
 $cfromJSONKey :: FromJSONKeyFunction AnalysisSchemeLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span id="local-6989586621679206556"><span id="local-6989586621679206558"><span id="local-6989586621679206560"><span id="local-6989586621679206562"><span class="annot"><span class="annottext">[AnalysisSchemeLanguage] -&gt; Encoding
+</span><span id="line-89"></span><span>      </span><span id="local-6989586621679206565"><span id="local-6989586621679206567"><span id="local-6989586621679206569"><span id="local-6989586621679206571"><span class="annot"><span class="annottext">[AnalysisSchemeLanguage] -&gt; Encoding
 [AnalysisSchemeLanguage] -&gt; Value
 AnalysisSchemeLanguage -&gt; Encoding
 AnalysisSchemeLanguage -&gt; Value
@@ -282,7 +282,7 @@ $ctoEncoding :: AnalysisSchemeLanguage -&gt; Encoding
 toJSON :: AnalysisSchemeLanguage -&gt; Value
 $ctoJSON :: AnalysisSchemeLanguage -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span id="local-6989586621679206551"><span id="local-6989586621679206553"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnalysisSchemeLanguage]
+</span><span id="line-90"></span><span>      </span><span id="local-6989586621679206560"><span id="local-6989586621679206562"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnalysisSchemeLanguage]
 ToJSONKeyFunction AnalysisSchemeLanguage
 ToJSONKeyFunction AnalysisSchemeLanguage
 -&gt; ToJSONKeyFunction [AnalysisSchemeLanguage]
@@ -294,14 +294,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AnalysisSchemeLanguage]
 toJSONKey :: ToJSONKeyFunction AnalysisSchemeLanguage
 $ctoJSONKey :: ToJSONKeyFunction AnalysisSchemeLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span id="local-6989586621679206548"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnalysisSchemeLanguage
+</span><span id="line-91"></span><span>      </span><span id="local-6989586621679206557"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnalysisSchemeLanguage
 ([Node] -&gt; Either String AnalysisSchemeLanguage)
 -&gt; FromXML AnalysisSchemeLanguage
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AnalysisSchemeLanguage
 $cparseXML :: [Node] -&gt; Either String AnalysisSchemeLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span id="local-6989586621679206545"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; XML
+</span><span id="line-92"></span><span>      </span><span id="local-6989586621679206554"><span class="annot"><span class="annottext">AnalysisSchemeLanguage -&gt; XML
 (AnalysisSchemeLanguage -&gt; XML) -&gt; ToXML AnalysisSchemeLanguage
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AnalysisSchemeLanguage -&gt; XML

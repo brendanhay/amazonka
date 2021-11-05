@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Provides information about when a transcription job should be executed.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newJobExecutionSettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679271773"><span id="local-6989586621679271774"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobExecutionSettings"><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings"><span class="hs-identifier hs-var">JobExecutionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobExecutionSettings%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings%27"><span class="hs-identifier hs-var">JobExecutionSettings'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679271782"><span id="local-6989586621679271783"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobExecutionSettings"><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings"><span class="hs-identifier hs-var">JobExecutionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobExecutionSettings%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings%27"><span class="hs-identifier hs-var">JobExecutionSettings'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of a role that has access to the S3</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- bucket that contains the input files. Amazon Transcribe assumes this</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- role to read queued media files. If you have specified an output S3</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AallowDeferredExecution%3AJobExecutionSettings%27"><span class="annot"><span class="annottext">JobExecutionSettings -&gt; Maybe Bool
 </span><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#%24sel%3AallowDeferredExecution%3AJobExecutionSettings%27"><span class="hs-identifier hs-var hs-var">allowDeferredExecution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271766"><span id="local-6989586621679271768"><span class="annot"><span class="annottext">JobExecutionSettings -&gt; JobExecutionSettings -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271775"><span id="local-6989586621679271777"><span class="annot"><span class="annottext">JobExecutionSettings -&gt; JobExecutionSettings -&gt; Bool
 (JobExecutionSettings -&gt; JobExecutionSettings -&gt; Bool)
 -&gt; (JobExecutionSettings -&gt; JobExecutionSettings -&gt; Bool)
 -&gt; Eq JobExecutionSettings
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobExecutionSettings -&gt; JobExecutionSettings -&gt; Bool
 == :: JobExecutionSettings -&gt; JobExecutionSettings -&gt; Bool
 $c== :: JobExecutionSettings -&gt; JobExecutionSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271757"><span id="local-6989586621679271759"><span id="local-6989586621679271761"><span id="local-6989586621679271763"><span class="annot"><span class="annottext">ReadPrec [JobExecutionSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271766"><span id="local-6989586621679271768"><span id="local-6989586621679271770"><span id="local-6989586621679271772"><span class="annot"><span class="annottext">ReadPrec [JobExecutionSettings]
 ReadPrec JobExecutionSettings
 Int -&gt; ReadS JobExecutionSettings
 ReadS [JobExecutionSettings]
@@ -80,7 +80,7 @@ readList :: ReadS [JobExecutionSettings]
 $creadList :: ReadS [JobExecutionSettings]
 readsPrec :: Int -&gt; ReadS JobExecutionSettings
 $creadsPrec :: Int -&gt; ReadS JobExecutionSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271750"><span id="local-6989586621679271752"><span id="local-6989586621679271754"><span class="annot"><span class="annottext">Int -&gt; JobExecutionSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271759"><span id="local-6989586621679271761"><span id="local-6989586621679271763"><span class="annot"><span class="annottext">Int -&gt; JobExecutionSettings -&gt; ShowS
 [JobExecutionSettings] -&gt; ShowS
 JobExecutionSettings -&gt; String
 (Int -&gt; JobExecutionSettings -&gt; ShowS)
@@ -167,16 +167,16 @@ forall a. Maybe a
 -&gt; Lens
      JobExecutionSettings JobExecutionSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings%27"><span class="hs-identifier hs-type">JobExecutionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271741"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings%27"><span class="hs-identifier hs-type">JobExecutionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271750"><span class="annot"><span class="annottext">Maybe Text
 dataAccessRoleArn :: Maybe Text
 $sel:dataAccessRoleArn:JobExecutionSettings' :: JobExecutionSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679271741"><span class="hs-identifier hs-var hs-var">dataAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271741"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271740"><span class="annot"><span class="annottext">s :: JobExecutionSettings
-</span><a href="#local-6989586621679271740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings%27"><span class="hs-identifier hs-type">JobExecutionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271739"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionSettings
-</span><a href="#local-6989586621679271740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataAccessRoleArn:JobExecutionSettings' :: Maybe Text
+</span><a href="#local-6989586621679271750"><span class="hs-identifier hs-var hs-var">dataAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271750"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271749"><span class="annot"><span class="annottext">s :: JobExecutionSettings
+</span><a href="#local-6989586621679271749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings%27"><span class="hs-identifier hs-type">JobExecutionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271748"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionSettings
+</span><a href="#local-6989586621679271749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataAccessRoleArn:JobExecutionSettings' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#%24sel%3AdataAccessRoleArn%3AJobExecutionSettings%27"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings"><span class="hs-identifier hs-type">JobExecutionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings"><span class="hs-identifier hs-type">JobExecutionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | Indicates whether a job should be queued by Amazon Transcribe when the</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- concurrent execution limit is exceeded. When the</span><span>
@@ -197,19 +197,19 @@ $sel:dataAccessRoleArn:JobExecutionSettings' :: JobExecutionSettings -&gt; Maybe
 -&gt; Lens
      JobExecutionSettings JobExecutionSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings%27"><span class="hs-identifier hs-type">JobExecutionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271737"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings%27"><span class="hs-identifier hs-type">JobExecutionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271746"><span class="annot"><span class="annottext">Maybe Bool
 allowDeferredExecution :: Maybe Bool
 $sel:allowDeferredExecution:JobExecutionSettings' :: JobExecutionSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679271737"><span class="hs-identifier hs-var hs-var">allowDeferredExecution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679271737"><span class="hs-identifier hs-var">allowDeferredExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271736"><span class="annot"><span class="annottext">s :: JobExecutionSettings
-</span><a href="#local-6989586621679271736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings%27"><span class="hs-identifier hs-type">JobExecutionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271735"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679271735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionSettings
-</span><a href="#local-6989586621679271736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowDeferredExecution:JobExecutionSettings' :: Maybe Bool
+</span><a href="#local-6989586621679271746"><span class="hs-identifier hs-var hs-var">allowDeferredExecution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679271746"><span class="hs-identifier hs-var">allowDeferredExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271745"><span class="annot"><span class="annottext">s :: JobExecutionSettings
+</span><a href="#local-6989586621679271745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings%27"><span class="hs-identifier hs-type">JobExecutionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271744"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679271744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionSettings
+</span><a href="#local-6989586621679271745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowDeferredExecution:JobExecutionSettings' :: Maybe Bool
 </span><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#%24sel%3AallowDeferredExecution%3AJobExecutionSettings%27"><span class="hs-identifier hs-var">allowDeferredExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679271735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings"><span class="hs-identifier hs-type">JobExecutionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings"><span class="hs-identifier hs-type">JobExecutionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271732"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings"><span class="hs-identifier hs-type">JobExecutionSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679271730"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobExecutionSettings
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271741"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings"><span class="hs-identifier hs-type">JobExecutionSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679271739"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobExecutionSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JobExecutionSettings)
@@ -219,8 +219,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobExecutionSettings&quot;</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271727"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271727"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271736"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271736"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Bool -&gt; JobExecutionSettings
 </span><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings%27"><span class="hs-identifier hs-var">JobExecutionSettings'</span></a></span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Bool -&gt; JobExecutionSettings)
@@ -228,7 +228,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Bool -&gt; JobExecutionSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271727"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679271736"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataAccessRoleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -236,25 +236,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser JobExecutionSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271727"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679271736"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowDeferredExecution&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271721"><span id="local-6989586621679271723"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings"><span class="hs-identifier hs-type">JobExecutionSettings</span></a></span></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271730"><span id="local-6989586621679271732"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings"><span class="hs-identifier hs-type">JobExecutionSettings</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271718"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings"><span class="hs-identifier hs-type">JobExecutionSettings</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271727"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings"><span class="hs-identifier hs-type">JobExecutionSettings</span></a></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271710"><span id="local-6989586621679271712"><span id="local-6989586621679271714"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings"><span class="hs-identifier hs-type">JobExecutionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679271708"><span class="annot"><span class="annottext">toJSON :: JobExecutionSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings%27"><span class="hs-identifier hs-type">JobExecutionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271705"><span id="local-6989586621679271706"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271719"><span id="local-6989586621679271721"><span id="local-6989586621679271723"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings"><span class="hs-identifier hs-type">JobExecutionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679271717"><span class="annot"><span class="annottext">toJSON :: JobExecutionSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.JobExecutionSettings.html#JobExecutionSettings%27"><span class="hs-identifier hs-type">JobExecutionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271714"><span id="local-6989586621679271715"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 allowDeferredExecution :: Maybe Bool
 dataAccessRoleArn :: Maybe Text
 $sel:allowDeferredExecution:JobExecutionSettings' :: JobExecutionSettings -&gt; Maybe Bool
 $sel:dataAccessRoleArn:JobExecutionSettings' :: JobExecutionSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679271705"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679271714"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -267,7 +267,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271706"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679271715"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowDeferredExecution&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -275,7 +275,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679271705"><span class="hs-identifier hs-var">allowDeferredExecution</span></a></span><span>
+</span><a href="#local-6989586621679271714"><span class="hs-identifier hs-var">allowDeferredExecution</span></a></span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span></pre></body></html>

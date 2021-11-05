@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679688390"><span id="local-6989586621679688391"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobBookmarksEncryptionMode"><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarksEncryptionMode.html#JobBookmarksEncryptionMode"><span class="hs-identifier hs-var">JobBookmarksEncryptionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobBookmarksEncryptionMode%27"><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarksEncryptionMode.html#JobBookmarksEncryptionMode%27"><span class="hs-identifier hs-var">JobBookmarksEncryptionMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679688399"><span id="local-6989586621679688400"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobBookmarksEncryptionMode"><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarksEncryptionMode.html#JobBookmarksEncryptionMode"><span class="hs-identifier hs-var">JobBookmarksEncryptionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobBookmarksEncryptionMode%27"><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarksEncryptionMode.html#JobBookmarksEncryptionMode%27"><span class="hs-identifier hs-var">JobBookmarksEncryptionMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromJobBookmarksEncryptionMode"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; Text
 </span><a href="Network.AWS.Glue.Types.JobBookmarksEncryptionMode.html#fromJobBookmarksEncryptionMode"><span class="hs-identifier hs-var hs-var">fromJobBookmarksEncryptionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679688382"><span id="local-6989586621679688384"><span id="local-6989586621679688386"><span class="annot"><span class="annottext">Int -&gt; JobBookmarksEncryptionMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679688391"><span id="local-6989586621679688393"><span id="local-6989586621679688395"><span class="annot"><span class="annottext">Int -&gt; JobBookmarksEncryptionMode -&gt; ShowS
 [JobBookmarksEncryptionMode] -&gt; ShowS
 JobBookmarksEncryptionMode -&gt; String
 (Int -&gt; JobBookmarksEncryptionMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: JobBookmarksEncryptionMode -&gt; String
 showsPrec :: Int -&gt; JobBookmarksEncryptionMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; JobBookmarksEncryptionMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679688373"><span id="local-6989586621679688375"><span id="local-6989586621679688377"><span id="local-6989586621679688379"><span class="annot"><span class="annottext">ReadPrec [JobBookmarksEncryptionMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679688382"><span id="local-6989586621679688384"><span id="local-6989586621679688386"><span id="local-6989586621679688388"><span class="annot"><span class="annottext">ReadPrec [JobBookmarksEncryptionMode]
 ReadPrec JobBookmarksEncryptionMode
 Int -&gt; ReadS JobBookmarksEncryptionMode
 ReadS [JobBookmarksEncryptionMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [JobBookmarksEncryptionMode]
 readsPrec :: Int -&gt; ReadS JobBookmarksEncryptionMode
 $creadsPrec :: Int -&gt; ReadS JobBookmarksEncryptionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679688368"><span id="local-6989586621679688370"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; JobBookmarksEncryptionMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679688377"><span id="local-6989586621679688379"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; JobBookmarksEncryptionMode -&gt; Bool
 (JobBookmarksEncryptionMode -&gt; JobBookmarksEncryptionMode -&gt; Bool)
 -&gt; (JobBookmarksEncryptionMode
     -&gt; JobBookmarksEncryptionMode -&gt; Bool)
@@ -83,7 +83,7 @@ $c/= :: JobBookmarksEncryptionMode -&gt; JobBookmarksEncryptionMode -&gt; Bool
 == :: JobBookmarksEncryptionMode -&gt; JobBookmarksEncryptionMode -&gt; Bool
 $c== :: JobBookmarksEncryptionMode -&gt; JobBookmarksEncryptionMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679688352"><span id="local-6989586621679688354"><span id="local-6989586621679688356"><span id="local-6989586621679688358"><span id="local-6989586621679688360"><span id="local-6989586621679688362"><span id="local-6989586621679688364"><span class="annot"><span class="annottext">Eq JobBookmarksEncryptionMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679688361"><span id="local-6989586621679688363"><span id="local-6989586621679688365"><span id="local-6989586621679688367"><span id="local-6989586621679688369"><span id="local-6989586621679688371"><span id="local-6989586621679688373"><span class="annot"><span class="annottext">Eq JobBookmarksEncryptionMode
 Eq JobBookmarksEncryptionMode
 -&gt; (JobBookmarksEncryptionMode
     -&gt; JobBookmarksEncryptionMode -&gt; Ordering)
@@ -155,7 +155,7 @@ JobBookmarksEncryptionMode -&gt; Rep JobBookmarksEncryptionMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679688344"><span id="local-6989586621679688346"><span class="annot"><span class="annottext">Int -&gt; JobBookmarksEncryptionMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679688353"><span id="local-6989586621679688355"><span class="annot"><span class="annottext">Int -&gt; JobBookmarksEncryptionMode -&gt; Int
 JobBookmarksEncryptionMode -&gt; Int
 (Int -&gt; JobBookmarksEncryptionMode -&gt; Int)
 -&gt; (JobBookmarksEncryptionMode -&gt; Int)
@@ -166,56 +166,56 @@ $chash :: JobBookmarksEncryptionMode -&gt; Int
 hashWithSalt :: Int -&gt; JobBookmarksEncryptionMode -&gt; Int
 $chashWithSalt :: Int -&gt; JobBookmarksEncryptionMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679688341"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679688350"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; ()
 (JobBookmarksEncryptionMode -&gt; ())
 -&gt; NFData JobBookmarksEncryptionMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: JobBookmarksEncryptionMode -&gt; ()
 $crnf :: JobBookmarksEncryptionMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679688338"><span class="annot"><span class="annottext">Text -&gt; Either String JobBookmarksEncryptionMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679688347"><span class="annot"><span class="annottext">Text -&gt; Either String JobBookmarksEncryptionMode
 (Text -&gt; Either String JobBookmarksEncryptionMode)
 -&gt; FromText JobBookmarksEncryptionMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String JobBookmarksEncryptionMode
 $cfromText :: Text -&gt; Either String JobBookmarksEncryptionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679688335"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679688344"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; Text
 (JobBookmarksEncryptionMode -&gt; Text)
 -&gt; ToText JobBookmarksEncryptionMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: JobBookmarksEncryptionMode -&gt; Text
 $ctoText :: JobBookmarksEncryptionMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679688332"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679688341"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; ByteString
 (JobBookmarksEncryptionMode -&gt; ByteString)
 -&gt; ToByteString JobBookmarksEncryptionMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: JobBookmarksEncryptionMode -&gt; ByteString
 $ctoBS :: JobBookmarksEncryptionMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679688329"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679688338"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; ByteStringBuilder
 (JobBookmarksEncryptionMode -&gt; ByteStringBuilder)
 -&gt; ToLog JobBookmarksEncryptionMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: JobBookmarksEncryptionMode -&gt; ByteStringBuilder
 $cbuild :: JobBookmarksEncryptionMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679688326"><span class="annot"><span class="annottext">HeaderName -&gt; JobBookmarksEncryptionMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679688335"><span class="annot"><span class="annottext">HeaderName -&gt; JobBookmarksEncryptionMode -&gt; [Header]
 (HeaderName -&gt; JobBookmarksEncryptionMode -&gt; [Header])
 -&gt; ToHeader JobBookmarksEncryptionMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; JobBookmarksEncryptionMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; JobBookmarksEncryptionMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679688323"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679688332"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; QueryString
 (JobBookmarksEncryptionMode -&gt; QueryString)
 -&gt; ToQuery JobBookmarksEncryptionMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: JobBookmarksEncryptionMode -&gt; QueryString
 $ctoQuery :: JobBookmarksEncryptionMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679688318"><span id="local-6989586621679688320"><span class="annot"><span class="annottext">Value -&gt; Parser [JobBookmarksEncryptionMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679688327"><span id="local-6989586621679688329"><span class="annot"><span class="annottext">Value -&gt; Parser [JobBookmarksEncryptionMode]
 Value -&gt; Parser JobBookmarksEncryptionMode
 (Value -&gt; Parser JobBookmarksEncryptionMode)
 -&gt; (Value -&gt; Parser [JobBookmarksEncryptionMode])
@@ -227,7 +227,7 @@ $cparseJSONList :: Value -&gt; Parser [JobBookmarksEncryptionMode]
 parseJSON :: Value -&gt; Parser JobBookmarksEncryptionMode
 $cparseJSON :: Value -&gt; Parser JobBookmarksEncryptionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679688313"><span id="local-6989586621679688315"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobBookmarksEncryptionMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679688322"><span id="local-6989586621679688324"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobBookmarksEncryptionMode]
 FromJSONKeyFunction JobBookmarksEncryptionMode
 FromJSONKeyFunction JobBookmarksEncryptionMode
 -&gt; FromJSONKeyFunction [JobBookmarksEncryptionMode]
@@ -239,7 +239,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [JobBookmarksEncryptionMode]
 fromJSONKey :: FromJSONKeyFunction JobBookmarksEncryptionMode
 $cfromJSONKey :: FromJSONKeyFunction JobBookmarksEncryptionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679688304"><span id="local-6989586621679688306"><span id="local-6989586621679688308"><span id="local-6989586621679688310"><span class="annot"><span class="annottext">[JobBookmarksEncryptionMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679688313"><span id="local-6989586621679688315"><span id="local-6989586621679688317"><span id="local-6989586621679688319"><span class="annot"><span class="annottext">[JobBookmarksEncryptionMode] -&gt; Encoding
 [JobBookmarksEncryptionMode] -&gt; Value
 JobBookmarksEncryptionMode -&gt; Encoding
 JobBookmarksEncryptionMode -&gt; Value
@@ -263,7 +263,7 @@ $ctoEncoding :: JobBookmarksEncryptionMode -&gt; Encoding
 toJSON :: JobBookmarksEncryptionMode -&gt; Value
 $ctoJSON :: JobBookmarksEncryptionMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679688299"><span id="local-6989586621679688301"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobBookmarksEncryptionMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679688308"><span id="local-6989586621679688310"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobBookmarksEncryptionMode]
 ToJSONKeyFunction JobBookmarksEncryptionMode
 ToJSONKeyFunction JobBookmarksEncryptionMode
 -&gt; ToJSONKeyFunction [JobBookmarksEncryptionMode]
@@ -275,14 +275,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [JobBookmarksEncryptionMode]
 toJSONKey :: ToJSONKeyFunction JobBookmarksEncryptionMode
 $ctoJSONKey :: ToJSONKeyFunction JobBookmarksEncryptionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679688296"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobBookmarksEncryptionMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679688305"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobBookmarksEncryptionMode
 ([Node] -&gt; Either String JobBookmarksEncryptionMode)
 -&gt; FromXML JobBookmarksEncryptionMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String JobBookmarksEncryptionMode
 $cparseXML :: [Node] -&gt; Either String JobBookmarksEncryptionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679688293"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679688302"><span class="annot"><span class="annottext">JobBookmarksEncryptionMode -&gt; XML
 (JobBookmarksEncryptionMode -&gt; XML)
 -&gt; ToXML JobBookmarksEncryptionMode
 forall a. (a -&gt; XML) -&gt; ToXML a

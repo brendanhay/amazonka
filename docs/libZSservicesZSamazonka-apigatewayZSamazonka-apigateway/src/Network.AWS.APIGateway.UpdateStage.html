@@ -66,7 +66,7 @@
 </span><span id="line-66"></span><span class="hs-comment">-- | Requests API Gateway to change information about a Stage resource.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- /See:/ 'newUpdateStage' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679397762"><span id="local-6989586621679397763"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateStage"><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-var">UpdateStage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateStage%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-var">UpdateStage'</span></a></span></span><span>
+</span><span id="line-69"></span><span id="local-6989586621679397771"><span id="local-6989586621679397772"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateStage"><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-var">UpdateStage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateStage%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-var">UpdateStage'</span></a></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- in the order specified in this list.</span><span>
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3ApatchOperations%3AUpdateStage%27"><span class="annot"><span class="annottext">UpdateStage -&gt; Maybe [PatchOperation]
@@ -78,7 +78,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AstageName%3AUpdateStage%27"><span class="annot"><span class="annottext">UpdateStage -&gt; Text
 </span><a href="Network.AWS.APIGateway.UpdateStage.html#%24sel%3AstageName%3AUpdateStage%27"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397754"><span id="local-6989586621679397756"><span class="annot"><span class="annottext">UpdateStage -&gt; UpdateStage -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397763"><span id="local-6989586621679397765"><span class="annot"><span class="annottext">UpdateStage -&gt; UpdateStage -&gt; Bool
 (UpdateStage -&gt; UpdateStage -&gt; Bool)
 -&gt; (UpdateStage -&gt; UpdateStage -&gt; Bool) -&gt; Eq UpdateStage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateStage -&gt; UpdateStage -&gt; Bool
 == :: UpdateStage -&gt; UpdateStage -&gt; Bool
 $c== :: UpdateStage -&gt; UpdateStage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397745"><span id="local-6989586621679397747"><span id="local-6989586621679397749"><span id="local-6989586621679397751"><span class="annot"><span class="annottext">ReadPrec [UpdateStage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397754"><span id="local-6989586621679397756"><span id="local-6989586621679397758"><span id="local-6989586621679397760"><span class="annot"><span class="annottext">ReadPrec [UpdateStage]
 ReadPrec UpdateStage
 Int -&gt; ReadS UpdateStage
 ReadS [UpdateStage]
@@ -106,7 +106,7 @@ readList :: ReadS [UpdateStage]
 $creadList :: ReadS [UpdateStage]
 readsPrec :: Int -&gt; ReadS UpdateStage
 $creadsPrec :: Int -&gt; ReadS UpdateStage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397738"><span id="local-6989586621679397740"><span id="local-6989586621679397742"><span class="annot"><span class="annottext">Int -&gt; UpdateStage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397747"><span id="local-6989586621679397749"><span id="local-6989586621679397751"><span class="annot"><span class="annottext">Int -&gt; UpdateStage -&gt; ShowS
 [UpdateStage] -&gt; ShowS
 UpdateStage -&gt; String
 (Int -&gt; UpdateStage -&gt; ShowS)
@@ -153,9 +153,9 @@ $cfrom :: forall x. UpdateStage -&gt; Rep UpdateStage x
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span><span>
 </span><span id="line-100"></span><span id="newUpdateStage"><span class="annot"><span class="annottext">newUpdateStage :: Text -&gt; Text -&gt; UpdateStage
-</span><a href="Network.AWS.APIGateway.UpdateStage.html#newUpdateStage"><span class="hs-identifier hs-var hs-var">newUpdateStage</span></a></span></span><span> </span><span id="local-6989586621679397733"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397733"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679397732"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397732"><span class="hs-identifier hs-var">pStageName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.UpdateStage.html#newUpdateStage"><span class="hs-identifier hs-var hs-var">newUpdateStage</span></a></span></span><span> </span><span id="local-6989586621679397742"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397742"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679397741"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397741"><span class="hs-identifier hs-var">pStageName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">UpdateStage' :: Maybe [PatchOperation] -&gt; Text -&gt; Text -&gt; UpdateStage
 </span><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateStage' :: Maybe [PatchOperation]
@@ -164,10 +164,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:restApiId:UpdateStage' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateStage.html#%24sel%3ArestApiId%3AUpdateStage%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397733"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397742"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:stageName:UpdateStage' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateStage.html#%24sel%3AstageName%3AUpdateStage%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397732"><span class="hs-identifier hs-var">pStageName_</span></a></span><span>
+</span><a href="#local-6989586621679397741"><span class="hs-identifier hs-var">pStageName_</span></a></span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
@@ -183,16 +183,16 @@ forall a. Maybe a
      (Maybe [PatchOperation])
      (Maybe [PatchOperation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397729"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397738"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 patchOperations :: Maybe [PatchOperation]
 $sel:patchOperations:UpdateStage' :: UpdateStage -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679397729"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679397729"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397728"><span class="annot"><span class="annottext">s :: UpdateStage
-</span><a href="#local-6989586621679397728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397727"><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679397727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStage
-</span><a href="#local-6989586621679397728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateStage' :: Maybe [PatchOperation]
+</span><a href="#local-6989586621679397738"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679397738"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397737"><span class="annot"><span class="annottext">s :: UpdateStage
+</span><a href="#local-6989586621679397737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397736"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679397736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStage
+</span><a href="#local-6989586621679397737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateStage' :: Maybe [PatchOperation]
 </span><a href="Network.AWS.APIGateway.UpdateStage.html#%24sel%3ApatchOperations%3AUpdateStage%27"><span class="hs-identifier hs-var">patchOperations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679397727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
+</span><a href="#local-6989586621679397736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
  -&gt; UpdateStage -&gt; f UpdateStage)
 -&gt; ((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
     -&gt; Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
@@ -222,16 +222,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateStage -&gt; Text -&gt; UpdateStage)
 -&gt; Lens UpdateStage UpdateStage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397723"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397732"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:UpdateStage' :: UpdateStage -&gt; Text
-</span><a href="#local-6989586621679397723"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397723"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397722"><span class="annot"><span class="annottext">s :: UpdateStage
-</span><a href="#local-6989586621679397722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397721"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStage
-</span><a href="#local-6989586621679397722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:UpdateStage' :: Text
+</span><a href="#local-6989586621679397732"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397732"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397731"><span class="annot"><span class="annottext">s :: UpdateStage
+</span><a href="#local-6989586621679397731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397730"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStage
+</span><a href="#local-6989586621679397731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:UpdateStage' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateStage.html#%24sel%3ArestApiId%3AUpdateStage%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | [Required] The name of the Stage resource to change information about.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#updateStage_stageName"><span class="hs-identifier hs-type">updateStage_stageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -240,25 +240,25 @@ $sel:restApiId:UpdateStage' :: UpdateStage -&gt; Text
 -&gt; (UpdateStage -&gt; Text -&gt; UpdateStage)
 -&gt; Lens UpdateStage UpdateStage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397720"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397729"><span class="annot"><span class="annottext">Text
 stageName :: Text
 $sel:stageName:UpdateStage' :: UpdateStage -&gt; Text
-</span><a href="#local-6989586621679397720"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397720"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397719"><span class="annot"><span class="annottext">s :: UpdateStage
-</span><a href="#local-6989586621679397719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397718"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStage
-</span><a href="#local-6989586621679397719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageName:UpdateStage' :: Text
+</span><a href="#local-6989586621679397729"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397729"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397728"><span class="annot"><span class="annottext">s :: UpdateStage
+</span><a href="#local-6989586621679397728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397727"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStage
+</span><a href="#local-6989586621679397728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageName:UpdateStage' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateStage.html#%24sel%3AstageName%3AUpdateStage%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Stage.html#Stage"><span class="hs-identifier hs-type">Stage</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679397714"><span class="annot"><span class="annottext">request :: UpdateStage -&gt; Request UpdateStage
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679397723"><span class="annot"><span class="annottext">request :: UpdateStage -&gt; Request UpdateStage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateStage -&gt; Request UpdateStage
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679397710"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679397719"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateStage
 -&gt; ClientResponse ClientBody
@@ -282,20 +282,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397707"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397707"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679397706"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679397706"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679397705"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397705"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Stage
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397716"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679397716"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679397715"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679397715"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679397714"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679397714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Stage
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397705"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397714"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397700"><span id="local-6989586621679397702"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397709"><span id="local-6989586621679397711"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679397693"><span class="annot"><span class="annottext">toHeaders :: UpdateStage -&gt; ResponseHeaders
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679397702"><span class="annot"><span class="annottext">toHeaders :: UpdateStage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateStage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -312,9 +312,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397683"><span id="local-6989586621679397685"><span id="local-6989586621679397687"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679397681"><span class="annot"><span class="annottext">toJSON :: UpdateStage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397677"><span id="local-6989586621679397678"><span id="local-6989586621679397679"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397692"><span id="local-6989586621679397694"><span id="local-6989586621679397696"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679397690"><span class="annot"><span class="annottext">toJSON :: UpdateStage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397686"><span id="local-6989586621679397687"><span id="local-6989586621679397688"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 Text
 stageName :: Text
 restApiId :: Text
@@ -322,7 +322,7 @@ patchOperations :: Maybe [PatchOperation]
 $sel:stageName:UpdateStage' :: UpdateStage -&gt; Text
 $sel:restApiId:UpdateStage' :: UpdateStage -&gt; Text
 $sel:patchOperations:UpdateStage' :: UpdateStage -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679397677"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679397686"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -335,13 +335,13 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">([PatchOperation] -&gt; Pair) -&gt; Maybe [PatchOperation] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679397679"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
+</span><a href="#local-6989586621679397688"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679397670"><span class="annot"><span class="annottext">toPath :: UpdateStage -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397666"><span id="local-6989586621679397667"><span id="local-6989586621679397668"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679397679"><span class="annot"><span class="annottext">toPath :: UpdateStage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage%27"><span class="hs-identifier hs-type">UpdateStage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397675"><span id="local-6989586621679397676"><span id="local-6989586621679397677"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 Text
 stageName :: Text
 restApiId :: Text
@@ -349,7 +349,7 @@ patchOperations :: Maybe [PatchOperation]
 $sel:stageName:UpdateStage' :: UpdateStage -&gt; Text
 $sel:restApiId:UpdateStage' :: UpdateStage -&gt; Text
 $sel:patchOperations:UpdateStage' :: UpdateStage -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679397666"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679397675"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -358,17 +358,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397667"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397676"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/stages/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397666"><span class="hs-identifier hs-var">stageName</span></a></span><span>
+</span><a href="#local-6989586621679397675"><span class="hs-identifier hs-var">stageName</span></a></span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateStage.html#UpdateStage"><span class="hs-identifier hs-type">UpdateStage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679397662"><span class="annot"><span class="annottext">toQuery :: UpdateStage -&gt; QueryString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679397671"><span class="annot"><span class="annottext">toQuery :: UpdateStage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateStage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

@@ -34,10 +34,10 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679395058"><span id="local-6989586621679395059"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Method"><span class="annot"><a href="Network.AWS.CloudFront.Types.Method.html#Method"><span class="hs-identifier hs-var">Method</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Method%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Method.html#Method%27"><span class="hs-identifier hs-var">Method'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromMethod"><span class="annot"><span class="annottext">Method -&gt; Text
+</span><span id="line-37"></span><span id="local-6989586621679395067"><span id="local-6989586621679395068"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Method"><span class="annot"><a href="Network.AWS.CloudFront.Types.Method.html#Method"><span class="hs-identifier hs-var">Method</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Method%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Method.html#Method%27"><span class="hs-identifier hs-var">Method'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromMethod"><span class="annot"><span class="annottext">Method -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.Method.html#fromMethod"><span class="hs-identifier hs-var hs-var">fromMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395050"><span id="local-6989586621679395052"><span id="local-6989586621679395054"><span class="annot"><span class="annottext">Int -&gt; Method -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395059"><span id="local-6989586621679395061"><span id="local-6989586621679395063"><span class="annot"><span class="annottext">Int -&gt; Method -&gt; ShowS
 [Method] -&gt; ShowS
 Method -&gt; String
 (Int -&gt; Method -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: Method -&gt; String
 showsPrec :: Int -&gt; Method -&gt; ShowS
 $cshowsPrec :: Int -&gt; Method -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679395041"><span id="local-6989586621679395043"><span id="local-6989586621679395045"><span id="local-6989586621679395047"><span class="annot"><span class="annottext">ReadPrec [Method]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679395050"><span id="local-6989586621679395052"><span id="local-6989586621679395054"><span id="local-6989586621679395056"><span class="annot"><span class="annottext">ReadPrec [Method]
 ReadPrec Method
 Int -&gt; ReadS Method
 ReadS [Method]
@@ -72,7 +72,7 @@ $creadList :: ReadS [Method]
 readsPrec :: Int -&gt; ReadS Method
 $creadsPrec :: Int -&gt; ReadS Method
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679395036"><span id="local-6989586621679395038"><span class="annot"><span class="annottext">Method -&gt; Method -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679395045"><span id="local-6989586621679395047"><span class="annot"><span class="annottext">Method -&gt; Method -&gt; Bool
 (Method -&gt; Method -&gt; Bool)
 -&gt; (Method -&gt; Method -&gt; Bool) -&gt; Eq Method
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: Method -&gt; Method -&gt; Bool
 == :: Method -&gt; Method -&gt; Bool
 $c== :: Method -&gt; Method -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679395020"><span id="local-6989586621679395022"><span id="local-6989586621679395024"><span id="local-6989586621679395026"><span id="local-6989586621679395028"><span id="local-6989586621679395030"><span id="local-6989586621679395032"><span class="annot"><span class="annottext">Eq Method
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679395029"><span id="local-6989586621679395031"><span id="local-6989586621679395033"><span id="local-6989586621679395035"><span id="local-6989586621679395037"><span id="local-6989586621679395039"><span id="local-6989586621679395041"><span class="annot"><span class="annottext">Eq Method
 Eq Method
 -&gt; (Method -&gt; Method -&gt; Ordering)
 -&gt; (Method -&gt; Method -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. Method -&gt; Rep Method x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395012"><span id="local-6989586621679395014"><span class="annot"><span class="annottext">Int -&gt; Method -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395021"><span id="local-6989586621679395023"><span class="annot"><span class="annottext">Int -&gt; Method -&gt; Int
 Method -&gt; Int
 (Int -&gt; Method -&gt; Int) -&gt; (Method -&gt; Int) -&gt; Hashable Method
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -140,49 +140,49 @@ $chash :: Method -&gt; Int
 hashWithSalt :: Int -&gt; Method -&gt; Int
 $chashWithSalt :: Int -&gt; Method -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679395009"><span class="annot"><span class="annottext">Method -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679395018"><span class="annot"><span class="annottext">Method -&gt; ()
 (Method -&gt; ()) -&gt; NFData Method
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Method -&gt; ()
 $crnf :: Method -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679395006"><span class="annot"><span class="annottext">Text -&gt; Either String Method
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679395015"><span class="annot"><span class="annottext">Text -&gt; Either String Method
 (Text -&gt; Either String Method) -&gt; FromText Method
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Method
 $cfromText :: Text -&gt; Either String Method
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679395003"><span class="annot"><span class="annottext">Method -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679395012"><span class="annot"><span class="annottext">Method -&gt; Text
 (Method -&gt; Text) -&gt; ToText Method
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Method -&gt; Text
 $ctoText :: Method -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679395000"><span class="annot"><span class="annottext">Method -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679395009"><span class="annot"><span class="annottext">Method -&gt; ByteString
 (Method -&gt; ByteString) -&gt; ToByteString Method
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Method -&gt; ByteString
 $ctoBS :: Method -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679394997"><span class="annot"><span class="annottext">Method -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679395006"><span class="annot"><span class="annottext">Method -&gt; ByteStringBuilder
 (Method -&gt; ByteStringBuilder) -&gt; ToLog Method
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Method -&gt; ByteStringBuilder
 $cbuild :: Method -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679394994"><span class="annot"><span class="annottext">HeaderName -&gt; Method -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679395003"><span class="annot"><span class="annottext">HeaderName -&gt; Method -&gt; [Header]
 (HeaderName -&gt; Method -&gt; [Header]) -&gt; ToHeader Method
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Method -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Method -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679394991"><span class="annot"><span class="annottext">Method -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679395000"><span class="annot"><span class="annottext">Method -&gt; QueryString
 (Method -&gt; QueryString) -&gt; ToQuery Method
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Method -&gt; QueryString
 $ctoQuery :: Method -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679394986"><span id="local-6989586621679394988"><span class="annot"><span class="annottext">Value -&gt; Parser [Method]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679394995"><span id="local-6989586621679394997"><span class="annot"><span class="annottext">Value -&gt; Parser [Method]
 Value -&gt; Parser Method
 (Value -&gt; Parser Method)
 -&gt; (Value -&gt; Parser [Method]) -&gt; FromJSON Method
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [Method]
 parseJSON :: Value -&gt; Parser Method
 $cparseJSON :: Value -&gt; Parser Method
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679394981"><span id="local-6989586621679394983"><span class="annot"><span class="annottext">FromJSONKeyFunction [Method]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679394990"><span id="local-6989586621679394992"><span class="annot"><span class="annottext">FromJSONKeyFunction [Method]
 FromJSONKeyFunction Method
 FromJSONKeyFunction Method
 -&gt; FromJSONKeyFunction [Method] -&gt; FromJSONKey Method
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Method]
 fromJSONKey :: FromJSONKeyFunction Method
 $cfromJSONKey :: FromJSONKeyFunction Method
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679394972"><span id="local-6989586621679394974"><span id="local-6989586621679394976"><span id="local-6989586621679394978"><span class="annot"><span class="annottext">[Method] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679394981"><span id="local-6989586621679394983"><span id="local-6989586621679394985"><span id="local-6989586621679394987"><span class="annot"><span class="annottext">[Method] -&gt; Encoding
 [Method] -&gt; Value
 Method -&gt; Encoding
 Method -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: Method -&gt; Encoding
 toJSON :: Method -&gt; Value
 $ctoJSON :: Method -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679394967"><span id="local-6989586621679394969"><span class="annot"><span class="annottext">ToJSONKeyFunction [Method]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679394976"><span id="local-6989586621679394978"><span class="annot"><span class="annottext">ToJSONKeyFunction [Method]
 ToJSONKeyFunction Method
 ToJSONKeyFunction Method
 -&gt; ToJSONKeyFunction [Method] -&gt; ToJSONKey Method
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Method]
 toJSONKey :: ToJSONKeyFunction Method
 $ctoJSONKey :: ToJSONKeyFunction Method
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679394964"><span class="annot"><span class="annottext">[Node] -&gt; Either String Method
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679394973"><span class="annot"><span class="annottext">[Node] -&gt; Either String Method
 ([Node] -&gt; Either String Method) -&gt; FromXML Method
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Method
 $cparseXML :: [Node] -&gt; Either String Method
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679394961"><span class="annot"><span class="annottext">Method -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679394970"><span class="annot"><span class="annottext">Method -&gt; XML
 (Method -&gt; XML) -&gt; ToXML Method
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Method -&gt; XML

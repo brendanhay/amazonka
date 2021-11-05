@@ -99,7 +99,7 @@
 </span><span id="line-99"></span><span class="hs-comment">-- | Represents the input of a @Scan@ operation.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- /See:/ 'newScan' smart constructor.</span><span>
-</span><span id="line-102"></span><span id="local-6989586621679386794"><span id="local-6989586621679386795"></span></span><span class="hs-keyword">data</span><span> </span><span id="Scan"><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-var">Scan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scan%27"><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-var">Scan'</span></a></span></span><span>
+</span><span id="line-102"></span><span id="local-6989586621679386803"><span id="local-6989586621679386804"></span></span><span class="hs-keyword">data</span><span> </span><span id="Scan"><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-var">Scan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scan%27"><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-var">Scan'</span></a></span></span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string that identifies one or more attributes to retrieve from the</span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-comment">-- specified table or index. These attributes can include scalars, sets, or</span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-comment">-- elements of a JSON document. The attributes in the expression must be</span><span>
@@ -340,14 +340,14 @@
 </span><span id="line-325"></span><span>    </span><span id="%24sel%3AtableName%3AScan%27"><span class="annot"><span class="annottext">Scan -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AtableName%3AScan%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-326"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-327"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386773"><span id="local-6989586621679386775"><span class="annot"><span class="annottext">Scan -&gt; Scan -&gt; Bool
+</span><span id="line-327"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386782"><span id="local-6989586621679386784"><span class="annot"><span class="annottext">Scan -&gt; Scan -&gt; Bool
 (Scan -&gt; Scan -&gt; Bool) -&gt; (Scan -&gt; Scan -&gt; Bool) -&gt; Eq Scan
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Scan -&gt; Scan -&gt; Bool
 $c/= :: Scan -&gt; Scan -&gt; Bool
 == :: Scan -&gt; Scan -&gt; Bool
 $c== :: Scan -&gt; Scan -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386764"><span id="local-6989586621679386766"><span id="local-6989586621679386768"><span id="local-6989586621679386770"><span class="annot"><span class="annottext">ReadPrec [Scan]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386773"><span id="local-6989586621679386775"><span id="local-6989586621679386777"><span id="local-6989586621679386779"><span class="annot"><span class="annottext">ReadPrec [Scan]
 ReadPrec Scan
 Int -&gt; ReadS Scan
 ReadS [Scan]
@@ -364,7 +364,7 @@ readList :: ReadS [Scan]
 $creadList :: ReadS [Scan]
 readsPrec :: Int -&gt; ReadS Scan
 $creadsPrec :: Int -&gt; ReadS Scan
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386757"><span id="local-6989586621679386759"><span id="local-6989586621679386761"><span class="annot"><span class="annottext">Int -&gt; Scan -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386766"><span id="local-6989586621679386768"><span id="local-6989586621679386770"><span class="annot"><span class="annottext">Int -&gt; Scan -&gt; ShowS
 [Scan] -&gt; ShowS
 Scan -&gt; String
 (Int -&gt; Scan -&gt; ShowS)
@@ -623,8 +623,8 @@ $cfrom :: forall x. Scan -&gt; Rep Scan x
 </span><span id="line-562"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-563"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span>
 </span><span id="line-564"></span><span id="newScan"><span class="annot"><span class="annottext">newScan :: Text -&gt; Scan
-</span><a href="Network.AWS.DynamoDB.Scan.html#newScan"><span class="hs-identifier hs-var hs-var">newScan</span></a></span></span><span> </span><span id="local-6989586621679386752"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386752"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.Scan.html#newScan"><span class="hs-identifier hs-var hs-var">newScan</span></a></span></span><span> </span><span id="local-6989586621679386761"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386761"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-565"></span><span>  </span><span class="annot"><span class="annottext">Scan' :: Maybe Text
 -&gt; Maybe (HashMap Text Condition)
 -&gt; Maybe (NonEmpty Text)
@@ -705,7 +705,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-581"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:Scan' :: Text
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AtableName%3AScan%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386752"><span class="hs-identifier hs-var">pTableName_</span></a></span><span>
+</span><a href="#local-6989586621679386761"><span class="hs-identifier hs-var">pTableName_</span></a></span><span>
 </span><span id="line-582"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-583"></span><span>
 </span><span id="line-584"></span><span class="hs-comment">-- | A string that identifies one or more attributes to retrieve from the</span><span>
@@ -726,16 +726,16 @@ forall a. Maybe a
 -&gt; (Scan -&gt; Maybe Text -&gt; Scan)
 -&gt; Lens Scan Scan (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386750"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386759"><span class="annot"><span class="annottext">Maybe Text
 projectionExpression :: Maybe Text
 $sel:projectionExpression:Scan' :: Scan -&gt; Maybe Text
-</span><a href="#local-6989586621679386750"><span class="hs-identifier hs-var hs-var">projectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386750"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386749"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386748"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectionExpression:Scan' :: Maybe Text
+</span><a href="#local-6989586621679386759"><span class="hs-identifier hs-var hs-var">projectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386759"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386758"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386757"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectionExpression:Scan' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AprojectionExpression%3AScan%27"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-598"></span><span>
 </span><span id="line-599"></span><span class="hs-comment">-- | This is a legacy parameter. Use @FilterExpression@ instead. For more</span><span>
 </span><span id="line-600"></span><span class="hs-comment">-- information, see</span><span>
@@ -753,16 +753,16 @@ $sel:projectionExpression:Scan' :: Scan -&gt; Maybe Text
      (Maybe (HashMap Text Condition))
      (Maybe (HashMap Text Condition))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386747"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386756"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
 scanFilter :: Maybe (HashMap Text Condition)
 $sel:scanFilter:Scan' :: Scan -&gt; Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679386747"><span class="hs-identifier hs-var hs-var">scanFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679386747"><span class="hs-identifier hs-var">scanFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386746"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386745"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679386745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanFilter:Scan' :: Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679386756"><span class="hs-identifier hs-var hs-var">scanFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679386756"><span class="hs-identifier hs-var">scanFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386755"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386754"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679386754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanFilter:Scan' :: Maybe (HashMap Text Condition)
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AscanFilter%3AScan%27"><span class="hs-identifier hs-var">scanFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679386745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679386754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Condition)
   -&gt; f (Maybe (HashMap Text Condition)))
  -&gt; Scan -&gt; f Scan)
 -&gt; ((Maybe (HashMap Text Condition)
@@ -806,16 +806,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Scan -&gt; Maybe (NonEmpty Text) -&gt; Scan)
 -&gt; Lens Scan Scan (Maybe (NonEmpty Text)) (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386741"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386750"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 attributesToGet :: Maybe (NonEmpty Text)
 $sel:attributesToGet:Scan' :: Scan -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679386741"><span class="hs-identifier hs-var hs-var">attributesToGet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679386741"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386740"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386739"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679386739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributesToGet:Scan' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679386750"><span class="hs-identifier hs-var hs-var">attributesToGet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679386750"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386749"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386748"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679386748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributesToGet:Scan' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AattributesToGet%3AScan%27"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679386739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679386748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; Scan -&gt; f Scan)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -856,16 +856,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Scan -&gt; Maybe Natural -&gt; Scan)
 -&gt; Lens Scan Scan (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386738"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386747"><span class="annot"><span class="annottext">Maybe Natural
 totalSegments :: Maybe Natural
 $sel:totalSegments:Scan' :: Scan -&gt; Maybe Natural
-</span><a href="#local-6989586621679386738"><span class="hs-identifier hs-var hs-var">totalSegments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386738"><span class="hs-identifier hs-var">totalSegments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386737"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386736"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalSegments:Scan' :: Maybe Natural
+</span><a href="#local-6989586621679386747"><span class="hs-identifier hs-var hs-var">totalSegments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679386747"><span class="hs-identifier hs-var">totalSegments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386746"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386745"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679386745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalSegments:Scan' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AtotalSegments%3AScan%27"><span class="hs-identifier hs-var">totalSegments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-627"></span><span>
 </span><span id="line-628"></span><span class="hs-comment">-- | One or more substitution tokens for attribute names in an expression.</span><span>
 </span><span id="line-629"></span><span class="hs-comment">-- The following are some use cases for using @ExpressionAttributeNames@:</span><span>
@@ -912,16 +912,16 @@ $sel:totalSegments:Scan' :: Scan -&gt; Maybe Natural
 -&gt; Lens
      Scan Scan (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386735"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386744"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 expressionAttributeNames :: Maybe (HashMap Text Text)
 $sel:expressionAttributeNames:Scan' :: Scan -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679386735"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679386735"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386734"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386733"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679386733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:Scan' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679386744"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679386744"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386743"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386742"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679386742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:Scan' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AexpressionAttributeNames%3AScan%27"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679386733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679386742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Scan -&gt; f Scan)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -967,16 +967,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Scan -&gt; Maybe Text -&gt; Scan)
 -&gt; Lens Scan Scan (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386732"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386741"><span class="annot"><span class="annottext">Maybe Text
 filterExpression :: Maybe Text
 $sel:filterExpression:Scan' :: Scan -&gt; Maybe Text
-</span><a href="#local-6989586621679386732"><span class="hs-identifier hs-var hs-var">filterExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386732"><span class="hs-identifier hs-var">filterExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386731"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386730"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterExpression:Scan' :: Maybe Text
+</span><a href="#local-6989586621679386741"><span class="hs-identifier hs-var hs-var">filterExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386741"><span class="hs-identifier hs-var">filterExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386740"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386739"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterExpression:Scan' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AfilterExpression%3AScan%27"><span class="hs-identifier hs-var">filterExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-681"></span><span>
 </span><span id="line-682"></span><span class="hs-comment">-- | A Boolean value that determines the read consistency model during the</span><span>
 </span><span id="line-683"></span><span class="hs-comment">-- scan:</span><span>
@@ -1000,16 +1000,16 @@ $sel:filterExpression:Scan' :: Scan -&gt; Maybe Text
 -&gt; (Scan -&gt; Maybe Bool -&gt; Scan)
 -&gt; Lens Scan Scan (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386729"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386738"><span class="annot"><span class="annottext">Maybe Bool
 consistentRead :: Maybe Bool
 $sel:consistentRead:Scan' :: Scan -&gt; Maybe Bool
-</span><a href="#local-6989586621679386729"><span class="hs-identifier hs-var hs-var">consistentRead</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679386729"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386728"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386727"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679386727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consistentRead:Scan' :: Maybe Bool
+</span><a href="#local-6989586621679386738"><span class="hs-identifier hs-var hs-var">consistentRead</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679386738"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386737"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386736"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679386736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consistentRead:Scan' :: Maybe Bool
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AconsistentRead%3AScan%27"><span class="hs-identifier hs-var">consistentRead</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679386727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-700"></span><span>
 </span><span id="line-701"></span><span class="hs-comment">-- | One or more values that can be substituted in an expression.</span><span>
 </span><span id="line-702"></span><span class="hs-comment">--</span><span>
@@ -1042,16 +1042,16 @@ $sel:consistentRead:Scan' :: Scan -&gt; Maybe Bool
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386726"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386735"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 expressionAttributeValues :: Maybe (HashMap Text AttributeValue)
 $sel:expressionAttributeValues:Scan' :: Scan -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679386726"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679386726"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386725"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386724"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679386724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:Scan' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679386735"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679386735"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386734"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386733"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679386733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:Scan' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AexpressionAttributeValues%3AScan%27"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679386724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679386733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; Scan -&gt; f Scan)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -1096,16 +1096,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ReturnConsumedCapacity)
      (Maybe ReturnConsumedCapacity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386723"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386732"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
 returnConsumedCapacity :: Maybe ReturnConsumedCapacity
 $sel:returnConsumedCapacity:Scan' :: Scan -&gt; Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679386723"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679386723"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386722"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386721"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679386721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:Scan' :: Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679386732"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679386732"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386731"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386730"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679386730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:Scan' :: Maybe ReturnConsumedCapacity
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AreturnConsumedCapacity%3AScan%27"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679386721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-726"></span><span>
 </span><span id="line-727"></span><span class="hs-comment">-- | The maximum number of items to evaluate (not necessarily the number of</span><span>
 </span><span id="line-728"></span><span class="hs-comment">-- matching items). If DynamoDB processes the number of items up to the</span><span>
@@ -1125,16 +1125,16 @@ $sel:returnConsumedCapacity:Scan' :: Scan -&gt; Maybe ReturnConsumedCapacity
 -&gt; (Scan -&gt; Maybe Natural -&gt; Scan)
 -&gt; Lens Scan Scan (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386720"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386729"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:Scan' :: Scan -&gt; Maybe Natural
-</span><a href="#local-6989586621679386720"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386720"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386719"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386718"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:Scan' :: Maybe Natural
+</span><a href="#local-6989586621679386729"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679386729"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386728"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386727"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679386727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:Scan' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3Alimit%3AScan%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-741"></span><span>
 </span><span id="line-742"></span><span class="hs-comment">-- | The attributes to be returned in the result. You can retrieve all item</span><span>
 </span><span id="line-743"></span><span class="hs-comment">-- attributes, specific item attributes, the count of matching items, or in</span><span>
@@ -1187,16 +1187,16 @@ $sel:limit:Scan' :: Scan -&gt; Maybe Natural
 -&gt; (Scan -&gt; Maybe Select -&gt; Scan)
 -&gt; Lens Scan Scan (Maybe Select) (Maybe Select)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386717"><span class="annot"><span class="annottext">Maybe Select
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386726"><span class="annot"><span class="annottext">Maybe Select
 select :: Maybe Select
 $sel:select:Scan' :: Scan -&gt; Maybe Select
-</span><a href="#local-6989586621679386717"><span class="hs-identifier hs-var hs-var">select</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Select
-</span><a href="#local-6989586621679386717"><span class="hs-identifier hs-var">select</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386716"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386715"><span class="annot"><span class="annottext">Maybe Select
-</span><a href="#local-6989586621679386715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:select:Scan' :: Maybe Select
+</span><a href="#local-6989586621679386726"><span class="hs-identifier hs-var hs-var">select</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Select
+</span><a href="#local-6989586621679386726"><span class="hs-identifier hs-var">select</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386725"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386724"><span class="annot"><span class="annottext">Maybe Select
+</span><a href="#local-6989586621679386724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:select:Scan' :: Maybe Select
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3Aselect%3AScan%27"><span class="hs-identifier hs-var">select</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Select
-</span><a href="#local-6989586621679386715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-789"></span><span>
 </span><span id="line-790"></span><span class="hs-comment">-- | For a parallel @Scan@ request, @Segment@ identifies an individual</span><span>
 </span><span id="line-791"></span><span class="hs-comment">-- segment to be scanned by an application worker.</span><span>
@@ -1220,16 +1220,16 @@ $sel:select:Scan' :: Scan -&gt; Maybe Select
 -&gt; (Scan -&gt; Maybe Natural -&gt; Scan)
 -&gt; Lens Scan Scan (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386714"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386723"><span class="annot"><span class="annottext">Maybe Natural
 segment :: Maybe Natural
 $sel:segment:Scan' :: Scan -&gt; Maybe Natural
-</span><a href="#local-6989586621679386714"><span class="hs-identifier hs-var hs-var">segment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386714"><span class="hs-identifier hs-var">segment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386713"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386712"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segment:Scan' :: Maybe Natural
+</span><a href="#local-6989586621679386723"><span class="hs-identifier hs-var hs-var">segment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679386723"><span class="hs-identifier hs-var">segment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386722"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386721"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679386721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segment:Scan' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3Asegment%3AScan%27"><span class="hs-identifier hs-var">segment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-808"></span><span>
 </span><span id="line-809"></span><span class="hs-comment">-- | This is a legacy parameter. Use @FilterExpression@ instead. For more</span><span>
 </span><span id="line-810"></span><span class="hs-comment">-- information, see</span><span>
@@ -1243,16 +1243,16 @@ $sel:segment:Scan' :: Scan -&gt; Maybe Natural
 -&gt; Lens
      Scan Scan (Maybe ConditionalOperator) (Maybe ConditionalOperator)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386711"><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386720"><span class="annot"><span class="annottext">Maybe ConditionalOperator
 conditionalOperator :: Maybe ConditionalOperator
 $sel:conditionalOperator:Scan' :: Scan -&gt; Maybe ConditionalOperator
-</span><a href="#local-6989586621679386711"><span class="hs-identifier hs-var hs-var">conditionalOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679386711"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386710"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386709"><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679386709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionalOperator:Scan' :: Maybe ConditionalOperator
+</span><a href="#local-6989586621679386720"><span class="hs-identifier hs-var hs-var">conditionalOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><a href="#local-6989586621679386720"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386719"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386718"><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><a href="#local-6989586621679386718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionalOperator:Scan' :: Maybe ConditionalOperator
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AconditionalOperator%3AScan%27"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679386709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-815"></span><span>
 </span><span id="line-816"></span><span class="hs-comment">-- | The primary key of the first item that this operation will evaluate. Use</span><span>
 </span><span id="line-817"></span><span class="hs-comment">-- the value that was returned for @LastEvaluatedKey@ in the previous</span><span>
@@ -1276,16 +1276,16 @@ $sel:conditionalOperator:Scan' :: Scan -&gt; Maybe ConditionalOperator
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386708"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386717"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 exclusiveStartKey :: Maybe (HashMap Text AttributeValue)
 $sel:exclusiveStartKey:Scan' :: Scan -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679386708"><span class="hs-identifier hs-var hs-var">exclusiveStartKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679386708"><span class="hs-identifier hs-var">exclusiveStartKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386707"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386706"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679386706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartKey:Scan' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679386717"><span class="hs-identifier hs-var hs-var">exclusiveStartKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679386717"><span class="hs-identifier hs-var">exclusiveStartKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386716"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386715"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679386715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartKey:Scan' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AexclusiveStartKey%3AScan%27"><span class="hs-identifier hs-var">exclusiveStartKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679386706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679386715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; Scan -&gt; f Scan)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -1327,16 +1327,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Scan -&gt; Maybe Text -&gt; Scan)
 -&gt; Lens Scan Scan (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386705"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386714"><span class="annot"><span class="annottext">Maybe Text
 indexName :: Maybe Text
 $sel:indexName:Scan' :: Scan -&gt; Maybe Text
-</span><a href="#local-6989586621679386705"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386705"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386704"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386703"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:Scan' :: Maybe Text
+</span><a href="#local-6989586621679386714"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386714"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386713"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386712"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:Scan' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AindexName%3AScan%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-834"></span><span>
 </span><span id="line-835"></span><span class="hs-comment">-- | The name of the table containing the requested items; or, if you provide</span><span>
 </span><span id="line-836"></span><span class="hs-comment">-- @IndexName@, the name of the table to which that index belongs.</span><span>
@@ -1345,28 +1345,28 @@ $sel:indexName:Scan' :: Scan -&gt; Maybe Text
 </span><a href="Network.AWS.DynamoDB.Scan.html#scan_tableName"><span class="hs-identifier hs-var hs-var">scan_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Scan -&gt; Text)
 -&gt; (Scan -&gt; Text -&gt; Scan) -&gt; Lens Scan Scan Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386702"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386711"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:Scan' :: Scan -&gt; Text
-</span><a href="#local-6989586621679386702"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386702"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386701"><span class="annot"><span class="annottext">s :: Scan
-</span><a href="#local-6989586621679386701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386700"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:Scan' :: Text
+</span><a href="#local-6989586621679386711"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386711"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386710"><span class="annot"><span class="annottext">s :: Scan
+</span><a href="#local-6989586621679386710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386709"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:Scan' :: Text
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AtableName%3AScan%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-839"></span><span>
 </span><span id="line-840"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-841"></span><span>  </span><span id="local-6989586621679386696"><span class="annot"><span class="annottext">page :: Scan -&gt; AWSResponse Scan -&gt; Maybe Scan
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679386694"><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386694"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679386693"><span class="annot"><span class="annottext">AWSResponse Scan
-</span><a href="#local-6989586621679386693"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-841"></span><span>  </span><span id="local-6989586621679386705"><span class="annot"><span class="annottext">page :: Scan -&gt; AWSResponse Scan -&gt; Maybe Scan
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679386703"><span class="annot"><span class="annottext">Scan
+</span><a href="#local-6989586621679386703"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679386702"><span class="annot"><span class="annottext">AWSResponse Scan
+</span><a href="#local-6989586621679386702"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-842"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue) -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-843"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse Scan
 ScanResponse
-</span><a href="#local-6989586621679386693"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679386702"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-844"></span><span>            </span><span class="annot"><span class="annottext">ScanResponse
 -&gt; Getting
      (First (HashMap Text AttributeValue))
@@ -1422,7 +1422,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-849"></span><span>        </span><span class="annot"><span class="annottext">Scan
-</span><a href="#local-6989586621679386694"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679386703"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-850"></span><span>          </span><span class="annot"><span class="annottext">Scan -&gt; (Scan -&gt; Scan) -&gt; Scan
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe (HashMap Text AttributeValue)
@@ -1441,7 +1441,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse Scan
 ScanResponse
-</span><a href="#local-6989586621679386693"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679386702"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-852"></span><span>          </span><span class="annot"><span class="annottext">ScanResponse
 -&gt; Getting
      (First (HashMap Text AttributeValue))
@@ -1488,12 +1488,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-853"></span><span>
 </span><span id="line-854"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-855"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span>
-</span><span id="line-856"></span><span>  </span><span id="local-6989586621679386684"><span class="annot"><span class="annottext">request :: Scan -&gt; Request Scan
+</span><span id="line-856"></span><span>  </span><span id="local-6989586621679386693"><span class="annot"><span class="annottext">request :: Scan -&gt; Request Scan
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Scan -&gt; Request Scan
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-857"></span><span>  </span><span id="local-6989586621679386680"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-857"></span><span>  </span><span id="local-6989586621679386689"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy Scan
 -&gt; ClientResponse ClientBody
@@ -1515,10 +1515,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-859"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386677"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386677"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386676"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679386676"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386675"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-859"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386686"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386686"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386685"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679386685"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386684"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386684"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-860"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 -&gt; Maybe Int
 -&gt; Maybe Int
@@ -1545,7 +1545,7 @@ MonadResource m =&gt;
       -&gt; ScanResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe (HashMap Text AttributeValue)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -1577,7 +1577,7 @@ forall a. Monoid a =&gt; a
       -&gt; ScanResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679386684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Count&quot;</span></span><span class="hs-special">)</span><span>
@@ -1595,7 +1595,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe ConsumedCapacity -&gt; Int -&gt; ScanResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679386684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScannedCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -1607,7 +1607,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe ConsumedCapacity -&gt; Int -&gt; ScanResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [HashMap Text AttributeValue]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -1624,7 +1624,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ScanResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConsumedCapacity)
+</span><a href="#local-6989586621679386684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConsumedCapacity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsumedCapacity&quot;</span></span><span class="hs-special">)</span><span>
@@ -1636,15 +1636,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386677"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386686"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-869"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-870"></span><span>
-</span><span id="line-871"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386666"><span id="local-6989586621679386668"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span></span></span><span>
+</span><span id="line-871"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386675"><span id="local-6989586621679386677"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span></span></span><span>
 </span><span id="line-872"></span><span>
-</span><span id="line-873"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386663"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span></span><span>
+</span><span id="line-873"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span></span><span>
 </span><span id="line-874"></span><span>
 </span><span id="line-875"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-876"></span><span>  </span><span id="local-6989586621679386659"><span class="annot"><span class="annottext">toHeaders :: Scan -&gt; ResponseHeaders
+</span><span id="line-876"></span><span>  </span><span id="local-6989586621679386668"><span class="annot"><span class="annottext">toHeaders :: Scan -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-877"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; Scan -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -1669,9 +1669,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-885"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-886"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-887"></span><span>
-</span><span id="line-888"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386649"><span id="local-6989586621679386651"><span id="local-6989586621679386653"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-889"></span><span>  </span><span id="local-6989586621679386647"><span class="annot"><span class="annottext">toJSON :: Scan -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386630"><span id="local-6989586621679386631"><span id="local-6989586621679386632"><span id="local-6989586621679386633"><span id="local-6989586621679386634"><span id="local-6989586621679386635"><span id="local-6989586621679386636"><span id="local-6989586621679386637"><span id="local-6989586621679386638"><span id="local-6989586621679386639"><span id="local-6989586621679386640"><span id="local-6989586621679386641"><span id="local-6989586621679386642"><span id="local-6989586621679386643"><span id="local-6989586621679386644"><span id="local-6989586621679386645"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-888"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386658"><span id="local-6989586621679386660"><span id="local-6989586621679386662"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-889"></span><span>  </span><span id="local-6989586621679386656"><span class="annot"><span class="annottext">toJSON :: Scan -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan%27"><span class="hs-identifier hs-type">Scan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386639"><span id="local-6989586621679386640"><span id="local-6989586621679386641"><span id="local-6989586621679386642"><span id="local-6989586621679386643"><span id="local-6989586621679386644"><span id="local-6989586621679386645"><span id="local-6989586621679386646"><span id="local-6989586621679386647"><span id="local-6989586621679386648"><span id="local-6989586621679386649"><span id="local-6989586621679386650"><span id="local-6989586621679386651"><span id="local-6989586621679386652"><span id="local-6989586621679386653"><span id="local-6989586621679386654"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe (NonEmpty Text)
 Maybe Text
@@ -1714,7 +1714,7 @@ $sel:totalSegments:Scan' :: Scan -&gt; Maybe Natural
 $sel:attributesToGet:Scan' :: Scan -&gt; Maybe (NonEmpty Text)
 $sel:scanFilter:Scan' :: Scan -&gt; Maybe (HashMap Text Condition)
 $sel:projectionExpression:Scan' :: Scan -&gt; Maybe Text
-</span><a href="#local-6989586621679386630"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679386639"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-890"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-891"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1727,7 +1727,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-893"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386645"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386654"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-894"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScanFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Condition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1735,7 +1735,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Condition) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679386644"><span class="hs-identifier hs-var">scanFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386653"><span class="hs-identifier hs-var">scanFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-895"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttributesToGet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1743,14 +1743,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-896"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679386643"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386652"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-897"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TotalSegments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386642"><span class="hs-identifier hs-var">totalSegments</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386651"><span class="hs-identifier hs-var">totalSegments</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-898"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExpressionAttributeNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1759,7 +1759,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679386641"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386650"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-900"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FilterExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1767,7 +1767,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-901"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386640"><span class="hs-identifier hs-var">filterExpression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386649"><span class="hs-identifier hs-var">filterExpression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-902"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsistentRead&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1775,7 +1775,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-903"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679386639"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386648"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-904"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExpressionAttributeValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1784,7 +1784,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text AttributeValue) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679386638"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386647"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-906"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReturnConsumedCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnConsumedCapacity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1793,28 +1793,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ReturnConsumedCapacity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679386637"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386646"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-908"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386636"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386645"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-909"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Select&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Select -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Select -&gt; Pair) -&gt; Maybe Select -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Select
-</span><a href="#local-6989586621679386635"><span class="hs-identifier hs-var">select</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386644"><span class="hs-identifier hs-var">select</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-910"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Segment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386634"><span class="hs-identifier hs-var">segment</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386643"><span class="hs-identifier hs-var">segment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-911"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConditionalOperator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConditionalOperator -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1823,7 +1823,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ConditionalOperator -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679386633"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386642"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-913"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExclusiveStartKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1832,33 +1832,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text AttributeValue) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679386632"><span class="hs-identifier hs-var">exclusiveStartKey</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386641"><span class="hs-identifier hs-var">exclusiveStartKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-915"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IndexName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386631"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386640"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-916"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386630"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386639"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-917"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-918"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-919"></span><span>
 </span><span id="line-920"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-921"></span><span>  </span><span id="local-6989586621679386624"><span class="annot"><span class="annottext">toPath :: Scan -&gt; ByteString
+</span><span id="line-921"></span><span>  </span><span id="local-6989586621679386633"><span class="annot"><span class="annottext">toPath :: Scan -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Scan -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-922"></span><span>
 </span><span id="line-923"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#Scan"><span class="hs-identifier hs-type">Scan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-924"></span><span>  </span><span id="local-6989586621679386620"><span class="annot"><span class="annottext">toQuery :: Scan -&gt; QueryString
+</span><span id="line-924"></span><span>  </span><span id="local-6989586621679386629"><span class="annot"><span class="annottext">toQuery :: Scan -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; Scan -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -1868,7 +1868,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-926"></span><span class="hs-comment">-- | Represents the output of a @Scan@ operation.</span><span>
 </span><span id="line-927"></span><span class="hs-comment">--</span><span>
 </span><span id="line-928"></span><span class="hs-comment">-- /See:/ 'newScanResponse' smart constructor.</span><span>
-</span><span id="line-929"></span><span id="local-6989586621679386617"><span id="local-6989586621679386618"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScanResponse"><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-var">ScanResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScanResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-var">ScanResponse'</span></a></span></span><span>
+</span><span id="line-929"></span><span id="local-6989586621679386626"><span id="local-6989586621679386627"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScanResponse"><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-var">ScanResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScanResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-var">ScanResponse'</span></a></span></span><span>
 </span><span id="line-930"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The primary key of the item where the operation stopped, inclusive of</span><span>
 </span><span id="line-931"></span><span>    </span><span class="hs-comment">-- the previous result set. Use this value to start a new operation,</span><span>
 </span><span id="line-932"></span><span>    </span><span class="hs-comment">-- excluding this value in the new request.</span><span>
@@ -1919,7 +1919,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-972"></span><span>    </span><span id="%24sel%3AhttpStatus%3AScanResponse%27"><span class="annot"><span class="annottext">ScanResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AhttpStatus%3AScanResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-973"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-974"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386607"><span id="local-6989586621679386609"><span class="annot"><span class="annottext">ScanResponse -&gt; ScanResponse -&gt; Bool
+</span><span id="line-974"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386616"><span id="local-6989586621679386618"><span class="annot"><span class="annottext">ScanResponse -&gt; ScanResponse -&gt; Bool
 (ScanResponse -&gt; ScanResponse -&gt; Bool)
 -&gt; (ScanResponse -&gt; ScanResponse -&gt; Bool) -&gt; Eq ScanResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -1927,7 +1927,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ScanResponse -&gt; ScanResponse -&gt; Bool
 == :: ScanResponse -&gt; ScanResponse -&gt; Bool
 $c== :: ScanResponse -&gt; ScanResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386599"><span id="local-6989586621679386601"><span id="local-6989586621679386603"><span id="local-6989586621679386605"><span class="annot"><span class="annottext">ReadPrec [ScanResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386608"><span id="local-6989586621679386610"><span id="local-6989586621679386612"><span id="local-6989586621679386614"><span class="annot"><span class="annottext">ReadPrec [ScanResponse]
 ReadPrec ScanResponse
 Int -&gt; ReadS ScanResponse
 ReadS [ScanResponse]
@@ -1947,7 +1947,7 @@ readList :: ReadS [ScanResponse]
 $creadList :: ReadS [ScanResponse]
 readsPrec :: Int -&gt; ReadS ScanResponse
 $creadsPrec :: Int -&gt; ReadS ScanResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386593"><span id="local-6989586621679386595"><span id="local-6989586621679386597"><span class="annot"><span class="annottext">Int -&gt; ScanResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386602"><span id="local-6989586621679386604"><span id="local-6989586621679386606"><span class="annot"><span class="annottext">Int -&gt; ScanResponse -&gt; ShowS
 [ScanResponse] -&gt; ShowS
 ScanResponse -&gt; String
 (Int -&gt; ScanResponse -&gt; ShowS)
@@ -2028,8 +2028,8 @@ $cfrom :: forall x. ScanResponse -&gt; Rep ScanResponse x
 </span><span id="line-1028"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-1029"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span>
 </span><span id="line-1030"></span><span id="newScanResponse"><span class="annot"><span class="annottext">newScanResponse :: Int -&gt; ScanResponse
-</span><a href="Network.AWS.DynamoDB.Scan.html#newScanResponse"><span class="hs-identifier hs-var hs-var">newScanResponse</span></a></span></span><span> </span><span id="local-6989586621679386590"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386590"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.Scan.html#newScanResponse"><span class="hs-identifier hs-var hs-var">newScanResponse</span></a></span></span><span> </span><span id="local-6989586621679386599"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386599"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-1031"></span><span>  </span><span class="annot"><span class="annottext">ScanResponse' :: Maybe (HashMap Text AttributeValue)
 -&gt; Maybe Int
 -&gt; Maybe Int
@@ -2060,7 +2060,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-1037"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ScanResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AhttpStatus%3AScanResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386590"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679386599"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-1038"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-1039"></span><span>
 </span><span id="line-1040"></span><span class="hs-comment">-- | The primary key of the item where the operation stopped, inclusive of</span><span>
@@ -2082,16 +2082,16 @@ forall a. Maybe a
     -&gt; Maybe (HashMap Text AttributeValue) -&gt; ScanResponse)
 -&gt; Lens' ScanResponse (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386589"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386598"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 lastEvaluatedKey :: Maybe (HashMap Text AttributeValue)
 $sel:lastEvaluatedKey:ScanResponse' :: ScanResponse -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679386589"><span class="hs-identifier hs-var hs-var">lastEvaluatedKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679386589"><span class="hs-identifier hs-var">lastEvaluatedKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386588"><span class="annot"><span class="annottext">s :: ScanResponse
-</span><a href="#local-6989586621679386588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386587"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679386587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanResponse
-</span><a href="#local-6989586621679386588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastEvaluatedKey:ScanResponse' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679386598"><span class="hs-identifier hs-var hs-var">lastEvaluatedKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679386598"><span class="hs-identifier hs-var">lastEvaluatedKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386597"><span class="annot"><span class="annottext">s :: ScanResponse
+</span><a href="#local-6989586621679386597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386596"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679386596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanResponse
+</span><a href="#local-6989586621679386597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastEvaluatedKey:ScanResponse' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AlastEvaluatedKey%3AScanResponse%27"><span class="hs-identifier hs-var">lastEvaluatedKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679386587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679386596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; ScanResponse -&gt; f ScanResponse)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -2138,16 +2138,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ScanResponse -&gt; Maybe Int -&gt; ScanResponse)
 -&gt; Lens ScanResponse ScanResponse (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386586"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386595"><span class="annot"><span class="annottext">Maybe Int
 count :: Maybe Int
 $sel:count:ScanResponse' :: ScanResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679386586"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679386586"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386585"><span class="annot"><span class="annottext">s :: ScanResponse
-</span><a href="#local-6989586621679386585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386584"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679386584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanResponse
-</span><a href="#local-6989586621679386585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:ScanResponse' :: Maybe Int
+</span><a href="#local-6989586621679386595"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679386595"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386594"><span class="annot"><span class="annottext">s :: ScanResponse
+</span><a href="#local-6989586621679386594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386593"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679386593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanResponse
+</span><a href="#local-6989586621679386594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:ScanResponse' :: Maybe Int
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3Acount%3AScanResponse%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679386584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1063"></span><span>
 </span><span id="line-1064"></span><span class="hs-comment">-- | The number of items evaluated, before any @ScanFilter@ is applied. A</span><span>
 </span><span id="line-1065"></span><span class="hs-comment">-- high @ScannedCount@ value with few, or no, @Count@ results indicates an</span><span>
@@ -2163,16 +2163,16 @@ $sel:count:ScanResponse' :: ScanResponse -&gt; Maybe Int
 -&gt; (ScanResponse -&gt; Maybe Int -&gt; ScanResponse)
 -&gt; Lens ScanResponse ScanResponse (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386583"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386592"><span class="annot"><span class="annottext">Maybe Int
 scannedCount :: Maybe Int
 $sel:scannedCount:ScanResponse' :: ScanResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679386583"><span class="hs-identifier hs-var hs-var">scannedCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679386583"><span class="hs-identifier hs-var">scannedCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386582"><span class="annot"><span class="annottext">s :: ScanResponse
-</span><a href="#local-6989586621679386582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386581"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679386581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanResponse
-</span><a href="#local-6989586621679386582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scannedCount:ScanResponse' :: Maybe Int
+</span><a href="#local-6989586621679386592"><span class="hs-identifier hs-var hs-var">scannedCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679386592"><span class="hs-identifier hs-var">scannedCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386591"><span class="annot"><span class="annottext">s :: ScanResponse
+</span><a href="#local-6989586621679386591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386590"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679386590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanResponse
+</span><a href="#local-6989586621679386591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scannedCount:ScanResponse' :: Maybe Int
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AscannedCount%3AScanResponse%27"><span class="hs-identifier hs-var">scannedCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679386581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1074"></span><span>
 </span><span id="line-1075"></span><span class="hs-comment">-- | An array of item attributes that match the scan criteria. Each element</span><span>
 </span><span id="line-1076"></span><span class="hs-comment">-- in this array consists of an attribute name and the value for that</span><span>
@@ -2190,16 +2190,16 @@ $sel:scannedCount:ScanResponse' :: ScanResponse -&gt; Maybe Int
      (Maybe [HashMap Text AttributeValue])
      (Maybe [HashMap Text AttributeValue])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386580"><span class="annot"><span class="annottext">Maybe [HashMap Text AttributeValue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386589"><span class="annot"><span class="annottext">Maybe [HashMap Text AttributeValue]
 items :: Maybe [HashMap Text AttributeValue]
 $sel:items:ScanResponse' :: ScanResponse -&gt; Maybe [HashMap Text AttributeValue]
-</span><a href="#local-6989586621679386580"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text AttributeValue]
-</span><a href="#local-6989586621679386580"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386579"><span class="annot"><span class="annottext">s :: ScanResponse
-</span><a href="#local-6989586621679386579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386578"><span class="annot"><span class="annottext">Maybe [HashMap Text AttributeValue]
-</span><a href="#local-6989586621679386578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanResponse
-</span><a href="#local-6989586621679386579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:ScanResponse' :: Maybe [HashMap Text AttributeValue]
+</span><a href="#local-6989586621679386589"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text AttributeValue]
+</span><a href="#local-6989586621679386589"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386588"><span class="annot"><span class="annottext">s :: ScanResponse
+</span><a href="#local-6989586621679386588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386587"><span class="annot"><span class="annottext">Maybe [HashMap Text AttributeValue]
+</span><a href="#local-6989586621679386587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanResponse
+</span><a href="#local-6989586621679386588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:ScanResponse' :: Maybe [HashMap Text AttributeValue]
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3Aitems%3AScanResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text AttributeValue]
-</span><a href="#local-6989586621679386578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HashMap Text AttributeValue]
+</span><a href="#local-6989586621679386587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HashMap Text AttributeValue]
   -&gt; f (Maybe [HashMap Text AttributeValue]))
  -&gt; ScanResponse -&gt; f ScanResponse)
 -&gt; ((Maybe [HashMap Text AttributeValue]
@@ -2250,16 +2250,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ConsumedCapacity)
      (Maybe ConsumedCapacity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386577"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386586"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
 consumedCapacity :: Maybe ConsumedCapacity
 $sel:consumedCapacity:ScanResponse' :: ScanResponse -&gt; Maybe ConsumedCapacity
-</span><a href="#local-6989586621679386577"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679386577"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386576"><span class="annot"><span class="annottext">s :: ScanResponse
-</span><a href="#local-6989586621679386576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386575"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679386575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanResponse
-</span><a href="#local-6989586621679386576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:ScanResponse' :: Maybe ConsumedCapacity
+</span><a href="#local-6989586621679386586"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><a href="#local-6989586621679386586"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386585"><span class="annot"><span class="annottext">s :: ScanResponse
+</span><a href="#local-6989586621679386585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386584"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><a href="#local-6989586621679386584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanResponse
+</span><a href="#local-6989586621679386585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:ScanResponse' :: Maybe ConsumedCapacity
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AconsumedCapacity%3AScanResponse%27"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679386575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1090"></span><span>
 </span><span id="line-1091"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-1092"></span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#scanResponse_httpStatus"><span class="hs-identifier hs-type">scanResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -2268,16 +2268,16 @@ $sel:consumedCapacity:ScanResponse' :: ScanResponse -&gt; Maybe ConsumedCapacity
 -&gt; (ScanResponse -&gt; Int -&gt; ScanResponse)
 -&gt; Lens ScanResponse ScanResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386574"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386583"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ScanResponse' :: ScanResponse -&gt; Int
-</span><a href="#local-6989586621679386574"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386574"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386573"><span class="annot"><span class="annottext">s :: ScanResponse
-</span><a href="#local-6989586621679386573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386572"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanResponse
-</span><a href="#local-6989586621679386573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ScanResponse' :: Int
+</span><a href="#local-6989586621679386583"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386583"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386582"><span class="annot"><span class="annottext">s :: ScanResponse
+</span><a href="#local-6989586621679386582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse%27"><span class="hs-identifier hs-type">ScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386581"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanResponse
+</span><a href="#local-6989586621679386582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ScanResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.Scan.html#%24sel%3AhttpStatus%3AScanResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1094"></span><span>
-</span><span id="line-1095"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span></span><span>
+</span><span id="line-1095"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386579"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Scan.html#ScanResponse"><span class="hs-identifier hs-type">ScanResponse</span></a></span></span><span>
 </span><span id="line-1096"></span></pre></body></html>

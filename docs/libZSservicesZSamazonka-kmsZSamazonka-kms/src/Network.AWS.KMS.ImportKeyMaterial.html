@@ -118,7 +118,7 @@
 </span><span id="line-118"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newImportKeyMaterial' smart constructor.</span><span>
-</span><span id="line-121"></span><span id="local-6989586621679254730"><span id="local-6989586621679254731"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportKeyMaterial"><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-var">ImportKeyMaterial</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportKeyMaterial%27"><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-var">ImportKeyMaterial'</span></a></span></span><span>
+</span><span id="line-121"></span><span id="local-6989586621679254739"><span id="local-6989586621679254740"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportKeyMaterial"><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-var">ImportKeyMaterial</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportKeyMaterial%27"><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-var">ImportKeyMaterial'</span></a></span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether the key material expires. The default is</span><span>
 </span><span id="line-123"></span><span>    </span><span class="hs-comment">-- @KEY_MATERIAL_EXPIRES@, in which case you must include the @ValidTo@</span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-comment">-- parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@,</span><span>
@@ -162,7 +162,7 @@
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AencryptedKeyMaterial%3AImportKeyMaterial%27"><span class="annot"><span class="annottext">ImportKeyMaterial -&gt; Base64
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#%24sel%3AencryptedKeyMaterial%3AImportKeyMaterial%27"><span class="hs-identifier hs-var hs-var">encryptedKeyMaterial</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254720"><span id="local-6989586621679254722"><span class="annot"><span class="annottext">ImportKeyMaterial -&gt; ImportKeyMaterial -&gt; Bool
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254729"><span id="local-6989586621679254731"><span class="annot"><span class="annottext">ImportKeyMaterial -&gt; ImportKeyMaterial -&gt; Bool
 (ImportKeyMaterial -&gt; ImportKeyMaterial -&gt; Bool)
 -&gt; (ImportKeyMaterial -&gt; ImportKeyMaterial -&gt; Bool)
 -&gt; Eq ImportKeyMaterial
@@ -171,7 +171,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImportKeyMaterial -&gt; ImportKeyMaterial -&gt; Bool
 == :: ImportKeyMaterial -&gt; ImportKeyMaterial -&gt; Bool
 $c== :: ImportKeyMaterial -&gt; ImportKeyMaterial -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254711"><span id="local-6989586621679254713"><span id="local-6989586621679254715"><span id="local-6989586621679254717"><span class="annot"><span class="annottext">ReadPrec [ImportKeyMaterial]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254720"><span id="local-6989586621679254722"><span id="local-6989586621679254724"><span id="local-6989586621679254726"><span class="annot"><span class="annottext">ReadPrec [ImportKeyMaterial]
 ReadPrec ImportKeyMaterial
 Int -&gt; ReadS ImportKeyMaterial
 ReadS [ImportKeyMaterial]
@@ -191,7 +191,7 @@ readList :: ReadS [ImportKeyMaterial]
 $creadList :: ReadS [ImportKeyMaterial]
 readsPrec :: Int -&gt; ReadS ImportKeyMaterial
 $creadsPrec :: Int -&gt; ReadS ImportKeyMaterial
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254704"><span id="local-6989586621679254706"><span id="local-6989586621679254708"><span class="annot"><span class="annottext">Int -&gt; ImportKeyMaterial -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254713"><span id="local-6989586621679254715"><span id="local-6989586621679254717"><span class="annot"><span class="annottext">Int -&gt; ImportKeyMaterial -&gt; ShowS
 [ImportKeyMaterial] -&gt; ShowS
 ImportKeyMaterial -&gt; String
 (Int -&gt; ImportKeyMaterial -&gt; ShowS)
@@ -279,12 +279,12 @@ $cfrom :: forall x. ImportKeyMaterial -&gt; Rep ImportKeyMaterial x
 </span><span id="line-221"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span>
 </span><span id="line-222"></span><span id="newImportKeyMaterial"><span class="annot"><span class="annottext">newImportKeyMaterial :: Text -&gt; ByteString -&gt; ByteString -&gt; ImportKeyMaterial
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#newImportKeyMaterial"><span class="hs-identifier hs-var hs-var">newImportKeyMaterial</span></a></span></span><span>
-</span><span id="line-223"></span><span>  </span><span id="local-6989586621679254699"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254699"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679254698"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679254698"><span class="hs-identifier hs-var">pImportToken_</span></a></span></span><span>
-</span><span id="line-225"></span><span>  </span><span id="local-6989586621679254697"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679254697"><span class="hs-identifier hs-var">pEncryptedKeyMaterial_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679254708"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254708"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679254707"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679254707"><span class="hs-identifier hs-var">pImportToken_</span></a></span></span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679254706"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679254706"><span class="hs-identifier hs-var">pEncryptedKeyMaterial_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-226"></span><span>    </span><span class="annot"><span class="annottext">ImportKeyMaterial' :: Maybe ExpirationModelType
 -&gt; Maybe POSIX -&gt; Text -&gt; Base64 -&gt; Base64 -&gt; ImportKeyMaterial
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span>
@@ -299,7 +299,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">$sel:keyId:ImportKeyMaterial' :: Text
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#%24sel%3AkeyId%3AImportKeyMaterial%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254699"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254708"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">$sel:importToken:ImportKeyMaterial' :: Base64
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#%24sel%3AimportToken%3AImportKeyMaterial%27"><span class="hs-identifier hs-var">importToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
 -&gt; Tagged Base64 (Identity Base64)
@@ -309,7 +309,7 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679254698"><span class="hs-identifier hs-var">pImportToken_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254707"><span class="hs-identifier hs-var">pImportToken_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">$sel:encryptedKeyMaterial:ImportKeyMaterial' :: Base64
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#%24sel%3AencryptedKeyMaterial%3AImportKeyMaterial%27"><span class="hs-identifier hs-var">encryptedKeyMaterial</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
@@ -320,7 +320,7 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679254697"><span class="hs-identifier hs-var">pEncryptedKeyMaterial_</span></a></span><span>
+</span><a href="#local-6989586621679254706"><span class="hs-identifier hs-var">pEncryptedKeyMaterial_</span></a></span><span>
 </span><span id="line-234"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | Specifies whether the key material expires. The default is</span><span>
@@ -339,16 +339,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe ExpirationModelType)
      (Maybe ExpirationModelType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254692"><span class="annot"><span class="annottext">Maybe ExpirationModelType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254701"><span class="annot"><span class="annottext">Maybe ExpirationModelType
 expirationModel :: Maybe ExpirationModelType
 $sel:expirationModel:ImportKeyMaterial' :: ImportKeyMaterial -&gt; Maybe ExpirationModelType
-</span><a href="#local-6989586621679254692"><span class="hs-identifier hs-var hs-var">expirationModel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExpirationModelType
-</span><a href="#local-6989586621679254692"><span class="hs-identifier hs-var">expirationModel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254691"><span class="annot"><span class="annottext">s :: ImportKeyMaterial
-</span><a href="#local-6989586621679254691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254690"><span class="annot"><span class="annottext">Maybe ExpirationModelType
-</span><a href="#local-6989586621679254690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyMaterial
-</span><a href="#local-6989586621679254691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationModel:ImportKeyMaterial' :: Maybe ExpirationModelType
+</span><a href="#local-6989586621679254701"><span class="hs-identifier hs-var hs-var">expirationModel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExpirationModelType
+</span><a href="#local-6989586621679254701"><span class="hs-identifier hs-var">expirationModel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254700"><span class="annot"><span class="annottext">s :: ImportKeyMaterial
+</span><a href="#local-6989586621679254700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254699"><span class="annot"><span class="annottext">Maybe ExpirationModelType
+</span><a href="#local-6989586621679254699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyMaterial
+</span><a href="#local-6989586621679254700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationModel:ImportKeyMaterial' :: Maybe ExpirationModelType
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#%24sel%3AexpirationModel%3AImportKeyMaterial%27"><span class="hs-identifier hs-var">expirationModel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExpirationModelType
-</span><a href="#local-6989586621679254690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>
 </span><span id="line-243"></span><span class="hs-comment">-- | The time at which the imported key material expires. When the key</span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- material expires, KMS deletes the key material and the KMS key becomes</span><span>
@@ -363,16 +363,16 @@ $sel:expirationModel:ImportKeyMaterial' :: ImportKeyMaterial -&gt; Maybe Expirat
 -&gt; Lens
      ImportKeyMaterial ImportKeyMaterial (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254689"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254698"><span class="annot"><span class="annottext">Maybe POSIX
 validTo :: Maybe POSIX
 $sel:validTo:ImportKeyMaterial' :: ImportKeyMaterial -&gt; Maybe POSIX
-</span><a href="#local-6989586621679254689"><span class="hs-identifier hs-var hs-var">validTo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679254689"><span class="hs-identifier hs-var">validTo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254688"><span class="annot"><span class="annottext">s :: ImportKeyMaterial
-</span><a href="#local-6989586621679254688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254687"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679254687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyMaterial
-</span><a href="#local-6989586621679254688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validTo:ImportKeyMaterial' :: Maybe POSIX
+</span><a href="#local-6989586621679254698"><span class="hs-identifier hs-var hs-var">validTo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679254698"><span class="hs-identifier hs-var">validTo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254697"><span class="annot"><span class="annottext">s :: ImportKeyMaterial
+</span><a href="#local-6989586621679254697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254696"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679254696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyMaterial
+</span><a href="#local-6989586621679254697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validTo:ImportKeyMaterial' :: Maybe POSIX
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#%24sel%3AvalidTo%3AImportKeyMaterial%27"><span class="hs-identifier hs-var">validTo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679254687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679254696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ImportKeyMaterial -&gt; f ImportKeyMaterial)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -411,16 +411,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ImportKeyMaterial -&gt; Text -&gt; ImportKeyMaterial)
 -&gt; Lens ImportKeyMaterial ImportKeyMaterial Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254683"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254692"><span class="annot"><span class="annottext">Text
 keyId :: Text
 $sel:keyId:ImportKeyMaterial' :: ImportKeyMaterial -&gt; Text
-</span><a href="#local-6989586621679254683"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254683"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254682"><span class="annot"><span class="annottext">s :: ImportKeyMaterial
-</span><a href="#local-6989586621679254682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254681"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyMaterial
-</span><a href="#local-6989586621679254682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:ImportKeyMaterial' :: Text
+</span><a href="#local-6989586621679254692"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254692"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254691"><span class="annot"><span class="annottext">s :: ImportKeyMaterial
+</span><a href="#local-6989586621679254691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254690"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyMaterial
+</span><a href="#local-6989586621679254691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:ImportKeyMaterial' :: Text
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#%24sel%3AkeyId%3AImportKeyMaterial%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | The import token that you received in the response to a previous</span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- GetParametersForImport request. It must be from the same response that</span><span>
@@ -436,16 +436,16 @@ $sel:keyId:ImportKeyMaterial' :: ImportKeyMaterial -&gt; Text
 -&gt; (ImportKeyMaterial -&gt; Base64 -&gt; ImportKeyMaterial)
 -&gt; Lens ImportKeyMaterial ImportKeyMaterial Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254680"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254689"><span class="annot"><span class="annottext">Base64
 importToken :: Base64
 $sel:importToken:ImportKeyMaterial' :: ImportKeyMaterial -&gt; Base64
-</span><a href="#local-6989586621679254680"><span class="hs-identifier hs-var hs-var">importToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679254680"><span class="hs-identifier hs-var">importToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254679"><span class="annot"><span class="annottext">s :: ImportKeyMaterial
-</span><a href="#local-6989586621679254679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254678"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679254678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyMaterial
-</span><a href="#local-6989586621679254679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importToken:ImportKeyMaterial' :: Base64
+</span><a href="#local-6989586621679254689"><span class="hs-identifier hs-var hs-var">importToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679254689"><span class="hs-identifier hs-var">importToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254688"><span class="annot"><span class="annottext">s :: ImportKeyMaterial
+</span><a href="#local-6989586621679254688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254687"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679254687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyMaterial
+</span><a href="#local-6989586621679254688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importToken:ImportKeyMaterial' :: Base64
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#%24sel%3AimportToken%3AImportKeyMaterial%27"><span class="hs-identifier hs-var">importToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679254678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; ImportKeyMaterial -&gt; f ImportKeyMaterial)
+</span><a href="#local-6989586621679254687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; ImportKeyMaterial -&gt; f ImportKeyMaterial)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; ImportKeyMaterial
@@ -470,16 +470,16 @@ Iso' Base64 ByteString
 -&gt; (ImportKeyMaterial -&gt; Base64 -&gt; ImportKeyMaterial)
 -&gt; Lens ImportKeyMaterial ImportKeyMaterial Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254677"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254686"><span class="annot"><span class="annottext">Base64
 encryptedKeyMaterial :: Base64
 $sel:encryptedKeyMaterial:ImportKeyMaterial' :: ImportKeyMaterial -&gt; Base64
-</span><a href="#local-6989586621679254677"><span class="hs-identifier hs-var hs-var">encryptedKeyMaterial</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679254677"><span class="hs-identifier hs-var">encryptedKeyMaterial</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254676"><span class="annot"><span class="annottext">s :: ImportKeyMaterial
-</span><a href="#local-6989586621679254676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254675"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679254675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyMaterial
-</span><a href="#local-6989586621679254676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptedKeyMaterial:ImportKeyMaterial' :: Base64
+</span><a href="#local-6989586621679254686"><span class="hs-identifier hs-var hs-var">encryptedKeyMaterial</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679254686"><span class="hs-identifier hs-var">encryptedKeyMaterial</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254685"><span class="annot"><span class="annottext">s :: ImportKeyMaterial
+</span><a href="#local-6989586621679254685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254684"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679254684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyMaterial
+</span><a href="#local-6989586621679254685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptedKeyMaterial:ImportKeyMaterial' :: Base64
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#%24sel%3AencryptedKeyMaterial%3AImportKeyMaterial%27"><span class="hs-identifier hs-var">encryptedKeyMaterial</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679254675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; ImportKeyMaterial -&gt; f ImportKeyMaterial)
+</span><a href="#local-6989586621679254684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; ImportKeyMaterial -&gt; f ImportKeyMaterial)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; ImportKeyMaterial
@@ -493,12 +493,12 @@ Iso' Base64 ByteString
 </span><span id="line-292"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-293"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-294"></span><span>      </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse"><span class="hs-identifier hs-type">ImportKeyMaterialResponse</span></a></span><span>
-</span><span id="line-295"></span><span>  </span><span id="local-6989586621679254671"><span class="annot"><span class="annottext">request :: ImportKeyMaterial -&gt; Request ImportKeyMaterial
+</span><span id="line-295"></span><span>  </span><span id="local-6989586621679254680"><span class="annot"><span class="annottext">request :: ImportKeyMaterial -&gt; Request ImportKeyMaterial
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ImportKeyMaterial -&gt; Request ImportKeyMaterial
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-296"></span><span>  </span><span id="local-6989586621679254667"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621679254676"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ImportKeyMaterial
 -&gt; ClientResponse ClientBody
@@ -524,10 +524,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-298"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254664"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254664"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679254663"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679254663"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679254662"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679254662"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-298"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254673"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254673"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679254672"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679254672"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679254671"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679254671"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-299"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ImportKeyMaterialResponse
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse%27"><span class="hs-identifier hs-var">ImportKeyMaterialResponse'</span></a></span><span>
 </span><span id="line-300"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ImportKeyMaterialResponse)
@@ -538,15 +538,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254664"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254673"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-302"></span><span>
-</span><span id="line-303"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254655"><span id="local-6989586621679254657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span></span></span><span>
+</span><span id="line-303"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254664"><span id="local-6989586621679254666"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span></span></span><span>
 </span><span id="line-304"></span><span>
-</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254661"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span></span><span>
 </span><span id="line-306"></span><span>
 </span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-308"></span><span>  </span><span id="local-6989586621679254648"><span class="annot"><span class="annottext">toHeaders :: ImportKeyMaterial -&gt; ResponseHeaders
+</span><span id="line-308"></span><span>  </span><span id="local-6989586621679254657"><span class="annot"><span class="annottext">toHeaders :: ImportKeyMaterial -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-309"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ImportKeyMaterial -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -573,9 +573,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-319"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-320"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-321"></span><span>
-</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254638"><span id="local-6989586621679254640"><span id="local-6989586621679254642"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-323"></span><span>  </span><span id="local-6989586621679254636"><span class="annot"><span class="annottext">toJSON :: ImportKeyMaterial -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254630"><span id="local-6989586621679254631"><span id="local-6989586621679254632"><span id="local-6989586621679254633"><span id="local-6989586621679254634"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254647"><span id="local-6989586621679254649"><span id="local-6989586621679254651"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-323"></span><span>  </span><span id="local-6989586621679254645"><span class="annot"><span class="annottext">toJSON :: ImportKeyMaterial -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial%27"><span class="hs-identifier hs-type">ImportKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254639"><span id="local-6989586621679254640"><span id="local-6989586621679254641"><span id="local-6989586621679254642"><span id="local-6989586621679254643"><span class="annot"><span class="annottext">Maybe POSIX
 Maybe ExpirationModelType
 Text
 Base64
@@ -589,7 +589,7 @@ $sel:importToken:ImportKeyMaterial' :: ImportKeyMaterial -&gt; Base64
 $sel:keyId:ImportKeyMaterial' :: ImportKeyMaterial -&gt; Text
 $sel:validTo:ImportKeyMaterial' :: ImportKeyMaterial -&gt; Maybe POSIX
 $sel:expirationModel:ImportKeyMaterial' :: ImportKeyMaterial -&gt; Maybe ExpirationModelType
-</span><a href="#local-6989586621679254630"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679254639"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-324"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-325"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -603,28 +603,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ExpirationModelType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExpirationModelType
-</span><a href="#local-6989586621679254634"><span class="hs-identifier hs-var">expirationModel</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254643"><span class="hs-identifier hs-var">expirationModel</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-328"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ValidTo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679254633"><span class="hs-identifier hs-var">validTo</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254642"><span class="hs-identifier hs-var">validTo</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-329"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254632"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254641"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-330"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImportToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679254631"><span class="hs-identifier hs-var">importToken</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254640"><span class="hs-identifier hs-var">importToken</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-331"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -633,20 +633,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-333"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679254630"><span class="hs-identifier hs-var">encryptedKeyMaterial</span></a></span><span>
+</span><a href="#local-6989586621679254639"><span class="hs-identifier hs-var">encryptedKeyMaterial</span></a></span><span>
 </span><span id="line-334"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-335"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-336"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-337"></span><span>
 </span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-339"></span><span>  </span><span id="local-6989586621679254624"><span class="annot"><span class="annottext">toPath :: ImportKeyMaterial -&gt; ByteString
+</span><span id="line-339"></span><span>  </span><span id="local-6989586621679254633"><span class="annot"><span class="annottext">toPath :: ImportKeyMaterial -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ImportKeyMaterial -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-340"></span><span>
 </span><span id="line-341"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterial"><span class="hs-identifier hs-type">ImportKeyMaterial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-342"></span><span>  </span><span id="local-6989586621679254620"><span class="annot"><span class="annottext">toQuery :: ImportKeyMaterial -&gt; QueryString
+</span><span id="line-342"></span><span>  </span><span id="local-6989586621679254629"><span class="annot"><span class="annottext">toQuery :: ImportKeyMaterial -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ImportKeyMaterial -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -654,12 +654,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-343"></span><span>
 </span><span id="line-344"></span><span class="hs-comment">-- | /See:/ 'newImportKeyMaterialResponse' smart constructor.</span><span>
-</span><span id="line-345"></span><span id="local-6989586621679254617"><span id="local-6989586621679254618"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportKeyMaterialResponse"><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse"><span class="hs-identifier hs-var">ImportKeyMaterialResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportKeyMaterialResponse%27"><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse%27"><span class="hs-identifier hs-var">ImportKeyMaterialResponse'</span></a></span></span><span>
+</span><span id="line-345"></span><span id="local-6989586621679254626"><span id="local-6989586621679254627"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportKeyMaterialResponse"><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse"><span class="hs-identifier hs-var">ImportKeyMaterialResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportKeyMaterialResponse%27"><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse%27"><span class="hs-identifier hs-var">ImportKeyMaterialResponse'</span></a></span></span><span>
 </span><span id="line-346"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-347"></span><span>    </span><span id="%24sel%3AhttpStatus%3AImportKeyMaterialResponse%27"><span class="annot"><span class="annottext">ImportKeyMaterialResponse -&gt; Int
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#%24sel%3AhttpStatus%3AImportKeyMaterialResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-348"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-349"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254612"><span id="local-6989586621679254614"><span class="annot"><span class="annottext">ImportKeyMaterialResponse -&gt; ImportKeyMaterialResponse -&gt; Bool
+</span><span id="line-349"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254621"><span id="local-6989586621679254623"><span class="annot"><span class="annottext">ImportKeyMaterialResponse -&gt; ImportKeyMaterialResponse -&gt; Bool
 (ImportKeyMaterialResponse -&gt; ImportKeyMaterialResponse -&gt; Bool)
 -&gt; (ImportKeyMaterialResponse -&gt; ImportKeyMaterialResponse -&gt; Bool)
 -&gt; Eq ImportKeyMaterialResponse
@@ -668,7 +668,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImportKeyMaterialResponse -&gt; ImportKeyMaterialResponse -&gt; Bool
 == :: ImportKeyMaterialResponse -&gt; ImportKeyMaterialResponse -&gt; Bool
 $c== :: ImportKeyMaterialResponse -&gt; ImportKeyMaterialResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254604"><span id="local-6989586621679254606"><span id="local-6989586621679254608"><span id="local-6989586621679254610"><span class="annot"><span class="annottext">ReadPrec [ImportKeyMaterialResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254613"><span id="local-6989586621679254615"><span id="local-6989586621679254617"><span id="local-6989586621679254619"><span class="annot"><span class="annottext">ReadPrec [ImportKeyMaterialResponse]
 ReadPrec ImportKeyMaterialResponse
 Int -&gt; ReadS ImportKeyMaterialResponse
 ReadS [ImportKeyMaterialResponse]
@@ -688,7 +688,7 @@ readList :: ReadS [ImportKeyMaterialResponse]
 $creadList :: ReadS [ImportKeyMaterialResponse]
 readsPrec :: Int -&gt; ReadS ImportKeyMaterialResponse
 $creadsPrec :: Int -&gt; ReadS ImportKeyMaterialResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254598"><span id="local-6989586621679254600"><span id="local-6989586621679254602"><span class="annot"><span class="annottext">Int -&gt; ImportKeyMaterialResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254607"><span id="local-6989586621679254609"><span id="local-6989586621679254611"><span class="annot"><span class="annottext">Int -&gt; ImportKeyMaterialResponse -&gt; ShowS
 [ImportKeyMaterialResponse] -&gt; ShowS
 ImportKeyMaterialResponse -&gt; String
 (Int -&gt; ImportKeyMaterialResponse -&gt; ShowS)
@@ -734,14 +734,14 @@ ImportKeyMaterialResponse -&gt; Rep ImportKeyMaterialResponse x
 </span><span id="line-362"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-363"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse"><span class="hs-identifier hs-type">ImportKeyMaterialResponse</span></a></span><span>
 </span><span id="line-364"></span><span id="newImportKeyMaterialResponse"><span class="annot"><span class="annottext">newImportKeyMaterialResponse :: Int -&gt; ImportKeyMaterialResponse
-</span><a href="Network.AWS.KMS.ImportKeyMaterial.html#newImportKeyMaterialResponse"><span class="hs-identifier hs-var hs-var">newImportKeyMaterialResponse</span></a></span></span><span> </span><span id="local-6989586621679254595"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254595"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.ImportKeyMaterial.html#newImportKeyMaterialResponse"><span class="hs-identifier hs-var hs-var">newImportKeyMaterialResponse</span></a></span></span><span> </span><span id="local-6989586621679254604"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254604"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-365"></span><span>  </span><span class="annot"><span class="annottext">ImportKeyMaterialResponse' :: Int -&gt; ImportKeyMaterialResponse
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse%27"><span class="hs-identifier hs-type">ImportKeyMaterialResponse'</span></a></span><span>
 </span><span id="line-366"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ImportKeyMaterialResponse' :: Int
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#%24sel%3AhttpStatus%3AImportKeyMaterialResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-367"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254595"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679254604"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-368"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-369"></span><span>
 </span><span id="line-370"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -752,16 +752,16 @@ ImportKeyMaterialResponse -&gt; Rep ImportKeyMaterialResponse x
 -&gt; (ImportKeyMaterialResponse -&gt; Int -&gt; ImportKeyMaterialResponse)
 -&gt; Lens ImportKeyMaterialResponse ImportKeyMaterialResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse%27"><span class="hs-identifier hs-type">ImportKeyMaterialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254594"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse%27"><span class="hs-identifier hs-type">ImportKeyMaterialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254603"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ImportKeyMaterialResponse' :: ImportKeyMaterialResponse -&gt; Int
-</span><a href="#local-6989586621679254594"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254594"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254593"><span class="annot"><span class="annottext">s :: ImportKeyMaterialResponse
-</span><a href="#local-6989586621679254593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse%27"><span class="hs-identifier hs-type">ImportKeyMaterialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254592"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyMaterialResponse
-</span><a href="#local-6989586621679254593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportKeyMaterialResponse' :: Int
+</span><a href="#local-6989586621679254603"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254603"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254602"><span class="annot"><span class="annottext">s :: ImportKeyMaterialResponse
+</span><a href="#local-6989586621679254602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse%27"><span class="hs-identifier hs-type">ImportKeyMaterialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254601"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyMaterialResponse
+</span><a href="#local-6989586621679254602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportKeyMaterialResponse' :: Int
 </span><a href="Network.AWS.KMS.ImportKeyMaterial.html#%24sel%3AhttpStatus%3AImportKeyMaterialResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse"><span class="hs-identifier hs-type">ImportKeyMaterialResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse"><span class="hs-identifier hs-type">ImportKeyMaterialResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-373"></span><span>
-</span><span id="line-374"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse"><span class="hs-identifier hs-type">ImportKeyMaterialResponse</span></a></span></span><span>
+</span><span id="line-374"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ImportKeyMaterial.html#ImportKeyMaterialResponse"><span class="hs-identifier hs-type">ImportKeyMaterialResponse</span></a></span></span><span>
 </span><span id="line-375"></span></pre></body></html>

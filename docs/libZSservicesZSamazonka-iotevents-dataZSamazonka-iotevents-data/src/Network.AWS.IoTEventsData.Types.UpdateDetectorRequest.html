@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTEventsData.Types.UpdateDetectorRequest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTEventsData.Types.UpdateDetectorRequest</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.DetectorStateDefinition.html"><span class="hs-identifier">Network.AWS.IoTEventsData.Types.DetectorStateDefinition</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information used to update the detector (instance).</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUpdateDetectorRequest' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679185038"><span id="local-6989586621679185039"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDetectorRequest"><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest"><span class="hs-identifier hs-var">UpdateDetectorRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDetectorRequest%27"><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest%27"><span class="hs-identifier hs-var">UpdateDetectorRequest'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the input key attribute (identifying the device or system)</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- that caused the creation of this detector (instance).</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AkeyValue%3AUpdateDetectorRequest%27"><span class="annot"><span class="annottext">UpdateDetectorRequest -&gt; Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#%24sel%3AkeyValue%3AUpdateDetectorRequest%27"><span class="hs-identifier hs-var hs-var">keyValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID to assign to the detector update @\&quot;message\&quot;@. Each</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @\&quot;messageId\&quot;@ must be unique within each batch sent.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmessageId%3AUpdateDetectorRequest%27"><span class="annot"><span class="annottext">UpdateDetectorRequest -&gt; Text
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#%24sel%3AmessageId%3AUpdateDetectorRequest%27"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the detector model that created the detectors (instances).</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdetectorModelName%3AUpdateDetectorRequest%27"><span class="annot"><span class="annottext">UpdateDetectorRequest -&gt; Text
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#%24sel%3AdetectorModelName%3AUpdateDetectorRequest%27"><span class="hs-identifier hs-var hs-var">detectorModelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The new state, variable values, and timer settings of the detector</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- (instance).</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Astate%3AUpdateDetectorRequest%27"><span class="annot"><span class="annottext">UpdateDetectorRequest -&gt; DetectorStateDefinition
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#%24sel%3Astate%3AUpdateDetectorRequest%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.DetectorStateDefinition.html#DetectorStateDefinition"><span class="hs-identifier hs-type">DetectorStateDefinition</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185029"><span id="local-6989586621679185031"><span class="annot"><span class="annottext">UpdateDetectorRequest -&gt; UpdateDetectorRequest -&gt; Bool
+(UpdateDetectorRequest -&gt; UpdateDetectorRequest -&gt; Bool)
+-&gt; (UpdateDetectorRequest -&gt; UpdateDetectorRequest -&gt; Bool)
+-&gt; Eq UpdateDetectorRequest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDetectorRequest -&gt; UpdateDetectorRequest -&gt; Bool
+$c/= :: UpdateDetectorRequest -&gt; UpdateDetectorRequest -&gt; Bool
+== :: UpdateDetectorRequest -&gt; UpdateDetectorRequest -&gt; Bool
+$c== :: UpdateDetectorRequest -&gt; UpdateDetectorRequest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185020"><span id="local-6989586621679185022"><span id="local-6989586621679185024"><span id="local-6989586621679185026"><span class="annot"><span class="annottext">ReadPrec [UpdateDetectorRequest]
+ReadPrec UpdateDetectorRequest
+Int -&gt; ReadS UpdateDetectorRequest
+ReadS [UpdateDetectorRequest]
+(Int -&gt; ReadS UpdateDetectorRequest)
+-&gt; ReadS [UpdateDetectorRequest]
+-&gt; ReadPrec UpdateDetectorRequest
+-&gt; ReadPrec [UpdateDetectorRequest]
+-&gt; Read UpdateDetectorRequest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDetectorRequest]
+$creadListPrec :: ReadPrec [UpdateDetectorRequest]
+readPrec :: ReadPrec UpdateDetectorRequest
+$creadPrec :: ReadPrec UpdateDetectorRequest
+readList :: ReadS [UpdateDetectorRequest]
+$creadList :: ReadS [UpdateDetectorRequest]
+readsPrec :: Int -&gt; ReadS UpdateDetectorRequest
+$creadsPrec :: Int -&gt; ReadS UpdateDetectorRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185013"><span id="local-6989586621679185015"><span id="local-6989586621679185017"><span class="annot"><span class="annottext">Int -&gt; UpdateDetectorRequest -&gt; ShowS
+[UpdateDetectorRequest] -&gt; ShowS
+UpdateDetectorRequest -&gt; String
+(Int -&gt; UpdateDetectorRequest -&gt; ShowS)
+-&gt; (UpdateDetectorRequest -&gt; String)
+-&gt; ([UpdateDetectorRequest] -&gt; ShowS)
+-&gt; Show UpdateDetectorRequest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDetectorRequest] -&gt; ShowS
+$cshowList :: [UpdateDetectorRequest] -&gt; ShowS
+show :: UpdateDetectorRequest -&gt; String
+$cshow :: UpdateDetectorRequest -&gt; String
+showsPrec :: Int -&gt; UpdateDetectorRequest -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDetectorRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateDetectorRequest -&gt; Rep UpdateDetectorRequest x)
+-&gt; (forall x. Rep UpdateDetectorRequest x -&gt; UpdateDetectorRequest)
+-&gt; Generic UpdateDetectorRequest
+forall x. Rep UpdateDetectorRequest x -&gt; UpdateDetectorRequest
+forall x. UpdateDetectorRequest -&gt; Rep UpdateDetectorRequest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateDetectorRequest x -&gt; UpdateDetectorRequest
+$cfrom :: forall x. UpdateDetectorRequest -&gt; Rep UpdateDetectorRequest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'UpdateDetectorRequest' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'keyValue', 'updateDetectorRequest_keyValue' - The value of the input key attribute (identifying the device or system)</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- that caused the creation of this detector (instance).</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'messageId', 'updateDetectorRequest_messageId' - The ID to assign to the detector update @\&quot;message\&quot;@. Each</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- @\&quot;messageId\&quot;@ must be unique within each batch sent.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'detectorModelName', 'updateDetectorRequest_detectorModelName' - The name of the detector model that created the detectors (instances).</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'state', 'updateDetectorRequest_state' - The new state, variable values, and timer settings of the detector</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- (instance).</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#newUpdateDetectorRequest"><span class="hs-identifier hs-type">newUpdateDetectorRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-comment">-- | 'messageId'</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'detectorModelName'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'state'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.DetectorStateDefinition.html#DetectorStateDefinition"><span class="hs-identifier hs-type">DetectorStateDefinition</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest"><span class="hs-identifier hs-type">UpdateDetectorRequest</span></a></span><span>
+</span><span id="line-71"></span><span id="newUpdateDetectorRequest"><span class="annot"><span class="annottext">newUpdateDetectorRequest :: Text -&gt; Text -&gt; DetectorStateDefinition -&gt; UpdateDetectorRequest
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#newUpdateDetectorRequest"><span class="hs-identifier hs-var hs-var">newUpdateDetectorRequest</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679185007"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185007"><span class="hs-identifier hs-var">pMessageId_</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679185006"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185006"><span class="hs-identifier hs-var">pDetectorModelName_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679185005"><span class="annot"><span class="annottext">DetectorStateDefinition
+</span><a href="#local-6989586621679185005"><span class="hs-identifier hs-var">pState_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">UpdateDetectorRequest' :: Maybe Text
+-&gt; Text -&gt; Text -&gt; DetectorStateDefinition -&gt; UpdateDetectorRequest
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest%27"><span class="hs-identifier hs-type">UpdateDetectorRequest'</span></a></span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyValue:UpdateDetectorRequest' :: Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#%24sel%3AkeyValue%3AUpdateDetectorRequest%27"><span class="hs-identifier hs-var">keyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">$sel:messageId:UpdateDetectorRequest' :: Text
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#%24sel%3AmessageId%3AUpdateDetectorRequest%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185007"><span class="hs-identifier hs-var">pMessageId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:detectorModelName:UpdateDetectorRequest' :: Text
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#%24sel%3AdetectorModelName%3AUpdateDetectorRequest%27"><span class="hs-identifier hs-var">detectorModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185006"><span class="hs-identifier hs-var">pDetectorModelName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">$sel:state:UpdateDetectorRequest' :: DetectorStateDefinition
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#%24sel%3Astate%3AUpdateDetectorRequest%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DetectorStateDefinition
+</span><a href="#local-6989586621679185005"><span class="hs-identifier hs-var">pState_</span></a></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The value of the input key attribute (identifying the device or system)</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- that caused the creation of this detector (instance).</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#updateDetectorRequest_keyValue"><span class="hs-identifier hs-type">updateDetectorRequest_keyValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest"><span class="hs-identifier hs-type">UpdateDetectorRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="updateDetectorRequest_keyValue"><span class="annot"><span class="annottext">updateDetectorRequest_keyValue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDetectorRequest -&gt; f UpdateDetectorRequest
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#updateDetectorRequest_keyValue"><span class="hs-identifier hs-var hs-var">updateDetectorRequest_keyValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDetectorRequest -&gt; Maybe Text)
+-&gt; (UpdateDetectorRequest -&gt; Maybe Text -&gt; UpdateDetectorRequest)
+-&gt; Lens
+     UpdateDetectorRequest
+     UpdateDetectorRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest%27"><span class="hs-identifier hs-type">UpdateDetectorRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185001"><span class="annot"><span class="annottext">Maybe Text
+keyValue :: Maybe Text
+$sel:keyValue:UpdateDetectorRequest' :: UpdateDetectorRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679185001"><span class="hs-identifier hs-var hs-var">keyValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185001"><span class="hs-identifier hs-var">keyValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185000"><span class="annot"><span class="annottext">s :: UpdateDetectorRequest
+</span><a href="#local-6989586621679185000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest%27"><span class="hs-identifier hs-type">UpdateDetectorRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184999"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDetectorRequest
+</span><a href="#local-6989586621679185000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyValue:UpdateDetectorRequest' :: Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#%24sel%3AkeyValue%3AUpdateDetectorRequest%27"><span class="hs-identifier hs-var">keyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest"><span class="hs-identifier hs-type">UpdateDetectorRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The ID to assign to the detector update @\&quot;message\&quot;@. Each</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- @\&quot;messageId\&quot;@ must be unique within each batch sent.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#updateDetectorRequest_messageId"><span class="hs-identifier hs-type">updateDetectorRequest_messageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest"><span class="hs-identifier hs-type">UpdateDetectorRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="updateDetectorRequest_messageId"><span class="annot"><span class="annottext">updateDetectorRequest_messageId :: (Text -&gt; f Text)
+-&gt; UpdateDetectorRequest -&gt; f UpdateDetectorRequest
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#updateDetectorRequest_messageId"><span class="hs-identifier hs-var hs-var">updateDetectorRequest_messageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDetectorRequest -&gt; Text)
+-&gt; (UpdateDetectorRequest -&gt; Text -&gt; UpdateDetectorRequest)
+-&gt; Lens UpdateDetectorRequest UpdateDetectorRequest Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest%27"><span class="hs-identifier hs-type">UpdateDetectorRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184997"><span class="annot"><span class="annottext">Text
+messageId :: Text
+$sel:messageId:UpdateDetectorRequest' :: UpdateDetectorRequest -&gt; Text
+</span><a href="#local-6989586621679184997"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184997"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184996"><span class="annot"><span class="annottext">s :: UpdateDetectorRequest
+</span><a href="#local-6989586621679184996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest%27"><span class="hs-identifier hs-type">UpdateDetectorRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184995"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDetectorRequest
+</span><a href="#local-6989586621679184996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:UpdateDetectorRequest' :: Text
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#%24sel%3AmessageId%3AUpdateDetectorRequest%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest"><span class="hs-identifier hs-type">UpdateDetectorRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The name of the detector model that created the detectors (instances).</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#updateDetectorRequest_detectorModelName"><span class="hs-identifier hs-type">updateDetectorRequest_detectorModelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest"><span class="hs-identifier hs-type">UpdateDetectorRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="updateDetectorRequest_detectorModelName"><span class="annot"><span class="annottext">updateDetectorRequest_detectorModelName :: (Text -&gt; f Text)
+-&gt; UpdateDetectorRequest -&gt; f UpdateDetectorRequest
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#updateDetectorRequest_detectorModelName"><span class="hs-identifier hs-var hs-var">updateDetectorRequest_detectorModelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDetectorRequest -&gt; Text)
+-&gt; (UpdateDetectorRequest -&gt; Text -&gt; UpdateDetectorRequest)
+-&gt; Lens UpdateDetectorRequest UpdateDetectorRequest Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest%27"><span class="hs-identifier hs-type">UpdateDetectorRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184993"><span class="annot"><span class="annottext">Text
+detectorModelName :: Text
+$sel:detectorModelName:UpdateDetectorRequest' :: UpdateDetectorRequest -&gt; Text
+</span><a href="#local-6989586621679184993"><span class="hs-identifier hs-var hs-var">detectorModelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184993"><span class="hs-identifier hs-var">detectorModelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184992"><span class="annot"><span class="annottext">s :: UpdateDetectorRequest
+</span><a href="#local-6989586621679184992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest%27"><span class="hs-identifier hs-type">UpdateDetectorRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184991"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDetectorRequest
+</span><a href="#local-6989586621679184992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorModelName:UpdateDetectorRequest' :: Text
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#%24sel%3AdetectorModelName%3AUpdateDetectorRequest%27"><span class="hs-identifier hs-var">detectorModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest"><span class="hs-identifier hs-type">UpdateDetectorRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The new state, variable values, and timer settings of the detector</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- (instance).</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#updateDetectorRequest_state"><span class="hs-identifier hs-type">updateDetectorRequest_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest"><span class="hs-identifier hs-type">UpdateDetectorRequest</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.DetectorStateDefinition.html#DetectorStateDefinition"><span class="hs-identifier hs-type">DetectorStateDefinition</span></a></span><span>
+</span><span id="line-99"></span><span id="updateDetectorRequest_state"><span class="annot"><span class="annottext">updateDetectorRequest_state :: (DetectorStateDefinition -&gt; f DetectorStateDefinition)
+-&gt; UpdateDetectorRequest -&gt; f UpdateDetectorRequest
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#updateDetectorRequest_state"><span class="hs-identifier hs-var hs-var">updateDetectorRequest_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDetectorRequest -&gt; DetectorStateDefinition)
+-&gt; (UpdateDetectorRequest
+    -&gt; DetectorStateDefinition -&gt; UpdateDetectorRequest)
+-&gt; Lens
+     UpdateDetectorRequest
+     UpdateDetectorRequest
+     DetectorStateDefinition
+     DetectorStateDefinition
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest%27"><span class="hs-identifier hs-type">UpdateDetectorRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184989"><span class="annot"><span class="annottext">DetectorStateDefinition
+state :: DetectorStateDefinition
+$sel:state:UpdateDetectorRequest' :: UpdateDetectorRequest -&gt; DetectorStateDefinition
+</span><a href="#local-6989586621679184989"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectorStateDefinition
+</span><a href="#local-6989586621679184989"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184988"><span class="annot"><span class="annottext">s :: UpdateDetectorRequest
+</span><a href="#local-6989586621679184988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest%27"><span class="hs-identifier hs-type">UpdateDetectorRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184987"><span class="annot"><span class="annottext">DetectorStateDefinition
+</span><a href="#local-6989586621679184987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDetectorRequest
+</span><a href="#local-6989586621679184988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:UpdateDetectorRequest' :: DetectorStateDefinition
+</span><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#%24sel%3Astate%3AUpdateDetectorRequest%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DetectorStateDefinition
+</span><a href="#local-6989586621679184987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest"><span class="hs-identifier hs-type">UpdateDetectorRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184983"><span id="local-6989586621679184985"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest"><span class="hs-identifier hs-type">UpdateDetectorRequest</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest"><span class="hs-identifier hs-type">UpdateDetectorRequest</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184972"><span id="local-6989586621679184974"><span id="local-6989586621679184976"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest"><span class="hs-identifier hs-type">UpdateDetectorRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679184970"><span class="annot"><span class="annottext">toJSON :: UpdateDetectorRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest%27"><span class="hs-identifier hs-type">UpdateDetectorRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184965"><span id="local-6989586621679184966"><span id="local-6989586621679184967"><span id="local-6989586621679184968"><span class="annot"><span class="annottext">Maybe Text
+Text
+DetectorStateDefinition
+state :: DetectorStateDefinition
+detectorModelName :: Text
+messageId :: Text
+keyValue :: Maybe Text
+$sel:state:UpdateDetectorRequest' :: UpdateDetectorRequest -&gt; DetectorStateDefinition
+$sel:detectorModelName:UpdateDetectorRequest' :: UpdateDetectorRequest -&gt; Text
+$sel:messageId:UpdateDetectorRequest' :: UpdateDetectorRequest -&gt; Text
+$sel:keyValue:UpdateDetectorRequest' :: UpdateDetectorRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679184965"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184968"><span class="hs-identifier hs-var">keyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;messageId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184967"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;detectorModelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184966"><span class="hs-identifier hs-var">detectorModelName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DetectorStateDefinition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DetectorStateDefinition
+</span><a href="#local-6989586621679184965"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span></pre></body></html>

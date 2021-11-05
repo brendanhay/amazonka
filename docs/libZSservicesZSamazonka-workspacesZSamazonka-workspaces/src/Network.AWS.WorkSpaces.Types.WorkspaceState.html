@@ -44,13 +44,13 @@
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-46"></span><span>
-</span><span id="line-47"></span><span id="local-6989586621679277061"><span id="local-6989586621679277062"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkspaceState"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-var">WorkspaceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceState%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-var">WorkspaceState'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679277070"><span id="local-6989586621679277071"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkspaceState"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-var">WorkspaceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceState%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-var">WorkspaceState'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWorkspaceState"><span class="annot"><span class="annottext">WorkspaceState -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceState.html#fromWorkspaceState"><span class="hs-identifier hs-var hs-var">fromWorkspaceState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679277053"><span id="local-6989586621679277055"><span id="local-6989586621679277057"><span class="annot"><span class="annottext">Int -&gt; WorkspaceState -&gt; ShowS
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679277062"><span id="local-6989586621679277064"><span id="local-6989586621679277066"><span class="annot"><span class="annottext">Int -&gt; WorkspaceState -&gt; ShowS
 [WorkspaceState] -&gt; ShowS
 WorkspaceState -&gt; String
 (Int -&gt; WorkspaceState -&gt; ShowS)
@@ -66,7 +66,7 @@ $cshow :: WorkspaceState -&gt; String
 showsPrec :: Int -&gt; WorkspaceState -&gt; ShowS
 $cshowsPrec :: Int -&gt; WorkspaceState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679277044"><span id="local-6989586621679277046"><span id="local-6989586621679277048"><span id="local-6989586621679277050"><span class="annot"><span class="annottext">ReadPrec [WorkspaceState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679277053"><span id="local-6989586621679277055"><span id="local-6989586621679277057"><span id="local-6989586621679277059"><span class="annot"><span class="annottext">ReadPrec [WorkspaceState]
 ReadPrec WorkspaceState
 Int -&gt; ReadS WorkspaceState
 ReadS [WorkspaceState]
@@ -87,7 +87,7 @@ $creadList :: ReadS [WorkspaceState]
 readsPrec :: Int -&gt; ReadS WorkspaceState
 $creadsPrec :: Int -&gt; ReadS WorkspaceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679277039"><span id="local-6989586621679277041"><span class="annot"><span class="annottext">WorkspaceState -&gt; WorkspaceState -&gt; Bool
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679277048"><span id="local-6989586621679277050"><span class="annot"><span class="annottext">WorkspaceState -&gt; WorkspaceState -&gt; Bool
 (WorkspaceState -&gt; WorkspaceState -&gt; Bool)
 -&gt; (WorkspaceState -&gt; WorkspaceState -&gt; Bool) -&gt; Eq WorkspaceState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -96,7 +96,7 @@ $c/= :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
 == :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
 $c== :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679277023"><span id="local-6989586621679277025"><span id="local-6989586621679277027"><span id="local-6989586621679277029"><span id="local-6989586621679277031"><span id="local-6989586621679277033"><span id="local-6989586621679277035"><span class="annot"><span class="annottext">Eq WorkspaceState
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679277032"><span id="local-6989586621679277034"><span id="local-6989586621679277036"><span id="local-6989586621679277038"><span id="local-6989586621679277040"><span id="local-6989586621679277042"><span id="local-6989586621679277044"><span class="annot"><span class="annottext">Eq WorkspaceState
 Eq WorkspaceState
 -&gt; (WorkspaceState -&gt; WorkspaceState -&gt; Ordering)
 -&gt; (WorkspaceState -&gt; WorkspaceState -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. WorkspaceState -&gt; Rep WorkspaceState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679277015"><span id="local-6989586621679277017"><span class="annot"><span class="annottext">Int -&gt; WorkspaceState -&gt; Int
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679277024"><span id="local-6989586621679277026"><span class="annot"><span class="annottext">Int -&gt; WorkspaceState -&gt; Int
 WorkspaceState -&gt; Int
 (Int -&gt; WorkspaceState -&gt; Int)
 -&gt; (WorkspaceState -&gt; Int) -&gt; Hashable WorkspaceState
@@ -157,50 +157,50 @@ $chash :: WorkspaceState -&gt; Int
 hashWithSalt :: Int -&gt; WorkspaceState -&gt; Int
 $chashWithSalt :: Int -&gt; WorkspaceState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679277012"><span class="annot"><span class="annottext">WorkspaceState -&gt; ()
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679277021"><span class="annot"><span class="annottext">WorkspaceState -&gt; ()
 (WorkspaceState -&gt; ()) -&gt; NFData WorkspaceState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WorkspaceState -&gt; ()
 $crnf :: WorkspaceState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679277009"><span class="annot"><span class="annottext">Text -&gt; Either String WorkspaceState
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679277018"><span class="annot"><span class="annottext">Text -&gt; Either String WorkspaceState
 (Text -&gt; Either String WorkspaceState) -&gt; FromText WorkspaceState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WorkspaceState
 $cfromText :: Text -&gt; Either String WorkspaceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679277006"><span class="annot"><span class="annottext">WorkspaceState -&gt; Text
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679277015"><span class="annot"><span class="annottext">WorkspaceState -&gt; Text
 (WorkspaceState -&gt; Text) -&gt; ToText WorkspaceState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WorkspaceState -&gt; Text
 $ctoText :: WorkspaceState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679277003"><span class="annot"><span class="annottext">WorkspaceState -&gt; ByteString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679277012"><span class="annot"><span class="annottext">WorkspaceState -&gt; ByteString
 (WorkspaceState -&gt; ByteString) -&gt; ToByteString WorkspaceState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WorkspaceState -&gt; ByteString
 $ctoBS :: WorkspaceState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679277000"><span class="annot"><span class="annottext">WorkspaceState -&gt; ByteStringBuilder
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679277009"><span class="annot"><span class="annottext">WorkspaceState -&gt; ByteStringBuilder
 (WorkspaceState -&gt; ByteStringBuilder) -&gt; ToLog WorkspaceState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WorkspaceState -&gt; ByteStringBuilder
 $cbuild :: WorkspaceState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679276997"><span class="annot"><span class="annottext">HeaderName -&gt; WorkspaceState -&gt; [Header]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679277006"><span class="annot"><span class="annottext">HeaderName -&gt; WorkspaceState -&gt; [Header]
 (HeaderName -&gt; WorkspaceState -&gt; [Header])
 -&gt; ToHeader WorkspaceState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WorkspaceState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WorkspaceState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679276994"><span class="annot"><span class="annottext">WorkspaceState -&gt; QueryString
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679277003"><span class="annot"><span class="annottext">WorkspaceState -&gt; QueryString
 (WorkspaceState -&gt; QueryString) -&gt; ToQuery WorkspaceState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WorkspaceState -&gt; QueryString
 $ctoQuery :: WorkspaceState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679276989"><span id="local-6989586621679276991"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkspaceState]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679276998"><span id="local-6989586621679277000"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkspaceState]
 Value -&gt; Parser WorkspaceState
 (Value -&gt; Parser WorkspaceState)
 -&gt; (Value -&gt; Parser [WorkspaceState]) -&gt; FromJSON WorkspaceState
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [WorkspaceState]
 parseJSON :: Value -&gt; Parser WorkspaceState
 $cparseJSON :: Value -&gt; Parser WorkspaceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679276984"><span id="local-6989586621679276986"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkspaceState]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679276993"><span id="local-6989586621679276995"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkspaceState]
 FromJSONKeyFunction WorkspaceState
 FromJSONKeyFunction WorkspaceState
 -&gt; FromJSONKeyFunction [WorkspaceState]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WorkspaceState]
 fromJSONKey :: FromJSONKeyFunction WorkspaceState
 $cfromJSONKey :: FromJSONKeyFunction WorkspaceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679276975"><span id="local-6989586621679276977"><span id="local-6989586621679276979"><span id="local-6989586621679276981"><span class="annot"><span class="annottext">[WorkspaceState] -&gt; Encoding
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679276984"><span id="local-6989586621679276986"><span id="local-6989586621679276988"><span id="local-6989586621679276990"><span class="annot"><span class="annottext">[WorkspaceState] -&gt; Encoding
 [WorkspaceState] -&gt; Value
 WorkspaceState -&gt; Encoding
 WorkspaceState -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: WorkspaceState -&gt; Encoding
 toJSON :: WorkspaceState -&gt; Value
 $ctoJSON :: WorkspaceState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679276970"><span id="local-6989586621679276972"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkspaceState]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679276979"><span id="local-6989586621679276981"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkspaceState]
 ToJSONKeyFunction WorkspaceState
 ToJSONKeyFunction WorkspaceState
 -&gt; ToJSONKeyFunction [WorkspaceState] -&gt; ToJSONKey WorkspaceState
@@ -258,13 +258,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WorkspaceState]
 toJSONKey :: ToJSONKeyFunction WorkspaceState
 $ctoJSONKey :: ToJSONKeyFunction WorkspaceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679276967"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkspaceState
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679276976"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkspaceState
 ([Node] -&gt; Either String WorkspaceState) -&gt; FromXML WorkspaceState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WorkspaceState
 $cparseXML :: [Node] -&gt; Either String WorkspaceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679276964"><span class="annot"><span class="annottext">WorkspaceState -&gt; XML
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679276973"><span class="annot"><span class="annottext">WorkspaceState -&gt; XML
 (WorkspaceState -&gt; XML) -&gt; ToXML WorkspaceState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WorkspaceState -&gt; XML

@@ -29,12 +29,12 @@
 </span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output&gt;.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDestinationSchema' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679208966"><span id="local-6989586621679208967"></span></span><span class="hs-keyword">data</span><span> </span><span id="DestinationSchema"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-var">DestinationSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DestinationSchema%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema%27"><span class="hs-identifier hs-var">DestinationSchema'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679208975"><span id="local-6989586621679208976"></span></span><span class="hs-keyword">data</span><span> </span><span id="DestinationSchema"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-var">DestinationSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DestinationSchema%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema%27"><span class="hs-identifier hs-var">DestinationSchema'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the format of the records on the output stream.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3ArecordFormatType%3ADestinationSchema%27"><span class="annot"><span class="annottext">DestinationSchema -&gt; RecordFormatType
 </span><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#%24sel%3ArecordFormatType%3ADestinationSchema%27"><span class="hs-identifier hs-var hs-var">recordFormatType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormatType.html#RecordFormatType"><span class="hs-identifier hs-type">RecordFormatType</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208960"><span id="local-6989586621679208962"><span class="annot"><span class="annottext">DestinationSchema -&gt; DestinationSchema -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208969"><span id="local-6989586621679208971"><span class="annot"><span class="annottext">DestinationSchema -&gt; DestinationSchema -&gt; Bool
 (DestinationSchema -&gt; DestinationSchema -&gt; Bool)
 -&gt; (DestinationSchema -&gt; DestinationSchema -&gt; Bool)
 -&gt; Eq DestinationSchema
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DestinationSchema -&gt; DestinationSchema -&gt; Bool
 == :: DestinationSchema -&gt; DestinationSchema -&gt; Bool
 $c== :: DestinationSchema -&gt; DestinationSchema -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208951"><span id="local-6989586621679208953"><span id="local-6989586621679208955"><span id="local-6989586621679208957"><span class="annot"><span class="annottext">ReadPrec [DestinationSchema]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208960"><span id="local-6989586621679208962"><span id="local-6989586621679208964"><span id="local-6989586621679208966"><span class="annot"><span class="annottext">ReadPrec [DestinationSchema]
 ReadPrec DestinationSchema
 Int -&gt; ReadS DestinationSchema
 ReadS [DestinationSchema]
@@ -63,7 +63,7 @@ readList :: ReadS [DestinationSchema]
 $creadList :: ReadS [DestinationSchema]
 readsPrec :: Int -&gt; ReadS DestinationSchema
 $creadsPrec :: Int -&gt; ReadS DestinationSchema
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208944"><span id="local-6989586621679208946"><span id="local-6989586621679208948"><span class="annot"><span class="annottext">Int -&gt; DestinationSchema -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208953"><span id="local-6989586621679208955"><span id="local-6989586621679208957"><span class="annot"><span class="annottext">Int -&gt; DestinationSchema -&gt; ShowS
 [DestinationSchema] -&gt; ShowS
 DestinationSchema -&gt; String
 (Int -&gt; DestinationSchema -&gt; ShowS)
@@ -103,14 +103,14 @@ $cfrom :: forall x. DestinationSchema -&gt; Rep DestinationSchema x
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormatType.html#RecordFormatType"><span class="hs-identifier hs-type">RecordFormatType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-type">DestinationSchema</span></a></span><span>
 </span><span id="line-51"></span><span id="newDestinationSchema"><span class="annot"><span class="annottext">newDestinationSchema :: RecordFormatType -&gt; DestinationSchema
-</span><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#newDestinationSchema"><span class="hs-identifier hs-var hs-var">newDestinationSchema</span></a></span></span><span> </span><span id="local-6989586621679208938"><span class="annot"><span class="annottext">RecordFormatType
-</span><a href="#local-6989586621679208938"><span class="hs-identifier hs-var">pRecordFormatType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#newDestinationSchema"><span class="hs-identifier hs-var hs-var">newDestinationSchema</span></a></span></span><span> </span><span id="local-6989586621679208947"><span class="annot"><span class="annottext">RecordFormatType
+</span><a href="#local-6989586621679208947"><span class="hs-identifier hs-var">pRecordFormatType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">DestinationSchema' :: RecordFormatType -&gt; DestinationSchema
 </span><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema%27"><span class="hs-identifier hs-type">DestinationSchema'</span></a></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:recordFormatType:DestinationSchema' :: RecordFormatType
 </span><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#%24sel%3ArecordFormatType%3ADestinationSchema%27"><span class="hs-identifier hs-var">recordFormatType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">RecordFormatType
-</span><a href="#local-6989586621679208938"><span class="hs-identifier hs-var">pRecordFormatType_</span></a></span><span>
+</span><a href="#local-6989586621679208947"><span class="hs-identifier hs-var">pRecordFormatType_</span></a></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | Specifies the format of the records on the output stream.</span><span>
@@ -125,19 +125,19 @@ $cfrom :: forall x. DestinationSchema -&gt; Rep DestinationSchema x
      RecordFormatType
      RecordFormatType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema%27"><span class="hs-identifier hs-type">DestinationSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208934"><span class="annot"><span class="annottext">RecordFormatType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema%27"><span class="hs-identifier hs-type">DestinationSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208943"><span class="annot"><span class="annottext">RecordFormatType
 recordFormatType :: RecordFormatType
 $sel:recordFormatType:DestinationSchema' :: DestinationSchema -&gt; RecordFormatType
-</span><a href="#local-6989586621679208934"><span class="hs-identifier hs-var hs-var">recordFormatType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordFormatType
-</span><a href="#local-6989586621679208934"><span class="hs-identifier hs-var">recordFormatType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208933"><span class="annot"><span class="annottext">s :: DestinationSchema
-</span><a href="#local-6989586621679208933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema%27"><span class="hs-identifier hs-type">DestinationSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208932"><span class="annot"><span class="annottext">RecordFormatType
-</span><a href="#local-6989586621679208932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationSchema
-</span><a href="#local-6989586621679208933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordFormatType:DestinationSchema' :: RecordFormatType
+</span><a href="#local-6989586621679208943"><span class="hs-identifier hs-var hs-var">recordFormatType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordFormatType
+</span><a href="#local-6989586621679208943"><span class="hs-identifier hs-var">recordFormatType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208942"><span class="annot"><span class="annottext">s :: DestinationSchema
+</span><a href="#local-6989586621679208942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema%27"><span class="hs-identifier hs-type">DestinationSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208941"><span class="annot"><span class="annottext">RecordFormatType
+</span><a href="#local-6989586621679208941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationSchema
+</span><a href="#local-6989586621679208942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordFormatType:DestinationSchema' :: RecordFormatType
 </span><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#%24sel%3ArecordFormatType%3ADestinationSchema%27"><span class="hs-identifier hs-var">recordFormatType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RecordFormatType
-</span><a href="#local-6989586621679208932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-type">DestinationSchema</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-type">DestinationSchema</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208929"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-type">DestinationSchema</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679208927"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DestinationSchema
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208938"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-type">DestinationSchema</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679208936"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DestinationSchema
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DestinationSchema)
@@ -147,30 +147,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DestinationSchema&quot;</span></span><span>
-</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208924"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208924"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208933"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208933"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">RecordFormatType -&gt; DestinationSchema
 </span><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema%27"><span class="hs-identifier hs-var">DestinationSchema'</span></a></span><span>
 </span><span id="line-67"></span><span>            </span><span class="annot"><span class="annottext">(RecordFormatType -&gt; DestinationSchema)
 -&gt; Parser RecordFormatType -&gt; Parser DestinationSchema
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208924"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RecordFormatType
+</span><a href="#local-6989586621679208933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RecordFormatType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RecordFormatType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208918"><span id="local-6989586621679208920"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-type">DestinationSchema</span></a></span></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208927"><span id="local-6989586621679208929"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-type">DestinationSchema</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208915"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-type">DestinationSchema</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208924"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-type">DestinationSchema</span></a></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208907"><span id="local-6989586621679208909"><span id="local-6989586621679208911"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-type">DestinationSchema</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679208905"><span class="annot"><span class="annottext">toJSON :: DestinationSchema -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema%27"><span class="hs-identifier hs-type">DestinationSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208903"><span class="annot"><span class="annottext">RecordFormatType
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208916"><span id="local-6989586621679208918"><span id="local-6989586621679208920"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-type">DestinationSchema</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679208914"><span class="annot"><span class="annottext">toJSON :: DestinationSchema -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema%27"><span class="hs-identifier hs-type">DestinationSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208912"><span class="annot"><span class="annottext">RecordFormatType
 recordFormatType :: RecordFormatType
 $sel:recordFormatType:DestinationSchema' :: DestinationSchema -&gt; RecordFormatType
-</span><a href="#local-6989586621679208903"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679208912"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -183,7 +183,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RecordFormatType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RecordFormatType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RecordFormatType
-</span><a href="#local-6989586621679208903"><span class="hs-identifier hs-var">recordFormatType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208912"><span class="hs-identifier hs-var">recordFormatType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span></pre></body></html>

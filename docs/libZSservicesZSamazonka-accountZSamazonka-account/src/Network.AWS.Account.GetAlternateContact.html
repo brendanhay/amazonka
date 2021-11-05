@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Account.GetAlternateContact</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the specified alternate contact attached to an Amazon Web</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Services account.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- For complete details about how to use the alternate contact operations,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html Access or updating the alternate contacts&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Account.GetAlternateContact</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier">GetAlternateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#newGetAlternateContact"><span class="hs-identifier">newGetAlternateContact</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#getAlternateContact_accountId"><span class="hs-identifier">getAlternateContact_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#getAlternateContact_alternateContactType"><span class="hs-identifier">getAlternateContact_alternateContactType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse"><span class="hs-identifier">GetAlternateContactResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#newGetAlternateContactResponse"><span class="hs-identifier">newGetAlternateContactResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#getAlternateContactResponse_alternateContact"><span class="hs-identifier">getAlternateContactResponse_alternateContact</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#getAlternateContactResponse_httpStatus"><span class="hs-identifier">getAlternateContactResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Account.Types.html"><span class="hs-identifier">Network.AWS.Account.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetAlternateContact' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679140663"><span id="local-6989586621679140664"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAlternateContact"><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier hs-var">GetAlternateContact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAlternateContact%27"><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact%27"><span class="hs-identifier hs-var">GetAlternateContact'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the 12 digit account ID number of the Amazon Web Services</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- account that you want to access or modify with this operation.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- If you do not specify this parameter, it defaults to the Amazon Web</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Services account of the identity used to call the operation.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- To use this parameter, the caller must be an identity in the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account organization\'s management account&gt;</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- or a delegated administrator account, and the specified account ID must</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- be a member account in the same organization. The organization must have</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html all features enabled&gt;,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- and the organization must have</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-trusted-access.html trusted access&gt;</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- enabled for the Account Management service, and optionally a</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-delegated-admin.html delegated admin&gt;</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- account assigned.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- The management account can\'t specify its own @AccountId@; it must call</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- the operation in standalone context by not including the @AccountId@</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- To call this operation on an account that is not a member of an</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- organization, then don\'t specify this parameter, and call the operation</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- using an identity belonging to the account whose contacts you wish to</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- retrieve or modify.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AaccountId%3AGetAlternateContact%27"><span class="annot"><span class="annottext">GetAlternateContact -&gt; Maybe Text
+</span><a href="Network.AWS.Account.GetAlternateContact.html#%24sel%3AaccountId%3AGetAlternateContact%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | Specifies which alternate contact you want to retrieve.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AalternateContactType%3AGetAlternateContact%27"><span class="annot"><span class="annottext">GetAlternateContact -&gt; AlternateContactType
+</span><a href="Network.AWS.Account.GetAlternateContact.html#%24sel%3AalternateContactType%3AGetAlternateContact%27"><span class="hs-identifier hs-var hs-var">alternateContactType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Account.Types.AlternateContactType.html#AlternateContactType"><span class="hs-identifier hs-type">AlternateContactType</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679140656"><span id="local-6989586621679140658"><span class="annot"><span class="annottext">GetAlternateContact -&gt; GetAlternateContact -&gt; Bool
+(GetAlternateContact -&gt; GetAlternateContact -&gt; Bool)
+-&gt; (GetAlternateContact -&gt; GetAlternateContact -&gt; Bool)
+-&gt; Eq GetAlternateContact
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAlternateContact -&gt; GetAlternateContact -&gt; Bool
+$c/= :: GetAlternateContact -&gt; GetAlternateContact -&gt; Bool
+== :: GetAlternateContact -&gt; GetAlternateContact -&gt; Bool
+$c== :: GetAlternateContact -&gt; GetAlternateContact -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679140647"><span id="local-6989586621679140649"><span id="local-6989586621679140651"><span id="local-6989586621679140653"><span class="annot"><span class="annottext">ReadPrec [GetAlternateContact]
+ReadPrec GetAlternateContact
+Int -&gt; ReadS GetAlternateContact
+ReadS [GetAlternateContact]
+(Int -&gt; ReadS GetAlternateContact)
+-&gt; ReadS [GetAlternateContact]
+-&gt; ReadPrec GetAlternateContact
+-&gt; ReadPrec [GetAlternateContact]
+-&gt; Read GetAlternateContact
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAlternateContact]
+$creadListPrec :: ReadPrec [GetAlternateContact]
+readPrec :: ReadPrec GetAlternateContact
+$creadPrec :: ReadPrec GetAlternateContact
+readList :: ReadS [GetAlternateContact]
+$creadList :: ReadS [GetAlternateContact]
+readsPrec :: Int -&gt; ReadS GetAlternateContact
+$creadsPrec :: Int -&gt; ReadS GetAlternateContact
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679140640"><span id="local-6989586621679140642"><span id="local-6989586621679140644"><span class="annot"><span class="annottext">Int -&gt; GetAlternateContact -&gt; ShowS
+[GetAlternateContact] -&gt; ShowS
+GetAlternateContact -&gt; String
+(Int -&gt; GetAlternateContact -&gt; ShowS)
+-&gt; (GetAlternateContact -&gt; String)
+-&gt; ([GetAlternateContact] -&gt; ShowS)
+-&gt; Show GetAlternateContact
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAlternateContact] -&gt; ShowS
+$cshowList :: [GetAlternateContact] -&gt; ShowS
+show :: GetAlternateContact -&gt; String
+$cshow :: GetAlternateContact -&gt; String
+showsPrec :: Int -&gt; GetAlternateContact -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAlternateContact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetAlternateContact -&gt; Rep GetAlternateContact x)
+-&gt; (forall x. Rep GetAlternateContact x -&gt; GetAlternateContact)
+-&gt; Generic GetAlternateContact
+forall x. Rep GetAlternateContact x -&gt; GetAlternateContact
+forall x. GetAlternateContact -&gt; Rep GetAlternateContact x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetAlternateContact x -&gt; GetAlternateContact
+$cfrom :: forall x. GetAlternateContact -&gt; Rep GetAlternateContact x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Create a value of 'GetAlternateContact' with all optional fields omitted.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'accountId', 'getAlternateContact_accountId' - Specifies the 12 digit account ID number of the Amazon Web Services</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- account that you want to access or modify with this operation.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- If you do not specify this parameter, it defaults to the Amazon Web</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Services account of the identity used to call the operation.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- To use this parameter, the caller must be an identity in the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account organization\'s management account&gt;</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- or a delegated administrator account, and the specified account ID must</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- be a member account in the same organization. The organization must have</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html all features enabled&gt;,</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- and the organization must have</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-trusted-access.html trusted access&gt;</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- enabled for the Account Management service, and optionally a</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-delegated-admin.html delegated admin&gt;</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- account assigned.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- The management account can\'t specify its own @AccountId@; it must call</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- the operation in standalone context by not including the @AccountId@</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- To call this operation on an account that is not a member of an</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- organization, then don\'t specify this parameter, and call the operation</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- using an identity belonging to the account whose contacts you wish to</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- retrieve or modify.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'alternateContactType', 'getAlternateContact_alternateContactType' - Specifies which alternate contact you want to retrieve.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#newGetAlternateContact"><span class="hs-identifier hs-type">newGetAlternateContact</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-comment">-- | 'alternateContactType'</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.Account.Types.AlternateContactType.html#AlternateContactType"><span class="hs-identifier hs-type">AlternateContactType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier hs-type">GetAlternateContact</span></a></span><span>
+</span><span id="line-127"></span><span id="newGetAlternateContact"><span class="annot"><span class="annottext">newGetAlternateContact :: AlternateContactType -&gt; GetAlternateContact
+</span><a href="Network.AWS.Account.GetAlternateContact.html#newGetAlternateContact"><span class="hs-identifier hs-var hs-var">newGetAlternateContact</span></a></span></span><span> </span><span id="local-6989586621679140635"><span class="annot"><span class="annottext">AlternateContactType
+</span><a href="#local-6989586621679140635"><span class="hs-identifier hs-var">pAlternateContactType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">GetAlternateContact' :: Maybe Text -&gt; AlternateContactType -&gt; GetAlternateContact
+</span><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact%27"><span class="hs-identifier hs-type">GetAlternateContact'</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:GetAlternateContact' :: Maybe Text
+</span><a href="Network.AWS.Account.GetAlternateContact.html#%24sel%3AaccountId%3AGetAlternateContact%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:alternateContactType:GetAlternateContact' :: AlternateContactType
+</span><a href="Network.AWS.Account.GetAlternateContact.html#%24sel%3AalternateContactType%3AGetAlternateContact%27"><span class="hs-identifier hs-var">alternateContactType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AlternateContactType
+</span><a href="#local-6989586621679140635"><span class="hs-identifier hs-var">pAlternateContactType_</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Specifies the 12 digit account ID number of the Amazon Web Services</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- account that you want to access or modify with this operation.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- If you do not specify this parameter, it defaults to the Amazon Web</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Services account of the identity used to call the operation.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- To use this parameter, the caller must be an identity in the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account organization\'s management account&gt;</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- or a delegated administrator account, and the specified account ID must</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- be a member account in the same organization. The organization must have</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html all features enabled&gt;,</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- and the organization must have</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-trusted-access.html trusted access&gt;</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- enabled for the Account Management service, and optionally a</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-delegated-admin.html delegated admin&gt;</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- account assigned.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- The management account can\'t specify its own @AccountId@; it must call</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- the operation in standalone context by not including the @AccountId@</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- To call this operation on an account that is not a member of an</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- organization, then don\'t specify this parameter, and call the operation</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- using an identity belonging to the account whose contacts you wish to</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- retrieve or modify.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#getAlternateContact_accountId"><span class="hs-identifier hs-type">getAlternateContact_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier hs-type">GetAlternateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="getAlternateContact_accountId"><span class="annot"><span class="annottext">getAlternateContact_accountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetAlternateContact -&gt; f GetAlternateContact
+</span><a href="Network.AWS.Account.GetAlternateContact.html#getAlternateContact_accountId"><span class="hs-identifier hs-var hs-var">getAlternateContact_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAlternateContact -&gt; Maybe Text)
+-&gt; (GetAlternateContact -&gt; Maybe Text -&gt; GetAlternateContact)
+-&gt; Lens
+     GetAlternateContact GetAlternateContact (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact%27"><span class="hs-identifier hs-type">GetAlternateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679140632"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:GetAlternateContact' :: GetAlternateContact -&gt; Maybe Text
+</span><a href="#local-6989586621679140632"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679140632"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679140631"><span class="annot"><span class="annottext">s :: GetAlternateContact
+</span><a href="#local-6989586621679140631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact%27"><span class="hs-identifier hs-type">GetAlternateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679140630"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679140630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlternateContact
+</span><a href="#local-6989586621679140631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:GetAlternateContact' :: Maybe Text
+</span><a href="Network.AWS.Account.GetAlternateContact.html#%24sel%3AaccountId%3AGetAlternateContact%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679140630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier hs-type">GetAlternateContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Specifies which alternate contact you want to retrieve.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#getAlternateContact_alternateContactType"><span class="hs-identifier hs-type">getAlternateContact_alternateContactType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier hs-type">GetAlternateContact</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Account.Types.AlternateContactType.html#AlternateContactType"><span class="hs-identifier hs-type">AlternateContactType</span></a></span><span>
+</span><span id="line-163"></span><span id="getAlternateContact_alternateContactType"><span class="annot"><span class="annottext">getAlternateContact_alternateContactType :: (AlternateContactType -&gt; f AlternateContactType)
+-&gt; GetAlternateContact -&gt; f GetAlternateContact
+</span><a href="Network.AWS.Account.GetAlternateContact.html#getAlternateContact_alternateContactType"><span class="hs-identifier hs-var hs-var">getAlternateContact_alternateContactType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAlternateContact -&gt; AlternateContactType)
+-&gt; (GetAlternateContact
+    -&gt; AlternateContactType -&gt; GetAlternateContact)
+-&gt; Lens
+     GetAlternateContact
+     GetAlternateContact
+     AlternateContactType
+     AlternateContactType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact%27"><span class="hs-identifier hs-type">GetAlternateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679140629"><span class="annot"><span class="annottext">AlternateContactType
+alternateContactType :: AlternateContactType
+$sel:alternateContactType:GetAlternateContact' :: GetAlternateContact -&gt; AlternateContactType
+</span><a href="#local-6989586621679140629"><span class="hs-identifier hs-var hs-var">alternateContactType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlternateContactType
+</span><a href="#local-6989586621679140629"><span class="hs-identifier hs-var">alternateContactType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679140628"><span class="annot"><span class="annottext">s :: GetAlternateContact
+</span><a href="#local-6989586621679140628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact%27"><span class="hs-identifier hs-type">GetAlternateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679140627"><span class="annot"><span class="annottext">AlternateContactType
+</span><a href="#local-6989586621679140627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlternateContact
+</span><a href="#local-6989586621679140628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alternateContactType:GetAlternateContact' :: AlternateContactType
+</span><a href="Network.AWS.Account.GetAlternateContact.html#%24sel%3AalternateContactType%3AGetAlternateContact%27"><span class="hs-identifier hs-var">alternateContactType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AlternateContactType
+</span><a href="#local-6989586621679140627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier hs-type">GetAlternateContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier hs-type">GetAlternateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-167"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier hs-type">GetAlternateContact</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse"><span class="hs-identifier hs-type">GetAlternateContactResponse</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679140623"><span class="annot"><span class="annottext">request :: GetAlternateContact -&gt; Request GetAlternateContact
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetAlternateContact -&gt; Request GetAlternateContact
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Account.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679140619"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetAlternateContact
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetAlternateContact)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetAlternateContact))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetAlternateContact
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetAlternateContact)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679140616"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679140616"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679140615"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679140615"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679140614"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679140614"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe AlternateContact -&gt; Int -&gt; GetAlternateContactResponse
+</span><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse%27"><span class="hs-identifier hs-var">GetAlternateContactResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AlternateContact -&gt; Int -&gt; GetAlternateContactResponse)
+-&gt; Either String (Maybe AlternateContact)
+-&gt; Either String (Int -&gt; GetAlternateContactResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679140614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AlternateContact)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AlternateContact&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetAlternateContactResponse)
+-&gt; Either String Int -&gt; Either String GetAlternateContactResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679140616"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679140606"><span id="local-6989586621679140608"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier hs-type">GetAlternateContact</span></a></span></span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679140603"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier hs-type">GetAlternateContact</span></a></span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier hs-type">GetAlternateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679140599"><span class="annot"><span class="annottext">toHeaders :: GetAlternateContact -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAlternateContact -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-189"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679140589"><span id="local-6989586621679140591"><span id="local-6989586621679140593"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier hs-type">GetAlternateContact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679140587"><span class="annot"><span class="annottext">toJSON :: GetAlternateContact -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact%27"><span class="hs-identifier hs-type">GetAlternateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679140584"><span id="local-6989586621679140585"><span class="annot"><span class="annottext">Maybe Text
+AlternateContactType
+alternateContactType :: AlternateContactType
+accountId :: Maybe Text
+$sel:alternateContactType:GetAlternateContact' :: GetAlternateContact -&gt; AlternateContactType
+$sel:accountId:GetAlternateContact' :: GetAlternateContact -&gt; Maybe Text
+</span><a href="#local-6989586621679140584"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679140585"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-199"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AlternateContactType&quot;</span></span><span>
+</span><span id="line-200"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; AlternateContactType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AlternateContactType
+</span><a href="#local-6989586621679140584"><span class="hs-identifier hs-var">alternateContactType</span></a></span><span>
+</span><span id="line-201"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier hs-type">GetAlternateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679140578"><span class="annot"><span class="annottext">toPath :: GetAlternateContact -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAlternateContact -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/getAlternateContact&quot;</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContact"><span class="hs-identifier hs-type">GetAlternateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679140574"><span class="annot"><span class="annottext">toQuery :: GetAlternateContact -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetAlternateContact -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | /See:/ 'newGetAlternateContactResponse' smart constructor.</span><span>
+</span><span id="line-212"></span><span id="local-6989586621679140571"><span id="local-6989586621679140572"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAlternateContactResponse"><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse"><span class="hs-identifier hs-var">GetAlternateContactResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAlternateContactResponse%27"><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse%27"><span class="hs-identifier hs-var">GetAlternateContactResponse'</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure that contains the details for the specified alternate</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- contact.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AalternateContact%3AGetAlternateContactResponse%27"><span class="annot"><span class="annottext">GetAlternateContactResponse -&gt; Maybe AlternateContact
+</span><a href="Network.AWS.Account.GetAlternateContact.html#%24sel%3AalternateContact%3AGetAlternateContactResponse%27"><span class="hs-identifier hs-var hs-var">alternateContact</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Account.Types.AlternateContact.html#AlternateContact"><span class="hs-identifier hs-type">AlternateContact</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-217"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAlternateContactResponse%27"><span class="annot"><span class="annottext">GetAlternateContactResponse -&gt; Int
+</span><a href="Network.AWS.Account.GetAlternateContact.html#%24sel%3AhttpStatus%3AGetAlternateContactResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679140565"><span id="local-6989586621679140567"><span class="annot"><span class="annottext">GetAlternateContactResponse -&gt; GetAlternateContactResponse -&gt; Bool
+(GetAlternateContactResponse
+ -&gt; GetAlternateContactResponse -&gt; Bool)
+-&gt; (GetAlternateContactResponse
+    -&gt; GetAlternateContactResponse -&gt; Bool)
+-&gt; Eq GetAlternateContactResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAlternateContactResponse -&gt; GetAlternateContactResponse -&gt; Bool
+$c/= :: GetAlternateContactResponse -&gt; GetAlternateContactResponse -&gt; Bool
+== :: GetAlternateContactResponse -&gt; GetAlternateContactResponse -&gt; Bool
+$c== :: GetAlternateContactResponse -&gt; GetAlternateContactResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679140559"><span id="local-6989586621679140561"><span id="local-6989586621679140563"><span class="annot"><span class="annottext">Int -&gt; GetAlternateContactResponse -&gt; ShowS
+[GetAlternateContactResponse] -&gt; ShowS
+GetAlternateContactResponse -&gt; String
+(Int -&gt; GetAlternateContactResponse -&gt; ShowS)
+-&gt; (GetAlternateContactResponse -&gt; String)
+-&gt; ([GetAlternateContactResponse] -&gt; ShowS)
+-&gt; Show GetAlternateContactResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAlternateContactResponse] -&gt; ShowS
+$cshowList :: [GetAlternateContactResponse] -&gt; ShowS
+show :: GetAlternateContactResponse -&gt; String
+$cshow :: GetAlternateContactResponse -&gt; String
+showsPrec :: Int -&gt; GetAlternateContactResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAlternateContactResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetAlternateContactResponse -&gt; Rep GetAlternateContactResponse x)
+-&gt; (forall x.
+    Rep GetAlternateContactResponse x -&gt; GetAlternateContactResponse)
+-&gt; Generic GetAlternateContactResponse
+forall x.
+Rep GetAlternateContactResponse x -&gt; GetAlternateContactResponse
+forall x.
+GetAlternateContactResponse -&gt; Rep GetAlternateContactResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetAlternateContactResponse x -&gt; GetAlternateContactResponse
+$cfrom :: forall x.
+GetAlternateContactResponse -&gt; Rep GetAlternateContactResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- Create a value of 'GetAlternateContactResponse' with all optional fields omitted.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'alternateContact', 'getAlternateContactResponse_alternateContact' - A structure that contains the details for the specified alternate</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- contact.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'httpStatus', 'getAlternateContactResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#newGetAlternateContactResponse"><span class="hs-identifier hs-type">newGetAlternateContactResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-236"></span><span>  </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse"><span class="hs-identifier hs-type">GetAlternateContactResponse</span></a></span><span>
+</span><span id="line-237"></span><span id="newGetAlternateContactResponse"><span class="annot"><span class="annottext">newGetAlternateContactResponse :: Int -&gt; GetAlternateContactResponse
+</span><a href="Network.AWS.Account.GetAlternateContact.html#newGetAlternateContactResponse"><span class="hs-identifier hs-var hs-var">newGetAlternateContactResponse</span></a></span></span><span> </span><span id="local-6989586621679140556"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679140556"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><span class="annottext">GetAlternateContactResponse' :: Maybe AlternateContact -&gt; Int -&gt; GetAlternateContactResponse
+</span><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse%27"><span class="hs-identifier hs-type">GetAlternateContactResponse'</span></a></span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:alternateContact:GetAlternateContactResponse' :: Maybe AlternateContact
+</span><a href="Network.AWS.Account.GetAlternateContact.html#%24sel%3AalternateContact%3AGetAlternateContactResponse%27"><span class="hs-identifier hs-var">alternateContact</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">Maybe AlternateContact
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAlternateContactResponse' :: Int
+</span><a href="Network.AWS.Account.GetAlternateContact.html#%24sel%3AhttpStatus%3AGetAlternateContactResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679140556"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | A structure that contains the details for the specified alternate</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- contact.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#getAlternateContactResponse_alternateContact"><span class="hs-identifier hs-type">getAlternateContactResponse_alternateContact</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse"><span class="hs-identifier hs-type">GetAlternateContactResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Account.Types.AlternateContact.html#AlternateContact"><span class="hs-identifier hs-type">AlternateContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="getAlternateContactResponse_alternateContact"><span class="annot"><span class="annottext">getAlternateContactResponse_alternateContact :: (Maybe AlternateContact -&gt; f (Maybe AlternateContact))
+-&gt; GetAlternateContactResponse -&gt; f GetAlternateContactResponse
+</span><a href="Network.AWS.Account.GetAlternateContact.html#getAlternateContactResponse_alternateContact"><span class="hs-identifier hs-var hs-var">getAlternateContactResponse_alternateContact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAlternateContactResponse -&gt; Maybe AlternateContact)
+-&gt; (GetAlternateContactResponse
+    -&gt; Maybe AlternateContact -&gt; GetAlternateContactResponse)
+-&gt; Lens
+     GetAlternateContactResponse
+     GetAlternateContactResponse
+     (Maybe AlternateContact)
+     (Maybe AlternateContact)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse%27"><span class="hs-identifier hs-type">GetAlternateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679140555"><span class="annot"><span class="annottext">Maybe AlternateContact
+alternateContact :: Maybe AlternateContact
+$sel:alternateContact:GetAlternateContactResponse' :: GetAlternateContactResponse -&gt; Maybe AlternateContact
+</span><a href="#local-6989586621679140555"><span class="hs-identifier hs-var hs-var">alternateContact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AlternateContact
+</span><a href="#local-6989586621679140555"><span class="hs-identifier hs-var">alternateContact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679140554"><span class="annot"><span class="annottext">s :: GetAlternateContactResponse
+</span><a href="#local-6989586621679140554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse%27"><span class="hs-identifier hs-type">GetAlternateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679140553"><span class="annot"><span class="annottext">Maybe AlternateContact
+</span><a href="#local-6989586621679140553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlternateContactResponse
+</span><a href="#local-6989586621679140554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alternateContact:GetAlternateContactResponse' :: Maybe AlternateContact
+</span><a href="Network.AWS.Account.GetAlternateContact.html#%24sel%3AalternateContact%3AGetAlternateContactResponse%27"><span class="hs-identifier hs-var">alternateContact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlternateContact
+</span><a href="#local-6989586621679140553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse"><span class="hs-identifier hs-type">GetAlternateContactResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#getAlternateContactResponse_httpStatus"><span class="hs-identifier hs-type">getAlternateContactResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse"><span class="hs-identifier hs-type">GetAlternateContactResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-251"></span><span id="getAlternateContactResponse_httpStatus"><span class="annot"><span class="annottext">getAlternateContactResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetAlternateContactResponse -&gt; f GetAlternateContactResponse
+</span><a href="Network.AWS.Account.GetAlternateContact.html#getAlternateContactResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getAlternateContactResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAlternateContactResponse -&gt; Int)
+-&gt; (GetAlternateContactResponse
+    -&gt; Int -&gt; GetAlternateContactResponse)
+-&gt; Lens
+     GetAlternateContactResponse GetAlternateContactResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse%27"><span class="hs-identifier hs-type">GetAlternateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679140552"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetAlternateContactResponse' :: GetAlternateContactResponse -&gt; Int
+</span><a href="#local-6989586621679140552"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679140552"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679140551"><span class="annot"><span class="annottext">s :: GetAlternateContactResponse
+</span><a href="#local-6989586621679140551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse%27"><span class="hs-identifier hs-type">GetAlternateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679140550"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679140550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlternateContactResponse
+</span><a href="#local-6989586621679140551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAlternateContactResponse' :: Int
+</span><a href="Network.AWS.Account.GetAlternateContact.html#%24sel%3AhttpStatus%3AGetAlternateContactResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679140550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse"><span class="hs-identifier hs-type">GetAlternateContactResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679140548"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Account.GetAlternateContact.html#GetAlternateContactResponse"><span class="hs-identifier hs-type">GetAlternateContactResponse</span></a></span></span><span>
+</span><span id="line-254"></span></pre></body></html>

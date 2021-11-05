@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Aac Spec</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679862771"><span id="local-6989586621679862772"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AacSpec"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSpec.html#AacSpec"><span class="hs-identifier hs-var">AacSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AacSpec%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSpec.html#AacSpec%27"><span class="hs-identifier hs-var">AacSpec'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromAacSpec"><span class="annot"><span class="annottext">AacSpec -&gt; Text
+</span><span id="line-33"></span><span id="local-6989586621679862780"><span id="local-6989586621679862781"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AacSpec"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSpec.html#AacSpec"><span class="hs-identifier hs-var">AacSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AacSpec%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSpec.html#AacSpec%27"><span class="hs-identifier hs-var">AacSpec'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromAacSpec"><span class="annot"><span class="annottext">AacSpec -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.AacSpec.html#fromAacSpec"><span class="hs-identifier hs-var hs-var">fromAacSpec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679862763"><span id="local-6989586621679862765"><span id="local-6989586621679862767"><span class="annot"><span class="annottext">Int -&gt; AacSpec -&gt; ShowS
+</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679862772"><span id="local-6989586621679862774"><span id="local-6989586621679862776"><span class="annot"><span class="annottext">Int -&gt; AacSpec -&gt; ShowS
 [AacSpec] -&gt; ShowS
 AacSpec -&gt; String
 (Int -&gt; AacSpec -&gt; ShowS)
@@ -47,7 +47,7 @@ $cshow :: AacSpec -&gt; String
 showsPrec :: Int -&gt; AacSpec -&gt; ShowS
 $cshowsPrec :: Int -&gt; AacSpec -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>      </span><span id="local-6989586621679862754"><span id="local-6989586621679862756"><span id="local-6989586621679862758"><span id="local-6989586621679862760"><span class="annot"><span class="annottext">ReadPrec [AacSpec]
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679862763"><span id="local-6989586621679862765"><span id="local-6989586621679862767"><span id="local-6989586621679862769"><span class="annot"><span class="annottext">ReadPrec [AacSpec]
 ReadPrec AacSpec
 Int -&gt; ReadS AacSpec
 ReadS [AacSpec]
@@ -68,7 +68,7 @@ $creadList :: ReadS [AacSpec]
 readsPrec :: Int -&gt; ReadS AacSpec
 $creadsPrec :: Int -&gt; ReadS AacSpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679862749"><span id="local-6989586621679862751"><span class="annot"><span class="annottext">AacSpec -&gt; AacSpec -&gt; Bool
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679862758"><span id="local-6989586621679862760"><span class="annot"><span class="annottext">AacSpec -&gt; AacSpec -&gt; Bool
 (AacSpec -&gt; AacSpec -&gt; Bool)
 -&gt; (AacSpec -&gt; AacSpec -&gt; Bool) -&gt; Eq AacSpec
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -77,7 +77,7 @@ $c/= :: AacSpec -&gt; AacSpec -&gt; Bool
 == :: AacSpec -&gt; AacSpec -&gt; Bool
 $c== :: AacSpec -&gt; AacSpec -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679862733"><span id="local-6989586621679862735"><span id="local-6989586621679862737"><span id="local-6989586621679862739"><span id="local-6989586621679862741"><span id="local-6989586621679862743"><span id="local-6989586621679862745"><span class="annot"><span class="annottext">Eq AacSpec
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679862742"><span id="local-6989586621679862744"><span id="local-6989586621679862746"><span id="local-6989586621679862748"><span id="local-6989586621679862750"><span id="local-6989586621679862752"><span id="local-6989586621679862754"><span class="annot"><span class="annottext">Eq AacSpec
 Eq AacSpec
 -&gt; (AacSpec -&gt; AacSpec -&gt; Ordering)
 -&gt; (AacSpec -&gt; AacSpec -&gt; Bool)
@@ -127,7 +127,7 @@ $cfrom :: forall x. AacSpec -&gt; Rep AacSpec x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679862725"><span id="local-6989586621679862727"><span class="annot"><span class="annottext">Int -&gt; AacSpec -&gt; Int
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679862734"><span id="local-6989586621679862736"><span class="annot"><span class="annottext">Int -&gt; AacSpec -&gt; Int
 AacSpec -&gt; Int
 (Int -&gt; AacSpec -&gt; Int) -&gt; (AacSpec -&gt; Int) -&gt; Hashable AacSpec
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -136,49 +136,49 @@ $chash :: AacSpec -&gt; Int
 hashWithSalt :: Int -&gt; AacSpec -&gt; Int
 $chashWithSalt :: Int -&gt; AacSpec -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679862722"><span class="annot"><span class="annottext">AacSpec -&gt; ()
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679862731"><span class="annot"><span class="annottext">AacSpec -&gt; ()
 (AacSpec -&gt; ()) -&gt; NFData AacSpec
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AacSpec -&gt; ()
 $crnf :: AacSpec -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679862719"><span class="annot"><span class="annottext">Text -&gt; Either String AacSpec
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679862728"><span class="annot"><span class="annottext">Text -&gt; Either String AacSpec
 (Text -&gt; Either String AacSpec) -&gt; FromText AacSpec
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AacSpec
 $cfromText :: Text -&gt; Either String AacSpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679862716"><span class="annot"><span class="annottext">AacSpec -&gt; Text
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679862725"><span class="annot"><span class="annottext">AacSpec -&gt; Text
 (AacSpec -&gt; Text) -&gt; ToText AacSpec
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AacSpec -&gt; Text
 $ctoText :: AacSpec -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679862713"><span class="annot"><span class="annottext">AacSpec -&gt; ByteString
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679862722"><span class="annot"><span class="annottext">AacSpec -&gt; ByteString
 (AacSpec -&gt; ByteString) -&gt; ToByteString AacSpec
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AacSpec -&gt; ByteString
 $ctoBS :: AacSpec -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679862710"><span class="annot"><span class="annottext">AacSpec -&gt; ByteStringBuilder
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679862719"><span class="annot"><span class="annottext">AacSpec -&gt; ByteStringBuilder
 (AacSpec -&gt; ByteStringBuilder) -&gt; ToLog AacSpec
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AacSpec -&gt; ByteStringBuilder
 $cbuild :: AacSpec -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679862707"><span class="annot"><span class="annottext">HeaderName -&gt; AacSpec -&gt; [Header]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679862716"><span class="annot"><span class="annottext">HeaderName -&gt; AacSpec -&gt; [Header]
 (HeaderName -&gt; AacSpec -&gt; [Header]) -&gt; ToHeader AacSpec
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AacSpec -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AacSpec -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679862704"><span class="annot"><span class="annottext">AacSpec -&gt; QueryString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679862713"><span class="annot"><span class="annottext">AacSpec -&gt; QueryString
 (AacSpec -&gt; QueryString) -&gt; ToQuery AacSpec
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AacSpec -&gt; QueryString
 $ctoQuery :: AacSpec -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679862699"><span id="local-6989586621679862701"><span class="annot"><span class="annottext">Value -&gt; Parser [AacSpec]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679862708"><span id="local-6989586621679862710"><span class="annot"><span class="annottext">Value -&gt; Parser [AacSpec]
 Value -&gt; Parser AacSpec
 (Value -&gt; Parser AacSpec)
 -&gt; (Value -&gt; Parser [AacSpec]) -&gt; FromJSON AacSpec
@@ -189,7 +189,7 @@ $cparseJSONList :: Value -&gt; Parser [AacSpec]
 parseJSON :: Value -&gt; Parser AacSpec
 $cparseJSON :: Value -&gt; Parser AacSpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679862694"><span id="local-6989586621679862696"><span class="annot"><span class="annottext">FromJSONKeyFunction [AacSpec]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679862703"><span id="local-6989586621679862705"><span class="annot"><span class="annottext">FromJSONKeyFunction [AacSpec]
 FromJSONKeyFunction AacSpec
 FromJSONKeyFunction AacSpec
 -&gt; FromJSONKeyFunction [AacSpec] -&gt; FromJSONKey AacSpec
@@ -200,7 +200,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AacSpec]
 fromJSONKey :: FromJSONKeyFunction AacSpec
 $cfromJSONKey :: FromJSONKeyFunction AacSpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679862685"><span id="local-6989586621679862687"><span id="local-6989586621679862689"><span id="local-6989586621679862691"><span class="annot"><span class="annottext">[AacSpec] -&gt; Encoding
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679862694"><span id="local-6989586621679862696"><span id="local-6989586621679862698"><span id="local-6989586621679862700"><span class="annot"><span class="annottext">[AacSpec] -&gt; Encoding
 [AacSpec] -&gt; Value
 AacSpec -&gt; Encoding
 AacSpec -&gt; Value
@@ -224,7 +224,7 @@ $ctoEncoding :: AacSpec -&gt; Encoding
 toJSON :: AacSpec -&gt; Value
 $ctoJSON :: AacSpec -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679862680"><span id="local-6989586621679862682"><span class="annot"><span class="annottext">ToJSONKeyFunction [AacSpec]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679862689"><span id="local-6989586621679862691"><span class="annot"><span class="annottext">ToJSONKeyFunction [AacSpec]
 ToJSONKeyFunction AacSpec
 ToJSONKeyFunction AacSpec
 -&gt; ToJSONKeyFunction [AacSpec] -&gt; ToJSONKey AacSpec
@@ -235,13 +235,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AacSpec]
 toJSONKey :: ToJSONKeyFunction AacSpec
 $ctoJSONKey :: ToJSONKeyFunction AacSpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679862677"><span class="annot"><span class="annottext">[Node] -&gt; Either String AacSpec
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679862686"><span class="annot"><span class="annottext">[Node] -&gt; Either String AacSpec
 ([Node] -&gt; Either String AacSpec) -&gt; FromXML AacSpec
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AacSpec
 $cparseXML :: [Node] -&gt; Either String AacSpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679862674"><span class="annot"><span class="annottext">AacSpec -&gt; XML
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679862683"><span class="annot"><span class="annottext">AacSpec -&gt; XML
 (AacSpec -&gt; XML) -&gt; ToXML AacSpec
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AacSpec -&gt; XML

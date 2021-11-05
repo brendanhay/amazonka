@@ -1,0 +1,580 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisVideoSignaling.GetIceServerConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the Interactive Connectivity Establishment (ICE) server</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- configuration information, including URIs, username, and password which</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- can be used to configure the WebRTC connection. The ICE component uses</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- this configuration information to setup the WebRTC connection, including</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- authenticating with the Traversal Using Relays around NAT (TURN) relay</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- server.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- TURN is a protocol that is used to improve the connectivity of</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- peer-to-peer applications. By providing a cloud-based relay service,</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- TURN ensures that a connection can be established even when one or more</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- peers are incapable of a direct peer-to-peer connection. For more</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/draft-uberti-rtcweb-turn-rest-00 A REST API For Access To TURN Services&gt;.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- You can invoke this API to establish a fallback mechanism in case either</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- of the peers is unable to establish a direct peer-to-peer connection</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- over a signaling channel. You must specify either a signaling channel</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- ARN or the client ID in order to invoke this API.</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisVideoSignaling.GetIceServerConfig</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier">GetIceServerConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#newGetIceServerConfig"><span class="hs-identifier">newGetIceServerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfig_clientId"><span class="hs-identifier">getIceServerConfig_clientId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfig_service"><span class="hs-identifier">getIceServerConfig_service</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfig_username"><span class="hs-identifier">getIceServerConfig_username</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfig_channelARN"><span class="hs-identifier">getIceServerConfig_channelARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse"><span class="hs-identifier">GetIceServerConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#newGetIceServerConfigResponse"><span class="hs-identifier">newGetIceServerConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfigResponse_iceServerList"><span class="hs-identifier">getIceServerConfigResponse_iceServerList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfigResponse_httpStatus"><span class="hs-identifier">getIceServerConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.Types.html"><span class="hs-identifier">Network.AWS.KinesisVideoSignaling.Types</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newGetIceServerConfig' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621679139755"><span id="local-6989586621679139756"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIceServerConfig"><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-var">GetIceServerConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIceServerConfig%27"><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig%27"><span class="hs-identifier hs-var">GetIceServerConfig'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique identifier for the viewer. Must be unique within the signaling</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- channel.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AclientId%3AGetIceServerConfig%27"><span class="annot"><span class="annottext">GetIceServerConfig -&gt; Maybe Text
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3AclientId%3AGetIceServerConfig%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Specifies the desired service. Currently, @TURN@ is the only valid</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Aservice%3AGetIceServerConfig%27"><span class="annot"><span class="annottext">GetIceServerConfig -&gt; Maybe Service
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3Aservice%3AGetIceServerConfig%27"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | An optional user ID to be associated with the credentials.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Ausername%3AGetIceServerConfig%27"><span class="annot"><span class="annottext">GetIceServerConfig -&gt; Maybe Text
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3Ausername%3AGetIceServerConfig%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The ARN of the signaling channel to be used for the peer-to-peer</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- connection between configured peers.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AchannelARN%3AGetIceServerConfig%27"><span class="annot"><span class="annottext">GetIceServerConfig -&gt; Text
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3AchannelARN%3AGetIceServerConfig%27"><span class="hs-identifier hs-var hs-var">channelARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679139746"><span id="local-6989586621679139748"><span class="annot"><span class="annottext">GetIceServerConfig -&gt; GetIceServerConfig -&gt; Bool
+(GetIceServerConfig -&gt; GetIceServerConfig -&gt; Bool)
+-&gt; (GetIceServerConfig -&gt; GetIceServerConfig -&gt; Bool)
+-&gt; Eq GetIceServerConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetIceServerConfig -&gt; GetIceServerConfig -&gt; Bool
+$c/= :: GetIceServerConfig -&gt; GetIceServerConfig -&gt; Bool
+== :: GetIceServerConfig -&gt; GetIceServerConfig -&gt; Bool
+$c== :: GetIceServerConfig -&gt; GetIceServerConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139737"><span id="local-6989586621679139739"><span id="local-6989586621679139741"><span id="local-6989586621679139743"><span class="annot"><span class="annottext">ReadPrec [GetIceServerConfig]
+ReadPrec GetIceServerConfig
+Int -&gt; ReadS GetIceServerConfig
+ReadS [GetIceServerConfig]
+(Int -&gt; ReadS GetIceServerConfig)
+-&gt; ReadS [GetIceServerConfig]
+-&gt; ReadPrec GetIceServerConfig
+-&gt; ReadPrec [GetIceServerConfig]
+-&gt; Read GetIceServerConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetIceServerConfig]
+$creadListPrec :: ReadPrec [GetIceServerConfig]
+readPrec :: ReadPrec GetIceServerConfig
+$creadPrec :: ReadPrec GetIceServerConfig
+readList :: ReadS [GetIceServerConfig]
+$creadList :: ReadS [GetIceServerConfig]
+readsPrec :: Int -&gt; ReadS GetIceServerConfig
+$creadsPrec :: Int -&gt; ReadS GetIceServerConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139730"><span id="local-6989586621679139732"><span id="local-6989586621679139734"><span class="annot"><span class="annottext">Int -&gt; GetIceServerConfig -&gt; ShowS
+[GetIceServerConfig] -&gt; ShowS
+GetIceServerConfig -&gt; String
+(Int -&gt; GetIceServerConfig -&gt; ShowS)
+-&gt; (GetIceServerConfig -&gt; String)
+-&gt; ([GetIceServerConfig] -&gt; ShowS)
+-&gt; Show GetIceServerConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetIceServerConfig] -&gt; ShowS
+$cshowList :: [GetIceServerConfig] -&gt; ShowS
+show :: GetIceServerConfig -&gt; String
+$cshow :: GetIceServerConfig -&gt; String
+showsPrec :: Int -&gt; GetIceServerConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetIceServerConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetIceServerConfig -&gt; Rep GetIceServerConfig x)
+-&gt; (forall x. Rep GetIceServerConfig x -&gt; GetIceServerConfig)
+-&gt; Generic GetIceServerConfig
+forall x. Rep GetIceServerConfig x -&gt; GetIceServerConfig
+forall x. GetIceServerConfig -&gt; Rep GetIceServerConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetIceServerConfig x -&gt; GetIceServerConfig
+$cfrom :: forall x. GetIceServerConfig -&gt; Rep GetIceServerConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'GetIceServerConfig' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'clientId', 'getIceServerConfig_clientId' - Unique identifier for the viewer. Must be unique within the signaling</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- channel.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'service', 'getIceServerConfig_service' - Specifies the desired service. Currently, @TURN@ is the only valid</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'username', 'getIceServerConfig_username' - An optional user ID to be associated with the credentials.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'channelARN', 'getIceServerConfig_channelARN' - The ARN of the signaling channel to be used for the peer-to-peer</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- connection between configured peers.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#newGetIceServerConfig"><span class="hs-identifier hs-type">newGetIceServerConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'channelARN'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span><span>
+</span><span id="line-107"></span><span id="newGetIceServerConfig"><span class="annot"><span class="annottext">newGetIceServerConfig :: Text -&gt; GetIceServerConfig
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#newGetIceServerConfig"><span class="hs-identifier hs-var hs-var">newGetIceServerConfig</span></a></span></span><span> </span><span id="local-6989586621679139725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139725"><span class="hs-identifier hs-var">pChannelARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">GetIceServerConfig' :: Maybe Text
+-&gt; Maybe Service -&gt; Maybe Text -&gt; Text -&gt; GetIceServerConfig
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig%27"><span class="hs-identifier hs-type">GetIceServerConfig'</span></a></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientId:GetIceServerConfig' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3AclientId%3AGetIceServerConfig%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:service:GetIceServerConfig' :: Maybe Service
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3Aservice%3AGetIceServerConfig%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Service
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:GetIceServerConfig' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3Ausername%3AGetIceServerConfig%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelARN:GetIceServerConfig' :: Text
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3AchannelARN%3AGetIceServerConfig%27"><span class="hs-identifier hs-var">channelARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139725"><span class="hs-identifier hs-var">pChannelARN_</span></a></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Unique identifier for the viewer. Must be unique within the signaling</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- channel.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfig_clientId"><span class="hs-identifier hs-type">getIceServerConfig_clientId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="getIceServerConfig_clientId"><span class="annot"><span class="annottext">getIceServerConfig_clientId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetIceServerConfig -&gt; f GetIceServerConfig
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfig_clientId"><span class="hs-identifier hs-var hs-var">getIceServerConfig_clientId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIceServerConfig -&gt; Maybe Text)
+-&gt; (GetIceServerConfig -&gt; Maybe Text -&gt; GetIceServerConfig)
+-&gt; Lens
+     GetIceServerConfig GetIceServerConfig (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig%27"><span class="hs-identifier hs-type">GetIceServerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139722"><span class="annot"><span class="annottext">Maybe Text
+clientId :: Maybe Text
+$sel:clientId:GetIceServerConfig' :: GetIceServerConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679139722"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139722"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139721"><span class="annot"><span class="annottext">s :: GetIceServerConfig
+</span><a href="#local-6989586621679139721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig%27"><span class="hs-identifier hs-type">GetIceServerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139720"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIceServerConfig
+</span><a href="#local-6989586621679139721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:GetIceServerConfig' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3AclientId%3AGetIceServerConfig%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Specifies the desired service. Currently, @TURN@ is the only valid</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfig_service"><span class="hs-identifier hs-type">getIceServerConfig_service</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="getIceServerConfig_service"><span class="annot"><span class="annottext">getIceServerConfig_service :: (Maybe Service -&gt; f (Maybe Service))
+-&gt; GetIceServerConfig -&gt; f GetIceServerConfig
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfig_service"><span class="hs-identifier hs-var hs-var">getIceServerConfig_service</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIceServerConfig -&gt; Maybe Service)
+-&gt; (GetIceServerConfig -&gt; Maybe Service -&gt; GetIceServerConfig)
+-&gt; Lens
+     GetIceServerConfig
+     GetIceServerConfig
+     (Maybe Service)
+     (Maybe Service)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig%27"><span class="hs-identifier hs-type">GetIceServerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139719"><span class="annot"><span class="annottext">Maybe Service
+service :: Maybe Service
+$sel:service:GetIceServerConfig' :: GetIceServerConfig -&gt; Maybe Service
+</span><a href="#local-6989586621679139719"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Service
+</span><a href="#local-6989586621679139719"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139718"><span class="annot"><span class="annottext">s :: GetIceServerConfig
+</span><a href="#local-6989586621679139718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig%27"><span class="hs-identifier hs-type">GetIceServerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139717"><span class="annot"><span class="annottext">Maybe Service
+</span><a href="#local-6989586621679139717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIceServerConfig
+</span><a href="#local-6989586621679139718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:service:GetIceServerConfig' :: Maybe Service
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3Aservice%3AGetIceServerConfig%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Service
+</span><a href="#local-6989586621679139717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | An optional user ID to be associated with the credentials.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfig_username"><span class="hs-identifier hs-type">getIceServerConfig_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="getIceServerConfig_username"><span class="annot"><span class="annottext">getIceServerConfig_username :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetIceServerConfig -&gt; f GetIceServerConfig
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfig_username"><span class="hs-identifier hs-var hs-var">getIceServerConfig_username</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIceServerConfig -&gt; Maybe Text)
+-&gt; (GetIceServerConfig -&gt; Maybe Text -&gt; GetIceServerConfig)
+-&gt; Lens
+     GetIceServerConfig GetIceServerConfig (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig%27"><span class="hs-identifier hs-type">GetIceServerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139716"><span class="annot"><span class="annottext">Maybe Text
+username :: Maybe Text
+$sel:username:GetIceServerConfig' :: GetIceServerConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679139716"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139716"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139715"><span class="annot"><span class="annottext">s :: GetIceServerConfig
+</span><a href="#local-6989586621679139715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig%27"><span class="hs-identifier hs-type">GetIceServerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139714"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIceServerConfig
+</span><a href="#local-6989586621679139715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:GetIceServerConfig' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3Ausername%3AGetIceServerConfig%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The ARN of the signaling channel to be used for the peer-to-peer</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- connection between configured peers.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfig_channelARN"><span class="hs-identifier hs-type">getIceServerConfig_channelARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-132"></span><span id="getIceServerConfig_channelARN"><span class="annot"><span class="annottext">getIceServerConfig_channelARN :: (Text -&gt; f Text) -&gt; GetIceServerConfig -&gt; f GetIceServerConfig
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfig_channelARN"><span class="hs-identifier hs-var hs-var">getIceServerConfig_channelARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIceServerConfig -&gt; Text)
+-&gt; (GetIceServerConfig -&gt; Text -&gt; GetIceServerConfig)
+-&gt; Lens GetIceServerConfig GetIceServerConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig%27"><span class="hs-identifier hs-type">GetIceServerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139713"><span class="annot"><span class="annottext">Text
+channelARN :: Text
+$sel:channelARN:GetIceServerConfig' :: GetIceServerConfig -&gt; Text
+</span><a href="#local-6989586621679139713"><span class="hs-identifier hs-var hs-var">channelARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139713"><span class="hs-identifier hs-var">channelARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139712"><span class="annot"><span class="annottext">s :: GetIceServerConfig
+</span><a href="#local-6989586621679139712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig%27"><span class="hs-identifier hs-type">GetIceServerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139711"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIceServerConfig
+</span><a href="#local-6989586621679139712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelARN:GetIceServerConfig' :: Text
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3AchannelARN%3AGetIceServerConfig%27"><span class="hs-identifier hs-var">channelARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse"><span class="hs-identifier hs-type">GetIceServerConfigResponse</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679139707"><span class="annot"><span class="annottext">request :: GetIceServerConfig -&gt; Request GetIceServerConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetIceServerConfig -&gt; Request GetIceServerConfig
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.KinesisVideoSignaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679139703"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetIceServerConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetIceServerConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetIceServerConfig))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetIceServerConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetIceServerConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679139700"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679139700"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679139699"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679139699"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679139698"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679139698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe [IceServer] -&gt; Int -&gt; GetIceServerConfigResponse
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse%27"><span class="hs-identifier hs-var">GetIceServerConfigResponse'</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [IceServer] -&gt; Int -&gt; GetIceServerConfigResponse)
+-&gt; Either String (Maybe [IceServer])
+-&gt; Either String (Int -&gt; GetIceServerConfigResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679139698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [IceServer]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IceServerList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [IceServer]))
+-&gt; Maybe [IceServer] -&gt; Either String (Maybe [IceServer])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [IceServer]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetIceServerConfigResponse)
+-&gt; Either String Int -&gt; Either String GetIceServerConfigResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679139700"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139689"><span id="local-6989586621679139691"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679139682"><span class="annot"><span class="annottext">toHeaders :: GetIceServerConfig -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetIceServerConfig -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139673"><span id="local-6989586621679139675"><span id="local-6989586621679139677"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679139671"><span class="annot"><span class="annottext">toJSON :: GetIceServerConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig%27"><span class="hs-identifier hs-type">GetIceServerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139666"><span id="local-6989586621679139667"><span id="local-6989586621679139668"><span id="local-6989586621679139669"><span class="annot"><span class="annottext">Maybe Text
+Maybe Service
+Text
+channelARN :: Text
+username :: Maybe Text
+service :: Maybe Service
+clientId :: Maybe Text
+$sel:channelARN:GetIceServerConfig' :: GetIceServerConfig -&gt; Text
+$sel:username:GetIceServerConfig' :: GetIceServerConfig -&gt; Maybe Text
+$sel:service:GetIceServerConfig' :: GetIceServerConfig -&gt; Maybe Service
+$sel:clientId:GetIceServerConfig' :: GetIceServerConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679139666"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139669"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Service&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Service -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Service -&gt; Pair) -&gt; Maybe Service -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Service
+</span><a href="#local-6989586621679139668"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139667"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139666"><span class="hs-identifier hs-var">channelARN</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679139660"><span class="annot"><span class="annottext">toPath :: GetIceServerConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetIceServerConfig -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/get-ice-server-config&quot;</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfig"><span class="hs-identifier hs-type">GetIceServerConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679139656"><span class="annot"><span class="annottext">toQuery :: GetIceServerConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetIceServerConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | /See:/ 'newGetIceServerConfigResponse' smart constructor.</span><span>
+</span><span id="line-172"></span><span id="local-6989586621679139653"><span id="local-6989586621679139654"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIceServerConfigResponse"><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse"><span class="hs-identifier hs-var">GetIceServerConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIceServerConfigResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse%27"><span class="hs-identifier hs-var">GetIceServerConfigResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of ICE server information objects.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AiceServerList%3AGetIceServerConfigResponse%27"><span class="annot"><span class="annottext">GetIceServerConfigResponse -&gt; Maybe [IceServer]
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3AiceServerList%3AGetIceServerConfigResponse%27"><span class="hs-identifier hs-var hs-var">iceServerList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.Types.IceServer.html#IceServer"><span class="hs-identifier hs-type">IceServer</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetIceServerConfigResponse%27"><span class="annot"><span class="annottext">GetIceServerConfigResponse -&gt; Int
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3AhttpStatus%3AGetIceServerConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679139647"><span id="local-6989586621679139649"><span class="annot"><span class="annottext">GetIceServerConfigResponse -&gt; GetIceServerConfigResponse -&gt; Bool
+(GetIceServerConfigResponse -&gt; GetIceServerConfigResponse -&gt; Bool)
+-&gt; (GetIceServerConfigResponse
+    -&gt; GetIceServerConfigResponse -&gt; Bool)
+-&gt; Eq GetIceServerConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetIceServerConfigResponse -&gt; GetIceServerConfigResponse -&gt; Bool
+$c/= :: GetIceServerConfigResponse -&gt; GetIceServerConfigResponse -&gt; Bool
+== :: GetIceServerConfigResponse -&gt; GetIceServerConfigResponse -&gt; Bool
+$c== :: GetIceServerConfigResponse -&gt; GetIceServerConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139639"><span id="local-6989586621679139641"><span id="local-6989586621679139643"><span id="local-6989586621679139645"><span class="annot"><span class="annottext">ReadPrec [GetIceServerConfigResponse]
+ReadPrec GetIceServerConfigResponse
+Int -&gt; ReadS GetIceServerConfigResponse
+ReadS [GetIceServerConfigResponse]
+(Int -&gt; ReadS GetIceServerConfigResponse)
+-&gt; ReadS [GetIceServerConfigResponse]
+-&gt; ReadPrec GetIceServerConfigResponse
+-&gt; ReadPrec [GetIceServerConfigResponse]
+-&gt; Read GetIceServerConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetIceServerConfigResponse]
+$creadListPrec :: ReadPrec [GetIceServerConfigResponse]
+readPrec :: ReadPrec GetIceServerConfigResponse
+$creadPrec :: ReadPrec GetIceServerConfigResponse
+readList :: ReadS [GetIceServerConfigResponse]
+$creadList :: ReadS [GetIceServerConfigResponse]
+readsPrec :: Int -&gt; ReadS GetIceServerConfigResponse
+$creadsPrec :: Int -&gt; ReadS GetIceServerConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139633"><span id="local-6989586621679139635"><span id="local-6989586621679139637"><span class="annot"><span class="annottext">Int -&gt; GetIceServerConfigResponse -&gt; ShowS
+[GetIceServerConfigResponse] -&gt; ShowS
+GetIceServerConfigResponse -&gt; String
+(Int -&gt; GetIceServerConfigResponse -&gt; ShowS)
+-&gt; (GetIceServerConfigResponse -&gt; String)
+-&gt; ([GetIceServerConfigResponse] -&gt; ShowS)
+-&gt; Show GetIceServerConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetIceServerConfigResponse] -&gt; ShowS
+$cshowList :: [GetIceServerConfigResponse] -&gt; ShowS
+show :: GetIceServerConfigResponse -&gt; String
+$cshow :: GetIceServerConfigResponse -&gt; String
+showsPrec :: Int -&gt; GetIceServerConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetIceServerConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetIceServerConfigResponse -&gt; Rep GetIceServerConfigResponse x)
+-&gt; (forall x.
+    Rep GetIceServerConfigResponse x -&gt; GetIceServerConfigResponse)
+-&gt; Generic GetIceServerConfigResponse
+forall x.
+Rep GetIceServerConfigResponse x -&gt; GetIceServerConfigResponse
+forall x.
+GetIceServerConfigResponse -&gt; Rep GetIceServerConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetIceServerConfigResponse x -&gt; GetIceServerConfigResponse
+$cfrom :: forall x.
+GetIceServerConfigResponse -&gt; Rep GetIceServerConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Create a value of 'GetIceServerConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'iceServerList', 'getIceServerConfigResponse_iceServerList' - The list of ICE server information objects.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'getIceServerConfigResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#newGetIceServerConfigResponse"><span class="hs-identifier hs-type">newGetIceServerConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse"><span class="hs-identifier hs-type">GetIceServerConfigResponse</span></a></span><span>
+</span><span id="line-195"></span><span id="newGetIceServerConfigResponse"><span class="annot"><span class="annottext">newGetIceServerConfigResponse :: Int -&gt; GetIceServerConfigResponse
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#newGetIceServerConfigResponse"><span class="hs-identifier hs-var hs-var">newGetIceServerConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679139630"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679139630"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">GetIceServerConfigResponse' :: Maybe [IceServer] -&gt; Int -&gt; GetIceServerConfigResponse
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse%27"><span class="hs-identifier hs-type">GetIceServerConfigResponse'</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iceServerList:GetIceServerConfigResponse' :: Maybe [IceServer]
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3AiceServerList%3AGetIceServerConfigResponse%27"><span class="hs-identifier hs-var">iceServerList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Maybe [IceServer]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetIceServerConfigResponse' :: Int
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3AhttpStatus%3AGetIceServerConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679139630"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The list of ICE server information objects.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfigResponse_iceServerList"><span class="hs-identifier hs-type">getIceServerConfigResponse_iceServerList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse"><span class="hs-identifier hs-type">GetIceServerConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.Types.IceServer.html#IceServer"><span class="hs-identifier hs-type">IceServer</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="getIceServerConfigResponse_iceServerList"><span class="annot"><span class="annottext">getIceServerConfigResponse_iceServerList :: (Maybe [IceServer] -&gt; f (Maybe [IceServer]))
+-&gt; GetIceServerConfigResponse -&gt; f GetIceServerConfigResponse
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfigResponse_iceServerList"><span class="hs-identifier hs-var hs-var">getIceServerConfigResponse_iceServerList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIceServerConfigResponse -&gt; Maybe [IceServer])
+-&gt; (GetIceServerConfigResponse
+    -&gt; Maybe [IceServer] -&gt; GetIceServerConfigResponse)
+-&gt; Lens
+     GetIceServerConfigResponse
+     GetIceServerConfigResponse
+     (Maybe [IceServer])
+     (Maybe [IceServer])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse%27"><span class="hs-identifier hs-type">GetIceServerConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139629"><span class="annot"><span class="annottext">Maybe [IceServer]
+iceServerList :: Maybe [IceServer]
+$sel:iceServerList:GetIceServerConfigResponse' :: GetIceServerConfigResponse -&gt; Maybe [IceServer]
+</span><a href="#local-6989586621679139629"><span class="hs-identifier hs-var hs-var">iceServerList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IceServer]
+</span><a href="#local-6989586621679139629"><span class="hs-identifier hs-var">iceServerList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139628"><span class="annot"><span class="annottext">s :: GetIceServerConfigResponse
+</span><a href="#local-6989586621679139628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse%27"><span class="hs-identifier hs-type">GetIceServerConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139627"><span class="annot"><span class="annottext">Maybe [IceServer]
+</span><a href="#local-6989586621679139627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIceServerConfigResponse
+</span><a href="#local-6989586621679139628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iceServerList:GetIceServerConfigResponse' :: Maybe [IceServer]
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3AiceServerList%3AGetIceServerConfigResponse%27"><span class="hs-identifier hs-var">iceServerList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IceServer]
+</span><a href="#local-6989586621679139627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse"><span class="hs-identifier hs-type">GetIceServerConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IceServer] -&gt; f (Maybe [IceServer]))
+ -&gt; GetIceServerConfigResponse -&gt; f GetIceServerConfigResponse)
+-&gt; ((Maybe [IceServer] -&gt; f (Maybe [IceServer]))
+    -&gt; Maybe [IceServer] -&gt; f (Maybe [IceServer]))
+-&gt; (Maybe [IceServer] -&gt; f (Maybe [IceServer]))
+-&gt; GetIceServerConfigResponse
+-&gt; f GetIceServerConfigResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [IceServer] [IceServer] [IceServer] [IceServer]
+-&gt; Iso
+     (Maybe [IceServer])
+     (Maybe [IceServer])
+     (Maybe [IceServer])
+     (Maybe [IceServer])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [IceServer] [IceServer] [IceServer] [IceServer]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfigResponse_httpStatus"><span class="hs-identifier hs-type">getIceServerConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse"><span class="hs-identifier hs-type">GetIceServerConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-208"></span><span id="getIceServerConfigResponse_httpStatus"><span class="annot"><span class="annottext">getIceServerConfigResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetIceServerConfigResponse -&gt; f GetIceServerConfigResponse
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#getIceServerConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getIceServerConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIceServerConfigResponse -&gt; Int)
+-&gt; (GetIceServerConfigResponse
+    -&gt; Int -&gt; GetIceServerConfigResponse)
+-&gt; Lens
+     GetIceServerConfigResponse GetIceServerConfigResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse%27"><span class="hs-identifier hs-type">GetIceServerConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139623"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetIceServerConfigResponse' :: GetIceServerConfigResponse -&gt; Int
+</span><a href="#local-6989586621679139623"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679139623"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139622"><span class="annot"><span class="annottext">s :: GetIceServerConfigResponse
+</span><a href="#local-6989586621679139622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse%27"><span class="hs-identifier hs-type">GetIceServerConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139621"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679139621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIceServerConfigResponse
+</span><a href="#local-6989586621679139622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetIceServerConfigResponse' :: Int
+</span><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#%24sel%3AhttpStatus%3AGetIceServerConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679139621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse"><span class="hs-identifier hs-type">GetIceServerConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoSignaling.GetIceServerConfig.html#GetIceServerConfigResponse"><span class="hs-identifier hs-type">GetIceServerConfigResponse</span></a></span></span><span>
+</span><span id="line-211"></span></pre></body></html>

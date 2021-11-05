@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679197152"><span id="local-6989586621679197153"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MetricsName"><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName"><span class="hs-identifier hs-var">MetricsName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricsName%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName%27"><span class="hs-identifier hs-var">MetricsName'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679197161"><span id="local-6989586621679197162"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MetricsName"><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName"><span class="hs-identifier hs-var">MetricsName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricsName%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName%27"><span class="hs-identifier hs-var">MetricsName'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMetricsName"><span class="annot"><span class="annottext">MetricsName -&gt; Text
 </span><a href="Network.AWS.Kinesis.Types.MetricsName.html#fromMetricsName"><span class="hs-identifier hs-var hs-var">fromMetricsName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679197144"><span id="local-6989586621679197146"><span id="local-6989586621679197148"><span class="annot"><span class="annottext">Int -&gt; MetricsName -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679197153"><span id="local-6989586621679197155"><span id="local-6989586621679197157"><span class="annot"><span class="annottext">Int -&gt; MetricsName -&gt; ShowS
 [MetricsName] -&gt; ShowS
 MetricsName -&gt; String
 (Int -&gt; MetricsName -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: MetricsName -&gt; String
 showsPrec :: Int -&gt; MetricsName -&gt; ShowS
 $cshowsPrec :: Int -&gt; MetricsName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679197135"><span id="local-6989586621679197137"><span id="local-6989586621679197139"><span id="local-6989586621679197141"><span class="annot"><span class="annottext">ReadPrec [MetricsName]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679197144"><span id="local-6989586621679197146"><span id="local-6989586621679197148"><span id="local-6989586621679197150"><span class="annot"><span class="annottext">ReadPrec [MetricsName]
 ReadPrec MetricsName
 Int -&gt; ReadS MetricsName
 ReadS [MetricsName]
@@ -78,7 +78,7 @@ $creadList :: ReadS [MetricsName]
 readsPrec :: Int -&gt; ReadS MetricsName
 $creadsPrec :: Int -&gt; ReadS MetricsName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679197130"><span id="local-6989586621679197132"><span class="annot"><span class="annottext">MetricsName -&gt; MetricsName -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679197139"><span id="local-6989586621679197141"><span class="annot"><span class="annottext">MetricsName -&gt; MetricsName -&gt; Bool
 (MetricsName -&gt; MetricsName -&gt; Bool)
 -&gt; (MetricsName -&gt; MetricsName -&gt; Bool) -&gt; Eq MetricsName
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: MetricsName -&gt; MetricsName -&gt; Bool
 == :: MetricsName -&gt; MetricsName -&gt; Bool
 $c== :: MetricsName -&gt; MetricsName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679197114"><span id="local-6989586621679197116"><span id="local-6989586621679197118"><span id="local-6989586621679197120"><span id="local-6989586621679197122"><span id="local-6989586621679197124"><span id="local-6989586621679197126"><span class="annot"><span class="annottext">Eq MetricsName
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679197123"><span id="local-6989586621679197125"><span id="local-6989586621679197127"><span id="local-6989586621679197129"><span id="local-6989586621679197131"><span id="local-6989586621679197133"><span id="local-6989586621679197135"><span class="annot"><span class="annottext">Eq MetricsName
 Eq MetricsName
 -&gt; (MetricsName -&gt; MetricsName -&gt; Ordering)
 -&gt; (MetricsName -&gt; MetricsName -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. MetricsName -&gt; Rep MetricsName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679197106"><span id="local-6989586621679197108"><span class="annot"><span class="annottext">Int -&gt; MetricsName -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679197115"><span id="local-6989586621679197117"><span class="annot"><span class="annottext">Int -&gt; MetricsName -&gt; Int
 MetricsName -&gt; Int
 (Int -&gt; MetricsName -&gt; Int)
 -&gt; (MetricsName -&gt; Int) -&gt; Hashable MetricsName
@@ -148,49 +148,49 @@ $chash :: MetricsName -&gt; Int
 hashWithSalt :: Int -&gt; MetricsName -&gt; Int
 $chashWithSalt :: Int -&gt; MetricsName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679197103"><span class="annot"><span class="annottext">MetricsName -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679197112"><span class="annot"><span class="annottext">MetricsName -&gt; ()
 (MetricsName -&gt; ()) -&gt; NFData MetricsName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MetricsName -&gt; ()
 $crnf :: MetricsName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679197100"><span class="annot"><span class="annottext">Text -&gt; Either String MetricsName
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679197109"><span class="annot"><span class="annottext">Text -&gt; Either String MetricsName
 (Text -&gt; Either String MetricsName) -&gt; FromText MetricsName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MetricsName
 $cfromText :: Text -&gt; Either String MetricsName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679197097"><span class="annot"><span class="annottext">MetricsName -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679197106"><span class="annot"><span class="annottext">MetricsName -&gt; Text
 (MetricsName -&gt; Text) -&gt; ToText MetricsName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MetricsName -&gt; Text
 $ctoText :: MetricsName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679197094"><span class="annot"><span class="annottext">MetricsName -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679197103"><span class="annot"><span class="annottext">MetricsName -&gt; ByteString
 (MetricsName -&gt; ByteString) -&gt; ToByteString MetricsName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MetricsName -&gt; ByteString
 $ctoBS :: MetricsName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679197091"><span class="annot"><span class="annottext">MetricsName -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679197100"><span class="annot"><span class="annottext">MetricsName -&gt; ByteStringBuilder
 (MetricsName -&gt; ByteStringBuilder) -&gt; ToLog MetricsName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MetricsName -&gt; ByteStringBuilder
 $cbuild :: MetricsName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679197088"><span class="annot"><span class="annottext">HeaderName -&gt; MetricsName -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679197097"><span class="annot"><span class="annottext">HeaderName -&gt; MetricsName -&gt; [Header]
 (HeaderName -&gt; MetricsName -&gt; [Header]) -&gt; ToHeader MetricsName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MetricsName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MetricsName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679197085"><span class="annot"><span class="annottext">MetricsName -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679197094"><span class="annot"><span class="annottext">MetricsName -&gt; QueryString
 (MetricsName -&gt; QueryString) -&gt; ToQuery MetricsName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MetricsName -&gt; QueryString
 $ctoQuery :: MetricsName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679197080"><span id="local-6989586621679197082"><span class="annot"><span class="annottext">Value -&gt; Parser [MetricsName]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679197089"><span id="local-6989586621679197091"><span class="annot"><span class="annottext">Value -&gt; Parser [MetricsName]
 Value -&gt; Parser MetricsName
 (Value -&gt; Parser MetricsName)
 -&gt; (Value -&gt; Parser [MetricsName]) -&gt; FromJSON MetricsName
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [MetricsName]
 parseJSON :: Value -&gt; Parser MetricsName
 $cparseJSON :: Value -&gt; Parser MetricsName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679197075"><span id="local-6989586621679197077"><span class="annot"><span class="annottext">FromJSONKeyFunction [MetricsName]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679197084"><span id="local-6989586621679197086"><span class="annot"><span class="annottext">FromJSONKeyFunction [MetricsName]
 FromJSONKeyFunction MetricsName
 FromJSONKeyFunction MetricsName
 -&gt; FromJSONKeyFunction [MetricsName] -&gt; FromJSONKey MetricsName
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MetricsName]
 fromJSONKey :: FromJSONKeyFunction MetricsName
 $cfromJSONKey :: FromJSONKeyFunction MetricsName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679197066"><span id="local-6989586621679197068"><span id="local-6989586621679197070"><span id="local-6989586621679197072"><span class="annot"><span class="annottext">[MetricsName] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679197075"><span id="local-6989586621679197077"><span id="local-6989586621679197079"><span id="local-6989586621679197081"><span class="annot"><span class="annottext">[MetricsName] -&gt; Encoding
 [MetricsName] -&gt; Value
 MetricsName -&gt; Encoding
 MetricsName -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: MetricsName -&gt; Encoding
 toJSON :: MetricsName -&gt; Value
 $ctoJSON :: MetricsName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679197061"><span id="local-6989586621679197063"><span class="annot"><span class="annottext">ToJSONKeyFunction [MetricsName]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679197070"><span id="local-6989586621679197072"><span class="annot"><span class="annottext">ToJSONKeyFunction [MetricsName]
 ToJSONKeyFunction MetricsName
 ToJSONKeyFunction MetricsName
 -&gt; ToJSONKeyFunction [MetricsName] -&gt; ToJSONKey MetricsName
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MetricsName]
 toJSONKey :: ToJSONKeyFunction MetricsName
 $ctoJSONKey :: ToJSONKeyFunction MetricsName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679197058"><span class="annot"><span class="annottext">[Node] -&gt; Either String MetricsName
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679197067"><span class="annot"><span class="annottext">[Node] -&gt; Either String MetricsName
 ([Node] -&gt; Either String MetricsName) -&gt; FromXML MetricsName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MetricsName
 $cparseXML :: [Node] -&gt; Either String MetricsName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679197055"><span class="annot"><span class="annottext">MetricsName -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679197064"><span class="annot"><span class="annottext">MetricsName -&gt; XML
 (MetricsName -&gt; XML) -&gt; ToXML MetricsName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MetricsName -&gt; XML

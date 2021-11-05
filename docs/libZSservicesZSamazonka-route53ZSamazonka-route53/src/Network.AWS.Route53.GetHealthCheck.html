@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | A request to get information about a specified health check.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newGetHealthCheck' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679306892"><span id="local-6989586621679306893"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHealthCheck"><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck"><span class="hs-identifier hs-var">GetHealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHealthCheck%27"><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck%27"><span class="hs-identifier hs-var">GetHealthCheck'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679306901"><span id="local-6989586621679306902"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHealthCheck"><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck"><span class="hs-identifier hs-var">GetHealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHealthCheck%27"><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck%27"><span class="hs-identifier hs-var">GetHealthCheck'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier that Amazon Route 53 assigned to the health check when</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- you created it. When you add or update a resource record set, you use</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- this value to specify which health check to use. The value can be up to</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AhealthCheckId%3AGetHealthCheck%27"><span class="annot"><span class="annottext">GetHealthCheck -&gt; Text
 </span><a href="Network.AWS.Route53.GetHealthCheck.html#%24sel%3AhealthCheckId%3AGetHealthCheck%27"><span class="hs-identifier hs-var hs-var">healthCheckId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306886"><span id="local-6989586621679306888"><span class="annot"><span class="annottext">GetHealthCheck -&gt; GetHealthCheck -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306895"><span id="local-6989586621679306897"><span class="annot"><span class="annottext">GetHealthCheck -&gt; GetHealthCheck -&gt; Bool
 (GetHealthCheck -&gt; GetHealthCheck -&gt; Bool)
 -&gt; (GetHealthCheck -&gt; GetHealthCheck -&gt; Bool) -&gt; Eq GetHealthCheck
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetHealthCheck -&gt; GetHealthCheck -&gt; Bool
 == :: GetHealthCheck -&gt; GetHealthCheck -&gt; Bool
 $c== :: GetHealthCheck -&gt; GetHealthCheck -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306877"><span id="local-6989586621679306879"><span id="local-6989586621679306881"><span id="local-6989586621679306883"><span class="annot"><span class="annottext">ReadPrec [GetHealthCheck]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306886"><span id="local-6989586621679306888"><span id="local-6989586621679306890"><span id="local-6989586621679306892"><span class="annot"><span class="annottext">ReadPrec [GetHealthCheck]
 ReadPrec GetHealthCheck
 Int -&gt; ReadS GetHealthCheck
 ReadS [GetHealthCheck]
@@ -85,7 +85,7 @@ readList :: ReadS [GetHealthCheck]
 $creadList :: ReadS [GetHealthCheck]
 readsPrec :: Int -&gt; ReadS GetHealthCheck
 $creadsPrec :: Int -&gt; ReadS GetHealthCheck
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306870"><span id="local-6989586621679306872"><span id="local-6989586621679306874"><span class="annot"><span class="annottext">Int -&gt; GetHealthCheck -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306879"><span id="local-6989586621679306881"><span id="local-6989586621679306883"><span class="annot"><span class="annottext">Int -&gt; GetHealthCheck -&gt; ShowS
 [GetHealthCheck] -&gt; ShowS
 GetHealthCheck -&gt; String
 (Int -&gt; GetHealthCheck -&gt; ShowS)
@@ -128,12 +128,12 @@ $cfrom :: forall x. GetHealthCheck -&gt; Rep GetHealthCheck x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck"><span class="hs-identifier hs-type">GetHealthCheck</span></a></span><span>
 </span><span id="line-77"></span><span id="newGetHealthCheck"><span class="annot"><span class="annottext">newGetHealthCheck :: Text -&gt; GetHealthCheck
-</span><a href="Network.AWS.Route53.GetHealthCheck.html#newGetHealthCheck"><span class="hs-identifier hs-var hs-var">newGetHealthCheck</span></a></span></span><span> </span><span id="local-6989586621679306865"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306865"><span class="hs-identifier hs-var">pHealthCheckId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53.GetHealthCheck.html#newGetHealthCheck"><span class="hs-identifier hs-var hs-var">newGetHealthCheck</span></a></span></span><span> </span><span id="local-6989586621679306874"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306874"><span class="hs-identifier hs-var">pHealthCheckId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">GetHealthCheck' :: Text -&gt; GetHealthCheck
 </span><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck%27"><span class="hs-identifier hs-type">GetHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckId:GetHealthCheck' :: Text
 </span><a href="Network.AWS.Route53.GetHealthCheck.html#%24sel%3AhealthCheckId%3AGetHealthCheck%27"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306865"><span class="hs-identifier hs-var">pHealthCheckId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679306874"><span class="hs-identifier hs-var">pHealthCheckId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The identifier that Amazon Route 53 assigned to the health check when</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- you created it. When you add or update a resource record set, you use</span><span>
@@ -145,27 +145,27 @@ $cfrom :: forall x. GetHealthCheck -&gt; Rep GetHealthCheck x
 -&gt; (GetHealthCheck -&gt; Text -&gt; GetHealthCheck)
 -&gt; Lens GetHealthCheck GetHealthCheck Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck%27"><span class="hs-identifier hs-type">GetHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306862"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck%27"><span class="hs-identifier hs-type">GetHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306871"><span class="annot"><span class="annottext">Text
 healthCheckId :: Text
 $sel:healthCheckId:GetHealthCheck' :: GetHealthCheck -&gt; Text
-</span><a href="#local-6989586621679306862"><span class="hs-identifier hs-var hs-var">healthCheckId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306862"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306861"><span class="annot"><span class="annottext">s :: GetHealthCheck
-</span><a href="#local-6989586621679306861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck%27"><span class="hs-identifier hs-type">GetHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306860"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHealthCheck
-</span><a href="#local-6989586621679306861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckId:GetHealthCheck' :: Text
+</span><a href="#local-6989586621679306871"><span class="hs-identifier hs-var hs-var">healthCheckId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306871"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306870"><span class="annot"><span class="annottext">s :: GetHealthCheck
+</span><a href="#local-6989586621679306870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck%27"><span class="hs-identifier hs-type">GetHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306869"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHealthCheck
+</span><a href="#local-6989586621679306870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckId:GetHealthCheck' :: Text
 </span><a href="Network.AWS.Route53.GetHealthCheck.html#%24sel%3AhealthCheckId%3AGetHealthCheck%27"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck"><span class="hs-identifier hs-type">GetHealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck"><span class="hs-identifier hs-type">GetHealthCheck</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck"><span class="hs-identifier hs-type">GetHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck"><span class="hs-identifier hs-type">GetHealthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse"><span class="hs-identifier hs-type">GetHealthCheckResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679306856"><span class="annot"><span class="annottext">request :: GetHealthCheck -&gt; Request GetHealthCheck
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679306865"><span class="annot"><span class="annottext">request :: GetHealthCheck -&gt; Request GetHealthCheck
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetHealthCheck -&gt; Request GetHealthCheck
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679306852"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679306861"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetHealthCheck
 -&gt; ClientResponse ClientBody
@@ -189,10 +189,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306849"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306849"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679306848"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679306848"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679306847"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679306847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306858"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306858"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679306857"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679306857"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679306856"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679306856"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; HealthCheck -&gt; GetHealthCheckResponse
 </span><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse%27"><span class="hs-identifier hs-var">GetHealthCheckResponse'</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; HealthCheck -&gt; GetHealthCheckResponse)
@@ -204,24 +204,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306849"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306858"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (HealthCheck -&gt; GetHealthCheckResponse)
 -&gt; Either String HealthCheck
 -&gt; Either String GetHealthCheckResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679306847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String HealthCheck
+</span><a href="#local-6989586621679306856"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String HealthCheck
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HealthCheck&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306839"><span id="local-6989586621679306841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck"><span class="hs-identifier hs-type">GetHealthCheck</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306848"><span id="local-6989586621679306850"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck"><span class="hs-identifier hs-type">GetHealthCheck</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck"><span class="hs-identifier hs-type">GetHealthCheck</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck"><span class="hs-identifier hs-type">GetHealthCheck</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck"><span class="hs-identifier hs-type">GetHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679306832"><span class="annot"><span class="annottext">toHeaders :: GetHealthCheck -&gt; ResponseHeaders
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679306841"><span class="annot"><span class="annottext">toHeaders :: GetHealthCheck -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetHealthCheck -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -229,11 +229,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck"><span class="hs-identifier hs-type">GetHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679306827"><span class="annot"><span class="annottext">toPath :: GetHealthCheck -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck%27"><span class="hs-identifier hs-type">GetHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306825"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679306836"><span class="annot"><span class="annottext">toPath :: GetHealthCheck -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck%27"><span class="hs-identifier hs-type">GetHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306834"><span class="annot"><span class="annottext">Text
 healthCheckId :: Text
 $sel:healthCheckId:GetHealthCheck' :: GetHealthCheck -&gt; Text
-</span><a href="#local-6989586621679306825"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679306834"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -241,10 +241,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2013-04-01/healthcheck/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306825"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679306834"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheck"><span class="hs-identifier hs-type">GetHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679306821"><span class="annot"><span class="annottext">toQuery :: GetHealthCheck -&gt; QueryString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679306830"><span class="annot"><span class="annottext">toQuery :: GetHealthCheck -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetHealthCheck -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -254,7 +254,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-115"></span><span class="hs-comment">-- | A complex type that contains the response to a @GetHealthCheck@ request.</span><span>
 </span><span id="line-116"></span><span class="hs-comment">--</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- /See:/ 'newGetHealthCheckResponse' smart constructor.</span><span>
-</span><span id="line-118"></span><span id="local-6989586621679306818"><span id="local-6989586621679306819"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHealthCheckResponse"><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse"><span class="hs-identifier hs-var">GetHealthCheckResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHealthCheckResponse%27"><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse%27"><span class="hs-identifier hs-var">GetHealthCheckResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span id="local-6989586621679306827"><span id="local-6989586621679306828"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHealthCheckResponse"><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse"><span class="hs-identifier hs-var">GetHealthCheckResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHealthCheckResponse%27"><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse%27"><span class="hs-identifier hs-var">GetHealthCheckResponse'</span></a></span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetHealthCheckResponse%27"><span class="annot"><span class="annottext">GetHealthCheckResponse -&gt; Int
 </span><a href="Network.AWS.Route53.GetHealthCheck.html#%24sel%3AhttpStatus%3AGetHealthCheckResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -263,7 +263,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AhealthCheck%3AGetHealthCheckResponse%27"><span class="annot"><span class="annottext">GetHealthCheckResponse -&gt; HealthCheck
 </span><a href="Network.AWS.Route53.GetHealthCheck.html#%24sel%3AhealthCheck%3AGetHealthCheckResponse%27"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306812"><span id="local-6989586621679306814"><span class="annot"><span class="annottext">GetHealthCheckResponse -&gt; GetHealthCheckResponse -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306821"><span id="local-6989586621679306823"><span class="annot"><span class="annottext">GetHealthCheckResponse -&gt; GetHealthCheckResponse -&gt; Bool
 (GetHealthCheckResponse -&gt; GetHealthCheckResponse -&gt; Bool)
 -&gt; (GetHealthCheckResponse -&gt; GetHealthCheckResponse -&gt; Bool)
 -&gt; Eq GetHealthCheckResponse
@@ -272,7 +272,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetHealthCheckResponse -&gt; GetHealthCheckResponse -&gt; Bool
 == :: GetHealthCheckResponse -&gt; GetHealthCheckResponse -&gt; Bool
 $c== :: GetHealthCheckResponse -&gt; GetHealthCheckResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306804"><span id="local-6989586621679306806"><span id="local-6989586621679306808"><span id="local-6989586621679306810"><span class="annot"><span class="annottext">ReadPrec [GetHealthCheckResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306813"><span id="local-6989586621679306815"><span id="local-6989586621679306817"><span id="local-6989586621679306819"><span class="annot"><span class="annottext">ReadPrec [GetHealthCheckResponse]
 ReadPrec GetHealthCheckResponse
 Int -&gt; ReadS GetHealthCheckResponse
 ReadS [GetHealthCheckResponse]
@@ -292,7 +292,7 @@ readList :: ReadS [GetHealthCheckResponse]
 $creadList :: ReadS [GetHealthCheckResponse]
 readsPrec :: Int -&gt; ReadS GetHealthCheckResponse
 $creadsPrec :: Int -&gt; ReadS GetHealthCheckResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306798"><span id="local-6989586621679306800"><span id="local-6989586621679306802"><span class="annot"><span class="annottext">Int -&gt; GetHealthCheckResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306807"><span id="local-6989586621679306809"><span id="local-6989586621679306811"><span class="annot"><span class="annottext">Int -&gt; GetHealthCheckResponse -&gt; ShowS
 [GetHealthCheckResponse] -&gt; ShowS
 GetHealthCheckResponse -&gt; String
 (Int -&gt; GetHealthCheckResponse -&gt; ShowS)
@@ -338,17 +338,17 @@ $cfrom :: forall x. GetHealthCheckResponse -&gt; Rep GetHealthCheckResponse x
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse"><span class="hs-identifier hs-type">GetHealthCheckResponse</span></a></span><span>
 </span><span id="line-145"></span><span id="newGetHealthCheckResponse"><span class="annot"><span class="annottext">newGetHealthCheckResponse :: Int -&gt; HealthCheck -&gt; GetHealthCheckResponse
-</span><a href="Network.AWS.Route53.GetHealthCheck.html#newGetHealthCheckResponse"><span class="hs-identifier hs-var hs-var">newGetHealthCheckResponse</span></a></span></span><span> </span><span id="local-6989586621679306795"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306795"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679306794"><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679306794"><span class="hs-identifier hs-var">pHealthCheck_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53.GetHealthCheck.html#newGetHealthCheckResponse"><span class="hs-identifier hs-var hs-var">newGetHealthCheckResponse</span></a></span></span><span> </span><span id="local-6989586621679306804"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306804"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679306803"><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679306803"><span class="hs-identifier hs-var">pHealthCheck_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">GetHealthCheckResponse' :: Int -&gt; HealthCheck -&gt; GetHealthCheckResponse
 </span><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse%27"><span class="hs-identifier hs-type">GetHealthCheckResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetHealthCheckResponse' :: Int
 </span><a href="Network.AWS.Route53.GetHealthCheck.html#%24sel%3AhttpStatus%3AGetHealthCheckResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306795"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306804"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:healthCheck:GetHealthCheckResponse' :: HealthCheck
 </span><a href="Network.AWS.Route53.GetHealthCheck.html#%24sel%3AhealthCheck%3AGetHealthCheckResponse%27"><span class="hs-identifier hs-var">healthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679306794"><span class="hs-identifier hs-var">pHealthCheck_</span></a></span><span>
+</span><a href="#local-6989586621679306803"><span class="hs-identifier hs-var">pHealthCheck_</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -359,16 +359,16 @@ $cfrom :: forall x. GetHealthCheckResponse -&gt; Rep GetHealthCheckResponse x
 -&gt; (GetHealthCheckResponse -&gt; Int -&gt; GetHealthCheckResponse)
 -&gt; Lens GetHealthCheckResponse GetHealthCheckResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse%27"><span class="hs-identifier hs-type">GetHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306793"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse%27"><span class="hs-identifier hs-type">GetHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306802"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetHealthCheckResponse' :: GetHealthCheckResponse -&gt; Int
-</span><a href="#local-6989586621679306793"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306793"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306792"><span class="annot"><span class="annottext">s :: GetHealthCheckResponse
-</span><a href="#local-6989586621679306792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse%27"><span class="hs-identifier hs-type">GetHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306791"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHealthCheckResponse
-</span><a href="#local-6989586621679306792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetHealthCheckResponse' :: Int
+</span><a href="#local-6989586621679306802"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306802"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306801"><span class="annot"><span class="annottext">s :: GetHealthCheckResponse
+</span><a href="#local-6989586621679306801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse%27"><span class="hs-identifier hs-type">GetHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306800"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHealthCheckResponse
+</span><a href="#local-6989586621679306801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetHealthCheckResponse' :: Int
 </span><a href="Network.AWS.Route53.GetHealthCheck.html#%24sel%3AhttpStatus%3AGetHealthCheckResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse"><span class="hs-identifier hs-type">GetHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse"><span class="hs-identifier hs-type">GetHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | A complex type that contains information about one health check that is</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- associated with the current Amazon Web Services account.</span><span>
@@ -384,16 +384,16 @@ $sel:httpStatus:GetHealthCheckResponse' :: GetHealthCheckResponse -&gt; Int
      HealthCheck
      HealthCheck
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse%27"><span class="hs-identifier hs-type">GetHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306790"><span class="annot"><span class="annottext">HealthCheck
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse%27"><span class="hs-identifier hs-type">GetHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306799"><span class="annot"><span class="annottext">HealthCheck
 healthCheck :: HealthCheck
 $sel:healthCheck:GetHealthCheckResponse' :: GetHealthCheckResponse -&gt; HealthCheck
-</span><a href="#local-6989586621679306790"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679306790"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306789"><span class="annot"><span class="annottext">s :: GetHealthCheckResponse
-</span><a href="#local-6989586621679306789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse%27"><span class="hs-identifier hs-type">GetHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306788"><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679306788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHealthCheckResponse
-</span><a href="#local-6989586621679306789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheck:GetHealthCheckResponse' :: HealthCheck
+</span><a href="#local-6989586621679306799"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679306799"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306798"><span class="annot"><span class="annottext">s :: GetHealthCheckResponse
+</span><a href="#local-6989586621679306798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse%27"><span class="hs-identifier hs-type">GetHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306797"><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679306797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHealthCheckResponse
+</span><a href="#local-6989586621679306798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheck:GetHealthCheckResponse' :: HealthCheck
 </span><a href="Network.AWS.Route53.GetHealthCheck.html#%24sel%3AhealthCheck%3AGetHealthCheckResponse%27"><span class="hs-identifier hs-var">healthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679306788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse"><span class="hs-identifier hs-type">GetHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse"><span class="hs-identifier hs-type">GetHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306786"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse"><span class="hs-identifier hs-type">GetHealthCheckResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetHealthCheck.html#GetHealthCheckResponse"><span class="hs-identifier hs-type">GetHealthCheckResponse</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

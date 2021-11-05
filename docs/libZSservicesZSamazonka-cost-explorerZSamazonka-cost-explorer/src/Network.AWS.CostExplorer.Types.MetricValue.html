@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The aggregated value for a metric.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMetricValue' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679331591"><span id="local-6989586621679331592"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricValue"><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-var">MetricValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricValue%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-var">MetricValue'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679331600"><span id="local-6989586621679331601"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricValue"><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-var">MetricValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricValue%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-var">MetricValue'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The actual number that represents the metric.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aamount%3AMetricValue%27"><span class="annot"><span class="annottext">MetricValue -&gt; Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.MetricValue.html#%24sel%3Aamount%3AMetricValue%27"><span class="hs-identifier hs-var hs-var">amount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aunit%3AMetricValue%27"><span class="annot"><span class="annottext">MetricValue -&gt; Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.MetricValue.html#%24sel%3Aunit%3AMetricValue%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331584"><span id="local-6989586621679331586"><span class="annot"><span class="annottext">MetricValue -&gt; MetricValue -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331593"><span id="local-6989586621679331595"><span class="annot"><span class="annottext">MetricValue -&gt; MetricValue -&gt; Bool
 (MetricValue -&gt; MetricValue -&gt; Bool)
 -&gt; (MetricValue -&gt; MetricValue -&gt; Bool) -&gt; Eq MetricValue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricValue -&gt; MetricValue -&gt; Bool
 == :: MetricValue -&gt; MetricValue -&gt; Bool
 $c== :: MetricValue -&gt; MetricValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331575"><span id="local-6989586621679331577"><span id="local-6989586621679331579"><span id="local-6989586621679331581"><span class="annot"><span class="annottext">ReadPrec [MetricValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331584"><span id="local-6989586621679331586"><span id="local-6989586621679331588"><span id="local-6989586621679331590"><span class="annot"><span class="annottext">ReadPrec [MetricValue]
 ReadPrec MetricValue
 Int -&gt; ReadS MetricValue
 ReadS [MetricValue]
@@ -62,7 +62,7 @@ readList :: ReadS [MetricValue]
 $creadList :: ReadS [MetricValue]
 readsPrec :: Int -&gt; ReadS MetricValue
 $creadsPrec :: Int -&gt; ReadS MetricValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331568"><span id="local-6989586621679331570"><span id="local-6989586621679331572"><span class="annot"><span class="annottext">Int -&gt; MetricValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331577"><span id="local-6989586621679331579"><span id="local-6989586621679331581"><span class="annot"><span class="annottext">Int -&gt; MetricValue -&gt; ShowS
 [MetricValue] -&gt; ShowS
 MetricValue -&gt; String
 (Int -&gt; MetricValue -&gt; ShowS)
@@ -122,16 +122,16 @@ forall a. Maybe a
 -&gt; (MetricValue -&gt; Maybe Text -&gt; MetricValue)
 -&gt; Lens MetricValue MetricValue (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331559"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331568"><span class="annot"><span class="annottext">Maybe Text
 amount :: Maybe Text
 $sel:amount:MetricValue' :: MetricValue -&gt; Maybe Text
-</span><a href="#local-6989586621679331559"><span class="hs-identifier hs-var hs-var">amount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331559"><span class="hs-identifier hs-var">amount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331558"><span class="annot"><span class="annottext">s :: MetricValue
-</span><a href="#local-6989586621679331558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331557"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
-</span><a href="#local-6989586621679331558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amount:MetricValue' :: Maybe Text
+</span><a href="#local-6989586621679331568"><span class="hs-identifier hs-var hs-var">amount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331568"><span class="hs-identifier hs-var">amount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331567"><span class="annot"><span class="annottext">s :: MetricValue
+</span><a href="#local-6989586621679331567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331566"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
+</span><a href="#local-6989586621679331567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amount:MetricValue' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.MetricValue.html#%24sel%3Aamount%3AMetricValue%27"><span class="hs-identifier hs-var">amount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The unit that the metric is given in.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#metricValue_unit"><span class="hs-identifier hs-type">metricValue_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -140,19 +140,19 @@ $sel:amount:MetricValue' :: MetricValue -&gt; Maybe Text
 -&gt; (MetricValue -&gt; Maybe Text -&gt; MetricValue)
 -&gt; Lens MetricValue MetricValue (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331555"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331564"><span class="annot"><span class="annottext">Maybe Text
 unit :: Maybe Text
 $sel:unit:MetricValue' :: MetricValue -&gt; Maybe Text
-</span><a href="#local-6989586621679331555"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331555"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331554"><span class="annot"><span class="annottext">s :: MetricValue
-</span><a href="#local-6989586621679331554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331553"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
-</span><a href="#local-6989586621679331554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:MetricValue' :: Maybe Text
+</span><a href="#local-6989586621679331564"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331564"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331563"><span class="annot"><span class="annottext">s :: MetricValue
+</span><a href="#local-6989586621679331563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331562"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
+</span><a href="#local-6989586621679331563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:MetricValue' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.MetricValue.html#%24sel%3Aunit%3AMetricValue%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331550"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679331548"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricValue
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331559"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679331557"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MetricValue) -&gt; Value -&gt; Parser MetricValue
@@ -160,15 +160,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MetricValue&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331545"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331545"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331554"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331554"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; MetricValue
 </span><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-var">MetricValue'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; MetricValue)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; MetricValue)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679331554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Amount&quot;</span></span><span class="hs-special">)</span><span>
@@ -176,13 +176,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser MetricValue
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679331554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Unit&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331539"><span id="local-6989586621679331541"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331548"><span id="local-6989586621679331550"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331545"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

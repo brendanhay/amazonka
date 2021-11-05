@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- automatically created.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDatasetAction' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679262759"><span id="local-6989586621679262760"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatasetAction"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-var">DatasetAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetAction%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-var">DatasetAction'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679262768"><span id="local-6989586621679262769"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatasetAction"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-var">DatasetAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetAction%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-var">DatasetAction'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An @SqlQueryDatasetAction@ object that uses an SQL query to</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- automatically create dataset contents.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AqueryAction%3ADatasetAction%27"><span class="annot"><span class="annottext">DatasetAction -&gt; Maybe SqlQueryDatasetAction
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AcontainerAction%3ADatasetAction%27"><span class="annot"><span class="annottext">DatasetAction -&gt; Maybe ContainerDatasetAction
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#%24sel%3AcontainerAction%3ADatasetAction%27"><span class="hs-identifier hs-var hs-var">containerAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ContainerDatasetAction.html#ContainerDatasetAction"><span class="hs-identifier hs-type">ContainerDatasetAction</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262751"><span id="local-6989586621679262753"><span class="annot"><span class="annottext">DatasetAction -&gt; DatasetAction -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262760"><span id="local-6989586621679262762"><span class="annot"><span class="annottext">DatasetAction -&gt; DatasetAction -&gt; Bool
 (DatasetAction -&gt; DatasetAction -&gt; Bool)
 -&gt; (DatasetAction -&gt; DatasetAction -&gt; Bool) -&gt; Eq DatasetAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DatasetAction -&gt; DatasetAction -&gt; Bool
 == :: DatasetAction -&gt; DatasetAction -&gt; Bool
 $c== :: DatasetAction -&gt; DatasetAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262742"><span id="local-6989586621679262744"><span id="local-6989586621679262746"><span id="local-6989586621679262748"><span class="annot"><span class="annottext">ReadPrec [DatasetAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262751"><span id="local-6989586621679262753"><span id="local-6989586621679262755"><span id="local-6989586621679262757"><span class="annot"><span class="annottext">ReadPrec [DatasetAction]
 ReadPrec DatasetAction
 Int -&gt; ReadS DatasetAction
 ReadS [DatasetAction]
@@ -72,7 +72,7 @@ readList :: ReadS [DatasetAction]
 $creadList :: ReadS [DatasetAction]
 readsPrec :: Int -&gt; ReadS DatasetAction
 $creadsPrec :: Int -&gt; ReadS DatasetAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262735"><span id="local-6989586621679262737"><span id="local-6989586621679262739"><span class="annot"><span class="annottext">Int -&gt; DatasetAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262744"><span id="local-6989586621679262746"><span id="local-6989586621679262748"><span class="annot"><span class="annottext">Int -&gt; DatasetAction -&gt; ShowS
 [DatasetAction] -&gt; ShowS
 DatasetAction -&gt; String
 (Int -&gt; DatasetAction -&gt; ShowS)
@@ -149,16 +149,16 @@ forall a. Maybe a
      (Maybe SqlQueryDatasetAction)
      (Maybe SqlQueryDatasetAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-type">DatasetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262726"><span class="annot"><span class="annottext">Maybe SqlQueryDatasetAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-type">DatasetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262735"><span class="annot"><span class="annottext">Maybe SqlQueryDatasetAction
 queryAction :: Maybe SqlQueryDatasetAction
 $sel:queryAction:DatasetAction' :: DatasetAction -&gt; Maybe SqlQueryDatasetAction
-</span><a href="#local-6989586621679262726"><span class="hs-identifier hs-var hs-var">queryAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SqlQueryDatasetAction
-</span><a href="#local-6989586621679262726"><span class="hs-identifier hs-var">queryAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262725"><span class="annot"><span class="annottext">s :: DatasetAction
-</span><a href="#local-6989586621679262725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-type">DatasetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262724"><span class="annot"><span class="annottext">Maybe SqlQueryDatasetAction
-</span><a href="#local-6989586621679262724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetAction
-</span><a href="#local-6989586621679262725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryAction:DatasetAction' :: Maybe SqlQueryDatasetAction
+</span><a href="#local-6989586621679262735"><span class="hs-identifier hs-var hs-var">queryAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SqlQueryDatasetAction
+</span><a href="#local-6989586621679262735"><span class="hs-identifier hs-var">queryAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262734"><span class="annot"><span class="annottext">s :: DatasetAction
+</span><a href="#local-6989586621679262734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-type">DatasetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262733"><span class="annot"><span class="annottext">Maybe SqlQueryDatasetAction
+</span><a href="#local-6989586621679262733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetAction
+</span><a href="#local-6989586621679262734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryAction:DatasetAction' :: Maybe SqlQueryDatasetAction
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#%24sel%3AqueryAction%3ADatasetAction%27"><span class="hs-identifier hs-var">queryAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqlQueryDatasetAction
-</span><a href="#local-6989586621679262724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the dataset action by which dataset contents are</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- automatically created.</span><span>
@@ -168,16 +168,16 @@ $sel:queryAction:DatasetAction' :: DatasetAction -&gt; Maybe SqlQueryDatasetActi
 -&gt; (DatasetAction -&gt; Maybe Text -&gt; DatasetAction)
 -&gt; Lens DatasetAction DatasetAction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-type">DatasetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262722"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-type">DatasetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262731"><span class="annot"><span class="annottext">Maybe Text
 actionName :: Maybe Text
 $sel:actionName:DatasetAction' :: DatasetAction -&gt; Maybe Text
-</span><a href="#local-6989586621679262722"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262722"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262721"><span class="annot"><span class="annottext">s :: DatasetAction
-</span><a href="#local-6989586621679262721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-type">DatasetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262720"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetAction
-</span><a href="#local-6989586621679262721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:DatasetAction' :: Maybe Text
+</span><a href="#local-6989586621679262731"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262731"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262730"><span class="annot"><span class="annottext">s :: DatasetAction
+</span><a href="#local-6989586621679262730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-type">DatasetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262729"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetAction
+</span><a href="#local-6989586621679262730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:DatasetAction' :: Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#%24sel%3AactionName%3ADatasetAction%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | Information that allows the system to run a containerized application to</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- create the dataset contents. The application must be in a Docker</span><span>
@@ -193,19 +193,19 @@ $sel:actionName:DatasetAction' :: DatasetAction -&gt; Maybe Text
      (Maybe ContainerDatasetAction)
      (Maybe ContainerDatasetAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-type">DatasetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262718"><span class="annot"><span class="annottext">Maybe ContainerDatasetAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-type">DatasetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262727"><span class="annot"><span class="annottext">Maybe ContainerDatasetAction
 containerAction :: Maybe ContainerDatasetAction
 $sel:containerAction:DatasetAction' :: DatasetAction -&gt; Maybe ContainerDatasetAction
-</span><a href="#local-6989586621679262718"><span class="hs-identifier hs-var hs-var">containerAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerDatasetAction
-</span><a href="#local-6989586621679262718"><span class="hs-identifier hs-var">containerAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262717"><span class="annot"><span class="annottext">s :: DatasetAction
-</span><a href="#local-6989586621679262717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-type">DatasetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262716"><span class="annot"><span class="annottext">Maybe ContainerDatasetAction
-</span><a href="#local-6989586621679262716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetAction
-</span><a href="#local-6989586621679262717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerAction:DatasetAction' :: Maybe ContainerDatasetAction
+</span><a href="#local-6989586621679262727"><span class="hs-identifier hs-var hs-var">containerAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerDatasetAction
+</span><a href="#local-6989586621679262727"><span class="hs-identifier hs-var">containerAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262726"><span class="annot"><span class="annottext">s :: DatasetAction
+</span><a href="#local-6989586621679262726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-type">DatasetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262725"><span class="annot"><span class="annottext">Maybe ContainerDatasetAction
+</span><a href="#local-6989586621679262725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetAction
+</span><a href="#local-6989586621679262726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerAction:DatasetAction' :: Maybe ContainerDatasetAction
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#%24sel%3AcontainerAction%3ADatasetAction%27"><span class="hs-identifier hs-var">containerAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerDatasetAction
-</span><a href="#local-6989586621679262716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262713"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679262711"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatasetAction
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262722"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679262720"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatasetAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DatasetAction)
@@ -215,8 +215,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DatasetAction&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262708"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262708"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262717"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe SqlQueryDatasetAction
 -&gt; Maybe Text -&gt; Maybe ContainerDatasetAction -&gt; DatasetAction
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-var">DatasetAction'</span></a></span><span>
@@ -227,7 +227,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe ContainerDatasetAction -&gt; DatasetAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SqlQueryDatasetAction)
+</span><a href="#local-6989586621679262717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SqlQueryDatasetAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queryAction&quot;</span></span><span class="hs-special">)</span><span>
@@ -237,7 +237,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe ContainerDatasetAction -&gt; DatasetAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679262717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;actionName&quot;</span></span><span class="hs-special">)</span><span>
@@ -245,19 +245,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe ContainerDatasetAction) -&gt; Parser DatasetAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerDatasetAction)
+</span><a href="#local-6989586621679262717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerDatasetAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;containerAction&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262702"><span id="local-6989586621679262704"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262711"><span id="local-6989586621679262713"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262708"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262691"><span id="local-6989586621679262693"><span id="local-6989586621679262695"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679262689"><span class="annot"><span class="annottext">toJSON :: DatasetAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-type">DatasetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262685"><span id="local-6989586621679262686"><span id="local-6989586621679262687"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262700"><span id="local-6989586621679262702"><span id="local-6989586621679262704"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679262698"><span class="annot"><span class="annottext">toJSON :: DatasetAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction%27"><span class="hs-identifier hs-type">DatasetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262694"><span id="local-6989586621679262695"><span id="local-6989586621679262696"><span class="annot"><span class="annottext">Maybe Text
 Maybe SqlQueryDatasetAction
 Maybe ContainerDatasetAction
 containerAction :: Maybe ContainerDatasetAction
@@ -266,7 +266,7 @@ queryAction :: Maybe SqlQueryDatasetAction
 $sel:containerAction:DatasetAction' :: DatasetAction -&gt; Maybe ContainerDatasetAction
 $sel:actionName:DatasetAction' :: DatasetAction -&gt; Maybe Text
 $sel:queryAction:DatasetAction' :: DatasetAction -&gt; Maybe SqlQueryDatasetAction
-</span><a href="#local-6989586621679262685"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679262694"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -279,14 +279,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe SqlQueryDatasetAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SqlQueryDatasetAction
-</span><a href="#local-6989586621679262687"><span class="hs-identifier hs-var">queryAction</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262696"><span class="hs-identifier hs-var">queryAction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;actionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262686"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262695"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;containerAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContainerDatasetAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -295,7 +295,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ContainerDatasetAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContainerDatasetAction
-</span><a href="#local-6989586621679262685"><span class="hs-identifier hs-var">containerAction</span></a></span><span>
+</span><a href="#local-6989586621679262694"><span class="hs-identifier hs-var">containerAction</span></a></span><span>
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span></pre></body></html>

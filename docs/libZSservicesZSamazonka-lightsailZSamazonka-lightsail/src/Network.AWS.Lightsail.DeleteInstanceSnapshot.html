@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteInstanceSnapshot' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679653042"><span id="local-6989586621679653043"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstanceSnapshot"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-var">DeleteInstanceSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstanceSnapshot%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot%27"><span class="hs-identifier hs-var">DeleteInstanceSnapshot'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679653051"><span id="local-6989586621679653052"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstanceSnapshot"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-var">DeleteInstanceSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstanceSnapshot%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot%27"><span class="hs-identifier hs-var">DeleteInstanceSnapshot'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the snapshot to delete.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AinstanceSnapshotName%3ADeleteInstanceSnapshot%27"><span class="annot"><span class="annottext">DeleteInstanceSnapshot -&gt; Text
 </span><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#%24sel%3AinstanceSnapshotName%3ADeleteInstanceSnapshot%27"><span class="hs-identifier hs-var hs-var">instanceSnapshotName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679653036"><span id="local-6989586621679653038"><span class="annot"><span class="annottext">DeleteInstanceSnapshot -&gt; DeleteInstanceSnapshot -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679653045"><span id="local-6989586621679653047"><span class="annot"><span class="annottext">DeleteInstanceSnapshot -&gt; DeleteInstanceSnapshot -&gt; Bool
 (DeleteInstanceSnapshot -&gt; DeleteInstanceSnapshot -&gt; Bool)
 -&gt; (DeleteInstanceSnapshot -&gt; DeleteInstanceSnapshot -&gt; Bool)
 -&gt; Eq DeleteInstanceSnapshot
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteInstanceSnapshot -&gt; DeleteInstanceSnapshot -&gt; Bool
 == :: DeleteInstanceSnapshot -&gt; DeleteInstanceSnapshot -&gt; Bool
 $c== :: DeleteInstanceSnapshot -&gt; DeleteInstanceSnapshot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653027"><span id="local-6989586621679653029"><span id="local-6989586621679653031"><span id="local-6989586621679653033"><span class="annot"><span class="annottext">ReadPrec [DeleteInstanceSnapshot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653036"><span id="local-6989586621679653038"><span id="local-6989586621679653040"><span id="local-6989586621679653042"><span class="annot"><span class="annottext">ReadPrec [DeleteInstanceSnapshot]
 ReadPrec DeleteInstanceSnapshot
 Int -&gt; ReadS DeleteInstanceSnapshot
 ReadS [DeleteInstanceSnapshot]
@@ -86,7 +86,7 @@ readList :: ReadS [DeleteInstanceSnapshot]
 $creadList :: ReadS [DeleteInstanceSnapshot]
 readsPrec :: Int -&gt; ReadS DeleteInstanceSnapshot
 $creadsPrec :: Int -&gt; ReadS DeleteInstanceSnapshot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653020"><span id="local-6989586621679653022"><span id="local-6989586621679653024"><span class="annot"><span class="annottext">Int -&gt; DeleteInstanceSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653029"><span id="local-6989586621679653031"><span id="local-6989586621679653033"><span class="annot"><span class="annottext">Int -&gt; DeleteInstanceSnapshot -&gt; ShowS
 [DeleteInstanceSnapshot] -&gt; ShowS
 DeleteInstanceSnapshot -&gt; String
 (Int -&gt; DeleteInstanceSnapshot -&gt; ShowS)
@@ -127,14 +127,14 @@ $cfrom :: forall x. DeleteInstanceSnapshot -&gt; Rep DeleteInstanceSnapshot x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-type">DeleteInstanceSnapshot</span></a></span><span>
 </span><span id="line-74"></span><span id="newDeleteInstanceSnapshot"><span class="annot"><span class="annottext">newDeleteInstanceSnapshot :: Text -&gt; DeleteInstanceSnapshot
-</span><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#newDeleteInstanceSnapshot"><span class="hs-identifier hs-var hs-var">newDeleteInstanceSnapshot</span></a></span></span><span> </span><span id="local-6989586621679653015"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653015"><span class="hs-identifier hs-var">pInstanceSnapshotName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#newDeleteInstanceSnapshot"><span class="hs-identifier hs-var hs-var">newDeleteInstanceSnapshot</span></a></span></span><span> </span><span id="local-6989586621679653024"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679653024"><span class="hs-identifier hs-var">pInstanceSnapshotName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DeleteInstanceSnapshot' :: Text -&gt; DeleteInstanceSnapshot
 </span><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshot'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceSnapshotName:DeleteInstanceSnapshot' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#%24sel%3AinstanceSnapshotName%3ADeleteInstanceSnapshot%27"><span class="hs-identifier hs-var">instanceSnapshotName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653015"><span class="hs-identifier hs-var">pInstanceSnapshotName_</span></a></span><span>
+</span><a href="#local-6989586621679653024"><span class="hs-identifier hs-var">pInstanceSnapshotName_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The name of the snapshot to delete.</span><span>
@@ -145,27 +145,27 @@ $cfrom :: forall x. DeleteInstanceSnapshot -&gt; Rep DeleteInstanceSnapshot x
 -&gt; (DeleteInstanceSnapshot -&gt; Text -&gt; DeleteInstanceSnapshot)
 -&gt; Lens DeleteInstanceSnapshot DeleteInstanceSnapshot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653012"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653021"><span class="annot"><span class="annottext">Text
 instanceSnapshotName :: Text
 $sel:instanceSnapshotName:DeleteInstanceSnapshot' :: DeleteInstanceSnapshot -&gt; Text
-</span><a href="#local-6989586621679653012"><span class="hs-identifier hs-var hs-var">instanceSnapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653012"><span class="hs-identifier hs-var">instanceSnapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679653011"><span class="annot"><span class="annottext">s :: DeleteInstanceSnapshot
-</span><a href="#local-6989586621679653011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679653010"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstanceSnapshot
-</span><a href="#local-6989586621679653011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceSnapshotName:DeleteInstanceSnapshot' :: Text
+</span><a href="#local-6989586621679653021"><span class="hs-identifier hs-var hs-var">instanceSnapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679653021"><span class="hs-identifier hs-var">instanceSnapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679653020"><span class="annot"><span class="annottext">s :: DeleteInstanceSnapshot
+</span><a href="#local-6989586621679653020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679653019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679653019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstanceSnapshot
+</span><a href="#local-6989586621679653020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceSnapshotName:DeleteInstanceSnapshot' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#%24sel%3AinstanceSnapshotName%3ADeleteInstanceSnapshot%27"><span class="hs-identifier hs-var">instanceSnapshotName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-type">DeleteInstanceSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679653019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-type">DeleteInstanceSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-type">DeleteInstanceSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-type">DeleteInstanceSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679653006"><span class="annot"><span class="annottext">request :: DeleteInstanceSnapshot -&gt; Request DeleteInstanceSnapshot
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679653015"><span class="annot"><span class="annottext">request :: DeleteInstanceSnapshot -&gt; Request DeleteInstanceSnapshot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteInstanceSnapshot -&gt; Request DeleteInstanceSnapshot
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679653002"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679653011"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteInstanceSnapshot
 -&gt; ClientResponse ClientBody
@@ -191,10 +191,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679652999"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652999"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679652998"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679652998"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679652997"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679652997"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679653008"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679653008"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679653007"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679653007"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679653006"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679653006"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; DeleteInstanceSnapshotResponse
 </span><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-var">DeleteInstanceSnapshotResponse'</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; DeleteInstanceSnapshotResponse)
@@ -202,7 +202,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteInstanceSnapshotResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679652997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679653006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -220,15 +220,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652999"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679653008"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652988"><span id="local-6989586621679652990"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-type">DeleteInstanceSnapshot</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652997"><span id="local-6989586621679652999"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-type">DeleteInstanceSnapshot</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652985"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-type">DeleteInstanceSnapshot</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652994"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-type">DeleteInstanceSnapshot</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-type">DeleteInstanceSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679652981"><span class="annot"><span class="annottext">toHeaders :: DeleteInstanceSnapshot -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679652990"><span class="annot"><span class="annottext">toHeaders :: DeleteInstanceSnapshot -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteInstanceSnapshot -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -255,12 +255,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652971"><span id="local-6989586621679652973"><span id="local-6989586621679652975"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-type">DeleteInstanceSnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679652969"><span class="annot"><span class="annottext">toJSON :: DeleteInstanceSnapshot -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652967"><span class="annot"><span class="annottext">Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652980"><span id="local-6989586621679652982"><span id="local-6989586621679652984"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-type">DeleteInstanceSnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679652978"><span class="annot"><span class="annottext">toJSON :: DeleteInstanceSnapshot -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652976"><span class="annot"><span class="annottext">Text
 instanceSnapshotName :: Text
 $sel:instanceSnapshotName:DeleteInstanceSnapshot' :: DeleteInstanceSnapshot -&gt; Text
-</span><a href="#local-6989586621679652967"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679652976"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -274,20 +274,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-122"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652967"><span class="hs-identifier hs-var">instanceSnapshotName</span></a></span><span>
+</span><a href="#local-6989586621679652976"><span class="hs-identifier hs-var">instanceSnapshotName</span></a></span><span>
 </span><span id="line-123"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-type">DeleteInstanceSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679652961"><span class="annot"><span class="annottext">toPath :: DeleteInstanceSnapshot -&gt; ByteString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679652970"><span class="annot"><span class="annottext">toPath :: DeleteInstanceSnapshot -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteInstanceSnapshot -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshot"><span class="hs-identifier hs-type">DeleteInstanceSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679652957"><span class="annot"><span class="annottext">toQuery :: DeleteInstanceSnapshot -&gt; QueryString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679652966"><span class="annot"><span class="annottext">toQuery :: DeleteInstanceSnapshot -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteInstanceSnapshot -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -295,7 +295,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newDeleteInstanceSnapshotResponse' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679652954"><span id="local-6989586621679652955"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstanceSnapshotResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse"><span class="hs-identifier hs-var">DeleteInstanceSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstanceSnapshotResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-var">DeleteInstanceSnapshotResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span id="local-6989586621679652963"><span id="local-6989586621679652964"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstanceSnapshotResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse"><span class="hs-identifier hs-var">DeleteInstanceSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstanceSnapshotResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-var">DeleteInstanceSnapshotResponse'</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -305,7 +305,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteInstanceSnapshotResponse%27"><span class="annot"><span class="annottext">DeleteInstanceSnapshotResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#%24sel%3AhttpStatus%3ADeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679652948"><span id="local-6989586621679652950"><span class="annot"><span class="annottext">DeleteInstanceSnapshotResponse
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679652957"><span id="local-6989586621679652959"><span class="annot"><span class="annottext">DeleteInstanceSnapshotResponse
 -&gt; DeleteInstanceSnapshotResponse -&gt; Bool
 (DeleteInstanceSnapshotResponse
  -&gt; DeleteInstanceSnapshotResponse -&gt; Bool)
@@ -321,7 +321,7 @@ $c/= :: DeleteInstanceSnapshotResponse
 -&gt; DeleteInstanceSnapshotResponse -&gt; Bool
 $c== :: DeleteInstanceSnapshotResponse
 -&gt; DeleteInstanceSnapshotResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652940"><span id="local-6989586621679652942"><span id="local-6989586621679652944"><span id="local-6989586621679652946"><span class="annot"><span class="annottext">ReadPrec [DeleteInstanceSnapshotResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652949"><span id="local-6989586621679652951"><span id="local-6989586621679652953"><span id="local-6989586621679652955"><span class="annot"><span class="annottext">ReadPrec [DeleteInstanceSnapshotResponse]
 ReadPrec DeleteInstanceSnapshotResponse
 Int -&gt; ReadS DeleteInstanceSnapshotResponse
 ReadS [DeleteInstanceSnapshotResponse]
@@ -341,7 +341,7 @@ readList :: ReadS [DeleteInstanceSnapshotResponse]
 $creadList :: ReadS [DeleteInstanceSnapshotResponse]
 readsPrec :: Int -&gt; ReadS DeleteInstanceSnapshotResponse
 $creadsPrec :: Int -&gt; ReadS DeleteInstanceSnapshotResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652934"><span id="local-6989586621679652936"><span id="local-6989586621679652938"><span class="annot"><span class="annottext">Int -&gt; DeleteInstanceSnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652943"><span id="local-6989586621679652945"><span id="local-6989586621679652947"><span class="annot"><span class="annottext">Int -&gt; DeleteInstanceSnapshotResponse -&gt; ShowS
 [DeleteInstanceSnapshotResponse] -&gt; ShowS
 DeleteInstanceSnapshotResponse -&gt; String
 (Int -&gt; DeleteInstanceSnapshotResponse -&gt; ShowS)
@@ -397,8 +397,8 @@ DeleteInstanceSnapshotResponse
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newDeleteInstanceSnapshotResponse"><span class="annot"><span class="annottext">newDeleteInstanceSnapshotResponse :: Int -&gt; DeleteInstanceSnapshotResponse
-</span><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#newDeleteInstanceSnapshotResponse"><span class="hs-identifier hs-var hs-var">newDeleteInstanceSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679652931"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652931"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#newDeleteInstanceSnapshotResponse"><span class="hs-identifier hs-var hs-var">newDeleteInstanceSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679652940"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679652940"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">DeleteInstanceSnapshotResponse' :: Maybe [Operation] -&gt; Int -&gt; DeleteInstanceSnapshotResponse
 </span><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:DeleteInstanceSnapshotResponse' :: Maybe [Operation]
@@ -408,7 +408,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInstanceSnapshotResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#%24sel%3AhttpStatus%3ADeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652931"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679652940"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -427,16 +427,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652930"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652939"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:DeleteInstanceSnapshotResponse' :: DeleteInstanceSnapshotResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679652930"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679652930"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652929"><span class="annot"><span class="annottext">s :: DeleteInstanceSnapshotResponse
-</span><a href="#local-6989586621679652929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652928"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679652928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstanceSnapshotResponse
-</span><a href="#local-6989586621679652929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteInstanceSnapshotResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679652939"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679652939"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652938"><span class="annot"><span class="annottext">s :: DeleteInstanceSnapshotResponse
+</span><a href="#local-6989586621679652938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652937"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679652937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstanceSnapshotResponse
+</span><a href="#local-6989586621679652938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteInstanceSnapshotResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#%24sel%3Aoperations%3ADeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679652928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679652937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; DeleteInstanceSnapshotResponse
  -&gt; f DeleteInstanceSnapshotResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -472,18 +472,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652924"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652933"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteInstanceSnapshotResponse' :: DeleteInstanceSnapshotResponse -&gt; Int
-</span><a href="#local-6989586621679652924"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652924"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652923"><span class="annot"><span class="annottext">s :: DeleteInstanceSnapshotResponse
-</span><a href="#local-6989586621679652923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652922"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstanceSnapshotResponse
-</span><a href="#local-6989586621679652923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInstanceSnapshotResponse' :: Int
+</span><a href="#local-6989586621679652933"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679652933"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652932"><span class="annot"><span class="annottext">s :: DeleteInstanceSnapshotResponse
+</span><a href="#local-6989586621679652932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652931"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679652931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstanceSnapshotResponse
+</span><a href="#local-6989586621679652932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInstanceSnapshotResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#%24sel%3AhttpStatus%3ADeleteInstanceSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679652931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679652920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679652929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstanceSnapshot.html#DeleteInstanceSnapshotResponse"><span class="hs-identifier hs-type">DeleteInstanceSnapshotResponse</span></a></span></span><span>
 </span><span id="line-181"></span></pre></body></html>

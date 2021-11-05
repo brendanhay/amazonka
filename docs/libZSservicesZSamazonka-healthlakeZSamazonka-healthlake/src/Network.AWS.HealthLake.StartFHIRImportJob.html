@@ -1,0 +1,751 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.HealthLake.StartFHIRImportJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Begins a FHIR Import job.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.HealthLake.StartFHIRImportJob</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier">StartFHIRImportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#newStartFHIRImportJob"><span class="hs-identifier">newStartFHIRImportJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_jobName"><span class="hs-identifier">startFHIRImportJob_jobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_inputDataConfig"><span class="hs-identifier">startFHIRImportJob_inputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_jobOutputDataConfig"><span class="hs-identifier">startFHIRImportJob_jobOutputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_datastoreId"><span class="hs-identifier">startFHIRImportJob_datastoreId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_dataAccessRoleArn"><span class="hs-identifier">startFHIRImportJob_dataAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_clientToken"><span class="hs-identifier">startFHIRImportJob_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse"><span class="hs-identifier">StartFHIRImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#newStartFHIRImportJobResponse"><span class="hs-identifier">newStartFHIRImportJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJobResponse_datastoreId"><span class="hs-identifier">startFHIRImportJobResponse_datastoreId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJobResponse_httpStatus"><span class="hs-identifier">startFHIRImportJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJobResponse_jobId"><span class="hs-identifier">startFHIRImportJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJobResponse_jobStatus"><span class="hs-identifier">startFHIRImportJobResponse_jobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.Types.html"><span class="hs-identifier">Network.AWS.HealthLake.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newStartFHIRImportJob' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679175757"><span id="local-6989586621679175758"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartFHIRImportJob"><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-var">StartFHIRImportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartFHIRImportJob%27"><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-var">StartFHIRImportJob'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the FHIR Import job in the StartFHIRImport job request.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AjobName%3AStartFHIRImportJob%27"><span class="annot"><span class="annottext">StartFHIRImportJob -&gt; Maybe Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AjobName%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The input properties of the FHIR Import job in the StartFHIRImport job</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AinputDataConfig%3AStartFHIRImportJob%27"><span class="annot"><span class="annottext">StartFHIRImportJob -&gt; InputDataConfig
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AinputDataConfig%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AjobOutputDataConfig%3AStartFHIRImportJob%27"><span class="annot"><span class="annottext">StartFHIRImportJob -&gt; OutputDataConfig
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AjobOutputDataConfig%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var hs-var">jobOutputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The AWS-generated Data Store ID.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdatastoreId%3AStartFHIRImportJob%27"><span class="annot"><span class="annottext">StartFHIRImportJob -&gt; Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AdatastoreId%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var hs-var">datastoreId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that gives Amazon HealthLake access</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- permission.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdataAccessRoleArn%3AStartFHIRImportJob%27"><span class="annot"><span class="annottext">StartFHIRImportJob -&gt; Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AdataAccessRoleArn%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var hs-var">dataAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Optional user provided token used for ensuring idempotency.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AclientToken%3AStartFHIRImportJob%27"><span class="annot"><span class="annottext">StartFHIRImportJob -&gt; Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AclientToken%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175746"><span id="local-6989586621679175748"><span class="annot"><span class="annottext">StartFHIRImportJob -&gt; StartFHIRImportJob -&gt; Bool
+(StartFHIRImportJob -&gt; StartFHIRImportJob -&gt; Bool)
+-&gt; (StartFHIRImportJob -&gt; StartFHIRImportJob -&gt; Bool)
+-&gt; Eq StartFHIRImportJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartFHIRImportJob -&gt; StartFHIRImportJob -&gt; Bool
+$c/= :: StartFHIRImportJob -&gt; StartFHIRImportJob -&gt; Bool
+== :: StartFHIRImportJob -&gt; StartFHIRImportJob -&gt; Bool
+$c== :: StartFHIRImportJob -&gt; StartFHIRImportJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175737"><span id="local-6989586621679175739"><span id="local-6989586621679175741"><span id="local-6989586621679175743"><span class="annot"><span class="annottext">ReadPrec [StartFHIRImportJob]
+ReadPrec StartFHIRImportJob
+Int -&gt; ReadS StartFHIRImportJob
+ReadS [StartFHIRImportJob]
+(Int -&gt; ReadS StartFHIRImportJob)
+-&gt; ReadS [StartFHIRImportJob]
+-&gt; ReadPrec StartFHIRImportJob
+-&gt; ReadPrec [StartFHIRImportJob]
+-&gt; Read StartFHIRImportJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartFHIRImportJob]
+$creadListPrec :: ReadPrec [StartFHIRImportJob]
+readPrec :: ReadPrec StartFHIRImportJob
+$creadPrec :: ReadPrec StartFHIRImportJob
+readList :: ReadS [StartFHIRImportJob]
+$creadList :: ReadS [StartFHIRImportJob]
+readsPrec :: Int -&gt; ReadS StartFHIRImportJob
+$creadsPrec :: Int -&gt; ReadS StartFHIRImportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175730"><span id="local-6989586621679175732"><span id="local-6989586621679175734"><span class="annot"><span class="annottext">Int -&gt; StartFHIRImportJob -&gt; ShowS
+[StartFHIRImportJob] -&gt; ShowS
+StartFHIRImportJob -&gt; String
+(Int -&gt; StartFHIRImportJob -&gt; ShowS)
+-&gt; (StartFHIRImportJob -&gt; String)
+-&gt; ([StartFHIRImportJob] -&gt; ShowS)
+-&gt; Show StartFHIRImportJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartFHIRImportJob] -&gt; ShowS
+$cshowList :: [StartFHIRImportJob] -&gt; ShowS
+show :: StartFHIRImportJob -&gt; String
+$cshow :: StartFHIRImportJob -&gt; String
+showsPrec :: Int -&gt; StartFHIRImportJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartFHIRImportJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartFHIRImportJob -&gt; Rep StartFHIRImportJob x)
+-&gt; (forall x. Rep StartFHIRImportJob x -&gt; StartFHIRImportJob)
+-&gt; Generic StartFHIRImportJob
+forall x. Rep StartFHIRImportJob x -&gt; StartFHIRImportJob
+forall x. StartFHIRImportJob -&gt; Rep StartFHIRImportJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartFHIRImportJob x -&gt; StartFHIRImportJob
+$cfrom :: forall x. StartFHIRImportJob -&gt; Rep StartFHIRImportJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'StartFHIRImportJob' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'jobName', 'startFHIRImportJob_jobName' - The name of the FHIR Import job in the StartFHIRImport job request.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'inputDataConfig', 'startFHIRImportJob_inputDataConfig' - The input properties of the FHIR Import job in the StartFHIRImport job</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'jobOutputDataConfig', 'startFHIRImportJob_jobOutputDataConfig' - Undocumented member.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'datastoreId', 'startFHIRImportJob_datastoreId' - The AWS-generated Data Store ID.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'dataAccessRoleArn', 'startFHIRImportJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) that gives Amazon HealthLake access</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- permission.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'clientToken', 'startFHIRImportJob_clientToken' - Optional user provided token used for ensuring idempotency.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#newStartFHIRImportJob"><span class="hs-identifier hs-type">newStartFHIRImportJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'inputDataConfig'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.HealthLake.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'jobOutputDataConfig'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.HealthLake.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'datastoreId'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'dataAccessRoleArn'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'clientToken'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span>
+</span><span id="line-107"></span><span id="newStartFHIRImportJob"><span class="annot"><span class="annottext">newStartFHIRImportJob :: InputDataConfig
+-&gt; OutputDataConfig -&gt; Text -&gt; Text -&gt; Text -&gt; StartFHIRImportJob
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#newStartFHIRImportJob"><span class="hs-identifier hs-var hs-var">newStartFHIRImportJob</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679175725"><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679175725"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679175724"><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679175724"><span class="hs-identifier hs-var">pJobOutputDataConfig_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679175723"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175723"><span class="hs-identifier hs-var">pDatastoreId_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679175722"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175722"><span class="hs-identifier hs-var">pDataAccessRoleArn_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679175721"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175721"><span class="hs-identifier hs-var">pClientToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">StartFHIRImportJob' :: Maybe Text
+-&gt; InputDataConfig
+-&gt; OutputDataConfig
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; StartFHIRImportJob
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-type">StartFHIRImportJob'</span></a></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobName:StartFHIRImportJob' :: Maybe Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AjobName%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:inputDataConfig:StartFHIRImportJob' :: InputDataConfig
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AinputDataConfig%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679175725"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobOutputDataConfig:StartFHIRImportJob' :: OutputDataConfig
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AjobOutputDataConfig%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var">jobOutputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679175724"><span class="hs-identifier hs-var">pJobOutputDataConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:datastoreId:StartFHIRImportJob' :: Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AdatastoreId%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var">datastoreId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175723"><span class="hs-identifier hs-var">pDatastoreId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataAccessRoleArn:StartFHIRImportJob' :: Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AdataAccessRoleArn%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175722"><span class="hs-identifier hs-var">pDataAccessRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:StartFHIRImportJob' :: Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AclientToken%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175721"><span class="hs-identifier hs-var">pClientToken_</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The name of the FHIR Import job in the StartFHIRImport job request.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_jobName"><span class="hs-identifier hs-type">startFHIRImportJob_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="startFHIRImportJob_jobName"><span class="annot"><span class="annottext">startFHIRImportJob_jobName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartFHIRImportJob -&gt; f StartFHIRImportJob
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_jobName"><span class="hs-identifier hs-var hs-var">startFHIRImportJob_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFHIRImportJob -&gt; Maybe Text)
+-&gt; (StartFHIRImportJob -&gt; Maybe Text -&gt; StartFHIRImportJob)
+-&gt; Lens
+     StartFHIRImportJob StartFHIRImportJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-type">StartFHIRImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175718"><span class="annot"><span class="annottext">Maybe Text
+jobName :: Maybe Text
+$sel:jobName:StartFHIRImportJob' :: StartFHIRImportJob -&gt; Maybe Text
+</span><a href="#local-6989586621679175718"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175718"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175717"><span class="annot"><span class="annottext">s :: StartFHIRImportJob
+</span><a href="#local-6989586621679175717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-type">StartFHIRImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175716"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFHIRImportJob
+</span><a href="#local-6989586621679175717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:StartFHIRImportJob' :: Maybe Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AjobName%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The input properties of the FHIR Import job in the StartFHIRImport job</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_inputDataConfig"><span class="hs-identifier hs-type">startFHIRImportJob_inputDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span>
+</span><span id="line-129"></span><span id="startFHIRImportJob_inputDataConfig"><span class="annot"><span class="annottext">startFHIRImportJob_inputDataConfig :: (InputDataConfig -&gt; f InputDataConfig)
+-&gt; StartFHIRImportJob -&gt; f StartFHIRImportJob
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_inputDataConfig"><span class="hs-identifier hs-var hs-var">startFHIRImportJob_inputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFHIRImportJob -&gt; InputDataConfig)
+-&gt; (StartFHIRImportJob -&gt; InputDataConfig -&gt; StartFHIRImportJob)
+-&gt; Lens
+     StartFHIRImportJob
+     StartFHIRImportJob
+     InputDataConfig
+     InputDataConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-type">StartFHIRImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175715"><span class="annot"><span class="annottext">InputDataConfig
+inputDataConfig :: InputDataConfig
+$sel:inputDataConfig:StartFHIRImportJob' :: StartFHIRImportJob -&gt; InputDataConfig
+</span><a href="#local-6989586621679175715"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679175715"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175714"><span class="annot"><span class="annottext">s :: StartFHIRImportJob
+</span><a href="#local-6989586621679175714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-type">StartFHIRImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175713"><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679175713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFHIRImportJob
+</span><a href="#local-6989586621679175714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDataConfig:StartFHIRImportJob' :: InputDataConfig
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AinputDataConfig%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679175713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_jobOutputDataConfig"><span class="hs-identifier hs-type">startFHIRImportJob_jobOutputDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span>
+</span><span id="line-133"></span><span id="startFHIRImportJob_jobOutputDataConfig"><span class="annot"><span class="annottext">startFHIRImportJob_jobOutputDataConfig :: (OutputDataConfig -&gt; f OutputDataConfig)
+-&gt; StartFHIRImportJob -&gt; f StartFHIRImportJob
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_jobOutputDataConfig"><span class="hs-identifier hs-var hs-var">startFHIRImportJob_jobOutputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFHIRImportJob -&gt; OutputDataConfig)
+-&gt; (StartFHIRImportJob -&gt; OutputDataConfig -&gt; StartFHIRImportJob)
+-&gt; Lens
+     StartFHIRImportJob
+     StartFHIRImportJob
+     OutputDataConfig
+     OutputDataConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-type">StartFHIRImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175712"><span class="annot"><span class="annottext">OutputDataConfig
+jobOutputDataConfig :: OutputDataConfig
+$sel:jobOutputDataConfig:StartFHIRImportJob' :: StartFHIRImportJob -&gt; OutputDataConfig
+</span><a href="#local-6989586621679175712"><span class="hs-identifier hs-var hs-var">jobOutputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679175712"><span class="hs-identifier hs-var">jobOutputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175711"><span class="annot"><span class="annottext">s :: StartFHIRImportJob
+</span><a href="#local-6989586621679175711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-type">StartFHIRImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175710"><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679175710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFHIRImportJob
+</span><a href="#local-6989586621679175711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobOutputDataConfig:StartFHIRImportJob' :: OutputDataConfig
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AjobOutputDataConfig%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var">jobOutputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679175710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The AWS-generated Data Store ID.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_datastoreId"><span class="hs-identifier hs-type">startFHIRImportJob_datastoreId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="startFHIRImportJob_datastoreId"><span class="annot"><span class="annottext">startFHIRImportJob_datastoreId :: (Text -&gt; f Text) -&gt; StartFHIRImportJob -&gt; f StartFHIRImportJob
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_datastoreId"><span class="hs-identifier hs-var hs-var">startFHIRImportJob_datastoreId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFHIRImportJob -&gt; Text)
+-&gt; (StartFHIRImportJob -&gt; Text -&gt; StartFHIRImportJob)
+-&gt; Lens StartFHIRImportJob StartFHIRImportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-type">StartFHIRImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175709"><span class="annot"><span class="annottext">Text
+datastoreId :: Text
+$sel:datastoreId:StartFHIRImportJob' :: StartFHIRImportJob -&gt; Text
+</span><a href="#local-6989586621679175709"><span class="hs-identifier hs-var hs-var">datastoreId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175709"><span class="hs-identifier hs-var">datastoreId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175708"><span class="annot"><span class="annottext">s :: StartFHIRImportJob
+</span><a href="#local-6989586621679175708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-type">StartFHIRImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175707"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFHIRImportJob
+</span><a href="#local-6989586621679175708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreId:StartFHIRImportJob' :: Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AdatastoreId%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var">datastoreId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that gives Amazon HealthLake access</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- permission.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_dataAccessRoleArn"><span class="hs-identifier hs-type">startFHIRImportJob_dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-142"></span><span id="startFHIRImportJob_dataAccessRoleArn"><span class="annot"><span class="annottext">startFHIRImportJob_dataAccessRoleArn :: (Text -&gt; f Text) -&gt; StartFHIRImportJob -&gt; f StartFHIRImportJob
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_dataAccessRoleArn"><span class="hs-identifier hs-var hs-var">startFHIRImportJob_dataAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFHIRImportJob -&gt; Text)
+-&gt; (StartFHIRImportJob -&gt; Text -&gt; StartFHIRImportJob)
+-&gt; Lens StartFHIRImportJob StartFHIRImportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-type">StartFHIRImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175706"><span class="annot"><span class="annottext">Text
+dataAccessRoleArn :: Text
+$sel:dataAccessRoleArn:StartFHIRImportJob' :: StartFHIRImportJob -&gt; Text
+</span><a href="#local-6989586621679175706"><span class="hs-identifier hs-var hs-var">dataAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175706"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175705"><span class="annot"><span class="annottext">s :: StartFHIRImportJob
+</span><a href="#local-6989586621679175705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-type">StartFHIRImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175704"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFHIRImportJob
+</span><a href="#local-6989586621679175705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataAccessRoleArn:StartFHIRImportJob' :: Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AdataAccessRoleArn%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | Optional user provided token used for ensuring idempotency.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_clientToken"><span class="hs-identifier hs-type">startFHIRImportJob_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-146"></span><span id="startFHIRImportJob_clientToken"><span class="annot"><span class="annottext">startFHIRImportJob_clientToken :: (Text -&gt; f Text) -&gt; StartFHIRImportJob -&gt; f StartFHIRImportJob
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJob_clientToken"><span class="hs-identifier hs-var hs-var">startFHIRImportJob_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFHIRImportJob -&gt; Text)
+-&gt; (StartFHIRImportJob -&gt; Text -&gt; StartFHIRImportJob)
+-&gt; Lens StartFHIRImportJob StartFHIRImportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-type">StartFHIRImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175703"><span class="annot"><span class="annottext">Text
+clientToken :: Text
+$sel:clientToken:StartFHIRImportJob' :: StartFHIRImportJob -&gt; Text
+</span><a href="#local-6989586621679175703"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175703"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175702"><span class="annot"><span class="annottext">s :: StartFHIRImportJob
+</span><a href="#local-6989586621679175702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-type">StartFHIRImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175701"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFHIRImportJob
+</span><a href="#local-6989586621679175702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:StartFHIRImportJob' :: Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AclientToken%3AStartFHIRImportJob%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-150"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse"><span class="hs-identifier hs-type">StartFHIRImportJobResponse</span></a></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679175697"><span class="annot"><span class="annottext">request :: StartFHIRImportJob -&gt; Request StartFHIRImportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartFHIRImportJob -&gt; Request StartFHIRImportJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.HealthLake.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679175693"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartFHIRImportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartFHIRImportJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartFHIRImportJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartFHIRImportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartFHIRImportJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175690"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175690"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175689"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679175689"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175688"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175688"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Int -&gt; Text -&gt; JobStatus -&gt; StartFHIRImportJobResponse
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse%27"><span class="hs-identifier hs-var">StartFHIRImportJobResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Int -&gt; Text -&gt; JobStatus -&gt; StartFHIRImportJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; Text -&gt; JobStatus -&gt; StartFHIRImportJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatastoreId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; Text -&gt; JobStatus -&gt; StartFHIRImportJobResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; JobStatus -&gt; StartFHIRImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175690"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; JobStatus -&gt; StartFHIRImportJobResponse)
+-&gt; Either String Text
+-&gt; Either String (JobStatus -&gt; StartFHIRImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either String (JobStatus -&gt; StartFHIRImportJobResponse)
+-&gt; Either String JobStatus
+-&gt; Either String StartFHIRImportJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String JobStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175679"><span id="local-6989586621679175681"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span></span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175676"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679175672"><span class="annot"><span class="annottext">toHeaders :: StartFHIRImportJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartFHIRImportJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;HealthLake.StartFHIRImportJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-174"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-177"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-178"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175662"><span id="local-6989586621679175664"><span id="local-6989586621679175666"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679175660"><span class="annot"><span class="annottext">toJSON :: StartFHIRImportJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob%27"><span class="hs-identifier hs-type">StartFHIRImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175653"><span id="local-6989586621679175654"><span id="local-6989586621679175655"><span id="local-6989586621679175656"><span id="local-6989586621679175657"><span id="local-6989586621679175658"><span class="annot"><span class="annottext">Maybe Text
+Text
+InputDataConfig
+OutputDataConfig
+clientToken :: Text
+dataAccessRoleArn :: Text
+datastoreId :: Text
+jobOutputDataConfig :: OutputDataConfig
+inputDataConfig :: InputDataConfig
+jobName :: Maybe Text
+$sel:clientToken:StartFHIRImportJob' :: StartFHIRImportJob -&gt; Text
+$sel:dataAccessRoleArn:StartFHIRImportJob' :: StartFHIRImportJob -&gt; Text
+$sel:datastoreId:StartFHIRImportJob' :: StartFHIRImportJob -&gt; Text
+$sel:jobOutputDataConfig:StartFHIRImportJob' :: StartFHIRImportJob -&gt; OutputDataConfig
+$sel:inputDataConfig:StartFHIRImportJob' :: StartFHIRImportJob -&gt; InputDataConfig
+$sel:jobName:StartFHIRImportJob' :: StartFHIRImportJob -&gt; Maybe Text
+</span><a href="#local-6989586621679175653"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175658"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-188"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputDataConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputDataConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679175657"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-190"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobOutputDataConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputDataConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679175656"><span class="hs-identifier hs-var">jobOutputDataConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatastoreId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175655"><span class="hs-identifier hs-var">datastoreId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-193"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataAccessRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175654"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175653"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679175647"><span class="annot"><span class="annottext">toPath :: StartFHIRImportJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartFHIRImportJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJob"><span class="hs-identifier hs-type">StartFHIRImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679175643"><span class="annot"><span class="annottext">toQuery :: StartFHIRImportJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartFHIRImportJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | /See:/ 'newStartFHIRImportJobResponse' smart constructor.</span><span>
+</span><span id="line-205"></span><span id="local-6989586621679175640"><span id="local-6989586621679175641"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartFHIRImportJobResponse"><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse"><span class="hs-identifier hs-var">StartFHIRImportJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartFHIRImportJobResponse%27"><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse%27"><span class="hs-identifier hs-var">StartFHIRImportJobResponse'</span></a></span></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS-generated Data Store ID.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3AdatastoreId%3AStartFHIRImportJobResponse%27"><span class="annot"><span class="annottext">StartFHIRImportJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AdatastoreId%3AStartFHIRImportJobResponse%27"><span class="hs-identifier hs-var hs-var">datastoreId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartFHIRImportJobResponse%27"><span class="annot"><span class="annottext">StartFHIRImportJobResponse -&gt; Int
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AhttpStatus%3AStartFHIRImportJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | The AWS-generated job ID.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3AjobId%3AStartFHIRImportJobResponse%27"><span class="annot"><span class="annottext">StartFHIRImportJobResponse -&gt; Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AjobId%3AStartFHIRImportJobResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | The status of an import job.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AjobStatus%3AStartFHIRImportJobResponse%27"><span class="annot"><span class="annottext">StartFHIRImportJobResponse -&gt; JobStatus
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AjobStatus%3AStartFHIRImportJobResponse%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175632"><span id="local-6989586621679175634"><span class="annot"><span class="annottext">StartFHIRImportJobResponse -&gt; StartFHIRImportJobResponse -&gt; Bool
+(StartFHIRImportJobResponse -&gt; StartFHIRImportJobResponse -&gt; Bool)
+-&gt; (StartFHIRImportJobResponse
+    -&gt; StartFHIRImportJobResponse -&gt; Bool)
+-&gt; Eq StartFHIRImportJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartFHIRImportJobResponse -&gt; StartFHIRImportJobResponse -&gt; Bool
+$c/= :: StartFHIRImportJobResponse -&gt; StartFHIRImportJobResponse -&gt; Bool
+== :: StartFHIRImportJobResponse -&gt; StartFHIRImportJobResponse -&gt; Bool
+$c== :: StartFHIRImportJobResponse -&gt; StartFHIRImportJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175624"><span id="local-6989586621679175626"><span id="local-6989586621679175628"><span id="local-6989586621679175630"><span class="annot"><span class="annottext">ReadPrec [StartFHIRImportJobResponse]
+ReadPrec StartFHIRImportJobResponse
+Int -&gt; ReadS StartFHIRImportJobResponse
+ReadS [StartFHIRImportJobResponse]
+(Int -&gt; ReadS StartFHIRImportJobResponse)
+-&gt; ReadS [StartFHIRImportJobResponse]
+-&gt; ReadPrec StartFHIRImportJobResponse
+-&gt; ReadPrec [StartFHIRImportJobResponse]
+-&gt; Read StartFHIRImportJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartFHIRImportJobResponse]
+$creadListPrec :: ReadPrec [StartFHIRImportJobResponse]
+readPrec :: ReadPrec StartFHIRImportJobResponse
+$creadPrec :: ReadPrec StartFHIRImportJobResponse
+readList :: ReadS [StartFHIRImportJobResponse]
+$creadList :: ReadS [StartFHIRImportJobResponse]
+readsPrec :: Int -&gt; ReadS StartFHIRImportJobResponse
+$creadsPrec :: Int -&gt; ReadS StartFHIRImportJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175618"><span id="local-6989586621679175620"><span id="local-6989586621679175622"><span class="annot"><span class="annottext">Int -&gt; StartFHIRImportJobResponse -&gt; ShowS
+[StartFHIRImportJobResponse] -&gt; ShowS
+StartFHIRImportJobResponse -&gt; String
+(Int -&gt; StartFHIRImportJobResponse -&gt; ShowS)
+-&gt; (StartFHIRImportJobResponse -&gt; String)
+-&gt; ([StartFHIRImportJobResponse] -&gt; ShowS)
+-&gt; Show StartFHIRImportJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartFHIRImportJobResponse] -&gt; ShowS
+$cshowList :: [StartFHIRImportJobResponse] -&gt; ShowS
+show :: StartFHIRImportJobResponse -&gt; String
+$cshow :: StartFHIRImportJobResponse -&gt; String
+showsPrec :: Int -&gt; StartFHIRImportJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartFHIRImportJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartFHIRImportJobResponse -&gt; Rep StartFHIRImportJobResponse x)
+-&gt; (forall x.
+    Rep StartFHIRImportJobResponse x -&gt; StartFHIRImportJobResponse)
+-&gt; Generic StartFHIRImportJobResponse
+forall x.
+Rep StartFHIRImportJobResponse x -&gt; StartFHIRImportJobResponse
+forall x.
+StartFHIRImportJobResponse -&gt; Rep StartFHIRImportJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartFHIRImportJobResponse x -&gt; StartFHIRImportJobResponse
+$cfrom :: forall x.
+StartFHIRImportJobResponse -&gt; Rep StartFHIRImportJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Create a value of 'StartFHIRImportJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'datastoreId', 'startFHIRImportJobResponse_datastoreId' - The AWS-generated Data Store ID.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'httpStatus', 'startFHIRImportJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'jobId', 'startFHIRImportJobResponse_jobId' - The AWS-generated job ID.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'jobStatus', 'startFHIRImportJobResponse_jobStatus' - The status of an import job.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#newStartFHIRImportJobResponse"><span class="hs-identifier hs-type">newStartFHIRImportJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-235"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-236"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-comment">-- | 'jobStatus'</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><a href="Network.AWS.HealthLake.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse"><span class="hs-identifier hs-type">StartFHIRImportJobResponse</span></a></span><span>
+</span><span id="line-240"></span><span id="newStartFHIRImportJobResponse"><span class="annot"><span class="annottext">newStartFHIRImportJobResponse :: Int -&gt; Text -&gt; JobStatus -&gt; StartFHIRImportJobResponse
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#newStartFHIRImportJobResponse"><span class="hs-identifier hs-var hs-var">newStartFHIRImportJobResponse</span></a></span></span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679175615"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175615"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679175614"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175614"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679175613"><span class="annot"><span class="annottext">JobStatus
+</span><a href="#local-6989586621679175613"><span class="hs-identifier hs-var">pJobStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><span class="annottext">StartFHIRImportJobResponse' :: Maybe Text
+-&gt; Int -&gt; Text -&gt; JobStatus -&gt; StartFHIRImportJobResponse
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse%27"><span class="hs-identifier hs-type">StartFHIRImportJobResponse'</span></a></span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:datastoreId:StartFHIRImportJobResponse' :: Maybe Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AdatastoreId%3AStartFHIRImportJobResponse%27"><span class="hs-identifier hs-var">datastoreId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:StartFHIRImportJobResponse' :: Int
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AhttpStatus%3AStartFHIRImportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175615"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobId:StartFHIRImportJobResponse' :: Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AjobId%3AStartFHIRImportJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175614"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobStatus:StartFHIRImportJobResponse' :: JobStatus
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AjobStatus%3AStartFHIRImportJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JobStatus
+</span><a href="#local-6989586621679175613"><span class="hs-identifier hs-var">pJobStatus_</span></a></span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The AWS-generated Data Store ID.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJobResponse_datastoreId"><span class="hs-identifier hs-type">startFHIRImportJobResponse_datastoreId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse"><span class="hs-identifier hs-type">StartFHIRImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="startFHIRImportJobResponse_datastoreId"><span class="annot"><span class="annottext">startFHIRImportJobResponse_datastoreId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartFHIRImportJobResponse -&gt; f StartFHIRImportJobResponse
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJobResponse_datastoreId"><span class="hs-identifier hs-var hs-var">startFHIRImportJobResponse_datastoreId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFHIRImportJobResponse -&gt; Maybe Text)
+-&gt; (StartFHIRImportJobResponse
+    -&gt; Maybe Text -&gt; StartFHIRImportJobResponse)
+-&gt; Lens
+     StartFHIRImportJobResponse
+     StartFHIRImportJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse%27"><span class="hs-identifier hs-type">StartFHIRImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175612"><span class="annot"><span class="annottext">Maybe Text
+datastoreId :: Maybe Text
+$sel:datastoreId:StartFHIRImportJobResponse' :: StartFHIRImportJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679175612"><span class="hs-identifier hs-var hs-var">datastoreId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175612"><span class="hs-identifier hs-var">datastoreId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175611"><span class="annot"><span class="annottext">s :: StartFHIRImportJobResponse
+</span><a href="#local-6989586621679175611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse%27"><span class="hs-identifier hs-type">StartFHIRImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175610"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFHIRImportJobResponse
+</span><a href="#local-6989586621679175611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreId:StartFHIRImportJobResponse' :: Maybe Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AdatastoreId%3AStartFHIRImportJobResponse%27"><span class="hs-identifier hs-var">datastoreId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse"><span class="hs-identifier hs-type">StartFHIRImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJobResponse_httpStatus"><span class="hs-identifier hs-type">startFHIRImportJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse"><span class="hs-identifier hs-type">StartFHIRImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-258"></span><span id="startFHIRImportJobResponse_httpStatus"><span class="annot"><span class="annottext">startFHIRImportJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartFHIRImportJobResponse -&gt; f StartFHIRImportJobResponse
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startFHIRImportJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFHIRImportJobResponse -&gt; Int)
+-&gt; (StartFHIRImportJobResponse
+    -&gt; Int -&gt; StartFHIRImportJobResponse)
+-&gt; Lens
+     StartFHIRImportJobResponse StartFHIRImportJobResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse%27"><span class="hs-identifier hs-type">StartFHIRImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175609"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartFHIRImportJobResponse' :: StartFHIRImportJobResponse -&gt; Int
+</span><a href="#local-6989586621679175609"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175609"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175608"><span class="annot"><span class="annottext">s :: StartFHIRImportJobResponse
+</span><a href="#local-6989586621679175608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse%27"><span class="hs-identifier hs-type">StartFHIRImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175607"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFHIRImportJobResponse
+</span><a href="#local-6989586621679175608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartFHIRImportJobResponse' :: Int
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AhttpStatus%3AStartFHIRImportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse"><span class="hs-identifier hs-type">StartFHIRImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The AWS-generated job ID.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJobResponse_jobId"><span class="hs-identifier hs-type">startFHIRImportJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse"><span class="hs-identifier hs-type">StartFHIRImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-262"></span><span id="startFHIRImportJobResponse_jobId"><span class="annot"><span class="annottext">startFHIRImportJobResponse_jobId :: (Text -&gt; f Text)
+-&gt; StartFHIRImportJobResponse -&gt; f StartFHIRImportJobResponse
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJobResponse_jobId"><span class="hs-identifier hs-var hs-var">startFHIRImportJobResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFHIRImportJobResponse -&gt; Text)
+-&gt; (StartFHIRImportJobResponse
+    -&gt; Text -&gt; StartFHIRImportJobResponse)
+-&gt; Lens
+     StartFHIRImportJobResponse StartFHIRImportJobResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse%27"><span class="hs-identifier hs-type">StartFHIRImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175606"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:StartFHIRImportJobResponse' :: StartFHIRImportJobResponse -&gt; Text
+</span><a href="#local-6989586621679175606"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175606"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175605"><span class="annot"><span class="annottext">s :: StartFHIRImportJobResponse
+</span><a href="#local-6989586621679175605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse%27"><span class="hs-identifier hs-type">StartFHIRImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175604"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFHIRImportJobResponse
+</span><a href="#local-6989586621679175605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StartFHIRImportJobResponse' :: Text
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AjobId%3AStartFHIRImportJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse"><span class="hs-identifier hs-type">StartFHIRImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The status of an import job.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJobResponse_jobStatus"><span class="hs-identifier hs-type">startFHIRImportJobResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse"><span class="hs-identifier hs-type">StartFHIRImportJobResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span>
+</span><span id="line-266"></span><span id="startFHIRImportJobResponse_jobStatus"><span class="annot"><span class="annottext">startFHIRImportJobResponse_jobStatus :: (JobStatus -&gt; f JobStatus)
+-&gt; StartFHIRImportJobResponse -&gt; f StartFHIRImportJobResponse
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#startFHIRImportJobResponse_jobStatus"><span class="hs-identifier hs-var hs-var">startFHIRImportJobResponse_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFHIRImportJobResponse -&gt; JobStatus)
+-&gt; (StartFHIRImportJobResponse
+    -&gt; JobStatus -&gt; StartFHIRImportJobResponse)
+-&gt; Lens
+     StartFHIRImportJobResponse
+     StartFHIRImportJobResponse
+     JobStatus
+     JobStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse%27"><span class="hs-identifier hs-type">StartFHIRImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175603"><span class="annot"><span class="annottext">JobStatus
+jobStatus :: JobStatus
+$sel:jobStatus:StartFHIRImportJobResponse' :: StartFHIRImportJobResponse -&gt; JobStatus
+</span><a href="#local-6989586621679175603"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobStatus
+</span><a href="#local-6989586621679175603"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175602"><span class="annot"><span class="annottext">s :: StartFHIRImportJobResponse
+</span><a href="#local-6989586621679175602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse%27"><span class="hs-identifier hs-type">StartFHIRImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175601"><span class="annot"><span class="annottext">JobStatus
+</span><a href="#local-6989586621679175601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFHIRImportJobResponse
+</span><a href="#local-6989586621679175602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:StartFHIRImportJobResponse' :: JobStatus
+</span><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#%24sel%3AjobStatus%3AStartFHIRImportJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JobStatus
+</span><a href="#local-6989586621679175601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse"><span class="hs-identifier hs-type">StartFHIRImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.HealthLake.StartFHIRImportJob.html#StartFHIRImportJobResponse"><span class="hs-identifier hs-type">StartFHIRImportJobResponse</span></a></span></span><span>
+</span><span id="line-269"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Defines how to perform inference generation after a training job is run.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newInferenceSpecification' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680351232"><span id="local-6989586621680351233"></span></span><span class="hs-keyword">data</span><span> </span><span id="InferenceSpecification"><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-var">InferenceSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InferenceSpecification%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-var">InferenceSpecification'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680351241"><span id="local-6989586621680351242"></span></span><span class="hs-keyword">data</span><span> </span><span id="InferenceSpecification"><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-var">InferenceSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InferenceSpecification%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-var">InferenceSpecification'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the instance types that are used to generate inferences in</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- real-time.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AsupportedResponseMIMETypes%3AInferenceSpecification%27"><span class="annot"><span class="annottext">InferenceSpecification -&gt; [Text]
 </span><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#%24sel%3AsupportedResponseMIMETypes%3AInferenceSpecification%27"><span class="hs-identifier hs-var hs-var">supportedResponseMIMETypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680351222"><span id="local-6989586621680351224"><span class="annot"><span class="annottext">InferenceSpecification -&gt; InferenceSpecification -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680351231"><span id="local-6989586621680351233"><span class="annot"><span class="annottext">InferenceSpecification -&gt; InferenceSpecification -&gt; Bool
 (InferenceSpecification -&gt; InferenceSpecification -&gt; Bool)
 -&gt; (InferenceSpecification -&gt; InferenceSpecification -&gt; Bool)
 -&gt; Eq InferenceSpecification
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InferenceSpecification -&gt; InferenceSpecification -&gt; Bool
 == :: InferenceSpecification -&gt; InferenceSpecification -&gt; Bool
 $c== :: InferenceSpecification -&gt; InferenceSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680351213"><span id="local-6989586621680351215"><span id="local-6989586621680351217"><span id="local-6989586621680351219"><span class="annot"><span class="annottext">ReadPrec [InferenceSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680351222"><span id="local-6989586621680351224"><span id="local-6989586621680351226"><span id="local-6989586621680351228"><span class="annot"><span class="annottext">ReadPrec [InferenceSpecification]
 ReadPrec InferenceSpecification
 Int -&gt; ReadS InferenceSpecification
 ReadS [InferenceSpecification]
@@ -84,7 +84,7 @@ readList :: ReadS [InferenceSpecification]
 $creadList :: ReadS [InferenceSpecification]
 readsPrec :: Int -&gt; ReadS InferenceSpecification
 $creadsPrec :: Int -&gt; ReadS InferenceSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680351206"><span id="local-6989586621680351208"><span id="local-6989586621680351210"><span class="annot"><span class="annottext">Int -&gt; InferenceSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680351215"><span id="local-6989586621680351217"><span id="local-6989586621680351219"><span class="annot"><span class="annottext">Int -&gt; InferenceSpecification -&gt; ShowS
 [InferenceSpecification] -&gt; ShowS
 InferenceSpecification -&gt; String
 (Int -&gt; InferenceSpecification -&gt; ShowS)
@@ -142,8 +142,8 @@ $cfrom :: forall x. InferenceSpecification -&gt; Rep InferenceSpecification x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageContainerDefinition.html#ModelPackageContainerDefinition"><span class="hs-identifier hs-type">ModelPackageContainerDefinition</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span>
 </span><span id="line-85"></span><span id="newInferenceSpecification"><span class="annot"><span class="annottext">newInferenceSpecification :: NonEmpty ModelPackageContainerDefinition -&gt; InferenceSpecification
-</span><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#newInferenceSpecification"><span class="hs-identifier hs-var hs-var">newInferenceSpecification</span></a></span></span><span> </span><span id="local-6989586621680351200"><span class="annot"><span class="annottext">NonEmpty ModelPackageContainerDefinition
-</span><a href="#local-6989586621680351200"><span class="hs-identifier hs-var">pContainers_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#newInferenceSpecification"><span class="hs-identifier hs-var hs-var">newInferenceSpecification</span></a></span></span><span> </span><span id="local-6989586621680351209"><span class="annot"><span class="annottext">NonEmpty ModelPackageContainerDefinition
+</span><a href="#local-6989586621680351209"><span class="hs-identifier hs-var">pContainers_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">InferenceSpecification' :: Maybe [ProductionVariantInstanceType]
 -&gt; Maybe (NonEmpty TransformInstanceType)
 -&gt; NonEmpty ModelPackageContainerDefinition
@@ -178,7 +178,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty ModelPackageContainerDefinition
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty ModelPackageContainerDefinition
-</span><a href="#local-6989586621680351200"><span class="hs-identifier hs-var">pContainers_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680351209"><span class="hs-identifier hs-var">pContainers_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedContentTypes:InferenceSpecification' :: [Text]
 </span><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#%24sel%3AsupportedContentTypes%3AInferenceSpecification%27"><span class="hs-identifier hs-var">supportedContentTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -207,16 +207,16 @@ forall a. Monoid a =&gt; a
      (Maybe [ProductionVariantInstanceType])
      (Maybe [ProductionVariantInstanceType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351194"><span class="annot"><span class="annottext">Maybe [ProductionVariantInstanceType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351203"><span class="annot"><span class="annottext">Maybe [ProductionVariantInstanceType]
 supportedRealtimeInferenceInstanceTypes :: Maybe [ProductionVariantInstanceType]
 $sel:supportedRealtimeInferenceInstanceTypes:InferenceSpecification' :: InferenceSpecification -&gt; Maybe [ProductionVariantInstanceType]
-</span><a href="#local-6989586621680351194"><span class="hs-identifier hs-var hs-var">supportedRealtimeInferenceInstanceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProductionVariantInstanceType]
-</span><a href="#local-6989586621680351194"><span class="hs-identifier hs-var">supportedRealtimeInferenceInstanceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351193"><span class="annot"><span class="annottext">s :: InferenceSpecification
-</span><a href="#local-6989586621680351193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351192"><span class="annot"><span class="annottext">Maybe [ProductionVariantInstanceType]
-</span><a href="#local-6989586621680351192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceSpecification
-</span><a href="#local-6989586621680351193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedRealtimeInferenceInstanceTypes:InferenceSpecification' :: Maybe [ProductionVariantInstanceType]
+</span><a href="#local-6989586621680351203"><span class="hs-identifier hs-var hs-var">supportedRealtimeInferenceInstanceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProductionVariantInstanceType]
+</span><a href="#local-6989586621680351203"><span class="hs-identifier hs-var">supportedRealtimeInferenceInstanceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351202"><span class="annot"><span class="annottext">s :: InferenceSpecification
+</span><a href="#local-6989586621680351202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351201"><span class="annot"><span class="annottext">Maybe [ProductionVariantInstanceType]
+</span><a href="#local-6989586621680351201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceSpecification
+</span><a href="#local-6989586621680351202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedRealtimeInferenceInstanceTypes:InferenceSpecification' :: Maybe [ProductionVariantInstanceType]
 </span><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#%24sel%3AsupportedRealtimeInferenceInstanceTypes%3AInferenceSpecification%27"><span class="hs-identifier hs-var">supportedRealtimeInferenceInstanceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProductionVariantInstanceType]
-</span><a href="#local-6989586621680351192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProductionVariantInstanceType]
+</span><a href="#local-6989586621680351201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProductionVariantInstanceType]
   -&gt; f (Maybe [ProductionVariantInstanceType]))
  -&gt; InferenceSpecification -&gt; f InferenceSpecification)
 -&gt; ((Maybe [ProductionVariantInstanceType]
@@ -268,16 +268,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (NonEmpty TransformInstanceType))
      (Maybe (NonEmpty TransformInstanceType))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351188"><span class="annot"><span class="annottext">Maybe (NonEmpty TransformInstanceType)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351197"><span class="annot"><span class="annottext">Maybe (NonEmpty TransformInstanceType)
 supportedTransformInstanceTypes :: Maybe (NonEmpty TransformInstanceType)
 $sel:supportedTransformInstanceTypes:InferenceSpecification' :: InferenceSpecification -&gt; Maybe (NonEmpty TransformInstanceType)
-</span><a href="#local-6989586621680351188"><span class="hs-identifier hs-var hs-var">supportedTransformInstanceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty TransformInstanceType)
-</span><a href="#local-6989586621680351188"><span class="hs-identifier hs-var">supportedTransformInstanceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351187"><span class="annot"><span class="annottext">s :: InferenceSpecification
-</span><a href="#local-6989586621680351187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351186"><span class="annot"><span class="annottext">Maybe (NonEmpty TransformInstanceType)
-</span><a href="#local-6989586621680351186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceSpecification
-</span><a href="#local-6989586621680351187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedTransformInstanceTypes:InferenceSpecification' :: Maybe (NonEmpty TransformInstanceType)
+</span><a href="#local-6989586621680351197"><span class="hs-identifier hs-var hs-var">supportedTransformInstanceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty TransformInstanceType)
+</span><a href="#local-6989586621680351197"><span class="hs-identifier hs-var">supportedTransformInstanceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351196"><span class="annot"><span class="annottext">s :: InferenceSpecification
+</span><a href="#local-6989586621680351196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351195"><span class="annot"><span class="annottext">Maybe (NonEmpty TransformInstanceType)
+</span><a href="#local-6989586621680351195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceSpecification
+</span><a href="#local-6989586621680351196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedTransformInstanceTypes:InferenceSpecification' :: Maybe (NonEmpty TransformInstanceType)
 </span><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#%24sel%3AsupportedTransformInstanceTypes%3AInferenceSpecification%27"><span class="hs-identifier hs-var">supportedTransformInstanceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty TransformInstanceType)
-</span><a href="#local-6989586621680351186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty TransformInstanceType)
+</span><a href="#local-6989586621680351195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty TransformInstanceType)
   -&gt; f (Maybe (NonEmpty TransformInstanceType)))
  -&gt; InferenceSpecification -&gt; f InferenceSpecification)
 -&gt; ((Maybe (NonEmpty TransformInstanceType)
@@ -327,16 +327,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (NonEmpty ModelPackageContainerDefinition)
      (NonEmpty ModelPackageContainerDefinition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351184"><span class="annot"><span class="annottext">NonEmpty ModelPackageContainerDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351193"><span class="annot"><span class="annottext">NonEmpty ModelPackageContainerDefinition
 containers :: NonEmpty ModelPackageContainerDefinition
 $sel:containers:InferenceSpecification' :: InferenceSpecification -&gt; NonEmpty ModelPackageContainerDefinition
-</span><a href="#local-6989586621680351184"><span class="hs-identifier hs-var hs-var">containers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty ModelPackageContainerDefinition
-</span><a href="#local-6989586621680351184"><span class="hs-identifier hs-var">containers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351183"><span class="annot"><span class="annottext">s :: InferenceSpecification
-</span><a href="#local-6989586621680351183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351182"><span class="annot"><span class="annottext">NonEmpty ModelPackageContainerDefinition
-</span><a href="#local-6989586621680351182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceSpecification
-</span><a href="#local-6989586621680351183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containers:InferenceSpecification' :: NonEmpty ModelPackageContainerDefinition
+</span><a href="#local-6989586621680351193"><span class="hs-identifier hs-var hs-var">containers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty ModelPackageContainerDefinition
+</span><a href="#local-6989586621680351193"><span class="hs-identifier hs-var">containers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351192"><span class="annot"><span class="annottext">s :: InferenceSpecification
+</span><a href="#local-6989586621680351192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351191"><span class="annot"><span class="annottext">NonEmpty ModelPackageContainerDefinition
+</span><a href="#local-6989586621680351191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceSpecification
+</span><a href="#local-6989586621680351192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containers:InferenceSpecification' :: NonEmpty ModelPackageContainerDefinition
 </span><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#%24sel%3Acontainers%3AInferenceSpecification%27"><span class="hs-identifier hs-var">containers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty ModelPackageContainerDefinition
-</span><a href="#local-6989586621680351182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty ModelPackageContainerDefinition
+</span><a href="#local-6989586621680351191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty ModelPackageContainerDefinition
   -&gt; f (NonEmpty ModelPackageContainerDefinition))
  -&gt; InferenceSpecification -&gt; f InferenceSpecification)
 -&gt; ((NonEmpty ModelPackageContainerDefinition
@@ -363,16 +363,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (InferenceSpecification -&gt; [Text] -&gt; InferenceSpecification)
 -&gt; Lens InferenceSpecification InferenceSpecification [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351180"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351189"><span class="annot"><span class="annottext">[Text]
 supportedContentTypes :: [Text]
 $sel:supportedContentTypes:InferenceSpecification' :: InferenceSpecification -&gt; [Text]
-</span><a href="#local-6989586621680351180"><span class="hs-identifier hs-var hs-var">supportedContentTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680351180"><span class="hs-identifier hs-var">supportedContentTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351179"><span class="annot"><span class="annottext">s :: InferenceSpecification
-</span><a href="#local-6989586621680351179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351178"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680351178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceSpecification
-</span><a href="#local-6989586621680351179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedContentTypes:InferenceSpecification' :: [Text]
+</span><a href="#local-6989586621680351189"><span class="hs-identifier hs-var hs-var">supportedContentTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621680351189"><span class="hs-identifier hs-var">supportedContentTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351188"><span class="annot"><span class="annottext">s :: InferenceSpecification
+</span><a href="#local-6989586621680351188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351187"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621680351187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceSpecification
+</span><a href="#local-6989586621680351188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedContentTypes:InferenceSpecification' :: [Text]
 </span><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#%24sel%3AsupportedContentTypes%3AInferenceSpecification%27"><span class="hs-identifier hs-var">supportedContentTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680351178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621680351187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; InferenceSpecification -&gt; f InferenceSpecification)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -391,16 +391,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (InferenceSpecification -&gt; [Text] -&gt; InferenceSpecification)
 -&gt; Lens InferenceSpecification InferenceSpecification [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351176"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351185"><span class="annot"><span class="annottext">[Text]
 supportedResponseMIMETypes :: [Text]
 $sel:supportedResponseMIMETypes:InferenceSpecification' :: InferenceSpecification -&gt; [Text]
-</span><a href="#local-6989586621680351176"><span class="hs-identifier hs-var hs-var">supportedResponseMIMETypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680351176"><span class="hs-identifier hs-var">supportedResponseMIMETypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351175"><span class="annot"><span class="annottext">s :: InferenceSpecification
-</span><a href="#local-6989586621680351175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351174"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680351174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceSpecification
-</span><a href="#local-6989586621680351175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedResponseMIMETypes:InferenceSpecification' :: [Text]
+</span><a href="#local-6989586621680351185"><span class="hs-identifier hs-var hs-var">supportedResponseMIMETypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621680351185"><span class="hs-identifier hs-var">supportedResponseMIMETypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351184"><span class="annot"><span class="annottext">s :: InferenceSpecification
+</span><a href="#local-6989586621680351184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351183"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621680351183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceSpecification
+</span><a href="#local-6989586621680351184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedResponseMIMETypes:InferenceSpecification' :: [Text]
 </span><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#%24sel%3AsupportedResponseMIMETypes%3AInferenceSpecification%27"><span class="hs-identifier hs-var">supportedResponseMIMETypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680351174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621680351183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; InferenceSpecification -&gt; f InferenceSpecification)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -411,8 +411,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351171"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621680351169"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InferenceSpecification
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351180"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621680351178"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InferenceSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InferenceSpecification)
@@ -422,8 +422,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InferenceSpecification&quot;</span></span><span>
-</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680351166"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680351166"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680351175"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680351175"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ProductionVariantInstanceType]
 -&gt; Maybe (NonEmpty TransformInstanceType)
 -&gt; NonEmpty ModelPackageContainerDefinition
@@ -446,7 +446,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; InferenceSpecification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680351166"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680351175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [ProductionVariantInstanceType]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -471,7 +471,7 @@ forall a. Monoid a =&gt; a
       -&gt; [Text] -&gt; [Text] -&gt; InferenceSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680351166"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty TransformInstanceType))
+</span><a href="#local-6989586621680351175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty TransformInstanceType))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SupportedTransformInstanceTypes&quot;</span></span><span class="hs-special">)</span><span>
@@ -482,7 +482,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ([Text] -&gt; [Text] -&gt; InferenceSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680351166"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty ModelPackageContainerDefinition)
+</span><a href="#local-6989586621680351175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty ModelPackageContainerDefinition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Containers&quot;</span></span><span class="hs-special">)</span><span>
@@ -490,7 +490,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [Text] -&gt; Parser ([Text] -&gt; InferenceSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680351166"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621680351175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SupportedContentTypes&quot;</span></span><span>
@@ -504,7 +504,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser [Text] -&gt; Parser InferenceSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680351166"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621680351175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SupportedResponseMIMETypes&quot;</span></span><span>
@@ -516,13 +516,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-140"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351158"><span id="local-6989586621680351160"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351167"><span id="local-6989586621680351169"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351155"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351164"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351147"><span id="local-6989586621680351149"><span id="local-6989586621680351151"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621680351145"><span class="annot"><span class="annottext">toJSON :: InferenceSpecification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351139"><span id="local-6989586621680351140"><span id="local-6989586621680351141"><span id="local-6989586621680351142"><span id="local-6989586621680351143"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351156"><span id="local-6989586621680351158"><span id="local-6989586621680351160"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621680351154"><span class="annot"><span class="annottext">toJSON :: InferenceSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification%27"><span class="hs-identifier hs-type">InferenceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351148"><span id="local-6989586621680351149"><span id="local-6989586621680351150"><span id="local-6989586621680351151"><span id="local-6989586621680351152"><span class="annot"><span class="annottext">[Text]
 Maybe [ProductionVariantInstanceType]
 Maybe (NonEmpty TransformInstanceType)
 NonEmpty ModelPackageContainerDefinition
@@ -536,7 +536,7 @@ $sel:supportedContentTypes:InferenceSpecification' :: InferenceSpecification -&g
 $sel:containers:InferenceSpecification' :: InferenceSpecification -&gt; NonEmpty ModelPackageContainerDefinition
 $sel:supportedTransformInstanceTypes:InferenceSpecification' :: InferenceSpecification -&gt; Maybe (NonEmpty TransformInstanceType)
 $sel:supportedRealtimeInferenceInstanceTypes:InferenceSpecification' :: InferenceSpecification -&gt; Maybe [ProductionVariantInstanceType]
-</span><a href="#local-6989586621680351139"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680351148"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -550,7 +550,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ProductionVariantInstanceType] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ProductionVariantInstanceType]
-</span><a href="#local-6989586621680351143"><span class="hs-identifier hs-var">supportedRealtimeInferenceInstanceTypes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680351152"><span class="hs-identifier hs-var">supportedRealtimeInferenceInstanceTypes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SupportedTransformInstanceTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty TransformInstanceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -559,14 +559,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (NonEmpty TransformInstanceType) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty TransformInstanceType)
-</span><a href="#local-6989586621680351142"><span class="hs-identifier hs-var">supportedTransformInstanceTypes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680351151"><span class="hs-identifier hs-var">supportedTransformInstanceTypes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Containers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ModelPackageContainerDefinition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty ModelPackageContainerDefinition
-</span><a href="#local-6989586621680351141"><span class="hs-identifier hs-var">containers</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680351150"><span class="hs-identifier hs-var">containers</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -575,7 +575,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-158"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680351140"><span class="hs-identifier hs-var">supportedContentTypes</span></a></span><span>
+</span><a href="#local-6989586621680351149"><span class="hs-identifier hs-var">supportedContentTypes</span></a></span><span>
 </span><span id="line-159"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -585,7 +585,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-162"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680351139"><span class="hs-identifier hs-var">supportedResponseMIMETypes</span></a></span><span>
+</span><a href="#local-6989586621680351148"><span class="hs-identifier hs-var">supportedResponseMIMETypes</span></a></span><span>
 </span><span id="line-163"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>

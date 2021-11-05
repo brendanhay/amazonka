@@ -1,0 +1,862 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpRange.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpRange</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpv6Range.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpv6Range</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupPrefixListId.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupPrefixListId</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupUserIdGroupPair.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupUserIdGroupPair</span></a></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | An IP permission for an EC2 security group.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAwsEc2SecurityGroupIpPermission' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679944615"><span id="local-6989586621679944616"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsEc2SecurityGroupIpPermission"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-var">AwsEc2SecurityGroupIpPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsEc2SecurityGroupIpPermission%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">AwsEc2SecurityGroupIpPermission'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start of the port range for the TCP and UDP protocols, or an</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- ICMP\/ICMPv6 type number.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- A value of -1 indicates all ICMP\/ICMPv6 types. If you specify all</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- ICMP\/ICMPv6 types, you must specify all codes.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AfromPort%3AAwsEc2SecurityGroupIpPermission%27"><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AfromPort%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var hs-var">fromPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The security group and Amazon Web Services account ID pairs.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AuserIdGroupPairs%3AAwsEc2SecurityGroupIpPermission%27"><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission
+-&gt; Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AuserIdGroupPairs%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var hs-var">userIdGroupPairs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupUserIdGroupPair.html#AwsEc2SecurityGroupUserIdGroupPair"><span class="hs-identifier hs-type">AwsEc2SecurityGroupUserIdGroupPair</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | [VPC only] The prefix list IDs for an Amazon Web Services service. With</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- outbound rules, this is the Amazon Web Services service to access</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- through a VPC endpoint from instances associated with the security</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AprefixListIds%3AAwsEc2SecurityGroupIpPermission%27"><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission
+-&gt; Maybe [AwsEc2SecurityGroupPrefixListId]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AprefixListIds%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var hs-var">prefixListIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupPrefixListId.html#AwsEc2SecurityGroupPrefixListId"><span class="hs-identifier hs-type">AwsEc2SecurityGroupPrefixListId</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- [VPC only] Use @-1@ to specify all protocols.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- When authorizing security group rules, specifying -1 or a protocol</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- number other than @tcp@, @udp@, @icmp@, or @icmpv6@ allows traffic on</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- all ports, regardless of any port range you specify.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- For @tcp@, @udp@, and @icmp@, you must specify a port range.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- For @icmpv6@, the port range is optional. If you omit the port range,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- traffic for all types and codes is allowed.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AipProtocol%3AAwsEc2SecurityGroupIpPermission%27"><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AipProtocol%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var hs-var">ipProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The end of the port range for the TCP and UDP protocols, or an</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- ICMP\/ICMPv6 code.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- A value of -1 indicates all ICMP\/ICMPv6 codes. If you specify all</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- ICMP\/ICMPv6 types, you must specify all codes.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AtoPort%3AAwsEc2SecurityGroupIpPermission%27"><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AtoPort%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var hs-var">toPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The IPv6 ranges.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Aipv6Ranges%3AAwsEc2SecurityGroupIpPermission%27"><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission
+-&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3Aipv6Ranges%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var hs-var">ipv6Ranges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpv6Range.html#AwsEc2SecurityGroupIpv6Range"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpv6Range</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The IPv4 ranges.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AipRanges%3AAwsEc2SecurityGroupIpPermission%27"><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission
+-&gt; Maybe [AwsEc2SecurityGroupIpRange]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AipRanges%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var hs-var">ipRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpRange.html#AwsEc2SecurityGroupIpRange"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpRange</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679944603"><span id="local-6989586621679944605"><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission
+-&gt; AwsEc2SecurityGroupIpPermission -&gt; Bool
+(AwsEc2SecurityGroupIpPermission
+ -&gt; AwsEc2SecurityGroupIpPermission -&gt; Bool)
+-&gt; (AwsEc2SecurityGroupIpPermission
+    -&gt; AwsEc2SecurityGroupIpPermission -&gt; Bool)
+-&gt; Eq AwsEc2SecurityGroupIpPermission
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsEc2SecurityGroupIpPermission
+-&gt; AwsEc2SecurityGroupIpPermission -&gt; Bool
+$c/= :: AwsEc2SecurityGroupIpPermission
+-&gt; AwsEc2SecurityGroupIpPermission -&gt; Bool
+== :: AwsEc2SecurityGroupIpPermission
+-&gt; AwsEc2SecurityGroupIpPermission -&gt; Bool
+$c== :: AwsEc2SecurityGroupIpPermission
+-&gt; AwsEc2SecurityGroupIpPermission -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679944594"><span id="local-6989586621679944596"><span id="local-6989586621679944598"><span id="local-6989586621679944600"><span class="annot"><span class="annottext">ReadPrec [AwsEc2SecurityGroupIpPermission]
+ReadPrec AwsEc2SecurityGroupIpPermission
+Int -&gt; ReadS AwsEc2SecurityGroupIpPermission
+ReadS [AwsEc2SecurityGroupIpPermission]
+(Int -&gt; ReadS AwsEc2SecurityGroupIpPermission)
+-&gt; ReadS [AwsEc2SecurityGroupIpPermission]
+-&gt; ReadPrec AwsEc2SecurityGroupIpPermission
+-&gt; ReadPrec [AwsEc2SecurityGroupIpPermission]
+-&gt; Read AwsEc2SecurityGroupIpPermission
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsEc2SecurityGroupIpPermission]
+$creadListPrec :: ReadPrec [AwsEc2SecurityGroupIpPermission]
+readPrec :: ReadPrec AwsEc2SecurityGroupIpPermission
+$creadPrec :: ReadPrec AwsEc2SecurityGroupIpPermission
+readList :: ReadS [AwsEc2SecurityGroupIpPermission]
+$creadList :: ReadS [AwsEc2SecurityGroupIpPermission]
+readsPrec :: Int -&gt; ReadS AwsEc2SecurityGroupIpPermission
+$creadsPrec :: Int -&gt; ReadS AwsEc2SecurityGroupIpPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679944587"><span id="local-6989586621679944589"><span id="local-6989586621679944591"><span class="annot"><span class="annottext">Int -&gt; AwsEc2SecurityGroupIpPermission -&gt; ShowS
+[AwsEc2SecurityGroupIpPermission] -&gt; ShowS
+AwsEc2SecurityGroupIpPermission -&gt; String
+(Int -&gt; AwsEc2SecurityGroupIpPermission -&gt; ShowS)
+-&gt; (AwsEc2SecurityGroupIpPermission -&gt; String)
+-&gt; ([AwsEc2SecurityGroupIpPermission] -&gt; ShowS)
+-&gt; Show AwsEc2SecurityGroupIpPermission
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsEc2SecurityGroupIpPermission] -&gt; ShowS
+$cshowList :: [AwsEc2SecurityGroupIpPermission] -&gt; ShowS
+show :: AwsEc2SecurityGroupIpPermission -&gt; String
+$cshow :: AwsEc2SecurityGroupIpPermission -&gt; String
+showsPrec :: Int -&gt; AwsEc2SecurityGroupIpPermission -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsEc2SecurityGroupIpPermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsEc2SecurityGroupIpPermission
+ -&gt; Rep AwsEc2SecurityGroupIpPermission x)
+-&gt; (forall x.
+    Rep AwsEc2SecurityGroupIpPermission x
+    -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Generic AwsEc2SecurityGroupIpPermission
+forall x.
+Rep AwsEc2SecurityGroupIpPermission x
+-&gt; AwsEc2SecurityGroupIpPermission
+forall x.
+AwsEc2SecurityGroupIpPermission
+-&gt; Rep AwsEc2SecurityGroupIpPermission x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AwsEc2SecurityGroupIpPermission x
+-&gt; AwsEc2SecurityGroupIpPermission
+$cfrom :: forall x.
+AwsEc2SecurityGroupIpPermission
+-&gt; Rep AwsEc2SecurityGroupIpPermission x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'AwsEc2SecurityGroupIpPermission' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'fromPort', 'awsEc2SecurityGroupIpPermission_fromPort' - The start of the port range for the TCP and UDP protocols, or an</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- ICMP\/ICMPv6 type number.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- A value of -1 indicates all ICMP\/ICMPv6 types. If you specify all</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- ICMP\/ICMPv6 types, you must specify all codes.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'userIdGroupPairs', 'awsEc2SecurityGroupIpPermission_userIdGroupPairs' - The security group and Amazon Web Services account ID pairs.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'prefixListIds', 'awsEc2SecurityGroupIpPermission_prefixListIds' - [VPC only] The prefix list IDs for an Amazon Web Services service. With</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- outbound rules, this is the Amazon Web Services service to access</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- through a VPC endpoint from instances associated with the security</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'ipProtocol', 'awsEc2SecurityGroupIpPermission_ipProtocol' - The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- [VPC only] Use @-1@ to specify all protocols.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- When authorizing security group rules, specifying -1 or a protocol</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- number other than @tcp@, @udp@, @icmp@, or @icmpv6@ allows traffic on</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- all ports, regardless of any port range you specify.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- For @tcp@, @udp@, and @icmp@, you must specify a port range.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- For @icmpv6@, the port range is optional. If you omit the port range,</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- traffic for all types and codes is allowed.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'toPort', 'awsEc2SecurityGroupIpPermission_toPort' - The end of the port range for the TCP and UDP protocols, or an</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- ICMP\/ICMPv6 code.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- A value of -1 indicates all ICMP\/ICMPv6 codes. If you specify all</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- ICMP\/ICMPv6 types, you must specify all codes.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'ipv6Ranges', 'awsEc2SecurityGroupIpPermission_ipv6Ranges' - The IPv6 ranges.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'ipRanges', 'awsEc2SecurityGroupIpPermission_ipRanges' - The IPv4 ranges.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#newAwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">newAwsEc2SecurityGroupIpPermission</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span>
+</span><span id="line-118"></span><span id="newAwsEc2SecurityGroupIpPermission"><span class="annot"><span class="annottext">newAwsEc2SecurityGroupIpPermission :: AwsEc2SecurityGroupIpPermission
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#newAwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-var hs-var">newAwsEc2SecurityGroupIpPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission' :: Maybe Int
+-&gt; Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+-&gt; Maybe [AwsEc2SecurityGroupPrefixListId]
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+-&gt; Maybe [AwsEc2SecurityGroupIpRange]
+-&gt; AwsEc2SecurityGroupIpPermission
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fromPort:AwsEc2SecurityGroupIpPermission' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AfromPort%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">fromPort</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:userIdGroupPairs:AwsEc2SecurityGroupIpPermission' :: Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AuserIdGroupPairs%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">userIdGroupPairs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefixListIds:AwsEc2SecurityGroupIpPermission' :: Maybe [AwsEc2SecurityGroupPrefixListId]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AprefixListIds%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">prefixListIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupPrefixListId]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipProtocol:AwsEc2SecurityGroupIpPermission' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AipProtocol%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">ipProtocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:toPort:AwsEc2SecurityGroupIpPermission' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AtoPort%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">toPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipv6Ranges:AwsEc2SecurityGroupIpPermission' :: Maybe [AwsEc2SecurityGroupIpv6Range]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3Aipv6Ranges%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">ipv6Ranges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupIpv6Range]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipRanges:AwsEc2SecurityGroupIpPermission' :: Maybe [AwsEc2SecurityGroupIpRange]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AipRanges%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">ipRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupIpRange]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The start of the port range for the TCP and UDP protocols, or an</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- ICMP\/ICMPv6 type number.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- A value of -1 indicates all ICMP\/ICMPv6 types. If you specify all</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- ICMP\/ICMPv6 types, you must specify all codes.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#awsEc2SecurityGroupIpPermission_fromPort"><span class="hs-identifier hs-type">awsEc2SecurityGroupIpPermission_fromPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="awsEc2SecurityGroupIpPermission_fromPort"><span class="annot"><span class="annottext">awsEc2SecurityGroupIpPermission_fromPort :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsEc2SecurityGroupIpPermission
+-&gt; f AwsEc2SecurityGroupIpPermission
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#awsEc2SecurityGroupIpPermission_fromPort"><span class="hs-identifier hs-var hs-var">awsEc2SecurityGroupIpPermission_fromPort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2SecurityGroupIpPermission -&gt; Maybe Int)
+-&gt; (AwsEc2SecurityGroupIpPermission
+    -&gt; Maybe Int -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Lens
+     AwsEc2SecurityGroupIpPermission
+     AwsEc2SecurityGroupIpPermission
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944578"><span class="annot"><span class="annottext">Maybe Int
+fromPort :: Maybe Int
+$sel:fromPort:AwsEc2SecurityGroupIpPermission' :: AwsEc2SecurityGroupIpPermission -&gt; Maybe Int
+</span><a href="#local-6989586621679944578"><span class="hs-identifier hs-var hs-var">fromPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679944578"><span class="hs-identifier hs-var">fromPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944577"><span class="annot"><span class="annottext">s :: AwsEc2SecurityGroupIpPermission
+</span><a href="#local-6989586621679944577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944576"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679944576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission
+</span><a href="#local-6989586621679944577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromPort:AwsEc2SecurityGroupIpPermission' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AfromPort%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">fromPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679944576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The security group and Amazon Web Services account ID pairs.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#awsEc2SecurityGroupIpPermission_userIdGroupPairs"><span class="hs-identifier hs-type">awsEc2SecurityGroupIpPermission_userIdGroupPairs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupUserIdGroupPair.html#AwsEc2SecurityGroupUserIdGroupPair"><span class="hs-identifier hs-type">AwsEc2SecurityGroupUserIdGroupPair</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="awsEc2SecurityGroupIpPermission_userIdGroupPairs"><span class="annot"><span class="annottext">awsEc2SecurityGroupIpPermission_userIdGroupPairs :: (Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+ -&gt; f (Maybe [AwsEc2SecurityGroupUserIdGroupPair]))
+-&gt; AwsEc2SecurityGroupIpPermission
+-&gt; f AwsEc2SecurityGroupIpPermission
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#awsEc2SecurityGroupIpPermission_userIdGroupPairs"><span class="hs-identifier hs-var hs-var">awsEc2SecurityGroupIpPermission_userIdGroupPairs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2SecurityGroupIpPermission
+ -&gt; Maybe [AwsEc2SecurityGroupUserIdGroupPair])
+-&gt; (AwsEc2SecurityGroupIpPermission
+    -&gt; Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+    -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Lens
+     AwsEc2SecurityGroupIpPermission
+     AwsEc2SecurityGroupIpPermission
+     (Maybe [AwsEc2SecurityGroupUserIdGroupPair])
+     (Maybe [AwsEc2SecurityGroupUserIdGroupPair])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944574"><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+userIdGroupPairs :: Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+$sel:userIdGroupPairs:AwsEc2SecurityGroupIpPermission' :: AwsEc2SecurityGroupIpPermission
+-&gt; Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+</span><a href="#local-6989586621679944574"><span class="hs-identifier hs-var hs-var">userIdGroupPairs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+</span><a href="#local-6989586621679944574"><span class="hs-identifier hs-var">userIdGroupPairs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944573"><span class="annot"><span class="annottext">s :: AwsEc2SecurityGroupIpPermission
+</span><a href="#local-6989586621679944573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944572"><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+</span><a href="#local-6989586621679944572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission
+</span><a href="#local-6989586621679944573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userIdGroupPairs:AwsEc2SecurityGroupIpPermission' :: Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AuserIdGroupPairs%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">userIdGroupPairs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+</span><a href="#local-6989586621679944572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+  -&gt; f (Maybe [AwsEc2SecurityGroupUserIdGroupPair]))
+ -&gt; AwsEc2SecurityGroupIpPermission
+ -&gt; f AwsEc2SecurityGroupIpPermission)
+-&gt; ((Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+     -&gt; f (Maybe [AwsEc2SecurityGroupUserIdGroupPair]))
+    -&gt; Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+    -&gt; f (Maybe [AwsEc2SecurityGroupUserIdGroupPair]))
+-&gt; (Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+    -&gt; f (Maybe [AwsEc2SecurityGroupUserIdGroupPair]))
+-&gt; AwsEc2SecurityGroupIpPermission
+-&gt; f AwsEc2SecurityGroupIpPermission
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEc2SecurityGroupUserIdGroupPair]
+  [AwsEc2SecurityGroupUserIdGroupPair]
+  [AwsEc2SecurityGroupUserIdGroupPair]
+  [AwsEc2SecurityGroupUserIdGroupPair]
+-&gt; Iso
+     (Maybe [AwsEc2SecurityGroupUserIdGroupPair])
+     (Maybe [AwsEc2SecurityGroupUserIdGroupPair])
+     (Maybe [AwsEc2SecurityGroupUserIdGroupPair])
+     (Maybe [AwsEc2SecurityGroupUserIdGroupPair])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEc2SecurityGroupUserIdGroupPair]
+  [AwsEc2SecurityGroupUserIdGroupPair]
+  [AwsEc2SecurityGroupUserIdGroupPair]
+  [AwsEc2SecurityGroupUserIdGroupPair]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | [VPC only] The prefix list IDs for an Amazon Web Services service. With</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- outbound rules, this is the Amazon Web Services service to access</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- through a VPC endpoint from instances associated with the security</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#awsEc2SecurityGroupIpPermission_prefixListIds"><span class="hs-identifier hs-type">awsEc2SecurityGroupIpPermission_prefixListIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupPrefixListId.html#AwsEc2SecurityGroupPrefixListId"><span class="hs-identifier hs-type">AwsEc2SecurityGroupPrefixListId</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="awsEc2SecurityGroupIpPermission_prefixListIds"><span class="annot"><span class="annottext">awsEc2SecurityGroupIpPermission_prefixListIds :: (Maybe [AwsEc2SecurityGroupPrefixListId]
+ -&gt; f (Maybe [AwsEc2SecurityGroupPrefixListId]))
+-&gt; AwsEc2SecurityGroupIpPermission
+-&gt; f AwsEc2SecurityGroupIpPermission
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#awsEc2SecurityGroupIpPermission_prefixListIds"><span class="hs-identifier hs-var hs-var">awsEc2SecurityGroupIpPermission_prefixListIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2SecurityGroupIpPermission
+ -&gt; Maybe [AwsEc2SecurityGroupPrefixListId])
+-&gt; (AwsEc2SecurityGroupIpPermission
+    -&gt; Maybe [AwsEc2SecurityGroupPrefixListId]
+    -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Lens
+     AwsEc2SecurityGroupIpPermission
+     AwsEc2SecurityGroupIpPermission
+     (Maybe [AwsEc2SecurityGroupPrefixListId])
+     (Maybe [AwsEc2SecurityGroupPrefixListId])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944567"><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupPrefixListId]
+prefixListIds :: Maybe [AwsEc2SecurityGroupPrefixListId]
+$sel:prefixListIds:AwsEc2SecurityGroupIpPermission' :: AwsEc2SecurityGroupIpPermission
+-&gt; Maybe [AwsEc2SecurityGroupPrefixListId]
+</span><a href="#local-6989586621679944567"><span class="hs-identifier hs-var hs-var">prefixListIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupPrefixListId]
+</span><a href="#local-6989586621679944567"><span class="hs-identifier hs-var">prefixListIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944566"><span class="annot"><span class="annottext">s :: AwsEc2SecurityGroupIpPermission
+</span><a href="#local-6989586621679944566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944565"><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupPrefixListId]
+</span><a href="#local-6989586621679944565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission
+</span><a href="#local-6989586621679944566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixListIds:AwsEc2SecurityGroupIpPermission' :: Maybe [AwsEc2SecurityGroupPrefixListId]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AprefixListIds%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">prefixListIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupPrefixListId]
+</span><a href="#local-6989586621679944565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsEc2SecurityGroupPrefixListId]
+  -&gt; f (Maybe [AwsEc2SecurityGroupPrefixListId]))
+ -&gt; AwsEc2SecurityGroupIpPermission
+ -&gt; f AwsEc2SecurityGroupIpPermission)
+-&gt; ((Maybe [AwsEc2SecurityGroupPrefixListId]
+     -&gt; f (Maybe [AwsEc2SecurityGroupPrefixListId]))
+    -&gt; Maybe [AwsEc2SecurityGroupPrefixListId]
+    -&gt; f (Maybe [AwsEc2SecurityGroupPrefixListId]))
+-&gt; (Maybe [AwsEc2SecurityGroupPrefixListId]
+    -&gt; f (Maybe [AwsEc2SecurityGroupPrefixListId]))
+-&gt; AwsEc2SecurityGroupIpPermission
+-&gt; f AwsEc2SecurityGroupIpPermission
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEc2SecurityGroupPrefixListId]
+  [AwsEc2SecurityGroupPrefixListId]
+  [AwsEc2SecurityGroupPrefixListId]
+  [AwsEc2SecurityGroupPrefixListId]
+-&gt; Iso
+     (Maybe [AwsEc2SecurityGroupPrefixListId])
+     (Maybe [AwsEc2SecurityGroupPrefixListId])
+     (Maybe [AwsEc2SecurityGroupPrefixListId])
+     (Maybe [AwsEc2SecurityGroupPrefixListId])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEc2SecurityGroupPrefixListId]
+  [AwsEc2SecurityGroupPrefixListId]
+  [AwsEc2SecurityGroupPrefixListId]
+  [AwsEc2SecurityGroupPrefixListId]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- [VPC only] Use @-1@ to specify all protocols.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- When authorizing security group rules, specifying -1 or a protocol</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- number other than @tcp@, @udp@, @icmp@, or @icmpv6@ allows traffic on</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- all ports, regardless of any port range you specify.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- For @tcp@, @udp@, and @icmp@, you must specify a port range.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- For @icmpv6@, the port range is optional. If you omit the port range,</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- traffic for all types and codes is allowed.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#awsEc2SecurityGroupIpPermission_ipProtocol"><span class="hs-identifier hs-type">awsEc2SecurityGroupIpPermission_ipProtocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="awsEc2SecurityGroupIpPermission_ipProtocol"><span class="annot"><span class="annottext">awsEc2SecurityGroupIpPermission_ipProtocol :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEc2SecurityGroupIpPermission
+-&gt; f AwsEc2SecurityGroupIpPermission
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#awsEc2SecurityGroupIpPermission_ipProtocol"><span class="hs-identifier hs-var hs-var">awsEc2SecurityGroupIpPermission_ipProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2SecurityGroupIpPermission -&gt; Maybe Text)
+-&gt; (AwsEc2SecurityGroupIpPermission
+    -&gt; Maybe Text -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Lens
+     AwsEc2SecurityGroupIpPermission
+     AwsEc2SecurityGroupIpPermission
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944563"><span class="annot"><span class="annottext">Maybe Text
+ipProtocol :: Maybe Text
+$sel:ipProtocol:AwsEc2SecurityGroupIpPermission' :: AwsEc2SecurityGroupIpPermission -&gt; Maybe Text
+</span><a href="#local-6989586621679944563"><span class="hs-identifier hs-var hs-var">ipProtocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944563"><span class="hs-identifier hs-var">ipProtocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944562"><span class="annot"><span class="annottext">s :: AwsEc2SecurityGroupIpPermission
+</span><a href="#local-6989586621679944562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944561"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission
+</span><a href="#local-6989586621679944562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipProtocol:AwsEc2SecurityGroupIpPermission' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AipProtocol%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">ipProtocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The end of the port range for the TCP and UDP protocols, or an</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- ICMP\/ICMPv6 code.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- A value of -1 indicates all ICMP\/ICMPv6 codes. If you specify all</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- ICMP\/ICMPv6 types, you must specify all codes.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#awsEc2SecurityGroupIpPermission_toPort"><span class="hs-identifier hs-type">awsEc2SecurityGroupIpPermission_toPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="awsEc2SecurityGroupIpPermission_toPort"><span class="annot"><span class="annottext">awsEc2SecurityGroupIpPermission_toPort :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsEc2SecurityGroupIpPermission
+-&gt; f AwsEc2SecurityGroupIpPermission
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#awsEc2SecurityGroupIpPermission_toPort"><span class="hs-identifier hs-var hs-var">awsEc2SecurityGroupIpPermission_toPort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2SecurityGroupIpPermission -&gt; Maybe Int)
+-&gt; (AwsEc2SecurityGroupIpPermission
+    -&gt; Maybe Int -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Lens
+     AwsEc2SecurityGroupIpPermission
+     AwsEc2SecurityGroupIpPermission
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944559"><span class="annot"><span class="annottext">Maybe Int
+toPort :: Maybe Int
+$sel:toPort:AwsEc2SecurityGroupIpPermission' :: AwsEc2SecurityGroupIpPermission -&gt; Maybe Int
+</span><a href="#local-6989586621679944559"><span class="hs-identifier hs-var hs-var">toPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679944559"><span class="hs-identifier hs-var">toPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944558"><span class="annot"><span class="annottext">s :: AwsEc2SecurityGroupIpPermission
+</span><a href="#local-6989586621679944558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944557"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679944557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission
+</span><a href="#local-6989586621679944558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:toPort:AwsEc2SecurityGroupIpPermission' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AtoPort%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">toPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679944557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The IPv6 ranges.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#awsEc2SecurityGroupIpPermission_ipv6Ranges"><span class="hs-identifier hs-type">awsEc2SecurityGroupIpPermission_ipv6Ranges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpv6Range.html#AwsEc2SecurityGroupIpv6Range"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpv6Range</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="awsEc2SecurityGroupIpPermission_ipv6Ranges"><span class="annot"><span class="annottext">awsEc2SecurityGroupIpPermission_ipv6Ranges :: (Maybe [AwsEc2SecurityGroupIpv6Range]
+ -&gt; f (Maybe [AwsEc2SecurityGroupIpv6Range]))
+-&gt; AwsEc2SecurityGroupIpPermission
+-&gt; f AwsEc2SecurityGroupIpPermission
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#awsEc2SecurityGroupIpPermission_ipv6Ranges"><span class="hs-identifier hs-var hs-var">awsEc2SecurityGroupIpPermission_ipv6Ranges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2SecurityGroupIpPermission
+ -&gt; Maybe [AwsEc2SecurityGroupIpv6Range])
+-&gt; (AwsEc2SecurityGroupIpPermission
+    -&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+    -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Lens
+     AwsEc2SecurityGroupIpPermission
+     AwsEc2SecurityGroupIpPermission
+     (Maybe [AwsEc2SecurityGroupIpv6Range])
+     (Maybe [AwsEc2SecurityGroupIpv6Range])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944555"><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupIpv6Range]
+ipv6Ranges :: Maybe [AwsEc2SecurityGroupIpv6Range]
+$sel:ipv6Ranges:AwsEc2SecurityGroupIpPermission' :: AwsEc2SecurityGroupIpPermission
+-&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+</span><a href="#local-6989586621679944555"><span class="hs-identifier hs-var hs-var">ipv6Ranges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupIpv6Range]
+</span><a href="#local-6989586621679944555"><span class="hs-identifier hs-var">ipv6Ranges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944554"><span class="annot"><span class="annottext">s :: AwsEc2SecurityGroupIpPermission
+</span><a href="#local-6989586621679944554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944553"><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupIpv6Range]
+</span><a href="#local-6989586621679944553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission
+</span><a href="#local-6989586621679944554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6Ranges:AwsEc2SecurityGroupIpPermission' :: Maybe [AwsEc2SecurityGroupIpv6Range]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3Aipv6Ranges%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">ipv6Ranges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupIpv6Range]
+</span><a href="#local-6989586621679944553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsEc2SecurityGroupIpv6Range]
+  -&gt; f (Maybe [AwsEc2SecurityGroupIpv6Range]))
+ -&gt; AwsEc2SecurityGroupIpPermission
+ -&gt; f AwsEc2SecurityGroupIpPermission)
+-&gt; ((Maybe [AwsEc2SecurityGroupIpv6Range]
+     -&gt; f (Maybe [AwsEc2SecurityGroupIpv6Range]))
+    -&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+    -&gt; f (Maybe [AwsEc2SecurityGroupIpv6Range]))
+-&gt; (Maybe [AwsEc2SecurityGroupIpv6Range]
+    -&gt; f (Maybe [AwsEc2SecurityGroupIpv6Range]))
+-&gt; AwsEc2SecurityGroupIpPermission
+-&gt; f AwsEc2SecurityGroupIpPermission
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEc2SecurityGroupIpv6Range]
+  [AwsEc2SecurityGroupIpv6Range]
+  [AwsEc2SecurityGroupIpv6Range]
+  [AwsEc2SecurityGroupIpv6Range]
+-&gt; Iso
+     (Maybe [AwsEc2SecurityGroupIpv6Range])
+     (Maybe [AwsEc2SecurityGroupIpv6Range])
+     (Maybe [AwsEc2SecurityGroupIpv6Range])
+     (Maybe [AwsEc2SecurityGroupIpv6Range])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEc2SecurityGroupIpv6Range]
+  [AwsEc2SecurityGroupIpv6Range]
+  [AwsEc2SecurityGroupIpv6Range]
+  [AwsEc2SecurityGroupIpv6Range]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The IPv4 ranges.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#awsEc2SecurityGroupIpPermission_ipRanges"><span class="hs-identifier hs-type">awsEc2SecurityGroupIpPermission_ipRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpRange.html#AwsEc2SecurityGroupIpRange"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpRange</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="awsEc2SecurityGroupIpPermission_ipRanges"><span class="annot"><span class="annottext">awsEc2SecurityGroupIpPermission_ipRanges :: (Maybe [AwsEc2SecurityGroupIpRange]
+ -&gt; f (Maybe [AwsEc2SecurityGroupIpRange]))
+-&gt; AwsEc2SecurityGroupIpPermission
+-&gt; f AwsEc2SecurityGroupIpPermission
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#awsEc2SecurityGroupIpPermission_ipRanges"><span class="hs-identifier hs-var hs-var">awsEc2SecurityGroupIpPermission_ipRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2SecurityGroupIpPermission
+ -&gt; Maybe [AwsEc2SecurityGroupIpRange])
+-&gt; (AwsEc2SecurityGroupIpPermission
+    -&gt; Maybe [AwsEc2SecurityGroupIpRange]
+    -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Lens
+     AwsEc2SecurityGroupIpPermission
+     AwsEc2SecurityGroupIpPermission
+     (Maybe [AwsEc2SecurityGroupIpRange])
+     (Maybe [AwsEc2SecurityGroupIpRange])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944551"><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupIpRange]
+ipRanges :: Maybe [AwsEc2SecurityGroupIpRange]
+$sel:ipRanges:AwsEc2SecurityGroupIpPermission' :: AwsEc2SecurityGroupIpPermission
+-&gt; Maybe [AwsEc2SecurityGroupIpRange]
+</span><a href="#local-6989586621679944551"><span class="hs-identifier hs-var hs-var">ipRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupIpRange]
+</span><a href="#local-6989586621679944551"><span class="hs-identifier hs-var">ipRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944550"><span class="annot"><span class="annottext">s :: AwsEc2SecurityGroupIpPermission
+</span><a href="#local-6989586621679944550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944549"><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupIpRange]
+</span><a href="#local-6989586621679944549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2SecurityGroupIpPermission
+</span><a href="#local-6989586621679944550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipRanges:AwsEc2SecurityGroupIpPermission' :: Maybe [AwsEc2SecurityGroupIpRange]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#%24sel%3AipRanges%3AAwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">ipRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupIpRange]
+</span><a href="#local-6989586621679944549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsEc2SecurityGroupIpRange]
+  -&gt; f (Maybe [AwsEc2SecurityGroupIpRange]))
+ -&gt; AwsEc2SecurityGroupIpPermission
+ -&gt; f AwsEc2SecurityGroupIpPermission)
+-&gt; ((Maybe [AwsEc2SecurityGroupIpRange]
+     -&gt; f (Maybe [AwsEc2SecurityGroupIpRange]))
+    -&gt; Maybe [AwsEc2SecurityGroupIpRange]
+    -&gt; f (Maybe [AwsEc2SecurityGroupIpRange]))
+-&gt; (Maybe [AwsEc2SecurityGroupIpRange]
+    -&gt; f (Maybe [AwsEc2SecurityGroupIpRange]))
+-&gt; AwsEc2SecurityGroupIpPermission
+-&gt; f AwsEc2SecurityGroupIpPermission
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEc2SecurityGroupIpRange]
+  [AwsEc2SecurityGroupIpRange]
+  [AwsEc2SecurityGroupIpRange]
+  [AwsEc2SecurityGroupIpRange]
+-&gt; Iso
+     (Maybe [AwsEc2SecurityGroupIpRange])
+     (Maybe [AwsEc2SecurityGroupIpRange])
+     (Maybe [AwsEc2SecurityGroupIpRange])
+     (Maybe [AwsEc2SecurityGroupIpRange])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEc2SecurityGroupIpRange]
+  [AwsEc2SecurityGroupIpRange]
+  [AwsEc2SecurityGroupIpRange]
+  [AwsEc2SecurityGroupIpRange]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679944546"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679944544"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsEc2SecurityGroupIpPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsEc2SecurityGroupIpPermission)
+-&gt; Value
+-&gt; Parser AwsEc2SecurityGroupIpPermission
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsEc2SecurityGroupIpPermission&quot;</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679944541"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944541"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+-&gt; Maybe [AwsEc2SecurityGroupPrefixListId]
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+-&gt; Maybe [AwsEc2SecurityGroupIpRange]
+-&gt; AwsEc2SecurityGroupIpPermission
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-var">AwsEc2SecurityGroupIpPermission'</span></a></span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+ -&gt; Maybe [AwsEc2SecurityGroupPrefixListId]
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+ -&gt; Maybe [AwsEc2SecurityGroupIpRange]
+ -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+      -&gt; Maybe [AwsEc2SecurityGroupPrefixListId]
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+      -&gt; Maybe [AwsEc2SecurityGroupIpRange]
+      -&gt; AwsEc2SecurityGroupIpPermission)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FromPort&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+   -&gt; Maybe [AwsEc2SecurityGroupPrefixListId]
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+   -&gt; Maybe [AwsEc2SecurityGroupIpRange]
+   -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Parser (Maybe [AwsEc2SecurityGroupUserIdGroupPair])
+-&gt; Parser
+     (Maybe [AwsEc2SecurityGroupPrefixListId]
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+      -&gt; Maybe [AwsEc2SecurityGroupIpRange]
+      -&gt; AwsEc2SecurityGroupIpPermission)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe [AwsEc2SecurityGroupUserIdGroupPair]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserIdGroupPairs&quot;</span></span><span>
+</span><span id="line-191"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AwsEc2SecurityGroupUserIdGroupPair]))
+-&gt; Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+-&gt; Parser (Maybe [AwsEc2SecurityGroupUserIdGroupPair])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-192"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AwsEc2SecurityGroupPrefixListId]
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+   -&gt; Maybe [AwsEc2SecurityGroupIpRange]
+   -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Parser (Maybe [AwsEc2SecurityGroupPrefixListId])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+      -&gt; Maybe [AwsEc2SecurityGroupIpRange]
+      -&gt; AwsEc2SecurityGroupIpPermission)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [AwsEc2SecurityGroupPrefixListId]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrefixListIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AwsEc2SecurityGroupPrefixListId]))
+-&gt; Maybe [AwsEc2SecurityGroupPrefixListId]
+-&gt; Parser (Maybe [AwsEc2SecurityGroupPrefixListId])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupPrefixListId]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+   -&gt; Maybe [AwsEc2SecurityGroupIpRange]
+   -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+      -&gt; Maybe [AwsEc2SecurityGroupIpRange]
+      -&gt; AwsEc2SecurityGroupIpPermission)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpProtocol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+   -&gt; Maybe [AwsEc2SecurityGroupIpRange]
+   -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe [AwsEc2SecurityGroupIpv6Range]
+      -&gt; Maybe [AwsEc2SecurityGroupIpRange]
+      -&gt; AwsEc2SecurityGroupIpPermission)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ToPort&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AwsEc2SecurityGroupIpv6Range]
+   -&gt; Maybe [AwsEc2SecurityGroupIpRange]
+   -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Parser (Maybe [AwsEc2SecurityGroupIpv6Range])
+-&gt; Parser
+     (Maybe [AwsEc2SecurityGroupIpRange]
+      -&gt; AwsEc2SecurityGroupIpPermission)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [AwsEc2SecurityGroupIpv6Range]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Ipv6Ranges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AwsEc2SecurityGroupIpv6Range]))
+-&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+-&gt; Parser (Maybe [AwsEc2SecurityGroupIpv6Range])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupIpv6Range]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AwsEc2SecurityGroupIpRange]
+   -&gt; AwsEc2SecurityGroupIpPermission)
+-&gt; Parser (Maybe [AwsEc2SecurityGroupIpRange])
+-&gt; Parser AwsEc2SecurityGroupIpPermission
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [AwsEc2SecurityGroupIpRange]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AwsEc2SecurityGroupIpRange]))
+-&gt; Maybe [AwsEc2SecurityGroupIpRange]
+-&gt; Parser (Maybe [AwsEc2SecurityGroupIpRange])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupIpRange]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679944534"><span id="local-6989586621679944536"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span></span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679944531"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679944523"><span id="local-6989586621679944525"><span id="local-6989586621679944527"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679944521"><span class="annot"><span class="annottext">toJSON :: AwsEc2SecurityGroupIpPermission -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupIpPermission.html#AwsEc2SecurityGroupIpPermission%27"><span class="hs-identifier hs-type">AwsEc2SecurityGroupIpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944513"><span id="local-6989586621679944514"><span id="local-6989586621679944515"><span id="local-6989586621679944516"><span id="local-6989586621679944517"><span id="local-6989586621679944518"><span id="local-6989586621679944519"><span class="annot"><span class="annottext">Maybe Int
+Maybe [AwsEc2SecurityGroupIpRange]
+Maybe [AwsEc2SecurityGroupIpv6Range]
+Maybe [AwsEc2SecurityGroupPrefixListId]
+Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+Maybe Text
+ipRanges :: Maybe [AwsEc2SecurityGroupIpRange]
+ipv6Ranges :: Maybe [AwsEc2SecurityGroupIpv6Range]
+toPort :: Maybe Int
+ipProtocol :: Maybe Text
+prefixListIds :: Maybe [AwsEc2SecurityGroupPrefixListId]
+userIdGroupPairs :: Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+fromPort :: Maybe Int
+$sel:ipRanges:AwsEc2SecurityGroupIpPermission' :: AwsEc2SecurityGroupIpPermission
+-&gt; Maybe [AwsEc2SecurityGroupIpRange]
+$sel:ipv6Ranges:AwsEc2SecurityGroupIpPermission' :: AwsEc2SecurityGroupIpPermission
+-&gt; Maybe [AwsEc2SecurityGroupIpv6Range]
+$sel:toPort:AwsEc2SecurityGroupIpPermission' :: AwsEc2SecurityGroupIpPermission -&gt; Maybe Int
+$sel:ipProtocol:AwsEc2SecurityGroupIpPermission' :: AwsEc2SecurityGroupIpPermission -&gt; Maybe Text
+$sel:prefixListIds:AwsEc2SecurityGroupIpPermission' :: AwsEc2SecurityGroupIpPermission
+-&gt; Maybe [AwsEc2SecurityGroupPrefixListId]
+$sel:userIdGroupPairs:AwsEc2SecurityGroupIpPermission' :: AwsEc2SecurityGroupIpPermission
+-&gt; Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+$sel:fromPort:AwsEc2SecurityGroupIpPermission' :: AwsEc2SecurityGroupIpPermission -&gt; Maybe Int
+</span><a href="#local-6989586621679944513"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-212"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FromPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679944519"><span class="hs-identifier hs-var">fromPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserIdGroupPairs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsEc2SecurityGroupUserIdGroupPair] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>              </span><span class="annot"><span class="annottext">([AwsEc2SecurityGroupUserIdGroupPair] -&gt; Pair)
+-&gt; Maybe [AwsEc2SecurityGroupUserIdGroupPair] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupUserIdGroupPair]
+</span><a href="#local-6989586621679944518"><span class="hs-identifier hs-var">userIdGroupPairs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrefixListIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsEc2SecurityGroupPrefixListId] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([AwsEc2SecurityGroupPrefixListId] -&gt; Pair)
+-&gt; Maybe [AwsEc2SecurityGroupPrefixListId] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupPrefixListId]
+</span><a href="#local-6989586621679944517"><span class="hs-identifier hs-var">prefixListIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpProtocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944516"><span class="hs-identifier hs-var">ipProtocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ToPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679944515"><span class="hs-identifier hs-var">toPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Ipv6Ranges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsEc2SecurityGroupIpv6Range] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([AwsEc2SecurityGroupIpv6Range] -&gt; Pair)
+-&gt; Maybe [AwsEc2SecurityGroupIpv6Range] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupIpv6Range]
+</span><a href="#local-6989586621679944514"><span class="hs-identifier hs-var">ipv6Ranges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsEc2SecurityGroupIpRange] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([AwsEc2SecurityGroupIpRange] -&gt; Pair)
+-&gt; Maybe [AwsEc2SecurityGroupIpRange] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2SecurityGroupIpRange]
+</span><a href="#local-6989586621679944513"><span class="hs-identifier hs-var">ipRanges</span></a></span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span></pre></body></html>

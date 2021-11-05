@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- extract, transform and load (ETL) service.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGlueConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679255850"><span id="local-6989586621679255851"></span></span><span class="hs-keyword">data</span><span> </span><span id="GlueConfiguration"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-var">GlueConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GlueConfiguration%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration%27"><span class="hs-identifier hs-var">GlueConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679255859"><span id="local-6989586621679255860"></span></span><span class="hs-keyword">data</span><span> </span><span id="GlueConfiguration"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-var">GlueConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GlueConfiguration%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration%27"><span class="hs-identifier hs-var">GlueConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the table in your Glue Data Catalog that is used to perform</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the ETL operations. An Glue Data Catalog table contains partitioned data</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- and descriptions of data sources and targets.</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AdatabaseName%3AGlueConfiguration%27"><span class="annot"><span class="annottext">GlueConfiguration -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#%24sel%3AdatabaseName%3AGlueConfiguration%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255843"><span id="local-6989586621679255845"><span class="annot"><span class="annottext">GlueConfiguration -&gt; GlueConfiguration -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255852"><span id="local-6989586621679255854"><span class="annot"><span class="annottext">GlueConfiguration -&gt; GlueConfiguration -&gt; Bool
 (GlueConfiguration -&gt; GlueConfiguration -&gt; Bool)
 -&gt; (GlueConfiguration -&gt; GlueConfiguration -&gt; Bool)
 -&gt; Eq GlueConfiguration
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GlueConfiguration -&gt; GlueConfiguration -&gt; Bool
 == :: GlueConfiguration -&gt; GlueConfiguration -&gt; Bool
 $c== :: GlueConfiguration -&gt; GlueConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255834"><span id="local-6989586621679255836"><span id="local-6989586621679255838"><span id="local-6989586621679255840"><span class="annot"><span class="annottext">ReadPrec [GlueConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255843"><span id="local-6989586621679255845"><span id="local-6989586621679255847"><span id="local-6989586621679255849"><span class="annot"><span class="annottext">ReadPrec [GlueConfiguration]
 ReadPrec GlueConfiguration
 Int -&gt; ReadS GlueConfiguration
 ReadS [GlueConfiguration]
@@ -67,7 +67,7 @@ readList :: ReadS [GlueConfiguration]
 $creadList :: ReadS [GlueConfiguration]
 readsPrec :: Int -&gt; ReadS GlueConfiguration
 $creadsPrec :: Int -&gt; ReadS GlueConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255827"><span id="local-6989586621679255829"><span id="local-6989586621679255831"><span class="annot"><span class="annottext">Int -&gt; GlueConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255836"><span id="local-6989586621679255838"><span id="local-6989586621679255840"><span class="annot"><span class="annottext">Int -&gt; GlueConfiguration -&gt; ShowS
 [GlueConfiguration] -&gt; ShowS
 GlueConfiguration -&gt; String
 (Int -&gt; GlueConfiguration -&gt; ShowS)
@@ -114,17 +114,17 @@ $cfrom :: forall x. GlueConfiguration -&gt; Rep GlueConfiguration x
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-type">GlueConfiguration</span></a></span><span>
 </span><span id="line-61"></span><span id="newGlueConfiguration"><span class="annot"><span class="annottext">newGlueConfiguration :: Text -&gt; Text -&gt; GlueConfiguration
-</span><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#newGlueConfiguration"><span class="hs-identifier hs-var hs-var">newGlueConfiguration</span></a></span></span><span> </span><span id="local-6989586621679255821"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255821"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span id="local-6989586621679255820"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255820"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#newGlueConfiguration"><span class="hs-identifier hs-var hs-var">newGlueConfiguration</span></a></span></span><span> </span><span id="local-6989586621679255830"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255830"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span id="local-6989586621679255829"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255829"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">GlueConfiguration' :: Text -&gt; Text -&gt; GlueConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration%27"><span class="hs-identifier hs-type">GlueConfiguration'</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tableName:GlueConfiguration' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#%24sel%3AtableName%3AGlueConfiguration%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255821"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679255830"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:GlueConfiguration' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#%24sel%3AdatabaseName%3AGlueConfiguration%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255820"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span>
+</span><a href="#local-6989586621679255829"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The name of the table in your Glue Data Catalog that is used to perform</span><span>
@@ -136,16 +136,16 @@ $cfrom :: forall x. GlueConfiguration -&gt; Rep GlueConfiguration x
 -&gt; (GlueConfiguration -&gt; Text -&gt; GlueConfiguration)
 -&gt; Lens GlueConfiguration GlueConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration%27"><span class="hs-identifier hs-type">GlueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255816"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration%27"><span class="hs-identifier hs-type">GlueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255825"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:GlueConfiguration' :: GlueConfiguration -&gt; Text
-</span><a href="#local-6989586621679255816"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255816"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255815"><span class="annot"><span class="annottext">s :: GlueConfiguration
-</span><a href="#local-6989586621679255815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration%27"><span class="hs-identifier hs-type">GlueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255814"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlueConfiguration
-</span><a href="#local-6989586621679255815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:GlueConfiguration' :: Text
+</span><a href="#local-6989586621679255825"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255825"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255824"><span class="annot"><span class="annottext">s :: GlueConfiguration
+</span><a href="#local-6989586621679255824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration%27"><span class="hs-identifier hs-type">GlueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255823"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlueConfiguration
+</span><a href="#local-6989586621679255824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:GlueConfiguration' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#%24sel%3AtableName%3AGlueConfiguration%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-type">GlueConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-type">GlueConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The name of the database in your Glue Data Catalog in which the table is</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- located. An Glue Data Catalog database contains metadata tables.</span><span>
@@ -155,19 +155,19 @@ $sel:tableName:GlueConfiguration' :: GlueConfiguration -&gt; Text
 -&gt; (GlueConfiguration -&gt; Text -&gt; GlueConfiguration)
 -&gt; Lens GlueConfiguration GlueConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration%27"><span class="hs-identifier hs-type">GlueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255812"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration%27"><span class="hs-identifier hs-type">GlueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255821"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:GlueConfiguration' :: GlueConfiguration -&gt; Text
-</span><a href="#local-6989586621679255812"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255812"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255811"><span class="annot"><span class="annottext">s :: GlueConfiguration
-</span><a href="#local-6989586621679255811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration%27"><span class="hs-identifier hs-type">GlueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255810"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlueConfiguration
-</span><a href="#local-6989586621679255811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:GlueConfiguration' :: Text
+</span><a href="#local-6989586621679255821"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255821"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255820"><span class="annot"><span class="annottext">s :: GlueConfiguration
+</span><a href="#local-6989586621679255820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration%27"><span class="hs-identifier hs-type">GlueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255819"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlueConfiguration
+</span><a href="#local-6989586621679255820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:GlueConfiguration' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#%24sel%3AdatabaseName%3AGlueConfiguration%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-type">GlueConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-type">GlueConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255807"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-type">GlueConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679255805"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GlueConfiguration
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255816"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-type">GlueConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679255814"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GlueConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GlueConfiguration)
@@ -177,15 +177,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GlueConfiguration&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255802"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255802"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255811"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255811"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; GlueConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration%27"><span class="hs-identifier hs-var">GlueConfiguration'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; GlueConfiguration)
 -&gt; Parser Text -&gt; Parser (Text -&gt; GlueConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679255811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tableName&quot;</span></span><span class="hs-special">)</span><span>
@@ -193,24 +193,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser GlueConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679255811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;databaseName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255796"><span id="local-6989586621679255798"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-type">GlueConfiguration</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255805"><span id="local-6989586621679255807"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-type">GlueConfiguration</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-type">GlueConfiguration</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255802"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-type">GlueConfiguration</span></a></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255785"><span id="local-6989586621679255787"><span id="local-6989586621679255789"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-type">GlueConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679255783"><span class="annot"><span class="annottext">toJSON :: GlueConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration%27"><span class="hs-identifier hs-type">GlueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255780"><span id="local-6989586621679255781"><span class="annot"><span class="annottext">Text
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255794"><span id="local-6989586621679255796"><span id="local-6989586621679255798"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration"><span class="hs-identifier hs-type">GlueConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679255792"><span class="annot"><span class="annottext">toJSON :: GlueConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.GlueConfiguration.html#GlueConfiguration%27"><span class="hs-identifier hs-type">GlueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255789"><span id="local-6989586621679255790"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 tableName :: Text
 $sel:databaseName:GlueConfiguration' :: GlueConfiguration -&gt; Text
 $sel:tableName:GlueConfiguration' :: GlueConfiguration -&gt; Text
-</span><a href="#local-6989586621679255780"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679255789"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -222,14 +222,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;tableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255781"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679255790"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;databaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255780"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255789"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newReleaseStaticIp' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679632257"><span id="local-6989586621679632258"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReleaseStaticIp"><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-var">ReleaseStaticIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReleaseStaticIp%27"><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp%27"><span class="hs-identifier hs-var">ReleaseStaticIp'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679632266"><span id="local-6989586621679632267"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReleaseStaticIp"><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-var">ReleaseStaticIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReleaseStaticIp%27"><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp%27"><span class="hs-identifier hs-var">ReleaseStaticIp'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the static IP to delete.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AstaticIpName%3AReleaseStaticIp%27"><span class="annot"><span class="annottext">ReleaseStaticIp -&gt; Text
 </span><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#%24sel%3AstaticIpName%3AReleaseStaticIp%27"><span class="hs-identifier hs-var hs-var">staticIpName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632251"><span id="local-6989586621679632253"><span class="annot"><span class="annottext">ReleaseStaticIp -&gt; ReleaseStaticIp -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632260"><span id="local-6989586621679632262"><span class="annot"><span class="annottext">ReleaseStaticIp -&gt; ReleaseStaticIp -&gt; Bool
 (ReleaseStaticIp -&gt; ReleaseStaticIp -&gt; Bool)
 -&gt; (ReleaseStaticIp -&gt; ReleaseStaticIp -&gt; Bool)
 -&gt; Eq ReleaseStaticIp
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReleaseStaticIp -&gt; ReleaseStaticIp -&gt; Bool
 == :: ReleaseStaticIp -&gt; ReleaseStaticIp -&gt; Bool
 $c== :: ReleaseStaticIp -&gt; ReleaseStaticIp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632242"><span id="local-6989586621679632244"><span id="local-6989586621679632246"><span id="local-6989586621679632248"><span class="annot"><span class="annottext">ReadPrec [ReleaseStaticIp]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632251"><span id="local-6989586621679632253"><span id="local-6989586621679632255"><span id="local-6989586621679632257"><span class="annot"><span class="annottext">ReadPrec [ReleaseStaticIp]
 ReadPrec ReleaseStaticIp
 Int -&gt; ReadS ReleaseStaticIp
 ReadS [ReleaseStaticIp]
@@ -81,7 +81,7 @@ readList :: ReadS [ReleaseStaticIp]
 $creadList :: ReadS [ReleaseStaticIp]
 readsPrec :: Int -&gt; ReadS ReleaseStaticIp
 $creadsPrec :: Int -&gt; ReadS ReleaseStaticIp
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632235"><span id="local-6989586621679632237"><span id="local-6989586621679632239"><span class="annot"><span class="annottext">Int -&gt; ReleaseStaticIp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632244"><span id="local-6989586621679632246"><span id="local-6989586621679632248"><span class="annot"><span class="annottext">Int -&gt; ReleaseStaticIp -&gt; ShowS
 [ReleaseStaticIp] -&gt; ShowS
 ReleaseStaticIp -&gt; String
 (Int -&gt; ReleaseStaticIp -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. ReleaseStaticIp -&gt; Rep ReleaseStaticIp x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span><span>
 </span><span id="line-69"></span><span id="newReleaseStaticIp"><span class="annot"><span class="annottext">newReleaseStaticIp :: Text -&gt; ReleaseStaticIp
-</span><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#newReleaseStaticIp"><span class="hs-identifier hs-var hs-var">newReleaseStaticIp</span></a></span></span><span> </span><span id="local-6989586621679632230"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632230"><span class="hs-identifier hs-var">pStaticIpName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#newReleaseStaticIp"><span class="hs-identifier hs-var hs-var">newReleaseStaticIp</span></a></span></span><span> </span><span id="local-6989586621679632239"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632239"><span class="hs-identifier hs-var">pStaticIpName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">ReleaseStaticIp' :: Text -&gt; ReleaseStaticIp
 </span><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp%27"><span class="hs-identifier hs-type">ReleaseStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticIpName:ReleaseStaticIp' :: Text
 </span><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#%24sel%3AstaticIpName%3AReleaseStaticIp%27"><span class="hs-identifier hs-var">staticIpName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632230"><span class="hs-identifier hs-var">pStaticIpName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679632239"><span class="hs-identifier hs-var">pStaticIpName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the static IP to delete.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#releaseStaticIp_staticIpName"><span class="hs-identifier hs-type">releaseStaticIp_staticIpName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,27 +135,27 @@ $cfrom :: forall x. ReleaseStaticIp -&gt; Rep ReleaseStaticIp x
 -&gt; (ReleaseStaticIp -&gt; Text -&gt; ReleaseStaticIp)
 -&gt; Lens ReleaseStaticIp ReleaseStaticIp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp%27"><span class="hs-identifier hs-type">ReleaseStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632227"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp%27"><span class="hs-identifier hs-type">ReleaseStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632236"><span class="annot"><span class="annottext">Text
 staticIpName :: Text
 $sel:staticIpName:ReleaseStaticIp' :: ReleaseStaticIp -&gt; Text
-</span><a href="#local-6989586621679632227"><span class="hs-identifier hs-var hs-var">staticIpName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632227"><span class="hs-identifier hs-var">staticIpName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632226"><span class="annot"><span class="annottext">s :: ReleaseStaticIp
-</span><a href="#local-6989586621679632226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp%27"><span class="hs-identifier hs-type">ReleaseStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632225"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseStaticIp
-</span><a href="#local-6989586621679632226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticIpName:ReleaseStaticIp' :: Text
+</span><a href="#local-6989586621679632236"><span class="hs-identifier hs-var hs-var">staticIpName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632236"><span class="hs-identifier hs-var">staticIpName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632235"><span class="annot"><span class="annottext">s :: ReleaseStaticIp
+</span><a href="#local-6989586621679632235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp%27"><span class="hs-identifier hs-type">ReleaseStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632234"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseStaticIp
+</span><a href="#local-6989586621679632235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticIpName:ReleaseStaticIp' :: Text
 </span><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#%24sel%3AstaticIpName%3AReleaseStaticIp%27"><span class="hs-identifier hs-var">staticIpName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679632234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse"><span class="hs-identifier hs-type">ReleaseStaticIpResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679632221"><span class="annot"><span class="annottext">request :: ReleaseStaticIp -&gt; Request ReleaseStaticIp
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679632230"><span class="annot"><span class="annottext">request :: ReleaseStaticIp -&gt; Request ReleaseStaticIp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ReleaseStaticIp -&gt; Request ReleaseStaticIp
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679632217"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679632226"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ReleaseStaticIp
 -&gt; ClientResponse ClientBody
@@ -179,10 +179,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679632214"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632214"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679632213"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679632213"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679632212"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679632212"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679632223"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632223"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679632222"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679632222"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679632221"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679632221"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; ReleaseStaticIpResponse
 </span><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse%27"><span class="hs-identifier hs-var">ReleaseStaticIpResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; ReleaseStaticIpResponse)
@@ -190,7 +190,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ReleaseStaticIpResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679632212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679632221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -207,15 +207,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632214"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679632223"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632203"><span id="local-6989586621679632205"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632212"><span id="local-6989586621679632214"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632200"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632209"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679632196"><span class="annot"><span class="annottext">toHeaders :: ReleaseStaticIp -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679632205"><span class="annot"><span class="annottext">toHeaders :: ReleaseStaticIp -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ReleaseStaticIp -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -242,12 +242,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632186"><span id="local-6989586621679632188"><span id="local-6989586621679632190"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679632184"><span class="annot"><span class="annottext">toJSON :: ReleaseStaticIp -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp%27"><span class="hs-identifier hs-type">ReleaseStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632182"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632195"><span id="local-6989586621679632197"><span id="local-6989586621679632199"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679632193"><span class="annot"><span class="annottext">toJSON :: ReleaseStaticIp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp%27"><span class="hs-identifier hs-type">ReleaseStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632191"><span class="annot"><span class="annottext">Text
 staticIpName :: Text
 $sel:staticIpName:ReleaseStaticIp' :: ReleaseStaticIp -&gt; Text
-</span><a href="#local-6989586621679632182"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679632191"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -259,18 +259,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;staticIpName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632182"><span class="hs-identifier hs-var">staticIpName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679632191"><span class="hs-identifier hs-var">staticIpName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679632176"><span class="annot"><span class="annottext">toPath :: ReleaseStaticIp -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679632185"><span class="annot"><span class="annottext">toPath :: ReleaseStaticIp -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ReleaseStaticIp -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIp"><span class="hs-identifier hs-type">ReleaseStaticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679632172"><span class="annot"><span class="annottext">toQuery :: ReleaseStaticIp -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679632181"><span class="annot"><span class="annottext">toQuery :: ReleaseStaticIp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ReleaseStaticIp -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -278,7 +278,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newReleaseStaticIpResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679632169"><span id="local-6989586621679632170"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReleaseStaticIpResponse"><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse"><span class="hs-identifier hs-var">ReleaseStaticIpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReleaseStaticIpResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse%27"><span class="hs-identifier hs-var">ReleaseStaticIpResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679632178"><span id="local-6989586621679632179"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReleaseStaticIpResponse"><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse"><span class="hs-identifier hs-var">ReleaseStaticIpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReleaseStaticIpResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse%27"><span class="hs-identifier hs-var">ReleaseStaticIpResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -288,7 +288,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3AReleaseStaticIpResponse%27"><span class="annot"><span class="annottext">ReleaseStaticIpResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#%24sel%3AhttpStatus%3AReleaseStaticIpResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632163"><span id="local-6989586621679632165"><span class="annot"><span class="annottext">ReleaseStaticIpResponse -&gt; ReleaseStaticIpResponse -&gt; Bool
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632172"><span id="local-6989586621679632174"><span class="annot"><span class="annottext">ReleaseStaticIpResponse -&gt; ReleaseStaticIpResponse -&gt; Bool
 (ReleaseStaticIpResponse -&gt; ReleaseStaticIpResponse -&gt; Bool)
 -&gt; (ReleaseStaticIpResponse -&gt; ReleaseStaticIpResponse -&gt; Bool)
 -&gt; Eq ReleaseStaticIpResponse
@@ -297,7 +297,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReleaseStaticIpResponse -&gt; ReleaseStaticIpResponse -&gt; Bool
 == :: ReleaseStaticIpResponse -&gt; ReleaseStaticIpResponse -&gt; Bool
 $c== :: ReleaseStaticIpResponse -&gt; ReleaseStaticIpResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632155"><span id="local-6989586621679632157"><span id="local-6989586621679632159"><span id="local-6989586621679632161"><span class="annot"><span class="annottext">ReadPrec [ReleaseStaticIpResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632164"><span id="local-6989586621679632166"><span id="local-6989586621679632168"><span id="local-6989586621679632170"><span class="annot"><span class="annottext">ReadPrec [ReleaseStaticIpResponse]
 ReadPrec ReleaseStaticIpResponse
 Int -&gt; ReadS ReleaseStaticIpResponse
 ReadS [ReleaseStaticIpResponse]
@@ -317,7 +317,7 @@ readList :: ReadS [ReleaseStaticIpResponse]
 $creadList :: ReadS [ReleaseStaticIpResponse]
 readsPrec :: Int -&gt; ReadS ReleaseStaticIpResponse
 $creadsPrec :: Int -&gt; ReadS ReleaseStaticIpResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632149"><span id="local-6989586621679632151"><span id="local-6989586621679632153"><span class="annot"><span class="annottext">Int -&gt; ReleaseStaticIpResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632158"><span id="local-6989586621679632160"><span id="local-6989586621679632162"><span class="annot"><span class="annottext">Int -&gt; ReleaseStaticIpResponse -&gt; ShowS
 [ReleaseStaticIpResponse] -&gt; ShowS
 ReleaseStaticIpResponse -&gt; String
 (Int -&gt; ReleaseStaticIpResponse -&gt; ShowS)
@@ -363,8 +363,8 @@ $cfrom :: forall x. ReleaseStaticIpResponse -&gt; Rep ReleaseStaticIpResponse x
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse"><span class="hs-identifier hs-type">ReleaseStaticIpResponse</span></a></span><span>
 </span><span id="line-149"></span><span id="newReleaseStaticIpResponse"><span class="annot"><span class="annottext">newReleaseStaticIpResponse :: Int -&gt; ReleaseStaticIpResponse
-</span><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#newReleaseStaticIpResponse"><span class="hs-identifier hs-var hs-var">newReleaseStaticIpResponse</span></a></span></span><span> </span><span id="local-6989586621679632146"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632146"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#newReleaseStaticIpResponse"><span class="hs-identifier hs-var hs-var">newReleaseStaticIpResponse</span></a></span></span><span> </span><span id="local-6989586621679632155"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632155"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">ReleaseStaticIpResponse' :: Maybe [Operation] -&gt; Int -&gt; ReleaseStaticIpResponse
 </span><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse%27"><span class="hs-identifier hs-type">ReleaseStaticIpResponse'</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:ReleaseStaticIpResponse' :: Maybe [Operation]
@@ -374,7 +374,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ReleaseStaticIpResponse' :: Int
 </span><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#%24sel%3AhttpStatus%3AReleaseStaticIpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632146"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679632155"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -392,16 +392,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse%27"><span class="hs-identifier hs-type">ReleaseStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632145"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse%27"><span class="hs-identifier hs-type">ReleaseStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632154"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:ReleaseStaticIpResponse' :: ReleaseStaticIpResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679632145"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679632145"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632144"><span class="annot"><span class="annottext">s :: ReleaseStaticIpResponse
-</span><a href="#local-6989586621679632144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse%27"><span class="hs-identifier hs-type">ReleaseStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632143"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679632143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseStaticIpResponse
-</span><a href="#local-6989586621679632144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:ReleaseStaticIpResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679632154"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679632154"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632153"><span class="annot"><span class="annottext">s :: ReleaseStaticIpResponse
+</span><a href="#local-6989586621679632153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse%27"><span class="hs-identifier hs-type">ReleaseStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632152"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679632152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseStaticIpResponse
+</span><a href="#local-6989586621679632153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:ReleaseStaticIpResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#%24sel%3Aoperations%3AReleaseStaticIpResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679632143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse"><span class="hs-identifier hs-type">ReleaseStaticIpResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679632152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse"><span class="hs-identifier hs-type">ReleaseStaticIpResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; ReleaseStaticIpResponse -&gt; f ReleaseStaticIpResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -430,16 +430,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ReleaseStaticIpResponse -&gt; Int -&gt; ReleaseStaticIpResponse)
 -&gt; Lens ReleaseStaticIpResponse ReleaseStaticIpResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse%27"><span class="hs-identifier hs-type">ReleaseStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632139"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse%27"><span class="hs-identifier hs-type">ReleaseStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632148"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ReleaseStaticIpResponse' :: ReleaseStaticIpResponse -&gt; Int
-</span><a href="#local-6989586621679632139"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632139"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632138"><span class="annot"><span class="annottext">s :: ReleaseStaticIpResponse
-</span><a href="#local-6989586621679632138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse%27"><span class="hs-identifier hs-type">ReleaseStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632137"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseStaticIpResponse
-</span><a href="#local-6989586621679632138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReleaseStaticIpResponse' :: Int
+</span><a href="#local-6989586621679632148"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632148"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632147"><span class="annot"><span class="annottext">s :: ReleaseStaticIpResponse
+</span><a href="#local-6989586621679632147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse%27"><span class="hs-identifier hs-type">ReleaseStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632146"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseStaticIpResponse
+</span><a href="#local-6989586621679632147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReleaseStaticIpResponse' :: Int
 </span><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#%24sel%3AhttpStatus%3AReleaseStaticIpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse"><span class="hs-identifier hs-type">ReleaseStaticIpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679632146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse"><span class="hs-identifier hs-type">ReleaseStaticIpResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632135"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse"><span class="hs-identifier hs-type">ReleaseStaticIpResponse</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632144"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ReleaseStaticIp.html#ReleaseStaticIpResponse"><span class="hs-identifier hs-type">ReleaseStaticIpResponse</span></a></span></span><span>
 </span><span id="line-167"></span></pre></body></html>

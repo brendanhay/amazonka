@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | A request that represents an offering renewal.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newRenewOffering' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679374418"><span id="local-6989586621679374419"></span></span><span class="hs-keyword">data</span><span> </span><span id="RenewOffering"><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-var">RenewOffering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenewOffering%27"><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering%27"><span class="hs-identifier hs-var">RenewOffering'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679374427"><span id="local-6989586621679374428"></span></span><span class="hs-keyword">data</span><span> </span><span id="RenewOffering"><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-var">RenewOffering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenewOffering%27"><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering%27"><span class="hs-identifier hs-var">RenewOffering'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of a request to renew an offering.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AofferingId%3ARenewOffering%27"><span class="annot"><span class="annottext">RenewOffering -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.RenewOffering.html#%24sel%3AofferingId%3ARenewOffering%27"><span class="hs-identifier hs-var hs-var">offeringId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Aquantity%3ARenewOffering%27"><span class="annot"><span class="annottext">RenewOffering -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.RenewOffering.html#%24sel%3Aquantity%3ARenewOffering%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374411"><span id="local-6989586621679374413"><span class="annot"><span class="annottext">RenewOffering -&gt; RenewOffering -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374420"><span id="local-6989586621679374422"><span class="annot"><span class="annottext">RenewOffering -&gt; RenewOffering -&gt; Bool
 (RenewOffering -&gt; RenewOffering -&gt; Bool)
 -&gt; (RenewOffering -&gt; RenewOffering -&gt; Bool) -&gt; Eq RenewOffering
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RenewOffering -&gt; RenewOffering -&gt; Bool
 == :: RenewOffering -&gt; RenewOffering -&gt; Bool
 $c== :: RenewOffering -&gt; RenewOffering -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374402"><span id="local-6989586621679374404"><span id="local-6989586621679374406"><span id="local-6989586621679374408"><span class="annot"><span class="annottext">ReadPrec [RenewOffering]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374411"><span id="local-6989586621679374413"><span id="local-6989586621679374415"><span id="local-6989586621679374417"><span class="annot"><span class="annottext">ReadPrec [RenewOffering]
 ReadPrec RenewOffering
 Int -&gt; ReadS RenewOffering
 ReadS [RenewOffering]
@@ -90,7 +90,7 @@ readList :: ReadS [RenewOffering]
 $creadList :: ReadS [RenewOffering]
 readsPrec :: Int -&gt; ReadS RenewOffering
 $creadsPrec :: Int -&gt; ReadS RenewOffering
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374395"><span id="local-6989586621679374397"><span id="local-6989586621679374399"><span class="annot"><span class="annottext">Int -&gt; RenewOffering -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374404"><span id="local-6989586621679374406"><span id="local-6989586621679374408"><span class="annot"><span class="annottext">Int -&gt; RenewOffering -&gt; ShowS
 [RenewOffering] -&gt; ShowS
 RenewOffering -&gt; String
 (Int -&gt; RenewOffering -&gt; ShowS)
@@ -134,17 +134,17 @@ $cfrom :: forall x. RenewOffering -&gt; Rep RenewOffering x
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span><span>
 </span><span id="line-82"></span><span id="newRenewOffering"><span class="annot"><span class="annottext">newRenewOffering :: Text -&gt; Int -&gt; RenewOffering
-</span><a href="Network.AWS.DeviceFarm.RenewOffering.html#newRenewOffering"><span class="hs-identifier hs-var hs-var">newRenewOffering</span></a></span></span><span> </span><span id="local-6989586621679374390"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374390"><span class="hs-identifier hs-var">pOfferingId_</span></a></span></span><span> </span><span id="local-6989586621679374389"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374389"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.RenewOffering.html#newRenewOffering"><span class="hs-identifier hs-var hs-var">newRenewOffering</span></a></span></span><span> </span><span id="local-6989586621679374399"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374399"><span class="hs-identifier hs-var">pOfferingId_</span></a></span></span><span> </span><span id="local-6989586621679374398"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374398"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">RenewOffering' :: Text -&gt; Int -&gt; RenewOffering
 </span><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering%27"><span class="hs-identifier hs-type">RenewOffering'</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:offeringId:RenewOffering' :: Text
 </span><a href="Network.AWS.DeviceFarm.RenewOffering.html#%24sel%3AofferingId%3ARenewOffering%27"><span class="hs-identifier hs-var">offeringId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374390"><span class="hs-identifier hs-var">pOfferingId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374399"><span class="hs-identifier hs-var">pOfferingId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:quantity:RenewOffering' :: Int
 </span><a href="Network.AWS.DeviceFarm.RenewOffering.html#%24sel%3Aquantity%3ARenewOffering%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374389"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
+</span><a href="#local-6989586621679374398"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The ID of a request to renew an offering.</span><span>
@@ -154,16 +154,16 @@ $cfrom :: forall x. RenewOffering -&gt; Rep RenewOffering x
 -&gt; (RenewOffering -&gt; Text -&gt; RenewOffering)
 -&gt; Lens RenewOffering RenewOffering Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering%27"><span class="hs-identifier hs-type">RenewOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374386"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering%27"><span class="hs-identifier hs-type">RenewOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374395"><span class="annot"><span class="annottext">Text
 offeringId :: Text
 $sel:offeringId:RenewOffering' :: RenewOffering -&gt; Text
-</span><a href="#local-6989586621679374386"><span class="hs-identifier hs-var hs-var">offeringId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374386"><span class="hs-identifier hs-var">offeringId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374385"><span class="annot"><span class="annottext">s :: RenewOffering
-</span><a href="#local-6989586621679374385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering%27"><span class="hs-identifier hs-type">RenewOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374384"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewOffering
-</span><a href="#local-6989586621679374385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offeringId:RenewOffering' :: Text
+</span><a href="#local-6989586621679374395"><span class="hs-identifier hs-var hs-var">offeringId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374395"><span class="hs-identifier hs-var">offeringId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374394"><span class="annot"><span class="annottext">s :: RenewOffering
+</span><a href="#local-6989586621679374394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering%27"><span class="hs-identifier hs-type">RenewOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374393"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewOffering
+</span><a href="#local-6989586621679374394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offeringId:RenewOffering' :: Text
 </span><a href="Network.AWS.DeviceFarm.RenewOffering.html#%24sel%3AofferingId%3ARenewOffering%27"><span class="hs-identifier hs-var">offeringId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The quantity requested in an offering renewal.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#renewOffering_quantity"><span class="hs-identifier hs-type">renewOffering_quantity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -172,27 +172,27 @@ $sel:offeringId:RenewOffering' :: RenewOffering -&gt; Text
 -&gt; (RenewOffering -&gt; Int -&gt; RenewOffering)
 -&gt; Lens RenewOffering RenewOffering Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering%27"><span class="hs-identifier hs-type">RenewOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374383"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering%27"><span class="hs-identifier hs-type">RenewOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374392"><span class="annot"><span class="annottext">Int
 quantity :: Int
 $sel:quantity:RenewOffering' :: RenewOffering -&gt; Int
-</span><a href="#local-6989586621679374383"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374383"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374382"><span class="annot"><span class="annottext">s :: RenewOffering
-</span><a href="#local-6989586621679374382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering%27"><span class="hs-identifier hs-type">RenewOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374381"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewOffering
-</span><a href="#local-6989586621679374382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:RenewOffering' :: Int
+</span><a href="#local-6989586621679374392"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374392"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374391"><span class="annot"><span class="annottext">s :: RenewOffering
+</span><a href="#local-6989586621679374391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering%27"><span class="hs-identifier hs-type">RenewOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374390"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewOffering
+</span><a href="#local-6989586621679374391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:RenewOffering' :: Int
 </span><a href="Network.AWS.DeviceFarm.RenewOffering.html#%24sel%3Aquantity%3ARenewOffering%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse"><span class="hs-identifier hs-type">RenewOfferingResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679374377"><span class="annot"><span class="annottext">request :: RenewOffering -&gt; Request RenewOffering
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679374386"><span class="annot"><span class="annottext">request :: RenewOffering -&gt; Request RenewOffering
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RenewOffering -&gt; Request RenewOffering
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679374373"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679374382"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RenewOffering
 -&gt; ClientResponse ClientBody
@@ -216,10 +216,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374370"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374370"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679374369"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679374369"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679374368"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374368"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374379"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374379"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679374378"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679374378"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679374377"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374377"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe OfferingTransaction -&gt; Int -&gt; RenewOfferingResponse
 </span><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse%27"><span class="hs-identifier hs-var">RenewOfferingResponse'</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OfferingTransaction -&gt; Int -&gt; RenewOfferingResponse)
@@ -227,7 +227,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; RenewOfferingResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OfferingTransaction)
+</span><a href="#local-6989586621679374377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OfferingTransaction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;offeringTransaction&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,15 +239,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374370"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374379"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374360"><span id="local-6989586621679374362"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374369"><span id="local-6989586621679374371"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374357"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374366"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679374353"><span class="annot"><span class="annottext">toHeaders :: RenewOffering -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679374362"><span class="annot"><span class="annottext">toHeaders :: RenewOffering -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RenewOffering -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -274,15 +274,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374343"><span id="local-6989586621679374345"><span id="local-6989586621679374347"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679374341"><span class="annot"><span class="annottext">toJSON :: RenewOffering -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering%27"><span class="hs-identifier hs-type">RenewOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374338"><span id="local-6989586621679374339"><span class="annot"><span class="annottext">Int
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374352"><span id="local-6989586621679374354"><span id="local-6989586621679374356"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679374350"><span class="annot"><span class="annottext">toJSON :: RenewOffering -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering%27"><span class="hs-identifier hs-type">RenewOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374347"><span id="local-6989586621679374348"><span class="annot"><span class="annottext">Int
 Text
 quantity :: Int
 offeringId :: Text
 $sel:quantity:RenewOffering' :: RenewOffering -&gt; Int
 $sel:offeringId:RenewOffering' :: RenewOffering -&gt; Text
-</span><a href="#local-6989586621679374338"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679374347"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -294,26 +294,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;offeringId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374339"><span class="hs-identifier hs-var">offeringId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374348"><span class="hs-identifier hs-var">offeringId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;quantity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374338"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374347"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679374332"><span class="annot"><span class="annottext">toPath :: RenewOffering -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679374341"><span class="annot"><span class="annottext">toPath :: RenewOffering -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RenewOffering -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOffering"><span class="hs-identifier hs-type">RenewOffering</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679374328"><span class="annot"><span class="annottext">toQuery :: RenewOffering -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679374337"><span class="annot"><span class="annottext">toQuery :: RenewOffering -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RenewOffering -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -323,7 +323,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-143"></span><span class="hs-comment">-- | The result of a renewal offering.</span><span>
 </span><span id="line-144"></span><span class="hs-comment">--</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- /See:/ 'newRenewOfferingResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679374325"><span id="local-6989586621679374326"></span></span><span class="hs-keyword">data</span><span> </span><span id="RenewOfferingResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse"><span class="hs-identifier hs-var">RenewOfferingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenewOfferingResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse%27"><span class="hs-identifier hs-var">RenewOfferingResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679374334"><span id="local-6989586621679374335"></span></span><span class="hs-keyword">data</span><span> </span><span id="RenewOfferingResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse"><span class="hs-identifier hs-var">RenewOfferingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenewOfferingResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse%27"><span class="hs-identifier hs-var">RenewOfferingResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the status of the offering transaction for the renewal.</span><span>
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AofferingTransaction%3ARenewOfferingResponse%27"><span class="annot"><span class="annottext">RenewOfferingResponse -&gt; Maybe OfferingTransaction
 </span><a href="Network.AWS.DeviceFarm.RenewOffering.html#%24sel%3AofferingTransaction%3ARenewOfferingResponse%27"><span class="hs-identifier hs-var hs-var">offeringTransaction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.OfferingTransaction.html#OfferingTransaction"><span class="hs-identifier hs-type">OfferingTransaction</span></a></span><span class="hs-special">,</span><span>
@@ -331,7 +331,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARenewOfferingResponse%27"><span class="annot"><span class="annottext">RenewOfferingResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.RenewOffering.html#%24sel%3AhttpStatus%3ARenewOfferingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374319"><span id="local-6989586621679374321"><span class="annot"><span class="annottext">RenewOfferingResponse -&gt; RenewOfferingResponse -&gt; Bool
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374328"><span id="local-6989586621679374330"><span class="annot"><span class="annottext">RenewOfferingResponse -&gt; RenewOfferingResponse -&gt; Bool
 (RenewOfferingResponse -&gt; RenewOfferingResponse -&gt; Bool)
 -&gt; (RenewOfferingResponse -&gt; RenewOfferingResponse -&gt; Bool)
 -&gt; Eq RenewOfferingResponse
@@ -340,7 +340,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RenewOfferingResponse -&gt; RenewOfferingResponse -&gt; Bool
 == :: RenewOfferingResponse -&gt; RenewOfferingResponse -&gt; Bool
 $c== :: RenewOfferingResponse -&gt; RenewOfferingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374311"><span id="local-6989586621679374313"><span id="local-6989586621679374315"><span id="local-6989586621679374317"><span class="annot"><span class="annottext">ReadPrec [RenewOfferingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374320"><span id="local-6989586621679374322"><span id="local-6989586621679374324"><span id="local-6989586621679374326"><span class="annot"><span class="annottext">ReadPrec [RenewOfferingResponse]
 ReadPrec RenewOfferingResponse
 Int -&gt; ReadS RenewOfferingResponse
 ReadS [RenewOfferingResponse]
@@ -360,7 +360,7 @@ readList :: ReadS [RenewOfferingResponse]
 $creadList :: ReadS [RenewOfferingResponse]
 readsPrec :: Int -&gt; ReadS RenewOfferingResponse
 $creadsPrec :: Int -&gt; ReadS RenewOfferingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374305"><span id="local-6989586621679374307"><span id="local-6989586621679374309"><span class="annot"><span class="annottext">Int -&gt; RenewOfferingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374314"><span id="local-6989586621679374316"><span id="local-6989586621679374318"><span class="annot"><span class="annottext">Int -&gt; RenewOfferingResponse -&gt; ShowS
 [RenewOfferingResponse] -&gt; ShowS
 RenewOfferingResponse -&gt; String
 (Int -&gt; RenewOfferingResponse -&gt; ShowS)
@@ -402,8 +402,8 @@ $cfrom :: forall x. RenewOfferingResponse -&gt; Rep RenewOfferingResponse x
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse"><span class="hs-identifier hs-type">RenewOfferingResponse</span></a></span><span>
 </span><span id="line-169"></span><span id="newRenewOfferingResponse"><span class="annot"><span class="annottext">newRenewOfferingResponse :: Int -&gt; RenewOfferingResponse
-</span><a href="Network.AWS.DeviceFarm.RenewOffering.html#newRenewOfferingResponse"><span class="hs-identifier hs-var hs-var">newRenewOfferingResponse</span></a></span></span><span> </span><span id="local-6989586621679374302"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374302"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.RenewOffering.html#newRenewOfferingResponse"><span class="hs-identifier hs-var hs-var">newRenewOfferingResponse</span></a></span></span><span> </span><span id="local-6989586621679374311"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374311"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">RenewOfferingResponse' :: Maybe OfferingTransaction -&gt; Int -&gt; RenewOfferingResponse
 </span><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse%27"><span class="hs-identifier hs-type">RenewOfferingResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:offeringTransaction:RenewOfferingResponse' :: Maybe OfferingTransaction
@@ -413,7 +413,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RenewOfferingResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.RenewOffering.html#%24sel%3AhttpStatus%3ARenewOfferingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374302"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679374311"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | Represents the status of the offering transaction for the renewal.</span><span>
@@ -429,16 +429,16 @@ forall a. Maybe a
      (Maybe OfferingTransaction)
      (Maybe OfferingTransaction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse%27"><span class="hs-identifier hs-type">RenewOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374301"><span class="annot"><span class="annottext">Maybe OfferingTransaction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse%27"><span class="hs-identifier hs-type">RenewOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374310"><span class="annot"><span class="annottext">Maybe OfferingTransaction
 offeringTransaction :: Maybe OfferingTransaction
 $sel:offeringTransaction:RenewOfferingResponse' :: RenewOfferingResponse -&gt; Maybe OfferingTransaction
-</span><a href="#local-6989586621679374301"><span class="hs-identifier hs-var hs-var">offeringTransaction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OfferingTransaction
-</span><a href="#local-6989586621679374301"><span class="hs-identifier hs-var">offeringTransaction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374300"><span class="annot"><span class="annottext">s :: RenewOfferingResponse
-</span><a href="#local-6989586621679374300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse%27"><span class="hs-identifier hs-type">RenewOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374299"><span class="annot"><span class="annottext">Maybe OfferingTransaction
-</span><a href="#local-6989586621679374299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewOfferingResponse
-</span><a href="#local-6989586621679374300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offeringTransaction:RenewOfferingResponse' :: Maybe OfferingTransaction
+</span><a href="#local-6989586621679374310"><span class="hs-identifier hs-var hs-var">offeringTransaction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OfferingTransaction
+</span><a href="#local-6989586621679374310"><span class="hs-identifier hs-var">offeringTransaction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374309"><span class="annot"><span class="annottext">s :: RenewOfferingResponse
+</span><a href="#local-6989586621679374309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse%27"><span class="hs-identifier hs-type">RenewOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374308"><span class="annot"><span class="annottext">Maybe OfferingTransaction
+</span><a href="#local-6989586621679374308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewOfferingResponse
+</span><a href="#local-6989586621679374309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offeringTransaction:RenewOfferingResponse' :: Maybe OfferingTransaction
 </span><a href="Network.AWS.DeviceFarm.RenewOffering.html#%24sel%3AofferingTransaction%3ARenewOfferingResponse%27"><span class="hs-identifier hs-var">offeringTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OfferingTransaction
-</span><a href="#local-6989586621679374299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse"><span class="hs-identifier hs-type">RenewOfferingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse"><span class="hs-identifier hs-type">RenewOfferingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-181"></span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#renewOfferingResponse_httpStatus"><span class="hs-identifier hs-type">renewOfferingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse"><span class="hs-identifier hs-type">RenewOfferingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -447,16 +447,16 @@ $sel:offeringTransaction:RenewOfferingResponse' :: RenewOfferingResponse -&gt; M
 -&gt; (RenewOfferingResponse -&gt; Int -&gt; RenewOfferingResponse)
 -&gt; Lens RenewOfferingResponse RenewOfferingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse%27"><span class="hs-identifier hs-type">RenewOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374298"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse%27"><span class="hs-identifier hs-type">RenewOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374307"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RenewOfferingResponse' :: RenewOfferingResponse -&gt; Int
-</span><a href="#local-6989586621679374298"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374298"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374297"><span class="annot"><span class="annottext">s :: RenewOfferingResponse
-</span><a href="#local-6989586621679374297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse%27"><span class="hs-identifier hs-type">RenewOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374296"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewOfferingResponse
-</span><a href="#local-6989586621679374297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RenewOfferingResponse' :: Int
+</span><a href="#local-6989586621679374307"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374307"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374306"><span class="annot"><span class="annottext">s :: RenewOfferingResponse
+</span><a href="#local-6989586621679374306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse%27"><span class="hs-identifier hs-type">RenewOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374305"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewOfferingResponse
+</span><a href="#local-6989586621679374306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RenewOfferingResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.RenewOffering.html#%24sel%3AhttpStatus%3ARenewOfferingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse"><span class="hs-identifier hs-type">RenewOfferingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse"><span class="hs-identifier hs-type">RenewOfferingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse"><span class="hs-identifier hs-type">RenewOfferingResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.RenewOffering.html#RenewOfferingResponse"><span class="hs-identifier hs-type">RenewOfferingResponse</span></a></span></span><span>
 </span><span id="line-185"></span></pre></body></html>

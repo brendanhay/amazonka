@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Forecast.Types.FilterConditionString</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Forecast.Types.FilterConditionString</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.FilterConditionString.html#FilterConditionString"><span class="hs-identifier">FilterConditionString</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Forecast.Types.FilterConditionString.html#FilterConditionString_IS"><span class="hs-identifier">FilterConditionString_IS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Forecast.Types.FilterConditionString.html#FilterConditionString_IS_NOT"><span class="hs-identifier">FilterConditionString_IS_NOT</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679247472"><span id="local-6989586621679247473"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FilterConditionString"><span class="annot"><a href="Network.AWS.Forecast.Types.FilterConditionString.html#FilterConditionString"><span class="hs-identifier hs-var">FilterConditionString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FilterConditionString%27"><span class="annot"><a href="Network.AWS.Forecast.Types.FilterConditionString.html#FilterConditionString%27"><span class="hs-identifier hs-var">FilterConditionString'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFilterConditionString"><span class="annot"><span class="annottext">FilterConditionString -&gt; Text
+</span><a href="Network.AWS.Forecast.Types.FilterConditionString.html#fromFilterConditionString"><span class="hs-identifier hs-var hs-var">fromFilterConditionString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247464"><span id="local-6989586621679247466"><span id="local-6989586621679247468"><span class="annot"><span class="annottext">Int -&gt; FilterConditionString -&gt; ShowS
+[FilterConditionString] -&gt; ShowS
+FilterConditionString -&gt; String
+(Int -&gt; FilterConditionString -&gt; ShowS)
+-&gt; (FilterConditionString -&gt; String)
+-&gt; ([FilterConditionString] -&gt; ShowS)
+-&gt; Show FilterConditionString
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FilterConditionString] -&gt; ShowS
+$cshowList :: [FilterConditionString] -&gt; ShowS
+show :: FilterConditionString -&gt; String
+$cshow :: FilterConditionString -&gt; String
+showsPrec :: Int -&gt; FilterConditionString -&gt; ShowS
+$cshowsPrec :: Int -&gt; FilterConditionString -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679247455"><span id="local-6989586621679247457"><span id="local-6989586621679247459"><span id="local-6989586621679247461"><span class="annot"><span class="annottext">ReadPrec [FilterConditionString]
+ReadPrec FilterConditionString
+Int -&gt; ReadS FilterConditionString
+ReadS [FilterConditionString]
+(Int -&gt; ReadS FilterConditionString)
+-&gt; ReadS [FilterConditionString]
+-&gt; ReadPrec FilterConditionString
+-&gt; ReadPrec [FilterConditionString]
+-&gt; Read FilterConditionString
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FilterConditionString]
+$creadListPrec :: ReadPrec [FilterConditionString]
+readPrec :: ReadPrec FilterConditionString
+$creadPrec :: ReadPrec FilterConditionString
+readList :: ReadS [FilterConditionString]
+$creadList :: ReadS [FilterConditionString]
+readsPrec :: Int -&gt; ReadS FilterConditionString
+$creadsPrec :: Int -&gt; ReadS FilterConditionString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679247450"><span id="local-6989586621679247452"><span class="annot"><span class="annottext">FilterConditionString -&gt; FilterConditionString -&gt; Bool
+(FilterConditionString -&gt; FilterConditionString -&gt; Bool)
+-&gt; (FilterConditionString -&gt; FilterConditionString -&gt; Bool)
+-&gt; Eq FilterConditionString
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FilterConditionString -&gt; FilterConditionString -&gt; Bool
+$c/= :: FilterConditionString -&gt; FilterConditionString -&gt; Bool
+== :: FilterConditionString -&gt; FilterConditionString -&gt; Bool
+$c== :: FilterConditionString -&gt; FilterConditionString -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679247434"><span id="local-6989586621679247436"><span id="local-6989586621679247438"><span id="local-6989586621679247440"><span id="local-6989586621679247442"><span id="local-6989586621679247444"><span id="local-6989586621679247446"><span class="annot"><span class="annottext">Eq FilterConditionString
+Eq FilterConditionString
+-&gt; (FilterConditionString -&gt; FilterConditionString -&gt; Ordering)
+-&gt; (FilterConditionString -&gt; FilterConditionString -&gt; Bool)
+-&gt; (FilterConditionString -&gt; FilterConditionString -&gt; Bool)
+-&gt; (FilterConditionString -&gt; FilterConditionString -&gt; Bool)
+-&gt; (FilterConditionString -&gt; FilterConditionString -&gt; Bool)
+-&gt; (FilterConditionString
+    -&gt; FilterConditionString -&gt; FilterConditionString)
+-&gt; (FilterConditionString
+    -&gt; FilterConditionString -&gt; FilterConditionString)
+-&gt; Ord FilterConditionString
+FilterConditionString -&gt; FilterConditionString -&gt; Bool
+FilterConditionString -&gt; FilterConditionString -&gt; Ordering
+FilterConditionString
+-&gt; FilterConditionString -&gt; FilterConditionString
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FilterConditionString
+-&gt; FilterConditionString -&gt; FilterConditionString
+$cmin :: FilterConditionString
+-&gt; FilterConditionString -&gt; FilterConditionString
+max :: FilterConditionString
+-&gt; FilterConditionString -&gt; FilterConditionString
+$cmax :: FilterConditionString
+-&gt; FilterConditionString -&gt; FilterConditionString
+&gt;= :: FilterConditionString -&gt; FilterConditionString -&gt; Bool
+$c&gt;= :: FilterConditionString -&gt; FilterConditionString -&gt; Bool
+&gt; :: FilterConditionString -&gt; FilterConditionString -&gt; Bool
+$c&gt; :: FilterConditionString -&gt; FilterConditionString -&gt; Bool
+&lt;= :: FilterConditionString -&gt; FilterConditionString -&gt; Bool
+$c&lt;= :: FilterConditionString -&gt; FilterConditionString -&gt; Bool
+&lt; :: FilterConditionString -&gt; FilterConditionString -&gt; Bool
+$c&lt; :: FilterConditionString -&gt; FilterConditionString -&gt; Bool
+compare :: FilterConditionString -&gt; FilterConditionString -&gt; Ordering
+$ccompare :: FilterConditionString -&gt; FilterConditionString -&gt; Ordering
+$cp1Ord :: Eq FilterConditionString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FilterConditionString -&gt; Rep FilterConditionString x)
+-&gt; (forall x. Rep FilterConditionString x -&gt; FilterConditionString)
+-&gt; Generic FilterConditionString
+forall x. Rep FilterConditionString x -&gt; FilterConditionString
+forall x. FilterConditionString -&gt; Rep FilterConditionString x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FilterConditionString x -&gt; FilterConditionString
+$cfrom :: forall x. FilterConditionString -&gt; Rep FilterConditionString x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247426"><span id="local-6989586621679247428"><span class="annot"><span class="annottext">Int -&gt; FilterConditionString -&gt; Int
+FilterConditionString -&gt; Int
+(Int -&gt; FilterConditionString -&gt; Int)
+-&gt; (FilterConditionString -&gt; Int) -&gt; Hashable FilterConditionString
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FilterConditionString -&gt; Int
+$chash :: FilterConditionString -&gt; Int
+hashWithSalt :: Int -&gt; FilterConditionString -&gt; Int
+$chashWithSalt :: Int -&gt; FilterConditionString -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679247423"><span class="annot"><span class="annottext">FilterConditionString -&gt; ()
+(FilterConditionString -&gt; ()) -&gt; NFData FilterConditionString
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FilterConditionString -&gt; ()
+$crnf :: FilterConditionString -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679247420"><span class="annot"><span class="annottext">Text -&gt; Either String FilterConditionString
+(Text -&gt; Either String FilterConditionString)
+-&gt; FromText FilterConditionString
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FilterConditionString
+$cfromText :: Text -&gt; Either String FilterConditionString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679247417"><span class="annot"><span class="annottext">FilterConditionString -&gt; Text
+(FilterConditionString -&gt; Text) -&gt; ToText FilterConditionString
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FilterConditionString -&gt; Text
+$ctoText :: FilterConditionString -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679247414"><span class="annot"><span class="annottext">FilterConditionString -&gt; ByteString
+(FilterConditionString -&gt; ByteString)
+-&gt; ToByteString FilterConditionString
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FilterConditionString -&gt; ByteString
+$ctoBS :: FilterConditionString -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679247411"><span class="annot"><span class="annottext">FilterConditionString -&gt; ByteStringBuilder
+(FilterConditionString -&gt; ByteStringBuilder)
+-&gt; ToLog FilterConditionString
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FilterConditionString -&gt; ByteStringBuilder
+$cbuild :: FilterConditionString -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679247408"><span class="annot"><span class="annottext">HeaderName -&gt; FilterConditionString -&gt; [Header]
+(HeaderName -&gt; FilterConditionString -&gt; [Header])
+-&gt; ToHeader FilterConditionString
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FilterConditionString -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FilterConditionString -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247405"><span class="annot"><span class="annottext">FilterConditionString -&gt; QueryString
+(FilterConditionString -&gt; QueryString)
+-&gt; ToQuery FilterConditionString
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FilterConditionString -&gt; QueryString
+$ctoQuery :: FilterConditionString -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247400"><span id="local-6989586621679247402"><span class="annot"><span class="annottext">Value -&gt; Parser [FilterConditionString]
+Value -&gt; Parser FilterConditionString
+(Value -&gt; Parser FilterConditionString)
+-&gt; (Value -&gt; Parser [FilterConditionString])
+-&gt; FromJSON FilterConditionString
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FilterConditionString]
+$cparseJSONList :: Value -&gt; Parser [FilterConditionString]
+parseJSON :: Value -&gt; Parser FilterConditionString
+$cparseJSON :: Value -&gt; Parser FilterConditionString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679247395"><span id="local-6989586621679247397"><span class="annot"><span class="annottext">FromJSONKeyFunction [FilterConditionString]
+FromJSONKeyFunction FilterConditionString
+FromJSONKeyFunction FilterConditionString
+-&gt; FromJSONKeyFunction [FilterConditionString]
+-&gt; FromJSONKey FilterConditionString
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FilterConditionString]
+$cfromJSONKeyList :: FromJSONKeyFunction [FilterConditionString]
+fromJSONKey :: FromJSONKeyFunction FilterConditionString
+$cfromJSONKey :: FromJSONKeyFunction FilterConditionString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679247386"><span id="local-6989586621679247388"><span id="local-6989586621679247390"><span id="local-6989586621679247392"><span class="annot"><span class="annottext">[FilterConditionString] -&gt; Encoding
+[FilterConditionString] -&gt; Value
+FilterConditionString -&gt; Encoding
+FilterConditionString -&gt; Value
+(FilterConditionString -&gt; Value)
+-&gt; (FilterConditionString -&gt; Encoding)
+-&gt; ([FilterConditionString] -&gt; Value)
+-&gt; ([FilterConditionString] -&gt; Encoding)
+-&gt; ToJSON FilterConditionString
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FilterConditionString] -&gt; Encoding
+$ctoEncodingList :: [FilterConditionString] -&gt; Encoding
+toJSONList :: [FilterConditionString] -&gt; Value
+$ctoJSONList :: [FilterConditionString] -&gt; Value
+toEncoding :: FilterConditionString -&gt; Encoding
+$ctoEncoding :: FilterConditionString -&gt; Encoding
+toJSON :: FilterConditionString -&gt; Value
+$ctoJSON :: FilterConditionString -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679247381"><span id="local-6989586621679247383"><span class="annot"><span class="annottext">ToJSONKeyFunction [FilterConditionString]
+ToJSONKeyFunction FilterConditionString
+ToJSONKeyFunction FilterConditionString
+-&gt; ToJSONKeyFunction [FilterConditionString]
+-&gt; ToJSONKey FilterConditionString
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FilterConditionString]
+$ctoJSONKeyList :: ToJSONKeyFunction [FilterConditionString]
+toJSONKey :: ToJSONKeyFunction FilterConditionString
+$ctoJSONKey :: ToJSONKeyFunction FilterConditionString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679247378"><span class="annot"><span class="annottext">[Node] -&gt; Either String FilterConditionString
+([Node] -&gt; Either String FilterConditionString)
+-&gt; FromXML FilterConditionString
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FilterConditionString
+$cparseXML :: [Node] -&gt; Either String FilterConditionString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679247375"><span class="annot"><span class="annottext">FilterConditionString -&gt; XML
+(FilterConditionString -&gt; XML) -&gt; ToXML FilterConditionString
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FilterConditionString -&gt; XML
+$ctoXML :: FilterConditionString -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.FilterConditionString.html#FilterConditionString_IS"><span class="hs-identifier hs-type">FilterConditionString_IS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.FilterConditionString.html#FilterConditionString"><span class="hs-identifier hs-type">FilterConditionString</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFilterConditionString_IS"><span id="%24mFilterConditionString_IS"><span id="FilterConditionString_IS"><span class="annot"><span class="annottext">$bFilterConditionString_IS :: FilterConditionString
+$mFilterConditionString_IS :: forall r.
+FilterConditionString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Forecast.Types.FilterConditionString.html#%24bFilterConditionString_IS"><span class="hs-identifier hs-var hs-var hs-var">FilterConditionString_IS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.FilterConditionString.html#FilterConditionString%27"><span class="hs-identifier hs-type">FilterConditionString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IS&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.FilterConditionString.html#FilterConditionString_IS_NOT"><span class="hs-identifier hs-type">FilterConditionString_IS_NOT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.FilterConditionString.html#FilterConditionString"><span class="hs-identifier hs-type">FilterConditionString</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFilterConditionString_IS_NOT"><span id="%24mFilterConditionString_IS_NOT"><span id="FilterConditionString_IS_NOT"><span class="annot"><span class="annottext">$bFilterConditionString_IS_NOT :: FilterConditionString
+$mFilterConditionString_IS_NOT :: forall r.
+FilterConditionString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Forecast.Types.FilterConditionString.html#%24bFilterConditionString_IS_NOT"><span class="hs-identifier hs-var hs-var hs-var">FilterConditionString_IS_NOT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.FilterConditionString.html#FilterConditionString%27"><span class="hs-identifier hs-type">FilterConditionString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IS_NOT&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Forecast.Types.FilterConditionString.html#FilterConditionString_IS"><span class="hs-pragma hs-type">FilterConditionString_IS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Forecast.Types.FilterConditionString.html#FilterConditionString_IS_NOT"><span class="hs-pragma hs-type">FilterConditionString_IS_NOT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Forecast.Types.FilterConditionString.html#FilterConditionString%27"><span class="hs-pragma hs-type">FilterConditionString'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

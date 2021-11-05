@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A list of resources ARNs corresponding to the segments in a trace.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newResourceARNDetail' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679252995"><span id="local-6989586621679252996"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceARNDetail"><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail"><span class="hs-identifier hs-var">ResourceARNDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceARNDetail%27"><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail%27"><span class="hs-identifier hs-var">ResourceARNDetail'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679253004"><span id="local-6989586621679253005"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceARNDetail"><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail"><span class="hs-identifier hs-var">ResourceARNDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceARNDetail%27"><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail%27"><span class="hs-identifier hs-var">ResourceARNDetail'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of a corresponding resource.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aarn%3AResourceARNDetail%27"><span class="annot"><span class="annottext">ResourceARNDetail -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#%24sel%3Aarn%3AResourceARNDetail%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252989"><span id="local-6989586621679252991"><span class="annot"><span class="annottext">ResourceARNDetail -&gt; ResourceARNDetail -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252998"><span id="local-6989586621679253000"><span class="annot"><span class="annottext">ResourceARNDetail -&gt; ResourceARNDetail -&gt; Bool
 (ResourceARNDetail -&gt; ResourceARNDetail -&gt; Bool)
 -&gt; (ResourceARNDetail -&gt; ResourceARNDetail -&gt; Bool)
 -&gt; Eq ResourceARNDetail
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceARNDetail -&gt; ResourceARNDetail -&gt; Bool
 == :: ResourceARNDetail -&gt; ResourceARNDetail -&gt; Bool
 $c== :: ResourceARNDetail -&gt; ResourceARNDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252980"><span id="local-6989586621679252982"><span id="local-6989586621679252984"><span id="local-6989586621679252986"><span class="annot"><span class="annottext">ReadPrec [ResourceARNDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252989"><span id="local-6989586621679252991"><span id="local-6989586621679252993"><span id="local-6989586621679252995"><span class="annot"><span class="annottext">ReadPrec [ResourceARNDetail]
 ReadPrec ResourceARNDetail
 Int -&gt; ReadS ResourceARNDetail
 ReadS [ResourceARNDetail]
@@ -60,7 +60,7 @@ readList :: ReadS [ResourceARNDetail]
 $creadList :: ReadS [ResourceARNDetail]
 readsPrec :: Int -&gt; ReadS ResourceARNDetail
 $creadsPrec :: Int -&gt; ReadS ResourceARNDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252973"><span id="local-6989586621679252975"><span id="local-6989586621679252977"><span class="annot"><span class="annottext">Int -&gt; ResourceARNDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252982"><span id="local-6989586621679252984"><span id="local-6989586621679252986"><span class="annot"><span class="annottext">Int -&gt; ResourceARNDetail -&gt; ShowS
 [ResourceARNDetail] -&gt; ShowS
 ResourceARNDetail -&gt; String
 (Int -&gt; ResourceARNDetail -&gt; ShowS)
@@ -114,19 +114,19 @@ forall a. Maybe a
 -&gt; Lens
      ResourceARNDetail ResourceARNDetail (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail%27"><span class="hs-identifier hs-type">ResourceARNDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252964"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail%27"><span class="hs-identifier hs-type">ResourceARNDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252973"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:ResourceARNDetail' :: ResourceARNDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679252964"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252964"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252963"><span class="annot"><span class="annottext">s :: ResourceARNDetail
-</span><a href="#local-6989586621679252963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail%27"><span class="hs-identifier hs-type">ResourceARNDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252962"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceARNDetail
-</span><a href="#local-6989586621679252963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ResourceARNDetail' :: Maybe Text
+</span><a href="#local-6989586621679252973"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252973"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252972"><span class="annot"><span class="annottext">s :: ResourceARNDetail
+</span><a href="#local-6989586621679252972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail%27"><span class="hs-identifier hs-type">ResourceARNDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceARNDetail
+</span><a href="#local-6989586621679252972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ResourceARNDetail' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#%24sel%3Aarn%3AResourceARNDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail"><span class="hs-identifier hs-type">ResourceARNDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail"><span class="hs-identifier hs-type">ResourceARNDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252959"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail"><span class="hs-identifier hs-type">ResourceARNDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679252957"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceARNDetail
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252968"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail"><span class="hs-identifier hs-type">ResourceARNDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679252966"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceARNDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceARNDetail)
@@ -136,20 +136,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceARNDetail&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252954"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252954"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252963"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; ResourceARNDetail
 </span><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail%27"><span class="hs-identifier hs-var">ResourceARNDetail'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; ResourceARNDetail)
 -&gt; Parser (Maybe Text) -&gt; Parser ResourceARNDetail
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679252963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252948"><span id="local-6989586621679252950"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail"><span class="hs-identifier hs-type">ResourceARNDetail</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252957"><span id="local-6989586621679252959"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail"><span class="hs-identifier hs-type">ResourceARNDetail</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail"><span class="hs-identifier hs-type">ResourceARNDetail</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResourceARNDetail.html#ResourceARNDetail"><span class="hs-identifier hs-type">ResourceARNDetail</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

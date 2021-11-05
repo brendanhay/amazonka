@@ -28,14 +28,14 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | A container for information about access control for replicas.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAccessControlTranslation' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679547694"><span id="local-6989586621679547695"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessControlTranslation"><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation"><span class="hs-identifier hs-var">AccessControlTranslation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessControlTranslation%27"><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation%27"><span class="hs-identifier hs-var">AccessControlTranslation'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679547703"><span id="local-6989586621679547704"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessControlTranslation"><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation"><span class="hs-identifier hs-var">AccessControlTranslation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessControlTranslation%27"><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation%27"><span class="hs-identifier hs-var">AccessControlTranslation'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the replica ownership. For default and valid values, see</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT bucket replication&gt;</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- in the /Amazon S3 API Reference/.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aowner%3AAccessControlTranslation%27"><span class="annot"><span class="annottext">AccessControlTranslation -&gt; OwnerOverride
 </span><a href="Network.AWS.S3.Types.AccessControlTranslation.html#%24sel%3Aowner%3AAccessControlTranslation%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OwnerOverride.html#OwnerOverride"><span class="hs-identifier hs-type">OwnerOverride</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679547688"><span id="local-6989586621679547690"><span class="annot"><span class="annottext">AccessControlTranslation -&gt; AccessControlTranslation -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679547697"><span id="local-6989586621679547699"><span class="annot"><span class="annottext">AccessControlTranslation -&gt; AccessControlTranslation -&gt; Bool
 (AccessControlTranslation -&gt; AccessControlTranslation -&gt; Bool)
 -&gt; (AccessControlTranslation -&gt; AccessControlTranslation -&gt; Bool)
 -&gt; Eq AccessControlTranslation
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccessControlTranslation -&gt; AccessControlTranslation -&gt; Bool
 == :: AccessControlTranslation -&gt; AccessControlTranslation -&gt; Bool
 $c== :: AccessControlTranslation -&gt; AccessControlTranslation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547679"><span id="local-6989586621679547681"><span id="local-6989586621679547683"><span id="local-6989586621679547685"><span class="annot"><span class="annottext">ReadPrec [AccessControlTranslation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547688"><span id="local-6989586621679547690"><span id="local-6989586621679547692"><span id="local-6989586621679547694"><span class="annot"><span class="annottext">ReadPrec [AccessControlTranslation]
 ReadPrec AccessControlTranslation
 Int -&gt; ReadS AccessControlTranslation
 ReadS [AccessControlTranslation]
@@ -64,7 +64,7 @@ readList :: ReadS [AccessControlTranslation]
 $creadList :: ReadS [AccessControlTranslation]
 readsPrec :: Int -&gt; ReadS AccessControlTranslation
 $creadsPrec :: Int -&gt; ReadS AccessControlTranslation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547672"><span id="local-6989586621679547674"><span id="local-6989586621679547676"><span class="annot"><span class="annottext">Int -&gt; AccessControlTranslation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547681"><span id="local-6989586621679547683"><span id="local-6989586621679547685"><span class="annot"><span class="annottext">Int -&gt; AccessControlTranslation -&gt; ShowS
 [AccessControlTranslation] -&gt; ShowS
 AccessControlTranslation -&gt; String
 (Int -&gt; AccessControlTranslation -&gt; ShowS)
@@ -112,12 +112,12 @@ AccessControlTranslation -&gt; Rep AccessControlTranslation x
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.OwnerOverride.html#OwnerOverride"><span class="hs-identifier hs-type">OwnerOverride</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation"><span class="hs-identifier hs-type">AccessControlTranslation</span></a></span><span>
 </span><span id="line-54"></span><span id="newAccessControlTranslation"><span class="annot"><span class="annottext">newAccessControlTranslation :: OwnerOverride -&gt; AccessControlTranslation
-</span><a href="Network.AWS.S3.Types.AccessControlTranslation.html#newAccessControlTranslation"><span class="hs-identifier hs-var hs-var">newAccessControlTranslation</span></a></span></span><span> </span><span id="local-6989586621679547666"><span class="annot"><span class="annottext">OwnerOverride
-</span><a href="#local-6989586621679547666"><span class="hs-identifier hs-var">pOwner_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.AccessControlTranslation.html#newAccessControlTranslation"><span class="hs-identifier hs-var hs-var">newAccessControlTranslation</span></a></span></span><span> </span><span id="local-6989586621679547675"><span class="annot"><span class="annottext">OwnerOverride
+</span><a href="#local-6989586621679547675"><span class="hs-identifier hs-var">pOwner_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">AccessControlTranslation' :: OwnerOverride -&gt; AccessControlTranslation
 </span><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation%27"><span class="hs-identifier hs-type">AccessControlTranslation'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:AccessControlTranslation' :: OwnerOverride
 </span><a href="Network.AWS.S3.Types.AccessControlTranslation.html#%24sel%3Aowner%3AAccessControlTranslation%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OwnerOverride
-</span><a href="#local-6989586621679547666"><span class="hs-identifier hs-var">pOwner_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679547675"><span class="hs-identifier hs-var">pOwner_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | Specifies the replica ownership. For default and valid values, see</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT bucket replication&gt;</span><span>
@@ -134,21 +134,21 @@ AccessControlTranslation -&gt; Rep AccessControlTranslation x
      OwnerOverride
      OwnerOverride
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation%27"><span class="hs-identifier hs-type">AccessControlTranslation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547662"><span class="annot"><span class="annottext">OwnerOverride
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation%27"><span class="hs-identifier hs-type">AccessControlTranslation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547671"><span class="annot"><span class="annottext">OwnerOverride
 owner :: OwnerOverride
 $sel:owner:AccessControlTranslation' :: AccessControlTranslation -&gt; OwnerOverride
-</span><a href="#local-6989586621679547662"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OwnerOverride
-</span><a href="#local-6989586621679547662"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547661"><span class="annot"><span class="annottext">s :: AccessControlTranslation
-</span><a href="#local-6989586621679547661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation%27"><span class="hs-identifier hs-type">AccessControlTranslation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547660"><span class="annot"><span class="annottext">OwnerOverride
-</span><a href="#local-6989586621679547660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlTranslation
-</span><a href="#local-6989586621679547661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:AccessControlTranslation' :: OwnerOverride
+</span><a href="#local-6989586621679547671"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OwnerOverride
+</span><a href="#local-6989586621679547671"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547670"><span class="annot"><span class="annottext">s :: AccessControlTranslation
+</span><a href="#local-6989586621679547670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation%27"><span class="hs-identifier hs-type">AccessControlTranslation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547669"><span class="annot"><span class="annottext">OwnerOverride
+</span><a href="#local-6989586621679547669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlTranslation
+</span><a href="#local-6989586621679547670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:AccessControlTranslation' :: OwnerOverride
 </span><a href="Network.AWS.S3.Types.AccessControlTranslation.html#%24sel%3Aowner%3AAccessControlTranslation%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OwnerOverride
-</span><a href="#local-6989586621679547660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation"><span class="hs-identifier hs-type">AccessControlTranslation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679547669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation"><span class="hs-identifier hs-type">AccessControlTranslation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation"><span class="hs-identifier hs-type">AccessControlTranslation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679547657"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccessControlTranslation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679547655"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679547655"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679547666"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccessControlTranslation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679547664"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679547664"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">OwnerOverride -&gt; AccessControlTranslation
 </span><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation%27"><span class="hs-identifier hs-var">AccessControlTranslation'</span></a></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">(OwnerOverride -&gt; AccessControlTranslation)
@@ -156,26 +156,26 @@ $sel:owner:AccessControlTranslation' :: AccessControlTranslation -&gt; OwnerOver
 -&gt; Either String AccessControlTranslation
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679547655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String OwnerOverride
+</span><a href="#local-6989586621679547664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String OwnerOverride
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Owner&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547649"><span id="local-6989586621679547651"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation"><span class="hs-identifier hs-type">AccessControlTranslation</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547658"><span id="local-6989586621679547660"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation"><span class="hs-identifier hs-type">AccessControlTranslation</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation"><span class="hs-identifier hs-type">AccessControlTranslation</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547655"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation"><span class="hs-identifier hs-type">AccessControlTranslation</span></a></span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation"><span class="hs-identifier hs-type">AccessControlTranslation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679547642"><span class="annot"><span class="annottext">toXML :: AccessControlTranslation -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation%27"><span class="hs-identifier hs-type">AccessControlTranslation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547640"><span class="annot"><span class="annottext">OwnerOverride
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679547651"><span class="annot"><span class="annottext">toXML :: AccessControlTranslation -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation%27"><span class="hs-identifier hs-type">AccessControlTranslation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547649"><span class="annot"><span class="annottext">OwnerOverride
 owner :: OwnerOverride
 $sel:owner:AccessControlTranslation' :: AccessControlTranslation -&gt; OwnerOverride
-</span><a href="#local-6989586621679547640"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679547649"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; OwnerOverride -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">OwnerOverride
-</span><a href="#local-6989586621679547640"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679547649"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span></pre></body></html>

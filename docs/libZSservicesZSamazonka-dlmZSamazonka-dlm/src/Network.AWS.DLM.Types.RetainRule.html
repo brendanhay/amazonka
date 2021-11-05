@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DLM.Types.RetainRule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DLM.Types.RetainRule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.RetentionIntervalUnitValues.html"><span class="hs-identifier">Network.AWS.DLM.Types.RetentionIntervalUnitValues</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Specifies the retention rule for a lifecycle policy. You can retain</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- snapshots based on either a count or a time interval.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRetainRule' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679179444"><span id="local-6989586621679179445"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetainRule"><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule"><span class="hs-identifier hs-var">RetainRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetainRule%27"><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule%27"><span class="hs-identifier hs-var">RetainRule'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of snapshots to retain for each volume, up to a maximum of</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- 1000.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Acount%3ARetainRule%27"><span class="annot"><span class="annottext">RetainRule -&gt; Maybe Natural
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#%24sel%3Acount%3ARetainRule%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The amount of time to retain each snapshot. The maximum is 100 years.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- This is equivalent to 1200 months, 5200 weeks, or 36500 days.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Ainterval%3ARetainRule%27"><span class="annot"><span class="annottext">RetainRule -&gt; Maybe Natural
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#%24sel%3Ainterval%3ARetainRule%27"><span class="hs-identifier hs-var hs-var">interval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The unit of time for time-based retention.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AintervalUnit%3ARetainRule%27"><span class="annot"><span class="annottext">RetainRule -&gt; Maybe RetentionIntervalUnitValues
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#%24sel%3AintervalUnit%3ARetainRule%27"><span class="hs-identifier hs-var hs-var">intervalUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues"><span class="hs-identifier hs-type">RetentionIntervalUnitValues</span></a></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179436"><span id="local-6989586621679179438"><span class="annot"><span class="annottext">RetainRule -&gt; RetainRule -&gt; Bool
+(RetainRule -&gt; RetainRule -&gt; Bool)
+-&gt; (RetainRule -&gt; RetainRule -&gt; Bool) -&gt; Eq RetainRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RetainRule -&gt; RetainRule -&gt; Bool
+$c/= :: RetainRule -&gt; RetainRule -&gt; Bool
+== :: RetainRule -&gt; RetainRule -&gt; Bool
+$c== :: RetainRule -&gt; RetainRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179427"><span id="local-6989586621679179429"><span id="local-6989586621679179431"><span id="local-6989586621679179433"><span class="annot"><span class="annottext">ReadPrec [RetainRule]
+ReadPrec RetainRule
+Int -&gt; ReadS RetainRule
+ReadS [RetainRule]
+(Int -&gt; ReadS RetainRule)
+-&gt; ReadS [RetainRule]
+-&gt; ReadPrec RetainRule
+-&gt; ReadPrec [RetainRule]
+-&gt; Read RetainRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RetainRule]
+$creadListPrec :: ReadPrec [RetainRule]
+readPrec :: ReadPrec RetainRule
+$creadPrec :: ReadPrec RetainRule
+readList :: ReadS [RetainRule]
+$creadList :: ReadS [RetainRule]
+readsPrec :: Int -&gt; ReadS RetainRule
+$creadsPrec :: Int -&gt; ReadS RetainRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179420"><span id="local-6989586621679179422"><span id="local-6989586621679179424"><span class="annot"><span class="annottext">Int -&gt; RetainRule -&gt; ShowS
+[RetainRule] -&gt; ShowS
+RetainRule -&gt; String
+(Int -&gt; RetainRule -&gt; ShowS)
+-&gt; (RetainRule -&gt; String)
+-&gt; ([RetainRule] -&gt; ShowS)
+-&gt; Show RetainRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RetainRule] -&gt; ShowS
+$cshowList :: [RetainRule] -&gt; ShowS
+show :: RetainRule -&gt; String
+$cshow :: RetainRule -&gt; String
+showsPrec :: Int -&gt; RetainRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; RetainRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RetainRule -&gt; Rep RetainRule x)
+-&gt; (forall x. Rep RetainRule x -&gt; RetainRule) -&gt; Generic RetainRule
+forall x. Rep RetainRule x -&gt; RetainRule
+forall x. RetainRule -&gt; Rep RetainRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RetainRule x -&gt; RetainRule
+$cfrom :: forall x. RetainRule -&gt; Rep RetainRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'RetainRule' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'count', 'retainRule_count' - The number of snapshots to retain for each volume, up to a maximum of</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 1000.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'interval', 'retainRule_interval' - The amount of time to retain each snapshot. The maximum is 100 years.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- This is equivalent to 1200 months, 5200 weeks, or 36500 days.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'intervalUnit', 'retainRule_intervalUnit' - The unit of time for time-based retention.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#newRetainRule"><span class="hs-identifier hs-type">newRetainRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule"><span class="hs-identifier hs-type">RetainRule</span></a></span><span>
+</span><span id="line-60"></span><span id="newRetainRule"><span class="annot"><span class="annottext">newRetainRule :: RetainRule
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#newRetainRule"><span class="hs-identifier hs-var hs-var">newRetainRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">RetainRule' :: Maybe Natural
+-&gt; Maybe Natural -&gt; Maybe RetentionIntervalUnitValues -&gt; RetainRule
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule%27"><span class="hs-identifier hs-type">RetainRule'</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:count:RetainRule' :: Maybe Natural
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#%24sel%3Acount%3ARetainRule%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:interval:RetainRule' :: Maybe Natural
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#%24sel%3Ainterval%3ARetainRule%27"><span class="hs-identifier hs-var">interval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:intervalUnit:RetainRule' :: Maybe RetentionIntervalUnitValues
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#%24sel%3AintervalUnit%3ARetainRule%27"><span class="hs-identifier hs-var">intervalUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionIntervalUnitValues
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The number of snapshots to retain for each volume, up to a maximum of</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 1000.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#retainRule_count"><span class="hs-identifier hs-type">retainRule_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule"><span class="hs-identifier hs-type">RetainRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="retainRule_count"><span class="annot"><span class="annottext">retainRule_count :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; RetainRule -&gt; f RetainRule
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#retainRule_count"><span class="hs-identifier hs-var hs-var">retainRule_count</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RetainRule -&gt; Maybe Natural)
+-&gt; (RetainRule -&gt; Maybe Natural -&gt; RetainRule)
+-&gt; Lens RetainRule RetainRule (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule%27"><span class="hs-identifier hs-type">RetainRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179411"><span class="annot"><span class="annottext">Maybe Natural
+count :: Maybe Natural
+$sel:count:RetainRule' :: RetainRule -&gt; Maybe Natural
+</span><a href="#local-6989586621679179411"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179411"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179410"><span class="annot"><span class="annottext">s :: RetainRule
+</span><a href="#local-6989586621679179410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule%27"><span class="hs-identifier hs-type">RetainRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179409"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetainRule
+</span><a href="#local-6989586621679179410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:RetainRule' :: Maybe Natural
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#%24sel%3Acount%3ARetainRule%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule"><span class="hs-identifier hs-type">RetainRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The amount of time to retain each snapshot. The maximum is 100 years.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- This is equivalent to 1200 months, 5200 weeks, or 36500 days.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#retainRule_interval"><span class="hs-identifier hs-type">retainRule_interval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule"><span class="hs-identifier hs-type">RetainRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="retainRule_interval"><span class="annot"><span class="annottext">retainRule_interval :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; RetainRule -&gt; f RetainRule
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#retainRule_interval"><span class="hs-identifier hs-var hs-var">retainRule_interval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RetainRule -&gt; Maybe Natural)
+-&gt; (RetainRule -&gt; Maybe Natural -&gt; RetainRule)
+-&gt; Lens RetainRule RetainRule (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule%27"><span class="hs-identifier hs-type">RetainRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179407"><span class="annot"><span class="annottext">Maybe Natural
+interval :: Maybe Natural
+$sel:interval:RetainRule' :: RetainRule -&gt; Maybe Natural
+</span><a href="#local-6989586621679179407"><span class="hs-identifier hs-var hs-var">interval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179407"><span class="hs-identifier hs-var">interval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179406"><span class="annot"><span class="annottext">s :: RetainRule
+</span><a href="#local-6989586621679179406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule%27"><span class="hs-identifier hs-type">RetainRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179405"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetainRule
+</span><a href="#local-6989586621679179406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interval:RetainRule' :: Maybe Natural
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#%24sel%3Ainterval%3ARetainRule%27"><span class="hs-identifier hs-var">interval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule"><span class="hs-identifier hs-type">RetainRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The unit of time for time-based retention.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#retainRule_intervalUnit"><span class="hs-identifier hs-type">retainRule_intervalUnit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule"><span class="hs-identifier hs-type">RetainRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues"><span class="hs-identifier hs-type">RetentionIntervalUnitValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="retainRule_intervalUnit"><span class="annot"><span class="annottext">retainRule_intervalUnit :: (Maybe RetentionIntervalUnitValues
+ -&gt; f (Maybe RetentionIntervalUnitValues))
+-&gt; RetainRule -&gt; f RetainRule
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#retainRule_intervalUnit"><span class="hs-identifier hs-var hs-var">retainRule_intervalUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RetainRule -&gt; Maybe RetentionIntervalUnitValues)
+-&gt; (RetainRule -&gt; Maybe RetentionIntervalUnitValues -&gt; RetainRule)
+-&gt; Lens
+     RetainRule
+     RetainRule
+     (Maybe RetentionIntervalUnitValues)
+     (Maybe RetentionIntervalUnitValues)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule%27"><span class="hs-identifier hs-type">RetainRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179403"><span class="annot"><span class="annottext">Maybe RetentionIntervalUnitValues
+intervalUnit :: Maybe RetentionIntervalUnitValues
+$sel:intervalUnit:RetainRule' :: RetainRule -&gt; Maybe RetentionIntervalUnitValues
+</span><a href="#local-6989586621679179403"><span class="hs-identifier hs-var hs-var">intervalUnit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionIntervalUnitValues
+</span><a href="#local-6989586621679179403"><span class="hs-identifier hs-var">intervalUnit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179402"><span class="annot"><span class="annottext">s :: RetainRule
+</span><a href="#local-6989586621679179402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule%27"><span class="hs-identifier hs-type">RetainRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179401"><span class="annot"><span class="annottext">Maybe RetentionIntervalUnitValues
+</span><a href="#local-6989586621679179401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetainRule
+</span><a href="#local-6989586621679179402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intervalUnit:RetainRule' :: Maybe RetentionIntervalUnitValues
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#%24sel%3AintervalUnit%3ARetainRule%27"><span class="hs-identifier hs-var">intervalUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionIntervalUnitValues
+</span><a href="#local-6989586621679179401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule"><span class="hs-identifier hs-type">RetainRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179398"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule"><span class="hs-identifier hs-type">RetainRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679179396"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RetainRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RetainRule) -&gt; Value -&gt; Parser RetainRule
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RetainRule&quot;</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179393"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179393"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe Natural -&gt; Maybe RetentionIntervalUnitValues -&gt; RetainRule
+</span><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule%27"><span class="hs-identifier hs-var">RetainRule'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe RetentionIntervalUnitValues
+ -&gt; RetainRule)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural -&gt; Maybe RetentionIntervalUnitValues -&gt; RetainRule)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179393"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Count&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural -&gt; Maybe RetentionIntervalUnitValues -&gt; RetainRule)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe RetentionIntervalUnitValues -&gt; RetainRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179393"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Interval&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe RetentionIntervalUnitValues -&gt; RetainRule)
+-&gt; Parser (Maybe RetentionIntervalUnitValues) -&gt; Parser RetainRule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179393"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RetentionIntervalUnitValues)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IntervalUnit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179387"><span id="local-6989586621679179389"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule"><span class="hs-identifier hs-type">RetainRule</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179384"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule"><span class="hs-identifier hs-type">RetainRule</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179376"><span id="local-6989586621679179378"><span id="local-6989586621679179380"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule"><span class="hs-identifier hs-type">RetainRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679179374"><span class="annot"><span class="annottext">toJSON :: RetainRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.RetainRule.html#RetainRule%27"><span class="hs-identifier hs-type">RetainRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179370"><span id="local-6989586621679179371"><span id="local-6989586621679179372"><span class="annot"><span class="annottext">Maybe Natural
+Maybe RetentionIntervalUnitValues
+intervalUnit :: Maybe RetentionIntervalUnitValues
+interval :: Maybe Natural
+count :: Maybe Natural
+$sel:intervalUnit:RetainRule' :: RetainRule -&gt; Maybe RetentionIntervalUnitValues
+$sel:interval:RetainRule' :: RetainRule -&gt; Maybe Natural
+$sel:count:RetainRule' :: RetainRule -&gt; Maybe Natural
+</span><a href="#local-6989586621679179370"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Count&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179372"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Interval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179371"><span class="hs-identifier hs-var">interval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IntervalUnit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RetentionIntervalUnitValues -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RetentionIntervalUnitValues -&gt; Pair)
+-&gt; Maybe RetentionIntervalUnitValues -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RetentionIntervalUnitValues
+</span><a href="#local-6989586621679179370"><span class="hs-identifier hs-var">intervalUnit</span></a></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span></pre></body></html>

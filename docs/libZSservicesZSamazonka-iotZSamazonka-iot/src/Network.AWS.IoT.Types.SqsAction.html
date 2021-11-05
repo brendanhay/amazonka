@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an action to publish data to an Amazon SQS queue.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSqsAction' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679798600"><span id="local-6989586621679798601"></span></span><span class="hs-keyword">data</span><span> </span><span id="SqsAction"><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-var">SqsAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SqsAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-var">SqsAction'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679798609"><span id="local-6989586621679798610"></span></span><span class="hs-keyword">data</span><span> </span><span id="SqsAction"><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-var">SqsAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SqsAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-var">SqsAction'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether to use Base64 encoding.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AuseBase64%3ASqsAction%27"><span class="annot"><span class="annottext">SqsAction -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.Types.SqsAction.html#%24sel%3AuseBase64%3ASqsAction%27"><span class="hs-identifier hs-var hs-var">useBase64</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AqueueUrl%3ASqsAction%27"><span class="annot"><span class="annottext">SqsAction -&gt; Text
 </span><a href="Network.AWS.IoT.Types.SqsAction.html#%24sel%3AqueueUrl%3ASqsAction%27"><span class="hs-identifier hs-var hs-var">queueUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679798592"><span id="local-6989586621679798594"><span class="annot"><span class="annottext">SqsAction -&gt; SqsAction -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679798601"><span id="local-6989586621679798603"><span class="annot"><span class="annottext">SqsAction -&gt; SqsAction -&gt; Bool
 (SqsAction -&gt; SqsAction -&gt; Bool)
 -&gt; (SqsAction -&gt; SqsAction -&gt; Bool) -&gt; Eq SqsAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SqsAction -&gt; SqsAction -&gt; Bool
 == :: SqsAction -&gt; SqsAction -&gt; Bool
 $c== :: SqsAction -&gt; SqsAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798583"><span id="local-6989586621679798585"><span id="local-6989586621679798587"><span id="local-6989586621679798589"><span class="annot"><span class="annottext">ReadPrec [SqsAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798592"><span id="local-6989586621679798594"><span id="local-6989586621679798596"><span id="local-6989586621679798598"><span class="annot"><span class="annottext">ReadPrec [SqsAction]
 ReadPrec SqsAction
 Int -&gt; ReadS SqsAction
 ReadS [SqsAction]
@@ -65,7 +65,7 @@ readList :: ReadS [SqsAction]
 $creadList :: ReadS [SqsAction]
 readsPrec :: Int -&gt; ReadS SqsAction
 $creadsPrec :: Int -&gt; ReadS SqsAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798576"><span id="local-6989586621679798578"><span id="local-6989586621679798580"><span class="annot"><span class="annottext">Int -&gt; SqsAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798585"><span id="local-6989586621679798587"><span id="local-6989586621679798589"><span class="annot"><span class="annottext">Int -&gt; SqsAction -&gt; ShowS
 [SqsAction] -&gt; ShowS
 SqsAction -&gt; String
 (Int -&gt; SqsAction -&gt; ShowS)
@@ -110,9 +110,9 @@ $cfrom :: forall x. SqsAction -&gt; Rep SqsAction x
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span>
 </span><span id="line-58"></span><span id="newSqsAction"><span class="annot"><span class="annottext">newSqsAction :: Text -&gt; Text -&gt; SqsAction
-</span><a href="Network.AWS.IoT.Types.SqsAction.html#newSqsAction"><span class="hs-identifier hs-var hs-var">newSqsAction</span></a></span></span><span> </span><span id="local-6989586621679798570"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798570"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679798569"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798569"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.SqsAction.html#newSqsAction"><span class="hs-identifier hs-var hs-var">newSqsAction</span></a></span></span><span> </span><span id="local-6989586621679798579"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798579"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679798578"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798578"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">SqsAction' :: Maybe Bool -&gt; Text -&gt; Text -&gt; SqsAction
 </span><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:useBase64:SqsAction' :: Maybe Bool
@@ -121,10 +121,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:SqsAction' :: Text
 </span><a href="Network.AWS.IoT.Types.SqsAction.html#%24sel%3AroleArn%3ASqsAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798570"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679798579"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:queueUrl:SqsAction' :: Text
 </span><a href="Network.AWS.IoT.Types.SqsAction.html#%24sel%3AqueueUrl%3ASqsAction%27"><span class="hs-identifier hs-var">queueUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798569"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span><span>
+</span><a href="#local-6989586621679798578"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | Specifies whether to use Base64 encoding.</span><span>
@@ -134,16 +134,16 @@ forall a. Maybe a
 -&gt; (SqsAction -&gt; Maybe Bool -&gt; SqsAction)
 -&gt; Lens SqsAction SqsAction (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798565"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798574"><span class="annot"><span class="annottext">Maybe Bool
 useBase64 :: Maybe Bool
 $sel:useBase64:SqsAction' :: SqsAction -&gt; Maybe Bool
-</span><a href="#local-6989586621679798565"><span class="hs-identifier hs-var hs-var">useBase64</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679798565"><span class="hs-identifier hs-var">useBase64</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798564"><span class="annot"><span class="annottext">s :: SqsAction
-</span><a href="#local-6989586621679798564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798563"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679798563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqsAction
-</span><a href="#local-6989586621679798564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useBase64:SqsAction' :: Maybe Bool
+</span><a href="#local-6989586621679798574"><span class="hs-identifier hs-var hs-var">useBase64</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679798574"><span class="hs-identifier hs-var">useBase64</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798573"><span class="annot"><span class="annottext">s :: SqsAction
+</span><a href="#local-6989586621679798573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798572"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679798572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqsAction
+</span><a href="#local-6989586621679798573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useBase64:SqsAction' :: Maybe Bool
 </span><a href="Network.AWS.IoT.Types.SqsAction.html#%24sel%3AuseBase64%3ASqsAction%27"><span class="hs-identifier hs-var">useBase64</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679798563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The ARN of the IAM role that grants access.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#sqsAction_roleArn"><span class="hs-identifier hs-type">sqsAction_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -152,16 +152,16 @@ $sel:useBase64:SqsAction' :: SqsAction -&gt; Maybe Bool
 -&gt; (SqsAction -&gt; Text -&gt; SqsAction)
 -&gt; Lens SqsAction SqsAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798561"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798570"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:SqsAction' :: SqsAction -&gt; Text
-</span><a href="#local-6989586621679798561"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798561"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798560"><span class="annot"><span class="annottext">s :: SqsAction
-</span><a href="#local-6989586621679798560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798559"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqsAction
-</span><a href="#local-6989586621679798560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:SqsAction' :: Text
+</span><a href="#local-6989586621679798570"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798570"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798569"><span class="annot"><span class="annottext">s :: SqsAction
+</span><a href="#local-6989586621679798569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798568"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqsAction
+</span><a href="#local-6989586621679798569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:SqsAction' :: Text
 </span><a href="Network.AWS.IoT.Types.SqsAction.html#%24sel%3AroleArn%3ASqsAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The URL of the Amazon SQS queue.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#sqsAction_queueUrl"><span class="hs-identifier hs-type">sqsAction_queueUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -170,34 +170,34 @@ $sel:roleArn:SqsAction' :: SqsAction -&gt; Text
 -&gt; (SqsAction -&gt; Text -&gt; SqsAction)
 -&gt; Lens SqsAction SqsAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798557"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798566"><span class="annot"><span class="annottext">Text
 queueUrl :: Text
 $sel:queueUrl:SqsAction' :: SqsAction -&gt; Text
-</span><a href="#local-6989586621679798557"><span class="hs-identifier hs-var hs-var">queueUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798557"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798556"><span class="annot"><span class="annottext">s :: SqsAction
-</span><a href="#local-6989586621679798556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798555"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqsAction
-</span><a href="#local-6989586621679798556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueUrl:SqsAction' :: Text
+</span><a href="#local-6989586621679798566"><span class="hs-identifier hs-var hs-var">queueUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798566"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798565"><span class="annot"><span class="annottext">s :: SqsAction
+</span><a href="#local-6989586621679798565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798564"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqsAction
+</span><a href="#local-6989586621679798565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueUrl:SqsAction' :: Text
 </span><a href="Network.AWS.IoT.Types.SqsAction.html#%24sel%3AqueueUrl%3ASqsAction%27"><span class="hs-identifier hs-var">queueUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798552"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679798550"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SqsAction
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798561"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679798559"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SqsAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser SqsAction) -&gt; Value -&gt; Parser SqsAction
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SqsAction&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679798547"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679798547"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679798556"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679798556"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Text -&gt; Text -&gt; SqsAction
 </span><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-var">SqsAction'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Text -&gt; Text -&gt; SqsAction)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Text -&gt; Text -&gt; SqsAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679798547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679798556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;useBase64&quot;</span></span><span class="hs-special">)</span><span>
@@ -205,26 +205,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; SqsAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679798547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679798556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; SqsAction) -&gt; Parser Text -&gt; Parser SqsAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679798547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679798556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queueUrl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798540"><span id="local-6989586621679798542"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798549"><span id="local-6989586621679798551"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798546"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798529"><span id="local-6989586621679798531"><span id="local-6989586621679798533"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679798527"><span class="annot"><span class="annottext">toJSON :: SqsAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798523"><span id="local-6989586621679798524"><span id="local-6989586621679798525"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798538"><span id="local-6989586621679798540"><span id="local-6989586621679798542"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679798536"><span class="annot"><span class="annottext">toJSON :: SqsAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction%27"><span class="hs-identifier hs-type">SqsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798532"><span id="local-6989586621679798533"><span id="local-6989586621679798534"><span class="annot"><span class="annottext">Maybe Bool
 Text
 queueUrl :: Text
 roleArn :: Text
@@ -232,7 +232,7 @@ useBase64 :: Maybe Bool
 $sel:queueUrl:SqsAction' :: SqsAction -&gt; Text
 $sel:roleArn:SqsAction' :: SqsAction -&gt; Text
 $sel:useBase64:SqsAction' :: SqsAction -&gt; Maybe Bool
-</span><a href="#local-6989586621679798523"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679798532"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -244,21 +244,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679798525"><span class="hs-identifier hs-var">useBase64</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679798534"><span class="hs-identifier hs-var">useBase64</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798524"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679798533"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queueUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798523"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798532"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span></pre></body></html>

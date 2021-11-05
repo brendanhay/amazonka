@@ -1,0 +1,642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new attribute group as a container for user-defined</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- attributes. This feature enables users to have full control over their</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- cloud application\'s metadata in a rich machine-readable format to</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- facilitate integration with automated workflows and third-party tools.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier">CreateAttributeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#newCreateAttributeGroup"><span class="hs-identifier">newCreateAttributeGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_description"><span class="hs-identifier">createAttributeGroup_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_tags"><span class="hs-identifier">createAttributeGroup_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_name"><span class="hs-identifier">createAttributeGroup_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_attributes"><span class="hs-identifier">createAttributeGroup_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_clientToken"><span class="hs-identifier">createAttributeGroup_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse"><span class="hs-identifier">CreateAttributeGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#newCreateAttributeGroupResponse"><span class="hs-identifier">newCreateAttributeGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroupResponse_attributeGroup"><span class="hs-identifier">createAttributeGroupResponse_attributeGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroupResponse_httpStatus"><span class="hs-identifier">createAttributeGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.Types.html"><span class="hs-identifier">Network.AWS.ServiceCatalogAppRegistry.Types</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newCreateAttributeGroup' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679183660"><span id="local-6989586621679183661"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAttributeGroup"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-var">CreateAttributeGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAttributeGroup%27"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup%27"><span class="hs-identifier hs-var">CreateAttributeGroup'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the attribute group that the user provides.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Adescription%3ACreateAttributeGroup%27"><span class="annot"><span class="annottext">CreateAttributeGroup -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3Adescription%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Key-value pairs you can use to associate with the attribute group.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Atags%3ACreateAttributeGroup%27"><span class="annot"><span class="annottext">CreateAttributeGroup -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3Atags%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The name of the attribute group.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aname%3ACreateAttributeGroup%27"><span class="annot"><span class="annottext">CreateAttributeGroup -&gt; Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3Aname%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A JSON string in the form of nested key-value pairs that represent the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- attributes in the group and describes an application and its components.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aattributes%3ACreateAttributeGroup%27"><span class="annot"><span class="annottext">CreateAttributeGroup -&gt; Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3Aattributes%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A unique identifier that you provide to ensure idempotency. If you retry</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- a request that completed successfully using the same client token and</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the same parameters, the retry succeeds without performing any further</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- actions. If you retry a successful request using the same client token,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- but one or more of the parameters are different, the retry fails.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateAttributeGroup%27"><span class="annot"><span class="annottext">CreateAttributeGroup -&gt; Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3AclientToken%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183650"><span id="local-6989586621679183652"><span class="annot"><span class="annottext">CreateAttributeGroup -&gt; CreateAttributeGroup -&gt; Bool
+(CreateAttributeGroup -&gt; CreateAttributeGroup -&gt; Bool)
+-&gt; (CreateAttributeGroup -&gt; CreateAttributeGroup -&gt; Bool)
+-&gt; Eq CreateAttributeGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAttributeGroup -&gt; CreateAttributeGroup -&gt; Bool
+$c/= :: CreateAttributeGroup -&gt; CreateAttributeGroup -&gt; Bool
+== :: CreateAttributeGroup -&gt; CreateAttributeGroup -&gt; Bool
+$c== :: CreateAttributeGroup -&gt; CreateAttributeGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183641"><span id="local-6989586621679183643"><span id="local-6989586621679183645"><span id="local-6989586621679183647"><span class="annot"><span class="annottext">ReadPrec [CreateAttributeGroup]
+ReadPrec CreateAttributeGroup
+Int -&gt; ReadS CreateAttributeGroup
+ReadS [CreateAttributeGroup]
+(Int -&gt; ReadS CreateAttributeGroup)
+-&gt; ReadS [CreateAttributeGroup]
+-&gt; ReadPrec CreateAttributeGroup
+-&gt; ReadPrec [CreateAttributeGroup]
+-&gt; Read CreateAttributeGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateAttributeGroup]
+$creadListPrec :: ReadPrec [CreateAttributeGroup]
+readPrec :: ReadPrec CreateAttributeGroup
+$creadPrec :: ReadPrec CreateAttributeGroup
+readList :: ReadS [CreateAttributeGroup]
+$creadList :: ReadS [CreateAttributeGroup]
+readsPrec :: Int -&gt; ReadS CreateAttributeGroup
+$creadsPrec :: Int -&gt; ReadS CreateAttributeGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183634"><span id="local-6989586621679183636"><span id="local-6989586621679183638"><span class="annot"><span class="annottext">Int -&gt; CreateAttributeGroup -&gt; ShowS
+[CreateAttributeGroup] -&gt; ShowS
+CreateAttributeGroup -&gt; String
+(Int -&gt; CreateAttributeGroup -&gt; ShowS)
+-&gt; (CreateAttributeGroup -&gt; String)
+-&gt; ([CreateAttributeGroup] -&gt; ShowS)
+-&gt; Show CreateAttributeGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAttributeGroup] -&gt; ShowS
+$cshowList :: [CreateAttributeGroup] -&gt; ShowS
+show :: CreateAttributeGroup -&gt; String
+$cshow :: CreateAttributeGroup -&gt; String
+showsPrec :: Int -&gt; CreateAttributeGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAttributeGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateAttributeGroup -&gt; Rep CreateAttributeGroup x)
+-&gt; (forall x. Rep CreateAttributeGroup x -&gt; CreateAttributeGroup)
+-&gt; Generic CreateAttributeGroup
+forall x. Rep CreateAttributeGroup x -&gt; CreateAttributeGroup
+forall x. CreateAttributeGroup -&gt; Rep CreateAttributeGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateAttributeGroup x -&gt; CreateAttributeGroup
+$cfrom :: forall x. CreateAttributeGroup -&gt; Rep CreateAttributeGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'CreateAttributeGroup' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'description', 'createAttributeGroup_description' - The description of the attribute group that the user provides.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'tags', 'createAttributeGroup_tags' - Key-value pairs you can use to associate with the attribute group.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'name', 'createAttributeGroup_name' - The name of the attribute group.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'attributes', 'createAttributeGroup_attributes' - A JSON string in the form of nested key-value pairs that represent the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- attributes in the group and describes an application and its components.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'clientToken', 'createAttributeGroup_clientToken' - A unique identifier that you provide to ensure idempotency. If you retry</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- a request that completed successfully using the same client token and</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the same parameters, the retry succeeds without performing any further</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- actions. If you retry a successful request using the same client token,</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- but one or more of the parameters are different, the retry fails.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#newCreateAttributeGroup"><span class="hs-identifier hs-type">newCreateAttributeGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'attributes'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'clientToken'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span>
+</span><span id="line-106"></span><span id="newCreateAttributeGroup"><span class="annot"><span class="annottext">newCreateAttributeGroup :: Text -&gt; Text -&gt; Text -&gt; CreateAttributeGroup
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#newCreateAttributeGroup"><span class="hs-identifier hs-var hs-var">newCreateAttributeGroup</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679183629"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183629"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679183628"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183628"><span class="hs-identifier hs-var">pAttributes_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679183627"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183627"><span class="hs-identifier hs-var">pClientToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">CreateAttributeGroup' :: Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CreateAttributeGroup
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup%27"><span class="hs-identifier hs-type">CreateAttributeGroup'</span></a></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:CreateAttributeGroup' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3Adescription%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateAttributeGroup' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3Atags%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateAttributeGroup' :: Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3Aname%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183629"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:attributes:CreateAttributeGroup' :: Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3Aattributes%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183628"><span class="hs-identifier hs-var">pAttributes_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:CreateAttributeGroup' :: Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3AclientToken%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183627"><span class="hs-identifier hs-var">pClientToken_</span></a></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The description of the attribute group that the user provides.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_description"><span class="hs-identifier hs-type">createAttributeGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="createAttributeGroup_description"><span class="annot"><span class="annottext">createAttributeGroup_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateAttributeGroup -&gt; f CreateAttributeGroup
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_description"><span class="hs-identifier hs-var hs-var">createAttributeGroup_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAttributeGroup -&gt; Maybe Text)
+-&gt; (CreateAttributeGroup -&gt; Maybe Text -&gt; CreateAttributeGroup)
+-&gt; Lens
+     CreateAttributeGroup CreateAttributeGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup%27"><span class="hs-identifier hs-type">CreateAttributeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183624"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateAttributeGroup' :: CreateAttributeGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679183624"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183624"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183623"><span class="annot"><span class="annottext">s :: CreateAttributeGroup
+</span><a href="#local-6989586621679183623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup%27"><span class="hs-identifier hs-type">CreateAttributeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183622"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAttributeGroup
+</span><a href="#local-6989586621679183623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateAttributeGroup' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3Adescription%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Key-value pairs you can use to associate with the attribute group.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_tags"><span class="hs-identifier hs-type">createAttributeGroup_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="createAttributeGroup_tags"><span class="annot"><span class="annottext">createAttributeGroup_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateAttributeGroup -&gt; f CreateAttributeGroup
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_tags"><span class="hs-identifier hs-var hs-var">createAttributeGroup_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAttributeGroup -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateAttributeGroup
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateAttributeGroup)
+-&gt; Lens
+     CreateAttributeGroup
+     CreateAttributeGroup
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup%27"><span class="hs-identifier hs-type">CreateAttributeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183621"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateAttributeGroup' :: CreateAttributeGroup -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679183621"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679183621"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183620"><span class="annot"><span class="annottext">s :: CreateAttributeGroup
+</span><a href="#local-6989586621679183620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup%27"><span class="hs-identifier hs-type">CreateAttributeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183619"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679183619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAttributeGroup
+</span><a href="#local-6989586621679183620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateAttributeGroup' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3Atags%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679183619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateAttributeGroup -&gt; f CreateAttributeGroup)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateAttributeGroup
+-&gt; f CreateAttributeGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The name of the attribute group.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_name"><span class="hs-identifier hs-type">createAttributeGroup_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-129"></span><span id="createAttributeGroup_name"><span class="annot"><span class="annottext">createAttributeGroup_name :: (Text -&gt; f Text) -&gt; CreateAttributeGroup -&gt; f CreateAttributeGroup
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_name"><span class="hs-identifier hs-var hs-var">createAttributeGroup_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAttributeGroup -&gt; Text)
+-&gt; (CreateAttributeGroup -&gt; Text -&gt; CreateAttributeGroup)
+-&gt; Lens CreateAttributeGroup CreateAttributeGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup%27"><span class="hs-identifier hs-type">CreateAttributeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183615"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateAttributeGroup' :: CreateAttributeGroup -&gt; Text
+</span><a href="#local-6989586621679183615"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183615"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183614"><span class="annot"><span class="annottext">s :: CreateAttributeGroup
+</span><a href="#local-6989586621679183614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup%27"><span class="hs-identifier hs-type">CreateAttributeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183613"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAttributeGroup
+</span><a href="#local-6989586621679183614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateAttributeGroup' :: Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3Aname%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | A JSON string in the form of nested key-value pairs that represent the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- attributes in the group and describes an application and its components.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_attributes"><span class="hs-identifier hs-type">createAttributeGroup_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-134"></span><span id="createAttributeGroup_attributes"><span class="annot"><span class="annottext">createAttributeGroup_attributes :: (Text -&gt; f Text) -&gt; CreateAttributeGroup -&gt; f CreateAttributeGroup
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_attributes"><span class="hs-identifier hs-var hs-var">createAttributeGroup_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAttributeGroup -&gt; Text)
+-&gt; (CreateAttributeGroup -&gt; Text -&gt; CreateAttributeGroup)
+-&gt; Lens CreateAttributeGroup CreateAttributeGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup%27"><span class="hs-identifier hs-type">CreateAttributeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183612"><span class="annot"><span class="annottext">Text
+attributes :: Text
+$sel:attributes:CreateAttributeGroup' :: CreateAttributeGroup -&gt; Text
+</span><a href="#local-6989586621679183612"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183612"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183611"><span class="annot"><span class="annottext">s :: CreateAttributeGroup
+</span><a href="#local-6989586621679183611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup%27"><span class="hs-identifier hs-type">CreateAttributeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183610"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAttributeGroup
+</span><a href="#local-6989586621679183611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:CreateAttributeGroup' :: Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3Aattributes%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | A unique identifier that you provide to ensure idempotency. If you retry</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- a request that completed successfully using the same client token and</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- the same parameters, the retry succeeds without performing any further</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- actions. If you retry a successful request using the same client token,</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- but one or more of the parameters are different, the retry fails.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_clientToken"><span class="hs-identifier hs-type">createAttributeGroup_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-142"></span><span id="createAttributeGroup_clientToken"><span class="annot"><span class="annottext">createAttributeGroup_clientToken :: (Text -&gt; f Text) -&gt; CreateAttributeGroup -&gt; f CreateAttributeGroup
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroup_clientToken"><span class="hs-identifier hs-var hs-var">createAttributeGroup_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAttributeGroup -&gt; Text)
+-&gt; (CreateAttributeGroup -&gt; Text -&gt; CreateAttributeGroup)
+-&gt; Lens CreateAttributeGroup CreateAttributeGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup%27"><span class="hs-identifier hs-type">CreateAttributeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183609"><span class="annot"><span class="annottext">Text
+clientToken :: Text
+$sel:clientToken:CreateAttributeGroup' :: CreateAttributeGroup -&gt; Text
+</span><a href="#local-6989586621679183609"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183609"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183608"><span class="annot"><span class="annottext">s :: CreateAttributeGroup
+</span><a href="#local-6989586621679183608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup%27"><span class="hs-identifier hs-type">CreateAttributeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183607"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAttributeGroup
+</span><a href="#local-6989586621679183608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateAttributeGroup' :: Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3AclientToken%3ACreateAttributeGroup%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-146"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse"><span class="hs-identifier hs-type">CreateAttributeGroupResponse</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679183603"><span class="annot"><span class="annottext">request :: CreateAttributeGroup -&gt; Request CreateAttributeGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateAttributeGroup -&gt; Request CreateAttributeGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679183599"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateAttributeGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateAttributeGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateAttributeGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateAttributeGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateAttributeGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183596"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183596"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679183595"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679183595"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679183594"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679183594"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe AttributeGroup -&gt; Int -&gt; CreateAttributeGroupResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse%27"><span class="hs-identifier hs-var">CreateAttributeGroupResponse'</span></a></span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AttributeGroup -&gt; Int -&gt; CreateAttributeGroupResponse)
+-&gt; Either String (Maybe AttributeGroup)
+-&gt; Either String (Int -&gt; CreateAttributeGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679183594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AttributeGroup)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attributeGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateAttributeGroupResponse)
+-&gt; Either String Int -&gt; Either String CreateAttributeGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183596"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183586"><span id="local-6989586621679183588"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183583"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679183579"><span class="annot"><span class="annottext">toHeaders :: CreateAttributeGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateAttributeGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-168"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183569"><span id="local-6989586621679183571"><span id="local-6989586621679183573"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679183567"><span class="annot"><span class="annottext">toJSON :: CreateAttributeGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup%27"><span class="hs-identifier hs-type">CreateAttributeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183561"><span id="local-6989586621679183562"><span id="local-6989586621679183563"><span id="local-6989586621679183564"><span id="local-6989586621679183565"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Text
+clientToken :: Text
+attributes :: Text
+name :: Text
+tags :: Maybe (HashMap Text Text)
+description :: Maybe Text
+$sel:clientToken:CreateAttributeGroup' :: CreateAttributeGroup -&gt; Text
+$sel:attributes:CreateAttributeGroup' :: CreateAttributeGroup -&gt; Text
+$sel:name:CreateAttributeGroup' :: CreateAttributeGroup -&gt; Text
+$sel:tags:CreateAttributeGroup' :: CreateAttributeGroup -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateAttributeGroup' :: CreateAttributeGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679183561"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183565"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679183564"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183563"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183562"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183561"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679183555"><span class="annot"><span class="annottext">toPath :: CreateAttributeGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateAttributeGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/attribute-groups&quot;</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroup"><span class="hs-identifier hs-type">CreateAttributeGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679183551"><span class="annot"><span class="annottext">toQuery :: CreateAttributeGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateAttributeGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newCreateAttributeGroupResponse' smart constructor.</span><span>
+</span><span id="line-191"></span><span id="local-6989586621679183548"><span id="local-6989586621679183549"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAttributeGroupResponse"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse"><span class="hs-identifier hs-var">CreateAttributeGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAttributeGroupResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse%27"><span class="hs-identifier hs-var">CreateAttributeGroupResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the attribute group.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AattributeGroup%3ACreateAttributeGroupResponse%27"><span class="annot"><span class="annottext">CreateAttributeGroupResponse -&gt; Maybe AttributeGroup
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3AattributeGroup%3ACreateAttributeGroupResponse%27"><span class="hs-identifier hs-var hs-var">attributeGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroup.html#AttributeGroup"><span class="hs-identifier hs-type">AttributeGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAttributeGroupResponse%27"><span class="annot"><span class="annottext">CreateAttributeGroupResponse -&gt; Int
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3AhttpStatus%3ACreateAttributeGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183542"><span id="local-6989586621679183544"><span class="annot"><span class="annottext">CreateAttributeGroupResponse
+-&gt; CreateAttributeGroupResponse -&gt; Bool
+(CreateAttributeGroupResponse
+ -&gt; CreateAttributeGroupResponse -&gt; Bool)
+-&gt; (CreateAttributeGroupResponse
+    -&gt; CreateAttributeGroupResponse -&gt; Bool)
+-&gt; Eq CreateAttributeGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAttributeGroupResponse
+-&gt; CreateAttributeGroupResponse -&gt; Bool
+$c/= :: CreateAttributeGroupResponse
+-&gt; CreateAttributeGroupResponse -&gt; Bool
+== :: CreateAttributeGroupResponse
+-&gt; CreateAttributeGroupResponse -&gt; Bool
+$c== :: CreateAttributeGroupResponse
+-&gt; CreateAttributeGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183534"><span id="local-6989586621679183536"><span id="local-6989586621679183538"><span id="local-6989586621679183540"><span class="annot"><span class="annottext">ReadPrec [CreateAttributeGroupResponse]
+ReadPrec CreateAttributeGroupResponse
+Int -&gt; ReadS CreateAttributeGroupResponse
+ReadS [CreateAttributeGroupResponse]
+(Int -&gt; ReadS CreateAttributeGroupResponse)
+-&gt; ReadS [CreateAttributeGroupResponse]
+-&gt; ReadPrec CreateAttributeGroupResponse
+-&gt; ReadPrec [CreateAttributeGroupResponse]
+-&gt; Read CreateAttributeGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateAttributeGroupResponse]
+$creadListPrec :: ReadPrec [CreateAttributeGroupResponse]
+readPrec :: ReadPrec CreateAttributeGroupResponse
+$creadPrec :: ReadPrec CreateAttributeGroupResponse
+readList :: ReadS [CreateAttributeGroupResponse]
+$creadList :: ReadS [CreateAttributeGroupResponse]
+readsPrec :: Int -&gt; ReadS CreateAttributeGroupResponse
+$creadsPrec :: Int -&gt; ReadS CreateAttributeGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183528"><span id="local-6989586621679183530"><span id="local-6989586621679183532"><span class="annot"><span class="annottext">Int -&gt; CreateAttributeGroupResponse -&gt; ShowS
+[CreateAttributeGroupResponse] -&gt; ShowS
+CreateAttributeGroupResponse -&gt; String
+(Int -&gt; CreateAttributeGroupResponse -&gt; ShowS)
+-&gt; (CreateAttributeGroupResponse -&gt; String)
+-&gt; ([CreateAttributeGroupResponse] -&gt; ShowS)
+-&gt; Show CreateAttributeGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAttributeGroupResponse] -&gt; ShowS
+$cshowList :: [CreateAttributeGroupResponse] -&gt; ShowS
+show :: CreateAttributeGroupResponse -&gt; String
+$cshow :: CreateAttributeGroupResponse -&gt; String
+showsPrec :: Int -&gt; CreateAttributeGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAttributeGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateAttributeGroupResponse -&gt; Rep CreateAttributeGroupResponse x)
+-&gt; (forall x.
+    Rep CreateAttributeGroupResponse x -&gt; CreateAttributeGroupResponse)
+-&gt; Generic CreateAttributeGroupResponse
+forall x.
+Rep CreateAttributeGroupResponse x -&gt; CreateAttributeGroupResponse
+forall x.
+CreateAttributeGroupResponse -&gt; Rep CreateAttributeGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateAttributeGroupResponse x -&gt; CreateAttributeGroupResponse
+$cfrom :: forall x.
+CreateAttributeGroupResponse -&gt; Rep CreateAttributeGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Create a value of 'CreateAttributeGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'attributeGroup', 'createAttributeGroupResponse_attributeGroup' - Information about the attribute group.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'createAttributeGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#newCreateAttributeGroupResponse"><span class="hs-identifier hs-type">newCreateAttributeGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse"><span class="hs-identifier hs-type">CreateAttributeGroupResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newCreateAttributeGroupResponse"><span class="annot"><span class="annottext">newCreateAttributeGroupResponse :: Int -&gt; CreateAttributeGroupResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#newCreateAttributeGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateAttributeGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679183525"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183525"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">CreateAttributeGroupResponse' :: Maybe AttributeGroup -&gt; Int -&gt; CreateAttributeGroupResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse%27"><span class="hs-identifier hs-type">CreateAttributeGroupResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributeGroup:CreateAttributeGroupResponse' :: Maybe AttributeGroup
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3AattributeGroup%3ACreateAttributeGroupResponse%27"><span class="hs-identifier hs-var">attributeGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Maybe AttributeGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAttributeGroupResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3AhttpStatus%3ACreateAttributeGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183525"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | Information about the attribute group.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroupResponse_attributeGroup"><span class="hs-identifier hs-type">createAttributeGroupResponse_attributeGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse"><span class="hs-identifier hs-type">CreateAttributeGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroup.html#AttributeGroup"><span class="hs-identifier hs-type">AttributeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="createAttributeGroupResponse_attributeGroup"><span class="annot"><span class="annottext">createAttributeGroupResponse_attributeGroup :: (Maybe AttributeGroup -&gt; f (Maybe AttributeGroup))
+-&gt; CreateAttributeGroupResponse -&gt; f CreateAttributeGroupResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroupResponse_attributeGroup"><span class="hs-identifier hs-var hs-var">createAttributeGroupResponse_attributeGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAttributeGroupResponse -&gt; Maybe AttributeGroup)
+-&gt; (CreateAttributeGroupResponse
+    -&gt; Maybe AttributeGroup -&gt; CreateAttributeGroupResponse)
+-&gt; Lens
+     CreateAttributeGroupResponse
+     CreateAttributeGroupResponse
+     (Maybe AttributeGroup)
+     (Maybe AttributeGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse%27"><span class="hs-identifier hs-type">CreateAttributeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183524"><span class="annot"><span class="annottext">Maybe AttributeGroup
+attributeGroup :: Maybe AttributeGroup
+$sel:attributeGroup:CreateAttributeGroupResponse' :: CreateAttributeGroupResponse -&gt; Maybe AttributeGroup
+</span><a href="#local-6989586621679183524"><span class="hs-identifier hs-var hs-var">attributeGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeGroup
+</span><a href="#local-6989586621679183524"><span class="hs-identifier hs-var">attributeGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183523"><span class="annot"><span class="annottext">s :: CreateAttributeGroupResponse
+</span><a href="#local-6989586621679183523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse%27"><span class="hs-identifier hs-type">CreateAttributeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183522"><span class="annot"><span class="annottext">Maybe AttributeGroup
+</span><a href="#local-6989586621679183522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAttributeGroupResponse
+</span><a href="#local-6989586621679183523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeGroup:CreateAttributeGroupResponse' :: Maybe AttributeGroup
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3AattributeGroup%3ACreateAttributeGroupResponse%27"><span class="hs-identifier hs-var">attributeGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeGroup
+</span><a href="#local-6989586621679183522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse"><span class="hs-identifier hs-type">CreateAttributeGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroupResponse_httpStatus"><span class="hs-identifier hs-type">createAttributeGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse"><span class="hs-identifier hs-type">CreateAttributeGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-227"></span><span id="createAttributeGroupResponse_httpStatus"><span class="annot"><span class="annottext">createAttributeGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateAttributeGroupResponse -&gt; f CreateAttributeGroupResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#createAttributeGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createAttributeGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAttributeGroupResponse -&gt; Int)
+-&gt; (CreateAttributeGroupResponse
+    -&gt; Int -&gt; CreateAttributeGroupResponse)
+-&gt; Lens
+     CreateAttributeGroupResponse CreateAttributeGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse%27"><span class="hs-identifier hs-type">CreateAttributeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183521"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateAttributeGroupResponse' :: CreateAttributeGroupResponse -&gt; Int
+</span><a href="#local-6989586621679183521"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183521"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183520"><span class="annot"><span class="annottext">s :: CreateAttributeGroupResponse
+</span><a href="#local-6989586621679183520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse%27"><span class="hs-identifier hs-type">CreateAttributeGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183519"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAttributeGroupResponse
+</span><a href="#local-6989586621679183520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAttributeGroupResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#%24sel%3AhttpStatus%3ACreateAttributeGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse"><span class="hs-identifier hs-type">CreateAttributeGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183517"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.html#CreateAttributeGroupResponse"><span class="hs-identifier hs-type">CreateAttributeGroupResponse</span></a></span></span><span>
+</span><span id="line-230"></span></pre></body></html>

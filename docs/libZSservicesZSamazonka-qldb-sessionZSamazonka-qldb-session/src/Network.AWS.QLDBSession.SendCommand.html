@@ -1,0 +1,1120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QLDBSession.SendCommand</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Sends a command to an Amazon QLDB ledger.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Instead of interacting directly with this API, we recommend using the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- QLDB driver or the QLDB shell to execute data transactions on a ledger.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- -   If you are working with an AWS SDK, use the QLDB driver. The driver</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--     provides a high-level abstraction layer above this /QLDB Session/</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--     data plane and manages @SendCommand@ API calls for you. For</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--     information and a list of supported programming languages, see</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-driver.html Getting started with the driver&gt;</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     in the /Amazon QLDB Developer Guide/.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   If you are working with the AWS Command Line Interface (AWS CLI),</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     use the QLDB shell. The shell is a command line interface that uses</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     the QLDB driver to interact with a ledger. For information, see</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/qldb/latest/developerguide/data-shell.html Accessing Amazon QLDB using the QLDB shell&gt;.</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QLDBSession.SendCommand</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier">SendCommand</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#newSendCommand"><span class="hs-identifier">newSendCommand</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_fetchPage"><span class="hs-identifier">sendCommand_fetchPage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_sessionToken"><span class="hs-identifier">sendCommand_sessionToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_abortTransaction"><span class="hs-identifier">sendCommand_abortTransaction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_endSession"><span class="hs-identifier">sendCommand_endSession</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_startTransaction"><span class="hs-identifier">sendCommand_startTransaction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_executeStatement"><span class="hs-identifier">sendCommand_executeStatement</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_commitTransaction"><span class="hs-identifier">sendCommand_commitTransaction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_startSession"><span class="hs-identifier">sendCommand_startSession</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier">SendCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#newSendCommandResponse"><span class="hs-identifier">newSendCommandResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_fetchPage"><span class="hs-identifier">sendCommandResponse_fetchPage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_abortTransaction"><span class="hs-identifier">sendCommandResponse_abortTransaction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_endSession"><span class="hs-identifier">sendCommandResponse_endSession</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_startTransaction"><span class="hs-identifier">sendCommandResponse_startTransaction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_executeStatement"><span class="hs-identifier">sendCommandResponse_executeStatement</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_commitTransaction"><span class="hs-identifier">sendCommandResponse_commitTransaction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_startSession"><span class="hs-identifier">sendCommandResponse_startSession</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_httpStatus"><span class="hs-identifier">sendCommandResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.html"><span class="hs-identifier">Network.AWS.QLDBSession.Types</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | /See:/ 'newSendCommand' smart constructor.</span><span>
+</span><span id="line-78"></span><span id="local-6989586621679149336"><span id="local-6989586621679149337"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendCommand"><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-var">SendCommand</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendCommand%27"><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-var">SendCommand'</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Command to fetch a page.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AfetchPage%3ASendCommand%27"><span class="annot"><span class="annottext">SendCommand -&gt; Maybe FetchPageRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AfetchPage%3ASendCommand%27"><span class="hs-identifier hs-var hs-var">fetchPage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.FetchPageRequest.html#FetchPageRequest"><span class="hs-identifier hs-type">FetchPageRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Specifies the session token for the current command. A session token is</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- constant throughout the life of the session.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- To obtain a session token, run the @StartSession@ command. This</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- @SessionToken@ is required for every subsequent command that is issued</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- during the current session.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AsessionToken%3ASendCommand%27"><span class="annot"><span class="annottext">SendCommand -&gt; Maybe Text
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AsessionToken%3ASendCommand%27"><span class="hs-identifier hs-var hs-var">sessionToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | Command to abort the current transaction.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AabortTransaction%3ASendCommand%27"><span class="annot"><span class="annottext">SendCommand -&gt; Maybe AbortTransactionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AabortTransaction%3ASendCommand%27"><span class="hs-identifier hs-var hs-var">abortTransaction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.AbortTransactionRequest.html#AbortTransactionRequest"><span class="hs-identifier hs-type">AbortTransactionRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | Command to end the current session.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AendSession%3ASendCommand%27"><span class="annot"><span class="annottext">SendCommand -&gt; Maybe EndSessionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AendSession%3ASendCommand%27"><span class="hs-identifier hs-var hs-var">endSession</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.EndSessionRequest.html#EndSessionRequest"><span class="hs-identifier hs-type">EndSessionRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | Command to start a new transaction.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AstartTransaction%3ASendCommand%27"><span class="annot"><span class="annottext">SendCommand -&gt; Maybe StartTransactionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AstartTransaction%3ASendCommand%27"><span class="hs-identifier hs-var hs-var">startTransaction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.StartTransactionRequest.html#StartTransactionRequest"><span class="hs-identifier hs-type">StartTransactionRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | Command to execute a statement in the specified transaction.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AexecuteStatement%3ASendCommand%27"><span class="annot"><span class="annottext">SendCommand -&gt; Maybe ExecuteStatementRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AexecuteStatement%3ASendCommand%27"><span class="hs-identifier hs-var hs-var">executeStatement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.ExecuteStatementRequest.html#ExecuteStatementRequest"><span class="hs-identifier hs-type">ExecuteStatementRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | Command to commit the specified transaction.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AcommitTransaction%3ASendCommand%27"><span class="annot"><span class="annottext">SendCommand -&gt; Maybe CommitTransactionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AcommitTransaction%3ASendCommand%27"><span class="hs-identifier hs-var hs-var">commitTransaction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.CommitTransactionRequest.html#CommitTransactionRequest"><span class="hs-identifier hs-type">CommitTransactionRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | Command to start a new session. A session token is obtained as part of</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- the response.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AstartSession%3ASendCommand%27"><span class="annot"><span class="annottext">SendCommand -&gt; Maybe StartSessionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AstartSession%3ASendCommand%27"><span class="hs-identifier hs-var hs-var">startSession</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.StartSessionRequest.html#StartSessionRequest"><span class="hs-identifier hs-type">StartSessionRequest</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679149323"><span id="local-6989586621679149325"><span class="annot"><span class="annottext">SendCommand -&gt; SendCommand -&gt; Bool
+(SendCommand -&gt; SendCommand -&gt; Bool)
+-&gt; (SendCommand -&gt; SendCommand -&gt; Bool) -&gt; Eq SendCommand
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SendCommand -&gt; SendCommand -&gt; Bool
+$c/= :: SendCommand -&gt; SendCommand -&gt; Bool
+== :: SendCommand -&gt; SendCommand -&gt; Bool
+$c== :: SendCommand -&gt; SendCommand -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149314"><span id="local-6989586621679149316"><span id="local-6989586621679149318"><span id="local-6989586621679149320"><span class="annot"><span class="annottext">ReadPrec [SendCommand]
+ReadPrec SendCommand
+Int -&gt; ReadS SendCommand
+ReadS [SendCommand]
+(Int -&gt; ReadS SendCommand)
+-&gt; ReadS [SendCommand]
+-&gt; ReadPrec SendCommand
+-&gt; ReadPrec [SendCommand]
+-&gt; Read SendCommand
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SendCommand]
+$creadListPrec :: ReadPrec [SendCommand]
+readPrec :: ReadPrec SendCommand
+$creadPrec :: ReadPrec SendCommand
+readList :: ReadS [SendCommand]
+$creadList :: ReadS [SendCommand]
+readsPrec :: Int -&gt; ReadS SendCommand
+$creadsPrec :: Int -&gt; ReadS SendCommand
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149307"><span id="local-6989586621679149309"><span id="local-6989586621679149311"><span class="annot"><span class="annottext">Int -&gt; SendCommand -&gt; ShowS
+[SendCommand] -&gt; ShowS
+SendCommand -&gt; String
+(Int -&gt; SendCommand -&gt; ShowS)
+-&gt; (SendCommand -&gt; String)
+-&gt; ([SendCommand] -&gt; ShowS)
+-&gt; Show SendCommand
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SendCommand] -&gt; ShowS
+$cshowList :: [SendCommand] -&gt; ShowS
+show :: SendCommand -&gt; String
+$cshow :: SendCommand -&gt; String
+showsPrec :: Int -&gt; SendCommand -&gt; ShowS
+$cshowsPrec :: Int -&gt; SendCommand -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SendCommand -&gt; Rep SendCommand x)
+-&gt; (forall x. Rep SendCommand x -&gt; SendCommand)
+-&gt; Generic SendCommand
+forall x. Rep SendCommand x -&gt; SendCommand
+forall x. SendCommand -&gt; Rep SendCommand x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SendCommand x -&gt; SendCommand
+$cfrom :: forall x. SendCommand -&gt; Rep SendCommand x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Create a value of 'SendCommand' with all optional fields omitted.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'fetchPage', 'sendCommand_fetchPage' - Command to fetch a page.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'sessionToken', 'sendCommand_sessionToken' - Specifies the session token for the current command. A session token is</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- constant throughout the life of the session.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- To obtain a session token, run the @StartSession@ command. This</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @SessionToken@ is required for every subsequent command that is issued</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- during the current session.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'abortTransaction', 'sendCommand_abortTransaction' - Command to abort the current transaction.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'endSession', 'sendCommand_endSession' - Command to end the current session.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'startTransaction', 'sendCommand_startTransaction' - Command to start a new transaction.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'executeStatement', 'sendCommand_executeStatement' - Command to execute a statement in the specified transaction.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'commitTransaction', 'sendCommand_commitTransaction' - Command to commit the specified transaction.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'startSession', 'sendCommand_startSession' - Command to start a new session. A session token is obtained as part of</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- the response.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#newSendCommand"><span class="hs-identifier hs-type">newSendCommand</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span>
+</span><span id="line-135"></span><span id="newSendCommand"><span class="annot"><span class="annottext">newSendCommand :: SendCommand
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#newSendCommand"><span class="hs-identifier hs-var hs-var">newSendCommand</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">SendCommand' :: Maybe FetchPageRequest
+-&gt; Maybe Text
+-&gt; Maybe AbortTransactionRequest
+-&gt; Maybe EndSessionRequest
+-&gt; Maybe StartTransactionRequest
+-&gt; Maybe ExecuteStatementRequest
+-&gt; Maybe CommitTransactionRequest
+-&gt; Maybe StartSessionRequest
+-&gt; SendCommand
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fetchPage:SendCommand' :: Maybe FetchPageRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AfetchPage%3ASendCommand%27"><span class="hs-identifier hs-var">fetchPage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FetchPageRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:sessionToken:SendCommand' :: Maybe Text
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AsessionToken%3ASendCommand%27"><span class="hs-identifier hs-var">sessionToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:abortTransaction:SendCommand' :: Maybe AbortTransactionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AabortTransaction%3ASendCommand%27"><span class="hs-identifier hs-var">abortTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbortTransactionRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:endSession:SendCommand' :: Maybe EndSessionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AendSession%3ASendCommand%27"><span class="hs-identifier hs-var">endSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndSessionRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTransaction:SendCommand' :: Maybe StartTransactionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AstartTransaction%3ASendCommand%27"><span class="hs-identifier hs-var">startTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartTransactionRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:executeStatement:SendCommand' :: Maybe ExecuteStatementRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AexecuteStatement%3ASendCommand%27"><span class="hs-identifier hs-var">executeStatement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteStatementRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:commitTransaction:SendCommand' :: Maybe CommitTransactionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AcommitTransaction%3ASendCommand%27"><span class="hs-identifier hs-var">commitTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CommitTransactionRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:startSession:SendCommand' :: Maybe StartSessionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AstartSession%3ASendCommand%27"><span class="hs-identifier hs-var">startSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartSessionRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Command to fetch a page.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_fetchPage"><span class="hs-identifier hs-type">sendCommand_fetchPage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.FetchPageRequest.html#FetchPageRequest"><span class="hs-identifier hs-type">FetchPageRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="sendCommand_fetchPage"><span class="annot"><span class="annottext">sendCommand_fetchPage :: (Maybe FetchPageRequest -&gt; f (Maybe FetchPageRequest))
+-&gt; SendCommand -&gt; f SendCommand
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_fetchPage"><span class="hs-identifier hs-var hs-var">sendCommand_fetchPage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommand -&gt; Maybe FetchPageRequest)
+-&gt; (SendCommand -&gt; Maybe FetchPageRequest -&gt; SendCommand)
+-&gt; Lens
+     SendCommand
+     SendCommand
+     (Maybe FetchPageRequest)
+     (Maybe FetchPageRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149300"><span class="annot"><span class="annottext">Maybe FetchPageRequest
+fetchPage :: Maybe FetchPageRequest
+$sel:fetchPage:SendCommand' :: SendCommand -&gt; Maybe FetchPageRequest
+</span><a href="#local-6989586621679149300"><span class="hs-identifier hs-var hs-var">fetchPage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FetchPageRequest
+</span><a href="#local-6989586621679149300"><span class="hs-identifier hs-var">fetchPage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149299"><span class="annot"><span class="annottext">s :: SendCommand
+</span><a href="#local-6989586621679149299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149298"><span class="annot"><span class="annottext">Maybe FetchPageRequest
+</span><a href="#local-6989586621679149298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommand
+</span><a href="#local-6989586621679149299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fetchPage:SendCommand' :: Maybe FetchPageRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AfetchPage%3ASendCommand%27"><span class="hs-identifier hs-var">fetchPage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FetchPageRequest
+</span><a href="#local-6989586621679149298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | Specifies the session token for the current command. A session token is</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- constant throughout the life of the session.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- To obtain a session token, run the @StartSession@ command. This</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- @SessionToken@ is required for every subsequent command that is issued</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- during the current session.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_sessionToken"><span class="hs-identifier hs-type">sendCommand_sessionToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="sendCommand_sessionToken"><span class="annot"><span class="annottext">sendCommand_sessionToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SendCommand -&gt; f SendCommand
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_sessionToken"><span class="hs-identifier hs-var hs-var">sendCommand_sessionToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommand -&gt; Maybe Text)
+-&gt; (SendCommand -&gt; Maybe Text -&gt; SendCommand)
+-&gt; Lens SendCommand SendCommand (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149297"><span class="annot"><span class="annottext">Maybe Text
+sessionToken :: Maybe Text
+$sel:sessionToken:SendCommand' :: SendCommand -&gt; Maybe Text
+</span><a href="#local-6989586621679149297"><span class="hs-identifier hs-var hs-var">sessionToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149297"><span class="hs-identifier hs-var">sessionToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149296"><span class="annot"><span class="annottext">s :: SendCommand
+</span><a href="#local-6989586621679149296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149295"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommand
+</span><a href="#local-6989586621679149296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionToken:SendCommand' :: Maybe Text
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AsessionToken%3ASendCommand%27"><span class="hs-identifier hs-var">sessionToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | Command to abort the current transaction.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_abortTransaction"><span class="hs-identifier hs-type">sendCommand_abortTransaction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.AbortTransactionRequest.html#AbortTransactionRequest"><span class="hs-identifier hs-type">AbortTransactionRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="sendCommand_abortTransaction"><span class="annot"><span class="annottext">sendCommand_abortTransaction :: (Maybe AbortTransactionRequest
+ -&gt; f (Maybe AbortTransactionRequest))
+-&gt; SendCommand -&gt; f SendCommand
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_abortTransaction"><span class="hs-identifier hs-var hs-var">sendCommand_abortTransaction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommand -&gt; Maybe AbortTransactionRequest)
+-&gt; (SendCommand -&gt; Maybe AbortTransactionRequest -&gt; SendCommand)
+-&gt; Lens
+     SendCommand
+     SendCommand
+     (Maybe AbortTransactionRequest)
+     (Maybe AbortTransactionRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149294"><span class="annot"><span class="annottext">Maybe AbortTransactionRequest
+abortTransaction :: Maybe AbortTransactionRequest
+$sel:abortTransaction:SendCommand' :: SendCommand -&gt; Maybe AbortTransactionRequest
+</span><a href="#local-6989586621679149294"><span class="hs-identifier hs-var hs-var">abortTransaction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AbortTransactionRequest
+</span><a href="#local-6989586621679149294"><span class="hs-identifier hs-var">abortTransaction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149293"><span class="annot"><span class="annottext">s :: SendCommand
+</span><a href="#local-6989586621679149293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149292"><span class="annot"><span class="annottext">Maybe AbortTransactionRequest
+</span><a href="#local-6989586621679149292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommand
+</span><a href="#local-6989586621679149293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abortTransaction:SendCommand' :: Maybe AbortTransactionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AabortTransaction%3ASendCommand%27"><span class="hs-identifier hs-var">abortTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbortTransactionRequest
+</span><a href="#local-6989586621679149292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Command to end the current session.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_endSession"><span class="hs-identifier hs-type">sendCommand_endSession</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.EndSessionRequest.html#EndSessionRequest"><span class="hs-identifier hs-type">EndSessionRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="sendCommand_endSession"><span class="annot"><span class="annottext">sendCommand_endSession :: (Maybe EndSessionRequest -&gt; f (Maybe EndSessionRequest))
+-&gt; SendCommand -&gt; f SendCommand
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_endSession"><span class="hs-identifier hs-var hs-var">sendCommand_endSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommand -&gt; Maybe EndSessionRequest)
+-&gt; (SendCommand -&gt; Maybe EndSessionRequest -&gt; SendCommand)
+-&gt; Lens
+     SendCommand
+     SendCommand
+     (Maybe EndSessionRequest)
+     (Maybe EndSessionRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149291"><span class="annot"><span class="annottext">Maybe EndSessionRequest
+endSession :: Maybe EndSessionRequest
+$sel:endSession:SendCommand' :: SendCommand -&gt; Maybe EndSessionRequest
+</span><a href="#local-6989586621679149291"><span class="hs-identifier hs-var hs-var">endSession</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndSessionRequest
+</span><a href="#local-6989586621679149291"><span class="hs-identifier hs-var">endSession</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149290"><span class="annot"><span class="annottext">s :: SendCommand
+</span><a href="#local-6989586621679149290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149289"><span class="annot"><span class="annottext">Maybe EndSessionRequest
+</span><a href="#local-6989586621679149289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommand
+</span><a href="#local-6989586621679149290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endSession:SendCommand' :: Maybe EndSessionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AendSession%3ASendCommand%27"><span class="hs-identifier hs-var">endSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndSessionRequest
+</span><a href="#local-6989586621679149289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | Command to start a new transaction.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_startTransaction"><span class="hs-identifier hs-type">sendCommand_startTransaction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.StartTransactionRequest.html#StartTransactionRequest"><span class="hs-identifier hs-type">StartTransactionRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="sendCommand_startTransaction"><span class="annot"><span class="annottext">sendCommand_startTransaction :: (Maybe StartTransactionRequest
+ -&gt; f (Maybe StartTransactionRequest))
+-&gt; SendCommand -&gt; f SendCommand
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_startTransaction"><span class="hs-identifier hs-var hs-var">sendCommand_startTransaction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommand -&gt; Maybe StartTransactionRequest)
+-&gt; (SendCommand -&gt; Maybe StartTransactionRequest -&gt; SendCommand)
+-&gt; Lens
+     SendCommand
+     SendCommand
+     (Maybe StartTransactionRequest)
+     (Maybe StartTransactionRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149288"><span class="annot"><span class="annottext">Maybe StartTransactionRequest
+startTransaction :: Maybe StartTransactionRequest
+$sel:startTransaction:SendCommand' :: SendCommand -&gt; Maybe StartTransactionRequest
+</span><a href="#local-6989586621679149288"><span class="hs-identifier hs-var hs-var">startTransaction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StartTransactionRequest
+</span><a href="#local-6989586621679149288"><span class="hs-identifier hs-var">startTransaction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149287"><span class="annot"><span class="annottext">s :: SendCommand
+</span><a href="#local-6989586621679149287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149286"><span class="annot"><span class="annottext">Maybe StartTransactionRequest
+</span><a href="#local-6989586621679149286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommand
+</span><a href="#local-6989586621679149287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTransaction:SendCommand' :: Maybe StartTransactionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AstartTransaction%3ASendCommand%27"><span class="hs-identifier hs-var">startTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartTransactionRequest
+</span><a href="#local-6989586621679149286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | Command to execute a statement in the specified transaction.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_executeStatement"><span class="hs-identifier hs-type">sendCommand_executeStatement</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.ExecuteStatementRequest.html#ExecuteStatementRequest"><span class="hs-identifier hs-type">ExecuteStatementRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="sendCommand_executeStatement"><span class="annot"><span class="annottext">sendCommand_executeStatement :: (Maybe ExecuteStatementRequest
+ -&gt; f (Maybe ExecuteStatementRequest))
+-&gt; SendCommand -&gt; f SendCommand
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_executeStatement"><span class="hs-identifier hs-var hs-var">sendCommand_executeStatement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommand -&gt; Maybe ExecuteStatementRequest)
+-&gt; (SendCommand -&gt; Maybe ExecuteStatementRequest -&gt; SendCommand)
+-&gt; Lens
+     SendCommand
+     SendCommand
+     (Maybe ExecuteStatementRequest)
+     (Maybe ExecuteStatementRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149285"><span class="annot"><span class="annottext">Maybe ExecuteStatementRequest
+executeStatement :: Maybe ExecuteStatementRequest
+$sel:executeStatement:SendCommand' :: SendCommand -&gt; Maybe ExecuteStatementRequest
+</span><a href="#local-6989586621679149285"><span class="hs-identifier hs-var hs-var">executeStatement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteStatementRequest
+</span><a href="#local-6989586621679149285"><span class="hs-identifier hs-var">executeStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149284"><span class="annot"><span class="annottext">s :: SendCommand
+</span><a href="#local-6989586621679149284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149283"><span class="annot"><span class="annottext">Maybe ExecuteStatementRequest
+</span><a href="#local-6989586621679149283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommand
+</span><a href="#local-6989586621679149284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executeStatement:SendCommand' :: Maybe ExecuteStatementRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AexecuteStatement%3ASendCommand%27"><span class="hs-identifier hs-var">executeStatement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteStatementRequest
+</span><a href="#local-6989586621679149283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | Command to commit the specified transaction.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_commitTransaction"><span class="hs-identifier hs-type">sendCommand_commitTransaction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.CommitTransactionRequest.html#CommitTransactionRequest"><span class="hs-identifier hs-type">CommitTransactionRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="sendCommand_commitTransaction"><span class="annot"><span class="annottext">sendCommand_commitTransaction :: (Maybe CommitTransactionRequest
+ -&gt; f (Maybe CommitTransactionRequest))
+-&gt; SendCommand -&gt; f SendCommand
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_commitTransaction"><span class="hs-identifier hs-var hs-var">sendCommand_commitTransaction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommand -&gt; Maybe CommitTransactionRequest)
+-&gt; (SendCommand -&gt; Maybe CommitTransactionRequest -&gt; SendCommand)
+-&gt; Lens
+     SendCommand
+     SendCommand
+     (Maybe CommitTransactionRequest)
+     (Maybe CommitTransactionRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149282"><span class="annot"><span class="annottext">Maybe CommitTransactionRequest
+commitTransaction :: Maybe CommitTransactionRequest
+$sel:commitTransaction:SendCommand' :: SendCommand -&gt; Maybe CommitTransactionRequest
+</span><a href="#local-6989586621679149282"><span class="hs-identifier hs-var hs-var">commitTransaction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CommitTransactionRequest
+</span><a href="#local-6989586621679149282"><span class="hs-identifier hs-var">commitTransaction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149281"><span class="annot"><span class="annottext">s :: SendCommand
+</span><a href="#local-6989586621679149281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149280"><span class="annot"><span class="annottext">Maybe CommitTransactionRequest
+</span><a href="#local-6989586621679149280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommand
+</span><a href="#local-6989586621679149281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitTransaction:SendCommand' :: Maybe CommitTransactionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AcommitTransaction%3ASendCommand%27"><span class="hs-identifier hs-var">commitTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CommitTransactionRequest
+</span><a href="#local-6989586621679149280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | Command to start a new session. A session token is obtained as part of</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- the response.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_startSession"><span class="hs-identifier hs-type">sendCommand_startSession</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.StartSessionRequest.html#StartSessionRequest"><span class="hs-identifier hs-type">StartSessionRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="sendCommand_startSession"><span class="annot"><span class="annottext">sendCommand_startSession :: (Maybe StartSessionRequest -&gt; f (Maybe StartSessionRequest))
+-&gt; SendCommand -&gt; f SendCommand
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommand_startSession"><span class="hs-identifier hs-var hs-var">sendCommand_startSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommand -&gt; Maybe StartSessionRequest)
+-&gt; (SendCommand -&gt; Maybe StartSessionRequest -&gt; SendCommand)
+-&gt; Lens
+     SendCommand
+     SendCommand
+     (Maybe StartSessionRequest)
+     (Maybe StartSessionRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149279"><span class="annot"><span class="annottext">Maybe StartSessionRequest
+startSession :: Maybe StartSessionRequest
+$sel:startSession:SendCommand' :: SendCommand -&gt; Maybe StartSessionRequest
+</span><a href="#local-6989586621679149279"><span class="hs-identifier hs-var hs-var">startSession</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StartSessionRequest
+</span><a href="#local-6989586621679149279"><span class="hs-identifier hs-var">startSession</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149278"><span class="annot"><span class="annottext">s :: SendCommand
+</span><a href="#local-6989586621679149278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149277"><span class="annot"><span class="annottext">Maybe StartSessionRequest
+</span><a href="#local-6989586621679149277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommand
+</span><a href="#local-6989586621679149278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startSession:SendCommand' :: Maybe StartSessionRequest
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AstartSession%3ASendCommand%27"><span class="hs-identifier hs-var">startSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartSessionRequest
+</span><a href="#local-6989586621679149277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679149273"><span class="annot"><span class="annottext">request :: SendCommand -&gt; Request SendCommand
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SendCommand -&gt; Request SendCommand
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QLDBSession.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679149269"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SendCommand
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SendCommand)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse SendCommand))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SendCommand
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SendCommand)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679149266"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679149266"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679149265"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679149265"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679149264"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149264"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">Maybe FetchPageResult
+-&gt; Maybe AbortTransactionResult
+-&gt; Maybe EndSessionResult
+-&gt; Maybe StartTransactionResult
+-&gt; Maybe ExecuteStatementResult
+-&gt; Maybe CommitTransactionResult
+-&gt; Maybe StartSessionResult
+-&gt; Int
+-&gt; SendCommandResponse
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-var">SendCommandResponse'</span></a></span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FetchPageResult
+ -&gt; Maybe AbortTransactionResult
+ -&gt; Maybe EndSessionResult
+ -&gt; Maybe StartTransactionResult
+ -&gt; Maybe ExecuteStatementResult
+ -&gt; Maybe CommitTransactionResult
+ -&gt; Maybe StartSessionResult
+ -&gt; Int
+ -&gt; SendCommandResponse)
+-&gt; Either String (Maybe FetchPageResult)
+-&gt; Either
+     String
+     (Maybe AbortTransactionResult
+      -&gt; Maybe EndSessionResult
+      -&gt; Maybe StartTransactionResult
+      -&gt; Maybe ExecuteStatementResult
+      -&gt; Maybe CommitTransactionResult
+      -&gt; Maybe StartSessionResult
+      -&gt; Int
+      -&gt; SendCommandResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FetchPageResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FetchPage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe AbortTransactionResult
+   -&gt; Maybe EndSessionResult
+   -&gt; Maybe StartTransactionResult
+   -&gt; Maybe ExecuteStatementResult
+   -&gt; Maybe CommitTransactionResult
+   -&gt; Maybe StartSessionResult
+   -&gt; Int
+   -&gt; SendCommandResponse)
+-&gt; Either String (Maybe AbortTransactionResult)
+-&gt; Either
+     String
+     (Maybe EndSessionResult
+      -&gt; Maybe StartTransactionResult
+      -&gt; Maybe ExecuteStatementResult
+      -&gt; Maybe CommitTransactionResult
+      -&gt; Maybe StartSessionResult
+      -&gt; Int
+      -&gt; SendCommandResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AbortTransactionResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AbortTransaction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe EndSessionResult
+   -&gt; Maybe StartTransactionResult
+   -&gt; Maybe ExecuteStatementResult
+   -&gt; Maybe CommitTransactionResult
+   -&gt; Maybe StartSessionResult
+   -&gt; Int
+   -&gt; SendCommandResponse)
+-&gt; Either String (Maybe EndSessionResult)
+-&gt; Either
+     String
+     (Maybe StartTransactionResult
+      -&gt; Maybe ExecuteStatementResult
+      -&gt; Maybe CommitTransactionResult
+      -&gt; Maybe StartSessionResult
+      -&gt; Int
+      -&gt; SendCommandResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EndSessionResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndSession&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe StartTransactionResult
+   -&gt; Maybe ExecuteStatementResult
+   -&gt; Maybe CommitTransactionResult
+   -&gt; Maybe StartSessionResult
+   -&gt; Int
+   -&gt; SendCommandResponse)
+-&gt; Either String (Maybe StartTransactionResult)
+-&gt; Either
+     String
+     (Maybe ExecuteStatementResult
+      -&gt; Maybe CommitTransactionResult
+      -&gt; Maybe StartSessionResult
+      -&gt; Int
+      -&gt; SendCommandResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe StartTransactionResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTransaction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ExecuteStatementResult
+   -&gt; Maybe CommitTransactionResult
+   -&gt; Maybe StartSessionResult
+   -&gt; Int
+   -&gt; SendCommandResponse)
+-&gt; Either String (Maybe ExecuteStatementResult)
+-&gt; Either
+     String
+     (Maybe CommitTransactionResult
+      -&gt; Maybe StartSessionResult -&gt; Int -&gt; SendCommandResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ExecuteStatementResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExecuteStatement&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe CommitTransactionResult
+   -&gt; Maybe StartSessionResult -&gt; Int -&gt; SendCommandResponse)
+-&gt; Either String (Maybe CommitTransactionResult)
+-&gt; Either
+     String (Maybe StartSessionResult -&gt; Int -&gt; SendCommandResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CommitTransactionResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CommitTransaction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe StartSessionResult -&gt; Int -&gt; SendCommandResponse)
+-&gt; Either String (Maybe StartSessionResult)
+-&gt; Either String (Int -&gt; SendCommandResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe StartSessionResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartSession&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SendCommandResponse)
+-&gt; Either String Int -&gt; Either String SendCommandResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679149266"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149256"><span id="local-6989586621679149258"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span></span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149253"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679149249"><span class="annot"><span class="annottext">toHeaders :: SendCommand -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SendCommand -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;QLDBSession.SendCommand&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-214"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-215"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149239"><span id="local-6989586621679149241"><span id="local-6989586621679149243"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679149237"><span class="annot"><span class="annottext">toJSON :: SendCommand -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand%27"><span class="hs-identifier hs-type">SendCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149228"><span id="local-6989586621679149229"><span id="local-6989586621679149230"><span id="local-6989586621679149231"><span id="local-6989586621679149232"><span id="local-6989586621679149233"><span id="local-6989586621679149234"><span id="local-6989586621679149235"><span class="annot"><span class="annottext">Maybe Text
+Maybe AbortTransactionRequest
+Maybe CommitTransactionRequest
+Maybe EndSessionRequest
+Maybe FetchPageRequest
+Maybe StartSessionRequest
+Maybe StartTransactionRequest
+Maybe ExecuteStatementRequest
+startSession :: Maybe StartSessionRequest
+commitTransaction :: Maybe CommitTransactionRequest
+executeStatement :: Maybe ExecuteStatementRequest
+startTransaction :: Maybe StartTransactionRequest
+endSession :: Maybe EndSessionRequest
+abortTransaction :: Maybe AbortTransactionRequest
+sessionToken :: Maybe Text
+fetchPage :: Maybe FetchPageRequest
+$sel:startSession:SendCommand' :: SendCommand -&gt; Maybe StartSessionRequest
+$sel:commitTransaction:SendCommand' :: SendCommand -&gt; Maybe CommitTransactionRequest
+$sel:executeStatement:SendCommand' :: SendCommand -&gt; Maybe ExecuteStatementRequest
+$sel:startTransaction:SendCommand' :: SendCommand -&gt; Maybe StartTransactionRequest
+$sel:endSession:SendCommand' :: SendCommand -&gt; Maybe EndSessionRequest
+$sel:abortTransaction:SendCommand' :: SendCommand -&gt; Maybe AbortTransactionRequest
+$sel:sessionToken:SendCommand' :: SendCommand -&gt; Maybe Text
+$sel:fetchPage:SendCommand' :: SendCommand -&gt; Maybe FetchPageRequest
+</span><a href="#local-6989586621679149228"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-223"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FetchPage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FetchPageRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FetchPageRequest -&gt; Pair) -&gt; Maybe FetchPageRequest -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FetchPageRequest
+</span><a href="#local-6989586621679149235"><span class="hs-identifier hs-var">fetchPage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SessionToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149234"><span class="hs-identifier hs-var">sessionToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AbortTransaction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AbortTransactionRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>              </span><span class="annot"><span class="annottext">(AbortTransactionRequest -&gt; Pair)
+-&gt; Maybe AbortTransactionRequest -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AbortTransactionRequest
+</span><a href="#local-6989586621679149233"><span class="hs-identifier hs-var">abortTransaction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndSession&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EndSessionRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EndSessionRequest -&gt; Pair)
+-&gt; Maybe EndSessionRequest -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EndSessionRequest
+</span><a href="#local-6989586621679149232"><span class="hs-identifier hs-var">endSession</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTransaction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StartTransactionRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>              </span><span class="annot"><span class="annottext">(StartTransactionRequest -&gt; Pair)
+-&gt; Maybe StartTransactionRequest -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StartTransactionRequest
+</span><a href="#local-6989586621679149231"><span class="hs-identifier hs-var">startTransaction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExecuteStatement&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExecuteStatementRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>              </span><span class="annot"><span class="annottext">(ExecuteStatementRequest -&gt; Pair)
+-&gt; Maybe ExecuteStatementRequest -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteStatementRequest
+</span><a href="#local-6989586621679149230"><span class="hs-identifier hs-var">executeStatement</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CommitTransaction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CommitTransactionRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>              </span><span class="annot"><span class="annottext">(CommitTransactionRequest -&gt; Pair)
+-&gt; Maybe CommitTransactionRequest -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CommitTransactionRequest
+</span><a href="#local-6989586621679149229"><span class="hs-identifier hs-var">commitTransaction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartSession&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StartSessionRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(StartSessionRequest -&gt; Pair)
+-&gt; Maybe StartSessionRequest -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StartSessionRequest
+</span><a href="#local-6989586621679149228"><span class="hs-identifier hs-var">startSession</span></a></span><span>
+</span><span id="line-235"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679149222"><span class="annot"><span class="annottext">toPath :: SendCommand -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SendCommand -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommand"><span class="hs-identifier hs-type">SendCommand</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679149218"><span class="annot"><span class="annottext">toQuery :: SendCommand -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SendCommand -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | /See:/ 'newSendCommandResponse' smart constructor.</span><span>
+</span><span id="line-245"></span><span id="local-6989586621679149215"><span id="local-6989586621679149216"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendCommandResponse"><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-var">SendCommandResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendCommandResponse%27"><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-var">SendCommandResponse'</span></a></span></span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the details of the fetched page.</span><span>
+</span><span id="line-247"></span><span>    </span><span id="%24sel%3AfetchPage%3ASendCommandResponse%27"><span class="annot"><span class="annottext">SendCommandResponse -&gt; Maybe FetchPageResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AfetchPage%3ASendCommandResponse%27"><span class="hs-identifier hs-var hs-var">fetchPage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.FetchPageResult.html#FetchPageResult"><span class="hs-identifier hs-type">FetchPageResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">-- | Contains the details of the aborted transaction.</span><span>
+</span><span id="line-249"></span><span>    </span><span id="%24sel%3AabortTransaction%3ASendCommandResponse%27"><span class="annot"><span class="annottext">SendCommandResponse -&gt; Maybe AbortTransactionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AabortTransaction%3ASendCommandResponse%27"><span class="hs-identifier hs-var hs-var">abortTransaction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.AbortTransactionResult.html#AbortTransactionResult"><span class="hs-identifier hs-type">AbortTransactionResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-comment">-- | Contains the details of the ended session.</span><span>
+</span><span id="line-251"></span><span>    </span><span id="%24sel%3AendSession%3ASendCommandResponse%27"><span class="annot"><span class="annottext">SendCommandResponse -&gt; Maybe EndSessionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AendSession%3ASendCommandResponse%27"><span class="hs-identifier hs-var hs-var">endSession</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.EndSessionResult.html#EndSessionResult"><span class="hs-identifier hs-type">EndSessionResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">-- | Contains the details of the started transaction.</span><span>
+</span><span id="line-253"></span><span>    </span><span id="%24sel%3AstartTransaction%3ASendCommandResponse%27"><span class="annot"><span class="annottext">SendCommandResponse -&gt; Maybe StartTransactionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AstartTransaction%3ASendCommandResponse%27"><span class="hs-identifier hs-var hs-var">startTransaction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.StartTransactionResult.html#StartTransactionResult"><span class="hs-identifier hs-type">StartTransactionResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- | Contains the details of the executed statement.</span><span>
+</span><span id="line-255"></span><span>    </span><span id="%24sel%3AexecuteStatement%3ASendCommandResponse%27"><span class="annot"><span class="annottext">SendCommandResponse -&gt; Maybe ExecuteStatementResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AexecuteStatement%3ASendCommandResponse%27"><span class="hs-identifier hs-var hs-var">executeStatement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.ExecuteStatementResult.html#ExecuteStatementResult"><span class="hs-identifier hs-type">ExecuteStatementResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="hs-comment">-- | Contains the details of the committed transaction.</span><span>
+</span><span id="line-257"></span><span>    </span><span id="%24sel%3AcommitTransaction%3ASendCommandResponse%27"><span class="annot"><span class="annottext">SendCommandResponse -&gt; Maybe CommitTransactionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AcommitTransaction%3ASendCommandResponse%27"><span class="hs-identifier hs-var hs-var">commitTransaction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.CommitTransactionResult.html#CommitTransactionResult"><span class="hs-identifier hs-type">CommitTransactionResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-comment">-- | Contains the details of the started session that includes a session</span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-comment">-- token. This @SessionToken@ is required for every subsequent command that</span><span>
+</span><span id="line-260"></span><span>    </span><span class="hs-comment">-- is issued during the current session.</span><span>
+</span><span id="line-261"></span><span>    </span><span id="%24sel%3AstartSession%3ASendCommandResponse%27"><span class="annot"><span class="annottext">SendCommandResponse -&gt; Maybe StartSessionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AstartSession%3ASendCommandResponse%27"><span class="hs-identifier hs-var hs-var">startSession</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.StartSessionResult.html#StartSessionResult"><span class="hs-identifier hs-type">StartSessionResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-263"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASendCommandResponse%27"><span class="annot"><span class="annottext">SendCommandResponse -&gt; Int
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AhttpStatus%3ASendCommandResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-265"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679149203"><span id="local-6989586621679149205"><span class="annot"><span class="annottext">SendCommandResponse -&gt; SendCommandResponse -&gt; Bool
+(SendCommandResponse -&gt; SendCommandResponse -&gt; Bool)
+-&gt; (SendCommandResponse -&gt; SendCommandResponse -&gt; Bool)
+-&gt; Eq SendCommandResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SendCommandResponse -&gt; SendCommandResponse -&gt; Bool
+$c/= :: SendCommandResponse -&gt; SendCommandResponse -&gt; Bool
+== :: SendCommandResponse -&gt; SendCommandResponse -&gt; Bool
+$c== :: SendCommandResponse -&gt; SendCommandResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149195"><span id="local-6989586621679149197"><span id="local-6989586621679149199"><span id="local-6989586621679149201"><span class="annot"><span class="annottext">ReadPrec [SendCommandResponse]
+ReadPrec SendCommandResponse
+Int -&gt; ReadS SendCommandResponse
+ReadS [SendCommandResponse]
+(Int -&gt; ReadS SendCommandResponse)
+-&gt; ReadS [SendCommandResponse]
+-&gt; ReadPrec SendCommandResponse
+-&gt; ReadPrec [SendCommandResponse]
+-&gt; Read SendCommandResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SendCommandResponse]
+$creadListPrec :: ReadPrec [SendCommandResponse]
+readPrec :: ReadPrec SendCommandResponse
+$creadPrec :: ReadPrec SendCommandResponse
+readList :: ReadS [SendCommandResponse]
+$creadList :: ReadS [SendCommandResponse]
+readsPrec :: Int -&gt; ReadS SendCommandResponse
+$creadsPrec :: Int -&gt; ReadS SendCommandResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149189"><span id="local-6989586621679149191"><span id="local-6989586621679149193"><span class="annot"><span class="annottext">Int -&gt; SendCommandResponse -&gt; ShowS
+[SendCommandResponse] -&gt; ShowS
+SendCommandResponse -&gt; String
+(Int -&gt; SendCommandResponse -&gt; ShowS)
+-&gt; (SendCommandResponse -&gt; String)
+-&gt; ([SendCommandResponse] -&gt; ShowS)
+-&gt; Show SendCommandResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SendCommandResponse] -&gt; ShowS
+$cshowList :: [SendCommandResponse] -&gt; ShowS
+show :: SendCommandResponse -&gt; String
+$cshow :: SendCommandResponse -&gt; String
+showsPrec :: Int -&gt; SendCommandResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SendCommandResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SendCommandResponse -&gt; Rep SendCommandResponse x)
+-&gt; (forall x. Rep SendCommandResponse x -&gt; SendCommandResponse)
+-&gt; Generic SendCommandResponse
+forall x. Rep SendCommandResponse x -&gt; SendCommandResponse
+forall x. SendCommandResponse -&gt; Rep SendCommandResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SendCommandResponse x -&gt; SendCommandResponse
+$cfrom :: forall x. SendCommandResponse -&gt; Rep SendCommandResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- Create a value of 'SendCommandResponse' with all optional fields omitted.</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- 'fetchPage', 'sendCommandResponse_fetchPage' - Contains the details of the fetched page.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- 'abortTransaction', 'sendCommandResponse_abortTransaction' - Contains the details of the aborted transaction.</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- 'endSession', 'sendCommandResponse_endSession' - Contains the details of the ended session.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- 'startTransaction', 'sendCommandResponse_startTransaction' - Contains the details of the started transaction.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- 'executeStatement', 'sendCommandResponse_executeStatement' - Contains the details of the executed statement.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- 'commitTransaction', 'sendCommandResponse_commitTransaction' - Contains the details of the committed transaction.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- 'startSession', 'sendCommandResponse_startSession' - Contains the details of the started session that includes a session</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- token. This @SessionToken@ is required for every subsequent command that</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- is issued during the current session.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- 'httpStatus', 'sendCommandResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-292"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#newSendCommandResponse"><span class="hs-identifier hs-type">newSendCommandResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-293"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-294"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-295"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span>
+</span><span id="line-296"></span><span id="newSendCommandResponse"><span class="annot"><span class="annottext">newSendCommandResponse :: Int -&gt; SendCommandResponse
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#newSendCommandResponse"><span class="hs-identifier hs-var hs-var">newSendCommandResponse</span></a></span></span><span> </span><span id="local-6989586621679149186"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679149186"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-297"></span><span>  </span><span class="annot"><span class="annottext">SendCommandResponse' :: Maybe FetchPageResult
+-&gt; Maybe AbortTransactionResult
+-&gt; Maybe EndSessionResult
+-&gt; Maybe StartTransactionResult
+-&gt; Maybe ExecuteStatementResult
+-&gt; Maybe CommitTransactionResult
+-&gt; Maybe StartSessionResult
+-&gt; Int
+-&gt; SendCommandResponse
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span>
+</span><span id="line-298"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fetchPage:SendCommandResponse' :: Maybe FetchPageResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AfetchPage%3ASendCommandResponse%27"><span class="hs-identifier hs-var">fetchPage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FetchPageResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">$sel:abortTransaction:SendCommandResponse' :: Maybe AbortTransactionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AabortTransaction%3ASendCommandResponse%27"><span class="hs-identifier hs-var">abortTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbortTransactionResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>      </span><span class="annot"><span class="annottext">$sel:endSession:SendCommandResponse' :: Maybe EndSessionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AendSession%3ASendCommandResponse%27"><span class="hs-identifier hs-var">endSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndSessionResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTransaction:SendCommandResponse' :: Maybe StartTransactionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AstartTransaction%3ASendCommandResponse%27"><span class="hs-identifier hs-var">startTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartTransactionResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>      </span><span class="annot"><span class="annottext">$sel:executeStatement:SendCommandResponse' :: Maybe ExecuteStatementResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AexecuteStatement%3ASendCommandResponse%27"><span class="hs-identifier hs-var">executeStatement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteStatementResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">$sel:commitTransaction:SendCommandResponse' :: Maybe CommitTransactionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AcommitTransaction%3ASendCommandResponse%27"><span class="hs-identifier hs-var">commitTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CommitTransactionResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>      </span><span class="annot"><span class="annottext">$sel:startSession:SendCommandResponse' :: Maybe StartSessionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AstartSession%3ASendCommandResponse%27"><span class="hs-identifier hs-var">startSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartSessionResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SendCommandResponse' :: Int
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AhttpStatus%3ASendCommandResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679149186"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-306"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- | Contains the details of the fetched page.</span><span>
+</span><span id="line-309"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_fetchPage"><span class="hs-identifier hs-type">sendCommandResponse_fetchPage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.FetchPageResult.html#FetchPageResult"><span class="hs-identifier hs-type">FetchPageResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span id="sendCommandResponse_fetchPage"><span class="annot"><span class="annottext">sendCommandResponse_fetchPage :: (Maybe FetchPageResult -&gt; f (Maybe FetchPageResult))
+-&gt; SendCommandResponse -&gt; f SendCommandResponse
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_fetchPage"><span class="hs-identifier hs-var hs-var">sendCommandResponse_fetchPage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommandResponse -&gt; Maybe FetchPageResult)
+-&gt; (SendCommandResponse
+    -&gt; Maybe FetchPageResult -&gt; SendCommandResponse)
+-&gt; Lens
+     SendCommandResponse
+     SendCommandResponse
+     (Maybe FetchPageResult)
+     (Maybe FetchPageResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149185"><span class="annot"><span class="annottext">Maybe FetchPageResult
+fetchPage :: Maybe FetchPageResult
+$sel:fetchPage:SendCommandResponse' :: SendCommandResponse -&gt; Maybe FetchPageResult
+</span><a href="#local-6989586621679149185"><span class="hs-identifier hs-var hs-var">fetchPage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FetchPageResult
+</span><a href="#local-6989586621679149185"><span class="hs-identifier hs-var">fetchPage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149184"><span class="annot"><span class="annottext">s :: SendCommandResponse
+</span><a href="#local-6989586621679149184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149183"><span class="annot"><span class="annottext">Maybe FetchPageResult
+</span><a href="#local-6989586621679149183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommandResponse
+</span><a href="#local-6989586621679149184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fetchPage:SendCommandResponse' :: Maybe FetchPageResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AfetchPage%3ASendCommandResponse%27"><span class="hs-identifier hs-var">fetchPage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FetchPageResult
+</span><a href="#local-6989586621679149183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- | Contains the details of the aborted transaction.</span><span>
+</span><span id="line-313"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_abortTransaction"><span class="hs-identifier hs-type">sendCommandResponse_abortTransaction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.AbortTransactionResult.html#AbortTransactionResult"><span class="hs-identifier hs-type">AbortTransactionResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span id="sendCommandResponse_abortTransaction"><span class="annot"><span class="annottext">sendCommandResponse_abortTransaction :: (Maybe AbortTransactionResult -&gt; f (Maybe AbortTransactionResult))
+-&gt; SendCommandResponse -&gt; f SendCommandResponse
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_abortTransaction"><span class="hs-identifier hs-var hs-var">sendCommandResponse_abortTransaction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommandResponse -&gt; Maybe AbortTransactionResult)
+-&gt; (SendCommandResponse
+    -&gt; Maybe AbortTransactionResult -&gt; SendCommandResponse)
+-&gt; Lens
+     SendCommandResponse
+     SendCommandResponse
+     (Maybe AbortTransactionResult)
+     (Maybe AbortTransactionResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149182"><span class="annot"><span class="annottext">Maybe AbortTransactionResult
+abortTransaction :: Maybe AbortTransactionResult
+$sel:abortTransaction:SendCommandResponse' :: SendCommandResponse -&gt; Maybe AbortTransactionResult
+</span><a href="#local-6989586621679149182"><span class="hs-identifier hs-var hs-var">abortTransaction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AbortTransactionResult
+</span><a href="#local-6989586621679149182"><span class="hs-identifier hs-var">abortTransaction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149181"><span class="annot"><span class="annottext">s :: SendCommandResponse
+</span><a href="#local-6989586621679149181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149180"><span class="annot"><span class="annottext">Maybe AbortTransactionResult
+</span><a href="#local-6989586621679149180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommandResponse
+</span><a href="#local-6989586621679149181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abortTransaction:SendCommandResponse' :: Maybe AbortTransactionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AabortTransaction%3ASendCommandResponse%27"><span class="hs-identifier hs-var">abortTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbortTransactionResult
+</span><a href="#local-6989586621679149180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- | Contains the details of the ended session.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_endSession"><span class="hs-identifier hs-type">sendCommandResponse_endSession</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.EndSessionResult.html#EndSessionResult"><span class="hs-identifier hs-type">EndSessionResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span id="sendCommandResponse_endSession"><span class="annot"><span class="annottext">sendCommandResponse_endSession :: (Maybe EndSessionResult -&gt; f (Maybe EndSessionResult))
+-&gt; SendCommandResponse -&gt; f SendCommandResponse
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_endSession"><span class="hs-identifier hs-var hs-var">sendCommandResponse_endSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommandResponse -&gt; Maybe EndSessionResult)
+-&gt; (SendCommandResponse
+    -&gt; Maybe EndSessionResult -&gt; SendCommandResponse)
+-&gt; Lens
+     SendCommandResponse
+     SendCommandResponse
+     (Maybe EndSessionResult)
+     (Maybe EndSessionResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149179"><span class="annot"><span class="annottext">Maybe EndSessionResult
+endSession :: Maybe EndSessionResult
+$sel:endSession:SendCommandResponse' :: SendCommandResponse -&gt; Maybe EndSessionResult
+</span><a href="#local-6989586621679149179"><span class="hs-identifier hs-var hs-var">endSession</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndSessionResult
+</span><a href="#local-6989586621679149179"><span class="hs-identifier hs-var">endSession</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149178"><span class="annot"><span class="annottext">s :: SendCommandResponse
+</span><a href="#local-6989586621679149178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149177"><span class="annot"><span class="annottext">Maybe EndSessionResult
+</span><a href="#local-6989586621679149177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommandResponse
+</span><a href="#local-6989586621679149178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endSession:SendCommandResponse' :: Maybe EndSessionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AendSession%3ASendCommandResponse%27"><span class="hs-identifier hs-var">endSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndSessionResult
+</span><a href="#local-6989586621679149177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | Contains the details of the started transaction.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_startTransaction"><span class="hs-identifier hs-type">sendCommandResponse_startTransaction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.StartTransactionResult.html#StartTransactionResult"><span class="hs-identifier hs-type">StartTransactionResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span id="sendCommandResponse_startTransaction"><span class="annot"><span class="annottext">sendCommandResponse_startTransaction :: (Maybe StartTransactionResult -&gt; f (Maybe StartTransactionResult))
+-&gt; SendCommandResponse -&gt; f SendCommandResponse
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_startTransaction"><span class="hs-identifier hs-var hs-var">sendCommandResponse_startTransaction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommandResponse -&gt; Maybe StartTransactionResult)
+-&gt; (SendCommandResponse
+    -&gt; Maybe StartTransactionResult -&gt; SendCommandResponse)
+-&gt; Lens
+     SendCommandResponse
+     SendCommandResponse
+     (Maybe StartTransactionResult)
+     (Maybe StartTransactionResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149176"><span class="annot"><span class="annottext">Maybe StartTransactionResult
+startTransaction :: Maybe StartTransactionResult
+$sel:startTransaction:SendCommandResponse' :: SendCommandResponse -&gt; Maybe StartTransactionResult
+</span><a href="#local-6989586621679149176"><span class="hs-identifier hs-var hs-var">startTransaction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StartTransactionResult
+</span><a href="#local-6989586621679149176"><span class="hs-identifier hs-var">startTransaction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149175"><span class="annot"><span class="annottext">s :: SendCommandResponse
+</span><a href="#local-6989586621679149175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149174"><span class="annot"><span class="annottext">Maybe StartTransactionResult
+</span><a href="#local-6989586621679149174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommandResponse
+</span><a href="#local-6989586621679149175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTransaction:SendCommandResponse' :: Maybe StartTransactionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AstartTransaction%3ASendCommandResponse%27"><span class="hs-identifier hs-var">startTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartTransactionResult
+</span><a href="#local-6989586621679149174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- | Contains the details of the executed statement.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_executeStatement"><span class="hs-identifier hs-type">sendCommandResponse_executeStatement</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.ExecuteStatementResult.html#ExecuteStatementResult"><span class="hs-identifier hs-type">ExecuteStatementResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span id="sendCommandResponse_executeStatement"><span class="annot"><span class="annottext">sendCommandResponse_executeStatement :: (Maybe ExecuteStatementResult -&gt; f (Maybe ExecuteStatementResult))
+-&gt; SendCommandResponse -&gt; f SendCommandResponse
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_executeStatement"><span class="hs-identifier hs-var hs-var">sendCommandResponse_executeStatement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommandResponse -&gt; Maybe ExecuteStatementResult)
+-&gt; (SendCommandResponse
+    -&gt; Maybe ExecuteStatementResult -&gt; SendCommandResponse)
+-&gt; Lens
+     SendCommandResponse
+     SendCommandResponse
+     (Maybe ExecuteStatementResult)
+     (Maybe ExecuteStatementResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149173"><span class="annot"><span class="annottext">Maybe ExecuteStatementResult
+executeStatement :: Maybe ExecuteStatementResult
+$sel:executeStatement:SendCommandResponse' :: SendCommandResponse -&gt; Maybe ExecuteStatementResult
+</span><a href="#local-6989586621679149173"><span class="hs-identifier hs-var hs-var">executeStatement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteStatementResult
+</span><a href="#local-6989586621679149173"><span class="hs-identifier hs-var">executeStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149172"><span class="annot"><span class="annottext">s :: SendCommandResponse
+</span><a href="#local-6989586621679149172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149171"><span class="annot"><span class="annottext">Maybe ExecuteStatementResult
+</span><a href="#local-6989586621679149171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommandResponse
+</span><a href="#local-6989586621679149172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executeStatement:SendCommandResponse' :: Maybe ExecuteStatementResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AexecuteStatement%3ASendCommandResponse%27"><span class="hs-identifier hs-var">executeStatement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteStatementResult
+</span><a href="#local-6989586621679149171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- | Contains the details of the committed transaction.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_commitTransaction"><span class="hs-identifier hs-type">sendCommandResponse_commitTransaction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.CommitTransactionResult.html#CommitTransactionResult"><span class="hs-identifier hs-type">CommitTransactionResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span id="sendCommandResponse_commitTransaction"><span class="annot"><span class="annottext">sendCommandResponse_commitTransaction :: (Maybe CommitTransactionResult
+ -&gt; f (Maybe CommitTransactionResult))
+-&gt; SendCommandResponse -&gt; f SendCommandResponse
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_commitTransaction"><span class="hs-identifier hs-var hs-var">sendCommandResponse_commitTransaction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommandResponse -&gt; Maybe CommitTransactionResult)
+-&gt; (SendCommandResponse
+    -&gt; Maybe CommitTransactionResult -&gt; SendCommandResponse)
+-&gt; Lens
+     SendCommandResponse
+     SendCommandResponse
+     (Maybe CommitTransactionResult)
+     (Maybe CommitTransactionResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149170"><span class="annot"><span class="annottext">Maybe CommitTransactionResult
+commitTransaction :: Maybe CommitTransactionResult
+$sel:commitTransaction:SendCommandResponse' :: SendCommandResponse -&gt; Maybe CommitTransactionResult
+</span><a href="#local-6989586621679149170"><span class="hs-identifier hs-var hs-var">commitTransaction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CommitTransactionResult
+</span><a href="#local-6989586621679149170"><span class="hs-identifier hs-var">commitTransaction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149169"><span class="annot"><span class="annottext">s :: SendCommandResponse
+</span><a href="#local-6989586621679149169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149168"><span class="annot"><span class="annottext">Maybe CommitTransactionResult
+</span><a href="#local-6989586621679149168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommandResponse
+</span><a href="#local-6989586621679149169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitTransaction:SendCommandResponse' :: Maybe CommitTransactionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AcommitTransaction%3ASendCommandResponse%27"><span class="hs-identifier hs-var">commitTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CommitTransactionResult
+</span><a href="#local-6989586621679149168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- | Contains the details of the started session that includes a session</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- token. This @SessionToken@ is required for every subsequent command that</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- is issued during the current session.</span><span>
+</span><span id="line-335"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_startSession"><span class="hs-identifier hs-type">sendCommandResponse_startSession</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.Types.StartSessionResult.html#StartSessionResult"><span class="hs-identifier hs-type">StartSessionResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span id="sendCommandResponse_startSession"><span class="annot"><span class="annottext">sendCommandResponse_startSession :: (Maybe StartSessionResult -&gt; f (Maybe StartSessionResult))
+-&gt; SendCommandResponse -&gt; f SendCommandResponse
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_startSession"><span class="hs-identifier hs-var hs-var">sendCommandResponse_startSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommandResponse -&gt; Maybe StartSessionResult)
+-&gt; (SendCommandResponse
+    -&gt; Maybe StartSessionResult -&gt; SendCommandResponse)
+-&gt; Lens
+     SendCommandResponse
+     SendCommandResponse
+     (Maybe StartSessionResult)
+     (Maybe StartSessionResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149167"><span class="annot"><span class="annottext">Maybe StartSessionResult
+startSession :: Maybe StartSessionResult
+$sel:startSession:SendCommandResponse' :: SendCommandResponse -&gt; Maybe StartSessionResult
+</span><a href="#local-6989586621679149167"><span class="hs-identifier hs-var hs-var">startSession</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StartSessionResult
+</span><a href="#local-6989586621679149167"><span class="hs-identifier hs-var">startSession</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149166"><span class="annot"><span class="annottext">s :: SendCommandResponse
+</span><a href="#local-6989586621679149166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149165"><span class="annot"><span class="annottext">Maybe StartSessionResult
+</span><a href="#local-6989586621679149165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommandResponse
+</span><a href="#local-6989586621679149166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startSession:SendCommandResponse' :: Maybe StartSessionResult
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AstartSession%3ASendCommandResponse%27"><span class="hs-identifier hs-var">startSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartSessionResult
+</span><a href="#local-6989586621679149165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-339"></span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_httpStatus"><span class="hs-identifier hs-type">sendCommandResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-340"></span><span id="sendCommandResponse_httpStatus"><span class="annot"><span class="annottext">sendCommandResponse_httpStatus :: (Int -&gt; f Int) -&gt; SendCommandResponse -&gt; f SendCommandResponse
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#sendCommandResponse_httpStatus"><span class="hs-identifier hs-var hs-var">sendCommandResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendCommandResponse -&gt; Int)
+-&gt; (SendCommandResponse -&gt; Int -&gt; SendCommandResponse)
+-&gt; Lens SendCommandResponse SendCommandResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149164"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SendCommandResponse' :: SendCommandResponse -&gt; Int
+</span><a href="#local-6989586621679149164"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679149164"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149163"><span class="annot"><span class="annottext">s :: SendCommandResponse
+</span><a href="#local-6989586621679149163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse%27"><span class="hs-identifier hs-type">SendCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149162"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679149162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendCommandResponse
+</span><a href="#local-6989586621679149163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendCommandResponse' :: Int
+</span><a href="Network.AWS.QLDBSession.SendCommand.html#%24sel%3AhttpStatus%3ASendCommandResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679149162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149160"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDBSession.SendCommand.html#SendCommandResponse"><span class="hs-identifier hs-type">SendCommandResponse</span></a></span></span><span>
+</span><span id="line-343"></span></pre></body></html>

@@ -26,10 +26,10 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Arib Source Settings</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAribSourceSettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679864753"><span id="local-6989586621679864754"></span></span><span class="hs-keyword">data</span><span> </span><span id="AribSourceSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#AribSourceSettings"><span class="hs-identifier hs-var">AribSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AribSourceSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#AribSourceSettings%27"><span class="hs-identifier hs-var">AribSourceSettings'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679864762"><span id="local-6989586621679864763"></span></span><span class="hs-keyword">data</span><span> </span><span id="AribSourceSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#AribSourceSettings"><span class="hs-identifier hs-var">AribSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AribSourceSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#AribSourceSettings%27"><span class="hs-identifier hs-var">AribSourceSettings'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679864748"><span id="local-6989586621679864750"><span class="annot"><span class="annottext">AribSourceSettings -&gt; AribSourceSettings -&gt; Bool
+</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679864757"><span id="local-6989586621679864759"><span class="annot"><span class="annottext">AribSourceSettings -&gt; AribSourceSettings -&gt; Bool
 (AribSourceSettings -&gt; AribSourceSettings -&gt; Bool)
 -&gt; (AribSourceSettings -&gt; AribSourceSettings -&gt; Bool)
 -&gt; Eq AribSourceSettings
@@ -38,7 +38,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AribSourceSettings -&gt; AribSourceSettings -&gt; Bool
 == :: AribSourceSettings -&gt; AribSourceSettings -&gt; Bool
 $c== :: AribSourceSettings -&gt; AribSourceSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679864739"><span id="local-6989586621679864741"><span id="local-6989586621679864743"><span id="local-6989586621679864745"><span class="annot"><span class="annottext">ReadPrec [AribSourceSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679864748"><span id="local-6989586621679864750"><span id="local-6989586621679864752"><span id="local-6989586621679864754"><span class="annot"><span class="annottext">ReadPrec [AribSourceSettings]
 ReadPrec AribSourceSettings
 Int -&gt; ReadS AribSourceSettings
 ReadS [AribSourceSettings]
@@ -58,7 +58,7 @@ readList :: ReadS [AribSourceSettings]
 $creadList :: ReadS [AribSourceSettings]
 readsPrec :: Int -&gt; ReadS AribSourceSettings
 $creadsPrec :: Int -&gt; ReadS AribSourceSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679864732"><span id="local-6989586621679864734"><span id="local-6989586621679864736"><span class="annot"><span class="annottext">Int -&gt; AribSourceSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679864741"><span id="local-6989586621679864743"><span id="local-6989586621679864745"><span class="annot"><span class="annottext">Int -&gt; AribSourceSettings -&gt; ShowS
 [AribSourceSettings] -&gt; ShowS
 AribSourceSettings -&gt; String
 (Int -&gt; AribSourceSettings -&gt; ShowS)
@@ -94,8 +94,8 @@ $cfrom :: forall x. AribSourceSettings -&gt; Rep AribSourceSettings x
 </span><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#newAribSourceSettings"><span class="hs-identifier hs-var hs-var">newAribSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AribSourceSettings
 </span><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#AribSourceSettings%27"><span class="hs-identifier hs-var">AribSourceSettings'</span></a></span><span>
 </span><span id="line-41"></span><span>
-</span><span id="line-42"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679864724"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#AribSourceSettings"><span class="hs-identifier hs-type">AribSourceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-43"></span><span>  </span><span id="local-6989586621679864722"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AribSourceSettings
+</span><span id="line-42"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679864733"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#AribSourceSettings"><span class="hs-identifier hs-type">AribSourceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>  </span><span id="local-6989586621679864731"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AribSourceSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AribSourceSettings)
@@ -105,18 +105,18 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AribSourceSettings&quot;</span></span><span>
-</span><span id="line-46"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679864719"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679864719"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AribSourceSettings -&gt; Parser AribSourceSettings
+</span><span id="line-46"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679864728"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679864728"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AribSourceSettings -&gt; Parser AribSourceSettings
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="annot"><span class="annottext">AribSourceSettings
 </span><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#AribSourceSettings%27"><span class="hs-identifier hs-var">AribSourceSettings'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>
-</span><span id="line-48"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679864715"><span id="local-6989586621679864717"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#AribSourceSettings"><span class="hs-identifier hs-type">AribSourceSettings</span></a></span></span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679864724"><span id="local-6989586621679864726"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#AribSourceSettings"><span class="hs-identifier hs-type">AribSourceSettings</span></a></span></span></span><span>
 </span><span id="line-49"></span><span>
-</span><span id="line-50"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679864712"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#AribSourceSettings"><span class="hs-identifier hs-type">AribSourceSettings</span></a></span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679864721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#AribSourceSettings"><span class="hs-identifier hs-type">AribSourceSettings</span></a></span></span><span>
 </span><span id="line-51"></span><span>
-</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679864704"><span id="local-6989586621679864706"><span id="local-6989586621679864708"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#AribSourceSettings"><span class="hs-identifier hs-type">AribSourceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-53"></span><span>  </span><span id="local-6989586621679864702"><span class="annot"><span class="annottext">toJSON :: AribSourceSettings -&gt; Value
+</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679864713"><span id="local-6989586621679864715"><span id="local-6989586621679864717"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AribSourceSettings.html#AribSourceSettings"><span class="hs-identifier hs-type">AribSourceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>  </span><span id="local-6989586621679864711"><span class="annot"><span class="annottext">toJSON :: AribSourceSettings -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; AribSourceSettings -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value

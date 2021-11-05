@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes the data specification of a @DataSource@.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newS3DataSpec' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679253333"><span id="local-6989586621679253334"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3DataSpec"><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-var">S3DataSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3DataSpec%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-var">S3DataSpec'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679253342"><span id="local-6989586621679253343"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3DataSpec"><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-var">S3DataSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3DataSpec%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-var">S3DataSpec'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A JSON string that represents the schema for an Amazon S3 @DataSource@.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- The @DataSchema@ defines the structure of the observation data in the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- data file(s) referenced in the @DataSource@.</span><span>
@@ -160,7 +160,7 @@
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3AdataLocationS3%3AS3DataSpec%27"><span class="annot"><span class="annottext">S3DataSpec -&gt; Text
 </span><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#%24sel%3AdataLocationS3%3AS3DataSpec%27"><span class="hs-identifier hs-var hs-var">dataLocationS3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253324"><span id="local-6989586621679253326"><span class="annot"><span class="annottext">S3DataSpec -&gt; S3DataSpec -&gt; Bool
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253333"><span id="local-6989586621679253335"><span class="annot"><span class="annottext">S3DataSpec -&gt; S3DataSpec -&gt; Bool
 (S3DataSpec -&gt; S3DataSpec -&gt; Bool)
 -&gt; (S3DataSpec -&gt; S3DataSpec -&gt; Bool) -&gt; Eq S3DataSpec
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -168,7 +168,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3DataSpec -&gt; S3DataSpec -&gt; Bool
 == :: S3DataSpec -&gt; S3DataSpec -&gt; Bool
 $c== :: S3DataSpec -&gt; S3DataSpec -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253315"><span id="local-6989586621679253317"><span id="local-6989586621679253319"><span id="local-6989586621679253321"><span class="annot"><span class="annottext">ReadPrec [S3DataSpec]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253324"><span id="local-6989586621679253326"><span id="local-6989586621679253328"><span id="local-6989586621679253330"><span class="annot"><span class="annottext">ReadPrec [S3DataSpec]
 ReadPrec S3DataSpec
 Int -&gt; ReadS S3DataSpec
 ReadS [S3DataSpec]
@@ -188,7 +188,7 @@ readList :: ReadS [S3DataSpec]
 $creadList :: ReadS [S3DataSpec]
 readsPrec :: Int -&gt; ReadS S3DataSpec
 $creadsPrec :: Int -&gt; ReadS S3DataSpec
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253308"><span id="local-6989586621679253310"><span id="local-6989586621679253312"><span class="annot"><span class="annottext">Int -&gt; S3DataSpec -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253317"><span id="local-6989586621679253319"><span id="local-6989586621679253321"><span class="annot"><span class="annottext">Int -&gt; S3DataSpec -&gt; ShowS
 [S3DataSpec] -&gt; ShowS
 S3DataSpec -&gt; String
 (Int -&gt; S3DataSpec -&gt; ShowS)
@@ -353,8 +353,8 @@ $cfrom :: forall x. S3DataSpec -&gt; Rep S3DataSpec x
 </span><span id="line-298"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-299"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span><span>
 </span><span id="line-300"></span><span id="newS3DataSpec"><span class="annot"><span class="annottext">newS3DataSpec :: Text -&gt; S3DataSpec
-</span><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#newS3DataSpec"><span class="hs-identifier hs-var hs-var">newS3DataSpec</span></a></span></span><span> </span><span id="local-6989586621679253302"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253302"><span class="hs-identifier hs-var">pDataLocationS3_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#newS3DataSpec"><span class="hs-identifier hs-var hs-var">newS3DataSpec</span></a></span></span><span> </span><span id="local-6989586621679253311"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253311"><span class="hs-identifier hs-var">pDataLocationS3_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-301"></span><span>  </span><span class="annot"><span class="annottext">S3DataSpec' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; S3DataSpec
 </span><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span>
 </span><span id="line-302"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSchema:S3DataSpec' :: Maybe Text
@@ -371,7 +371,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-305"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataLocationS3:S3DataSpec' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#%24sel%3AdataLocationS3%3AS3DataSpec%27"><span class="hs-identifier hs-var">dataLocationS3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253302"><span class="hs-identifier hs-var">pDataLocationS3_</span></a></span><span>
+</span><a href="#local-6989586621679253311"><span class="hs-identifier hs-var">pDataLocationS3_</span></a></span><span>
 </span><span id="line-306"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- | A JSON string that represents the schema for an Amazon S3 @DataSource@.</span><span>
@@ -413,16 +413,16 @@ forall a. Maybe a
 -&gt; (S3DataSpec -&gt; Maybe Text -&gt; S3DataSpec)
 -&gt; Lens S3DataSpec S3DataSpec (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253298"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253307"><span class="annot"><span class="annottext">Maybe Text
 dataSchema :: Maybe Text
 $sel:dataSchema:S3DataSpec' :: S3DataSpec -&gt; Maybe Text
-</span><a href="#local-6989586621679253298"><span class="hs-identifier hs-var hs-var">dataSchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253298"><span class="hs-identifier hs-var">dataSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253297"><span class="annot"><span class="annottext">s :: S3DataSpec
-</span><a href="#local-6989586621679253297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253296"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
-</span><a href="#local-6989586621679253297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSchema:S3DataSpec' :: Maybe Text
+</span><a href="#local-6989586621679253307"><span class="hs-identifier hs-var hs-var">dataSchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253307"><span class="hs-identifier hs-var">dataSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253306"><span class="annot"><span class="annottext">s :: S3DataSpec
+</span><a href="#local-6989586621679253306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253305"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
+</span><a href="#local-6989586621679253306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSchema:S3DataSpec' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#%24sel%3AdataSchema%3AS3DataSpec%27"><span class="hs-identifier hs-var">dataSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-343"></span><span>
 </span><span id="line-344"></span><span class="hs-comment">-- | Describes the schema location in Amazon S3. You must provide either the</span><span>
 </span><span id="line-345"></span><span class="hs-comment">-- @DataSchema@ or the @DataSchemaLocationS3@.</span><span>
@@ -432,16 +432,16 @@ $sel:dataSchema:S3DataSpec' :: S3DataSpec -&gt; Maybe Text
 -&gt; (S3DataSpec -&gt; Maybe Text -&gt; S3DataSpec)
 -&gt; Lens S3DataSpec S3DataSpec (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253294"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253303"><span class="annot"><span class="annottext">Maybe Text
 dataSchemaLocationS3 :: Maybe Text
 $sel:dataSchemaLocationS3:S3DataSpec' :: S3DataSpec -&gt; Maybe Text
-</span><a href="#local-6989586621679253294"><span class="hs-identifier hs-var hs-var">dataSchemaLocationS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253294"><span class="hs-identifier hs-var">dataSchemaLocationS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253293"><span class="annot"><span class="annottext">s :: S3DataSpec
-</span><a href="#local-6989586621679253293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253292"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
-</span><a href="#local-6989586621679253293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSchemaLocationS3:S3DataSpec' :: Maybe Text
+</span><a href="#local-6989586621679253303"><span class="hs-identifier hs-var hs-var">dataSchemaLocationS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253303"><span class="hs-identifier hs-var">dataSchemaLocationS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253302"><span class="annot"><span class="annottext">s :: S3DataSpec
+</span><a href="#local-6989586621679253302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253301"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
+</span><a href="#local-6989586621679253302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSchemaLocationS3:S3DataSpec' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#%24sel%3AdataSchemaLocationS3%3AS3DataSpec%27"><span class="hs-identifier hs-var">dataSchemaLocationS3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-348"></span><span>
 </span><span id="line-349"></span><span class="hs-comment">-- | A JSON string that represents the splitting and rearrangement processing</span><span>
 </span><span id="line-350"></span><span class="hs-comment">-- to be applied to a @DataSource@. If the @DataRearrangement@ parameter is</span><span>
@@ -535,16 +535,16 @@ $sel:dataSchemaLocationS3:S3DataSpec' :: S3DataSpec -&gt; Maybe Text
 -&gt; (S3DataSpec -&gt; Maybe Text -&gt; S3DataSpec)
 -&gt; Lens S3DataSpec S3DataSpec (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253290"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253299"><span class="annot"><span class="annottext">Maybe Text
 dataRearrangement :: Maybe Text
 $sel:dataRearrangement:S3DataSpec' :: S3DataSpec -&gt; Maybe Text
-</span><a href="#local-6989586621679253290"><span class="hs-identifier hs-var hs-var">dataRearrangement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253290"><span class="hs-identifier hs-var">dataRearrangement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253289"><span class="annot"><span class="annottext">s :: S3DataSpec
-</span><a href="#local-6989586621679253289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253288"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
-</span><a href="#local-6989586621679253289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataRearrangement:S3DataSpec' :: Maybe Text
+</span><a href="#local-6989586621679253299"><span class="hs-identifier hs-var hs-var">dataRearrangement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253299"><span class="hs-identifier hs-var">dataRearrangement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253298"><span class="annot"><span class="annottext">s :: S3DataSpec
+</span><a href="#local-6989586621679253298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253297"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
+</span><a href="#local-6989586621679253298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataRearrangement:S3DataSpec' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#%24sel%3AdataRearrangement%3AS3DataSpec%27"><span class="hs-identifier hs-var">dataRearrangement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-437"></span><span>
 </span><span id="line-438"></span><span class="hs-comment">-- | The location of the data file(s) used by a @DataSource@. The URI</span><span>
 </span><span id="line-439"></span><span class="hs-comment">-- specifies a data file or an Amazon Simple Storage Service (Amazon S3)</span><span>
@@ -555,24 +555,24 @@ $sel:dataRearrangement:S3DataSpec' :: S3DataSpec -&gt; Maybe Text
 -&gt; (S3DataSpec -&gt; Text -&gt; S3DataSpec)
 -&gt; Lens S3DataSpec S3DataSpec Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253286"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253295"><span class="annot"><span class="annottext">Text
 dataLocationS3 :: Text
 $sel:dataLocationS3:S3DataSpec' :: S3DataSpec -&gt; Text
-</span><a href="#local-6989586621679253286"><span class="hs-identifier hs-var hs-var">dataLocationS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253286"><span class="hs-identifier hs-var">dataLocationS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253285"><span class="annot"><span class="annottext">s :: S3DataSpec
-</span><a href="#local-6989586621679253285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253284"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
-</span><a href="#local-6989586621679253285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataLocationS3:S3DataSpec' :: Text
+</span><a href="#local-6989586621679253295"><span class="hs-identifier hs-var hs-var">dataLocationS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253295"><span class="hs-identifier hs-var">dataLocationS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253294"><span class="annot"><span class="annottext">s :: S3DataSpec
+</span><a href="#local-6989586621679253294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253293"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
+</span><a href="#local-6989586621679253294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataLocationS3:S3DataSpec' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#%24sel%3AdataLocationS3%3AS3DataSpec%27"><span class="hs-identifier hs-var">dataLocationS3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-443"></span><span>
-</span><span id="line-444"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253280"><span id="local-6989586621679253282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span></span></span><span>
+</span><span id="line-444"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253289"><span id="local-6989586621679253291"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span></span></span><span>
 </span><span id="line-445"></span><span>
-</span><span id="line-446"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span></span><span>
+</span><span id="line-446"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253286"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span></span><span>
 </span><span id="line-447"></span><span>
-</span><span id="line-448"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253269"><span id="local-6989586621679253271"><span id="local-6989586621679253273"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-449"></span><span>  </span><span id="local-6989586621679253267"><span class="annot"><span class="annottext">toJSON :: S3DataSpec -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253262"><span id="local-6989586621679253263"><span id="local-6989586621679253264"><span id="local-6989586621679253265"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-448"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253278"><span id="local-6989586621679253280"><span id="local-6989586621679253282"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-449"></span><span>  </span><span id="local-6989586621679253276"><span class="annot"><span class="annottext">toJSON :: S3DataSpec -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec%27"><span class="hs-identifier hs-type">S3DataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253271"><span id="local-6989586621679253272"><span id="local-6989586621679253273"><span id="local-6989586621679253274"><span class="annot"><span class="annottext">Maybe Text
 Text
 dataLocationS3 :: Text
 dataRearrangement :: Maybe Text
@@ -582,7 +582,7 @@ $sel:dataLocationS3:S3DataSpec' :: S3DataSpec -&gt; Text
 $sel:dataRearrangement:S3DataSpec' :: S3DataSpec -&gt; Maybe Text
 $sel:dataSchemaLocationS3:S3DataSpec' :: S3DataSpec -&gt; Maybe Text
 $sel:dataSchema:S3DataSpec' :: S3DataSpec -&gt; Maybe Text
-</span><a href="#local-6989586621679253262"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679253271"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-450"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-451"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -594,7 +594,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253265"><span class="hs-identifier hs-var">dataSchema</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679253274"><span class="hs-identifier hs-var">dataSchema</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-453"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSchemaLocationS3&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -602,7 +602,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-454"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253264"><span class="hs-identifier hs-var">dataSchemaLocationS3</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679253273"><span class="hs-identifier hs-var">dataSchemaLocationS3</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-455"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataRearrangement&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -610,7 +610,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-456"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253263"><span class="hs-identifier hs-var">dataRearrangement</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679253272"><span class="hs-identifier hs-var">dataRearrangement</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-457"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -618,7 +618,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DataLocationS3&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253262"><span class="hs-identifier hs-var">dataLocationS3</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253271"><span class="hs-identifier hs-var">dataLocationS3</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-459"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-460"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-461"></span></pre></body></html>

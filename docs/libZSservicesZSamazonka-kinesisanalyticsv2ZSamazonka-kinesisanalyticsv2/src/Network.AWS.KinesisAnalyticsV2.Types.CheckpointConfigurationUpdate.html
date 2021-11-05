@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ConfigurationType.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.ConfigurationType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes updates to the checkpointing parameters for a Flink-based</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Kinesis Data Analytics application.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCheckpointConfigurationUpdate' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679287038"><span id="local-6989586621679287039"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckpointConfigurationUpdate"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-var">CheckpointConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckpointConfigurationUpdate%27"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate%27"><span class="hs-identifier hs-var">CheckpointConfigurationUpdate'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes updates to the interval in milliseconds between checkpoint</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- operations.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- application will use a @CheckpointInterval@ value of 60000, even if this</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- value is set to another value using this API or in application code.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcheckpointIntervalUpdate%3ACheckpointConfigurationUpdate%27"><span class="annot"><span class="annottext">CheckpointConfigurationUpdate -&gt; Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#%24sel%3AcheckpointIntervalUpdate%3ACheckpointConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">checkpointIntervalUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Describes updates to whether checkpointing is enabled for an</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- application will use a @CheckpointingEnabled@ value of @true@, even if</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- this value is set to another value using this API or in application</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- code.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcheckpointingEnabledUpdate%3ACheckpointConfigurationUpdate%27"><span class="annot"><span class="annottext">CheckpointConfigurationUpdate -&gt; Maybe Bool
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#%24sel%3AcheckpointingEnabledUpdate%3ACheckpointConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">checkpointingEnabledUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Describes updates to the minimum time in milliseconds after a checkpoint</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- operation completes that a new checkpoint operation can start.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- application will use a @MinPauseBetweenCheckpoints@ value of 5000, even</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- if this value is set using this API or in application code.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AminPauseBetweenCheckpointsUpdate%3ACheckpointConfigurationUpdate%27"><span class="annot"><span class="annottext">CheckpointConfigurationUpdate -&gt; Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#%24sel%3AminPauseBetweenCheckpointsUpdate%3ACheckpointConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">minPauseBetweenCheckpointsUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Describes updates to whether the application uses the default</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- checkpointing behavior of Kinesis Data Analytics. You must set this</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- property to @CUSTOM@ in order to set the @CheckpointingEnabled@,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @CheckpointInterval@, or @MinPauseBetweenCheckpoints@ parameters.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- If this value is set to @DEFAULT@, the application will use the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- following values, even if they are set to other values using APIs or</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- application code:</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   __CheckpointingEnabled:__ true</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   __CheckpointInterval:__ 60000</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   __MinPauseBetweenCheckpoints:__ 5000</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AconfigurationTypeUpdate%3ACheckpointConfigurationUpdate%27"><span class="annot"><span class="annottext">CheckpointConfigurationUpdate -&gt; Maybe ConfigurationType
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#%24sel%3AconfigurationTypeUpdate%3ACheckpointConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">configurationTypeUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ConfigurationType.html#ConfigurationType"><span class="hs-identifier hs-type">ConfigurationType</span></a></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287029"><span id="local-6989586621679287031"><span class="annot"><span class="annottext">CheckpointConfigurationUpdate
+-&gt; CheckpointConfigurationUpdate -&gt; Bool
+(CheckpointConfigurationUpdate
+ -&gt; CheckpointConfigurationUpdate -&gt; Bool)
+-&gt; (CheckpointConfigurationUpdate
+    -&gt; CheckpointConfigurationUpdate -&gt; Bool)
+-&gt; Eq CheckpointConfigurationUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CheckpointConfigurationUpdate
+-&gt; CheckpointConfigurationUpdate -&gt; Bool
+$c/= :: CheckpointConfigurationUpdate
+-&gt; CheckpointConfigurationUpdate -&gt; Bool
+== :: CheckpointConfigurationUpdate
+-&gt; CheckpointConfigurationUpdate -&gt; Bool
+$c== :: CheckpointConfigurationUpdate
+-&gt; CheckpointConfigurationUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287020"><span id="local-6989586621679287022"><span id="local-6989586621679287024"><span id="local-6989586621679287026"><span class="annot"><span class="annottext">ReadPrec [CheckpointConfigurationUpdate]
+ReadPrec CheckpointConfigurationUpdate
+Int -&gt; ReadS CheckpointConfigurationUpdate
+ReadS [CheckpointConfigurationUpdate]
+(Int -&gt; ReadS CheckpointConfigurationUpdate)
+-&gt; ReadS [CheckpointConfigurationUpdate]
+-&gt; ReadPrec CheckpointConfigurationUpdate
+-&gt; ReadPrec [CheckpointConfigurationUpdate]
+-&gt; Read CheckpointConfigurationUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CheckpointConfigurationUpdate]
+$creadListPrec :: ReadPrec [CheckpointConfigurationUpdate]
+readPrec :: ReadPrec CheckpointConfigurationUpdate
+$creadPrec :: ReadPrec CheckpointConfigurationUpdate
+readList :: ReadS [CheckpointConfigurationUpdate]
+$creadList :: ReadS [CheckpointConfigurationUpdate]
+readsPrec :: Int -&gt; ReadS CheckpointConfigurationUpdate
+$creadsPrec :: Int -&gt; ReadS CheckpointConfigurationUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287013"><span id="local-6989586621679287015"><span id="local-6989586621679287017"><span class="annot"><span class="annottext">Int -&gt; CheckpointConfigurationUpdate -&gt; ShowS
+[CheckpointConfigurationUpdate] -&gt; ShowS
+CheckpointConfigurationUpdate -&gt; String
+(Int -&gt; CheckpointConfigurationUpdate -&gt; ShowS)
+-&gt; (CheckpointConfigurationUpdate -&gt; String)
+-&gt; ([CheckpointConfigurationUpdate] -&gt; ShowS)
+-&gt; Show CheckpointConfigurationUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CheckpointConfigurationUpdate] -&gt; ShowS
+$cshowList :: [CheckpointConfigurationUpdate] -&gt; ShowS
+show :: CheckpointConfigurationUpdate -&gt; String
+$cshow :: CheckpointConfigurationUpdate -&gt; String
+showsPrec :: Int -&gt; CheckpointConfigurationUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; CheckpointConfigurationUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CheckpointConfigurationUpdate
+ -&gt; Rep CheckpointConfigurationUpdate x)
+-&gt; (forall x.
+    Rep CheckpointConfigurationUpdate x
+    -&gt; CheckpointConfigurationUpdate)
+-&gt; Generic CheckpointConfigurationUpdate
+forall x.
+Rep CheckpointConfigurationUpdate x
+-&gt; CheckpointConfigurationUpdate
+forall x.
+CheckpointConfigurationUpdate
+-&gt; Rep CheckpointConfigurationUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CheckpointConfigurationUpdate x
+-&gt; CheckpointConfigurationUpdate
+$cfrom :: forall x.
+CheckpointConfigurationUpdate
+-&gt; Rep CheckpointConfigurationUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'CheckpointConfigurationUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'checkpointIntervalUpdate', 'checkpointConfigurationUpdate_checkpointIntervalUpdate' - Describes updates to the interval in milliseconds between checkpoint</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- operations.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- application will use a @CheckpointInterval@ value of 60000, even if this</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- value is set to another value using this API or in application code.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'checkpointingEnabledUpdate', 'checkpointConfigurationUpdate_checkpointingEnabledUpdate' - Describes updates to whether checkpointing is enabled for an</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- application will use a @CheckpointingEnabled@ value of @true@, even if</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- this value is set to another value using this API or in application</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- code.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'minPauseBetweenCheckpointsUpdate', 'checkpointConfigurationUpdate_minPauseBetweenCheckpointsUpdate' - Describes updates to the minimum time in milliseconds after a checkpoint</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- operation completes that a new checkpoint operation can start.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- application will use a @MinPauseBetweenCheckpoints@ value of 5000, even</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- if this value is set using this API or in application code.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'configurationTypeUpdate', 'checkpointConfigurationUpdate_configurationTypeUpdate' - Describes updates to whether the application uses the default</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- checkpointing behavior of Kinesis Data Analytics. You must set this</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- property to @CUSTOM@ in order to set the @CheckpointingEnabled@,</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @CheckpointInterval@, or @MinPauseBetweenCheckpoints@ parameters.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- If this value is set to @DEFAULT@, the application will use the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- following values, even if they are set to other values using APIs or</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- application code:</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -   __CheckpointingEnabled:__ true</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   __CheckpointInterval:__ 60000</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   __MinPauseBetweenCheckpoints:__ 5000</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#newCheckpointConfigurationUpdate"><span class="hs-identifier hs-type">newCheckpointConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate</span></a></span><span>
+</span><span id="line-118"></span><span id="newCheckpointConfigurationUpdate"><span class="annot"><span class="annottext">newCheckpointConfigurationUpdate :: CheckpointConfigurationUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#newCheckpointConfigurationUpdate"><span class="hs-identifier hs-var hs-var">newCheckpointConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">CheckpointConfigurationUpdate' :: Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; Maybe ConfigurationType
+-&gt; CheckpointConfigurationUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate%27"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate'</span></a></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:checkpointIntervalUpdate:CheckpointConfigurationUpdate' :: Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#%24sel%3AcheckpointIntervalUpdate%3ACheckpointConfigurationUpdate%27"><span class="hs-identifier hs-var">checkpointIntervalUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:checkpointingEnabledUpdate:CheckpointConfigurationUpdate' :: Maybe Bool
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#%24sel%3AcheckpointingEnabledUpdate%3ACheckpointConfigurationUpdate%27"><span class="hs-identifier hs-var">checkpointingEnabledUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:minPauseBetweenCheckpointsUpdate:CheckpointConfigurationUpdate' :: Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#%24sel%3AminPauseBetweenCheckpointsUpdate%3ACheckpointConfigurationUpdate%27"><span class="hs-identifier hs-var">minPauseBetweenCheckpointsUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:configurationTypeUpdate:CheckpointConfigurationUpdate' :: Maybe ConfigurationType
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#%24sel%3AconfigurationTypeUpdate%3ACheckpointConfigurationUpdate%27"><span class="hs-identifier hs-var">configurationTypeUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Describes updates to the interval in milliseconds between checkpoint</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- operations.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- application will use a @CheckpointInterval@ value of 60000, even if this</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- value is set to another value using this API or in application code.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#checkpointConfigurationUpdate_checkpointIntervalUpdate"><span class="hs-identifier hs-type">checkpointConfigurationUpdate_checkpointIntervalUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="checkpointConfigurationUpdate_checkpointIntervalUpdate"><span class="annot"><span class="annottext">checkpointConfigurationUpdate_checkpointIntervalUpdate :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CheckpointConfigurationUpdate -&gt; f CheckpointConfigurationUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#checkpointConfigurationUpdate_checkpointIntervalUpdate"><span class="hs-identifier hs-var hs-var">checkpointConfigurationUpdate_checkpointIntervalUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckpointConfigurationUpdate -&gt; Maybe Natural)
+-&gt; (CheckpointConfigurationUpdate
+    -&gt; Maybe Natural -&gt; CheckpointConfigurationUpdate)
+-&gt; Lens
+     CheckpointConfigurationUpdate
+     CheckpointConfigurationUpdate
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate%27"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287004"><span class="annot"><span class="annottext">Maybe Natural
+checkpointIntervalUpdate :: Maybe Natural
+$sel:checkpointIntervalUpdate:CheckpointConfigurationUpdate' :: CheckpointConfigurationUpdate -&gt; Maybe Natural
+</span><a href="#local-6989586621679287004"><span class="hs-identifier hs-var hs-var">checkpointIntervalUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679287004"><span class="hs-identifier hs-var">checkpointIntervalUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287003"><span class="annot"><span class="annottext">s :: CheckpointConfigurationUpdate
+</span><a href="#local-6989586621679287003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate%27"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287002"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679287002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckpointConfigurationUpdate
+</span><a href="#local-6989586621679287003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkpointIntervalUpdate:CheckpointConfigurationUpdate' :: Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#%24sel%3AcheckpointIntervalUpdate%3ACheckpointConfigurationUpdate%27"><span class="hs-identifier hs-var">checkpointIntervalUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679287002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Describes updates to whether checkpointing is enabled for an</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- application will use a @CheckpointingEnabled@ value of @true@, even if</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- this value is set to another value using this API or in application</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- code.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#checkpointConfigurationUpdate_checkpointingEnabledUpdate"><span class="hs-identifier hs-type">checkpointConfigurationUpdate_checkpointingEnabledUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="checkpointConfigurationUpdate_checkpointingEnabledUpdate"><span class="annot"><span class="annottext">checkpointConfigurationUpdate_checkpointingEnabledUpdate :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CheckpointConfigurationUpdate -&gt; f CheckpointConfigurationUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#checkpointConfigurationUpdate_checkpointingEnabledUpdate"><span class="hs-identifier hs-var hs-var">checkpointConfigurationUpdate_checkpointingEnabledUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckpointConfigurationUpdate -&gt; Maybe Bool)
+-&gt; (CheckpointConfigurationUpdate
+    -&gt; Maybe Bool -&gt; CheckpointConfigurationUpdate)
+-&gt; Lens
+     CheckpointConfigurationUpdate
+     CheckpointConfigurationUpdate
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate%27"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287000"><span class="annot"><span class="annottext">Maybe Bool
+checkpointingEnabledUpdate :: Maybe Bool
+$sel:checkpointingEnabledUpdate:CheckpointConfigurationUpdate' :: CheckpointConfigurationUpdate -&gt; Maybe Bool
+</span><a href="#local-6989586621679287000"><span class="hs-identifier hs-var hs-var">checkpointingEnabledUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679287000"><span class="hs-identifier hs-var">checkpointingEnabledUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286999"><span class="annot"><span class="annottext">s :: CheckpointConfigurationUpdate
+</span><a href="#local-6989586621679286999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate%27"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286998"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679286998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckpointConfigurationUpdate
+</span><a href="#local-6989586621679286999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkpointingEnabledUpdate:CheckpointConfigurationUpdate' :: Maybe Bool
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#%24sel%3AcheckpointingEnabledUpdate%3ACheckpointConfigurationUpdate%27"><span class="hs-identifier hs-var">checkpointingEnabledUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679286998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Describes updates to the minimum time in milliseconds after a checkpoint</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- operation completes that a new checkpoint operation can start.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- application will use a @MinPauseBetweenCheckpoints@ value of 5000, even</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- if this value is set using this API or in application code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#checkpointConfigurationUpdate_minPauseBetweenCheckpointsUpdate"><span class="hs-identifier hs-type">checkpointConfigurationUpdate_minPauseBetweenCheckpointsUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="checkpointConfigurationUpdate_minPauseBetweenCheckpointsUpdate"><span class="annot"><span class="annottext">checkpointConfigurationUpdate_minPauseBetweenCheckpointsUpdate :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CheckpointConfigurationUpdate -&gt; f CheckpointConfigurationUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#checkpointConfigurationUpdate_minPauseBetweenCheckpointsUpdate"><span class="hs-identifier hs-var hs-var">checkpointConfigurationUpdate_minPauseBetweenCheckpointsUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckpointConfigurationUpdate -&gt; Maybe Natural)
+-&gt; (CheckpointConfigurationUpdate
+    -&gt; Maybe Natural -&gt; CheckpointConfigurationUpdate)
+-&gt; Lens
+     CheckpointConfigurationUpdate
+     CheckpointConfigurationUpdate
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate%27"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286996"><span class="annot"><span class="annottext">Maybe Natural
+minPauseBetweenCheckpointsUpdate :: Maybe Natural
+$sel:minPauseBetweenCheckpointsUpdate:CheckpointConfigurationUpdate' :: CheckpointConfigurationUpdate -&gt; Maybe Natural
+</span><a href="#local-6989586621679286996"><span class="hs-identifier hs-var hs-var">minPauseBetweenCheckpointsUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679286996"><span class="hs-identifier hs-var">minPauseBetweenCheckpointsUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286995"><span class="annot"><span class="annottext">s :: CheckpointConfigurationUpdate
+</span><a href="#local-6989586621679286995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate%27"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286994"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679286994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckpointConfigurationUpdate
+</span><a href="#local-6989586621679286995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minPauseBetweenCheckpointsUpdate:CheckpointConfigurationUpdate' :: Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#%24sel%3AminPauseBetweenCheckpointsUpdate%3ACheckpointConfigurationUpdate%27"><span class="hs-identifier hs-var">minPauseBetweenCheckpointsUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679286994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Describes updates to whether the application uses the default</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- checkpointing behavior of Kinesis Data Analytics. You must set this</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- property to @CUSTOM@ in order to set the @CheckpointingEnabled@,</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- @CheckpointInterval@, or @MinPauseBetweenCheckpoints@ parameters.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- If this value is set to @DEFAULT@, the application will use the</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- following values, even if they are set to other values using APIs or</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- application code:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- -   __CheckpointingEnabled:__ true</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- -   __CheckpointInterval:__ 60000</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- -   __MinPauseBetweenCheckpoints:__ 5000</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#checkpointConfigurationUpdate_configurationTypeUpdate"><span class="hs-identifier hs-type">checkpointConfigurationUpdate_configurationTypeUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ConfigurationType.html#ConfigurationType"><span class="hs-identifier hs-type">ConfigurationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="checkpointConfigurationUpdate_configurationTypeUpdate"><span class="annot"><span class="annottext">checkpointConfigurationUpdate_configurationTypeUpdate :: (Maybe ConfigurationType -&gt; f (Maybe ConfigurationType))
+-&gt; CheckpointConfigurationUpdate -&gt; f CheckpointConfigurationUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#checkpointConfigurationUpdate_configurationTypeUpdate"><span class="hs-identifier hs-var hs-var">checkpointConfigurationUpdate_configurationTypeUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckpointConfigurationUpdate -&gt; Maybe ConfigurationType)
+-&gt; (CheckpointConfigurationUpdate
+    -&gt; Maybe ConfigurationType -&gt; CheckpointConfigurationUpdate)
+-&gt; Lens
+     CheckpointConfigurationUpdate
+     CheckpointConfigurationUpdate
+     (Maybe ConfigurationType)
+     (Maybe ConfigurationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate%27"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286992"><span class="annot"><span class="annottext">Maybe ConfigurationType
+configurationTypeUpdate :: Maybe ConfigurationType
+$sel:configurationTypeUpdate:CheckpointConfigurationUpdate' :: CheckpointConfigurationUpdate -&gt; Maybe ConfigurationType
+</span><a href="#local-6989586621679286992"><span class="hs-identifier hs-var hs-var">configurationTypeUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationType
+</span><a href="#local-6989586621679286992"><span class="hs-identifier hs-var">configurationTypeUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286991"><span class="annot"><span class="annottext">s :: CheckpointConfigurationUpdate
+</span><a href="#local-6989586621679286991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate%27"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286990"><span class="annot"><span class="annottext">Maybe ConfigurationType
+</span><a href="#local-6989586621679286990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckpointConfigurationUpdate
+</span><a href="#local-6989586621679286991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationTypeUpdate:CheckpointConfigurationUpdate' :: Maybe ConfigurationType
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#%24sel%3AconfigurationTypeUpdate%3ACheckpointConfigurationUpdate%27"><span class="hs-identifier hs-var">configurationTypeUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationType
+</span><a href="#local-6989586621679286990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679286986"><span id="local-6989586621679286988"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate</span></a></span></span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate</span></a></span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286975"><span id="local-6989586621679286977"><span id="local-6989586621679286979"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679286973"><span class="annot"><span class="annottext">toJSON :: CheckpointConfigurationUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate.html#CheckpointConfigurationUpdate%27"><span class="hs-identifier hs-type">CheckpointConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286968"><span id="local-6989586621679286969"><span id="local-6989586621679286970"><span id="local-6989586621679286971"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe ConfigurationType
+configurationTypeUpdate :: Maybe ConfigurationType
+minPauseBetweenCheckpointsUpdate :: Maybe Natural
+checkpointingEnabledUpdate :: Maybe Bool
+checkpointIntervalUpdate :: Maybe Natural
+$sel:configurationTypeUpdate:CheckpointConfigurationUpdate' :: CheckpointConfigurationUpdate -&gt; Maybe ConfigurationType
+$sel:minPauseBetweenCheckpointsUpdate:CheckpointConfigurationUpdate' :: CheckpointConfigurationUpdate -&gt; Maybe Natural
+$sel:checkpointingEnabledUpdate:CheckpointConfigurationUpdate' :: CheckpointConfigurationUpdate -&gt; Maybe Bool
+$sel:checkpointIntervalUpdate:CheckpointConfigurationUpdate' :: CheckpointConfigurationUpdate -&gt; Maybe Natural
+</span><a href="#local-6989586621679286968"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-183"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CheckpointIntervalUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679286971"><span class="hs-identifier hs-var">checkpointIntervalUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CheckpointingEnabledUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679286970"><span class="hs-identifier hs-var">checkpointingEnabledUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MinPauseBetweenCheckpointsUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679286969"><span class="hs-identifier hs-var">minPauseBetweenCheckpointsUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConfigurationTypeUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConfigurationType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">(ConfigurationType -&gt; Pair)
+-&gt; Maybe ConfigurationType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationType
+</span><a href="#local-6989586621679286968"><span class="hs-identifier hs-var">configurationTypeUpdate</span></a></span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span></pre></body></html>

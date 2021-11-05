@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents information about the version (or revision) of an action.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newActionRevision' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679274516"><span id="local-6989586621679274517"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionRevision"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-var">ActionRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionRevision%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-var">ActionRevision'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679274525"><span id="local-6989586621679274526"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionRevision"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-var">ActionRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionRevision%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-var">ActionRevision'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The system-generated unique ID that identifies the revision number of</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- the action.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3ArevisionId%3AActionRevision%27"><span class="annot"><span class="annottext">ActionRevision -&gt; Text
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Acreated%3AActionRevision%27"><span class="annot"><span class="annottext">ActionRevision -&gt; POSIX
 </span><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#%24sel%3Acreated%3AActionRevision%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274508"><span id="local-6989586621679274510"><span class="annot"><span class="annottext">ActionRevision -&gt; ActionRevision -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274517"><span id="local-6989586621679274519"><span class="annot"><span class="annottext">ActionRevision -&gt; ActionRevision -&gt; Bool
 (ActionRevision -&gt; ActionRevision -&gt; Bool)
 -&gt; (ActionRevision -&gt; ActionRevision -&gt; Bool) -&gt; Eq ActionRevision
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActionRevision -&gt; ActionRevision -&gt; Bool
 == :: ActionRevision -&gt; ActionRevision -&gt; Bool
 $c== :: ActionRevision -&gt; ActionRevision -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274499"><span id="local-6989586621679274501"><span id="local-6989586621679274503"><span id="local-6989586621679274505"><span class="annot"><span class="annottext">ReadPrec [ActionRevision]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274508"><span id="local-6989586621679274510"><span id="local-6989586621679274512"><span id="local-6989586621679274514"><span class="annot"><span class="annottext">ReadPrec [ActionRevision]
 ReadPrec ActionRevision
 Int -&gt; ReadS ActionRevision
 ReadS [ActionRevision]
@@ -68,7 +68,7 @@ readList :: ReadS [ActionRevision]
 $creadList :: ReadS [ActionRevision]
 readsPrec :: Int -&gt; ReadS ActionRevision
 $creadsPrec :: Int -&gt; ReadS ActionRevision
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274492"><span id="local-6989586621679274494"><span id="local-6989586621679274496"><span class="annot"><span class="annottext">Int -&gt; ActionRevision -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274501"><span id="local-6989586621679274503"><span id="local-6989586621679274505"><span class="annot"><span class="annottext">Int -&gt; ActionRevision -&gt; ShowS
 [ActionRevision] -&gt; ShowS
 ActionRevision -&gt; String
 (Int -&gt; ActionRevision -&gt; ShowS)
@@ -120,20 +120,20 @@ $cfrom :: forall x. ActionRevision -&gt; Rep ActionRevision x
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span><span>
 </span><span id="line-66"></span><span id="newActionRevision"><span class="annot"><span class="annottext">newActionRevision :: Text -&gt; Text -&gt; UTCTime -&gt; ActionRevision
 </span><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#newActionRevision"><span class="hs-identifier hs-var hs-var">newActionRevision</span></a></span></span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679274486"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274486"><span class="hs-identifier hs-var">pRevisionId_</span></a></span></span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679274485"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274485"><span class="hs-identifier hs-var">pRevisionChangeId_</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679274484"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679274484"><span class="hs-identifier hs-var">pCreated_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679274495"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274495"><span class="hs-identifier hs-var">pRevisionId_</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679274494"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274494"><span class="hs-identifier hs-var">pRevisionChangeId_</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679274493"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679274493"><span class="hs-identifier hs-var">pCreated_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">ActionRevision' :: Text -&gt; Text -&gt; POSIX -&gt; ActionRevision
 </span><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:revisionId:ActionRevision' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#%24sel%3ArevisionId%3AActionRevision%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274486"><span class="hs-identifier hs-var">pRevisionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274495"><span class="hs-identifier hs-var">pRevisionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">$sel:revisionChangeId:ActionRevision' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#%24sel%3ArevisionChangeId%3AActionRevision%27"><span class="hs-identifier hs-var">revisionChangeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274485"><span class="hs-identifier hs-var">pRevisionChangeId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274494"><span class="hs-identifier hs-var">pRevisionChangeId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">$sel:created:ActionRevision' :: POSIX
 </span><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#%24sel%3Acreated%3AActionRevision%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -142,7 +142,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679274484"><span class="hs-identifier hs-var">pCreated_</span></a></span><span>
+</span><a href="#local-6989586621679274493"><span class="hs-identifier hs-var">pCreated_</span></a></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The system-generated unique ID that identifies the revision number of</span><span>
@@ -153,16 +153,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (ActionRevision -&gt; Text -&gt; ActionRevision)
 -&gt; Lens ActionRevision ActionRevision Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274478"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274487"><span class="annot"><span class="annottext">Text
 revisionId :: Text
 $sel:revisionId:ActionRevision' :: ActionRevision -&gt; Text
-</span><a href="#local-6989586621679274478"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274478"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274477"><span class="annot"><span class="annottext">s :: ActionRevision
-</span><a href="#local-6989586621679274477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274476"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionRevision
-</span><a href="#local-6989586621679274477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:ActionRevision' :: Text
+</span><a href="#local-6989586621679274487"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274487"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274486"><span class="annot"><span class="annottext">s :: ActionRevision
+</span><a href="#local-6989586621679274486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274485"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionRevision
+</span><a href="#local-6989586621679274486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:ActionRevision' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#%24sel%3ArevisionId%3AActionRevision%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The unique identifier of the change that set the state to this revision</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- (for example, a deployment ID or timestamp).</span><span>
@@ -172,16 +172,16 @@ $sel:revisionId:ActionRevision' :: ActionRevision -&gt; Text
 -&gt; (ActionRevision -&gt; Text -&gt; ActionRevision)
 -&gt; Lens ActionRevision ActionRevision Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274474"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274483"><span class="annot"><span class="annottext">Text
 revisionChangeId :: Text
 $sel:revisionChangeId:ActionRevision' :: ActionRevision -&gt; Text
-</span><a href="#local-6989586621679274474"><span class="hs-identifier hs-var hs-var">revisionChangeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274474"><span class="hs-identifier hs-var">revisionChangeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274473"><span class="annot"><span class="annottext">s :: ActionRevision
-</span><a href="#local-6989586621679274473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274472"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionRevision
-</span><a href="#local-6989586621679274473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionChangeId:ActionRevision' :: Text
+</span><a href="#local-6989586621679274483"><span class="hs-identifier hs-var hs-var">revisionChangeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274483"><span class="hs-identifier hs-var">revisionChangeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274482"><span class="annot"><span class="annottext">s :: ActionRevision
+</span><a href="#local-6989586621679274482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274481"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionRevision
+</span><a href="#local-6989586621679274482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionChangeId:ActionRevision' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#%24sel%3ArevisionChangeId%3AActionRevision%27"><span class="hs-identifier hs-var">revisionChangeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The date and time when the most recent version of the action was</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- created, in timestamp format.</span><span>
@@ -191,16 +191,16 @@ $sel:revisionChangeId:ActionRevision' :: ActionRevision -&gt; Text
 -&gt; (ActionRevision -&gt; POSIX -&gt; ActionRevision)
 -&gt; Lens ActionRevision ActionRevision POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274470"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274479"><span class="annot"><span class="annottext">POSIX
 created :: POSIX
 $sel:created:ActionRevision' :: ActionRevision -&gt; POSIX
-</span><a href="#local-6989586621679274470"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679274470"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274469"><span class="annot"><span class="annottext">s :: ActionRevision
-</span><a href="#local-6989586621679274469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274468"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679274468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionRevision
-</span><a href="#local-6989586621679274469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:ActionRevision' :: POSIX
+</span><a href="#local-6989586621679274479"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679274479"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274478"><span class="annot"><span class="annottext">s :: ActionRevision
+</span><a href="#local-6989586621679274478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274477"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679274477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionRevision
+</span><a href="#local-6989586621679274478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:ActionRevision' :: POSIX
 </span><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#%24sel%3Acreated%3AActionRevision%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679274468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ActionRevision -&gt; f ActionRevision)
+</span><a href="#local-6989586621679274477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ActionRevision -&gt; f ActionRevision)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; ActionRevision
@@ -210,8 +210,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274464"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679274462"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionRevision
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274473"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679274471"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionRevision
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActionRevision)
@@ -221,15 +221,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActionRevision&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274459"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274468"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274468"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; POSIX -&gt; ActionRevision
 </span><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-var">ActionRevision'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; POSIX -&gt; ActionRevision)
 -&gt; Parser Text -&gt; Parser (Text -&gt; POSIX -&gt; ActionRevision)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679274468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;revisionId&quot;</span></span><span class="hs-special">)</span><span>
@@ -237,7 +237,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (POSIX -&gt; ActionRevision)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679274468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;revisionChangeId&quot;</span></span><span class="hs-special">)</span><span>
@@ -245,19 +245,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser ActionRevision
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679274468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;created&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274453"><span id="local-6989586621679274455"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274462"><span id="local-6989586621679274464"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274450"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274459"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274442"><span id="local-6989586621679274444"><span id="local-6989586621679274446"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679274440"><span class="annot"><span class="annottext">toJSON :: ActionRevision -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274436"><span id="local-6989586621679274437"><span id="local-6989586621679274438"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274451"><span id="local-6989586621679274453"><span id="local-6989586621679274455"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision"><span class="hs-identifier hs-type">ActionRevision</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679274449"><span class="annot"><span class="annottext">toJSON :: ActionRevision -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionRevision.html#ActionRevision%27"><span class="hs-identifier hs-type">ActionRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274445"><span id="local-6989586621679274446"><span id="local-6989586621679274447"><span class="annot"><span class="annottext">Text
 POSIX
 created :: POSIX
 revisionChangeId :: Text
@@ -265,7 +265,7 @@ revisionId :: Text
 $sel:created:ActionRevision' :: ActionRevision -&gt; POSIX
 $sel:revisionChangeId:ActionRevision' :: ActionRevision -&gt; Text
 $sel:revisionId:ActionRevision' :: ActionRevision -&gt; Text
-</span><a href="#local-6989586621679274436"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679274445"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -277,7 +277,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;revisionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274438"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274447"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -285,14 +285,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;revisionChangeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274437"><span class="hs-identifier hs-var">revisionChangeId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274446"><span class="hs-identifier hs-var">revisionChangeId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;created&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679274436"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274445"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span></pre></body></html>

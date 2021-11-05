@@ -1,0 +1,819 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Nimble.UpdateLaunchProfile</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Update a launch profile.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Nimble.UpdateLaunchProfile</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier">UpdateLaunchProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#newUpdateLaunchProfile"><span class="hs-identifier">newUpdateLaunchProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_clientToken"><span class="hs-identifier">updateLaunchProfile_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_launchProfileProtocolVersions"><span class="hs-identifier">updateLaunchProfile_launchProfileProtocolVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_streamConfiguration"><span class="hs-identifier">updateLaunchProfile_streamConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_name"><span class="hs-identifier">updateLaunchProfile_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_description"><span class="hs-identifier">updateLaunchProfile_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_studioComponentIds"><span class="hs-identifier">updateLaunchProfile_studioComponentIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_studioId"><span class="hs-identifier">updateLaunchProfile_studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_launchProfileId"><span class="hs-identifier">updateLaunchProfile_launchProfileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse"><span class="hs-identifier">UpdateLaunchProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#newUpdateLaunchProfileResponse"><span class="hs-identifier">newUpdateLaunchProfileResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfileResponse_launchProfile"><span class="hs-identifier">updateLaunchProfileResponse_launchProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfileResponse_httpStatus"><span class="hs-identifier">updateLaunchProfileResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.html"><span class="hs-identifier">Network.AWS.Nimble.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | The launch profile ID.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newUpdateLaunchProfile' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679299559"><span id="local-6989586621679299560"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLaunchProfile"><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-var">UpdateLaunchProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLaunchProfile%27"><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-var">UpdateLaunchProfile'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | To make an idempotent API request using one of these actions, specify a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- client token in the request. You should not reuse the same client token</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- for other API requests. If you retry a request that completed</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- successfully using the same client token and the same parameters, the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- retry succeeds without performing any further actions. If you retry a</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- successful request using the same client token, but one or more of the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- parameters are different, the retry fails with a ValidationException</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AclientToken%3AUpdateLaunchProfile%27"><span class="annot"><span class="annottext">UpdateLaunchProfile -&gt; Maybe Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AclientToken%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The version number of the protocol that is used by the launch profile.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- The only valid version is \&quot;2021-03-31\&quot;.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AlaunchProfileProtocolVersions%3AUpdateLaunchProfile%27"><span class="annot"><span class="annottext">UpdateLaunchProfile -&gt; Maybe [Text]
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AlaunchProfileProtocolVersions%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var hs-var">launchProfileProtocolVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A configuration for a streaming session.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AstreamConfiguration%3AUpdateLaunchProfile%27"><span class="annot"><span class="annottext">UpdateLaunchProfile -&gt; Maybe StreamConfigurationCreate
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AstreamConfiguration%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var hs-var">streamConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.StreamConfigurationCreate.html#StreamConfigurationCreate"><span class="hs-identifier hs-type">StreamConfigurationCreate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The name for the launch profile.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Aname%3AUpdateLaunchProfile%27"><span class="annot"><span class="annottext">UpdateLaunchProfile -&gt; Maybe Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3Aname%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The description.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateLaunchProfile%27"><span class="annot"><span class="annottext">UpdateLaunchProfile -&gt; Maybe Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3Adescription%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Unique identifiers for a collection of studio components that can be</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- used with this launch profile.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AstudioComponentIds%3AUpdateLaunchProfile%27"><span class="annot"><span class="annottext">UpdateLaunchProfile -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AstudioComponentIds%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var hs-var">studioComponentIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AstudioId%3AUpdateLaunchProfile%27"><span class="annot"><span class="annottext">UpdateLaunchProfile -&gt; Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AstudioId%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The launch profile ID.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AlaunchProfileId%3AUpdateLaunchProfile%27"><span class="annot"><span class="annottext">UpdateLaunchProfile -&gt; Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AlaunchProfileId%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var hs-var">launchProfileId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299546"><span id="local-6989586621679299548"><span class="annot"><span class="annottext">UpdateLaunchProfile -&gt; UpdateLaunchProfile -&gt; Bool
+(UpdateLaunchProfile -&gt; UpdateLaunchProfile -&gt; Bool)
+-&gt; (UpdateLaunchProfile -&gt; UpdateLaunchProfile -&gt; Bool)
+-&gt; Eq UpdateLaunchProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateLaunchProfile -&gt; UpdateLaunchProfile -&gt; Bool
+$c/= :: UpdateLaunchProfile -&gt; UpdateLaunchProfile -&gt; Bool
+== :: UpdateLaunchProfile -&gt; UpdateLaunchProfile -&gt; Bool
+$c== :: UpdateLaunchProfile -&gt; UpdateLaunchProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299537"><span id="local-6989586621679299539"><span id="local-6989586621679299541"><span id="local-6989586621679299543"><span class="annot"><span class="annottext">ReadPrec [UpdateLaunchProfile]
+ReadPrec UpdateLaunchProfile
+Int -&gt; ReadS UpdateLaunchProfile
+ReadS [UpdateLaunchProfile]
+(Int -&gt; ReadS UpdateLaunchProfile)
+-&gt; ReadS [UpdateLaunchProfile]
+-&gt; ReadPrec UpdateLaunchProfile
+-&gt; ReadPrec [UpdateLaunchProfile]
+-&gt; Read UpdateLaunchProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateLaunchProfile]
+$creadListPrec :: ReadPrec [UpdateLaunchProfile]
+readPrec :: ReadPrec UpdateLaunchProfile
+$creadPrec :: ReadPrec UpdateLaunchProfile
+readList :: ReadS [UpdateLaunchProfile]
+$creadList :: ReadS [UpdateLaunchProfile]
+readsPrec :: Int -&gt; ReadS UpdateLaunchProfile
+$creadsPrec :: Int -&gt; ReadS UpdateLaunchProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299530"><span id="local-6989586621679299532"><span id="local-6989586621679299534"><span class="annot"><span class="annottext">Int -&gt; UpdateLaunchProfile -&gt; ShowS
+[UpdateLaunchProfile] -&gt; ShowS
+UpdateLaunchProfile -&gt; String
+(Int -&gt; UpdateLaunchProfile -&gt; ShowS)
+-&gt; (UpdateLaunchProfile -&gt; String)
+-&gt; ([UpdateLaunchProfile] -&gt; ShowS)
+-&gt; Show UpdateLaunchProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateLaunchProfile] -&gt; ShowS
+$cshowList :: [UpdateLaunchProfile] -&gt; ShowS
+show :: UpdateLaunchProfile -&gt; String
+$cshow :: UpdateLaunchProfile -&gt; String
+showsPrec :: Int -&gt; UpdateLaunchProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateLaunchProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateLaunchProfile -&gt; Rep UpdateLaunchProfile x)
+-&gt; (forall x. Rep UpdateLaunchProfile x -&gt; UpdateLaunchProfile)
+-&gt; Generic UpdateLaunchProfile
+forall x. Rep UpdateLaunchProfile x -&gt; UpdateLaunchProfile
+forall x. UpdateLaunchProfile -&gt; Rep UpdateLaunchProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateLaunchProfile x -&gt; UpdateLaunchProfile
+$cfrom :: forall x. UpdateLaunchProfile -&gt; Rep UpdateLaunchProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Create a value of 'UpdateLaunchProfile' with all optional fields omitted.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'clientToken', 'updateLaunchProfile_clientToken' - To make an idempotent API request using one of these actions, specify a</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- client token in the request. You should not reuse the same client token</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- for other API requests. If you retry a request that completed</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- successfully using the same client token and the same parameters, the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- retry succeeds without performing any further actions. If you retry a</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- successful request using the same client token, but one or more of the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- parameters are different, the retry fails with a ValidationException</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'launchProfileProtocolVersions', 'updateLaunchProfile_launchProfileProtocolVersions' - The version number of the protocol that is used by the launch profile.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- The only valid version is \&quot;2021-03-31\&quot;.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'streamConfiguration', 'updateLaunchProfile_streamConfiguration' - A configuration for a streaming session.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'name', 'updateLaunchProfile_name' - The name for the launch profile.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'description', 'updateLaunchProfile_description' - The description.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'studioComponentIds', 'updateLaunchProfile_studioComponentIds' - Unique identifiers for a collection of studio components that can be</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- used with this launch profile.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'studioId', 'updateLaunchProfile_studioId' - The studio ID.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'launchProfileId', 'updateLaunchProfile_launchProfileId' - The launch profile ID.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#newUpdateLaunchProfile"><span class="hs-identifier hs-type">newUpdateLaunchProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-comment">-- | 'studioId'</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-comment">-- | 'launchProfileId'</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span>
+</span><span id="line-126"></span><span id="newUpdateLaunchProfile"><span class="annot"><span class="annottext">newUpdateLaunchProfile :: Text -&gt; Text -&gt; UpdateLaunchProfile
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#newUpdateLaunchProfile"><span class="hs-identifier hs-var hs-var">newUpdateLaunchProfile</span></a></span></span><span> </span><span id="local-6989586621679299525"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299525"><span class="hs-identifier hs-var">pStudioId_</span></a></span></span><span> </span><span id="local-6989586621679299524"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299524"><span class="hs-identifier hs-var">pLaunchProfileId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">UpdateLaunchProfile' :: Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe StreamConfigurationCreate
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Text)
+-&gt; Text
+-&gt; Text
+-&gt; UpdateLaunchProfile
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:UpdateLaunchProfile' :: Maybe Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AclientToken%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchProfileProtocolVersions:UpdateLaunchProfile' :: Maybe [Text]
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AlaunchProfileProtocolVersions%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">launchProfileProtocolVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamConfiguration:UpdateLaunchProfile' :: Maybe StreamConfigurationCreate
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AstreamConfiguration%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">streamConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamConfigurationCreate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateLaunchProfile' :: Maybe Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3Aname%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateLaunchProfile' :: Maybe Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3Adescription%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:studioComponentIds:UpdateLaunchProfile' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AstudioComponentIds%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">studioComponentIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:studioId:UpdateLaunchProfile' :: Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AstudioId%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299525"><span class="hs-identifier hs-var">pStudioId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchProfileId:UpdateLaunchProfile' :: Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AlaunchProfileId%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299524"><span class="hs-identifier hs-var">pLaunchProfileId_</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | To make an idempotent API request using one of these actions, specify a</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- client token in the request. You should not reuse the same client token</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- for other API requests. If you retry a request that completed</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- successfully using the same client token and the same parameters, the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- retry succeeds without performing any further actions. If you retry a</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- successful request using the same client token, but one or more of the</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- parameters are different, the retry fails with a ValidationException</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_clientToken"><span class="hs-identifier hs-type">updateLaunchProfile_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="updateLaunchProfile_clientToken"><span class="annot"><span class="annottext">updateLaunchProfile_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateLaunchProfile -&gt; f UpdateLaunchProfile
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_clientToken"><span class="hs-identifier hs-var hs-var">updateLaunchProfile_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLaunchProfile -&gt; Maybe Text)
+-&gt; (UpdateLaunchProfile -&gt; Maybe Text -&gt; UpdateLaunchProfile)
+-&gt; Lens
+     UpdateLaunchProfile UpdateLaunchProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299521"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679299521"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299521"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299520"><span class="annot"><span class="annottext">s :: UpdateLaunchProfile
+</span><a href="#local-6989586621679299520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299519"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLaunchProfile
+</span><a href="#local-6989586621679299520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:UpdateLaunchProfile' :: Maybe Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AclientToken%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The version number of the protocol that is used by the launch profile.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- The only valid version is \&quot;2021-03-31\&quot;.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_launchProfileProtocolVersions"><span class="hs-identifier hs-type">updateLaunchProfile_launchProfileProtocolVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="updateLaunchProfile_launchProfileProtocolVersions"><span class="annot"><span class="annottext">updateLaunchProfile_launchProfileProtocolVersions :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateLaunchProfile -&gt; f UpdateLaunchProfile
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_launchProfileProtocolVersions"><span class="hs-identifier hs-var hs-var">updateLaunchProfile_launchProfileProtocolVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLaunchProfile -&gt; Maybe [Text])
+-&gt; (UpdateLaunchProfile -&gt; Maybe [Text] -&gt; UpdateLaunchProfile)
+-&gt; Lens
+     UpdateLaunchProfile
+     UpdateLaunchProfile
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299518"><span class="annot"><span class="annottext">Maybe [Text]
+launchProfileProtocolVersions :: Maybe [Text]
+$sel:launchProfileProtocolVersions:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe [Text]
+</span><a href="#local-6989586621679299518"><span class="hs-identifier hs-var hs-var">launchProfileProtocolVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679299518"><span class="hs-identifier hs-var">launchProfileProtocolVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299517"><span class="annot"><span class="annottext">s :: UpdateLaunchProfile
+</span><a href="#local-6989586621679299517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299516"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679299516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLaunchProfile
+</span><a href="#local-6989586621679299517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchProfileProtocolVersions:UpdateLaunchProfile' :: Maybe [Text]
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AlaunchProfileProtocolVersions%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">launchProfileProtocolVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679299516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; UpdateLaunchProfile -&gt; f UpdateLaunchProfile)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateLaunchProfile
+-&gt; f UpdateLaunchProfile
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | A configuration for a streaming session.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_streamConfiguration"><span class="hs-identifier hs-type">updateLaunchProfile_streamConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.StreamConfigurationCreate.html#StreamConfigurationCreate"><span class="hs-identifier hs-type">StreamConfigurationCreate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="updateLaunchProfile_streamConfiguration"><span class="annot"><span class="annottext">updateLaunchProfile_streamConfiguration :: (Maybe StreamConfigurationCreate
+ -&gt; f (Maybe StreamConfigurationCreate))
+-&gt; UpdateLaunchProfile -&gt; f UpdateLaunchProfile
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_streamConfiguration"><span class="hs-identifier hs-var hs-var">updateLaunchProfile_streamConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLaunchProfile -&gt; Maybe StreamConfigurationCreate)
+-&gt; (UpdateLaunchProfile
+    -&gt; Maybe StreamConfigurationCreate -&gt; UpdateLaunchProfile)
+-&gt; Lens
+     UpdateLaunchProfile
+     UpdateLaunchProfile
+     (Maybe StreamConfigurationCreate)
+     (Maybe StreamConfigurationCreate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299512"><span class="annot"><span class="annottext">Maybe StreamConfigurationCreate
+streamConfiguration :: Maybe StreamConfigurationCreate
+$sel:streamConfiguration:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe StreamConfigurationCreate
+</span><a href="#local-6989586621679299512"><span class="hs-identifier hs-var hs-var">streamConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamConfigurationCreate
+</span><a href="#local-6989586621679299512"><span class="hs-identifier hs-var">streamConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299511"><span class="annot"><span class="annottext">s :: UpdateLaunchProfile
+</span><a href="#local-6989586621679299511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299510"><span class="annot"><span class="annottext">Maybe StreamConfigurationCreate
+</span><a href="#local-6989586621679299510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLaunchProfile
+</span><a href="#local-6989586621679299511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamConfiguration:UpdateLaunchProfile' :: Maybe StreamConfigurationCreate
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AstreamConfiguration%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">streamConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamConfigurationCreate
+</span><a href="#local-6989586621679299510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The name for the launch profile.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_name"><span class="hs-identifier hs-type">updateLaunchProfile_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="updateLaunchProfile_name"><span class="annot"><span class="annottext">updateLaunchProfile_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateLaunchProfile -&gt; f UpdateLaunchProfile
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_name"><span class="hs-identifier hs-var hs-var">updateLaunchProfile_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLaunchProfile -&gt; Maybe Text)
+-&gt; (UpdateLaunchProfile -&gt; Maybe Text -&gt; UpdateLaunchProfile)
+-&gt; Lens
+     UpdateLaunchProfile UpdateLaunchProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299509"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679299509"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299509"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299508"><span class="annot"><span class="annottext">s :: UpdateLaunchProfile
+</span><a href="#local-6989586621679299508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299507"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLaunchProfile
+</span><a href="#local-6989586621679299508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateLaunchProfile' :: Maybe Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3Aname%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The description.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_description"><span class="hs-identifier hs-type">updateLaunchProfile_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="updateLaunchProfile_description"><span class="annot"><span class="annottext">updateLaunchProfile_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateLaunchProfile -&gt; f UpdateLaunchProfile
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_description"><span class="hs-identifier hs-var hs-var">updateLaunchProfile_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLaunchProfile -&gt; Maybe Text)
+-&gt; (UpdateLaunchProfile -&gt; Maybe Text -&gt; UpdateLaunchProfile)
+-&gt; Lens
+     UpdateLaunchProfile UpdateLaunchProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299506"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679299506"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299506"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299505"><span class="annot"><span class="annottext">s :: UpdateLaunchProfile
+</span><a href="#local-6989586621679299505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299504"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLaunchProfile
+</span><a href="#local-6989586621679299505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateLaunchProfile' :: Maybe Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3Adescription%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | Unique identifiers for a collection of studio components that can be</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- used with this launch profile.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_studioComponentIds"><span class="hs-identifier hs-type">updateLaunchProfile_studioComponentIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="updateLaunchProfile_studioComponentIds"><span class="annot"><span class="annottext">updateLaunchProfile_studioComponentIds :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; UpdateLaunchProfile -&gt; f UpdateLaunchProfile
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_studioComponentIds"><span class="hs-identifier hs-var hs-var">updateLaunchProfile_studioComponentIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLaunchProfile -&gt; Maybe (NonEmpty Text))
+-&gt; (UpdateLaunchProfile
+    -&gt; Maybe (NonEmpty Text) -&gt; UpdateLaunchProfile)
+-&gt; Lens
+     UpdateLaunchProfile
+     UpdateLaunchProfile
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299503"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+studioComponentIds :: Maybe (NonEmpty Text)
+$sel:studioComponentIds:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679299503"><span class="hs-identifier hs-var hs-var">studioComponentIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679299503"><span class="hs-identifier hs-var">studioComponentIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299502"><span class="annot"><span class="annottext">s :: UpdateLaunchProfile
+</span><a href="#local-6989586621679299502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299501"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679299501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLaunchProfile
+</span><a href="#local-6989586621679299502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioComponentIds:UpdateLaunchProfile' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AstudioComponentIds%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">studioComponentIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679299501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; UpdateLaunchProfile -&gt; f UpdateLaunchProfile)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; UpdateLaunchProfile
+-&gt; f UpdateLaunchProfile
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_studioId"><span class="hs-identifier hs-type">updateLaunchProfile_studioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-173"></span><span id="updateLaunchProfile_studioId"><span class="annot"><span class="annottext">updateLaunchProfile_studioId :: (Text -&gt; f Text) -&gt; UpdateLaunchProfile -&gt; f UpdateLaunchProfile
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_studioId"><span class="hs-identifier hs-var hs-var">updateLaunchProfile_studioId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLaunchProfile -&gt; Text)
+-&gt; (UpdateLaunchProfile -&gt; Text -&gt; UpdateLaunchProfile)
+-&gt; Lens UpdateLaunchProfile UpdateLaunchProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299500"><span class="annot"><span class="annottext">Text
+studioId :: Text
+$sel:studioId:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Text
+</span><a href="#local-6989586621679299500"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299500"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299499"><span class="annot"><span class="annottext">s :: UpdateLaunchProfile
+</span><a href="#local-6989586621679299499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299498"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLaunchProfile
+</span><a href="#local-6989586621679299499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioId:UpdateLaunchProfile' :: Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AstudioId%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The launch profile ID.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_launchProfileId"><span class="hs-identifier hs-type">updateLaunchProfile_launchProfileId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-177"></span><span id="updateLaunchProfile_launchProfileId"><span class="annot"><span class="annottext">updateLaunchProfile_launchProfileId :: (Text -&gt; f Text) -&gt; UpdateLaunchProfile -&gt; f UpdateLaunchProfile
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfile_launchProfileId"><span class="hs-identifier hs-var hs-var">updateLaunchProfile_launchProfileId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLaunchProfile -&gt; Text)
+-&gt; (UpdateLaunchProfile -&gt; Text -&gt; UpdateLaunchProfile)
+-&gt; Lens UpdateLaunchProfile UpdateLaunchProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299497"><span class="annot"><span class="annottext">Text
+launchProfileId :: Text
+$sel:launchProfileId:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Text
+</span><a href="#local-6989586621679299497"><span class="hs-identifier hs-var hs-var">launchProfileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299497"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299496"><span class="annot"><span class="annottext">s :: UpdateLaunchProfile
+</span><a href="#local-6989586621679299496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299495"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLaunchProfile
+</span><a href="#local-6989586621679299496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchProfileId:UpdateLaunchProfile' :: Text
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AlaunchProfileId%3AUpdateLaunchProfile%27"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-181"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse"><span class="hs-identifier hs-type">UpdateLaunchProfileResponse</span></a></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679299491"><span class="annot"><span class="annottext">request :: UpdateLaunchProfile -&gt; Request UpdateLaunchProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateLaunchProfile -&gt; Request UpdateLaunchProfile
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Nimble.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679299487"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateLaunchProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateLaunchProfile)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateLaunchProfile))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateLaunchProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateLaunchProfile)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299484"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299484"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679299483"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679299483"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679299482"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299482"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe LaunchProfile -&gt; Int -&gt; UpdateLaunchProfileResponse
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse%27"><span class="hs-identifier hs-var">UpdateLaunchProfileResponse'</span></a></span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LaunchProfile -&gt; Int -&gt; UpdateLaunchProfileResponse)
+-&gt; Either String (Maybe LaunchProfile)
+-&gt; Either String (Int -&gt; UpdateLaunchProfileResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LaunchProfile)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;launchProfile&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateLaunchProfileResponse)
+-&gt; Either String Int -&gt; Either String UpdateLaunchProfileResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299484"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299474"><span id="local-6989586621679299476"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span></span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679299467"><span class="annot"><span class="annottext">toHeaders :: UpdateLaunchProfile -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299458"><span id="local-6989586621679299459"><span id="local-6989586621679299460"><span id="local-6989586621679299461"><span id="local-6989586621679299462"><span id="local-6989586621679299463"><span id="local-6989586621679299464"><span id="local-6989586621679299465"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe (NonEmpty Text)
+Maybe Text
+Maybe StreamConfigurationCreate
+Text
+launchProfileId :: Text
+studioId :: Text
+studioComponentIds :: Maybe (NonEmpty Text)
+description :: Maybe Text
+name :: Maybe Text
+streamConfiguration :: Maybe StreamConfigurationCreate
+launchProfileProtocolVersions :: Maybe [Text]
+clientToken :: Maybe Text
+$sel:launchProfileId:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Text
+$sel:studioId:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Text
+$sel:studioComponentIds:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe (NonEmpty Text)
+$sel:description:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe Text
+$sel:name:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe Text
+$sel:streamConfiguration:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe StreamConfigurationCreate
+$sel:launchProfileProtocolVersions:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe [Text]
+$sel:clientToken:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679299458"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Client-Token&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299465"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299450"><span id="local-6989586621679299452"><span id="local-6989586621679299454"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679299448"><span class="annot"><span class="annottext">toJSON :: UpdateLaunchProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299439"><span id="local-6989586621679299440"><span id="local-6989586621679299441"><span id="local-6989586621679299442"><span id="local-6989586621679299443"><span id="local-6989586621679299444"><span id="local-6989586621679299445"><span id="local-6989586621679299446"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe (NonEmpty Text)
+Maybe Text
+Maybe StreamConfigurationCreate
+Text
+launchProfileId :: Text
+studioId :: Text
+studioComponentIds :: Maybe (NonEmpty Text)
+description :: Maybe Text
+name :: Maybe Text
+streamConfiguration :: Maybe StreamConfigurationCreate
+launchProfileProtocolVersions :: Maybe [Text]
+clientToken :: Maybe Text
+$sel:launchProfileId:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Text
+$sel:studioId:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Text
+$sel:studioComponentIds:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe (NonEmpty Text)
+$sel:description:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe Text
+$sel:name:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe Text
+$sel:streamConfiguration:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe StreamConfigurationCreate
+$sel:launchProfileProtocolVersions:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe [Text]
+$sel:clientToken:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679299439"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-208"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;launchProfileProtocolVersions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679299445"><span class="hs-identifier hs-var">launchProfileProtocolVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;streamConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StreamConfigurationCreate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">(StreamConfigurationCreate -&gt; Pair)
+-&gt; Maybe StreamConfigurationCreate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StreamConfigurationCreate
+</span><a href="#local-6989586621679299444"><span class="hs-identifier hs-var">streamConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299443"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299442"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;studioComponentIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679299441"><span class="hs-identifier hs-var">studioComponentIds</span></a></span><span>
+</span><span id="line-216"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679299433"><span class="annot"><span class="annottext">toPath :: UpdateLaunchProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile%27"><span class="hs-identifier hs-type">UpdateLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299424"><span id="local-6989586621679299425"><span id="local-6989586621679299426"><span id="local-6989586621679299427"><span id="local-6989586621679299428"><span id="local-6989586621679299429"><span id="local-6989586621679299430"><span id="local-6989586621679299431"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe (NonEmpty Text)
+Maybe Text
+Maybe StreamConfigurationCreate
+Text
+launchProfileId :: Text
+studioId :: Text
+studioComponentIds :: Maybe (NonEmpty Text)
+description :: Maybe Text
+name :: Maybe Text
+streamConfiguration :: Maybe StreamConfigurationCreate
+launchProfileProtocolVersions :: Maybe [Text]
+clientToken :: Maybe Text
+$sel:launchProfileId:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Text
+$sel:studioId:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Text
+$sel:studioComponentIds:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe (NonEmpty Text)
+$sel:description:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe Text
+$sel:name:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe Text
+$sel:streamConfiguration:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe StreamConfigurationCreate
+$sel:launchProfileProtocolVersions:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe [Text]
+$sel:clientToken:UpdateLaunchProfile' :: UpdateLaunchProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679299424"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-08-01/studios/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299425"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/launch-profiles/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299424"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfile"><span class="hs-identifier hs-type">UpdateLaunchProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679299420"><span class="annot"><span class="annottext">toQuery :: UpdateLaunchProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateLaunchProfile -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | /See:/ 'newUpdateLaunchProfileResponse' smart constructor.</span><span>
+</span><span id="line-232"></span><span id="local-6989586621679299416"><span id="local-6989586621679299417"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLaunchProfileResponse"><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse"><span class="hs-identifier hs-var">UpdateLaunchProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLaunchProfileResponse%27"><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse%27"><span class="hs-identifier hs-var">UpdateLaunchProfileResponse'</span></a></span></span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The launch profile.</span><span>
+</span><span id="line-234"></span><span>    </span><span id="%24sel%3AlaunchProfile%3AUpdateLaunchProfileResponse%27"><span class="annot"><span class="annottext">UpdateLaunchProfileResponse -&gt; Maybe LaunchProfile
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AlaunchProfile%3AUpdateLaunchProfileResponse%27"><span class="hs-identifier hs-var hs-var">launchProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.LaunchProfile.html#LaunchProfile"><span class="hs-identifier hs-type">LaunchProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-236"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateLaunchProfileResponse%27"><span class="annot"><span class="annottext">UpdateLaunchProfileResponse -&gt; Int
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AhttpStatus%3AUpdateLaunchProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299410"><span id="local-6989586621679299412"><span class="annot"><span class="annottext">UpdateLaunchProfileResponse -&gt; UpdateLaunchProfileResponse -&gt; Bool
+(UpdateLaunchProfileResponse
+ -&gt; UpdateLaunchProfileResponse -&gt; Bool)
+-&gt; (UpdateLaunchProfileResponse
+    -&gt; UpdateLaunchProfileResponse -&gt; Bool)
+-&gt; Eq UpdateLaunchProfileResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateLaunchProfileResponse -&gt; UpdateLaunchProfileResponse -&gt; Bool
+$c/= :: UpdateLaunchProfileResponse -&gt; UpdateLaunchProfileResponse -&gt; Bool
+== :: UpdateLaunchProfileResponse -&gt; UpdateLaunchProfileResponse -&gt; Bool
+$c== :: UpdateLaunchProfileResponse -&gt; UpdateLaunchProfileResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299402"><span id="local-6989586621679299404"><span id="local-6989586621679299406"><span id="local-6989586621679299408"><span class="annot"><span class="annottext">ReadPrec [UpdateLaunchProfileResponse]
+ReadPrec UpdateLaunchProfileResponse
+Int -&gt; ReadS UpdateLaunchProfileResponse
+ReadS [UpdateLaunchProfileResponse]
+(Int -&gt; ReadS UpdateLaunchProfileResponse)
+-&gt; ReadS [UpdateLaunchProfileResponse]
+-&gt; ReadPrec UpdateLaunchProfileResponse
+-&gt; ReadPrec [UpdateLaunchProfileResponse]
+-&gt; Read UpdateLaunchProfileResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateLaunchProfileResponse]
+$creadListPrec :: ReadPrec [UpdateLaunchProfileResponse]
+readPrec :: ReadPrec UpdateLaunchProfileResponse
+$creadPrec :: ReadPrec UpdateLaunchProfileResponse
+readList :: ReadS [UpdateLaunchProfileResponse]
+$creadList :: ReadS [UpdateLaunchProfileResponse]
+readsPrec :: Int -&gt; ReadS UpdateLaunchProfileResponse
+$creadsPrec :: Int -&gt; ReadS UpdateLaunchProfileResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299396"><span id="local-6989586621679299398"><span id="local-6989586621679299400"><span class="annot"><span class="annottext">Int -&gt; UpdateLaunchProfileResponse -&gt; ShowS
+[UpdateLaunchProfileResponse] -&gt; ShowS
+UpdateLaunchProfileResponse -&gt; String
+(Int -&gt; UpdateLaunchProfileResponse -&gt; ShowS)
+-&gt; (UpdateLaunchProfileResponse -&gt; String)
+-&gt; ([UpdateLaunchProfileResponse] -&gt; ShowS)
+-&gt; Show UpdateLaunchProfileResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateLaunchProfileResponse] -&gt; ShowS
+$cshowList :: [UpdateLaunchProfileResponse] -&gt; ShowS
+show :: UpdateLaunchProfileResponse -&gt; String
+$cshow :: UpdateLaunchProfileResponse -&gt; String
+showsPrec :: Int -&gt; UpdateLaunchProfileResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateLaunchProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateLaunchProfileResponse -&gt; Rep UpdateLaunchProfileResponse x)
+-&gt; (forall x.
+    Rep UpdateLaunchProfileResponse x -&gt; UpdateLaunchProfileResponse)
+-&gt; Generic UpdateLaunchProfileResponse
+forall x.
+Rep UpdateLaunchProfileResponse x -&gt; UpdateLaunchProfileResponse
+forall x.
+UpdateLaunchProfileResponse -&gt; Rep UpdateLaunchProfileResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateLaunchProfileResponse x -&gt; UpdateLaunchProfileResponse
+$cfrom :: forall x.
+UpdateLaunchProfileResponse -&gt; Rep UpdateLaunchProfileResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- Create a value of 'UpdateLaunchProfileResponse' with all optional fields omitted.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'launchProfile', 'updateLaunchProfileResponse_launchProfile' - The launch profile.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- 'httpStatus', 'updateLaunchProfileResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#newUpdateLaunchProfileResponse"><span class="hs-identifier hs-type">newUpdateLaunchProfileResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-252"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-253"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-254"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse"><span class="hs-identifier hs-type">UpdateLaunchProfileResponse</span></a></span><span>
+</span><span id="line-255"></span><span id="newUpdateLaunchProfileResponse"><span class="annot"><span class="annottext">newUpdateLaunchProfileResponse :: Int -&gt; UpdateLaunchProfileResponse
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#newUpdateLaunchProfileResponse"><span class="hs-identifier hs-var hs-var">newUpdateLaunchProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679299393"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299393"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-256"></span><span>  </span><span class="annot"><span class="annottext">UpdateLaunchProfileResponse' :: Maybe LaunchProfile -&gt; Int -&gt; UpdateLaunchProfileResponse
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse%27"><span class="hs-identifier hs-type">UpdateLaunchProfileResponse'</span></a></span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:launchProfile:UpdateLaunchProfileResponse' :: Maybe LaunchProfile
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AlaunchProfile%3AUpdateLaunchProfileResponse%27"><span class="hs-identifier hs-var">launchProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">Maybe LaunchProfile
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateLaunchProfileResponse' :: Int
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AhttpStatus%3AUpdateLaunchProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299393"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-260"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | The launch profile.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfileResponse_launchProfile"><span class="hs-identifier hs-type">updateLaunchProfileResponse_launchProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse"><span class="hs-identifier hs-type">UpdateLaunchProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.LaunchProfile.html#LaunchProfile"><span class="hs-identifier hs-type">LaunchProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="updateLaunchProfileResponse_launchProfile"><span class="annot"><span class="annottext">updateLaunchProfileResponse_launchProfile :: (Maybe LaunchProfile -&gt; f (Maybe LaunchProfile))
+-&gt; UpdateLaunchProfileResponse -&gt; f UpdateLaunchProfileResponse
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfileResponse_launchProfile"><span class="hs-identifier hs-var hs-var">updateLaunchProfileResponse_launchProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLaunchProfileResponse -&gt; Maybe LaunchProfile)
+-&gt; (UpdateLaunchProfileResponse
+    -&gt; Maybe LaunchProfile -&gt; UpdateLaunchProfileResponse)
+-&gt; Lens
+     UpdateLaunchProfileResponse
+     UpdateLaunchProfileResponse
+     (Maybe LaunchProfile)
+     (Maybe LaunchProfile)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse%27"><span class="hs-identifier hs-type">UpdateLaunchProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299392"><span class="annot"><span class="annottext">Maybe LaunchProfile
+launchProfile :: Maybe LaunchProfile
+$sel:launchProfile:UpdateLaunchProfileResponse' :: UpdateLaunchProfileResponse -&gt; Maybe LaunchProfile
+</span><a href="#local-6989586621679299392"><span class="hs-identifier hs-var hs-var">launchProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchProfile
+</span><a href="#local-6989586621679299392"><span class="hs-identifier hs-var">launchProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299391"><span class="annot"><span class="annottext">s :: UpdateLaunchProfileResponse
+</span><a href="#local-6989586621679299391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse%27"><span class="hs-identifier hs-type">UpdateLaunchProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299390"><span class="annot"><span class="annottext">Maybe LaunchProfile
+</span><a href="#local-6989586621679299390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLaunchProfileResponse
+</span><a href="#local-6989586621679299391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchProfile:UpdateLaunchProfileResponse' :: Maybe LaunchProfile
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AlaunchProfile%3AUpdateLaunchProfileResponse%27"><span class="hs-identifier hs-var">launchProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchProfile
+</span><a href="#local-6989586621679299390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse"><span class="hs-identifier hs-type">UpdateLaunchProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfileResponse_httpStatus"><span class="hs-identifier hs-type">updateLaunchProfileResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse"><span class="hs-identifier hs-type">UpdateLaunchProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-268"></span><span id="updateLaunchProfileResponse_httpStatus"><span class="annot"><span class="annottext">updateLaunchProfileResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateLaunchProfileResponse -&gt; f UpdateLaunchProfileResponse
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#updateLaunchProfileResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateLaunchProfileResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLaunchProfileResponse -&gt; Int)
+-&gt; (UpdateLaunchProfileResponse
+    -&gt; Int -&gt; UpdateLaunchProfileResponse)
+-&gt; Lens
+     UpdateLaunchProfileResponse UpdateLaunchProfileResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse%27"><span class="hs-identifier hs-type">UpdateLaunchProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299389"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateLaunchProfileResponse' :: UpdateLaunchProfileResponse -&gt; Int
+</span><a href="#local-6989586621679299389"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299389"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299388"><span class="annot"><span class="annottext">s :: UpdateLaunchProfileResponse
+</span><a href="#local-6989586621679299388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse%27"><span class="hs-identifier hs-type">UpdateLaunchProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299387"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLaunchProfileResponse
+</span><a href="#local-6989586621679299388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateLaunchProfileResponse' :: Int
+</span><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#%24sel%3AhttpStatus%3AUpdateLaunchProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse"><span class="hs-identifier hs-type">UpdateLaunchProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.UpdateLaunchProfile.html#UpdateLaunchProfileResponse"><span class="hs-identifier hs-type">UpdateLaunchProfileResponse</span></a></span></span><span>
+</span><span id="line-271"></span></pre></body></html>

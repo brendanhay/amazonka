@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- deployment.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newTrafficRoutingConfig' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679316131"><span id="local-6989586621679316132"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrafficRoutingConfig"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-var">TrafficRoutingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficRoutingConfig%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-var">TrafficRoutingConfig'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679316140"><span id="local-6989586621679316141"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrafficRoutingConfig"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-var">TrafficRoutingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficRoutingConfig%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-var">TrafficRoutingConfig'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A configuration that shifts traffic from one version of a Lambda</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- function or ECS task set to another in two increments. The original and</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- target Lambda function versions or ECS task sets are specified in the</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Atype%27%3ATrafficRoutingConfig%27"><span class="annot"><span class="annottext">TrafficRoutingConfig -&gt; Maybe TrafficRoutingType
 </span><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#%24sel%3Atype%27%3ATrafficRoutingConfig%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingType.html#TrafficRoutingType"><span class="hs-identifier hs-type">TrafficRoutingType</span></a></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316123"><span id="local-6989586621679316125"><span class="annot"><span class="annottext">TrafficRoutingConfig -&gt; TrafficRoutingConfig -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316132"><span id="local-6989586621679316134"><span class="annot"><span class="annottext">TrafficRoutingConfig -&gt; TrafficRoutingConfig -&gt; Bool
 (TrafficRoutingConfig -&gt; TrafficRoutingConfig -&gt; Bool)
 -&gt; (TrafficRoutingConfig -&gt; TrafficRoutingConfig -&gt; Bool)
 -&gt; Eq TrafficRoutingConfig
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TrafficRoutingConfig -&gt; TrafficRoutingConfig -&gt; Bool
 == :: TrafficRoutingConfig -&gt; TrafficRoutingConfig -&gt; Bool
 $c== :: TrafficRoutingConfig -&gt; TrafficRoutingConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316114"><span id="local-6989586621679316116"><span id="local-6989586621679316118"><span id="local-6989586621679316120"><span class="annot"><span class="annottext">ReadPrec [TrafficRoutingConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316123"><span id="local-6989586621679316125"><span id="local-6989586621679316127"><span id="local-6989586621679316129"><span class="annot"><span class="annottext">ReadPrec [TrafficRoutingConfig]
 ReadPrec TrafficRoutingConfig
 Int -&gt; ReadS TrafficRoutingConfig
 ReadS [TrafficRoutingConfig]
@@ -80,7 +80,7 @@ readList :: ReadS [TrafficRoutingConfig]
 $creadList :: ReadS [TrafficRoutingConfig]
 readsPrec :: Int -&gt; ReadS TrafficRoutingConfig
 $creadsPrec :: Int -&gt; ReadS TrafficRoutingConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316107"><span id="local-6989586621679316109"><span id="local-6989586621679316111"><span class="annot"><span class="annottext">Int -&gt; TrafficRoutingConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316116"><span id="local-6989586621679316118"><span id="local-6989586621679316120"><span class="annot"><span class="annottext">Int -&gt; TrafficRoutingConfig -&gt; ShowS
 [TrafficRoutingConfig] -&gt; ShowS
 TrafficRoutingConfig -&gt; String
 (Int -&gt; TrafficRoutingConfig -&gt; ShowS)
@@ -167,16 +167,16 @@ forall a. Maybe a
      (Maybe TimeBasedCanary)
      (Maybe TimeBasedCanary)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316098"><span class="annot"><span class="annottext">Maybe TimeBasedCanary
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316107"><span class="annot"><span class="annottext">Maybe TimeBasedCanary
 timeBasedCanary :: Maybe TimeBasedCanary
 $sel:timeBasedCanary:TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; Maybe TimeBasedCanary
-</span><a href="#local-6989586621679316098"><span class="hs-identifier hs-var hs-var">timeBasedCanary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeBasedCanary
-</span><a href="#local-6989586621679316098"><span class="hs-identifier hs-var">timeBasedCanary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316097"><span class="annot"><span class="annottext">s :: TrafficRoutingConfig
-</span><a href="#local-6989586621679316097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316096"><span class="annot"><span class="annottext">Maybe TimeBasedCanary
-</span><a href="#local-6989586621679316096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfig
-</span><a href="#local-6989586621679316097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeBasedCanary:TrafficRoutingConfig' :: Maybe TimeBasedCanary
+</span><a href="#local-6989586621679316107"><span class="hs-identifier hs-var hs-var">timeBasedCanary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeBasedCanary
+</span><a href="#local-6989586621679316107"><span class="hs-identifier hs-var">timeBasedCanary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316106"><span class="annot"><span class="annottext">s :: TrafficRoutingConfig
+</span><a href="#local-6989586621679316106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316105"><span class="annot"><span class="annottext">Maybe TimeBasedCanary
+</span><a href="#local-6989586621679316105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfig
+</span><a href="#local-6989586621679316106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeBasedCanary:TrafficRoutingConfig' :: Maybe TimeBasedCanary
 </span><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#%24sel%3AtimeBasedCanary%3ATrafficRoutingConfig%27"><span class="hs-identifier hs-var">timeBasedCanary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimeBasedCanary
-</span><a href="#local-6989586621679316096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | A configuration that shifts traffic from one version of a Lambda</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- function or ECS task set to another in equal increments, with an equal</span><span>
@@ -195,16 +195,16 @@ $sel:timeBasedCanary:TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; Maybe T
      (Maybe TimeBasedLinear)
      (Maybe TimeBasedLinear)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316094"><span class="annot"><span class="annottext">Maybe TimeBasedLinear
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316103"><span class="annot"><span class="annottext">Maybe TimeBasedLinear
 timeBasedLinear :: Maybe TimeBasedLinear
 $sel:timeBasedLinear:TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; Maybe TimeBasedLinear
-</span><a href="#local-6989586621679316094"><span class="hs-identifier hs-var hs-var">timeBasedLinear</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeBasedLinear
-</span><a href="#local-6989586621679316094"><span class="hs-identifier hs-var">timeBasedLinear</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316093"><span class="annot"><span class="annottext">s :: TrafficRoutingConfig
-</span><a href="#local-6989586621679316093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316092"><span class="annot"><span class="annottext">Maybe TimeBasedLinear
-</span><a href="#local-6989586621679316092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfig
-</span><a href="#local-6989586621679316093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeBasedLinear:TrafficRoutingConfig' :: Maybe TimeBasedLinear
+</span><a href="#local-6989586621679316103"><span class="hs-identifier hs-var hs-var">timeBasedLinear</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeBasedLinear
+</span><a href="#local-6989586621679316103"><span class="hs-identifier hs-var">timeBasedLinear</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316102"><span class="annot"><span class="annottext">s :: TrafficRoutingConfig
+</span><a href="#local-6989586621679316102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316101"><span class="annot"><span class="annottext">Maybe TimeBasedLinear
+</span><a href="#local-6989586621679316101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfig
+</span><a href="#local-6989586621679316102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeBasedLinear:TrafficRoutingConfig' :: Maybe TimeBasedLinear
 </span><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#%24sel%3AtimeBasedLinear%3ATrafficRoutingConfig%27"><span class="hs-identifier hs-var">timeBasedLinear</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimeBasedLinear
-</span><a href="#local-6989586621679316092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The type of traffic shifting (@TimeBasedCanary@ or @TimeBasedLinear@)</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- used by a deployment configuration.</span><span>
@@ -220,19 +220,19 @@ $sel:timeBasedLinear:TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; Maybe T
      (Maybe TrafficRoutingType)
      (Maybe TrafficRoutingType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316090"><span class="annot"><span class="annottext">Maybe TrafficRoutingType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316099"><span class="annot"><span class="annottext">Maybe TrafficRoutingType
 type' :: Maybe TrafficRoutingType
 $sel:type':TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; Maybe TrafficRoutingType
-</span><a href="#local-6989586621679316090"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficRoutingType
-</span><a href="#local-6989586621679316090"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316089"><span class="annot"><span class="annottext">s :: TrafficRoutingConfig
-</span><a href="#local-6989586621679316089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316088"><span class="annot"><span class="annottext">Maybe TrafficRoutingType
-</span><a href="#local-6989586621679316088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfig
-</span><a href="#local-6989586621679316089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':TrafficRoutingConfig' :: Maybe TrafficRoutingType
+</span><a href="#local-6989586621679316099"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficRoutingType
+</span><a href="#local-6989586621679316099"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316098"><span class="annot"><span class="annottext">s :: TrafficRoutingConfig
+</span><a href="#local-6989586621679316098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316097"><span class="annot"><span class="annottext">Maybe TrafficRoutingType
+</span><a href="#local-6989586621679316097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfig
+</span><a href="#local-6989586621679316098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':TrafficRoutingConfig' :: Maybe TrafficRoutingType
 </span><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#%24sel%3Atype%27%3ATrafficRoutingConfig%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficRoutingType
-</span><a href="#local-6989586621679316088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316085"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679316083"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrafficRoutingConfig
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316094"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679316092"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrafficRoutingConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TrafficRoutingConfig)
@@ -242,8 +242,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TrafficRoutingConfig&quot;</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316080"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316080"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316089"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316089"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe TimeBasedCanary
 -&gt; Maybe TimeBasedLinear
 -&gt; Maybe TrafficRoutingType
@@ -259,7 +259,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe TrafficRoutingType -&gt; TrafficRoutingConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeBasedCanary)
+</span><a href="#local-6989586621679316089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeBasedCanary)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeBasedCanary&quot;</span></span><span class="hs-special">)</span><span>
@@ -270,7 +270,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe TrafficRoutingType -&gt; TrafficRoutingConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeBasedLinear)
+</span><a href="#local-6989586621679316089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeBasedLinear)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeBasedLinear&quot;</span></span><span class="hs-special">)</span><span>
@@ -278,19 +278,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe TrafficRoutingType) -&gt; Parser TrafficRoutingConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrafficRoutingType)
+</span><a href="#local-6989586621679316089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrafficRoutingType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316074"><span id="local-6989586621679316076"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316083"><span id="local-6989586621679316085"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316080"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316063"><span id="local-6989586621679316065"><span id="local-6989586621679316067"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679316061"><span class="annot"><span class="annottext">toJSON :: TrafficRoutingConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316057"><span id="local-6989586621679316058"><span id="local-6989586621679316059"><span class="annot"><span class="annottext">Maybe TimeBasedCanary
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316072"><span id="local-6989586621679316074"><span id="local-6989586621679316076"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679316070"><span class="annot"><span class="annottext">toJSON :: TrafficRoutingConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316066"><span id="local-6989586621679316067"><span id="local-6989586621679316068"><span class="annot"><span class="annottext">Maybe TimeBasedCanary
 Maybe TimeBasedLinear
 Maybe TrafficRoutingType
 type' :: Maybe TrafficRoutingType
@@ -299,7 +299,7 @@ timeBasedCanary :: Maybe TimeBasedCanary
 $sel:type':TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; Maybe TrafficRoutingType
 $sel:timeBasedLinear:TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; Maybe TimeBasedLinear
 $sel:timeBasedCanary:TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; Maybe TimeBasedCanary
-</span><a href="#local-6989586621679316057"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679316066"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -312,7 +312,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">(TimeBasedCanary -&gt; Pair) -&gt; Maybe TimeBasedCanary -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimeBasedCanary
-</span><a href="#local-6989586621679316059"><span class="hs-identifier hs-var">timeBasedCanary</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316068"><span class="hs-identifier hs-var">timeBasedCanary</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeBasedLinear&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimeBasedLinear -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -320,7 +320,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">(TimeBasedLinear -&gt; Pair) -&gt; Maybe TimeBasedLinear -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimeBasedLinear
-</span><a href="#local-6989586621679316058"><span class="hs-identifier hs-var">timeBasedLinear</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316067"><span class="hs-identifier hs-var">timeBasedLinear</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TrafficRoutingType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -328,7 +328,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe TrafficRoutingType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrafficRoutingType
-</span><a href="#local-6989586621679316057"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679316066"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span></pre></body></html>

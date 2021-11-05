@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- encrypted.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newS3Encryption' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679696054"><span id="local-6989586621679696055"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Encryption"><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption"><span class="hs-identifier hs-var">S3Encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Encryption%27"><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption%27"><span class="hs-identifier hs-var">S3Encryption'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679696063"><span id="local-6989586621679696064"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Encryption"><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption"><span class="hs-identifier hs-var">S3Encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Encryption%27"><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption%27"><span class="hs-identifier hs-var">S3Encryption'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption mode to use for Amazon S3 data.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3As3EncryptionMode%3AS3Encryption%27"><span class="annot"><span class="annottext">S3Encryption -&gt; Maybe S3EncryptionMode
 </span><a href="Network.AWS.Glue.Types.S3Encryption.html#%24sel%3As3EncryptionMode%3AS3Encryption%27"><span class="hs-identifier hs-var hs-var">s3EncryptionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3EncryptionMode.html#S3EncryptionMode"><span class="hs-identifier hs-type">S3EncryptionMode</span></a></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AkmsKeyArn%3AS3Encryption%27"><span class="annot"><span class="annottext">S3Encryption -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.S3Encryption.html#%24sel%3AkmsKeyArn%3AS3Encryption%27"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679696047"><span id="local-6989586621679696049"><span class="annot"><span class="annottext">S3Encryption -&gt; S3Encryption -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679696056"><span id="local-6989586621679696058"><span class="annot"><span class="annottext">S3Encryption -&gt; S3Encryption -&gt; Bool
 (S3Encryption -&gt; S3Encryption -&gt; Bool)
 -&gt; (S3Encryption -&gt; S3Encryption -&gt; Bool) -&gt; Eq S3Encryption
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3Encryption -&gt; S3Encryption -&gt; Bool
 == :: S3Encryption -&gt; S3Encryption -&gt; Bool
 $c== :: S3Encryption -&gt; S3Encryption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679696038"><span id="local-6989586621679696040"><span id="local-6989586621679696042"><span id="local-6989586621679696044"><span class="annot"><span class="annottext">ReadPrec [S3Encryption]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679696047"><span id="local-6989586621679696049"><span id="local-6989586621679696051"><span id="local-6989586621679696053"><span class="annot"><span class="annottext">ReadPrec [S3Encryption]
 ReadPrec S3Encryption
 Int -&gt; ReadS S3Encryption
 ReadS [S3Encryption]
@@ -65,7 +65,7 @@ readList :: ReadS [S3Encryption]
 $creadList :: ReadS [S3Encryption]
 readsPrec :: Int -&gt; ReadS S3Encryption
 $creadsPrec :: Int -&gt; ReadS S3Encryption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679696031"><span id="local-6989586621679696033"><span id="local-6989586621679696035"><span class="annot"><span class="annottext">Int -&gt; S3Encryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679696040"><span id="local-6989586621679696042"><span id="local-6989586621679696044"><span class="annot"><span class="annottext">Int -&gt; S3Encryption -&gt; ShowS
 [S3Encryption] -&gt; ShowS
 S3Encryption -&gt; String
 (Int -&gt; S3Encryption -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
      (Maybe S3EncryptionMode)
      (Maybe S3EncryptionMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption%27"><span class="hs-identifier hs-type">S3Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696022"><span class="annot"><span class="annottext">Maybe S3EncryptionMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption%27"><span class="hs-identifier hs-type">S3Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696031"><span class="annot"><span class="annottext">Maybe S3EncryptionMode
 s3EncryptionMode :: Maybe S3EncryptionMode
 $sel:s3EncryptionMode:S3Encryption' :: S3Encryption -&gt; Maybe S3EncryptionMode
-</span><a href="#local-6989586621679696022"><span class="hs-identifier hs-var hs-var">s3EncryptionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3EncryptionMode
-</span><a href="#local-6989586621679696022"><span class="hs-identifier hs-var">s3EncryptionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696021"><span class="annot"><span class="annottext">s :: S3Encryption
-</span><a href="#local-6989586621679696021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption%27"><span class="hs-identifier hs-type">S3Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696020"><span class="annot"><span class="annottext">Maybe S3EncryptionMode
-</span><a href="#local-6989586621679696020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Encryption
-</span><a href="#local-6989586621679696021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3EncryptionMode:S3Encryption' :: Maybe S3EncryptionMode
+</span><a href="#local-6989586621679696031"><span class="hs-identifier hs-var hs-var">s3EncryptionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3EncryptionMode
+</span><a href="#local-6989586621679696031"><span class="hs-identifier hs-var">s3EncryptionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696030"><span class="annot"><span class="annottext">s :: S3Encryption
+</span><a href="#local-6989586621679696030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption%27"><span class="hs-identifier hs-type">S3Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696029"><span class="annot"><span class="annottext">Maybe S3EncryptionMode
+</span><a href="#local-6989586621679696029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Encryption
+</span><a href="#local-6989586621679696030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3EncryptionMode:S3Encryption' :: Maybe S3EncryptionMode
 </span><a href="Network.AWS.Glue.Types.S3Encryption.html#%24sel%3As3EncryptionMode%3AS3Encryption%27"><span class="hs-identifier hs-var">s3EncryptionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3EncryptionMode
-</span><a href="#local-6989586621679696020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption"><span class="hs-identifier hs-type">S3Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679696029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption"><span class="hs-identifier hs-type">S3Encryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- data.</span><span>
@@ -150,19 +150,19 @@ $sel:s3EncryptionMode:S3Encryption' :: S3Encryption -&gt; Maybe S3EncryptionMode
 -&gt; (S3Encryption -&gt; Maybe Text -&gt; S3Encryption)
 -&gt; Lens S3Encryption S3Encryption (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption%27"><span class="hs-identifier hs-type">S3Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696018"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption%27"><span class="hs-identifier hs-type">S3Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696027"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyArn :: Maybe Text
 $sel:kmsKeyArn:S3Encryption' :: S3Encryption -&gt; Maybe Text
-</span><a href="#local-6989586621679696018"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696018"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696017"><span class="annot"><span class="annottext">s :: S3Encryption
-</span><a href="#local-6989586621679696017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption%27"><span class="hs-identifier hs-type">S3Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696016"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Encryption
-</span><a href="#local-6989586621679696017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:S3Encryption' :: Maybe Text
+</span><a href="#local-6989586621679696027"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679696027"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696026"><span class="annot"><span class="annottext">s :: S3Encryption
+</span><a href="#local-6989586621679696026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption%27"><span class="hs-identifier hs-type">S3Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696025"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679696025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Encryption
+</span><a href="#local-6989586621679696026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:S3Encryption' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.S3Encryption.html#%24sel%3AkmsKeyArn%3AS3Encryption%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption"><span class="hs-identifier hs-type">S3Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679696025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption"><span class="hs-identifier hs-type">S3Encryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696013"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption"><span class="hs-identifier hs-type">S3Encryption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679696011"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Encryption
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696022"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption"><span class="hs-identifier hs-type">S3Encryption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679696020"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Encryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser S3Encryption) -&gt; Value -&gt; Parser S3Encryption
@@ -170,8 +170,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3Encryption&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679696008"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679696008"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679696017"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679696017"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3EncryptionMode -&gt; Maybe Text -&gt; S3Encryption
 </span><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption%27"><span class="hs-identifier hs-var">S3Encryption'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe S3EncryptionMode -&gt; Maybe Text -&gt; S3Encryption)
@@ -179,7 +179,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; S3Encryption)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679696008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3EncryptionMode)
+</span><a href="#local-6989586621679696017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3EncryptionMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3EncryptionMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -187,25 +187,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser S3Encryption
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679696008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679696017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696002"><span id="local-6989586621679696004"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption"><span class="hs-identifier hs-type">S3Encryption</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696011"><span id="local-6989586621679696013"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption"><span class="hs-identifier hs-type">S3Encryption</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679695999"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption"><span class="hs-identifier hs-type">S3Encryption</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption"><span class="hs-identifier hs-type">S3Encryption</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679695991"><span id="local-6989586621679695993"><span id="local-6989586621679695995"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption"><span class="hs-identifier hs-type">S3Encryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679695989"><span class="annot"><span class="annottext">toJSON :: S3Encryption -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption%27"><span class="hs-identifier hs-type">S3Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679695986"><span id="local-6989586621679695987"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696000"><span id="local-6989586621679696002"><span id="local-6989586621679696004"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption"><span class="hs-identifier hs-type">S3Encryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679695998"><span class="annot"><span class="annottext">toJSON :: S3Encryption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Encryption.html#S3Encryption%27"><span class="hs-identifier hs-type">S3Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679695995"><span id="local-6989586621679695996"><span class="annot"><span class="annottext">Maybe Text
 Maybe S3EncryptionMode
 kmsKeyArn :: Maybe Text
 s3EncryptionMode :: Maybe S3EncryptionMode
 $sel:kmsKeyArn:S3Encryption' :: S3Encryption -&gt; Maybe Text
 $sel:s3EncryptionMode:S3Encryption' :: S3Encryption -&gt; Maybe S3EncryptionMode
-</span><a href="#local-6989586621679695986"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679695995"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -218,14 +218,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-88"></span><span>              </span><span class="annot"><span class="annottext">(S3EncryptionMode -&gt; Pair) -&gt; Maybe S3EncryptionMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3EncryptionMode
-</span><a href="#local-6989586621679695987"><span class="hs-identifier hs-var">s3EncryptionMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679695996"><span class="hs-identifier hs-var">s3EncryptionMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679695986"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span>
+</span><a href="#local-6989586621679695995"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

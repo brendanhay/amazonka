@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppFlow.Types.TriggerProperties</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppFlow.Types.TriggerProperties</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ScheduledTriggerProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.ScheduledTriggerProperties</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Specifies the configuration details that control the trigger for a flow.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Currently, these settings only apply to the @Scheduled@ trigger type.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTriggerProperties' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679326676"><span id="local-6989586621679326677"></span></span><span class="hs-keyword">data</span><span> </span><span id="TriggerProperties"><span class="annot"><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#TriggerProperties"><span class="hs-identifier hs-var">TriggerProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TriggerProperties%27"><span class="annot"><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#TriggerProperties%27"><span class="hs-identifier hs-var">TriggerProperties'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the configuration details of a schedule-triggered flow as</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- defined by the user.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Ascheduled%3ATriggerProperties%27"><span class="annot"><span class="annottext">TriggerProperties -&gt; Maybe ScheduledTriggerProperties
+</span><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#%24sel%3Ascheduled%3ATriggerProperties%27"><span class="hs-identifier hs-var hs-var">scheduled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ScheduledTriggerProperties.html#ScheduledTriggerProperties"><span class="hs-identifier hs-type">ScheduledTriggerProperties</span></a></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326670"><span id="local-6989586621679326672"><span class="annot"><span class="annottext">TriggerProperties -&gt; TriggerProperties -&gt; Bool
+(TriggerProperties -&gt; TriggerProperties -&gt; Bool)
+-&gt; (TriggerProperties -&gt; TriggerProperties -&gt; Bool)
+-&gt; Eq TriggerProperties
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TriggerProperties -&gt; TriggerProperties -&gt; Bool
+$c/= :: TriggerProperties -&gt; TriggerProperties -&gt; Bool
+== :: TriggerProperties -&gt; TriggerProperties -&gt; Bool
+$c== :: TriggerProperties -&gt; TriggerProperties -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326661"><span id="local-6989586621679326663"><span id="local-6989586621679326665"><span id="local-6989586621679326667"><span class="annot"><span class="annottext">ReadPrec [TriggerProperties]
+ReadPrec TriggerProperties
+Int -&gt; ReadS TriggerProperties
+ReadS [TriggerProperties]
+(Int -&gt; ReadS TriggerProperties)
+-&gt; ReadS [TriggerProperties]
+-&gt; ReadPrec TriggerProperties
+-&gt; ReadPrec [TriggerProperties]
+-&gt; Read TriggerProperties
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TriggerProperties]
+$creadListPrec :: ReadPrec [TriggerProperties]
+readPrec :: ReadPrec TriggerProperties
+$creadPrec :: ReadPrec TriggerProperties
+readList :: ReadS [TriggerProperties]
+$creadList :: ReadS [TriggerProperties]
+readsPrec :: Int -&gt; ReadS TriggerProperties
+$creadsPrec :: Int -&gt; ReadS TriggerProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326654"><span id="local-6989586621679326656"><span id="local-6989586621679326658"><span class="annot"><span class="annottext">Int -&gt; TriggerProperties -&gt; ShowS
+[TriggerProperties] -&gt; ShowS
+TriggerProperties -&gt; String
+(Int -&gt; TriggerProperties -&gt; ShowS)
+-&gt; (TriggerProperties -&gt; String)
+-&gt; ([TriggerProperties] -&gt; ShowS)
+-&gt; Show TriggerProperties
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TriggerProperties] -&gt; ShowS
+$cshowList :: [TriggerProperties] -&gt; ShowS
+show :: TriggerProperties -&gt; String
+$cshow :: TriggerProperties -&gt; String
+showsPrec :: Int -&gt; TriggerProperties -&gt; ShowS
+$cshowsPrec :: Int -&gt; TriggerProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TriggerProperties -&gt; Rep TriggerProperties x)
+-&gt; (forall x. Rep TriggerProperties x -&gt; TriggerProperties)
+-&gt; Generic TriggerProperties
+forall x. Rep TriggerProperties x -&gt; TriggerProperties
+forall x. TriggerProperties -&gt; Rep TriggerProperties x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TriggerProperties x -&gt; TriggerProperties
+$cfrom :: forall x. TriggerProperties -&gt; Rep TriggerProperties x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'TriggerProperties' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'scheduled', 'triggerProperties_scheduled' - Specifies the configuration details of a schedule-triggered flow as</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- defined by the user.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#newTriggerProperties"><span class="hs-identifier hs-type">newTriggerProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#TriggerProperties"><span class="hs-identifier hs-type">TriggerProperties</span></a></span><span>
+</span><span id="line-50"></span><span id="newTriggerProperties"><span class="annot"><span class="annottext">newTriggerProperties :: TriggerProperties
+</span><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#newTriggerProperties"><span class="hs-identifier hs-var hs-var">newTriggerProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">TriggerProperties' :: Maybe ScheduledTriggerProperties -&gt; TriggerProperties
+</span><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#TriggerProperties%27"><span class="hs-identifier hs-type">TriggerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduled:TriggerProperties' :: Maybe ScheduledTriggerProperties
+</span><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#%24sel%3Ascheduled%3ATriggerProperties%27"><span class="hs-identifier hs-var">scheduled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledTriggerProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | Specifies the configuration details of a schedule-triggered flow as</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- defined by the user.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#triggerProperties_scheduled"><span class="hs-identifier hs-type">triggerProperties_scheduled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#TriggerProperties"><span class="hs-identifier hs-type">TriggerProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ScheduledTriggerProperties.html#ScheduledTriggerProperties"><span class="hs-identifier hs-type">ScheduledTriggerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span id="triggerProperties_scheduled"><span class="annot"><span class="annottext">triggerProperties_scheduled :: (Maybe ScheduledTriggerProperties
+ -&gt; f (Maybe ScheduledTriggerProperties))
+-&gt; TriggerProperties -&gt; f TriggerProperties
+</span><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#triggerProperties_scheduled"><span class="hs-identifier hs-var hs-var">triggerProperties_scheduled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TriggerProperties -&gt; Maybe ScheduledTriggerProperties)
+-&gt; (TriggerProperties
+    -&gt; Maybe ScheduledTriggerProperties -&gt; TriggerProperties)
+-&gt; Lens
+     TriggerProperties
+     TriggerProperties
+     (Maybe ScheduledTriggerProperties)
+     (Maybe ScheduledTriggerProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#TriggerProperties%27"><span class="hs-identifier hs-type">TriggerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326645"><span class="annot"><span class="annottext">Maybe ScheduledTriggerProperties
+scheduled :: Maybe ScheduledTriggerProperties
+$sel:scheduled:TriggerProperties' :: TriggerProperties -&gt; Maybe ScheduledTriggerProperties
+</span><a href="#local-6989586621679326645"><span class="hs-identifier hs-var hs-var">scheduled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledTriggerProperties
+</span><a href="#local-6989586621679326645"><span class="hs-identifier hs-var">scheduled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326644"><span class="annot"><span class="annottext">s :: TriggerProperties
+</span><a href="#local-6989586621679326644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#TriggerProperties%27"><span class="hs-identifier hs-type">TriggerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326643"><span class="annot"><span class="annottext">Maybe ScheduledTriggerProperties
+</span><a href="#local-6989586621679326643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TriggerProperties
+</span><a href="#local-6989586621679326644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduled:TriggerProperties' :: Maybe ScheduledTriggerProperties
+</span><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#%24sel%3Ascheduled%3ATriggerProperties%27"><span class="hs-identifier hs-var">scheduled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledTriggerProperties
+</span><a href="#local-6989586621679326643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#TriggerProperties"><span class="hs-identifier hs-type">TriggerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326640"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#TriggerProperties"><span class="hs-identifier hs-type">TriggerProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679326638"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TriggerProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TriggerProperties)
+-&gt; Value
+-&gt; Parser TriggerProperties
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TriggerProperties&quot;</span></span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326635"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326635"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Maybe ScheduledTriggerProperties -&gt; TriggerProperties
+</span><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#TriggerProperties%27"><span class="hs-identifier hs-var">TriggerProperties'</span></a></span><span>
+</span><span id="line-64"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ScheduledTriggerProperties -&gt; TriggerProperties)
+-&gt; Parser (Maybe ScheduledTriggerProperties)
+-&gt; Parser TriggerProperties
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ScheduledTriggerProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Scheduled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326629"><span id="local-6989586621679326631"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#TriggerProperties"><span class="hs-identifier hs-type">TriggerProperties</span></a></span></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326626"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#TriggerProperties"><span class="hs-identifier hs-type">TriggerProperties</span></a></span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326618"><span id="local-6989586621679326620"><span id="local-6989586621679326622"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#TriggerProperties"><span class="hs-identifier hs-type">TriggerProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679326616"><span class="annot"><span class="annottext">toJSON :: TriggerProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.TriggerProperties.html#TriggerProperties%27"><span class="hs-identifier hs-type">TriggerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326614"><span class="annot"><span class="annottext">Maybe ScheduledTriggerProperties
+scheduled :: Maybe ScheduledTriggerProperties
+$sel:scheduled:TriggerProperties' :: TriggerProperties -&gt; Maybe ScheduledTriggerProperties
+</span><a href="#local-6989586621679326614"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-75"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Scheduled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScheduledTriggerProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ScheduledTriggerProperties -&gt; Pair)
+-&gt; Maybe ScheduledTriggerProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledTriggerProperties
+</span><a href="#local-6989586621679326614"><span class="hs-identifier hs-var">scheduled</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span></pre></body></html>

@@ -1,0 +1,909 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DataBrew.UpdateProfileJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies the definition of an existing profile job.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataBrew.UpdateProfileJob</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier">UpdateProfileJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#newUpdateProfileJob"><span class="hs-identifier">newUpdateProfileJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_encryptionMode"><span class="hs-identifier">updateProfileJob_encryptionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_logSubscription"><span class="hs-identifier">updateProfileJob_logSubscription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_maxRetries"><span class="hs-identifier">updateProfileJob_maxRetries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_encryptionKeyArn"><span class="hs-identifier">updateProfileJob_encryptionKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_maxCapacity"><span class="hs-identifier">updateProfileJob_maxCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_configuration"><span class="hs-identifier">updateProfileJob_configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_timeout"><span class="hs-identifier">updateProfileJob_timeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_jobSample"><span class="hs-identifier">updateProfileJob_jobSample</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_name"><span class="hs-identifier">updateProfileJob_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_outputLocation"><span class="hs-identifier">updateProfileJob_outputLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_roleArn"><span class="hs-identifier">updateProfileJob_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse"><span class="hs-identifier">UpdateProfileJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#newUpdateProfileJobResponse"><span class="hs-identifier">newUpdateProfileJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJobResponse_httpStatus"><span class="hs-identifier">updateProfileJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJobResponse_name"><span class="hs-identifier">updateProfileJobResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.html"><span class="hs-identifier">Network.AWS.DataBrew.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newUpdateProfileJob' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679310339"><span id="local-6989586621679310340"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProfileJob"><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-var">UpdateProfileJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProfileJob%27"><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-var">UpdateProfileJob'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption mode for the job, which can be one of the following:</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @SSE-KMS@ - Server-side encryption with keys managed by KMS.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AencryptionMode%3AUpdateProfileJob%27"><span class="annot"><span class="annottext">UpdateProfileJob -&gt; Maybe EncryptionMode
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AencryptionMode%3AUpdateProfileJob%27"><span class="hs-identifier hs-var hs-var">encryptionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.EncryptionMode.html#EncryptionMode"><span class="hs-identifier hs-type">EncryptionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Enables or disables Amazon CloudWatch logging for the job. If logging is</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- enabled, CloudWatch writes one log stream for each job run.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AlogSubscription%3AUpdateProfileJob%27"><span class="annot"><span class="annottext">UpdateProfileJob -&gt; Maybe LogSubscription
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AlogSubscription%3AUpdateProfileJob%27"><span class="hs-identifier hs-var hs-var">logSubscription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.LogSubscription.html#LogSubscription"><span class="hs-identifier hs-type">LogSubscription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The maximum number of times to retry the job after a job run fails.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmaxRetries%3AUpdateProfileJob%27"><span class="annot"><span class="annottext">UpdateProfileJob -&gt; Maybe Natural
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AmaxRetries%3AUpdateProfileJob%27"><span class="hs-identifier hs-var hs-var">maxRetries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an encryption key that is used to</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- protect the job.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AencryptionKeyArn%3AUpdateProfileJob%27"><span class="annot"><span class="annottext">UpdateProfileJob -&gt; Maybe Text
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AencryptionKeyArn%3AUpdateProfileJob%27"><span class="hs-identifier hs-var hs-var">encryptionKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The maximum number of compute nodes that DataBrew can use when the job</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- processes data.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AmaxCapacity%3AUpdateProfileJob%27"><span class="annot"><span class="annottext">UpdateProfileJob -&gt; Maybe Int
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AmaxCapacity%3AUpdateProfileJob%27"><span class="hs-identifier hs-var hs-var">maxCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Configuration for profile jobs. Used to select columns, do evaluations,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- and override default parameters of evaluations. When configuration is</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- null, the profile job will run with default settings.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Aconfiguration%3AUpdateProfileJob%27"><span class="annot"><span class="annottext">UpdateProfileJob -&gt; Maybe ProfileConfiguration
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3Aconfiguration%3AUpdateProfileJob%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.ProfileConfiguration.html#ProfileConfiguration"><span class="hs-identifier hs-type">ProfileConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The job\'s timeout in minutes. A job that attempts to run longer than</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- this timeout period ends with a status of @TIMEOUT@.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Atimeout%3AUpdateProfileJob%27"><span class="annot"><span class="annottext">UpdateProfileJob -&gt; Maybe Natural
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3Atimeout%3AUpdateProfileJob%27"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Sample configuration for Profile Jobs only. Determines the number of</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- rows on which the Profile job will be executed. If a JobSample value is</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- not provided for profile jobs, the default value will be used. The</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- default value is CUSTOM_ROWS for the mode parameter and 20000 for the</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- size parameter.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AjobSample%3AUpdateProfileJob%27"><span class="annot"><span class="annottext">UpdateProfileJob -&gt; Maybe JobSample
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AjobSample%3AUpdateProfileJob%27"><span class="hs-identifier hs-var hs-var">jobSample</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.JobSample.html#JobSample"><span class="hs-identifier hs-type">JobSample</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The name of the job to be updated.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3Aname%3AUpdateProfileJob%27"><span class="annot"><span class="annottext">UpdateProfileJob -&gt; Text
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3Aname%3AUpdateProfileJob%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AoutputLocation%3AUpdateProfileJob%27"><span class="annot"><span class="annottext">UpdateProfileJob -&gt; S3Location
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AoutputLocation%3AUpdateProfileJob%27"><span class="hs-identifier hs-var hs-var">outputLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- (IAM) role to be assumed when DataBrew runs the job.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AroleArn%3AUpdateProfileJob%27"><span class="annot"><span class="annottext">UpdateProfileJob -&gt; Text
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AroleArn%3AUpdateProfileJob%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310323"><span id="local-6989586621679310325"><span class="annot"><span class="annottext">UpdateProfileJob -&gt; UpdateProfileJob -&gt; Bool
+(UpdateProfileJob -&gt; UpdateProfileJob -&gt; Bool)
+-&gt; (UpdateProfileJob -&gt; UpdateProfileJob -&gt; Bool)
+-&gt; Eq UpdateProfileJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateProfileJob -&gt; UpdateProfileJob -&gt; Bool
+$c/= :: UpdateProfileJob -&gt; UpdateProfileJob -&gt; Bool
+== :: UpdateProfileJob -&gt; UpdateProfileJob -&gt; Bool
+$c== :: UpdateProfileJob -&gt; UpdateProfileJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310314"><span id="local-6989586621679310316"><span id="local-6989586621679310318"><span id="local-6989586621679310320"><span class="annot"><span class="annottext">ReadPrec [UpdateProfileJob]
+ReadPrec UpdateProfileJob
+Int -&gt; ReadS UpdateProfileJob
+ReadS [UpdateProfileJob]
+(Int -&gt; ReadS UpdateProfileJob)
+-&gt; ReadS [UpdateProfileJob]
+-&gt; ReadPrec UpdateProfileJob
+-&gt; ReadPrec [UpdateProfileJob]
+-&gt; Read UpdateProfileJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateProfileJob]
+$creadListPrec :: ReadPrec [UpdateProfileJob]
+readPrec :: ReadPrec UpdateProfileJob
+$creadPrec :: ReadPrec UpdateProfileJob
+readList :: ReadS [UpdateProfileJob]
+$creadList :: ReadS [UpdateProfileJob]
+readsPrec :: Int -&gt; ReadS UpdateProfileJob
+$creadsPrec :: Int -&gt; ReadS UpdateProfileJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310307"><span id="local-6989586621679310309"><span id="local-6989586621679310311"><span class="annot"><span class="annottext">Int -&gt; UpdateProfileJob -&gt; ShowS
+[UpdateProfileJob] -&gt; ShowS
+UpdateProfileJob -&gt; String
+(Int -&gt; UpdateProfileJob -&gt; ShowS)
+-&gt; (UpdateProfileJob -&gt; String)
+-&gt; ([UpdateProfileJob] -&gt; ShowS)
+-&gt; Show UpdateProfileJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateProfileJob] -&gt; ShowS
+$cshowList :: [UpdateProfileJob] -&gt; ShowS
+show :: UpdateProfileJob -&gt; String
+$cshow :: UpdateProfileJob -&gt; String
+showsPrec :: Int -&gt; UpdateProfileJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateProfileJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateProfileJob -&gt; Rep UpdateProfileJob x)
+-&gt; (forall x. Rep UpdateProfileJob x -&gt; UpdateProfileJob)
+-&gt; Generic UpdateProfileJob
+forall x. Rep UpdateProfileJob x -&gt; UpdateProfileJob
+forall x. UpdateProfileJob -&gt; Rep UpdateProfileJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateProfileJob x -&gt; UpdateProfileJob
+$cfrom :: forall x. UpdateProfileJob -&gt; Rep UpdateProfileJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Create a value of 'UpdateProfileJob' with all optional fields omitted.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'encryptionMode', 'updateProfileJob_encryptionMode' - The encryption mode for the job, which can be one of the following:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- -   @SSE-KMS@ - Server-side encryption with keys managed by KMS.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'logSubscription', 'updateProfileJob_logSubscription' - Enables or disables Amazon CloudWatch logging for the job. If logging is</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- enabled, CloudWatch writes one log stream for each job run.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'maxRetries', 'updateProfileJob_maxRetries' - The maximum number of times to retry the job after a job run fails.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'encryptionKeyArn', 'updateProfileJob_encryptionKeyArn' - The Amazon Resource Name (ARN) of an encryption key that is used to</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- protect the job.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'maxCapacity', 'updateProfileJob_maxCapacity' - The maximum number of compute nodes that DataBrew can use when the job</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- processes data.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'configuration', 'updateProfileJob_configuration' - Configuration for profile jobs. Used to select columns, do evaluations,</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- and override default parameters of evaluations. When configuration is</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- null, the profile job will run with default settings.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'timeout', 'updateProfileJob_timeout' - The job\'s timeout in minutes. A job that attempts to run longer than</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- this timeout period ends with a status of @TIMEOUT@.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'jobSample', 'updateProfileJob_jobSample' - Sample configuration for Profile Jobs only. Determines the number of</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- rows on which the Profile job will be executed. If a JobSample value is</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- not provided for profile jobs, the default value will be used. The</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- default value is CUSTOM_ROWS for the mode parameter and 20000 for the</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- size parameter.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'name', 'updateProfileJob_name' - The name of the job to be updated.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'outputLocation', 'updateProfileJob_outputLocation' - Undocumented member.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'roleArn', 'updateProfileJob_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- (IAM) role to be assumed when DataBrew runs the job.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#newUpdateProfileJob"><span class="hs-identifier hs-type">newUpdateProfileJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'outputLocation'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.DataBrew.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span>
+</span><span id="line-152"></span><span id="newUpdateProfileJob"><span class="annot"><span class="annottext">newUpdateProfileJob :: Text -&gt; S3Location -&gt; Text -&gt; UpdateProfileJob
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#newUpdateProfileJob"><span class="hs-identifier hs-var hs-var">newUpdateProfileJob</span></a></span></span><span> </span><span id="local-6989586621679310302"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310302"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679310301"><span class="annot"><span class="annottext">S3Location
+</span><a href="#local-6989586621679310301"><span class="hs-identifier hs-var">pOutputLocation_</span></a></span></span><span> </span><span id="local-6989586621679310300"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310300"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">UpdateProfileJob' :: Maybe EncryptionMode
+-&gt; Maybe LogSubscription
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe ProfileConfiguration
+-&gt; Maybe Natural
+-&gt; Maybe JobSample
+-&gt; Text
+-&gt; S3Location
+-&gt; Text
+-&gt; UpdateProfileJob
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionMode:UpdateProfileJob' :: Maybe EncryptionMode
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AencryptionMode%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:logSubscription:UpdateProfileJob' :: Maybe LogSubscription
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AlogSubscription%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">logSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogSubscription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRetries:UpdateProfileJob' :: Maybe Natural
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AmaxRetries%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">maxRetries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionKeyArn:UpdateProfileJob' :: Maybe Text
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AencryptionKeyArn%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">encryptionKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxCapacity:UpdateProfileJob' :: Maybe Int
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AmaxCapacity%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:UpdateProfileJob' :: Maybe ProfileConfiguration
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3Aconfiguration%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProfileConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeout:UpdateProfileJob' :: Maybe Natural
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3Atimeout%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobSample:UpdateProfileJob' :: Maybe JobSample
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AjobSample%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">jobSample</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobSample
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateProfileJob' :: Text
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3Aname%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310302"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputLocation:UpdateProfileJob' :: S3Location
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AoutputLocation%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">outputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3Location
+</span><a href="#local-6989586621679310301"><span class="hs-identifier hs-var">pOutputLocation_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:UpdateProfileJob' :: Text
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AroleArn%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310300"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The encryption mode for the job, which can be one of the following:</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- -   @SSE-KMS@ - Server-side encryption with keys managed by KMS.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_encryptionMode"><span class="hs-identifier hs-type">updateProfileJob_encryptionMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.EncryptionMode.html#EncryptionMode"><span class="hs-identifier hs-type">EncryptionMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="updateProfileJob_encryptionMode"><span class="annot"><span class="annottext">updateProfileJob_encryptionMode :: (Maybe EncryptionMode -&gt; f (Maybe EncryptionMode))
+-&gt; UpdateProfileJob -&gt; f UpdateProfileJob
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_encryptionMode"><span class="hs-identifier hs-var hs-var">updateProfileJob_encryptionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfileJob -&gt; Maybe EncryptionMode)
+-&gt; (UpdateProfileJob -&gt; Maybe EncryptionMode -&gt; UpdateProfileJob)
+-&gt; Lens
+     UpdateProfileJob
+     UpdateProfileJob
+     (Maybe EncryptionMode)
+     (Maybe EncryptionMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310297"><span class="annot"><span class="annottext">Maybe EncryptionMode
+encryptionMode :: Maybe EncryptionMode
+$sel:encryptionMode:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe EncryptionMode
+</span><a href="#local-6989586621679310297"><span class="hs-identifier hs-var hs-var">encryptionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionMode
+</span><a href="#local-6989586621679310297"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310296"><span class="annot"><span class="annottext">s :: UpdateProfileJob
+</span><a href="#local-6989586621679310296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310295"><span class="annot"><span class="annottext">Maybe EncryptionMode
+</span><a href="#local-6989586621679310295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfileJob
+</span><a href="#local-6989586621679310296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionMode:UpdateProfileJob' :: Maybe EncryptionMode
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AencryptionMode%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionMode
+</span><a href="#local-6989586621679310295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Enables or disables Amazon CloudWatch logging for the job. If logging is</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- enabled, CloudWatch writes one log stream for each job run.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_logSubscription"><span class="hs-identifier hs-type">updateProfileJob_logSubscription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.LogSubscription.html#LogSubscription"><span class="hs-identifier hs-type">LogSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="updateProfileJob_logSubscription"><span class="annot"><span class="annottext">updateProfileJob_logSubscription :: (Maybe LogSubscription -&gt; f (Maybe LogSubscription))
+-&gt; UpdateProfileJob -&gt; f UpdateProfileJob
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_logSubscription"><span class="hs-identifier hs-var hs-var">updateProfileJob_logSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfileJob -&gt; Maybe LogSubscription)
+-&gt; (UpdateProfileJob -&gt; Maybe LogSubscription -&gt; UpdateProfileJob)
+-&gt; Lens
+     UpdateProfileJob
+     UpdateProfileJob
+     (Maybe LogSubscription)
+     (Maybe LogSubscription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310294"><span class="annot"><span class="annottext">Maybe LogSubscription
+logSubscription :: Maybe LogSubscription
+$sel:logSubscription:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe LogSubscription
+</span><a href="#local-6989586621679310294"><span class="hs-identifier hs-var hs-var">logSubscription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogSubscription
+</span><a href="#local-6989586621679310294"><span class="hs-identifier hs-var">logSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310293"><span class="annot"><span class="annottext">s :: UpdateProfileJob
+</span><a href="#local-6989586621679310293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310292"><span class="annot"><span class="annottext">Maybe LogSubscription
+</span><a href="#local-6989586621679310292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfileJob
+</span><a href="#local-6989586621679310293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logSubscription:UpdateProfileJob' :: Maybe LogSubscription
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AlogSubscription%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">logSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogSubscription
+</span><a href="#local-6989586621679310292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The maximum number of times to retry the job after a job run fails.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_maxRetries"><span class="hs-identifier hs-type">updateProfileJob_maxRetries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="updateProfileJob_maxRetries"><span class="annot"><span class="annottext">updateProfileJob_maxRetries :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateProfileJob -&gt; f UpdateProfileJob
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_maxRetries"><span class="hs-identifier hs-var hs-var">updateProfileJob_maxRetries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfileJob -&gt; Maybe Natural)
+-&gt; (UpdateProfileJob -&gt; Maybe Natural -&gt; UpdateProfileJob)
+-&gt; Lens
+     UpdateProfileJob UpdateProfileJob (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310291"><span class="annot"><span class="annottext">Maybe Natural
+maxRetries :: Maybe Natural
+$sel:maxRetries:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe Natural
+</span><a href="#local-6989586621679310291"><span class="hs-identifier hs-var hs-var">maxRetries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679310291"><span class="hs-identifier hs-var">maxRetries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310290"><span class="annot"><span class="annottext">s :: UpdateProfileJob
+</span><a href="#local-6989586621679310290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310289"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679310289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfileJob
+</span><a href="#local-6989586621679310290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRetries:UpdateProfileJob' :: Maybe Natural
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AmaxRetries%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">maxRetries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679310289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an encryption key that is used to</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- protect the job.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_encryptionKeyArn"><span class="hs-identifier hs-type">updateProfileJob_encryptionKeyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="updateProfileJob_encryptionKeyArn"><span class="annot"><span class="annottext">updateProfileJob_encryptionKeyArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateProfileJob -&gt; f UpdateProfileJob
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_encryptionKeyArn"><span class="hs-identifier hs-var hs-var">updateProfileJob_encryptionKeyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfileJob -&gt; Maybe Text)
+-&gt; (UpdateProfileJob -&gt; Maybe Text -&gt; UpdateProfileJob)
+-&gt; Lens UpdateProfileJob UpdateProfileJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310288"><span class="annot"><span class="annottext">Maybe Text
+encryptionKeyArn :: Maybe Text
+$sel:encryptionKeyArn:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe Text
+</span><a href="#local-6989586621679310288"><span class="hs-identifier hs-var hs-var">encryptionKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310288"><span class="hs-identifier hs-var">encryptionKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310287"><span class="annot"><span class="annottext">s :: UpdateProfileJob
+</span><a href="#local-6989586621679310287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310286"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfileJob
+</span><a href="#local-6989586621679310287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionKeyArn:UpdateProfileJob' :: Maybe Text
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AencryptionKeyArn%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">encryptionKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The maximum number of compute nodes that DataBrew can use when the job</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- processes data.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_maxCapacity"><span class="hs-identifier hs-type">updateProfileJob_maxCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="updateProfileJob_maxCapacity"><span class="annot"><span class="annottext">updateProfileJob_maxCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; UpdateProfileJob -&gt; f UpdateProfileJob
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_maxCapacity"><span class="hs-identifier hs-var hs-var">updateProfileJob_maxCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfileJob -&gt; Maybe Int)
+-&gt; (UpdateProfileJob -&gt; Maybe Int -&gt; UpdateProfileJob)
+-&gt; Lens UpdateProfileJob UpdateProfileJob (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310285"><span class="annot"><span class="annottext">Maybe Int
+maxCapacity :: Maybe Int
+$sel:maxCapacity:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe Int
+</span><a href="#local-6989586621679310285"><span class="hs-identifier hs-var hs-var">maxCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679310285"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310284"><span class="annot"><span class="annottext">s :: UpdateProfileJob
+</span><a href="#local-6989586621679310284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310283"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679310283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfileJob
+</span><a href="#local-6989586621679310284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxCapacity:UpdateProfileJob' :: Maybe Int
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AmaxCapacity%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679310283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | Configuration for profile jobs. Used to select columns, do evaluations,</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- and override default parameters of evaluations. When configuration is</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- null, the profile job will run with default settings.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_configuration"><span class="hs-identifier hs-type">updateProfileJob_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.ProfileConfiguration.html#ProfileConfiguration"><span class="hs-identifier hs-type">ProfileConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="updateProfileJob_configuration"><span class="annot"><span class="annottext">updateProfileJob_configuration :: (Maybe ProfileConfiguration -&gt; f (Maybe ProfileConfiguration))
+-&gt; UpdateProfileJob -&gt; f UpdateProfileJob
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_configuration"><span class="hs-identifier hs-var hs-var">updateProfileJob_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfileJob -&gt; Maybe ProfileConfiguration)
+-&gt; (UpdateProfileJob
+    -&gt; Maybe ProfileConfiguration -&gt; UpdateProfileJob)
+-&gt; Lens
+     UpdateProfileJob
+     UpdateProfileJob
+     (Maybe ProfileConfiguration)
+     (Maybe ProfileConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310282"><span class="annot"><span class="annottext">Maybe ProfileConfiguration
+configuration :: Maybe ProfileConfiguration
+$sel:configuration:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe ProfileConfiguration
+</span><a href="#local-6989586621679310282"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProfileConfiguration
+</span><a href="#local-6989586621679310282"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310281"><span class="annot"><span class="annottext">s :: UpdateProfileJob
+</span><a href="#local-6989586621679310281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310280"><span class="annot"><span class="annottext">Maybe ProfileConfiguration
+</span><a href="#local-6989586621679310280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfileJob
+</span><a href="#local-6989586621679310281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:UpdateProfileJob' :: Maybe ProfileConfiguration
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3Aconfiguration%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProfileConfiguration
+</span><a href="#local-6989586621679310280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The job\'s timeout in minutes. A job that attempts to run longer than</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- this timeout period ends with a status of @TIMEOUT@.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_timeout"><span class="hs-identifier hs-type">updateProfileJob_timeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="updateProfileJob_timeout"><span class="annot"><span class="annottext">updateProfileJob_timeout :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateProfileJob -&gt; f UpdateProfileJob
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_timeout"><span class="hs-identifier hs-var hs-var">updateProfileJob_timeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfileJob -&gt; Maybe Natural)
+-&gt; (UpdateProfileJob -&gt; Maybe Natural -&gt; UpdateProfileJob)
+-&gt; Lens
+     UpdateProfileJob UpdateProfileJob (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310279"><span class="annot"><span class="annottext">Maybe Natural
+timeout :: Maybe Natural
+$sel:timeout:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe Natural
+</span><a href="#local-6989586621679310279"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679310279"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310278"><span class="annot"><span class="annottext">s :: UpdateProfileJob
+</span><a href="#local-6989586621679310278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310277"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679310277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfileJob
+</span><a href="#local-6989586621679310278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeout:UpdateProfileJob' :: Maybe Natural
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3Atimeout%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679310277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | Sample configuration for Profile Jobs only. Determines the number of</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- rows on which the Profile job will be executed. If a JobSample value is</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- not provided for profile jobs, the default value will be used. The</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- default value is CUSTOM_ROWS for the mode parameter and 20000 for the</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- size parameter.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_jobSample"><span class="hs-identifier hs-type">updateProfileJob_jobSample</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.JobSample.html#JobSample"><span class="hs-identifier hs-type">JobSample</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="updateProfileJob_jobSample"><span class="annot"><span class="annottext">updateProfileJob_jobSample :: (Maybe JobSample -&gt; f (Maybe JobSample))
+-&gt; UpdateProfileJob -&gt; f UpdateProfileJob
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_jobSample"><span class="hs-identifier hs-var hs-var">updateProfileJob_jobSample</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfileJob -&gt; Maybe JobSample)
+-&gt; (UpdateProfileJob -&gt; Maybe JobSample -&gt; UpdateProfileJob)
+-&gt; Lens
+     UpdateProfileJob
+     UpdateProfileJob
+     (Maybe JobSample)
+     (Maybe JobSample)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310276"><span class="annot"><span class="annottext">Maybe JobSample
+jobSample :: Maybe JobSample
+$sel:jobSample:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe JobSample
+</span><a href="#local-6989586621679310276"><span class="hs-identifier hs-var hs-var">jobSample</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobSample
+</span><a href="#local-6989586621679310276"><span class="hs-identifier hs-var">jobSample</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310275"><span class="annot"><span class="annottext">s :: UpdateProfileJob
+</span><a href="#local-6989586621679310275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310274"><span class="annot"><span class="annottext">Maybe JobSample
+</span><a href="#local-6989586621679310274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfileJob
+</span><a href="#local-6989586621679310275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobSample:UpdateProfileJob' :: Maybe JobSample
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AjobSample%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">jobSample</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobSample
+</span><a href="#local-6989586621679310274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The name of the job to be updated.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_name"><span class="hs-identifier hs-type">updateProfileJob_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-215"></span><span id="updateProfileJob_name"><span class="annot"><span class="annottext">updateProfileJob_name :: (Text -&gt; f Text) -&gt; UpdateProfileJob -&gt; f UpdateProfileJob
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_name"><span class="hs-identifier hs-var hs-var">updateProfileJob_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfileJob -&gt; Text)
+-&gt; (UpdateProfileJob -&gt; Text -&gt; UpdateProfileJob)
+-&gt; Lens UpdateProfileJob UpdateProfileJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310273"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:UpdateProfileJob' :: UpdateProfileJob -&gt; Text
+</span><a href="#local-6989586621679310273"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310273"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310272"><span class="annot"><span class="annottext">s :: UpdateProfileJob
+</span><a href="#local-6989586621679310272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310271"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfileJob
+</span><a href="#local-6989586621679310272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateProfileJob' :: Text
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3Aname%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_outputLocation"><span class="hs-identifier hs-type">updateProfileJob_outputLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span>
+</span><span id="line-219"></span><span id="updateProfileJob_outputLocation"><span class="annot"><span class="annottext">updateProfileJob_outputLocation :: (S3Location -&gt; f S3Location)
+-&gt; UpdateProfileJob -&gt; f UpdateProfileJob
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_outputLocation"><span class="hs-identifier hs-var hs-var">updateProfileJob_outputLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfileJob -&gt; S3Location)
+-&gt; (UpdateProfileJob -&gt; S3Location -&gt; UpdateProfileJob)
+-&gt; Lens UpdateProfileJob UpdateProfileJob S3Location S3Location
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310270"><span class="annot"><span class="annottext">S3Location
+outputLocation :: S3Location
+$sel:outputLocation:UpdateProfileJob' :: UpdateProfileJob -&gt; S3Location
+</span><a href="#local-6989586621679310270"><span class="hs-identifier hs-var hs-var">outputLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Location
+</span><a href="#local-6989586621679310270"><span class="hs-identifier hs-var">outputLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310269"><span class="annot"><span class="annottext">s :: UpdateProfileJob
+</span><a href="#local-6989586621679310269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310268"><span class="annot"><span class="annottext">S3Location
+</span><a href="#local-6989586621679310268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfileJob
+</span><a href="#local-6989586621679310269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputLocation:UpdateProfileJob' :: S3Location
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AoutputLocation%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">outputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3Location
+</span><a href="#local-6989586621679310268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- (IAM) role to be assumed when DataBrew runs the job.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_roleArn"><span class="hs-identifier hs-type">updateProfileJob_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-224"></span><span id="updateProfileJob_roleArn"><span class="annot"><span class="annottext">updateProfileJob_roleArn :: (Text -&gt; f Text) -&gt; UpdateProfileJob -&gt; f UpdateProfileJob
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJob_roleArn"><span class="hs-identifier hs-var hs-var">updateProfileJob_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfileJob -&gt; Text)
+-&gt; (UpdateProfileJob -&gt; Text -&gt; UpdateProfileJob)
+-&gt; Lens UpdateProfileJob UpdateProfileJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310267"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:UpdateProfileJob' :: UpdateProfileJob -&gt; Text
+</span><a href="#local-6989586621679310267"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310267"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310266"><span class="annot"><span class="annottext">s :: UpdateProfileJob
+</span><a href="#local-6989586621679310266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310265"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfileJob
+</span><a href="#local-6989586621679310266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:UpdateProfileJob' :: Text
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AroleArn%3AUpdateProfileJob%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-228"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse"><span class="hs-identifier hs-type">UpdateProfileJobResponse</span></a></span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679310261"><span class="annot"><span class="annottext">request :: UpdateProfileJob -&gt; Request UpdateProfileJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateProfileJob -&gt; Request UpdateProfileJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DataBrew.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679310257"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateProfileJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateProfileJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateProfileJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateProfileJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateProfileJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310254"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310254"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679310253"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679310253"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679310252"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310252"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; UpdateProfileJobResponse
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse%27"><span class="hs-identifier hs-var">UpdateProfileJobResponse'</span></a></span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; UpdateProfileJobResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; UpdateProfileJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310254"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; UpdateProfileJobResponse)
+-&gt; Either String Text -&gt; Either String UpdateProfileJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310244"><span id="local-6989586621679310246"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span></span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310241"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679310237"><span class="annot"><span class="annottext">toHeaders :: UpdateProfileJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateProfileJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-247"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-248"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-249"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-250"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310227"><span id="local-6989586621679310229"><span id="local-6989586621679310231"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679310225"><span class="annot"><span class="annottext">toJSON :: UpdateProfileJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310213"><span id="local-6989586621679310214"><span id="local-6989586621679310215"><span id="local-6989586621679310216"><span id="local-6989586621679310217"><span id="local-6989586621679310218"><span id="local-6989586621679310219"><span id="local-6989586621679310220"><span id="local-6989586621679310221"><span id="local-6989586621679310222"><span id="local-6989586621679310223"><span class="annot"><span class="annottext">Maybe Int
+Maybe Natural
+Maybe Text
+Maybe EncryptionMode
+Maybe LogSubscription
+Maybe JobSample
+Maybe ProfileConfiguration
+Text
+S3Location
+roleArn :: Text
+outputLocation :: S3Location
+name :: Text
+jobSample :: Maybe JobSample
+timeout :: Maybe Natural
+configuration :: Maybe ProfileConfiguration
+maxCapacity :: Maybe Int
+encryptionKeyArn :: Maybe Text
+maxRetries :: Maybe Natural
+logSubscription :: Maybe LogSubscription
+encryptionMode :: Maybe EncryptionMode
+$sel:roleArn:UpdateProfileJob' :: UpdateProfileJob -&gt; Text
+$sel:outputLocation:UpdateProfileJob' :: UpdateProfileJob -&gt; S3Location
+$sel:name:UpdateProfileJob' :: UpdateProfileJob -&gt; Text
+$sel:jobSample:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe JobSample
+$sel:timeout:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe Natural
+$sel:configuration:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe ProfileConfiguration
+$sel:maxCapacity:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe Int
+$sel:encryptionKeyArn:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe Text
+$sel:maxRetries:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe Natural
+$sel:logSubscription:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe LogSubscription
+$sel:encryptionMode:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe EncryptionMode
+</span><a href="#local-6989586621679310213"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-257"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-258"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">(EncryptionMode -&gt; Pair) -&gt; Maybe EncryptionMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionMode
+</span><a href="#local-6989586621679310223"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogSubscription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogSubscription -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>              </span><span class="annot"><span class="annottext">(LogSubscription -&gt; Pair) -&gt; Maybe LogSubscription -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogSubscription
+</span><a href="#local-6989586621679310222"><span class="hs-identifier hs-var">logSubscription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxRetries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679310221"><span class="hs-identifier hs-var">maxRetries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionKeyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310220"><span class="hs-identifier hs-var">encryptionKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679310219"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Configuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProfileConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ProfileConfiguration -&gt; Pair)
+-&gt; Maybe ProfileConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProfileConfiguration
+</span><a href="#local-6989586621679310218"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679310217"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobSample&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JobSample -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(JobSample -&gt; Pair) -&gt; Maybe JobSample -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JobSample
+</span><a href="#local-6989586621679310216"><span class="hs-identifier hs-var">jobSample</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-270"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3Location -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">S3Location
+</span><a href="#local-6989586621679310214"><span class="hs-identifier hs-var">outputLocation</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310213"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-273"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-276"></span><span>  </span><span id="local-6989586621679310207"><span class="annot"><span class="annottext">toPath :: UpdateProfileJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob%27"><span class="hs-identifier hs-type">UpdateProfileJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310195"><span id="local-6989586621679310196"><span id="local-6989586621679310197"><span id="local-6989586621679310198"><span id="local-6989586621679310199"><span id="local-6989586621679310200"><span id="local-6989586621679310201"><span id="local-6989586621679310202"><span id="local-6989586621679310203"><span id="local-6989586621679310204"><span id="local-6989586621679310205"><span class="annot"><span class="annottext">Maybe Int
+Maybe Natural
+Maybe Text
+Maybe EncryptionMode
+Maybe LogSubscription
+Maybe JobSample
+Maybe ProfileConfiguration
+Text
+S3Location
+roleArn :: Text
+outputLocation :: S3Location
+name :: Text
+jobSample :: Maybe JobSample
+timeout :: Maybe Natural
+configuration :: Maybe ProfileConfiguration
+maxCapacity :: Maybe Int
+encryptionKeyArn :: Maybe Text
+maxRetries :: Maybe Natural
+logSubscription :: Maybe LogSubscription
+encryptionMode :: Maybe EncryptionMode
+$sel:roleArn:UpdateProfileJob' :: UpdateProfileJob -&gt; Text
+$sel:outputLocation:UpdateProfileJob' :: UpdateProfileJob -&gt; S3Location
+$sel:name:UpdateProfileJob' :: UpdateProfileJob -&gt; Text
+$sel:jobSample:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe JobSample
+$sel:timeout:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe Natural
+$sel:configuration:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe ProfileConfiguration
+$sel:maxCapacity:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe Int
+$sel:encryptionKeyArn:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe Text
+$sel:maxRetries:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe Natural
+$sel:logSubscription:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe LogSubscription
+$sel:encryptionMode:UpdateProfileJob' :: UpdateProfileJob -&gt; Maybe EncryptionMode
+</span><a href="#local-6989586621679310195"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/profileJobs/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310197"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJob"><span class="hs-identifier hs-type">UpdateProfileJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679310191"><span class="annot"><span class="annottext">toQuery :: UpdateProfileJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateProfileJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | /See:/ 'newUpdateProfileJobResponse' smart constructor.</span><span>
+</span><span id="line-283"></span><span id="local-6989586621679310188"><span id="local-6989586621679310189"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProfileJobResponse"><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse"><span class="hs-identifier hs-var">UpdateProfileJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProfileJobResponse%27"><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse%27"><span class="hs-identifier hs-var">UpdateProfileJobResponse'</span></a></span></span><span>
+</span><span id="line-284"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-285"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateProfileJobResponse%27"><span class="annot"><span class="annottext">UpdateProfileJobResponse -&gt; Int
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AhttpStatus%3AUpdateProfileJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="hs-comment">-- | The name of the job that was updated.</span><span>
+</span><span id="line-287"></span><span>    </span><span id="%24sel%3Aname%3AUpdateProfileJobResponse%27"><span class="annot"><span class="annottext">UpdateProfileJobResponse -&gt; Text
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3Aname%3AUpdateProfileJobResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-288"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-289"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310182"><span id="local-6989586621679310184"><span class="annot"><span class="annottext">UpdateProfileJobResponse -&gt; UpdateProfileJobResponse -&gt; Bool
+(UpdateProfileJobResponse -&gt; UpdateProfileJobResponse -&gt; Bool)
+-&gt; (UpdateProfileJobResponse -&gt; UpdateProfileJobResponse -&gt; Bool)
+-&gt; Eq UpdateProfileJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateProfileJobResponse -&gt; UpdateProfileJobResponse -&gt; Bool
+$c/= :: UpdateProfileJobResponse -&gt; UpdateProfileJobResponse -&gt; Bool
+== :: UpdateProfileJobResponse -&gt; UpdateProfileJobResponse -&gt; Bool
+$c== :: UpdateProfileJobResponse -&gt; UpdateProfileJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310174"><span id="local-6989586621679310176"><span id="local-6989586621679310178"><span id="local-6989586621679310180"><span class="annot"><span class="annottext">ReadPrec [UpdateProfileJobResponse]
+ReadPrec UpdateProfileJobResponse
+Int -&gt; ReadS UpdateProfileJobResponse
+ReadS [UpdateProfileJobResponse]
+(Int -&gt; ReadS UpdateProfileJobResponse)
+-&gt; ReadS [UpdateProfileJobResponse]
+-&gt; ReadPrec UpdateProfileJobResponse
+-&gt; ReadPrec [UpdateProfileJobResponse]
+-&gt; Read UpdateProfileJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateProfileJobResponse]
+$creadListPrec :: ReadPrec [UpdateProfileJobResponse]
+readPrec :: ReadPrec UpdateProfileJobResponse
+$creadPrec :: ReadPrec UpdateProfileJobResponse
+readList :: ReadS [UpdateProfileJobResponse]
+$creadList :: ReadS [UpdateProfileJobResponse]
+readsPrec :: Int -&gt; ReadS UpdateProfileJobResponse
+$creadsPrec :: Int -&gt; ReadS UpdateProfileJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310168"><span id="local-6989586621679310170"><span id="local-6989586621679310172"><span class="annot"><span class="annottext">Int -&gt; UpdateProfileJobResponse -&gt; ShowS
+[UpdateProfileJobResponse] -&gt; ShowS
+UpdateProfileJobResponse -&gt; String
+(Int -&gt; UpdateProfileJobResponse -&gt; ShowS)
+-&gt; (UpdateProfileJobResponse -&gt; String)
+-&gt; ([UpdateProfileJobResponse] -&gt; ShowS)
+-&gt; Show UpdateProfileJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateProfileJobResponse] -&gt; ShowS
+$cshowList :: [UpdateProfileJobResponse] -&gt; ShowS
+show :: UpdateProfileJobResponse -&gt; String
+$cshow :: UpdateProfileJobResponse -&gt; String
+showsPrec :: Int -&gt; UpdateProfileJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateProfileJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateProfileJobResponse -&gt; Rep UpdateProfileJobResponse x)
+-&gt; (forall x.
+    Rep UpdateProfileJobResponse x -&gt; UpdateProfileJobResponse)
+-&gt; Generic UpdateProfileJobResponse
+forall x.
+Rep UpdateProfileJobResponse x -&gt; UpdateProfileJobResponse
+forall x.
+UpdateProfileJobResponse -&gt; Rep UpdateProfileJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateProfileJobResponse x -&gt; UpdateProfileJobResponse
+$cfrom :: forall x.
+UpdateProfileJobResponse -&gt; Rep UpdateProfileJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- Create a value of 'UpdateProfileJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- 'httpStatus', 'updateProfileJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- 'name', 'updateProfileJobResponse_name' - The name of the job that was updated.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#newUpdateProfileJobResponse"><span class="hs-identifier hs-type">newUpdateProfileJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-303"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-304"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-305"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-306"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-307"></span><span>  </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse"><span class="hs-identifier hs-type">UpdateProfileJobResponse</span></a></span><span>
+</span><span id="line-308"></span><span id="newUpdateProfileJobResponse"><span class="annot"><span class="annottext">newUpdateProfileJobResponse :: Int -&gt; Text -&gt; UpdateProfileJobResponse
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#newUpdateProfileJobResponse"><span class="hs-identifier hs-var hs-var">newUpdateProfileJobResponse</span></a></span></span><span> </span><span id="local-6989586621679310165"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310165"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679310164"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310164"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-309"></span><span>  </span><span class="annot"><span class="annottext">UpdateProfileJobResponse' :: Int -&gt; Text -&gt; UpdateProfileJobResponse
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse%27"><span class="hs-identifier hs-type">UpdateProfileJobResponse'</span></a></span><span>
+</span><span id="line-310"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProfileJobResponse' :: Int
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AhttpStatus%3AUpdateProfileJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-311"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310165"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateProfileJobResponse' :: Text
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3Aname%3AUpdateProfileJobResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310164"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-313"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-316"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJobResponse_httpStatus"><span class="hs-identifier hs-type">updateProfileJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse"><span class="hs-identifier hs-type">UpdateProfileJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-317"></span><span id="updateProfileJobResponse_httpStatus"><span class="annot"><span class="annottext">updateProfileJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateProfileJobResponse -&gt; f UpdateProfileJobResponse
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateProfileJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfileJobResponse -&gt; Int)
+-&gt; (UpdateProfileJobResponse -&gt; Int -&gt; UpdateProfileJobResponse)
+-&gt; Lens UpdateProfileJobResponse UpdateProfileJobResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse%27"><span class="hs-identifier hs-type">UpdateProfileJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310163"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateProfileJobResponse' :: UpdateProfileJobResponse -&gt; Int
+</span><a href="#local-6989586621679310163"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310163"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310162"><span class="annot"><span class="annottext">s :: UpdateProfileJobResponse
+</span><a href="#local-6989586621679310162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse%27"><span class="hs-identifier hs-type">UpdateProfileJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310161"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfileJobResponse
+</span><a href="#local-6989586621679310162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProfileJobResponse' :: Int
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3AhttpStatus%3AUpdateProfileJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse"><span class="hs-identifier hs-type">UpdateProfileJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | The name of the job that was updated.</span><span>
+</span><span id="line-320"></span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJobResponse_name"><span class="hs-identifier hs-type">updateProfileJobResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse"><span class="hs-identifier hs-type">UpdateProfileJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-321"></span><span id="updateProfileJobResponse_name"><span class="annot"><span class="annottext">updateProfileJobResponse_name :: (Text -&gt; f Text)
+-&gt; UpdateProfileJobResponse -&gt; f UpdateProfileJobResponse
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#updateProfileJobResponse_name"><span class="hs-identifier hs-var hs-var">updateProfileJobResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfileJobResponse -&gt; Text)
+-&gt; (UpdateProfileJobResponse -&gt; Text -&gt; UpdateProfileJobResponse)
+-&gt; Lens UpdateProfileJobResponse UpdateProfileJobResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse%27"><span class="hs-identifier hs-type">UpdateProfileJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310160"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:UpdateProfileJobResponse' :: UpdateProfileJobResponse -&gt; Text
+</span><a href="#local-6989586621679310160"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310160"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310159"><span class="annot"><span class="annottext">s :: UpdateProfileJobResponse
+</span><a href="#local-6989586621679310159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse%27"><span class="hs-identifier hs-type">UpdateProfileJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310158"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfileJobResponse
+</span><a href="#local-6989586621679310159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateProfileJobResponse' :: Text
+</span><a href="Network.AWS.DataBrew.UpdateProfileJob.html#%24sel%3Aname%3AUpdateProfileJobResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse"><span class="hs-identifier hs-type">UpdateProfileJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span>
+</span><span id="line-323"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310156"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.UpdateProfileJob.html#UpdateProfileJobResponse"><span class="hs-identifier hs-type">UpdateProfileJobResponse</span></a></span></span><span>
+</span><span id="line-324"></span></pre></body></html>

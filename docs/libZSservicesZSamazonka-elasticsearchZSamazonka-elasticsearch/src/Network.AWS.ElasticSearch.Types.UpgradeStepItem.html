@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- workflow.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newUpgradeStepItem' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679304100"><span id="local-6989586621679304101"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpgradeStepItem"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-var">UpgradeStepItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpgradeStepItem%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-var">UpgradeStepItem'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679304109"><span id="local-6989586621679304110"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpgradeStepItem"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-var">UpgradeStepItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpgradeStepItem%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-var">UpgradeStepItem'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of a particular step during an upgrade. The status can take</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- one of the following values:</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AupgradeStep%3AUpgradeStepItem%27"><span class="annot"><span class="annottext">UpgradeStepItem -&gt; Maybe UpgradeStep
 </span><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#%24sel%3AupgradeStep%3AUpgradeStepItem%27"><span class="hs-identifier hs-var hs-var">upgradeStep</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStep.html#UpgradeStep"><span class="hs-identifier hs-type">UpgradeStep</span></a></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304091"><span id="local-6989586621679304093"><span class="annot"><span class="annottext">UpgradeStepItem -&gt; UpgradeStepItem -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304100"><span id="local-6989586621679304102"><span class="annot"><span class="annottext">UpgradeStepItem -&gt; UpgradeStepItem -&gt; Bool
 (UpgradeStepItem -&gt; UpgradeStepItem -&gt; Bool)
 -&gt; (UpgradeStepItem -&gt; UpgradeStepItem -&gt; Bool)
 -&gt; Eq UpgradeStepItem
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpgradeStepItem -&gt; UpgradeStepItem -&gt; Bool
 == :: UpgradeStepItem -&gt; UpgradeStepItem -&gt; Bool
 $c== :: UpgradeStepItem -&gt; UpgradeStepItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304082"><span id="local-6989586621679304084"><span id="local-6989586621679304086"><span id="local-6989586621679304088"><span class="annot"><span class="annottext">ReadPrec [UpgradeStepItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304091"><span id="local-6989586621679304093"><span id="local-6989586621679304095"><span id="local-6989586621679304097"><span class="annot"><span class="annottext">ReadPrec [UpgradeStepItem]
 ReadPrec UpgradeStepItem
 Int -&gt; ReadS UpgradeStepItem
 ReadS [UpgradeStepItem]
@@ -85,7 +85,7 @@ readList :: ReadS [UpgradeStepItem]
 $creadList :: ReadS [UpgradeStepItem]
 readsPrec :: Int -&gt; ReadS UpgradeStepItem
 $creadsPrec :: Int -&gt; ReadS UpgradeStepItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304075"><span id="local-6989586621679304077"><span id="local-6989586621679304079"><span class="annot"><span class="annottext">Int -&gt; UpgradeStepItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304084"><span id="local-6989586621679304086"><span id="local-6989586621679304088"><span class="annot"><span class="annottext">Int -&gt; UpgradeStepItem -&gt; ShowS
 [UpgradeStepItem] -&gt; ShowS
 UpgradeStepItem -&gt; String
 (Int -&gt; UpgradeStepItem -&gt; ShowS)
@@ -186,16 +186,16 @@ forall a. Maybe a
      (Maybe UpgradeStatus)
      (Maybe UpgradeStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304066"><span class="annot"><span class="annottext">Maybe UpgradeStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304075"><span class="annot"><span class="annottext">Maybe UpgradeStatus
 upgradeStepStatus :: Maybe UpgradeStatus
 $sel:upgradeStepStatus:UpgradeStepItem' :: UpgradeStepItem -&gt; Maybe UpgradeStatus
-</span><a href="#local-6989586621679304066"><span class="hs-identifier hs-var hs-var">upgradeStepStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpgradeStatus
-</span><a href="#local-6989586621679304066"><span class="hs-identifier hs-var">upgradeStepStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304065"><span class="annot"><span class="annottext">s :: UpgradeStepItem
-</span><a href="#local-6989586621679304065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304064"><span class="annot"><span class="annottext">Maybe UpgradeStatus
-</span><a href="#local-6989586621679304064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeStepItem
-</span><a href="#local-6989586621679304065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upgradeStepStatus:UpgradeStepItem' :: Maybe UpgradeStatus
+</span><a href="#local-6989586621679304075"><span class="hs-identifier hs-var hs-var">upgradeStepStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpgradeStatus
+</span><a href="#local-6989586621679304075"><span class="hs-identifier hs-var">upgradeStepStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304074"><span class="annot"><span class="annottext">s :: UpgradeStepItem
+</span><a href="#local-6989586621679304074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304073"><span class="annot"><span class="annottext">Maybe UpgradeStatus
+</span><a href="#local-6989586621679304073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeStepItem
+</span><a href="#local-6989586621679304074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upgradeStepStatus:UpgradeStepItem' :: Maybe UpgradeStatus
 </span><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#%24sel%3AupgradeStepStatus%3AUpgradeStepItem%27"><span class="hs-identifier hs-var">upgradeStepStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpgradeStatus
-</span><a href="#local-6989586621679304064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-type">UpgradeStepItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-type">UpgradeStepItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The Floating point value representing progress percentage of a</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- particular step.</span><span>
@@ -207,16 +207,16 @@ $sel:upgradeStepStatus:UpgradeStepItem' :: UpgradeStepItem -&gt; Maybe UpgradeSt
 -&gt; Lens
      UpgradeStepItem UpgradeStepItem (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304062"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304071"><span class="annot"><span class="annottext">Maybe Double
 progressPercent :: Maybe Double
 $sel:progressPercent:UpgradeStepItem' :: UpgradeStepItem -&gt; Maybe Double
-</span><a href="#local-6989586621679304062"><span class="hs-identifier hs-var hs-var">progressPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679304062"><span class="hs-identifier hs-var">progressPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304061"><span class="annot"><span class="annottext">s :: UpgradeStepItem
-</span><a href="#local-6989586621679304061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304060"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679304060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeStepItem
-</span><a href="#local-6989586621679304061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressPercent:UpgradeStepItem' :: Maybe Double
+</span><a href="#local-6989586621679304071"><span class="hs-identifier hs-var hs-var">progressPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679304071"><span class="hs-identifier hs-var">progressPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304070"><span class="annot"><span class="annottext">s :: UpgradeStepItem
+</span><a href="#local-6989586621679304070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304069"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679304069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeStepItem
+</span><a href="#local-6989586621679304070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressPercent:UpgradeStepItem' :: Maybe Double
 </span><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#%24sel%3AprogressPercent%3AUpgradeStepItem%27"><span class="hs-identifier hs-var">progressPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679304060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-type">UpgradeStepItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-type">UpgradeStepItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | A list of strings containing detailed information about the errors</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- encountered in a particular step.</span><span>
@@ -228,16 +228,16 @@ $sel:progressPercent:UpgradeStepItem' :: UpgradeStepItem -&gt; Maybe Double
 -&gt; Lens
      UpgradeStepItem UpgradeStepItem (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304058"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304067"><span class="annot"><span class="annottext">Maybe [Text]
 issues :: Maybe [Text]
 $sel:issues:UpgradeStepItem' :: UpgradeStepItem -&gt; Maybe [Text]
-</span><a href="#local-6989586621679304058"><span class="hs-identifier hs-var hs-var">issues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304058"><span class="hs-identifier hs-var">issues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304057"><span class="annot"><span class="annottext">s :: UpgradeStepItem
-</span><a href="#local-6989586621679304057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304056"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeStepItem
-</span><a href="#local-6989586621679304057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issues:UpgradeStepItem' :: Maybe [Text]
+</span><a href="#local-6989586621679304067"><span class="hs-identifier hs-var hs-var">issues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304067"><span class="hs-identifier hs-var">issues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304066"><span class="annot"><span class="annottext">s :: UpgradeStepItem
+</span><a href="#local-6989586621679304066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304065"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeStepItem
+</span><a href="#local-6989586621679304066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issues:UpgradeStepItem' :: Maybe [Text]
 </span><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#%24sel%3Aissues%3AUpgradeStepItem%27"><span class="hs-identifier hs-var">issues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-type">UpgradeStepItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679304065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-type">UpgradeStepItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; UpgradeStepItem -&gt; f UpgradeStepItem)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -271,19 +271,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe UpgradeStep)
      (Maybe UpgradeStep)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304051"><span class="annot"><span class="annottext">Maybe UpgradeStep
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304060"><span class="annot"><span class="annottext">Maybe UpgradeStep
 upgradeStep :: Maybe UpgradeStep
 $sel:upgradeStep:UpgradeStepItem' :: UpgradeStepItem -&gt; Maybe UpgradeStep
-</span><a href="#local-6989586621679304051"><span class="hs-identifier hs-var hs-var">upgradeStep</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpgradeStep
-</span><a href="#local-6989586621679304051"><span class="hs-identifier hs-var">upgradeStep</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304050"><span class="annot"><span class="annottext">s :: UpgradeStepItem
-</span><a href="#local-6989586621679304050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304049"><span class="annot"><span class="annottext">Maybe UpgradeStep
-</span><a href="#local-6989586621679304049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeStepItem
-</span><a href="#local-6989586621679304050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upgradeStep:UpgradeStepItem' :: Maybe UpgradeStep
+</span><a href="#local-6989586621679304060"><span class="hs-identifier hs-var hs-var">upgradeStep</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpgradeStep
+</span><a href="#local-6989586621679304060"><span class="hs-identifier hs-var">upgradeStep</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304059"><span class="annot"><span class="annottext">s :: UpgradeStepItem
+</span><a href="#local-6989586621679304059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem%27"><span class="hs-identifier hs-type">UpgradeStepItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304058"><span class="annot"><span class="annottext">Maybe UpgradeStep
+</span><a href="#local-6989586621679304058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeStepItem
+</span><a href="#local-6989586621679304059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upgradeStep:UpgradeStepItem' :: Maybe UpgradeStep
 </span><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#%24sel%3AupgradeStep%3AUpgradeStepItem%27"><span class="hs-identifier hs-var">upgradeStep</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpgradeStep
-</span><a href="#local-6989586621679304049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-type">UpgradeStepItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-type">UpgradeStepItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304046"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-type">UpgradeStepItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679304044"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UpgradeStepItem
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304055"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-type">UpgradeStepItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679304053"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UpgradeStepItem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UpgradeStepItem)
@@ -293,8 +293,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UpgradeStepItem&quot;</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304041"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304041"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304050"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304050"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe UpgradeStatus
 -&gt; Maybe Double
 -&gt; Maybe [Text]
@@ -312,7 +312,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe [Text] -&gt; Maybe UpgradeStep -&gt; UpgradeStepItem)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UpgradeStatus)
+</span><a href="#local-6989586621679304050"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UpgradeStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UpgradeStepStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -323,7 +323,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text] -&gt; Maybe UpgradeStep -&gt; UpgradeStepItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679304050"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProgressPercent&quot;</span></span><span class="hs-special">)</span><span>
@@ -332,7 +332,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe UpgradeStep -&gt; UpgradeStepItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679304050"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Issues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -345,13 +345,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe UpgradeStep) -&gt; Parser UpgradeStepItem
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UpgradeStep)
+</span><a href="#local-6989586621679304050"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UpgradeStep)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UpgradeStep&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304034"><span id="local-6989586621679304036"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-type">UpgradeStepItem</span></a></span></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304043"><span id="local-6989586621679304045"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-type">UpgradeStepItem</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-type">UpgradeStepItem</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304040"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.UpgradeStepItem.html#UpgradeStepItem"><span class="hs-identifier hs-type">UpgradeStepItem</span></a></span></span><span>
 </span><span id="line-140"></span></pre></body></html>

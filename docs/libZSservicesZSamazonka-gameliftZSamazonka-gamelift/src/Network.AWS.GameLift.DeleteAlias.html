@@ -54,13 +54,13 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDeleteAlias' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679459296"><span id="local-6989586621679459297"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlias"><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-var">DeleteAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlias%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias%27"><span class="hs-identifier hs-var">DeleteAlias'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679459305"><span id="local-6989586621679459306"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlias"><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-var">DeleteAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlias%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias%27"><span class="hs-identifier hs-var">DeleteAlias'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier of the alias that you want to delete. You can use</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- either the alias ID or ARN value.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AaliasId%3ADeleteAlias%27"><span class="annot"><span class="annottext">DeleteAlias -&gt; Text
 </span><a href="Network.AWS.GameLift.DeleteAlias.html#%24sel%3AaliasId%3ADeleteAlias%27"><span class="hs-identifier hs-var hs-var">aliasId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459290"><span id="local-6989586621679459292"><span class="annot"><span class="annottext">DeleteAlias -&gt; DeleteAlias -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459299"><span id="local-6989586621679459301"><span class="annot"><span class="annottext">DeleteAlias -&gt; DeleteAlias -&gt; Bool
 (DeleteAlias -&gt; DeleteAlias -&gt; Bool)
 -&gt; (DeleteAlias -&gt; DeleteAlias -&gt; Bool) -&gt; Eq DeleteAlias
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAlias -&gt; DeleteAlias -&gt; Bool
 == :: DeleteAlias -&gt; DeleteAlias -&gt; Bool
 $c== :: DeleteAlias -&gt; DeleteAlias -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459281"><span id="local-6989586621679459283"><span id="local-6989586621679459285"><span id="local-6989586621679459287"><span class="annot"><span class="annottext">ReadPrec [DeleteAlias]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459290"><span id="local-6989586621679459292"><span id="local-6989586621679459294"><span id="local-6989586621679459296"><span class="annot"><span class="annottext">ReadPrec [DeleteAlias]
 ReadPrec DeleteAlias
 Int -&gt; ReadS DeleteAlias
 ReadS [DeleteAlias]
@@ -88,7 +88,7 @@ readList :: ReadS [DeleteAlias]
 $creadList :: ReadS [DeleteAlias]
 readsPrec :: Int -&gt; ReadS DeleteAlias
 $creadsPrec :: Int -&gt; ReadS DeleteAlias
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459274"><span id="local-6989586621679459276"><span id="local-6989586621679459278"><span class="annot"><span class="annottext">Int -&gt; DeleteAlias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459283"><span id="local-6989586621679459285"><span id="local-6989586621679459287"><span class="annot"><span class="annottext">Int -&gt; DeleteAlias -&gt; ShowS
 [DeleteAlias] -&gt; ShowS
 DeleteAlias -&gt; String
 (Int -&gt; DeleteAlias -&gt; ShowS)
@@ -129,12 +129,12 @@ $cfrom :: forall x. DeleteAlias -&gt; Rep DeleteAlias x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-type">DeleteAlias</span></a></span><span>
 </span><span id="line-78"></span><span id="newDeleteAlias"><span class="annot"><span class="annottext">newDeleteAlias :: Text -&gt; DeleteAlias
-</span><a href="Network.AWS.GameLift.DeleteAlias.html#newDeleteAlias"><span class="hs-identifier hs-var hs-var">newDeleteAlias</span></a></span></span><span> </span><span id="local-6989586621679459269"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459269"><span class="hs-identifier hs-var">pAliasId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DeleteAlias.html#newDeleteAlias"><span class="hs-identifier hs-var hs-var">newDeleteAlias</span></a></span></span><span> </span><span id="local-6989586621679459278"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459278"><span class="hs-identifier hs-var">pAliasId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DeleteAlias' :: Text -&gt; DeleteAlias
 </span><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias%27"><span class="hs-identifier hs-type">DeleteAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasId:DeleteAlias' :: Text
 </span><a href="Network.AWS.GameLift.DeleteAlias.html#%24sel%3AaliasId%3ADeleteAlias%27"><span class="hs-identifier hs-var">aliasId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459269"><span class="hs-identifier hs-var">pAliasId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679459278"><span class="hs-identifier hs-var">pAliasId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | A unique identifier of the alias that you want to delete. You can use</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- either the alias ID or ARN value.</span><span>
@@ -144,25 +144,25 @@ $cfrom :: forall x. DeleteAlias -&gt; Rep DeleteAlias x
 -&gt; (DeleteAlias -&gt; Text -&gt; DeleteAlias)
 -&gt; Lens DeleteAlias DeleteAlias Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias%27"><span class="hs-identifier hs-type">DeleteAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459266"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias%27"><span class="hs-identifier hs-type">DeleteAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459275"><span class="annot"><span class="annottext">Text
 aliasId :: Text
 $sel:aliasId:DeleteAlias' :: DeleteAlias -&gt; Text
-</span><a href="#local-6989586621679459266"><span class="hs-identifier hs-var hs-var">aliasId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459266"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459265"><span class="annot"><span class="annottext">s :: DeleteAlias
-</span><a href="#local-6989586621679459265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias%27"><span class="hs-identifier hs-type">DeleteAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459264"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlias
-</span><a href="#local-6989586621679459265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasId:DeleteAlias' :: Text
+</span><a href="#local-6989586621679459275"><span class="hs-identifier hs-var hs-var">aliasId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459275"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459274"><span class="annot"><span class="annottext">s :: DeleteAlias
+</span><a href="#local-6989586621679459274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias%27"><span class="hs-identifier hs-type">DeleteAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459273"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlias
+</span><a href="#local-6989586621679459274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasId:DeleteAlias' :: Text
 </span><a href="Network.AWS.GameLift.DeleteAlias.html#%24sel%3AaliasId%3ADeleteAlias%27"><span class="hs-identifier hs-var">aliasId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-type">DeleteAlias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-type">DeleteAlias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-type">DeleteAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-type">DeleteAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAliasResponse"><span class="hs-identifier hs-type">DeleteAliasResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679459260"><span class="annot"><span class="annottext">request :: DeleteAlias -&gt; Request DeleteAlias
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679459269"><span class="annot"><span class="annottext">request :: DeleteAlias -&gt; Request DeleteAlias
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAlias -&gt; Request DeleteAlias
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679459256"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679459265"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteAlias
 -&gt; ClientResponse ClientBody
@@ -185,12 +185,12 @@ AWSResponse a
 DeleteAliasResponse
 </span><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAliasResponse%27"><span class="hs-identifier hs-var">DeleteAliasResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459249"><span id="local-6989586621679459251"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-type">DeleteAlias</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459258"><span id="local-6989586621679459260"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-type">DeleteAlias</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459246"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-type">DeleteAlias</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459255"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-type">DeleteAlias</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-type">DeleteAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679459242"><span class="annot"><span class="annottext">toHeaders :: DeleteAlias -&gt; [Header]
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679459251"><span class="annot"><span class="annottext">toHeaders :: DeleteAlias -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteAlias -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -215,12 +215,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459232"><span id="local-6989586621679459234"><span id="local-6989586621679459236"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-type">DeleteAlias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679459230"><span class="annot"><span class="annottext">toJSON :: DeleteAlias -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias%27"><span class="hs-identifier hs-type">DeleteAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459228"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459241"><span id="local-6989586621679459243"><span id="local-6989586621679459245"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-type">DeleteAlias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679459239"><span class="annot"><span class="annottext">toJSON :: DeleteAlias -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias%27"><span class="hs-identifier hs-type">DeleteAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459237"><span class="annot"><span class="annottext">Text
 aliasId :: Text
 $sel:aliasId:DeleteAlias' :: DeleteAlias -&gt; Text
-</span><a href="#local-6989586621679459228"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679459237"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -232,18 +232,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AliasId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459228"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679459237"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-type">DeleteAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679459222"><span class="annot"><span class="annottext">toPath :: DeleteAlias -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679459231"><span class="annot"><span class="annottext">toPath :: DeleteAlias -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteAlias -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAlias"><span class="hs-identifier hs-type">DeleteAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679459218"><span class="annot"><span class="annottext">toQuery :: DeleteAlias -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679459227"><span class="annot"><span class="annottext">toQuery :: DeleteAlias -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteAlias -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -251,10 +251,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newDeleteAliasResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679459215"><span id="local-6989586621679459216"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAliasResponse"><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAliasResponse"><span class="hs-identifier hs-var">DeleteAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAliasResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAliasResponse%27"><span class="hs-identifier hs-var">DeleteAliasResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679459224"><span id="local-6989586621679459225"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAliasResponse"><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAliasResponse"><span class="hs-identifier hs-var">DeleteAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAliasResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAliasResponse%27"><span class="hs-identifier hs-var">DeleteAliasResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459211"><span id="local-6989586621679459213"><span class="annot"><span class="annottext">DeleteAliasResponse -&gt; DeleteAliasResponse -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459220"><span id="local-6989586621679459222"><span class="annot"><span class="annottext">DeleteAliasResponse -&gt; DeleteAliasResponse -&gt; Bool
 (DeleteAliasResponse -&gt; DeleteAliasResponse -&gt; Bool)
 -&gt; (DeleteAliasResponse -&gt; DeleteAliasResponse -&gt; Bool)
 -&gt; Eq DeleteAliasResponse
@@ -263,7 +263,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAliasResponse -&gt; DeleteAliasResponse -&gt; Bool
 == :: DeleteAliasResponse -&gt; DeleteAliasResponse -&gt; Bool
 $c== :: DeleteAliasResponse -&gt; DeleteAliasResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459203"><span id="local-6989586621679459205"><span id="local-6989586621679459207"><span id="local-6989586621679459209"><span class="annot"><span class="annottext">ReadPrec [DeleteAliasResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459212"><span id="local-6989586621679459214"><span id="local-6989586621679459216"><span id="local-6989586621679459218"><span class="annot"><span class="annottext">ReadPrec [DeleteAliasResponse]
 ReadPrec DeleteAliasResponse
 Int -&gt; ReadS DeleteAliasResponse
 ReadS [DeleteAliasResponse]
@@ -283,7 +283,7 @@ readList :: ReadS [DeleteAliasResponse]
 $creadList :: ReadS [DeleteAliasResponse]
 readsPrec :: Int -&gt; ReadS DeleteAliasResponse
 $creadsPrec :: Int -&gt; ReadS DeleteAliasResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459197"><span id="local-6989586621679459199"><span id="local-6989586621679459201"><span class="annot"><span class="annottext">Int -&gt; DeleteAliasResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459206"><span id="local-6989586621679459208"><span id="local-6989586621679459210"><span class="annot"><span class="annottext">Int -&gt; DeleteAliasResponse -&gt; ShowS
 [DeleteAliasResponse] -&gt; ShowS
 DeleteAliasResponse -&gt; String
 (Int -&gt; DeleteAliasResponse -&gt; ShowS)
@@ -319,5 +319,5 @@ $cfrom :: forall x. DeleteAliasResponse -&gt; Rep DeleteAliasResponse x
 </span><a href="Network.AWS.GameLift.DeleteAlias.html#newDeleteAliasResponse"><span class="hs-identifier hs-var hs-var">newDeleteAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteAliasResponse
 </span><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAliasResponse%27"><span class="hs-identifier hs-var">DeleteAliasResponse'</span></a></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459193"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAliasResponse"><span class="hs-identifier hs-type">DeleteAliasResponse</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteAlias.html#DeleteAliasResponse"><span class="hs-identifier hs-type">DeleteAliasResponse</span></a></span></span><span>
 </span><span id="line-136"></span></pre></body></html>

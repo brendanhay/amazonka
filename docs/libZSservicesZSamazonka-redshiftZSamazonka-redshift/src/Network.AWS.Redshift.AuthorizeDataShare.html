@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newAuthorizeDataShare' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679529541"><span id="local-6989586621679529542"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizeDataShare"><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-var">AuthorizeDataShare</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizeDataShare%27"><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare%27"><span class="hs-identifier hs-var">AuthorizeDataShare'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679529550"><span id="local-6989586621679529551"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizeDataShare"><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-var">AuthorizeDataShare</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizeDataShare%27"><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare%27"><span class="hs-identifier hs-var">AuthorizeDataShare'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the datashare that producers are to</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- authorize sharing for.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdataShareArn%3AAuthorizeDataShare%27"><span class="annot"><span class="annottext">AuthorizeDataShare -&gt; Text
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AconsumerIdentifier%3AAuthorizeDataShare%27"><span class="annot"><span class="annottext">AuthorizeDataShare -&gt; Text
 </span><a href="Network.AWS.Redshift.AuthorizeDataShare.html#%24sel%3AconsumerIdentifier%3AAuthorizeDataShare%27"><span class="hs-identifier hs-var hs-var">consumerIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679529534"><span id="local-6989586621679529536"><span class="annot"><span class="annottext">AuthorizeDataShare -&gt; AuthorizeDataShare -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679529543"><span id="local-6989586621679529545"><span class="annot"><span class="annottext">AuthorizeDataShare -&gt; AuthorizeDataShare -&gt; Bool
 (AuthorizeDataShare -&gt; AuthorizeDataShare -&gt; Bool)
 -&gt; (AuthorizeDataShare -&gt; AuthorizeDataShare -&gt; Bool)
 -&gt; Eq AuthorizeDataShare
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AuthorizeDataShare -&gt; AuthorizeDataShare -&gt; Bool
 == :: AuthorizeDataShare -&gt; AuthorizeDataShare -&gt; Bool
 $c== :: AuthorizeDataShare -&gt; AuthorizeDataShare -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529525"><span id="local-6989586621679529527"><span id="local-6989586621679529529"><span id="local-6989586621679529531"><span class="annot"><span class="annottext">ReadPrec [AuthorizeDataShare]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529534"><span id="local-6989586621679529536"><span id="local-6989586621679529538"><span id="local-6989586621679529540"><span class="annot"><span class="annottext">ReadPrec [AuthorizeDataShare]
 ReadPrec AuthorizeDataShare
 Int -&gt; ReadS AuthorizeDataShare
 ReadS [AuthorizeDataShare]
@@ -91,7 +91,7 @@ readList :: ReadS [AuthorizeDataShare]
 $creadList :: ReadS [AuthorizeDataShare]
 readsPrec :: Int -&gt; ReadS AuthorizeDataShare
 $creadsPrec :: Int -&gt; ReadS AuthorizeDataShare
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529518"><span id="local-6989586621679529520"><span id="local-6989586621679529522"><span class="annot"><span class="annottext">Int -&gt; AuthorizeDataShare -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529527"><span id="local-6989586621679529529"><span id="local-6989586621679529531"><span class="annot"><span class="annottext">Int -&gt; AuthorizeDataShare -&gt; ShowS
 [AuthorizeDataShare] -&gt; ShowS
 AuthorizeDataShare -&gt; String
 (Int -&gt; AuthorizeDataShare -&gt; ShowS)
@@ -138,18 +138,18 @@ $cfrom :: forall x. AuthorizeDataShare -&gt; Rep AuthorizeDataShare x
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-type">AuthorizeDataShare</span></a></span><span>
 </span><span id="line-84"></span><span id="newAuthorizeDataShare"><span class="annot"><span class="annottext">newAuthorizeDataShare :: Text -&gt; Text -&gt; AuthorizeDataShare
 </span><a href="Network.AWS.Redshift.AuthorizeDataShare.html#newAuthorizeDataShare"><span class="hs-identifier hs-var hs-var">newAuthorizeDataShare</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679529513"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529513"><span class="hs-identifier hs-var">pDataShareArn_</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679529512"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529512"><span class="hs-identifier hs-var">pConsumerIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679529522"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529522"><span class="hs-identifier hs-var">pDataShareArn_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679529521"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529521"><span class="hs-identifier hs-var">pConsumerIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">AuthorizeDataShare' :: Text -&gt; Text -&gt; AuthorizeDataShare
 </span><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare%27"><span class="hs-identifier hs-type">AuthorizeDataShare'</span></a></span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataShareArn:AuthorizeDataShare' :: Text
 </span><a href="Network.AWS.Redshift.AuthorizeDataShare.html#%24sel%3AdataShareArn%3AAuthorizeDataShare%27"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529513"><span class="hs-identifier hs-var">pDataShareArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679529522"><span class="hs-identifier hs-var">pDataShareArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:consumerIdentifier:AuthorizeDataShare' :: Text
 </span><a href="Network.AWS.Redshift.AuthorizeDataShare.html#%24sel%3AconsumerIdentifier%3AAuthorizeDataShare%27"><span class="hs-identifier hs-var">consumerIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529512"><span class="hs-identifier hs-var">pConsumerIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679529521"><span class="hs-identifier hs-var">pConsumerIdentifier_</span></a></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the datashare that producers are to</span><span>
@@ -160,16 +160,16 @@ $cfrom :: forall x. AuthorizeDataShare -&gt; Rep AuthorizeDataShare x
 -&gt; (AuthorizeDataShare -&gt; Text -&gt; AuthorizeDataShare)
 -&gt; Lens AuthorizeDataShare AuthorizeDataShare Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare%27"><span class="hs-identifier hs-type">AuthorizeDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529509"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare%27"><span class="hs-identifier hs-type">AuthorizeDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529518"><span class="annot"><span class="annottext">Text
 dataShareArn :: Text
 $sel:dataShareArn:AuthorizeDataShare' :: AuthorizeDataShare -&gt; Text
-</span><a href="#local-6989586621679529509"><span class="hs-identifier hs-var hs-var">dataShareArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529509"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529508"><span class="annot"><span class="annottext">s :: AuthorizeDataShare
-</span><a href="#local-6989586621679529508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare%27"><span class="hs-identifier hs-type">AuthorizeDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529507"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDataShare
-</span><a href="#local-6989586621679529508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataShareArn:AuthorizeDataShare' :: Text
+</span><a href="#local-6989586621679529518"><span class="hs-identifier hs-var hs-var">dataShareArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529518"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529517"><span class="annot"><span class="annottext">s :: AuthorizeDataShare
+</span><a href="#local-6989586621679529517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare%27"><span class="hs-identifier hs-type">AuthorizeDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529516"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDataShare
+</span><a href="#local-6989586621679529517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataShareArn:AuthorizeDataShare' :: Text
 </span><a href="Network.AWS.Redshift.AuthorizeDataShare.html#%24sel%3AdataShareArn%3AAuthorizeDataShare%27"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-type">AuthorizeDataShare</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679529516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-type">AuthorizeDataShare</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The identifier of the data consumer that is authorized to access the</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- datashare. This identifier is an AWS account ID.</span><span>
@@ -179,25 +179,25 @@ $sel:dataShareArn:AuthorizeDataShare' :: AuthorizeDataShare -&gt; Text
 -&gt; (AuthorizeDataShare -&gt; Text -&gt; AuthorizeDataShare)
 -&gt; Lens AuthorizeDataShare AuthorizeDataShare Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare%27"><span class="hs-identifier hs-type">AuthorizeDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529506"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare%27"><span class="hs-identifier hs-type">AuthorizeDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529515"><span class="annot"><span class="annottext">Text
 consumerIdentifier :: Text
 $sel:consumerIdentifier:AuthorizeDataShare' :: AuthorizeDataShare -&gt; Text
-</span><a href="#local-6989586621679529506"><span class="hs-identifier hs-var hs-var">consumerIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529506"><span class="hs-identifier hs-var">consumerIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529505"><span class="annot"><span class="annottext">s :: AuthorizeDataShare
-</span><a href="#local-6989586621679529505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare%27"><span class="hs-identifier hs-type">AuthorizeDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529504"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDataShare
-</span><a href="#local-6989586621679529505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerIdentifier:AuthorizeDataShare' :: Text
+</span><a href="#local-6989586621679529515"><span class="hs-identifier hs-var hs-var">consumerIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529515"><span class="hs-identifier hs-var">consumerIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529514"><span class="annot"><span class="annottext">s :: AuthorizeDataShare
+</span><a href="#local-6989586621679529514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare%27"><span class="hs-identifier hs-type">AuthorizeDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529513"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDataShare
+</span><a href="#local-6989586621679529514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerIdentifier:AuthorizeDataShare' :: Text
 </span><a href="Network.AWS.Redshift.AuthorizeDataShare.html#%24sel%3AconsumerIdentifier%3AAuthorizeDataShare%27"><span class="hs-identifier hs-var">consumerIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-type">AuthorizeDataShare</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679529513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-type">AuthorizeDataShare</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-type">AuthorizeDataShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-type">AuthorizeDataShare</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679529500"><span class="annot"><span class="annottext">request :: AuthorizeDataShare -&gt; Request AuthorizeDataShare
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679529509"><span class="annot"><span class="annottext">request :: AuthorizeDataShare -&gt; Request AuthorizeDataShare
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AuthorizeDataShare -&gt; Request AuthorizeDataShare
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679529496"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679529505"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AuthorizeDataShare
 -&gt; ClientResponse ClientBody
@@ -228,20 +228,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AuthorizeDataShareResult&quot;</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529493"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679529493"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679529492"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679529492"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679529491"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679529491"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String DataShare
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529502"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679529502"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679529501"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679529501"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679529500"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679529500"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String DataShare
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679529491"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679529500"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529486"><span id="local-6989586621679529488"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-type">AuthorizeDataShare</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529495"><span id="local-6989586621679529497"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-type">AuthorizeDataShare</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529483"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-type">AuthorizeDataShare</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529492"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-type">AuthorizeDataShare</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-type">AuthorizeDataShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679529479"><span class="annot"><span class="annottext">toHeaders :: AuthorizeDataShare -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679529488"><span class="annot"><span class="annottext">toHeaders :: AuthorizeDataShare -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AuthorizeDataShare -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -249,20 +249,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-type">AuthorizeDataShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679529474"><span class="annot"><span class="annottext">toPath :: AuthorizeDataShare -&gt; ByteString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679529483"><span class="annot"><span class="annottext">toPath :: AuthorizeDataShare -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AuthorizeDataShare -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare"><span class="hs-identifier hs-type">AuthorizeDataShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679529470"><span class="annot"><span class="annottext">toQuery :: AuthorizeDataShare -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare%27"><span class="hs-identifier hs-type">AuthorizeDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529467"><span id="local-6989586621679529468"><span class="annot"><span class="annottext">Text
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679529479"><span class="annot"><span class="annottext">toQuery :: AuthorizeDataShare -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeDataShare.html#AuthorizeDataShare%27"><span class="hs-identifier hs-type">AuthorizeDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529476"><span id="local-6989586621679529477"><span class="annot"><span class="annottext">Text
 consumerIdentifier :: Text
 dataShareArn :: Text
 $sel:consumerIdentifier:AuthorizeDataShare' :: AuthorizeDataShare -&gt; Text
 $sel:dataShareArn:AuthorizeDataShare' :: AuthorizeDataShare -&gt; Text
-</span><a href="#local-6989586621679529467"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679529476"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -282,11 +282,11 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DataShareArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529468"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679529477"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ConsumerIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529467"><span class="hs-identifier hs-var">consumerIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679529476"><span class="hs-identifier hs-var">consumerIdentifier</span></a></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span></pre></body></html>

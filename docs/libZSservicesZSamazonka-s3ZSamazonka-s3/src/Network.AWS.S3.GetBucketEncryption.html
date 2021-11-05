@@ -68,7 +68,7 @@
 </span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newGetBucketEncryption' smart constructor.</span><span>
-</span><span id="line-71"></span><span id="local-6989586621679577357"><span id="local-6989586621679577358"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketEncryption"><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-var">GetBucketEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketEncryption%27"><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-var">GetBucketEncryption'</span></a></span></span><span>
+</span><span id="line-71"></span><span id="local-6989586621679577366"><span id="local-6989586621679577367"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketEncryption"><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-var">GetBucketEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketEncryption%27"><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-var">GetBucketEncryption'</span></a></span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3Abucket%3AGetBucketEncryption%27"><span class="annot"><span class="annottext">GetBucketEncryption -&gt; BucketName
 </span><a href="Network.AWS.S3.GetBucketEncryption.html#%24sel%3Abucket%3AGetBucketEncryption%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679577350"><span id="local-6989586621679577352"><span class="annot"><span class="annottext">GetBucketEncryption -&gt; GetBucketEncryption -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679577359"><span id="local-6989586621679577361"><span class="annot"><span class="annottext">GetBucketEncryption -&gt; GetBucketEncryption -&gt; Bool
 (GetBucketEncryption -&gt; GetBucketEncryption -&gt; Bool)
 -&gt; (GetBucketEncryption -&gt; GetBucketEncryption -&gt; Bool)
 -&gt; Eq GetBucketEncryption
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBucketEncryption -&gt; GetBucketEncryption -&gt; Bool
 == :: GetBucketEncryption -&gt; GetBucketEncryption -&gt; Bool
 $c== :: GetBucketEncryption -&gt; GetBucketEncryption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577341"><span id="local-6989586621679577343"><span id="local-6989586621679577345"><span id="local-6989586621679577347"><span class="annot"><span class="annottext">ReadPrec [GetBucketEncryption]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577350"><span id="local-6989586621679577352"><span id="local-6989586621679577354"><span id="local-6989586621679577356"><span class="annot"><span class="annottext">ReadPrec [GetBucketEncryption]
 ReadPrec GetBucketEncryption
 Int -&gt; ReadS GetBucketEncryption
 ReadS [GetBucketEncryption]
@@ -108,7 +108,7 @@ readList :: ReadS [GetBucketEncryption]
 $creadList :: ReadS [GetBucketEncryption]
 readsPrec :: Int -&gt; ReadS GetBucketEncryption
 $creadsPrec :: Int -&gt; ReadS GetBucketEncryption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577334"><span id="local-6989586621679577336"><span id="local-6989586621679577338"><span class="annot"><span class="annottext">Int -&gt; GetBucketEncryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577343"><span id="local-6989586621679577345"><span id="local-6989586621679577347"><span class="annot"><span class="annottext">Int -&gt; GetBucketEncryption -&gt; ShowS
 [GetBucketEncryption] -&gt; ShowS
 GetBucketEncryption -&gt; String
 (Int -&gt; GetBucketEncryption -&gt; ShowS)
@@ -153,8 +153,8 @@ $cfrom :: forall x. GetBucketEncryption -&gt; Rep GetBucketEncryption x
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-type">GetBucketEncryption</span></a></span><span>
 </span><span id="line-100"></span><span id="newGetBucketEncryption"><span class="annot"><span class="annottext">newGetBucketEncryption :: BucketName -&gt; GetBucketEncryption
-</span><a href="Network.AWS.S3.GetBucketEncryption.html#newGetBucketEncryption"><span class="hs-identifier hs-var hs-var">newGetBucketEncryption</span></a></span></span><span> </span><span id="local-6989586621679577329"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577329"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetBucketEncryption.html#newGetBucketEncryption"><span class="hs-identifier hs-var hs-var">newGetBucketEncryption</span></a></span></span><span> </span><span id="local-6989586621679577338"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679577338"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">GetBucketEncryption' :: Maybe Text -&gt; BucketName -&gt; GetBucketEncryption
 </span><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-type">GetBucketEncryption'</span></a></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketEncryption' :: Maybe Text
@@ -164,7 +164,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:GetBucketEncryption' :: BucketName
 </span><a href="Network.AWS.S3.GetBucketEncryption.html#%24sel%3Abucket%3AGetBucketEncryption%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577329"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><a href="#local-6989586621679577338"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
@@ -178,16 +178,16 @@ forall a. Maybe a
 -&gt; Lens
      GetBucketEncryption GetBucketEncryption (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-type">GetBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577326"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-type">GetBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577335"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:GetBucketEncryption' :: GetBucketEncryption -&gt; Maybe Text
-</span><a href="#local-6989586621679577326"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577326"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577325"><span class="annot"><span class="annottext">s :: GetBucketEncryption
-</span><a href="#local-6989586621679577325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-type">GetBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577324"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketEncryption
-</span><a href="#local-6989586621679577325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketEncryption' :: Maybe Text
+</span><a href="#local-6989586621679577335"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679577335"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577334"><span class="annot"><span class="annottext">s :: GetBucketEncryption
+</span><a href="#local-6989586621679577334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-type">GetBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577333"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679577333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketEncryption
+</span><a href="#local-6989586621679577334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketEncryption' :: Maybe Text
 </span><a href="Network.AWS.S3.GetBucketEncryption.html#%24sel%3AexpectedBucketOwner%3AGetBucketEncryption%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-type">GetBucketEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-type">GetBucketEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The name of the bucket from which the server-side encryption</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- configuration is retrieved.</span><span>
@@ -199,22 +199,22 @@ $sel:expectedBucketOwner:GetBucketEncryption' :: GetBucketEncryption -&gt; Maybe
 -&gt; Lens
      GetBucketEncryption GetBucketEncryption BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-type">GetBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577323"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-type">GetBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577332"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:GetBucketEncryption' :: GetBucketEncryption -&gt; BucketName
-</span><a href="#local-6989586621679577323"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577323"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577322"><span class="annot"><span class="annottext">s :: GetBucketEncryption
-</span><a href="#local-6989586621679577322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-type">GetBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577321"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketEncryption
-</span><a href="#local-6989586621679577322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetBucketEncryption' :: BucketName
+</span><a href="#local-6989586621679577332"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679577332"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577331"><span class="annot"><span class="annottext">s :: GetBucketEncryption
+</span><a href="#local-6989586621679577331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-type">GetBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577330"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679577330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketEncryption
+</span><a href="#local-6989586621679577331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetBucketEncryption' :: BucketName
 </span><a href="Network.AWS.S3.GetBucketEncryption.html#%24sel%3Abucket%3AGetBucketEncryption%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-type">GetBucketEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-type">GetBucketEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-type">GetBucketEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-120"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-type">GetBucketEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse"><span class="hs-identifier hs-type">GetBucketEncryptionResponse</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679577317"><span class="annot"><span class="annottext">request :: GetBucketEncryption -&gt; Request GetBucketEncryption
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679577326"><span class="annot"><span class="annottext">request :: GetBucketEncryption -&gt; Request GetBucketEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">Request GetBucketEncryption -&gt; Request GetBucketEncryption
 forall a. Request a -&gt; Request a
@@ -228,7 +228,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679577311"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679577320"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetBucketEncryption
 -&gt; ClientResponse ClientBody
@@ -254,10 +254,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679577308"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577308"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679577307"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679577307"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679577306"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679577306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679577317"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679577317"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679577316"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679577316"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679577315"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679577315"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServerSideEncryptionConfiguration
 -&gt; Int -&gt; GetBucketEncryptionResponse
 </span><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse%27"><span class="hs-identifier hs-var">GetBucketEncryptionResponse'</span></a></span><span>
@@ -269,7 +269,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe ServerSideEncryptionConfiguration)
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679577306"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577315"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetBucketEncryptionResponse)
 -&gt; Either String Int -&gt; Either String GetBucketEncryptionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -278,22 +278,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577308"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577317"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577298"><span id="local-6989586621679577300"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-type">GetBucketEncryption</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577307"><span id="local-6989586621679577309"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-type">GetBucketEncryption</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-type">GetBucketEncryption</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577304"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-type">GetBucketEncryption</span></a></span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-type">GetBucketEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679577291"><span class="annot"><span class="annottext">toHeaders :: GetBucketEncryption -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-type">GetBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577288"><span id="local-6989586621679577289"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679577300"><span class="annot"><span class="annottext">toHeaders :: GetBucketEncryption -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-type">GetBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577297"><span id="local-6989586621679577298"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:GetBucketEncryption' :: GetBucketEncryption -&gt; BucketName
 $sel:expectedBucketOwner:GetBucketEncryption' :: GetBucketEncryption -&gt; Maybe Text
-</span><a href="#local-6989586621679577288"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679577297"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -302,28 +302,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577289"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679577298"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-type">GetBucketEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679577284"><span class="annot"><span class="annottext">toPath :: GetBucketEncryption -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-type">GetBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577281"><span id="local-6989586621679577282"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679577293"><span class="annot"><span class="annottext">toPath :: GetBucketEncryption -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption%27"><span class="hs-identifier hs-type">GetBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577290"><span id="local-6989586621679577291"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:GetBucketEncryption' :: GetBucketEncryption -&gt; BucketName
 $sel:expectedBucketOwner:GetBucketEncryption' :: GetBucketEncryption -&gt; Maybe Text
-</span><a href="#local-6989586621679577281"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679577290"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577281"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679577290"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryption"><span class="hs-identifier hs-type">GetBucketEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679577277"><span class="annot"><span class="annottext">toQuery :: GetBucketEncryption -&gt; QueryString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679577286"><span class="annot"><span class="annottext">toQuery :: GetBucketEncryption -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; GetBucketEncryption -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -333,7 +333,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;encryption&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | /See:/ 'newGetBucketEncryptionResponse' smart constructor.</span><span>
-</span><span id="line-153"></span><span id="local-6989586621679577273"><span id="local-6989586621679577274"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketEncryptionResponse"><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse"><span class="hs-identifier hs-var">GetBucketEncryptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketEncryptionResponse%27"><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse%27"><span class="hs-identifier hs-var">GetBucketEncryptionResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span id="local-6989586621679577282"><span id="local-6989586621679577283"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketEncryptionResponse"><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse"><span class="hs-identifier hs-var">GetBucketEncryptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketEncryptionResponse%27"><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse%27"><span class="hs-identifier hs-var">GetBucketEncryptionResponse'</span></a></span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AserverSideEncryptionConfiguration%3AGetBucketEncryptionResponse%27"><span class="annot"><span class="annottext">GetBucketEncryptionResponse
 -&gt; Maybe ServerSideEncryptionConfiguration
 </span><a href="Network.AWS.S3.GetBucketEncryption.html#%24sel%3AserverSideEncryptionConfiguration%3AGetBucketEncryptionResponse%27"><span class="hs-identifier hs-var hs-var">serverSideEncryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
@@ -341,7 +341,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBucketEncryptionResponse%27"><span class="annot"><span class="annottext">GetBucketEncryptionResponse -&gt; Int
 </span><a href="Network.AWS.S3.GetBucketEncryption.html#%24sel%3AhttpStatus%3AGetBucketEncryptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679577267"><span id="local-6989586621679577269"><span class="annot"><span class="annottext">GetBucketEncryptionResponse -&gt; GetBucketEncryptionResponse -&gt; Bool
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679577276"><span id="local-6989586621679577278"><span class="annot"><span class="annottext">GetBucketEncryptionResponse -&gt; GetBucketEncryptionResponse -&gt; Bool
 (GetBucketEncryptionResponse
  -&gt; GetBucketEncryptionResponse -&gt; Bool)
 -&gt; (GetBucketEncryptionResponse
@@ -352,7 +352,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBucketEncryptionResponse -&gt; GetBucketEncryptionResponse -&gt; Bool
 == :: GetBucketEncryptionResponse -&gt; GetBucketEncryptionResponse -&gt; Bool
 $c== :: GetBucketEncryptionResponse -&gt; GetBucketEncryptionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577261"><span id="local-6989586621679577263"><span id="local-6989586621679577265"><span class="annot"><span class="annottext">Int -&gt; GetBucketEncryptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577270"><span id="local-6989586621679577272"><span id="local-6989586621679577274"><span class="annot"><span class="annottext">Int -&gt; GetBucketEncryptionResponse -&gt; ShowS
 [GetBucketEncryptionResponse] -&gt; ShowS
 GetBucketEncryptionResponse -&gt; String
 (Int -&gt; GetBucketEncryptionResponse -&gt; ShowS)
@@ -400,8 +400,8 @@ GetBucketEncryptionResponse -&gt; Rep GetBucketEncryptionResponse x
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse"><span class="hs-identifier hs-type">GetBucketEncryptionResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newGetBucketEncryptionResponse"><span class="annot"><span class="annottext">newGetBucketEncryptionResponse :: Int -&gt; GetBucketEncryptionResponse
-</span><a href="Network.AWS.S3.GetBucketEncryption.html#newGetBucketEncryptionResponse"><span class="hs-identifier hs-var hs-var">newGetBucketEncryptionResponse</span></a></span></span><span> </span><span id="local-6989586621679577258"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetBucketEncryption.html#newGetBucketEncryptionResponse"><span class="hs-identifier hs-var hs-var">newGetBucketEncryptionResponse</span></a></span></span><span> </span><span id="local-6989586621679577267"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679577267"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">GetBucketEncryptionResponse' :: Maybe ServerSideEncryptionConfiguration
 -&gt; Int -&gt; GetBucketEncryptionResponse
 </span><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse%27"><span class="hs-identifier hs-type">GetBucketEncryptionResponse'</span></a></span><span>
@@ -412,7 +412,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketEncryptionResponse' :: Int
 </span><a href="Network.AWS.S3.GetBucketEncryption.html#%24sel%3AhttpStatus%3AGetBucketEncryptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679577267"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -431,17 +431,17 @@ forall a. Maybe a
      (Maybe ServerSideEncryptionConfiguration)
      (Maybe ServerSideEncryptionConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse%27"><span class="hs-identifier hs-type">GetBucketEncryptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577257"><span class="annot"><span class="annottext">Maybe ServerSideEncryptionConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse%27"><span class="hs-identifier hs-type">GetBucketEncryptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577266"><span class="annot"><span class="annottext">Maybe ServerSideEncryptionConfiguration
 serverSideEncryptionConfiguration :: Maybe ServerSideEncryptionConfiguration
 $sel:serverSideEncryptionConfiguration:GetBucketEncryptionResponse' :: GetBucketEncryptionResponse
 -&gt; Maybe ServerSideEncryptionConfiguration
-</span><a href="#local-6989586621679577257"><span class="hs-identifier hs-var hs-var">serverSideEncryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServerSideEncryptionConfiguration
-</span><a href="#local-6989586621679577257"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577256"><span class="annot"><span class="annottext">s :: GetBucketEncryptionResponse
-</span><a href="#local-6989586621679577256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse%27"><span class="hs-identifier hs-type">GetBucketEncryptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577255"><span class="annot"><span class="annottext">Maybe ServerSideEncryptionConfiguration
-</span><a href="#local-6989586621679577255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketEncryptionResponse
-</span><a href="#local-6989586621679577256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverSideEncryptionConfiguration:GetBucketEncryptionResponse' :: Maybe ServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679577266"><span class="hs-identifier hs-var hs-var">serverSideEncryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679577266"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577265"><span class="annot"><span class="annottext">s :: GetBucketEncryptionResponse
+</span><a href="#local-6989586621679577265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse%27"><span class="hs-identifier hs-type">GetBucketEncryptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577264"><span class="annot"><span class="annottext">Maybe ServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679577264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketEncryptionResponse
+</span><a href="#local-6989586621679577265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverSideEncryptionConfiguration:GetBucketEncryptionResponse' :: Maybe ServerSideEncryptionConfiguration
 </span><a href="Network.AWS.S3.GetBucketEncryption.html#%24sel%3AserverSideEncryptionConfiguration%3AGetBucketEncryptionResponse%27"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServerSideEncryptionConfiguration
-</span><a href="#local-6989586621679577255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse"><span class="hs-identifier hs-type">GetBucketEncryptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse"><span class="hs-identifier hs-type">GetBucketEncryptionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#getBucketEncryptionResponse_httpStatus"><span class="hs-identifier hs-type">getBucketEncryptionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse"><span class="hs-identifier hs-type">GetBucketEncryptionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -453,16 +453,16 @@ $sel:serverSideEncryptionConfiguration:GetBucketEncryptionResponse' :: GetBucket
 -&gt; Lens
      GetBucketEncryptionResponse GetBucketEncryptionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse%27"><span class="hs-identifier hs-type">GetBucketEncryptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577254"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse%27"><span class="hs-identifier hs-type">GetBucketEncryptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577263"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetBucketEncryptionResponse' :: GetBucketEncryptionResponse -&gt; Int
-</span><a href="#local-6989586621679577254"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577254"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577253"><span class="annot"><span class="annottext">s :: GetBucketEncryptionResponse
-</span><a href="#local-6989586621679577253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse%27"><span class="hs-identifier hs-type">GetBucketEncryptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577252"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketEncryptionResponse
-</span><a href="#local-6989586621679577253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketEncryptionResponse' :: Int
+</span><a href="#local-6989586621679577263"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679577263"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577262"><span class="annot"><span class="annottext">s :: GetBucketEncryptionResponse
+</span><a href="#local-6989586621679577262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse%27"><span class="hs-identifier hs-type">GetBucketEncryptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577261"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679577261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketEncryptionResponse
+</span><a href="#local-6989586621679577262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketEncryptionResponse' :: Int
 </span><a href="Network.AWS.S3.GetBucketEncryption.html#%24sel%3AhttpStatus%3AGetBucketEncryptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse"><span class="hs-identifier hs-type">GetBucketEncryptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse"><span class="hs-identifier hs-type">GetBucketEncryptionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse"><span class="hs-identifier hs-type">GetBucketEncryptionResponse</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketEncryption.html#GetBucketEncryptionResponse"><span class="hs-identifier hs-type">GetBucketEncryptionResponse</span></a></span></span><span>
 </span><span id="line-191"></span></pre></body></html>

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about an Automation failure.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newFailureDetails' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679795105"><span id="local-6989586621679795106"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailureDetails"><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-var">FailureDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailureDetails%27"><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-var">FailureDetails'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679795114"><span id="local-6989586621679795115"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailureDetails"><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-var">FailureDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailureDetails%27"><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-var">FailureDetails'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of Automation failure. Failure types include the following:</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Action, Permission, Throttling, Verification, Internal.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AfailureType%3AFailureDetails%27"><span class="annot"><span class="annottext">FailureDetails -&gt; Maybe Text
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Adetails%3AFailureDetails%27"><span class="annot"><span class="annottext">FailureDetails -&gt; Maybe (HashMap Text [Text])
 </span><a href="Network.AWS.SSM.Types.FailureDetails.html#%24sel%3Adetails%3AFailureDetails%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679795097"><span id="local-6989586621679795099"><span class="annot"><span class="annottext">FailureDetails -&gt; FailureDetails -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679795106"><span id="local-6989586621679795108"><span class="annot"><span class="annottext">FailureDetails -&gt; FailureDetails -&gt; Bool
 (FailureDetails -&gt; FailureDetails -&gt; Bool)
 -&gt; (FailureDetails -&gt; FailureDetails -&gt; Bool) -&gt; Eq FailureDetails
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FailureDetails -&gt; FailureDetails -&gt; Bool
 == :: FailureDetails -&gt; FailureDetails -&gt; Bool
 $c== :: FailureDetails -&gt; FailureDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795088"><span id="local-6989586621679795090"><span id="local-6989586621679795092"><span id="local-6989586621679795094"><span class="annot"><span class="annottext">ReadPrec [FailureDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795097"><span id="local-6989586621679795099"><span id="local-6989586621679795101"><span id="local-6989586621679795103"><span class="annot"><span class="annottext">ReadPrec [FailureDetails]
 ReadPrec FailureDetails
 Int -&gt; ReadS FailureDetails
 ReadS [FailureDetails]
@@ -68,7 +68,7 @@ readList :: ReadS [FailureDetails]
 $creadList :: ReadS [FailureDetails]
 readsPrec :: Int -&gt; ReadS FailureDetails
 $creadsPrec :: Int -&gt; ReadS FailureDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795081"><span id="local-6989586621679795083"><span id="local-6989586621679795085"><span class="annot"><span class="annottext">Int -&gt; FailureDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795090"><span id="local-6989586621679795092"><span id="local-6989586621679795094"><span class="annot"><span class="annottext">Int -&gt; FailureDetails -&gt; ShowS
 [FailureDetails] -&gt; ShowS
 FailureDetails -&gt; String
 (Int -&gt; FailureDetails -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
 -&gt; (FailureDetails -&gt; Maybe Text -&gt; FailureDetails)
 -&gt; Lens FailureDetails FailureDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-type">FailureDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795072"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-type">FailureDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795081"><span class="annot"><span class="annottext">Maybe Text
 failureType :: Maybe Text
 $sel:failureType:FailureDetails' :: FailureDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679795072"><span class="hs-identifier hs-var hs-var">failureType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795072"><span class="hs-identifier hs-var">failureType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795071"><span class="annot"><span class="annottext">s :: FailureDetails
-</span><a href="#local-6989586621679795071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-type">FailureDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795070"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailureDetails
-</span><a href="#local-6989586621679795071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureType:FailureDetails' :: Maybe Text
+</span><a href="#local-6989586621679795081"><span class="hs-identifier hs-var hs-var">failureType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795081"><span class="hs-identifier hs-var">failureType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795080"><span class="annot"><span class="annottext">s :: FailureDetails
+</span><a href="#local-6989586621679795080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-type">FailureDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795079"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailureDetails
+</span><a href="#local-6989586621679795080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureType:FailureDetails' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.FailureDetails.html#%24sel%3AfailureType%3AFailureDetails%27"><span class="hs-identifier hs-var">failureType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679795079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The stage of the Automation execution when the failure occurred. The</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- stages include the following: InputValidation, PreVerification,</span><span>
@@ -161,16 +161,16 @@ $sel:failureType:FailureDetails' :: FailureDetails -&gt; Maybe Text
 -&gt; (FailureDetails -&gt; Maybe Text -&gt; FailureDetails)
 -&gt; Lens FailureDetails FailureDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-type">FailureDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795068"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-type">FailureDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795077"><span class="annot"><span class="annottext">Maybe Text
 failureStage :: Maybe Text
 $sel:failureStage:FailureDetails' :: FailureDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679795068"><span class="hs-identifier hs-var hs-var">failureStage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795068"><span class="hs-identifier hs-var">failureStage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795067"><span class="annot"><span class="annottext">s :: FailureDetails
-</span><a href="#local-6989586621679795067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-type">FailureDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795066"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailureDetails
-</span><a href="#local-6989586621679795067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureStage:FailureDetails' :: Maybe Text
+</span><a href="#local-6989586621679795077"><span class="hs-identifier hs-var hs-var">failureStage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795077"><span class="hs-identifier hs-var">failureStage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795076"><span class="annot"><span class="annottext">s :: FailureDetails
+</span><a href="#local-6989586621679795076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-type">FailureDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795075"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailureDetails
+</span><a href="#local-6989586621679795076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureStage:FailureDetails' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.FailureDetails.html#%24sel%3AfailureStage%3AFailureDetails%27"><span class="hs-identifier hs-var">failureStage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679795075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Detailed information about the Automation step failure.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#failureDetails_details"><span class="hs-identifier hs-type">failureDetails_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -185,16 +185,16 @@ $sel:failureStage:FailureDetails' :: FailureDetails -&gt; Maybe Text
      (Maybe (HashMap Text [Text]))
      (Maybe (HashMap Text [Text]))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-type">FailureDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795064"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-type">FailureDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795073"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 details :: Maybe (HashMap Text [Text])
 $sel:details:FailureDetails' :: FailureDetails -&gt; Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679795064"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679795064"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795063"><span class="annot"><span class="annottext">s :: FailureDetails
-</span><a href="#local-6989586621679795063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-type">FailureDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795062"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679795062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailureDetails
-</span><a href="#local-6989586621679795063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:FailureDetails' :: Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679795073"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679795073"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795072"><span class="annot"><span class="annottext">s :: FailureDetails
+</span><a href="#local-6989586621679795072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-type">FailureDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795071"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679795071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailureDetails
+</span><a href="#local-6989586621679795072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:FailureDetails' :: Maybe (HashMap Text [Text])
 </span><a href="Network.AWS.SSM.Types.FailureDetails.html#%24sel%3Adetails%3AFailureDetails%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679795062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+</span><a href="#local-6989586621679795071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
  -&gt; FailureDetails -&gt; f FailureDetails)
 -&gt; ((Maybe (HashMap Text [Text])
      -&gt; f (Maybe (HashMap Text [Text])))
@@ -224,8 +224,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795056"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679795054"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FailureDetails
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795065"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679795063"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FailureDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FailureDetails)
@@ -235,8 +235,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FailureDetails&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679795051"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679795051"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679795060"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679795060"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe (HashMap Text [Text]) -&gt; FailureDetails
 </span><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails%27"><span class="hs-identifier hs-var">FailureDetails'</span></a></span><span>
@@ -247,7 +247,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe (HashMap Text [Text]) -&gt; FailureDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679795051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679795060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FailureType&quot;</span></span><span class="hs-special">)</span><span>
@@ -257,7 +257,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text [Text]) -&gt; FailureDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679795051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679795060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FailureStage&quot;</span></span><span class="hs-special">)</span><span>
@@ -265,7 +265,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text [Text])) -&gt; Parser FailureDetails
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679795051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text [Text])))
+</span><a href="#local-6989586621679795060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text [Text])))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Details&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text [Text])))
@@ -277,7 +277,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795044"><span id="local-6989586621679795046"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795053"><span id="local-6989586621679795055"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795050"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span></span><span>
 </span><span id="line-96"></span></pre></body></html>

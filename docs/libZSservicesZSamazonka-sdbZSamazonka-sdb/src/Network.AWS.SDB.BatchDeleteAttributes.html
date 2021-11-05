@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.html"><span class="hs-identifier">Network.AWS.SDB.Types</span></a></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newBatchDeleteAttributes' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679151821"><span id="local-6989586621679151822"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteAttributes"><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-var">BatchDeleteAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteAttributes%27"><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes%27"><span class="hs-identifier hs-var">BatchDeleteAttributes'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679151830"><span id="local-6989586621679151831"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteAttributes"><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-var">BatchDeleteAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteAttributes%27"><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes%27"><span class="hs-identifier hs-var">BatchDeleteAttributes'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the domain in which the attributes are being deleted.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AdomainName%3ABatchDeleteAttributes%27"><span class="annot"><span class="annottext">BatchDeleteAttributes -&gt; Text
 </span><a href="Network.AWS.SDB.BatchDeleteAttributes.html#%24sel%3AdomainName%3ABatchDeleteAttributes%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Aitems%3ABatchDeleteAttributes%27"><span class="annot"><span class="annottext">BatchDeleteAttributes -&gt; [DeletableItem]
 </span><a href="Network.AWS.SDB.BatchDeleteAttributes.html#%24sel%3Aitems%3ABatchDeleteAttributes%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-type">DeletableItem</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151814"><span id="local-6989586621679151816"><span class="annot"><span class="annottext">BatchDeleteAttributes -&gt; BatchDeleteAttributes -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151823"><span id="local-6989586621679151825"><span class="annot"><span class="annottext">BatchDeleteAttributes -&gt; BatchDeleteAttributes -&gt; Bool
 (BatchDeleteAttributes -&gt; BatchDeleteAttributes -&gt; Bool)
 -&gt; (BatchDeleteAttributes -&gt; BatchDeleteAttributes -&gt; Bool)
 -&gt; Eq BatchDeleteAttributes
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchDeleteAttributes -&gt; BatchDeleteAttributes -&gt; Bool
 == :: BatchDeleteAttributes -&gt; BatchDeleteAttributes -&gt; Bool
 $c== :: BatchDeleteAttributes -&gt; BatchDeleteAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151805"><span id="local-6989586621679151807"><span id="local-6989586621679151809"><span id="local-6989586621679151811"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151814"><span id="local-6989586621679151816"><span id="local-6989586621679151818"><span id="local-6989586621679151820"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteAttributes]
 ReadPrec BatchDeleteAttributes
 Int -&gt; ReadS BatchDeleteAttributes
 ReadS [BatchDeleteAttributes]
@@ -88,7 +88,7 @@ readList :: ReadS [BatchDeleteAttributes]
 $creadList :: ReadS [BatchDeleteAttributes]
 readsPrec :: Int -&gt; ReadS BatchDeleteAttributes
 $creadsPrec :: Int -&gt; ReadS BatchDeleteAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151798"><span id="local-6989586621679151800"><span id="local-6989586621679151802"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151807"><span id="local-6989586621679151809"><span id="local-6989586621679151811"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteAttributes -&gt; ShowS
 [BatchDeleteAttributes] -&gt; ShowS
 BatchDeleteAttributes -&gt; String
 (Int -&gt; BatchDeleteAttributes -&gt; ShowS)
@@ -130,13 +130,13 @@ $cfrom :: forall x. BatchDeleteAttributes -&gt; Rep BatchDeleteAttributes x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-type">BatchDeleteAttributes</span></a></span><span>
 </span><span id="line-77"></span><span id="newBatchDeleteAttributes"><span class="annot"><span class="annottext">newBatchDeleteAttributes :: Text -&gt; BatchDeleteAttributes
-</span><a href="Network.AWS.SDB.BatchDeleteAttributes.html#newBatchDeleteAttributes"><span class="hs-identifier hs-var hs-var">newBatchDeleteAttributes</span></a></span></span><span> </span><span id="local-6989586621679151793"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151793"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SDB.BatchDeleteAttributes.html#newBatchDeleteAttributes"><span class="hs-identifier hs-var hs-var">newBatchDeleteAttributes</span></a></span></span><span> </span><span id="local-6989586621679151802"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151802"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteAttributes' :: Text -&gt; [DeletableItem] -&gt; BatchDeleteAttributes
 </span><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes%27"><span class="hs-identifier hs-type">BatchDeleteAttributes'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainName:BatchDeleteAttributes' :: Text
 </span><a href="Network.AWS.SDB.BatchDeleteAttributes.html#%24sel%3AdomainName%3ABatchDeleteAttributes%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151793"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151802"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:items:BatchDeleteAttributes' :: [DeletableItem]
 </span><a href="Network.AWS.SDB.BatchDeleteAttributes.html#%24sel%3Aitems%3ABatchDeleteAttributes%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[DeletableItem]
 forall a. Monoid a =&gt; a
@@ -151,16 +151,16 @@ forall a. Monoid a =&gt; a
 -&gt; (BatchDeleteAttributes -&gt; Text -&gt; BatchDeleteAttributes)
 -&gt; Lens BatchDeleteAttributes BatchDeleteAttributes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes%27"><span class="hs-identifier hs-type">BatchDeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151790"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes%27"><span class="hs-identifier hs-type">BatchDeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151799"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:BatchDeleteAttributes' :: BatchDeleteAttributes -&gt; Text
-</span><a href="#local-6989586621679151790"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151790"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151789"><span class="annot"><span class="annottext">s :: BatchDeleteAttributes
-</span><a href="#local-6989586621679151789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes%27"><span class="hs-identifier hs-type">BatchDeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151788"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteAttributes
-</span><a href="#local-6989586621679151789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:BatchDeleteAttributes' :: Text
+</span><a href="#local-6989586621679151799"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151799"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151798"><span class="annot"><span class="annottext">s :: BatchDeleteAttributes
+</span><a href="#local-6989586621679151798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes%27"><span class="hs-identifier hs-type">BatchDeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151797"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteAttributes
+</span><a href="#local-6989586621679151798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:BatchDeleteAttributes' :: Text
 </span><a href="Network.AWS.SDB.BatchDeleteAttributes.html#%24sel%3AdomainName%3ABatchDeleteAttributes%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-type">BatchDeleteAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-type">BatchDeleteAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | A list of items on which to perform the operation.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#batchDeleteAttributes_items"><span class="hs-identifier hs-type">batchDeleteAttributes_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-type">BatchDeleteAttributes</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-type">DeletableItem</span></a></span><span class="hs-special">]</span><span>
@@ -175,16 +175,16 @@ $sel:domainName:BatchDeleteAttributes' :: BatchDeleteAttributes -&gt; Text
      [DeletableItem]
      [DeletableItem]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes%27"><span class="hs-identifier hs-type">BatchDeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151787"><span class="annot"><span class="annottext">[DeletableItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes%27"><span class="hs-identifier hs-type">BatchDeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151796"><span class="annot"><span class="annottext">[DeletableItem]
 items :: [DeletableItem]
 $sel:items:BatchDeleteAttributes' :: BatchDeleteAttributes -&gt; [DeletableItem]
-</span><a href="#local-6989586621679151787"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[DeletableItem]
-</span><a href="#local-6989586621679151787"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151786"><span class="annot"><span class="annottext">s :: BatchDeleteAttributes
-</span><a href="#local-6989586621679151786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes%27"><span class="hs-identifier hs-type">BatchDeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151785"><span class="annot"><span class="annottext">[DeletableItem]
-</span><a href="#local-6989586621679151785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteAttributes
-</span><a href="#local-6989586621679151786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:BatchDeleteAttributes' :: [DeletableItem]
+</span><a href="#local-6989586621679151796"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[DeletableItem]
+</span><a href="#local-6989586621679151796"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151795"><span class="annot"><span class="annottext">s :: BatchDeleteAttributes
+</span><a href="#local-6989586621679151795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes%27"><span class="hs-identifier hs-type">BatchDeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151794"><span class="annot"><span class="annottext">[DeletableItem]
+</span><a href="#local-6989586621679151794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteAttributes
+</span><a href="#local-6989586621679151795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:BatchDeleteAttributes' :: [DeletableItem]
 </span><a href="Network.AWS.SDB.BatchDeleteAttributes.html#%24sel%3Aitems%3ABatchDeleteAttributes%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[DeletableItem]
-</span><a href="#local-6989586621679151785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-type">BatchDeleteAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([DeletableItem] -&gt; f [DeletableItem])
+</span><a href="#local-6989586621679151794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-type">BatchDeleteAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([DeletableItem] -&gt; f [DeletableItem])
  -&gt; BatchDeleteAttributes -&gt; f BatchDeleteAttributes)
 -&gt; (([DeletableItem] -&gt; f [DeletableItem])
     -&gt; [DeletableItem] -&gt; f [DeletableItem])
@@ -201,12 +201,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-type">BatchDeleteAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributesResponse"><span class="hs-identifier hs-type">BatchDeleteAttributesResponse</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679151779"><span class="annot"><span class="annottext">request :: BatchDeleteAttributes -&gt; Request BatchDeleteAttributes
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679151788"><span class="annot"><span class="annottext">request :: BatchDeleteAttributes -&gt; Request BatchDeleteAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchDeleteAttributes -&gt; Request BatchDeleteAttributes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679151775"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679151784"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchDeleteAttributes
 -&gt; ClientResponse ClientBody
@@ -232,12 +232,12 @@ AWSResponse a
 BatchDeleteAttributesResponse
 </span><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributesResponse%27"><span class="hs-identifier hs-var">BatchDeleteAttributesResponse'</span></a></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151768"><span id="local-6989586621679151770"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-type">BatchDeleteAttributes</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151777"><span id="local-6989586621679151779"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-type">BatchDeleteAttributes</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151765"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-type">BatchDeleteAttributes</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151774"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-type">BatchDeleteAttributes</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-type">BatchDeleteAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679151761"><span class="annot"><span class="annottext">toHeaders :: BatchDeleteAttributes -&gt; [Header]
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679151770"><span class="annot"><span class="annottext">toHeaders :: BatchDeleteAttributes -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; BatchDeleteAttributes -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -245,21 +245,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-type">BatchDeleteAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679151756"><span class="annot"><span class="annottext">toPath :: BatchDeleteAttributes -&gt; ByteString
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679151765"><span class="annot"><span class="annottext">toPath :: BatchDeleteAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchDeleteAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes"><span class="hs-identifier hs-type">BatchDeleteAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679151752"><span class="annot"><span class="annottext">toQuery :: BatchDeleteAttributes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes%27"><span class="hs-identifier hs-type">BatchDeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151749"><span id="local-6989586621679151750"><span class="annot"><span class="annottext">[DeletableItem]
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679151761"><span class="annot"><span class="annottext">toQuery :: BatchDeleteAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributes%27"><span class="hs-identifier hs-type">BatchDeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151758"><span id="local-6989586621679151759"><span class="annot"><span class="annottext">[DeletableItem]
 Text
 items :: [DeletableItem]
 domainName :: Text
 $sel:items:BatchDeleteAttributes' :: BatchDeleteAttributes -&gt; [DeletableItem]
 $sel:domainName:BatchDeleteAttributes' :: BatchDeleteAttributes -&gt; Text
-</span><a href="#local-6989586621679151749"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679151758"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -279,21 +279,21 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151750"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151759"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [DeletableItem] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Item&quot;</span></span><span> </span><span class="annot"><span class="annottext">[DeletableItem]
-</span><a href="#local-6989586621679151749"><span class="hs-identifier hs-var">items</span></a></span><span>
+</span><a href="#local-6989586621679151758"><span class="hs-identifier hs-var">items</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newBatchDeleteAttributesResponse' smart constructor.</span><span>
-</span><span id="line-121"></span><span id="local-6989586621679151745"><span id="local-6989586621679151746"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteAttributesResponse"><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributesResponse"><span class="hs-identifier hs-var">BatchDeleteAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteAttributesResponse%27"><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributesResponse%27"><span class="hs-identifier hs-var">BatchDeleteAttributesResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span id="local-6989586621679151754"><span id="local-6989586621679151755"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteAttributesResponse"><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributesResponse"><span class="hs-identifier hs-var">BatchDeleteAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteAttributesResponse%27"><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributesResponse%27"><span class="hs-identifier hs-var">BatchDeleteAttributesResponse'</span></a></span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151741"><span id="local-6989586621679151743"><span class="annot"><span class="annottext">BatchDeleteAttributesResponse
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151750"><span id="local-6989586621679151752"><span class="annot"><span class="annottext">BatchDeleteAttributesResponse
 -&gt; BatchDeleteAttributesResponse -&gt; Bool
 (BatchDeleteAttributesResponse
  -&gt; BatchDeleteAttributesResponse -&gt; Bool)
@@ -309,7 +309,7 @@ $c/= :: BatchDeleteAttributesResponse
 -&gt; BatchDeleteAttributesResponse -&gt; Bool
 $c== :: BatchDeleteAttributesResponse
 -&gt; BatchDeleteAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151733"><span id="local-6989586621679151735"><span id="local-6989586621679151737"><span id="local-6989586621679151739"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151742"><span id="local-6989586621679151744"><span id="local-6989586621679151746"><span id="local-6989586621679151748"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteAttributesResponse]
 ReadPrec BatchDeleteAttributesResponse
 Int -&gt; ReadS BatchDeleteAttributesResponse
 ReadS [BatchDeleteAttributesResponse]
@@ -329,7 +329,7 @@ readList :: ReadS [BatchDeleteAttributesResponse]
 $creadList :: ReadS [BatchDeleteAttributesResponse]
 readsPrec :: Int -&gt; ReadS BatchDeleteAttributesResponse
 $creadsPrec :: Int -&gt; ReadS BatchDeleteAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151727"><span id="local-6989586621679151729"><span id="local-6989586621679151731"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151736"><span id="local-6989586621679151738"><span id="local-6989586621679151740"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteAttributesResponse -&gt; ShowS
 [BatchDeleteAttributesResponse] -&gt; ShowS
 BatchDeleteAttributesResponse -&gt; String
 (Int -&gt; BatchDeleteAttributesResponse -&gt; ShowS)
@@ -378,5 +378,5 @@ BatchDeleteAttributesResponse
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteAttributesResponse
 </span><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributesResponse%27"><span class="hs-identifier hs-var">BatchDeleteAttributesResponse'</span></a></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151723"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributesResponse"><span class="hs-identifier hs-type">BatchDeleteAttributesResponse</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151732"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#BatchDeleteAttributesResponse"><span class="hs-identifier hs-type">BatchDeleteAttributesResponse</span></a></span></span><span>
 </span><span id="line-136"></span></pre></body></html>

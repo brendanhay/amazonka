@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents all of the data describing a particular stream.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newStream' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679158499"><span id="local-6989586621679158500"></span></span><span class="hs-keyword">data</span><span> </span><span id="Stream"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-var">Stream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Stream%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-var">Stream'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679158508"><span id="local-6989586621679158509"></span></span><span class="hs-keyword">data</span><span> </span><span id="Stream"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-var">Stream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Stream%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-var">Stream'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A timestamp, in ISO 8601 format, for this stream.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Note that @LatestStreamLabel@ is not a unique identifier for the stream,</span><span>
@@ -48,7 +48,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AtableName%3AStream%27"><span class="annot"><span class="annottext">Stream -&gt; Maybe Text
 </span><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#%24sel%3AtableName%3AStream%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679158491"><span id="local-6989586621679158493"><span class="annot"><span class="annottext">Stream -&gt; Stream -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679158500"><span id="local-6989586621679158502"><span class="annot"><span class="annottext">Stream -&gt; Stream -&gt; Bool
 (Stream -&gt; Stream -&gt; Bool)
 -&gt; (Stream -&gt; Stream -&gt; Bool) -&gt; Eq Stream
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Stream -&gt; Stream -&gt; Bool
 == :: Stream -&gt; Stream -&gt; Bool
 $c== :: Stream -&gt; Stream -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158482"><span id="local-6989586621679158484"><span id="local-6989586621679158486"><span id="local-6989586621679158488"><span class="annot"><span class="annottext">ReadPrec [Stream]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158491"><span id="local-6989586621679158493"><span id="local-6989586621679158495"><span id="local-6989586621679158497"><span class="annot"><span class="annottext">ReadPrec [Stream]
 ReadPrec Stream
 Int -&gt; ReadS Stream
 ReadS [Stream]
@@ -76,7 +76,7 @@ readList :: ReadS [Stream]
 $creadList :: ReadS [Stream]
 readsPrec :: Int -&gt; ReadS Stream
 $creadsPrec :: Int -&gt; ReadS Stream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158475"><span id="local-6989586621679158477"><span id="local-6989586621679158479"><span class="annot"><span class="annottext">Int -&gt; Stream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158484"><span id="local-6989586621679158486"><span id="local-6989586621679158488"><span class="annot"><span class="annottext">Int -&gt; Stream -&gt; ShowS
 [Stream] -&gt; ShowS
 Stream -&gt; String
 (Int -&gt; Stream -&gt; ShowS)
@@ -161,16 +161,16 @@ forall a. Maybe a
 -&gt; (Stream -&gt; Maybe Text -&gt; Stream)
 -&gt; Lens Stream Stream (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-type">Stream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158466"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-type">Stream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158475"><span class="annot"><span class="annottext">Maybe Text
 streamLabel :: Maybe Text
 $sel:streamLabel:Stream' :: Stream -&gt; Maybe Text
-</span><a href="#local-6989586621679158466"><span class="hs-identifier hs-var hs-var">streamLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158466"><span class="hs-identifier hs-var">streamLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158465"><span class="annot"><span class="annottext">s :: Stream
-</span><a href="#local-6989586621679158465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-type">Stream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158464"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Stream
-</span><a href="#local-6989586621679158465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamLabel:Stream' :: Maybe Text
+</span><a href="#local-6989586621679158475"><span class="hs-identifier hs-var hs-var">streamLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158475"><span class="hs-identifier hs-var">streamLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158474"><span class="annot"><span class="annottext">s :: Stream
+</span><a href="#local-6989586621679158474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-type">Stream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158473"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Stream
+</span><a href="#local-6989586621679158474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamLabel:Stream' :: Maybe Text
 </span><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#%24sel%3AstreamLabel%3AStream%27"><span class="hs-identifier hs-var">streamLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-type">Stream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679158473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-type">Stream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the stream.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#stream_streamArn"><span class="hs-identifier hs-type">stream_streamArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-type">Stream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -179,16 +179,16 @@ $sel:streamLabel:Stream' :: Stream -&gt; Maybe Text
 -&gt; (Stream -&gt; Maybe Text -&gt; Stream)
 -&gt; Lens Stream Stream (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-type">Stream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158462"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-type">Stream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158471"><span class="annot"><span class="annottext">Maybe Text
 streamArn :: Maybe Text
 $sel:streamArn:Stream' :: Stream -&gt; Maybe Text
-</span><a href="#local-6989586621679158462"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158462"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158461"><span class="annot"><span class="annottext">s :: Stream
-</span><a href="#local-6989586621679158461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-type">Stream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158460"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Stream
-</span><a href="#local-6989586621679158461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamArn:Stream' :: Maybe Text
+</span><a href="#local-6989586621679158471"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158471"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158470"><span class="annot"><span class="annottext">s :: Stream
+</span><a href="#local-6989586621679158470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-type">Stream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158469"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Stream
+</span><a href="#local-6989586621679158470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamArn:Stream' :: Maybe Text
 </span><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#%24sel%3AstreamArn%3AStream%27"><span class="hs-identifier hs-var">streamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-type">Stream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679158469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-type">Stream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The DynamoDB table with which the stream is associated.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#stream_tableName"><span class="hs-identifier hs-type">stream_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-type">Stream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -197,27 +197,27 @@ $sel:streamArn:Stream' :: Stream -&gt; Maybe Text
 -&gt; (Stream -&gt; Maybe Text -&gt; Stream)
 -&gt; Lens Stream Stream (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-type">Stream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158458"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-type">Stream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158467"><span class="annot"><span class="annottext">Maybe Text
 tableName :: Maybe Text
 $sel:tableName:Stream' :: Stream -&gt; Maybe Text
-</span><a href="#local-6989586621679158458"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158458"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158457"><span class="annot"><span class="annottext">s :: Stream
-</span><a href="#local-6989586621679158457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-type">Stream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158456"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Stream
-</span><a href="#local-6989586621679158457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:Stream' :: Maybe Text
+</span><a href="#local-6989586621679158467"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158467"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158466"><span class="annot"><span class="annottext">s :: Stream
+</span><a href="#local-6989586621679158466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-type">Stream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158465"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Stream
+</span><a href="#local-6989586621679158466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:Stream' :: Maybe Text
 </span><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#%24sel%3AtableName%3AStream%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-type">Stream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679158465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-type">Stream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158453"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-type">Stream</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679158451"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Stream
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158462"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-type">Stream</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679158460"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Stream
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Stream) -&gt; Value -&gt; Parser Stream
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Stream&quot;</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679158448"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679158448"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679158457"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158457"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Stream
 </span><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier hs-var">Stream'</span></a></span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Stream)
@@ -225,7 +225,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Stream)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679158448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679158457"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamLabel&quot;</span></span><span class="hs-special">)</span><span>
@@ -233,7 +233,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Stream)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679158448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679158457"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,13 +241,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Stream
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679158448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679158457"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158442"><span id="local-6989586621679158444"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-type">Stream</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158451"><span id="local-6989586621679158453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-type">Stream</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-type">Stream</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier hs-type">Stream</span></a></span></span><span>
 </span><span id="line-120"></span></pre></body></html>

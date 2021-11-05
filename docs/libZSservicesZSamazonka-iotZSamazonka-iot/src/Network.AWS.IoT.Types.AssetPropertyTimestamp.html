@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An asset property timestamp entry containing the following information.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAssetPropertyTimestamp' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679774110"><span id="local-6989586621679774111"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssetPropertyTimestamp"><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-var">AssetPropertyTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssetPropertyTimestamp%27"><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp%27"><span class="hs-identifier hs-var">AssetPropertyTimestamp'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679774119"><span id="local-6989586621679774120"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssetPropertyTimestamp"><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-var">AssetPropertyTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssetPropertyTimestamp%27"><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp%27"><span class="hs-identifier hs-var">AssetPropertyTimestamp'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. A string that contains the nanosecond time offset. Accepts</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- substitution templates.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AoffsetInNanos%3AAssetPropertyTimestamp%27"><span class="annot"><span class="annottext">AssetPropertyTimestamp -&gt; Maybe Text
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AtimeInSeconds%3AAssetPropertyTimestamp%27"><span class="annot"><span class="annottext">AssetPropertyTimestamp -&gt; Text
 </span><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#%24sel%3AtimeInSeconds%3AAssetPropertyTimestamp%27"><span class="hs-identifier hs-var hs-var">timeInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774103"><span id="local-6989586621679774105"><span class="annot"><span class="annottext">AssetPropertyTimestamp -&gt; AssetPropertyTimestamp -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774112"><span id="local-6989586621679774114"><span class="annot"><span class="annottext">AssetPropertyTimestamp -&gt; AssetPropertyTimestamp -&gt; Bool
 (AssetPropertyTimestamp -&gt; AssetPropertyTimestamp -&gt; Bool)
 -&gt; (AssetPropertyTimestamp -&gt; AssetPropertyTimestamp -&gt; Bool)
 -&gt; Eq AssetPropertyTimestamp
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssetPropertyTimestamp -&gt; AssetPropertyTimestamp -&gt; Bool
 == :: AssetPropertyTimestamp -&gt; AssetPropertyTimestamp -&gt; Bool
 $c== :: AssetPropertyTimestamp -&gt; AssetPropertyTimestamp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774094"><span id="local-6989586621679774096"><span id="local-6989586621679774098"><span id="local-6989586621679774100"><span class="annot"><span class="annottext">ReadPrec [AssetPropertyTimestamp]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774103"><span id="local-6989586621679774105"><span id="local-6989586621679774107"><span id="local-6989586621679774109"><span class="annot"><span class="annottext">ReadPrec [AssetPropertyTimestamp]
 ReadPrec AssetPropertyTimestamp
 Int -&gt; ReadS AssetPropertyTimestamp
 ReadS [AssetPropertyTimestamp]
@@ -65,7 +65,7 @@ readList :: ReadS [AssetPropertyTimestamp]
 $creadList :: ReadS [AssetPropertyTimestamp]
 readsPrec :: Int -&gt; ReadS AssetPropertyTimestamp
 $creadsPrec :: Int -&gt; ReadS AssetPropertyTimestamp
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774087"><span id="local-6989586621679774089"><span id="local-6989586621679774091"><span class="annot"><span class="annottext">Int -&gt; AssetPropertyTimestamp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774096"><span id="local-6989586621679774098"><span id="local-6989586621679774100"><span class="annot"><span class="annottext">Int -&gt; AssetPropertyTimestamp -&gt; ShowS
 [AssetPropertyTimestamp] -&gt; ShowS
 AssetPropertyTimestamp -&gt; String
 (Int -&gt; AssetPropertyTimestamp -&gt; ShowS)
@@ -110,8 +110,8 @@ $cfrom :: forall x. AssetPropertyTimestamp -&gt; Rep AssetPropertyTimestamp x
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-type">AssetPropertyTimestamp</span></a></span><span>
 </span><span id="line-56"></span><span id="newAssetPropertyTimestamp"><span class="annot"><span class="annottext">newAssetPropertyTimestamp :: Text -&gt; AssetPropertyTimestamp
-</span><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#newAssetPropertyTimestamp"><span class="hs-identifier hs-var hs-var">newAssetPropertyTimestamp</span></a></span></span><span> </span><span id="local-6989586621679774081"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774081"><span class="hs-identifier hs-var">pTimeInSeconds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#newAssetPropertyTimestamp"><span class="hs-identifier hs-var hs-var">newAssetPropertyTimestamp</span></a></span></span><span> </span><span id="local-6989586621679774090"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774090"><span class="hs-identifier hs-var">pTimeInSeconds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">AssetPropertyTimestamp' :: Maybe Text -&gt; Text -&gt; AssetPropertyTimestamp
 </span><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp%27"><span class="hs-identifier hs-type">AssetPropertyTimestamp'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:offsetInNanos:AssetPropertyTimestamp' :: Maybe Text
@@ -121,7 +121,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeInSeconds:AssetPropertyTimestamp' :: Text
 </span><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#%24sel%3AtimeInSeconds%3AAssetPropertyTimestamp%27"><span class="hs-identifier hs-var">timeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774081"><span class="hs-identifier hs-var">pTimeInSeconds_</span></a></span><span>
+</span><a href="#local-6989586621679774090"><span class="hs-identifier hs-var">pTimeInSeconds_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | Optional. A string that contains the nanosecond time offset. Accepts</span><span>
@@ -137,16 +137,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp%27"><span class="hs-identifier hs-type">AssetPropertyTimestamp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774077"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp%27"><span class="hs-identifier hs-type">AssetPropertyTimestamp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774086"><span class="annot"><span class="annottext">Maybe Text
 offsetInNanos :: Maybe Text
 $sel:offsetInNanos:AssetPropertyTimestamp' :: AssetPropertyTimestamp -&gt; Maybe Text
-</span><a href="#local-6989586621679774077"><span class="hs-identifier hs-var hs-var">offsetInNanos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679774077"><span class="hs-identifier hs-var">offsetInNanos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774076"><span class="annot"><span class="annottext">s :: AssetPropertyTimestamp
-</span><a href="#local-6989586621679774076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp%27"><span class="hs-identifier hs-type">AssetPropertyTimestamp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774075"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679774075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetPropertyTimestamp
-</span><a href="#local-6989586621679774076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offsetInNanos:AssetPropertyTimestamp' :: Maybe Text
+</span><a href="#local-6989586621679774086"><span class="hs-identifier hs-var hs-var">offsetInNanos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774086"><span class="hs-identifier hs-var">offsetInNanos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774085"><span class="annot"><span class="annottext">s :: AssetPropertyTimestamp
+</span><a href="#local-6989586621679774085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp%27"><span class="hs-identifier hs-type">AssetPropertyTimestamp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774084"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetPropertyTimestamp
+</span><a href="#local-6989586621679774085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offsetInNanos:AssetPropertyTimestamp' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#%24sel%3AoffsetInNanos%3AAssetPropertyTimestamp%27"><span class="hs-identifier hs-var">offsetInNanos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679774075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-type">AssetPropertyTimestamp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-type">AssetPropertyTimestamp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | A string that contains the time in seconds since epoch. Accepts</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- substitution templates.</span><span>
@@ -157,19 +157,19 @@ $sel:offsetInNanos:AssetPropertyTimestamp' :: AssetPropertyTimestamp -&gt; Maybe
 -&gt; (AssetPropertyTimestamp -&gt; Text -&gt; AssetPropertyTimestamp)
 -&gt; Lens AssetPropertyTimestamp AssetPropertyTimestamp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp%27"><span class="hs-identifier hs-type">AssetPropertyTimestamp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774073"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp%27"><span class="hs-identifier hs-type">AssetPropertyTimestamp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774082"><span class="annot"><span class="annottext">Text
 timeInSeconds :: Text
 $sel:timeInSeconds:AssetPropertyTimestamp' :: AssetPropertyTimestamp -&gt; Text
-</span><a href="#local-6989586621679774073"><span class="hs-identifier hs-var hs-var">timeInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774073"><span class="hs-identifier hs-var">timeInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774072"><span class="annot"><span class="annottext">s :: AssetPropertyTimestamp
-</span><a href="#local-6989586621679774072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp%27"><span class="hs-identifier hs-type">AssetPropertyTimestamp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774071"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetPropertyTimestamp
-</span><a href="#local-6989586621679774072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeInSeconds:AssetPropertyTimestamp' :: Text
+</span><a href="#local-6989586621679774082"><span class="hs-identifier hs-var hs-var">timeInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774082"><span class="hs-identifier hs-var">timeInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774081"><span class="annot"><span class="annottext">s :: AssetPropertyTimestamp
+</span><a href="#local-6989586621679774081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp%27"><span class="hs-identifier hs-type">AssetPropertyTimestamp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774080"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetPropertyTimestamp
+</span><a href="#local-6989586621679774081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeInSeconds:AssetPropertyTimestamp' :: Text
 </span><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#%24sel%3AtimeInSeconds%3AAssetPropertyTimestamp%27"><span class="hs-identifier hs-var">timeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-type">AssetPropertyTimestamp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-type">AssetPropertyTimestamp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774068"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-type">AssetPropertyTimestamp</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679774066"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssetPropertyTimestamp
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774077"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-type">AssetPropertyTimestamp</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679774075"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssetPropertyTimestamp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AssetPropertyTimestamp)
@@ -179,15 +179,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AssetPropertyTimestamp&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679774063"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679774063"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679774072"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679774072"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; AssetPropertyTimestamp
 </span><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp%27"><span class="hs-identifier hs-var">AssetPropertyTimestamp'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; AssetPropertyTimestamp)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; AssetPropertyTimestamp)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679774063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679774072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;offsetInNanos&quot;</span></span><span class="hs-special">)</span><span>
@@ -195,25 +195,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser AssetPropertyTimestamp
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679774063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679774072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeInSeconds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774056"><span id="local-6989586621679774058"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-type">AssetPropertyTimestamp</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774065"><span id="local-6989586621679774067"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-type">AssetPropertyTimestamp</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774053"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-type">AssetPropertyTimestamp</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774062"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-type">AssetPropertyTimestamp</span></a></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774045"><span id="local-6989586621679774047"><span id="local-6989586621679774049"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-type">AssetPropertyTimestamp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679774043"><span class="annot"><span class="annottext">toJSON :: AssetPropertyTimestamp -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp%27"><span class="hs-identifier hs-type">AssetPropertyTimestamp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774040"><span id="local-6989586621679774041"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774054"><span id="local-6989586621679774056"><span id="local-6989586621679774058"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp"><span class="hs-identifier hs-type">AssetPropertyTimestamp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679774052"><span class="annot"><span class="annottext">toJSON :: AssetPropertyTimestamp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyTimestamp.html#AssetPropertyTimestamp%27"><span class="hs-identifier hs-type">AssetPropertyTimestamp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774049"><span id="local-6989586621679774050"><span class="annot"><span class="annottext">Maybe Text
 Text
 timeInSeconds :: Text
 offsetInNanos :: Maybe Text
 $sel:timeInSeconds:AssetPropertyTimestamp' :: AssetPropertyTimestamp -&gt; Text
 $sel:offsetInNanos:AssetPropertyTimestamp' :: AssetPropertyTimestamp -&gt; Maybe Text
-</span><a href="#local-6989586621679774040"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679774049"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -225,7 +225,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679774041"><span class="hs-identifier hs-var">offsetInNanos</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774050"><span class="hs-identifier hs-var">offsetInNanos</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -233,7 +233,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;timeInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774040"><span class="hs-identifier hs-var">timeInSeconds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774049"><span class="hs-identifier hs-var">timeInSeconds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span></pre></body></html>

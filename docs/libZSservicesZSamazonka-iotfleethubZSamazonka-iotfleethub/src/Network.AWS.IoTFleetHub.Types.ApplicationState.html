@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTFleetHub.Types.ApplicationState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTFleetHub.Types.ApplicationState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState"><span class="hs-identifier">ApplicationState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_ACTIVE"><span class="hs-identifier">ApplicationState_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_CREATE_FAILED"><span class="hs-identifier">ApplicationState_CREATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_CREATING"><span class="hs-identifier">ApplicationState_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_DELETE_FAILED"><span class="hs-identifier">ApplicationState_DELETE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_DELETING"><span class="hs-identifier">ApplicationState_DELETING</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679149423"><span id="local-6989586621679149424"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApplicationState"><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState"><span class="hs-identifier hs-var">ApplicationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationState%27"><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState%27"><span class="hs-identifier hs-var">ApplicationState'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromApplicationState"><span class="annot"><span class="annottext">ApplicationState -&gt; Text
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#fromApplicationState"><span class="hs-identifier hs-var hs-var">fromApplicationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679149415"><span id="local-6989586621679149417"><span id="local-6989586621679149419"><span class="annot"><span class="annottext">Int -&gt; ApplicationState -&gt; ShowS
+[ApplicationState] -&gt; ShowS
+ApplicationState -&gt; String
+(Int -&gt; ApplicationState -&gt; ShowS)
+-&gt; (ApplicationState -&gt; String)
+-&gt; ([ApplicationState] -&gt; ShowS)
+-&gt; Show ApplicationState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplicationState] -&gt; ShowS
+$cshowList :: [ApplicationState] -&gt; ShowS
+show :: ApplicationState -&gt; String
+$cshow :: ApplicationState -&gt; String
+showsPrec :: Int -&gt; ApplicationState -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplicationState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679149406"><span id="local-6989586621679149408"><span id="local-6989586621679149410"><span id="local-6989586621679149412"><span class="annot"><span class="annottext">ReadPrec [ApplicationState]
+ReadPrec ApplicationState
+Int -&gt; ReadS ApplicationState
+ReadS [ApplicationState]
+(Int -&gt; ReadS ApplicationState)
+-&gt; ReadS [ApplicationState]
+-&gt; ReadPrec ApplicationState
+-&gt; ReadPrec [ApplicationState]
+-&gt; Read ApplicationState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplicationState]
+$creadListPrec :: ReadPrec [ApplicationState]
+readPrec :: ReadPrec ApplicationState
+$creadPrec :: ReadPrec ApplicationState
+readList :: ReadS [ApplicationState]
+$creadList :: ReadS [ApplicationState]
+readsPrec :: Int -&gt; ReadS ApplicationState
+$creadsPrec :: Int -&gt; ReadS ApplicationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679149401"><span id="local-6989586621679149403"><span class="annot"><span class="annottext">ApplicationState -&gt; ApplicationState -&gt; Bool
+(ApplicationState -&gt; ApplicationState -&gt; Bool)
+-&gt; (ApplicationState -&gt; ApplicationState -&gt; Bool)
+-&gt; Eq ApplicationState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplicationState -&gt; ApplicationState -&gt; Bool
+$c/= :: ApplicationState -&gt; ApplicationState -&gt; Bool
+== :: ApplicationState -&gt; ApplicationState -&gt; Bool
+$c== :: ApplicationState -&gt; ApplicationState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679149385"><span id="local-6989586621679149387"><span id="local-6989586621679149389"><span id="local-6989586621679149391"><span id="local-6989586621679149393"><span id="local-6989586621679149395"><span id="local-6989586621679149397"><span class="annot"><span class="annottext">Eq ApplicationState
+Eq ApplicationState
+-&gt; (ApplicationState -&gt; ApplicationState -&gt; Ordering)
+-&gt; (ApplicationState -&gt; ApplicationState -&gt; Bool)
+-&gt; (ApplicationState -&gt; ApplicationState -&gt; Bool)
+-&gt; (ApplicationState -&gt; ApplicationState -&gt; Bool)
+-&gt; (ApplicationState -&gt; ApplicationState -&gt; Bool)
+-&gt; (ApplicationState -&gt; ApplicationState -&gt; ApplicationState)
+-&gt; (ApplicationState -&gt; ApplicationState -&gt; ApplicationState)
+-&gt; Ord ApplicationState
+ApplicationState -&gt; ApplicationState -&gt; Bool
+ApplicationState -&gt; ApplicationState -&gt; Ordering
+ApplicationState -&gt; ApplicationState -&gt; ApplicationState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ApplicationState -&gt; ApplicationState -&gt; ApplicationState
+$cmin :: ApplicationState -&gt; ApplicationState -&gt; ApplicationState
+max :: ApplicationState -&gt; ApplicationState -&gt; ApplicationState
+$cmax :: ApplicationState -&gt; ApplicationState -&gt; ApplicationState
+&gt;= :: ApplicationState -&gt; ApplicationState -&gt; Bool
+$c&gt;= :: ApplicationState -&gt; ApplicationState -&gt; Bool
+&gt; :: ApplicationState -&gt; ApplicationState -&gt; Bool
+$c&gt; :: ApplicationState -&gt; ApplicationState -&gt; Bool
+&lt;= :: ApplicationState -&gt; ApplicationState -&gt; Bool
+$c&lt;= :: ApplicationState -&gt; ApplicationState -&gt; Bool
+&lt; :: ApplicationState -&gt; ApplicationState -&gt; Bool
+$c&lt; :: ApplicationState -&gt; ApplicationState -&gt; Bool
+compare :: ApplicationState -&gt; ApplicationState -&gt; Ordering
+$ccompare :: ApplicationState -&gt; ApplicationState -&gt; Ordering
+$cp1Ord :: Eq ApplicationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ApplicationState -&gt; Rep ApplicationState x)
+-&gt; (forall x. Rep ApplicationState x -&gt; ApplicationState)
+-&gt; Generic ApplicationState
+forall x. Rep ApplicationState x -&gt; ApplicationState
+forall x. ApplicationState -&gt; Rep ApplicationState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ApplicationState x -&gt; ApplicationState
+$cfrom :: forall x. ApplicationState -&gt; Rep ApplicationState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679149377"><span id="local-6989586621679149379"><span class="annot"><span class="annottext">Int -&gt; ApplicationState -&gt; Int
+ApplicationState -&gt; Int
+(Int -&gt; ApplicationState -&gt; Int)
+-&gt; (ApplicationState -&gt; Int) -&gt; Hashable ApplicationState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ApplicationState -&gt; Int
+$chash :: ApplicationState -&gt; Int
+hashWithSalt :: Int -&gt; ApplicationState -&gt; Int
+$chashWithSalt :: Int -&gt; ApplicationState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679149374"><span class="annot"><span class="annottext">ApplicationState -&gt; ()
+(ApplicationState -&gt; ()) -&gt; NFData ApplicationState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ApplicationState -&gt; ()
+$crnf :: ApplicationState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679149371"><span class="annot"><span class="annottext">Text -&gt; Either String ApplicationState
+(Text -&gt; Either String ApplicationState)
+-&gt; FromText ApplicationState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ApplicationState
+$cfromText :: Text -&gt; Either String ApplicationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679149368"><span class="annot"><span class="annottext">ApplicationState -&gt; Text
+(ApplicationState -&gt; Text) -&gt; ToText ApplicationState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ApplicationState -&gt; Text
+$ctoText :: ApplicationState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679149365"><span class="annot"><span class="annottext">ApplicationState -&gt; ByteString
+(ApplicationState -&gt; ByteString) -&gt; ToByteString ApplicationState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ApplicationState -&gt; ByteString
+$ctoBS :: ApplicationState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679149362"><span class="annot"><span class="annottext">ApplicationState -&gt; ByteStringBuilder
+(ApplicationState -&gt; ByteStringBuilder) -&gt; ToLog ApplicationState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ApplicationState -&gt; ByteStringBuilder
+$cbuild :: ApplicationState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679149359"><span class="annot"><span class="annottext">HeaderName -&gt; ApplicationState -&gt; [Header]
+(HeaderName -&gt; ApplicationState -&gt; [Header])
+-&gt; ToHeader ApplicationState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ApplicationState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ApplicationState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679149356"><span class="annot"><span class="annottext">ApplicationState -&gt; QueryString
+(ApplicationState -&gt; QueryString) -&gt; ToQuery ApplicationState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ApplicationState -&gt; QueryString
+$ctoQuery :: ApplicationState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679149351"><span id="local-6989586621679149353"><span class="annot"><span class="annottext">Value -&gt; Parser [ApplicationState]
+Value -&gt; Parser ApplicationState
+(Value -&gt; Parser ApplicationState)
+-&gt; (Value -&gt; Parser [ApplicationState])
+-&gt; FromJSON ApplicationState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ApplicationState]
+$cparseJSONList :: Value -&gt; Parser [ApplicationState]
+parseJSON :: Value -&gt; Parser ApplicationState
+$cparseJSON :: Value -&gt; Parser ApplicationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679149346"><span id="local-6989586621679149348"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApplicationState]
+FromJSONKeyFunction ApplicationState
+FromJSONKeyFunction ApplicationState
+-&gt; FromJSONKeyFunction [ApplicationState]
+-&gt; FromJSONKey ApplicationState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ApplicationState]
+$cfromJSONKeyList :: FromJSONKeyFunction [ApplicationState]
+fromJSONKey :: FromJSONKeyFunction ApplicationState
+$cfromJSONKey :: FromJSONKeyFunction ApplicationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679149337"><span id="local-6989586621679149339"><span id="local-6989586621679149341"><span id="local-6989586621679149343"><span class="annot"><span class="annottext">[ApplicationState] -&gt; Encoding
+[ApplicationState] -&gt; Value
+ApplicationState -&gt; Encoding
+ApplicationState -&gt; Value
+(ApplicationState -&gt; Value)
+-&gt; (ApplicationState -&gt; Encoding)
+-&gt; ([ApplicationState] -&gt; Value)
+-&gt; ([ApplicationState] -&gt; Encoding)
+-&gt; ToJSON ApplicationState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ApplicationState] -&gt; Encoding
+$ctoEncodingList :: [ApplicationState] -&gt; Encoding
+toJSONList :: [ApplicationState] -&gt; Value
+$ctoJSONList :: [ApplicationState] -&gt; Value
+toEncoding :: ApplicationState -&gt; Encoding
+$ctoEncoding :: ApplicationState -&gt; Encoding
+toJSON :: ApplicationState -&gt; Value
+$ctoJSON :: ApplicationState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679149332"><span id="local-6989586621679149334"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApplicationState]
+ToJSONKeyFunction ApplicationState
+ToJSONKeyFunction ApplicationState
+-&gt; ToJSONKeyFunction [ApplicationState]
+-&gt; ToJSONKey ApplicationState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ApplicationState]
+$ctoJSONKeyList :: ToJSONKeyFunction [ApplicationState]
+toJSONKey :: ToJSONKeyFunction ApplicationState
+$ctoJSONKey :: ToJSONKeyFunction ApplicationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679149329"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApplicationState
+([Node] -&gt; Either String ApplicationState)
+-&gt; FromXML ApplicationState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ApplicationState
+$cparseXML :: [Node] -&gt; Either String ApplicationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679149326"><span class="annot"><span class="annottext">ApplicationState -&gt; XML
+(ApplicationState -&gt; XML) -&gt; ToXML ApplicationState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ApplicationState -&gt; XML
+$ctoXML :: ApplicationState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_ACTIVE"><span class="hs-identifier hs-type">ApplicationState_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState"><span class="hs-identifier hs-type">ApplicationState</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bApplicationState_ACTIVE"><span id="%24mApplicationState_ACTIVE"><span id="ApplicationState_ACTIVE"><span class="annot"><span class="annottext">$bApplicationState_ACTIVE :: ApplicationState
+$mApplicationState_ACTIVE :: forall r. ApplicationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#%24bApplicationState_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">ApplicationState_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState%27"><span class="hs-identifier hs-type">ApplicationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_CREATE_FAILED"><span class="hs-identifier hs-type">ApplicationState_CREATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState"><span class="hs-identifier hs-type">ApplicationState</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bApplicationState_CREATE_FAILED"><span id="%24mApplicationState_CREATE_FAILED"><span id="ApplicationState_CREATE_FAILED"><span class="annot"><span class="annottext">$bApplicationState_CREATE_FAILED :: ApplicationState
+$mApplicationState_CREATE_FAILED :: forall r. ApplicationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#%24bApplicationState_CREATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ApplicationState_CREATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState%27"><span class="hs-identifier hs-type">ApplicationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_FAILED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_CREATING"><span class="hs-identifier hs-type">ApplicationState_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState"><span class="hs-identifier hs-type">ApplicationState</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bApplicationState_CREATING"><span id="%24mApplicationState_CREATING"><span id="ApplicationState_CREATING"><span class="annot"><span class="annottext">$bApplicationState_CREATING :: ApplicationState
+$mApplicationState_CREATING :: forall r. ApplicationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#%24bApplicationState_CREATING"><span class="hs-identifier hs-var hs-var hs-var">ApplicationState_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState%27"><span class="hs-identifier hs-type">ApplicationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_DELETE_FAILED"><span class="hs-identifier hs-type">ApplicationState_DELETE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState"><span class="hs-identifier hs-type">ApplicationState</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bApplicationState_DELETE_FAILED"><span id="%24mApplicationState_DELETE_FAILED"><span id="ApplicationState_DELETE_FAILED"><span class="annot"><span class="annottext">$bApplicationState_DELETE_FAILED :: ApplicationState
+$mApplicationState_DELETE_FAILED :: forall r. ApplicationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#%24bApplicationState_DELETE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ApplicationState_DELETE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState%27"><span class="hs-identifier hs-type">ApplicationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_FAILED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_DELETING"><span class="hs-identifier hs-type">ApplicationState_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState"><span class="hs-identifier hs-type">ApplicationState</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bApplicationState_DELETING"><span id="%24mApplicationState_DELETING"><span id="ApplicationState_DELETING"><span class="annot"><span class="annottext">$bApplicationState_DELETING :: ApplicationState
+$mApplicationState_DELETING :: forall r. ApplicationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#%24bApplicationState_DELETING"><span class="hs-identifier hs-var hs-var hs-var">ApplicationState_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState%27"><span class="hs-identifier hs-type">ApplicationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_ACTIVE"><span class="hs-pragma hs-type">ApplicationState_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_CREATE_FAILED"><span class="hs-pragma hs-type">ApplicationState_CREATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_CREATING"><span class="hs-pragma hs-type">ApplicationState_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_DELETE_FAILED"><span class="hs-pragma hs-type">ApplicationState_DELETE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState_DELETING"><span class="hs-pragma hs-type">ApplicationState_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState%27"><span class="hs-pragma hs-type">ApplicationState'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

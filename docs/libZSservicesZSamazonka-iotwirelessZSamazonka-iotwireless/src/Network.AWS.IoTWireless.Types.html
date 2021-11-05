@@ -1,0 +1,954 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Network.AWS.IoTWireless.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTWireless.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#_AccessDeniedException"><span class="hs-identifier">_AccessDeniedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#_TooManyTagsException"><span class="hs-identifier">_TooManyTagsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#_ConflictException"><span class="hs-identifier">_ConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#_ThrottlingException"><span class="hs-identifier">_ThrottlingException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#_InternalServerException"><span class="hs-identifier">_InternalServerException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatteryLevel</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.BatteryLevel.html#BatteryLevel"><span class="hs-identifier">BatteryLevel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ConnectionStatus</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.ConnectionStatus.html#ConnectionStatus"><span class="hs-identifier">ConnectionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DeviceState</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.DeviceState.html#DeviceState"><span class="hs-identifier">DeviceState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Event</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Event.html#Event"><span class="hs-identifier">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExpressionType</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.ExpressionType.html#ExpressionType"><span class="hs-identifier">ExpressionType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LogLevel</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LogLevel.html#LogLevel"><span class="hs-identifier">LogLevel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MessageType</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.MessageType.html#MessageType"><span class="hs-identifier">MessageType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PartnerType</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.PartnerType.html#PartnerType"><span class="hs-identifier">PartnerType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SigningAlg</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SigningAlg.html#SigningAlg"><span class="hs-identifier">SigningAlg</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessDeviceEvent</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent"><span class="hs-identifier">WirelessDeviceEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessDeviceIdType</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType"><span class="hs-identifier">WirelessDeviceIdType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessDeviceType</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceType.html#WirelessDeviceType"><span class="hs-identifier">WirelessDeviceType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessGatewayEvent</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayEvent.html#WirelessGatewayEvent"><span class="hs-identifier">WirelessGatewayEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessGatewayIdType</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayIdType.html#WirelessGatewayIdType"><span class="hs-identifier">WirelessGatewayIdType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessGatewayServiceType</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType"><span class="hs-identifier">WirelessGatewayServiceType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessGatewayTaskDefinitionType</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayTaskDefinitionType.html#WirelessGatewayTaskDefinitionType"><span class="hs-identifier">WirelessGatewayTaskDefinitionType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessGatewayTaskStatus</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayTaskStatus.html#WirelessGatewayTaskStatus"><span class="hs-identifier">WirelessGatewayTaskStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessGatewayType</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayType.html#WirelessGatewayType"><span class="hs-identifier">WirelessGatewayType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AbpV1_0_x</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.AbpV1_0_x.html#AbpV1_0_x"><span class="hs-identifier">AbpV1_0_x</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.AbpV1_0_x.html#newAbpV1_0_x"><span class="hs-identifier">newAbpV1_0_x</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.AbpV1_0_x.html#abpV1_0_x_devAddr"><span class="hs-identifier">abpV1_0_x_devAddr</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.AbpV1_0_x.html#abpV1_0_x_sessionKeys"><span class="hs-identifier">abpV1_0_x_sessionKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AbpV1_1</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.AbpV1_1.html#AbpV1_1"><span class="hs-identifier">AbpV1_1</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.AbpV1_1.html#newAbpV1_1"><span class="hs-identifier">newAbpV1_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.AbpV1_1.html#abpV1_1_devAddr"><span class="hs-identifier">abpV1_1_devAddr</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.AbpV1_1.html#abpV1_1_sessionKeys"><span class="hs-identifier">abpV1_1_sessionKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CertificateList</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.CertificateList.html#CertificateList"><span class="hs-identifier">CertificateList</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.CertificateList.html#newCertificateList"><span class="hs-identifier">newCertificateList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.CertificateList.html#certificateList_signingAlg"><span class="hs-identifier">certificateList_signingAlg</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.CertificateList.html#certificateList_value"><span class="hs-identifier">certificateList_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destinations</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier">Destinations</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#newDestinations"><span class="hs-identifier">newDestinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_expressionType"><span class="hs-identifier">destinations_expressionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_arn"><span class="hs-identifier">destinations_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_name"><span class="hs-identifier">destinations_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_expression"><span class="hs-identifier">destinations_expression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_description"><span class="hs-identifier">destinations_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_roleArn"><span class="hs-identifier">destinations_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DeviceProfile</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.DeviceProfile.html#DeviceProfile"><span class="hs-identifier">DeviceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.DeviceProfile.html#newDeviceProfile"><span class="hs-identifier">newDeviceProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.DeviceProfile.html#deviceProfile_arn"><span class="hs-identifier">deviceProfile_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.DeviceProfile.html#deviceProfile_name"><span class="hs-identifier">deviceProfile_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.DeviceProfile.html#deviceProfile_id"><span class="hs-identifier">deviceProfile_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoRaWANDevice</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier">LoRaWANDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDevice.html#newLoRaWANDevice"><span class="hs-identifier">newLoRaWANDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_abpV1_0_x"><span class="hs-identifier">loRaWANDevice_abpV1_0_x</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_otaaV1_1"><span class="hs-identifier">loRaWANDevice_otaaV1_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_serviceProfileId"><span class="hs-identifier">loRaWANDevice_serviceProfileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_deviceProfileId"><span class="hs-identifier">loRaWANDevice_deviceProfileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_otaaV1_0_x"><span class="hs-identifier">loRaWANDevice_otaaV1_0_x</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_abpV1_1"><span class="hs-identifier">loRaWANDevice_abpV1_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_devEui"><span class="hs-identifier">loRaWANDevice_devEui</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoRaWANDeviceMetadata</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceMetadata.html#LoRaWANDeviceMetadata"><span class="hs-identifier">LoRaWANDeviceMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceMetadata.html#newLoRaWANDeviceMetadata"><span class="hs-identifier">newLoRaWANDeviceMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceMetadata.html#loRaWANDeviceMetadata_frequency"><span class="hs-identifier">loRaWANDeviceMetadata_frequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceMetadata.html#loRaWANDeviceMetadata_fPort"><span class="hs-identifier">loRaWANDeviceMetadata_fPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceMetadata.html#loRaWANDeviceMetadata_dataRate"><span class="hs-identifier">loRaWANDeviceMetadata_dataRate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceMetadata.html#loRaWANDeviceMetadata_gateways"><span class="hs-identifier">loRaWANDeviceMetadata_gateways</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceMetadata.html#loRaWANDeviceMetadata_timestamp"><span class="hs-identifier">loRaWANDeviceMetadata_timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceMetadata.html#loRaWANDeviceMetadata_devEui"><span class="hs-identifier">loRaWANDeviceMetadata_devEui</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoRaWANDeviceProfile</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#LoRaWANDeviceProfile"><span class="hs-identifier">LoRaWANDeviceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#newLoRaWANDeviceProfile"><span class="hs-identifier">newLoRaWANDeviceProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_rfRegion"><span class="hs-identifier">loRaWANDeviceProfile_rfRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_pingSlotFreq"><span class="hs-identifier">loRaWANDeviceProfile_pingSlotFreq</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_classBTimeout"><span class="hs-identifier">loRaWANDeviceProfile_classBTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_maxEirp"><span class="hs-identifier">loRaWANDeviceProfile_maxEirp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_rxDataRate2"><span class="hs-identifier">loRaWANDeviceProfile_rxDataRate2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_macVersion"><span class="hs-identifier">loRaWANDeviceProfile_macVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_factoryPresetFreqsList"><span class="hs-identifier">loRaWANDeviceProfile_factoryPresetFreqsList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_rxFreq2"><span class="hs-identifier">loRaWANDeviceProfile_rxFreq2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_classCTimeout"><span class="hs-identifier">loRaWANDeviceProfile_classCTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_regParamsRevision"><span class="hs-identifier">loRaWANDeviceProfile_regParamsRevision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_pingSlotDr"><span class="hs-identifier">loRaWANDeviceProfile_pingSlotDr</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_supports32BitFCnt"><span class="hs-identifier">loRaWANDeviceProfile_supports32BitFCnt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_maxDutyCycle"><span class="hs-identifier">loRaWANDeviceProfile_maxDutyCycle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_rxDrOffset1"><span class="hs-identifier">loRaWANDeviceProfile_rxDrOffset1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_supportsClassB"><span class="hs-identifier">loRaWANDeviceProfile_supportsClassB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_supportsJoin"><span class="hs-identifier">loRaWANDeviceProfile_supportsJoin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_rxDelay1"><span class="hs-identifier">loRaWANDeviceProfile_rxDelay1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_supportsClassC"><span class="hs-identifier">loRaWANDeviceProfile_supportsClassC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#loRaWANDeviceProfile_pingSlotPeriod"><span class="hs-identifier">loRaWANDeviceProfile_pingSlotPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoRaWANGateway</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGateway.html#LoRaWANGateway"><span class="hs-identifier">LoRaWANGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGateway.html#newLoRaWANGateway"><span class="hs-identifier">newLoRaWANGateway</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGateway.html#loRaWANGateway_rfRegion"><span class="hs-identifier">loRaWANGateway_rfRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGateway.html#loRaWANGateway_subBands"><span class="hs-identifier">loRaWANGateway_subBands</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGateway.html#loRaWANGateway_gatewayEui"><span class="hs-identifier">loRaWANGateway_gatewayEui</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGateway.html#loRaWANGateway_joinEuiFilters"><span class="hs-identifier">loRaWANGateway_joinEuiFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGateway.html#loRaWANGateway_netIdFilters"><span class="hs-identifier">loRaWANGateway_netIdFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoRaWANGatewayCurrentVersion</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayCurrentVersion.html#LoRaWANGatewayCurrentVersion"><span class="hs-identifier">LoRaWANGatewayCurrentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayCurrentVersion.html#newLoRaWANGatewayCurrentVersion"><span class="hs-identifier">newLoRaWANGatewayCurrentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayCurrentVersion.html#loRaWANGatewayCurrentVersion_currentVersion"><span class="hs-identifier">loRaWANGatewayCurrentVersion_currentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoRaWANGatewayMetadata</span></span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayMetadata.html#LoRaWANGatewayMetadata"><span class="hs-identifier">LoRaWANGatewayMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayMetadata.html#newLoRaWANGatewayMetadata"><span class="hs-identifier">newLoRaWANGatewayMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayMetadata.html#loRaWANGatewayMetadata_gatewayEui"><span class="hs-identifier">loRaWANGatewayMetadata_gatewayEui</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayMetadata.html#loRaWANGatewayMetadata_snr"><span class="hs-identifier">loRaWANGatewayMetadata_snr</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayMetadata.html#loRaWANGatewayMetadata_rssi"><span class="hs-identifier">loRaWANGatewayMetadata_rssi</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoRaWANGatewayVersion</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayVersion.html#LoRaWANGatewayVersion"><span class="hs-identifier">LoRaWANGatewayVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayVersion.html#newLoRaWANGatewayVersion"><span class="hs-identifier">newLoRaWANGatewayVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayVersion.html#loRaWANGatewayVersion_packageVersion"><span class="hs-identifier">loRaWANGatewayVersion_packageVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayVersion.html#loRaWANGatewayVersion_model"><span class="hs-identifier">loRaWANGatewayVersion_model</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayVersion.html#loRaWANGatewayVersion_station"><span class="hs-identifier">loRaWANGatewayVersion_station</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoRaWANGetServiceProfileInfo</span></span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#newLoRaWANGetServiceProfileInfo"><span class="hs-identifier">newLoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_addGwMetadata"><span class="hs-identifier">loRaWANGetServiceProfileInfo_addGwMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_prAllowed"><span class="hs-identifier">loRaWANGetServiceProfileInfo_prAllowed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_drMax"><span class="hs-identifier">loRaWANGetServiceProfileInfo_drMax</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_dlRate"><span class="hs-identifier">loRaWANGetServiceProfileInfo_dlRate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_devStatusReqFreq"><span class="hs-identifier">loRaWANGetServiceProfileInfo_devStatusReqFreq</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_reportDevStatusBattery"><span class="hs-identifier">loRaWANGetServiceProfileInfo_reportDevStatusBattery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_dlBucketSize"><span class="hs-identifier">loRaWANGetServiceProfileInfo_dlBucketSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_ulRatePolicy"><span class="hs-identifier">loRaWANGetServiceProfileInfo_ulRatePolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_targetPer"><span class="hs-identifier">loRaWANGetServiceProfileInfo_targetPer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_drMin"><span class="hs-identifier">loRaWANGetServiceProfileInfo_drMin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_nwkGeoLoc"><span class="hs-identifier">loRaWANGetServiceProfileInfo_nwkGeoLoc</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_channelMask"><span class="hs-identifier">loRaWANGetServiceProfileInfo_channelMask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_dlRatePolicy"><span class="hs-identifier">loRaWANGetServiceProfileInfo_dlRatePolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_hrAllowed"><span class="hs-identifier">loRaWANGetServiceProfileInfo_hrAllowed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_ulBucketSize"><span class="hs-identifier">loRaWANGetServiceProfileInfo_ulBucketSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_ulRate"><span class="hs-identifier">loRaWANGetServiceProfileInfo_ulRate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_reportDevStatusMargin"><span class="hs-identifier">loRaWANGetServiceProfileInfo_reportDevStatusMargin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_raAllowed"><span class="hs-identifier">loRaWANGetServiceProfileInfo_raAllowed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_minGwDiversity"><span class="hs-identifier">loRaWANGetServiceProfileInfo_minGwDiversity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoRaWANListDevice</span></span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANListDevice.html#LoRaWANListDevice"><span class="hs-identifier">LoRaWANListDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANListDevice.html#newLoRaWANListDevice"><span class="hs-identifier">newLoRaWANListDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANListDevice.html#loRaWANListDevice_devEui"><span class="hs-identifier">loRaWANListDevice_devEui</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoRaWANSendDataToDevice</span></span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANSendDataToDevice.html#LoRaWANSendDataToDevice"><span class="hs-identifier">LoRaWANSendDataToDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANSendDataToDevice.html#newLoRaWANSendDataToDevice"><span class="hs-identifier">newLoRaWANSendDataToDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANSendDataToDevice.html#loRaWANSendDataToDevice_fPort"><span class="hs-identifier">loRaWANSendDataToDevice_fPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoRaWANServiceProfile</span></span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANServiceProfile.html#LoRaWANServiceProfile"><span class="hs-identifier">LoRaWANServiceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANServiceProfile.html#newLoRaWANServiceProfile"><span class="hs-identifier">newLoRaWANServiceProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANServiceProfile.html#loRaWANServiceProfile_addGwMetadata"><span class="hs-identifier">loRaWANServiceProfile_addGwMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoRaWANUpdateDevice</span></span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateDevice.html#LoRaWANUpdateDevice"><span class="hs-identifier">LoRaWANUpdateDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateDevice.html#newLoRaWANUpdateDevice"><span class="hs-identifier">newLoRaWANUpdateDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateDevice.html#loRaWANUpdateDevice_serviceProfileId"><span class="hs-identifier">loRaWANUpdateDevice_serviceProfileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateDevice.html#loRaWANUpdateDevice_deviceProfileId"><span class="hs-identifier">loRaWANUpdateDevice_deviceProfileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoRaWANUpdateGatewayTaskCreate</span></span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate.html#LoRaWANUpdateGatewayTaskCreate"><span class="hs-identifier">LoRaWANUpdateGatewayTaskCreate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate.html#newLoRaWANUpdateGatewayTaskCreate"><span class="hs-identifier">newLoRaWANUpdateGatewayTaskCreate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate.html#loRaWANUpdateGatewayTaskCreate_updateSignature"><span class="hs-identifier">loRaWANUpdateGatewayTaskCreate_updateSignature</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate.html#loRaWANUpdateGatewayTaskCreate_sigKeyCrc"><span class="hs-identifier">loRaWANUpdateGatewayTaskCreate_sigKeyCrc</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate.html#loRaWANUpdateGatewayTaskCreate_currentVersion"><span class="hs-identifier">loRaWANUpdateGatewayTaskCreate_currentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate.html#loRaWANUpdateGatewayTaskCreate_updateVersion"><span class="hs-identifier">loRaWANUpdateGatewayTaskCreate_updateVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoRaWANUpdateGatewayTaskEntry</span></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskEntry.html#LoRaWANUpdateGatewayTaskEntry"><span class="hs-identifier">LoRaWANUpdateGatewayTaskEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskEntry.html#newLoRaWANUpdateGatewayTaskEntry"><span class="hs-identifier">newLoRaWANUpdateGatewayTaskEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskEntry.html#loRaWANUpdateGatewayTaskEntry_currentVersion"><span class="hs-identifier">loRaWANUpdateGatewayTaskEntry_currentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskEntry.html#loRaWANUpdateGatewayTaskEntry_updateVersion"><span class="hs-identifier">loRaWANUpdateGatewayTaskEntry_updateVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OtaaV1_0_x</span></span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.OtaaV1_0_x.html#OtaaV1_0_x"><span class="hs-identifier">OtaaV1_0_x</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.OtaaV1_0_x.html#newOtaaV1_0_x"><span class="hs-identifier">newOtaaV1_0_x</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.OtaaV1_0_x.html#otaaV1_0_x_appEui"><span class="hs-identifier">otaaV1_0_x_appEui</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.OtaaV1_0_x.html#otaaV1_0_x_appKey"><span class="hs-identifier">otaaV1_0_x_appKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OtaaV1_1</span></span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.OtaaV1_1.html#OtaaV1_1"><span class="hs-identifier">OtaaV1_1</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.OtaaV1_1.html#newOtaaV1_1"><span class="hs-identifier">newOtaaV1_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.OtaaV1_1.html#otaaV1_1_joinEui"><span class="hs-identifier">otaaV1_1_joinEui</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.OtaaV1_1.html#otaaV1_1_nwkKey"><span class="hs-identifier">otaaV1_1_nwkKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.OtaaV1_1.html#otaaV1_1_appKey"><span class="hs-identifier">otaaV1_1_appKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServiceProfile</span></span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.ServiceProfile.html#ServiceProfile"><span class="hs-identifier">ServiceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.ServiceProfile.html#newServiceProfile"><span class="hs-identifier">newServiceProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.ServiceProfile.html#serviceProfile_arn"><span class="hs-identifier">serviceProfile_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.ServiceProfile.html#serviceProfile_name"><span class="hs-identifier">serviceProfile_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.ServiceProfile.html#serviceProfile_id"><span class="hs-identifier">serviceProfile_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SessionKeysAbpV1_0_x</span></span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SessionKeysAbpV1_0_x.html#SessionKeysAbpV1_0_x"><span class="hs-identifier">SessionKeysAbpV1_0_x</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SessionKeysAbpV1_0_x.html#newSessionKeysAbpV1_0_x"><span class="hs-identifier">newSessionKeysAbpV1_0_x</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SessionKeysAbpV1_0_x.html#sessionKeysAbpV1_0_x_nwkSKey"><span class="hs-identifier">sessionKeysAbpV1_0_x_nwkSKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SessionKeysAbpV1_0_x.html#sessionKeysAbpV1_0_x_appSKey"><span class="hs-identifier">sessionKeysAbpV1_0_x_appSKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SessionKeysAbpV1_1</span></span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SessionKeysAbpV1_1.html#SessionKeysAbpV1_1"><span class="hs-identifier">SessionKeysAbpV1_1</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SessionKeysAbpV1_1.html#newSessionKeysAbpV1_1"><span class="hs-identifier">newSessionKeysAbpV1_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SessionKeysAbpV1_1.html#sessionKeysAbpV1_1_fNwkSIntKey"><span class="hs-identifier">sessionKeysAbpV1_1_fNwkSIntKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SessionKeysAbpV1_1.html#sessionKeysAbpV1_1_sNwkSIntKey"><span class="hs-identifier">sessionKeysAbpV1_1_sNwkSIntKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SessionKeysAbpV1_1.html#sessionKeysAbpV1_1_nwkSEncKey"><span class="hs-identifier">sessionKeysAbpV1_1_nwkSEncKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SessionKeysAbpV1_1.html#sessionKeysAbpV1_1_appSKey"><span class="hs-identifier">sessionKeysAbpV1_1_appSKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SidewalkAccountInfo</span></span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkAccountInfo.html#SidewalkAccountInfo"><span class="hs-identifier">SidewalkAccountInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkAccountInfo.html#newSidewalkAccountInfo"><span class="hs-identifier">newSidewalkAccountInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkAccountInfo.html#sidewalkAccountInfo_amazonId"><span class="hs-identifier">sidewalkAccountInfo_amazonId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkAccountInfo.html#sidewalkAccountInfo_appServerPrivateKey"><span class="hs-identifier">sidewalkAccountInfo_appServerPrivateKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SidewalkAccountInfoWithFingerprint</span></span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkAccountInfoWithFingerprint.html#SidewalkAccountInfoWithFingerprint"><span class="hs-identifier">SidewalkAccountInfoWithFingerprint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkAccountInfoWithFingerprint.html#newSidewalkAccountInfoWithFingerprint"><span class="hs-identifier">newSidewalkAccountInfoWithFingerprint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkAccountInfoWithFingerprint.html#sidewalkAccountInfoWithFingerprint_arn"><span class="hs-identifier">sidewalkAccountInfoWithFingerprint_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkAccountInfoWithFingerprint.html#sidewalkAccountInfoWithFingerprint_fingerprint"><span class="hs-identifier">sidewalkAccountInfoWithFingerprint_fingerprint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkAccountInfoWithFingerprint.html#sidewalkAccountInfoWithFingerprint_amazonId"><span class="hs-identifier">sidewalkAccountInfoWithFingerprint_amazonId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SidewalkDevice</span></span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDevice.html#SidewalkDevice"><span class="hs-identifier">SidewalkDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDevice.html#newSidewalkDevice"><span class="hs-identifier">newSidewalkDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDevice.html#sidewalkDevice_sidewalkManufacturingSn"><span class="hs-identifier">sidewalkDevice_sidewalkManufacturingSn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDevice.html#sidewalkDevice_amazonId"><span class="hs-identifier">sidewalkDevice_amazonId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDevice.html#sidewalkDevice_deviceCertificates"><span class="hs-identifier">sidewalkDevice_deviceCertificates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDevice.html#sidewalkDevice_sidewalkId"><span class="hs-identifier">sidewalkDevice_sidewalkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SidewalkDeviceMetadata</span></span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata"><span class="hs-identifier">SidewalkDeviceMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#newSidewalkDeviceMetadata"><span class="hs-identifier">newSidewalkDeviceMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#sidewalkDeviceMetadata_event"><span class="hs-identifier">sidewalkDeviceMetadata_event</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#sidewalkDeviceMetadata_deviceState"><span class="hs-identifier">sidewalkDeviceMetadata_deviceState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#sidewalkDeviceMetadata_batteryLevel"><span class="hs-identifier">sidewalkDeviceMetadata_batteryLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#sidewalkDeviceMetadata_rssi"><span class="hs-identifier">sidewalkDeviceMetadata_rssi</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SidewalkListDevice</span></span><span>
+</span><span id="line-311"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier">SidewalkListDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkListDevice.html#newSidewalkListDevice"><span class="hs-identifier">newSidewalkListDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkListDevice.html#sidewalkListDevice_sidewalkManufacturingSn"><span class="hs-identifier">sidewalkListDevice_sidewalkManufacturingSn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkListDevice.html#sidewalkListDevice_amazonId"><span class="hs-identifier">sidewalkListDevice_amazonId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkListDevice.html#sidewalkListDevice_deviceCertificates"><span class="hs-identifier">sidewalkListDevice_deviceCertificates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkListDevice.html#sidewalkListDevice_sidewalkId"><span class="hs-identifier">sidewalkListDevice_sidewalkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SidewalkSendDataToDevice</span></span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkSendDataToDevice.html#SidewalkSendDataToDevice"><span class="hs-identifier">SidewalkSendDataToDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkSendDataToDevice.html#newSidewalkSendDataToDevice"><span class="hs-identifier">newSidewalkSendDataToDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkSendDataToDevice.html#sidewalkSendDataToDevice_messageType"><span class="hs-identifier">sidewalkSendDataToDevice_messageType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkSendDataToDevice.html#sidewalkSendDataToDevice_seq"><span class="hs-identifier">sidewalkSendDataToDevice_seq</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SidewalkUpdateAccount</span></span><span>
+</span><span id="line-325"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkUpdateAccount.html#SidewalkUpdateAccount"><span class="hs-identifier">SidewalkUpdateAccount</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkUpdateAccount.html#newSidewalkUpdateAccount"><span class="hs-identifier">newSidewalkUpdateAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkUpdateAccount.html#sidewalkUpdateAccount_appServerPrivateKey"><span class="hs-identifier">sidewalkUpdateAccount_appServerPrivateKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Tag</span></span><span>
+</span><span id="line-330"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Tag.html#Tag"><span class="hs-identifier">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Tag.html#newTag"><span class="hs-identifier">newTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Tag.html#tag_key"><span class="hs-identifier">tag_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Tag.html#tag_value"><span class="hs-identifier">tag_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>
+</span><span id="line-335"></span><span>    </span><span class="annot"><span class="hs-comment">-- * UpdateWirelessGatewayTaskCreate</span></span><span>
+</span><span id="line-336"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskCreate.html#UpdateWirelessGatewayTaskCreate"><span class="hs-identifier">UpdateWirelessGatewayTaskCreate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskCreate.html#newUpdateWirelessGatewayTaskCreate"><span class="hs-identifier">newUpdateWirelessGatewayTaskCreate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskCreate.html#updateWirelessGatewayTaskCreate_updateDataSource"><span class="hs-identifier">updateWirelessGatewayTaskCreate_updateDataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskCreate.html#updateWirelessGatewayTaskCreate_updateDataRole"><span class="hs-identifier">updateWirelessGatewayTaskCreate_updateDataRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskCreate.html#updateWirelessGatewayTaskCreate_loRaWAN"><span class="hs-identifier">updateWirelessGatewayTaskCreate_loRaWAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span>    </span><span class="annot"><span class="hs-comment">-- * UpdateWirelessGatewayTaskEntry</span></span><span>
+</span><span id="line-343"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskEntry.html#UpdateWirelessGatewayTaskEntry"><span class="hs-identifier">UpdateWirelessGatewayTaskEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskEntry.html#newUpdateWirelessGatewayTaskEntry"><span class="hs-identifier">newUpdateWirelessGatewayTaskEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskEntry.html#updateWirelessGatewayTaskEntry_arn"><span class="hs-identifier">updateWirelessGatewayTaskEntry_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskEntry.html#updateWirelessGatewayTaskEntry_loRaWAN"><span class="hs-identifier">updateWirelessGatewayTaskEntry_loRaWAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskEntry.html#updateWirelessGatewayTaskEntry_id"><span class="hs-identifier">updateWirelessGatewayTaskEntry_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>
+</span><span id="line-349"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessDeviceEventLogOption</span></span><span>
+</span><span id="line-350"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceEventLogOption.html#WirelessDeviceEventLogOption"><span class="hs-identifier">WirelessDeviceEventLogOption</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceEventLogOption.html#newWirelessDeviceEventLogOption"><span class="hs-identifier">newWirelessDeviceEventLogOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceEventLogOption.html#wirelessDeviceEventLogOption_event"><span class="hs-identifier">wirelessDeviceEventLogOption_event</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceEventLogOption.html#wirelessDeviceEventLogOption_logLevel"><span class="hs-identifier">wirelessDeviceEventLogOption_logLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-354"></span><span>
+</span><span id="line-355"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessDeviceLogOption</span></span><span>
+</span><span id="line-356"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceLogOption.html#WirelessDeviceLogOption"><span class="hs-identifier">WirelessDeviceLogOption</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-357"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceLogOption.html#newWirelessDeviceLogOption"><span class="hs-identifier">newWirelessDeviceLogOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-358"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceLogOption.html#wirelessDeviceLogOption_events"><span class="hs-identifier">wirelessDeviceLogOption_events</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-359"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceLogOption.html#wirelessDeviceLogOption_type"><span class="hs-identifier">wirelessDeviceLogOption_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-360"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceLogOption.html#wirelessDeviceLogOption_logLevel"><span class="hs-identifier">wirelessDeviceLogOption_logLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessDeviceStatistics</span></span><span>
+</span><span id="line-363"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier">WirelessDeviceStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#newWirelessDeviceStatistics"><span class="hs-identifier">newWirelessDeviceStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-365"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_sidewalk"><span class="hs-identifier">wirelessDeviceStatistics_sidewalk</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_arn"><span class="hs-identifier">wirelessDeviceStatistics_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-367"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_loRaWAN"><span class="hs-identifier">wirelessDeviceStatistics_loRaWAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_name"><span class="hs-identifier">wirelessDeviceStatistics_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_id"><span class="hs-identifier">wirelessDeviceStatistics_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_lastUplinkReceivedAt"><span class="hs-identifier">wirelessDeviceStatistics_lastUplinkReceivedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-371"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_type"><span class="hs-identifier">wirelessDeviceStatistics_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-372"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_destinationName"><span class="hs-identifier">wirelessDeviceStatistics_destinationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-373"></span><span>
+</span><span id="line-374"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessGatewayEventLogOption</span></span><span>
+</span><span id="line-375"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayEventLogOption.html#WirelessGatewayEventLogOption"><span class="hs-identifier">WirelessGatewayEventLogOption</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayEventLogOption.html#newWirelessGatewayEventLogOption"><span class="hs-identifier">newWirelessGatewayEventLogOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayEventLogOption.html#wirelessGatewayEventLogOption_event"><span class="hs-identifier">wirelessGatewayEventLogOption_event</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayEventLogOption.html#wirelessGatewayEventLogOption_logLevel"><span class="hs-identifier">wirelessGatewayEventLogOption_logLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-379"></span><span>
+</span><span id="line-380"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessGatewayLogOption</span></span><span>
+</span><span id="line-381"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayLogOption.html#WirelessGatewayLogOption"><span class="hs-identifier">WirelessGatewayLogOption</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-382"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayLogOption.html#newWirelessGatewayLogOption"><span class="hs-identifier">newWirelessGatewayLogOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayLogOption.html#wirelessGatewayLogOption_events"><span class="hs-identifier">wirelessGatewayLogOption_events</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayLogOption.html#wirelessGatewayLogOption_type"><span class="hs-identifier">wirelessGatewayLogOption_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayLogOption.html#wirelessGatewayLogOption_logLevel"><span class="hs-identifier">wirelessGatewayLogOption_logLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-386"></span><span>
+</span><span id="line-387"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessGatewayStatistics</span></span><span>
+</span><span id="line-388"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayStatistics.html#WirelessGatewayStatistics"><span class="hs-identifier">WirelessGatewayStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-389"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayStatistics.html#newWirelessGatewayStatistics"><span class="hs-identifier">newWirelessGatewayStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-390"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayStatistics.html#wirelessGatewayStatistics_arn"><span class="hs-identifier">wirelessGatewayStatistics_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-391"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayStatistics.html#wirelessGatewayStatistics_loRaWAN"><span class="hs-identifier">wirelessGatewayStatistics_loRaWAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayStatistics.html#wirelessGatewayStatistics_name"><span class="hs-identifier">wirelessGatewayStatistics_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-393"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayStatistics.html#wirelessGatewayStatistics_id"><span class="hs-identifier">wirelessGatewayStatistics_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-394"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayStatistics.html#wirelessGatewayStatistics_lastUplinkReceivedAt"><span class="hs-identifier">wirelessGatewayStatistics_lastUplinkReceivedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-395"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayStatistics.html#wirelessGatewayStatistics_description"><span class="hs-identifier">wirelessGatewayStatistics_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-396"></span><span>
+</span><span id="line-397"></span><span>    </span><span class="annot"><span class="hs-comment">-- * WirelessMetadata</span></span><span>
+</span><span id="line-398"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessMetadata.html#WirelessMetadata"><span class="hs-identifier">WirelessMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-399"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessMetadata.html#newWirelessMetadata"><span class="hs-identifier">newWirelessMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-400"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessMetadata.html#wirelessMetadata_sidewalk"><span class="hs-identifier">wirelessMetadata_sidewalk</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-401"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessMetadata.html#wirelessMetadata_loRaWAN"><span class="hs-identifier">wirelessMetadata_loRaWAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-402"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-403"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-404"></span><span>
+</span><span id="line-405"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-406"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.AbpV1_0_x.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.AbpV1_0_x</span></a></span><span>
+</span><span id="line-407"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.AbpV1_1.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.AbpV1_1</span></a></span><span>
+</span><span id="line-408"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.BatteryLevel.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.BatteryLevel</span></a></span><span>
+</span><span id="line-409"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.CertificateList.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.CertificateList</span></a></span><span>
+</span><span id="line-410"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.ConnectionStatus.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.ConnectionStatus</span></a></span><span>
+</span><span id="line-411"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.Destinations</span></a></span><span>
+</span><span id="line-412"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.DeviceProfile.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.DeviceProfile</span></a></span><span>
+</span><span id="line-413"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.DeviceState.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.DeviceState</span></a></span><span>
+</span><span id="line-414"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Event.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.Event</span></a></span><span>
+</span><span id="line-415"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.ExpressionType.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.ExpressionType</span></a></span><span>
+</span><span id="line-416"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDevice.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANDevice</span></a></span><span>
+</span><span id="line-417"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceMetadata.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANDeviceMetadata</span></a></span><span>
+</span><span id="line-418"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile</span></a></span><span>
+</span><span id="line-419"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGateway.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANGateway</span></a></span><span>
+</span><span id="line-420"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayCurrentVersion.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANGatewayCurrentVersion</span></a></span><span>
+</span><span id="line-421"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayMetadata.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANGatewayMetadata</span></a></span><span>
+</span><span id="line-422"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGatewayVersion.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANGatewayVersion</span></a></span><span>
+</span><span id="line-423"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo</span></a></span><span>
+</span><span id="line-424"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANListDevice.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANListDevice</span></a></span><span>
+</span><span id="line-425"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANSendDataToDevice.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANSendDataToDevice</span></a></span><span>
+</span><span id="line-426"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANServiceProfile.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANServiceProfile</span></a></span><span>
+</span><span id="line-427"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateDevice.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANUpdateDevice</span></a></span><span>
+</span><span id="line-428"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate</span></a></span><span>
+</span><span id="line-429"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskEntry.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskEntry</span></a></span><span>
+</span><span id="line-430"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LogLevel.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LogLevel</span></a></span><span>
+</span><span id="line-431"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.MessageType.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.MessageType</span></a></span><span>
+</span><span id="line-432"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.OtaaV1_0_x.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.OtaaV1_0_x</span></a></span><span>
+</span><span id="line-433"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.OtaaV1_1.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.OtaaV1_1</span></a></span><span>
+</span><span id="line-434"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.PartnerType.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.PartnerType</span></a></span><span>
+</span><span id="line-435"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.ServiceProfile.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.ServiceProfile</span></a></span><span>
+</span><span id="line-436"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SessionKeysAbpV1_0_x.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.SessionKeysAbpV1_0_x</span></a></span><span>
+</span><span id="line-437"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SessionKeysAbpV1_1.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.SessionKeysAbpV1_1</span></a></span><span>
+</span><span id="line-438"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkAccountInfo.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.SidewalkAccountInfo</span></a></span><span>
+</span><span id="line-439"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkAccountInfoWithFingerprint.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.SidewalkAccountInfoWithFingerprint</span></a></span><span>
+</span><span id="line-440"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDevice.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.SidewalkDevice</span></a></span><span>
+</span><span id="line-441"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata</span></a></span><span>
+</span><span id="line-442"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkListDevice.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.SidewalkListDevice</span></a></span><span>
+</span><span id="line-443"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkSendDataToDevice.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.SidewalkSendDataToDevice</span></a></span><span>
+</span><span id="line-444"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkUpdateAccount.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.SidewalkUpdateAccount</span></a></span><span>
+</span><span id="line-445"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SigningAlg.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.SigningAlg</span></a></span><span>
+</span><span id="line-446"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Tag.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.Tag</span></a></span><span>
+</span><span id="line-447"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskCreate.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskCreate</span></a></span><span>
+</span><span id="line-448"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskEntry.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskEntry</span></a></span><span>
+</span><span id="line-449"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceEvent.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessDeviceEvent</span></a></span><span>
+</span><span id="line-450"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceEventLogOption.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessDeviceEventLogOption</span></a></span><span>
+</span><span id="line-451"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessDeviceIdType</span></a></span><span>
+</span><span id="line-452"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceLogOption.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessDeviceLogOption</span></a></span><span>
+</span><span id="line-453"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessDeviceStatistics</span></a></span><span>
+</span><span id="line-454"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceType.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessDeviceType</span></a></span><span>
+</span><span id="line-455"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayEvent.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessGatewayEvent</span></a></span><span>
+</span><span id="line-456"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayEventLogOption.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessGatewayEventLogOption</span></a></span><span>
+</span><span id="line-457"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayIdType.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessGatewayIdType</span></a></span><span>
+</span><span id="line-458"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayLogOption.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessGatewayLogOption</span></a></span><span>
+</span><span id="line-459"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayServiceType.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessGatewayServiceType</span></a></span><span>
+</span><span id="line-460"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayStatistics.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessGatewayStatistics</span></a></span><span>
+</span><span id="line-461"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayTaskDefinitionType.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessGatewayTaskDefinitionType</span></a></span><span>
+</span><span id="line-462"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayTaskStatus.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessGatewayTaskStatus</span></a></span><span>
+</span><span id="line-463"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayType.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessGatewayType</span></a></span><span>
+</span><span id="line-464"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessMetadata.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessMetadata</span></a></span><span>
+</span><span id="line-465"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-466"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-467"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-468"></span><span>
+</span><span id="line-469"></span><span class="hs-comment">-- | API version @2020-11-22@ of the Amazon IoT Wireless SDK configuration.</span><span>
+</span><span id="line-470"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-471"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-472"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-473"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;IoTWireless&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-474"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-475"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;api.iotwireless&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-476"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;iotwireless&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-477"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2020-11-22&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-478"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-479"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-480"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-481"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-482"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-483"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;IoTWireless&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-484"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679281581"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-485"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-486"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-487"></span><span>    </span><span id="local-6989586621679281581"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679281581"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-488"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-489"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-490"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-491"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-492"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679281575"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-493"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-494"></span><span>    </span><span id="local-6989586621679281575"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679281575"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679281574"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679281574"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-495"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-496"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-497"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-498"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-499"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679281574"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-500"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-501"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679281574"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-502"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-503"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-504"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-505"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-506"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-507"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679281574"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-508"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-509"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-510"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-511"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-512"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-513"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679281574"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-514"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-515"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-516"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-517"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-518"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-519"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-520"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679281574"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-521"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-522"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679281574"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-523"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-524"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-525"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-526"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-527"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-528"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679281574"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-529"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-530"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679281574"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-531"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-532"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679281574"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-533"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-534"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679281574"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-535"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-536"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679281574"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-537"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-538"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-539"></span><span>
+</span><span id="line-540"></span><span class="hs-comment">-- | The input did not meet the specified constraints.</span><span>
+</span><span id="line-541"></span><span id="local-6989586621679281569"><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679281569"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679281569"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-542"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.IoTWireless.Types.html#_ValidationException"><span class="hs-identifier hs-var hs-var">_ValidationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-543"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-544"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-545"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ValidationException&quot;</span></span><span>
+</span><span id="line-546"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-547"></span><span>
+</span><span id="line-548"></span><span class="hs-comment">-- | User does not have permission to perform this action.</span><span>
+</span><span id="line-549"></span><span id="local-6989586621679281567"><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#_AccessDeniedException"><span class="hs-identifier hs-type">_AccessDeniedException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679281567"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679281567"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-550"></span><span id="_AccessDeniedException"><span class="annot"><span class="annottext">_AccessDeniedException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.IoTWireless.Types.html#_AccessDeniedException"><span class="hs-identifier hs-var hs-var">_AccessDeniedException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-551"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-552"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-553"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AccessDeniedException&quot;</span></span><span>
+</span><span id="line-554"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">403</span></span><span>
+</span><span id="line-555"></span><span>
+</span><span id="line-556"></span><span class="hs-comment">-- | The request was denied because the resource can\'t have any more tags.</span><span>
+</span><span id="line-557"></span><span id="local-6989586621679281566"><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#_TooManyTagsException"><span class="hs-identifier hs-type">_TooManyTagsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679281566"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679281566"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-558"></span><span id="_TooManyTagsException"><span class="annot"><span class="annottext">_TooManyTagsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.IoTWireless.Types.html#_TooManyTagsException"><span class="hs-identifier hs-var hs-var">_TooManyTagsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-559"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-560"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-561"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;TooManyTagsException&quot;</span></span><span>
+</span><span id="line-562"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-563"></span><span>
+</span><span id="line-564"></span><span class="hs-comment">-- | Adding, updating, or deleting the resource can cause an inconsistent</span><span>
+</span><span id="line-565"></span><span class="hs-comment">-- state.</span><span>
+</span><span id="line-566"></span><span id="local-6989586621679281565"><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#_ConflictException"><span class="hs-identifier hs-type">_ConflictException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679281565"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679281565"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-567"></span><span id="_ConflictException"><span class="annot"><span class="annottext">_ConflictException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.IoTWireless.Types.html#_ConflictException"><span class="hs-identifier hs-var hs-var">_ConflictException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-568"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-569"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-570"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConflictException&quot;</span></span><span>
+</span><span id="line-571"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">409</span></span><span>
+</span><span id="line-572"></span><span>
+</span><span id="line-573"></span><span class="hs-comment">-- | The request was denied because it exceeded the allowed API request rate.</span><span>
+</span><span id="line-574"></span><span id="local-6989586621679281564"><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#_ThrottlingException"><span class="hs-identifier hs-type">_ThrottlingException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679281564"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679281564"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-575"></span><span id="_ThrottlingException"><span class="annot"><span class="annottext">_ThrottlingException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.IoTWireless.Types.html#_ThrottlingException"><span class="hs-identifier hs-var hs-var">_ThrottlingException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-576"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-577"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-578"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-579"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span>
+</span><span id="line-580"></span><span>
+</span><span id="line-581"></span><span class="hs-comment">-- | An unexpected error occurred while processing a request.</span><span>
+</span><span id="line-582"></span><span id="local-6989586621679281563"><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#_InternalServerException"><span class="hs-identifier hs-type">_InternalServerException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679281563"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679281563"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-583"></span><span id="_InternalServerException"><span class="annot"><span class="annottext">_InternalServerException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.IoTWireless.Types.html#_InternalServerException"><span class="hs-identifier hs-var hs-var">_InternalServerException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-584"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-585"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-586"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalServerException&quot;</span></span><span>
+</span><span id="line-587"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span>
+</span><span id="line-588"></span><span>
+</span><span id="line-589"></span><span class="hs-comment">-- | Resource does not exist.</span><span>
+</span><span id="line-590"></span><span id="local-6989586621679281562"><span class="annot"><a href="Network.AWS.IoTWireless.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679281562"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679281562"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-591"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.IoTWireless.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-592"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-593"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-594"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-595"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span>
+</span><span id="line-596"></span></pre></body></html>

@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The Lake Formation principal.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDataLakePrincipal' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679684356"><span id="local-6989586621679684357"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataLakePrincipal"><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-var">DataLakePrincipal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataLakePrincipal%27"><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal%27"><span class="hs-identifier hs-var">DataLakePrincipal'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679684365"><span id="local-6989586621679684366"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataLakePrincipal"><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-var">DataLakePrincipal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataLakePrincipal%27"><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal%27"><span class="hs-identifier hs-var">DataLakePrincipal'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier for the Lake Formation principal.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AdataLakePrincipalIdentifier%3ADataLakePrincipal%27"><span class="annot"><span class="annottext">DataLakePrincipal -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#%24sel%3AdataLakePrincipalIdentifier%3ADataLakePrincipal%27"><span class="hs-identifier hs-var hs-var">dataLakePrincipalIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679684350"><span id="local-6989586621679684352"><span class="annot"><span class="annottext">DataLakePrincipal -&gt; DataLakePrincipal -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679684359"><span id="local-6989586621679684361"><span class="annot"><span class="annottext">DataLakePrincipal -&gt; DataLakePrincipal -&gt; Bool
 (DataLakePrincipal -&gt; DataLakePrincipal -&gt; Bool)
 -&gt; (DataLakePrincipal -&gt; DataLakePrincipal -&gt; Bool)
 -&gt; Eq DataLakePrincipal
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DataLakePrincipal -&gt; DataLakePrincipal -&gt; Bool
 == :: DataLakePrincipal -&gt; DataLakePrincipal -&gt; Bool
 $c== :: DataLakePrincipal -&gt; DataLakePrincipal -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684341"><span id="local-6989586621679684343"><span id="local-6989586621679684345"><span id="local-6989586621679684347"><span class="annot"><span class="annottext">ReadPrec [DataLakePrincipal]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684350"><span id="local-6989586621679684352"><span id="local-6989586621679684354"><span id="local-6989586621679684356"><span class="annot"><span class="annottext">ReadPrec [DataLakePrincipal]
 ReadPrec DataLakePrincipal
 Int -&gt; ReadS DataLakePrincipal
 ReadS [DataLakePrincipal]
@@ -60,7 +60,7 @@ readList :: ReadS [DataLakePrincipal]
 $creadList :: ReadS [DataLakePrincipal]
 readsPrec :: Int -&gt; ReadS DataLakePrincipal
 $creadsPrec :: Int -&gt; ReadS DataLakePrincipal
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684334"><span id="local-6989586621679684336"><span id="local-6989586621679684338"><span class="annot"><span class="annottext">Int -&gt; DataLakePrincipal -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684343"><span id="local-6989586621679684345"><span id="local-6989586621679684347"><span class="annot"><span class="annottext">Int -&gt; DataLakePrincipal -&gt; ShowS
 [DataLakePrincipal] -&gt; ShowS
 DataLakePrincipal -&gt; String
 (Int -&gt; DataLakePrincipal -&gt; ShowS)
@@ -117,19 +117,19 @@ forall a. Maybe a
 -&gt; Lens
      DataLakePrincipal DataLakePrincipal (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal%27"><span class="hs-identifier hs-type">DataLakePrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684325"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal%27"><span class="hs-identifier hs-type">DataLakePrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684334"><span class="annot"><span class="annottext">Maybe Text
 dataLakePrincipalIdentifier :: Maybe Text
 $sel:dataLakePrincipalIdentifier:DataLakePrincipal' :: DataLakePrincipal -&gt; Maybe Text
-</span><a href="#local-6989586621679684325"><span class="hs-identifier hs-var hs-var">dataLakePrincipalIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684325"><span class="hs-identifier hs-var">dataLakePrincipalIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684324"><span class="annot"><span class="annottext">s :: DataLakePrincipal
-</span><a href="#local-6989586621679684324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal%27"><span class="hs-identifier hs-type">DataLakePrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684323"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataLakePrincipal
-</span><a href="#local-6989586621679684324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataLakePrincipalIdentifier:DataLakePrincipal' :: Maybe Text
+</span><a href="#local-6989586621679684334"><span class="hs-identifier hs-var hs-var">dataLakePrincipalIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679684334"><span class="hs-identifier hs-var">dataLakePrincipalIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684333"><span class="annot"><span class="annottext">s :: DataLakePrincipal
+</span><a href="#local-6989586621679684333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal%27"><span class="hs-identifier hs-type">DataLakePrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684332"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679684332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataLakePrincipal
+</span><a href="#local-6989586621679684333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataLakePrincipalIdentifier:DataLakePrincipal' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#%24sel%3AdataLakePrincipalIdentifier%3ADataLakePrincipal%27"><span class="hs-identifier hs-var">dataLakePrincipalIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679684332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684320"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679684318"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataLakePrincipal
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684329"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679684327"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataLakePrincipal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DataLakePrincipal)
@@ -139,30 +139,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DataLakePrincipal&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679684315"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684315"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679684324"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679684324"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; DataLakePrincipal
 </span><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal%27"><span class="hs-identifier hs-var">DataLakePrincipal'</span></a></span><span>
 </span><span id="line-62"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; DataLakePrincipal)
 -&gt; Parser (Maybe Text) -&gt; Parser DataLakePrincipal
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679684324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataLakePrincipalIdentifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684309"><span id="local-6989586621679684311"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684318"><span id="local-6989586621679684320"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684298"><span id="local-6989586621679684300"><span id="local-6989586621679684302"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679684296"><span class="annot"><span class="annottext">toJSON :: DataLakePrincipal -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal%27"><span class="hs-identifier hs-type">DataLakePrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684294"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684307"><span id="local-6989586621679684309"><span id="local-6989586621679684311"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679684305"><span class="annot"><span class="annottext">toJSON :: DataLakePrincipal -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal%27"><span class="hs-identifier hs-type">DataLakePrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684303"><span class="annot"><span class="annottext">Maybe Text
 dataLakePrincipalIdentifier :: Maybe Text
 $sel:dataLakePrincipalIdentifier:DataLakePrincipal' :: DataLakePrincipal -&gt; Maybe Text
-</span><a href="#local-6989586621679684294"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679684303"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -175,7 +175,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-74"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684294"><span class="hs-identifier hs-var">dataLakePrincipalIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679684303"><span class="hs-identifier hs-var">dataLakePrincipalIdentifier</span></a></span><span>
 </span><span id="line-75"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span></pre></body></html>

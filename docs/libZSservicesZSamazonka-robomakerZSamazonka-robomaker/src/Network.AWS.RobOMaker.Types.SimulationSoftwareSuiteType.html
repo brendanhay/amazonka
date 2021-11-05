@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType"><span class="hs-identifier">SimulationSoftwareSuiteType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType_Gazebo"><span class="hs-identifier">SimulationSoftwareSuiteType_Gazebo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType_RosbagPlay"><span class="hs-identifier">SimulationSoftwareSuiteType_RosbagPlay</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType_SimulationRuntime"><span class="hs-identifier">SimulationSoftwareSuiteType_SimulationRuntime</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679371595"><span id="local-6989586621679371596"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SimulationSoftwareSuiteType"><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType"><span class="hs-identifier hs-var">SimulationSoftwareSuiteType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SimulationSoftwareSuiteType%27"><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType%27"><span class="hs-identifier hs-var">SimulationSoftwareSuiteType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSimulationSoftwareSuiteType"><span class="annot"><span class="annottext">SimulationSoftwareSuiteType -&gt; Text
+</span><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#fromSimulationSoftwareSuiteType"><span class="hs-identifier hs-var hs-var">fromSimulationSoftwareSuiteType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371587"><span id="local-6989586621679371589"><span id="local-6989586621679371591"><span class="annot"><span class="annottext">Int -&gt; SimulationSoftwareSuiteType -&gt; ShowS
+[SimulationSoftwareSuiteType] -&gt; ShowS
+SimulationSoftwareSuiteType -&gt; String
+(Int -&gt; SimulationSoftwareSuiteType -&gt; ShowS)
+-&gt; (SimulationSoftwareSuiteType -&gt; String)
+-&gt; ([SimulationSoftwareSuiteType] -&gt; ShowS)
+-&gt; Show SimulationSoftwareSuiteType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SimulationSoftwareSuiteType] -&gt; ShowS
+$cshowList :: [SimulationSoftwareSuiteType] -&gt; ShowS
+show :: SimulationSoftwareSuiteType -&gt; String
+$cshow :: SimulationSoftwareSuiteType -&gt; String
+showsPrec :: Int -&gt; SimulationSoftwareSuiteType -&gt; ShowS
+$cshowsPrec :: Int -&gt; SimulationSoftwareSuiteType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679371578"><span id="local-6989586621679371580"><span id="local-6989586621679371582"><span id="local-6989586621679371584"><span class="annot"><span class="annottext">ReadPrec [SimulationSoftwareSuiteType]
+ReadPrec SimulationSoftwareSuiteType
+Int -&gt; ReadS SimulationSoftwareSuiteType
+ReadS [SimulationSoftwareSuiteType]
+(Int -&gt; ReadS SimulationSoftwareSuiteType)
+-&gt; ReadS [SimulationSoftwareSuiteType]
+-&gt; ReadPrec SimulationSoftwareSuiteType
+-&gt; ReadPrec [SimulationSoftwareSuiteType]
+-&gt; Read SimulationSoftwareSuiteType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SimulationSoftwareSuiteType]
+$creadListPrec :: ReadPrec [SimulationSoftwareSuiteType]
+readPrec :: ReadPrec SimulationSoftwareSuiteType
+$creadPrec :: ReadPrec SimulationSoftwareSuiteType
+readList :: ReadS [SimulationSoftwareSuiteType]
+$creadList :: ReadS [SimulationSoftwareSuiteType]
+readsPrec :: Int -&gt; ReadS SimulationSoftwareSuiteType
+$creadsPrec :: Int -&gt; ReadS SimulationSoftwareSuiteType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679371573"><span id="local-6989586621679371575"><span class="annot"><span class="annottext">SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType -&gt; Bool
+(SimulationSoftwareSuiteType
+ -&gt; SimulationSoftwareSuiteType -&gt; Bool)
+-&gt; (SimulationSoftwareSuiteType
+    -&gt; SimulationSoftwareSuiteType -&gt; Bool)
+-&gt; Eq SimulationSoftwareSuiteType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType -&gt; Bool
+$c/= :: SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType -&gt; Bool
+== :: SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType -&gt; Bool
+$c== :: SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679371557"><span id="local-6989586621679371559"><span id="local-6989586621679371561"><span id="local-6989586621679371563"><span id="local-6989586621679371565"><span id="local-6989586621679371567"><span id="local-6989586621679371569"><span class="annot"><span class="annottext">Eq SimulationSoftwareSuiteType
+Eq SimulationSoftwareSuiteType
+-&gt; (SimulationSoftwareSuiteType
+    -&gt; SimulationSoftwareSuiteType -&gt; Ordering)
+-&gt; (SimulationSoftwareSuiteType
+    -&gt; SimulationSoftwareSuiteType -&gt; Bool)
+-&gt; (SimulationSoftwareSuiteType
+    -&gt; SimulationSoftwareSuiteType -&gt; Bool)
+-&gt; (SimulationSoftwareSuiteType
+    -&gt; SimulationSoftwareSuiteType -&gt; Bool)
+-&gt; (SimulationSoftwareSuiteType
+    -&gt; SimulationSoftwareSuiteType -&gt; Bool)
+-&gt; (SimulationSoftwareSuiteType
+    -&gt; SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType)
+-&gt; (SimulationSoftwareSuiteType
+    -&gt; SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType)
+-&gt; Ord SimulationSoftwareSuiteType
+SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType -&gt; Bool
+SimulationSoftwareSuiteType
+-&gt; SimulationSoftwareSuiteType -&gt; Ordering
+SimulationSoftwareSuiteType
+-&gt; SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SimulationSoftwareSuiteType
+-&gt; SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType
+$cmin :: SimulationSoftwareSuiteType
+-&gt; SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType
+max :: SimulationSoftwareSuiteType
+-&gt; SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType
+$cmax :: SimulationSoftwareSuiteType
+-&gt; SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType
+&gt;= :: SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType -&gt; Bool
+$c&gt;= :: SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType -&gt; Bool
+&gt; :: SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType -&gt; Bool
+$c&gt; :: SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType -&gt; Bool
+&lt;= :: SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType -&gt; Bool
+$c&lt;= :: SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType -&gt; Bool
+&lt; :: SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType -&gt; Bool
+$c&lt; :: SimulationSoftwareSuiteType -&gt; SimulationSoftwareSuiteType -&gt; Bool
+compare :: SimulationSoftwareSuiteType
+-&gt; SimulationSoftwareSuiteType -&gt; Ordering
+$ccompare :: SimulationSoftwareSuiteType
+-&gt; SimulationSoftwareSuiteType -&gt; Ordering
+$cp1Ord :: Eq SimulationSoftwareSuiteType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ SimulationSoftwareSuiteType -&gt; Rep SimulationSoftwareSuiteType x)
+-&gt; (forall x.
+    Rep SimulationSoftwareSuiteType x -&gt; SimulationSoftwareSuiteType)
+-&gt; Generic SimulationSoftwareSuiteType
+forall x.
+Rep SimulationSoftwareSuiteType x -&gt; SimulationSoftwareSuiteType
+forall x.
+SimulationSoftwareSuiteType -&gt; Rep SimulationSoftwareSuiteType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SimulationSoftwareSuiteType x -&gt; SimulationSoftwareSuiteType
+$cfrom :: forall x.
+SimulationSoftwareSuiteType -&gt; Rep SimulationSoftwareSuiteType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371549"><span id="local-6989586621679371551"><span class="annot"><span class="annottext">Int -&gt; SimulationSoftwareSuiteType -&gt; Int
+SimulationSoftwareSuiteType -&gt; Int
+(Int -&gt; SimulationSoftwareSuiteType -&gt; Int)
+-&gt; (SimulationSoftwareSuiteType -&gt; Int)
+-&gt; Hashable SimulationSoftwareSuiteType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SimulationSoftwareSuiteType -&gt; Int
+$chash :: SimulationSoftwareSuiteType -&gt; Int
+hashWithSalt :: Int -&gt; SimulationSoftwareSuiteType -&gt; Int
+$chashWithSalt :: Int -&gt; SimulationSoftwareSuiteType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679371546"><span class="annot"><span class="annottext">SimulationSoftwareSuiteType -&gt; ()
+(SimulationSoftwareSuiteType -&gt; ())
+-&gt; NFData SimulationSoftwareSuiteType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SimulationSoftwareSuiteType -&gt; ()
+$crnf :: SimulationSoftwareSuiteType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679371543"><span class="annot"><span class="annottext">Text -&gt; Either String SimulationSoftwareSuiteType
+(Text -&gt; Either String SimulationSoftwareSuiteType)
+-&gt; FromText SimulationSoftwareSuiteType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SimulationSoftwareSuiteType
+$cfromText :: Text -&gt; Either String SimulationSoftwareSuiteType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679371540"><span class="annot"><span class="annottext">SimulationSoftwareSuiteType -&gt; Text
+(SimulationSoftwareSuiteType -&gt; Text)
+-&gt; ToText SimulationSoftwareSuiteType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SimulationSoftwareSuiteType -&gt; Text
+$ctoText :: SimulationSoftwareSuiteType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679371537"><span class="annot"><span class="annottext">SimulationSoftwareSuiteType -&gt; ByteString
+(SimulationSoftwareSuiteType -&gt; ByteString)
+-&gt; ToByteString SimulationSoftwareSuiteType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SimulationSoftwareSuiteType -&gt; ByteString
+$ctoBS :: SimulationSoftwareSuiteType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679371534"><span class="annot"><span class="annottext">SimulationSoftwareSuiteType -&gt; ByteStringBuilder
+(SimulationSoftwareSuiteType -&gt; ByteStringBuilder)
+-&gt; ToLog SimulationSoftwareSuiteType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SimulationSoftwareSuiteType -&gt; ByteStringBuilder
+$cbuild :: SimulationSoftwareSuiteType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679371531"><span class="annot"><span class="annottext">HeaderName -&gt; SimulationSoftwareSuiteType -&gt; [Header]
+(HeaderName -&gt; SimulationSoftwareSuiteType -&gt; [Header])
+-&gt; ToHeader SimulationSoftwareSuiteType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SimulationSoftwareSuiteType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SimulationSoftwareSuiteType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679371528"><span class="annot"><span class="annottext">SimulationSoftwareSuiteType -&gt; QueryString
+(SimulationSoftwareSuiteType -&gt; QueryString)
+-&gt; ToQuery SimulationSoftwareSuiteType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SimulationSoftwareSuiteType -&gt; QueryString
+$ctoQuery :: SimulationSoftwareSuiteType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679371523"><span id="local-6989586621679371525"><span class="annot"><span class="annottext">Value -&gt; Parser [SimulationSoftwareSuiteType]
+Value -&gt; Parser SimulationSoftwareSuiteType
+(Value -&gt; Parser SimulationSoftwareSuiteType)
+-&gt; (Value -&gt; Parser [SimulationSoftwareSuiteType])
+-&gt; FromJSON SimulationSoftwareSuiteType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SimulationSoftwareSuiteType]
+$cparseJSONList :: Value -&gt; Parser [SimulationSoftwareSuiteType]
+parseJSON :: Value -&gt; Parser SimulationSoftwareSuiteType
+$cparseJSON :: Value -&gt; Parser SimulationSoftwareSuiteType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679371518"><span id="local-6989586621679371520"><span class="annot"><span class="annottext">FromJSONKeyFunction [SimulationSoftwareSuiteType]
+FromJSONKeyFunction SimulationSoftwareSuiteType
+FromJSONKeyFunction SimulationSoftwareSuiteType
+-&gt; FromJSONKeyFunction [SimulationSoftwareSuiteType]
+-&gt; FromJSONKey SimulationSoftwareSuiteType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SimulationSoftwareSuiteType]
+$cfromJSONKeyList :: FromJSONKeyFunction [SimulationSoftwareSuiteType]
+fromJSONKey :: FromJSONKeyFunction SimulationSoftwareSuiteType
+$cfromJSONKey :: FromJSONKeyFunction SimulationSoftwareSuiteType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679371509"><span id="local-6989586621679371511"><span id="local-6989586621679371513"><span id="local-6989586621679371515"><span class="annot"><span class="annottext">[SimulationSoftwareSuiteType] -&gt; Encoding
+[SimulationSoftwareSuiteType] -&gt; Value
+SimulationSoftwareSuiteType -&gt; Encoding
+SimulationSoftwareSuiteType -&gt; Value
+(SimulationSoftwareSuiteType -&gt; Value)
+-&gt; (SimulationSoftwareSuiteType -&gt; Encoding)
+-&gt; ([SimulationSoftwareSuiteType] -&gt; Value)
+-&gt; ([SimulationSoftwareSuiteType] -&gt; Encoding)
+-&gt; ToJSON SimulationSoftwareSuiteType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SimulationSoftwareSuiteType] -&gt; Encoding
+$ctoEncodingList :: [SimulationSoftwareSuiteType] -&gt; Encoding
+toJSONList :: [SimulationSoftwareSuiteType] -&gt; Value
+$ctoJSONList :: [SimulationSoftwareSuiteType] -&gt; Value
+toEncoding :: SimulationSoftwareSuiteType -&gt; Encoding
+$ctoEncoding :: SimulationSoftwareSuiteType -&gt; Encoding
+toJSON :: SimulationSoftwareSuiteType -&gt; Value
+$ctoJSON :: SimulationSoftwareSuiteType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679371504"><span id="local-6989586621679371506"><span class="annot"><span class="annottext">ToJSONKeyFunction [SimulationSoftwareSuiteType]
+ToJSONKeyFunction SimulationSoftwareSuiteType
+ToJSONKeyFunction SimulationSoftwareSuiteType
+-&gt; ToJSONKeyFunction [SimulationSoftwareSuiteType]
+-&gt; ToJSONKey SimulationSoftwareSuiteType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SimulationSoftwareSuiteType]
+$ctoJSONKeyList :: ToJSONKeyFunction [SimulationSoftwareSuiteType]
+toJSONKey :: ToJSONKeyFunction SimulationSoftwareSuiteType
+$ctoJSONKey :: ToJSONKeyFunction SimulationSoftwareSuiteType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679371501"><span class="annot"><span class="annottext">[Node] -&gt; Either String SimulationSoftwareSuiteType
+([Node] -&gt; Either String SimulationSoftwareSuiteType)
+-&gt; FromXML SimulationSoftwareSuiteType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SimulationSoftwareSuiteType
+$cparseXML :: [Node] -&gt; Either String SimulationSoftwareSuiteType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679371498"><span class="annot"><span class="annottext">SimulationSoftwareSuiteType -&gt; XML
+(SimulationSoftwareSuiteType -&gt; XML)
+-&gt; ToXML SimulationSoftwareSuiteType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SimulationSoftwareSuiteType -&gt; XML
+$ctoXML :: SimulationSoftwareSuiteType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType_Gazebo"><span class="hs-identifier hs-type">SimulationSoftwareSuiteType_Gazebo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType"><span class="hs-identifier hs-type">SimulationSoftwareSuiteType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationSoftwareSuiteType_Gazebo"><span id="%24mSimulationSoftwareSuiteType_Gazebo"><span id="SimulationSoftwareSuiteType_Gazebo"><span class="annot"><span class="annottext">$bSimulationSoftwareSuiteType_Gazebo :: SimulationSoftwareSuiteType
+$mSimulationSoftwareSuiteType_Gazebo :: forall r.
+SimulationSoftwareSuiteType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#%24bSimulationSoftwareSuiteType_Gazebo"><span class="hs-identifier hs-var hs-var hs-var">SimulationSoftwareSuiteType_Gazebo</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType%27"><span class="hs-identifier hs-type">SimulationSoftwareSuiteType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Gazebo&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType_RosbagPlay"><span class="hs-identifier hs-type">SimulationSoftwareSuiteType_RosbagPlay</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType"><span class="hs-identifier hs-type">SimulationSoftwareSuiteType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationSoftwareSuiteType_RosbagPlay"><span id="%24mSimulationSoftwareSuiteType_RosbagPlay"><span id="SimulationSoftwareSuiteType_RosbagPlay"><span class="annot"><span class="annottext">$bSimulationSoftwareSuiteType_RosbagPlay :: SimulationSoftwareSuiteType
+$mSimulationSoftwareSuiteType_RosbagPlay :: forall r.
+SimulationSoftwareSuiteType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#%24bSimulationSoftwareSuiteType_RosbagPlay"><span class="hs-identifier hs-var hs-var hs-var">SimulationSoftwareSuiteType_RosbagPlay</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType%27"><span class="hs-identifier hs-type">SimulationSoftwareSuiteType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RosbagPlay&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType_SimulationRuntime"><span class="hs-identifier hs-type">SimulationSoftwareSuiteType_SimulationRuntime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType"><span class="hs-identifier hs-type">SimulationSoftwareSuiteType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationSoftwareSuiteType_SimulationRuntime"><span id="%24mSimulationSoftwareSuiteType_SimulationRuntime"><span id="SimulationSoftwareSuiteType_SimulationRuntime"><span class="annot"><span class="annottext">$bSimulationSoftwareSuiteType_SimulationRuntime :: SimulationSoftwareSuiteType
+$mSimulationSoftwareSuiteType_SimulationRuntime :: forall r.
+SimulationSoftwareSuiteType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#%24bSimulationSoftwareSuiteType_SimulationRuntime"><span class="hs-identifier hs-var hs-var hs-var">SimulationSoftwareSuiteType_SimulationRuntime</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType%27"><span class="hs-identifier hs-type">SimulationSoftwareSuiteType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SimulationRuntime&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType_Gazebo"><span class="hs-pragma hs-type">SimulationSoftwareSuiteType_Gazebo</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType_RosbagPlay"><span class="hs-pragma hs-type">SimulationSoftwareSuiteType_RosbagPlay</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType_SimulationRuntime"><span class="hs-pragma hs-type">SimulationSoftwareSuiteType_SimulationRuntime</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType.html#SimulationSoftwareSuiteType%27"><span class="hs-pragma hs-type">SimulationSoftwareSuiteType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

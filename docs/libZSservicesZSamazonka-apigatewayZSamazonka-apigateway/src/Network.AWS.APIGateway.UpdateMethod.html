@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-comment">-- | Request to update an existing Method resource.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newUpdateMethod' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679396451"><span id="local-6989586621679396452"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateMethod"><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-var">UpdateMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateMethod%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-var">UpdateMethod'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679396460"><span id="local-6989586621679396461"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateMethod"><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-var">UpdateMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateMethod%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-var">UpdateMethod'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- in the order specified in this list.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3ApatchOperations%3AUpdateMethod%27"><span class="annot"><span class="annottext">UpdateMethod -&gt; Maybe [PatchOperation]
@@ -76,7 +76,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3AhttpMethod%3AUpdateMethod%27"><span class="annot"><span class="annottext">UpdateMethod -&gt; Text
 </span><a href="Network.AWS.APIGateway.UpdateMethod.html#%24sel%3AhttpMethod%3AUpdateMethod%27"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396442"><span id="local-6989586621679396444"><span class="annot"><span class="annottext">UpdateMethod -&gt; UpdateMethod -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396451"><span id="local-6989586621679396453"><span class="annot"><span class="annottext">UpdateMethod -&gt; UpdateMethod -&gt; Bool
 (UpdateMethod -&gt; UpdateMethod -&gt; Bool)
 -&gt; (UpdateMethod -&gt; UpdateMethod -&gt; Bool) -&gt; Eq UpdateMethod
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateMethod -&gt; UpdateMethod -&gt; Bool
 == :: UpdateMethod -&gt; UpdateMethod -&gt; Bool
 $c== :: UpdateMethod -&gt; UpdateMethod -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396433"><span id="local-6989586621679396435"><span id="local-6989586621679396437"><span id="local-6989586621679396439"><span class="annot"><span class="annottext">ReadPrec [UpdateMethod]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396442"><span id="local-6989586621679396444"><span id="local-6989586621679396446"><span id="local-6989586621679396448"><span class="annot"><span class="annottext">ReadPrec [UpdateMethod]
 ReadPrec UpdateMethod
 Int -&gt; ReadS UpdateMethod
 ReadS [UpdateMethod]
@@ -104,7 +104,7 @@ readList :: ReadS [UpdateMethod]
 $creadList :: ReadS [UpdateMethod]
 readsPrec :: Int -&gt; ReadS UpdateMethod
 $creadsPrec :: Int -&gt; ReadS UpdateMethod
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396426"><span id="local-6989586621679396428"><span id="local-6989586621679396430"><span class="annot"><span class="annottext">Int -&gt; UpdateMethod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396435"><span id="local-6989586621679396437"><span id="local-6989586621679396439"><span class="annot"><span class="annottext">Int -&gt; UpdateMethod -&gt; ShowS
 [UpdateMethod] -&gt; ShowS
 UpdateMethod -&gt; String
 (Int -&gt; UpdateMethod -&gt; ShowS)
@@ -155,10 +155,10 @@ $cfrom :: forall x. UpdateMethod -&gt; Rep UpdateMethod x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span>
 </span><span id="line-101"></span><span id="newUpdateMethod"><span class="annot"><span class="annottext">newUpdateMethod :: Text -&gt; Text -&gt; Text -&gt; UpdateMethod
-</span><a href="Network.AWS.APIGateway.UpdateMethod.html#newUpdateMethod"><span class="hs-identifier hs-var hs-var">newUpdateMethod</span></a></span></span><span> </span><span id="local-6989586621679396421"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396421"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679396420"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396420"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span id="local-6989586621679396419"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396419"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.UpdateMethod.html#newUpdateMethod"><span class="hs-identifier hs-var hs-var">newUpdateMethod</span></a></span></span><span> </span><span id="local-6989586621679396430"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396430"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679396429"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396429"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span id="local-6989586621679396428"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396428"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">UpdateMethod' :: Maybe [PatchOperation] -&gt; Text -&gt; Text -&gt; Text -&gt; UpdateMethod
 </span><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateMethod' :: Maybe [PatchOperation]
@@ -167,13 +167,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:restApiId:UpdateMethod' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateMethod.html#%24sel%3ArestApiId%3AUpdateMethod%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396421"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396430"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:UpdateMethod' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateMethod.html#%24sel%3AresourceId%3AUpdateMethod%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396420"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396429"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpMethod:UpdateMethod' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateMethod.html#%24sel%3AhttpMethod%3AUpdateMethod%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396419"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span><span>
+</span><a href="#local-6989586621679396428"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
@@ -189,16 +189,16 @@ forall a. Maybe a
      (Maybe [PatchOperation])
      (Maybe [PatchOperation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396416"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396425"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 patchOperations :: Maybe [PatchOperation]
 $sel:patchOperations:UpdateMethod' :: UpdateMethod -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679396416"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679396416"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396415"><span class="annot"><span class="annottext">s :: UpdateMethod
-</span><a href="#local-6989586621679396415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396414"><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679396414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMethod
-</span><a href="#local-6989586621679396415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateMethod' :: Maybe [PatchOperation]
+</span><a href="#local-6989586621679396425"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679396425"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396424"><span class="annot"><span class="annottext">s :: UpdateMethod
+</span><a href="#local-6989586621679396424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396423"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679396423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMethod
+</span><a href="#local-6989586621679396424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateMethod' :: Maybe [PatchOperation]
 </span><a href="Network.AWS.APIGateway.UpdateMethod.html#%24sel%3ApatchOperations%3AUpdateMethod%27"><span class="hs-identifier hs-var">patchOperations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679396414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
+</span><a href="#local-6989586621679396423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
  -&gt; UpdateMethod -&gt; f UpdateMethod)
 -&gt; ((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
     -&gt; Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
@@ -228,16 +228,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateMethod -&gt; Text -&gt; UpdateMethod)
 -&gt; Lens UpdateMethod UpdateMethod Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396410"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396419"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:UpdateMethod' :: UpdateMethod -&gt; Text
-</span><a href="#local-6989586621679396410"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396410"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396409"><span class="annot"><span class="annottext">s :: UpdateMethod
-</span><a href="#local-6989586621679396409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396408"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMethod
-</span><a href="#local-6989586621679396409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:UpdateMethod' :: Text
+</span><a href="#local-6989586621679396419"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396419"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396418"><span class="annot"><span class="annottext">s :: UpdateMethod
+</span><a href="#local-6989586621679396418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396417"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMethod
+</span><a href="#local-6989586621679396418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:UpdateMethod' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateMethod.html#%24sel%3ArestApiId%3AUpdateMethod%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | [Required] The Resource identifier for the Method resource.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#updateMethod_resourceId"><span class="hs-identifier hs-type">updateMethod_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -246,16 +246,16 @@ $sel:restApiId:UpdateMethod' :: UpdateMethod -&gt; Text
 -&gt; (UpdateMethod -&gt; Text -&gt; UpdateMethod)
 -&gt; Lens UpdateMethod UpdateMethod Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396407"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396416"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:UpdateMethod' :: UpdateMethod -&gt; Text
-</span><a href="#local-6989586621679396407"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396407"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396406"><span class="annot"><span class="annottext">s :: UpdateMethod
-</span><a href="#local-6989586621679396406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396405"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMethod
-</span><a href="#local-6989586621679396406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:UpdateMethod' :: Text
+</span><a href="#local-6989586621679396416"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396416"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396415"><span class="annot"><span class="annottext">s :: UpdateMethod
+</span><a href="#local-6989586621679396415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396414"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMethod
+</span><a href="#local-6989586621679396415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:UpdateMethod' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateMethod.html#%24sel%3AresourceId%3AUpdateMethod%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | [Required] The HTTP verb of the Method resource.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#updateMethod_httpMethod"><span class="hs-identifier hs-type">updateMethod_httpMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -264,25 +264,25 @@ $sel:resourceId:UpdateMethod' :: UpdateMethod -&gt; Text
 -&gt; (UpdateMethod -&gt; Text -&gt; UpdateMethod)
 -&gt; Lens UpdateMethod UpdateMethod Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396404"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396413"><span class="annot"><span class="annottext">Text
 httpMethod :: Text
 $sel:httpMethod:UpdateMethod' :: UpdateMethod -&gt; Text
-</span><a href="#local-6989586621679396404"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396404"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396403"><span class="annot"><span class="annottext">s :: UpdateMethod
-</span><a href="#local-6989586621679396403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396402"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMethod
-</span><a href="#local-6989586621679396403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:UpdateMethod' :: Text
+</span><a href="#local-6989586621679396413"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396413"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396412"><span class="annot"><span class="annottext">s :: UpdateMethod
+</span><a href="#local-6989586621679396412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396411"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMethod
+</span><a href="#local-6989586621679396412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:UpdateMethod' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateMethod.html#%24sel%3AhttpMethod%3AUpdateMethod%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679396398"><span class="annot"><span class="annottext">request :: UpdateMethod -&gt; Request UpdateMethod
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679396407"><span class="annot"><span class="annottext">request :: UpdateMethod -&gt; Request UpdateMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateMethod -&gt; Request UpdateMethod
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679396394"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679396403"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateMethod
 -&gt; ClientResponse ClientBody
@@ -306,20 +306,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396391"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396391"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679396390"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679396390"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679396389"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679396389"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Method
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396400"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396400"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679396399"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679396399"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679396398"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679396398"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Method
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679396389"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396398"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396384"><span id="local-6989586621679396386"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396393"><span id="local-6989586621679396395"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396381"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396390"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679396377"><span class="annot"><span class="annottext">toHeaders :: UpdateMethod -&gt; ResponseHeaders
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679396386"><span class="annot"><span class="annottext">toHeaders :: UpdateMethod -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateMethod -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -336,9 +336,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396367"><span id="local-6989586621679396369"><span id="local-6989586621679396371"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679396365"><span class="annot"><span class="annottext">toJSON :: UpdateMethod -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396360"><span id="local-6989586621679396361"><span id="local-6989586621679396362"><span id="local-6989586621679396363"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396376"><span id="local-6989586621679396378"><span id="local-6989586621679396380"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679396374"><span class="annot"><span class="annottext">toJSON :: UpdateMethod -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396369"><span id="local-6989586621679396370"><span id="local-6989586621679396371"><span id="local-6989586621679396372"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 Text
 httpMethod :: Text
 resourceId :: Text
@@ -348,7 +348,7 @@ $sel:httpMethod:UpdateMethod' :: UpdateMethod -&gt; Text
 $sel:resourceId:UpdateMethod' :: UpdateMethod -&gt; Text
 $sel:restApiId:UpdateMethod' :: UpdateMethod -&gt; Text
 $sel:patchOperations:UpdateMethod' :: UpdateMethod -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679396360"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679396369"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -361,13 +361,13 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">([PatchOperation] -&gt; Pair) -&gt; Maybe [PatchOperation] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679396363"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
+</span><a href="#local-6989586621679396372"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
 </span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679396353"><span class="annot"><span class="annottext">toPath :: UpdateMethod -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396348"><span id="local-6989586621679396349"><span id="local-6989586621679396350"><span id="local-6989586621679396351"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679396362"><span class="annot"><span class="annottext">toPath :: UpdateMethod -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod%27"><span class="hs-identifier hs-type">UpdateMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396357"><span id="local-6989586621679396358"><span id="local-6989586621679396359"><span id="local-6989586621679396360"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 Text
 httpMethod :: Text
 resourceId :: Text
@@ -377,7 +377,7 @@ $sel:httpMethod:UpdateMethod' :: UpdateMethod -&gt; Text
 $sel:resourceId:UpdateMethod' :: UpdateMethod -&gt; Text
 $sel:restApiId:UpdateMethod' :: UpdateMethod -&gt; Text
 $sel:patchOperations:UpdateMethod' :: UpdateMethod -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679396348"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679396357"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -386,23 +386,23 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396350"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396359"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/resources/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396349"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396358"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/methods/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396348"><span class="hs-identifier hs-var">httpMethod</span></a></span><span>
+</span><a href="#local-6989586621679396357"><span class="hs-identifier hs-var">httpMethod</span></a></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateMethod.html#UpdateMethod"><span class="hs-identifier hs-type">UpdateMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679396344"><span class="annot"><span class="annottext">toQuery :: UpdateMethod -&gt; QueryString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679396353"><span class="annot"><span class="annottext">toQuery :: UpdateMethod -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateMethod -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

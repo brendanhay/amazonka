@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The unique ID of the schema in the Glue schema registry.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSchemaId' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679697212"><span id="local-6989586621679697213"></span></span><span class="hs-keyword">data</span><span> </span><span id="SchemaId"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-var">SchemaId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaId%27"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-var">SchemaId'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679697221"><span id="local-6989586621679697222"></span></span><span class="hs-keyword">data</span><span> </span><span id="SchemaId"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-var">SchemaId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaId%27"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-var">SchemaId'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the schema registry that contains the schema.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AregistryName%3ASchemaId%27"><span class="annot"><span class="annottext">SchemaId -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.SchemaId.html#%24sel%3AregistryName%3ASchemaId%27"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AschemaArn%3ASchemaId%27"><span class="annot"><span class="annottext">SchemaId -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.SchemaId.html#%24sel%3AschemaArn%3ASchemaId%27"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679697204"><span id="local-6989586621679697206"><span class="annot"><span class="annottext">SchemaId -&gt; SchemaId -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679697213"><span id="local-6989586621679697215"><span class="annot"><span class="annottext">SchemaId -&gt; SchemaId -&gt; Bool
 (SchemaId -&gt; SchemaId -&gt; Bool)
 -&gt; (SchemaId -&gt; SchemaId -&gt; Bool) -&gt; Eq SchemaId
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SchemaId -&gt; SchemaId -&gt; Bool
 == :: SchemaId -&gt; SchemaId -&gt; Bool
 $c== :: SchemaId -&gt; SchemaId -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679697195"><span id="local-6989586621679697197"><span id="local-6989586621679697199"><span id="local-6989586621679697201"><span class="annot"><span class="annottext">ReadPrec [SchemaId]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679697204"><span id="local-6989586621679697206"><span id="local-6989586621679697208"><span id="local-6989586621679697210"><span class="annot"><span class="annottext">ReadPrec [SchemaId]
 ReadPrec SchemaId
 Int -&gt; ReadS SchemaId
 ReadS [SchemaId]
@@ -67,7 +67,7 @@ readList :: ReadS [SchemaId]
 $creadList :: ReadS [SchemaId]
 readsPrec :: Int -&gt; ReadS SchemaId
 $creadsPrec :: Int -&gt; ReadS SchemaId
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679697188"><span id="local-6989586621679697190"><span id="local-6989586621679697192"><span class="annot"><span class="annottext">Int -&gt; SchemaId -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679697197"><span id="local-6989586621679697199"><span id="local-6989586621679697201"><span class="annot"><span class="annottext">Int -&gt; SchemaId -&gt; ShowS
 [SchemaId] -&gt; ShowS
 SchemaId -&gt; String
 (Int -&gt; SchemaId -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
 -&gt; (SchemaId -&gt; Maybe Text -&gt; SchemaId)
 -&gt; Lens SchemaId SchemaId (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-type">SchemaId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679697179"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-type">SchemaId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679697188"><span class="annot"><span class="annottext">Maybe Text
 registryName :: Maybe Text
 $sel:registryName:SchemaId' :: SchemaId -&gt; Maybe Text
-</span><a href="#local-6989586621679697179"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679697179"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679697178"><span class="annot"><span class="annottext">s :: SchemaId
-</span><a href="#local-6989586621679697178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-type">SchemaId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679697177"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679697177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679697178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryName:SchemaId' :: Maybe Text
+</span><a href="#local-6989586621679697188"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679697188"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679697187"><span class="annot"><span class="annottext">s :: SchemaId
+</span><a href="#local-6989586621679697187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-type">SchemaId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679697186"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679697186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679697187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryName:SchemaId' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.SchemaId.html#%24sel%3AregistryName%3ASchemaId%27"><span class="hs-identifier hs-var">registryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679697177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679697186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- provided.</span><span>
@@ -151,16 +151,16 @@ $sel:registryName:SchemaId' :: SchemaId -&gt; Maybe Text
 -&gt; (SchemaId -&gt; Maybe Text -&gt; SchemaId)
 -&gt; Lens SchemaId SchemaId (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-type">SchemaId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679697175"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-type">SchemaId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679697184"><span class="annot"><span class="annottext">Maybe Text
 schemaName :: Maybe Text
 $sel:schemaName:SchemaId' :: SchemaId -&gt; Maybe Text
-</span><a href="#local-6989586621679697175"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679697175"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679697174"><span class="annot"><span class="annottext">s :: SchemaId
-</span><a href="#local-6989586621679697174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-type">SchemaId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679697173"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679697173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679697174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaName:SchemaId' :: Maybe Text
+</span><a href="#local-6989586621679697184"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679697184"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679697183"><span class="annot"><span class="annottext">s :: SchemaId
+</span><a href="#local-6989586621679697183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-type">SchemaId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679697182"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679697182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679697183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaName:SchemaId' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.SchemaId.html#%24sel%3AschemaName%3ASchemaId%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679697173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679697182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- @SchemaName@ has to be provided.</span><span>
@@ -170,27 +170,27 @@ $sel:schemaName:SchemaId' :: SchemaId -&gt; Maybe Text
 -&gt; (SchemaId -&gt; Maybe Text -&gt; SchemaId)
 -&gt; Lens SchemaId SchemaId (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-type">SchemaId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679697171"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-type">SchemaId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679697180"><span class="annot"><span class="annottext">Maybe Text
 schemaArn :: Maybe Text
 $sel:schemaArn:SchemaId' :: SchemaId -&gt; Maybe Text
-</span><a href="#local-6989586621679697171"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679697171"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679697170"><span class="annot"><span class="annottext">s :: SchemaId
-</span><a href="#local-6989586621679697170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-type">SchemaId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679697169"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679697169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679697170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:SchemaId' :: Maybe Text
+</span><a href="#local-6989586621679697180"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679697180"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679697179"><span class="annot"><span class="annottext">s :: SchemaId
+</span><a href="#local-6989586621679697179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-type">SchemaId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679697178"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679697178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679697179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:SchemaId' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.SchemaId.html#%24sel%3AschemaArn%3ASchemaId%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679697169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679697178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697166"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679697164"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SchemaId
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697175"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679697173"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SchemaId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser SchemaId) -&gt; Value -&gt; Parser SchemaId
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SchemaId&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679697161"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679697161"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679697170"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679697170"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; SchemaId
 </span><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-var">SchemaId'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; SchemaId)
@@ -198,7 +198,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; SchemaId)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679697161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679697170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegistryName&quot;</span></span><span class="hs-special">)</span><span>
@@ -206,7 +206,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; SchemaId)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679697161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679697170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaName&quot;</span></span><span class="hs-special">)</span><span>
@@ -214,26 +214,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser SchemaId
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679697161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679697170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697155"><span id="local-6989586621679697157"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697164"><span id="local-6989586621679697166"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697152"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697161"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697144"><span id="local-6989586621679697146"><span id="local-6989586621679697148"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679697142"><span class="annot"><span class="annottext">toJSON :: SchemaId -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-type">SchemaId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679697138"><span id="local-6989586621679697139"><span id="local-6989586621679697140"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697153"><span id="local-6989586621679697155"><span id="local-6989586621679697157"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679697151"><span class="annot"><span class="annottext">toJSON :: SchemaId -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId%27"><span class="hs-identifier hs-type">SchemaId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679697147"><span id="local-6989586621679697148"><span id="local-6989586621679697149"><span class="annot"><span class="annottext">Maybe Text
 schemaArn :: Maybe Text
 schemaName :: Maybe Text
 registryName :: Maybe Text
 $sel:schemaArn:SchemaId' :: SchemaId -&gt; Maybe Text
 $sel:schemaName:SchemaId' :: SchemaId -&gt; Maybe Text
 $sel:registryName:SchemaId' :: SchemaId -&gt; Maybe Text
-</span><a href="#local-6989586621679697138"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679697147"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -245,21 +245,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679697140"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679697149"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679697139"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679697148"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679697138"><span class="hs-identifier hs-var">schemaArn</span></a></span><span>
+</span><a href="#local-6989586621679697147"><span class="hs-identifier hs-var">schemaArn</span></a></span><span>
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span></pre></body></html>

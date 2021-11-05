@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A collection of one or more problems, grouped by their result.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUniqueProblem' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679371169"><span id="local-6989586621679371170"></span></span><span class="hs-keyword">data</span><span> </span><span id="UniqueProblem"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem"><span class="hs-identifier hs-var">UniqueProblem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UniqueProblem%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem%27"><span class="hs-identifier hs-var">UniqueProblem'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679371178"><span id="local-6989586621679371179"></span></span><span class="hs-keyword">data</span><span> </span><span id="UniqueProblem"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem"><span class="hs-identifier hs-var">UniqueProblem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UniqueProblem%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem%27"><span class="hs-identifier hs-var">UniqueProblem'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the problems.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aproblems%3AUniqueProblem%27"><span class="annot"><span class="annottext">UniqueProblem -&gt; Maybe [Problem]
 </span><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#%24sel%3Aproblems%3AUniqueProblem%27"><span class="hs-identifier hs-var hs-var">problems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Problem.html#Problem"><span class="hs-identifier hs-type">Problem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Amessage%3AUniqueProblem%27"><span class="annot"><span class="annottext">UniqueProblem -&gt; Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#%24sel%3Amessage%3AUniqueProblem%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371162"><span id="local-6989586621679371164"><span class="annot"><span class="annottext">UniqueProblem -&gt; UniqueProblem -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371171"><span id="local-6989586621679371173"><span class="annot"><span class="annottext">UniqueProblem -&gt; UniqueProblem -&gt; Bool
 (UniqueProblem -&gt; UniqueProblem -&gt; Bool)
 -&gt; (UniqueProblem -&gt; UniqueProblem -&gt; Bool) -&gt; Eq UniqueProblem
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UniqueProblem -&gt; UniqueProblem -&gt; Bool
 == :: UniqueProblem -&gt; UniqueProblem -&gt; Bool
 $c== :: UniqueProblem -&gt; UniqueProblem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371153"><span id="local-6989586621679371155"><span id="local-6989586621679371157"><span id="local-6989586621679371159"><span class="annot"><span class="annottext">ReadPrec [UniqueProblem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371162"><span id="local-6989586621679371164"><span id="local-6989586621679371166"><span id="local-6989586621679371168"><span class="annot"><span class="annottext">ReadPrec [UniqueProblem]
 ReadPrec UniqueProblem
 Int -&gt; ReadS UniqueProblem
 ReadS [UniqueProblem]
@@ -63,7 +63,7 @@ readList :: ReadS [UniqueProblem]
 $creadList :: ReadS [UniqueProblem]
 readsPrec :: Int -&gt; ReadS UniqueProblem
 $creadsPrec :: Int -&gt; ReadS UniqueProblem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371146"><span id="local-6989586621679371148"><span id="local-6989586621679371150"><span class="annot"><span class="annottext">Int -&gt; UniqueProblem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371155"><span id="local-6989586621679371157"><span id="local-6989586621679371159"><span class="annot"><span class="annottext">Int -&gt; UniqueProblem -&gt; ShowS
 [UniqueProblem] -&gt; ShowS
 UniqueProblem -&gt; String
 (Int -&gt; UniqueProblem -&gt; ShowS)
@@ -125,16 +125,16 @@ forall a. Maybe a
 -&gt; Lens
      UniqueProblem UniqueProblem (Maybe [Problem]) (Maybe [Problem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem%27"><span class="hs-identifier hs-type">UniqueProblem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371137"><span class="annot"><span class="annottext">Maybe [Problem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem%27"><span class="hs-identifier hs-type">UniqueProblem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371146"><span class="annot"><span class="annottext">Maybe [Problem]
 problems :: Maybe [Problem]
 $sel:problems:UniqueProblem' :: UniqueProblem -&gt; Maybe [Problem]
-</span><a href="#local-6989586621679371137"><span class="hs-identifier hs-var hs-var">problems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Problem]
-</span><a href="#local-6989586621679371137"><span class="hs-identifier hs-var">problems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371136"><span class="annot"><span class="annottext">s :: UniqueProblem
-</span><a href="#local-6989586621679371136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem%27"><span class="hs-identifier hs-type">UniqueProblem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371135"><span class="annot"><span class="annottext">Maybe [Problem]
-</span><a href="#local-6989586621679371135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UniqueProblem
-</span><a href="#local-6989586621679371136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:problems:UniqueProblem' :: Maybe [Problem]
+</span><a href="#local-6989586621679371146"><span class="hs-identifier hs-var hs-var">problems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Problem]
+</span><a href="#local-6989586621679371146"><span class="hs-identifier hs-var">problems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371145"><span class="annot"><span class="annottext">s :: UniqueProblem
+</span><a href="#local-6989586621679371145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem%27"><span class="hs-identifier hs-type">UniqueProblem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371144"><span class="annot"><span class="annottext">Maybe [Problem]
+</span><a href="#local-6989586621679371144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UniqueProblem
+</span><a href="#local-6989586621679371145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:problems:UniqueProblem' :: Maybe [Problem]
 </span><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#%24sel%3Aproblems%3AUniqueProblem%27"><span class="hs-identifier hs-var">problems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Problem]
-</span><a href="#local-6989586621679371135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem"><span class="hs-identifier hs-type">UniqueProblem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Problem] -&gt; f (Maybe [Problem]))
+</span><a href="#local-6989586621679371144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem"><span class="hs-identifier hs-type">UniqueProblem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Problem] -&gt; f (Maybe [Problem]))
  -&gt; UniqueProblem -&gt; f UniqueProblem)
 -&gt; ((Maybe [Problem] -&gt; f (Maybe [Problem]))
     -&gt; Maybe [Problem] -&gt; f (Maybe [Problem]))
@@ -162,19 +162,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UniqueProblem -&gt; Maybe Text -&gt; UniqueProblem)
 -&gt; Lens UniqueProblem UniqueProblem (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem%27"><span class="hs-identifier hs-type">UniqueProblem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371130"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem%27"><span class="hs-identifier hs-type">UniqueProblem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371139"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:UniqueProblem' :: UniqueProblem -&gt; Maybe Text
-</span><a href="#local-6989586621679371130"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371130"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371129"><span class="annot"><span class="annottext">s :: UniqueProblem
-</span><a href="#local-6989586621679371129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem%27"><span class="hs-identifier hs-type">UniqueProblem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371128"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UniqueProblem
-</span><a href="#local-6989586621679371129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:UniqueProblem' :: Maybe Text
+</span><a href="#local-6989586621679371139"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371139"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371138"><span class="annot"><span class="annottext">s :: UniqueProblem
+</span><a href="#local-6989586621679371138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem%27"><span class="hs-identifier hs-type">UniqueProblem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371137"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UniqueProblem
+</span><a href="#local-6989586621679371138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:UniqueProblem' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#%24sel%3Amessage%3AUniqueProblem%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem"><span class="hs-identifier hs-type">UniqueProblem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem"><span class="hs-identifier hs-type">UniqueProblem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371125"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem"><span class="hs-identifier hs-type">UniqueProblem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679371123"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UniqueProblem
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371134"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem"><span class="hs-identifier hs-type">UniqueProblem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679371132"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UniqueProblem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UniqueProblem)
@@ -184,15 +184,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UniqueProblem&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371120"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371120"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371129"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371129"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Problem] -&gt; Maybe Text -&gt; UniqueProblem
 </span><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem%27"><span class="hs-identifier hs-var">UniqueProblem'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Problem] -&gt; Maybe Text -&gt; UniqueProblem)
 -&gt; Parser (Maybe [Problem]) -&gt; Parser (Maybe Text -&gt; UniqueProblem)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Problem]))
+</span><a href="#local-6989586621679371129"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Problem]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;problems&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Problem]))
@@ -205,13 +205,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser UniqueProblem
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679371129"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371113"><span id="local-6989586621679371115"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem"><span class="hs-identifier hs-type">UniqueProblem</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371122"><span id="local-6989586621679371124"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem"><span class="hs-identifier hs-type">UniqueProblem</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371110"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem"><span class="hs-identifier hs-type">UniqueProblem</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371119"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UniqueProblem.html#UniqueProblem"><span class="hs-identifier hs-type">UniqueProblem</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

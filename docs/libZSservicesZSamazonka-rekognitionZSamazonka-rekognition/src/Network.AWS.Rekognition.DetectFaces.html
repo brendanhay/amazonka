@@ -71,7 +71,7 @@
 </span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | /See:/ 'newDetectFaces' smart constructor.</span><span>
-</span><span id="line-74"></span><span id="local-6989586621679345224"><span id="local-6989586621679345225"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectFaces"><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-var">DetectFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectFaces%27"><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces%27"><span class="hs-identifier hs-var">DetectFaces'</span></a></span></span><span>
+</span><span id="line-74"></span><span id="local-6989586621679345233"><span id="local-6989586621679345234"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectFaces"><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-var">DetectFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectFaces%27"><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces%27"><span class="hs-identifier hs-var">DetectFaces'</span></a></span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of facial attributes you want to be returned. This can be the</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- default list of attributes or all attributes. If you don\'t specify a</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- value for @Attributes@ or if you specify @[\&quot;DEFAULT\&quot;]@, the API</span><span>
@@ -95,7 +95,7 @@
 </span><span id="line-94"></span><span>    </span><span id="%24sel%3Aimage%3ADetectFaces%27"><span class="annot"><span class="annottext">DetectFaces -&gt; Image
 </span><a href="Network.AWS.Rekognition.DetectFaces.html#%24sel%3Aimage%3ADetectFaces%27"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345217"><span id="local-6989586621679345219"><span class="annot"><span class="annottext">DetectFaces -&gt; DetectFaces -&gt; Bool
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345226"><span id="local-6989586621679345228"><span class="annot"><span class="annottext">DetectFaces -&gt; DetectFaces -&gt; Bool
 (DetectFaces -&gt; DetectFaces -&gt; Bool)
 -&gt; (DetectFaces -&gt; DetectFaces -&gt; Bool) -&gt; Eq DetectFaces
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -103,7 +103,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetectFaces -&gt; DetectFaces -&gt; Bool
 == :: DetectFaces -&gt; DetectFaces -&gt; Bool
 $c== :: DetectFaces -&gt; DetectFaces -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345208"><span id="local-6989586621679345210"><span id="local-6989586621679345212"><span id="local-6989586621679345214"><span class="annot"><span class="annottext">ReadPrec [DetectFaces]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345217"><span id="local-6989586621679345219"><span id="local-6989586621679345221"><span id="local-6989586621679345223"><span class="annot"><span class="annottext">ReadPrec [DetectFaces]
 ReadPrec DetectFaces
 Int -&gt; ReadS DetectFaces
 ReadS [DetectFaces]
@@ -123,7 +123,7 @@ readList :: ReadS [DetectFaces]
 $creadList :: ReadS [DetectFaces]
 readsPrec :: Int -&gt; ReadS DetectFaces
 $creadsPrec :: Int -&gt; ReadS DetectFaces
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345201"><span id="local-6989586621679345203"><span id="local-6989586621679345205"><span class="annot"><span class="annottext">Int -&gt; DetectFaces -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345210"><span id="local-6989586621679345212"><span id="local-6989586621679345214"><span class="annot"><span class="annottext">Int -&gt; DetectFaces -&gt; ShowS
 [DetectFaces] -&gt; ShowS
 DetectFaces -&gt; String
 (Int -&gt; DetectFaces -&gt; ShowS)
@@ -181,8 +181,8 @@ $cfrom :: forall x. DetectFaces -&gt; Rep DetectFaces x
 </span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span><span>
 </span><span id="line-129"></span><span id="newDetectFaces"><span class="annot"><span class="annottext">newDetectFaces :: Image -&gt; DetectFaces
-</span><a href="Network.AWS.Rekognition.DetectFaces.html#newDetectFaces"><span class="hs-identifier hs-var hs-var">newDetectFaces</span></a></span></span><span> </span><span id="local-6989586621679345196"><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679345196"><span class="hs-identifier hs-var">pImage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.DetectFaces.html#newDetectFaces"><span class="hs-identifier hs-var hs-var">newDetectFaces</span></a></span></span><span> </span><span id="local-6989586621679345205"><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679345205"><span class="hs-identifier hs-var">pImage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">DetectFaces' :: Maybe [Attribute] -&gt; Image -&gt; DetectFaces
 </span><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces%27"><span class="hs-identifier hs-type">DetectFaces'</span></a></span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributes:DetectFaces' :: Maybe [Attribute]
@@ -191,7 +191,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:image:DetectFaces' :: Image
 </span><a href="Network.AWS.Rekognition.DetectFaces.html#%24sel%3Aimage%3ADetectFaces%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679345196"><span class="hs-identifier hs-var">pImage_</span></a></span><span>
+</span><a href="#local-6989586621679345205"><span class="hs-identifier hs-var">pImage_</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | An array of facial attributes you want to be returned. This can be the</span><span>
@@ -213,16 +213,16 @@ forall a. Maybe a
 -&gt; Lens
      DetectFaces DetectFaces (Maybe [Attribute]) (Maybe [Attribute])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces%27"><span class="hs-identifier hs-type">DetectFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345193"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces%27"><span class="hs-identifier hs-type">DetectFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345202"><span class="annot"><span class="annottext">Maybe [Attribute]
 attributes :: Maybe [Attribute]
 $sel:attributes:DetectFaces' :: DetectFaces -&gt; Maybe [Attribute]
-</span><a href="#local-6989586621679345193"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679345193"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345192"><span class="annot"><span class="annottext">s :: DetectFaces
-</span><a href="#local-6989586621679345192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces%27"><span class="hs-identifier hs-type">DetectFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345191"><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679345191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectFaces
-</span><a href="#local-6989586621679345192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:DetectFaces' :: Maybe [Attribute]
+</span><a href="#local-6989586621679345202"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679345202"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345201"><span class="annot"><span class="annottext">s :: DetectFaces
+</span><a href="#local-6989586621679345201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces%27"><span class="hs-identifier hs-type">DetectFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345200"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679345200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectFaces
+</span><a href="#local-6989586621679345201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:DetectFaces' :: Maybe [Attribute]
 </span><a href="Network.AWS.Rekognition.DetectFaces.html#%24sel%3Aattributes%3ADetectFaces%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679345191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+</span><a href="#local-6989586621679345200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
  -&gt; DetectFaces -&gt; f DetectFaces)
 -&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
     -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
@@ -256,25 +256,25 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DetectFaces -&gt; Image -&gt; DetectFaces)
 -&gt; Lens DetectFaces DetectFaces Image Image
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces%27"><span class="hs-identifier hs-type">DetectFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345187"><span class="annot"><span class="annottext">Image
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces%27"><span class="hs-identifier hs-type">DetectFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345196"><span class="annot"><span class="annottext">Image
 image :: Image
 $sel:image:DetectFaces' :: DetectFaces -&gt; Image
-</span><a href="#local-6989586621679345187"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679345187"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345186"><span class="annot"><span class="annottext">s :: DetectFaces
-</span><a href="#local-6989586621679345186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces%27"><span class="hs-identifier hs-type">DetectFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345185"><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679345185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectFaces
-</span><a href="#local-6989586621679345186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:DetectFaces' :: Image
+</span><a href="#local-6989586621679345196"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679345196"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345195"><span class="annot"><span class="annottext">s :: DetectFaces
+</span><a href="#local-6989586621679345195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces%27"><span class="hs-identifier hs-type">DetectFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345194"><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679345194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectFaces
+</span><a href="#local-6989586621679345195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:DetectFaces' :: Image
 </span><a href="Network.AWS.Rekognition.DetectFaces.html#%24sel%3Aimage%3ADetectFaces%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679345185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse"><span class="hs-identifier hs-type">DetectFacesResponse</span></a></span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679345181"><span class="annot"><span class="annottext">request :: DetectFaces -&gt; Request DetectFaces
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679345190"><span class="annot"><span class="annottext">request :: DetectFaces -&gt; Request DetectFaces
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DetectFaces -&gt; Request DetectFaces
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679345177"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679345186"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DetectFaces
 -&gt; ClientResponse ClientBody
@@ -298,10 +298,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345174"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345174"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679345173"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679345173"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679345172"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345183"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679345183"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679345182"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679345182"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679345181"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345181"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
 -&gt; Maybe [FaceDetail] -&gt; Int -&gt; DetectFacesResponse
 </span><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-var">DetectFacesResponse'</span></a></span><span>
@@ -311,7 +311,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [FaceDetail] -&gt; Int -&gt; DetectFacesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OrientationCorrection)
+</span><a href="#local-6989586621679345181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OrientationCorrection)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OrientationCorrection&quot;</span></span><span class="hs-special">)</span><span>
@@ -320,7 +320,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DetectFacesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [FaceDetail]))
+</span><a href="#local-6989586621679345181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [FaceDetail]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FaceDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [FaceDetail]))
@@ -337,15 +337,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345174"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345183"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345163"><span id="local-6989586621679345165"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345172"><span id="local-6989586621679345174"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345160"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345169"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679345156"><span class="annot"><span class="annottext">toHeaders :: DetectFaces -&gt; ResponseHeaders
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679345165"><span class="annot"><span class="annottext">toHeaders :: DetectFaces -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DetectFaces -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -372,15 +372,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345146"><span id="local-6989586621679345148"><span id="local-6989586621679345150"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679345144"><span class="annot"><span class="annottext">toJSON :: DetectFaces -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces%27"><span class="hs-identifier hs-type">DetectFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345141"><span id="local-6989586621679345142"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345155"><span id="local-6989586621679345157"><span id="local-6989586621679345159"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679345153"><span class="annot"><span class="annottext">toJSON :: DetectFaces -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces%27"><span class="hs-identifier hs-type">DetectFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345150"><span id="local-6989586621679345151"><span class="annot"><span class="annottext">Maybe [Attribute]
 Image
 image :: Image
 attributes :: Maybe [Attribute]
 $sel:image:DetectFaces' :: DetectFaces -&gt; Image
 $sel:attributes:DetectFaces' :: DetectFaces -&gt; Maybe [Attribute]
-</span><a href="#local-6989586621679345141"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679345150"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -392,26 +392,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Attribute] -&gt; Pair) -&gt; Maybe [Attribute] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679345142"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679345151"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Image&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Image -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679345141"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345150"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679345135"><span class="annot"><span class="annottext">toPath :: DetectFaces -&gt; ByteString
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679345144"><span class="annot"><span class="annottext">toPath :: DetectFaces -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DetectFaces -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFaces"><span class="hs-identifier hs-type">DetectFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679345131"><span class="annot"><span class="annottext">toQuery :: DetectFaces -&gt; QueryString
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679345140"><span class="annot"><span class="annottext">toQuery :: DetectFaces -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DetectFaces -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -419,7 +419,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | /See:/ 'newDetectFacesResponse' smart constructor.</span><span>
-</span><span id="line-206"></span><span id="local-6989586621679345128"><span id="local-6989586621679345129"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectFacesResponse"><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse"><span class="hs-identifier hs-var">DetectFacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectFacesResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-var">DetectFacesResponse'</span></a></span></span><span>
+</span><span id="line-206"></span><span id="local-6989586621679345137"><span id="local-6989586621679345138"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectFacesResponse"><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse"><span class="hs-identifier hs-var">DetectFacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectFacesResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-var">DetectFacesResponse'</span></a></span></span><span>
 </span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of @OrientationCorrection@ is always null.</span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-209"></span><span>    </span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
@@ -443,7 +443,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-225"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADetectFacesResponse%27"><span class="annot"><span class="annottext">DetectFacesResponse -&gt; Int
 </span><a href="Network.AWS.Rekognition.DetectFaces.html#%24sel%3AhttpStatus%3ADetectFacesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-226"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-227"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345121"><span id="local-6989586621679345123"><span class="annot"><span class="annottext">DetectFacesResponse -&gt; DetectFacesResponse -&gt; Bool
+</span><span id="line-227"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345130"><span id="local-6989586621679345132"><span class="annot"><span class="annottext">DetectFacesResponse -&gt; DetectFacesResponse -&gt; Bool
 (DetectFacesResponse -&gt; DetectFacesResponse -&gt; Bool)
 -&gt; (DetectFacesResponse -&gt; DetectFacesResponse -&gt; Bool)
 -&gt; Eq DetectFacesResponse
@@ -452,7 +452,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetectFacesResponse -&gt; DetectFacesResponse -&gt; Bool
 == :: DetectFacesResponse -&gt; DetectFacesResponse -&gt; Bool
 $c== :: DetectFacesResponse -&gt; DetectFacesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345113"><span id="local-6989586621679345115"><span id="local-6989586621679345117"><span id="local-6989586621679345119"><span class="annot"><span class="annottext">ReadPrec [DetectFacesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345122"><span id="local-6989586621679345124"><span id="local-6989586621679345126"><span id="local-6989586621679345128"><span class="annot"><span class="annottext">ReadPrec [DetectFacesResponse]
 ReadPrec DetectFacesResponse
 Int -&gt; ReadS DetectFacesResponse
 ReadS [DetectFacesResponse]
@@ -472,7 +472,7 @@ readList :: ReadS [DetectFacesResponse]
 $creadList :: ReadS [DetectFacesResponse]
 readsPrec :: Int -&gt; ReadS DetectFacesResponse
 $creadsPrec :: Int -&gt; ReadS DetectFacesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345107"><span id="local-6989586621679345109"><span id="local-6989586621679345111"><span class="annot"><span class="annottext">Int -&gt; DetectFacesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345116"><span id="local-6989586621679345118"><span id="local-6989586621679345120"><span class="annot"><span class="annottext">Int -&gt; DetectFacesResponse -&gt; ShowS
 [DetectFacesResponse] -&gt; ShowS
 DetectFacesResponse -&gt; String
 (Int -&gt; DetectFacesResponse -&gt; ShowS)
@@ -529,8 +529,8 @@ $cfrom :: forall x. DetectFacesResponse -&gt; Rep DetectFacesResponse x
 </span><span id="line-257"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-258"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse"><span class="hs-identifier hs-type">DetectFacesResponse</span></a></span><span>
 </span><span id="line-259"></span><span id="newDetectFacesResponse"><span class="annot"><span class="annottext">newDetectFacesResponse :: Int -&gt; DetectFacesResponse
-</span><a href="Network.AWS.Rekognition.DetectFaces.html#newDetectFacesResponse"><span class="hs-identifier hs-var hs-var">newDetectFacesResponse</span></a></span></span><span> </span><span id="local-6989586621679345104"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345104"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.DetectFaces.html#newDetectFacesResponse"><span class="hs-identifier hs-var hs-var">newDetectFacesResponse</span></a></span></span><span> </span><span id="local-6989586621679345113"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679345113"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-260"></span><span>  </span><span class="annot"><span class="annottext">DetectFacesResponse' :: Maybe OrientationCorrection
 -&gt; Maybe [FaceDetail] -&gt; Int -&gt; DetectFacesResponse
 </span><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-type">DetectFacesResponse'</span></a></span><span>
@@ -545,7 +545,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-264"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DetectFacesResponse' :: Int
 </span><a href="Network.AWS.Rekognition.DetectFaces.html#%24sel%3AhttpStatus%3ADetectFacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345104"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679345113"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-265"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | The value of @OrientationCorrection@ is always null.</span><span>
@@ -574,16 +574,16 @@ forall a. Maybe a
      (Maybe OrientationCorrection)
      (Maybe OrientationCorrection)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-type">DetectFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345103"><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-type">DetectFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345112"><span class="annot"><span class="annottext">Maybe OrientationCorrection
 orientationCorrection :: Maybe OrientationCorrection
 $sel:orientationCorrection:DetectFacesResponse' :: DetectFacesResponse -&gt; Maybe OrientationCorrection
-</span><a href="#local-6989586621679345103"><span class="hs-identifier hs-var hs-var">orientationCorrection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
-</span><a href="#local-6989586621679345103"><span class="hs-identifier hs-var">orientationCorrection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345102"><span class="annot"><span class="annottext">s :: DetectFacesResponse
-</span><a href="#local-6989586621679345102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-type">DetectFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345101"><span class="annot"><span class="annottext">Maybe OrientationCorrection
-</span><a href="#local-6989586621679345101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectFacesResponse
-</span><a href="#local-6989586621679345102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orientationCorrection:DetectFacesResponse' :: Maybe OrientationCorrection
+</span><a href="#local-6989586621679345112"><span class="hs-identifier hs-var hs-var">orientationCorrection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679345112"><span class="hs-identifier hs-var">orientationCorrection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345111"><span class="annot"><span class="annottext">s :: DetectFacesResponse
+</span><a href="#local-6989586621679345111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-type">DetectFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345110"><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679345110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectFacesResponse
+</span><a href="#local-6989586621679345111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orientationCorrection:DetectFacesResponse' :: Maybe OrientationCorrection
 </span><a href="Network.AWS.Rekognition.DetectFaces.html#%24sel%3AorientationCorrection%3ADetectFacesResponse%27"><span class="hs-identifier hs-var">orientationCorrection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
-</span><a href="#local-6989586621679345101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse"><span class="hs-identifier hs-type">DetectFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse"><span class="hs-identifier hs-type">DetectFacesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- | Details of each face found in the image.</span><span>
 </span><span id="line-285"></span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#detectFacesResponse_faceDetails"><span class="hs-identifier hs-type">detectFacesResponse_faceDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse"><span class="hs-identifier hs-type">DetectFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetail.html#FaceDetail"><span class="hs-identifier hs-type">FaceDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -598,16 +598,16 @@ $sel:orientationCorrection:DetectFacesResponse' :: DetectFacesResponse -&gt; May
      (Maybe [FaceDetail])
      (Maybe [FaceDetail])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-type">DetectFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345100"><span class="annot"><span class="annottext">Maybe [FaceDetail]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-type">DetectFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345109"><span class="annot"><span class="annottext">Maybe [FaceDetail]
 faceDetails :: Maybe [FaceDetail]
 $sel:faceDetails:DetectFacesResponse' :: DetectFacesResponse -&gt; Maybe [FaceDetail]
-</span><a href="#local-6989586621679345100"><span class="hs-identifier hs-var hs-var">faceDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FaceDetail]
-</span><a href="#local-6989586621679345100"><span class="hs-identifier hs-var">faceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345099"><span class="annot"><span class="annottext">s :: DetectFacesResponse
-</span><a href="#local-6989586621679345099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-type">DetectFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345098"><span class="annot"><span class="annottext">Maybe [FaceDetail]
-</span><a href="#local-6989586621679345098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectFacesResponse
-</span><a href="#local-6989586621679345099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceDetails:DetectFacesResponse' :: Maybe [FaceDetail]
+</span><a href="#local-6989586621679345109"><span class="hs-identifier hs-var hs-var">faceDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FaceDetail]
+</span><a href="#local-6989586621679345109"><span class="hs-identifier hs-var">faceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345108"><span class="annot"><span class="annottext">s :: DetectFacesResponse
+</span><a href="#local-6989586621679345108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-type">DetectFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345107"><span class="annot"><span class="annottext">Maybe [FaceDetail]
+</span><a href="#local-6989586621679345107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectFacesResponse
+</span><a href="#local-6989586621679345108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceDetails:DetectFacesResponse' :: Maybe [FaceDetail]
 </span><a href="Network.AWS.Rekognition.DetectFaces.html#%24sel%3AfaceDetails%3ADetectFacesResponse%27"><span class="hs-identifier hs-var">faceDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FaceDetail]
-</span><a href="#local-6989586621679345098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse"><span class="hs-identifier hs-type">DetectFacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FaceDetail] -&gt; f (Maybe [FaceDetail]))
+</span><a href="#local-6989586621679345107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse"><span class="hs-identifier hs-type">DetectFacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FaceDetail] -&gt; f (Maybe [FaceDetail]))
  -&gt; DetectFacesResponse -&gt; f DetectFacesResponse)
 -&gt; ((Maybe [FaceDetail] -&gt; f (Maybe [FaceDetail]))
     -&gt; Maybe [FaceDetail] -&gt; f (Maybe [FaceDetail]))
@@ -635,16 +635,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DetectFacesResponse -&gt; Int -&gt; DetectFacesResponse)
 -&gt; Lens DetectFacesResponse DetectFacesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-type">DetectFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345097"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-type">DetectFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345106"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DetectFacesResponse' :: DetectFacesResponse -&gt; Int
-</span><a href="#local-6989586621679345097"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345097"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345096"><span class="annot"><span class="annottext">s :: DetectFacesResponse
-</span><a href="#local-6989586621679345096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-type">DetectFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345095"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectFacesResponse
-</span><a href="#local-6989586621679345096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetectFacesResponse' :: Int
+</span><a href="#local-6989586621679345106"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679345106"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345105"><span class="annot"><span class="annottext">s :: DetectFacesResponse
+</span><a href="#local-6989586621679345105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse%27"><span class="hs-identifier hs-type">DetectFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345104"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679345104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectFacesResponse
+</span><a href="#local-6989586621679345105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetectFacesResponse' :: Int
 </span><a href="Network.AWS.Rekognition.DetectFaces.html#%24sel%3AhttpStatus%3ADetectFacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse"><span class="hs-identifier hs-type">DetectFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse"><span class="hs-identifier hs-type">DetectFacesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-291"></span><span>
-</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse"><span class="hs-identifier hs-type">DetectFacesResponse</span></a></span></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectFaces.html#DetectFacesResponse"><span class="hs-identifier hs-type">DetectFacesResponse</span></a></span></span><span>
 </span><span id="line-293"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html"><span class="hs-identifier">Network.AWS.Route53.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679294873"><span id="local-6989586621679294874"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HostedZoneLimitType"><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimitType.html#HostedZoneLimitType"><span class="hs-identifier hs-var">HostedZoneLimitType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HostedZoneLimitType%27"><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimitType.html#HostedZoneLimitType%27"><span class="hs-identifier hs-var">HostedZoneLimitType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679294882"><span id="local-6989586621679294883"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HostedZoneLimitType"><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimitType.html#HostedZoneLimitType"><span class="hs-identifier hs-var">HostedZoneLimitType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HostedZoneLimitType%27"><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimitType.html#HostedZoneLimitType%27"><span class="hs-identifier hs-var">HostedZoneLimitType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHostedZoneLimitType"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; Text
 </span><a href="Network.AWS.Route53.Types.HostedZoneLimitType.html#fromHostedZoneLimitType"><span class="hs-identifier hs-var hs-var">fromHostedZoneLimitType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294865"><span id="local-6989586621679294867"><span id="local-6989586621679294869"><span class="annot"><span class="annottext">Int -&gt; HostedZoneLimitType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294874"><span id="local-6989586621679294876"><span id="local-6989586621679294878"><span class="annot"><span class="annottext">Int -&gt; HostedZoneLimitType -&gt; ShowS
 [HostedZoneLimitType] -&gt; ShowS
 HostedZoneLimitType -&gt; String
 (Int -&gt; HostedZoneLimitType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: HostedZoneLimitType -&gt; String
 showsPrec :: Int -&gt; HostedZoneLimitType -&gt; ShowS
 $cshowsPrec :: Int -&gt; HostedZoneLimitType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679294856"><span id="local-6989586621679294858"><span id="local-6989586621679294860"><span id="local-6989586621679294862"><span class="annot"><span class="annottext">ReadPrec [HostedZoneLimitType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679294865"><span id="local-6989586621679294867"><span id="local-6989586621679294869"><span id="local-6989586621679294871"><span class="annot"><span class="annottext">ReadPrec [HostedZoneLimitType]
 ReadPrec HostedZoneLimitType
 Int -&gt; ReadS HostedZoneLimitType
 ReadS [HostedZoneLimitType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [HostedZoneLimitType]
 readsPrec :: Int -&gt; ReadS HostedZoneLimitType
 $creadsPrec :: Int -&gt; ReadS HostedZoneLimitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679294851"><span id="local-6989586621679294853"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; HostedZoneLimitType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679294860"><span id="local-6989586621679294862"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; HostedZoneLimitType -&gt; Bool
 (HostedZoneLimitType -&gt; HostedZoneLimitType -&gt; Bool)
 -&gt; (HostedZoneLimitType -&gt; HostedZoneLimitType -&gt; Bool)
 -&gt; Eq HostedZoneLimitType
@@ -83,7 +83,7 @@ $c/= :: HostedZoneLimitType -&gt; HostedZoneLimitType -&gt; Bool
 == :: HostedZoneLimitType -&gt; HostedZoneLimitType -&gt; Bool
 $c== :: HostedZoneLimitType -&gt; HostedZoneLimitType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679294835"><span id="local-6989586621679294837"><span id="local-6989586621679294839"><span id="local-6989586621679294841"><span id="local-6989586621679294843"><span id="local-6989586621679294845"><span id="local-6989586621679294847"><span class="annot"><span class="annottext">Eq HostedZoneLimitType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679294844"><span id="local-6989586621679294846"><span id="local-6989586621679294848"><span id="local-6989586621679294850"><span id="local-6989586621679294852"><span id="local-6989586621679294854"><span id="local-6989586621679294856"><span class="annot"><span class="annottext">Eq HostedZoneLimitType
 Eq HostedZoneLimitType
 -&gt; (HostedZoneLimitType -&gt; HostedZoneLimitType -&gt; Ordering)
 -&gt; (HostedZoneLimitType -&gt; HostedZoneLimitType -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. HostedZoneLimitType -&gt; Rep HostedZoneLimitType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294827"><span id="local-6989586621679294829"><span class="annot"><span class="annottext">Int -&gt; HostedZoneLimitType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294836"><span id="local-6989586621679294838"><span class="annot"><span class="annottext">Int -&gt; HostedZoneLimitType -&gt; Int
 HostedZoneLimitType -&gt; Int
 (Int -&gt; HostedZoneLimitType -&gt; Int)
 -&gt; (HostedZoneLimitType -&gt; Int) -&gt; Hashable HostedZoneLimitType
@@ -146,53 +146,53 @@ $chash :: HostedZoneLimitType -&gt; Int
 hashWithSalt :: Int -&gt; HostedZoneLimitType -&gt; Int
 $chashWithSalt :: Int -&gt; HostedZoneLimitType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679294824"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679294833"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; ()
 (HostedZoneLimitType -&gt; ()) -&gt; NFData HostedZoneLimitType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HostedZoneLimitType -&gt; ()
 $crnf :: HostedZoneLimitType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679294821"><span class="annot"><span class="annottext">Text -&gt; Either String HostedZoneLimitType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679294830"><span class="annot"><span class="annottext">Text -&gt; Either String HostedZoneLimitType
 (Text -&gt; Either String HostedZoneLimitType)
 -&gt; FromText HostedZoneLimitType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HostedZoneLimitType
 $cfromText :: Text -&gt; Either String HostedZoneLimitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679294818"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679294827"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; Text
 (HostedZoneLimitType -&gt; Text) -&gt; ToText HostedZoneLimitType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HostedZoneLimitType -&gt; Text
 $ctoText :: HostedZoneLimitType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679294815"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679294824"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; ByteString
 (HostedZoneLimitType -&gt; ByteString)
 -&gt; ToByteString HostedZoneLimitType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HostedZoneLimitType -&gt; ByteString
 $ctoBS :: HostedZoneLimitType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679294812"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679294821"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; ByteStringBuilder
 (HostedZoneLimitType -&gt; ByteStringBuilder)
 -&gt; ToLog HostedZoneLimitType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HostedZoneLimitType -&gt; ByteStringBuilder
 $cbuild :: HostedZoneLimitType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679294809"><span class="annot"><span class="annottext">HeaderName -&gt; HostedZoneLimitType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679294818"><span class="annot"><span class="annottext">HeaderName -&gt; HostedZoneLimitType -&gt; [Header]
 (HeaderName -&gt; HostedZoneLimitType -&gt; [Header])
 -&gt; ToHeader HostedZoneLimitType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HostedZoneLimitType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HostedZoneLimitType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679294806"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679294815"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; QueryString
 (HostedZoneLimitType -&gt; QueryString) -&gt; ToQuery HostedZoneLimitType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HostedZoneLimitType -&gt; QueryString
 $ctoQuery :: HostedZoneLimitType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679294801"><span id="local-6989586621679294803"><span class="annot"><span class="annottext">Value -&gt; Parser [HostedZoneLimitType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679294810"><span id="local-6989586621679294812"><span class="annot"><span class="annottext">Value -&gt; Parser [HostedZoneLimitType]
 Value -&gt; Parser HostedZoneLimitType
 (Value -&gt; Parser HostedZoneLimitType)
 -&gt; (Value -&gt; Parser [HostedZoneLimitType])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [HostedZoneLimitType]
 parseJSON :: Value -&gt; Parser HostedZoneLimitType
 $cparseJSON :: Value -&gt; Parser HostedZoneLimitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679294796"><span id="local-6989586621679294798"><span class="annot"><span class="annottext">FromJSONKeyFunction [HostedZoneLimitType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679294805"><span id="local-6989586621679294807"><span class="annot"><span class="annottext">FromJSONKeyFunction [HostedZoneLimitType]
 FromJSONKeyFunction HostedZoneLimitType
 FromJSONKeyFunction HostedZoneLimitType
 -&gt; FromJSONKeyFunction [HostedZoneLimitType]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HostedZoneLimitType]
 fromJSONKey :: FromJSONKeyFunction HostedZoneLimitType
 $cfromJSONKey :: FromJSONKeyFunction HostedZoneLimitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679294787"><span id="local-6989586621679294789"><span id="local-6989586621679294791"><span id="local-6989586621679294793"><span class="annot"><span class="annottext">[HostedZoneLimitType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679294796"><span id="local-6989586621679294798"><span id="local-6989586621679294800"><span id="local-6989586621679294802"><span class="annot"><span class="annottext">[HostedZoneLimitType] -&gt; Encoding
 [HostedZoneLimitType] -&gt; Value
 HostedZoneLimitType -&gt; Encoding
 HostedZoneLimitType -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: HostedZoneLimitType -&gt; Encoding
 toJSON :: HostedZoneLimitType -&gt; Value
 $ctoJSON :: HostedZoneLimitType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679294782"><span id="local-6989586621679294784"><span class="annot"><span class="annottext">ToJSONKeyFunction [HostedZoneLimitType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679294791"><span id="local-6989586621679294793"><span class="annot"><span class="annottext">ToJSONKeyFunction [HostedZoneLimitType]
 ToJSONKeyFunction HostedZoneLimitType
 ToJSONKeyFunction HostedZoneLimitType
 -&gt; ToJSONKeyFunction [HostedZoneLimitType]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HostedZoneLimitType]
 toJSONKey :: ToJSONKeyFunction HostedZoneLimitType
 $ctoJSONKey :: ToJSONKeyFunction HostedZoneLimitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679294779"><span class="annot"><span class="annottext">[Node] -&gt; Either String HostedZoneLimitType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679294788"><span class="annot"><span class="annottext">[Node] -&gt; Either String HostedZoneLimitType
 ([Node] -&gt; Either String HostedZoneLimitType)
 -&gt; FromXML HostedZoneLimitType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HostedZoneLimitType
 $cparseXML :: [Node] -&gt; Either String HostedZoneLimitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679294776"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679294785"><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; XML
 (HostedZoneLimitType -&gt; XML) -&gt; ToXML HostedZoneLimitType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HostedZoneLimitType -&gt; XML

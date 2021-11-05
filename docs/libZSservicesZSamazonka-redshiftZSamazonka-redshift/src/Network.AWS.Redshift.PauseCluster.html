@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-comment">-- run the @PauseCluster@ API operation.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newPauseCluster' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679507707"><span id="local-6989586621679507708"></span></span><span class="hs-keyword">data</span><span> </span><span id="PauseCluster"><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster"><span class="hs-identifier hs-var">PauseCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PauseCluster%27"><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster%27"><span class="hs-identifier hs-var">PauseCluster'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679507716"><span id="local-6989586621679507717"></span></span><span class="hs-keyword">data</span><span> </span><span id="PauseCluster"><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster"><span class="hs-identifier hs-var">PauseCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PauseCluster%27"><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster%27"><span class="hs-identifier hs-var">PauseCluster'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the cluster to be paused.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3APauseCluster%27"><span class="annot"><span class="annottext">PauseCluster -&gt; Text
 </span><a href="Network.AWS.Redshift.PauseCluster.html#%24sel%3AclusterIdentifier%3APauseCluster%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679507701"><span id="local-6989586621679507703"><span class="annot"><span class="annottext">PauseCluster -&gt; PauseCluster -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679507710"><span id="local-6989586621679507712"><span class="annot"><span class="annottext">PauseCluster -&gt; PauseCluster -&gt; Bool
 (PauseCluster -&gt; PauseCluster -&gt; Bool)
 -&gt; (PauseCluster -&gt; PauseCluster -&gt; Bool) -&gt; Eq PauseCluster
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PauseCluster -&gt; PauseCluster -&gt; Bool
 == :: PauseCluster -&gt; PauseCluster -&gt; Bool
 $c== :: PauseCluster -&gt; PauseCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679507692"><span id="local-6989586621679507694"><span id="local-6989586621679507696"><span id="local-6989586621679507698"><span class="annot"><span class="annottext">ReadPrec [PauseCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679507701"><span id="local-6989586621679507703"><span id="local-6989586621679507705"><span id="local-6989586621679507707"><span class="annot"><span class="annottext">ReadPrec [PauseCluster]
 ReadPrec PauseCluster
 Int -&gt; ReadS PauseCluster
 ReadS [PauseCluster]
@@ -83,7 +83,7 @@ readList :: ReadS [PauseCluster]
 $creadList :: ReadS [PauseCluster]
 readsPrec :: Int -&gt; ReadS PauseCluster
 $creadsPrec :: Int -&gt; ReadS PauseCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679507685"><span id="local-6989586621679507687"><span id="local-6989586621679507689"><span class="annot"><span class="annottext">Int -&gt; PauseCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679507694"><span id="local-6989586621679507696"><span id="local-6989586621679507698"><span class="annot"><span class="annottext">Int -&gt; PauseCluster -&gt; ShowS
 [PauseCluster] -&gt; ShowS
 PauseCluster -&gt; String
 (Int -&gt; PauseCluster -&gt; ShowS)
@@ -123,14 +123,14 @@ $cfrom :: forall x. PauseCluster -&gt; Rep PauseCluster x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster"><span class="hs-identifier hs-type">PauseCluster</span></a></span><span>
 </span><span id="line-72"></span><span id="newPauseCluster"><span class="annot"><span class="annottext">newPauseCluster :: Text -&gt; PauseCluster
-</span><a href="Network.AWS.Redshift.PauseCluster.html#newPauseCluster"><span class="hs-identifier hs-var hs-var">newPauseCluster</span></a></span></span><span> </span><span id="local-6989586621679507680"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679507680"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.PauseCluster.html#newPauseCluster"><span class="hs-identifier hs-var hs-var">newPauseCluster</span></a></span></span><span> </span><span id="local-6989586621679507689"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679507689"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">PauseCluster' :: Text -&gt; PauseCluster
 </span><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster%27"><span class="hs-identifier hs-type">PauseCluster'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:PauseCluster' :: Text
 </span><a href="Network.AWS.Redshift.PauseCluster.html#%24sel%3AclusterIdentifier%3APauseCluster%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679507680"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679507689"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The identifier of the cluster to be paused.</span><span>
@@ -140,25 +140,25 @@ $cfrom :: forall x. PauseCluster -&gt; Rep PauseCluster x
 -&gt; (PauseCluster -&gt; Text -&gt; PauseCluster)
 -&gt; Lens PauseCluster PauseCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster%27"><span class="hs-identifier hs-type">PauseCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679507677"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster%27"><span class="hs-identifier hs-type">PauseCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679507686"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:PauseCluster' :: PauseCluster -&gt; Text
-</span><a href="#local-6989586621679507677"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679507677"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679507676"><span class="annot"><span class="annottext">s :: PauseCluster
-</span><a href="#local-6989586621679507676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster%27"><span class="hs-identifier hs-type">PauseCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679507675"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679507675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PauseCluster
-</span><a href="#local-6989586621679507676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:PauseCluster' :: Text
+</span><a href="#local-6989586621679507686"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679507686"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679507685"><span class="annot"><span class="annottext">s :: PauseCluster
+</span><a href="#local-6989586621679507685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster%27"><span class="hs-identifier hs-type">PauseCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679507684"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679507684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PauseCluster
+</span><a href="#local-6989586621679507685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:PauseCluster' :: Text
 </span><a href="Network.AWS.Redshift.PauseCluster.html#%24sel%3AclusterIdentifier%3APauseCluster%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679507675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster"><span class="hs-identifier hs-type">PauseCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679507684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster"><span class="hs-identifier hs-type">PauseCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster"><span class="hs-identifier hs-type">PauseCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster"><span class="hs-identifier hs-type">PauseCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse"><span class="hs-identifier hs-type">PauseClusterResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679507671"><span class="annot"><span class="annottext">request :: PauseCluster -&gt; Request PauseCluster
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679507680"><span class="annot"><span class="annottext">request :: PauseCluster -&gt; Request PauseCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PauseCluster -&gt; Request PauseCluster
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679507667"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679507676"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PauseCluster
 -&gt; ClientResponse ClientBody
@@ -187,10 +187,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PauseClusterResult&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679507664"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679507664"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679507663"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679507663"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679507662"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679507662"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679507673"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679507673"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679507672"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679507672"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679507671"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679507671"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; PauseClusterResponse
 </span><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse%27"><span class="hs-identifier hs-var">PauseClusterResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; PauseClusterResponse)
@@ -198,7 +198,7 @@ Text
 -&gt; Either String (Int -&gt; PauseClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679507662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Cluster)
+</span><a href="#local-6989586621679507671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Cluster)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -210,15 +210,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679507664"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679507673"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679507654"><span id="local-6989586621679507656"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster"><span class="hs-identifier hs-type">PauseCluster</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679507663"><span id="local-6989586621679507665"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster"><span class="hs-identifier hs-type">PauseCluster</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679507651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster"><span class="hs-identifier hs-type">PauseCluster</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679507660"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster"><span class="hs-identifier hs-type">PauseCluster</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster"><span class="hs-identifier hs-type">PauseCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679507647"><span class="annot"><span class="annottext">toHeaders :: PauseCluster -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679507656"><span class="annot"><span class="annottext">toHeaders :: PauseCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PauseCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -226,18 +226,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster"><span class="hs-identifier hs-type">PauseCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679507642"><span class="annot"><span class="annottext">toPath :: PauseCluster -&gt; ByteString
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679507651"><span class="annot"><span class="annottext">toPath :: PauseCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PauseCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster"><span class="hs-identifier hs-type">PauseCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679507638"><span class="annot"><span class="annottext">toQuery :: PauseCluster -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster%27"><span class="hs-identifier hs-type">PauseCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679507636"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679507647"><span class="annot"><span class="annottext">toQuery :: PauseCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseCluster%27"><span class="hs-identifier hs-type">PauseCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679507645"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:PauseCluster' :: PauseCluster -&gt; Text
-</span><a href="#local-6989586621679507636"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679507645"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -257,18 +257,18 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679507636"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679507645"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | /See:/ 'newPauseClusterResponse' smart constructor.</span><span>
-</span><span id="line-115"></span><span id="local-6989586621679507633"><span id="local-6989586621679507634"></span></span><span class="hs-keyword">data</span><span> </span><span id="PauseClusterResponse"><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse"><span class="hs-identifier hs-var">PauseClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PauseClusterResponse%27"><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse%27"><span class="hs-identifier hs-var">PauseClusterResponse'</span></a></span></span><span>
+</span><span id="line-115"></span><span id="local-6989586621679507642"><span id="local-6989586621679507643"></span></span><span class="hs-keyword">data</span><span> </span><span id="PauseClusterResponse"><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse"><span class="hs-identifier hs-var">PauseClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PauseClusterResponse%27"><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse%27"><span class="hs-identifier hs-var">PauseClusterResponse'</span></a></span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Acluster%3APauseClusterResponse%27"><span class="annot"><span class="annottext">PauseClusterResponse -&gt; Maybe Cluster
 </span><a href="Network.AWS.Redshift.PauseCluster.html#%24sel%3Acluster%3APauseClusterResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3AhttpStatus%3APauseClusterResponse%27"><span class="annot"><span class="annottext">PauseClusterResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.PauseCluster.html#%24sel%3AhttpStatus%3APauseClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679507627"><span id="local-6989586621679507629"><span class="annot"><span class="annottext">PauseClusterResponse -&gt; PauseClusterResponse -&gt; Bool
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679507636"><span id="local-6989586621679507638"><span class="annot"><span class="annottext">PauseClusterResponse -&gt; PauseClusterResponse -&gt; Bool
 (PauseClusterResponse -&gt; PauseClusterResponse -&gt; Bool)
 -&gt; (PauseClusterResponse -&gt; PauseClusterResponse -&gt; Bool)
 -&gt; Eq PauseClusterResponse
@@ -277,7 +277,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PauseClusterResponse -&gt; PauseClusterResponse -&gt; Bool
 == :: PauseClusterResponse -&gt; PauseClusterResponse -&gt; Bool
 $c== :: PauseClusterResponse -&gt; PauseClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679507619"><span id="local-6989586621679507621"><span id="local-6989586621679507623"><span id="local-6989586621679507625"><span class="annot"><span class="annottext">ReadPrec [PauseClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679507628"><span id="local-6989586621679507630"><span id="local-6989586621679507632"><span id="local-6989586621679507634"><span class="annot"><span class="annottext">ReadPrec [PauseClusterResponse]
 ReadPrec PauseClusterResponse
 Int -&gt; ReadS PauseClusterResponse
 ReadS [PauseClusterResponse]
@@ -297,7 +297,7 @@ readList :: ReadS [PauseClusterResponse]
 $creadList :: ReadS [PauseClusterResponse]
 readsPrec :: Int -&gt; ReadS PauseClusterResponse
 $creadsPrec :: Int -&gt; ReadS PauseClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679507613"><span id="local-6989586621679507615"><span id="local-6989586621679507617"><span class="annot"><span class="annottext">Int -&gt; PauseClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679507622"><span id="local-6989586621679507624"><span id="local-6989586621679507626"><span class="annot"><span class="annottext">Int -&gt; PauseClusterResponse -&gt; ShowS
 [PauseClusterResponse] -&gt; ShowS
 PauseClusterResponse -&gt; String
 (Int -&gt; PauseClusterResponse -&gt; ShowS)
@@ -339,8 +339,8 @@ $cfrom :: forall x. PauseClusterResponse -&gt; Rep PauseClusterResponse x
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse"><span class="hs-identifier hs-type">PauseClusterResponse</span></a></span><span>
 </span><span id="line-137"></span><span id="newPauseClusterResponse"><span class="annot"><span class="annottext">newPauseClusterResponse :: Int -&gt; PauseClusterResponse
-</span><a href="Network.AWS.Redshift.PauseCluster.html#newPauseClusterResponse"><span class="hs-identifier hs-var hs-var">newPauseClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679507610"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679507610"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.PauseCluster.html#newPauseClusterResponse"><span class="hs-identifier hs-var hs-var">newPauseClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679507619"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679507619"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">PauseClusterResponse' :: Maybe Cluster -&gt; Int -&gt; PauseClusterResponse
 </span><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse%27"><span class="hs-identifier hs-type">PauseClusterResponse'</span></a></span><span>
 </span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:PauseClusterResponse' :: Maybe Cluster
@@ -349,7 +349,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PauseClusterResponse' :: Int
 </span><a href="Network.AWS.Redshift.PauseCluster.html#%24sel%3AhttpStatus%3APauseClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679507610"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679507619"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -364,16 +364,16 @@ forall a. Maybe a
      (Maybe Cluster)
      (Maybe Cluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse%27"><span class="hs-identifier hs-type">PauseClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679507609"><span class="annot"><span class="annottext">Maybe Cluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse%27"><span class="hs-identifier hs-type">PauseClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679507618"><span class="annot"><span class="annottext">Maybe Cluster
 cluster :: Maybe Cluster
 $sel:cluster:PauseClusterResponse' :: PauseClusterResponse -&gt; Maybe Cluster
-</span><a href="#local-6989586621679507609"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679507609"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679507608"><span class="annot"><span class="annottext">s :: PauseClusterResponse
-</span><a href="#local-6989586621679507608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse%27"><span class="hs-identifier hs-type">PauseClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679507607"><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679507607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PauseClusterResponse
-</span><a href="#local-6989586621679507608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:PauseClusterResponse' :: Maybe Cluster
+</span><a href="#local-6989586621679507618"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679507618"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679507617"><span class="annot"><span class="annottext">s :: PauseClusterResponse
+</span><a href="#local-6989586621679507617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse%27"><span class="hs-identifier hs-type">PauseClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679507616"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679507616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PauseClusterResponse
+</span><a href="#local-6989586621679507617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:PauseClusterResponse' :: Maybe Cluster
 </span><a href="Network.AWS.Redshift.PauseCluster.html#%24sel%3Acluster%3APauseClusterResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679507607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse"><span class="hs-identifier hs-type">PauseClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679507616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse"><span class="hs-identifier hs-type">PauseClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#pauseClusterResponse_httpStatus"><span class="hs-identifier hs-type">pauseClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse"><span class="hs-identifier hs-type">PauseClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -382,16 +382,16 @@ $sel:cluster:PauseClusterResponse' :: PauseClusterResponse -&gt; Maybe Cluster
 -&gt; (PauseClusterResponse -&gt; Int -&gt; PauseClusterResponse)
 -&gt; Lens PauseClusterResponse PauseClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse%27"><span class="hs-identifier hs-type">PauseClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679507606"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse%27"><span class="hs-identifier hs-type">PauseClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679507615"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PauseClusterResponse' :: PauseClusterResponse -&gt; Int
-</span><a href="#local-6989586621679507606"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679507606"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679507605"><span class="annot"><span class="annottext">s :: PauseClusterResponse
-</span><a href="#local-6989586621679507605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse%27"><span class="hs-identifier hs-type">PauseClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679507604"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679507604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PauseClusterResponse
-</span><a href="#local-6989586621679507605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PauseClusterResponse' :: Int
+</span><a href="#local-6989586621679507615"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679507615"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679507614"><span class="annot"><span class="annottext">s :: PauseClusterResponse
+</span><a href="#local-6989586621679507614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse%27"><span class="hs-identifier hs-type">PauseClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679507613"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679507613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PauseClusterResponse
+</span><a href="#local-6989586621679507614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PauseClusterResponse' :: Int
 </span><a href="Network.AWS.Redshift.PauseCluster.html#%24sel%3AhttpStatus%3APauseClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679507604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse"><span class="hs-identifier hs-type">PauseClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679507613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse"><span class="hs-identifier hs-type">PauseClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679507602"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse"><span class="hs-identifier hs-type">PauseClusterResponse</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679507611"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.PauseCluster.html#PauseClusterResponse"><span class="hs-identifier hs-type">PauseClusterResponse</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

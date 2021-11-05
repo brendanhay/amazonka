@@ -1,0 +1,579 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclAssociation.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEc2NetworkAclAssociation</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains details about an EC2 network access control list (ACL).</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAwsEc2NetworkAclDetails' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679983561"><span id="local-6989586621679983562"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsEc2NetworkAclDetails"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-var">AwsEc2NetworkAclDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsEc2NetworkAclDetails%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var">AwsEc2NetworkAclDetails'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The set of rules in the network ACL.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aentries%3AAwsEc2NetworkAclDetails%27"><span class="annot"><span class="annottext">AwsEc2NetworkAclDetails -&gt; Maybe [AwsEc2NetworkAclEntry]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3Aentries%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The identifier of the network ACL.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AnetworkAclId%3AAwsEc2NetworkAclDetails%27"><span class="annot"><span class="annottext">AwsEc2NetworkAclDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3AnetworkAclId%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var hs-var">networkAclId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The identifier of the VPC for the network ACL.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AvpcId%3AAwsEc2NetworkAclDetails%27"><span class="annot"><span class="annottext">AwsEc2NetworkAclDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3AvpcId%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The identifier of the Amazon Web Services account that owns the network</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- ACL.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AownerId%3AAwsEc2NetworkAclDetails%27"><span class="annot"><span class="annottext">AwsEc2NetworkAclDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3AownerId%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Associations between the network ACL and subnets.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aassociations%3AAwsEc2NetworkAclDetails%27"><span class="annot"><span class="annottext">AwsEc2NetworkAclDetails -&gt; Maybe [AwsEc2NetworkAclAssociation]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3Aassociations%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var hs-var">associations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclAssociation.html#AwsEc2NetworkAclAssociation"><span class="hs-identifier hs-type">AwsEc2NetworkAclAssociation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Whether this is the default network ACL for the VPC.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AisDefault%3AAwsEc2NetworkAclDetails%27"><span class="annot"><span class="annottext">AwsEc2NetworkAclDetails -&gt; Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3AisDefault%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var hs-var">isDefault</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679983550"><span id="local-6989586621679983552"><span class="annot"><span class="annottext">AwsEc2NetworkAclDetails -&gt; AwsEc2NetworkAclDetails -&gt; Bool
+(AwsEc2NetworkAclDetails -&gt; AwsEc2NetworkAclDetails -&gt; Bool)
+-&gt; (AwsEc2NetworkAclDetails -&gt; AwsEc2NetworkAclDetails -&gt; Bool)
+-&gt; Eq AwsEc2NetworkAclDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsEc2NetworkAclDetails -&gt; AwsEc2NetworkAclDetails -&gt; Bool
+$c/= :: AwsEc2NetworkAclDetails -&gt; AwsEc2NetworkAclDetails -&gt; Bool
+== :: AwsEc2NetworkAclDetails -&gt; AwsEc2NetworkAclDetails -&gt; Bool
+$c== :: AwsEc2NetworkAclDetails -&gt; AwsEc2NetworkAclDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679983541"><span id="local-6989586621679983543"><span id="local-6989586621679983545"><span id="local-6989586621679983547"><span class="annot"><span class="annottext">ReadPrec [AwsEc2NetworkAclDetails]
+ReadPrec AwsEc2NetworkAclDetails
+Int -&gt; ReadS AwsEc2NetworkAclDetails
+ReadS [AwsEc2NetworkAclDetails]
+(Int -&gt; ReadS AwsEc2NetworkAclDetails)
+-&gt; ReadS [AwsEc2NetworkAclDetails]
+-&gt; ReadPrec AwsEc2NetworkAclDetails
+-&gt; ReadPrec [AwsEc2NetworkAclDetails]
+-&gt; Read AwsEc2NetworkAclDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsEc2NetworkAclDetails]
+$creadListPrec :: ReadPrec [AwsEc2NetworkAclDetails]
+readPrec :: ReadPrec AwsEc2NetworkAclDetails
+$creadPrec :: ReadPrec AwsEc2NetworkAclDetails
+readList :: ReadS [AwsEc2NetworkAclDetails]
+$creadList :: ReadS [AwsEc2NetworkAclDetails]
+readsPrec :: Int -&gt; ReadS AwsEc2NetworkAclDetails
+$creadsPrec :: Int -&gt; ReadS AwsEc2NetworkAclDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679983534"><span id="local-6989586621679983536"><span id="local-6989586621679983538"><span class="annot"><span class="annottext">Int -&gt; AwsEc2NetworkAclDetails -&gt; ShowS
+[AwsEc2NetworkAclDetails] -&gt; ShowS
+AwsEc2NetworkAclDetails -&gt; String
+(Int -&gt; AwsEc2NetworkAclDetails -&gt; ShowS)
+-&gt; (AwsEc2NetworkAclDetails -&gt; String)
+-&gt; ([AwsEc2NetworkAclDetails] -&gt; ShowS)
+-&gt; Show AwsEc2NetworkAclDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsEc2NetworkAclDetails] -&gt; ShowS
+$cshowList :: [AwsEc2NetworkAclDetails] -&gt; ShowS
+show :: AwsEc2NetworkAclDetails -&gt; String
+$cshow :: AwsEc2NetworkAclDetails -&gt; String
+showsPrec :: Int -&gt; AwsEc2NetworkAclDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsEc2NetworkAclDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsEc2NetworkAclDetails -&gt; Rep AwsEc2NetworkAclDetails x)
+-&gt; (forall x.
+    Rep AwsEc2NetworkAclDetails x -&gt; AwsEc2NetworkAclDetails)
+-&gt; Generic AwsEc2NetworkAclDetails
+forall x. Rep AwsEc2NetworkAclDetails x -&gt; AwsEc2NetworkAclDetails
+forall x. AwsEc2NetworkAclDetails -&gt; Rep AwsEc2NetworkAclDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AwsEc2NetworkAclDetails x -&gt; AwsEc2NetworkAclDetails
+$cfrom :: forall x. AwsEc2NetworkAclDetails -&gt; Rep AwsEc2NetworkAclDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'AwsEc2NetworkAclDetails' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'entries', 'awsEc2NetworkAclDetails_entries' - The set of rules in the network ACL.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'networkAclId', 'awsEc2NetworkAclDetails_networkAclId' - The identifier of the network ACL.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'vpcId', 'awsEc2NetworkAclDetails_vpcId' - The identifier of the VPC for the network ACL.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'ownerId', 'awsEc2NetworkAclDetails_ownerId' - The identifier of the Amazon Web Services account that owns the network</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- ACL.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'associations', 'awsEc2NetworkAclDetails_associations' - Associations between the network ACL and subnets.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'isDefault', 'awsEc2NetworkAclDetails_isDefault' - Whether this is the default network ACL for the VPC.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#newAwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">newAwsEc2NetworkAclDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span><span>
+</span><span id="line-70"></span><span id="newAwsEc2NetworkAclDetails"><span class="annot"><span class="annottext">newAwsEc2NetworkAclDetails :: AwsEc2NetworkAclDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#newAwsEc2NetworkAclDetails"><span class="hs-identifier hs-var hs-var">newAwsEc2NetworkAclDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">AwsEc2NetworkAclDetails' :: Maybe [AwsEc2NetworkAclEntry]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [AwsEc2NetworkAclAssociation]
+-&gt; Maybe Bool
+-&gt; AwsEc2NetworkAclDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:entries:AwsEc2NetworkAclDetails' :: Maybe [AwsEc2NetworkAclEntry]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3Aentries%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclEntry]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkAclId:AwsEc2NetworkAclDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3AnetworkAclId%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var">networkAclId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:AwsEc2NetworkAclDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3AvpcId%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:AwsEc2NetworkAclDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3AownerId%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:associations:AwsEc2NetworkAclDetails' :: Maybe [AwsEc2NetworkAclAssociation]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3Aassociations%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var">associations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclAssociation]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:isDefault:AwsEc2NetworkAclDetails' :: Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3AisDefault%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var">isDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The set of rules in the network ACL.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#awsEc2NetworkAclDetails_entries"><span class="hs-identifier hs-type">awsEc2NetworkAclDetails_entries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="awsEc2NetworkAclDetails_entries"><span class="annot"><span class="annottext">awsEc2NetworkAclDetails_entries :: (Maybe [AwsEc2NetworkAclEntry]
+ -&gt; f (Maybe [AwsEc2NetworkAclEntry]))
+-&gt; AwsEc2NetworkAclDetails -&gt; f AwsEc2NetworkAclDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#awsEc2NetworkAclDetails_entries"><span class="hs-identifier hs-var hs-var">awsEc2NetworkAclDetails_entries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkAclDetails -&gt; Maybe [AwsEc2NetworkAclEntry])
+-&gt; (AwsEc2NetworkAclDetails
+    -&gt; Maybe [AwsEc2NetworkAclEntry] -&gt; AwsEc2NetworkAclDetails)
+-&gt; Lens
+     AwsEc2NetworkAclDetails
+     AwsEc2NetworkAclDetails
+     (Maybe [AwsEc2NetworkAclEntry])
+     (Maybe [AwsEc2NetworkAclEntry])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983525"><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclEntry]
+entries :: Maybe [AwsEc2NetworkAclEntry]
+$sel:entries:AwsEc2NetworkAclDetails' :: AwsEc2NetworkAclDetails -&gt; Maybe [AwsEc2NetworkAclEntry]
+</span><a href="#local-6989586621679983525"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclEntry]
+</span><a href="#local-6989586621679983525"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983524"><span class="annot"><span class="annottext">s :: AwsEc2NetworkAclDetails
+</span><a href="#local-6989586621679983524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983523"><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclEntry]
+</span><a href="#local-6989586621679983523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkAclDetails
+</span><a href="#local-6989586621679983524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:AwsEc2NetworkAclDetails' :: Maybe [AwsEc2NetworkAclEntry]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3Aentries%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclEntry]
+</span><a href="#local-6989586621679983523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsEc2NetworkAclEntry]
+  -&gt; f (Maybe [AwsEc2NetworkAclEntry]))
+ -&gt; AwsEc2NetworkAclDetails -&gt; f AwsEc2NetworkAclDetails)
+-&gt; ((Maybe [AwsEc2NetworkAclEntry]
+     -&gt; f (Maybe [AwsEc2NetworkAclEntry]))
+    -&gt; Maybe [AwsEc2NetworkAclEntry]
+    -&gt; f (Maybe [AwsEc2NetworkAclEntry]))
+-&gt; (Maybe [AwsEc2NetworkAclEntry]
+    -&gt; f (Maybe [AwsEc2NetworkAclEntry]))
+-&gt; AwsEc2NetworkAclDetails
+-&gt; f AwsEc2NetworkAclDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEc2NetworkAclEntry]
+  [AwsEc2NetworkAclEntry]
+  [AwsEc2NetworkAclEntry]
+  [AwsEc2NetworkAclEntry]
+-&gt; Iso
+     (Maybe [AwsEc2NetworkAclEntry])
+     (Maybe [AwsEc2NetworkAclEntry])
+     (Maybe [AwsEc2NetworkAclEntry])
+     (Maybe [AwsEc2NetworkAclEntry])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEc2NetworkAclEntry]
+  [AwsEc2NetworkAclEntry]
+  [AwsEc2NetworkAclEntry]
+  [AwsEc2NetworkAclEntry]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The identifier of the network ACL.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#awsEc2NetworkAclDetails_networkAclId"><span class="hs-identifier hs-type">awsEc2NetworkAclDetails_networkAclId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="awsEc2NetworkAclDetails_networkAclId"><span class="annot"><span class="annottext">awsEc2NetworkAclDetails_networkAclId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEc2NetworkAclDetails -&gt; f AwsEc2NetworkAclDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#awsEc2NetworkAclDetails_networkAclId"><span class="hs-identifier hs-var hs-var">awsEc2NetworkAclDetails_networkAclId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkAclDetails -&gt; Maybe Text)
+-&gt; (AwsEc2NetworkAclDetails
+    -&gt; Maybe Text -&gt; AwsEc2NetworkAclDetails)
+-&gt; Lens
+     AwsEc2NetworkAclDetails
+     AwsEc2NetworkAclDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983518"><span class="annot"><span class="annottext">Maybe Text
+networkAclId :: Maybe Text
+$sel:networkAclId:AwsEc2NetworkAclDetails' :: AwsEc2NetworkAclDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679983518"><span class="hs-identifier hs-var hs-var">networkAclId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983518"><span class="hs-identifier hs-var">networkAclId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983517"><span class="annot"><span class="annottext">s :: AwsEc2NetworkAclDetails
+</span><a href="#local-6989586621679983517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983516"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkAclDetails
+</span><a href="#local-6989586621679983517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkAclId:AwsEc2NetworkAclDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3AnetworkAclId%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var">networkAclId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The identifier of the VPC for the network ACL.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#awsEc2NetworkAclDetails_vpcId"><span class="hs-identifier hs-type">awsEc2NetworkAclDetails_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="awsEc2NetworkAclDetails_vpcId"><span class="annot"><span class="annottext">awsEc2NetworkAclDetails_vpcId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEc2NetworkAclDetails -&gt; f AwsEc2NetworkAclDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#awsEc2NetworkAclDetails_vpcId"><span class="hs-identifier hs-var hs-var">awsEc2NetworkAclDetails_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkAclDetails -&gt; Maybe Text)
+-&gt; (AwsEc2NetworkAclDetails
+    -&gt; Maybe Text -&gt; AwsEc2NetworkAclDetails)
+-&gt; Lens
+     AwsEc2NetworkAclDetails
+     AwsEc2NetworkAclDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983514"><span class="annot"><span class="annottext">Maybe Text
+vpcId :: Maybe Text
+$sel:vpcId:AwsEc2NetworkAclDetails' :: AwsEc2NetworkAclDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679983514"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983514"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983513"><span class="annot"><span class="annottext">s :: AwsEc2NetworkAclDetails
+</span><a href="#local-6989586621679983513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkAclDetails
+</span><a href="#local-6989586621679983513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:AwsEc2NetworkAclDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3AvpcId%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The identifier of the Amazon Web Services account that owns the network</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- ACL.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#awsEc2NetworkAclDetails_ownerId"><span class="hs-identifier hs-type">awsEc2NetworkAclDetails_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="awsEc2NetworkAclDetails_ownerId"><span class="annot"><span class="annottext">awsEc2NetworkAclDetails_ownerId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEc2NetworkAclDetails -&gt; f AwsEc2NetworkAclDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#awsEc2NetworkAclDetails_ownerId"><span class="hs-identifier hs-var hs-var">awsEc2NetworkAclDetails_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkAclDetails -&gt; Maybe Text)
+-&gt; (AwsEc2NetworkAclDetails
+    -&gt; Maybe Text -&gt; AwsEc2NetworkAclDetails)
+-&gt; Lens
+     AwsEc2NetworkAclDetails
+     AwsEc2NetworkAclDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983510"><span class="annot"><span class="annottext">Maybe Text
+ownerId :: Maybe Text
+$sel:ownerId:AwsEc2NetworkAclDetails' :: AwsEc2NetworkAclDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679983510"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983510"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983509"><span class="annot"><span class="annottext">s :: AwsEc2NetworkAclDetails
+</span><a href="#local-6989586621679983509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983508"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkAclDetails
+</span><a href="#local-6989586621679983509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:AwsEc2NetworkAclDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3AownerId%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Associations between the network ACL and subnets.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#awsEc2NetworkAclDetails_associations"><span class="hs-identifier hs-type">awsEc2NetworkAclDetails_associations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclAssociation.html#AwsEc2NetworkAclAssociation"><span class="hs-identifier hs-type">AwsEc2NetworkAclAssociation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="awsEc2NetworkAclDetails_associations"><span class="annot"><span class="annottext">awsEc2NetworkAclDetails_associations :: (Maybe [AwsEc2NetworkAclAssociation]
+ -&gt; f (Maybe [AwsEc2NetworkAclAssociation]))
+-&gt; AwsEc2NetworkAclDetails -&gt; f AwsEc2NetworkAclDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#awsEc2NetworkAclDetails_associations"><span class="hs-identifier hs-var hs-var">awsEc2NetworkAclDetails_associations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkAclDetails -&gt; Maybe [AwsEc2NetworkAclAssociation])
+-&gt; (AwsEc2NetworkAclDetails
+    -&gt; Maybe [AwsEc2NetworkAclAssociation] -&gt; AwsEc2NetworkAclDetails)
+-&gt; Lens
+     AwsEc2NetworkAclDetails
+     AwsEc2NetworkAclDetails
+     (Maybe [AwsEc2NetworkAclAssociation])
+     (Maybe [AwsEc2NetworkAclAssociation])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983506"><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclAssociation]
+associations :: Maybe [AwsEc2NetworkAclAssociation]
+$sel:associations:AwsEc2NetworkAclDetails' :: AwsEc2NetworkAclDetails -&gt; Maybe [AwsEc2NetworkAclAssociation]
+</span><a href="#local-6989586621679983506"><span class="hs-identifier hs-var hs-var">associations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclAssociation]
+</span><a href="#local-6989586621679983506"><span class="hs-identifier hs-var">associations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983505"><span class="annot"><span class="annottext">s :: AwsEc2NetworkAclDetails
+</span><a href="#local-6989586621679983505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983504"><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclAssociation]
+</span><a href="#local-6989586621679983504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkAclDetails
+</span><a href="#local-6989586621679983505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associations:AwsEc2NetworkAclDetails' :: Maybe [AwsEc2NetworkAclAssociation]
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3Aassociations%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var">associations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclAssociation]
+</span><a href="#local-6989586621679983504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsEc2NetworkAclAssociation]
+  -&gt; f (Maybe [AwsEc2NetworkAclAssociation]))
+ -&gt; AwsEc2NetworkAclDetails -&gt; f AwsEc2NetworkAclDetails)
+-&gt; ((Maybe [AwsEc2NetworkAclAssociation]
+     -&gt; f (Maybe [AwsEc2NetworkAclAssociation]))
+    -&gt; Maybe [AwsEc2NetworkAclAssociation]
+    -&gt; f (Maybe [AwsEc2NetworkAclAssociation]))
+-&gt; (Maybe [AwsEc2NetworkAclAssociation]
+    -&gt; f (Maybe [AwsEc2NetworkAclAssociation]))
+-&gt; AwsEc2NetworkAclDetails
+-&gt; f AwsEc2NetworkAclDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEc2NetworkAclAssociation]
+  [AwsEc2NetworkAclAssociation]
+  [AwsEc2NetworkAclAssociation]
+  [AwsEc2NetworkAclAssociation]
+-&gt; Iso
+     (Maybe [AwsEc2NetworkAclAssociation])
+     (Maybe [AwsEc2NetworkAclAssociation])
+     (Maybe [AwsEc2NetworkAclAssociation])
+     (Maybe [AwsEc2NetworkAclAssociation])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEc2NetworkAclAssociation]
+  [AwsEc2NetworkAclAssociation]
+  [AwsEc2NetworkAclAssociation]
+  [AwsEc2NetworkAclAssociation]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Whether this is the default network ACL for the VPC.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#awsEc2NetworkAclDetails_isDefault"><span class="hs-identifier hs-type">awsEc2NetworkAclDetails_isDefault</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="awsEc2NetworkAclDetails_isDefault"><span class="annot"><span class="annottext">awsEc2NetworkAclDetails_isDefault :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AwsEc2NetworkAclDetails -&gt; f AwsEc2NetworkAclDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#awsEc2NetworkAclDetails_isDefault"><span class="hs-identifier hs-var hs-var">awsEc2NetworkAclDetails_isDefault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkAclDetails -&gt; Maybe Bool)
+-&gt; (AwsEc2NetworkAclDetails
+    -&gt; Maybe Bool -&gt; AwsEc2NetworkAclDetails)
+-&gt; Lens
+     AwsEc2NetworkAclDetails
+     AwsEc2NetworkAclDetails
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983502"><span class="annot"><span class="annottext">Maybe Bool
+isDefault :: Maybe Bool
+$sel:isDefault:AwsEc2NetworkAclDetails' :: AwsEc2NetworkAclDetails -&gt; Maybe Bool
+</span><a href="#local-6989586621679983502"><span class="hs-identifier hs-var hs-var">isDefault</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679983502"><span class="hs-identifier hs-var">isDefault</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983501"><span class="annot"><span class="annottext">s :: AwsEc2NetworkAclDetails
+</span><a href="#local-6989586621679983501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983500"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679983500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkAclDetails
+</span><a href="#local-6989586621679983501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isDefault:AwsEc2NetworkAclDetails' :: Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#%24sel%3AisDefault%3AAwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var">isDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679983500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679983497"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679983495"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsEc2NetworkAclDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsEc2NetworkAclDetails)
+-&gt; Value
+-&gt; Parser AwsEc2NetworkAclDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsEc2NetworkAclDetails&quot;</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679983492"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983492"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclEntry]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [AwsEc2NetworkAclAssociation]
+-&gt; Maybe Bool
+-&gt; AwsEc2NetworkAclDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-var">AwsEc2NetworkAclDetails'</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AwsEc2NetworkAclEntry]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [AwsEc2NetworkAclAssociation]
+ -&gt; Maybe Bool
+ -&gt; AwsEc2NetworkAclDetails)
+-&gt; Parser (Maybe [AwsEc2NetworkAclEntry])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsEc2NetworkAclAssociation]
+      -&gt; Maybe Bool
+      -&gt; AwsEc2NetworkAclDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AwsEc2NetworkAclEntry]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Entries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AwsEc2NetworkAclEntry]))
+-&gt; Maybe [AwsEc2NetworkAclEntry]
+-&gt; Parser (Maybe [AwsEc2NetworkAclEntry])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsEc2NetworkAclAssociation]
+   -&gt; Maybe Bool
+   -&gt; AwsEc2NetworkAclDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [AwsEc2NetworkAclAssociation]
+      -&gt; Maybe Bool
+      -&gt; AwsEc2NetworkAclDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkAclId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [AwsEc2NetworkAclAssociation]
+   -&gt; Maybe Bool
+   -&gt; AwsEc2NetworkAclDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [AwsEc2NetworkAclAssociation]
+      -&gt; Maybe Bool
+      -&gt; AwsEc2NetworkAclDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [AwsEc2NetworkAclAssociation]
+   -&gt; Maybe Bool
+   -&gt; AwsEc2NetworkAclDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [AwsEc2NetworkAclAssociation]
+      -&gt; Maybe Bool -&gt; AwsEc2NetworkAclDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AwsEc2NetworkAclAssociation]
+   -&gt; Maybe Bool -&gt; AwsEc2NetworkAclDetails)
+-&gt; Parser (Maybe [AwsEc2NetworkAclAssociation])
+-&gt; Parser (Maybe Bool -&gt; AwsEc2NetworkAclDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [AwsEc2NetworkAclAssociation]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Associations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AwsEc2NetworkAclAssociation]))
+-&gt; Maybe [AwsEc2NetworkAclAssociation]
+-&gt; Parser (Maybe [AwsEc2NetworkAclAssociation])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclAssociation]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; AwsEc2NetworkAclDetails)
+-&gt; Parser (Maybe Bool) -&gt; Parser AwsEc2NetworkAclDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsDefault&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679983485"><span id="local-6989586621679983487"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679983482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679983474"><span id="local-6989586621679983476"><span id="local-6989586621679983478"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679983472"><span class="annot"><span class="annottext">toJSON :: AwsEc2NetworkAclDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails.html#AwsEc2NetworkAclDetails%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983465"><span id="local-6989586621679983466"><span id="local-6989586621679983467"><span id="local-6989586621679983468"><span id="local-6989586621679983469"><span id="local-6989586621679983470"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [AwsEc2NetworkAclAssociation]
+Maybe [AwsEc2NetworkAclEntry]
+Maybe Text
+isDefault :: Maybe Bool
+associations :: Maybe [AwsEc2NetworkAclAssociation]
+ownerId :: Maybe Text
+vpcId :: Maybe Text
+networkAclId :: Maybe Text
+entries :: Maybe [AwsEc2NetworkAclEntry]
+$sel:isDefault:AwsEc2NetworkAclDetails' :: AwsEc2NetworkAclDetails -&gt; Maybe Bool
+$sel:associations:AwsEc2NetworkAclDetails' :: AwsEc2NetworkAclDetails -&gt; Maybe [AwsEc2NetworkAclAssociation]
+$sel:ownerId:AwsEc2NetworkAclDetails' :: AwsEc2NetworkAclDetails -&gt; Maybe Text
+$sel:vpcId:AwsEc2NetworkAclDetails' :: AwsEc2NetworkAclDetails -&gt; Maybe Text
+$sel:networkAclId:AwsEc2NetworkAclDetails' :: AwsEc2NetworkAclDetails -&gt; Maybe Text
+$sel:entries:AwsEc2NetworkAclDetails' :: AwsEc2NetworkAclDetails -&gt; Maybe [AwsEc2NetworkAclEntry]
+</span><a href="#local-6989586621679983465"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Entries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsEc2NetworkAclEntry] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([AwsEc2NetworkAclEntry] -&gt; Pair)
+-&gt; Maybe [AwsEc2NetworkAclEntry] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclEntry]
+</span><a href="#local-6989586621679983470"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkAclId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983469"><span class="hs-identifier hs-var">networkAclId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983468"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983467"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Associations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsEc2NetworkAclAssociation] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([AwsEc2NetworkAclAssociation] -&gt; Pair)
+-&gt; Maybe [AwsEc2NetworkAclAssociation] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkAclAssociation]
+</span><a href="#local-6989586621679983466"><span class="hs-identifier hs-var">associations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsDefault&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679983465"><span class="hs-identifier hs-var">isDefault</span></a></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span></pre></body></html>

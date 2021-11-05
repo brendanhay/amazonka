@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- an endpoint address.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMessageResponse' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679603631"><span id="local-6989586621679603632"></span></span><span class="hs-keyword">data</span><span> </span><span id="MessageResponse"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-var">MessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-var">MessageResponse'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679603640"><span id="local-6989586621679603641"></span></span><span class="hs-keyword">data</span><span> </span><span id="MessageResponse"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-var">MessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-var">MessageResponse'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the original request that the message was delivered</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- for.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3ArequestId%3AMessageResponse%27"><span class="annot"><span class="annottext">MessageResponse -&gt; Maybe Text
@@ -49,7 +49,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AapplicationId%3AMessageResponse%27"><span class="annot"><span class="annottext">MessageResponse -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#%24sel%3AapplicationId%3AMessageResponse%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603622"><span id="local-6989586621679603624"><span class="annot"><span class="annottext">MessageResponse -&gt; MessageResponse -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603631"><span id="local-6989586621679603633"><span class="annot"><span class="annottext">MessageResponse -&gt; MessageResponse -&gt; Bool
 (MessageResponse -&gt; MessageResponse -&gt; Bool)
 -&gt; (MessageResponse -&gt; MessageResponse -&gt; Bool)
 -&gt; Eq MessageResponse
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MessageResponse -&gt; MessageResponse -&gt; Bool
 == :: MessageResponse -&gt; MessageResponse -&gt; Bool
 $c== :: MessageResponse -&gt; MessageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603613"><span id="local-6989586621679603615"><span id="local-6989586621679603617"><span id="local-6989586621679603619"><span class="annot"><span class="annottext">ReadPrec [MessageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603622"><span id="local-6989586621679603624"><span id="local-6989586621679603626"><span id="local-6989586621679603628"><span class="annot"><span class="annottext">ReadPrec [MessageResponse]
 ReadPrec MessageResponse
 Int -&gt; ReadS MessageResponse
 ReadS [MessageResponse]
@@ -78,7 +78,7 @@ readList :: ReadS [MessageResponse]
 $creadList :: ReadS [MessageResponse]
 readsPrec :: Int -&gt; ReadS MessageResponse
 $creadsPrec :: Int -&gt; ReadS MessageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603606"><span id="local-6989586621679603608"><span id="local-6989586621679603610"><span class="annot"><span class="annottext">Int -&gt; MessageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603615"><span id="local-6989586621679603617"><span id="local-6989586621679603619"><span class="annot"><span class="annottext">Int -&gt; MessageResponse -&gt; ShowS
 [MessageResponse] -&gt; ShowS
 MessageResponse -&gt; String
 (Int -&gt; MessageResponse -&gt; ShowS)
@@ -130,8 +130,8 @@ $cfrom :: forall x. MessageResponse -&gt; Rep MessageResponse x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span><span>
 </span><span id="line-75"></span><span id="newMessageResponse"><span class="annot"><span class="annottext">newMessageResponse :: Text -&gt; MessageResponse
-</span><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#newMessageResponse"><span class="hs-identifier hs-var hs-var">newMessageResponse</span></a></span></span><span> </span><span id="local-6989586621679603600"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679603600"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#newMessageResponse"><span class="hs-identifier hs-var hs-var">newMessageResponse</span></a></span></span><span> </span><span id="local-6989586621679603609"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603609"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">MessageResponse' :: Maybe Text
 -&gt; Maybe (HashMap Text MessageResult)
 -&gt; Maybe (HashMap Text EndpointMessageResult)
@@ -152,7 +152,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationId:MessageResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#%24sel%3AapplicationId%3AMessageResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679603600"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><a href="#local-6989586621679603609"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The identifier for the original request that the message was delivered</span><span>
@@ -164,16 +164,16 @@ forall a. Maybe a
 -&gt; (MessageResponse -&gt; Maybe Text -&gt; MessageResponse)
 -&gt; Lens MessageResponse MessageResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603596"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603605"><span class="annot"><span class="annottext">Maybe Text
 requestId :: Maybe Text
 $sel:requestId:MessageResponse' :: MessageResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679603596"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603596"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603595"><span class="annot"><span class="annottext">s :: MessageResponse
-</span><a href="#local-6989586621679603595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603594"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResponse
-</span><a href="#local-6989586621679603595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:MessageResponse' :: Maybe Text
+</span><a href="#local-6989586621679603605"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603605"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603604"><span class="annot"><span class="annottext">s :: MessageResponse
+</span><a href="#local-6989586621679603604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603603"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResponse
+</span><a href="#local-6989586621679603604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:MessageResponse' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#%24sel%3ArequestId%3AMessageResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | A map that contains a multipart response for each address (email</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- address, phone number, or push notification token) that the message was</span><span>
@@ -191,16 +191,16 @@ $sel:requestId:MessageResponse' :: MessageResponse -&gt; Maybe Text
      (Maybe (HashMap Text MessageResult))
      (Maybe (HashMap Text MessageResult))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603592"><span class="annot"><span class="annottext">Maybe (HashMap Text MessageResult)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603601"><span class="annot"><span class="annottext">Maybe (HashMap Text MessageResult)
 result :: Maybe (HashMap Text MessageResult)
 $sel:result:MessageResponse' :: MessageResponse -&gt; Maybe (HashMap Text MessageResult)
-</span><a href="#local-6989586621679603592"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MessageResult)
-</span><a href="#local-6989586621679603592"><span class="hs-identifier hs-var">result</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603591"><span class="annot"><span class="annottext">s :: MessageResponse
-</span><a href="#local-6989586621679603591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603590"><span class="annot"><span class="annottext">Maybe (HashMap Text MessageResult)
-</span><a href="#local-6989586621679603590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResponse
-</span><a href="#local-6989586621679603591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:result:MessageResponse' :: Maybe (HashMap Text MessageResult)
+</span><a href="#local-6989586621679603601"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MessageResult)
+</span><a href="#local-6989586621679603601"><span class="hs-identifier hs-var">result</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603600"><span class="annot"><span class="annottext">s :: MessageResponse
+</span><a href="#local-6989586621679603600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603599"><span class="annot"><span class="annottext">Maybe (HashMap Text MessageResult)
+</span><a href="#local-6989586621679603599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResponse
+</span><a href="#local-6989586621679603600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:result:MessageResponse' :: Maybe (HashMap Text MessageResult)
 </span><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#%24sel%3Aresult%3AMessageResponse%27"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MessageResult)
-</span><a href="#local-6989586621679603590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MessageResult)
+</span><a href="#local-6989586621679603599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MessageResult)
   -&gt; f (Maybe (HashMap Text MessageResult)))
  -&gt; MessageResponse -&gt; f MessageResponse)
 -&gt; ((Maybe (HashMap Text MessageResult)
@@ -249,16 +249,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (HashMap Text EndpointMessageResult))
      (Maybe (HashMap Text EndpointMessageResult))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603585"><span class="annot"><span class="annottext">Maybe (HashMap Text EndpointMessageResult)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603594"><span class="annot"><span class="annottext">Maybe (HashMap Text EndpointMessageResult)
 endpointResult :: Maybe (HashMap Text EndpointMessageResult)
 $sel:endpointResult:MessageResponse' :: MessageResponse -&gt; Maybe (HashMap Text EndpointMessageResult)
-</span><a href="#local-6989586621679603585"><span class="hs-identifier hs-var hs-var">endpointResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text EndpointMessageResult)
-</span><a href="#local-6989586621679603585"><span class="hs-identifier hs-var">endpointResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603584"><span class="annot"><span class="annottext">s :: MessageResponse
-</span><a href="#local-6989586621679603584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603583"><span class="annot"><span class="annottext">Maybe (HashMap Text EndpointMessageResult)
-</span><a href="#local-6989586621679603583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResponse
-</span><a href="#local-6989586621679603584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointResult:MessageResponse' :: Maybe (HashMap Text EndpointMessageResult)
+</span><a href="#local-6989586621679603594"><span class="hs-identifier hs-var hs-var">endpointResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text EndpointMessageResult)
+</span><a href="#local-6989586621679603594"><span class="hs-identifier hs-var">endpointResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603593"><span class="annot"><span class="annottext">s :: MessageResponse
+</span><a href="#local-6989586621679603593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603592"><span class="annot"><span class="annottext">Maybe (HashMap Text EndpointMessageResult)
+</span><a href="#local-6989586621679603592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResponse
+</span><a href="#local-6989586621679603593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointResult:MessageResponse' :: Maybe (HashMap Text EndpointMessageResult)
 </span><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#%24sel%3AendpointResult%3AMessageResponse%27"><span class="hs-identifier hs-var">endpointResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text EndpointMessageResult)
-</span><a href="#local-6989586621679603583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text EndpointMessageResult)
+</span><a href="#local-6989586621679603592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text EndpointMessageResult)
   -&gt; f (Maybe (HashMap Text EndpointMessageResult)))
  -&gt; MessageResponse -&gt; f MessageResponse)
 -&gt; ((Maybe (HashMap Text EndpointMessageResult)
@@ -299,19 +299,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (MessageResponse -&gt; Text -&gt; MessageResponse)
 -&gt; Lens MessageResponse MessageResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603581"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603590"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:MessageResponse' :: MessageResponse -&gt; Text
-</span><a href="#local-6989586621679603581"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679603581"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603580"><span class="annot"><span class="annottext">s :: MessageResponse
-</span><a href="#local-6989586621679603580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603579"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679603579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResponse
-</span><a href="#local-6989586621679603580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:MessageResponse' :: Text
+</span><a href="#local-6989586621679603590"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603590"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603589"><span class="annot"><span class="annottext">s :: MessageResponse
+</span><a href="#local-6989586621679603589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse%27"><span class="hs-identifier hs-type">MessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603588"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResponse
+</span><a href="#local-6989586621679603589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:MessageResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#%24sel%3AapplicationId%3AMessageResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679603579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603576"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679603574"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MessageResponse
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603585"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679603583"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MessageResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MessageResponse)
@@ -321,8 +321,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MessageResponse&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603571"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603580"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679603580"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe (HashMap Text MessageResult)
 -&gt; Maybe (HashMap Text EndpointMessageResult)
@@ -342,7 +342,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; MessageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679603580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
@@ -357,7 +357,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Text -&gt; MessageResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679603580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text MessageResult)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -375,7 +375,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Text -&gt; MessageResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679603580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser (Maybe (Maybe (HashMap Text EndpointMessageResult)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
@@ -391,13 +391,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser Text -&gt; Parser MessageResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679603580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ApplicationId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603563"><span id="local-6989586621679603565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603572"><span id="local-6989586621679603574"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResponse.html#MessageResponse"><span class="hs-identifier hs-type">MessageResponse</span></a></span></span><span>
 </span><span id="line-120"></span></pre></body></html>

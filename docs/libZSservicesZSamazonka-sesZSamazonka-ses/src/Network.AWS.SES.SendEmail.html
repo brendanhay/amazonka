@@ -96,7 +96,7 @@
 </span><span id="line-96"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- /See:/ 'newSendEmail' smart constructor.</span><span>
-</span><span id="line-99"></span><span id="local-6989586621679279992"><span id="local-6989586621679279993"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendEmail"><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-var">SendEmail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendEmail%27"><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-var">SendEmail'</span></a></span></span><span>
+</span><span id="line-99"></span><span id="local-6989586621679280001"><span id="local-6989586621679280002"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendEmail"><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-var">SendEmail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendEmail%27"><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-var">SendEmail'</span></a></span></span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email address that bounces and complaints will be forwarded to when</span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-comment">-- feedback forwarding is enabled. If the message cannot be delivered to</span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-comment">-- the recipient, then an error message will be returned from the</span><span>
@@ -186,7 +186,7 @@
 </span><span id="line-178"></span><span>    </span><span id="%24sel%3Amessage%3ASendEmail%27"><span class="annot"><span class="annottext">SendEmail -&gt; Message
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3Amessage%3ASendEmail%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279978"><span id="local-6989586621679279980"><span class="annot"><span class="annottext">SendEmail -&gt; SendEmail -&gt; Bool
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279987"><span id="local-6989586621679279989"><span class="annot"><span class="annottext">SendEmail -&gt; SendEmail -&gt; Bool
 (SendEmail -&gt; SendEmail -&gt; Bool)
 -&gt; (SendEmail -&gt; SendEmail -&gt; Bool) -&gt; Eq SendEmail
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -194,7 +194,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SendEmail -&gt; SendEmail -&gt; Bool
 == :: SendEmail -&gt; SendEmail -&gt; Bool
 $c== :: SendEmail -&gt; SendEmail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279969"><span id="local-6989586621679279971"><span id="local-6989586621679279973"><span id="local-6989586621679279975"><span class="annot"><span class="annottext">ReadPrec [SendEmail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279978"><span id="local-6989586621679279980"><span id="local-6989586621679279982"><span id="local-6989586621679279984"><span class="annot"><span class="annottext">ReadPrec [SendEmail]
 ReadPrec SendEmail
 Int -&gt; ReadS SendEmail
 ReadS [SendEmail]
@@ -214,7 +214,7 @@ readList :: ReadS [SendEmail]
 $creadList :: ReadS [SendEmail]
 readsPrec :: Int -&gt; ReadS SendEmail
 $creadsPrec :: Int -&gt; ReadS SendEmail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279962"><span id="local-6989586621679279964"><span id="local-6989586621679279966"><span class="annot"><span class="annottext">Int -&gt; SendEmail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279971"><span id="local-6989586621679279973"><span id="local-6989586621679279975"><span class="annot"><span class="annottext">Int -&gt; SendEmail -&gt; ShowS
 [SendEmail] -&gt; ShowS
 SendEmail -&gt; String
 (Int -&gt; SendEmail -&gt; ShowS)
@@ -334,10 +334,10 @@ $cfrom :: forall x. SendEmail -&gt; Rep SendEmail x
 </span><span id="line-274"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-275"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span>
 </span><span id="line-276"></span><span id="newSendEmail"><span class="annot"><span class="annottext">newSendEmail :: Text -&gt; Destination -&gt; Message -&gt; SendEmail
-</span><a href="Network.AWS.SES.SendEmail.html#newSendEmail"><span class="hs-identifier hs-var hs-var">newSendEmail</span></a></span></span><span> </span><span id="local-6989586621679279957"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279957"><span class="hs-identifier hs-var">pSource_</span></a></span></span><span> </span><span id="local-6989586621679279956"><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679279956"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span id="local-6989586621679279955"><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679279955"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.SendEmail.html#newSendEmail"><span class="hs-identifier hs-var hs-var">newSendEmail</span></a></span></span><span> </span><span id="local-6989586621679279966"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279966"><span class="hs-identifier hs-var">pSource_</span></a></span></span><span> </span><span id="local-6989586621679279965"><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679279965"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span id="local-6989586621679279964"><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679279964"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-277"></span><span>  </span><span class="annot"><span class="annottext">SendEmail' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -375,13 +375,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-284"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:SendEmail' :: Text
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3Asource%3ASendEmail%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279957"><span class="hs-identifier hs-var">pSource_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279966"><span class="hs-identifier hs-var">pSource_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">$sel:destination:SendEmail' :: Destination
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3Adestination%3ASendEmail%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679279956"><span class="hs-identifier hs-var">pDestination_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279965"><span class="hs-identifier hs-var">pDestination_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:SendEmail' :: Message
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3Amessage%3ASendEmail%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679279955"><span class="hs-identifier hs-var">pMessage_</span></a></span><span>
+</span><a href="#local-6989586621679279964"><span class="hs-identifier hs-var">pMessage_</span></a></span><span>
 </span><span id="line-287"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-288"></span><span>
 </span><span id="line-289"></span><span class="hs-comment">-- | The email address that bounces and complaints will be forwarded to when</span><span>
@@ -398,16 +398,16 @@ forall a. Maybe a
 -&gt; (SendEmail -&gt; Maybe Text -&gt; SendEmail)
 -&gt; Lens SendEmail SendEmail (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279952"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279961"><span class="annot"><span class="annottext">Maybe Text
 returnPath :: Maybe Text
 $sel:returnPath:SendEmail' :: SendEmail -&gt; Maybe Text
-</span><a href="#local-6989586621679279952"><span class="hs-identifier hs-var hs-var">returnPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279952"><span class="hs-identifier hs-var">returnPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279951"><span class="annot"><span class="annottext">s :: SendEmail
-</span><a href="#local-6989586621679279951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279950"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
-</span><a href="#local-6989586621679279951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnPath:SendEmail' :: Maybe Text
+</span><a href="#local-6989586621679279961"><span class="hs-identifier hs-var hs-var">returnPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279961"><span class="hs-identifier hs-var">returnPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279960"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279959"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnPath:SendEmail' :: Maybe Text
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3AreturnPath%3ASendEmail%27"><span class="hs-identifier hs-var">returnPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-299"></span><span>
 </span><span id="line-300"></span><span class="hs-comment">-- | The name of the configuration set to use when you send an email using</span><span>
 </span><span id="line-301"></span><span class="hs-comment">-- @SendEmail@.</span><span>
@@ -417,16 +417,16 @@ $sel:returnPath:SendEmail' :: SendEmail -&gt; Maybe Text
 -&gt; (SendEmail -&gt; Maybe Text -&gt; SendEmail)
 -&gt; Lens SendEmail SendEmail (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279949"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279958"><span class="annot"><span class="annottext">Maybe Text
 configurationSetName :: Maybe Text
 $sel:configurationSetName:SendEmail' :: SendEmail -&gt; Maybe Text
-</span><a href="#local-6989586621679279949"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279949"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279948"><span class="annot"><span class="annottext">s :: SendEmail
-</span><a href="#local-6989586621679279948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279947"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
-</span><a href="#local-6989586621679279948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSetName:SendEmail' :: Maybe Text
+</span><a href="#local-6989586621679279958"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279958"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279957"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279956"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSetName:SendEmail' :: Maybe Text
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3AconfigurationSetName%3ASendEmail%27"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-304"></span><span>
 </span><span id="line-305"></span><span class="hs-comment">-- | This parameter is used only for sending authorization. It is the ARN of</span><span>
 </span><span id="line-306"></span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
@@ -448,16 +448,16 @@ $sel:configurationSetName:SendEmail' :: SendEmail -&gt; Maybe Text
 -&gt; (SendEmail -&gt; Maybe Text -&gt; SendEmail)
 -&gt; Lens SendEmail SendEmail (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279946"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279955"><span class="annot"><span class="annottext">Maybe Text
 sourceArn :: Maybe Text
 $sel:sourceArn:SendEmail' :: SendEmail -&gt; Maybe Text
-</span><a href="#local-6989586621679279946"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279946"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279945"><span class="annot"><span class="annottext">s :: SendEmail
-</span><a href="#local-6989586621679279945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279944"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
-</span><a href="#local-6989586621679279945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceArn:SendEmail' :: Maybe Text
+</span><a href="#local-6989586621679279955"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279955"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279954"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279953"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceArn:SendEmail' :: Maybe Text
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3AsourceArn%3ASendEmail%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-321"></span><span>
 </span><span id="line-322"></span><span class="hs-comment">-- | This parameter is used only for sending authorization. It is the ARN of</span><span>
 </span><span id="line-323"></span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
@@ -479,16 +479,16 @@ $sel:sourceArn:SendEmail' :: SendEmail -&gt; Maybe Text
 -&gt; (SendEmail -&gt; Maybe Text -&gt; SendEmail)
 -&gt; Lens SendEmail SendEmail (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279943"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279952"><span class="annot"><span class="annottext">Maybe Text
 returnPathArn :: Maybe Text
 $sel:returnPathArn:SendEmail' :: SendEmail -&gt; Maybe Text
-</span><a href="#local-6989586621679279943"><span class="hs-identifier hs-var hs-var">returnPathArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279943"><span class="hs-identifier hs-var">returnPathArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279942"><span class="annot"><span class="annottext">s :: SendEmail
-</span><a href="#local-6989586621679279942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279941"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
-</span><a href="#local-6989586621679279942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnPathArn:SendEmail' :: Maybe Text
+</span><a href="#local-6989586621679279952"><span class="hs-identifier hs-var hs-var">returnPathArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279952"><span class="hs-identifier hs-var">returnPathArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279951"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279950"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnPathArn:SendEmail' :: Maybe Text
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3AreturnPathArn%3ASendEmail%27"><span class="hs-identifier hs-var">returnPathArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-338"></span><span>
 </span><span id="line-339"></span><span class="hs-comment">-- | A list of tags, in the form of name\/value pairs, to apply to an email</span><span>
 </span><span id="line-340"></span><span class="hs-comment">-- that you send using @SendEmail@. Tags correspond to characteristics of</span><span>
@@ -501,16 +501,16 @@ $sel:returnPathArn:SendEmail' :: SendEmail -&gt; Maybe Text
 -&gt; Lens
      SendEmail SendEmail (Maybe [MessageTag]) (Maybe [MessageTag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279940"><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279949"><span class="annot"><span class="annottext">Maybe [MessageTag]
 tags :: Maybe [MessageTag]
 $sel:tags:SendEmail' :: SendEmail -&gt; Maybe [MessageTag]
-</span><a href="#local-6989586621679279940"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
-</span><a href="#local-6989586621679279940"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279939"><span class="annot"><span class="annottext">s :: SendEmail
-</span><a href="#local-6989586621679279939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279938"><span class="annot"><span class="annottext">Maybe [MessageTag]
-</span><a href="#local-6989586621679279938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
-</span><a href="#local-6989586621679279939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:SendEmail' :: Maybe [MessageTag]
+</span><a href="#local-6989586621679279949"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><a href="#local-6989586621679279949"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279948"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279947"><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><a href="#local-6989586621679279947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:SendEmail' :: Maybe [MessageTag]
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3Atags%3ASendEmail%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
-</span><a href="#local-6989586621679279938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
+</span><a href="#local-6989586621679279947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
  -&gt; SendEmail -&gt; f SendEmail)
 -&gt; ((Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
     -&gt; Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
@@ -539,16 +539,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SendEmail -&gt; Maybe [Text] -&gt; SendEmail)
 -&gt; Lens SendEmail SendEmail (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279934"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279943"><span class="annot"><span class="annottext">Maybe [Text]
 replyToAddresses :: Maybe [Text]
 $sel:replyToAddresses:SendEmail' :: SendEmail -&gt; Maybe [Text]
-</span><a href="#local-6989586621679279934"><span class="hs-identifier hs-var hs-var">replyToAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679279934"><span class="hs-identifier hs-var">replyToAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279933"><span class="annot"><span class="annottext">s :: SendEmail
-</span><a href="#local-6989586621679279933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279932"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679279932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
-</span><a href="#local-6989586621679279933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replyToAddresses:SendEmail' :: Maybe [Text]
+</span><a href="#local-6989586621679279943"><span class="hs-identifier hs-var hs-var">replyToAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679279943"><span class="hs-identifier hs-var">replyToAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279942"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279941"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679279941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replyToAddresses:SendEmail' :: Maybe [Text]
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3AreplyToAddresses%3ASendEmail%27"><span class="hs-identifier hs-var">replyToAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679279932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; SendEmail -&gt; f SendEmail)
+</span><a href="#local-6989586621679279941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; SendEmail -&gt; f SendEmail)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -595,16 +595,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SendEmail -&gt; Text -&gt; SendEmail)
 -&gt; Lens SendEmail SendEmail Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279931"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279940"><span class="annot"><span class="annottext">Text
 source :: Text
 $sel:source:SendEmail' :: SendEmail -&gt; Text
-</span><a href="#local-6989586621679279931"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279931"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279930"><span class="annot"><span class="annottext">s :: SendEmail
-</span><a href="#local-6989586621679279930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279929"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
-</span><a href="#local-6989586621679279930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:SendEmail' :: Text
+</span><a href="#local-6989586621679279940"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279940"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279939"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279938"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:SendEmail' :: Text
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3Asource%3ASendEmail%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-377"></span><span>
 </span><span id="line-378"></span><span class="hs-comment">-- | The destination for this email, composed of To:, CC:, and BCC: fields.</span><span>
 </span><span id="line-379"></span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#sendEmail_destination"><span class="hs-identifier hs-type">sendEmail_destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span>
@@ -613,16 +613,16 @@ $sel:source:SendEmail' :: SendEmail -&gt; Text
 -&gt; (SendEmail -&gt; Destination -&gt; SendEmail)
 -&gt; Lens SendEmail SendEmail Destination Destination
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279928"><span class="annot"><span class="annottext">Destination
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279937"><span class="annot"><span class="annottext">Destination
 destination :: Destination
 $sel:destination:SendEmail' :: SendEmail -&gt; Destination
-</span><a href="#local-6989586621679279928"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679279928"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279927"><span class="annot"><span class="annottext">s :: SendEmail
-</span><a href="#local-6989586621679279927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279926"><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679279926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
-</span><a href="#local-6989586621679279927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:SendEmail' :: Destination
+</span><a href="#local-6989586621679279937"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679279937"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279936"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279935"><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679279935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:SendEmail' :: Destination
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3Adestination%3ASendEmail%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679279926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-381"></span><span>
 </span><span id="line-382"></span><span class="hs-comment">-- | The message to be sent.</span><span>
 </span><span id="line-383"></span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#sendEmail_message"><span class="hs-identifier hs-type">sendEmail_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span>
@@ -631,25 +631,25 @@ $sel:destination:SendEmail' :: SendEmail -&gt; Destination
 -&gt; (SendEmail -&gt; Message -&gt; SendEmail)
 -&gt; Lens SendEmail SendEmail Message Message
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279925"><span class="annot"><span class="annottext">Message
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279934"><span class="annot"><span class="annottext">Message
 message :: Message
 $sel:message:SendEmail' :: SendEmail -&gt; Message
-</span><a href="#local-6989586621679279925"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679279925"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279924"><span class="annot"><span class="annottext">s :: SendEmail
-</span><a href="#local-6989586621679279924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279923"><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679279923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
-</span><a href="#local-6989586621679279924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:SendEmail' :: Message
+</span><a href="#local-6989586621679279934"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679279934"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279933"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279932"><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679279932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:SendEmail' :: Message
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3Amessage%3ASendEmail%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679279923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-385"></span><span>
 </span><span id="line-386"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-387"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span><span>
-</span><span id="line-388"></span><span>  </span><span id="local-6989586621679279919"><span class="annot"><span class="annottext">request :: SendEmail -&gt; Request SendEmail
+</span><span id="line-388"></span><span>  </span><span id="local-6989586621679279928"><span class="annot"><span class="annottext">request :: SendEmail -&gt; Request SendEmail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SendEmail -&gt; Request SendEmail
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-389"></span><span>  </span><span id="local-6989586621679279915"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-389"></span><span>  </span><span id="local-6989586621679279924"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SendEmail
 -&gt; ClientResponse ClientBody
@@ -678,10 +678,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-391"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SendEmailResult&quot;</span></span><span>
-</span><span id="line-392"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279912"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279912"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279911"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679279911"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279910"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679279910"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-392"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279921"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279921"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279920"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679279920"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279919"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679279919"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-393"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; SendEmailResponse
 </span><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-var">SendEmailResponse'</span></a></span><span>
 </span><span id="line-394"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; SendEmailResponse)
@@ -692,23 +692,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279912"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279921"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-395"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; SendEmailResponse)
 -&gt; Either String Text -&gt; Either String SendEmailResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679279910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679279919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-396"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-397"></span><span>
-</span><span id="line-398"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279902"><span id="local-6989586621679279904"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span></span></span><span>
+</span><span id="line-398"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279911"><span id="local-6989586621679279913"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span></span></span><span>
 </span><span id="line-399"></span><span>
-</span><span id="line-400"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span></span><span>
+</span><span id="line-400"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279908"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span></span><span>
 </span><span id="line-401"></span><span>
 </span><span id="line-402"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-403"></span><span>  </span><span id="local-6989586621679279895"><span class="annot"><span class="annottext">toHeaders :: SendEmail -&gt; ResponseHeaders
+</span><span id="line-403"></span><span>  </span><span id="local-6989586621679279904"><span class="annot"><span class="annottext">toHeaders :: SendEmail -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SendEmail -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -716,15 +716,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-404"></span><span>
 </span><span id="line-405"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-406"></span><span>  </span><span id="local-6989586621679279890"><span class="annot"><span class="annottext">toPath :: SendEmail -&gt; ByteString
+</span><span id="line-406"></span><span>  </span><span id="local-6989586621679279899"><span class="annot"><span class="annottext">toPath :: SendEmail -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SendEmail -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-407"></span><span>
 </span><span id="line-408"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-409"></span><span>  </span><span id="local-6989586621679279886"><span class="annot"><span class="annottext">toQuery :: SendEmail -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279876"><span id="local-6989586621679279877"><span id="local-6989586621679279878"><span id="local-6989586621679279879"><span id="local-6989586621679279880"><span id="local-6989586621679279881"><span id="local-6989586621679279882"><span id="local-6989586621679279883"><span id="local-6989586621679279884"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-409"></span><span>  </span><span id="local-6989586621679279895"><span class="annot"><span class="annottext">toQuery :: SendEmail -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279885"><span id="local-6989586621679279886"><span id="local-6989586621679279887"><span id="local-6989586621679279888"><span id="local-6989586621679279889"><span id="local-6989586621679279890"><span id="local-6989586621679279891"><span id="local-6989586621679279892"><span id="local-6989586621679279893"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe [MessageTag]
 Maybe Text
 Text
@@ -748,7 +748,7 @@ $sel:returnPathArn:SendEmail' :: SendEmail -&gt; Maybe Text
 $sel:sourceArn:SendEmail' :: SendEmail -&gt; Maybe Text
 $sel:configurationSetName:SendEmail' :: SendEmail -&gt; Maybe Text
 $sel:returnPath:SendEmail' :: SendEmail -&gt; Maybe Text
-</span><a href="#local-6989586621679279876"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679279885"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-410"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -768,22 +768,22 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ReturnPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279884"><span class="hs-identifier hs-var">returnPath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279893"><span class="hs-identifier hs-var">returnPath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-416"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ConfigurationSetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279883"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279892"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-417"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279882"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279891"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-418"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReturnPathArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279881"><span class="hs-identifier hs-var">returnPathArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279890"><span class="hs-identifier hs-var">returnPathArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-419"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span>
 </span><span id="line-420"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -800,7 +800,7 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [MessageTag] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
-</span><a href="#local-6989586621679279880"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279889"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-422"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReplyToAddresses&quot;</span></span><span>
 </span><span id="line-423"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -817,29 +817,29 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-425"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679279879"><span class="hs-identifier hs-var">replyToAddresses</span></a></span><span>
+</span><a href="#local-6989586621679279888"><span class="hs-identifier hs-var">replyToAddresses</span></a></span><span>
 </span><span id="line-426"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-427"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Source&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279878"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279887"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-428"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Destination -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679279877"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279886"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-429"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Message&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Message -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679279876"><span class="hs-identifier hs-var">message</span></a></span><span>
+</span><a href="#local-6989586621679279885"><span class="hs-identifier hs-var">message</span></a></span><span>
 </span><span id="line-430"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-431"></span><span>
 </span><span id="line-432"></span><span class="hs-comment">-- | Represents a unique message ID.</span><span>
 </span><span id="line-433"></span><span class="hs-comment">--</span><span>
 </span><span id="line-434"></span><span class="hs-comment">-- /See:/ 'newSendEmailResponse' smart constructor.</span><span>
-</span><span id="line-435"></span><span id="local-6989586621679279872"><span id="local-6989586621679279873"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendEmailResponse"><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-var">SendEmailResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendEmailResponse%27"><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-var">SendEmailResponse'</span></a></span></span><span>
+</span><span id="line-435"></span><span id="local-6989586621679279881"><span id="local-6989586621679279882"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendEmailResponse"><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-var">SendEmailResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendEmailResponse%27"><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-var">SendEmailResponse'</span></a></span></span><span>
 </span><span id="line-436"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-437"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASendEmailResponse%27"><span class="annot"><span class="annottext">SendEmailResponse -&gt; Int
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3AhttpStatus%3ASendEmailResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -847,7 +847,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-439"></span><span>    </span><span id="%24sel%3AmessageId%3ASendEmailResponse%27"><span class="annot"><span class="annottext">SendEmailResponse -&gt; Text
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3AmessageId%3ASendEmailResponse%27"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-440"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-441"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279866"><span id="local-6989586621679279868"><span class="annot"><span class="annottext">SendEmailResponse -&gt; SendEmailResponse -&gt; Bool
+</span><span id="line-441"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279875"><span id="local-6989586621679279877"><span class="annot"><span class="annottext">SendEmailResponse -&gt; SendEmailResponse -&gt; Bool
 (SendEmailResponse -&gt; SendEmailResponse -&gt; Bool)
 -&gt; (SendEmailResponse -&gt; SendEmailResponse -&gt; Bool)
 -&gt; Eq SendEmailResponse
@@ -856,7 +856,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SendEmailResponse -&gt; SendEmailResponse -&gt; Bool
 == :: SendEmailResponse -&gt; SendEmailResponse -&gt; Bool
 $c== :: SendEmailResponse -&gt; SendEmailResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279858"><span id="local-6989586621679279860"><span id="local-6989586621679279862"><span id="local-6989586621679279864"><span class="annot"><span class="annottext">ReadPrec [SendEmailResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279867"><span id="local-6989586621679279869"><span id="local-6989586621679279871"><span id="local-6989586621679279873"><span class="annot"><span class="annottext">ReadPrec [SendEmailResponse]
 ReadPrec SendEmailResponse
 Int -&gt; ReadS SendEmailResponse
 ReadS [SendEmailResponse]
@@ -876,7 +876,7 @@ readList :: ReadS [SendEmailResponse]
 $creadList :: ReadS [SendEmailResponse]
 readsPrec :: Int -&gt; ReadS SendEmailResponse
 $creadsPrec :: Int -&gt; ReadS SendEmailResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279852"><span id="local-6989586621679279854"><span id="local-6989586621679279856"><span class="annot"><span class="annottext">Int -&gt; SendEmailResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279861"><span id="local-6989586621679279863"><span id="local-6989586621679279865"><span class="annot"><span class="annottext">Int -&gt; SendEmailResponse -&gt; ShowS
 [SendEmailResponse] -&gt; ShowS
 SendEmailResponse -&gt; String
 (Int -&gt; SendEmailResponse -&gt; ShowS)
@@ -920,17 +920,17 @@ $cfrom :: forall x. SendEmailResponse -&gt; Rep SendEmailResponse x
 </span><span id="line-458"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-459"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span><span>
 </span><span id="line-460"></span><span id="newSendEmailResponse"><span class="annot"><span class="annottext">newSendEmailResponse :: Int -&gt; Text -&gt; SendEmailResponse
-</span><a href="Network.AWS.SES.SendEmail.html#newSendEmailResponse"><span class="hs-identifier hs-var hs-var">newSendEmailResponse</span></a></span></span><span> </span><span id="local-6989586621679279849"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279849"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679279848"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279848"><span class="hs-identifier hs-var">pMessageId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.SendEmail.html#newSendEmailResponse"><span class="hs-identifier hs-var hs-var">newSendEmailResponse</span></a></span></span><span> </span><span id="local-6989586621679279858"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279858"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679279857"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279857"><span class="hs-identifier hs-var">pMessageId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-461"></span><span>  </span><span class="annot"><span class="annottext">SendEmailResponse' :: Int -&gt; Text -&gt; SendEmailResponse
 </span><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-type">SendEmailResponse'</span></a></span><span>
 </span><span id="line-462"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SendEmailResponse' :: Int
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3AhttpStatus%3ASendEmailResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279849"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279858"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-463"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageId:SendEmailResponse' :: Text
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3AmessageId%3ASendEmailResponse%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279848"><span class="hs-identifier hs-var">pMessageId_</span></a></span><span>
+</span><a href="#local-6989586621679279857"><span class="hs-identifier hs-var">pMessageId_</span></a></span><span>
 </span><span id="line-464"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-465"></span><span>
 </span><span id="line-466"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -940,16 +940,16 @@ $cfrom :: forall x. SendEmailResponse -&gt; Rep SendEmailResponse x
 -&gt; (SendEmailResponse -&gt; Int -&gt; SendEmailResponse)
 -&gt; Lens SendEmailResponse SendEmailResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-type">SendEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279847"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-type">SendEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279856"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SendEmailResponse' :: SendEmailResponse -&gt; Int
-</span><a href="#local-6989586621679279847"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279847"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279846"><span class="annot"><span class="annottext">s :: SendEmailResponse
-</span><a href="#local-6989586621679279846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-type">SendEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279845"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmailResponse
-</span><a href="#local-6989586621679279846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendEmailResponse' :: Int
+</span><a href="#local-6989586621679279856"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279856"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279855"><span class="annot"><span class="annottext">s :: SendEmailResponse
+</span><a href="#local-6989586621679279855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-type">SendEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279854"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmailResponse
+</span><a href="#local-6989586621679279855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendEmailResponse' :: Int
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3AhttpStatus%3ASendEmailResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-469"></span><span>
 </span><span id="line-470"></span><span class="hs-comment">-- | The unique message identifier returned from the @SendEmail@ action.</span><span>
 </span><span id="line-471"></span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#sendEmailResponse_messageId"><span class="hs-identifier hs-type">sendEmailResponse_messageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -958,16 +958,16 @@ $sel:httpStatus:SendEmailResponse' :: SendEmailResponse -&gt; Int
 -&gt; (SendEmailResponse -&gt; Text -&gt; SendEmailResponse)
 -&gt; Lens SendEmailResponse SendEmailResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-type">SendEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279844"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-type">SendEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279853"><span class="annot"><span class="annottext">Text
 messageId :: Text
 $sel:messageId:SendEmailResponse' :: SendEmailResponse -&gt; Text
-</span><a href="#local-6989586621679279844"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279844"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279843"><span class="annot"><span class="annottext">s :: SendEmailResponse
-</span><a href="#local-6989586621679279843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-type">SendEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279842"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmailResponse
-</span><a href="#local-6989586621679279843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:SendEmailResponse' :: Text
+</span><a href="#local-6989586621679279853"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279853"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279852"><span class="annot"><span class="annottext">s :: SendEmailResponse
+</span><a href="#local-6989586621679279852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-type">SendEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279851"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmailResponse
+</span><a href="#local-6989586621679279852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:SendEmailResponse' :: Text
 </span><a href="Network.AWS.SES.SendEmail.html#%24sel%3AmessageId%3ASendEmailResponse%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-473"></span><span>
-</span><span id="line-474"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span></span><span>
+</span><span id="line-474"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span></span><span>
 </span><span id="line-475"></span></pre></body></html>

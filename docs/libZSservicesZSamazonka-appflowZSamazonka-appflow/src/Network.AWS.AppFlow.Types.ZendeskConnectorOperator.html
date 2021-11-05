@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppFlow.Types.ZendeskConnectorOperator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppFlow.Types.ZendeskConnectorOperator</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_ADDITION"><span class="hs-identifier">ZendeskConnectorOperator_ADDITION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_DIVISION"><span class="hs-identifier">ZendeskConnectorOperator_DIVISION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_GREATER_THAN"><span class="hs-identifier">ZendeskConnectorOperator_GREATER_THAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_MASK_ALL"><span class="hs-identifier">ZendeskConnectorOperator_MASK_ALL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_MASK_FIRST_N"><span class="hs-identifier">ZendeskConnectorOperator_MASK_FIRST_N</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_MASK_LAST_N"><span class="hs-identifier">ZendeskConnectorOperator_MASK_LAST_N</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_MULTIPLICATION"><span class="hs-identifier">ZendeskConnectorOperator_MULTIPLICATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_NO_OP"><span class="hs-identifier">ZendeskConnectorOperator_NO_OP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_PROJECTION"><span class="hs-identifier">ZendeskConnectorOperator_PROJECTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_SUBTRACTION"><span class="hs-identifier">ZendeskConnectorOperator_SUBTRACTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier">ZendeskConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier">ZendeskConnectorOperator_VALIDATE_NON_NULL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier">ZendeskConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier">ZendeskConnectorOperator_VALIDATE_NUMERIC</span></a></span><span>
+</span><span id="line-37"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679328905"><span id="local-6989586621679328906"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ZendeskConnectorOperator"><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-var">ZendeskConnectorOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ZendeskConnectorOperator%27"><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-var">ZendeskConnectorOperator'</span></a></span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromZendeskConnectorOperator"><span class="annot"><span class="annottext">ZendeskConnectorOperator -&gt; Text
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#fromZendeskConnectorOperator"><span class="hs-identifier hs-var hs-var">fromZendeskConnectorOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679328897"><span id="local-6989586621679328899"><span id="local-6989586621679328901"><span class="annot"><span class="annottext">Int -&gt; ZendeskConnectorOperator -&gt; ShowS
+[ZendeskConnectorOperator] -&gt; ShowS
+ZendeskConnectorOperator -&gt; String
+(Int -&gt; ZendeskConnectorOperator -&gt; ShowS)
+-&gt; (ZendeskConnectorOperator -&gt; String)
+-&gt; ([ZendeskConnectorOperator] -&gt; ShowS)
+-&gt; Show ZendeskConnectorOperator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ZendeskConnectorOperator] -&gt; ShowS
+$cshowList :: [ZendeskConnectorOperator] -&gt; ShowS
+show :: ZendeskConnectorOperator -&gt; String
+$cshow :: ZendeskConnectorOperator -&gt; String
+showsPrec :: Int -&gt; ZendeskConnectorOperator -&gt; ShowS
+$cshowsPrec :: Int -&gt; ZendeskConnectorOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679328888"><span id="local-6989586621679328890"><span id="local-6989586621679328892"><span id="local-6989586621679328894"><span class="annot"><span class="annottext">ReadPrec [ZendeskConnectorOperator]
+ReadPrec ZendeskConnectorOperator
+Int -&gt; ReadS ZendeskConnectorOperator
+ReadS [ZendeskConnectorOperator]
+(Int -&gt; ReadS ZendeskConnectorOperator)
+-&gt; ReadS [ZendeskConnectorOperator]
+-&gt; ReadPrec ZendeskConnectorOperator
+-&gt; ReadPrec [ZendeskConnectorOperator]
+-&gt; Read ZendeskConnectorOperator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ZendeskConnectorOperator]
+$creadListPrec :: ReadPrec [ZendeskConnectorOperator]
+readPrec :: ReadPrec ZendeskConnectorOperator
+$creadPrec :: ReadPrec ZendeskConnectorOperator
+readList :: ReadS [ZendeskConnectorOperator]
+$creadList :: ReadS [ZendeskConnectorOperator]
+readsPrec :: Int -&gt; ReadS ZendeskConnectorOperator
+$creadsPrec :: Int -&gt; ReadS ZendeskConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679328883"><span id="local-6989586621679328885"><span class="annot"><span class="annottext">ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool
+(ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool)
+-&gt; (ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool)
+-&gt; Eq ZendeskConnectorOperator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool
+$c/= :: ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool
+== :: ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool
+$c== :: ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679328867"><span id="local-6989586621679328869"><span id="local-6989586621679328871"><span id="local-6989586621679328873"><span id="local-6989586621679328875"><span id="local-6989586621679328877"><span id="local-6989586621679328879"><span class="annot"><span class="annottext">Eq ZendeskConnectorOperator
+Eq ZendeskConnectorOperator
+-&gt; (ZendeskConnectorOperator
+    -&gt; ZendeskConnectorOperator -&gt; Ordering)
+-&gt; (ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool)
+-&gt; (ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool)
+-&gt; (ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool)
+-&gt; (ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool)
+-&gt; (ZendeskConnectorOperator
+    -&gt; ZendeskConnectorOperator -&gt; ZendeskConnectorOperator)
+-&gt; (ZendeskConnectorOperator
+    -&gt; ZendeskConnectorOperator -&gt; ZendeskConnectorOperator)
+-&gt; Ord ZendeskConnectorOperator
+ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool
+ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Ordering
+ZendeskConnectorOperator
+-&gt; ZendeskConnectorOperator -&gt; ZendeskConnectorOperator
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ZendeskConnectorOperator
+-&gt; ZendeskConnectorOperator -&gt; ZendeskConnectorOperator
+$cmin :: ZendeskConnectorOperator
+-&gt; ZendeskConnectorOperator -&gt; ZendeskConnectorOperator
+max :: ZendeskConnectorOperator
+-&gt; ZendeskConnectorOperator -&gt; ZendeskConnectorOperator
+$cmax :: ZendeskConnectorOperator
+-&gt; ZendeskConnectorOperator -&gt; ZendeskConnectorOperator
+&gt;= :: ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool
+$c&gt;= :: ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool
+&gt; :: ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool
+$c&gt; :: ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool
+&lt;= :: ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool
+$c&lt;= :: ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool
+&lt; :: ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool
+$c&lt; :: ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Bool
+compare :: ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Ordering
+$ccompare :: ZendeskConnectorOperator -&gt; ZendeskConnectorOperator -&gt; Ordering
+$cp1Ord :: Eq ZendeskConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ZendeskConnectorOperator -&gt; Rep ZendeskConnectorOperator x)
+-&gt; (forall x.
+    Rep ZendeskConnectorOperator x -&gt; ZendeskConnectorOperator)
+-&gt; Generic ZendeskConnectorOperator
+forall x.
+Rep ZendeskConnectorOperator x -&gt; ZendeskConnectorOperator
+forall x.
+ZendeskConnectorOperator -&gt; Rep ZendeskConnectorOperator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ZendeskConnectorOperator x -&gt; ZendeskConnectorOperator
+$cfrom :: forall x.
+ZendeskConnectorOperator -&gt; Rep ZendeskConnectorOperator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679328859"><span id="local-6989586621679328861"><span class="annot"><span class="annottext">Int -&gt; ZendeskConnectorOperator -&gt; Int
+ZendeskConnectorOperator -&gt; Int
+(Int -&gt; ZendeskConnectorOperator -&gt; Int)
+-&gt; (ZendeskConnectorOperator -&gt; Int)
+-&gt; Hashable ZendeskConnectorOperator
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ZendeskConnectorOperator -&gt; Int
+$chash :: ZendeskConnectorOperator -&gt; Int
+hashWithSalt :: Int -&gt; ZendeskConnectorOperator -&gt; Int
+$chashWithSalt :: Int -&gt; ZendeskConnectorOperator -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679328856"><span class="annot"><span class="annottext">ZendeskConnectorOperator -&gt; ()
+(ZendeskConnectorOperator -&gt; ()) -&gt; NFData ZendeskConnectorOperator
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ZendeskConnectorOperator -&gt; ()
+$crnf :: ZendeskConnectorOperator -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679328853"><span class="annot"><span class="annottext">Text -&gt; Either String ZendeskConnectorOperator
+(Text -&gt; Either String ZendeskConnectorOperator)
+-&gt; FromText ZendeskConnectorOperator
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ZendeskConnectorOperator
+$cfromText :: Text -&gt; Either String ZendeskConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679328850"><span class="annot"><span class="annottext">ZendeskConnectorOperator -&gt; Text
+(ZendeskConnectorOperator -&gt; Text)
+-&gt; ToText ZendeskConnectorOperator
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ZendeskConnectorOperator -&gt; Text
+$ctoText :: ZendeskConnectorOperator -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679328847"><span class="annot"><span class="annottext">ZendeskConnectorOperator -&gt; ByteString
+(ZendeskConnectorOperator -&gt; ByteString)
+-&gt; ToByteString ZendeskConnectorOperator
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ZendeskConnectorOperator -&gt; ByteString
+$ctoBS :: ZendeskConnectorOperator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679328844"><span class="annot"><span class="annottext">ZendeskConnectorOperator -&gt; ByteStringBuilder
+(ZendeskConnectorOperator -&gt; ByteStringBuilder)
+-&gt; ToLog ZendeskConnectorOperator
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ZendeskConnectorOperator -&gt; ByteStringBuilder
+$cbuild :: ZendeskConnectorOperator -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679328841"><span class="annot"><span class="annottext">HeaderName -&gt; ZendeskConnectorOperator -&gt; [Header]
+(HeaderName -&gt; ZendeskConnectorOperator -&gt; [Header])
+-&gt; ToHeader ZendeskConnectorOperator
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ZendeskConnectorOperator -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ZendeskConnectorOperator -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679328838"><span class="annot"><span class="annottext">ZendeskConnectorOperator -&gt; QueryString
+(ZendeskConnectorOperator -&gt; QueryString)
+-&gt; ToQuery ZendeskConnectorOperator
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ZendeskConnectorOperator -&gt; QueryString
+$ctoQuery :: ZendeskConnectorOperator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679328833"><span id="local-6989586621679328835"><span class="annot"><span class="annottext">Value -&gt; Parser [ZendeskConnectorOperator]
+Value -&gt; Parser ZendeskConnectorOperator
+(Value -&gt; Parser ZendeskConnectorOperator)
+-&gt; (Value -&gt; Parser [ZendeskConnectorOperator])
+-&gt; FromJSON ZendeskConnectorOperator
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ZendeskConnectorOperator]
+$cparseJSONList :: Value -&gt; Parser [ZendeskConnectorOperator]
+parseJSON :: Value -&gt; Parser ZendeskConnectorOperator
+$cparseJSON :: Value -&gt; Parser ZendeskConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679328828"><span id="local-6989586621679328830"><span class="annot"><span class="annottext">FromJSONKeyFunction [ZendeskConnectorOperator]
+FromJSONKeyFunction ZendeskConnectorOperator
+FromJSONKeyFunction ZendeskConnectorOperator
+-&gt; FromJSONKeyFunction [ZendeskConnectorOperator]
+-&gt; FromJSONKey ZendeskConnectorOperator
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ZendeskConnectorOperator]
+$cfromJSONKeyList :: FromJSONKeyFunction [ZendeskConnectorOperator]
+fromJSONKey :: FromJSONKeyFunction ZendeskConnectorOperator
+$cfromJSONKey :: FromJSONKeyFunction ZendeskConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679328819"><span id="local-6989586621679328821"><span id="local-6989586621679328823"><span id="local-6989586621679328825"><span class="annot"><span class="annottext">[ZendeskConnectorOperator] -&gt; Encoding
+[ZendeskConnectorOperator] -&gt; Value
+ZendeskConnectorOperator -&gt; Encoding
+ZendeskConnectorOperator -&gt; Value
+(ZendeskConnectorOperator -&gt; Value)
+-&gt; (ZendeskConnectorOperator -&gt; Encoding)
+-&gt; ([ZendeskConnectorOperator] -&gt; Value)
+-&gt; ([ZendeskConnectorOperator] -&gt; Encoding)
+-&gt; ToJSON ZendeskConnectorOperator
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ZendeskConnectorOperator] -&gt; Encoding
+$ctoEncodingList :: [ZendeskConnectorOperator] -&gt; Encoding
+toJSONList :: [ZendeskConnectorOperator] -&gt; Value
+$ctoJSONList :: [ZendeskConnectorOperator] -&gt; Value
+toEncoding :: ZendeskConnectorOperator -&gt; Encoding
+$ctoEncoding :: ZendeskConnectorOperator -&gt; Encoding
+toJSON :: ZendeskConnectorOperator -&gt; Value
+$ctoJSON :: ZendeskConnectorOperator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679328814"><span id="local-6989586621679328816"><span class="annot"><span class="annottext">ToJSONKeyFunction [ZendeskConnectorOperator]
+ToJSONKeyFunction ZendeskConnectorOperator
+ToJSONKeyFunction ZendeskConnectorOperator
+-&gt; ToJSONKeyFunction [ZendeskConnectorOperator]
+-&gt; ToJSONKey ZendeskConnectorOperator
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ZendeskConnectorOperator]
+$ctoJSONKeyList :: ToJSONKeyFunction [ZendeskConnectorOperator]
+toJSONKey :: ToJSONKeyFunction ZendeskConnectorOperator
+$ctoJSONKey :: ToJSONKeyFunction ZendeskConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679328811"><span class="annot"><span class="annottext">[Node] -&gt; Either String ZendeskConnectorOperator
+([Node] -&gt; Either String ZendeskConnectorOperator)
+-&gt; FromXML ZendeskConnectorOperator
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ZendeskConnectorOperator
+$cparseXML :: [Node] -&gt; Either String ZendeskConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679328808"><span class="annot"><span class="annottext">ZendeskConnectorOperator -&gt; XML
+(ZendeskConnectorOperator -&gt; XML) -&gt; ToXML ZendeskConnectorOperator
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ZendeskConnectorOperator -&gt; XML
+$ctoXML :: ZendeskConnectorOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_ADDITION"><span class="hs-identifier hs-type">ZendeskConnectorOperator_ADDITION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-type">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bZendeskConnectorOperator_ADDITION"><span id="%24mZendeskConnectorOperator_ADDITION"><span id="ZendeskConnectorOperator_ADDITION"><span class="annot"><span class="annottext">$bZendeskConnectorOperator_ADDITION :: ZendeskConnectorOperator
+$mZendeskConnectorOperator_ADDITION :: forall r.
+ZendeskConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#%24bZendeskConnectorOperator_ADDITION"><span class="hs-identifier hs-var hs-var hs-var">ZendeskConnectorOperator_ADDITION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-type">ZendeskConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADDITION&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_DIVISION"><span class="hs-identifier hs-type">ZendeskConnectorOperator_DIVISION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-type">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bZendeskConnectorOperator_DIVISION"><span id="%24mZendeskConnectorOperator_DIVISION"><span id="ZendeskConnectorOperator_DIVISION"><span class="annot"><span class="annottext">$bZendeskConnectorOperator_DIVISION :: ZendeskConnectorOperator
+$mZendeskConnectorOperator_DIVISION :: forall r.
+ZendeskConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#%24bZendeskConnectorOperator_DIVISION"><span class="hs-identifier hs-var hs-var hs-var">ZendeskConnectorOperator_DIVISION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-type">ZendeskConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DIVISION&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_GREATER_THAN"><span class="hs-identifier hs-type">ZendeskConnectorOperator_GREATER_THAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-type">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bZendeskConnectorOperator_GREATER_THAN"><span id="%24mZendeskConnectorOperator_GREATER_THAN"><span id="ZendeskConnectorOperator_GREATER_THAN"><span class="annot"><span class="annottext">$bZendeskConnectorOperator_GREATER_THAN :: ZendeskConnectorOperator
+$mZendeskConnectorOperator_GREATER_THAN :: forall r.
+ZendeskConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#%24bZendeskConnectorOperator_GREATER_THAN"><span class="hs-identifier hs-var hs-var hs-var">ZendeskConnectorOperator_GREATER_THAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-type">ZendeskConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GREATER_THAN&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_MASK_ALL"><span class="hs-identifier hs-type">ZendeskConnectorOperator_MASK_ALL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-type">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bZendeskConnectorOperator_MASK_ALL"><span id="%24mZendeskConnectorOperator_MASK_ALL"><span id="ZendeskConnectorOperator_MASK_ALL"><span class="annot"><span class="annottext">$bZendeskConnectorOperator_MASK_ALL :: ZendeskConnectorOperator
+$mZendeskConnectorOperator_MASK_ALL :: forall r.
+ZendeskConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#%24bZendeskConnectorOperator_MASK_ALL"><span class="hs-identifier hs-var hs-var hs-var">ZendeskConnectorOperator_MASK_ALL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-type">ZendeskConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_ALL&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_MASK_FIRST_N"><span class="hs-identifier hs-type">ZendeskConnectorOperator_MASK_FIRST_N</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-type">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bZendeskConnectorOperator_MASK_FIRST_N"><span id="%24mZendeskConnectorOperator_MASK_FIRST_N"><span id="ZendeskConnectorOperator_MASK_FIRST_N"><span class="annot"><span class="annottext">$bZendeskConnectorOperator_MASK_FIRST_N :: ZendeskConnectorOperator
+$mZendeskConnectorOperator_MASK_FIRST_N :: forall r.
+ZendeskConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#%24bZendeskConnectorOperator_MASK_FIRST_N"><span class="hs-identifier hs-var hs-var hs-var">ZendeskConnectorOperator_MASK_FIRST_N</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-type">ZendeskConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_FIRST_N&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_MASK_LAST_N"><span class="hs-identifier hs-type">ZendeskConnectorOperator_MASK_LAST_N</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-type">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bZendeskConnectorOperator_MASK_LAST_N"><span id="%24mZendeskConnectorOperator_MASK_LAST_N"><span id="ZendeskConnectorOperator_MASK_LAST_N"><span class="annot"><span class="annottext">$bZendeskConnectorOperator_MASK_LAST_N :: ZendeskConnectorOperator
+$mZendeskConnectorOperator_MASK_LAST_N :: forall r.
+ZendeskConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#%24bZendeskConnectorOperator_MASK_LAST_N"><span class="hs-identifier hs-var hs-var hs-var">ZendeskConnectorOperator_MASK_LAST_N</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-type">ZendeskConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_LAST_N&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_MULTIPLICATION"><span class="hs-identifier hs-type">ZendeskConnectorOperator_MULTIPLICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-type">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bZendeskConnectorOperator_MULTIPLICATION"><span id="%24mZendeskConnectorOperator_MULTIPLICATION"><span id="ZendeskConnectorOperator_MULTIPLICATION"><span class="annot"><span class="annottext">$bZendeskConnectorOperator_MULTIPLICATION :: ZendeskConnectorOperator
+$mZendeskConnectorOperator_MULTIPLICATION :: forall r.
+ZendeskConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#%24bZendeskConnectorOperator_MULTIPLICATION"><span class="hs-identifier hs-var hs-var hs-var">ZendeskConnectorOperator_MULTIPLICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-type">ZendeskConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MULTIPLICATION&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_NO_OP"><span class="hs-identifier hs-type">ZendeskConnectorOperator_NO_OP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-type">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bZendeskConnectorOperator_NO_OP"><span id="%24mZendeskConnectorOperator_NO_OP"><span id="ZendeskConnectorOperator_NO_OP"><span class="annot"><span class="annottext">$bZendeskConnectorOperator_NO_OP :: ZendeskConnectorOperator
+$mZendeskConnectorOperator_NO_OP :: forall r.
+ZendeskConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#%24bZendeskConnectorOperator_NO_OP"><span class="hs-identifier hs-var hs-var hs-var">ZendeskConnectorOperator_NO_OP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-type">ZendeskConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_OP&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_PROJECTION"><span class="hs-identifier hs-type">ZendeskConnectorOperator_PROJECTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-type">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bZendeskConnectorOperator_PROJECTION"><span id="%24mZendeskConnectorOperator_PROJECTION"><span id="ZendeskConnectorOperator_PROJECTION"><span class="annot"><span class="annottext">$bZendeskConnectorOperator_PROJECTION :: ZendeskConnectorOperator
+$mZendeskConnectorOperator_PROJECTION :: forall r.
+ZendeskConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#%24bZendeskConnectorOperator_PROJECTION"><span class="hs-identifier hs-var hs-var hs-var">ZendeskConnectorOperator_PROJECTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-type">ZendeskConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROJECTION&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_SUBTRACTION"><span class="hs-identifier hs-type">ZendeskConnectorOperator_SUBTRACTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-type">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bZendeskConnectorOperator_SUBTRACTION"><span id="%24mZendeskConnectorOperator_SUBTRACTION"><span id="ZendeskConnectorOperator_SUBTRACTION"><span class="annot"><span class="annottext">$bZendeskConnectorOperator_SUBTRACTION :: ZendeskConnectorOperator
+$mZendeskConnectorOperator_SUBTRACTION :: forall r.
+ZendeskConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#%24bZendeskConnectorOperator_SUBTRACTION"><span class="hs-identifier hs-var hs-var hs-var">ZendeskConnectorOperator_SUBTRACTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-type">ZendeskConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUBTRACTION&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier hs-type">ZendeskConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-type">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bZendeskConnectorOperator_VALIDATE_NON_NEGATIVE"><span id="%24mZendeskConnectorOperator_VALIDATE_NON_NEGATIVE"><span id="ZendeskConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="annot"><span class="annottext">$bZendeskConnectorOperator_VALIDATE_NON_NEGATIVE :: ZendeskConnectorOperator
+$mZendeskConnectorOperator_VALIDATE_NON_NEGATIVE :: forall r.
+ZendeskConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#%24bZendeskConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier hs-var hs-var hs-var">ZendeskConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-type">ZendeskConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_NEGATIVE&quot;</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier hs-type">ZendeskConnectorOperator_VALIDATE_NON_NULL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-type">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bZendeskConnectorOperator_VALIDATE_NON_NULL"><span id="%24mZendeskConnectorOperator_VALIDATE_NON_NULL"><span id="ZendeskConnectorOperator_VALIDATE_NON_NULL"><span class="annot"><span class="annottext">$bZendeskConnectorOperator_VALIDATE_NON_NULL :: ZendeskConnectorOperator
+$mZendeskConnectorOperator_VALIDATE_NON_NULL :: forall r.
+ZendeskConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#%24bZendeskConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier hs-var hs-var hs-var">ZendeskConnectorOperator_VALIDATE_NON_NULL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-type">ZendeskConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_NULL&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier hs-type">ZendeskConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-type">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bZendeskConnectorOperator_VALIDATE_NON_ZERO"><span id="%24mZendeskConnectorOperator_VALIDATE_NON_ZERO"><span id="ZendeskConnectorOperator_VALIDATE_NON_ZERO"><span class="annot"><span class="annottext">$bZendeskConnectorOperator_VALIDATE_NON_ZERO :: ZendeskConnectorOperator
+$mZendeskConnectorOperator_VALIDATE_NON_ZERO :: forall r.
+ZendeskConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#%24bZendeskConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier hs-var hs-var hs-var">ZendeskConnectorOperator_VALIDATE_NON_ZERO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-type">ZendeskConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_ZERO&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier hs-type">ZendeskConnectorOperator_VALIDATE_NUMERIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier hs-type">ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bZendeskConnectorOperator_VALIDATE_NUMERIC"><span id="%24mZendeskConnectorOperator_VALIDATE_NUMERIC"><span id="ZendeskConnectorOperator_VALIDATE_NUMERIC"><span class="annot"><span class="annottext">$bZendeskConnectorOperator_VALIDATE_NUMERIC :: ZendeskConnectorOperator
+$mZendeskConnectorOperator_VALIDATE_NUMERIC :: forall r.
+ZendeskConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#%24bZendeskConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier hs-var hs-var hs-var">ZendeskConnectorOperator_VALIDATE_NUMERIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-identifier hs-type">ZendeskConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NUMERIC&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_ADDITION"><span class="hs-pragma hs-type">ZendeskConnectorOperator_ADDITION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_DIVISION"><span class="hs-pragma hs-type">ZendeskConnectorOperator_DIVISION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_GREATER_THAN"><span class="hs-pragma hs-type">ZendeskConnectorOperator_GREATER_THAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_MASK_ALL"><span class="hs-pragma hs-type">ZendeskConnectorOperator_MASK_ALL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_MASK_FIRST_N"><span class="hs-pragma hs-type">ZendeskConnectorOperator_MASK_FIRST_N</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_MASK_LAST_N"><span class="hs-pragma hs-type">ZendeskConnectorOperator_MASK_LAST_N</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_MULTIPLICATION"><span class="hs-pragma hs-type">ZendeskConnectorOperator_MULTIPLICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_NO_OP"><span class="hs-pragma hs-type">ZendeskConnectorOperator_NO_OP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_PROJECTION"><span class="hs-pragma hs-type">ZendeskConnectorOperator_PROJECTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_SUBTRACTION"><span class="hs-pragma hs-type">ZendeskConnectorOperator_SUBTRACTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-pragma hs-type">ZendeskConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_VALIDATE_NON_NULL"><span class="hs-pragma hs-type">ZendeskConnectorOperator_VALIDATE_NON_NULL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-pragma hs-type">ZendeskConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator_VALIDATE_NUMERIC"><span class="hs-pragma hs-type">ZendeskConnectorOperator_VALIDATE_NUMERIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator%27"><span class="hs-pragma hs-type">ZendeskConnectorOperator'</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-131"></span></pre></body></html>

@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUpdateDevEndpoint' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679748508"><span id="local-6989586621679748509"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDevEndpoint"><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-var">UpdateDevEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDevEndpoint%27"><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-var">UpdateDevEndpoint'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679748517"><span id="local-6989586621679748518"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDevEndpoint"><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-var">UpdateDevEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDevEndpoint%27"><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-var">UpdateDevEndpoint'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of public keys for the @DevEndpoint@ to use.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AaddPublicKeys%3AUpdateDevEndpoint%27"><span class="annot"><span class="annottext">UpdateDevEndpoint -&gt; Maybe [Text]
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#%24sel%3AaddPublicKeys%3AUpdateDevEndpoint%27"><span class="hs-identifier hs-var hs-var">addPublicKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -91,7 +91,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3AendpointName%3AUpdateDevEndpoint%27"><span class="annot"><span class="annottext">UpdateDevEndpoint -&gt; Text
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#%24sel%3AendpointName%3AUpdateDevEndpoint%27"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679748495"><span id="local-6989586621679748497"><span class="annot"><span class="annottext">UpdateDevEndpoint -&gt; UpdateDevEndpoint -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679748504"><span id="local-6989586621679748506"><span class="annot"><span class="annottext">UpdateDevEndpoint -&gt; UpdateDevEndpoint -&gt; Bool
 (UpdateDevEndpoint -&gt; UpdateDevEndpoint -&gt; Bool)
 -&gt; (UpdateDevEndpoint -&gt; UpdateDevEndpoint -&gt; Bool)
 -&gt; Eq UpdateDevEndpoint
@@ -100,7 +100,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDevEndpoint -&gt; UpdateDevEndpoint -&gt; Bool
 == :: UpdateDevEndpoint -&gt; UpdateDevEndpoint -&gt; Bool
 $c== :: UpdateDevEndpoint -&gt; UpdateDevEndpoint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679748486"><span id="local-6989586621679748488"><span id="local-6989586621679748490"><span id="local-6989586621679748492"><span class="annot"><span class="annottext">ReadPrec [UpdateDevEndpoint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679748495"><span id="local-6989586621679748497"><span id="local-6989586621679748499"><span id="local-6989586621679748501"><span class="annot"><span class="annottext">ReadPrec [UpdateDevEndpoint]
 ReadPrec UpdateDevEndpoint
 Int -&gt; ReadS UpdateDevEndpoint
 ReadS [UpdateDevEndpoint]
@@ -120,7 +120,7 @@ readList :: ReadS [UpdateDevEndpoint]
 $creadList :: ReadS [UpdateDevEndpoint]
 readsPrec :: Int -&gt; ReadS UpdateDevEndpoint
 $creadsPrec :: Int -&gt; ReadS UpdateDevEndpoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679748479"><span id="local-6989586621679748481"><span id="local-6989586621679748483"><span class="annot"><span class="annottext">Int -&gt; UpdateDevEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679748488"><span id="local-6989586621679748490"><span id="local-6989586621679748492"><span class="annot"><span class="annottext">Int -&gt; UpdateDevEndpoint -&gt; ShowS
 [UpdateDevEndpoint] -&gt; ShowS
 UpdateDevEndpoint -&gt; String
 (Int -&gt; UpdateDevEndpoint -&gt; ShowS)
@@ -186,8 +186,8 @@ $cfrom :: forall x. UpdateDevEndpoint -&gt; Rep UpdateDevEndpoint x
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span>
 </span><span id="line-127"></span><span id="newUpdateDevEndpoint"><span class="annot"><span class="annottext">newUpdateDevEndpoint :: Text -&gt; UpdateDevEndpoint
-</span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#newUpdateDevEndpoint"><span class="hs-identifier hs-var hs-var">newUpdateDevEndpoint</span></a></span></span><span> </span><span id="local-6989586621679748474"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679748474"><span class="hs-identifier hs-var">pEndpointName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#newUpdateDevEndpoint"><span class="hs-identifier hs-var hs-var">newUpdateDevEndpoint</span></a></span></span><span> </span><span id="local-6989586621679748483"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679748483"><span class="hs-identifier hs-var">pEndpointName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">UpdateDevEndpoint' :: Maybe [Text]
 -&gt; Maybe DevEndpointCustomLibraries
 -&gt; Maybe Text
@@ -228,7 +228,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointName:UpdateDevEndpoint' :: Text
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#%24sel%3AendpointName%3AUpdateDevEndpoint%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679748474"><span class="hs-identifier hs-var">pEndpointName_</span></a></span><span>
+</span><a href="#local-6989586621679748483"><span class="hs-identifier hs-var">pEndpointName_</span></a></span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The list of public keys for the @DevEndpoint@ to use.</span><span>
@@ -240,16 +240,16 @@ forall a. Maybe a
 -&gt; Lens
      UpdateDevEndpoint UpdateDevEndpoint (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748471"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748480"><span class="annot"><span class="annottext">Maybe [Text]
 addPublicKeys :: Maybe [Text]
 $sel:addPublicKeys:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Maybe [Text]
-</span><a href="#local-6989586621679748471"><span class="hs-identifier hs-var hs-var">addPublicKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679748471"><span class="hs-identifier hs-var">addPublicKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748470"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
-</span><a href="#local-6989586621679748470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748469"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679748469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
-</span><a href="#local-6989586621679748470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addPublicKeys:UpdateDevEndpoint' :: Maybe [Text]
+</span><a href="#local-6989586621679748480"><span class="hs-identifier hs-var hs-var">addPublicKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679748480"><span class="hs-identifier hs-var">addPublicKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748479"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
+</span><a href="#local-6989586621679748479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748478"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679748478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
+</span><a href="#local-6989586621679748479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addPublicKeys:UpdateDevEndpoint' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#%24sel%3AaddPublicKeys%3AUpdateDevEndpoint%27"><span class="hs-identifier hs-var">addPublicKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679748469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679748478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; UpdateDevEndpoint -&gt; f UpdateDevEndpoint)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -280,16 +280,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe DevEndpointCustomLibraries)
      (Maybe DevEndpointCustomLibraries)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748465"><span class="annot"><span class="annottext">Maybe DevEndpointCustomLibraries
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748474"><span class="annot"><span class="annottext">Maybe DevEndpointCustomLibraries
 customLibraries :: Maybe DevEndpointCustomLibraries
 $sel:customLibraries:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Maybe DevEndpointCustomLibraries
-</span><a href="#local-6989586621679748465"><span class="hs-identifier hs-var hs-var">customLibraries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DevEndpointCustomLibraries
-</span><a href="#local-6989586621679748465"><span class="hs-identifier hs-var">customLibraries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748464"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
-</span><a href="#local-6989586621679748464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748463"><span class="annot"><span class="annottext">Maybe DevEndpointCustomLibraries
-</span><a href="#local-6989586621679748463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
-</span><a href="#local-6989586621679748464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customLibraries:UpdateDevEndpoint' :: Maybe DevEndpointCustomLibraries
+</span><a href="#local-6989586621679748474"><span class="hs-identifier hs-var hs-var">customLibraries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DevEndpointCustomLibraries
+</span><a href="#local-6989586621679748474"><span class="hs-identifier hs-var">customLibraries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748473"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
+</span><a href="#local-6989586621679748473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748472"><span class="annot"><span class="annottext">Maybe DevEndpointCustomLibraries
+</span><a href="#local-6989586621679748472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
+</span><a href="#local-6989586621679748473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customLibraries:UpdateDevEndpoint' :: Maybe DevEndpointCustomLibraries
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#%24sel%3AcustomLibraries%3AUpdateDevEndpoint%27"><span class="hs-identifier hs-var">customLibraries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DevEndpointCustomLibraries
-</span><a href="#local-6989586621679748463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679748472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The public key for the @DevEndpoint@ to use.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#updateDevEndpoint_publicKey"><span class="hs-identifier hs-type">updateDevEndpoint_publicKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -300,16 +300,16 @@ $sel:customLibraries:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Maybe DevEndp
 -&gt; Lens
      UpdateDevEndpoint UpdateDevEndpoint (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748462"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748471"><span class="annot"><span class="annottext">Maybe Text
 publicKey :: Maybe Text
 $sel:publicKey:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Maybe Text
-</span><a href="#local-6989586621679748462"><span class="hs-identifier hs-var hs-var">publicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679748462"><span class="hs-identifier hs-var">publicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748461"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
-</span><a href="#local-6989586621679748461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748460"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679748460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
-</span><a href="#local-6989586621679748461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKey:UpdateDevEndpoint' :: Maybe Text
+</span><a href="#local-6989586621679748471"><span class="hs-identifier hs-var hs-var">publicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679748471"><span class="hs-identifier hs-var">publicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748470"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
+</span><a href="#local-6989586621679748470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748469"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679748469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
+</span><a href="#local-6989586621679748470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKey:UpdateDevEndpoint' :: Maybe Text
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#%24sel%3ApublicKey%3AUpdateDevEndpoint%27"><span class="hs-identifier hs-var">publicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679748460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679748469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The list of argument keys to be deleted from the map of arguments used</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- to configure the @DevEndpoint@.</span><span>
@@ -321,16 +321,16 @@ $sel:publicKey:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Maybe Text
 -&gt; Lens
      UpdateDevEndpoint UpdateDevEndpoint (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748459"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748468"><span class="annot"><span class="annottext">Maybe [Text]
 deleteArguments :: Maybe [Text]
 $sel:deleteArguments:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Maybe [Text]
-</span><a href="#local-6989586621679748459"><span class="hs-identifier hs-var hs-var">deleteArguments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679748459"><span class="hs-identifier hs-var">deleteArguments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748458"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
-</span><a href="#local-6989586621679748458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748457"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679748457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
-</span><a href="#local-6989586621679748458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteArguments:UpdateDevEndpoint' :: Maybe [Text]
+</span><a href="#local-6989586621679748468"><span class="hs-identifier hs-var hs-var">deleteArguments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679748468"><span class="hs-identifier hs-var">deleteArguments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748467"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
+</span><a href="#local-6989586621679748467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748466"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679748466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
+</span><a href="#local-6989586621679748467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteArguments:UpdateDevEndpoint' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#%24sel%3AdeleteArguments%3AUpdateDevEndpoint%27"><span class="hs-identifier hs-var">deleteArguments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679748457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679748466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; UpdateDevEndpoint -&gt; f UpdateDevEndpoint)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -356,16 +356,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      UpdateDevEndpoint UpdateDevEndpoint (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748456"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748465"><span class="annot"><span class="annottext">Maybe [Text]
 deletePublicKeys :: Maybe [Text]
 $sel:deletePublicKeys:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Maybe [Text]
-</span><a href="#local-6989586621679748456"><span class="hs-identifier hs-var hs-var">deletePublicKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679748456"><span class="hs-identifier hs-var">deletePublicKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748455"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
-</span><a href="#local-6989586621679748455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748454"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679748454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
-</span><a href="#local-6989586621679748455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletePublicKeys:UpdateDevEndpoint' :: Maybe [Text]
+</span><a href="#local-6989586621679748465"><span class="hs-identifier hs-var hs-var">deletePublicKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679748465"><span class="hs-identifier hs-var">deletePublicKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748464"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
+</span><a href="#local-6989586621679748464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748463"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679748463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
+</span><a href="#local-6989586621679748464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletePublicKeys:UpdateDevEndpoint' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#%24sel%3AdeletePublicKeys%3AUpdateDevEndpoint%27"><span class="hs-identifier hs-var">deletePublicKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679748454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679748463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; UpdateDevEndpoint -&gt; f UpdateDevEndpoint)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -392,16 +392,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      UpdateDevEndpoint UpdateDevEndpoint (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748453"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748462"><span class="annot"><span class="annottext">Maybe Bool
 updateEtlLibraries :: Maybe Bool
 $sel:updateEtlLibraries:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Maybe Bool
-</span><a href="#local-6989586621679748453"><span class="hs-identifier hs-var hs-var">updateEtlLibraries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679748453"><span class="hs-identifier hs-var">updateEtlLibraries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748452"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
-</span><a href="#local-6989586621679748452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748451"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679748451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
-</span><a href="#local-6989586621679748452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateEtlLibraries:UpdateDevEndpoint' :: Maybe Bool
+</span><a href="#local-6989586621679748462"><span class="hs-identifier hs-var hs-var">updateEtlLibraries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679748462"><span class="hs-identifier hs-var">updateEtlLibraries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748461"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
+</span><a href="#local-6989586621679748461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748460"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679748460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
+</span><a href="#local-6989586621679748461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateEtlLibraries:UpdateDevEndpoint' :: Maybe Bool
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#%24sel%3AupdateEtlLibraries%3AUpdateDevEndpoint%27"><span class="hs-identifier hs-var">updateEtlLibraries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679748451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679748460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The map of arguments to add the map of arguments used to configure the</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- @DevEndpoint@.</span><span>
@@ -426,16 +426,16 @@ $sel:updateEtlLibraries:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Maybe Bool
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748450"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748459"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 addArguments :: Maybe (HashMap Text Text)
 $sel:addArguments:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679748450"><span class="hs-identifier hs-var hs-var">addArguments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679748450"><span class="hs-identifier hs-var">addArguments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748449"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
-</span><a href="#local-6989586621679748449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748448"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679748448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
-</span><a href="#local-6989586621679748449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addArguments:UpdateDevEndpoint' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679748459"><span class="hs-identifier hs-var hs-var">addArguments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679748459"><span class="hs-identifier hs-var">addArguments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748458"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
+</span><a href="#local-6989586621679748458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748457"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679748457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
+</span><a href="#local-6989586621679748458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addArguments:UpdateDevEndpoint' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#%24sel%3AaddArguments%3AUpdateDevEndpoint%27"><span class="hs-identifier hs-var">addArguments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679748448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679748457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; UpdateDevEndpoint -&gt; f UpdateDevEndpoint)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -471,27 +471,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateDevEndpoint -&gt; Text -&gt; UpdateDevEndpoint)
 -&gt; Lens UpdateDevEndpoint UpdateDevEndpoint Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748447"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748456"><span class="annot"><span class="annottext">Text
 endpointName :: Text
 $sel:endpointName:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Text
-</span><a href="#local-6989586621679748447"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679748447"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748446"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
-</span><a href="#local-6989586621679748446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748445"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679748445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
-</span><a href="#local-6989586621679748446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:UpdateDevEndpoint' :: Text
+</span><a href="#local-6989586621679748456"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679748456"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748455"><span class="annot"><span class="annottext">s :: UpdateDevEndpoint
+</span><a href="#local-6989586621679748455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748454"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679748454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpoint
+</span><a href="#local-6989586621679748455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:UpdateDevEndpoint' :: Text
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#%24sel%3AendpointName%3AUpdateDevEndpoint%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679748445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679748454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-185"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse"><span class="hs-identifier hs-type">UpdateDevEndpointResponse</span></a></span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679748441"><span class="annot"><span class="annottext">request :: UpdateDevEndpoint -&gt; Request UpdateDevEndpoint
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679748450"><span class="annot"><span class="annottext">request :: UpdateDevEndpoint -&gt; Request UpdateDevEndpoint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDevEndpoint -&gt; Request UpdateDevEndpoint
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679748437"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679748446"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateDevEndpoint
 -&gt; ClientResponse ClientBody
@@ -517,10 +517,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679748434"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679748434"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679748433"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679748433"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679748432"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679748432"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679748443"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679748443"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679748442"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679748442"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679748441"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679748441"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateDevEndpointResponse
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse%27"><span class="hs-identifier hs-var">UpdateDevEndpointResponse'</span></a></span><span>
 </span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateDevEndpointResponse)
@@ -531,15 +531,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679748434"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679748443"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679748425"><span id="local-6989586621679748427"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679748434"><span id="local-6989586621679748436"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span></span></span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679748422"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679748431"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679748418"><span class="annot"><span class="annottext">toHeaders :: UpdateDevEndpoint -&gt; ResponseHeaders
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679748427"><span class="annot"><span class="annottext">toHeaders :: UpdateDevEndpoint -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDevEndpoint -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -564,9 +564,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679748408"><span id="local-6989586621679748410"><span id="local-6989586621679748412"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679748406"><span class="annot"><span class="annottext">toJSON :: UpdateDevEndpoint -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748397"><span id="local-6989586621679748398"><span id="local-6989586621679748399"><span id="local-6989586621679748400"><span id="local-6989586621679748401"><span id="local-6989586621679748402"><span id="local-6989586621679748403"><span id="local-6989586621679748404"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679748417"><span id="local-6989586621679748419"><span id="local-6989586621679748421"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679748415"><span class="annot"><span class="annottext">toJSON :: UpdateDevEndpoint -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint%27"><span class="hs-identifier hs-type">UpdateDevEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748406"><span id="local-6989586621679748407"><span id="local-6989586621679748408"><span id="local-6989586621679748409"><span id="local-6989586621679748410"><span id="local-6989586621679748411"><span id="local-6989586621679748412"><span id="local-6989586621679748413"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe Text
 Maybe (HashMap Text Text)
@@ -588,7 +588,7 @@ $sel:deleteArguments:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Maybe [Text]
 $sel:publicKey:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Maybe Text
 $sel:customLibraries:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Maybe DevEndpointCustomLibraries
 $sel:addPublicKeys:UpdateDevEndpoint' :: UpdateDevEndpoint -&gt; Maybe [Text]
-</span><a href="#local-6989586621679748397"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679748406"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -600,7 +600,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679748404"><span class="hs-identifier hs-var">addPublicKeys</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679748413"><span class="hs-identifier hs-var">addPublicKeys</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomLibraries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DevEndpointCustomLibraries -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -609,14 +609,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DevEndpointCustomLibraries -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DevEndpointCustomLibraries
-</span><a href="#local-6989586621679748403"><span class="hs-identifier hs-var">customLibraries</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679748412"><span class="hs-identifier hs-var">customLibraries</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PublicKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679748402"><span class="hs-identifier hs-var">publicKey</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679748411"><span class="hs-identifier hs-var">publicKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteArguments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -624,7 +624,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679748401"><span class="hs-identifier hs-var">deleteArguments</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679748410"><span class="hs-identifier hs-var">deleteArguments</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeletePublicKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -632,7 +632,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-223"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679748400"><span class="hs-identifier hs-var">deletePublicKeys</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679748409"><span class="hs-identifier hs-var">deletePublicKeys</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UpdateEtlLibraries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -640,7 +640,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-225"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679748399"><span class="hs-identifier hs-var">updateEtlLibraries</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679748408"><span class="hs-identifier hs-var">updateEtlLibraries</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AddArguments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -648,26 +648,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679748398"><span class="hs-identifier hs-var">addArguments</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679748407"><span class="hs-identifier hs-var">addArguments</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndpointName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679748397"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679748406"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-229"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679748391"><span class="annot"><span class="annottext">toPath :: UpdateDevEndpoint -&gt; ByteString
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679748400"><span class="annot"><span class="annottext">toPath :: UpdateDevEndpoint -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateDevEndpoint -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpoint"><span class="hs-identifier hs-type">UpdateDevEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679748387"><span class="annot"><span class="annottext">toQuery :: UpdateDevEndpoint -&gt; QueryString
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679748396"><span class="annot"><span class="annottext">toQuery :: UpdateDevEndpoint -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDevEndpoint -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -675,12 +675,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | /See:/ 'newUpdateDevEndpointResponse' smart constructor.</span><span>
-</span><span id="line-238"></span><span id="local-6989586621679748384"><span id="local-6989586621679748385"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDevEndpointResponse"><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse"><span class="hs-identifier hs-var">UpdateDevEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDevEndpointResponse%27"><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse%27"><span class="hs-identifier hs-var">UpdateDevEndpointResponse'</span></a></span></span><span>
+</span><span id="line-238"></span><span id="local-6989586621679748393"><span id="local-6989586621679748394"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDevEndpointResponse"><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse"><span class="hs-identifier hs-var">UpdateDevEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDevEndpointResponse%27"><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse%27"><span class="hs-identifier hs-var">UpdateDevEndpointResponse'</span></a></span></span><span>
 </span><span id="line-239"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-240"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDevEndpointResponse%27"><span class="annot"><span class="annottext">UpdateDevEndpointResponse -&gt; Int
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#%24sel%3AhttpStatus%3AUpdateDevEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-241"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679748379"><span id="local-6989586621679748381"><span class="annot"><span class="annottext">UpdateDevEndpointResponse -&gt; UpdateDevEndpointResponse -&gt; Bool
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679748388"><span id="local-6989586621679748390"><span class="annot"><span class="annottext">UpdateDevEndpointResponse -&gt; UpdateDevEndpointResponse -&gt; Bool
 (UpdateDevEndpointResponse -&gt; UpdateDevEndpointResponse -&gt; Bool)
 -&gt; (UpdateDevEndpointResponse -&gt; UpdateDevEndpointResponse -&gt; Bool)
 -&gt; Eq UpdateDevEndpointResponse
@@ -689,7 +689,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDevEndpointResponse -&gt; UpdateDevEndpointResponse -&gt; Bool
 == :: UpdateDevEndpointResponse -&gt; UpdateDevEndpointResponse -&gt; Bool
 $c== :: UpdateDevEndpointResponse -&gt; UpdateDevEndpointResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679748371"><span id="local-6989586621679748373"><span id="local-6989586621679748375"><span id="local-6989586621679748377"><span class="annot"><span class="annottext">ReadPrec [UpdateDevEndpointResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679748380"><span id="local-6989586621679748382"><span id="local-6989586621679748384"><span id="local-6989586621679748386"><span class="annot"><span class="annottext">ReadPrec [UpdateDevEndpointResponse]
 ReadPrec UpdateDevEndpointResponse
 Int -&gt; ReadS UpdateDevEndpointResponse
 ReadS [UpdateDevEndpointResponse]
@@ -709,7 +709,7 @@ readList :: ReadS [UpdateDevEndpointResponse]
 $creadList :: ReadS [UpdateDevEndpointResponse]
 readsPrec :: Int -&gt; ReadS UpdateDevEndpointResponse
 $creadsPrec :: Int -&gt; ReadS UpdateDevEndpointResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679748365"><span id="local-6989586621679748367"><span id="local-6989586621679748369"><span class="annot"><span class="annottext">Int -&gt; UpdateDevEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679748374"><span id="local-6989586621679748376"><span id="local-6989586621679748378"><span class="annot"><span class="annottext">Int -&gt; UpdateDevEndpointResponse -&gt; ShowS
 [UpdateDevEndpointResponse] -&gt; ShowS
 UpdateDevEndpointResponse -&gt; String
 (Int -&gt; UpdateDevEndpointResponse -&gt; ShowS)
@@ -755,14 +755,14 @@ UpdateDevEndpointResponse -&gt; Rep UpdateDevEndpointResponse x
 </span><span id="line-255"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-256"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse"><span class="hs-identifier hs-type">UpdateDevEndpointResponse</span></a></span><span>
 </span><span id="line-257"></span><span id="newUpdateDevEndpointResponse"><span class="annot"><span class="annottext">newUpdateDevEndpointResponse :: Int -&gt; UpdateDevEndpointResponse
-</span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#newUpdateDevEndpointResponse"><span class="hs-identifier hs-var hs-var">newUpdateDevEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679748362"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679748362"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#newUpdateDevEndpointResponse"><span class="hs-identifier hs-var hs-var">newUpdateDevEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679748371"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679748371"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-258"></span><span>  </span><span class="annot"><span class="annottext">UpdateDevEndpointResponse' :: Int -&gt; UpdateDevEndpointResponse
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse%27"><span class="hs-identifier hs-type">UpdateDevEndpointResponse'</span></a></span><span>
 </span><span id="line-259"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDevEndpointResponse' :: Int
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#%24sel%3AhttpStatus%3AUpdateDevEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679748362"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679748371"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-261"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -773,16 +773,16 @@ UpdateDevEndpointResponse -&gt; Rep UpdateDevEndpointResponse x
 -&gt; (UpdateDevEndpointResponse -&gt; Int -&gt; UpdateDevEndpointResponse)
 -&gt; Lens UpdateDevEndpointResponse UpdateDevEndpointResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse%27"><span class="hs-identifier hs-type">UpdateDevEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748361"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse%27"><span class="hs-identifier hs-type">UpdateDevEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748370"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateDevEndpointResponse' :: UpdateDevEndpointResponse -&gt; Int
-</span><a href="#local-6989586621679748361"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679748361"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748360"><span class="annot"><span class="annottext">s :: UpdateDevEndpointResponse
-</span><a href="#local-6989586621679748360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse%27"><span class="hs-identifier hs-type">UpdateDevEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748359"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679748359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpointResponse
-</span><a href="#local-6989586621679748360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDevEndpointResponse' :: Int
+</span><a href="#local-6989586621679748370"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679748370"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748369"><span class="annot"><span class="annottext">s :: UpdateDevEndpointResponse
+</span><a href="#local-6989586621679748369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse%27"><span class="hs-identifier hs-type">UpdateDevEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748368"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679748368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevEndpointResponse
+</span><a href="#local-6989586621679748369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDevEndpointResponse' :: Int
 </span><a href="Network.AWS.Glue.UpdateDevEndpoint.html#%24sel%3AhttpStatus%3AUpdateDevEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679748359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse"><span class="hs-identifier hs-type">UpdateDevEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679748368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse"><span class="hs-identifier hs-type">UpdateDevEndpointResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
-</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679748357"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse"><span class="hs-identifier hs-type">UpdateDevEndpointResponse</span></a></span></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679748366"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateDevEndpoint.html#UpdateDevEndpointResponse"><span class="hs-identifier hs-type">UpdateDevEndpointResponse</span></a></span></span><span>
 </span><span id="line-268"></span></pre></body></html>

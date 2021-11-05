@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Configuration for validating an instance.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newServerGroupValidationConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679250089"><span id="local-6989586621679250090"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerGroupValidationConfiguration"><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration"><span class="hs-identifier hs-var">ServerGroupValidationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerGroupValidationConfiguration%27"><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration%27"><span class="hs-identifier hs-var">ServerGroupValidationConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679250098"><span id="local-6989586621679250099"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerGroupValidationConfiguration"><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration"><span class="hs-identifier hs-var">ServerGroupValidationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerGroupValidationConfiguration%27"><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration%27"><span class="hs-identifier hs-var">ServerGroupValidationConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The validation configuration.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AserverValidationConfigurations%3AServerGroupValidationConfiguration%27"><span class="annot"><span class="annottext">ServerGroupValidationConfiguration
 -&gt; Maybe [ServerValidationConfiguration]
@@ -36,7 +36,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AserverGroupId%3AServerGroupValidationConfiguration%27"><span class="annot"><span class="annottext">ServerGroupValidationConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#%24sel%3AserverGroupId%3AServerGroupValidationConfiguration%27"><span class="hs-identifier hs-var hs-var">serverGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250082"><span id="local-6989586621679250084"><span class="annot"><span class="annottext">ServerGroupValidationConfiguration
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250091"><span id="local-6989586621679250093"><span class="annot"><span class="annottext">ServerGroupValidationConfiguration
 -&gt; ServerGroupValidationConfiguration -&gt; Bool
 (ServerGroupValidationConfiguration
  -&gt; ServerGroupValidationConfiguration -&gt; Bool)
@@ -52,7 +52,7 @@ $c/= :: ServerGroupValidationConfiguration
 -&gt; ServerGroupValidationConfiguration -&gt; Bool
 $c== :: ServerGroupValidationConfiguration
 -&gt; ServerGroupValidationConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250073"><span id="local-6989586621679250075"><span id="local-6989586621679250077"><span id="local-6989586621679250079"><span class="annot"><span class="annottext">ReadPrec [ServerGroupValidationConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250082"><span id="local-6989586621679250084"><span id="local-6989586621679250086"><span id="local-6989586621679250088"><span class="annot"><span class="annottext">ReadPrec [ServerGroupValidationConfiguration]
 ReadPrec ServerGroupValidationConfiguration
 Int -&gt; ReadS ServerGroupValidationConfiguration
 ReadS [ServerGroupValidationConfiguration]
@@ -72,7 +72,7 @@ readList :: ReadS [ServerGroupValidationConfiguration]
 $creadList :: ReadS [ServerGroupValidationConfiguration]
 readsPrec :: Int -&gt; ReadS ServerGroupValidationConfiguration
 $creadsPrec :: Int -&gt; ReadS ServerGroupValidationConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250066"><span id="local-6989586621679250068"><span id="local-6989586621679250070"><span class="annot"><span class="annottext">Int -&gt; ServerGroupValidationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250075"><span id="local-6989586621679250077"><span id="local-6989586621679250079"><span class="annot"><span class="annottext">Int -&gt; ServerGroupValidationConfiguration -&gt; ShowS
 [ServerGroupValidationConfiguration] -&gt; ShowS
 ServerGroupValidationConfiguration -&gt; String
 (Int -&gt; ServerGroupValidationConfiguration -&gt; ShowS)
@@ -156,17 +156,17 @@ forall a. Maybe a
      (Maybe [ServerValidationConfiguration])
      (Maybe [ServerValidationConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250057"><span class="annot"><span class="annottext">Maybe [ServerValidationConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250066"><span class="annot"><span class="annottext">Maybe [ServerValidationConfiguration]
 serverValidationConfigurations :: Maybe [ServerValidationConfiguration]
 $sel:serverValidationConfigurations:ServerGroupValidationConfiguration' :: ServerGroupValidationConfiguration
 -&gt; Maybe [ServerValidationConfiguration]
-</span><a href="#local-6989586621679250057"><span class="hs-identifier hs-var hs-var">serverValidationConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerValidationConfiguration]
-</span><a href="#local-6989586621679250057"><span class="hs-identifier hs-var">serverValidationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250056"><span class="annot"><span class="annottext">s :: ServerGroupValidationConfiguration
-</span><a href="#local-6989586621679250056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250055"><span class="annot"><span class="annottext">Maybe [ServerValidationConfiguration]
-</span><a href="#local-6989586621679250055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerGroupValidationConfiguration
-</span><a href="#local-6989586621679250056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverValidationConfigurations:ServerGroupValidationConfiguration' :: Maybe [ServerValidationConfiguration]
+</span><a href="#local-6989586621679250066"><span class="hs-identifier hs-var hs-var">serverValidationConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerValidationConfiguration]
+</span><a href="#local-6989586621679250066"><span class="hs-identifier hs-var">serverValidationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250065"><span class="annot"><span class="annottext">s :: ServerGroupValidationConfiguration
+</span><a href="#local-6989586621679250065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250064"><span class="annot"><span class="annottext">Maybe [ServerValidationConfiguration]
+</span><a href="#local-6989586621679250064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerGroupValidationConfiguration
+</span><a href="#local-6989586621679250065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverValidationConfigurations:ServerGroupValidationConfiguration' :: Maybe [ServerValidationConfiguration]
 </span><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#%24sel%3AserverValidationConfigurations%3AServerGroupValidationConfiguration%27"><span class="hs-identifier hs-var">serverValidationConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerValidationConfiguration]
-</span><a href="#local-6989586621679250055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerValidationConfiguration]
+</span><a href="#local-6989586621679250064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerValidationConfiguration]
   -&gt; f (Maybe [ServerValidationConfiguration]))
  -&gt; ServerGroupValidationConfiguration
  -&gt; f ServerGroupValidationConfiguration)
@@ -214,22 +214,22 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250050"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250059"><span class="annot"><span class="annottext">Maybe Text
 serverGroupId :: Maybe Text
 $sel:serverGroupId:ServerGroupValidationConfiguration' :: ServerGroupValidationConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679250050"><span class="hs-identifier hs-var hs-var">serverGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250050"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250049"><span class="annot"><span class="annottext">s :: ServerGroupValidationConfiguration
-</span><a href="#local-6989586621679250049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250048"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerGroupValidationConfiguration
-</span><a href="#local-6989586621679250049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroupId:ServerGroupValidationConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679250059"><span class="hs-identifier hs-var hs-var">serverGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250059"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250058"><span class="annot"><span class="annottext">s :: ServerGroupValidationConfiguration
+</span><a href="#local-6989586621679250058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250057"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerGroupValidationConfiguration
+</span><a href="#local-6989586621679250058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroupId:ServerGroupValidationConfiguration' :: Maybe Text
 </span><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#%24sel%3AserverGroupId%3AServerGroupValidationConfiguration%27"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679250045"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679250054"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679250043"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServerGroupValidationConfiguration
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679250052"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServerGroupValidationConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ServerGroupValidationConfiguration)
@@ -239,8 +239,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ServerGroupValidationConfiguration&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250040"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250040"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250049"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250049"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ServerValidationConfiguration]
 -&gt; Maybe Text -&gt; ServerGroupValidationConfiguration
 </span><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration%27"><span class="hs-identifier hs-var">ServerGroupValidationConfiguration'</span></a></span><span>
@@ -250,7 +250,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; ServerGroupValidationConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [ServerValidationConfiguration]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -267,33 +267,33 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser ServerGroupValidationConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679250049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverGroupId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679250033"><span id="local-6989586621679250035"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679250042"><span id="local-6989586621679250044"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679250030"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679250039"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration</span></a></span></span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679250022"><span id="local-6989586621679250024"><span id="local-6989586621679250026"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679250031"><span id="local-6989586621679250033"><span id="local-6989586621679250035"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration</span></a></span></span></span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679250020"><span class="annot"><span class="annottext">toJSON :: ServerGroupValidationConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250017"><span id="local-6989586621679250018"><span class="annot"><span class="annottext">Maybe [ServerValidationConfiguration]
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679250029"><span class="annot"><span class="annottext">toJSON :: ServerGroupValidationConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupValidationConfiguration.html#ServerGroupValidationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupValidationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250026"><span id="local-6989586621679250027"><span class="annot"><span class="annottext">Maybe [ServerValidationConfiguration]
 Maybe Text
 serverGroupId :: Maybe Text
 serverValidationConfigurations :: Maybe [ServerValidationConfiguration]
 $sel:serverGroupId:ServerGroupValidationConfiguration' :: ServerGroupValidationConfiguration -&gt; Maybe Text
 $sel:serverValidationConfigurations:ServerGroupValidationConfiguration' :: ServerGroupValidationConfiguration
 -&gt; Maybe [ServerValidationConfiguration]
-</span><a href="#local-6989586621679250017"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679250026"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -307,14 +307,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ServerValidationConfiguration] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ServerValidationConfiguration]
-</span><a href="#local-6989586621679250018"><span class="hs-identifier hs-var">serverValidationConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250027"><span class="hs-identifier hs-var">serverValidationConfigurations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250017"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span>
+</span><a href="#local-6989586621679250026"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span>
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span></pre></body></html>

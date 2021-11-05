@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds a quota increase request to your quota request template.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#newPutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier">newPutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplate_quotaCode"><span class="hs-identifier">putServiceQuotaIncreaseRequestIntoTemplate_quotaCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplate_serviceCode"><span class="hs-identifier">putServiceQuotaIncreaseRequestIntoTemplate_serviceCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplate_awsRegion"><span class="hs-identifier">putServiceQuotaIncreaseRequestIntoTemplate_awsRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplate_desiredValue"><span class="hs-identifier">putServiceQuotaIncreaseRequestIntoTemplate_desiredValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse"><span class="hs-identifier">PutServiceQuotaIncreaseRequestIntoTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#newPutServiceQuotaIncreaseRequestIntoTemplateResponse"><span class="hs-identifier">newPutServiceQuotaIncreaseRequestIntoTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplateResponse_serviceQuotaIncreaseRequestInTemplate"><span class="hs-identifier">putServiceQuotaIncreaseRequestIntoTemplateResponse_serviceQuotaIncreaseRequestInTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplateResponse_httpStatus"><span class="hs-identifier">putServiceQuotaIncreaseRequestIntoTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.Types.html"><span class="hs-identifier">Network.AWS.ServiceQuotas.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newPutServiceQuotaIncreaseRequestIntoTemplate' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679178529"><span id="local-6989586621679178530"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutServiceQuotaIncreaseRequestIntoTemplate"><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-var">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-var">PutServiceQuotaIncreaseRequestIntoTemplate'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The quota identifier.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AquotaCode%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Text
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AquotaCode%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-var hs-var">quotaCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The service identifier.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AserviceCode%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Text
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AserviceCode%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The AWS Region.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AawsRegion%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Text
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AawsRegion%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The new, increased value for the quota.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AdesiredValue%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Double
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AdesiredValue%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-var hs-var">desiredValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178520"><span id="local-6989586621679178522"><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Bool
+(PutServiceQuotaIncreaseRequestIntoTemplate
+ -&gt; PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Bool)
+-&gt; (PutServiceQuotaIncreaseRequestIntoTemplate
+    -&gt; PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Bool)
+-&gt; Eq PutServiceQuotaIncreaseRequestIntoTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Bool
+$c/= :: PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Bool
+== :: PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Bool
+$c== :: PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178511"><span id="local-6989586621679178513"><span id="local-6989586621679178515"><span id="local-6989586621679178517"><span class="annot"><span class="annottext">ReadPrec [PutServiceQuotaIncreaseRequestIntoTemplate]
+ReadPrec PutServiceQuotaIncreaseRequestIntoTemplate
+Int -&gt; ReadS PutServiceQuotaIncreaseRequestIntoTemplate
+ReadS [PutServiceQuotaIncreaseRequestIntoTemplate]
+(Int -&gt; ReadS PutServiceQuotaIncreaseRequestIntoTemplate)
+-&gt; ReadS [PutServiceQuotaIncreaseRequestIntoTemplate]
+-&gt; ReadPrec PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; ReadPrec [PutServiceQuotaIncreaseRequestIntoTemplate]
+-&gt; Read PutServiceQuotaIncreaseRequestIntoTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutServiceQuotaIncreaseRequestIntoTemplate]
+$creadListPrec :: ReadPrec [PutServiceQuotaIncreaseRequestIntoTemplate]
+readPrec :: ReadPrec PutServiceQuotaIncreaseRequestIntoTemplate
+$creadPrec :: ReadPrec PutServiceQuotaIncreaseRequestIntoTemplate
+readList :: ReadS [PutServiceQuotaIncreaseRequestIntoTemplate]
+$creadList :: ReadS [PutServiceQuotaIncreaseRequestIntoTemplate]
+readsPrec :: Int -&gt; ReadS PutServiceQuotaIncreaseRequestIntoTemplate
+$creadsPrec :: Int -&gt; ReadS PutServiceQuotaIncreaseRequestIntoTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178504"><span id="local-6989586621679178506"><span id="local-6989586621679178508"><span class="annot"><span class="annottext">Int -&gt; PutServiceQuotaIncreaseRequestIntoTemplate -&gt; ShowS
+[PutServiceQuotaIncreaseRequestIntoTemplate] -&gt; ShowS
+PutServiceQuotaIncreaseRequestIntoTemplate -&gt; String
+(Int -&gt; PutServiceQuotaIncreaseRequestIntoTemplate -&gt; ShowS)
+-&gt; (PutServiceQuotaIncreaseRequestIntoTemplate -&gt; String)
+-&gt; ([PutServiceQuotaIncreaseRequestIntoTemplate] -&gt; ShowS)
+-&gt; Show PutServiceQuotaIncreaseRequestIntoTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutServiceQuotaIncreaseRequestIntoTemplate] -&gt; ShowS
+$cshowList :: [PutServiceQuotaIncreaseRequestIntoTemplate] -&gt; ShowS
+show :: PutServiceQuotaIncreaseRequestIntoTemplate -&gt; String
+$cshow :: PutServiceQuotaIncreaseRequestIntoTemplate -&gt; String
+showsPrec :: Int -&gt; PutServiceQuotaIncreaseRequestIntoTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutServiceQuotaIncreaseRequestIntoTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutServiceQuotaIncreaseRequestIntoTemplate
+ -&gt; Rep PutServiceQuotaIncreaseRequestIntoTemplate x)
+-&gt; (forall x.
+    Rep PutServiceQuotaIncreaseRequestIntoTemplate x
+    -&gt; PutServiceQuotaIncreaseRequestIntoTemplate)
+-&gt; Generic PutServiceQuotaIncreaseRequestIntoTemplate
+forall x.
+Rep PutServiceQuotaIncreaseRequestIntoTemplate x
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate
+forall x.
+PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; Rep PutServiceQuotaIncreaseRequestIntoTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutServiceQuotaIncreaseRequestIntoTemplate x
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate
+$cfrom :: forall x.
+PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; Rep PutServiceQuotaIncreaseRequestIntoTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'PutServiceQuotaIncreaseRequestIntoTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'quotaCode', 'putServiceQuotaIncreaseRequestIntoTemplate_quotaCode' - The quota identifier.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'serviceCode', 'putServiceQuotaIncreaseRequestIntoTemplate_serviceCode' - The service identifier.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'awsRegion', 'putServiceQuotaIncreaseRequestIntoTemplate_awsRegion' - The AWS Region.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'desiredValue', 'putServiceQuotaIncreaseRequestIntoTemplate_desiredValue' - The new, increased value for the quota.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#newPutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">newPutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'quotaCode'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'serviceCode'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'awsRegion'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'desiredValue'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span>
+</span><span id="line-90"></span><span id="newPutServiceQuotaIncreaseRequestIntoTemplate"><span class="annot"><span class="annottext">newPutServiceQuotaIncreaseRequestIntoTemplate :: Text
+-&gt; Text
+-&gt; Text
+-&gt; Double
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#newPutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-var hs-var">newPutServiceQuotaIncreaseRequestIntoTemplate</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679178499"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178499"><span class="hs-identifier hs-var">pQuotaCode_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679178498"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178498"><span class="hs-identifier hs-var">pServiceCode_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679178497"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178497"><span class="hs-identifier hs-var">pAwsRegion_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679178496"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679178496"><span class="hs-identifier hs-var">pDesiredValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplate' :: Text
+-&gt; Text
+-&gt; Text
+-&gt; Double
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate'</span></a></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:quotaCode:PutServiceQuotaIncreaseRequestIntoTemplate' :: Text
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AquotaCode%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-var">quotaCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178499"><span class="hs-identifier hs-var">pQuotaCode_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceCode:PutServiceQuotaIncreaseRequestIntoTemplate' :: Text
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AserviceCode%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178498"><span class="hs-identifier hs-var">pServiceCode_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsRegion:PutServiceQuotaIncreaseRequestIntoTemplate' :: Text
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AawsRegion%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178497"><span class="hs-identifier hs-var">pAwsRegion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:desiredValue:PutServiceQuotaIncreaseRequestIntoTemplate' :: Double
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AdesiredValue%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-var">desiredValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679178496"><span class="hs-identifier hs-var">pDesiredValue_</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The quota identifier.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplate_quotaCode"><span class="hs-identifier hs-type">putServiceQuotaIncreaseRequestIntoTemplate_quotaCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="putServiceQuotaIncreaseRequestIntoTemplate_quotaCode"><span class="annot"><span class="annottext">putServiceQuotaIncreaseRequestIntoTemplate_quotaCode :: (Text -&gt; f Text)
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; f PutServiceQuotaIncreaseRequestIntoTemplate
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplate_quotaCode"><span class="hs-identifier hs-var hs-var">putServiceQuotaIncreaseRequestIntoTemplate_quotaCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Text)
+-&gt; (PutServiceQuotaIncreaseRequestIntoTemplate
+    -&gt; Text -&gt; PutServiceQuotaIncreaseRequestIntoTemplate)
+-&gt; Lens
+     PutServiceQuotaIncreaseRequestIntoTemplate
+     PutServiceQuotaIncreaseRequestIntoTemplate
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178493"><span class="annot"><span class="annottext">Text
+quotaCode :: Text
+$sel:quotaCode:PutServiceQuotaIncreaseRequestIntoTemplate' :: PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Text
+</span><a href="#local-6989586621679178493"><span class="hs-identifier hs-var hs-var">quotaCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178493"><span class="hs-identifier hs-var">quotaCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178492"><span class="annot"><span class="annottext">s :: PutServiceQuotaIncreaseRequestIntoTemplate
+</span><a href="#local-6989586621679178492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178491"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplate
+</span><a href="#local-6989586621679178492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quotaCode:PutServiceQuotaIncreaseRequestIntoTemplate' :: Text
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AquotaCode%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-var">quotaCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The service identifier.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplate_serviceCode"><span class="hs-identifier hs-type">putServiceQuotaIncreaseRequestIntoTemplate_serviceCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="putServiceQuotaIncreaseRequestIntoTemplate_serviceCode"><span class="annot"><span class="annottext">putServiceQuotaIncreaseRequestIntoTemplate_serviceCode :: (Text -&gt; f Text)
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; f PutServiceQuotaIncreaseRequestIntoTemplate
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplate_serviceCode"><span class="hs-identifier hs-var hs-var">putServiceQuotaIncreaseRequestIntoTemplate_serviceCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Text)
+-&gt; (PutServiceQuotaIncreaseRequestIntoTemplate
+    -&gt; Text -&gt; PutServiceQuotaIncreaseRequestIntoTemplate)
+-&gt; Lens
+     PutServiceQuotaIncreaseRequestIntoTemplate
+     PutServiceQuotaIncreaseRequestIntoTemplate
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178490"><span class="annot"><span class="annottext">Text
+serviceCode :: Text
+$sel:serviceCode:PutServiceQuotaIncreaseRequestIntoTemplate' :: PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Text
+</span><a href="#local-6989586621679178490"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178490"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178489"><span class="annot"><span class="annottext">s :: PutServiceQuotaIncreaseRequestIntoTemplate
+</span><a href="#local-6989586621679178489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178488"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplate
+</span><a href="#local-6989586621679178489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:PutServiceQuotaIncreaseRequestIntoTemplate' :: Text
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AserviceCode%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The AWS Region.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplate_awsRegion"><span class="hs-identifier hs-type">putServiceQuotaIncreaseRequestIntoTemplate_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="putServiceQuotaIncreaseRequestIntoTemplate_awsRegion"><span class="annot"><span class="annottext">putServiceQuotaIncreaseRequestIntoTemplate_awsRegion :: (Text -&gt; f Text)
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; f PutServiceQuotaIncreaseRequestIntoTemplate
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplate_awsRegion"><span class="hs-identifier hs-var hs-var">putServiceQuotaIncreaseRequestIntoTemplate_awsRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Text)
+-&gt; (PutServiceQuotaIncreaseRequestIntoTemplate
+    -&gt; Text -&gt; PutServiceQuotaIncreaseRequestIntoTemplate)
+-&gt; Lens
+     PutServiceQuotaIncreaseRequestIntoTemplate
+     PutServiceQuotaIncreaseRequestIntoTemplate
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178487"><span class="annot"><span class="annottext">Text
+awsRegion :: Text
+$sel:awsRegion:PutServiceQuotaIncreaseRequestIntoTemplate' :: PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Text
+</span><a href="#local-6989586621679178487"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178487"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178486"><span class="annot"><span class="annottext">s :: PutServiceQuotaIncreaseRequestIntoTemplate
+</span><a href="#local-6989586621679178486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178485"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplate
+</span><a href="#local-6989586621679178486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:PutServiceQuotaIncreaseRequestIntoTemplate' :: Text
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AawsRegion%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The new, increased value for the quota.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplate_desiredValue"><span class="hs-identifier hs-type">putServiceQuotaIncreaseRequestIntoTemplate_desiredValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-117"></span><span id="putServiceQuotaIncreaseRequestIntoTemplate_desiredValue"><span class="annot"><span class="annottext">putServiceQuotaIncreaseRequestIntoTemplate_desiredValue :: (Double -&gt; f Double)
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; f PutServiceQuotaIncreaseRequestIntoTemplate
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplate_desiredValue"><span class="hs-identifier hs-var hs-var">putServiceQuotaIncreaseRequestIntoTemplate_desiredValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Double)
+-&gt; (PutServiceQuotaIncreaseRequestIntoTemplate
+    -&gt; Double -&gt; PutServiceQuotaIncreaseRequestIntoTemplate)
+-&gt; Lens
+     PutServiceQuotaIncreaseRequestIntoTemplate
+     PutServiceQuotaIncreaseRequestIntoTemplate
+     Double
+     Double
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178484"><span class="annot"><span class="annottext">Double
+desiredValue :: Double
+$sel:desiredValue:PutServiceQuotaIncreaseRequestIntoTemplate' :: PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Double
+</span><a href="#local-6989586621679178484"><span class="hs-identifier hs-var hs-var">desiredValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679178484"><span class="hs-identifier hs-var">desiredValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178483"><span class="annot"><span class="annottext">s :: PutServiceQuotaIncreaseRequestIntoTemplate
+</span><a href="#local-6989586621679178483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178482"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679178482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplate
+</span><a href="#local-6989586621679178483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredValue:PutServiceQuotaIncreaseRequestIntoTemplate' :: Double
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AdesiredValue%3APutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-var">desiredValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679178482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplateResponse</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679178478"><span class="annot"><span class="annottext">request :: PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; Request PutServiceQuotaIncreaseRequestIntoTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; Request PutServiceQuotaIncreaseRequestIntoTemplate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ServiceQuotas.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679178474"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse PutServiceQuotaIncreaseRequestIntoTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse PutServiceQuotaIncreaseRequestIntoTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutServiceQuotaIncreaseRequestIntoTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse PutServiceQuotaIncreaseRequestIntoTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178471"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178471"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178470"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178470"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178469"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178469"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceQuotaIncreaseRequestInTemplate
+-&gt; Int -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="hs-identifier hs-var">PutServiceQuotaIncreaseRequestIntoTemplateResponse'</span></a></span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ServiceQuotaIncreaseRequestInTemplate
+ -&gt; Int -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse)
+-&gt; Either String (Maybe ServiceQuotaIncreaseRequestInTemplate)
+-&gt; Either
+     String (Int -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178469"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe ServiceQuotaIncreaseRequestInTemplate)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceQuotaIncreaseRequestInTemplate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse)
+-&gt; Either String Int
+-&gt; Either String PutServiceQuotaIncreaseRequestIntoTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178471"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679178461"><span id="local-6989586621679178463"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679178458"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679178454"><span class="annot"><span class="annottext">toHeaders :: PutServiceQuotaIncreaseRequestIntoTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-154"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-158"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679178444"><span id="local-6989586621679178446"><span id="local-6989586621679178448"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span></span></span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679178442"><span class="annot"><span class="annottext">toJSON :: PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178437"><span id="local-6989586621679178438"><span id="local-6989586621679178439"><span id="local-6989586621679178440"><span class="annot"><span class="annottext">Double
+Text
+desiredValue :: Double
+awsRegion :: Text
+serviceCode :: Text
+quotaCode :: Text
+$sel:desiredValue:PutServiceQuotaIncreaseRequestIntoTemplate' :: PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Double
+$sel:awsRegion:PutServiceQuotaIncreaseRequestIntoTemplate' :: PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Text
+$sel:serviceCode:PutServiceQuotaIncreaseRequestIntoTemplate' :: PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Text
+$sel:quotaCode:PutServiceQuotaIncreaseRequestIntoTemplate' :: PutServiceQuotaIncreaseRequestIntoTemplate -&gt; Text
+</span><a href="#local-6989586621679178437"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-169"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuotaCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178440"><span class="hs-identifier hs-var">quotaCode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178439"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178438"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DesiredValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679178437"><span class="hs-identifier hs-var">desiredValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>        </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679178431"><span class="annot"><span class="annottext">toPath :: PutServiceQuotaIncreaseRequestIntoTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplate"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplate</span></a></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679178427"><span class="annot"><span class="annottext">toQuery :: PutServiceQuotaIncreaseRequestIntoTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | /See:/ 'newPutServiceQuotaIncreaseRequestIntoTemplateResponse' smart constructor.</span><span>
+</span><span id="line-190"></span><span id="local-6989586621679178424"><span id="local-6989586621679178425"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutServiceQuotaIncreaseRequestIntoTemplateResponse"><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse"><span class="hs-identifier hs-var">PutServiceQuotaIncreaseRequestIntoTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="hs-identifier hs-var">PutServiceQuotaIncreaseRequestIntoTemplateResponse'</span></a></span></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the quota increase request.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AserviceQuotaIncreaseRequestInTemplate%3APutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplateResponse
+-&gt; Maybe ServiceQuotaIncreaseRequestInTemplate
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AserviceQuotaIncreaseRequestInTemplate%3APutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="hs-identifier hs-var hs-var">serviceQuotaIncreaseRequestInTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.html#ServiceQuotaIncreaseRequestInTemplate"><span class="hs-identifier hs-type">ServiceQuotaIncreaseRequestInTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; Int
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AhttpStatus%3APutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178418"><span id="local-6989586621679178420"><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplateResponse
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; Bool
+(PutServiceQuotaIncreaseRequestIntoTemplateResponse
+ -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; Bool)
+-&gt; (PutServiceQuotaIncreaseRequestIntoTemplateResponse
+    -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; Bool)
+-&gt; Eq PutServiceQuotaIncreaseRequestIntoTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutServiceQuotaIncreaseRequestIntoTemplateResponse
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; Bool
+$c/= :: PutServiceQuotaIncreaseRequestIntoTemplateResponse
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; Bool
+== :: PutServiceQuotaIncreaseRequestIntoTemplateResponse
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; Bool
+$c== :: PutServiceQuotaIncreaseRequestIntoTemplateResponse
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178410"><span id="local-6989586621679178412"><span id="local-6989586621679178414"><span id="local-6989586621679178416"><span class="annot"><span class="annottext">ReadPrec [PutServiceQuotaIncreaseRequestIntoTemplateResponse]
+ReadPrec PutServiceQuotaIncreaseRequestIntoTemplateResponse
+Int -&gt; ReadS PutServiceQuotaIncreaseRequestIntoTemplateResponse
+ReadS [PutServiceQuotaIncreaseRequestIntoTemplateResponse]
+(Int -&gt; ReadS PutServiceQuotaIncreaseRequestIntoTemplateResponse)
+-&gt; ReadS [PutServiceQuotaIncreaseRequestIntoTemplateResponse]
+-&gt; ReadPrec PutServiceQuotaIncreaseRequestIntoTemplateResponse
+-&gt; ReadPrec [PutServiceQuotaIncreaseRequestIntoTemplateResponse]
+-&gt; Read PutServiceQuotaIncreaseRequestIntoTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutServiceQuotaIncreaseRequestIntoTemplateResponse]
+$creadListPrec :: ReadPrec [PutServiceQuotaIncreaseRequestIntoTemplateResponse]
+readPrec :: ReadPrec PutServiceQuotaIncreaseRequestIntoTemplateResponse
+$creadPrec :: ReadPrec PutServiceQuotaIncreaseRequestIntoTemplateResponse
+readList :: ReadS [PutServiceQuotaIncreaseRequestIntoTemplateResponse]
+$creadList :: ReadS [PutServiceQuotaIncreaseRequestIntoTemplateResponse]
+readsPrec :: Int -&gt; ReadS PutServiceQuotaIncreaseRequestIntoTemplateResponse
+$creadsPrec :: Int -&gt; ReadS PutServiceQuotaIncreaseRequestIntoTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178404"><span id="local-6989586621679178406"><span id="local-6989586621679178408"><span class="annot"><span class="annottext">Int -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; ShowS
+[PutServiceQuotaIncreaseRequestIntoTemplateResponse] -&gt; ShowS
+PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; String
+(Int
+ -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; ShowS)
+-&gt; (PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; String)
+-&gt; ([PutServiceQuotaIncreaseRequestIntoTemplateResponse] -&gt; ShowS)
+-&gt; Show PutServiceQuotaIncreaseRequestIntoTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutServiceQuotaIncreaseRequestIntoTemplateResponse] -&gt; ShowS
+$cshowList :: [PutServiceQuotaIncreaseRequestIntoTemplateResponse] -&gt; ShowS
+show :: PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; String
+$cshow :: PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; String
+showsPrec :: Int -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutServiceQuotaIncreaseRequestIntoTemplateResponse
+ -&gt; Rep PutServiceQuotaIncreaseRequestIntoTemplateResponse x)
+-&gt; (forall x.
+    Rep PutServiceQuotaIncreaseRequestIntoTemplateResponse x
+    -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse)
+-&gt; Generic PutServiceQuotaIncreaseRequestIntoTemplateResponse
+forall x.
+Rep PutServiceQuotaIncreaseRequestIntoTemplateResponse x
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse
+forall x.
+PutServiceQuotaIncreaseRequestIntoTemplateResponse
+-&gt; Rep PutServiceQuotaIncreaseRequestIntoTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutServiceQuotaIncreaseRequestIntoTemplateResponse x
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse
+$cfrom :: forall x.
+PutServiceQuotaIncreaseRequestIntoTemplateResponse
+-&gt; Rep PutServiceQuotaIncreaseRequestIntoTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Create a value of 'PutServiceQuotaIncreaseRequestIntoTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'serviceQuotaIncreaseRequestInTemplate', 'putServiceQuotaIncreaseRequestIntoTemplateResponse_serviceQuotaIncreaseRequestInTemplate' - Information about the quota increase request.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'httpStatus', 'putServiceQuotaIncreaseRequestIntoTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#newPutServiceQuotaIncreaseRequestIntoTemplateResponse"><span class="hs-identifier hs-type">newPutServiceQuotaIncreaseRequestIntoTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplateResponse</span></a></span><span>
+</span><span id="line-213"></span><span id="newPutServiceQuotaIncreaseRequestIntoTemplateResponse"><span class="annot"><span class="annottext">newPutServiceQuotaIncreaseRequestIntoTemplateResponse :: Int -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#newPutServiceQuotaIncreaseRequestIntoTemplateResponse"><span class="hs-identifier hs-var hs-var">newPutServiceQuotaIncreaseRequestIntoTemplateResponse</span></a></span></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679178401"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178401"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplateResponse' :: Maybe ServiceQuotaIncreaseRequestInTemplate
+-&gt; Int -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplateResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceQuotaIncreaseRequestInTemplate:PutServiceQuotaIncreaseRequestIntoTemplateResponse' :: Maybe ServiceQuotaIncreaseRequestInTemplate
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AserviceQuotaIncreaseRequestInTemplate%3APutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="hs-identifier hs-var">serviceQuotaIncreaseRequestInTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceQuotaIncreaseRequestInTemplate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:PutServiceQuotaIncreaseRequestIntoTemplateResponse' :: Int
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AhttpStatus%3APutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178401"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | Information about the quota increase request.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplateResponse_serviceQuotaIncreaseRequestInTemplate"><span class="hs-identifier hs-type">putServiceQuotaIncreaseRequestIntoTemplateResponse_serviceQuotaIncreaseRequestInTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.html#ServiceQuotaIncreaseRequestInTemplate"><span class="hs-identifier hs-type">ServiceQuotaIncreaseRequestInTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="putServiceQuotaIncreaseRequestIntoTemplateResponse_serviceQuotaIncreaseRequestInTemplate"><span class="annot"><span class="annottext">putServiceQuotaIncreaseRequestIntoTemplateResponse_serviceQuotaIncreaseRequestInTemplate :: (Maybe ServiceQuotaIncreaseRequestInTemplate
+ -&gt; f (Maybe ServiceQuotaIncreaseRequestInTemplate))
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse
+-&gt; f PutServiceQuotaIncreaseRequestIntoTemplateResponse
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplateResponse_serviceQuotaIncreaseRequestInTemplate"><span class="hs-identifier hs-var hs-var">putServiceQuotaIncreaseRequestIntoTemplateResponse_serviceQuotaIncreaseRequestInTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutServiceQuotaIncreaseRequestIntoTemplateResponse
+ -&gt; Maybe ServiceQuotaIncreaseRequestInTemplate)
+-&gt; (PutServiceQuotaIncreaseRequestIntoTemplateResponse
+    -&gt; Maybe ServiceQuotaIncreaseRequestInTemplate
+    -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse)
+-&gt; Lens
+     PutServiceQuotaIncreaseRequestIntoTemplateResponse
+     PutServiceQuotaIncreaseRequestIntoTemplateResponse
+     (Maybe ServiceQuotaIncreaseRequestInTemplate)
+     (Maybe ServiceQuotaIncreaseRequestInTemplate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178400"><span class="annot"><span class="annottext">Maybe ServiceQuotaIncreaseRequestInTemplate
+serviceQuotaIncreaseRequestInTemplate :: Maybe ServiceQuotaIncreaseRequestInTemplate
+$sel:serviceQuotaIncreaseRequestInTemplate:PutServiceQuotaIncreaseRequestIntoTemplateResponse' :: PutServiceQuotaIncreaseRequestIntoTemplateResponse
+-&gt; Maybe ServiceQuotaIncreaseRequestInTemplate
+</span><a href="#local-6989586621679178400"><span class="hs-identifier hs-var hs-var">serviceQuotaIncreaseRequestInTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceQuotaIncreaseRequestInTemplate
+</span><a href="#local-6989586621679178400"><span class="hs-identifier hs-var">serviceQuotaIncreaseRequestInTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178399"><span class="annot"><span class="annottext">s :: PutServiceQuotaIncreaseRequestIntoTemplateResponse
+</span><a href="#local-6989586621679178399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178398"><span class="annot"><span class="annottext">Maybe ServiceQuotaIncreaseRequestInTemplate
+</span><a href="#local-6989586621679178398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplateResponse
+</span><a href="#local-6989586621679178399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceQuotaIncreaseRequestInTemplate:PutServiceQuotaIncreaseRequestIntoTemplateResponse' :: Maybe ServiceQuotaIncreaseRequestInTemplate
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AserviceQuotaIncreaseRequestInTemplate%3APutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="hs-identifier hs-var">serviceQuotaIncreaseRequestInTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceQuotaIncreaseRequestInTemplate
+</span><a href="#local-6989586621679178398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplateResponse_httpStatus"><span class="hs-identifier hs-type">putServiceQuotaIncreaseRequestIntoTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-228"></span><span id="putServiceQuotaIncreaseRequestIntoTemplateResponse_httpStatus"><span class="annot"><span class="annottext">putServiceQuotaIncreaseRequestIntoTemplateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse
+-&gt; f PutServiceQuotaIncreaseRequestIntoTemplateResponse
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#putServiceQuotaIncreaseRequestIntoTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putServiceQuotaIncreaseRequestIntoTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; Int)
+-&gt; (PutServiceQuotaIncreaseRequestIntoTemplateResponse
+    -&gt; Int -&gt; PutServiceQuotaIncreaseRequestIntoTemplateResponse)
+-&gt; Lens
+     PutServiceQuotaIncreaseRequestIntoTemplateResponse
+     PutServiceQuotaIncreaseRequestIntoTemplateResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178397"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutServiceQuotaIncreaseRequestIntoTemplateResponse' :: PutServiceQuotaIncreaseRequestIntoTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679178397"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178397"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178396"><span class="annot"><span class="annottext">s :: PutServiceQuotaIncreaseRequestIntoTemplateResponse
+</span><a href="#local-6989586621679178396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178395"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutServiceQuotaIncreaseRequestIntoTemplateResponse
+</span><a href="#local-6989586621679178396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutServiceQuotaIncreaseRequestIntoTemplateResponse' :: Int
+</span><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#%24sel%3AhttpStatus%3APutServiceQuotaIncreaseRequestIntoTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679178393"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.html#PutServiceQuotaIncreaseRequestIntoTemplateResponse"><span class="hs-identifier hs-type">PutServiceQuotaIncreaseRequestIntoTemplateResponse</span></a></span></span><span>
+</span><span id="line-233"></span></pre></body></html>

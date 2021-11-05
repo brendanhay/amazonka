@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newCreateGlobalReplicationGroup' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679423022"><span id="local-6989586621679423023"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGlobalReplicationGroup"><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-var">CreateGlobalReplicationGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGlobalReplicationGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-var">CreateGlobalReplicationGroup'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679423031"><span id="local-6989586621679423032"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGlobalReplicationGroup"><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-var">CreateGlobalReplicationGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGlobalReplicationGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-var">CreateGlobalReplicationGroup'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides details of the Global datastore</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AglobalReplicationGroupDescription%3ACreateGlobalReplicationGroup%27"><span class="annot"><span class="annottext">CreateGlobalReplicationGroup -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#%24sel%3AglobalReplicationGroupDescription%3ACreateGlobalReplicationGroup%27"><span class="hs-identifier hs-var hs-var">globalReplicationGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -84,7 +84,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AprimaryReplicationGroupId%3ACreateGlobalReplicationGroup%27"><span class="annot"><span class="annottext">CreateGlobalReplicationGroup -&gt; Text
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#%24sel%3AprimaryReplicationGroupId%3ACreateGlobalReplicationGroup%27"><span class="hs-identifier hs-var hs-var">primaryReplicationGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423014"><span id="local-6989586621679423016"><span class="annot"><span class="annottext">CreateGlobalReplicationGroup
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423023"><span id="local-6989586621679423025"><span class="annot"><span class="annottext">CreateGlobalReplicationGroup
 -&gt; CreateGlobalReplicationGroup -&gt; Bool
 (CreateGlobalReplicationGroup
  -&gt; CreateGlobalReplicationGroup -&gt; Bool)
@@ -100,7 +100,7 @@ $c/= :: CreateGlobalReplicationGroup
 -&gt; CreateGlobalReplicationGroup -&gt; Bool
 $c== :: CreateGlobalReplicationGroup
 -&gt; CreateGlobalReplicationGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423005"><span id="local-6989586621679423007"><span id="local-6989586621679423009"><span id="local-6989586621679423011"><span class="annot"><span class="annottext">ReadPrec [CreateGlobalReplicationGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423014"><span id="local-6989586621679423016"><span id="local-6989586621679423018"><span id="local-6989586621679423020"><span class="annot"><span class="annottext">ReadPrec [CreateGlobalReplicationGroup]
 ReadPrec CreateGlobalReplicationGroup
 Int -&gt; ReadS CreateGlobalReplicationGroup
 ReadS [CreateGlobalReplicationGroup]
@@ -120,7 +120,7 @@ readList :: ReadS [CreateGlobalReplicationGroup]
 $creadList :: ReadS [CreateGlobalReplicationGroup]
 readsPrec :: Int -&gt; ReadS CreateGlobalReplicationGroup
 $creadsPrec :: Int -&gt; ReadS CreateGlobalReplicationGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422998"><span id="local-6989586621679423000"><span id="local-6989586621679423002"><span class="annot"><span class="annottext">Int -&gt; CreateGlobalReplicationGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423007"><span id="local-6989586621679423009"><span id="local-6989586621679423011"><span class="annot"><span class="annottext">Int -&gt; CreateGlobalReplicationGroup -&gt; ShowS
 [CreateGlobalReplicationGroup] -&gt; ShowS
 CreateGlobalReplicationGroup -&gt; String
 (Int -&gt; CreateGlobalReplicationGroup -&gt; ShowS)
@@ -185,10 +185,10 @@ CreateGlobalReplicationGroup -&gt; Rep CreateGlobalReplicationGroup x
 </span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span><span>
 </span><span id="line-117"></span><span id="newCreateGlobalReplicationGroup"><span class="annot"><span class="annottext">newCreateGlobalReplicationGroup :: Text -&gt; Text -&gt; CreateGlobalReplicationGroup
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#newCreateGlobalReplicationGroup"><span class="hs-identifier hs-var hs-var">newCreateGlobalReplicationGroup</span></a></span></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679422993"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422993"><span class="hs-identifier hs-var">pGlobalReplicationGroupIdSuffix_</span></a></span></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679422992"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422992"><span class="hs-identifier hs-var">pPrimaryReplicationGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679423002"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423002"><span class="hs-identifier hs-var">pGlobalReplicationGroupIdSuffix_</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679423001"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423001"><span class="hs-identifier hs-var">pPrimaryReplicationGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">CreateGlobalReplicationGroup' :: Maybe Text -&gt; Text -&gt; Text -&gt; CreateGlobalReplicationGroup
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalReplicationGroupDescription:CreateGlobalReplicationGroup' :: Maybe Text
@@ -199,11 +199,11 @@ forall a. Maybe a
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:globalReplicationGroupIdSuffix:CreateGlobalReplicationGroup' :: Text
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#%24sel%3AglobalReplicationGroupIdSuffix%3ACreateGlobalReplicationGroup%27"><span class="hs-identifier hs-var">globalReplicationGroupIdSuffix</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422993"><span class="hs-identifier hs-var">pGlobalReplicationGroupIdSuffix_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679423002"><span class="hs-identifier hs-var">pGlobalReplicationGroupIdSuffix_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:primaryReplicationGroupId:CreateGlobalReplicationGroup' :: Text
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#%24sel%3AprimaryReplicationGroupId%3ACreateGlobalReplicationGroup%27"><span class="hs-identifier hs-var">primaryReplicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422992"><span class="hs-identifier hs-var">pPrimaryReplicationGroupId_</span></a></span><span>
+</span><a href="#local-6989586621679423001"><span class="hs-identifier hs-var">pPrimaryReplicationGroupId_</span></a></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | Provides details of the Global datastore</span><span>
@@ -219,16 +219,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422989"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422998"><span class="annot"><span class="annottext">Maybe Text
 globalReplicationGroupDescription :: Maybe Text
 $sel:globalReplicationGroupDescription:CreateGlobalReplicationGroup' :: CreateGlobalReplicationGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679422989"><span class="hs-identifier hs-var hs-var">globalReplicationGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422989"><span class="hs-identifier hs-var">globalReplicationGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422988"><span class="annot"><span class="annottext">s :: CreateGlobalReplicationGroup
-</span><a href="#local-6989586621679422988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422987"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalReplicationGroup
-</span><a href="#local-6989586621679422988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalReplicationGroupDescription:CreateGlobalReplicationGroup' :: Maybe Text
+</span><a href="#local-6989586621679422998"><span class="hs-identifier hs-var hs-var">globalReplicationGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422998"><span class="hs-identifier hs-var">globalReplicationGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422997"><span class="annot"><span class="annottext">s :: CreateGlobalReplicationGroup
+</span><a href="#local-6989586621679422997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422996"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalReplicationGroup
+</span><a href="#local-6989586621679422997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalReplicationGroupDescription:CreateGlobalReplicationGroup' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#%24sel%3AglobalReplicationGroupDescription%3ACreateGlobalReplicationGroup%27"><span class="hs-identifier hs-var">globalReplicationGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The suffix name of a Global datastore. Amazon ElastiCache automatically</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- applies a prefix to the Global datastore ID when it is created. Each</span><span>
@@ -251,16 +251,16 @@ $sel:globalReplicationGroupDescription:CreateGlobalReplicationGroup' :: CreateGl
 -&gt; Lens
      CreateGlobalReplicationGroup CreateGlobalReplicationGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422986"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422995"><span class="annot"><span class="annottext">Text
 globalReplicationGroupIdSuffix :: Text
 $sel:globalReplicationGroupIdSuffix:CreateGlobalReplicationGroup' :: CreateGlobalReplicationGroup -&gt; Text
-</span><a href="#local-6989586621679422986"><span class="hs-identifier hs-var hs-var">globalReplicationGroupIdSuffix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422986"><span class="hs-identifier hs-var">globalReplicationGroupIdSuffix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422985"><span class="annot"><span class="annottext">s :: CreateGlobalReplicationGroup
-</span><a href="#local-6989586621679422985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422984"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalReplicationGroup
-</span><a href="#local-6989586621679422985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalReplicationGroupIdSuffix:CreateGlobalReplicationGroup' :: Text
+</span><a href="#local-6989586621679422995"><span class="hs-identifier hs-var hs-var">globalReplicationGroupIdSuffix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422995"><span class="hs-identifier hs-var">globalReplicationGroupIdSuffix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422994"><span class="annot"><span class="annottext">s :: CreateGlobalReplicationGroup
+</span><a href="#local-6989586621679422994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422993"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalReplicationGroup
+</span><a href="#local-6989586621679422994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalReplicationGroupIdSuffix:CreateGlobalReplicationGroup' :: Text
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#%24sel%3AglobalReplicationGroupIdSuffix%3ACreateGlobalReplicationGroup%27"><span class="hs-identifier hs-var">globalReplicationGroupIdSuffix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The name of the primary cluster that accepts writes and will replicate</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- updates to the secondary cluster.</span><span>
@@ -273,22 +273,22 @@ $sel:globalReplicationGroupIdSuffix:CreateGlobalReplicationGroup' :: CreateGloba
 -&gt; Lens
      CreateGlobalReplicationGroup CreateGlobalReplicationGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422983"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422992"><span class="annot"><span class="annottext">Text
 primaryReplicationGroupId :: Text
 $sel:primaryReplicationGroupId:CreateGlobalReplicationGroup' :: CreateGlobalReplicationGroup -&gt; Text
-</span><a href="#local-6989586621679422983"><span class="hs-identifier hs-var hs-var">primaryReplicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422983"><span class="hs-identifier hs-var">primaryReplicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422982"><span class="annot"><span class="annottext">s :: CreateGlobalReplicationGroup
-</span><a href="#local-6989586621679422982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422981"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalReplicationGroup
-</span><a href="#local-6989586621679422982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryReplicationGroupId:CreateGlobalReplicationGroup' :: Text
+</span><a href="#local-6989586621679422992"><span class="hs-identifier hs-var hs-var">primaryReplicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422992"><span class="hs-identifier hs-var">primaryReplicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422991"><span class="annot"><span class="annottext">s :: CreateGlobalReplicationGroup
+</span><a href="#local-6989586621679422991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422990"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalReplicationGroup
+</span><a href="#local-6989586621679422991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryReplicationGroupId:CreateGlobalReplicationGroup' :: Text
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#%24sel%3AprimaryReplicationGroupId%3ACreateGlobalReplicationGroup%27"><span class="hs-identifier hs-var">primaryReplicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-155"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse</span></a></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679422977"><span class="annot"><span class="annottext">request :: CreateGlobalReplicationGroup
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679422986"><span class="annot"><span class="annottext">request :: CreateGlobalReplicationGroup
 -&gt; Request CreateGlobalReplicationGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreateGlobalReplicationGroup
@@ -296,7 +296,7 @@ $sel:primaryReplicationGroupId:CreateGlobalReplicationGroup' :: CreateGlobalRepl
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679422973"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679422982"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateGlobalReplicationGroup
 -&gt; ClientResponse ClientBody
@@ -327,10 +327,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateGlobalReplicationGroupResult&quot;</span></span><span>
-</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679422970"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422970"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679422969"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679422969"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679422968"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422968"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679422979"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679422979"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679422978"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679422978"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679422977"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679422977"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
 -&gt; Int -&gt; CreateGlobalReplicationGroupResponse
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var">CreateGlobalReplicationGroupResponse'</span></a></span><span>
@@ -340,7 +340,7 @@ Text
 -&gt; Either String (Int -&gt; CreateGlobalReplicationGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422968"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GlobalReplicationGroup)
+</span><a href="#local-6989586621679422977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GlobalReplicationGroup)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GlobalReplicationGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -353,17 +353,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422970"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422979"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679422960"><span id="local-6989586621679422962"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679422969"><span id="local-6989586621679422971"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span></span></span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422957"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422966"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span></span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679422953"><span class="annot"><span class="annottext">toHeaders :: CreateGlobalReplicationGroup -&gt; ResponseHeaders
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679422962"><span class="annot"><span class="annottext">toHeaders :: CreateGlobalReplicationGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateGlobalReplicationGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -371,15 +371,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679422948"><span class="annot"><span class="annottext">toPath :: CreateGlobalReplicationGroup -&gt; ByteString
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679422957"><span class="annot"><span class="annottext">toPath :: CreateGlobalReplicationGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateGlobalReplicationGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679422944"><span class="annot"><span class="annottext">toQuery :: CreateGlobalReplicationGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422940"><span id="local-6989586621679422941"><span id="local-6989586621679422942"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679422953"><span class="annot"><span class="annottext">toQuery :: CreateGlobalReplicationGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroup%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422949"><span id="local-6989586621679422950"><span id="local-6989586621679422951"><span class="annot"><span class="annottext">Maybe Text
 Text
 primaryReplicationGroupId :: Text
 globalReplicationGroupIdSuffix :: Text
@@ -387,7 +387,7 @@ globalReplicationGroupDescription :: Maybe Text
 $sel:primaryReplicationGroupId:CreateGlobalReplicationGroup' :: CreateGlobalReplicationGroup -&gt; Text
 $sel:globalReplicationGroupIdSuffix:CreateGlobalReplicationGroup' :: CreateGlobalReplicationGroup -&gt; Text
 $sel:globalReplicationGroupDescription:CreateGlobalReplicationGroup' :: CreateGlobalReplicationGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679422940"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679422949"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -410,23 +410,23 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422942"><span class="hs-identifier hs-var">globalReplicationGroupDescription</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422951"><span class="hs-identifier hs-var">globalReplicationGroupDescription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;GlobalReplicationGroupIdSuffix&quot;</span></span><span>
 </span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422941"><span class="hs-identifier hs-var">globalReplicationGroupIdSuffix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422950"><span class="hs-identifier hs-var">globalReplicationGroupIdSuffix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PrimaryReplicationGroupId&quot;</span></span><span>
 </span><span id="line-193"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422940"><span class="hs-identifier hs-var">primaryReplicationGroupId</span></a></span><span>
+</span><a href="#local-6989586621679422949"><span class="hs-identifier hs-var">primaryReplicationGroupId</span></a></span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | /See:/ 'newCreateGlobalReplicationGroupResponse' smart constructor.</span><span>
-</span><span id="line-197"></span><span id="local-6989586621679422937"><span id="local-6989586621679422938"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGlobalReplicationGroupResponse"><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse"><span class="hs-identifier hs-var">CreateGlobalReplicationGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGlobalReplicationGroupResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var">CreateGlobalReplicationGroupResponse'</span></a></span></span><span>
+</span><span id="line-197"></span><span id="local-6989586621679422946"><span id="local-6989586621679422947"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGlobalReplicationGroupResponse"><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse"><span class="hs-identifier hs-var">CreateGlobalReplicationGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGlobalReplicationGroupResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var">CreateGlobalReplicationGroupResponse'</span></a></span></span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AglobalReplicationGroup%3ACreateGlobalReplicationGroupResponse%27"><span class="annot"><span class="annottext">CreateGlobalReplicationGroupResponse
 -&gt; Maybe GlobalReplicationGroup
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#%24sel%3AglobalReplicationGroup%3ACreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var hs-var">globalReplicationGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalReplicationGroup.html#GlobalReplicationGroup"><span class="hs-identifier hs-type">GlobalReplicationGroup</span></a></span><span class="hs-special">,</span><span>
@@ -434,7 +434,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-200"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateGlobalReplicationGroupResponse%27"><span class="annot"><span class="annottext">CreateGlobalReplicationGroupResponse -&gt; Int
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#%24sel%3AhttpStatus%3ACreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422931"><span id="local-6989586621679422933"><span class="annot"><span class="annottext">CreateGlobalReplicationGroupResponse
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422940"><span id="local-6989586621679422942"><span class="annot"><span class="annottext">CreateGlobalReplicationGroupResponse
 -&gt; CreateGlobalReplicationGroupResponse -&gt; Bool
 (CreateGlobalReplicationGroupResponse
  -&gt; CreateGlobalReplicationGroupResponse -&gt; Bool)
@@ -450,7 +450,7 @@ $c/= :: CreateGlobalReplicationGroupResponse
 -&gt; CreateGlobalReplicationGroupResponse -&gt; Bool
 $c== :: CreateGlobalReplicationGroupResponse
 -&gt; CreateGlobalReplicationGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422923"><span id="local-6989586621679422925"><span id="local-6989586621679422927"><span id="local-6989586621679422929"><span class="annot"><span class="annottext">ReadPrec [CreateGlobalReplicationGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422932"><span id="local-6989586621679422934"><span id="local-6989586621679422936"><span id="local-6989586621679422938"><span class="annot"><span class="annottext">ReadPrec [CreateGlobalReplicationGroupResponse]
 ReadPrec CreateGlobalReplicationGroupResponse
 Int -&gt; ReadS CreateGlobalReplicationGroupResponse
 ReadS [CreateGlobalReplicationGroupResponse]
@@ -470,7 +470,7 @@ readList :: ReadS [CreateGlobalReplicationGroupResponse]
 $creadList :: ReadS [CreateGlobalReplicationGroupResponse]
 readsPrec :: Int -&gt; ReadS CreateGlobalReplicationGroupResponse
 $creadsPrec :: Int -&gt; ReadS CreateGlobalReplicationGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422917"><span id="local-6989586621679422919"><span id="local-6989586621679422921"><span class="annot"><span class="annottext">Int -&gt; CreateGlobalReplicationGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422926"><span id="local-6989586621679422928"><span id="local-6989586621679422930"><span class="annot"><span class="annottext">Int -&gt; CreateGlobalReplicationGroupResponse -&gt; ShowS
 [CreateGlobalReplicationGroupResponse] -&gt; ShowS
 CreateGlobalReplicationGroupResponse -&gt; String
 (Int -&gt; CreateGlobalReplicationGroupResponse -&gt; ShowS)
@@ -524,8 +524,8 @@ CreateGlobalReplicationGroupResponse
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse</span></a></span><span>
 </span><span id="line-219"></span><span id="newCreateGlobalReplicationGroupResponse"><span class="annot"><span class="annottext">newCreateGlobalReplicationGroupResponse :: Int -&gt; CreateGlobalReplicationGroupResponse
-</span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#newCreateGlobalReplicationGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateGlobalReplicationGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679422914"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422914"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#newCreateGlobalReplicationGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateGlobalReplicationGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679422923"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679422923"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><span class="annottext">CreateGlobalReplicationGroupResponse' :: Maybe GlobalReplicationGroup
 -&gt; Int -&gt; CreateGlobalReplicationGroupResponse
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse'</span></a></span><span>
@@ -536,7 +536,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGlobalReplicationGroupResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#%24sel%3AhttpStatus%3ACreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422914"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679422923"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-224"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -555,17 +555,17 @@ forall a. Maybe a
      (Maybe GlobalReplicationGroup)
      (Maybe GlobalReplicationGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422913"><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422922"><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
 globalReplicationGroup :: Maybe GlobalReplicationGroup
 $sel:globalReplicationGroup:CreateGlobalReplicationGroupResponse' :: CreateGlobalReplicationGroupResponse
 -&gt; Maybe GlobalReplicationGroup
-</span><a href="#local-6989586621679422913"><span class="hs-identifier hs-var hs-var">globalReplicationGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
-</span><a href="#local-6989586621679422913"><span class="hs-identifier hs-var">globalReplicationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422912"><span class="annot"><span class="annottext">s :: CreateGlobalReplicationGroupResponse
-</span><a href="#local-6989586621679422912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422911"><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
-</span><a href="#local-6989586621679422911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalReplicationGroupResponse
-</span><a href="#local-6989586621679422912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalReplicationGroup:CreateGlobalReplicationGroupResponse' :: Maybe GlobalReplicationGroup
+</span><a href="#local-6989586621679422922"><span class="hs-identifier hs-var hs-var">globalReplicationGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
+</span><a href="#local-6989586621679422922"><span class="hs-identifier hs-var">globalReplicationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422921"><span class="annot"><span class="annottext">s :: CreateGlobalReplicationGroupResponse
+</span><a href="#local-6989586621679422921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422920"><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
+</span><a href="#local-6989586621679422920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalReplicationGroupResponse
+</span><a href="#local-6989586621679422921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalReplicationGroup:CreateGlobalReplicationGroupResponse' :: Maybe GlobalReplicationGroup
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#%24sel%3AglobalReplicationGroup%3ACreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var">globalReplicationGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
-</span><a href="#local-6989586621679422911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-231"></span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#createGlobalReplicationGroupResponse_httpStatus"><span class="hs-identifier hs-type">createGlobalReplicationGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -581,18 +581,18 @@ $sel:globalReplicationGroup:CreateGlobalReplicationGroupResponse' :: CreateGloba
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422910"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422919"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateGlobalReplicationGroupResponse' :: CreateGlobalReplicationGroupResponse -&gt; Int
-</span><a href="#local-6989586621679422910"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422910"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422909"><span class="annot"><span class="annottext">s :: CreateGlobalReplicationGroupResponse
-</span><a href="#local-6989586621679422909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422908"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalReplicationGroupResponse
-</span><a href="#local-6989586621679422909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGlobalReplicationGroupResponse' :: Int
+</span><a href="#local-6989586621679422919"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679422919"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422918"><span class="annot"><span class="annottext">s :: CreateGlobalReplicationGroupResponse
+</span><a href="#local-6989586621679422918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422917"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679422917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalReplicationGroupResponse
+</span><a href="#local-6989586621679422918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGlobalReplicationGroupResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#%24sel%3AhttpStatus%3ACreateGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679422906"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679422915"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateGlobalReplicationGroup.html#CreateGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">CreateGlobalReplicationGroupResponse</span></a></span></span><span>
 </span><span id="line-237"></span></pre></body></html>

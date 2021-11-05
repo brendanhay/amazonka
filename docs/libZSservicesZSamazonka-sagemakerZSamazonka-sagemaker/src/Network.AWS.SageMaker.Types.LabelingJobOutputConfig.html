@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Output configuration information for a labeling job.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLabelingJobOutputConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680313440"><span id="local-6989586621680313441"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelingJobOutputConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-var">LabelingJobOutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelingJobOutputConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-var">LabelingJobOutputConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680313449"><span id="local-6989586621680313450"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelingJobOutputConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-var">LabelingJobOutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelingJobOutputConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-var">LabelingJobOutputConfig'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An Amazon Simple Notification Service (Amazon SNS) output topic ARN.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Provide a @SnsTopicArn@ if you want to do real time chaining to another</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- streaming job and receive an Amazon SNS notifications each time a data</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3As3OutputPath%3ALabelingJobOutputConfig%27"><span class="annot"><span class="annottext">LabelingJobOutputConfig -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#%24sel%3As3OutputPath%3ALabelingJobOutputConfig%27"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680313432"><span id="local-6989586621680313434"><span class="annot"><span class="annottext">LabelingJobOutputConfig -&gt; LabelingJobOutputConfig -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680313441"><span id="local-6989586621680313443"><span class="annot"><span class="annottext">LabelingJobOutputConfig -&gt; LabelingJobOutputConfig -&gt; Bool
 (LabelingJobOutputConfig -&gt; LabelingJobOutputConfig -&gt; Bool)
 -&gt; (LabelingJobOutputConfig -&gt; LabelingJobOutputConfig -&gt; Bool)
 -&gt; Eq LabelingJobOutputConfig
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LabelingJobOutputConfig -&gt; LabelingJobOutputConfig -&gt; Bool
 == :: LabelingJobOutputConfig -&gt; LabelingJobOutputConfig -&gt; Bool
 $c== :: LabelingJobOutputConfig -&gt; LabelingJobOutputConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680313423"><span id="local-6989586621680313425"><span id="local-6989586621680313427"><span id="local-6989586621680313429"><span class="annot"><span class="annottext">ReadPrec [LabelingJobOutputConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680313432"><span id="local-6989586621680313434"><span id="local-6989586621680313436"><span id="local-6989586621680313438"><span class="annot"><span class="annottext">ReadPrec [LabelingJobOutputConfig]
 ReadPrec LabelingJobOutputConfig
 Int -&gt; ReadS LabelingJobOutputConfig
 ReadS [LabelingJobOutputConfig]
@@ -92,7 +92,7 @@ readList :: ReadS [LabelingJobOutputConfig]
 $creadList :: ReadS [LabelingJobOutputConfig]
 readsPrec :: Int -&gt; ReadS LabelingJobOutputConfig
 $creadsPrec :: Int -&gt; ReadS LabelingJobOutputConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680313416"><span id="local-6989586621680313418"><span id="local-6989586621680313420"><span class="annot"><span class="annottext">Int -&gt; LabelingJobOutputConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680313425"><span id="local-6989586621680313427"><span id="local-6989586621680313429"><span class="annot"><span class="annottext">Int -&gt; LabelingJobOutputConfig -&gt; ShowS
 [LabelingJobOutputConfig] -&gt; ShowS
 LabelingJobOutputConfig -&gt; String
 (Int -&gt; LabelingJobOutputConfig -&gt; ShowS)
@@ -164,8 +164,8 @@ $cfrom :: forall x. LabelingJobOutputConfig -&gt; Rep LabelingJobOutputConfig x
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span><span>
 </span><span id="line-108"></span><span id="newLabelingJobOutputConfig"><span class="annot"><span class="annottext">newLabelingJobOutputConfig :: Text -&gt; LabelingJobOutputConfig
-</span><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#newLabelingJobOutputConfig"><span class="hs-identifier hs-var hs-var">newLabelingJobOutputConfig</span></a></span></span><span> </span><span id="local-6989586621680313410"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680313410"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#newLabelingJobOutputConfig"><span class="hs-identifier hs-var hs-var">newLabelingJobOutputConfig</span></a></span></span><span> </span><span id="local-6989586621680313419"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680313419"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">LabelingJobOutputConfig' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; LabelingJobOutputConfig
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:snsTopicArn:LabelingJobOutputConfig' :: Maybe Text
@@ -179,7 +179,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3OutputPath:LabelingJobOutputConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#%24sel%3As3OutputPath%3ALabelingJobOutputConfig%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680313410"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span><span>
+</span><a href="#local-6989586621680313419"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | An Amazon Simple Notification Service (Amazon SNS) output topic ARN.</span><span>
@@ -205,16 +205,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680313406"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680313415"><span class="annot"><span class="annottext">Maybe Text
 snsTopicArn :: Maybe Text
 $sel:snsTopicArn:LabelingJobOutputConfig' :: LabelingJobOutputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680313406"><span class="hs-identifier hs-var hs-var">snsTopicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680313406"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680313405"><span class="annot"><span class="annottext">s :: LabelingJobOutputConfig
-</span><a href="#local-6989586621680313405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680313404"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680313404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobOutputConfig
-</span><a href="#local-6989586621680313405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsTopicArn:LabelingJobOutputConfig' :: Maybe Text
+</span><a href="#local-6989586621680313415"><span class="hs-identifier hs-var hs-var">snsTopicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680313415"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680313414"><span class="annot"><span class="annottext">s :: LabelingJobOutputConfig
+</span><a href="#local-6989586621680313414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680313413"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680313413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobOutputConfig
+</span><a href="#local-6989586621680313414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsTopicArn:LabelingJobOutputConfig' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#%24sel%3AsnsTopicArn%3ALabelingJobOutputConfig%27"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680313404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680313413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The Amazon Web Services Key Management Service ID of the key used to</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- encrypt the output data, if any.</span><span>
@@ -245,16 +245,16 @@ $sel:snsTopicArn:LabelingJobOutputConfig' :: LabelingJobOutputConfig -&gt; Maybe
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680313402"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680313411"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyId :: Maybe Text
 $sel:kmsKeyId:LabelingJobOutputConfig' :: LabelingJobOutputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680313402"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680313402"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680313401"><span class="annot"><span class="annottext">s :: LabelingJobOutputConfig
-</span><a href="#local-6989586621680313401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680313400"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680313400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobOutputConfig
-</span><a href="#local-6989586621680313401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:LabelingJobOutputConfig' :: Maybe Text
+</span><a href="#local-6989586621680313411"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680313411"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680313410"><span class="annot"><span class="annottext">s :: LabelingJobOutputConfig
+</span><a href="#local-6989586621680313410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680313409"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680313409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobOutputConfig
+</span><a href="#local-6989586621680313410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:LabelingJobOutputConfig' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#%24sel%3AkmsKeyId%3ALabelingJobOutputConfig%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680313400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680313409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The Amazon S3 location to write output data.</span><span>
 </span><span id="line-151"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#labelingJobOutputConfig_s3OutputPath"><span class="hs-identifier hs-type">labelingJobOutputConfig_s3OutputPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -264,19 +264,19 @@ $sel:kmsKeyId:LabelingJobOutputConfig' :: LabelingJobOutputConfig -&gt; Maybe Te
 -&gt; (LabelingJobOutputConfig -&gt; Text -&gt; LabelingJobOutputConfig)
 -&gt; Lens LabelingJobOutputConfig LabelingJobOutputConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680313398"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680313407"><span class="annot"><span class="annottext">Text
 s3OutputPath :: Text
 $sel:s3OutputPath:LabelingJobOutputConfig' :: LabelingJobOutputConfig -&gt; Text
-</span><a href="#local-6989586621680313398"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680313398"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680313397"><span class="annot"><span class="annottext">s :: LabelingJobOutputConfig
-</span><a href="#local-6989586621680313397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680313396"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680313396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobOutputConfig
-</span><a href="#local-6989586621680313397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputPath:LabelingJobOutputConfig' :: Text
+</span><a href="#local-6989586621680313407"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680313407"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680313406"><span class="annot"><span class="annottext">s :: LabelingJobOutputConfig
+</span><a href="#local-6989586621680313406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680313405"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680313405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobOutputConfig
+</span><a href="#local-6989586621680313406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputPath:LabelingJobOutputConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#%24sel%3As3OutputPath%3ALabelingJobOutputConfig%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680313396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680313405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313393"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621680313391"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LabelingJobOutputConfig
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313402"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621680313400"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LabelingJobOutputConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LabelingJobOutputConfig)
@@ -286,8 +286,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LabelingJobOutputConfig&quot;</span></span><span>
-</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680313388"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680313388"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680313397"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680313397"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Text -&gt; LabelingJobOutputConfig
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-var">LabelingJobOutputConfig'</span></a></span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Text -&gt; LabelingJobOutputConfig)
@@ -295,7 +295,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Text -&gt; LabelingJobOutputConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680313388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680313397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SnsTopicArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -303,7 +303,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; LabelingJobOutputConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680313388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680313397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -311,19 +311,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser LabelingJobOutputConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680313388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680313397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313381"><span id="local-6989586621680313383"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313390"><span id="local-6989586621680313392"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span></span></span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313387"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span></span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313370"><span id="local-6989586621680313372"><span id="local-6989586621680313374"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621680313368"><span class="annot"><span class="annottext">toJSON :: LabelingJobOutputConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680313364"><span id="local-6989586621680313365"><span id="local-6989586621680313366"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313379"><span id="local-6989586621680313381"><span id="local-6989586621680313383"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig"><span class="hs-identifier hs-type">LabelingJobOutputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621680313377"><span class="annot"><span class="annottext">toJSON :: LabelingJobOutputConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobOutputConfig.html#LabelingJobOutputConfig%27"><span class="hs-identifier hs-type">LabelingJobOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680313373"><span id="local-6989586621680313374"><span id="local-6989586621680313375"><span class="annot"><span class="annottext">Maybe Text
 Text
 s3OutputPath :: Text
 kmsKeyId :: Maybe Text
@@ -331,7 +331,7 @@ snsTopicArn :: Maybe Text
 $sel:s3OutputPath:LabelingJobOutputConfig' :: LabelingJobOutputConfig -&gt; Text
 $sel:kmsKeyId:LabelingJobOutputConfig' :: LabelingJobOutputConfig -&gt; Maybe Text
 $sel:snsTopicArn:LabelingJobOutputConfig' :: LabelingJobOutputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680313364"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680313373"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -343,21 +343,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680313366"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680313375"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680313365"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680313374"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680313364"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680313373"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span></pre></body></html>

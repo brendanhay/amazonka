@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | Request to create an application.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newCreateApplication' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679317159"><span id="local-6989586621679317160"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApplication"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-var">CreateApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApplication%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-var">CreateApplication'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679317168"><span id="local-6989586621679317169"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApplication"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-var">CreateApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApplication%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-var">CreateApplication'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies an application resource lifecycle configuration to prevent</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- your application from accumulating too many versions.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AresourceLifecycleConfig%3ACreateApplication%27"><span class="annot"><span class="annottext">CreateApplication -&gt; Maybe ApplicationResourceLifecycleConfig
@@ -70,7 +70,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AapplicationName%3ACreateApplication%27"><span class="annot"><span class="annottext">CreateApplication -&gt; Text
 </span><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#%24sel%3AapplicationName%3ACreateApplication%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317150"><span id="local-6989586621679317152"><span class="annot"><span class="annottext">CreateApplication -&gt; CreateApplication -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317159"><span id="local-6989586621679317161"><span class="annot"><span class="annottext">CreateApplication -&gt; CreateApplication -&gt; Bool
 (CreateApplication -&gt; CreateApplication -&gt; Bool)
 -&gt; (CreateApplication -&gt; CreateApplication -&gt; Bool)
 -&gt; Eq CreateApplication
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateApplication -&gt; CreateApplication -&gt; Bool
 == :: CreateApplication -&gt; CreateApplication -&gt; Bool
 $c== :: CreateApplication -&gt; CreateApplication -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317141"><span id="local-6989586621679317143"><span id="local-6989586621679317145"><span id="local-6989586621679317147"><span class="annot"><span class="annottext">ReadPrec [CreateApplication]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317150"><span id="local-6989586621679317152"><span id="local-6989586621679317154"><span id="local-6989586621679317156"><span class="annot"><span class="annottext">ReadPrec [CreateApplication]
 ReadPrec CreateApplication
 Int -&gt; ReadS CreateApplication
 ReadS [CreateApplication]
@@ -99,7 +99,7 @@ readList :: ReadS [CreateApplication]
 $creadList :: ReadS [CreateApplication]
 readsPrec :: Int -&gt; ReadS CreateApplication
 $creadsPrec :: Int -&gt; ReadS CreateApplication
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317134"><span id="local-6989586621679317136"><span id="local-6989586621679317138"><span class="annot"><span class="annottext">Int -&gt; CreateApplication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317143"><span id="local-6989586621679317145"><span id="local-6989586621679317147"><span class="annot"><span class="annottext">Int -&gt; CreateApplication -&gt; ShowS
 [CreateApplication] -&gt; ShowS
 CreateApplication -&gt; String
 (Int -&gt; CreateApplication -&gt; ShowS)
@@ -149,8 +149,8 @@ $cfrom :: forall x. CreateApplication -&gt; Rep CreateApplication x
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span>
 </span><span id="line-94"></span><span id="newCreateApplication"><span class="annot"><span class="annottext">newCreateApplication :: Text -&gt; CreateApplication
-</span><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#newCreateApplication"><span class="hs-identifier hs-var hs-var">newCreateApplication</span></a></span></span><span> </span><span id="local-6989586621679317129"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317129"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#newCreateApplication"><span class="hs-identifier hs-var hs-var">newCreateApplication</span></a></span></span><span> </span><span id="local-6989586621679317138"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317138"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">CreateApplication' :: Maybe ApplicationResourceLifecycleConfig
 -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Text -&gt; CreateApplication
 </span><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span>
@@ -169,7 +169,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationName:CreateApplication' :: Text
 </span><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#%24sel%3AapplicationName%3ACreateApplication%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317129"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span>
+</span><a href="#local-6989586621679317138"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | Specifies an application resource lifecycle configuration to prevent</span><span>
@@ -187,16 +187,16 @@ forall a. Maybe a
      (Maybe ApplicationResourceLifecycleConfig)
      (Maybe ApplicationResourceLifecycleConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317126"><span class="annot"><span class="annottext">Maybe ApplicationResourceLifecycleConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317135"><span class="annot"><span class="annottext">Maybe ApplicationResourceLifecycleConfig
 resourceLifecycleConfig :: Maybe ApplicationResourceLifecycleConfig
 $sel:resourceLifecycleConfig:CreateApplication' :: CreateApplication -&gt; Maybe ApplicationResourceLifecycleConfig
-</span><a href="#local-6989586621679317126"><span class="hs-identifier hs-var hs-var">resourceLifecycleConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationResourceLifecycleConfig
-</span><a href="#local-6989586621679317126"><span class="hs-identifier hs-var">resourceLifecycleConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317125"><span class="annot"><span class="annottext">s :: CreateApplication
-</span><a href="#local-6989586621679317125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317124"><span class="annot"><span class="annottext">Maybe ApplicationResourceLifecycleConfig
-</span><a href="#local-6989586621679317124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
-</span><a href="#local-6989586621679317125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceLifecycleConfig:CreateApplication' :: Maybe ApplicationResourceLifecycleConfig
+</span><a href="#local-6989586621679317135"><span class="hs-identifier hs-var hs-var">resourceLifecycleConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationResourceLifecycleConfig
+</span><a href="#local-6989586621679317135"><span class="hs-identifier hs-var">resourceLifecycleConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317134"><span class="annot"><span class="annottext">s :: CreateApplication
+</span><a href="#local-6989586621679317134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317133"><span class="annot"><span class="annottext">Maybe ApplicationResourceLifecycleConfig
+</span><a href="#local-6989586621679317133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
+</span><a href="#local-6989586621679317134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceLifecycleConfig:CreateApplication' :: Maybe ApplicationResourceLifecycleConfig
 </span><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#%24sel%3AresourceLifecycleConfig%3ACreateApplication%27"><span class="hs-identifier hs-var">resourceLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationResourceLifecycleConfig
-</span><a href="#local-6989586621679317124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | Your description of the application.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#createApplication_description"><span class="hs-identifier hs-type">createApplication_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -207,16 +207,16 @@ $sel:resourceLifecycleConfig:CreateApplication' :: CreateApplication -&gt; Maybe
 -&gt; Lens
      CreateApplication CreateApplication (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317123"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317132"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreateApplication' :: CreateApplication -&gt; Maybe Text
-</span><a href="#local-6989586621679317123"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317123"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317122"><span class="annot"><span class="annottext">s :: CreateApplication
-</span><a href="#local-6989586621679317122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317121"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
-</span><a href="#local-6989586621679317122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateApplication' :: Maybe Text
+</span><a href="#local-6989586621679317132"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317132"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317131"><span class="annot"><span class="annottext">s :: CreateApplication
+</span><a href="#local-6989586621679317131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317130"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
+</span><a href="#local-6989586621679317131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateApplication' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#%24sel%3Adescription%3ACreateApplication%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | Specifies the tags applied to the application.</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
@@ -230,16 +230,16 @@ $sel:description:CreateApplication' :: CreateApplication -&gt; Maybe Text
 -&gt; Lens
      CreateApplication CreateApplication (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317120"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317129"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateApplication' :: CreateApplication -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679317120"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679317120"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317119"><span class="annot"><span class="annottext">s :: CreateApplication
-</span><a href="#local-6989586621679317119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317118"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679317118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
-</span><a href="#local-6989586621679317119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateApplication' :: Maybe [Tag]
+</span><a href="#local-6989586621679317129"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679317129"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317128"><span class="annot"><span class="annottext">s :: CreateApplication
+</span><a href="#local-6989586621679317128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317127"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679317127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
+</span><a href="#local-6989586621679317128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateApplication' :: Maybe [Tag]
 </span><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#%24sel%3Atags%3ACreateApplication%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679317118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679317127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateApplication -&gt; f CreateApplication)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -263,27 +263,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateApplication -&gt; Text -&gt; CreateApplication)
 -&gt; Lens CreateApplication CreateApplication Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317114"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317123"><span class="annot"><span class="annottext">Text
 applicationName :: Text
 $sel:applicationName:CreateApplication' :: CreateApplication -&gt; Text
-</span><a href="#local-6989586621679317114"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317114"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317113"><span class="annot"><span class="annottext">s :: CreateApplication
-</span><a href="#local-6989586621679317113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317112"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
-</span><a href="#local-6989586621679317113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:CreateApplication' :: Text
+</span><a href="#local-6989586621679317123"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317123"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317122"><span class="annot"><span class="annottext">s :: CreateApplication
+</span><a href="#local-6989586621679317122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317121"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
+</span><a href="#local-6989586621679317122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:CreateApplication' :: Text
 </span><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#%24sel%3AapplicationName%3ACreateApplication%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationDescriptionMessage.html#ApplicationDescriptionMessage"><span class="hs-identifier hs-type">ApplicationDescriptionMessage</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679317108"><span class="annot"><span class="annottext">request :: CreateApplication -&gt; Request CreateApplication
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679317117"><span class="annot"><span class="annottext">request :: CreateApplication -&gt; Request CreateApplication
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateApplication -&gt; Request CreateApplication
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679317104"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679317113"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateApplication
 -&gt; ClientResponse ClientBody
@@ -314,20 +314,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateApplicationResult&quot;</span></span><span>
-</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317101"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317101"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317100"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679317100"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317099"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679317099"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String ApplicationDescriptionMessage
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317110"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317110"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317109"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679317109"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317108"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679317108"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String ApplicationDescriptionMessage
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679317099"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317108"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317094"><span id="local-6989586621679317096"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317103"><span id="local-6989586621679317105"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317091"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317100"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679317087"><span class="annot"><span class="annottext">toHeaders :: CreateApplication -&gt; ResponseHeaders
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679317096"><span class="annot"><span class="annottext">toHeaders :: CreateApplication -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateApplication -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -335,15 +335,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679317082"><span class="annot"><span class="annottext">toPath :: CreateApplication -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679317091"><span class="annot"><span class="annottext">toPath :: CreateApplication -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateApplication -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679317078"><span class="annot"><span class="annottext">toQuery :: CreateApplication -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317073"><span id="local-6989586621679317074"><span id="local-6989586621679317075"><span id="local-6989586621679317076"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679317087"><span class="annot"><span class="annottext">toQuery :: CreateApplication -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317082"><span id="local-6989586621679317083"><span id="local-6989586621679317084"><span id="local-6989586621679317085"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 Maybe ApplicationResourceLifecycleConfig
 Text
@@ -355,7 +355,7 @@ $sel:applicationName:CreateApplication' :: CreateApplication -&gt; Text
 $sel:tags:CreateApplication' :: CreateApplication -&gt; Maybe [Tag]
 $sel:description:CreateApplication' :: CreateApplication -&gt; Maybe Text
 $sel:resourceLifecycleConfig:CreateApplication' :: CreateApplication -&gt; Maybe ApplicationResourceLifecycleConfig
-</span><a href="#local-6989586621679317073"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679317082"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -377,12 +377,12 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe ApplicationResourceLifecycleConfig -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationResourceLifecycleConfig
-</span><a href="#local-6989586621679317076"><span class="hs-identifier hs-var">resourceLifecycleConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679317085"><span class="hs-identifier hs-var">resourceLifecycleConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317075"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679317084"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -398,11 +398,11 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679317074"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679317083"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ApplicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317073"><span class="hs-identifier hs-var">applicationName</span></a></span><span>
+</span><a href="#local-6989586621679317082"><span class="hs-identifier hs-var">applicationName</span></a></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span></pre></body></html>

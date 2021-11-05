@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EMRContainers.DescribeManagedEndpoint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Displays detailed information about a managed endpoint. A managed</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- that EMR Studio can communicate with your virtual cluster.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EMRContainers.DescribeManagedEndpoint</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint"><span class="hs-identifier">DescribeManagedEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#newDescribeManagedEndpoint"><span class="hs-identifier">newDescribeManagedEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#describeManagedEndpoint_id"><span class="hs-identifier">describeManagedEndpoint_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#describeManagedEndpoint_virtualClusterId"><span class="hs-identifier">describeManagedEndpoint_virtualClusterId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse"><span class="hs-identifier">DescribeManagedEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#newDescribeManagedEndpointResponse"><span class="hs-identifier">newDescribeManagedEndpointResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#describeManagedEndpointResponse_endpoint"><span class="hs-identifier">describeManagedEndpointResponse_endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#describeManagedEndpointResponse_httpStatus"><span class="hs-identifier">describeManagedEndpointResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.html"><span class="hs-identifier">Network.AWS.EMRContainers.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDescribeManagedEndpoint' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679188355"><span id="local-6989586621679188356"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeManagedEndpoint"><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint"><span class="hs-identifier hs-var">DescribeManagedEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeManagedEndpoint%27"><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint%27"><span class="hs-identifier hs-var">DescribeManagedEndpoint'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This output displays ID of the managed endpoint.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aid%3ADescribeManagedEndpoint%27"><span class="annot"><span class="annottext">DescribeManagedEndpoint -&gt; Text
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#%24sel%3Aid%3ADescribeManagedEndpoint%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The ID of the endpoint\'s virtual cluster.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AvirtualClusterId%3ADescribeManagedEndpoint%27"><span class="annot"><span class="annottext">DescribeManagedEndpoint -&gt; Text
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#%24sel%3AvirtualClusterId%3ADescribeManagedEndpoint%27"><span class="hs-identifier hs-var hs-var">virtualClusterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188348"><span id="local-6989586621679188350"><span class="annot"><span class="annottext">DescribeManagedEndpoint -&gt; DescribeManagedEndpoint -&gt; Bool
+(DescribeManagedEndpoint -&gt; DescribeManagedEndpoint -&gt; Bool)
+-&gt; (DescribeManagedEndpoint -&gt; DescribeManagedEndpoint -&gt; Bool)
+-&gt; Eq DescribeManagedEndpoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeManagedEndpoint -&gt; DescribeManagedEndpoint -&gt; Bool
+$c/= :: DescribeManagedEndpoint -&gt; DescribeManagedEndpoint -&gt; Bool
+== :: DescribeManagedEndpoint -&gt; DescribeManagedEndpoint -&gt; Bool
+$c== :: DescribeManagedEndpoint -&gt; DescribeManagedEndpoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188339"><span id="local-6989586621679188341"><span id="local-6989586621679188343"><span id="local-6989586621679188345"><span class="annot"><span class="annottext">ReadPrec [DescribeManagedEndpoint]
+ReadPrec DescribeManagedEndpoint
+Int -&gt; ReadS DescribeManagedEndpoint
+ReadS [DescribeManagedEndpoint]
+(Int -&gt; ReadS DescribeManagedEndpoint)
+-&gt; ReadS [DescribeManagedEndpoint]
+-&gt; ReadPrec DescribeManagedEndpoint
+-&gt; ReadPrec [DescribeManagedEndpoint]
+-&gt; Read DescribeManagedEndpoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeManagedEndpoint]
+$creadListPrec :: ReadPrec [DescribeManagedEndpoint]
+readPrec :: ReadPrec DescribeManagedEndpoint
+$creadPrec :: ReadPrec DescribeManagedEndpoint
+readList :: ReadS [DescribeManagedEndpoint]
+$creadList :: ReadS [DescribeManagedEndpoint]
+readsPrec :: Int -&gt; ReadS DescribeManagedEndpoint
+$creadsPrec :: Int -&gt; ReadS DescribeManagedEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188332"><span id="local-6989586621679188334"><span id="local-6989586621679188336"><span class="annot"><span class="annottext">Int -&gt; DescribeManagedEndpoint -&gt; ShowS
+[DescribeManagedEndpoint] -&gt; ShowS
+DescribeManagedEndpoint -&gt; String
+(Int -&gt; DescribeManagedEndpoint -&gt; ShowS)
+-&gt; (DescribeManagedEndpoint -&gt; String)
+-&gt; ([DescribeManagedEndpoint] -&gt; ShowS)
+-&gt; Show DescribeManagedEndpoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeManagedEndpoint] -&gt; ShowS
+$cshowList :: [DescribeManagedEndpoint] -&gt; ShowS
+show :: DescribeManagedEndpoint -&gt; String
+$cshow :: DescribeManagedEndpoint -&gt; String
+showsPrec :: Int -&gt; DescribeManagedEndpoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeManagedEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeManagedEndpoint -&gt; Rep DescribeManagedEndpoint x)
+-&gt; (forall x.
+    Rep DescribeManagedEndpoint x -&gt; DescribeManagedEndpoint)
+-&gt; Generic DescribeManagedEndpoint
+forall x. Rep DescribeManagedEndpoint x -&gt; DescribeManagedEndpoint
+forall x. DescribeManagedEndpoint -&gt; Rep DescribeManagedEndpoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeManagedEndpoint x -&gt; DescribeManagedEndpoint
+$cfrom :: forall x. DescribeManagedEndpoint -&gt; Rep DescribeManagedEndpoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DescribeManagedEndpoint' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'id', 'describeManagedEndpoint_id' - This output displays ID of the managed endpoint.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'virtualClusterId', 'describeManagedEndpoint_virtualClusterId' - The ID of the endpoint\'s virtual cluster.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#newDescribeManagedEndpoint"><span class="hs-identifier hs-type">newDescribeManagedEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'virtualClusterId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint"><span class="hs-identifier hs-type">DescribeManagedEndpoint</span></a></span><span>
+</span><span id="line-78"></span><span id="newDescribeManagedEndpoint"><span class="annot"><span class="annottext">newDescribeManagedEndpoint :: Text -&gt; Text -&gt; DescribeManagedEndpoint
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#newDescribeManagedEndpoint"><span class="hs-identifier hs-var hs-var">newDescribeManagedEndpoint</span></a></span></span><span> </span><span id="local-6989586621679188327"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188327"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679188326"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188326"><span class="hs-identifier hs-var">pVirtualClusterId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DescribeManagedEndpoint' :: Text -&gt; Text -&gt; DescribeManagedEndpoint
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint%27"><span class="hs-identifier hs-type">DescribeManagedEndpoint'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:DescribeManagedEndpoint' :: Text
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#%24sel%3Aid%3ADescribeManagedEndpoint%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188327"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualClusterId:DescribeManagedEndpoint' :: Text
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#%24sel%3AvirtualClusterId%3ADescribeManagedEndpoint%27"><span class="hs-identifier hs-var">virtualClusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188326"><span class="hs-identifier hs-var">pVirtualClusterId_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | This output displays ID of the managed endpoint.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#describeManagedEndpoint_id"><span class="hs-identifier hs-type">describeManagedEndpoint_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint"><span class="hs-identifier hs-type">DescribeManagedEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="describeManagedEndpoint_id"><span class="annot"><span class="annottext">describeManagedEndpoint_id :: (Text -&gt; f Text)
+-&gt; DescribeManagedEndpoint -&gt; f DescribeManagedEndpoint
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#describeManagedEndpoint_id"><span class="hs-identifier hs-var hs-var">describeManagedEndpoint_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeManagedEndpoint -&gt; Text)
+-&gt; (DescribeManagedEndpoint -&gt; Text -&gt; DescribeManagedEndpoint)
+-&gt; Lens DescribeManagedEndpoint DescribeManagedEndpoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint%27"><span class="hs-identifier hs-type">DescribeManagedEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188323"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DescribeManagedEndpoint' :: DescribeManagedEndpoint -&gt; Text
+</span><a href="#local-6989586621679188323"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188323"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188322"><span class="annot"><span class="annottext">s :: DescribeManagedEndpoint
+</span><a href="#local-6989586621679188322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint%27"><span class="hs-identifier hs-type">DescribeManagedEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188321"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedEndpoint
+</span><a href="#local-6989586621679188322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DescribeManagedEndpoint' :: Text
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#%24sel%3Aid%3ADescribeManagedEndpoint%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint"><span class="hs-identifier hs-type">DescribeManagedEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The ID of the endpoint\'s virtual cluster.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#describeManagedEndpoint_virtualClusterId"><span class="hs-identifier hs-type">describeManagedEndpoint_virtualClusterId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint"><span class="hs-identifier hs-type">DescribeManagedEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="describeManagedEndpoint_virtualClusterId"><span class="annot"><span class="annottext">describeManagedEndpoint_virtualClusterId :: (Text -&gt; f Text)
+-&gt; DescribeManagedEndpoint -&gt; f DescribeManagedEndpoint
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#describeManagedEndpoint_virtualClusterId"><span class="hs-identifier hs-var hs-var">describeManagedEndpoint_virtualClusterId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeManagedEndpoint -&gt; Text)
+-&gt; (DescribeManagedEndpoint -&gt; Text -&gt; DescribeManagedEndpoint)
+-&gt; Lens DescribeManagedEndpoint DescribeManagedEndpoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint%27"><span class="hs-identifier hs-type">DescribeManagedEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188320"><span class="annot"><span class="annottext">Text
+virtualClusterId :: Text
+$sel:virtualClusterId:DescribeManagedEndpoint' :: DescribeManagedEndpoint -&gt; Text
+</span><a href="#local-6989586621679188320"><span class="hs-identifier hs-var hs-var">virtualClusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188320"><span class="hs-identifier hs-var">virtualClusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188319"><span class="annot"><span class="annottext">s :: DescribeManagedEndpoint
+</span><a href="#local-6989586621679188319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint%27"><span class="hs-identifier hs-type">DescribeManagedEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188318"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedEndpoint
+</span><a href="#local-6989586621679188319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualClusterId:DescribeManagedEndpoint' :: Text
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#%24sel%3AvirtualClusterId%3ADescribeManagedEndpoint%27"><span class="hs-identifier hs-var">virtualClusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint"><span class="hs-identifier hs-type">DescribeManagedEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint"><span class="hs-identifier hs-type">DescribeManagedEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint"><span class="hs-identifier hs-type">DescribeManagedEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse"><span class="hs-identifier hs-type">DescribeManagedEndpointResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679188314"><span class="annot"><span class="annottext">request :: DescribeManagedEndpoint -&gt; Request DescribeManagedEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeManagedEndpoint -&gt; Request DescribeManagedEndpoint
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EMRContainers.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679188310"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeManagedEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeManagedEndpoint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeManagedEndpoint))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeManagedEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeManagedEndpoint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188307"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188307"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679188306"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679188306"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679188305"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188305"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Endpoint -&gt; Int -&gt; DescribeManagedEndpointResponse
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse%27"><span class="hs-identifier hs-var">DescribeManagedEndpointResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Endpoint -&gt; Int -&gt; DescribeManagedEndpointResponse)
+-&gt; Either String (Maybe Endpoint)
+-&gt; Either String (Int -&gt; DescribeManagedEndpointResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188305"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Endpoint)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeManagedEndpointResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeManagedEndpointResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188307"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188297"><span id="local-6989586621679188299"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint"><span class="hs-identifier hs-type">DescribeManagedEndpoint</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint"><span class="hs-identifier hs-type">DescribeManagedEndpoint</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint"><span class="hs-identifier hs-type">DescribeManagedEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679188290"><span class="annot"><span class="annottext">toHeaders :: DescribeManagedEndpoint -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeManagedEndpoint -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint"><span class="hs-identifier hs-type">DescribeManagedEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679188284"><span class="annot"><span class="annottext">toPath :: DescribeManagedEndpoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint%27"><span class="hs-identifier hs-type">DescribeManagedEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188281"><span id="local-6989586621679188282"><span class="annot"><span class="annottext">Text
+virtualClusterId :: Text
+id :: Text
+$sel:virtualClusterId:DescribeManagedEndpoint' :: DescribeManagedEndpoint -&gt; Text
+$sel:id:DescribeManagedEndpoint' :: DescribeManagedEndpoint -&gt; Text
+</span><a href="#local-6989586621679188281"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/virtualclusters/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188281"><span class="hs-identifier hs-var">virtualClusterId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/endpoints/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188282"><span class="hs-identifier hs-var">id</span></a></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpoint"><span class="hs-identifier hs-type">DescribeManagedEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679188277"><span class="annot"><span class="annottext">toQuery :: DescribeManagedEndpoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeManagedEndpoint -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newDescribeManagedEndpointResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621679188274"><span id="local-6989586621679188275"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeManagedEndpointResponse"><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse"><span class="hs-identifier hs-var">DescribeManagedEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeManagedEndpointResponse%27"><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse%27"><span class="hs-identifier hs-var">DescribeManagedEndpointResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This output displays information about a managed endpoint.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3Aendpoint%3ADescribeManagedEndpointResponse%27"><span class="annot"><span class="annottext">DescribeManagedEndpointResponse -&gt; Maybe Endpoint
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#%24sel%3Aendpoint%3ADescribeManagedEndpointResponse%27"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeManagedEndpointResponse%27"><span class="annot"><span class="annottext">DescribeManagedEndpointResponse -&gt; Int
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#%24sel%3AhttpStatus%3ADescribeManagedEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188268"><span id="local-6989586621679188270"><span class="annot"><span class="annottext">DescribeManagedEndpointResponse
+-&gt; DescribeManagedEndpointResponse -&gt; Bool
+(DescribeManagedEndpointResponse
+ -&gt; DescribeManagedEndpointResponse -&gt; Bool)
+-&gt; (DescribeManagedEndpointResponse
+    -&gt; DescribeManagedEndpointResponse -&gt; Bool)
+-&gt; Eq DescribeManagedEndpointResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeManagedEndpointResponse
+-&gt; DescribeManagedEndpointResponse -&gt; Bool
+$c/= :: DescribeManagedEndpointResponse
+-&gt; DescribeManagedEndpointResponse -&gt; Bool
+== :: DescribeManagedEndpointResponse
+-&gt; DescribeManagedEndpointResponse -&gt; Bool
+$c== :: DescribeManagedEndpointResponse
+-&gt; DescribeManagedEndpointResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188262"><span id="local-6989586621679188264"><span id="local-6989586621679188266"><span class="annot"><span class="annottext">Int -&gt; DescribeManagedEndpointResponse -&gt; ShowS
+[DescribeManagedEndpointResponse] -&gt; ShowS
+DescribeManagedEndpointResponse -&gt; String
+(Int -&gt; DescribeManagedEndpointResponse -&gt; ShowS)
+-&gt; (DescribeManagedEndpointResponse -&gt; String)
+-&gt; ([DescribeManagedEndpointResponse] -&gt; ShowS)
+-&gt; Show DescribeManagedEndpointResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeManagedEndpointResponse] -&gt; ShowS
+$cshowList :: [DescribeManagedEndpointResponse] -&gt; ShowS
+show :: DescribeManagedEndpointResponse -&gt; String
+$cshow :: DescribeManagedEndpointResponse -&gt; String
+showsPrec :: Int -&gt; DescribeManagedEndpointResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeManagedEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeManagedEndpointResponse
+ -&gt; Rep DescribeManagedEndpointResponse x)
+-&gt; (forall x.
+    Rep DescribeManagedEndpointResponse x
+    -&gt; DescribeManagedEndpointResponse)
+-&gt; Generic DescribeManagedEndpointResponse
+forall x.
+Rep DescribeManagedEndpointResponse x
+-&gt; DescribeManagedEndpointResponse
+forall x.
+DescribeManagedEndpointResponse
+-&gt; Rep DescribeManagedEndpointResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeManagedEndpointResponse x
+-&gt; DescribeManagedEndpointResponse
+$cfrom :: forall x.
+DescribeManagedEndpointResponse
+-&gt; Rep DescribeManagedEndpointResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'DescribeManagedEndpointResponse' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'endpoint', 'describeManagedEndpointResponse_endpoint' - This output displays information about a managed endpoint.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'httpStatus', 'describeManagedEndpointResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#newDescribeManagedEndpointResponse"><span class="hs-identifier hs-type">newDescribeManagedEndpointResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse"><span class="hs-identifier hs-type">DescribeManagedEndpointResponse</span></a></span><span>
+</span><span id="line-156"></span><span id="newDescribeManagedEndpointResponse"><span class="annot"><span class="annottext">newDescribeManagedEndpointResponse :: Int -&gt; DescribeManagedEndpointResponse
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#newDescribeManagedEndpointResponse"><span class="hs-identifier hs-var hs-var">newDescribeManagedEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679188259"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188259"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">DescribeManagedEndpointResponse' :: Maybe Endpoint -&gt; Int -&gt; DescribeManagedEndpointResponse
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse%27"><span class="hs-identifier hs-type">DescribeManagedEndpointResponse'</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endpoint:DescribeManagedEndpointResponse' :: Maybe Endpoint
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#%24sel%3Aendpoint%3ADescribeManagedEndpointResponse%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Maybe Endpoint
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeManagedEndpointResponse' :: Int
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#%24sel%3AhttpStatus%3ADescribeManagedEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188259"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | This output displays information about a managed endpoint.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#describeManagedEndpointResponse_endpoint"><span class="hs-identifier hs-type">describeManagedEndpointResponse_endpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse"><span class="hs-identifier hs-type">DescribeManagedEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="describeManagedEndpointResponse_endpoint"><span class="annot"><span class="annottext">describeManagedEndpointResponse_endpoint :: (Maybe Endpoint -&gt; f (Maybe Endpoint))
+-&gt; DescribeManagedEndpointResponse
+-&gt; f DescribeManagedEndpointResponse
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#describeManagedEndpointResponse_endpoint"><span class="hs-identifier hs-var hs-var">describeManagedEndpointResponse_endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeManagedEndpointResponse -&gt; Maybe Endpoint)
+-&gt; (DescribeManagedEndpointResponse
+    -&gt; Maybe Endpoint -&gt; DescribeManagedEndpointResponse)
+-&gt; Lens
+     DescribeManagedEndpointResponse
+     DescribeManagedEndpointResponse
+     (Maybe Endpoint)
+     (Maybe Endpoint)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse%27"><span class="hs-identifier hs-type">DescribeManagedEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188258"><span class="annot"><span class="annottext">Maybe Endpoint
+endpoint :: Maybe Endpoint
+$sel:endpoint:DescribeManagedEndpointResponse' :: DescribeManagedEndpointResponse -&gt; Maybe Endpoint
+</span><a href="#local-6989586621679188258"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621679188258"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188257"><span class="annot"><span class="annottext">s :: DescribeManagedEndpointResponse
+</span><a href="#local-6989586621679188257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse%27"><span class="hs-identifier hs-type">DescribeManagedEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188256"><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621679188256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedEndpointResponse
+</span><a href="#local-6989586621679188257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:DescribeManagedEndpointResponse' :: Maybe Endpoint
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#%24sel%3Aendpoint%3ADescribeManagedEndpointResponse%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621679188256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse"><span class="hs-identifier hs-type">DescribeManagedEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#describeManagedEndpointResponse_httpStatus"><span class="hs-identifier hs-type">describeManagedEndpointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse"><span class="hs-identifier hs-type">DescribeManagedEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-169"></span><span id="describeManagedEndpointResponse_httpStatus"><span class="annot"><span class="annottext">describeManagedEndpointResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeManagedEndpointResponse
+-&gt; f DescribeManagedEndpointResponse
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#describeManagedEndpointResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeManagedEndpointResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeManagedEndpointResponse -&gt; Int)
+-&gt; (DescribeManagedEndpointResponse
+    -&gt; Int -&gt; DescribeManagedEndpointResponse)
+-&gt; Lens
+     DescribeManagedEndpointResponse
+     DescribeManagedEndpointResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse%27"><span class="hs-identifier hs-type">DescribeManagedEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188255"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeManagedEndpointResponse' :: DescribeManagedEndpointResponse -&gt; Int
+</span><a href="#local-6989586621679188255"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188255"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188254"><span class="annot"><span class="annottext">s :: DescribeManagedEndpointResponse
+</span><a href="#local-6989586621679188254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse%27"><span class="hs-identifier hs-type">DescribeManagedEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188253"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedEndpointResponse
+</span><a href="#local-6989586621679188254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeManagedEndpointResponse' :: Int
+</span><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#%24sel%3AhttpStatus%3ADescribeManagedEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse"><span class="hs-identifier hs-type">DescribeManagedEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679188251"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeManagedEndpoint.html#DescribeManagedEndpointResponse"><span class="hs-identifier hs-type">DescribeManagedEndpointResponse</span></a></span></span><span>
+</span><span id="line-174"></span></pre></body></html>

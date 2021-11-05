@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679354155"><span id="local-6989586621679354156"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkflowExecutionTimeoutType"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimeoutType.html#WorkflowExecutionTimeoutType"><span class="hs-identifier hs-var">WorkflowExecutionTimeoutType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowExecutionTimeoutType%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimeoutType.html#WorkflowExecutionTimeoutType%27"><span class="hs-identifier hs-var">WorkflowExecutionTimeoutType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679354164"><span id="local-6989586621679354165"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkflowExecutionTimeoutType"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimeoutType.html#WorkflowExecutionTimeoutType"><span class="hs-identifier hs-var">WorkflowExecutionTimeoutType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowExecutionTimeoutType%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimeoutType.html#WorkflowExecutionTimeoutType%27"><span class="hs-identifier hs-var">WorkflowExecutionTimeoutType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWorkflowExecutionTimeoutType"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType -&gt; Text
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionTimeoutType.html#fromWorkflowExecutionTimeoutType"><span class="hs-identifier hs-var hs-var">fromWorkflowExecutionTimeoutType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679354147"><span id="local-6989586621679354149"><span id="local-6989586621679354151"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionTimeoutType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679354156"><span id="local-6989586621679354158"><span id="local-6989586621679354160"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionTimeoutType -&gt; ShowS
 [WorkflowExecutionTimeoutType] -&gt; ShowS
 WorkflowExecutionTimeoutType -&gt; String
 (Int -&gt; WorkflowExecutionTimeoutType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: WorkflowExecutionTimeoutType -&gt; String
 showsPrec :: Int -&gt; WorkflowExecutionTimeoutType -&gt; ShowS
 $cshowsPrec :: Int -&gt; WorkflowExecutionTimeoutType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679354138"><span id="local-6989586621679354140"><span id="local-6989586621679354142"><span id="local-6989586621679354144"><span class="annot"><span class="annottext">ReadPrec [WorkflowExecutionTimeoutType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679354147"><span id="local-6989586621679354149"><span id="local-6989586621679354151"><span id="local-6989586621679354153"><span class="annot"><span class="annottext">ReadPrec [WorkflowExecutionTimeoutType]
 ReadPrec WorkflowExecutionTimeoutType
 Int -&gt; ReadS WorkflowExecutionTimeoutType
 ReadS [WorkflowExecutionTimeoutType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [WorkflowExecutionTimeoutType]
 readsPrec :: Int -&gt; ReadS WorkflowExecutionTimeoutType
 $creadsPrec :: Int -&gt; ReadS WorkflowExecutionTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679354133"><span id="local-6989586621679354135"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679354142"><span id="local-6989586621679354144"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
 -&gt; WorkflowExecutionTimeoutType -&gt; Bool
 (WorkflowExecutionTimeoutType
  -&gt; WorkflowExecutionTimeoutType -&gt; Bool)
@@ -88,7 +88,7 @@ $c/= :: WorkflowExecutionTimeoutType
 $c== :: WorkflowExecutionTimeoutType
 -&gt; WorkflowExecutionTimeoutType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679354117"><span id="local-6989586621679354119"><span id="local-6989586621679354121"><span id="local-6989586621679354123"><span id="local-6989586621679354125"><span id="local-6989586621679354127"><span id="local-6989586621679354129"><span class="annot"><span class="annottext">Eq WorkflowExecutionTimeoutType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679354126"><span id="local-6989586621679354128"><span id="local-6989586621679354130"><span id="local-6989586621679354132"><span id="local-6989586621679354134"><span id="local-6989586621679354136"><span id="local-6989586621679354138"><span class="annot"><span class="annottext">Eq WorkflowExecutionTimeoutType
 Eq WorkflowExecutionTimeoutType
 -&gt; (WorkflowExecutionTimeoutType
     -&gt; WorkflowExecutionTimeoutType -&gt; Ordering)
@@ -169,7 +169,7 @@ WorkflowExecutionTimeoutType -&gt; Rep WorkflowExecutionTimeoutType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679354109"><span id="local-6989586621679354111"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionTimeoutType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679354118"><span id="local-6989586621679354120"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionTimeoutType -&gt; Int
 WorkflowExecutionTimeoutType -&gt; Int
 (Int -&gt; WorkflowExecutionTimeoutType -&gt; Int)
 -&gt; (WorkflowExecutionTimeoutType -&gt; Int)
@@ -180,56 +180,56 @@ $chash :: WorkflowExecutionTimeoutType -&gt; Int
 hashWithSalt :: Int -&gt; WorkflowExecutionTimeoutType -&gt; Int
 $chashWithSalt :: Int -&gt; WorkflowExecutionTimeoutType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679354106"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679354115"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType -&gt; ()
 (WorkflowExecutionTimeoutType -&gt; ())
 -&gt; NFData WorkflowExecutionTimeoutType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WorkflowExecutionTimeoutType -&gt; ()
 $crnf :: WorkflowExecutionTimeoutType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679354103"><span class="annot"><span class="annottext">Text -&gt; Either String WorkflowExecutionTimeoutType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679354112"><span class="annot"><span class="annottext">Text -&gt; Either String WorkflowExecutionTimeoutType
 (Text -&gt; Either String WorkflowExecutionTimeoutType)
 -&gt; FromText WorkflowExecutionTimeoutType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WorkflowExecutionTimeoutType
 $cfromText :: Text -&gt; Either String WorkflowExecutionTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679354100"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679354109"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType -&gt; Text
 (WorkflowExecutionTimeoutType -&gt; Text)
 -&gt; ToText WorkflowExecutionTimeoutType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WorkflowExecutionTimeoutType -&gt; Text
 $ctoText :: WorkflowExecutionTimeoutType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679354097"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679354106"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType -&gt; ByteString
 (WorkflowExecutionTimeoutType -&gt; ByteString)
 -&gt; ToByteString WorkflowExecutionTimeoutType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WorkflowExecutionTimeoutType -&gt; ByteString
 $ctoBS :: WorkflowExecutionTimeoutType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679354094"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679354103"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType -&gt; ByteStringBuilder
 (WorkflowExecutionTimeoutType -&gt; ByteStringBuilder)
 -&gt; ToLog WorkflowExecutionTimeoutType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WorkflowExecutionTimeoutType -&gt; ByteStringBuilder
 $cbuild :: WorkflowExecutionTimeoutType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679354091"><span class="annot"><span class="annottext">HeaderName -&gt; WorkflowExecutionTimeoutType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679354100"><span class="annot"><span class="annottext">HeaderName -&gt; WorkflowExecutionTimeoutType -&gt; [Header]
 (HeaderName -&gt; WorkflowExecutionTimeoutType -&gt; [Header])
 -&gt; ToHeader WorkflowExecutionTimeoutType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WorkflowExecutionTimeoutType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WorkflowExecutionTimeoutType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679354088"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679354097"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType -&gt; QueryString
 (WorkflowExecutionTimeoutType -&gt; QueryString)
 -&gt; ToQuery WorkflowExecutionTimeoutType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WorkflowExecutionTimeoutType -&gt; QueryString
 $ctoQuery :: WorkflowExecutionTimeoutType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679354083"><span id="local-6989586621679354085"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkflowExecutionTimeoutType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679354092"><span id="local-6989586621679354094"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkflowExecutionTimeoutType]
 Value -&gt; Parser WorkflowExecutionTimeoutType
 (Value -&gt; Parser WorkflowExecutionTimeoutType)
 -&gt; (Value -&gt; Parser [WorkflowExecutionTimeoutType])
@@ -241,7 +241,7 @@ $cparseJSONList :: Value -&gt; Parser [WorkflowExecutionTimeoutType]
 parseJSON :: Value -&gt; Parser WorkflowExecutionTimeoutType
 $cparseJSON :: Value -&gt; Parser WorkflowExecutionTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679354078"><span id="local-6989586621679354080"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkflowExecutionTimeoutType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679354087"><span id="local-6989586621679354089"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkflowExecutionTimeoutType]
 FromJSONKeyFunction WorkflowExecutionTimeoutType
 FromJSONKeyFunction WorkflowExecutionTimeoutType
 -&gt; FromJSONKeyFunction [WorkflowExecutionTimeoutType]
@@ -253,7 +253,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WorkflowExecutionTimeoutType]
 fromJSONKey :: FromJSONKeyFunction WorkflowExecutionTimeoutType
 $cfromJSONKey :: FromJSONKeyFunction WorkflowExecutionTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679354069"><span id="local-6989586621679354071"><span id="local-6989586621679354073"><span id="local-6989586621679354075"><span class="annot"><span class="annottext">[WorkflowExecutionTimeoutType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679354078"><span id="local-6989586621679354080"><span id="local-6989586621679354082"><span id="local-6989586621679354084"><span class="annot"><span class="annottext">[WorkflowExecutionTimeoutType] -&gt; Encoding
 [WorkflowExecutionTimeoutType] -&gt; Value
 WorkflowExecutionTimeoutType -&gt; Encoding
 WorkflowExecutionTimeoutType -&gt; Value
@@ -277,7 +277,7 @@ $ctoEncoding :: WorkflowExecutionTimeoutType -&gt; Encoding
 toJSON :: WorkflowExecutionTimeoutType -&gt; Value
 $ctoJSON :: WorkflowExecutionTimeoutType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679354064"><span id="local-6989586621679354066"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkflowExecutionTimeoutType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679354073"><span id="local-6989586621679354075"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkflowExecutionTimeoutType]
 ToJSONKeyFunction WorkflowExecutionTimeoutType
 ToJSONKeyFunction WorkflowExecutionTimeoutType
 -&gt; ToJSONKeyFunction [WorkflowExecutionTimeoutType]
@@ -289,14 +289,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WorkflowExecutionTimeoutType]
 toJSONKey :: ToJSONKeyFunction WorkflowExecutionTimeoutType
 $ctoJSONKey :: ToJSONKeyFunction WorkflowExecutionTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679354061"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkflowExecutionTimeoutType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679354070"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkflowExecutionTimeoutType
 ([Node] -&gt; Either String WorkflowExecutionTimeoutType)
 -&gt; FromXML WorkflowExecutionTimeoutType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WorkflowExecutionTimeoutType
 $cparseXML :: [Node] -&gt; Either String WorkflowExecutionTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679354058"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679354067"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType -&gt; XML
 (WorkflowExecutionTimeoutType -&gt; XML)
 -&gt; ToXML WorkflowExecutionTimeoutType
 forall a. (a -&gt; XML) -&gt; ToXML a

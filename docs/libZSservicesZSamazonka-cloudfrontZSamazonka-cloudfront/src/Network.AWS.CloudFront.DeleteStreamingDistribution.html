@@ -85,7 +85,7 @@
 </span><span id="line-85"></span><span class="hs-comment">-- | The request to delete a streaming distribution.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- /See:/ 'newDeleteStreamingDistribution' smart constructor.</span><span>
-</span><span id="line-88"></span><span id="local-6989586621679417801"><span id="local-6989586621679417802"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStreamingDistribution"><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-var">DeleteStreamingDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStreamingDistribution%27"><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-var">DeleteStreamingDistribution'</span></a></span></span><span>
+</span><span id="line-88"></span><span id="local-6989586621679417810"><span id="local-6989586621679417811"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStreamingDistribution"><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-var">DeleteStreamingDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStreamingDistribution%27"><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-var">DeleteStreamingDistribution'</span></a></span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the @ETag@ header that you received when you disabled the</span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-comment">-- streaming distribution. For example: @E2QWRUHAPOMQZL@.</span><span>
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3AifMatch%3ADeleteStreamingDistribution%27"><span class="annot"><span class="annottext">DeleteStreamingDistribution -&gt; Maybe Text
@@ -94,7 +94,7 @@
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3Aid%3ADeleteStreamingDistribution%27"><span class="annot"><span class="annottext">DeleteStreamingDistribution -&gt; Text
 </span><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#%24sel%3Aid%3ADeleteStreamingDistribution%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417794"><span id="local-6989586621679417796"><span class="annot"><span class="annottext">DeleteStreamingDistribution -&gt; DeleteStreamingDistribution -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417803"><span id="local-6989586621679417805"><span class="annot"><span class="annottext">DeleteStreamingDistribution -&gt; DeleteStreamingDistribution -&gt; Bool
 (DeleteStreamingDistribution
  -&gt; DeleteStreamingDistribution -&gt; Bool)
 -&gt; (DeleteStreamingDistribution
@@ -105,7 +105,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteStreamingDistribution -&gt; DeleteStreamingDistribution -&gt; Bool
 == :: DeleteStreamingDistribution -&gt; DeleteStreamingDistribution -&gt; Bool
 $c== :: DeleteStreamingDistribution -&gt; DeleteStreamingDistribution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417785"><span id="local-6989586621679417787"><span id="local-6989586621679417789"><span id="local-6989586621679417791"><span class="annot"><span class="annottext">ReadPrec [DeleteStreamingDistribution]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417794"><span id="local-6989586621679417796"><span id="local-6989586621679417798"><span id="local-6989586621679417800"><span class="annot"><span class="annottext">ReadPrec [DeleteStreamingDistribution]
 ReadPrec DeleteStreamingDistribution
 Int -&gt; ReadS DeleteStreamingDistribution
 ReadS [DeleteStreamingDistribution]
@@ -125,7 +125,7 @@ readList :: ReadS [DeleteStreamingDistribution]
 $creadList :: ReadS [DeleteStreamingDistribution]
 readsPrec :: Int -&gt; ReadS DeleteStreamingDistribution
 $creadsPrec :: Int -&gt; ReadS DeleteStreamingDistribution
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417778"><span id="local-6989586621679417780"><span id="local-6989586621679417782"><span class="annot"><span class="annottext">Int -&gt; DeleteStreamingDistribution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417787"><span id="local-6989586621679417789"><span id="local-6989586621679417791"><span class="annot"><span class="annottext">Int -&gt; DeleteStreamingDistribution -&gt; ShowS
 [DeleteStreamingDistribution] -&gt; ShowS
 DeleteStreamingDistribution -&gt; String
 (Int -&gt; DeleteStreamingDistribution -&gt; ShowS)
@@ -174,8 +174,8 @@ DeleteStreamingDistribution -&gt; Rep DeleteStreamingDistribution x
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span>
 </span><span id="line-113"></span><span id="newDeleteStreamingDistribution"><span class="annot"><span class="annottext">newDeleteStreamingDistribution :: Text -&gt; DeleteStreamingDistribution
-</span><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#newDeleteStreamingDistribution"><span class="hs-identifier hs-var hs-var">newDeleteStreamingDistribution</span></a></span></span><span> </span><span id="local-6989586621679417773"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417773"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#newDeleteStreamingDistribution"><span class="hs-identifier hs-var hs-var">newDeleteStreamingDistribution</span></a></span></span><span> </span><span id="local-6989586621679417782"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417782"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">DeleteStreamingDistribution' :: Maybe Text -&gt; Text -&gt; DeleteStreamingDistribution
 </span><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ifMatch:DeleteStreamingDistribution' :: Maybe Text
@@ -185,7 +185,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:DeleteStreamingDistribution' :: Text
 </span><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#%24sel%3Aid%3ADeleteStreamingDistribution%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417773"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><a href="#local-6989586621679417782"><span class="hs-identifier hs-var">pId_</span></a></span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The value of the @ETag@ header that you received when you disabled the</span><span>
@@ -202,16 +202,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417770"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417779"><span class="annot"><span class="annottext">Maybe Text
 ifMatch :: Maybe Text
 $sel:ifMatch:DeleteStreamingDistribution' :: DeleteStreamingDistribution -&gt; Maybe Text
-</span><a href="#local-6989586621679417770"><span class="hs-identifier hs-var hs-var">ifMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417770"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417769"><span class="annot"><span class="annottext">s :: DeleteStreamingDistribution
-</span><a href="#local-6989586621679417769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417768"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStreamingDistribution
-</span><a href="#local-6989586621679417769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ifMatch:DeleteStreamingDistribution' :: Maybe Text
+</span><a href="#local-6989586621679417779"><span class="hs-identifier hs-var hs-var">ifMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417779"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417778"><span class="annot"><span class="annottext">s :: DeleteStreamingDistribution
+</span><a href="#local-6989586621679417778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417777"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStreamingDistribution
+</span><a href="#local-6989586621679417778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ifMatch:DeleteStreamingDistribution' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#%24sel%3AifMatch%3ADeleteStreamingDistribution%27"><span class="hs-identifier hs-var">ifMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The distribution ID.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#deleteStreamingDistribution_id"><span class="hs-identifier hs-type">deleteStreamingDistribution_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -223,29 +223,29 @@ $sel:ifMatch:DeleteStreamingDistribution' :: DeleteStreamingDistribution -&gt; M
 -&gt; Lens
      DeleteStreamingDistribution DeleteStreamingDistribution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417767"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417776"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:DeleteStreamingDistribution' :: DeleteStreamingDistribution -&gt; Text
-</span><a href="#local-6989586621679417767"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417767"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417766"><span class="annot"><span class="annottext">s :: DeleteStreamingDistribution
-</span><a href="#local-6989586621679417766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417765"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStreamingDistribution
-</span><a href="#local-6989586621679417766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteStreamingDistribution' :: Text
+</span><a href="#local-6989586621679417776"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417776"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417775"><span class="annot"><span class="annottext">s :: DeleteStreamingDistribution
+</span><a href="#local-6989586621679417775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417774"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStreamingDistribution
+</span><a href="#local-6989586621679417775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteStreamingDistribution' :: Text
 </span><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#%24sel%3Aid%3ADeleteStreamingDistribution%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse"><span class="hs-identifier hs-type">DeleteStreamingDistributionResponse</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679417761"><span class="annot"><span class="annottext">request :: DeleteStreamingDistribution -&gt; Request DeleteStreamingDistribution
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679417770"><span class="annot"><span class="annottext">request :: DeleteStreamingDistribution -&gt; Request DeleteStreamingDistribution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteStreamingDistribution
 -&gt; Request DeleteStreamingDistribution
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679417757"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679417766"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteStreamingDistribution
 -&gt; ClientResponse ClientBody
@@ -272,36 +272,36 @@ AWSResponse a
 DeleteStreamingDistributionResponse
 </span><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse%27"><span class="hs-identifier hs-var">DeleteStreamingDistributionResponse'</span></a></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417750"><span id="local-6989586621679417752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417759"><span id="local-6989586621679417761"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417756"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679417743"><span class="annot"><span class="annottext">toHeaders :: DeleteStreamingDistribution -&gt; [Header]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417740"><span id="local-6989586621679417741"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679417752"><span class="annot"><span class="annottext">toHeaders :: DeleteStreamingDistribution -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417749"><span id="local-6989586621679417750"><span class="annot"><span class="annottext">Maybe Text
 Text
 id :: Text
 ifMatch :: Maybe Text
 $sel:id:DeleteStreamingDistribution' :: DeleteStreamingDistribution -&gt; Text
 $sel:ifMatch:DeleteStreamingDistribution' :: DeleteStreamingDistribution -&gt; Maybe Text
-</span><a href="#local-6989586621679417740"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679417749"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;If-Match&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417741"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679417750"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679417736"><span class="annot"><span class="annottext">toPath :: DeleteStreamingDistribution -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417733"><span id="local-6989586621679417734"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679417745"><span class="annot"><span class="annottext">toPath :: DeleteStreamingDistribution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417742"><span id="local-6989586621679417743"><span class="annot"><span class="annottext">Maybe Text
 Text
 id :: Text
 ifMatch :: Maybe Text
 $sel:id:DeleteStreamingDistribution' :: DeleteStreamingDistribution -&gt; Text
 $sel:ifMatch:DeleteStreamingDistribution' :: DeleteStreamingDistribution -&gt; Maybe Text
-</span><a href="#local-6989586621679417733"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679417742"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -309,10 +309,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2020-05-31/streaming-distribution/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417733"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679417742"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679417729"><span class="annot"><span class="annottext">toQuery :: DeleteStreamingDistribution -&gt; QueryString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679417738"><span class="annot"><span class="annottext">toQuery :: DeleteStreamingDistribution -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteStreamingDistribution -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -320,10 +320,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newDeleteStreamingDistributionResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621679417725"><span id="local-6989586621679417726"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStreamingDistributionResponse"><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse"><span class="hs-identifier hs-var">DeleteStreamingDistributionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStreamingDistributionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse%27"><span class="hs-identifier hs-var">DeleteStreamingDistributionResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span id="local-6989586621679417734"><span id="local-6989586621679417735"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStreamingDistributionResponse"><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse"><span class="hs-identifier hs-var">DeleteStreamingDistributionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStreamingDistributionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse%27"><span class="hs-identifier hs-var">DeleteStreamingDistributionResponse'</span></a></span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417721"><span id="local-6989586621679417723"><span class="annot"><span class="annottext">DeleteStreamingDistributionResponse
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417730"><span id="local-6989586621679417732"><span class="annot"><span class="annottext">DeleteStreamingDistributionResponse
 -&gt; DeleteStreamingDistributionResponse -&gt; Bool
 (DeleteStreamingDistributionResponse
  -&gt; DeleteStreamingDistributionResponse -&gt; Bool)
@@ -339,7 +339,7 @@ $c/= :: DeleteStreamingDistributionResponse
 -&gt; DeleteStreamingDistributionResponse -&gt; Bool
 $c== :: DeleteStreamingDistributionResponse
 -&gt; DeleteStreamingDistributionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417713"><span id="local-6989586621679417715"><span id="local-6989586621679417717"><span id="local-6989586621679417719"><span class="annot"><span class="annottext">ReadPrec [DeleteStreamingDistributionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417722"><span id="local-6989586621679417724"><span id="local-6989586621679417726"><span id="local-6989586621679417728"><span class="annot"><span class="annottext">ReadPrec [DeleteStreamingDistributionResponse]
 ReadPrec DeleteStreamingDistributionResponse
 Int -&gt; ReadS DeleteStreamingDistributionResponse
 ReadS [DeleteStreamingDistributionResponse]
@@ -359,7 +359,7 @@ readList :: ReadS [DeleteStreamingDistributionResponse]
 $creadList :: ReadS [DeleteStreamingDistributionResponse]
 readsPrec :: Int -&gt; ReadS DeleteStreamingDistributionResponse
 $creadsPrec :: Int -&gt; ReadS DeleteStreamingDistributionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417707"><span id="local-6989586621679417709"><span id="local-6989586621679417711"><span class="annot"><span class="annottext">Int -&gt; DeleteStreamingDistributionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417716"><span id="local-6989586621679417718"><span id="local-6989586621679417720"><span class="annot"><span class="annottext">Int -&gt; DeleteStreamingDistributionResponse -&gt; ShowS
 [DeleteStreamingDistributionResponse] -&gt; ShowS
 DeleteStreamingDistributionResponse -&gt; String
 (Int -&gt; DeleteStreamingDistributionResponse -&gt; ShowS)
@@ -409,6 +409,6 @@ DeleteStreamingDistributionResponse
 </span><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse%27"><span class="hs-identifier hs-var">DeleteStreamingDistributionResponse'</span></a></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679417703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679417712"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse"><span class="hs-identifier hs-type">DeleteStreamingDistributionResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | Results message indicating whether a CNAME is available.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newCheckDNSAvailability' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679317537"><span id="local-6989586621679317538"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckDNSAvailability"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-var">CheckDNSAvailability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckDNSAvailability%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability%27"><span class="hs-identifier hs-var">CheckDNSAvailability'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679317546"><span id="local-6989586621679317547"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckDNSAvailability"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-var">CheckDNSAvailability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckDNSAvailability%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability%27"><span class="hs-identifier hs-var">CheckDNSAvailability'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The prefix used when this CNAME is reserved.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AcNAMEPrefix%3ACheckDNSAvailability%27"><span class="annot"><span class="annottext">CheckDNSAvailability -&gt; Text
 </span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#%24sel%3AcNAMEPrefix%3ACheckDNSAvailability%27"><span class="hs-identifier hs-var hs-var">cNAMEPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317531"><span id="local-6989586621679317533"><span class="annot"><span class="annottext">CheckDNSAvailability -&gt; CheckDNSAvailability -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317540"><span id="local-6989586621679317542"><span class="annot"><span class="annottext">CheckDNSAvailability -&gt; CheckDNSAvailability -&gt; Bool
 (CheckDNSAvailability -&gt; CheckDNSAvailability -&gt; Bool)
 -&gt; (CheckDNSAvailability -&gt; CheckDNSAvailability -&gt; Bool)
 -&gt; Eq CheckDNSAvailability
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CheckDNSAvailability -&gt; CheckDNSAvailability -&gt; Bool
 == :: CheckDNSAvailability -&gt; CheckDNSAvailability -&gt; Bool
 $c== :: CheckDNSAvailability -&gt; CheckDNSAvailability -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317522"><span id="local-6989586621679317524"><span id="local-6989586621679317526"><span id="local-6989586621679317528"><span class="annot"><span class="annottext">ReadPrec [CheckDNSAvailability]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317531"><span id="local-6989586621679317533"><span id="local-6989586621679317535"><span id="local-6989586621679317537"><span class="annot"><span class="annottext">ReadPrec [CheckDNSAvailability]
 ReadPrec CheckDNSAvailability
 Int -&gt; ReadS CheckDNSAvailability
 ReadS [CheckDNSAvailability]
@@ -84,7 +84,7 @@ readList :: ReadS [CheckDNSAvailability]
 $creadList :: ReadS [CheckDNSAvailability]
 readsPrec :: Int -&gt; ReadS CheckDNSAvailability
 $creadsPrec :: Int -&gt; ReadS CheckDNSAvailability
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317515"><span id="local-6989586621679317517"><span id="local-6989586621679317519"><span class="annot"><span class="annottext">Int -&gt; CheckDNSAvailability -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317524"><span id="local-6989586621679317526"><span id="local-6989586621679317528"><span class="annot"><span class="annottext">Int -&gt; CheckDNSAvailability -&gt; ShowS
 [CheckDNSAvailability] -&gt; ShowS
 CheckDNSAvailability -&gt; String
 (Int -&gt; CheckDNSAvailability -&gt; ShowS)
@@ -124,12 +124,12 @@ $cfrom :: forall x. CheckDNSAvailability -&gt; Rep CheckDNSAvailability x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-type">CheckDNSAvailability</span></a></span><span>
 </span><span id="line-72"></span><span id="newCheckDNSAvailability"><span class="annot"><span class="annottext">newCheckDNSAvailability :: Text -&gt; CheckDNSAvailability
-</span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#newCheckDNSAvailability"><span class="hs-identifier hs-var hs-var">newCheckDNSAvailability</span></a></span></span><span> </span><span id="local-6989586621679317510"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317510"><span class="hs-identifier hs-var">pCNAMEPrefix_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#newCheckDNSAvailability"><span class="hs-identifier hs-var hs-var">newCheckDNSAvailability</span></a></span></span><span> </span><span id="local-6989586621679317519"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317519"><span class="hs-identifier hs-var">pCNAMEPrefix_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">CheckDNSAvailability' :: Text -&gt; CheckDNSAvailability
 </span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability%27"><span class="hs-identifier hs-type">CheckDNSAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cNAMEPrefix:CheckDNSAvailability' :: Text
 </span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#%24sel%3AcNAMEPrefix%3ACheckDNSAvailability%27"><span class="hs-identifier hs-var">cNAMEPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317510"><span class="hs-identifier hs-var">pCNAMEPrefix_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679317519"><span class="hs-identifier hs-var">pCNAMEPrefix_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The prefix used when this CNAME is reserved.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#checkDNSAvailability_cNAMEPrefix"><span class="hs-identifier hs-type">checkDNSAvailability_cNAMEPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-type">CheckDNSAvailability</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -138,27 +138,27 @@ $cfrom :: forall x. CheckDNSAvailability -&gt; Rep CheckDNSAvailability x
 -&gt; (CheckDNSAvailability -&gt; Text -&gt; CheckDNSAvailability)
 -&gt; Lens CheckDNSAvailability CheckDNSAvailability Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability%27"><span class="hs-identifier hs-type">CheckDNSAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317507"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability%27"><span class="hs-identifier hs-type">CheckDNSAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317516"><span class="annot"><span class="annottext">Text
 cNAMEPrefix :: Text
 $sel:cNAMEPrefix:CheckDNSAvailability' :: CheckDNSAvailability -&gt; Text
-</span><a href="#local-6989586621679317507"><span class="hs-identifier hs-var hs-var">cNAMEPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317507"><span class="hs-identifier hs-var">cNAMEPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317506"><span class="annot"><span class="annottext">s :: CheckDNSAvailability
-</span><a href="#local-6989586621679317506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability%27"><span class="hs-identifier hs-type">CheckDNSAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317505"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDNSAvailability
-</span><a href="#local-6989586621679317506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cNAMEPrefix:CheckDNSAvailability' :: Text
+</span><a href="#local-6989586621679317516"><span class="hs-identifier hs-var hs-var">cNAMEPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317516"><span class="hs-identifier hs-var">cNAMEPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317515"><span class="annot"><span class="annottext">s :: CheckDNSAvailability
+</span><a href="#local-6989586621679317515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability%27"><span class="hs-identifier hs-type">CheckDNSAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317514"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDNSAvailability
+</span><a href="#local-6989586621679317515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cNAMEPrefix:CheckDNSAvailability' :: Text
 </span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#%24sel%3AcNAMEPrefix%3ACheckDNSAvailability%27"><span class="hs-identifier hs-var">cNAMEPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-type">CheckDNSAvailability</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-type">CheckDNSAvailability</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-type">CheckDNSAvailability</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-type">CheckDNSAvailability</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679317501"><span class="annot"><span class="annottext">request :: CheckDNSAvailability -&gt; Request CheckDNSAvailability
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679317510"><span class="annot"><span class="annottext">request :: CheckDNSAvailability -&gt; Request CheckDNSAvailability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CheckDNSAvailability -&gt; Request CheckDNSAvailability
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679317497"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679317506"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CheckDNSAvailability
 -&gt; ClientResponse ClientBody
@@ -189,10 +189,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CheckDNSAvailabilityResult&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317494"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317494"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317493"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679317493"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317492"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679317492"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317503"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317503"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317502"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679317502"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317501"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679317501"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; CheckDNSAvailabilityResponse
 </span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-var">CheckDNSAvailabilityResponse'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; CheckDNSAvailabilityResponse)
@@ -201,7 +201,7 @@ Text
      String (Maybe Bool -&gt; Int -&gt; CheckDNSAvailabilityResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679317492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679317501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FullyQualifiedCNAME&quot;</span></span><span class="hs-special">)</span><span>
@@ -210,7 +210,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; CheckDNSAvailabilityResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679317492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679317501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Available&quot;</span></span><span class="hs-special">)</span><span>
@@ -222,15 +222,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317494"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317503"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317484"><span id="local-6989586621679317486"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-type">CheckDNSAvailability</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317493"><span id="local-6989586621679317495"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-type">CheckDNSAvailability</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317481"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-type">CheckDNSAvailability</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317490"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-type">CheckDNSAvailability</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-type">CheckDNSAvailability</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679317477"><span class="annot"><span class="annottext">toHeaders :: CheckDNSAvailability -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679317486"><span class="annot"><span class="annottext">toHeaders :: CheckDNSAvailability -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CheckDNSAvailability -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -238,18 +238,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-type">CheckDNSAvailability</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679317472"><span class="annot"><span class="annottext">toPath :: CheckDNSAvailability -&gt; ByteString
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679317481"><span class="annot"><span class="annottext">toPath :: CheckDNSAvailability -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CheckDNSAvailability -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability"><span class="hs-identifier hs-type">CheckDNSAvailability</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679317468"><span class="annot"><span class="annottext">toQuery :: CheckDNSAvailability -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability%27"><span class="hs-identifier hs-type">CheckDNSAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317466"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679317477"><span class="annot"><span class="annottext">toQuery :: CheckDNSAvailability -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailability%27"><span class="hs-identifier hs-type">CheckDNSAvailability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317475"><span class="annot"><span class="annottext">Text
 cNAMEPrefix :: Text
 $sel:cNAMEPrefix:CheckDNSAvailability' :: CheckDNSAvailability -&gt; Text
-</span><a href="#local-6989586621679317466"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679317475"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -269,13 +269,13 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;CNAMEPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317466"><span class="hs-identifier hs-var">cNAMEPrefix</span></a></span><span>
+</span><a href="#local-6989586621679317475"><span class="hs-identifier hs-var">cNAMEPrefix</span></a></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | Indicates if the specified CNAME is available.</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- /See:/ 'newCheckDNSAvailabilityResponse' smart constructor.</span><span>
-</span><span id="line-117"></span><span id="local-6989586621679317463"><span id="local-6989586621679317464"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckDNSAvailabilityResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse"><span class="hs-identifier hs-var">CheckDNSAvailabilityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckDNSAvailabilityResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-var">CheckDNSAvailabilityResponse'</span></a></span></span><span>
+</span><span id="line-117"></span><span id="local-6989586621679317472"><span id="local-6989586621679317473"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckDNSAvailabilityResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse"><span class="hs-identifier hs-var">CheckDNSAvailabilityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckDNSAvailabilityResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-var">CheckDNSAvailabilityResponse'</span></a></span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The fully qualified CNAME to reserve when CreateEnvironment is called</span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-comment">-- with the provided prefix.</span><span>
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3AfullyQualifiedCNAME%3ACheckDNSAvailabilityResponse%27"><span class="annot"><span class="annottext">CheckDNSAvailabilityResponse -&gt; Maybe Text
@@ -291,7 +291,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACheckDNSAvailabilityResponse%27"><span class="annot"><span class="annottext">CheckDNSAvailabilityResponse -&gt; Int
 </span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#%24sel%3AhttpStatus%3ACheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317456"><span id="local-6989586621679317458"><span class="annot"><span class="annottext">CheckDNSAvailabilityResponse
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317465"><span id="local-6989586621679317467"><span class="annot"><span class="annottext">CheckDNSAvailabilityResponse
 -&gt; CheckDNSAvailabilityResponse -&gt; Bool
 (CheckDNSAvailabilityResponse
  -&gt; CheckDNSAvailabilityResponse -&gt; Bool)
@@ -307,7 +307,7 @@ $c/= :: CheckDNSAvailabilityResponse
 -&gt; CheckDNSAvailabilityResponse -&gt; Bool
 $c== :: CheckDNSAvailabilityResponse
 -&gt; CheckDNSAvailabilityResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317448"><span id="local-6989586621679317450"><span id="local-6989586621679317452"><span id="local-6989586621679317454"><span class="annot"><span class="annottext">ReadPrec [CheckDNSAvailabilityResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317457"><span id="local-6989586621679317459"><span id="local-6989586621679317461"><span id="local-6989586621679317463"><span class="annot"><span class="annottext">ReadPrec [CheckDNSAvailabilityResponse]
 ReadPrec CheckDNSAvailabilityResponse
 Int -&gt; ReadS CheckDNSAvailabilityResponse
 ReadS [CheckDNSAvailabilityResponse]
@@ -327,7 +327,7 @@ readList :: ReadS [CheckDNSAvailabilityResponse]
 $creadList :: ReadS [CheckDNSAvailabilityResponse]
 readsPrec :: Int -&gt; ReadS CheckDNSAvailabilityResponse
 $creadsPrec :: Int -&gt; ReadS CheckDNSAvailabilityResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317442"><span id="local-6989586621679317444"><span id="local-6989586621679317446"><span class="annot"><span class="annottext">Int -&gt; CheckDNSAvailabilityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317451"><span id="local-6989586621679317453"><span id="local-6989586621679317455"><span class="annot"><span class="annottext">Int -&gt; CheckDNSAvailabilityResponse -&gt; ShowS
 [CheckDNSAvailabilityResponse] -&gt; ShowS
 CheckDNSAvailabilityResponse -&gt; String
 (Int -&gt; CheckDNSAvailabilityResponse -&gt; ShowS)
@@ -382,8 +382,8 @@ CheckDNSAvailabilityResponse -&gt; Rep CheckDNSAvailabilityResponse x
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newCheckDNSAvailabilityResponse"><span class="annot"><span class="annottext">newCheckDNSAvailabilityResponse :: Int -&gt; CheckDNSAvailabilityResponse
-</span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#newCheckDNSAvailabilityResponse"><span class="hs-identifier hs-var hs-var">newCheckDNSAvailabilityResponse</span></a></span></span><span> </span><span id="local-6989586621679317439"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317439"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#newCheckDNSAvailabilityResponse"><span class="hs-identifier hs-var hs-var">newCheckDNSAvailabilityResponse</span></a></span></span><span> </span><span id="local-6989586621679317448"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317448"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">CheckDNSAvailabilityResponse' :: Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; CheckDNSAvailabilityResponse
 </span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fullyQualifiedCNAME:CheckDNSAvailabilityResponse' :: Maybe Text
@@ -397,7 +397,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CheckDNSAvailabilityResponse' :: Int
 </span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#%24sel%3AhttpStatus%3ACheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317439"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679317448"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | The fully qualified CNAME to reserve when CreateEnvironment is called</span><span>
@@ -414,16 +414,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317438"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317447"><span class="annot"><span class="annottext">Maybe Text
 fullyQualifiedCNAME :: Maybe Text
 $sel:fullyQualifiedCNAME:CheckDNSAvailabilityResponse' :: CheckDNSAvailabilityResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679317438"><span class="hs-identifier hs-var hs-var">fullyQualifiedCNAME</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317438"><span class="hs-identifier hs-var">fullyQualifiedCNAME</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317437"><span class="annot"><span class="annottext">s :: CheckDNSAvailabilityResponse
-</span><a href="#local-6989586621679317437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317436"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDNSAvailabilityResponse
-</span><a href="#local-6989586621679317437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fullyQualifiedCNAME:CheckDNSAvailabilityResponse' :: Maybe Text
+</span><a href="#local-6989586621679317447"><span class="hs-identifier hs-var hs-var">fullyQualifiedCNAME</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317447"><span class="hs-identifier hs-var">fullyQualifiedCNAME</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317446"><span class="annot"><span class="annottext">s :: CheckDNSAvailabilityResponse
+</span><a href="#local-6989586621679317446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317445"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDNSAvailabilityResponse
+</span><a href="#local-6989586621679317446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fullyQualifiedCNAME:CheckDNSAvailabilityResponse' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#%24sel%3AfullyQualifiedCNAME%3ACheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-var">fullyQualifiedCNAME</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | Indicates if the specified CNAME is available:</span><span>
 </span><span id="line-168"></span><span class="hs-comment">--</span><span>
@@ -442,16 +442,16 @@ $sel:fullyQualifiedCNAME:CheckDNSAvailabilityResponse' :: CheckDNSAvailabilityRe
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317435"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317444"><span class="annot"><span class="annottext">Maybe Bool
 available :: Maybe Bool
 $sel:available:CheckDNSAvailabilityResponse' :: CheckDNSAvailabilityResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679317435"><span class="hs-identifier hs-var hs-var">available</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679317435"><span class="hs-identifier hs-var">available</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317434"><span class="annot"><span class="annottext">s :: CheckDNSAvailabilityResponse
-</span><a href="#local-6989586621679317434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317433"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679317433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDNSAvailabilityResponse
-</span><a href="#local-6989586621679317434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:available:CheckDNSAvailabilityResponse' :: Maybe Bool
+</span><a href="#local-6989586621679317444"><span class="hs-identifier hs-var hs-var">available</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679317444"><span class="hs-identifier hs-var">available</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317443"><span class="annot"><span class="annottext">s :: CheckDNSAvailabilityResponse
+</span><a href="#local-6989586621679317443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317442"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679317442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDNSAvailabilityResponse
+</span><a href="#local-6989586621679317443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:available:CheckDNSAvailabilityResponse' :: Maybe Bool
 </span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#%24sel%3Aavailable%3ACheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-var">available</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679317433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-176"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#checkDNSAvailabilityResponse_httpStatus"><span class="hs-identifier hs-type">checkDNSAvailabilityResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -463,16 +463,16 @@ $sel:available:CheckDNSAvailabilityResponse' :: CheckDNSAvailabilityResponse -&g
 -&gt; Lens
      CheckDNSAvailabilityResponse CheckDNSAvailabilityResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317432"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317441"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CheckDNSAvailabilityResponse' :: CheckDNSAvailabilityResponse -&gt; Int
-</span><a href="#local-6989586621679317432"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317432"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317431"><span class="annot"><span class="annottext">s :: CheckDNSAvailabilityResponse
-</span><a href="#local-6989586621679317431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317430"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDNSAvailabilityResponse
-</span><a href="#local-6989586621679317431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CheckDNSAvailabilityResponse' :: Int
+</span><a href="#local-6989586621679317441"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317441"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317440"><span class="annot"><span class="annottext">s :: CheckDNSAvailabilityResponse
+</span><a href="#local-6989586621679317440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317439"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDNSAvailabilityResponse
+</span><a href="#local-6989586621679317440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CheckDNSAvailabilityResponse' :: Int
 </span><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#%24sel%3AhttpStatus%3ACheckDNSAvailabilityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317428"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317437"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CheckDNSAvailability.html#CheckDNSAvailabilityResponse"><span class="hs-identifier hs-type">CheckDNSAvailabilityResponse</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

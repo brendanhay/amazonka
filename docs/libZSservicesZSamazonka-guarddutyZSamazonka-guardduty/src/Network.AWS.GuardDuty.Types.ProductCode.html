@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information about the product code for the EC2 instance.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newProductCode' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679298783"><span id="local-6989586621679298784"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProductCode"><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode"><span class="hs-identifier hs-var">ProductCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProductCode%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode%27"><span class="hs-identifier hs-var">ProductCode'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679298792"><span id="local-6989586621679298793"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProductCode"><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode"><span class="hs-identifier hs-var">ProductCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProductCode%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode%27"><span class="hs-identifier hs-var">ProductCode'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The product code type.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AproductType%3AProductCode%27"><span class="annot"><span class="annottext">ProductCode -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.ProductCode.html#%24sel%3AproductType%3AProductCode%27"><span class="hs-identifier hs-var hs-var">productType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Acode%3AProductCode%27"><span class="annot"><span class="annottext">ProductCode -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.ProductCode.html#%24sel%3Acode%3AProductCode%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298776"><span id="local-6989586621679298778"><span class="annot"><span class="annottext">ProductCode -&gt; ProductCode -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298785"><span id="local-6989586621679298787"><span class="annot"><span class="annottext">ProductCode -&gt; ProductCode -&gt; Bool
 (ProductCode -&gt; ProductCode -&gt; Bool)
 -&gt; (ProductCode -&gt; ProductCode -&gt; Bool) -&gt; Eq ProductCode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProductCode -&gt; ProductCode -&gt; Bool
 == :: ProductCode -&gt; ProductCode -&gt; Bool
 $c== :: ProductCode -&gt; ProductCode -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298767"><span id="local-6989586621679298769"><span id="local-6989586621679298771"><span id="local-6989586621679298773"><span class="annot"><span class="annottext">ReadPrec [ProductCode]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298776"><span id="local-6989586621679298778"><span id="local-6989586621679298780"><span id="local-6989586621679298782"><span class="annot"><span class="annottext">ReadPrec [ProductCode]
 ReadPrec ProductCode
 Int -&gt; ReadS ProductCode
 ReadS [ProductCode]
@@ -62,7 +62,7 @@ readList :: ReadS [ProductCode]
 $creadList :: ReadS [ProductCode]
 readsPrec :: Int -&gt; ReadS ProductCode
 $creadsPrec :: Int -&gt; ReadS ProductCode
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298760"><span id="local-6989586621679298762"><span id="local-6989586621679298764"><span class="annot"><span class="annottext">Int -&gt; ProductCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298769"><span id="local-6989586621679298771"><span id="local-6989586621679298773"><span class="annot"><span class="annottext">Int -&gt; ProductCode -&gt; ShowS
 [ProductCode] -&gt; ShowS
 ProductCode -&gt; String
 (Int -&gt; ProductCode -&gt; ShowS)
@@ -122,16 +122,16 @@ forall a. Maybe a
 -&gt; (ProductCode -&gt; Maybe Text -&gt; ProductCode)
 -&gt; Lens ProductCode ProductCode (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode%27"><span class="hs-identifier hs-type">ProductCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298751"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode%27"><span class="hs-identifier hs-type">ProductCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298760"><span class="annot"><span class="annottext">Maybe Text
 productType :: Maybe Text
 $sel:productType:ProductCode' :: ProductCode -&gt; Maybe Text
-</span><a href="#local-6989586621679298751"><span class="hs-identifier hs-var hs-var">productType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298751"><span class="hs-identifier hs-var">productType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298750"><span class="annot"><span class="annottext">s :: ProductCode
-</span><a href="#local-6989586621679298750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode%27"><span class="hs-identifier hs-type">ProductCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298749"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductCode
-</span><a href="#local-6989586621679298750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productType:ProductCode' :: Maybe Text
+</span><a href="#local-6989586621679298760"><span class="hs-identifier hs-var hs-var">productType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298760"><span class="hs-identifier hs-var">productType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298759"><span class="annot"><span class="annottext">s :: ProductCode
+</span><a href="#local-6989586621679298759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode%27"><span class="hs-identifier hs-type">ProductCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298758"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductCode
+</span><a href="#local-6989586621679298759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productType:ProductCode' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.ProductCode.html#%24sel%3AproductType%3AProductCode%27"><span class="hs-identifier hs-var">productType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode"><span class="hs-identifier hs-type">ProductCode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode"><span class="hs-identifier hs-type">ProductCode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The product code information.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#productCode_code"><span class="hs-identifier hs-type">productCode_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode"><span class="hs-identifier hs-type">ProductCode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -140,19 +140,19 @@ $sel:productType:ProductCode' :: ProductCode -&gt; Maybe Text
 -&gt; (ProductCode -&gt; Maybe Text -&gt; ProductCode)
 -&gt; Lens ProductCode ProductCode (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode%27"><span class="hs-identifier hs-type">ProductCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298747"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode%27"><span class="hs-identifier hs-type">ProductCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298756"><span class="annot"><span class="annottext">Maybe Text
 code :: Maybe Text
 $sel:code:ProductCode' :: ProductCode -&gt; Maybe Text
-</span><a href="#local-6989586621679298747"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298747"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298746"><span class="annot"><span class="annottext">s :: ProductCode
-</span><a href="#local-6989586621679298746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode%27"><span class="hs-identifier hs-type">ProductCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298745"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductCode
-</span><a href="#local-6989586621679298746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ProductCode' :: Maybe Text
+</span><a href="#local-6989586621679298756"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298756"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298755"><span class="annot"><span class="annottext">s :: ProductCode
+</span><a href="#local-6989586621679298755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode%27"><span class="hs-identifier hs-type">ProductCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298754"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductCode
+</span><a href="#local-6989586621679298755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ProductCode' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.ProductCode.html#%24sel%3Acode%3AProductCode%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode"><span class="hs-identifier hs-type">ProductCode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode"><span class="hs-identifier hs-type">ProductCode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298742"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode"><span class="hs-identifier hs-type">ProductCode</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679298740"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProductCode
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298751"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode"><span class="hs-identifier hs-type">ProductCode</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679298749"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProductCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProductCode) -&gt; Value -&gt; Parser ProductCode
@@ -160,15 +160,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProductCode&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298737"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679298737"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298746"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298746"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; ProductCode
 </span><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode%27"><span class="hs-identifier hs-var">ProductCode'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; ProductCode)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ProductCode)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679298737"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679298746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;productType&quot;</span></span><span class="hs-special">)</span><span>
@@ -176,13 +176,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ProductCode
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679298737"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679298746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298731"><span id="local-6989586621679298733"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode"><span class="hs-identifier hs-type">ProductCode</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298740"><span id="local-6989586621679298742"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode"><span class="hs-identifier hs-type">ProductCode</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298728"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode"><span class="hs-identifier hs-type">ProductCode</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ProductCode.html#ProductCode"><span class="hs-identifier hs-type">ProductCode</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

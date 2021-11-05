@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppRunner.Types.OperationSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppRunner.Types.OperationSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationStatus.html"><span class="hs-identifier">Network.AWS.AppRunner.Types.OperationStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationType.html"><span class="hs-identifier">Network.AWS.AppRunner.Types.OperationType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Provides summary information for an operation that occurred on an App</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Runner service.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newOperationSummary' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679205285"><span id="local-6989586621679205286"></span></span><span class="hs-keyword">data</span><span> </span><span id="OperationSummary"><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-var">OperationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OperationSummary%27"><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-var">OperationSummary'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of the operation.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AOperationSummary%27"><span class="annot"><span class="annottext">OperationSummary -&gt; Maybe OperationStatus
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3Astatus%3AOperationSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationStatus.html#OperationStatus"><span class="hs-identifier hs-type">OperationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource that the operation acted</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- on (for example, an App Runner service).</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtargetArn%3AOperationSummary%27"><span class="annot"><span class="annottext">OperationSummary -&gt; Maybe Text
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3AtargetArn%3AOperationSummary%27"><span class="hs-identifier hs-var hs-var">targetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The time when the operation ended. It\'s in the Unix time stamp format.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AendedAt%3AOperationSummary%27"><span class="annot"><span class="annottext">OperationSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3AendedAt%3AOperationSummary%27"><span class="hs-identifier hs-var hs-var">endedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The time when the operation started. It\'s in the Unix time stamp</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AstartedAt%3AOperationSummary%27"><span class="annot"><span class="annottext">OperationSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3AstartedAt%3AOperationSummary%27"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A unique ID of this operation. It\'s unique in the scope of the App</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Runner service.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aid%3AOperationSummary%27"><span class="annot"><span class="annottext">OperationSummary -&gt; Maybe Text
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3Aid%3AOperationSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The type of operation. It indicates a specific action that occured.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Atype%27%3AOperationSummary%27"><span class="annot"><span class="annottext">OperationSummary -&gt; Maybe OperationType
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3Atype%27%3AOperationSummary%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The time when the operation was last updated. It\'s in the Unix time</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- stamp format.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AupdatedAt%3AOperationSummary%27"><span class="annot"><span class="annottext">OperationSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3AupdatedAt%3AOperationSummary%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205273"><span id="local-6989586621679205275"><span class="annot"><span class="annottext">OperationSummary -&gt; OperationSummary -&gt; Bool
+(OperationSummary -&gt; OperationSummary -&gt; Bool)
+-&gt; (OperationSummary -&gt; OperationSummary -&gt; Bool)
+-&gt; Eq OperationSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OperationSummary -&gt; OperationSummary -&gt; Bool
+$c/= :: OperationSummary -&gt; OperationSummary -&gt; Bool
+== :: OperationSummary -&gt; OperationSummary -&gt; Bool
+$c== :: OperationSummary -&gt; OperationSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205264"><span id="local-6989586621679205266"><span id="local-6989586621679205268"><span id="local-6989586621679205270"><span class="annot"><span class="annottext">ReadPrec [OperationSummary]
+ReadPrec OperationSummary
+Int -&gt; ReadS OperationSummary
+ReadS [OperationSummary]
+(Int -&gt; ReadS OperationSummary)
+-&gt; ReadS [OperationSummary]
+-&gt; ReadPrec OperationSummary
+-&gt; ReadPrec [OperationSummary]
+-&gt; Read OperationSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OperationSummary]
+$creadListPrec :: ReadPrec [OperationSummary]
+readPrec :: ReadPrec OperationSummary
+$creadPrec :: ReadPrec OperationSummary
+readList :: ReadS [OperationSummary]
+$creadList :: ReadS [OperationSummary]
+readsPrec :: Int -&gt; ReadS OperationSummary
+$creadsPrec :: Int -&gt; ReadS OperationSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205257"><span id="local-6989586621679205259"><span id="local-6989586621679205261"><span class="annot"><span class="annottext">Int -&gt; OperationSummary -&gt; ShowS
+[OperationSummary] -&gt; ShowS
+OperationSummary -&gt; String
+(Int -&gt; OperationSummary -&gt; ShowS)
+-&gt; (OperationSummary -&gt; String)
+-&gt; ([OperationSummary] -&gt; ShowS)
+-&gt; Show OperationSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OperationSummary] -&gt; ShowS
+$cshowList :: [OperationSummary] -&gt; ShowS
+show :: OperationSummary -&gt; String
+$cshow :: OperationSummary -&gt; String
+showsPrec :: Int -&gt; OperationSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; OperationSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. OperationSummary -&gt; Rep OperationSummary x)
+-&gt; (forall x. Rep OperationSummary x -&gt; OperationSummary)
+-&gt; Generic OperationSummary
+forall x. Rep OperationSummary x -&gt; OperationSummary
+forall x. OperationSummary -&gt; Rep OperationSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OperationSummary x -&gt; OperationSummary
+$cfrom :: forall x. OperationSummary -&gt; Rep OperationSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'OperationSummary' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'status', 'operationSummary_status' - The current state of the operation.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'targetArn', 'operationSummary_targetArn' - The Amazon Resource Name (ARN) of the resource that the operation acted</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- on (for example, an App Runner service).</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'endedAt', 'operationSummary_endedAt' - The time when the operation ended. It\'s in the Unix time stamp format.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'startedAt', 'operationSummary_startedAt' - The time when the operation started. It\'s in the Unix time stamp</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'id', 'operationSummary_id' - A unique ID of this operation. It\'s unique in the scope of the App</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Runner service.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'type'', 'operationSummary_type' - The type of operation. It indicates a specific action that occured.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'updatedAt', 'operationSummary_updatedAt' - The time when the operation was last updated. It\'s in the Unix time</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- stamp format.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#newOperationSummary"><span class="hs-identifier hs-type">newOperationSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span>
+</span><span id="line-81"></span><span id="newOperationSummary"><span class="annot"><span class="annottext">newOperationSummary :: OperationSummary
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#newOperationSummary"><span class="hs-identifier hs-var hs-var">newOperationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">OperationSummary' :: Maybe OperationStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe OperationType
+-&gt; Maybe POSIX
+-&gt; OperationSummary
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:OperationSummary' :: Maybe OperationStatus
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3Astatus%3AOperationSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetArn:OperationSummary' :: Maybe Text
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3AtargetArn%3AOperationSummary%27"><span class="hs-identifier hs-var">targetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:endedAt:OperationSummary' :: Maybe POSIX
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3AendedAt%3AOperationSummary%27"><span class="hs-identifier hs-var">endedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:startedAt:OperationSummary' :: Maybe POSIX
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3AstartedAt%3AOperationSummary%27"><span class="hs-identifier hs-var">startedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:OperationSummary' :: Maybe Text
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3Aid%3AOperationSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':OperationSummary' :: Maybe OperationType
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3Atype%27%3AOperationSummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:updatedAt:OperationSummary' :: Maybe POSIX
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3AupdatedAt%3AOperationSummary%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The current state of the operation.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#operationSummary_status"><span class="hs-identifier hs-type">operationSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationStatus.html#OperationStatus"><span class="hs-identifier hs-type">OperationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="operationSummary_status"><span class="annot"><span class="annottext">operationSummary_status :: (Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+-&gt; OperationSummary -&gt; f OperationSummary
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#operationSummary_status"><span class="hs-identifier hs-var hs-var">operationSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OperationSummary -&gt; Maybe OperationStatus)
+-&gt; (OperationSummary -&gt; Maybe OperationStatus -&gt; OperationSummary)
+-&gt; Lens
+     OperationSummary
+     OperationSummary
+     (Maybe OperationStatus)
+     (Maybe OperationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205248"><span class="annot"><span class="annottext">Maybe OperationStatus
+status :: Maybe OperationStatus
+$sel:status:OperationSummary' :: OperationSummary -&gt; Maybe OperationStatus
+</span><a href="#local-6989586621679205248"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperationStatus
+</span><a href="#local-6989586621679205248"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205247"><span class="annot"><span class="annottext">s :: OperationSummary
+</span><a href="#local-6989586621679205247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205246"><span class="annot"><span class="annottext">Maybe OperationStatus
+</span><a href="#local-6989586621679205246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
+</span><a href="#local-6989586621679205247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:OperationSummary' :: Maybe OperationStatus
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3Astatus%3AOperationSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperationStatus
+</span><a href="#local-6989586621679205246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource that the operation acted</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- on (for example, an App Runner service).</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#operationSummary_targetArn"><span class="hs-identifier hs-type">operationSummary_targetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="operationSummary_targetArn"><span class="annot"><span class="annottext">operationSummary_targetArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OperationSummary -&gt; f OperationSummary
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#operationSummary_targetArn"><span class="hs-identifier hs-var hs-var">operationSummary_targetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OperationSummary -&gt; Maybe Text)
+-&gt; (OperationSummary -&gt; Maybe Text -&gt; OperationSummary)
+-&gt; Lens OperationSummary OperationSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205244"><span class="annot"><span class="annottext">Maybe Text
+targetArn :: Maybe Text
+$sel:targetArn:OperationSummary' :: OperationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679205244"><span class="hs-identifier hs-var hs-var">targetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205244"><span class="hs-identifier hs-var">targetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205243"><span class="annot"><span class="annottext">s :: OperationSummary
+</span><a href="#local-6989586621679205243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205242"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
+</span><a href="#local-6989586621679205243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetArn:OperationSummary' :: Maybe Text
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3AtargetArn%3AOperationSummary%27"><span class="hs-identifier hs-var">targetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The time when the operation ended. It\'s in the Unix time stamp format.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#operationSummary_endedAt"><span class="hs-identifier hs-type">operationSummary_endedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="operationSummary_endedAt"><span class="annot"><span class="annottext">operationSummary_endedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; OperationSummary -&gt; f OperationSummary
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#operationSummary_endedAt"><span class="hs-identifier hs-var hs-var">operationSummary_endedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OperationSummary -&gt; Maybe POSIX)
+-&gt; (OperationSummary -&gt; Maybe POSIX -&gt; OperationSummary)
+-&gt; Lens
+     OperationSummary OperationSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205240"><span class="annot"><span class="annottext">Maybe POSIX
+endedAt :: Maybe POSIX
+$sel:endedAt:OperationSummary' :: OperationSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679205240"><span class="hs-identifier hs-var hs-var">endedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205240"><span class="hs-identifier hs-var">endedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205239"><span class="annot"><span class="annottext">s :: OperationSummary
+</span><a href="#local-6989586621679205239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205238"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
+</span><a href="#local-6989586621679205239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endedAt:OperationSummary' :: Maybe POSIX
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3AendedAt%3AOperationSummary%27"><span class="hs-identifier hs-var">endedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; OperationSummary -&gt; f OperationSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; OperationSummary
+-&gt; f OperationSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The time when the operation started. It\'s in the Unix time stamp</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#operationSummary_startedAt"><span class="hs-identifier hs-type">operationSummary_startedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="operationSummary_startedAt"><span class="annot"><span class="annottext">operationSummary_startedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; OperationSummary -&gt; f OperationSummary
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#operationSummary_startedAt"><span class="hs-identifier hs-var hs-var">operationSummary_startedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OperationSummary -&gt; Maybe POSIX)
+-&gt; (OperationSummary -&gt; Maybe POSIX -&gt; OperationSummary)
+-&gt; Lens
+     OperationSummary OperationSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205233"><span class="annot"><span class="annottext">Maybe POSIX
+startedAt :: Maybe POSIX
+$sel:startedAt:OperationSummary' :: OperationSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679205233"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205233"><span class="hs-identifier hs-var">startedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205232"><span class="annot"><span class="annottext">s :: OperationSummary
+</span><a href="#local-6989586621679205232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205231"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
+</span><a href="#local-6989586621679205232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedAt:OperationSummary' :: Maybe POSIX
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3AstartedAt%3AOperationSummary%27"><span class="hs-identifier hs-var">startedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; OperationSummary -&gt; f OperationSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; OperationSummary
+-&gt; f OperationSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | A unique ID of this operation. It\'s unique in the scope of the App</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Runner service.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#operationSummary_id"><span class="hs-identifier hs-type">operationSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="operationSummary_id"><span class="annot"><span class="annottext">operationSummary_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OperationSummary -&gt; f OperationSummary
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#operationSummary_id"><span class="hs-identifier hs-var hs-var">operationSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OperationSummary -&gt; Maybe Text)
+-&gt; (OperationSummary -&gt; Maybe Text -&gt; OperationSummary)
+-&gt; Lens OperationSummary OperationSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205229"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:OperationSummary' :: OperationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679205229"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205229"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205228"><span class="annot"><span class="annottext">s :: OperationSummary
+</span><a href="#local-6989586621679205228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205227"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
+</span><a href="#local-6989586621679205228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:OperationSummary' :: Maybe Text
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3Aid%3AOperationSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The type of operation. It indicates a specific action that occured.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#operationSummary_type"><span class="hs-identifier hs-type">operationSummary_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="operationSummary_type"><span class="annot"><span class="annottext">operationSummary_type :: (Maybe OperationType -&gt; f (Maybe OperationType))
+-&gt; OperationSummary -&gt; f OperationSummary
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#operationSummary_type"><span class="hs-identifier hs-var hs-var">operationSummary_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OperationSummary -&gt; Maybe OperationType)
+-&gt; (OperationSummary -&gt; Maybe OperationType -&gt; OperationSummary)
+-&gt; Lens
+     OperationSummary
+     OperationSummary
+     (Maybe OperationType)
+     (Maybe OperationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205225"><span class="annot"><span class="annottext">Maybe OperationType
+type' :: Maybe OperationType
+$sel:type':OperationSummary' :: OperationSummary -&gt; Maybe OperationType
+</span><a href="#local-6989586621679205225"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperationType
+</span><a href="#local-6989586621679205225"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205224"><span class="annot"><span class="annottext">s :: OperationSummary
+</span><a href="#local-6989586621679205224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205223"><span class="annot"><span class="annottext">Maybe OperationType
+</span><a href="#local-6989586621679205223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
+</span><a href="#local-6989586621679205224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':OperationSummary' :: Maybe OperationType
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3Atype%27%3AOperationSummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperationType
+</span><a href="#local-6989586621679205223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The time when the operation was last updated. It\'s in the Unix time</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- stamp format.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#operationSummary_updatedAt"><span class="hs-identifier hs-type">operationSummary_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="operationSummary_updatedAt"><span class="annot"><span class="annottext">operationSummary_updatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; OperationSummary -&gt; f OperationSummary
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#operationSummary_updatedAt"><span class="hs-identifier hs-var hs-var">operationSummary_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OperationSummary -&gt; Maybe POSIX)
+-&gt; (OperationSummary -&gt; Maybe POSIX -&gt; OperationSummary)
+-&gt; Lens
+     OperationSummary OperationSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205221"><span class="annot"><span class="annottext">Maybe POSIX
+updatedAt :: Maybe POSIX
+$sel:updatedAt:OperationSummary' :: OperationSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679205221"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205221"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205220"><span class="annot"><span class="annottext">s :: OperationSummary
+</span><a href="#local-6989586621679205220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205219"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
+</span><a href="#local-6989586621679205220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:OperationSummary' :: Maybe POSIX
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#%24sel%3AupdatedAt%3AOperationSummary%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; OperationSummary -&gt; f OperationSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; OperationSummary
+-&gt; f OperationSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205216"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679205214"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OperationSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser OperationSummary)
+-&gt; Value
+-&gt; Parser OperationSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;OperationSummary&quot;</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205211"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205211"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe OperationStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe OperationType
+-&gt; Maybe POSIX
+-&gt; OperationSummary
+</span><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-var">OperationSummary'</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OperationStatus
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe OperationType
+ -&gt; Maybe POSIX
+ -&gt; OperationSummary)
+-&gt; Parser (Maybe OperationStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe OperationType
+      -&gt; Maybe POSIX
+      -&gt; OperationSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe OperationType
+   -&gt; Maybe POSIX
+   -&gt; OperationSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe OperationType
+      -&gt; Maybe POSIX
+      -&gt; OperationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe OperationType
+   -&gt; Maybe POSIX
+   -&gt; OperationSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe OperationType
+      -&gt; Maybe POSIX
+      -&gt; OperationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe OperationType
+   -&gt; Maybe POSIX
+   -&gt; OperationSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe OperationType -&gt; Maybe POSIX -&gt; OperationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe OperationType -&gt; Maybe POSIX -&gt; OperationSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe OperationType -&gt; Maybe POSIX -&gt; OperationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe OperationType -&gt; Maybe POSIX -&gt; OperationSummary)
+-&gt; Parser (Maybe OperationType)
+-&gt; Parser (Maybe POSIX -&gt; OperationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperationType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; OperationSummary)
+-&gt; Parser (Maybe POSIX) -&gt; Parser OperationSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205205"><span id="local-6989586621679205207"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span></span><span>
+</span><span id="line-142"></span></pre></body></html>

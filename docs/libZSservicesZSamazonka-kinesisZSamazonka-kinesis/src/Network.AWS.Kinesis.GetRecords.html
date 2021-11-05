@@ -114,7 +114,7 @@
 </span><span id="line-114"></span><span class="hs-comment">-- | Represents the input for GetRecords.</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- /See:/ 'newGetRecords' smart constructor.</span><span>
-</span><span id="line-117"></span><span id="local-6989586621679203571"><span id="local-6989586621679203572"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRecords"><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-var">GetRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRecords%27"><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords%27"><span class="hs-identifier hs-var">GetRecords'</span></a></span></span><span>
+</span><span id="line-117"></span><span id="local-6989586621679203580"><span id="local-6989586621679203581"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRecords"><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-var">GetRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRecords%27"><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords%27"><span class="hs-identifier hs-var">GetRecords'</span></a></span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of records to return. Specify a value of up to</span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-comment">-- 10,000. If you specify a value that is greater than 10,000, GetRecords</span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-comment">-- throws @InvalidArgumentException@. The default value is 10,000.</span><span>
@@ -126,7 +126,7 @@
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AshardIterator%3AGetRecords%27"><span class="annot"><span class="annottext">GetRecords -&gt; Text
 </span><a href="Network.AWS.Kinesis.GetRecords.html#%24sel%3AshardIterator%3AGetRecords%27"><span class="hs-identifier hs-var hs-var">shardIterator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203564"><span id="local-6989586621679203566"><span class="annot"><span class="annottext">GetRecords -&gt; GetRecords -&gt; Bool
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203573"><span id="local-6989586621679203575"><span class="annot"><span class="annottext">GetRecords -&gt; GetRecords -&gt; Bool
 (GetRecords -&gt; GetRecords -&gt; Bool)
 -&gt; (GetRecords -&gt; GetRecords -&gt; Bool) -&gt; Eq GetRecords
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -134,7 +134,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRecords -&gt; GetRecords -&gt; Bool
 == :: GetRecords -&gt; GetRecords -&gt; Bool
 $c== :: GetRecords -&gt; GetRecords -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203555"><span id="local-6989586621679203557"><span id="local-6989586621679203559"><span id="local-6989586621679203561"><span class="annot"><span class="annottext">ReadPrec [GetRecords]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203564"><span id="local-6989586621679203566"><span id="local-6989586621679203568"><span id="local-6989586621679203570"><span class="annot"><span class="annottext">ReadPrec [GetRecords]
 ReadPrec GetRecords
 Int -&gt; ReadS GetRecords
 ReadS [GetRecords]
@@ -154,7 +154,7 @@ readList :: ReadS [GetRecords]
 $creadList :: ReadS [GetRecords]
 readsPrec :: Int -&gt; ReadS GetRecords
 $creadsPrec :: Int -&gt; ReadS GetRecords
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203548"><span id="local-6989586621679203550"><span id="local-6989586621679203552"><span class="annot"><span class="annottext">Int -&gt; GetRecords -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203557"><span id="local-6989586621679203559"><span id="local-6989586621679203561"><span class="annot"><span class="annottext">Int -&gt; GetRecords -&gt; ShowS
 [GetRecords] -&gt; ShowS
 GetRecords -&gt; String
 (Int -&gt; GetRecords -&gt; ShowS)
@@ -199,8 +199,8 @@ $cfrom :: forall x. GetRecords -&gt; Rep GetRecords x
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span><span>
 </span><span id="line-148"></span><span id="newGetRecords"><span class="annot"><span class="annottext">newGetRecords :: Text -&gt; GetRecords
-</span><a href="Network.AWS.Kinesis.GetRecords.html#newGetRecords"><span class="hs-identifier hs-var hs-var">newGetRecords</span></a></span></span><span> </span><span id="local-6989586621679203543"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203543"><span class="hs-identifier hs-var">pShardIterator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.GetRecords.html#newGetRecords"><span class="hs-identifier hs-var hs-var">newGetRecords</span></a></span></span><span> </span><span id="local-6989586621679203552"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203552"><span class="hs-identifier hs-var">pShardIterator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><span class="annottext">GetRecords' :: Maybe Natural -&gt; Text -&gt; GetRecords
 </span><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords%27"><span class="hs-identifier hs-type">GetRecords'</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:limit:GetRecords' :: Maybe Natural
@@ -209,7 +209,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:shardIterator:GetRecords' :: Text
 </span><a href="Network.AWS.Kinesis.GetRecords.html#%24sel%3AshardIterator%3AGetRecords%27"><span class="hs-identifier hs-var">shardIterator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203543"><span class="hs-identifier hs-var">pShardIterator_</span></a></span><span>
+</span><a href="#local-6989586621679203552"><span class="hs-identifier hs-var">pShardIterator_</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The maximum number of records to return. Specify a value of up to</span><span>
@@ -221,16 +221,16 @@ forall a. Maybe a
 -&gt; (GetRecords -&gt; Maybe Natural -&gt; GetRecords)
 -&gt; Lens GetRecords GetRecords (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords%27"><span class="hs-identifier hs-type">GetRecords'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203540"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords%27"><span class="hs-identifier hs-type">GetRecords'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203549"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:GetRecords' :: GetRecords -&gt; Maybe Natural
-</span><a href="#local-6989586621679203540"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679203540"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203539"><span class="annot"><span class="annottext">s :: GetRecords
-</span><a href="#local-6989586621679203539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords%27"><span class="hs-identifier hs-type">GetRecords'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203538"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679203538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecords
-</span><a href="#local-6989586621679203539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:GetRecords' :: Maybe Natural
+</span><a href="#local-6989586621679203549"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679203549"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203548"><span class="annot"><span class="annottext">s :: GetRecords
+</span><a href="#local-6989586621679203548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords%27"><span class="hs-identifier hs-type">GetRecords'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203547"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679203547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecords
+</span><a href="#local-6989586621679203548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:GetRecords' :: Maybe Natural
 </span><a href="Network.AWS.Kinesis.GetRecords.html#%24sel%3Alimit%3AGetRecords%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679203538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The position in the shard from which you want to start sequentially</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- reading data records. A shard iterator specifies this position using the</span><span>
@@ -241,25 +241,25 @@ $sel:limit:GetRecords' :: GetRecords -&gt; Maybe Natural
 -&gt; (GetRecords -&gt; Text -&gt; GetRecords)
 -&gt; Lens GetRecords GetRecords Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords%27"><span class="hs-identifier hs-type">GetRecords'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203537"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords%27"><span class="hs-identifier hs-type">GetRecords'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203546"><span class="annot"><span class="annottext">Text
 shardIterator :: Text
 $sel:shardIterator:GetRecords' :: GetRecords -&gt; Text
-</span><a href="#local-6989586621679203537"><span class="hs-identifier hs-var hs-var">shardIterator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203537"><span class="hs-identifier hs-var">shardIterator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203536"><span class="annot"><span class="annottext">s :: GetRecords
-</span><a href="#local-6989586621679203536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords%27"><span class="hs-identifier hs-type">GetRecords'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203535"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecords
-</span><a href="#local-6989586621679203536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardIterator:GetRecords' :: Text
+</span><a href="#local-6989586621679203546"><span class="hs-identifier hs-var hs-var">shardIterator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203546"><span class="hs-identifier hs-var">shardIterator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203545"><span class="annot"><span class="annottext">s :: GetRecords
+</span><a href="#local-6989586621679203545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords%27"><span class="hs-identifier hs-type">GetRecords'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203544"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecords
+</span><a href="#local-6989586621679203545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardIterator:GetRecords' :: Text
 </span><a href="Network.AWS.Kinesis.GetRecords.html#%24sel%3AshardIterator%3AGetRecords%27"><span class="hs-identifier hs-var">shardIterator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679203531"><span class="annot"><span class="annottext">request :: GetRecords -&gt; Request GetRecords
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679203540"><span class="annot"><span class="annottext">request :: GetRecords -&gt; Request GetRecords
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetRecords -&gt; Request GetRecords
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679203527"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679203536"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetRecords
 -&gt; ClientResponse ClientBody
@@ -283,10 +283,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203524"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679203524"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679203523"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679203523"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679203522"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203522"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203533"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203533"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679203532"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679203532"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679203531"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203531"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Natural
 -&gt; Maybe [ChildShard]
@@ -307,7 +307,7 @@ MonadResource m =&gt;
       -&gt; Maybe [ChildShard] -&gt; Int -&gt; [Record] -&gt; GetRecordsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679203531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextShardIterator&quot;</span></span><span class="hs-special">)</span><span>
@@ -321,7 +321,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      (Maybe [ChildShard] -&gt; Int -&gt; [Record] -&gt; GetRecordsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679203531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MillisBehindLatest&quot;</span></span><span class="hs-special">)</span><span>
@@ -332,7 +332,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; [Record] -&gt; GetRecordsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ChildShard]))
+</span><a href="#local-6989586621679203531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ChildShard]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChildShards&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ChildShard]))
@@ -350,12 +350,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679203524"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203533"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Record] -&gt; GetRecordsResponse)
 -&gt; Either String [Record] -&gt; Either String GetRecordsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Record])
+</span><a href="#local-6989586621679203531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Record])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Records&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Record])
@@ -366,12 +366,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203513"><span id="local-6989586621679203515"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203522"><span id="local-6989586621679203524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span></span></span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679203506"><span class="annot"><span class="annottext">toHeaders :: GetRecords -&gt; ResponseHeaders
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679203515"><span class="annot"><span class="annottext">toHeaders :: GetRecords -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetRecords -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -398,15 +398,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203496"><span id="local-6989586621679203498"><span id="local-6989586621679203500"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679203494"><span class="annot"><span class="annottext">toJSON :: GetRecords -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords%27"><span class="hs-identifier hs-type">GetRecords'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203491"><span id="local-6989586621679203492"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203505"><span id="local-6989586621679203507"><span id="local-6989586621679203509"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679203503"><span class="annot"><span class="annottext">toJSON :: GetRecords -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords%27"><span class="hs-identifier hs-type">GetRecords'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203500"><span id="local-6989586621679203501"><span class="annot"><span class="annottext">Maybe Natural
 Text
 shardIterator :: Text
 limit :: Maybe Natural
 $sel:shardIterator:GetRecords' :: GetRecords -&gt; Text
 $sel:limit:GetRecords' :: GetRecords -&gt; Maybe Natural
-</span><a href="#local-6989586621679203491"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679203500"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -418,7 +418,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679203492"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679203501"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -426,19 +426,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ShardIterator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203491"><span class="hs-identifier hs-var">shardIterator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203500"><span class="hs-identifier hs-var">shardIterator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679203485"><span class="annot"><span class="annottext">toPath :: GetRecords -&gt; ByteString
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679203494"><span class="annot"><span class="annottext">toPath :: GetRecords -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetRecords -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecords"><span class="hs-identifier hs-type">GetRecords</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679203481"><span class="annot"><span class="annottext">toQuery :: GetRecords -&gt; QueryString
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679203490"><span class="annot"><span class="annottext">toQuery :: GetRecords -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetRecords -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -448,7 +448,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-215"></span><span class="hs-comment">-- | Represents the output for GetRecords.</span><span>
 </span><span id="line-216"></span><span class="hs-comment">--</span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- /See:/ 'newGetRecordsResponse' smart constructor.</span><span>
-</span><span id="line-218"></span><span id="local-6989586621679203478"><span id="local-6989586621679203479"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRecordsResponse"><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-var">GetRecordsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRecordsResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-var">GetRecordsResponse'</span></a></span></span><span>
+</span><span id="line-218"></span><span id="local-6989586621679203487"><span id="local-6989586621679203488"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRecordsResponse"><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-var">GetRecordsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRecordsResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-var">GetRecordsResponse'</span></a></span></span><span>
 </span><span id="line-219"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The next position in the shard from which to start sequentially reading</span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-comment">-- data records. If set to @null@, the shard has been closed and the</span><span>
 </span><span id="line-221"></span><span>    </span><span class="hs-comment">-- requested iterator does not return any more data.</span><span>
@@ -469,7 +469,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-232"></span><span>    </span><span id="%24sel%3Arecords%3AGetRecordsResponse%27"><span class="annot"><span class="annottext">GetRecordsResponse -&gt; [Record]
 </span><a href="Network.AWS.Kinesis.GetRecords.html#%24sel%3Arecords%3AGetRecordsResponse%27"><span class="hs-identifier hs-var hs-var">records</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-233"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-234"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203469"><span id="local-6989586621679203471"><span class="annot"><span class="annottext">GetRecordsResponse -&gt; GetRecordsResponse -&gt; Bool
+</span><span id="line-234"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203478"><span id="local-6989586621679203480"><span class="annot"><span class="annottext">GetRecordsResponse -&gt; GetRecordsResponse -&gt; Bool
 (GetRecordsResponse -&gt; GetRecordsResponse -&gt; Bool)
 -&gt; (GetRecordsResponse -&gt; GetRecordsResponse -&gt; Bool)
 -&gt; Eq GetRecordsResponse
@@ -478,7 +478,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRecordsResponse -&gt; GetRecordsResponse -&gt; Bool
 == :: GetRecordsResponse -&gt; GetRecordsResponse -&gt; Bool
 $c== :: GetRecordsResponse -&gt; GetRecordsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203461"><span id="local-6989586621679203463"><span id="local-6989586621679203465"><span id="local-6989586621679203467"><span class="annot"><span class="annottext">ReadPrec [GetRecordsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203470"><span id="local-6989586621679203472"><span id="local-6989586621679203474"><span id="local-6989586621679203476"><span class="annot"><span class="annottext">ReadPrec [GetRecordsResponse]
 ReadPrec GetRecordsResponse
 Int -&gt; ReadS GetRecordsResponse
 ReadS [GetRecordsResponse]
@@ -498,7 +498,7 @@ readList :: ReadS [GetRecordsResponse]
 $creadList :: ReadS [GetRecordsResponse]
 readsPrec :: Int -&gt; ReadS GetRecordsResponse
 $creadsPrec :: Int -&gt; ReadS GetRecordsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203455"><span id="local-6989586621679203457"><span id="local-6989586621679203459"><span class="annot"><span class="annottext">Int -&gt; GetRecordsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203464"><span id="local-6989586621679203466"><span id="local-6989586621679203468"><span class="annot"><span class="annottext">Int -&gt; GetRecordsResponse -&gt; ShowS
 [GetRecordsResponse] -&gt; ShowS
 GetRecordsResponse -&gt; String
 (Int -&gt; GetRecordsResponse -&gt; ShowS)
@@ -551,8 +551,8 @@ $cfrom :: forall x. GetRecordsResponse -&gt; Rep GetRecordsResponse x
 </span><span id="line-260"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-261"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span><span>
 </span><span id="line-262"></span><span id="newGetRecordsResponse"><span class="annot"><span class="annottext">newGetRecordsResponse :: Int -&gt; GetRecordsResponse
-</span><a href="Network.AWS.Kinesis.GetRecords.html#newGetRecordsResponse"><span class="hs-identifier hs-var hs-var">newGetRecordsResponse</span></a></span></span><span> </span><span id="local-6989586621679203452"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679203452"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.GetRecords.html#newGetRecordsResponse"><span class="hs-identifier hs-var hs-var">newGetRecordsResponse</span></a></span></span><span> </span><span id="local-6989586621679203461"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203461"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-263"></span><span>  </span><span class="annot"><span class="annottext">GetRecordsResponse' :: Maybe Text
 -&gt; Maybe Natural
 -&gt; Maybe [ChildShard]
@@ -575,7 +575,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetRecordsResponse' :: Int
 </span><a href="Network.AWS.Kinesis.GetRecords.html#%24sel%3AhttpStatus%3AGetRecordsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679203452"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679203461"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:records:GetRecordsResponse' :: [Record]
 </span><a href="Network.AWS.Kinesis.GetRecords.html#%24sel%3Arecords%3AGetRecordsResponse%27"><span class="hs-identifier hs-var">records</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Record]
 forall a. Monoid a =&gt; a
@@ -593,16 +593,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      GetRecordsResponse GetRecordsResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203451"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203460"><span class="annot"><span class="annottext">Maybe Text
 nextShardIterator :: Maybe Text
 $sel:nextShardIterator:GetRecordsResponse' :: GetRecordsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679203451"><span class="hs-identifier hs-var hs-var">nextShardIterator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203451"><span class="hs-identifier hs-var">nextShardIterator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203450"><span class="annot"><span class="annottext">s :: GetRecordsResponse
-</span><a href="#local-6989586621679203450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203449"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecordsResponse
-</span><a href="#local-6989586621679203450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextShardIterator:GetRecordsResponse' :: Maybe Text
+</span><a href="#local-6989586621679203460"><span class="hs-identifier hs-var hs-var">nextShardIterator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203460"><span class="hs-identifier hs-var">nextShardIterator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203459"><span class="annot"><span class="annottext">s :: GetRecordsResponse
+</span><a href="#local-6989586621679203459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203458"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecordsResponse
+</span><a href="#local-6989586621679203459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextShardIterator:GetRecordsResponse' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.GetRecords.html#%24sel%3AnextShardIterator%3AGetRecordsResponse%27"><span class="hs-identifier hs-var">nextShardIterator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>
 </span><span id="line-278"></span><span class="hs-comment">-- | The number of milliseconds the GetRecords response is from the tip of</span><span>
 </span><span id="line-279"></span><span class="hs-comment">-- the stream, indicating how far behind current time the consumer is. A</span><span>
@@ -619,16 +619,16 @@ $sel:nextShardIterator:GetRecordsResponse' :: GetRecordsResponse -&gt; Maybe Tex
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203448"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203457"><span class="annot"><span class="annottext">Maybe Natural
 millisBehindLatest :: Maybe Natural
 $sel:millisBehindLatest:GetRecordsResponse' :: GetRecordsResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621679203448"><span class="hs-identifier hs-var hs-var">millisBehindLatest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679203448"><span class="hs-identifier hs-var">millisBehindLatest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203447"><span class="annot"><span class="annottext">s :: GetRecordsResponse
-</span><a href="#local-6989586621679203447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203446"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679203446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecordsResponse
-</span><a href="#local-6989586621679203447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:millisBehindLatest:GetRecordsResponse' :: Maybe Natural
+</span><a href="#local-6989586621679203457"><span class="hs-identifier hs-var hs-var">millisBehindLatest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679203457"><span class="hs-identifier hs-var">millisBehindLatest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203456"><span class="annot"><span class="annottext">s :: GetRecordsResponse
+</span><a href="#local-6989586621679203456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203455"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679203455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecordsResponse
+</span><a href="#local-6989586621679203456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:millisBehindLatest:GetRecordsResponse' :: Maybe Natural
 </span><a href="Network.AWS.Kinesis.GetRecords.html#%24sel%3AmillisBehindLatest%3AGetRecordsResponse%27"><span class="hs-identifier hs-var">millisBehindLatest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679203446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-286"></span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#getRecordsResponse_childShards"><span class="hs-identifier hs-type">getRecordsResponse_childShards</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -642,16 +642,16 @@ $sel:millisBehindLatest:GetRecordsResponse' :: GetRecordsResponse -&gt; Maybe Na
      (Maybe [ChildShard])
      (Maybe [ChildShard])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203445"><span class="annot"><span class="annottext">Maybe [ChildShard]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203454"><span class="annot"><span class="annottext">Maybe [ChildShard]
 childShards :: Maybe [ChildShard]
 $sel:childShards:GetRecordsResponse' :: GetRecordsResponse -&gt; Maybe [ChildShard]
-</span><a href="#local-6989586621679203445"><span class="hs-identifier hs-var hs-var">childShards</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChildShard]
-</span><a href="#local-6989586621679203445"><span class="hs-identifier hs-var">childShards</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203444"><span class="annot"><span class="annottext">s :: GetRecordsResponse
-</span><a href="#local-6989586621679203444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203443"><span class="annot"><span class="annottext">Maybe [ChildShard]
-</span><a href="#local-6989586621679203443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecordsResponse
-</span><a href="#local-6989586621679203444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:childShards:GetRecordsResponse' :: Maybe [ChildShard]
+</span><a href="#local-6989586621679203454"><span class="hs-identifier hs-var hs-var">childShards</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChildShard]
+</span><a href="#local-6989586621679203454"><span class="hs-identifier hs-var">childShards</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203453"><span class="annot"><span class="annottext">s :: GetRecordsResponse
+</span><a href="#local-6989586621679203453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203452"><span class="annot"><span class="annottext">Maybe [ChildShard]
+</span><a href="#local-6989586621679203452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecordsResponse
+</span><a href="#local-6989586621679203453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:childShards:GetRecordsResponse' :: Maybe [ChildShard]
 </span><a href="Network.AWS.Kinesis.GetRecords.html#%24sel%3AchildShards%3AGetRecordsResponse%27"><span class="hs-identifier hs-var">childShards</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChildShard]
-</span><a href="#local-6989586621679203443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChildShard] -&gt; f (Maybe [ChildShard]))
+</span><a href="#local-6989586621679203452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChildShard] -&gt; f (Maybe [ChildShard]))
  -&gt; GetRecordsResponse -&gt; f GetRecordsResponse)
 -&gt; ((Maybe [ChildShard] -&gt; f (Maybe [ChildShard]))
     -&gt; Maybe [ChildShard] -&gt; f (Maybe [ChildShard]))
@@ -679,16 +679,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetRecordsResponse -&gt; Int -&gt; GetRecordsResponse)
 -&gt; Lens GetRecordsResponse GetRecordsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203439"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203448"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetRecordsResponse' :: GetRecordsResponse -&gt; Int
-</span><a href="#local-6989586621679203439"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679203439"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203438"><span class="annot"><span class="annottext">s :: GetRecordsResponse
-</span><a href="#local-6989586621679203438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203437"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679203437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecordsResponse
-</span><a href="#local-6989586621679203438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRecordsResponse' :: Int
+</span><a href="#local-6989586621679203448"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203448"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203447"><span class="annot"><span class="annottext">s :: GetRecordsResponse
+</span><a href="#local-6989586621679203447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203446"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecordsResponse
+</span><a href="#local-6989586621679203447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRecordsResponse' :: Int
 </span><a href="Network.AWS.Kinesis.GetRecords.html#%24sel%3AhttpStatus%3AGetRecordsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679203437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>
 </span><span id="line-293"></span><span class="hs-comment">-- | The data records retrieved from the shard.</span><span>
 </span><span id="line-294"></span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#getRecordsResponse_records"><span class="hs-identifier hs-type">getRecordsResponse_records</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">]</span><span>
@@ -698,16 +698,16 @@ $sel:httpStatus:GetRecordsResponse' :: GetRecordsResponse -&gt; Int
 -&gt; (GetRecordsResponse -&gt; [Record] -&gt; GetRecordsResponse)
 -&gt; Lens GetRecordsResponse GetRecordsResponse [Record] [Record]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203436"><span class="annot"><span class="annottext">[Record]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203445"><span class="annot"><span class="annottext">[Record]
 records :: [Record]
 $sel:records:GetRecordsResponse' :: GetRecordsResponse -&gt; [Record]
-</span><a href="#local-6989586621679203436"><span class="hs-identifier hs-var hs-var">records</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Record]
-</span><a href="#local-6989586621679203436"><span class="hs-identifier hs-var">records</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203435"><span class="annot"><span class="annottext">s :: GetRecordsResponse
-</span><a href="#local-6989586621679203435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203434"><span class="annot"><span class="annottext">[Record]
-</span><a href="#local-6989586621679203434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecordsResponse
-</span><a href="#local-6989586621679203435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:records:GetRecordsResponse' :: [Record]
+</span><a href="#local-6989586621679203445"><span class="hs-identifier hs-var hs-var">records</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Record]
+</span><a href="#local-6989586621679203445"><span class="hs-identifier hs-var">records</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203444"><span class="annot"><span class="annottext">s :: GetRecordsResponse
+</span><a href="#local-6989586621679203444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier hs-type">GetRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203443"><span class="annot"><span class="annottext">[Record]
+</span><a href="#local-6989586621679203443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecordsResponse
+</span><a href="#local-6989586621679203444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:records:GetRecordsResponse' :: [Record]
 </span><a href="Network.AWS.Kinesis.GetRecords.html#%24sel%3Arecords%3AGetRecordsResponse%27"><span class="hs-identifier hs-var">records</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Record]
-</span><a href="#local-6989586621679203434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Record] -&gt; f [Record])
+</span><a href="#local-6989586621679203443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Record] -&gt; f [Record])
  -&gt; GetRecordsResponse -&gt; f GetRecordsResponse)
 -&gt; (([Record] -&gt; f [Record]) -&gt; [Record] -&gt; f [Record])
 -&gt; ([Record] -&gt; f [Record])
@@ -718,5 +718,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-296"></span><span>
-</span><span id="line-297"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.GetRecords.html#GetRecordsResponse"><span class="hs-identifier hs-type">GetRecordsResponse</span></a></span></span><span>
 </span><span id="line-298"></span></pre></body></html>

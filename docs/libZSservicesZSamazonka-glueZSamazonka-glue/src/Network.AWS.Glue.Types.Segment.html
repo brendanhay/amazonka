@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- multiple requests to be run in parallel.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSegment' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679698356"><span id="local-6989586621679698357"></span></span><span class="hs-keyword">data</span><span> </span><span id="Segment"><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-var">Segment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Segment%27"><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment%27"><span class="hs-identifier hs-var">Segment'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679698365"><span id="local-6989586621679698366"></span></span><span class="hs-keyword">data</span><span> </span><span id="Segment"><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-var">Segment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Segment%27"><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment%27"><span class="hs-identifier hs-var">Segment'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The zero-based index number of the segment. For example, if the total</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- number of segments is 4, @SegmentNumber@ values range from 0 through 3.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AsegmentNumber%3ASegment%27"><span class="annot"><span class="annottext">Segment -&gt; Natural
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AtotalSegments%3ASegment%27"><span class="annot"><span class="annottext">Segment -&gt; Natural
 </span><a href="Network.AWS.Glue.Types.Segment.html#%24sel%3AtotalSegments%3ASegment%27"><span class="hs-identifier hs-var hs-var">totalSegments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679698349"><span id="local-6989586621679698351"><span class="annot"><span class="annottext">Segment -&gt; Segment -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679698358"><span id="local-6989586621679698360"><span class="annot"><span class="annottext">Segment -&gt; Segment -&gt; Bool
 (Segment -&gt; Segment -&gt; Bool)
 -&gt; (Segment -&gt; Segment -&gt; Bool) -&gt; Eq Segment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Segment -&gt; Segment -&gt; Bool
 == :: Segment -&gt; Segment -&gt; Bool
 $c== :: Segment -&gt; Segment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679698340"><span id="local-6989586621679698342"><span id="local-6989586621679698344"><span id="local-6989586621679698346"><span class="annot"><span class="annottext">ReadPrec [Segment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679698349"><span id="local-6989586621679698351"><span id="local-6989586621679698353"><span id="local-6989586621679698355"><span class="annot"><span class="annottext">ReadPrec [Segment]
 ReadPrec Segment
 Int -&gt; ReadS Segment
 ReadS [Segment]
@@ -64,7 +64,7 @@ readList :: ReadS [Segment]
 $creadList :: ReadS [Segment]
 readsPrec :: Int -&gt; ReadS Segment
 $creadsPrec :: Int -&gt; ReadS Segment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679698333"><span id="local-6989586621679698335"><span id="local-6989586621679698337"><span class="annot"><span class="annottext">Int -&gt; Segment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679698342"><span id="local-6989586621679698344"><span id="local-6989586621679698346"><span class="annot"><span class="annottext">Int -&gt; Segment -&gt; ShowS
 [Segment] -&gt; ShowS
 Segment -&gt; String
 (Int -&gt; Segment -&gt; ShowS)
@@ -106,17 +106,17 @@ $cfrom :: forall x. Segment -&gt; Rep Segment x
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span>
 </span><span id="line-57"></span><span id="newSegment"><span class="annot"><span class="annottext">newSegment :: Natural -&gt; Natural -&gt; Segment
-</span><a href="Network.AWS.Glue.Types.Segment.html#newSegment"><span class="hs-identifier hs-var hs-var">newSegment</span></a></span></span><span> </span><span id="local-6989586621679698327"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679698327"><span class="hs-identifier hs-var">pSegmentNumber_</span></a></span></span><span> </span><span id="local-6989586621679698326"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679698326"><span class="hs-identifier hs-var">pTotalSegments_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.Types.Segment.html#newSegment"><span class="hs-identifier hs-var hs-var">newSegment</span></a></span></span><span> </span><span id="local-6989586621679698336"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679698336"><span class="hs-identifier hs-var">pSegmentNumber_</span></a></span></span><span> </span><span id="local-6989586621679698335"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679698335"><span class="hs-identifier hs-var">pTotalSegments_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">Segment' :: Natural -&gt; Natural -&gt; Segment
 </span><a href="Network.AWS.Glue.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:segmentNumber:Segment' :: Natural
 </span><a href="Network.AWS.Glue.Types.Segment.html#%24sel%3AsegmentNumber%3ASegment%27"><span class="hs-identifier hs-var">segmentNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679698327"><span class="hs-identifier hs-var">pSegmentNumber_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679698336"><span class="hs-identifier hs-var">pSegmentNumber_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalSegments:Segment' :: Natural
 </span><a href="Network.AWS.Glue.Types.Segment.html#%24sel%3AtotalSegments%3ASegment%27"><span class="hs-identifier hs-var">totalSegments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679698326"><span class="hs-identifier hs-var">pTotalSegments_</span></a></span><span>
+</span><a href="#local-6989586621679698335"><span class="hs-identifier hs-var">pTotalSegments_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The zero-based index number of the segment. For example, if the total</span><span>
@@ -127,16 +127,16 @@ $cfrom :: forall x. Segment -&gt; Rep Segment x
 -&gt; (Segment -&gt; Natural -&gt; Segment)
 -&gt; Lens Segment Segment Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698322"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698331"><span class="annot"><span class="annottext">Natural
 segmentNumber :: Natural
 $sel:segmentNumber:Segment' :: Segment -&gt; Natural
-</span><a href="#local-6989586621679698322"><span class="hs-identifier hs-var hs-var">segmentNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679698322"><span class="hs-identifier hs-var">segmentNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679698321"><span class="annot"><span class="annottext">s :: Segment
-</span><a href="#local-6989586621679698321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679698320"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679698320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Segment
-</span><a href="#local-6989586621679698321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentNumber:Segment' :: Natural
+</span><a href="#local-6989586621679698331"><span class="hs-identifier hs-var hs-var">segmentNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679698331"><span class="hs-identifier hs-var">segmentNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679698330"><span class="annot"><span class="annottext">s :: Segment
+</span><a href="#local-6989586621679698330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679698329"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679698329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Segment
+</span><a href="#local-6989586621679698330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentNumber:Segment' :: Natural
 </span><a href="Network.AWS.Glue.Types.Segment.html#%24sel%3AsegmentNumber%3ASegment%27"><span class="hs-identifier hs-var">segmentNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679698320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679698329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The total number of segments.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#segment_totalSegments"><span class="hs-identifier hs-type">segment_totalSegments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -145,29 +145,29 @@ $sel:segmentNumber:Segment' :: Segment -&gt; Natural
 -&gt; (Segment -&gt; Natural -&gt; Segment)
 -&gt; Lens Segment Segment Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698318"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698327"><span class="annot"><span class="annottext">Natural
 totalSegments :: Natural
 $sel:totalSegments:Segment' :: Segment -&gt; Natural
-</span><a href="#local-6989586621679698318"><span class="hs-identifier hs-var hs-var">totalSegments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679698318"><span class="hs-identifier hs-var">totalSegments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679698317"><span class="annot"><span class="annottext">s :: Segment
-</span><a href="#local-6989586621679698317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679698316"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679698316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Segment
-</span><a href="#local-6989586621679698317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalSegments:Segment' :: Natural
+</span><a href="#local-6989586621679698327"><span class="hs-identifier hs-var hs-var">totalSegments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679698327"><span class="hs-identifier hs-var">totalSegments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679698326"><span class="annot"><span class="annottext">s :: Segment
+</span><a href="#local-6989586621679698326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679698325"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679698325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Segment
+</span><a href="#local-6989586621679698326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalSegments:Segment' :: Natural
 </span><a href="Network.AWS.Glue.Types.Segment.html#%24sel%3AtotalSegments%3ASegment%27"><span class="hs-identifier hs-var">totalSegments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679698316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679698325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698312"><span id="local-6989586621679698314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698321"><span id="local-6989586621679698323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698301"><span id="local-6989586621679698303"><span id="local-6989586621679698305"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679698299"><span class="annot"><span class="annottext">toJSON :: Segment -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698296"><span id="local-6989586621679698297"><span class="annot"><span class="annottext">Natural
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698310"><span id="local-6989586621679698312"><span id="local-6989586621679698314"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679698308"><span class="annot"><span class="annottext">toJSON :: Segment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698305"><span id="local-6989586621679698306"><span class="annot"><span class="annottext">Natural
 totalSegments :: Natural
 segmentNumber :: Natural
 $sel:totalSegments:Segment' :: Segment -&gt; Natural
 $sel:segmentNumber:Segment' :: Segment -&gt; Natural
-</span><a href="#local-6989586621679698296"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679698305"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -180,7 +180,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SegmentNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679698297"><span class="hs-identifier hs-var">segmentNumber</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679698306"><span class="hs-identifier hs-var">segmentNumber</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -188,7 +188,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TotalSegments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679698296"><span class="hs-identifier hs-var">totalSegments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679698305"><span class="hs-identifier hs-var">totalSegments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-comment">-- creation.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCodeSource' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679174033"><span id="local-6989586621679174034"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeSource"><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource"><span class="hs-identifier hs-var">CodeSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeSource%27"><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource%27"><span class="hs-identifier hs-var">CodeSource'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679174042"><span id="local-6989586621679174043"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeSource"><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource"><span class="hs-identifier hs-var">CodeSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeSource%27"><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource%27"><span class="hs-identifier hs-var">CodeSource'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the Amazon S3 location where the source code files</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- provided with the project request are stored.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3As3%3ACodeSource%27"><span class="annot"><span class="annottext">CodeSource -&gt; S3Location
 </span><a href="Network.AWS.CodeStar.Types.CodeSource.html#%24sel%3As3%3ACodeSource%27"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174027"><span id="local-6989586621679174029"><span class="annot"><span class="annottext">CodeSource -&gt; CodeSource -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174036"><span id="local-6989586621679174038"><span class="annot"><span class="annottext">CodeSource -&gt; CodeSource -&gt; Bool
 (CodeSource -&gt; CodeSource -&gt; Bool)
 -&gt; (CodeSource -&gt; CodeSource -&gt; Bool) -&gt; Eq CodeSource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CodeSource -&gt; CodeSource -&gt; Bool
 == :: CodeSource -&gt; CodeSource -&gt; Bool
 $c== :: CodeSource -&gt; CodeSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174018"><span id="local-6989586621679174020"><span id="local-6989586621679174022"><span id="local-6989586621679174024"><span class="annot"><span class="annottext">ReadPrec [CodeSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174027"><span id="local-6989586621679174029"><span id="local-6989586621679174031"><span id="local-6989586621679174033"><span class="annot"><span class="annottext">ReadPrec [CodeSource]
 ReadPrec CodeSource
 Int -&gt; ReadS CodeSource
 ReadS [CodeSource]
@@ -63,7 +63,7 @@ readList :: ReadS [CodeSource]
 $creadList :: ReadS [CodeSource]
 readsPrec :: Int -&gt; ReadS CodeSource
 $creadsPrec :: Int -&gt; ReadS CodeSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174011"><span id="local-6989586621679174013"><span id="local-6989586621679174015"><span class="annot"><span class="annottext">Int -&gt; CodeSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174020"><span id="local-6989586621679174022"><span id="local-6989586621679174024"><span class="annot"><span class="annottext">Int -&gt; CodeSource -&gt; ShowS
 [CodeSource] -&gt; ShowS
 CodeSource -&gt; String
 (Int -&gt; CodeSource -&gt; ShowS)
@@ -103,11 +103,11 @@ $cfrom :: forall x. CodeSource -&gt; Rep CodeSource x
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource"><span class="hs-identifier hs-type">CodeSource</span></a></span><span>
 </span><span id="line-53"></span><span id="newCodeSource"><span class="annot"><span class="annottext">newCodeSource :: S3Location -&gt; CodeSource
-</span><a href="Network.AWS.CodeStar.Types.CodeSource.html#newCodeSource"><span class="hs-identifier hs-var hs-var">newCodeSource</span></a></span></span><span> </span><span id="local-6989586621679174005"><span class="annot"><span class="annottext">S3Location
-</span><a href="#local-6989586621679174005"><span class="hs-identifier hs-var">pS3_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CodeSource' :: S3Location -&gt; CodeSource
+</span><a href="Network.AWS.CodeStar.Types.CodeSource.html#newCodeSource"><span class="hs-identifier hs-var hs-var">newCodeSource</span></a></span></span><span> </span><span id="local-6989586621679174014"><span class="annot"><span class="annottext">S3Location
+</span><a href="#local-6989586621679174014"><span class="hs-identifier hs-var">pS3_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CodeSource' :: S3Location -&gt; CodeSource
 </span><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource%27"><span class="hs-identifier hs-type">CodeSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3:CodeSource' :: S3Location
 </span><a href="Network.AWS.CodeStar.Types.CodeSource.html#%24sel%3As3%3ACodeSource%27"><span class="hs-identifier hs-var">s3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3Location
-</span><a href="#local-6989586621679174005"><span class="hs-identifier hs-var">pS3_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679174014"><span class="hs-identifier hs-var">pS3_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | Information about the Amazon S3 location where the source code files</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- provided with the project request are stored.</span><span>
@@ -117,27 +117,27 @@ $cfrom :: forall x. CodeSource -&gt; Rep CodeSource x
 -&gt; (CodeSource -&gt; S3Location -&gt; CodeSource)
 -&gt; Lens CodeSource CodeSource S3Location S3Location
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource%27"><span class="hs-identifier hs-type">CodeSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174001"><span class="annot"><span class="annottext">S3Location
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource%27"><span class="hs-identifier hs-type">CodeSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174010"><span class="annot"><span class="annottext">S3Location
 s3 :: S3Location
 $sel:s3:CodeSource' :: CodeSource -&gt; S3Location
-</span><a href="#local-6989586621679174001"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Location
-</span><a href="#local-6989586621679174001"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174000"><span class="annot"><span class="annottext">s :: CodeSource
-</span><a href="#local-6989586621679174000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource%27"><span class="hs-identifier hs-type">CodeSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173999"><span class="annot"><span class="annottext">S3Location
-</span><a href="#local-6989586621679173999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSource
-</span><a href="#local-6989586621679174000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3:CodeSource' :: S3Location
+</span><a href="#local-6989586621679174010"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Location
+</span><a href="#local-6989586621679174010"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174009"><span class="annot"><span class="annottext">s :: CodeSource
+</span><a href="#local-6989586621679174009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource%27"><span class="hs-identifier hs-type">CodeSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174008"><span class="annot"><span class="annottext">S3Location
+</span><a href="#local-6989586621679174008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSource
+</span><a href="#local-6989586621679174009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3:CodeSource' :: S3Location
 </span><a href="Network.AWS.CodeStar.Types.CodeSource.html#%24sel%3As3%3ACodeSource%27"><span class="hs-identifier hs-var">s3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3Location
-</span><a href="#local-6989586621679173999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource"><span class="hs-identifier hs-type">CodeSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource"><span class="hs-identifier hs-type">CodeSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173995"><span id="local-6989586621679173997"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource"><span class="hs-identifier hs-type">CodeSource</span></a></span></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174004"><span id="local-6989586621679174006"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource"><span class="hs-identifier hs-type">CodeSource</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173992"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource"><span class="hs-identifier hs-type">CodeSource</span></a></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174001"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource"><span class="hs-identifier hs-type">CodeSource</span></a></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173984"><span id="local-6989586621679173986"><span id="local-6989586621679173988"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource"><span class="hs-identifier hs-type">CodeSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679173982"><span class="annot"><span class="annottext">toJSON :: CodeSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource%27"><span class="hs-identifier hs-type">CodeSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173980"><span class="annot"><span class="annottext">S3Location
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173993"><span id="local-6989586621679173995"><span id="local-6989586621679173997"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource"><span class="hs-identifier hs-type">CodeSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679173991"><span class="annot"><span class="annottext">toJSON :: CodeSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.CodeSource.html#CodeSource%27"><span class="hs-identifier hs-type">CodeSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173989"><span class="annot"><span class="annottext">S3Location
 s3 :: S3Location
 $sel:s3:CodeSource' :: CodeSource -&gt; S3Location
-</span><a href="#local-6989586621679173980"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679173989"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -148,5 +148,5 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;s3&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3Location -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">S3Location
-</span><a href="#local-6989586621679173980"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679173989"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span></pre></body></html>

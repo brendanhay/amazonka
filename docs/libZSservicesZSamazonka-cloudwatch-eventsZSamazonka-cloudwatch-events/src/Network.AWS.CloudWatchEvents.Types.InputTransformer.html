@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- target based on one or more pieces of data extracted from the event.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInputTransformer' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679302922"><span id="local-6989586621679302923"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputTransformer"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-var">InputTransformer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputTransformer%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer%27"><span class="hs-identifier hs-var">InputTransformer'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679302931"><span id="local-6989586621679302932"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputTransformer"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-var">InputTransformer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputTransformer%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer%27"><span class="hs-identifier hs-var">InputTransformer'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Map of JSON paths to be extracted from the event. You can then insert</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- these in the template in @InputTemplate@ to produce the output you want</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- to be sent to the target.</span><span>
@@ -90,7 +90,7 @@
 </span><span id="line-89"></span><span>    </span><span id="%24sel%3AinputTemplate%3AInputTransformer%27"><span class="annot"><span class="annottext">InputTransformer -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#%24sel%3AinputTemplate%3AInputTransformer%27"><span class="hs-identifier hs-var hs-var">inputTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302915"><span id="local-6989586621679302917"><span class="annot"><span class="annottext">InputTransformer -&gt; InputTransformer -&gt; Bool
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302924"><span id="local-6989586621679302926"><span class="annot"><span class="annottext">InputTransformer -&gt; InputTransformer -&gt; Bool
 (InputTransformer -&gt; InputTransformer -&gt; Bool)
 -&gt; (InputTransformer -&gt; InputTransformer -&gt; Bool)
 -&gt; Eq InputTransformer
@@ -99,7 +99,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputTransformer -&gt; InputTransformer -&gt; Bool
 == :: InputTransformer -&gt; InputTransformer -&gt; Bool
 $c== :: InputTransformer -&gt; InputTransformer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302906"><span id="local-6989586621679302908"><span id="local-6989586621679302910"><span id="local-6989586621679302912"><span class="annot"><span class="annottext">ReadPrec [InputTransformer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302915"><span id="local-6989586621679302917"><span id="local-6989586621679302919"><span id="local-6989586621679302921"><span class="annot"><span class="annottext">ReadPrec [InputTransformer]
 ReadPrec InputTransformer
 Int -&gt; ReadS InputTransformer
 ReadS [InputTransformer]
@@ -119,7 +119,7 @@ readList :: ReadS [InputTransformer]
 $creadList :: ReadS [InputTransformer]
 readsPrec :: Int -&gt; ReadS InputTransformer
 $creadsPrec :: Int -&gt; ReadS InputTransformer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302899"><span id="local-6989586621679302901"><span id="local-6989586621679302903"><span class="annot"><span class="annottext">Int -&gt; InputTransformer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302908"><span id="local-6989586621679302910"><span id="local-6989586621679302912"><span class="annot"><span class="annottext">Int -&gt; InputTransformer -&gt; ShowS
 [InputTransformer] -&gt; ShowS
 InputTransformer -&gt; String
 (Int -&gt; InputTransformer -&gt; ShowS)
@@ -216,8 +216,8 @@ $cfrom :: forall x. InputTransformer -&gt; Rep InputTransformer x
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span><span>
 </span><span id="line-163"></span><span id="newInputTransformer"><span class="annot"><span class="annottext">newInputTransformer :: Text -&gt; InputTransformer
-</span><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#newInputTransformer"><span class="hs-identifier hs-var hs-var">newInputTransformer</span></a></span></span><span> </span><span id="local-6989586621679302893"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302893"><span class="hs-identifier hs-var">pInputTemplate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#newInputTransformer"><span class="hs-identifier hs-var hs-var">newInputTransformer</span></a></span></span><span> </span><span id="local-6989586621679302902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302902"><span class="hs-identifier hs-var">pInputTemplate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">InputTransformer' :: Maybe (HashMap Text Text) -&gt; Text -&gt; InputTransformer
 </span><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer%27"><span class="hs-identifier hs-type">InputTransformer'</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:inputPathsMap:InputTransformer' :: Maybe (HashMap Text Text)
@@ -226,7 +226,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputTemplate:InputTransformer' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#%24sel%3AinputTemplate%3AInputTransformer%27"><span class="hs-identifier hs-var">inputTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302893"><span class="hs-identifier hs-var">pInputTemplate_</span></a></span><span>
+</span><a href="#local-6989586621679302902"><span class="hs-identifier hs-var">pInputTemplate_</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | Map of JSON paths to be extracted from the event. You can then insert</span><span>
@@ -250,16 +250,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer%27"><span class="hs-identifier hs-type">InputTransformer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302889"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer%27"><span class="hs-identifier hs-type">InputTransformer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302898"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 inputPathsMap :: Maybe (HashMap Text Text)
 $sel:inputPathsMap:InputTransformer' :: InputTransformer -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679302889"><span class="hs-identifier hs-var hs-var">inputPathsMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679302889"><span class="hs-identifier hs-var">inputPathsMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302888"><span class="annot"><span class="annottext">s :: InputTransformer
-</span><a href="#local-6989586621679302888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer%27"><span class="hs-identifier hs-type">InputTransformer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302887"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679302887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTransformer
-</span><a href="#local-6989586621679302888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputPathsMap:InputTransformer' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679302898"><span class="hs-identifier hs-var hs-var">inputPathsMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679302898"><span class="hs-identifier hs-var">inputPathsMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302897"><span class="annot"><span class="annottext">s :: InputTransformer
+</span><a href="#local-6989586621679302897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer%27"><span class="hs-identifier hs-type">InputTransformer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302896"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679302896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTransformer
+</span><a href="#local-6989586621679302897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputPathsMap:InputTransformer' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#%24sel%3AinputPathsMap%3AInputTransformer%27"><span class="hs-identifier hs-var">inputPathsMap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679302887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679302896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; InputTransformer -&gt; f InputTransformer)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -342,19 +342,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (InputTransformer -&gt; Text -&gt; InputTransformer)
 -&gt; Lens InputTransformer InputTransformer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer%27"><span class="hs-identifier hs-type">InputTransformer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302882"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer%27"><span class="hs-identifier hs-type">InputTransformer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302891"><span class="annot"><span class="annottext">Text
 inputTemplate :: Text
 $sel:inputTemplate:InputTransformer' :: InputTransformer -&gt; Text
-</span><a href="#local-6989586621679302882"><span class="hs-identifier hs-var hs-var">inputTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302882"><span class="hs-identifier hs-var">inputTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302881"><span class="annot"><span class="annottext">s :: InputTransformer
-</span><a href="#local-6989586621679302881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer%27"><span class="hs-identifier hs-type">InputTransformer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302880"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTransformer
-</span><a href="#local-6989586621679302881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputTemplate:InputTransformer' :: Text
+</span><a href="#local-6989586621679302891"><span class="hs-identifier hs-var hs-var">inputTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302891"><span class="hs-identifier hs-var">inputTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302890"><span class="annot"><span class="annottext">s :: InputTransformer
+</span><a href="#local-6989586621679302890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer%27"><span class="hs-identifier hs-type">InputTransformer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302889"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTransformer
+</span><a href="#local-6989586621679302890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputTemplate:InputTransformer' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#%24sel%3AinputTemplate%3AInputTransformer%27"><span class="hs-identifier hs-var">inputTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302877"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-233"></span><span>  </span><span id="local-6989586621679302875"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputTransformer
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302886"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679302884"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputTransformer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-234"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputTransformer)
@@ -364,8 +364,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputTransformer&quot;</span></span><span>
-</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302872"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302872"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302881"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302881"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Text -&gt; InputTransformer
 </span><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer%27"><span class="hs-identifier hs-var">InputTransformer'</span></a></span><span>
 </span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Text -&gt; InputTransformer)
@@ -373,7 +373,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; InputTransformer)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302872"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679302881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputPathsMap&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -386,25 +386,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser Text -&gt; Parser InputTransformer
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302872"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679302881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputTemplate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302864"><span id="local-6989586621679302866"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span></span></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302873"><span id="local-6989586621679302875"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span></span></span><span>
 </span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302861"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span></span><span>
 </span><span id="line-245"></span><span>
-</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302853"><span id="local-6989586621679302855"><span id="local-6989586621679302857"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-247"></span><span>  </span><span id="local-6989586621679302851"><span class="annot"><span class="annottext">toJSON :: InputTransformer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer%27"><span class="hs-identifier hs-type">InputTransformer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302848"><span id="local-6989586621679302849"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302862"><span id="local-6989586621679302864"><span id="local-6989586621679302866"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679302860"><span class="annot"><span class="annottext">toJSON :: InputTransformer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.InputTransformer.html#InputTransformer%27"><span class="hs-identifier hs-type">InputTransformer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302857"><span id="local-6989586621679302858"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Text
 inputTemplate :: Text
 inputPathsMap :: Maybe (HashMap Text Text)
 $sel:inputTemplate:InputTransformer' :: InputTransformer -&gt; Text
 $sel:inputPathsMap:InputTransformer' :: InputTransformer -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679302848"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679302857"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-249"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -417,7 +417,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679302849"><span class="hs-identifier hs-var">inputPathsMap</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302858"><span class="hs-identifier hs-var">inputPathsMap</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -425,7 +425,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;InputTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302848"><span class="hs-identifier hs-var">inputTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302857"><span class="hs-identifier hs-var">inputTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-254"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span></pre></body></html>

@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679398904"><span id="local-6989586621679398905"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConformancePackState"><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackState.html#ConformancePackState"><span class="hs-identifier hs-var">ConformancePackState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConformancePackState%27"><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackState.html#ConformancePackState%27"><span class="hs-identifier hs-var">ConformancePackState'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679398913"><span id="local-6989586621679398914"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConformancePackState"><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackState.html#ConformancePackState"><span class="hs-identifier hs-var">ConformancePackState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConformancePackState%27"><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackState.html#ConformancePackState%27"><span class="hs-identifier hs-var">ConformancePackState'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConformancePackState"><span class="annot"><span class="annottext">ConformancePackState -&gt; Text
 </span><a href="Network.AWS.Config.Types.ConformancePackState.html#fromConformancePackState"><span class="hs-identifier hs-var hs-var">fromConformancePackState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398896"><span id="local-6989586621679398898"><span id="local-6989586621679398900"><span class="annot"><span class="annottext">Int -&gt; ConformancePackState -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398905"><span id="local-6989586621679398907"><span id="local-6989586621679398909"><span class="annot"><span class="annottext">Int -&gt; ConformancePackState -&gt; ShowS
 [ConformancePackState] -&gt; ShowS
 ConformancePackState -&gt; String
 (Int -&gt; ConformancePackState -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ConformancePackState -&gt; String
 showsPrec :: Int -&gt; ConformancePackState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConformancePackState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679398887"><span id="local-6989586621679398889"><span id="local-6989586621679398891"><span id="local-6989586621679398893"><span class="annot"><span class="annottext">ReadPrec [ConformancePackState]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679398896"><span id="local-6989586621679398898"><span id="local-6989586621679398900"><span id="local-6989586621679398902"><span class="annot"><span class="annottext">ReadPrec [ConformancePackState]
 ReadPrec ConformancePackState
 Int -&gt; ReadS ConformancePackState
 ReadS [ConformancePackState]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ConformancePackState]
 readsPrec :: Int -&gt; ReadS ConformancePackState
 $creadsPrec :: Int -&gt; ReadS ConformancePackState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679398882"><span id="local-6989586621679398884"><span class="annot"><span class="annottext">ConformancePackState -&gt; ConformancePackState -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679398891"><span id="local-6989586621679398893"><span class="annot"><span class="annottext">ConformancePackState -&gt; ConformancePackState -&gt; Bool
 (ConformancePackState -&gt; ConformancePackState -&gt; Bool)
 -&gt; (ConformancePackState -&gt; ConformancePackState -&gt; Bool)
 -&gt; Eq ConformancePackState
@@ -85,7 +85,7 @@ $c/= :: ConformancePackState -&gt; ConformancePackState -&gt; Bool
 == :: ConformancePackState -&gt; ConformancePackState -&gt; Bool
 $c== :: ConformancePackState -&gt; ConformancePackState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679398866"><span id="local-6989586621679398868"><span id="local-6989586621679398870"><span id="local-6989586621679398872"><span id="local-6989586621679398874"><span id="local-6989586621679398876"><span id="local-6989586621679398878"><span class="annot"><span class="annottext">Eq ConformancePackState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679398875"><span id="local-6989586621679398877"><span id="local-6989586621679398879"><span id="local-6989586621679398881"><span id="local-6989586621679398883"><span id="local-6989586621679398885"><span id="local-6989586621679398887"><span class="annot"><span class="annottext">Eq ConformancePackState
 Eq ConformancePackState
 -&gt; (ConformancePackState -&gt; ConformancePackState -&gt; Ordering)
 -&gt; (ConformancePackState -&gt; ConformancePackState -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. ConformancePackState -&gt; Rep ConformancePackState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398858"><span id="local-6989586621679398860"><span class="annot"><span class="annottext">Int -&gt; ConformancePackState -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398867"><span id="local-6989586621679398869"><span class="annot"><span class="annottext">Int -&gt; ConformancePackState -&gt; Int
 ConformancePackState -&gt; Int
 (Int -&gt; ConformancePackState -&gt; Int)
 -&gt; (ConformancePackState -&gt; Int) -&gt; Hashable ConformancePackState
@@ -153,54 +153,54 @@ $chash :: ConformancePackState -&gt; Int
 hashWithSalt :: Int -&gt; ConformancePackState -&gt; Int
 $chashWithSalt :: Int -&gt; ConformancePackState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679398855"><span class="annot"><span class="annottext">ConformancePackState -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679398864"><span class="annot"><span class="annottext">ConformancePackState -&gt; ()
 (ConformancePackState -&gt; ()) -&gt; NFData ConformancePackState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConformancePackState -&gt; ()
 $crnf :: ConformancePackState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679398852"><span class="annot"><span class="annottext">Text -&gt; Either String ConformancePackState
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679398861"><span class="annot"><span class="annottext">Text -&gt; Either String ConformancePackState
 (Text -&gt; Either String ConformancePackState)
 -&gt; FromText ConformancePackState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConformancePackState
 $cfromText :: Text -&gt; Either String ConformancePackState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679398849"><span class="annot"><span class="annottext">ConformancePackState -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679398858"><span class="annot"><span class="annottext">ConformancePackState -&gt; Text
 (ConformancePackState -&gt; Text) -&gt; ToText ConformancePackState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConformancePackState -&gt; Text
 $ctoText :: ConformancePackState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398846"><span class="annot"><span class="annottext">ConformancePackState -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398855"><span class="annot"><span class="annottext">ConformancePackState -&gt; ByteString
 (ConformancePackState -&gt; ByteString)
 -&gt; ToByteString ConformancePackState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConformancePackState -&gt; ByteString
 $ctoBS :: ConformancePackState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398843"><span class="annot"><span class="annottext">ConformancePackState -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398852"><span class="annot"><span class="annottext">ConformancePackState -&gt; ByteStringBuilder
 (ConformancePackState -&gt; ByteStringBuilder)
 -&gt; ToLog ConformancePackState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConformancePackState -&gt; ByteStringBuilder
 $cbuild :: ConformancePackState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398840"><span class="annot"><span class="annottext">HeaderName -&gt; ConformancePackState -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398849"><span class="annot"><span class="annottext">HeaderName -&gt; ConformancePackState -&gt; [Header]
 (HeaderName -&gt; ConformancePackState -&gt; [Header])
 -&gt; ToHeader ConformancePackState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConformancePackState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConformancePackState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398837"><span class="annot"><span class="annottext">ConformancePackState -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398846"><span class="annot"><span class="annottext">ConformancePackState -&gt; QueryString
 (ConformancePackState -&gt; QueryString)
 -&gt; ToQuery ConformancePackState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConformancePackState -&gt; QueryString
 $ctoQuery :: ConformancePackState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398832"><span id="local-6989586621679398834"><span class="annot"><span class="annottext">Value -&gt; Parser [ConformancePackState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398841"><span id="local-6989586621679398843"><span class="annot"><span class="annottext">Value -&gt; Parser [ConformancePackState]
 Value -&gt; Parser ConformancePackState
 (Value -&gt; Parser ConformancePackState)
 -&gt; (Value -&gt; Parser [ConformancePackState])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [ConformancePackState]
 parseJSON :: Value -&gt; Parser ConformancePackState
 $cparseJSON :: Value -&gt; Parser ConformancePackState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398827"><span id="local-6989586621679398829"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConformancePackState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398836"><span id="local-6989586621679398838"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConformancePackState]
 FromJSONKeyFunction ConformancePackState
 FromJSONKeyFunction ConformancePackState
 -&gt; FromJSONKeyFunction [ConformancePackState]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConformancePackState]
 fromJSONKey :: FromJSONKeyFunction ConformancePackState
 $cfromJSONKey :: FromJSONKeyFunction ConformancePackState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679398818"><span id="local-6989586621679398820"><span id="local-6989586621679398822"><span id="local-6989586621679398824"><span class="annot"><span class="annottext">[ConformancePackState] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679398827"><span id="local-6989586621679398829"><span id="local-6989586621679398831"><span id="local-6989586621679398833"><span class="annot"><span class="annottext">[ConformancePackState] -&gt; Encoding
 [ConformancePackState] -&gt; Value
 ConformancePackState -&gt; Encoding
 ConformancePackState -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: ConformancePackState -&gt; Encoding
 toJSON :: ConformancePackState -&gt; Value
 $ctoJSON :: ConformancePackState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679398813"><span id="local-6989586621679398815"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConformancePackState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679398822"><span id="local-6989586621679398824"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConformancePackState]
 ToJSONKeyFunction ConformancePackState
 ToJSONKeyFunction ConformancePackState
 -&gt; ToJSONKeyFunction [ConformancePackState]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConformancePackState]
 toJSONKey :: ToJSONKeyFunction ConformancePackState
 $ctoJSONKey :: ToJSONKeyFunction ConformancePackState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679398810"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConformancePackState
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679398819"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConformancePackState
 ([Node] -&gt; Either String ConformancePackState)
 -&gt; FromXML ConformancePackState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConformancePackState
 $cparseXML :: [Node] -&gt; Either String ConformancePackState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679398807"><span class="annot"><span class="annottext">ConformancePackState -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679398816"><span class="annot"><span class="annottext">ConformancePackState -&gt; XML
 (ConformancePackState -&gt; XML) -&gt; ToXML ConformancePackState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConformancePackState -&gt; XML

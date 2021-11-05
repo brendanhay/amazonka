@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newAssociateEncryptionConfig' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679278566"><span id="local-6989586621679278567"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateEncryptionConfig"><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-var">AssociateEncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateEncryptionConfig%27"><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-var">AssociateEncryptionConfig'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679278575"><span id="local-6989586621679278576"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateEncryptionConfig"><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-var">AssociateEncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateEncryptionConfig%27"><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-var">AssociateEncryptionConfig'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The client request token you are using with the encryption</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AclientRequestToken%3AAssociateEncryptionConfig%27"><span class="annot"><span class="annottext">AssociateEncryptionConfig -&gt; Maybe Text
@@ -67,7 +67,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AencryptionConfig%3AAssociateEncryptionConfig%27"><span class="annot"><span class="annottext">AssociateEncryptionConfig -&gt; [EncryptionConfig]
 </span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#%24sel%3AencryptionConfig%3AAssociateEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">encryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278558"><span id="local-6989586621679278560"><span class="annot"><span class="annottext">AssociateEncryptionConfig -&gt; AssociateEncryptionConfig -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278567"><span id="local-6989586621679278569"><span class="annot"><span class="annottext">AssociateEncryptionConfig -&gt; AssociateEncryptionConfig -&gt; Bool
 (AssociateEncryptionConfig -&gt; AssociateEncryptionConfig -&gt; Bool)
 -&gt; (AssociateEncryptionConfig -&gt; AssociateEncryptionConfig -&gt; Bool)
 -&gt; Eq AssociateEncryptionConfig
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateEncryptionConfig -&gt; AssociateEncryptionConfig -&gt; Bool
 == :: AssociateEncryptionConfig -&gt; AssociateEncryptionConfig -&gt; Bool
 $c== :: AssociateEncryptionConfig -&gt; AssociateEncryptionConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278549"><span id="local-6989586621679278551"><span id="local-6989586621679278553"><span id="local-6989586621679278555"><span class="annot"><span class="annottext">ReadPrec [AssociateEncryptionConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278558"><span id="local-6989586621679278560"><span id="local-6989586621679278562"><span id="local-6989586621679278564"><span class="annot"><span class="annottext">ReadPrec [AssociateEncryptionConfig]
 ReadPrec AssociateEncryptionConfig
 Int -&gt; ReadS AssociateEncryptionConfig
 ReadS [AssociateEncryptionConfig]
@@ -96,7 +96,7 @@ readList :: ReadS [AssociateEncryptionConfig]
 $creadList :: ReadS [AssociateEncryptionConfig]
 readsPrec :: Int -&gt; ReadS AssociateEncryptionConfig
 $creadsPrec :: Int -&gt; ReadS AssociateEncryptionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278542"><span id="local-6989586621679278544"><span id="local-6989586621679278546"><span class="annot"><span class="annottext">Int -&gt; AssociateEncryptionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278551"><span id="local-6989586621679278553"><span id="local-6989586621679278555"><span class="annot"><span class="annottext">Int -&gt; AssociateEncryptionConfig -&gt; ShowS
 [AssociateEncryptionConfig] -&gt; ShowS
 AssociateEncryptionConfig -&gt; String
 (Int -&gt; AssociateEncryptionConfig -&gt; ShowS)
@@ -148,8 +148,8 @@ AssociateEncryptionConfig -&gt; Rep AssociateEncryptionConfig x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span><span>
 </span><span id="line-88"></span><span id="newAssociateEncryptionConfig"><span class="annot"><span class="annottext">newAssociateEncryptionConfig :: Text -&gt; AssociateEncryptionConfig
-</span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#newAssociateEncryptionConfig"><span class="hs-identifier hs-var hs-var">newAssociateEncryptionConfig</span></a></span></span><span> </span><span id="local-6989586621679278537"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278537"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#newAssociateEncryptionConfig"><span class="hs-identifier hs-var hs-var">newAssociateEncryptionConfig</span></a></span></span><span> </span><span id="local-6989586621679278546"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278546"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">AssociateEncryptionConfig' :: Maybe Text
 -&gt; Text -&gt; [EncryptionConfig] -&gt; AssociateEncryptionConfig
 </span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span>
@@ -160,7 +160,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterName:AssociateEncryptionConfig' :: Text
 </span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#%24sel%3AclusterName%3AAssociateEncryptionConfig%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278537"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278546"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionConfig:AssociateEncryptionConfig' :: [EncryptionConfig]
 </span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#%24sel%3AencryptionConfig%3AAssociateEncryptionConfig%27"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EncryptionConfig]
 forall a. Monoid a =&gt; a
@@ -181,16 +181,16 @@ forall a. Monoid a =&gt; a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278534"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278543"><span class="annot"><span class="annottext">Maybe Text
 clientRequestToken :: Maybe Text
 $sel:clientRequestToken:AssociateEncryptionConfig' :: AssociateEncryptionConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679278534"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278534"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278533"><span class="annot"><span class="annottext">s :: AssociateEncryptionConfig
-</span><a href="#local-6989586621679278533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278532"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateEncryptionConfig
-</span><a href="#local-6989586621679278533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:AssociateEncryptionConfig' :: Maybe Text
+</span><a href="#local-6989586621679278543"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278543"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278542"><span class="annot"><span class="annottext">s :: AssociateEncryptionConfig
+</span><a href="#local-6989586621679278542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278541"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateEncryptionConfig
+</span><a href="#local-6989586621679278542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:AssociateEncryptionConfig' :: Maybe Text
 </span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#%24sel%3AclientRequestToken%3AAssociateEncryptionConfig%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The name of the cluster that you are associating with encryption</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- configuration.</span><span>
@@ -202,16 +202,16 @@ $sel:clientRequestToken:AssociateEncryptionConfig' :: AssociateEncryptionConfig 
 -&gt; Lens
      AssociateEncryptionConfig AssociateEncryptionConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278531"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278540"><span class="annot"><span class="annottext">Text
 clusterName :: Text
 $sel:clusterName:AssociateEncryptionConfig' :: AssociateEncryptionConfig -&gt; Text
-</span><a href="#local-6989586621679278531"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278531"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278530"><span class="annot"><span class="annottext">s :: AssociateEncryptionConfig
-</span><a href="#local-6989586621679278530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278529"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateEncryptionConfig
-</span><a href="#local-6989586621679278530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:AssociateEncryptionConfig' :: Text
+</span><a href="#local-6989586621679278540"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278540"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278539"><span class="annot"><span class="annottext">s :: AssociateEncryptionConfig
+</span><a href="#local-6989586621679278539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278538"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateEncryptionConfig
+</span><a href="#local-6989586621679278539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:AssociateEncryptionConfig' :: Text
 </span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#%24sel%3AclusterName%3AAssociateEncryptionConfig%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The configuration you are using for encryption.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#associateEncryptionConfig_encryptionConfig"><span class="hs-identifier hs-type">associateEncryptionConfig_encryptionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">]</span><span>
@@ -226,16 +226,16 @@ $sel:clusterName:AssociateEncryptionConfig' :: AssociateEncryptionConfig -&gt; T
      [EncryptionConfig]
      [EncryptionConfig]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278528"><span class="annot"><span class="annottext">[EncryptionConfig]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278537"><span class="annot"><span class="annottext">[EncryptionConfig]
 encryptionConfig :: [EncryptionConfig]
 $sel:encryptionConfig:AssociateEncryptionConfig' :: AssociateEncryptionConfig -&gt; [EncryptionConfig]
-</span><a href="#local-6989586621679278528"><span class="hs-identifier hs-var hs-var">encryptionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EncryptionConfig]
-</span><a href="#local-6989586621679278528"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278527"><span class="annot"><span class="annottext">s :: AssociateEncryptionConfig
-</span><a href="#local-6989586621679278527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278526"><span class="annot"><span class="annottext">[EncryptionConfig]
-</span><a href="#local-6989586621679278526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateEncryptionConfig
-</span><a href="#local-6989586621679278527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfig:AssociateEncryptionConfig' :: [EncryptionConfig]
+</span><a href="#local-6989586621679278537"><span class="hs-identifier hs-var hs-var">encryptionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EncryptionConfig]
+</span><a href="#local-6989586621679278537"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278536"><span class="annot"><span class="annottext">s :: AssociateEncryptionConfig
+</span><a href="#local-6989586621679278536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278535"><span class="annot"><span class="annottext">[EncryptionConfig]
+</span><a href="#local-6989586621679278535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateEncryptionConfig
+</span><a href="#local-6989586621679278536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfig:AssociateEncryptionConfig' :: [EncryptionConfig]
 </span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#%24sel%3AencryptionConfig%3AAssociateEncryptionConfig%27"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EncryptionConfig]
-</span><a href="#local-6989586621679278526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EncryptionConfig] -&gt; f [EncryptionConfig])
+</span><a href="#local-6989586621679278535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EncryptionConfig] -&gt; f [EncryptionConfig])
  -&gt; AssociateEncryptionConfig -&gt; f AssociateEncryptionConfig)
 -&gt; (([EncryptionConfig] -&gt; f [EncryptionConfig])
     -&gt; [EncryptionConfig] -&gt; f [EncryptionConfig])
@@ -252,13 +252,13 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679278520"><span class="annot"><span class="annottext">request :: AssociateEncryptionConfig -&gt; Request AssociateEncryptionConfig
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679278529"><span class="annot"><span class="annottext">request :: AssociateEncryptionConfig -&gt; Request AssociateEncryptionConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AssociateEncryptionConfig -&gt; Request AssociateEncryptionConfig
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EKS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679278516"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679278525"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateEncryptionConfig
 -&gt; ClientResponse ClientBody
@@ -284,10 +284,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278513"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278513"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278512"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679278512"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278511"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278511"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278522"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278522"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278521"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679278521"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278520"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278520"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Update -&gt; Int -&gt; AssociateEncryptionConfigResponse
 </span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-var">AssociateEncryptionConfigResponse'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Update -&gt; Int -&gt; AssociateEncryptionConfigResponse)
@@ -295,7 +295,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; AssociateEncryptionConfigResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Update)
+</span><a href="#local-6989586621679278520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Update)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;update&quot;</span></span><span class="hs-special">)</span><span>
@@ -308,15 +308,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278513"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278522"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278503"><span id="local-6989586621679278505"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278512"><span id="local-6989586621679278514"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679278496"><span class="annot"><span class="annottext">toHeaders :: AssociateEncryptionConfig -&gt; ResponseHeaders
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679278505"><span class="annot"><span class="annottext">toHeaders :: AssociateEncryptionConfig -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateEncryptionConfig -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -335,9 +335,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278486"><span id="local-6989586621679278488"><span id="local-6989586621679278490"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679278484"><span class="annot"><span class="annottext">toJSON :: AssociateEncryptionConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278480"><span id="local-6989586621679278481"><span id="local-6989586621679278482"><span class="annot"><span class="annottext">[EncryptionConfig]
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278495"><span id="local-6989586621679278497"><span id="local-6989586621679278499"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679278493"><span class="annot"><span class="annottext">toJSON :: AssociateEncryptionConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278489"><span id="local-6989586621679278490"><span id="local-6989586621679278491"><span class="annot"><span class="annottext">[EncryptionConfig]
 Maybe Text
 Text
 encryptionConfig :: [EncryptionConfig]
@@ -346,7 +346,7 @@ clientRequestToken :: Maybe Text
 $sel:encryptionConfig:AssociateEncryptionConfig' :: AssociateEncryptionConfig -&gt; [EncryptionConfig]
 $sel:clusterName:AssociateEncryptionConfig' :: AssociateEncryptionConfig -&gt; Text
 $sel:clientRequestToken:AssociateEncryptionConfig' :: AssociateEncryptionConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679278480"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679278489"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -359,7 +359,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278482"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278491"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -367,13 +367,13 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;encryptionConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [EncryptionConfig] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[EncryptionConfig]
-</span><a href="#local-6989586621679278480"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278489"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679278474"><span class="annot"><span class="annottext">toPath :: AssociateEncryptionConfig -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278470"><span id="local-6989586621679278471"><span id="local-6989586621679278472"><span class="annot"><span class="annottext">[EncryptionConfig]
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679278483"><span class="annot"><span class="annottext">toPath :: AssociateEncryptionConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig%27"><span class="hs-identifier hs-type">AssociateEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278479"><span id="local-6989586621679278480"><span id="local-6989586621679278481"><span class="annot"><span class="annottext">[EncryptionConfig]
 Maybe Text
 Text
 encryptionConfig :: [EncryptionConfig]
@@ -382,7 +382,7 @@ clientRequestToken :: Maybe Text
 $sel:encryptionConfig:AssociateEncryptionConfig' :: AssociateEncryptionConfig -&gt; [EncryptionConfig]
 $sel:clusterName:AssociateEncryptionConfig' :: AssociateEncryptionConfig -&gt; Text
 $sel:clientRequestToken:AssociateEncryptionConfig' :: AssociateEncryptionConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679278470"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679278479"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -391,13 +391,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278471"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278480"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/encryption-config/associate&quot;</span></span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfig"><span class="hs-identifier hs-type">AssociateEncryptionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679278466"><span class="annot"><span class="annottext">toQuery :: AssociateEncryptionConfig -&gt; QueryString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679278475"><span class="annot"><span class="annottext">toQuery :: AssociateEncryptionConfig -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateEncryptionConfig -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -405,14 +405,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newAssociateEncryptionConfigResponse' smart constructor.</span><span>
-</span><span id="line-161"></span><span id="local-6989586621679278463"><span id="local-6989586621679278464"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateEncryptionConfigResponse"><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse"><span class="hs-identifier hs-var">AssociateEncryptionConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateEncryptionConfigResponse%27"><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-var">AssociateEncryptionConfigResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span id="local-6989586621679278472"><span id="local-6989586621679278473"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateEncryptionConfigResponse"><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse"><span class="hs-identifier hs-var">AssociateEncryptionConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateEncryptionConfigResponse%27"><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-var">AssociateEncryptionConfigResponse'</span></a></span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aupdate%3AAssociateEncryptionConfigResponse%27"><span class="annot"><span class="annottext">AssociateEncryptionConfigResponse -&gt; Maybe Update
 </span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#%24sel%3Aupdate%3AAssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-var hs-var">update</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateEncryptionConfigResponse%27"><span class="annot"><span class="annottext">AssociateEncryptionConfigResponse -&gt; Int
 </span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#%24sel%3AhttpStatus%3AAssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278457"><span id="local-6989586621679278459"><span class="annot"><span class="annottext">AssociateEncryptionConfigResponse
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278466"><span id="local-6989586621679278468"><span class="annot"><span class="annottext">AssociateEncryptionConfigResponse
 -&gt; AssociateEncryptionConfigResponse -&gt; Bool
 (AssociateEncryptionConfigResponse
  -&gt; AssociateEncryptionConfigResponse -&gt; Bool)
@@ -428,7 +428,7 @@ $c/= :: AssociateEncryptionConfigResponse
 -&gt; AssociateEncryptionConfigResponse -&gt; Bool
 $c== :: AssociateEncryptionConfigResponse
 -&gt; AssociateEncryptionConfigResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278449"><span id="local-6989586621679278451"><span id="local-6989586621679278453"><span id="local-6989586621679278455"><span class="annot"><span class="annottext">ReadPrec [AssociateEncryptionConfigResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278458"><span id="local-6989586621679278460"><span id="local-6989586621679278462"><span id="local-6989586621679278464"><span class="annot"><span class="annottext">ReadPrec [AssociateEncryptionConfigResponse]
 ReadPrec AssociateEncryptionConfigResponse
 Int -&gt; ReadS AssociateEncryptionConfigResponse
 ReadS [AssociateEncryptionConfigResponse]
@@ -448,7 +448,7 @@ readList :: ReadS [AssociateEncryptionConfigResponse]
 $creadList :: ReadS [AssociateEncryptionConfigResponse]
 readsPrec :: Int -&gt; ReadS AssociateEncryptionConfigResponse
 $creadsPrec :: Int -&gt; ReadS AssociateEncryptionConfigResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278443"><span id="local-6989586621679278445"><span id="local-6989586621679278447"><span class="annot"><span class="annottext">Int -&gt; AssociateEncryptionConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278452"><span id="local-6989586621679278454"><span id="local-6989586621679278456"><span class="annot"><span class="annottext">Int -&gt; AssociateEncryptionConfigResponse -&gt; ShowS
 [AssociateEncryptionConfigResponse] -&gt; ShowS
 AssociateEncryptionConfigResponse -&gt; String
 (Int -&gt; AssociateEncryptionConfigResponse -&gt; ShowS)
@@ -502,8 +502,8 @@ AssociateEncryptionConfigResponse
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse</span></a></span><span>
 </span><span id="line-183"></span><span id="newAssociateEncryptionConfigResponse"><span class="annot"><span class="annottext">newAssociateEncryptionConfigResponse :: Int -&gt; AssociateEncryptionConfigResponse
-</span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#newAssociateEncryptionConfigResponse"><span class="hs-identifier hs-var hs-var">newAssociateEncryptionConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679278440"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278440"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#newAssociateEncryptionConfigResponse"><span class="hs-identifier hs-var hs-var">newAssociateEncryptionConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679278449"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">AssociateEncryptionConfigResponse' :: Maybe Update -&gt; Int -&gt; AssociateEncryptionConfigResponse
 </span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse'</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:update:AssociateEncryptionConfigResponse' :: Maybe Update
@@ -513,7 +513,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateEncryptionConfigResponse' :: Int
 </span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#%24sel%3AhttpStatus%3AAssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278440"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679278449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -530,16 +530,16 @@ forall a. Maybe a
      (Maybe Update)
      (Maybe Update)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278439"><span class="annot"><span class="annottext">Maybe Update
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278448"><span class="annot"><span class="annottext">Maybe Update
 update :: Maybe Update
 $sel:update:AssociateEncryptionConfigResponse' :: AssociateEncryptionConfigResponse -&gt; Maybe Update
-</span><a href="#local-6989586621679278439"><span class="hs-identifier hs-var hs-var">update</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Update
-</span><a href="#local-6989586621679278439"><span class="hs-identifier hs-var">update</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278438"><span class="annot"><span class="annottext">s :: AssociateEncryptionConfigResponse
-</span><a href="#local-6989586621679278438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278437"><span class="annot"><span class="annottext">Maybe Update
-</span><a href="#local-6989586621679278437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateEncryptionConfigResponse
-</span><a href="#local-6989586621679278438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:update:AssociateEncryptionConfigResponse' :: Maybe Update
+</span><a href="#local-6989586621679278448"><span class="hs-identifier hs-var hs-var">update</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Update
+</span><a href="#local-6989586621679278448"><span class="hs-identifier hs-var">update</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278447"><span class="annot"><span class="annottext">s :: AssociateEncryptionConfigResponse
+</span><a href="#local-6989586621679278447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278446"><span class="annot"><span class="annottext">Maybe Update
+</span><a href="#local-6989586621679278446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateEncryptionConfigResponse
+</span><a href="#local-6989586621679278447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:update:AssociateEncryptionConfigResponse' :: Maybe Update
 </span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#%24sel%3Aupdate%3AAssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-var">update</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Update
-</span><a href="#local-6989586621679278437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-195"></span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#associateEncryptionConfigResponse_httpStatus"><span class="hs-identifier hs-type">associateEncryptionConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -555,18 +555,18 @@ $sel:update:AssociateEncryptionConfigResponse' :: AssociateEncryptionConfigRespo
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278436"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278445"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AssociateEncryptionConfigResponse' :: AssociateEncryptionConfigResponse -&gt; Int
-</span><a href="#local-6989586621679278436"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278436"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278435"><span class="annot"><span class="annottext">s :: AssociateEncryptionConfigResponse
-</span><a href="#local-6989586621679278435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278434"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateEncryptionConfigResponse
-</span><a href="#local-6989586621679278435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateEncryptionConfigResponse' :: Int
+</span><a href="#local-6989586621679278445"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278445"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278444"><span class="annot"><span class="annottext">s :: AssociateEncryptionConfigResponse
+</span><a href="#local-6989586621679278444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278443"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateEncryptionConfigResponse
+</span><a href="#local-6989586621679278444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateEncryptionConfigResponse' :: Int
 </span><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#%24sel%3AhttpStatus%3AAssociateEncryptionConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679278432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679278441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.AssociateEncryptionConfig.html#AssociateEncryptionConfigResponse"><span class="hs-identifier hs-type">AssociateEncryptionConfigResponse</span></a></span></span><span>
 </span><span id="line-201"></span></pre></body></html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.FileFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.FileFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat"><span class="hs-identifier">FileFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_CLF"><span class="hs-identifier">FileFormat_CLF</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_CSV"><span class="hs-identifier">FileFormat_CSV</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_ELF"><span class="hs-identifier">FileFormat_ELF</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_JSON"><span class="hs-identifier">FileFormat_JSON</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_TSV"><span class="hs-identifier">FileFormat_TSV</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_XLSX"><span class="hs-identifier">FileFormat_XLSX</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679554969"><span id="local-6989586621679554970"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FileFormat"><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat"><span class="hs-identifier hs-var">FileFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileFormat%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat%27"><span class="hs-identifier hs-var">FileFormat'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFileFormat"><span class="annot"><span class="annottext">FileFormat -&gt; Text
+</span><a href="Network.AWS.QuickSight.Types.FileFormat.html#fromFileFormat"><span class="hs-identifier hs-var hs-var">fromFileFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679554961"><span id="local-6989586621679554963"><span id="local-6989586621679554965"><span class="annot"><span class="annottext">Int -&gt; FileFormat -&gt; ShowS
+[FileFormat] -&gt; ShowS
+FileFormat -&gt; String
+(Int -&gt; FileFormat -&gt; ShowS)
+-&gt; (FileFormat -&gt; String)
+-&gt; ([FileFormat] -&gt; ShowS)
+-&gt; Show FileFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FileFormat] -&gt; ShowS
+$cshowList :: [FileFormat] -&gt; ShowS
+show :: FileFormat -&gt; String
+$cshow :: FileFormat -&gt; String
+showsPrec :: Int -&gt; FileFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; FileFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679554952"><span id="local-6989586621679554954"><span id="local-6989586621679554956"><span id="local-6989586621679554958"><span class="annot"><span class="annottext">ReadPrec [FileFormat]
+ReadPrec FileFormat
+Int -&gt; ReadS FileFormat
+ReadS [FileFormat]
+(Int -&gt; ReadS FileFormat)
+-&gt; ReadS [FileFormat]
+-&gt; ReadPrec FileFormat
+-&gt; ReadPrec [FileFormat]
+-&gt; Read FileFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FileFormat]
+$creadListPrec :: ReadPrec [FileFormat]
+readPrec :: ReadPrec FileFormat
+$creadPrec :: ReadPrec FileFormat
+readList :: ReadS [FileFormat]
+$creadList :: ReadS [FileFormat]
+readsPrec :: Int -&gt; ReadS FileFormat
+$creadsPrec :: Int -&gt; ReadS FileFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679554947"><span id="local-6989586621679554949"><span class="annot"><span class="annottext">FileFormat -&gt; FileFormat -&gt; Bool
+(FileFormat -&gt; FileFormat -&gt; Bool)
+-&gt; (FileFormat -&gt; FileFormat -&gt; Bool) -&gt; Eq FileFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FileFormat -&gt; FileFormat -&gt; Bool
+$c/= :: FileFormat -&gt; FileFormat -&gt; Bool
+== :: FileFormat -&gt; FileFormat -&gt; Bool
+$c== :: FileFormat -&gt; FileFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679554931"><span id="local-6989586621679554933"><span id="local-6989586621679554935"><span id="local-6989586621679554937"><span id="local-6989586621679554939"><span id="local-6989586621679554941"><span id="local-6989586621679554943"><span class="annot"><span class="annottext">Eq FileFormat
+Eq FileFormat
+-&gt; (FileFormat -&gt; FileFormat -&gt; Ordering)
+-&gt; (FileFormat -&gt; FileFormat -&gt; Bool)
+-&gt; (FileFormat -&gt; FileFormat -&gt; Bool)
+-&gt; (FileFormat -&gt; FileFormat -&gt; Bool)
+-&gt; (FileFormat -&gt; FileFormat -&gt; Bool)
+-&gt; (FileFormat -&gt; FileFormat -&gt; FileFormat)
+-&gt; (FileFormat -&gt; FileFormat -&gt; FileFormat)
+-&gt; Ord FileFormat
+FileFormat -&gt; FileFormat -&gt; Bool
+FileFormat -&gt; FileFormat -&gt; Ordering
+FileFormat -&gt; FileFormat -&gt; FileFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FileFormat -&gt; FileFormat -&gt; FileFormat
+$cmin :: FileFormat -&gt; FileFormat -&gt; FileFormat
+max :: FileFormat -&gt; FileFormat -&gt; FileFormat
+$cmax :: FileFormat -&gt; FileFormat -&gt; FileFormat
+&gt;= :: FileFormat -&gt; FileFormat -&gt; Bool
+$c&gt;= :: FileFormat -&gt; FileFormat -&gt; Bool
+&gt; :: FileFormat -&gt; FileFormat -&gt; Bool
+$c&gt; :: FileFormat -&gt; FileFormat -&gt; Bool
+&lt;= :: FileFormat -&gt; FileFormat -&gt; Bool
+$c&lt;= :: FileFormat -&gt; FileFormat -&gt; Bool
+&lt; :: FileFormat -&gt; FileFormat -&gt; Bool
+$c&lt; :: FileFormat -&gt; FileFormat -&gt; Bool
+compare :: FileFormat -&gt; FileFormat -&gt; Ordering
+$ccompare :: FileFormat -&gt; FileFormat -&gt; Ordering
+$cp1Ord :: Eq FileFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FileFormat -&gt; Rep FileFormat x)
+-&gt; (forall x. Rep FileFormat x -&gt; FileFormat) -&gt; Generic FileFormat
+forall x. Rep FileFormat x -&gt; FileFormat
+forall x. FileFormat -&gt; Rep FileFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FileFormat x -&gt; FileFormat
+$cfrom :: forall x. FileFormat -&gt; Rep FileFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679554923"><span id="local-6989586621679554925"><span class="annot"><span class="annottext">Int -&gt; FileFormat -&gt; Int
+FileFormat -&gt; Int
+(Int -&gt; FileFormat -&gt; Int)
+-&gt; (FileFormat -&gt; Int) -&gt; Hashable FileFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FileFormat -&gt; Int
+$chash :: FileFormat -&gt; Int
+hashWithSalt :: Int -&gt; FileFormat -&gt; Int
+$chashWithSalt :: Int -&gt; FileFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679554920"><span class="annot"><span class="annottext">FileFormat -&gt; ()
+(FileFormat -&gt; ()) -&gt; NFData FileFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FileFormat -&gt; ()
+$crnf :: FileFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679554917"><span class="annot"><span class="annottext">Text -&gt; Either String FileFormat
+(Text -&gt; Either String FileFormat) -&gt; FromText FileFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FileFormat
+$cfromText :: Text -&gt; Either String FileFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679554914"><span class="annot"><span class="annottext">FileFormat -&gt; Text
+(FileFormat -&gt; Text) -&gt; ToText FileFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FileFormat -&gt; Text
+$ctoText :: FileFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679554911"><span class="annot"><span class="annottext">FileFormat -&gt; ByteString
+(FileFormat -&gt; ByteString) -&gt; ToByteString FileFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FileFormat -&gt; ByteString
+$ctoBS :: FileFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679554908"><span class="annot"><span class="annottext">FileFormat -&gt; ByteStringBuilder
+(FileFormat -&gt; ByteStringBuilder) -&gt; ToLog FileFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FileFormat -&gt; ByteStringBuilder
+$cbuild :: FileFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679554905"><span class="annot"><span class="annottext">HeaderName -&gt; FileFormat -&gt; [Header]
+(HeaderName -&gt; FileFormat -&gt; [Header]) -&gt; ToHeader FileFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FileFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FileFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679554902"><span class="annot"><span class="annottext">FileFormat -&gt; QueryString
+(FileFormat -&gt; QueryString) -&gt; ToQuery FileFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FileFormat -&gt; QueryString
+$ctoQuery :: FileFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679554897"><span id="local-6989586621679554899"><span class="annot"><span class="annottext">Value -&gt; Parser [FileFormat]
+Value -&gt; Parser FileFormat
+(Value -&gt; Parser FileFormat)
+-&gt; (Value -&gt; Parser [FileFormat]) -&gt; FromJSON FileFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FileFormat]
+$cparseJSONList :: Value -&gt; Parser [FileFormat]
+parseJSON :: Value -&gt; Parser FileFormat
+$cparseJSON :: Value -&gt; Parser FileFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679554892"><span id="local-6989586621679554894"><span class="annot"><span class="annottext">FromJSONKeyFunction [FileFormat]
+FromJSONKeyFunction FileFormat
+FromJSONKeyFunction FileFormat
+-&gt; FromJSONKeyFunction [FileFormat] -&gt; FromJSONKey FileFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FileFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [FileFormat]
+fromJSONKey :: FromJSONKeyFunction FileFormat
+$cfromJSONKey :: FromJSONKeyFunction FileFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679554883"><span id="local-6989586621679554885"><span id="local-6989586621679554887"><span id="local-6989586621679554889"><span class="annot"><span class="annottext">[FileFormat] -&gt; Encoding
+[FileFormat] -&gt; Value
+FileFormat -&gt; Encoding
+FileFormat -&gt; Value
+(FileFormat -&gt; Value)
+-&gt; (FileFormat -&gt; Encoding)
+-&gt; ([FileFormat] -&gt; Value)
+-&gt; ([FileFormat] -&gt; Encoding)
+-&gt; ToJSON FileFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FileFormat] -&gt; Encoding
+$ctoEncodingList :: [FileFormat] -&gt; Encoding
+toJSONList :: [FileFormat] -&gt; Value
+$ctoJSONList :: [FileFormat] -&gt; Value
+toEncoding :: FileFormat -&gt; Encoding
+$ctoEncoding :: FileFormat -&gt; Encoding
+toJSON :: FileFormat -&gt; Value
+$ctoJSON :: FileFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679554878"><span id="local-6989586621679554880"><span class="annot"><span class="annottext">ToJSONKeyFunction [FileFormat]
+ToJSONKeyFunction FileFormat
+ToJSONKeyFunction FileFormat
+-&gt; ToJSONKeyFunction [FileFormat] -&gt; ToJSONKey FileFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FileFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [FileFormat]
+toJSONKey :: ToJSONKeyFunction FileFormat
+$ctoJSONKey :: ToJSONKeyFunction FileFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679554875"><span class="annot"><span class="annottext">[Node] -&gt; Either String FileFormat
+([Node] -&gt; Either String FileFormat) -&gt; FromXML FileFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FileFormat
+$cparseXML :: [Node] -&gt; Either String FileFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679554872"><span class="annot"><span class="annottext">FileFormat -&gt; XML
+(FileFormat -&gt; XML) -&gt; ToXML FileFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FileFormat -&gt; XML
+$ctoXML :: FileFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_CLF"><span class="hs-identifier hs-type">FileFormat_CLF</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat"><span class="hs-identifier hs-type">FileFormat</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileFormat_CLF"><span id="%24mFileFormat_CLF"><span id="FileFormat_CLF"><span class="annot"><span class="annottext">$bFileFormat_CLF :: FileFormat
+$mFileFormat_CLF :: forall r. FileFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.FileFormat.html#%24bFileFormat_CLF"><span class="hs-identifier hs-var hs-var hs-var">FileFormat_CLF</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat%27"><span class="hs-identifier hs-type">FileFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLF&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_CSV"><span class="hs-identifier hs-type">FileFormat_CSV</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat"><span class="hs-identifier hs-type">FileFormat</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileFormat_CSV"><span id="%24mFileFormat_CSV"><span id="FileFormat_CSV"><span class="annot"><span class="annottext">$bFileFormat_CSV :: FileFormat
+$mFileFormat_CSV :: forall r. FileFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.FileFormat.html#%24bFileFormat_CSV"><span class="hs-identifier hs-var hs-var hs-var">FileFormat_CSV</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat%27"><span class="hs-identifier hs-type">FileFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CSV&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_ELF"><span class="hs-identifier hs-type">FileFormat_ELF</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat"><span class="hs-identifier hs-type">FileFormat</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileFormat_ELF"><span id="%24mFileFormat_ELF"><span id="FileFormat_ELF"><span class="annot"><span class="annottext">$bFileFormat_ELF :: FileFormat
+$mFileFormat_ELF :: forall r. FileFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.FileFormat.html#%24bFileFormat_ELF"><span class="hs-identifier hs-var hs-var hs-var">FileFormat_ELF</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat%27"><span class="hs-identifier hs-type">FileFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ELF&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_JSON"><span class="hs-identifier hs-type">FileFormat_JSON</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat"><span class="hs-identifier hs-type">FileFormat</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileFormat_JSON"><span id="%24mFileFormat_JSON"><span id="FileFormat_JSON"><span class="annot"><span class="annottext">$bFileFormat_JSON :: FileFormat
+$mFileFormat_JSON :: forall r. FileFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.FileFormat.html#%24bFileFormat_JSON"><span class="hs-identifier hs-var hs-var hs-var">FileFormat_JSON</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat%27"><span class="hs-identifier hs-type">FileFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;JSON&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_TSV"><span class="hs-identifier hs-type">FileFormat_TSV</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat"><span class="hs-identifier hs-type">FileFormat</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileFormat_TSV"><span id="%24mFileFormat_TSV"><span id="FileFormat_TSV"><span class="annot"><span class="annottext">$bFileFormat_TSV :: FileFormat
+$mFileFormat_TSV :: forall r. FileFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.FileFormat.html#%24bFileFormat_TSV"><span class="hs-identifier hs-var hs-var hs-var">FileFormat_TSV</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat%27"><span class="hs-identifier hs-type">FileFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TSV&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_XLSX"><span class="hs-identifier hs-type">FileFormat_XLSX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat"><span class="hs-identifier hs-type">FileFormat</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileFormat_XLSX"><span id="%24mFileFormat_XLSX"><span id="FileFormat_XLSX"><span class="annot"><span class="annottext">$bFileFormat_XLSX :: FileFormat
+$mFileFormat_XLSX :: forall r. FileFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.FileFormat.html#%24bFileFormat_XLSX"><span class="hs-identifier hs-var hs-var hs-var">FileFormat_XLSX</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat%27"><span class="hs-identifier hs-type">FileFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;XLSX&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_CLF"><span class="hs-pragma hs-type">FileFormat_CLF</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_CSV"><span class="hs-pragma hs-type">FileFormat_CSV</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_ELF"><span class="hs-pragma hs-type">FileFormat_ELF</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_JSON"><span class="hs-pragma hs-type">FileFormat_JSON</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_TSV"><span class="hs-pragma hs-type">FileFormat_TSV</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat_XLSX"><span class="hs-pragma hs-type">FileFormat_XLSX</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FileFormat.html#FileFormat%27"><span class="hs-pragma hs-type">FileFormat'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

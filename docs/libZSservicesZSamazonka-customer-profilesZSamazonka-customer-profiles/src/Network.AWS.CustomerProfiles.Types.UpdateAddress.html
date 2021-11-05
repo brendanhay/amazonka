@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CustomerProfiles.Types.UpdateAddress</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.UpdateAddress</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Updates associated with the address properties of a customer profile.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newUpdateAddress' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679271062"><span id="local-6989586621679271063"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAddress"><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-var">UpdateAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAddress%27"><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-var">UpdateAddress'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The second line of a customer address.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aaddress2%3AUpdateAddress%27"><span class="annot"><span class="annottext">UpdateAddress -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aaddress2%3AUpdateAddress%27"><span class="hs-identifier hs-var hs-var">address2</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The state in which a customer lives.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astate%3AUpdateAddress%27"><span class="annot"><span class="annottext">UpdateAddress -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Astate%3AUpdateAddress%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The fourth line of a customer address.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aaddress4%3AUpdateAddress%27"><span class="annot"><span class="annottext">UpdateAddress -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aaddress4%3AUpdateAddress%27"><span class="hs-identifier hs-var hs-var">address4</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The county in which a customer lives.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acounty%3AUpdateAddress%27"><span class="annot"><span class="annottext">UpdateAddress -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Acounty%3AUpdateAddress%27"><span class="hs-identifier hs-var hs-var">county</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The third line of a customer address.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aaddress3%3AUpdateAddress%27"><span class="annot"><span class="annottext">UpdateAddress -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aaddress3%3AUpdateAddress%27"><span class="hs-identifier hs-var hs-var">address3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The postal code of a customer address.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3ApostalCode%3AUpdateAddress%27"><span class="annot"><span class="annottext">UpdateAddress -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3ApostalCode%3AUpdateAddress%27"><span class="hs-identifier hs-var hs-var">postalCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The country in which a customer lives.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Acountry%3AUpdateAddress%27"><span class="annot"><span class="annottext">UpdateAddress -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Acountry%3AUpdateAddress%27"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The city in which a customer lives.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Acity%3AUpdateAddress%27"><span class="annot"><span class="annottext">UpdateAddress -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Acity%3AUpdateAddress%27"><span class="hs-identifier hs-var hs-var">city</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The first line of a customer address.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aaddress1%3AUpdateAddress%27"><span class="annot"><span class="annottext">UpdateAddress -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aaddress1%3AUpdateAddress%27"><span class="hs-identifier hs-var hs-var">address1</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The province in which a customer lives.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aprovince%3AUpdateAddress%27"><span class="annot"><span class="annottext">UpdateAddress -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aprovince%3AUpdateAddress%27"><span class="hs-identifier hs-var hs-var">province</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271047"><span id="local-6989586621679271049"><span class="annot"><span class="annottext">UpdateAddress -&gt; UpdateAddress -&gt; Bool
+(UpdateAddress -&gt; UpdateAddress -&gt; Bool)
+-&gt; (UpdateAddress -&gt; UpdateAddress -&gt; Bool) -&gt; Eq UpdateAddress
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAddress -&gt; UpdateAddress -&gt; Bool
+$c/= :: UpdateAddress -&gt; UpdateAddress -&gt; Bool
+== :: UpdateAddress -&gt; UpdateAddress -&gt; Bool
+$c== :: UpdateAddress -&gt; UpdateAddress -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271038"><span id="local-6989586621679271040"><span id="local-6989586621679271042"><span id="local-6989586621679271044"><span class="annot"><span class="annottext">ReadPrec [UpdateAddress]
+ReadPrec UpdateAddress
+Int -&gt; ReadS UpdateAddress
+ReadS [UpdateAddress]
+(Int -&gt; ReadS UpdateAddress)
+-&gt; ReadS [UpdateAddress]
+-&gt; ReadPrec UpdateAddress
+-&gt; ReadPrec [UpdateAddress]
+-&gt; Read UpdateAddress
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAddress]
+$creadListPrec :: ReadPrec [UpdateAddress]
+readPrec :: ReadPrec UpdateAddress
+$creadPrec :: ReadPrec UpdateAddress
+readList :: ReadS [UpdateAddress]
+$creadList :: ReadS [UpdateAddress]
+readsPrec :: Int -&gt; ReadS UpdateAddress
+$creadsPrec :: Int -&gt; ReadS UpdateAddress
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271031"><span id="local-6989586621679271033"><span id="local-6989586621679271035"><span class="annot"><span class="annottext">Int -&gt; UpdateAddress -&gt; ShowS
+[UpdateAddress] -&gt; ShowS
+UpdateAddress -&gt; String
+(Int -&gt; UpdateAddress -&gt; ShowS)
+-&gt; (UpdateAddress -&gt; String)
+-&gt; ([UpdateAddress] -&gt; ShowS)
+-&gt; Show UpdateAddress
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAddress] -&gt; ShowS
+$cshowList :: [UpdateAddress] -&gt; ShowS
+show :: UpdateAddress -&gt; String
+$cshow :: UpdateAddress -&gt; String
+showsPrec :: Int -&gt; UpdateAddress -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAddress -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateAddress -&gt; Rep UpdateAddress x)
+-&gt; (forall x. Rep UpdateAddress x -&gt; UpdateAddress)
+-&gt; Generic UpdateAddress
+forall x. Rep UpdateAddress x -&gt; UpdateAddress
+forall x. UpdateAddress -&gt; Rep UpdateAddress x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateAddress x -&gt; UpdateAddress
+$cfrom :: forall x. UpdateAddress -&gt; Rep UpdateAddress x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'UpdateAddress' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'address2', 'updateAddress_address2' - The second line of a customer address.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'state', 'updateAddress_state' - The state in which a customer lives.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'address4', 'updateAddress_address4' - The fourth line of a customer address.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'county', 'updateAddress_county' - The county in which a customer lives.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'address3', 'updateAddress_address3' - The third line of a customer address.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'postalCode', 'updateAddress_postalCode' - The postal code of a customer address.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'country', 'updateAddress_country' - The country in which a customer lives.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'city', 'updateAddress_city' - The city in which a customer lives.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'address1', 'updateAddress_address1' - The first line of a customer address.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'province', 'updateAddress_province' - The province in which a customer lives.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#newUpdateAddress"><span class="hs-identifier hs-type">newUpdateAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span>
+</span><span id="line-82"></span><span id="newUpdateAddress"><span class="annot"><span class="annottext">newUpdateAddress :: UpdateAddress
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#newUpdateAddress"><span class="hs-identifier hs-var hs-var">newUpdateAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">UpdateAddress' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; UpdateAddress
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:address2:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aaddress2%3AUpdateAddress%27"><span class="hs-identifier hs-var">address2</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Astate%3AUpdateAddress%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:address4:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aaddress4%3AUpdateAddress%27"><span class="hs-identifier hs-var">address4</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:county:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Acounty%3AUpdateAddress%27"><span class="hs-identifier hs-var">county</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:address3:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aaddress3%3AUpdateAddress%27"><span class="hs-identifier hs-var">address3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:postalCode:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3ApostalCode%3AUpdateAddress%27"><span class="hs-identifier hs-var">postalCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:country:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Acountry%3AUpdateAddress%27"><span class="hs-identifier hs-var">country</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:city:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Acity%3AUpdateAddress%27"><span class="hs-identifier hs-var">city</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:address1:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aaddress1%3AUpdateAddress%27"><span class="hs-identifier hs-var">address1</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:province:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aprovince%3AUpdateAddress%27"><span class="hs-identifier hs-var">province</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The second line of a customer address.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_address2"><span class="hs-identifier hs-type">updateAddress_address2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="updateAddress_address2"><span class="annot"><span class="annottext">updateAddress_address2 :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAddress -&gt; f UpdateAddress
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_address2"><span class="hs-identifier hs-var hs-var">updateAddress_address2</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAddress -&gt; Maybe Text)
+-&gt; (UpdateAddress -&gt; Maybe Text -&gt; UpdateAddress)
+-&gt; Lens UpdateAddress UpdateAddress (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271022"><span class="annot"><span class="annottext">Maybe Text
+address2 :: Maybe Text
+$sel:address2:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+</span><a href="#local-6989586621679271022"><span class="hs-identifier hs-var hs-var">address2</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271022"><span class="hs-identifier hs-var">address2</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271021"><span class="annot"><span class="annottext">s :: UpdateAddress
+</span><a href="#local-6989586621679271021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271020"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddress
+</span><a href="#local-6989586621679271021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address2:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aaddress2%3AUpdateAddress%27"><span class="hs-identifier hs-var">address2</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The state in which a customer lives.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_state"><span class="hs-identifier hs-type">updateAddress_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="updateAddress_state"><span class="annot"><span class="annottext">updateAddress_state :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAddress -&gt; f UpdateAddress
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_state"><span class="hs-identifier hs-var hs-var">updateAddress_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAddress -&gt; Maybe Text)
+-&gt; (UpdateAddress -&gt; Maybe Text -&gt; UpdateAddress)
+-&gt; Lens UpdateAddress UpdateAddress (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271018"><span class="annot"><span class="annottext">Maybe Text
+state :: Maybe Text
+$sel:state:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+</span><a href="#local-6989586621679271018"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271018"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271017"><span class="annot"><span class="annottext">s :: UpdateAddress
+</span><a href="#local-6989586621679271017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271016"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddress
+</span><a href="#local-6989586621679271017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Astate%3AUpdateAddress%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The fourth line of a customer address.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_address4"><span class="hs-identifier hs-type">updateAddress_address4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="updateAddress_address4"><span class="annot"><span class="annottext">updateAddress_address4 :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAddress -&gt; f UpdateAddress
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_address4"><span class="hs-identifier hs-var hs-var">updateAddress_address4</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAddress -&gt; Maybe Text)
+-&gt; (UpdateAddress -&gt; Maybe Text -&gt; UpdateAddress)
+-&gt; Lens UpdateAddress UpdateAddress (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271014"><span class="annot"><span class="annottext">Maybe Text
+address4 :: Maybe Text
+$sel:address4:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+</span><a href="#local-6989586621679271014"><span class="hs-identifier hs-var hs-var">address4</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271014"><span class="hs-identifier hs-var">address4</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271013"><span class="annot"><span class="annottext">s :: UpdateAddress
+</span><a href="#local-6989586621679271013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271012"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddress
+</span><a href="#local-6989586621679271013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address4:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aaddress4%3AUpdateAddress%27"><span class="hs-identifier hs-var">address4</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The county in which a customer lives.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_county"><span class="hs-identifier hs-type">updateAddress_county</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="updateAddress_county"><span class="annot"><span class="annottext">updateAddress_county :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAddress -&gt; f UpdateAddress
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_county"><span class="hs-identifier hs-var hs-var">updateAddress_county</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAddress -&gt; Maybe Text)
+-&gt; (UpdateAddress -&gt; Maybe Text -&gt; UpdateAddress)
+-&gt; Lens UpdateAddress UpdateAddress (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271010"><span class="annot"><span class="annottext">Maybe Text
+county :: Maybe Text
+$sel:county:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+</span><a href="#local-6989586621679271010"><span class="hs-identifier hs-var hs-var">county</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271010"><span class="hs-identifier hs-var">county</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271009"><span class="annot"><span class="annottext">s :: UpdateAddress
+</span><a href="#local-6989586621679271009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271008"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddress
+</span><a href="#local-6989586621679271009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:county:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Acounty%3AUpdateAddress%27"><span class="hs-identifier hs-var">county</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The third line of a customer address.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_address3"><span class="hs-identifier hs-type">updateAddress_address3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="updateAddress_address3"><span class="annot"><span class="annottext">updateAddress_address3 :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAddress -&gt; f UpdateAddress
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_address3"><span class="hs-identifier hs-var hs-var">updateAddress_address3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAddress -&gt; Maybe Text)
+-&gt; (UpdateAddress -&gt; Maybe Text -&gt; UpdateAddress)
+-&gt; Lens UpdateAddress UpdateAddress (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271006"><span class="annot"><span class="annottext">Maybe Text
+address3 :: Maybe Text
+$sel:address3:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+</span><a href="#local-6989586621679271006"><span class="hs-identifier hs-var hs-var">address3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271006"><span class="hs-identifier hs-var">address3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271005"><span class="annot"><span class="annottext">s :: UpdateAddress
+</span><a href="#local-6989586621679271005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271004"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddress
+</span><a href="#local-6989586621679271005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address3:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aaddress3%3AUpdateAddress%27"><span class="hs-identifier hs-var">address3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The postal code of a customer address.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_postalCode"><span class="hs-identifier hs-type">updateAddress_postalCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="updateAddress_postalCode"><span class="annot"><span class="annottext">updateAddress_postalCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAddress -&gt; f UpdateAddress
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_postalCode"><span class="hs-identifier hs-var hs-var">updateAddress_postalCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAddress -&gt; Maybe Text)
+-&gt; (UpdateAddress -&gt; Maybe Text -&gt; UpdateAddress)
+-&gt; Lens UpdateAddress UpdateAddress (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271002"><span class="annot"><span class="annottext">Maybe Text
+postalCode :: Maybe Text
+$sel:postalCode:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+</span><a href="#local-6989586621679271002"><span class="hs-identifier hs-var hs-var">postalCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271002"><span class="hs-identifier hs-var">postalCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271001"><span class="annot"><span class="annottext">s :: UpdateAddress
+</span><a href="#local-6989586621679271001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271000"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddress
+</span><a href="#local-6989586621679271001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:postalCode:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3ApostalCode%3AUpdateAddress%27"><span class="hs-identifier hs-var">postalCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The country in which a customer lives.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_country"><span class="hs-identifier hs-type">updateAddress_country</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="updateAddress_country"><span class="annot"><span class="annottext">updateAddress_country :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAddress -&gt; f UpdateAddress
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_country"><span class="hs-identifier hs-var hs-var">updateAddress_country</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAddress -&gt; Maybe Text)
+-&gt; (UpdateAddress -&gt; Maybe Text -&gt; UpdateAddress)
+-&gt; Lens UpdateAddress UpdateAddress (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270998"><span class="annot"><span class="annottext">Maybe Text
+country :: Maybe Text
+$sel:country:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+</span><a href="#local-6989586621679270998"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270998"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270997"><span class="annot"><span class="annottext">s :: UpdateAddress
+</span><a href="#local-6989586621679270997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270996"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddress
+</span><a href="#local-6989586621679270997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:country:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Acountry%3AUpdateAddress%27"><span class="hs-identifier hs-var">country</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The city in which a customer lives.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_city"><span class="hs-identifier hs-type">updateAddress_city</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="updateAddress_city"><span class="annot"><span class="annottext">updateAddress_city :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAddress -&gt; f UpdateAddress
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_city"><span class="hs-identifier hs-var hs-var">updateAddress_city</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAddress -&gt; Maybe Text)
+-&gt; (UpdateAddress -&gt; Maybe Text -&gt; UpdateAddress)
+-&gt; Lens UpdateAddress UpdateAddress (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270994"><span class="annot"><span class="annottext">Maybe Text
+city :: Maybe Text
+$sel:city:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+</span><a href="#local-6989586621679270994"><span class="hs-identifier hs-var hs-var">city</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270994"><span class="hs-identifier hs-var">city</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270993"><span class="annot"><span class="annottext">s :: UpdateAddress
+</span><a href="#local-6989586621679270993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270992"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddress
+</span><a href="#local-6989586621679270993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:city:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Acity%3AUpdateAddress%27"><span class="hs-identifier hs-var">city</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The first line of a customer address.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_address1"><span class="hs-identifier hs-type">updateAddress_address1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="updateAddress_address1"><span class="annot"><span class="annottext">updateAddress_address1 :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAddress -&gt; f UpdateAddress
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_address1"><span class="hs-identifier hs-var hs-var">updateAddress_address1</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAddress -&gt; Maybe Text)
+-&gt; (UpdateAddress -&gt; Maybe Text -&gt; UpdateAddress)
+-&gt; Lens UpdateAddress UpdateAddress (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270990"><span class="annot"><span class="annottext">Maybe Text
+address1 :: Maybe Text
+$sel:address1:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+</span><a href="#local-6989586621679270990"><span class="hs-identifier hs-var hs-var">address1</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270990"><span class="hs-identifier hs-var">address1</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270989"><span class="annot"><span class="annottext">s :: UpdateAddress
+</span><a href="#local-6989586621679270989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270988"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddress
+</span><a href="#local-6989586621679270989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address1:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aaddress1%3AUpdateAddress%27"><span class="hs-identifier hs-var">address1</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The province in which a customer lives.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_province"><span class="hs-identifier hs-type">updateAddress_province</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="updateAddress_province"><span class="annot"><span class="annottext">updateAddress_province :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAddress -&gt; f UpdateAddress
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_province"><span class="hs-identifier hs-var hs-var">updateAddress_province</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAddress -&gt; Maybe Text)
+-&gt; (UpdateAddress -&gt; Maybe Text -&gt; UpdateAddress)
+-&gt; Lens UpdateAddress UpdateAddress (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270986"><span class="annot"><span class="annottext">Maybe Text
+province :: Maybe Text
+$sel:province:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+</span><a href="#local-6989586621679270986"><span class="hs-identifier hs-var hs-var">province</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270986"><span class="hs-identifier hs-var">province</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270985"><span class="annot"><span class="annottext">s :: UpdateAddress
+</span><a href="#local-6989586621679270985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270984"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddress
+</span><a href="#local-6989586621679270985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:province:UpdateAddress' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#%24sel%3Aprovince%3AUpdateAddress%27"><span class="hs-identifier hs-var">province</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270980"><span id="local-6989586621679270982"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270977"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270969"><span id="local-6989586621679270971"><span id="local-6989586621679270973"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier hs-type">UpdateAddress</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679270967"><span class="annot"><span class="annottext">toJSON :: UpdateAddress -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress%27"><span class="hs-identifier hs-type">UpdateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270956"><span id="local-6989586621679270957"><span id="local-6989586621679270958"><span id="local-6989586621679270959"><span id="local-6989586621679270960"><span id="local-6989586621679270961"><span id="local-6989586621679270962"><span id="local-6989586621679270963"><span id="local-6989586621679270964"><span id="local-6989586621679270965"><span class="annot"><span class="annottext">Maybe Text
+province :: Maybe Text
+address1 :: Maybe Text
+city :: Maybe Text
+country :: Maybe Text
+postalCode :: Maybe Text
+address3 :: Maybe Text
+county :: Maybe Text
+address4 :: Maybe Text
+state :: Maybe Text
+address2 :: Maybe Text
+$sel:province:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+$sel:address1:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+$sel:city:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+$sel:country:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+$sel:postalCode:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+$sel:address3:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+$sel:county:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+$sel:address4:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+$sel:state:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+$sel:address2:UpdateAddress' :: UpdateAddress -&gt; Maybe Text
+</span><a href="#local-6989586621679270956"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Address2&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270965"><span class="hs-identifier hs-var">address2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270964"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Address4&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270963"><span class="hs-identifier hs-var">address4</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;County&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270962"><span class="hs-identifier hs-var">county</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Address3&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270961"><span class="hs-identifier hs-var">address3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PostalCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270960"><span class="hs-identifier hs-var">postalCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Country&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270959"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;City&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270958"><span class="hs-identifier hs-var">city</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Address1&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270957"><span class="hs-identifier hs-var">address1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Province&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270956"><span class="hs-identifier hs-var">province</span></a></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span></pre></body></html>

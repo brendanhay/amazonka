@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681127601"><span id="local-6989586621681127602"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MonitoringState"><span class="annot"><a href="Network.AWS.EC2.Types.MonitoringState.html#MonitoringState"><span class="hs-identifier hs-var">MonitoringState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringState%27"><span class="annot"><a href="Network.AWS.EC2.Types.MonitoringState.html#MonitoringState%27"><span class="hs-identifier hs-var">MonitoringState'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681127610"><span id="local-6989586621681127611"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MonitoringState"><span class="annot"><a href="Network.AWS.EC2.Types.MonitoringState.html#MonitoringState"><span class="hs-identifier hs-var">MonitoringState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringState%27"><span class="annot"><a href="Network.AWS.EC2.Types.MonitoringState.html#MonitoringState%27"><span class="hs-identifier hs-var">MonitoringState'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMonitoringState"><span class="annot"><span class="annottext">MonitoringState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.MonitoringState.html#fromMonitoringState"><span class="hs-identifier hs-var hs-var">fromMonitoringState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681127593"><span id="local-6989586621681127595"><span id="local-6989586621681127597"><span class="annot"><span class="annottext">Int -&gt; MonitoringState -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681127602"><span id="local-6989586621681127604"><span id="local-6989586621681127606"><span class="annot"><span class="annottext">Int -&gt; MonitoringState -&gt; ShowS
 [MonitoringState] -&gt; ShowS
 MonitoringState -&gt; String
 (Int -&gt; MonitoringState -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: MonitoringState -&gt; String
 showsPrec :: Int -&gt; MonitoringState -&gt; ShowS
 $cshowsPrec :: Int -&gt; MonitoringState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681127584"><span id="local-6989586621681127586"><span id="local-6989586621681127588"><span id="local-6989586621681127590"><span class="annot"><span class="annottext">ReadPrec [MonitoringState]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681127593"><span id="local-6989586621681127595"><span id="local-6989586621681127597"><span id="local-6989586621681127599"><span class="annot"><span class="annottext">ReadPrec [MonitoringState]
 ReadPrec MonitoringState
 Int -&gt; ReadS MonitoringState
 ReadS [MonitoringState]
@@ -75,7 +75,7 @@ $creadList :: ReadS [MonitoringState]
 readsPrec :: Int -&gt; ReadS MonitoringState
 $creadsPrec :: Int -&gt; ReadS MonitoringState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681127579"><span id="local-6989586621681127581"><span class="annot"><span class="annottext">MonitoringState -&gt; MonitoringState -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681127588"><span id="local-6989586621681127590"><span class="annot"><span class="annottext">MonitoringState -&gt; MonitoringState -&gt; Bool
 (MonitoringState -&gt; MonitoringState -&gt; Bool)
 -&gt; (MonitoringState -&gt; MonitoringState -&gt; Bool)
 -&gt; Eq MonitoringState
@@ -85,7 +85,7 @@ $c/= :: MonitoringState -&gt; MonitoringState -&gt; Bool
 == :: MonitoringState -&gt; MonitoringState -&gt; Bool
 $c== :: MonitoringState -&gt; MonitoringState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681127563"><span id="local-6989586621681127565"><span id="local-6989586621681127567"><span id="local-6989586621681127569"><span id="local-6989586621681127571"><span id="local-6989586621681127573"><span id="local-6989586621681127575"><span class="annot"><span class="annottext">Eq MonitoringState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681127572"><span id="local-6989586621681127574"><span id="local-6989586621681127576"><span id="local-6989586621681127578"><span id="local-6989586621681127580"><span id="local-6989586621681127582"><span id="local-6989586621681127584"><span class="annot"><span class="annottext">Eq MonitoringState
 Eq MonitoringState
 -&gt; (MonitoringState -&gt; MonitoringState -&gt; Ordering)
 -&gt; (MonitoringState -&gt; MonitoringState -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. MonitoringState -&gt; Rep MonitoringState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681127555"><span id="local-6989586621681127557"><span class="annot"><span class="annottext">Int -&gt; MonitoringState -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681127564"><span id="local-6989586621681127566"><span class="annot"><span class="annottext">Int -&gt; MonitoringState -&gt; Int
 MonitoringState -&gt; Int
 (Int -&gt; MonitoringState -&gt; Int)
 -&gt; (MonitoringState -&gt; Int) -&gt; Hashable MonitoringState
@@ -146,50 +146,50 @@ $chash :: MonitoringState -&gt; Int
 hashWithSalt :: Int -&gt; MonitoringState -&gt; Int
 $chashWithSalt :: Int -&gt; MonitoringState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681127552"><span class="annot"><span class="annottext">MonitoringState -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681127561"><span class="annot"><span class="annottext">MonitoringState -&gt; ()
 (MonitoringState -&gt; ()) -&gt; NFData MonitoringState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MonitoringState -&gt; ()
 $crnf :: MonitoringState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681127549"><span class="annot"><span class="annottext">Text -&gt; Either String MonitoringState
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681127558"><span class="annot"><span class="annottext">Text -&gt; Either String MonitoringState
 (Text -&gt; Either String MonitoringState) -&gt; FromText MonitoringState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MonitoringState
 $cfromText :: Text -&gt; Either String MonitoringState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681127546"><span class="annot"><span class="annottext">MonitoringState -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681127555"><span class="annot"><span class="annottext">MonitoringState -&gt; Text
 (MonitoringState -&gt; Text) -&gt; ToText MonitoringState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MonitoringState -&gt; Text
 $ctoText :: MonitoringState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681127543"><span class="annot"><span class="annottext">MonitoringState -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681127552"><span class="annot"><span class="annottext">MonitoringState -&gt; ByteString
 (MonitoringState -&gt; ByteString) -&gt; ToByteString MonitoringState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MonitoringState -&gt; ByteString
 $ctoBS :: MonitoringState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681127540"><span class="annot"><span class="annottext">MonitoringState -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681127549"><span class="annot"><span class="annottext">MonitoringState -&gt; ByteStringBuilder
 (MonitoringState -&gt; ByteStringBuilder) -&gt; ToLog MonitoringState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MonitoringState -&gt; ByteStringBuilder
 $cbuild :: MonitoringState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681127537"><span class="annot"><span class="annottext">HeaderName -&gt; MonitoringState -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681127546"><span class="annot"><span class="annottext">HeaderName -&gt; MonitoringState -&gt; [Header]
 (HeaderName -&gt; MonitoringState -&gt; [Header])
 -&gt; ToHeader MonitoringState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MonitoringState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MonitoringState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681127534"><span class="annot"><span class="annottext">MonitoringState -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681127543"><span class="annot"><span class="annottext">MonitoringState -&gt; QueryString
 (MonitoringState -&gt; QueryString) -&gt; ToQuery MonitoringState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MonitoringState -&gt; QueryString
 $ctoQuery :: MonitoringState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681127529"><span id="local-6989586621681127531"><span class="annot"><span class="annottext">Value -&gt; Parser [MonitoringState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681127538"><span id="local-6989586621681127540"><span class="annot"><span class="annottext">Value -&gt; Parser [MonitoringState]
 Value -&gt; Parser MonitoringState
 (Value -&gt; Parser MonitoringState)
 -&gt; (Value -&gt; Parser [MonitoringState]) -&gt; FromJSON MonitoringState
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [MonitoringState]
 parseJSON :: Value -&gt; Parser MonitoringState
 $cparseJSON :: Value -&gt; Parser MonitoringState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681127524"><span id="local-6989586621681127526"><span class="annot"><span class="annottext">FromJSONKeyFunction [MonitoringState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681127533"><span id="local-6989586621681127535"><span class="annot"><span class="annottext">FromJSONKeyFunction [MonitoringState]
 FromJSONKeyFunction MonitoringState
 FromJSONKeyFunction MonitoringState
 -&gt; FromJSONKeyFunction [MonitoringState]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MonitoringState]
 fromJSONKey :: FromJSONKeyFunction MonitoringState
 $cfromJSONKey :: FromJSONKeyFunction MonitoringState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681127515"><span id="local-6989586621681127517"><span id="local-6989586621681127519"><span id="local-6989586621681127521"><span class="annot"><span class="annottext">[MonitoringState] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681127524"><span id="local-6989586621681127526"><span id="local-6989586621681127528"><span id="local-6989586621681127530"><span class="annot"><span class="annottext">[MonitoringState] -&gt; Encoding
 [MonitoringState] -&gt; Value
 MonitoringState -&gt; Encoding
 MonitoringState -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: MonitoringState -&gt; Encoding
 toJSON :: MonitoringState -&gt; Value
 $ctoJSON :: MonitoringState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681127510"><span id="local-6989586621681127512"><span class="annot"><span class="annottext">ToJSONKeyFunction [MonitoringState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681127519"><span id="local-6989586621681127521"><span class="annot"><span class="annottext">ToJSONKeyFunction [MonitoringState]
 ToJSONKeyFunction MonitoringState
 ToJSONKeyFunction MonitoringState
 -&gt; ToJSONKeyFunction [MonitoringState] -&gt; ToJSONKey MonitoringState
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MonitoringState]
 toJSONKey :: ToJSONKeyFunction MonitoringState
 $ctoJSONKey :: ToJSONKeyFunction MonitoringState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681127507"><span class="annot"><span class="annottext">[Node] -&gt; Either String MonitoringState
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681127516"><span class="annot"><span class="annottext">[Node] -&gt; Either String MonitoringState
 ([Node] -&gt; Either String MonitoringState)
 -&gt; FromXML MonitoringState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MonitoringState
 $cparseXML :: [Node] -&gt; Either String MonitoringState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681127504"><span class="annot"><span class="annottext">MonitoringState -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681127513"><span class="annot"><span class="annottext">MonitoringState -&gt; XML
 (MonitoringState -&gt; XML) -&gt; ToXML MonitoringState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MonitoringState -&gt; XML

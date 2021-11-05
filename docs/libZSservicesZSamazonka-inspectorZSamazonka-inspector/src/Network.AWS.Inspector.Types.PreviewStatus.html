@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679246771"><span id="local-6989586621679246772"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PreviewStatus"><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus"><span class="hs-identifier hs-var">PreviewStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PreviewStatus%27"><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus%27"><span class="hs-identifier hs-var">PreviewStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679246780"><span id="local-6989586621679246781"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PreviewStatus"><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus"><span class="hs-identifier hs-var">PreviewStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PreviewStatus%27"><span class="annot"><a href="Network.AWS.Inspector.Types.PreviewStatus.html#PreviewStatus%27"><span class="hs-identifier hs-var">PreviewStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPreviewStatus"><span class="annot"><span class="annottext">PreviewStatus -&gt; Text
 </span><a href="Network.AWS.Inspector.Types.PreviewStatus.html#fromPreviewStatus"><span class="hs-identifier hs-var hs-var">fromPreviewStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246763"><span id="local-6989586621679246765"><span id="local-6989586621679246767"><span class="annot"><span class="annottext">Int -&gt; PreviewStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246772"><span id="local-6989586621679246774"><span id="local-6989586621679246776"><span class="annot"><span class="annottext">Int -&gt; PreviewStatus -&gt; ShowS
 [PreviewStatus] -&gt; ShowS
 PreviewStatus -&gt; String
 (Int -&gt; PreviewStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: PreviewStatus -&gt; String
 showsPrec :: Int -&gt; PreviewStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; PreviewStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679246754"><span id="local-6989586621679246756"><span id="local-6989586621679246758"><span id="local-6989586621679246760"><span class="annot"><span class="annottext">ReadPrec [PreviewStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679246763"><span id="local-6989586621679246765"><span id="local-6989586621679246767"><span id="local-6989586621679246769"><span class="annot"><span class="annottext">ReadPrec [PreviewStatus]
 ReadPrec PreviewStatus
 Int -&gt; ReadS PreviewStatus
 ReadS [PreviewStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [PreviewStatus]
 readsPrec :: Int -&gt; ReadS PreviewStatus
 $creadsPrec :: Int -&gt; ReadS PreviewStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679246749"><span id="local-6989586621679246751"><span class="annot"><span class="annottext">PreviewStatus -&gt; PreviewStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679246758"><span id="local-6989586621679246760"><span class="annot"><span class="annottext">PreviewStatus -&gt; PreviewStatus -&gt; Bool
 (PreviewStatus -&gt; PreviewStatus -&gt; Bool)
 -&gt; (PreviewStatus -&gt; PreviewStatus -&gt; Bool) -&gt; Eq PreviewStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
 == :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
 $c== :: PreviewStatus -&gt; PreviewStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679246733"><span id="local-6989586621679246735"><span id="local-6989586621679246737"><span id="local-6989586621679246739"><span id="local-6989586621679246741"><span id="local-6989586621679246743"><span id="local-6989586621679246745"><span class="annot"><span class="annottext">Eq PreviewStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679246742"><span id="local-6989586621679246744"><span id="local-6989586621679246746"><span id="local-6989586621679246748"><span id="local-6989586621679246750"><span id="local-6989586621679246752"><span id="local-6989586621679246754"><span class="annot"><span class="annottext">Eq PreviewStatus
 Eq PreviewStatus
 -&gt; (PreviewStatus -&gt; PreviewStatus -&gt; Ordering)
 -&gt; (PreviewStatus -&gt; PreviewStatus -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. PreviewStatus -&gt; Rep PreviewStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246725"><span id="local-6989586621679246727"><span class="annot"><span class="annottext">Int -&gt; PreviewStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246734"><span id="local-6989586621679246736"><span class="annot"><span class="annottext">Int -&gt; PreviewStatus -&gt; Int
 PreviewStatus -&gt; Int
 (Int -&gt; PreviewStatus -&gt; Int)
 -&gt; (PreviewStatus -&gt; Int) -&gt; Hashable PreviewStatus
@@ -142,49 +142,49 @@ $chash :: PreviewStatus -&gt; Int
 hashWithSalt :: Int -&gt; PreviewStatus -&gt; Int
 $chashWithSalt :: Int -&gt; PreviewStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679246722"><span class="annot"><span class="annottext">PreviewStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679246731"><span class="annot"><span class="annottext">PreviewStatus -&gt; ()
 (PreviewStatus -&gt; ()) -&gt; NFData PreviewStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PreviewStatus -&gt; ()
 $crnf :: PreviewStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246719"><span class="annot"><span class="annottext">Text -&gt; Either String PreviewStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246728"><span class="annot"><span class="annottext">Text -&gt; Either String PreviewStatus
 (Text -&gt; Either String PreviewStatus) -&gt; FromText PreviewStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PreviewStatus
 $cfromText :: Text -&gt; Either String PreviewStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679246716"><span class="annot"><span class="annottext">PreviewStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679246725"><span class="annot"><span class="annottext">PreviewStatus -&gt; Text
 (PreviewStatus -&gt; Text) -&gt; ToText PreviewStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PreviewStatus -&gt; Text
 $ctoText :: PreviewStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246713"><span class="annot"><span class="annottext">PreviewStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246722"><span class="annot"><span class="annottext">PreviewStatus -&gt; ByteString
 (PreviewStatus -&gt; ByteString) -&gt; ToByteString PreviewStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PreviewStatus -&gt; ByteString
 $ctoBS :: PreviewStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246710"><span class="annot"><span class="annottext">PreviewStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246719"><span class="annot"><span class="annottext">PreviewStatus -&gt; ByteStringBuilder
 (PreviewStatus -&gt; ByteStringBuilder) -&gt; ToLog PreviewStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PreviewStatus -&gt; ByteStringBuilder
 $cbuild :: PreviewStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246707"><span class="annot"><span class="annottext">HeaderName -&gt; PreviewStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246716"><span class="annot"><span class="annottext">HeaderName -&gt; PreviewStatus -&gt; [Header]
 (HeaderName -&gt; PreviewStatus -&gt; [Header]) -&gt; ToHeader PreviewStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PreviewStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PreviewStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246704"><span class="annot"><span class="annottext">PreviewStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246713"><span class="annot"><span class="annottext">PreviewStatus -&gt; QueryString
 (PreviewStatus -&gt; QueryString) -&gt; ToQuery PreviewStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PreviewStatus -&gt; QueryString
 $ctoQuery :: PreviewStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246699"><span id="local-6989586621679246701"><span class="annot"><span class="annottext">Value -&gt; Parser [PreviewStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246708"><span id="local-6989586621679246710"><span class="annot"><span class="annottext">Value -&gt; Parser [PreviewStatus]
 Value -&gt; Parser PreviewStatus
 (Value -&gt; Parser PreviewStatus)
 -&gt; (Value -&gt; Parser [PreviewStatus]) -&gt; FromJSON PreviewStatus
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [PreviewStatus]
 parseJSON :: Value -&gt; Parser PreviewStatus
 $cparseJSON :: Value -&gt; Parser PreviewStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246694"><span id="local-6989586621679246696"><span class="annot"><span class="annottext">FromJSONKeyFunction [PreviewStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246703"><span id="local-6989586621679246705"><span class="annot"><span class="annottext">FromJSONKeyFunction [PreviewStatus]
 FromJSONKeyFunction PreviewStatus
 FromJSONKeyFunction PreviewStatus
 -&gt; FromJSONKeyFunction [PreviewStatus] -&gt; FromJSONKey PreviewStatus
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PreviewStatus]
 fromJSONKey :: FromJSONKeyFunction PreviewStatus
 $cfromJSONKey :: FromJSONKeyFunction PreviewStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246685"><span id="local-6989586621679246687"><span id="local-6989586621679246689"><span id="local-6989586621679246691"><span class="annot"><span class="annottext">[PreviewStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246694"><span id="local-6989586621679246696"><span id="local-6989586621679246698"><span id="local-6989586621679246700"><span class="annot"><span class="annottext">[PreviewStatus] -&gt; Encoding
 [PreviewStatus] -&gt; Value
 PreviewStatus -&gt; Encoding
 PreviewStatus -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: PreviewStatus -&gt; Encoding
 toJSON :: PreviewStatus -&gt; Value
 $ctoJSON :: PreviewStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246680"><span id="local-6989586621679246682"><span class="annot"><span class="annottext">ToJSONKeyFunction [PreviewStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246689"><span id="local-6989586621679246691"><span class="annot"><span class="annottext">ToJSONKeyFunction [PreviewStatus]
 ToJSONKeyFunction PreviewStatus
 ToJSONKeyFunction PreviewStatus
 -&gt; ToJSONKeyFunction [PreviewStatus] -&gt; ToJSONKey PreviewStatus
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PreviewStatus]
 toJSONKey :: ToJSONKeyFunction PreviewStatus
 $ctoJSONKey :: ToJSONKeyFunction PreviewStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246677"><span class="annot"><span class="annottext">[Node] -&gt; Either String PreviewStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246686"><span class="annot"><span class="annottext">[Node] -&gt; Either String PreviewStatus
 ([Node] -&gt; Either String PreviewStatus) -&gt; FromXML PreviewStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PreviewStatus
 $cparseXML :: [Node] -&gt; Either String PreviewStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246674"><span class="annot"><span class="annottext">PreviewStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246683"><span class="annot"><span class="annottext">PreviewStatus -&gt; XML
 (PreviewStatus -&gt; XML) -&gt; ToXML PreviewStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PreviewStatus -&gt; XML

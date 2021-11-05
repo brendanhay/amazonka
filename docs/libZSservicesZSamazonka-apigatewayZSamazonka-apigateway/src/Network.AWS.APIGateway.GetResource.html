@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Request to list information about a resource.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newGetResource' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679379942"><span id="local-6989586621679379943"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResource"><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-var">GetResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResource%27"><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-var">GetResource'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679379951"><span id="local-6989586621679379952"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResource"><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-var">GetResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResource%27"><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-var">GetResource'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A query parameter to retrieve the specified resources embedded in the</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- returned Resource representation in the response. This @embed@ parameter</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- value is a list of comma-separated strings. Currently, the request</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AresourceId%3AGetResource%27"><span class="annot"><span class="annottext">GetResource -&gt; Text
 </span><a href="Network.AWS.APIGateway.GetResource.html#%24sel%3AresourceId%3AGetResource%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379934"><span id="local-6989586621679379936"><span class="annot"><span class="annottext">GetResource -&gt; GetResource -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379943"><span id="local-6989586621679379945"><span class="annot"><span class="annottext">GetResource -&gt; GetResource -&gt; Bool
 (GetResource -&gt; GetResource -&gt; Bool)
 -&gt; (GetResource -&gt; GetResource -&gt; Bool) -&gt; Eq GetResource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetResource -&gt; GetResource -&gt; Bool
 == :: GetResource -&gt; GetResource -&gt; Bool
 $c== :: GetResource -&gt; GetResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379925"><span id="local-6989586621679379927"><span id="local-6989586621679379929"><span id="local-6989586621679379931"><span class="annot"><span class="annottext">ReadPrec [GetResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379934"><span id="local-6989586621679379936"><span id="local-6989586621679379938"><span id="local-6989586621679379940"><span class="annot"><span class="annottext">ReadPrec [GetResource]
 ReadPrec GetResource
 Int -&gt; ReadS GetResource
 ReadS [GetResource]
@@ -99,7 +99,7 @@ readList :: ReadS [GetResource]
 $creadList :: ReadS [GetResource]
 readsPrec :: Int -&gt; ReadS GetResource
 $creadsPrec :: Int -&gt; ReadS GetResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379918"><span id="local-6989586621679379920"><span id="local-6989586621679379922"><span class="annot"><span class="annottext">Int -&gt; GetResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379927"><span id="local-6989586621679379929"><span id="local-6989586621679379931"><span class="annot"><span class="annottext">Int -&gt; GetResource -&gt; ShowS
 [GetResource] -&gt; ShowS
 GetResource -&gt; String
 (Int -&gt; GetResource -&gt; ShowS)
@@ -151,9 +151,9 @@ $cfrom :: forall x. GetResource -&gt; Rep GetResource x
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span>
 </span><span id="line-98"></span><span id="newGetResource"><span class="annot"><span class="annottext">newGetResource :: Text -&gt; Text -&gt; GetResource
-</span><a href="Network.AWS.APIGateway.GetResource.html#newGetResource"><span class="hs-identifier hs-var hs-var">newGetResource</span></a></span></span><span> </span><span id="local-6989586621679379913"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379913"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679379912"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379912"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.GetResource.html#newGetResource"><span class="hs-identifier hs-var hs-var">newGetResource</span></a></span></span><span> </span><span id="local-6989586621679379922"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379922"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679379921"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379921"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">GetResource' :: Maybe [Text] -&gt; Text -&gt; Text -&gt; GetResource
 </span><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:embed:GetResource' :: Maybe [Text]
@@ -162,10 +162,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:restApiId:GetResource' :: Text
 </span><a href="Network.AWS.APIGateway.GetResource.html#%24sel%3ArestApiId%3AGetResource%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379913"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379922"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:GetResource' :: Text
 </span><a href="Network.AWS.APIGateway.GetResource.html#%24sel%3AresourceId%3AGetResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379912"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
+</span><a href="#local-6989586621679379921"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | A query parameter to retrieve the specified resources embedded in the</span><span>
@@ -181,16 +181,16 @@ forall a. Maybe a
 -&gt; (GetResource -&gt; Maybe [Text] -&gt; GetResource)
 -&gt; Lens GetResource GetResource (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379909"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379918"><span class="annot"><span class="annottext">Maybe [Text]
 embed :: Maybe [Text]
 $sel:embed:GetResource' :: GetResource -&gt; Maybe [Text]
-</span><a href="#local-6989586621679379909"><span class="hs-identifier hs-var hs-var">embed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679379909"><span class="hs-identifier hs-var">embed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379908"><span class="annot"><span class="annottext">s :: GetResource
-</span><a href="#local-6989586621679379908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379907"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679379907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResource
-</span><a href="#local-6989586621679379908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:embed:GetResource' :: Maybe [Text]
+</span><a href="#local-6989586621679379918"><span class="hs-identifier hs-var hs-var">embed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679379918"><span class="hs-identifier hs-var">embed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379917"><span class="annot"><span class="annottext">s :: GetResource
+</span><a href="#local-6989586621679379917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379916"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679379916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResource
+</span><a href="#local-6989586621679379917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:embed:GetResource' :: Maybe [Text]
 </span><a href="Network.AWS.APIGateway.GetResource.html#%24sel%3Aembed%3AGetResource%27"><span class="hs-identifier hs-var">embed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679379907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679379916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; GetResource -&gt; f GetResource)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -214,16 +214,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetResource -&gt; Text -&gt; GetResource)
 -&gt; Lens GetResource GetResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379903"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379912"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:GetResource' :: GetResource -&gt; Text
-</span><a href="#local-6989586621679379903"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379903"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379902"><span class="annot"><span class="annottext">s :: GetResource
-</span><a href="#local-6989586621679379902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379901"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResource
-</span><a href="#local-6989586621679379902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:GetResource' :: Text
+</span><a href="#local-6989586621679379912"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379912"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379911"><span class="annot"><span class="annottext">s :: GetResource
+</span><a href="#local-6989586621679379911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResource
+</span><a href="#local-6989586621679379911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:GetResource' :: Text
 </span><a href="Network.AWS.APIGateway.GetResource.html#%24sel%3ArestApiId%3AGetResource%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | [Required] The identifier for the Resource resource.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#getResource_resourceId"><span class="hs-identifier hs-type">getResource_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -232,25 +232,25 @@ $sel:restApiId:GetResource' :: GetResource -&gt; Text
 -&gt; (GetResource -&gt; Text -&gt; GetResource)
 -&gt; Lens GetResource GetResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379900"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379909"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:GetResource' :: GetResource -&gt; Text
-</span><a href="#local-6989586621679379900"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379900"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379899"><span class="annot"><span class="annottext">s :: GetResource
-</span><a href="#local-6989586621679379899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379898"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResource
-</span><a href="#local-6989586621679379899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:GetResource' :: Text
+</span><a href="#local-6989586621679379909"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379909"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379908"><span class="annot"><span class="annottext">s :: GetResource
+</span><a href="#local-6989586621679379908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379907"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResource
+</span><a href="#local-6989586621679379908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:GetResource' :: Text
 </span><a href="Network.AWS.APIGateway.GetResource.html#%24sel%3AresourceId%3AGetResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679379894"><span class="annot"><span class="annottext">request :: GetResource -&gt; Request GetResource
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679379903"><span class="annot"><span class="annottext">request :: GetResource -&gt; Request GetResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetResource -&gt; Request GetResource
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679379890"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679379899"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetResource
 -&gt; ClientResponse ClientBody
@@ -274,20 +274,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379887"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679379887"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679379886"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679379886"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679379885"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379885"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Resource
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379896"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379896"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679379895"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679379895"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679379894"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379894"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Resource
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379885"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379894"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379880"><span id="local-6989586621679379882"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379889"><span id="local-6989586621679379891"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379877"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379886"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679379873"><span class="annot"><span class="annottext">toHeaders :: GetResource -&gt; ResponseHeaders
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679379882"><span class="annot"><span class="annottext">toHeaders :: GetResource -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetResource -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -305,8 +305,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679379867"><span class="annot"><span class="annottext">toPath :: GetResource -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379863"><span id="local-6989586621679379864"><span id="local-6989586621679379865"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679379876"><span class="annot"><span class="annottext">toPath :: GetResource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379872"><span id="local-6989586621679379873"><span id="local-6989586621679379874"><span class="annot"><span class="annottext">Maybe [Text]
 Text
 resourceId :: Text
 restApiId :: Text
@@ -314,7 +314,7 @@ embed :: Maybe [Text]
 $sel:resourceId:GetResource' :: GetResource -&gt; Text
 $sel:restApiId:GetResource' :: GetResource -&gt; Text
 $sel:embed:GetResource' :: GetResource -&gt; Maybe [Text]
-</span><a href="#local-6989586621679379863"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679379872"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -323,18 +323,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379864"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379873"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/resources/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379863"><span class="hs-identifier hs-var">resourceId</span></a></span><span>
+</span><a href="#local-6989586621679379872"><span class="hs-identifier hs-var">resourceId</span></a></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679379859"><span class="annot"><span class="annottext">toQuery :: GetResource -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379855"><span id="local-6989586621679379856"><span id="local-6989586621679379857"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679379868"><span class="annot"><span class="annottext">toQuery :: GetResource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379864"><span id="local-6989586621679379865"><span id="local-6989586621679379866"><span class="annot"><span class="annottext">Maybe [Text]
 Text
 resourceId :: Text
 restApiId :: Text
@@ -342,7 +342,7 @@ embed :: Maybe [Text]
 $sel:resourceId:GetResource' :: GetResource -&gt; Text
 $sel:restApiId:GetResource' :: GetResource -&gt; Text
 $sel:embed:GetResource' :: GetResource -&gt; Maybe [Text]
-</span><a href="#local-6989586621679379855"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679379864"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -361,6 +361,6 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679379857"><span class="hs-identifier hs-var">embed</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379866"><span class="hs-identifier hs-var">embed</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span></pre></body></html>

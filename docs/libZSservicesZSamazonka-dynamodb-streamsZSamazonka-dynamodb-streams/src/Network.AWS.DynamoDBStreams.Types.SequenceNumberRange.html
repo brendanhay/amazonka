@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- contained within a shard.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSequenceNumberRange' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679158124"><span id="local-6989586621679158125"></span></span><span class="hs-keyword">data</span><span> </span><span id="SequenceNumberRange"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-var">SequenceNumberRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SequenceNumberRange%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange%27"><span class="hs-identifier hs-var">SequenceNumberRange'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679158133"><span id="local-6989586621679158134"></span></span><span class="hs-keyword">data</span><span> </span><span id="SequenceNumberRange"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-var">SequenceNumberRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SequenceNumberRange%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange%27"><span class="hs-identifier hs-var">SequenceNumberRange'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The first sequence number for the stream records contained within a</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- shard. String contains numeric characters only.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AstartingSequenceNumber%3ASequenceNumberRange%27"><span class="annot"><span class="annottext">SequenceNumberRange -&gt; Maybe Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AendingSequenceNumber%3ASequenceNumberRange%27"><span class="annot"><span class="annottext">SequenceNumberRange -&gt; Maybe Text
 </span><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#%24sel%3AendingSequenceNumber%3ASequenceNumberRange%27"><span class="hs-identifier hs-var hs-var">endingSequenceNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679158117"><span id="local-6989586621679158119"><span class="annot"><span class="annottext">SequenceNumberRange -&gt; SequenceNumberRange -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679158126"><span id="local-6989586621679158128"><span class="annot"><span class="annottext">SequenceNumberRange -&gt; SequenceNumberRange -&gt; Bool
 (SequenceNumberRange -&gt; SequenceNumberRange -&gt; Bool)
 -&gt; (SequenceNumberRange -&gt; SequenceNumberRange -&gt; Bool)
 -&gt; Eq SequenceNumberRange
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SequenceNumberRange -&gt; SequenceNumberRange -&gt; Bool
 == :: SequenceNumberRange -&gt; SequenceNumberRange -&gt; Bool
 $c== :: SequenceNumberRange -&gt; SequenceNumberRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158108"><span id="local-6989586621679158110"><span id="local-6989586621679158112"><span id="local-6989586621679158114"><span class="annot"><span class="annottext">ReadPrec [SequenceNumberRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158117"><span id="local-6989586621679158119"><span id="local-6989586621679158121"><span id="local-6989586621679158123"><span class="annot"><span class="annottext">ReadPrec [SequenceNumberRange]
 ReadPrec SequenceNumberRange
 Int -&gt; ReadS SequenceNumberRange
 ReadS [SequenceNumberRange]
@@ -66,7 +66,7 @@ readList :: ReadS [SequenceNumberRange]
 $creadList :: ReadS [SequenceNumberRange]
 readsPrec :: Int -&gt; ReadS SequenceNumberRange
 $creadsPrec :: Int -&gt; ReadS SequenceNumberRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158101"><span id="local-6989586621679158103"><span id="local-6989586621679158105"><span class="annot"><span class="annottext">Int -&gt; SequenceNumberRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158110"><span id="local-6989586621679158112"><span id="local-6989586621679158114"><span class="annot"><span class="annottext">Int -&gt; SequenceNumberRange -&gt; ShowS
 [SequenceNumberRange] -&gt; ShowS
 SequenceNumberRange -&gt; String
 (Int -&gt; SequenceNumberRange -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
 -&gt; Lens
      SequenceNumberRange SequenceNumberRange (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange%27"><span class="hs-identifier hs-type">SequenceNumberRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158092"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange%27"><span class="hs-identifier hs-type">SequenceNumberRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158101"><span class="annot"><span class="annottext">Maybe Text
 startingSequenceNumber :: Maybe Text
 $sel:startingSequenceNumber:SequenceNumberRange' :: SequenceNumberRange -&gt; Maybe Text
-</span><a href="#local-6989586621679158092"><span class="hs-identifier hs-var hs-var">startingSequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158092"><span class="hs-identifier hs-var">startingSequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158091"><span class="annot"><span class="annottext">s :: SequenceNumberRange
-</span><a href="#local-6989586621679158091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange%27"><span class="hs-identifier hs-type">SequenceNumberRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158090"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SequenceNumberRange
-</span><a href="#local-6989586621679158091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startingSequenceNumber:SequenceNumberRange' :: Maybe Text
+</span><a href="#local-6989586621679158101"><span class="hs-identifier hs-var hs-var">startingSequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158101"><span class="hs-identifier hs-var">startingSequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158100"><span class="annot"><span class="annottext">s :: SequenceNumberRange
+</span><a href="#local-6989586621679158100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange%27"><span class="hs-identifier hs-type">SequenceNumberRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158099"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SequenceNumberRange
+</span><a href="#local-6989586621679158100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startingSequenceNumber:SequenceNumberRange' :: Maybe Text
 </span><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#%24sel%3AstartingSequenceNumber%3ASequenceNumberRange%27"><span class="hs-identifier hs-var">startingSequenceNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-type">SequenceNumberRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679158099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-type">SequenceNumberRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The last sequence number for the stream records contained within a</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- shard. String contains numeric characters only.</span><span>
@@ -153,19 +153,19 @@ $sel:startingSequenceNumber:SequenceNumberRange' :: SequenceNumberRange -&gt; Ma
 -&gt; Lens
      SequenceNumberRange SequenceNumberRange (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange%27"><span class="hs-identifier hs-type">SequenceNumberRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158088"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange%27"><span class="hs-identifier hs-type">SequenceNumberRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158097"><span class="annot"><span class="annottext">Maybe Text
 endingSequenceNumber :: Maybe Text
 $sel:endingSequenceNumber:SequenceNumberRange' :: SequenceNumberRange -&gt; Maybe Text
-</span><a href="#local-6989586621679158088"><span class="hs-identifier hs-var hs-var">endingSequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158088"><span class="hs-identifier hs-var">endingSequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158087"><span class="annot"><span class="annottext">s :: SequenceNumberRange
-</span><a href="#local-6989586621679158087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange%27"><span class="hs-identifier hs-type">SequenceNumberRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158086"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SequenceNumberRange
-</span><a href="#local-6989586621679158087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endingSequenceNumber:SequenceNumberRange' :: Maybe Text
+</span><a href="#local-6989586621679158097"><span class="hs-identifier hs-var hs-var">endingSequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158097"><span class="hs-identifier hs-var">endingSequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158096"><span class="annot"><span class="annottext">s :: SequenceNumberRange
+</span><a href="#local-6989586621679158096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange%27"><span class="hs-identifier hs-type">SequenceNumberRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158095"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SequenceNumberRange
+</span><a href="#local-6989586621679158096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endingSequenceNumber:SequenceNumberRange' :: Maybe Text
 </span><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#%24sel%3AendingSequenceNumber%3ASequenceNumberRange%27"><span class="hs-identifier hs-var">endingSequenceNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679158086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-type">SequenceNumberRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679158095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-type">SequenceNumberRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158083"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-type">SequenceNumberRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679158081"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SequenceNumberRange
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158092"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-type">SequenceNumberRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679158090"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SequenceNumberRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SequenceNumberRange)
@@ -175,8 +175,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SequenceNumberRange&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679158078"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679158078"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679158087"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158087"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; SequenceNumberRange
 </span><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange%27"><span class="hs-identifier hs-var">SequenceNumberRange'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; SequenceNumberRange)
@@ -184,7 +184,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; SequenceNumberRange)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679158078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679158087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartingSequenceNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -192,13 +192,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser SequenceNumberRange
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679158078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679158087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndingSequenceNumber&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158072"><span id="local-6989586621679158074"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-type">SequenceNumberRange</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158081"><span id="local-6989586621679158083"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-type">SequenceNumberRange</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158069"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-type">SequenceNumberRange</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158078"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-type">SequenceNumberRange</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagRule.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.RowLevelPermissionTagRule</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.Status.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.Status</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The configuration of tags on a dataset to set row-level security.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRowLevelPermissionTagConfiguration' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679566431"><span id="local-6989586621679566432"></span></span><span class="hs-keyword">data</span><span> </span><span id="RowLevelPermissionTagConfiguration"><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration"><span class="hs-identifier hs-var">RowLevelPermissionTagConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RowLevelPermissionTagConfiguration%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration%27"><span class="hs-identifier hs-var">RowLevelPermissionTagConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of row-level security tags. If enabled, the status is</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @ENABLED@. If disabled, the status is @DISABLED@.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3ARowLevelPermissionTagConfiguration%27"><span class="annot"><span class="annottext">RowLevelPermissionTagConfiguration -&gt; Maybe Status
+</span><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#%24sel%3Astatus%3ARowLevelPermissionTagConfiguration%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.Status.html#Status"><span class="hs-identifier hs-type">Status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A set of rules associated with row-level security, such as the tag names</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- and columns that they are assigned to.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtagRules%3ARowLevelPermissionTagConfiguration%27"><span class="annot"><span class="annottext">RowLevelPermissionTagConfiguration
+-&gt; NonEmpty RowLevelPermissionTagRule
+</span><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#%24sel%3AtagRules%3ARowLevelPermissionTagConfiguration%27"><span class="hs-identifier hs-var hs-var">tagRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagRule.html#RowLevelPermissionTagRule"><span class="hs-identifier hs-type">RowLevelPermissionTagRule</span></a></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679566424"><span id="local-6989586621679566426"><span class="annot"><span class="annottext">RowLevelPermissionTagConfiguration
+-&gt; RowLevelPermissionTagConfiguration -&gt; Bool
+(RowLevelPermissionTagConfiguration
+ -&gt; RowLevelPermissionTagConfiguration -&gt; Bool)
+-&gt; (RowLevelPermissionTagConfiguration
+    -&gt; RowLevelPermissionTagConfiguration -&gt; Bool)
+-&gt; Eq RowLevelPermissionTagConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RowLevelPermissionTagConfiguration
+-&gt; RowLevelPermissionTagConfiguration -&gt; Bool
+$c/= :: RowLevelPermissionTagConfiguration
+-&gt; RowLevelPermissionTagConfiguration -&gt; Bool
+== :: RowLevelPermissionTagConfiguration
+-&gt; RowLevelPermissionTagConfiguration -&gt; Bool
+$c== :: RowLevelPermissionTagConfiguration
+-&gt; RowLevelPermissionTagConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566417"><span id="local-6989586621679566419"><span id="local-6989586621679566421"><span class="annot"><span class="annottext">Int -&gt; RowLevelPermissionTagConfiguration -&gt; ShowS
+[RowLevelPermissionTagConfiguration] -&gt; ShowS
+RowLevelPermissionTagConfiguration -&gt; String
+(Int -&gt; RowLevelPermissionTagConfiguration -&gt; ShowS)
+-&gt; (RowLevelPermissionTagConfiguration -&gt; String)
+-&gt; ([RowLevelPermissionTagConfiguration] -&gt; ShowS)
+-&gt; Show RowLevelPermissionTagConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RowLevelPermissionTagConfiguration] -&gt; ShowS
+$cshowList :: [RowLevelPermissionTagConfiguration] -&gt; ShowS
+show :: RowLevelPermissionTagConfiguration -&gt; String
+$cshow :: RowLevelPermissionTagConfiguration -&gt; String
+showsPrec :: Int -&gt; RowLevelPermissionTagConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; RowLevelPermissionTagConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RowLevelPermissionTagConfiguration
+ -&gt; Rep RowLevelPermissionTagConfiguration x)
+-&gt; (forall x.
+    Rep RowLevelPermissionTagConfiguration x
+    -&gt; RowLevelPermissionTagConfiguration)
+-&gt; Generic RowLevelPermissionTagConfiguration
+forall x.
+Rep RowLevelPermissionTagConfiguration x
+-&gt; RowLevelPermissionTagConfiguration
+forall x.
+RowLevelPermissionTagConfiguration
+-&gt; Rep RowLevelPermissionTagConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RowLevelPermissionTagConfiguration x
+-&gt; RowLevelPermissionTagConfiguration
+$cfrom :: forall x.
+RowLevelPermissionTagConfiguration
+-&gt; Rep RowLevelPermissionTagConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'RowLevelPermissionTagConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'status', 'rowLevelPermissionTagConfiguration_status' - The status of row-level security tags. If enabled, the status is</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- @ENABLED@. If disabled, the status is @DISABLED@.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'tagRules', 'rowLevelPermissionTagConfiguration_tagRules' - A set of rules associated with row-level security, such as the tag names</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- and columns that they are assigned to.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#newRowLevelPermissionTagConfiguration"><span class="hs-identifier hs-type">newRowLevelPermissionTagConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'tagRules'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagRule.html#RowLevelPermissionTagRule"><span class="hs-identifier hs-type">RowLevelPermissionTagRule</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration</span></a></span><span>
+</span><span id="line-58"></span><span id="newRowLevelPermissionTagConfiguration"><span class="annot"><span class="annottext">newRowLevelPermissionTagConfiguration :: NonEmpty RowLevelPermissionTagRule
+-&gt; RowLevelPermissionTagConfiguration
+</span><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#newRowLevelPermissionTagConfiguration"><span class="hs-identifier hs-var hs-var">newRowLevelPermissionTagConfiguration</span></a></span></span><span> </span><span id="local-6989586621679566411"><span class="annot"><span class="annottext">NonEmpty RowLevelPermissionTagRule
+</span><a href="#local-6989586621679566411"><span class="hs-identifier hs-var">pTagRules_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">RowLevelPermissionTagConfiguration' :: Maybe Status
+-&gt; NonEmpty RowLevelPermissionTagRule
+-&gt; RowLevelPermissionTagConfiguration
+</span><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration%27"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:RowLevelPermissionTagConfiguration' :: Maybe Status
+</span><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#%24sel%3Astatus%3ARowLevelPermissionTagConfiguration%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe Status
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagRules:RowLevelPermissionTagConfiguration' :: NonEmpty RowLevelPermissionTagRule
+</span><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#%24sel%3AtagRules%3ARowLevelPermissionTagConfiguration%27"><span class="hs-identifier hs-var">tagRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty RowLevelPermissionTagRule)
+  (Identity (NonEmpty RowLevelPermissionTagRule))
+-&gt; Tagged
+     (NonEmpty RowLevelPermissionTagRule)
+     (Identity (NonEmpty RowLevelPermissionTagRule))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty RowLevelPermissionTagRule)
+   (Identity (NonEmpty RowLevelPermissionTagRule))
+ -&gt; Tagged
+      (NonEmpty RowLevelPermissionTagRule)
+      (Identity (NonEmpty RowLevelPermissionTagRule)))
+-&gt; NonEmpty RowLevelPermissionTagRule
+-&gt; NonEmpty RowLevelPermissionTagRule
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty RowLevelPermissionTagRule
+</span><a href="#local-6989586621679566411"><span class="hs-identifier hs-var">pTagRules_</span></a></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The status of row-level security tags. If enabled, the status is</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- @ENABLED@. If disabled, the status is @DISABLED@.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#rowLevelPermissionTagConfiguration_status"><span class="hs-identifier hs-type">rowLevelPermissionTagConfiguration_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.Status.html#Status"><span class="hs-identifier hs-type">Status</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="rowLevelPermissionTagConfiguration_status"><span class="annot"><span class="annottext">rowLevelPermissionTagConfiguration_status :: (Maybe Status -&gt; f (Maybe Status))
+-&gt; RowLevelPermissionTagConfiguration
+-&gt; f RowLevelPermissionTagConfiguration
+</span><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#rowLevelPermissionTagConfiguration_status"><span class="hs-identifier hs-var hs-var">rowLevelPermissionTagConfiguration_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RowLevelPermissionTagConfiguration -&gt; Maybe Status)
+-&gt; (RowLevelPermissionTagConfiguration
+    -&gt; Maybe Status -&gt; RowLevelPermissionTagConfiguration)
+-&gt; Lens
+     RowLevelPermissionTagConfiguration
+     RowLevelPermissionTagConfiguration
+     (Maybe Status)
+     (Maybe Status)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration%27"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566405"><span class="annot"><span class="annottext">Maybe Status
+status :: Maybe Status
+$sel:status:RowLevelPermissionTagConfiguration' :: RowLevelPermissionTagConfiguration -&gt; Maybe Status
+</span><a href="#local-6989586621679566405"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Status
+</span><a href="#local-6989586621679566405"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566404"><span class="annot"><span class="annottext">s :: RowLevelPermissionTagConfiguration
+</span><a href="#local-6989586621679566404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration%27"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566403"><span class="annot"><span class="annottext">Maybe Status
+</span><a href="#local-6989586621679566403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RowLevelPermissionTagConfiguration
+</span><a href="#local-6989586621679566404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:RowLevelPermissionTagConfiguration' :: Maybe Status
+</span><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#%24sel%3Astatus%3ARowLevelPermissionTagConfiguration%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Status
+</span><a href="#local-6989586621679566403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | A set of rules associated with row-level security, such as the tag names</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- and columns that they are assigned to.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#rowLevelPermissionTagConfiguration_tagRules"><span class="hs-identifier hs-type">rowLevelPermissionTagConfiguration_tagRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagRule.html#RowLevelPermissionTagRule"><span class="hs-identifier hs-type">RowLevelPermissionTagRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="rowLevelPermissionTagConfiguration_tagRules"><span class="annot"><span class="annottext">rowLevelPermissionTagConfiguration_tagRules :: (NonEmpty RowLevelPermissionTagRule
+ -&gt; f (NonEmpty RowLevelPermissionTagRule))
+-&gt; RowLevelPermissionTagConfiguration
+-&gt; f RowLevelPermissionTagConfiguration
+</span><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#rowLevelPermissionTagConfiguration_tagRules"><span class="hs-identifier hs-var hs-var">rowLevelPermissionTagConfiguration_tagRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RowLevelPermissionTagConfiguration
+ -&gt; NonEmpty RowLevelPermissionTagRule)
+-&gt; (RowLevelPermissionTagConfiguration
+    -&gt; NonEmpty RowLevelPermissionTagRule
+    -&gt; RowLevelPermissionTagConfiguration)
+-&gt; Lens
+     RowLevelPermissionTagConfiguration
+     RowLevelPermissionTagConfiguration
+     (NonEmpty RowLevelPermissionTagRule)
+     (NonEmpty RowLevelPermissionTagRule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration%27"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566401"><span class="annot"><span class="annottext">NonEmpty RowLevelPermissionTagRule
+tagRules :: NonEmpty RowLevelPermissionTagRule
+$sel:tagRules:RowLevelPermissionTagConfiguration' :: RowLevelPermissionTagConfiguration
+-&gt; NonEmpty RowLevelPermissionTagRule
+</span><a href="#local-6989586621679566401"><span class="hs-identifier hs-var hs-var">tagRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty RowLevelPermissionTagRule
+</span><a href="#local-6989586621679566401"><span class="hs-identifier hs-var">tagRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566400"><span class="annot"><span class="annottext">s :: RowLevelPermissionTagConfiguration
+</span><a href="#local-6989586621679566400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration%27"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566399"><span class="annot"><span class="annottext">NonEmpty RowLevelPermissionTagRule
+</span><a href="#local-6989586621679566399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RowLevelPermissionTagConfiguration
+</span><a href="#local-6989586621679566400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagRules:RowLevelPermissionTagConfiguration' :: NonEmpty RowLevelPermissionTagRule
+</span><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#%24sel%3AtagRules%3ARowLevelPermissionTagConfiguration%27"><span class="hs-identifier hs-var">tagRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty RowLevelPermissionTagRule
+</span><a href="#local-6989586621679566399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty RowLevelPermissionTagRule
+  -&gt; f (NonEmpty RowLevelPermissionTagRule))
+ -&gt; RowLevelPermissionTagConfiguration
+ -&gt; f RowLevelPermissionTagConfiguration)
+-&gt; ((NonEmpty RowLevelPermissionTagRule
+     -&gt; f (NonEmpty RowLevelPermissionTagRule))
+    -&gt; NonEmpty RowLevelPermissionTagRule
+    -&gt; f (NonEmpty RowLevelPermissionTagRule))
+-&gt; (NonEmpty RowLevelPermissionTagRule
+    -&gt; f (NonEmpty RowLevelPermissionTagRule))
+-&gt; RowLevelPermissionTagConfiguration
+-&gt; f RowLevelPermissionTagConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty RowLevelPermissionTagRule
+ -&gt; f (NonEmpty RowLevelPermissionTagRule))
+-&gt; NonEmpty RowLevelPermissionTagRule
+-&gt; f (NonEmpty RowLevelPermissionTagRule)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679566395"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679566393"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RowLevelPermissionTagConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RowLevelPermissionTagConfiguration)
+-&gt; Value
+-&gt; Parser RowLevelPermissionTagConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RowLevelPermissionTagConfiguration&quot;</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679566390"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679566390"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Status
+-&gt; NonEmpty RowLevelPermissionTagRule
+-&gt; RowLevelPermissionTagConfiguration
+</span><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration%27"><span class="hs-identifier hs-var">RowLevelPermissionTagConfiguration'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Status
+ -&gt; NonEmpty RowLevelPermissionTagRule
+ -&gt; RowLevelPermissionTagConfiguration)
+-&gt; Parser (Maybe Status)
+-&gt; Parser
+     (NonEmpty RowLevelPermissionTagRule
+      -&gt; RowLevelPermissionTagConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679566390"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Status)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (NonEmpty RowLevelPermissionTagRule
+   -&gt; RowLevelPermissionTagConfiguration)
+-&gt; Parser (NonEmpty RowLevelPermissionTagRule)
+-&gt; Parser RowLevelPermissionTagConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679566390"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty RowLevelPermissionTagRule)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagRules&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679566383"><span id="local-6989586621679566385"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679566380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration</span></a></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679566372"><span id="local-6989586621679566374"><span id="local-6989586621679566376"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration</span></a></span></span></span></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679566370"><span class="annot"><span class="annottext">toJSON :: RowLevelPermissionTagConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration.html#RowLevelPermissionTagConfiguration%27"><span class="hs-identifier hs-type">RowLevelPermissionTagConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566367"><span id="local-6989586621679566368"><span class="annot"><span class="annottext">Maybe Status
+NonEmpty RowLevelPermissionTagRule
+tagRules :: NonEmpty RowLevelPermissionTagRule
+status :: Maybe Status
+$sel:tagRules:RowLevelPermissionTagConfiguration' :: RowLevelPermissionTagConfiguration
+-&gt; NonEmpty RowLevelPermissionTagRule
+$sel:status:RowLevelPermissionTagConfiguration' :: RowLevelPermissionTagConfiguration -&gt; Maybe Status
+</span><a href="#local-6989586621679566367"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Status -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Status -&gt; Pair) -&gt; Maybe Status -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Status
+</span><a href="#local-6989586621679566368"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty RowLevelPermissionTagRule -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty RowLevelPermissionTagRule
+</span><a href="#local-6989586621679566367"><span class="hs-identifier hs-var">tagRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span></pre></body></html>

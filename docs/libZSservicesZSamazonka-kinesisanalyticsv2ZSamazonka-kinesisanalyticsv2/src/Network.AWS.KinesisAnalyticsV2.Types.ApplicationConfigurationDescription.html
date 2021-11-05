@@ -1,0 +1,719 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationDescription.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationDescription</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationDescription.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationDescription</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.EnvironmentPropertyDescriptions.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.EnvironmentPropertyDescriptions</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationDescription.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationDescription</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationDescription.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationDescription</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.SqlApplicationConfigurationDescription.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.SqlApplicationConfigurationDescription</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.VpcConfigurationDescription.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.VpcConfigurationDescription</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationDescription.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationDescription</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Describes details about the application code and starting parameters for</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- a Kinesis Data Analytics application.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newApplicationConfigurationDescription' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679299629"><span id="local-6989586621679299630"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationConfigurationDescription"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-var">ApplicationConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationConfigurationDescription%27"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">ApplicationConfigurationDescription'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration parameters for a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- notebook.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AzeppelinApplicationConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+-&gt; Maybe ZeppelinApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AzeppelinApplicationConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var hs-var">zeppelinApplicationConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationDescription.html#ZeppelinApplicationConfigurationDescription"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The array of descriptions of VPC configurations available to the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AvpcConfigurationDescriptions%3AApplicationConfigurationDescription%27"><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+-&gt; Maybe [VpcConfigurationDescription]
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AvpcConfigurationDescriptions%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var hs-var">vpcConfigurationDescriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The details about the application code for a Flink-based Kinesis Data</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AapplicationCodeConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+-&gt; Maybe ApplicationCodeConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AapplicationCodeConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var hs-var">applicationCodeConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationDescription.html#ApplicationCodeConfigurationDescription"><span class="hs-identifier hs-type">ApplicationCodeConfigurationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Describes execution properties for a Flink-based Kinesis Data Analytics</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AenvironmentPropertyDescriptions%3AApplicationConfigurationDescription%27"><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+-&gt; Maybe EnvironmentPropertyDescriptions
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AenvironmentPropertyDescriptions%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var hs-var">environmentPropertyDescriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.EnvironmentPropertyDescriptions.html#EnvironmentPropertyDescriptions"><span class="hs-identifier hs-type">EnvironmentPropertyDescriptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The details about the starting properties for a Kinesis Data Analytics</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3ArunConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+-&gt; Maybe RunConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3ArunConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var hs-var">runConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationDescription.html#RunConfigurationDescription"><span class="hs-identifier hs-type">RunConfigurationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The details about inputs, outputs, and reference data sources for a</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- SQL-based Kinesis Data Analytics application.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AsqlApplicationConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+-&gt; Maybe SqlApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AsqlApplicationConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var hs-var">sqlApplicationConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.SqlApplicationConfigurationDescription.html#SqlApplicationConfigurationDescription"><span class="hs-identifier hs-type">SqlApplicationConfigurationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The details about a Flink-based Kinesis Data Analytics application.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AflinkApplicationConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+-&gt; Maybe FlinkApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AflinkApplicationConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var hs-var">flinkApplicationConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationDescription.html#FlinkApplicationConfigurationDescription"><span class="hs-identifier hs-type">FlinkApplicationConfigurationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Describes whether snapshots are enabled for a Flink-based Kinesis Data</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AapplicationSnapshotConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+-&gt; Maybe ApplicationSnapshotConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AapplicationSnapshotConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var hs-var">applicationSnapshotConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationDescription.html#ApplicationSnapshotConfigurationDescription"><span class="hs-identifier hs-type">ApplicationSnapshotConfigurationDescription</span></a></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299616"><span id="local-6989586621679299618"><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+-&gt; ApplicationConfigurationDescription -&gt; Bool
+(ApplicationConfigurationDescription
+ -&gt; ApplicationConfigurationDescription -&gt; Bool)
+-&gt; (ApplicationConfigurationDescription
+    -&gt; ApplicationConfigurationDescription -&gt; Bool)
+-&gt; Eq ApplicationConfigurationDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplicationConfigurationDescription
+-&gt; ApplicationConfigurationDescription -&gt; Bool
+$c/= :: ApplicationConfigurationDescription
+-&gt; ApplicationConfigurationDescription -&gt; Bool
+== :: ApplicationConfigurationDescription
+-&gt; ApplicationConfigurationDescription -&gt; Bool
+$c== :: ApplicationConfigurationDescription
+-&gt; ApplicationConfigurationDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299607"><span id="local-6989586621679299609"><span id="local-6989586621679299611"><span id="local-6989586621679299613"><span class="annot"><span class="annottext">ReadPrec [ApplicationConfigurationDescription]
+ReadPrec ApplicationConfigurationDescription
+Int -&gt; ReadS ApplicationConfigurationDescription
+ReadS [ApplicationConfigurationDescription]
+(Int -&gt; ReadS ApplicationConfigurationDescription)
+-&gt; ReadS [ApplicationConfigurationDescription]
+-&gt; ReadPrec ApplicationConfigurationDescription
+-&gt; ReadPrec [ApplicationConfigurationDescription]
+-&gt; Read ApplicationConfigurationDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplicationConfigurationDescription]
+$creadListPrec :: ReadPrec [ApplicationConfigurationDescription]
+readPrec :: ReadPrec ApplicationConfigurationDescription
+$creadPrec :: ReadPrec ApplicationConfigurationDescription
+readList :: ReadS [ApplicationConfigurationDescription]
+$creadList :: ReadS [ApplicationConfigurationDescription]
+readsPrec :: Int -&gt; ReadS ApplicationConfigurationDescription
+$creadsPrec :: Int -&gt; ReadS ApplicationConfigurationDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299600"><span id="local-6989586621679299602"><span id="local-6989586621679299604"><span class="annot"><span class="annottext">Int -&gt; ApplicationConfigurationDescription -&gt; ShowS
+[ApplicationConfigurationDescription] -&gt; ShowS
+ApplicationConfigurationDescription -&gt; String
+(Int -&gt; ApplicationConfigurationDescription -&gt; ShowS)
+-&gt; (ApplicationConfigurationDescription -&gt; String)
+-&gt; ([ApplicationConfigurationDescription] -&gt; ShowS)
+-&gt; Show ApplicationConfigurationDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplicationConfigurationDescription] -&gt; ShowS
+$cshowList :: [ApplicationConfigurationDescription] -&gt; ShowS
+show :: ApplicationConfigurationDescription -&gt; String
+$cshow :: ApplicationConfigurationDescription -&gt; String
+showsPrec :: Int -&gt; ApplicationConfigurationDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplicationConfigurationDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ApplicationConfigurationDescription
+ -&gt; Rep ApplicationConfigurationDescription x)
+-&gt; (forall x.
+    Rep ApplicationConfigurationDescription x
+    -&gt; ApplicationConfigurationDescription)
+-&gt; Generic ApplicationConfigurationDescription
+forall x.
+Rep ApplicationConfigurationDescription x
+-&gt; ApplicationConfigurationDescription
+forall x.
+ApplicationConfigurationDescription
+-&gt; Rep ApplicationConfigurationDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ApplicationConfigurationDescription x
+-&gt; ApplicationConfigurationDescription
+$cfrom :: forall x.
+ApplicationConfigurationDescription
+-&gt; Rep ApplicationConfigurationDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'ApplicationConfigurationDescription' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'zeppelinApplicationConfigurationDescription', 'applicationConfigurationDescription_zeppelinApplicationConfigurationDescription' - The configuration parameters for a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- notebook.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'vpcConfigurationDescriptions', 'applicationConfigurationDescription_vpcConfigurationDescriptions' - The array of descriptions of VPC configurations available to the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'applicationCodeConfigurationDescription', 'applicationConfigurationDescription_applicationCodeConfigurationDescription' - The details about the application code for a Flink-based Kinesis Data</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'environmentPropertyDescriptions', 'applicationConfigurationDescription_environmentPropertyDescriptions' - Describes execution properties for a Flink-based Kinesis Data Analytics</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'runConfigurationDescription', 'applicationConfigurationDescription_runConfigurationDescription' - The details about the starting properties for a Kinesis Data Analytics</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'sqlApplicationConfigurationDescription', 'applicationConfigurationDescription_sqlApplicationConfigurationDescription' - The details about inputs, outputs, and reference data sources for a</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- SQL-based Kinesis Data Analytics application.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'flinkApplicationConfigurationDescription', 'applicationConfigurationDescription_flinkApplicationConfigurationDescription' - The details about a Flink-based Kinesis Data Analytics application.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'applicationSnapshotConfigurationDescription', 'applicationConfigurationDescription_applicationSnapshotConfigurationDescription' - Describes whether snapshots are enabled for a Flink-based Kinesis Data</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#newApplicationConfigurationDescription"><span class="hs-identifier hs-type">newApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span>
+</span><span id="line-97"></span><span id="newApplicationConfigurationDescription"><span class="annot"><span class="annottext">newApplicationConfigurationDescription :: ApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#newApplicationConfigurationDescription"><span class="hs-identifier hs-var hs-var">newApplicationConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">ApplicationConfigurationDescription' :: Maybe ZeppelinApplicationConfigurationDescription
+-&gt; Maybe [VpcConfigurationDescription]
+-&gt; Maybe ApplicationCodeConfigurationDescription
+-&gt; Maybe EnvironmentPropertyDescriptions
+-&gt; Maybe RunConfigurationDescription
+-&gt; Maybe SqlApplicationConfigurationDescription
+-&gt; Maybe FlinkApplicationConfigurationDescription
+-&gt; Maybe ApplicationSnapshotConfigurationDescription
+-&gt; ApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:zeppelinApplicationConfigurationDescription:ApplicationConfigurationDescription' :: Maybe ZeppelinApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AzeppelinApplicationConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">zeppelinApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfigurationDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcConfigurationDescriptions:ApplicationConfigurationDescription' :: Maybe [VpcConfigurationDescription]
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AvpcConfigurationDescriptions%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">vpcConfigurationDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">Maybe [VpcConfigurationDescription]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationCodeConfigurationDescription:ApplicationConfigurationDescription' :: Maybe ApplicationCodeConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AapplicationCodeConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">applicationCodeConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Maybe ApplicationCodeConfigurationDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentPropertyDescriptions:ApplicationConfigurationDescription' :: Maybe EnvironmentPropertyDescriptions
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AenvironmentPropertyDescriptions%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">environmentPropertyDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe EnvironmentPropertyDescriptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:runConfigurationDescription:ApplicationConfigurationDescription' :: Maybe RunConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3ArunConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">runConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe RunConfigurationDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:sqlApplicationConfigurationDescription:ApplicationConfigurationDescription' :: Maybe SqlApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AsqlApplicationConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">sqlApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Maybe SqlApplicationConfigurationDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:flinkApplicationConfigurationDescription:ApplicationConfigurationDescription' :: Maybe FlinkApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AflinkApplicationConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">flinkApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">Maybe FlinkApplicationConfigurationDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationSnapshotConfigurationDescription:ApplicationConfigurationDescription' :: Maybe ApplicationSnapshotConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AapplicationSnapshotConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">applicationSnapshotConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfigurationDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The configuration parameters for a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- notebook.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_zeppelinApplicationConfigurationDescription"><span class="hs-identifier hs-type">applicationConfigurationDescription_zeppelinApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationDescription.html#ZeppelinApplicationConfigurationDescription"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="applicationConfigurationDescription_zeppelinApplicationConfigurationDescription"><span class="annot"><span class="annottext">applicationConfigurationDescription_zeppelinApplicationConfigurationDescription :: (Maybe ZeppelinApplicationConfigurationDescription
+ -&gt; f (Maybe ZeppelinApplicationConfigurationDescription))
+-&gt; ApplicationConfigurationDescription
+-&gt; f ApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_zeppelinApplicationConfigurationDescription"><span class="hs-identifier hs-var hs-var">applicationConfigurationDescription_zeppelinApplicationConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationDescription
+ -&gt; Maybe ZeppelinApplicationConfigurationDescription)
+-&gt; (ApplicationConfigurationDescription
+    -&gt; Maybe ZeppelinApplicationConfigurationDescription
+    -&gt; ApplicationConfigurationDescription)
+-&gt; Lens
+     ApplicationConfigurationDescription
+     ApplicationConfigurationDescription
+     (Maybe ZeppelinApplicationConfigurationDescription)
+     (Maybe ZeppelinApplicationConfigurationDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299591"><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfigurationDescription
+zeppelinApplicationConfigurationDescription :: Maybe ZeppelinApplicationConfigurationDescription
+$sel:zeppelinApplicationConfigurationDescription:ApplicationConfigurationDescription' :: ApplicationConfigurationDescription
+-&gt; Maybe ZeppelinApplicationConfigurationDescription
+</span><a href="#local-6989586621679299591"><span class="hs-identifier hs-var hs-var">zeppelinApplicationConfigurationDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfigurationDescription
+</span><a href="#local-6989586621679299591"><span class="hs-identifier hs-var">zeppelinApplicationConfigurationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299590"><span class="annot"><span class="annottext">s :: ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299589"><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfigurationDescription
+</span><a href="#local-6989586621679299589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zeppelinApplicationConfigurationDescription:ApplicationConfigurationDescription' :: Maybe ZeppelinApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AzeppelinApplicationConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">zeppelinApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfigurationDescription
+</span><a href="#local-6989586621679299589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The array of descriptions of VPC configurations available to the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_vpcConfigurationDescriptions"><span class="hs-identifier hs-type">applicationConfigurationDescription_vpcConfigurationDescriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="applicationConfigurationDescription_vpcConfigurationDescriptions"><span class="annot"><span class="annottext">applicationConfigurationDescription_vpcConfigurationDescriptions :: (Maybe [VpcConfigurationDescription]
+ -&gt; f (Maybe [VpcConfigurationDescription]))
+-&gt; ApplicationConfigurationDescription
+-&gt; f ApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_vpcConfigurationDescriptions"><span class="hs-identifier hs-var hs-var">applicationConfigurationDescription_vpcConfigurationDescriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationDescription
+ -&gt; Maybe [VpcConfigurationDescription])
+-&gt; (ApplicationConfigurationDescription
+    -&gt; Maybe [VpcConfigurationDescription]
+    -&gt; ApplicationConfigurationDescription)
+-&gt; Lens
+     ApplicationConfigurationDescription
+     ApplicationConfigurationDescription
+     (Maybe [VpcConfigurationDescription])
+     (Maybe [VpcConfigurationDescription])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299587"><span class="annot"><span class="annottext">Maybe [VpcConfigurationDescription]
+vpcConfigurationDescriptions :: Maybe [VpcConfigurationDescription]
+$sel:vpcConfigurationDescriptions:ApplicationConfigurationDescription' :: ApplicationConfigurationDescription
+-&gt; Maybe [VpcConfigurationDescription]
+</span><a href="#local-6989586621679299587"><span class="hs-identifier hs-var hs-var">vpcConfigurationDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcConfigurationDescription]
+</span><a href="#local-6989586621679299587"><span class="hs-identifier hs-var">vpcConfigurationDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299586"><span class="annot"><span class="annottext">s :: ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299585"><span class="annot"><span class="annottext">Maybe [VpcConfigurationDescription]
+</span><a href="#local-6989586621679299585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfigurationDescriptions:ApplicationConfigurationDescription' :: Maybe [VpcConfigurationDescription]
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AvpcConfigurationDescriptions%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">vpcConfigurationDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcConfigurationDescription]
+</span><a href="#local-6989586621679299585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VpcConfigurationDescription]
+  -&gt; f (Maybe [VpcConfigurationDescription]))
+ -&gt; ApplicationConfigurationDescription
+ -&gt; f ApplicationConfigurationDescription)
+-&gt; ((Maybe [VpcConfigurationDescription]
+     -&gt; f (Maybe [VpcConfigurationDescription]))
+    -&gt; Maybe [VpcConfigurationDescription]
+    -&gt; f (Maybe [VpcConfigurationDescription]))
+-&gt; (Maybe [VpcConfigurationDescription]
+    -&gt; f (Maybe [VpcConfigurationDescription]))
+-&gt; ApplicationConfigurationDescription
+-&gt; f ApplicationConfigurationDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VpcConfigurationDescription]
+  [VpcConfigurationDescription]
+  [VpcConfigurationDescription]
+  [VpcConfigurationDescription]
+-&gt; Iso
+     (Maybe [VpcConfigurationDescription])
+     (Maybe [VpcConfigurationDescription])
+     (Maybe [VpcConfigurationDescription])
+     (Maybe [VpcConfigurationDescription])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VpcConfigurationDescription]
+  [VpcConfigurationDescription]
+  [VpcConfigurationDescription]
+  [VpcConfigurationDescription]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The details about the application code for a Flink-based Kinesis Data</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_applicationCodeConfigurationDescription"><span class="hs-identifier hs-type">applicationConfigurationDescription_applicationCodeConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationDescription.html#ApplicationCodeConfigurationDescription"><span class="hs-identifier hs-type">ApplicationCodeConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="applicationConfigurationDescription_applicationCodeConfigurationDescription"><span class="annot"><span class="annottext">applicationConfigurationDescription_applicationCodeConfigurationDescription :: (Maybe ApplicationCodeConfigurationDescription
+ -&gt; f (Maybe ApplicationCodeConfigurationDescription))
+-&gt; ApplicationConfigurationDescription
+-&gt; f ApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_applicationCodeConfigurationDescription"><span class="hs-identifier hs-var hs-var">applicationConfigurationDescription_applicationCodeConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationDescription
+ -&gt; Maybe ApplicationCodeConfigurationDescription)
+-&gt; (ApplicationConfigurationDescription
+    -&gt; Maybe ApplicationCodeConfigurationDescription
+    -&gt; ApplicationConfigurationDescription)
+-&gt; Lens
+     ApplicationConfigurationDescription
+     ApplicationConfigurationDescription
+     (Maybe ApplicationCodeConfigurationDescription)
+     (Maybe ApplicationCodeConfigurationDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299580"><span class="annot"><span class="annottext">Maybe ApplicationCodeConfigurationDescription
+applicationCodeConfigurationDescription :: Maybe ApplicationCodeConfigurationDescription
+$sel:applicationCodeConfigurationDescription:ApplicationConfigurationDescription' :: ApplicationConfigurationDescription
+-&gt; Maybe ApplicationCodeConfigurationDescription
+</span><a href="#local-6989586621679299580"><span class="hs-identifier hs-var hs-var">applicationCodeConfigurationDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationCodeConfigurationDescription
+</span><a href="#local-6989586621679299580"><span class="hs-identifier hs-var">applicationCodeConfigurationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299579"><span class="annot"><span class="annottext">s :: ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299578"><span class="annot"><span class="annottext">Maybe ApplicationCodeConfigurationDescription
+</span><a href="#local-6989586621679299578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationCodeConfigurationDescription:ApplicationConfigurationDescription' :: Maybe ApplicationCodeConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AapplicationCodeConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">applicationCodeConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationCodeConfigurationDescription
+</span><a href="#local-6989586621679299578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Describes execution properties for a Flink-based Kinesis Data Analytics</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_environmentPropertyDescriptions"><span class="hs-identifier hs-type">applicationConfigurationDescription_environmentPropertyDescriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.EnvironmentPropertyDescriptions.html#EnvironmentPropertyDescriptions"><span class="hs-identifier hs-type">EnvironmentPropertyDescriptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="applicationConfigurationDescription_environmentPropertyDescriptions"><span class="annot"><span class="annottext">applicationConfigurationDescription_environmentPropertyDescriptions :: (Maybe EnvironmentPropertyDescriptions
+ -&gt; f (Maybe EnvironmentPropertyDescriptions))
+-&gt; ApplicationConfigurationDescription
+-&gt; f ApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_environmentPropertyDescriptions"><span class="hs-identifier hs-var hs-var">applicationConfigurationDescription_environmentPropertyDescriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationDescription
+ -&gt; Maybe EnvironmentPropertyDescriptions)
+-&gt; (ApplicationConfigurationDescription
+    -&gt; Maybe EnvironmentPropertyDescriptions
+    -&gt; ApplicationConfigurationDescription)
+-&gt; Lens
+     ApplicationConfigurationDescription
+     ApplicationConfigurationDescription
+     (Maybe EnvironmentPropertyDescriptions)
+     (Maybe EnvironmentPropertyDescriptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299576"><span class="annot"><span class="annottext">Maybe EnvironmentPropertyDescriptions
+environmentPropertyDescriptions :: Maybe EnvironmentPropertyDescriptions
+$sel:environmentPropertyDescriptions:ApplicationConfigurationDescription' :: ApplicationConfigurationDescription
+-&gt; Maybe EnvironmentPropertyDescriptions
+</span><a href="#local-6989586621679299576"><span class="hs-identifier hs-var hs-var">environmentPropertyDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentPropertyDescriptions
+</span><a href="#local-6989586621679299576"><span class="hs-identifier hs-var">environmentPropertyDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299575"><span class="annot"><span class="annottext">s :: ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299574"><span class="annot"><span class="annottext">Maybe EnvironmentPropertyDescriptions
+</span><a href="#local-6989586621679299574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentPropertyDescriptions:ApplicationConfigurationDescription' :: Maybe EnvironmentPropertyDescriptions
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AenvironmentPropertyDescriptions%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">environmentPropertyDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentPropertyDescriptions
+</span><a href="#local-6989586621679299574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The details about the starting properties for a Kinesis Data Analytics</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_runConfigurationDescription"><span class="hs-identifier hs-type">applicationConfigurationDescription_runConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationDescription.html#RunConfigurationDescription"><span class="hs-identifier hs-type">RunConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="applicationConfigurationDescription_runConfigurationDescription"><span class="annot"><span class="annottext">applicationConfigurationDescription_runConfigurationDescription :: (Maybe RunConfigurationDescription
+ -&gt; f (Maybe RunConfigurationDescription))
+-&gt; ApplicationConfigurationDescription
+-&gt; f ApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_runConfigurationDescription"><span class="hs-identifier hs-var hs-var">applicationConfigurationDescription_runConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationDescription
+ -&gt; Maybe RunConfigurationDescription)
+-&gt; (ApplicationConfigurationDescription
+    -&gt; Maybe RunConfigurationDescription
+    -&gt; ApplicationConfigurationDescription)
+-&gt; Lens
+     ApplicationConfigurationDescription
+     ApplicationConfigurationDescription
+     (Maybe RunConfigurationDescription)
+     (Maybe RunConfigurationDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299572"><span class="annot"><span class="annottext">Maybe RunConfigurationDescription
+runConfigurationDescription :: Maybe RunConfigurationDescription
+$sel:runConfigurationDescription:ApplicationConfigurationDescription' :: ApplicationConfigurationDescription
+-&gt; Maybe RunConfigurationDescription
+</span><a href="#local-6989586621679299572"><span class="hs-identifier hs-var hs-var">runConfigurationDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RunConfigurationDescription
+</span><a href="#local-6989586621679299572"><span class="hs-identifier hs-var">runConfigurationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299571"><span class="annot"><span class="annottext">s :: ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299570"><span class="annot"><span class="annottext">Maybe RunConfigurationDescription
+</span><a href="#local-6989586621679299570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runConfigurationDescription:ApplicationConfigurationDescription' :: Maybe RunConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3ArunConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">runConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RunConfigurationDescription
+</span><a href="#local-6989586621679299570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The details about inputs, outputs, and reference data sources for a</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- SQL-based Kinesis Data Analytics application.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_sqlApplicationConfigurationDescription"><span class="hs-identifier hs-type">applicationConfigurationDescription_sqlApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.SqlApplicationConfigurationDescription.html#SqlApplicationConfigurationDescription"><span class="hs-identifier hs-type">SqlApplicationConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="applicationConfigurationDescription_sqlApplicationConfigurationDescription"><span class="annot"><span class="annottext">applicationConfigurationDescription_sqlApplicationConfigurationDescription :: (Maybe SqlApplicationConfigurationDescription
+ -&gt; f (Maybe SqlApplicationConfigurationDescription))
+-&gt; ApplicationConfigurationDescription
+-&gt; f ApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_sqlApplicationConfigurationDescription"><span class="hs-identifier hs-var hs-var">applicationConfigurationDescription_sqlApplicationConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationDescription
+ -&gt; Maybe SqlApplicationConfigurationDescription)
+-&gt; (ApplicationConfigurationDescription
+    -&gt; Maybe SqlApplicationConfigurationDescription
+    -&gt; ApplicationConfigurationDescription)
+-&gt; Lens
+     ApplicationConfigurationDescription
+     ApplicationConfigurationDescription
+     (Maybe SqlApplicationConfigurationDescription)
+     (Maybe SqlApplicationConfigurationDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299568"><span class="annot"><span class="annottext">Maybe SqlApplicationConfigurationDescription
+sqlApplicationConfigurationDescription :: Maybe SqlApplicationConfigurationDescription
+$sel:sqlApplicationConfigurationDescription:ApplicationConfigurationDescription' :: ApplicationConfigurationDescription
+-&gt; Maybe SqlApplicationConfigurationDescription
+</span><a href="#local-6989586621679299568"><span class="hs-identifier hs-var hs-var">sqlApplicationConfigurationDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SqlApplicationConfigurationDescription
+</span><a href="#local-6989586621679299568"><span class="hs-identifier hs-var">sqlApplicationConfigurationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299567"><span class="annot"><span class="annottext">s :: ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299566"><span class="annot"><span class="annottext">Maybe SqlApplicationConfigurationDescription
+</span><a href="#local-6989586621679299566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqlApplicationConfigurationDescription:ApplicationConfigurationDescription' :: Maybe SqlApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AsqlApplicationConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">sqlApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqlApplicationConfigurationDescription
+</span><a href="#local-6989586621679299566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The details about a Flink-based Kinesis Data Analytics application.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_flinkApplicationConfigurationDescription"><span class="hs-identifier hs-type">applicationConfigurationDescription_flinkApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationDescription.html#FlinkApplicationConfigurationDescription"><span class="hs-identifier hs-type">FlinkApplicationConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="applicationConfigurationDescription_flinkApplicationConfigurationDescription"><span class="annot"><span class="annottext">applicationConfigurationDescription_flinkApplicationConfigurationDescription :: (Maybe FlinkApplicationConfigurationDescription
+ -&gt; f (Maybe FlinkApplicationConfigurationDescription))
+-&gt; ApplicationConfigurationDescription
+-&gt; f ApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_flinkApplicationConfigurationDescription"><span class="hs-identifier hs-var hs-var">applicationConfigurationDescription_flinkApplicationConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationDescription
+ -&gt; Maybe FlinkApplicationConfigurationDescription)
+-&gt; (ApplicationConfigurationDescription
+    -&gt; Maybe FlinkApplicationConfigurationDescription
+    -&gt; ApplicationConfigurationDescription)
+-&gt; Lens
+     ApplicationConfigurationDescription
+     ApplicationConfigurationDescription
+     (Maybe FlinkApplicationConfigurationDescription)
+     (Maybe FlinkApplicationConfigurationDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299564"><span class="annot"><span class="annottext">Maybe FlinkApplicationConfigurationDescription
+flinkApplicationConfigurationDescription :: Maybe FlinkApplicationConfigurationDescription
+$sel:flinkApplicationConfigurationDescription:ApplicationConfigurationDescription' :: ApplicationConfigurationDescription
+-&gt; Maybe FlinkApplicationConfigurationDescription
+</span><a href="#local-6989586621679299564"><span class="hs-identifier hs-var hs-var">flinkApplicationConfigurationDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FlinkApplicationConfigurationDescription
+</span><a href="#local-6989586621679299564"><span class="hs-identifier hs-var">flinkApplicationConfigurationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299563"><span class="annot"><span class="annottext">s :: ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299562"><span class="annot"><span class="annottext">Maybe FlinkApplicationConfigurationDescription
+</span><a href="#local-6989586621679299562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flinkApplicationConfigurationDescription:ApplicationConfigurationDescription' :: Maybe FlinkApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AflinkApplicationConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">flinkApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FlinkApplicationConfigurationDescription
+</span><a href="#local-6989586621679299562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | Describes whether snapshots are enabled for a Flink-based Kinesis Data</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_applicationSnapshotConfigurationDescription"><span class="hs-identifier hs-type">applicationConfigurationDescription_applicationSnapshotConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationDescription.html#ApplicationSnapshotConfigurationDescription"><span class="hs-identifier hs-type">ApplicationSnapshotConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="applicationConfigurationDescription_applicationSnapshotConfigurationDescription"><span class="annot"><span class="annottext">applicationConfigurationDescription_applicationSnapshotConfigurationDescription :: (Maybe ApplicationSnapshotConfigurationDescription
+ -&gt; f (Maybe ApplicationSnapshotConfigurationDescription))
+-&gt; ApplicationConfigurationDescription
+-&gt; f ApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#applicationConfigurationDescription_applicationSnapshotConfigurationDescription"><span class="hs-identifier hs-var hs-var">applicationConfigurationDescription_applicationSnapshotConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationDescription
+ -&gt; Maybe ApplicationSnapshotConfigurationDescription)
+-&gt; (ApplicationConfigurationDescription
+    -&gt; Maybe ApplicationSnapshotConfigurationDescription
+    -&gt; ApplicationConfigurationDescription)
+-&gt; Lens
+     ApplicationConfigurationDescription
+     ApplicationConfigurationDescription
+     (Maybe ApplicationSnapshotConfigurationDescription)
+     (Maybe ApplicationSnapshotConfigurationDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299560"><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfigurationDescription
+applicationSnapshotConfigurationDescription :: Maybe ApplicationSnapshotConfigurationDescription
+$sel:applicationSnapshotConfigurationDescription:ApplicationConfigurationDescription' :: ApplicationConfigurationDescription
+-&gt; Maybe ApplicationSnapshotConfigurationDescription
+</span><a href="#local-6989586621679299560"><span class="hs-identifier hs-var hs-var">applicationSnapshotConfigurationDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfigurationDescription
+</span><a href="#local-6989586621679299560"><span class="hs-identifier hs-var">applicationSnapshotConfigurationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299559"><span class="annot"><span class="annottext">s :: ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-type">ApplicationConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299558"><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfigurationDescription
+</span><a href="#local-6989586621679299558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationDescription
+</span><a href="#local-6989586621679299559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationSnapshotConfigurationDescription:ApplicationConfigurationDescription' :: Maybe ApplicationSnapshotConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#%24sel%3AapplicationSnapshotConfigurationDescription%3AApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">applicationSnapshotConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfigurationDescription
+</span><a href="#local-6989586621679299558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679299555"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679299553"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApplicationConfigurationDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ApplicationConfigurationDescription)
+-&gt; Value
+-&gt; Parser ApplicationConfigurationDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ApplicationConfigurationDescription&quot;</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299550"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299550"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfigurationDescription
+-&gt; Maybe [VpcConfigurationDescription]
+-&gt; Maybe ApplicationCodeConfigurationDescription
+-&gt; Maybe EnvironmentPropertyDescriptions
+-&gt; Maybe RunConfigurationDescription
+-&gt; Maybe SqlApplicationConfigurationDescription
+-&gt; Maybe FlinkApplicationConfigurationDescription
+-&gt; Maybe ApplicationSnapshotConfigurationDescription
+-&gt; ApplicationConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription%27"><span class="hs-identifier hs-var">ApplicationConfigurationDescription'</span></a></span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ZeppelinApplicationConfigurationDescription
+ -&gt; Maybe [VpcConfigurationDescription]
+ -&gt; Maybe ApplicationCodeConfigurationDescription
+ -&gt; Maybe EnvironmentPropertyDescriptions
+ -&gt; Maybe RunConfigurationDescription
+ -&gt; Maybe SqlApplicationConfigurationDescription
+ -&gt; Maybe FlinkApplicationConfigurationDescription
+ -&gt; Maybe ApplicationSnapshotConfigurationDescription
+ -&gt; ApplicationConfigurationDescription)
+-&gt; Parser (Maybe ZeppelinApplicationConfigurationDescription)
+-&gt; Parser
+     (Maybe [VpcConfigurationDescription]
+      -&gt; Maybe ApplicationCodeConfigurationDescription
+      -&gt; Maybe EnvironmentPropertyDescriptions
+      -&gt; Maybe RunConfigurationDescription
+      -&gt; Maybe SqlApplicationConfigurationDescription
+      -&gt; Maybe FlinkApplicationConfigurationDescription
+      -&gt; Maybe ApplicationSnapshotConfigurationDescription
+      -&gt; ApplicationConfigurationDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299550"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-166"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe ZeppelinApplicationConfigurationDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ZeppelinApplicationConfigurationDescription&quot;</span></span><span>
+</span><span id="line-167"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [VpcConfigurationDescription]
+   -&gt; Maybe ApplicationCodeConfigurationDescription
+   -&gt; Maybe EnvironmentPropertyDescriptions
+   -&gt; Maybe RunConfigurationDescription
+   -&gt; Maybe SqlApplicationConfigurationDescription
+   -&gt; Maybe FlinkApplicationConfigurationDescription
+   -&gt; Maybe ApplicationSnapshotConfigurationDescription
+   -&gt; ApplicationConfigurationDescription)
+-&gt; Parser (Maybe [VpcConfigurationDescription])
+-&gt; Parser
+     (Maybe ApplicationCodeConfigurationDescription
+      -&gt; Maybe EnvironmentPropertyDescriptions
+      -&gt; Maybe RunConfigurationDescription
+      -&gt; Maybe SqlApplicationConfigurationDescription
+      -&gt; Maybe FlinkApplicationConfigurationDescription
+      -&gt; Maybe ApplicationSnapshotConfigurationDescription
+      -&gt; ApplicationConfigurationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299550"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [VpcConfigurationDescription]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcConfigurationDescriptions&quot;</span></span><span>
+</span><span id="line-169"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [VpcConfigurationDescription]))
+-&gt; Maybe [VpcConfigurationDescription]
+-&gt; Parser (Maybe [VpcConfigurationDescription])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [VpcConfigurationDescription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-170"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ApplicationCodeConfigurationDescription
+   -&gt; Maybe EnvironmentPropertyDescriptions
+   -&gt; Maybe RunConfigurationDescription
+   -&gt; Maybe SqlApplicationConfigurationDescription
+   -&gt; Maybe FlinkApplicationConfigurationDescription
+   -&gt; Maybe ApplicationSnapshotConfigurationDescription
+   -&gt; ApplicationConfigurationDescription)
+-&gt; Parser (Maybe ApplicationCodeConfigurationDescription)
+-&gt; Parser
+     (Maybe EnvironmentPropertyDescriptions
+      -&gt; Maybe RunConfigurationDescription
+      -&gt; Maybe SqlApplicationConfigurationDescription
+      -&gt; Maybe FlinkApplicationConfigurationDescription
+      -&gt; Maybe ApplicationSnapshotConfigurationDescription
+      -&gt; ApplicationConfigurationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299550"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-172"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe ApplicationCodeConfigurationDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationCodeConfigurationDescription&quot;</span></span><span>
+</span><span id="line-173"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EnvironmentPropertyDescriptions
+   -&gt; Maybe RunConfigurationDescription
+   -&gt; Maybe SqlApplicationConfigurationDescription
+   -&gt; Maybe FlinkApplicationConfigurationDescription
+   -&gt; Maybe ApplicationSnapshotConfigurationDescription
+   -&gt; ApplicationConfigurationDescription)
+-&gt; Parser (Maybe EnvironmentPropertyDescriptions)
+-&gt; Parser
+     (Maybe RunConfigurationDescription
+      -&gt; Maybe SqlApplicationConfigurationDescription
+      -&gt; Maybe FlinkApplicationConfigurationDescription
+      -&gt; Maybe ApplicationSnapshotConfigurationDescription
+      -&gt; ApplicationConfigurationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299550"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EnvironmentPropertyDescriptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnvironmentPropertyDescriptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RunConfigurationDescription
+   -&gt; Maybe SqlApplicationConfigurationDescription
+   -&gt; Maybe FlinkApplicationConfigurationDescription
+   -&gt; Maybe ApplicationSnapshotConfigurationDescription
+   -&gt; ApplicationConfigurationDescription)
+-&gt; Parser (Maybe RunConfigurationDescription)
+-&gt; Parser
+     (Maybe SqlApplicationConfigurationDescription
+      -&gt; Maybe FlinkApplicationConfigurationDescription
+      -&gt; Maybe ApplicationSnapshotConfigurationDescription
+      -&gt; ApplicationConfigurationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299550"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RunConfigurationDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RunConfigurationDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SqlApplicationConfigurationDescription
+   -&gt; Maybe FlinkApplicationConfigurationDescription
+   -&gt; Maybe ApplicationSnapshotConfigurationDescription
+   -&gt; ApplicationConfigurationDescription)
+-&gt; Parser (Maybe SqlApplicationConfigurationDescription)
+-&gt; Parser
+     (Maybe FlinkApplicationConfigurationDescription
+      -&gt; Maybe ApplicationSnapshotConfigurationDescription
+      -&gt; ApplicationConfigurationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299550"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe SqlApplicationConfigurationDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SqlApplicationConfigurationDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FlinkApplicationConfigurationDescription
+   -&gt; Maybe ApplicationSnapshotConfigurationDescription
+   -&gt; ApplicationConfigurationDescription)
+-&gt; Parser (Maybe FlinkApplicationConfigurationDescription)
+-&gt; Parser
+     (Maybe ApplicationSnapshotConfigurationDescription
+      -&gt; ApplicationConfigurationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299550"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-178"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe FlinkApplicationConfigurationDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FlinkApplicationConfigurationDescription&quot;</span></span><span>
+</span><span id="line-179"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ApplicationSnapshotConfigurationDescription
+   -&gt; ApplicationConfigurationDescription)
+-&gt; Parser (Maybe ApplicationSnapshotConfigurationDescription)
+-&gt; Parser ApplicationConfigurationDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299550"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-181"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe ApplicationSnapshotConfigurationDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationSnapshotConfigurationDescription&quot;</span></span><span>
+</span><span id="line-182"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679299543"><span id="local-6989586621679299545"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679299540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription.html#ApplicationConfigurationDescription"><span class="hs-identifier hs-type">ApplicationConfigurationDescription</span></a></span></span><span>
+</span><span id="line-192"></span></pre></body></html>

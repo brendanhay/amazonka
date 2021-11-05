@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newEnableSnapshotCopy' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679511767"><span id="local-6989586621679511768"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableSnapshotCopy"><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-var">EnableSnapshotCopy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableSnapshotCopy%27"><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-var">EnableSnapshotCopy'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679511776"><span id="local-6989586621679511777"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableSnapshotCopy"><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-var">EnableSnapshotCopy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableSnapshotCopy%27"><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-var">EnableSnapshotCopy'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of days to retain newly copied snapshots in the destination</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Amazon Web Services Region after they are copied from the source Amazon</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Web Services Region. If the value is -1, the manual snapshot is retained</span><span>
@@ -91,7 +91,7 @@
 </span><span id="line-87"></span><span>    </span><span id="%24sel%3AdestinationRegion%3AEnableSnapshotCopy%27"><span class="annot"><span class="annottext">EnableSnapshotCopy -&gt; Text
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#%24sel%3AdestinationRegion%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var hs-var">destinationRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679511757"><span id="local-6989586621679511759"><span class="annot"><span class="annottext">EnableSnapshotCopy -&gt; EnableSnapshotCopy -&gt; Bool
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679511766"><span id="local-6989586621679511768"><span class="annot"><span class="annottext">EnableSnapshotCopy -&gt; EnableSnapshotCopy -&gt; Bool
 (EnableSnapshotCopy -&gt; EnableSnapshotCopy -&gt; Bool)
 -&gt; (EnableSnapshotCopy -&gt; EnableSnapshotCopy -&gt; Bool)
 -&gt; Eq EnableSnapshotCopy
@@ -100,7 +100,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnableSnapshotCopy -&gt; EnableSnapshotCopy -&gt; Bool
 == :: EnableSnapshotCopy -&gt; EnableSnapshotCopy -&gt; Bool
 $c== :: EnableSnapshotCopy -&gt; EnableSnapshotCopy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511748"><span id="local-6989586621679511750"><span id="local-6989586621679511752"><span id="local-6989586621679511754"><span class="annot"><span class="annottext">ReadPrec [EnableSnapshotCopy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511757"><span id="local-6989586621679511759"><span id="local-6989586621679511761"><span id="local-6989586621679511763"><span class="annot"><span class="annottext">ReadPrec [EnableSnapshotCopy]
 ReadPrec EnableSnapshotCopy
 Int -&gt; ReadS EnableSnapshotCopy
 ReadS [EnableSnapshotCopy]
@@ -120,7 +120,7 @@ readList :: ReadS [EnableSnapshotCopy]
 $creadList :: ReadS [EnableSnapshotCopy]
 readsPrec :: Int -&gt; ReadS EnableSnapshotCopy
 $creadsPrec :: Int -&gt; ReadS EnableSnapshotCopy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511741"><span id="local-6989586621679511743"><span id="local-6989586621679511745"><span class="annot"><span class="annottext">Int -&gt; EnableSnapshotCopy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511750"><span id="local-6989586621679511752"><span id="local-6989586621679511754"><span class="annot"><span class="annottext">Int -&gt; EnableSnapshotCopy -&gt; ShowS
 [EnableSnapshotCopy] -&gt; ShowS
 EnableSnapshotCopy -&gt; String
 (Int -&gt; EnableSnapshotCopy -&gt; ShowS)
@@ -191,10 +191,10 @@ $cfrom :: forall x. EnableSnapshotCopy -&gt; Rep EnableSnapshotCopy x
 </span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span>
 </span><span id="line-134"></span><span id="newEnableSnapshotCopy"><span class="annot"><span class="annottext">newEnableSnapshotCopy :: Text -&gt; Text -&gt; EnableSnapshotCopy
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#newEnableSnapshotCopy"><span class="hs-identifier hs-var hs-var">newEnableSnapshotCopy</span></a></span></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679511736"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511736"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679511735"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511735"><span class="hs-identifier hs-var">pDestinationRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679511745"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511745"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679511744"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511744"><span class="hs-identifier hs-var">pDestinationRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">EnableSnapshotCopy' :: Maybe Int
 -&gt; Maybe Int -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; EnableSnapshotCopy
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span>
@@ -213,10 +213,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:EnableSnapshotCopy' :: Text
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#%24sel%3AclusterIdentifier%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511736"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679511745"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationRegion:EnableSnapshotCopy' :: Text
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#%24sel%3AdestinationRegion%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511735"><span class="hs-identifier hs-var">pDestinationRegion_</span></a></span><span>
+</span><a href="#local-6989586621679511744"><span class="hs-identifier hs-var">pDestinationRegion_</span></a></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The number of days to retain newly copied snapshots in the destination</span><span>
@@ -233,16 +233,16 @@ forall a. Maybe a
 -&gt; Lens
      EnableSnapshotCopy EnableSnapshotCopy (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511732"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511741"><span class="annot"><span class="annottext">Maybe Int
 manualSnapshotRetentionPeriod :: Maybe Int
 $sel:manualSnapshotRetentionPeriod:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Maybe Int
-</span><a href="#local-6989586621679511732"><span class="hs-identifier hs-var hs-var">manualSnapshotRetentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679511732"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511731"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
-</span><a href="#local-6989586621679511731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511730"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679511730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
-</span><a href="#local-6989586621679511731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manualSnapshotRetentionPeriod:EnableSnapshotCopy' :: Maybe Int
+</span><a href="#local-6989586621679511741"><span class="hs-identifier hs-var hs-var">manualSnapshotRetentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679511741"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511740"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
+</span><a href="#local-6989586621679511740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511739"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679511739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
+</span><a href="#local-6989586621679511740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manualSnapshotRetentionPeriod:EnableSnapshotCopy' :: Maybe Int
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#%24sel%3AmanualSnapshotRetentionPeriod%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679511730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679511739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The number of days to retain automated snapshots in the destination</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- region after they are copied from the source region.</span><span>
@@ -258,16 +258,16 @@ $sel:manualSnapshotRetentionPeriod:EnableSnapshotCopy' :: EnableSnapshotCopy -&g
 -&gt; Lens
      EnableSnapshotCopy EnableSnapshotCopy (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511729"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511738"><span class="annot"><span class="annottext">Maybe Int
 retentionPeriod :: Maybe Int
 $sel:retentionPeriod:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Maybe Int
-</span><a href="#local-6989586621679511729"><span class="hs-identifier hs-var hs-var">retentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679511729"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511728"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
-</span><a href="#local-6989586621679511728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511727"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679511727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
-</span><a href="#local-6989586621679511728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriod:EnableSnapshotCopy' :: Maybe Int
+</span><a href="#local-6989586621679511738"><span class="hs-identifier hs-var hs-var">retentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679511738"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511737"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
+</span><a href="#local-6989586621679511737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511736"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679511736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
+</span><a href="#local-6989586621679511737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriod:EnableSnapshotCopy' :: Maybe Int
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#%24sel%3AretentionPeriod%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679511727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679511736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The name of the snapshot copy grant to use when snapshots of an Amazon</span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- Web Services KMS-encrypted cluster are copied to the destination region.</span><span>
@@ -279,16 +279,16 @@ $sel:retentionPeriod:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Maybe Int
 -&gt; Lens
      EnableSnapshotCopy EnableSnapshotCopy (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511726"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511735"><span class="annot"><span class="annottext">Maybe Text
 snapshotCopyGrantName :: Maybe Text
 $sel:snapshotCopyGrantName:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Maybe Text
-</span><a href="#local-6989586621679511726"><span class="hs-identifier hs-var hs-var">snapshotCopyGrantName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679511726"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511725"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
-</span><a href="#local-6989586621679511725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511724"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679511724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
-</span><a href="#local-6989586621679511725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotCopyGrantName:EnableSnapshotCopy' :: Maybe Text
+</span><a href="#local-6989586621679511735"><span class="hs-identifier hs-var hs-var">snapshotCopyGrantName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679511735"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511734"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
+</span><a href="#local-6989586621679511734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511733"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679511733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
+</span><a href="#local-6989586621679511734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotCopyGrantName:EnableSnapshotCopy' :: Maybe Text
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#%24sel%3AsnapshotCopyGrantName%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679511724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679511733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The unique identifier of the source cluster to copy snapshots from.</span><span>
 </span><span id="line-170"></span><span class="hs-comment">--</span><span>
@@ -300,16 +300,16 @@ $sel:snapshotCopyGrantName:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Maybe
 -&gt; (EnableSnapshotCopy -&gt; Text -&gt; EnableSnapshotCopy)
 -&gt; Lens EnableSnapshotCopy EnableSnapshotCopy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511723"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511732"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Text
-</span><a href="#local-6989586621679511723"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511723"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511722"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
-</span><a href="#local-6989586621679511722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511721"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
-</span><a href="#local-6989586621679511722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:EnableSnapshotCopy' :: Text
+</span><a href="#local-6989586621679511732"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511732"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511731"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
+</span><a href="#local-6989586621679511731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511730"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
+</span><a href="#local-6989586621679511731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:EnableSnapshotCopy' :: Text
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#%24sel%3AclusterIdentifier%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679511730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The destination Amazon Web Services Region that you want to copy</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- snapshots to.</span><span>
@@ -324,27 +324,27 @@ $sel:clusterIdentifier:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Text
 -&gt; (EnableSnapshotCopy -&gt; Text -&gt; EnableSnapshotCopy)
 -&gt; Lens EnableSnapshotCopy EnableSnapshotCopy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511720"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511729"><span class="annot"><span class="annottext">Text
 destinationRegion :: Text
 $sel:destinationRegion:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Text
-</span><a href="#local-6989586621679511720"><span class="hs-identifier hs-var hs-var">destinationRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511720"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511719"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
-</span><a href="#local-6989586621679511719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511718"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
-</span><a href="#local-6989586621679511719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationRegion:EnableSnapshotCopy' :: Text
+</span><a href="#local-6989586621679511729"><span class="hs-identifier hs-var hs-var">destinationRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511729"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511728"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
+</span><a href="#local-6989586621679511728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511727"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
+</span><a href="#local-6989586621679511728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationRegion:EnableSnapshotCopy' :: Text
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#%24sel%3AdestinationRegion%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679511727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-188"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679511714"><span class="annot"><span class="annottext">request :: EnableSnapshotCopy -&gt; Request EnableSnapshotCopy
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679511723"><span class="annot"><span class="annottext">request :: EnableSnapshotCopy -&gt; Request EnableSnapshotCopy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; EnableSnapshotCopy -&gt; Request EnableSnapshotCopy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679511710"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679511719"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy EnableSnapshotCopy
 -&gt; ClientResponse ClientBody
@@ -375,10 +375,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnableSnapshotCopyResult&quot;</span></span><span>
-</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679511707"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679511707"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679511706"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679511706"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679511705"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679511705"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679511716"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679511716"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679511715"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679511715"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679511714"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679511714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; EnableSnapshotCopyResponse
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var">EnableSnapshotCopyResponse'</span></a></span><span>
 </span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; EnableSnapshotCopyResponse)
@@ -386,7 +386,7 @@ Text
 -&gt; Either String (Int -&gt; EnableSnapshotCopyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679511705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Cluster)
+</span><a href="#local-6989586621679511714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Cluster)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -398,15 +398,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679511707"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679511716"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511697"><span id="local-6989586621679511699"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511706"><span id="local-6989586621679511708"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span></span></span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span></span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679511690"><span class="annot"><span class="annottext">toHeaders :: EnableSnapshotCopy -&gt; ResponseHeaders
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679511699"><span class="annot"><span class="annottext">toHeaders :: EnableSnapshotCopy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; EnableSnapshotCopy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -414,15 +414,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679511685"><span class="annot"><span class="annottext">toPath :: EnableSnapshotCopy -&gt; ByteString
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679511694"><span class="annot"><span class="annottext">toPath :: EnableSnapshotCopy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EnableSnapshotCopy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679511681"><span class="annot"><span class="annottext">toQuery :: EnableSnapshotCopy -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511675"><span id="local-6989586621679511676"><span id="local-6989586621679511677"><span id="local-6989586621679511678"><span id="local-6989586621679511679"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679511690"><span class="annot"><span class="annottext">toQuery :: EnableSnapshotCopy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511684"><span id="local-6989586621679511685"><span id="local-6989586621679511686"><span id="local-6989586621679511687"><span id="local-6989586621679511688"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Text
 destinationRegion :: Text
@@ -435,7 +435,7 @@ $sel:clusterIdentifier:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Text
 $sel:snapshotCopyGrantName:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Maybe Text
 $sel:retentionPeriod:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Maybe Int
 $sel:manualSnapshotRetentionPeriod:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Maybe Int
-</span><a href="#local-6989586621679511675"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679511684"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -456,39 +456,39 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-218"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679511679"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679511688"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;RetentionPeriod&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679511678"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679511687"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SnapshotCopyGrantName&quot;</span></span><span>
 </span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679511677"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679511686"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511676"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679511685"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DestinationRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511675"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span>
+</span><a href="#local-6989586621679511684"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | /See:/ 'newEnableSnapshotCopyResponse' smart constructor.</span><span>
-</span><span id="line-227"></span><span id="local-6989586621679511672"><span id="local-6989586621679511673"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableSnapshotCopyResponse"><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-var">EnableSnapshotCopyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableSnapshotCopyResponse%27"><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var">EnableSnapshotCopyResponse'</span></a></span></span><span>
+</span><span id="line-227"></span><span id="local-6989586621679511681"><span id="local-6989586621679511682"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableSnapshotCopyResponse"><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-var">EnableSnapshotCopyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableSnapshotCopyResponse%27"><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var">EnableSnapshotCopyResponse'</span></a></span></span><span>
 </span><span id="line-228"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Acluster%3AEnableSnapshotCopyResponse%27"><span class="annot"><span class="annottext">EnableSnapshotCopyResponse -&gt; Maybe Cluster
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#%24sel%3Acluster%3AEnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-230"></span><span>    </span><span id="%24sel%3AhttpStatus%3AEnableSnapshotCopyResponse%27"><span class="annot"><span class="annottext">EnableSnapshotCopyResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#%24sel%3AhttpStatus%3AEnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-231"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-232"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679511666"><span id="local-6989586621679511668"><span class="annot"><span class="annottext">EnableSnapshotCopyResponse -&gt; EnableSnapshotCopyResponse -&gt; Bool
+</span><span id="line-232"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679511675"><span id="local-6989586621679511677"><span class="annot"><span class="annottext">EnableSnapshotCopyResponse -&gt; EnableSnapshotCopyResponse -&gt; Bool
 (EnableSnapshotCopyResponse -&gt; EnableSnapshotCopyResponse -&gt; Bool)
 -&gt; (EnableSnapshotCopyResponse
     -&gt; EnableSnapshotCopyResponse -&gt; Bool)
@@ -498,7 +498,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnableSnapshotCopyResponse -&gt; EnableSnapshotCopyResponse -&gt; Bool
 == :: EnableSnapshotCopyResponse -&gt; EnableSnapshotCopyResponse -&gt; Bool
 $c== :: EnableSnapshotCopyResponse -&gt; EnableSnapshotCopyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511658"><span id="local-6989586621679511660"><span id="local-6989586621679511662"><span id="local-6989586621679511664"><span class="annot"><span class="annottext">ReadPrec [EnableSnapshotCopyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511667"><span id="local-6989586621679511669"><span id="local-6989586621679511671"><span id="local-6989586621679511673"><span class="annot"><span class="annottext">ReadPrec [EnableSnapshotCopyResponse]
 ReadPrec EnableSnapshotCopyResponse
 Int -&gt; ReadS EnableSnapshotCopyResponse
 ReadS [EnableSnapshotCopyResponse]
@@ -518,7 +518,7 @@ readList :: ReadS [EnableSnapshotCopyResponse]
 $creadList :: ReadS [EnableSnapshotCopyResponse]
 readsPrec :: Int -&gt; ReadS EnableSnapshotCopyResponse
 $creadsPrec :: Int -&gt; ReadS EnableSnapshotCopyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511652"><span id="local-6989586621679511654"><span id="local-6989586621679511656"><span class="annot"><span class="annottext">Int -&gt; EnableSnapshotCopyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511661"><span id="local-6989586621679511663"><span id="local-6989586621679511665"><span class="annot"><span class="annottext">Int -&gt; EnableSnapshotCopyResponse -&gt; ShowS
 [EnableSnapshotCopyResponse] -&gt; ShowS
 EnableSnapshotCopyResponse -&gt; String
 (Int -&gt; EnableSnapshotCopyResponse -&gt; ShowS)
@@ -566,8 +566,8 @@ EnableSnapshotCopyResponse -&gt; Rep EnableSnapshotCopyResponse x
 </span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-248"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span><span>
 </span><span id="line-249"></span><span id="newEnableSnapshotCopyResponse"><span class="annot"><span class="annottext">newEnableSnapshotCopyResponse :: Int -&gt; EnableSnapshotCopyResponse
-</span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#newEnableSnapshotCopyResponse"><span class="hs-identifier hs-var hs-var">newEnableSnapshotCopyResponse</span></a></span></span><span> </span><span id="local-6989586621679511649"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679511649"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#newEnableSnapshotCopyResponse"><span class="hs-identifier hs-var hs-var">newEnableSnapshotCopyResponse</span></a></span></span><span> </span><span id="local-6989586621679511658"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679511658"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">EnableSnapshotCopyResponse' :: Maybe Cluster -&gt; Int -&gt; EnableSnapshotCopyResponse
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse'</span></a></span><span>
 </span><span id="line-251"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:EnableSnapshotCopyResponse' :: Maybe Cluster
@@ -577,7 +577,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:EnableSnapshotCopyResponse' :: Int
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#%24sel%3AhttpStatus%3AEnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679511649"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679511658"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-254"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -593,16 +593,16 @@ forall a. Maybe a
      (Maybe Cluster)
      (Maybe Cluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511648"><span class="annot"><span class="annottext">Maybe Cluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511657"><span class="annot"><span class="annottext">Maybe Cluster
 cluster :: Maybe Cluster
 $sel:cluster:EnableSnapshotCopyResponse' :: EnableSnapshotCopyResponse -&gt; Maybe Cluster
-</span><a href="#local-6989586621679511648"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679511648"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511647"><span class="annot"><span class="annottext">s :: EnableSnapshotCopyResponse
-</span><a href="#local-6989586621679511647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511646"><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679511646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopyResponse
-</span><a href="#local-6989586621679511647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:EnableSnapshotCopyResponse' :: Maybe Cluster
+</span><a href="#local-6989586621679511657"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679511657"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511656"><span class="annot"><span class="annottext">s :: EnableSnapshotCopyResponse
+</span><a href="#local-6989586621679511656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511655"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679511655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopyResponse
+</span><a href="#local-6989586621679511656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:EnableSnapshotCopyResponse' :: Maybe Cluster
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#%24sel%3Acluster%3AEnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679511646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679511655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-261"></span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#enableSnapshotCopyResponse_httpStatus"><span class="hs-identifier hs-type">enableSnapshotCopyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -614,16 +614,16 @@ $sel:cluster:EnableSnapshotCopyResponse' :: EnableSnapshotCopyResponse -&gt; May
 -&gt; Lens
      EnableSnapshotCopyResponse EnableSnapshotCopyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511645"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511654"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:EnableSnapshotCopyResponse' :: EnableSnapshotCopyResponse -&gt; Int
-</span><a href="#local-6989586621679511645"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679511645"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511644"><span class="annot"><span class="annottext">s :: EnableSnapshotCopyResponse
-</span><a href="#local-6989586621679511644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511643"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679511643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopyResponse
-</span><a href="#local-6989586621679511644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnableSnapshotCopyResponse' :: Int
+</span><a href="#local-6989586621679511654"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679511654"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511653"><span class="annot"><span class="annottext">s :: EnableSnapshotCopyResponse
+</span><a href="#local-6989586621679511653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511652"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679511652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopyResponse
+</span><a href="#local-6989586621679511653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnableSnapshotCopyResponse' :: Int
 </span><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#%24sel%3AhttpStatus%3AEnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679511643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679511652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-263"></span><span>
-</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511641"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511650"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span></span><span>
 </span><span id="line-265"></span></pre></body></html>

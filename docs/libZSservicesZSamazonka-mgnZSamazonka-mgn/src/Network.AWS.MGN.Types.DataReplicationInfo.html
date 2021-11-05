@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MGN.Types.DataReplicationInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MGN.Types.DataReplicationInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationError.html"><span class="hs-identifier">Network.AWS.MGN.Types.DataReplicationError</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfoReplicatedDisk.html"><span class="hs-identifier">Network.AWS.MGN.Types.DataReplicationInfoReplicatedDisk</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiation.html"><span class="hs-identifier">Network.AWS.MGN.Types.DataReplicationInitiation</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationState.html"><span class="hs-identifier">Network.AWS.MGN.Types.DataReplicationState</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Request data replication info.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDataReplicationInfo' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679225221"><span id="local-6989586621679225222"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataReplicationInfo"><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-var">DataReplicationInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataReplicationInfo%27"><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-var">DataReplicationInfo'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Request to query whether data replication has been initiated.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdataReplicationInitiation%3ADataReplicationInfo%27"><span class="annot"><span class="annottext">DataReplicationInfo -&gt; Maybe DataReplicationInitiation
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AdataReplicationInitiation%3ADataReplicationInfo%27"><span class="hs-identifier hs-var hs-var">dataReplicationInitiation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiation.html#DataReplicationInitiation"><span class="hs-identifier hs-type">DataReplicationInitiation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Error in obtaining data replication info.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdataReplicationError%3ADataReplicationInfo%27"><span class="annot"><span class="annottext">DataReplicationInfo -&gt; Maybe DataReplicationError
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AdataReplicationError%3ADataReplicationInfo%27"><span class="hs-identifier hs-var hs-var">dataReplicationError</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationError.html#DataReplicationError"><span class="hs-identifier hs-type">DataReplicationError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Request to query data replication lag durating.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlagDuration%3ADataReplicationInfo%27"><span class="annot"><span class="annottext">DataReplicationInfo -&gt; Maybe Text
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AlagDuration%3ADataReplicationInfo%27"><span class="hs-identifier hs-var hs-var">lagDuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Request to query the data replication state.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdataReplicationState%3ADataReplicationInfo%27"><span class="annot"><span class="annottext">DataReplicationInfo -&gt; Maybe DataReplicationState
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AdataReplicationState%3ADataReplicationInfo%27"><span class="hs-identifier hs-var hs-var">dataReplicationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationState.html#DataReplicationState"><span class="hs-identifier hs-type">DataReplicationState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Request to query disks replicated.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AreplicatedDisks%3ADataReplicationInfo%27"><span class="annot"><span class="annottext">DataReplicationInfo -&gt; Maybe [DataReplicationInfoReplicatedDisk]
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AreplicatedDisks%3ADataReplicationInfo%27"><span class="hs-identifier hs-var hs-var">replicatedDisks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfoReplicatedDisk.html#DataReplicationInfoReplicatedDisk"><span class="hs-identifier hs-type">DataReplicationInfoReplicatedDisk</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Request to query the time when data replication will be complete.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AetaDateTime%3ADataReplicationInfo%27"><span class="annot"><span class="annottext">DataReplicationInfo -&gt; Maybe Text
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AetaDateTime%3ADataReplicationInfo%27"><span class="hs-identifier hs-var hs-var">etaDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225210"><span id="local-6989586621679225212"><span class="annot"><span class="annottext">DataReplicationInfo -&gt; DataReplicationInfo -&gt; Bool
+(DataReplicationInfo -&gt; DataReplicationInfo -&gt; Bool)
+-&gt; (DataReplicationInfo -&gt; DataReplicationInfo -&gt; Bool)
+-&gt; Eq DataReplicationInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataReplicationInfo -&gt; DataReplicationInfo -&gt; Bool
+$c/= :: DataReplicationInfo -&gt; DataReplicationInfo -&gt; Bool
+== :: DataReplicationInfo -&gt; DataReplicationInfo -&gt; Bool
+$c== :: DataReplicationInfo -&gt; DataReplicationInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225201"><span id="local-6989586621679225203"><span id="local-6989586621679225205"><span id="local-6989586621679225207"><span class="annot"><span class="annottext">ReadPrec [DataReplicationInfo]
+ReadPrec DataReplicationInfo
+Int -&gt; ReadS DataReplicationInfo
+ReadS [DataReplicationInfo]
+(Int -&gt; ReadS DataReplicationInfo)
+-&gt; ReadS [DataReplicationInfo]
+-&gt; ReadPrec DataReplicationInfo
+-&gt; ReadPrec [DataReplicationInfo]
+-&gt; Read DataReplicationInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataReplicationInfo]
+$creadListPrec :: ReadPrec [DataReplicationInfo]
+readPrec :: ReadPrec DataReplicationInfo
+$creadPrec :: ReadPrec DataReplicationInfo
+readList :: ReadS [DataReplicationInfo]
+$creadList :: ReadS [DataReplicationInfo]
+readsPrec :: Int -&gt; ReadS DataReplicationInfo
+$creadsPrec :: Int -&gt; ReadS DataReplicationInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225194"><span id="local-6989586621679225196"><span id="local-6989586621679225198"><span class="annot"><span class="annottext">Int -&gt; DataReplicationInfo -&gt; ShowS
+[DataReplicationInfo] -&gt; ShowS
+DataReplicationInfo -&gt; String
+(Int -&gt; DataReplicationInfo -&gt; ShowS)
+-&gt; (DataReplicationInfo -&gt; String)
+-&gt; ([DataReplicationInfo] -&gt; ShowS)
+-&gt; Show DataReplicationInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataReplicationInfo] -&gt; ShowS
+$cshowList :: [DataReplicationInfo] -&gt; ShowS
+show :: DataReplicationInfo -&gt; String
+$cshow :: DataReplicationInfo -&gt; String
+showsPrec :: Int -&gt; DataReplicationInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataReplicationInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DataReplicationInfo -&gt; Rep DataReplicationInfo x)
+-&gt; (forall x. Rep DataReplicationInfo x -&gt; DataReplicationInfo)
+-&gt; Generic DataReplicationInfo
+forall x. Rep DataReplicationInfo x -&gt; DataReplicationInfo
+forall x. DataReplicationInfo -&gt; Rep DataReplicationInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DataReplicationInfo x -&gt; DataReplicationInfo
+$cfrom :: forall x. DataReplicationInfo -&gt; Rep DataReplicationInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'DataReplicationInfo' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'dataReplicationInitiation', 'dataReplicationInfo_dataReplicationInitiation' - Request to query whether data replication has been initiated.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'dataReplicationError', 'dataReplicationInfo_dataReplicationError' - Error in obtaining data replication info.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'lagDuration', 'dataReplicationInfo_lagDuration' - Request to query data replication lag durating.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'dataReplicationState', 'dataReplicationInfo_dataReplicationState' - Request to query the data replication state.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'replicatedDisks', 'dataReplicationInfo_replicatedDisks' - Request to query disks replicated.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'etaDateTime', 'dataReplicationInfo_etaDateTime' - Request to query the time when data replication will be complete.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#newDataReplicationInfo"><span class="hs-identifier hs-type">newDataReplicationInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span><span>
+</span><span id="line-70"></span><span id="newDataReplicationInfo"><span class="annot"><span class="annottext">newDataReplicationInfo :: DataReplicationInfo
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#newDataReplicationInfo"><span class="hs-identifier hs-var hs-var">newDataReplicationInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DataReplicationInfo' :: Maybe DataReplicationInitiation
+-&gt; Maybe DataReplicationError
+-&gt; Maybe Text
+-&gt; Maybe DataReplicationState
+-&gt; Maybe [DataReplicationInfoReplicatedDisk]
+-&gt; Maybe Text
+-&gt; DataReplicationInfo
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-type">DataReplicationInfo'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataReplicationInitiation:DataReplicationInfo' :: Maybe DataReplicationInitiation
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AdataReplicationInitiation%3ADataReplicationInfo%27"><span class="hs-identifier hs-var">dataReplicationInitiation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe DataReplicationInitiation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataReplicationError:DataReplicationInfo' :: Maybe DataReplicationError
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AdataReplicationError%3ADataReplicationInfo%27"><span class="hs-identifier hs-var">dataReplicationError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataReplicationError
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:lagDuration:DataReplicationInfo' :: Maybe Text
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AlagDuration%3ADataReplicationInfo%27"><span class="hs-identifier hs-var">lagDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataReplicationState:DataReplicationInfo' :: Maybe DataReplicationState
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AdataReplicationState%3ADataReplicationInfo%27"><span class="hs-identifier hs-var">dataReplicationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataReplicationState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicatedDisks:DataReplicationInfo' :: Maybe [DataReplicationInfoReplicatedDisk]
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AreplicatedDisks%3ADataReplicationInfo%27"><span class="hs-identifier hs-var">replicatedDisks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DataReplicationInfoReplicatedDisk]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:etaDateTime:DataReplicationInfo' :: Maybe Text
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AetaDateTime%3ADataReplicationInfo%27"><span class="hs-identifier hs-var">etaDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Request to query whether data replication has been initiated.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#dataReplicationInfo_dataReplicationInitiation"><span class="hs-identifier hs-type">dataReplicationInfo_dataReplicationInitiation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiation.html#DataReplicationInitiation"><span class="hs-identifier hs-type">DataReplicationInitiation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="dataReplicationInfo_dataReplicationInitiation"><span class="annot"><span class="annottext">dataReplicationInfo_dataReplicationInitiation :: (Maybe DataReplicationInitiation
+ -&gt; f (Maybe DataReplicationInitiation))
+-&gt; DataReplicationInfo -&gt; f DataReplicationInfo
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#dataReplicationInfo_dataReplicationInitiation"><span class="hs-identifier hs-var hs-var">dataReplicationInfo_dataReplicationInitiation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataReplicationInfo -&gt; Maybe DataReplicationInitiation)
+-&gt; (DataReplicationInfo
+    -&gt; Maybe DataReplicationInitiation -&gt; DataReplicationInfo)
+-&gt; Lens
+     DataReplicationInfo
+     DataReplicationInfo
+     (Maybe DataReplicationInitiation)
+     (Maybe DataReplicationInitiation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-type">DataReplicationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225185"><span class="annot"><span class="annottext">Maybe DataReplicationInitiation
+dataReplicationInitiation :: Maybe DataReplicationInitiation
+$sel:dataReplicationInitiation:DataReplicationInfo' :: DataReplicationInfo -&gt; Maybe DataReplicationInitiation
+</span><a href="#local-6989586621679225185"><span class="hs-identifier hs-var hs-var">dataReplicationInitiation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataReplicationInitiation
+</span><a href="#local-6989586621679225185"><span class="hs-identifier hs-var">dataReplicationInitiation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225184"><span class="annot"><span class="annottext">s :: DataReplicationInfo
+</span><a href="#local-6989586621679225184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-type">DataReplicationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225183"><span class="annot"><span class="annottext">Maybe DataReplicationInitiation
+</span><a href="#local-6989586621679225183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataReplicationInfo
+</span><a href="#local-6989586621679225184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataReplicationInitiation:DataReplicationInfo' :: Maybe DataReplicationInitiation
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AdataReplicationInitiation%3ADataReplicationInfo%27"><span class="hs-identifier hs-var">dataReplicationInitiation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataReplicationInitiation
+</span><a href="#local-6989586621679225183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Error in obtaining data replication info.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#dataReplicationInfo_dataReplicationError"><span class="hs-identifier hs-type">dataReplicationInfo_dataReplicationError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationError.html#DataReplicationError"><span class="hs-identifier hs-type">DataReplicationError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="dataReplicationInfo_dataReplicationError"><span class="annot"><span class="annottext">dataReplicationInfo_dataReplicationError :: (Maybe DataReplicationError -&gt; f (Maybe DataReplicationError))
+-&gt; DataReplicationInfo -&gt; f DataReplicationInfo
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#dataReplicationInfo_dataReplicationError"><span class="hs-identifier hs-var hs-var">dataReplicationInfo_dataReplicationError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataReplicationInfo -&gt; Maybe DataReplicationError)
+-&gt; (DataReplicationInfo
+    -&gt; Maybe DataReplicationError -&gt; DataReplicationInfo)
+-&gt; Lens
+     DataReplicationInfo
+     DataReplicationInfo
+     (Maybe DataReplicationError)
+     (Maybe DataReplicationError)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-type">DataReplicationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225181"><span class="annot"><span class="annottext">Maybe DataReplicationError
+dataReplicationError :: Maybe DataReplicationError
+$sel:dataReplicationError:DataReplicationInfo' :: DataReplicationInfo -&gt; Maybe DataReplicationError
+</span><a href="#local-6989586621679225181"><span class="hs-identifier hs-var hs-var">dataReplicationError</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataReplicationError
+</span><a href="#local-6989586621679225181"><span class="hs-identifier hs-var">dataReplicationError</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225180"><span class="annot"><span class="annottext">s :: DataReplicationInfo
+</span><a href="#local-6989586621679225180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-type">DataReplicationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225179"><span class="annot"><span class="annottext">Maybe DataReplicationError
+</span><a href="#local-6989586621679225179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataReplicationInfo
+</span><a href="#local-6989586621679225180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataReplicationError:DataReplicationInfo' :: Maybe DataReplicationError
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AdataReplicationError%3ADataReplicationInfo%27"><span class="hs-identifier hs-var">dataReplicationError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataReplicationError
+</span><a href="#local-6989586621679225179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Request to query data replication lag durating.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#dataReplicationInfo_lagDuration"><span class="hs-identifier hs-type">dataReplicationInfo_lagDuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="dataReplicationInfo_lagDuration"><span class="annot"><span class="annottext">dataReplicationInfo_lagDuration :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DataReplicationInfo -&gt; f DataReplicationInfo
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#dataReplicationInfo_lagDuration"><span class="hs-identifier hs-var hs-var">dataReplicationInfo_lagDuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataReplicationInfo -&gt; Maybe Text)
+-&gt; (DataReplicationInfo -&gt; Maybe Text -&gt; DataReplicationInfo)
+-&gt; Lens
+     DataReplicationInfo DataReplicationInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-type">DataReplicationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225177"><span class="annot"><span class="annottext">Maybe Text
+lagDuration :: Maybe Text
+$sel:lagDuration:DataReplicationInfo' :: DataReplicationInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679225177"><span class="hs-identifier hs-var hs-var">lagDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225177"><span class="hs-identifier hs-var">lagDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225176"><span class="annot"><span class="annottext">s :: DataReplicationInfo
+</span><a href="#local-6989586621679225176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-type">DataReplicationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225175"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataReplicationInfo
+</span><a href="#local-6989586621679225176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lagDuration:DataReplicationInfo' :: Maybe Text
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AlagDuration%3ADataReplicationInfo%27"><span class="hs-identifier hs-var">lagDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Request to query the data replication state.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#dataReplicationInfo_dataReplicationState"><span class="hs-identifier hs-type">dataReplicationInfo_dataReplicationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationState.html#DataReplicationState"><span class="hs-identifier hs-type">DataReplicationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="dataReplicationInfo_dataReplicationState"><span class="annot"><span class="annottext">dataReplicationInfo_dataReplicationState :: (Maybe DataReplicationState -&gt; f (Maybe DataReplicationState))
+-&gt; DataReplicationInfo -&gt; f DataReplicationInfo
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#dataReplicationInfo_dataReplicationState"><span class="hs-identifier hs-var hs-var">dataReplicationInfo_dataReplicationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataReplicationInfo -&gt; Maybe DataReplicationState)
+-&gt; (DataReplicationInfo
+    -&gt; Maybe DataReplicationState -&gt; DataReplicationInfo)
+-&gt; Lens
+     DataReplicationInfo
+     DataReplicationInfo
+     (Maybe DataReplicationState)
+     (Maybe DataReplicationState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-type">DataReplicationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225173"><span class="annot"><span class="annottext">Maybe DataReplicationState
+dataReplicationState :: Maybe DataReplicationState
+$sel:dataReplicationState:DataReplicationInfo' :: DataReplicationInfo -&gt; Maybe DataReplicationState
+</span><a href="#local-6989586621679225173"><span class="hs-identifier hs-var hs-var">dataReplicationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataReplicationState
+</span><a href="#local-6989586621679225173"><span class="hs-identifier hs-var">dataReplicationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225172"><span class="annot"><span class="annottext">s :: DataReplicationInfo
+</span><a href="#local-6989586621679225172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-type">DataReplicationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225171"><span class="annot"><span class="annottext">Maybe DataReplicationState
+</span><a href="#local-6989586621679225171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataReplicationInfo
+</span><a href="#local-6989586621679225172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataReplicationState:DataReplicationInfo' :: Maybe DataReplicationState
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AdataReplicationState%3ADataReplicationInfo%27"><span class="hs-identifier hs-var">dataReplicationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataReplicationState
+</span><a href="#local-6989586621679225171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Request to query disks replicated.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#dataReplicationInfo_replicatedDisks"><span class="hs-identifier hs-type">dataReplicationInfo_replicatedDisks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfoReplicatedDisk.html#DataReplicationInfoReplicatedDisk"><span class="hs-identifier hs-type">DataReplicationInfoReplicatedDisk</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="dataReplicationInfo_replicatedDisks"><span class="annot"><span class="annottext">dataReplicationInfo_replicatedDisks :: (Maybe [DataReplicationInfoReplicatedDisk]
+ -&gt; f (Maybe [DataReplicationInfoReplicatedDisk]))
+-&gt; DataReplicationInfo -&gt; f DataReplicationInfo
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#dataReplicationInfo_replicatedDisks"><span class="hs-identifier hs-var hs-var">dataReplicationInfo_replicatedDisks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataReplicationInfo -&gt; Maybe [DataReplicationInfoReplicatedDisk])
+-&gt; (DataReplicationInfo
+    -&gt; Maybe [DataReplicationInfoReplicatedDisk]
+    -&gt; DataReplicationInfo)
+-&gt; Lens
+     DataReplicationInfo
+     DataReplicationInfo
+     (Maybe [DataReplicationInfoReplicatedDisk])
+     (Maybe [DataReplicationInfoReplicatedDisk])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-type">DataReplicationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225169"><span class="annot"><span class="annottext">Maybe [DataReplicationInfoReplicatedDisk]
+replicatedDisks :: Maybe [DataReplicationInfoReplicatedDisk]
+$sel:replicatedDisks:DataReplicationInfo' :: DataReplicationInfo -&gt; Maybe [DataReplicationInfoReplicatedDisk]
+</span><a href="#local-6989586621679225169"><span class="hs-identifier hs-var hs-var">replicatedDisks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DataReplicationInfoReplicatedDisk]
+</span><a href="#local-6989586621679225169"><span class="hs-identifier hs-var">replicatedDisks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225168"><span class="annot"><span class="annottext">s :: DataReplicationInfo
+</span><a href="#local-6989586621679225168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-type">DataReplicationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225167"><span class="annot"><span class="annottext">Maybe [DataReplicationInfoReplicatedDisk]
+</span><a href="#local-6989586621679225167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataReplicationInfo
+</span><a href="#local-6989586621679225168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicatedDisks:DataReplicationInfo' :: Maybe [DataReplicationInfoReplicatedDisk]
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AreplicatedDisks%3ADataReplicationInfo%27"><span class="hs-identifier hs-var">replicatedDisks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DataReplicationInfoReplicatedDisk]
+</span><a href="#local-6989586621679225167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DataReplicationInfoReplicatedDisk]
+  -&gt; f (Maybe [DataReplicationInfoReplicatedDisk]))
+ -&gt; DataReplicationInfo -&gt; f DataReplicationInfo)
+-&gt; ((Maybe [DataReplicationInfoReplicatedDisk]
+     -&gt; f (Maybe [DataReplicationInfoReplicatedDisk]))
+    -&gt; Maybe [DataReplicationInfoReplicatedDisk]
+    -&gt; f (Maybe [DataReplicationInfoReplicatedDisk]))
+-&gt; (Maybe [DataReplicationInfoReplicatedDisk]
+    -&gt; f (Maybe [DataReplicationInfoReplicatedDisk]))
+-&gt; DataReplicationInfo
+-&gt; f DataReplicationInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DataReplicationInfoReplicatedDisk]
+  [DataReplicationInfoReplicatedDisk]
+  [DataReplicationInfoReplicatedDisk]
+  [DataReplicationInfoReplicatedDisk]
+-&gt; Iso
+     (Maybe [DataReplicationInfoReplicatedDisk])
+     (Maybe [DataReplicationInfoReplicatedDisk])
+     (Maybe [DataReplicationInfoReplicatedDisk])
+     (Maybe [DataReplicationInfoReplicatedDisk])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DataReplicationInfoReplicatedDisk]
+  [DataReplicationInfoReplicatedDisk]
+  [DataReplicationInfoReplicatedDisk]
+  [DataReplicationInfoReplicatedDisk]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Request to query the time when data replication will be complete.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#dataReplicationInfo_etaDateTime"><span class="hs-identifier hs-type">dataReplicationInfo_etaDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="dataReplicationInfo_etaDateTime"><span class="annot"><span class="annottext">dataReplicationInfo_etaDateTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DataReplicationInfo -&gt; f DataReplicationInfo
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#dataReplicationInfo_etaDateTime"><span class="hs-identifier hs-var hs-var">dataReplicationInfo_etaDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataReplicationInfo -&gt; Maybe Text)
+-&gt; (DataReplicationInfo -&gt; Maybe Text -&gt; DataReplicationInfo)
+-&gt; Lens
+     DataReplicationInfo DataReplicationInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-type">DataReplicationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225162"><span class="annot"><span class="annottext">Maybe Text
+etaDateTime :: Maybe Text
+$sel:etaDateTime:DataReplicationInfo' :: DataReplicationInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679225162"><span class="hs-identifier hs-var hs-var">etaDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225162"><span class="hs-identifier hs-var">etaDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225161"><span class="annot"><span class="annottext">s :: DataReplicationInfo
+</span><a href="#local-6989586621679225161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-type">DataReplicationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225160"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataReplicationInfo
+</span><a href="#local-6989586621679225161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:etaDateTime:DataReplicationInfo' :: Maybe Text
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#%24sel%3AetaDateTime%3ADataReplicationInfo%27"><span class="hs-identifier hs-var">etaDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225157"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679225155"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataReplicationInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DataReplicationInfo)
+-&gt; Value
+-&gt; Parser DataReplicationInfo
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DataReplicationInfo&quot;</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225152"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225152"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe DataReplicationInitiation
+-&gt; Maybe DataReplicationError
+-&gt; Maybe Text
+-&gt; Maybe DataReplicationState
+-&gt; Maybe [DataReplicationInfoReplicatedDisk]
+-&gt; Maybe Text
+-&gt; DataReplicationInfo
+</span><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo%27"><span class="hs-identifier hs-var">DataReplicationInfo'</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DataReplicationInitiation
+ -&gt; Maybe DataReplicationError
+ -&gt; Maybe Text
+ -&gt; Maybe DataReplicationState
+ -&gt; Maybe [DataReplicationInfoReplicatedDisk]
+ -&gt; Maybe Text
+ -&gt; DataReplicationInfo)
+-&gt; Parser (Maybe DataReplicationInitiation)
+-&gt; Parser
+     (Maybe DataReplicationError
+      -&gt; Maybe Text
+      -&gt; Maybe DataReplicationState
+      -&gt; Maybe [DataReplicationInfoReplicatedDisk]
+      -&gt; Maybe Text
+      -&gt; DataReplicationInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DataReplicationInitiation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataReplicationInitiation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DataReplicationError
+   -&gt; Maybe Text
+   -&gt; Maybe DataReplicationState
+   -&gt; Maybe [DataReplicationInfoReplicatedDisk]
+   -&gt; Maybe Text
+   -&gt; DataReplicationInfo)
+-&gt; Parser (Maybe DataReplicationError)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe DataReplicationState
+      -&gt; Maybe [DataReplicationInfoReplicatedDisk]
+      -&gt; Maybe Text
+      -&gt; DataReplicationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DataReplicationError)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataReplicationError&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe DataReplicationState
+   -&gt; Maybe [DataReplicationInfoReplicatedDisk]
+   -&gt; Maybe Text
+   -&gt; DataReplicationInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe DataReplicationState
+      -&gt; Maybe [DataReplicationInfoReplicatedDisk]
+      -&gt; Maybe Text
+      -&gt; DataReplicationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lagDuration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DataReplicationState
+   -&gt; Maybe [DataReplicationInfoReplicatedDisk]
+   -&gt; Maybe Text
+   -&gt; DataReplicationInfo)
+-&gt; Parser (Maybe DataReplicationState)
+-&gt; Parser
+     (Maybe [DataReplicationInfoReplicatedDisk]
+      -&gt; Maybe Text -&gt; DataReplicationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DataReplicationState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataReplicationState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [DataReplicationInfoReplicatedDisk]
+   -&gt; Maybe Text -&gt; DataReplicationInfo)
+-&gt; Parser (Maybe [DataReplicationInfoReplicatedDisk])
+-&gt; Parser (Maybe Text -&gt; DataReplicationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe [DataReplicationInfoReplicatedDisk]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;replicatedDisks&quot;</span></span><span>
+</span><span id="line-116"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DataReplicationInfoReplicatedDisk]))
+-&gt; Maybe [DataReplicationInfoReplicatedDisk]
+-&gt; Parser (Maybe [DataReplicationInfoReplicatedDisk])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DataReplicationInfoReplicatedDisk]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DataReplicationInfo)
+-&gt; Parser (Maybe Text) -&gt; Parser DataReplicationInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;etaDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225145"><span id="local-6989586621679225147"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225142"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInfo.html#DataReplicationInfo"><span class="hs-identifier hs-type">DataReplicationInfo</span></a></span></span><span>
+</span><span id="line-124"></span></pre></body></html>

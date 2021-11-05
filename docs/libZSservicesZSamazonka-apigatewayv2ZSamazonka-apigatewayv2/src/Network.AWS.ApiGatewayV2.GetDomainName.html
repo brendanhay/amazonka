@@ -1,0 +1,688 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ApiGatewayV2.GetDomainName</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a domain name.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApiGatewayV2.GetDomainName</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName"><span class="hs-identifier">GetDomainName</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#newGetDomainName"><span class="hs-identifier">newGetDomainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainName_domainName"><span class="hs-identifier">getDomainName_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier">GetDomainNameResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#newGetDomainNameResponse"><span class="hs-identifier">newGetDomainNameResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_domainNameConfigurations"><span class="hs-identifier">getDomainNameResponse_domainNameConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_domainName"><span class="hs-identifier">getDomainNameResponse_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_mutualTlsAuthentication"><span class="hs-identifier">getDomainNameResponse_mutualTlsAuthentication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_apiMappingSelectionExpression"><span class="hs-identifier">getDomainNameResponse_apiMappingSelectionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_tags"><span class="hs-identifier">getDomainNameResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_httpStatus"><span class="hs-identifier">getDomainNameResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.html"><span class="hs-identifier">Network.AWS.ApiGatewayV2.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetDomainName' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679417300"><span id="local-6989586621679417301"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDomainName"><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName"><span class="hs-identifier hs-var">GetDomainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDomainName%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName%27"><span class="hs-identifier hs-var">GetDomainName'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The domain name.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AdomainName%3AGetDomainName%27"><span class="annot"><span class="annottext">GetDomainName -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AdomainName%3AGetDomainName%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417294"><span id="local-6989586621679417296"><span class="annot"><span class="annottext">GetDomainName -&gt; GetDomainName -&gt; Bool
+(GetDomainName -&gt; GetDomainName -&gt; Bool)
+-&gt; (GetDomainName -&gt; GetDomainName -&gt; Bool) -&gt; Eq GetDomainName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDomainName -&gt; GetDomainName -&gt; Bool
+$c/= :: GetDomainName -&gt; GetDomainName -&gt; Bool
+== :: GetDomainName -&gt; GetDomainName -&gt; Bool
+$c== :: GetDomainName -&gt; GetDomainName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417285"><span id="local-6989586621679417287"><span id="local-6989586621679417289"><span id="local-6989586621679417291"><span class="annot"><span class="annottext">ReadPrec [GetDomainName]
+ReadPrec GetDomainName
+Int -&gt; ReadS GetDomainName
+ReadS [GetDomainName]
+(Int -&gt; ReadS GetDomainName)
+-&gt; ReadS [GetDomainName]
+-&gt; ReadPrec GetDomainName
+-&gt; ReadPrec [GetDomainName]
+-&gt; Read GetDomainName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDomainName]
+$creadListPrec :: ReadPrec [GetDomainName]
+readPrec :: ReadPrec GetDomainName
+$creadPrec :: ReadPrec GetDomainName
+readList :: ReadS [GetDomainName]
+$creadList :: ReadS [GetDomainName]
+readsPrec :: Int -&gt; ReadS GetDomainName
+$creadsPrec :: Int -&gt; ReadS GetDomainName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417278"><span id="local-6989586621679417280"><span id="local-6989586621679417282"><span class="annot"><span class="annottext">Int -&gt; GetDomainName -&gt; ShowS
+[GetDomainName] -&gt; ShowS
+GetDomainName -&gt; String
+(Int -&gt; GetDomainName -&gt; ShowS)
+-&gt; (GetDomainName -&gt; String)
+-&gt; ([GetDomainName] -&gt; ShowS)
+-&gt; Show GetDomainName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDomainName] -&gt; ShowS
+$cshowList :: [GetDomainName] -&gt; ShowS
+show :: GetDomainName -&gt; String
+$cshow :: GetDomainName -&gt; String
+showsPrec :: Int -&gt; GetDomainName -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDomainName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDomainName -&gt; Rep GetDomainName x)
+-&gt; (forall x. Rep GetDomainName x -&gt; GetDomainName)
+-&gt; Generic GetDomainName
+forall x. Rep GetDomainName x -&gt; GetDomainName
+forall x. GetDomainName -&gt; Rep GetDomainName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDomainName x -&gt; GetDomainName
+$cfrom :: forall x. GetDomainName -&gt; Rep GetDomainName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'GetDomainName' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'domainName', 'getDomainName_domainName' - The domain name.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#newGetDomainName"><span class="hs-identifier hs-type">newGetDomainName</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName"><span class="hs-identifier hs-type">GetDomainName</span></a></span><span>
+</span><span id="line-73"></span><span id="newGetDomainName"><span class="annot"><span class="annottext">newGetDomainName :: Text -&gt; GetDomainName
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#newGetDomainName"><span class="hs-identifier hs-var hs-var">newGetDomainName</span></a></span></span><span> </span><span id="local-6989586621679417273"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417273"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">GetDomainName' :: Text -&gt; GetDomainName
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName%27"><span class="hs-identifier hs-type">GetDomainName'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:GetDomainName' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AdomainName%3AGetDomainName%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417273"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The domain name.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainName_domainName"><span class="hs-identifier hs-type">getDomainName_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName"><span class="hs-identifier hs-type">GetDomainName</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="getDomainName_domainName"><span class="annot"><span class="annottext">getDomainName_domainName :: (Text -&gt; f Text) -&gt; GetDomainName -&gt; f GetDomainName
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainName_domainName"><span class="hs-identifier hs-var hs-var">getDomainName_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDomainName -&gt; Text)
+-&gt; (GetDomainName -&gt; Text -&gt; GetDomainName)
+-&gt; Lens GetDomainName GetDomainName Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName%27"><span class="hs-identifier hs-type">GetDomainName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417270"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:GetDomainName' :: GetDomainName -&gt; Text
+</span><a href="#local-6989586621679417270"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417270"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417269"><span class="annot"><span class="annottext">s :: GetDomainName
+</span><a href="#local-6989586621679417269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName%27"><span class="hs-identifier hs-type">GetDomainName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417268"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomainName
+</span><a href="#local-6989586621679417269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:GetDomainName' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AdomainName%3AGetDomainName%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName"><span class="hs-identifier hs-type">GetDomainName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName"><span class="hs-identifier hs-type">GetDomainName</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName"><span class="hs-identifier hs-type">GetDomainName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679417264"><span class="annot"><span class="annottext">request :: GetDomainName -&gt; Request GetDomainName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDomainName -&gt; Request GetDomainName
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ApiGatewayV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679417260"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDomainName
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDomainName)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDomainName))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDomainName
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDomainName)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679417257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417257"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679417256"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679417256"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679417255"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679417255"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DomainNameConfiguration]
+-&gt; Maybe Text
+-&gt; Maybe MutualTlsAuthentication
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; GetDomainNameResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-var">GetDomainNameResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [DomainNameConfiguration]
+ -&gt; Maybe Text
+ -&gt; Maybe MutualTlsAuthentication
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; GetDomainNameResponse)
+-&gt; Either String (Maybe [DomainNameConfiguration])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe MutualTlsAuthentication
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetDomainNameResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679417255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [DomainNameConfiguration]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domainNameConfigurations&quot;</span></span><span>
+</span><span id="line-90"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DomainNameConfiguration]))
+-&gt; Maybe [DomainNameConfiguration]
+-&gt; Either String (Maybe [DomainNameConfiguration])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DomainNameConfiguration]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-91"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe MutualTlsAuthentication
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetDomainNameResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe MutualTlsAuthentication
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetDomainNameResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679417255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domainName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe MutualTlsAuthentication
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetDomainNameResponse)
+-&gt; Either String (Maybe MutualTlsAuthentication)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; GetDomainNameResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679417255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MutualTlsAuthentication)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mutualTlsAuthentication&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; GetDomainNameResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe (HashMap Text Text) -&gt; Int -&gt; GetDomainNameResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679417255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;apiMappingSelectionExpression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe (HashMap Text Text) -&gt; Int -&gt; GetDomainNameResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; GetDomainNameResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679417255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDomainNameResponse)
+-&gt; Either String Int -&gt; Either String GetDomainNameResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417257"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417246"><span id="local-6989586621679417248"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName"><span class="hs-identifier hs-type">GetDomainName</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName"><span class="hs-identifier hs-type">GetDomainName</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName"><span class="hs-identifier hs-type">GetDomainName</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679417239"><span class="annot"><span class="annottext">toHeaders :: GetDomainName -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDomainName -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName"><span class="hs-identifier hs-type">GetDomainName</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679417233"><span class="annot"><span class="annottext">toPath :: GetDomainName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName%27"><span class="hs-identifier hs-type">GetDomainName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417231"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:GetDomainName' :: GetDomainName -&gt; Text
+</span><a href="#local-6989586621679417231"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/domainnames/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417231"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainName"><span class="hs-identifier hs-type">GetDomainName</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679417227"><span class="annot"><span class="annottext">toQuery :: GetDomainName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDomainName -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newGetDomainNameResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679417224"><span id="local-6989586621679417225"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDomainNameResponse"><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-var">GetDomainNameResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDomainNameResponse%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-var">GetDomainNameResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The domain name configurations.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AdomainNameConfigurations%3AGetDomainNameResponse%27"><span class="annot"><span class="annottext">GetDomainNameResponse -&gt; Maybe [DomainNameConfiguration]
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AdomainNameConfigurations%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var hs-var">domainNameConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The name of the DomainName resource.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AdomainName%3AGetDomainNameResponse%27"><span class="annot"><span class="annottext">GetDomainNameResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AdomainName%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The mutual TLS authentication configuration for a custom domain name.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AmutualTlsAuthentication%3AGetDomainNameResponse%27"><span class="annot"><span class="annottext">GetDomainNameResponse -&gt; Maybe MutualTlsAuthentication
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AmutualTlsAuthentication%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var hs-var">mutualTlsAuthentication</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.MutualTlsAuthentication.html#MutualTlsAuthentication"><span class="hs-identifier hs-type">MutualTlsAuthentication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The API mapping selection expression.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AapiMappingSelectionExpression%3AGetDomainNameResponse%27"><span class="annot"><span class="annottext">GetDomainNameResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AapiMappingSelectionExpression%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var hs-var">apiMappingSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The collection of tags associated with a domain name.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3Atags%3AGetDomainNameResponse%27"><span class="annot"><span class="annottext">GetDomainNameResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3Atags%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDomainNameResponse%27"><span class="annot"><span class="annottext">GetDomainNameResponse -&gt; Int
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AhttpStatus%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417214"><span id="local-6989586621679417216"><span class="annot"><span class="annottext">GetDomainNameResponse -&gt; GetDomainNameResponse -&gt; Bool
+(GetDomainNameResponse -&gt; GetDomainNameResponse -&gt; Bool)
+-&gt; (GetDomainNameResponse -&gt; GetDomainNameResponse -&gt; Bool)
+-&gt; Eq GetDomainNameResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDomainNameResponse -&gt; GetDomainNameResponse -&gt; Bool
+$c/= :: GetDomainNameResponse -&gt; GetDomainNameResponse -&gt; Bool
+== :: GetDomainNameResponse -&gt; GetDomainNameResponse -&gt; Bool
+$c== :: GetDomainNameResponse -&gt; GetDomainNameResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417206"><span id="local-6989586621679417208"><span id="local-6989586621679417210"><span id="local-6989586621679417212"><span class="annot"><span class="annottext">ReadPrec [GetDomainNameResponse]
+ReadPrec GetDomainNameResponse
+Int -&gt; ReadS GetDomainNameResponse
+ReadS [GetDomainNameResponse]
+(Int -&gt; ReadS GetDomainNameResponse)
+-&gt; ReadS [GetDomainNameResponse]
+-&gt; ReadPrec GetDomainNameResponse
+-&gt; ReadPrec [GetDomainNameResponse]
+-&gt; Read GetDomainNameResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDomainNameResponse]
+$creadListPrec :: ReadPrec [GetDomainNameResponse]
+readPrec :: ReadPrec GetDomainNameResponse
+$creadPrec :: ReadPrec GetDomainNameResponse
+readList :: ReadS [GetDomainNameResponse]
+$creadList :: ReadS [GetDomainNameResponse]
+readsPrec :: Int -&gt; ReadS GetDomainNameResponse
+$creadsPrec :: Int -&gt; ReadS GetDomainNameResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417200"><span id="local-6989586621679417202"><span id="local-6989586621679417204"><span class="annot"><span class="annottext">Int -&gt; GetDomainNameResponse -&gt; ShowS
+[GetDomainNameResponse] -&gt; ShowS
+GetDomainNameResponse -&gt; String
+(Int -&gt; GetDomainNameResponse -&gt; ShowS)
+-&gt; (GetDomainNameResponse -&gt; String)
+-&gt; ([GetDomainNameResponse] -&gt; ShowS)
+-&gt; Show GetDomainNameResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDomainNameResponse] -&gt; ShowS
+$cshowList :: [GetDomainNameResponse] -&gt; ShowS
+show :: GetDomainNameResponse -&gt; String
+$cshow :: GetDomainNameResponse -&gt; String
+showsPrec :: Int -&gt; GetDomainNameResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDomainNameResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDomainNameResponse -&gt; Rep GetDomainNameResponse x)
+-&gt; (forall x. Rep GetDomainNameResponse x -&gt; GetDomainNameResponse)
+-&gt; Generic GetDomainNameResponse
+forall x. Rep GetDomainNameResponse x -&gt; GetDomainNameResponse
+forall x. GetDomainNameResponse -&gt; Rep GetDomainNameResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDomainNameResponse x -&gt; GetDomainNameResponse
+$cfrom :: forall x. GetDomainNameResponse -&gt; Rep GetDomainNameResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'GetDomainNameResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'domainNameConfigurations', 'getDomainNameResponse_domainNameConfigurations' - The domain name configurations.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'domainName', 'getDomainNameResponse_domainName' - The name of the DomainName resource.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'mutualTlsAuthentication', 'getDomainNameResponse_mutualTlsAuthentication' - The mutual TLS authentication configuration for a custom domain name.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'apiMappingSelectionExpression', 'getDomainNameResponse_apiMappingSelectionExpression' - The API mapping selection expression.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'tags', 'getDomainNameResponse_tags' - The collection of tags associated with a domain name.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'httpStatus', 'getDomainNameResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#newGetDomainNameResponse"><span class="hs-identifier hs-type">newGetDomainNameResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span><span>
+</span><span id="line-162"></span><span id="newGetDomainNameResponse"><span class="annot"><span class="annottext">newGetDomainNameResponse :: Int -&gt; GetDomainNameResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#newGetDomainNameResponse"><span class="hs-identifier hs-var hs-var">newGetDomainNameResponse</span></a></span></span><span> </span><span id="local-6989586621679417197"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417197"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">GetDomainNameResponse' :: Maybe [DomainNameConfiguration]
+-&gt; Maybe Text
+-&gt; Maybe MutualTlsAuthentication
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; GetDomainNameResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-type">GetDomainNameResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainNameConfigurations:GetDomainNameResponse' :: Maybe [DomainNameConfiguration]
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AdomainNameConfigurations%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var">domainNameConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Maybe [DomainNameConfiguration]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:GetDomainNameResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AdomainName%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:mutualTlsAuthentication:GetDomainNameResponse' :: Maybe MutualTlsAuthentication
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AmutualTlsAuthentication%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var">mutualTlsAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MutualTlsAuthentication
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiMappingSelectionExpression:GetDomainNameResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AapiMappingSelectionExpression%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var">apiMappingSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:GetDomainNameResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3Atags%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDomainNameResponse' :: Int
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AhttpStatus%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417197"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The domain name configurations.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_domainNameConfigurations"><span class="hs-identifier hs-type">getDomainNameResponse_domainNameConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="getDomainNameResponse_domainNameConfigurations"><span class="annot"><span class="annottext">getDomainNameResponse_domainNameConfigurations :: (Maybe [DomainNameConfiguration]
+ -&gt; f (Maybe [DomainNameConfiguration]))
+-&gt; GetDomainNameResponse -&gt; f GetDomainNameResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_domainNameConfigurations"><span class="hs-identifier hs-var hs-var">getDomainNameResponse_domainNameConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDomainNameResponse -&gt; Maybe [DomainNameConfiguration])
+-&gt; (GetDomainNameResponse
+    -&gt; Maybe [DomainNameConfiguration] -&gt; GetDomainNameResponse)
+-&gt; Lens
+     GetDomainNameResponse
+     GetDomainNameResponse
+     (Maybe [DomainNameConfiguration])
+     (Maybe [DomainNameConfiguration])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-type">GetDomainNameResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417196"><span class="annot"><span class="annottext">Maybe [DomainNameConfiguration]
+domainNameConfigurations :: Maybe [DomainNameConfiguration]
+$sel:domainNameConfigurations:GetDomainNameResponse' :: GetDomainNameResponse -&gt; Maybe [DomainNameConfiguration]
+</span><a href="#local-6989586621679417196"><span class="hs-identifier hs-var hs-var">domainNameConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DomainNameConfiguration]
+</span><a href="#local-6989586621679417196"><span class="hs-identifier hs-var">domainNameConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417195"><span class="annot"><span class="annottext">s :: GetDomainNameResponse
+</span><a href="#local-6989586621679417195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-type">GetDomainNameResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417194"><span class="annot"><span class="annottext">Maybe [DomainNameConfiguration]
+</span><a href="#local-6989586621679417194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomainNameResponse
+</span><a href="#local-6989586621679417195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainNameConfigurations:GetDomainNameResponse' :: Maybe [DomainNameConfiguration]
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AdomainNameConfigurations%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var">domainNameConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DomainNameConfiguration]
+</span><a href="#local-6989586621679417194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DomainNameConfiguration]
+  -&gt; f (Maybe [DomainNameConfiguration]))
+ -&gt; GetDomainNameResponse -&gt; f GetDomainNameResponse)
+-&gt; ((Maybe [DomainNameConfiguration]
+     -&gt; f (Maybe [DomainNameConfiguration]))
+    -&gt; Maybe [DomainNameConfiguration]
+    -&gt; f (Maybe [DomainNameConfiguration]))
+-&gt; (Maybe [DomainNameConfiguration]
+    -&gt; f (Maybe [DomainNameConfiguration]))
+-&gt; GetDomainNameResponse
+-&gt; f GetDomainNameResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DomainNameConfiguration]
+  [DomainNameConfiguration]
+  [DomainNameConfiguration]
+  [DomainNameConfiguration]
+-&gt; Iso
+     (Maybe [DomainNameConfiguration])
+     (Maybe [DomainNameConfiguration])
+     (Maybe [DomainNameConfiguration])
+     (Maybe [DomainNameConfiguration])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DomainNameConfiguration]
+  [DomainNameConfiguration]
+  [DomainNameConfiguration]
+  [DomainNameConfiguration]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The name of the DomainName resource.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_domainName"><span class="hs-identifier hs-type">getDomainNameResponse_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="getDomainNameResponse_domainName"><span class="annot"><span class="annottext">getDomainNameResponse_domainName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDomainNameResponse -&gt; f GetDomainNameResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_domainName"><span class="hs-identifier hs-var hs-var">getDomainNameResponse_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDomainNameResponse -&gt; Maybe Text)
+-&gt; (GetDomainNameResponse -&gt; Maybe Text -&gt; GetDomainNameResponse)
+-&gt; Lens
+     GetDomainNameResponse
+     GetDomainNameResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-type">GetDomainNameResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417190"><span class="annot"><span class="annottext">Maybe Text
+domainName :: Maybe Text
+$sel:domainName:GetDomainNameResponse' :: GetDomainNameResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679417190"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417190"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417189"><span class="annot"><span class="annottext">s :: GetDomainNameResponse
+</span><a href="#local-6989586621679417189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-type">GetDomainNameResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417188"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomainNameResponse
+</span><a href="#local-6989586621679417189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:GetDomainNameResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AdomainName%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The mutual TLS authentication configuration for a custom domain name.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_mutualTlsAuthentication"><span class="hs-identifier hs-type">getDomainNameResponse_mutualTlsAuthentication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.MutualTlsAuthentication.html#MutualTlsAuthentication"><span class="hs-identifier hs-type">MutualTlsAuthentication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="getDomainNameResponse_mutualTlsAuthentication"><span class="annot"><span class="annottext">getDomainNameResponse_mutualTlsAuthentication :: (Maybe MutualTlsAuthentication
+ -&gt; f (Maybe MutualTlsAuthentication))
+-&gt; GetDomainNameResponse -&gt; f GetDomainNameResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_mutualTlsAuthentication"><span class="hs-identifier hs-var hs-var">getDomainNameResponse_mutualTlsAuthentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDomainNameResponse -&gt; Maybe MutualTlsAuthentication)
+-&gt; (GetDomainNameResponse
+    -&gt; Maybe MutualTlsAuthentication -&gt; GetDomainNameResponse)
+-&gt; Lens
+     GetDomainNameResponse
+     GetDomainNameResponse
+     (Maybe MutualTlsAuthentication)
+     (Maybe MutualTlsAuthentication)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-type">GetDomainNameResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417187"><span class="annot"><span class="annottext">Maybe MutualTlsAuthentication
+mutualTlsAuthentication :: Maybe MutualTlsAuthentication
+$sel:mutualTlsAuthentication:GetDomainNameResponse' :: GetDomainNameResponse -&gt; Maybe MutualTlsAuthentication
+</span><a href="#local-6989586621679417187"><span class="hs-identifier hs-var hs-var">mutualTlsAuthentication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MutualTlsAuthentication
+</span><a href="#local-6989586621679417187"><span class="hs-identifier hs-var">mutualTlsAuthentication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417186"><span class="annot"><span class="annottext">s :: GetDomainNameResponse
+</span><a href="#local-6989586621679417186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-type">GetDomainNameResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417185"><span class="annot"><span class="annottext">Maybe MutualTlsAuthentication
+</span><a href="#local-6989586621679417185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomainNameResponse
+</span><a href="#local-6989586621679417186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mutualTlsAuthentication:GetDomainNameResponse' :: Maybe MutualTlsAuthentication
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AmutualTlsAuthentication%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var">mutualTlsAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MutualTlsAuthentication
+</span><a href="#local-6989586621679417185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The API mapping selection expression.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_apiMappingSelectionExpression"><span class="hs-identifier hs-type">getDomainNameResponse_apiMappingSelectionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="getDomainNameResponse_apiMappingSelectionExpression"><span class="annot"><span class="annottext">getDomainNameResponse_apiMappingSelectionExpression :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDomainNameResponse -&gt; f GetDomainNameResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_apiMappingSelectionExpression"><span class="hs-identifier hs-var hs-var">getDomainNameResponse_apiMappingSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDomainNameResponse -&gt; Maybe Text)
+-&gt; (GetDomainNameResponse -&gt; Maybe Text -&gt; GetDomainNameResponse)
+-&gt; Lens
+     GetDomainNameResponse
+     GetDomainNameResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-type">GetDomainNameResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417184"><span class="annot"><span class="annottext">Maybe Text
+apiMappingSelectionExpression :: Maybe Text
+$sel:apiMappingSelectionExpression:GetDomainNameResponse' :: GetDomainNameResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679417184"><span class="hs-identifier hs-var hs-var">apiMappingSelectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417184"><span class="hs-identifier hs-var">apiMappingSelectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417183"><span class="annot"><span class="annottext">s :: GetDomainNameResponse
+</span><a href="#local-6989586621679417183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-type">GetDomainNameResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417182"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomainNameResponse
+</span><a href="#local-6989586621679417183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiMappingSelectionExpression:GetDomainNameResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AapiMappingSelectionExpression%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var">apiMappingSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The collection of tags associated with a domain name.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_tags"><span class="hs-identifier hs-type">getDomainNameResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="getDomainNameResponse_tags"><span class="annot"><span class="annottext">getDomainNameResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetDomainNameResponse -&gt; f GetDomainNameResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_tags"><span class="hs-identifier hs-var hs-var">getDomainNameResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDomainNameResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (GetDomainNameResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; GetDomainNameResponse)
+-&gt; Lens
+     GetDomainNameResponse
+     GetDomainNameResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-type">GetDomainNameResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417181"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:GetDomainNameResponse' :: GetDomainNameResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679417181"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679417181"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417180"><span class="annot"><span class="annottext">s :: GetDomainNameResponse
+</span><a href="#local-6989586621679417180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-type">GetDomainNameResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417179"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679417179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomainNameResponse
+</span><a href="#local-6989586621679417180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetDomainNameResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3Atags%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679417179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; GetDomainNameResponse -&gt; f GetDomainNameResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetDomainNameResponse
+-&gt; f GetDomainNameResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_httpStatus"><span class="hs-identifier hs-type">getDomainNameResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-195"></span><span id="getDomainNameResponse_httpStatus"><span class="annot"><span class="annottext">getDomainNameResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetDomainNameResponse -&gt; f GetDomainNameResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#getDomainNameResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDomainNameResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDomainNameResponse -&gt; Int)
+-&gt; (GetDomainNameResponse -&gt; Int -&gt; GetDomainNameResponse)
+-&gt; Lens GetDomainNameResponse GetDomainNameResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-type">GetDomainNameResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417178"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDomainNameResponse' :: GetDomainNameResponse -&gt; Int
+</span><a href="#local-6989586621679417178"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417178"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417177"><span class="annot"><span class="annottext">s :: GetDomainNameResponse
+</span><a href="#local-6989586621679417177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse%27"><span class="hs-identifier hs-type">GetDomainNameResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417176"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomainNameResponse
+</span><a href="#local-6989586621679417177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDomainNameResponse' :: Int
+</span><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#%24sel%3AhttpStatus%3AGetDomainNameResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417174"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetDomainName.html#GetDomainNameResponse"><span class="hs-identifier hs-type">GetDomainNameResponse</span></a></span></span><span>
+</span><span id="line-198"></span></pre></body></html>

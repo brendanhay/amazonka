@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | CPU utilization and load average metrics for an Amazon EC2 instance.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSystemStatus' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679307870"><span id="local-6989586621679307871"></span></span><span class="hs-keyword">data</span><span> </span><span id="SystemStatus"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus"><span class="hs-identifier hs-var">SystemStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SystemStatus%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus%27"><span class="hs-identifier hs-var">SystemStatus'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679307879"><span id="local-6989586621679307880"></span></span><span class="hs-keyword">data</span><span> </span><span id="SystemStatus"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus"><span class="hs-identifier hs-var">SystemStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SystemStatus%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus%27"><span class="hs-identifier hs-var">SystemStatus'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | CPU utilization metrics for the instance.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AcPUUtilization%3ASystemStatus%27"><span class="annot"><span class="annottext">SystemStatus -&gt; Maybe CPUUtilization
 </span><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#%24sel%3AcPUUtilization%3ASystemStatus%27"><span class="hs-identifier hs-var hs-var">cPUUtilization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AloadAverage%3ASystemStatus%27"><span class="annot"><span class="annottext">SystemStatus -&gt; Maybe [Double]
 </span><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#%24sel%3AloadAverage%3ASystemStatus%27"><span class="hs-identifier hs-var hs-var">loadAverage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307863"><span id="local-6989586621679307865"><span class="annot"><span class="annottext">SystemStatus -&gt; SystemStatus -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307872"><span id="local-6989586621679307874"><span class="annot"><span class="annottext">SystemStatus -&gt; SystemStatus -&gt; Bool
 (SystemStatus -&gt; SystemStatus -&gt; Bool)
 -&gt; (SystemStatus -&gt; SystemStatus -&gt; Bool) -&gt; Eq SystemStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SystemStatus -&gt; SystemStatus -&gt; Bool
 == :: SystemStatus -&gt; SystemStatus -&gt; Bool
 $c== :: SystemStatus -&gt; SystemStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307854"><span id="local-6989586621679307856"><span id="local-6989586621679307858"><span id="local-6989586621679307860"><span class="annot"><span class="annottext">ReadPrec [SystemStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307863"><span id="local-6989586621679307865"><span id="local-6989586621679307867"><span id="local-6989586621679307869"><span class="annot"><span class="annottext">ReadPrec [SystemStatus]
 ReadPrec SystemStatus
 Int -&gt; ReadS SystemStatus
 ReadS [SystemStatus]
@@ -65,7 +65,7 @@ readList :: ReadS [SystemStatus]
 $creadList :: ReadS [SystemStatus]
 readsPrec :: Int -&gt; ReadS SystemStatus
 $creadsPrec :: Int -&gt; ReadS SystemStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307847"><span id="local-6989586621679307849"><span id="local-6989586621679307851"><span class="annot"><span class="annottext">Int -&gt; SystemStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307856"><span id="local-6989586621679307858"><span id="local-6989586621679307860"><span class="annot"><span class="annottext">Int -&gt; SystemStatus -&gt; ShowS
 [SystemStatus] -&gt; ShowS
 SystemStatus -&gt; String
 (Int -&gt; SystemStatus -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
      (Maybe CPUUtilization)
      (Maybe CPUUtilization)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus%27"><span class="hs-identifier hs-type">SystemStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307838"><span class="annot"><span class="annottext">Maybe CPUUtilization
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus%27"><span class="hs-identifier hs-type">SystemStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307847"><span class="annot"><span class="annottext">Maybe CPUUtilization
 cPUUtilization :: Maybe CPUUtilization
 $sel:cPUUtilization:SystemStatus' :: SystemStatus -&gt; Maybe CPUUtilization
-</span><a href="#local-6989586621679307838"><span class="hs-identifier hs-var hs-var">cPUUtilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CPUUtilization
-</span><a href="#local-6989586621679307838"><span class="hs-identifier hs-var">cPUUtilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307837"><span class="annot"><span class="annottext">s :: SystemStatus
-</span><a href="#local-6989586621679307837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus%27"><span class="hs-identifier hs-type">SystemStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307836"><span class="annot"><span class="annottext">Maybe CPUUtilization
-</span><a href="#local-6989586621679307836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemStatus
-</span><a href="#local-6989586621679307837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cPUUtilization:SystemStatus' :: Maybe CPUUtilization
+</span><a href="#local-6989586621679307847"><span class="hs-identifier hs-var hs-var">cPUUtilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CPUUtilization
+</span><a href="#local-6989586621679307847"><span class="hs-identifier hs-var">cPUUtilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307846"><span class="annot"><span class="annottext">s :: SystemStatus
+</span><a href="#local-6989586621679307846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus%27"><span class="hs-identifier hs-type">SystemStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307845"><span class="annot"><span class="annottext">Maybe CPUUtilization
+</span><a href="#local-6989586621679307845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemStatus
+</span><a href="#local-6989586621679307846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cPUUtilization:SystemStatus' :: Maybe CPUUtilization
 </span><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#%24sel%3AcPUUtilization%3ASystemStatus%27"><span class="hs-identifier hs-var">cPUUtilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CPUUtilization
-</span><a href="#local-6989586621679307836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus"><span class="hs-identifier hs-type">SystemStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus"><span class="hs-identifier hs-type">SystemStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | Load average in the last 1-minute, 5-minute, and 15-minute periods. For</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- more information, see</span><span>
@@ -153,16 +153,16 @@ $sel:cPUUtilization:SystemStatus' :: SystemStatus -&gt; Maybe CPUUtilization
 -&gt; (SystemStatus -&gt; Maybe [Double] -&gt; SystemStatus)
 -&gt; Lens SystemStatus SystemStatus (Maybe [Double]) (Maybe [Double])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus%27"><span class="hs-identifier hs-type">SystemStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307834"><span class="annot"><span class="annottext">Maybe [Double]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus%27"><span class="hs-identifier hs-type">SystemStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307843"><span class="annot"><span class="annottext">Maybe [Double]
 loadAverage :: Maybe [Double]
 $sel:loadAverage:SystemStatus' :: SystemStatus -&gt; Maybe [Double]
-</span><a href="#local-6989586621679307834"><span class="hs-identifier hs-var hs-var">loadAverage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679307834"><span class="hs-identifier hs-var">loadAverage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307833"><span class="annot"><span class="annottext">s :: SystemStatus
-</span><a href="#local-6989586621679307833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus%27"><span class="hs-identifier hs-type">SystemStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307832"><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679307832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemStatus
-</span><a href="#local-6989586621679307833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadAverage:SystemStatus' :: Maybe [Double]
+</span><a href="#local-6989586621679307843"><span class="hs-identifier hs-var hs-var">loadAverage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679307843"><span class="hs-identifier hs-var">loadAverage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307842"><span class="annot"><span class="annottext">s :: SystemStatus
+</span><a href="#local-6989586621679307842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus%27"><span class="hs-identifier hs-type">SystemStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307841"><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679307841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemStatus
+</span><a href="#local-6989586621679307842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadAverage:SystemStatus' :: Maybe [Double]
 </span><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#%24sel%3AloadAverage%3ASystemStatus%27"><span class="hs-identifier hs-var">loadAverage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679307832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus"><span class="hs-identifier hs-type">SystemStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Double] -&gt; f (Maybe [Double]))
+</span><a href="#local-6989586621679307841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus"><span class="hs-identifier hs-type">SystemStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Double] -&gt; f (Maybe [Double]))
  -&gt; SystemStatus -&gt; f SystemStatus)
 -&gt; ((Maybe [Double] -&gt; f (Maybe [Double]))
     -&gt; Maybe [Double] -&gt; f (Maybe [Double]))
@@ -181,9 +181,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus"><span class="hs-identifier hs-type">SystemStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679307826"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SystemStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679307824"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679307824"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679307835"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SystemStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679307833"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307833"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">Maybe CPUUtilization -&gt; Maybe [Double] -&gt; SystemStatus
 </span><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus%27"><span class="hs-identifier hs-var">SystemStatus'</span></a></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">(Maybe CPUUtilization -&gt; Maybe [Double] -&gt; SystemStatus)
@@ -191,7 +191,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Either String (Maybe [Double] -&gt; SystemStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679307824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CPUUtilization)
+</span><a href="#local-6989586621679307833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CPUUtilization)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CPUUtilization&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,7 +199,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [Double]) -&gt; Either String SystemStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679307824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679307833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LoadAverage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -222,7 +222,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307815"><span id="local-6989586621679307817"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus"><span class="hs-identifier hs-type">SystemStatus</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307824"><span id="local-6989586621679307826"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus"><span class="hs-identifier hs-type">SystemStatus</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307812"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus"><span class="hs-identifier hs-type">SystemStatus</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307821"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus"><span class="hs-identifier hs-type">SystemStatus</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

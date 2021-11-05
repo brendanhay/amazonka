@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ManagedBlockChain.CreateMember</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a member within a Managed Blockchain network.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Applies only to Hyperledger Fabric.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ManagedBlockChain.CreateMember</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier">CreateMember</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#newCreateMember"><span class="hs-identifier">newCreateMember</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMember_clientRequestToken"><span class="hs-identifier">createMember_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMember_invitationId"><span class="hs-identifier">createMember_invitationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMember_networkId"><span class="hs-identifier">createMember_networkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMember_memberConfiguration"><span class="hs-identifier">createMember_memberConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse"><span class="hs-identifier">CreateMemberResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#newCreateMemberResponse"><span class="hs-identifier">newCreateMemberResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMemberResponse_memberId"><span class="hs-identifier">createMemberResponse_memberId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMemberResponse_httpStatus"><span class="hs-identifier">createMemberResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.html"><span class="hs-identifier">Network.AWS.ManagedBlockChain.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCreateMember' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679225645"><span id="local-6989586621679225646"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateMember"><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-var">CreateMember</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateMember%27"><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember%27"><span class="hs-identifier hs-var">CreateMember'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- idempotency of the operation. An idempotent operation completes no more</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- than one time. This identifier is required only if you make a service</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- request directly using an HTTP client. It is generated automatically if</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- you use an AWS SDK or the AWS CLI.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateMember%27"><span class="annot"><span class="annottext">CreateMember -&gt; Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AclientRequestToken%3ACreateMember%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the invitation that is sent to the member to</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- join the network.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AinvitationId%3ACreateMember%27"><span class="annot"><span class="annottext">CreateMember -&gt; Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AinvitationId%3ACreateMember%27"><span class="hs-identifier hs-var hs-var">invitationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the network in which the member is created.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnetworkId%3ACreateMember%27"><span class="annot"><span class="annottext">CreateMember -&gt; Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AnetworkId%3ACreateMember%27"><span class="hs-identifier hs-var hs-var">networkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Member configuration parameters.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AmemberConfiguration%3ACreateMember%27"><span class="annot"><span class="annottext">CreateMember -&gt; MemberConfiguration
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AmemberConfiguration%3ACreateMember%27"><span class="hs-identifier hs-var hs-var">memberConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberConfiguration.html#MemberConfiguration"><span class="hs-identifier hs-type">MemberConfiguration</span></a></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225636"><span id="local-6989586621679225638"><span class="annot"><span class="annottext">CreateMember -&gt; CreateMember -&gt; Bool
+(CreateMember -&gt; CreateMember -&gt; Bool)
+-&gt; (CreateMember -&gt; CreateMember -&gt; Bool) -&gt; Eq CreateMember
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateMember -&gt; CreateMember -&gt; Bool
+$c/= :: CreateMember -&gt; CreateMember -&gt; Bool
+== :: CreateMember -&gt; CreateMember -&gt; Bool
+$c== :: CreateMember -&gt; CreateMember -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225629"><span id="local-6989586621679225631"><span id="local-6989586621679225633"><span class="annot"><span class="annottext">Int -&gt; CreateMember -&gt; ShowS
+[CreateMember] -&gt; ShowS
+CreateMember -&gt; String
+(Int -&gt; CreateMember -&gt; ShowS)
+-&gt; (CreateMember -&gt; String)
+-&gt; ([CreateMember] -&gt; ShowS)
+-&gt; Show CreateMember
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateMember] -&gt; ShowS
+$cshowList :: [CreateMember] -&gt; ShowS
+show :: CreateMember -&gt; String
+$cshow :: CreateMember -&gt; String
+showsPrec :: Int -&gt; CreateMember -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateMember -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateMember -&gt; Rep CreateMember x)
+-&gt; (forall x. Rep CreateMember x -&gt; CreateMember)
+-&gt; Generic CreateMember
+forall x. Rep CreateMember x -&gt; CreateMember
+forall x. CreateMember -&gt; Rep CreateMember x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateMember x -&gt; CreateMember
+$cfrom :: forall x. CreateMember -&gt; Rep CreateMember x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'CreateMember' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'clientRequestToken', 'createMember_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- idempotency of the operation. An idempotent operation completes no more</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- than one time. This identifier is required only if you make a service</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- request directly using an HTTP client. It is generated automatically if</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- you use an AWS SDK or the AWS CLI.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'invitationId', 'createMember_invitationId' - The unique identifier of the invitation that is sent to the member to</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- join the network.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'networkId', 'createMember_networkId' - The unique identifier of the network in which the member is created.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'memberConfiguration', 'createMember_memberConfiguration' - Member configuration parameters.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#newCreateMember"><span class="hs-identifier hs-type">newCreateMember</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'clientRequestToken'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'invitationId'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'networkId'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'memberConfiguration'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberConfiguration.html#MemberConfiguration"><span class="hs-identifier hs-type">MemberConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span><span>
+</span><span id="line-102"></span><span id="newCreateMember"><span class="annot"><span class="annottext">newCreateMember :: Text -&gt; Text -&gt; Text -&gt; MemberConfiguration -&gt; CreateMember
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#newCreateMember"><span class="hs-identifier hs-var hs-var">newCreateMember</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679225624"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225624"><span class="hs-identifier hs-var">pClientRequestToken_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679225623"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225623"><span class="hs-identifier hs-var">pInvitationId_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679225622"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225622"><span class="hs-identifier hs-var">pNetworkId_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679225621"><span class="annot"><span class="annottext">MemberConfiguration
+</span><a href="#local-6989586621679225621"><span class="hs-identifier hs-var">pMemberConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">CreateMember' :: Text -&gt; Text -&gt; Text -&gt; MemberConfiguration -&gt; CreateMember
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember%27"><span class="hs-identifier hs-type">CreateMember'</span></a></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateMember' :: Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AclientRequestToken%3ACreateMember%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225624"><span class="hs-identifier hs-var">pClientRequestToken_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:invitationId:CreateMember' :: Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AinvitationId%3ACreateMember%27"><span class="hs-identifier hs-var">invitationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225623"><span class="hs-identifier hs-var">pInvitationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:networkId:CreateMember' :: Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AnetworkId%3ACreateMember%27"><span class="hs-identifier hs-var">networkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225622"><span class="hs-identifier hs-var">pNetworkId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:memberConfiguration:CreateMember' :: MemberConfiguration
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AmemberConfiguration%3ACreateMember%27"><span class="hs-identifier hs-var">memberConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MemberConfiguration
+</span><a href="#local-6989586621679225621"><span class="hs-identifier hs-var">pMemberConfiguration_</span></a></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- idempotency of the operation. An idempotent operation completes no more</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- than one time. This identifier is required only if you make a service</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- request directly using an HTTP client. It is generated automatically if</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- you use an AWS SDK or the AWS CLI.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMember_clientRequestToken"><span class="hs-identifier hs-type">createMember_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-121"></span><span id="createMember_clientRequestToken"><span class="annot"><span class="annottext">createMember_clientRequestToken :: (Text -&gt; f Text) -&gt; CreateMember -&gt; f CreateMember
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMember_clientRequestToken"><span class="hs-identifier hs-var hs-var">createMember_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMember -&gt; Text)
+-&gt; (CreateMember -&gt; Text -&gt; CreateMember)
+-&gt; Lens CreateMember CreateMember Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember%27"><span class="hs-identifier hs-type">CreateMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225618"><span class="annot"><span class="annottext">Text
+clientRequestToken :: Text
+$sel:clientRequestToken:CreateMember' :: CreateMember -&gt; Text
+</span><a href="#local-6989586621679225618"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225618"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225617"><span class="annot"><span class="annottext">s :: CreateMember
+</span><a href="#local-6989586621679225617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember%27"><span class="hs-identifier hs-type">CreateMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225616"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMember
+</span><a href="#local-6989586621679225617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateMember' :: Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AclientRequestToken%3ACreateMember%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The unique identifier of the invitation that is sent to the member to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- join the network.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMember_invitationId"><span class="hs-identifier hs-type">createMember_invitationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-126"></span><span id="createMember_invitationId"><span class="annot"><span class="annottext">createMember_invitationId :: (Text -&gt; f Text) -&gt; CreateMember -&gt; f CreateMember
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMember_invitationId"><span class="hs-identifier hs-var hs-var">createMember_invitationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMember -&gt; Text)
+-&gt; (CreateMember -&gt; Text -&gt; CreateMember)
+-&gt; Lens CreateMember CreateMember Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember%27"><span class="hs-identifier hs-type">CreateMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225615"><span class="annot"><span class="annottext">Text
+invitationId :: Text
+$sel:invitationId:CreateMember' :: CreateMember -&gt; Text
+</span><a href="#local-6989586621679225615"><span class="hs-identifier hs-var hs-var">invitationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225615"><span class="hs-identifier hs-var">invitationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225614"><span class="annot"><span class="annottext">s :: CreateMember
+</span><a href="#local-6989586621679225614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember%27"><span class="hs-identifier hs-type">CreateMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225613"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMember
+</span><a href="#local-6989586621679225614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitationId:CreateMember' :: Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AinvitationId%3ACreateMember%27"><span class="hs-identifier hs-var">invitationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The unique identifier of the network in which the member is created.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMember_networkId"><span class="hs-identifier hs-type">createMember_networkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="createMember_networkId"><span class="annot"><span class="annottext">createMember_networkId :: (Text -&gt; f Text) -&gt; CreateMember -&gt; f CreateMember
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMember_networkId"><span class="hs-identifier hs-var hs-var">createMember_networkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMember -&gt; Text)
+-&gt; (CreateMember -&gt; Text -&gt; CreateMember)
+-&gt; Lens CreateMember CreateMember Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember%27"><span class="hs-identifier hs-type">CreateMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225612"><span class="annot"><span class="annottext">Text
+networkId :: Text
+$sel:networkId:CreateMember' :: CreateMember -&gt; Text
+</span><a href="#local-6989586621679225612"><span class="hs-identifier hs-var hs-var">networkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225612"><span class="hs-identifier hs-var">networkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225611"><span class="annot"><span class="annottext">s :: CreateMember
+</span><a href="#local-6989586621679225611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember%27"><span class="hs-identifier hs-type">CreateMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225610"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMember
+</span><a href="#local-6989586621679225611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkId:CreateMember' :: Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AnetworkId%3ACreateMember%27"><span class="hs-identifier hs-var">networkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Member configuration parameters.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMember_memberConfiguration"><span class="hs-identifier hs-type">createMember_memberConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberConfiguration.html#MemberConfiguration"><span class="hs-identifier hs-type">MemberConfiguration</span></a></span><span>
+</span><span id="line-134"></span><span id="createMember_memberConfiguration"><span class="annot"><span class="annottext">createMember_memberConfiguration :: (MemberConfiguration -&gt; f MemberConfiguration)
+-&gt; CreateMember -&gt; f CreateMember
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMember_memberConfiguration"><span class="hs-identifier hs-var hs-var">createMember_memberConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMember -&gt; MemberConfiguration)
+-&gt; (CreateMember -&gt; MemberConfiguration -&gt; CreateMember)
+-&gt; Lens
+     CreateMember CreateMember MemberConfiguration MemberConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember%27"><span class="hs-identifier hs-type">CreateMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225609"><span class="annot"><span class="annottext">MemberConfiguration
+memberConfiguration :: MemberConfiguration
+$sel:memberConfiguration:CreateMember' :: CreateMember -&gt; MemberConfiguration
+</span><a href="#local-6989586621679225609"><span class="hs-identifier hs-var hs-var">memberConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MemberConfiguration
+</span><a href="#local-6989586621679225609"><span class="hs-identifier hs-var">memberConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225608"><span class="annot"><span class="annottext">s :: CreateMember
+</span><a href="#local-6989586621679225608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember%27"><span class="hs-identifier hs-type">CreateMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225607"><span class="annot"><span class="annottext">MemberConfiguration
+</span><a href="#local-6989586621679225607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMember
+</span><a href="#local-6989586621679225608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberConfiguration:CreateMember' :: MemberConfiguration
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AmemberConfiguration%3ACreateMember%27"><span class="hs-identifier hs-var">memberConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MemberConfiguration
+</span><a href="#local-6989586621679225607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse"><span class="hs-identifier hs-type">CreateMemberResponse</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679225603"><span class="annot"><span class="annottext">request :: CreateMember -&gt; Request CreateMember
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateMember -&gt; Request CreateMember
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ManagedBlockChain.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679225599"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateMember
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateMember)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateMember))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateMember
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateMember)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225596"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225596"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679225595"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679225595"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679225594"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225594"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateMemberResponse
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse%27"><span class="hs-identifier hs-var">CreateMemberResponse'</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateMemberResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateMemberResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MemberId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateMemberResponse)
+-&gt; Either String Int -&gt; Either String CreateMemberResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225596"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225586"><span id="local-6989586621679225588"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225583"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679225579"><span class="annot"><span class="annottext">toHeaders :: CreateMember -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateMember -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-158"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225569"><span id="local-6989586621679225571"><span id="local-6989586621679225573"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679225567"><span class="annot"><span class="annottext">toJSON :: CreateMember -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember%27"><span class="hs-identifier hs-type">CreateMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225562"><span id="local-6989586621679225563"><span id="local-6989586621679225564"><span id="local-6989586621679225565"><span class="annot"><span class="annottext">Text
+MemberConfiguration
+memberConfiguration :: MemberConfiguration
+networkId :: Text
+invitationId :: Text
+clientRequestToken :: Text
+$sel:memberConfiguration:CreateMember' :: CreateMember -&gt; MemberConfiguration
+$sel:networkId:CreateMember' :: CreateMember -&gt; Text
+$sel:invitationId:CreateMember' :: CreateMember -&gt; Text
+$sel:clientRequestToken:CreateMember' :: CreateMember -&gt; Text
+</span><a href="#local-6989586621679225562"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-167"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225565"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InvitationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225564"><span class="hs-identifier hs-var">invitationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-170"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MemberConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MemberConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MemberConfiguration
+</span><a href="#local-6989586621679225562"><span class="hs-identifier hs-var">memberConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679225556"><span class="annot"><span class="annottext">toPath :: CreateMember -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember%27"><span class="hs-identifier hs-type">CreateMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225551"><span id="local-6989586621679225552"><span id="local-6989586621679225553"><span id="local-6989586621679225554"><span class="annot"><span class="annottext">Text
+MemberConfiguration
+memberConfiguration :: MemberConfiguration
+networkId :: Text
+invitationId :: Text
+clientRequestToken :: Text
+$sel:memberConfiguration:CreateMember' :: CreateMember -&gt; MemberConfiguration
+$sel:networkId:CreateMember' :: CreateMember -&gt; Text
+$sel:invitationId:CreateMember' :: CreateMember -&gt; Text
+$sel:clientRequestToken:CreateMember' :: CreateMember -&gt; Text
+</span><a href="#local-6989586621679225551"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/networks/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225552"><span class="hs-identifier hs-var">networkId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/members&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMember"><span class="hs-identifier hs-type">CreateMember</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679225547"><span class="annot"><span class="annottext">toQuery :: CreateMember -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateMember -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newCreateMemberResponse' smart constructor.</span><span>
+</span><span id="line-183"></span><span id="local-6989586621679225544"><span id="local-6989586621679225545"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateMemberResponse"><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse"><span class="hs-identifier hs-var">CreateMemberResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateMemberResponse%27"><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse%27"><span class="hs-identifier hs-var">CreateMemberResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier of the member.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AmemberId%3ACreateMemberResponse%27"><span class="annot"><span class="annottext">CreateMemberResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AmemberId%3ACreateMemberResponse%27"><span class="hs-identifier hs-var hs-var">memberId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateMemberResponse%27"><span class="annot"><span class="annottext">CreateMemberResponse -&gt; Int
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AhttpStatus%3ACreateMemberResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225538"><span id="local-6989586621679225540"><span class="annot"><span class="annottext">CreateMemberResponse -&gt; CreateMemberResponse -&gt; Bool
+(CreateMemberResponse -&gt; CreateMemberResponse -&gt; Bool)
+-&gt; (CreateMemberResponse -&gt; CreateMemberResponse -&gt; Bool)
+-&gt; Eq CreateMemberResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateMemberResponse -&gt; CreateMemberResponse -&gt; Bool
+$c/= :: CreateMemberResponse -&gt; CreateMemberResponse -&gt; Bool
+== :: CreateMemberResponse -&gt; CreateMemberResponse -&gt; Bool
+$c== :: CreateMemberResponse -&gt; CreateMemberResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225530"><span id="local-6989586621679225532"><span id="local-6989586621679225534"><span id="local-6989586621679225536"><span class="annot"><span class="annottext">ReadPrec [CreateMemberResponse]
+ReadPrec CreateMemberResponse
+Int -&gt; ReadS CreateMemberResponse
+ReadS [CreateMemberResponse]
+(Int -&gt; ReadS CreateMemberResponse)
+-&gt; ReadS [CreateMemberResponse]
+-&gt; ReadPrec CreateMemberResponse
+-&gt; ReadPrec [CreateMemberResponse]
+-&gt; Read CreateMemberResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateMemberResponse]
+$creadListPrec :: ReadPrec [CreateMemberResponse]
+readPrec :: ReadPrec CreateMemberResponse
+$creadPrec :: ReadPrec CreateMemberResponse
+readList :: ReadS [CreateMemberResponse]
+$creadList :: ReadS [CreateMemberResponse]
+readsPrec :: Int -&gt; ReadS CreateMemberResponse
+$creadsPrec :: Int -&gt; ReadS CreateMemberResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225523"><span id="local-6989586621679225525"><span id="local-6989586621679225527"><span class="annot"><span class="annottext">Int -&gt; CreateMemberResponse -&gt; ShowS
+[CreateMemberResponse] -&gt; ShowS
+CreateMemberResponse -&gt; String
+(Int -&gt; CreateMemberResponse -&gt; ShowS)
+-&gt; (CreateMemberResponse -&gt; String)
+-&gt; ([CreateMemberResponse] -&gt; ShowS)
+-&gt; Show CreateMemberResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateMemberResponse] -&gt; ShowS
+$cshowList :: [CreateMemberResponse] -&gt; ShowS
+show :: CreateMemberResponse -&gt; String
+$cshow :: CreateMemberResponse -&gt; String
+showsPrec :: Int -&gt; CreateMemberResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateMemberResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateMemberResponse -&gt; Rep CreateMemberResponse x)
+-&gt; (forall x. Rep CreateMemberResponse x -&gt; CreateMemberResponse)
+-&gt; Generic CreateMemberResponse
+forall x. Rep CreateMemberResponse x -&gt; CreateMemberResponse
+forall x. CreateMemberResponse -&gt; Rep CreateMemberResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateMemberResponse x -&gt; CreateMemberResponse
+$cfrom :: forall x. CreateMemberResponse -&gt; Rep CreateMemberResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Create a value of 'CreateMemberResponse' with all optional fields omitted.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'memberId', 'createMemberResponse_memberId' - The unique identifier of the member.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'httpStatus', 'createMemberResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#newCreateMemberResponse"><span class="hs-identifier hs-type">newCreateMemberResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse"><span class="hs-identifier hs-type">CreateMemberResponse</span></a></span><span>
+</span><span id="line-206"></span><span id="newCreateMemberResponse"><span class="annot"><span class="annottext">newCreateMemberResponse :: Int -&gt; CreateMemberResponse
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#newCreateMemberResponse"><span class="hs-identifier hs-var hs-var">newCreateMemberResponse</span></a></span></span><span> </span><span id="local-6989586621679225520"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225520"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="annottext">CreateMemberResponse' :: Maybe Text -&gt; Int -&gt; CreateMemberResponse
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse%27"><span class="hs-identifier hs-type">CreateMemberResponse'</span></a></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:memberId:CreateMemberResponse' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AmemberId%3ACreateMemberResponse%27"><span class="hs-identifier hs-var">memberId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateMemberResponse' :: Int
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AhttpStatus%3ACreateMemberResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225520"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The unique identifier of the member.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMemberResponse_memberId"><span class="hs-identifier hs-type">createMemberResponse_memberId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse"><span class="hs-identifier hs-type">CreateMemberResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="createMemberResponse_memberId"><span class="annot"><span class="annottext">createMemberResponse_memberId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateMemberResponse -&gt; f CreateMemberResponse
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMemberResponse_memberId"><span class="hs-identifier hs-var hs-var">createMemberResponse_memberId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMemberResponse -&gt; Maybe Text)
+-&gt; (CreateMemberResponse -&gt; Maybe Text -&gt; CreateMemberResponse)
+-&gt; Lens
+     CreateMemberResponse CreateMemberResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse%27"><span class="hs-identifier hs-type">CreateMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225519"><span class="annot"><span class="annottext">Maybe Text
+memberId :: Maybe Text
+$sel:memberId:CreateMemberResponse' :: CreateMemberResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679225519"><span class="hs-identifier hs-var hs-var">memberId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225519"><span class="hs-identifier hs-var">memberId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225518"><span class="annot"><span class="annottext">s :: CreateMemberResponse
+</span><a href="#local-6989586621679225518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse%27"><span class="hs-identifier hs-type">CreateMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225517"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMemberResponse
+</span><a href="#local-6989586621679225518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberId:CreateMemberResponse' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AmemberId%3ACreateMemberResponse%27"><span class="hs-identifier hs-var">memberId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse"><span class="hs-identifier hs-type">CreateMemberResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMemberResponse_httpStatus"><span class="hs-identifier hs-type">createMemberResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse"><span class="hs-identifier hs-type">CreateMemberResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-218"></span><span id="createMemberResponse_httpStatus"><span class="annot"><span class="annottext">createMemberResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateMemberResponse -&gt; f CreateMemberResponse
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#createMemberResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createMemberResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMemberResponse -&gt; Int)
+-&gt; (CreateMemberResponse -&gt; Int -&gt; CreateMemberResponse)
+-&gt; Lens CreateMemberResponse CreateMemberResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse%27"><span class="hs-identifier hs-type">CreateMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225516"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateMemberResponse' :: CreateMemberResponse -&gt; Int
+</span><a href="#local-6989586621679225516"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225516"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225515"><span class="annot"><span class="annottext">s :: CreateMemberResponse
+</span><a href="#local-6989586621679225515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse%27"><span class="hs-identifier hs-type">CreateMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225514"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMemberResponse
+</span><a href="#local-6989586621679225515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateMemberResponse' :: Int
+</span><a href="Network.AWS.ManagedBlockChain.CreateMember.html#%24sel%3AhttpStatus%3ACreateMemberResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse"><span class="hs-identifier hs-type">CreateMemberResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225512"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateMember.html#CreateMemberResponse"><span class="hs-identifier hs-type">CreateMemberResponse</span></a></span></span><span>
+</span><span id="line-221"></span></pre></body></html>

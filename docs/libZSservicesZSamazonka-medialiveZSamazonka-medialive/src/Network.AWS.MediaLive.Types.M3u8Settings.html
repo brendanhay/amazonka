@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Settings information for the .m3u8 container</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newM3u8Settings' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679903153"><span id="local-6989586621679903154"></span></span><span class="hs-keyword">data</span><span> </span><span id="M3u8Settings"><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-var">M3u8Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M3u8Settings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-var">M3u8Settings'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679903162"><span id="local-6989586621679903163"></span></span><span class="hs-keyword">data</span><span> </span><span id="M3u8Settings"><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-var">M3u8Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M3u8Settings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-var">M3u8Settings'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Packet Identifier (PID) for the Program Map Table (PMT) in the transport</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- stream. Can be entered as a decimal or hexadecimal value.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3ApmtPid%3AM3u8Settings%27"><span class="annot"><span class="annottext">M3u8Settings -&gt; Maybe Text
@@ -106,7 +106,7 @@
 </span><span id="line-90"></span><span>    </span><span id="%24sel%3ApcrControl%3AM3u8Settings%27"><span class="annot"><span class="annottext">M3u8Settings -&gt; Maybe M3u8PcrControl
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3ApcrControl%3AM3u8Settings%27"><span class="hs-identifier hs-var hs-var">pcrControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8PcrControl.html#M3u8PcrControl"><span class="hs-identifier hs-type">M3u8PcrControl</span></a></span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679903131"><span id="local-6989586621679903133"><span class="annot"><span class="annottext">M3u8Settings -&gt; M3u8Settings -&gt; Bool
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679903140"><span id="local-6989586621679903142"><span class="annot"><span class="annottext">M3u8Settings -&gt; M3u8Settings -&gt; Bool
 (M3u8Settings -&gt; M3u8Settings -&gt; Bool)
 -&gt; (M3u8Settings -&gt; M3u8Settings -&gt; Bool) -&gt; Eq M3u8Settings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -114,7 +114,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: M3u8Settings -&gt; M3u8Settings -&gt; Bool
 == :: M3u8Settings -&gt; M3u8Settings -&gt; Bool
 $c== :: M3u8Settings -&gt; M3u8Settings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679903122"><span id="local-6989586621679903124"><span id="local-6989586621679903126"><span id="local-6989586621679903128"><span class="annot"><span class="annottext">ReadPrec [M3u8Settings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679903131"><span id="local-6989586621679903133"><span id="local-6989586621679903135"><span id="local-6989586621679903137"><span class="annot"><span class="annottext">ReadPrec [M3u8Settings]
 ReadPrec M3u8Settings
 Int -&gt; ReadS M3u8Settings
 ReadS [M3u8Settings]
@@ -134,7 +134,7 @@ readList :: ReadS [M3u8Settings]
 $creadList :: ReadS [M3u8Settings]
 readsPrec :: Int -&gt; ReadS M3u8Settings
 $creadsPrec :: Int -&gt; ReadS M3u8Settings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679903115"><span id="local-6989586621679903117"><span id="local-6989586621679903119"><span class="annot"><span class="annottext">Int -&gt; M3u8Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679903124"><span id="local-6989586621679903126"><span id="local-6989586621679903128"><span class="annot"><span class="annottext">Int -&gt; M3u8Settings -&gt; ShowS
 [M3u8Settings] -&gt; ShowS
 M3u8Settings -&gt; String
 (Int -&gt; M3u8Settings -&gt; ShowS)
@@ -325,16 +325,16 @@ forall a. Maybe a
 -&gt; (M3u8Settings -&gt; Maybe Text -&gt; M3u8Settings)
 -&gt; Lens M3u8Settings M3u8Settings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903106"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903115"><span class="annot"><span class="annottext">Maybe Text
 pmtPid :: Maybe Text
 $sel:pmtPid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
-</span><a href="#local-6989586621679903106"><span class="hs-identifier hs-var hs-var">pmtPid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903106"><span class="hs-identifier hs-var">pmtPid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903105"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903104"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pmtPid:M3u8Settings' :: Maybe Text
+</span><a href="#local-6989586621679903115"><span class="hs-identifier hs-var hs-var">pmtPid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903115"><span class="hs-identifier hs-var">pmtPid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903114"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903113"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pmtPid:M3u8Settings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3ApmtPid%3AM3u8Settings%27"><span class="hs-identifier hs-var">pmtPid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | Packet Identifier (PID) of the elementary video stream in the transport</span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- stream. Can be entered as a decimal or hexadecimal value.</span><span>
@@ -344,16 +344,16 @@ $sel:pmtPid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
 -&gt; (M3u8Settings -&gt; Maybe Text -&gt; M3u8Settings)
 -&gt; Lens M3u8Settings M3u8Settings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903102"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903111"><span class="annot"><span class="annottext">Maybe Text
 videoPid :: Maybe Text
 $sel:videoPid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
-</span><a href="#local-6989586621679903102"><span class="hs-identifier hs-var hs-var">videoPid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903102"><span class="hs-identifier hs-var">videoPid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903101"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903100"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoPid:M3u8Settings' :: Maybe Text
+</span><a href="#local-6989586621679903111"><span class="hs-identifier hs-var hs-var">videoPid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903111"><span class="hs-identifier hs-var">videoPid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903110"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903109"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoPid:M3u8Settings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3AvideoPid%3AM3u8Settings%27"><span class="hs-identifier hs-var">videoPid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | If set to passthrough, Nielsen inaudible tones for media tracking will</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- be detected in the input audio and an equivalent ID3 tag will be</span><span>
@@ -369,16 +369,16 @@ $sel:videoPid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
      (Maybe M3u8NielsenId3Behavior)
      (Maybe M3u8NielsenId3Behavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903098"><span class="annot"><span class="annottext">Maybe M3u8NielsenId3Behavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903107"><span class="annot"><span class="annottext">Maybe M3u8NielsenId3Behavior
 nielsenId3Behavior :: Maybe M3u8NielsenId3Behavior
 $sel:nielsenId3Behavior:M3u8Settings' :: M3u8Settings -&gt; Maybe M3u8NielsenId3Behavior
-</span><a href="#local-6989586621679903098"><span class="hs-identifier hs-var hs-var">nielsenId3Behavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe M3u8NielsenId3Behavior
-</span><a href="#local-6989586621679903098"><span class="hs-identifier hs-var">nielsenId3Behavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903097"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903096"><span class="annot"><span class="annottext">Maybe M3u8NielsenId3Behavior
-</span><a href="#local-6989586621679903096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenId3Behavior:M3u8Settings' :: Maybe M3u8NielsenId3Behavior
+</span><a href="#local-6989586621679903107"><span class="hs-identifier hs-var hs-var">nielsenId3Behavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe M3u8NielsenId3Behavior
+</span><a href="#local-6989586621679903107"><span class="hs-identifier hs-var">nielsenId3Behavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903106"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903105"><span class="annot"><span class="annottext">Maybe M3u8NielsenId3Behavior
+</span><a href="#local-6989586621679903105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenId3Behavior:M3u8Settings' :: Maybe M3u8NielsenId3Behavior
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3AnielsenId3Behavior%3AM3u8Settings%27"><span class="hs-identifier hs-var">nielsenId3Behavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe M3u8NielsenId3Behavior
-</span><a href="#local-6989586621679903096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | Packet Identifier (PID) of the SCTE-35 stream in the transport stream.</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- Can be entered as a decimal or hexadecimal value.</span><span>
@@ -388,16 +388,16 @@ $sel:nielsenId3Behavior:M3u8Settings' :: M3u8Settings -&gt; Maybe M3u8NielsenId3
 -&gt; (M3u8Settings -&gt; Maybe Text -&gt; M3u8Settings)
 -&gt; Lens M3u8Settings M3u8Settings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903094"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903103"><span class="annot"><span class="annottext">Maybe Text
 scte35Pid :: Maybe Text
 $sel:scte35Pid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
-</span><a href="#local-6989586621679903094"><span class="hs-identifier hs-var hs-var">scte35Pid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903094"><span class="hs-identifier hs-var">scte35Pid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903093"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903092"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35Pid:M3u8Settings' :: Maybe Text
+</span><a href="#local-6989586621679903103"><span class="hs-identifier hs-var hs-var">scte35Pid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903103"><span class="hs-identifier hs-var">scte35Pid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903102"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903101"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35Pid:M3u8Settings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3Ascte35Pid%3AM3u8Settings%27"><span class="hs-identifier hs-var">scte35Pid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The value of the transport stream ID field in the Program Map Table.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#m3u8Settings_transportStreamId"><span class="hs-identifier hs-type">m3u8Settings_transportStreamId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -407,16 +407,16 @@ $sel:scte35Pid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
 -&gt; (M3u8Settings -&gt; Maybe Natural -&gt; M3u8Settings)
 -&gt; Lens M3u8Settings M3u8Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903090"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903099"><span class="annot"><span class="annottext">Maybe Natural
 transportStreamId :: Maybe Natural
 $sel:transportStreamId:M3u8Settings' :: M3u8Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679903090"><span class="hs-identifier hs-var hs-var">transportStreamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903090"><span class="hs-identifier hs-var">transportStreamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903089"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903088"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transportStreamId:M3u8Settings' :: Maybe Natural
+</span><a href="#local-6989586621679903099"><span class="hs-identifier hs-var hs-var">transportStreamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903099"><span class="hs-identifier hs-var">transportStreamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903098"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903097"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transportStreamId:M3u8Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3AtransportStreamId%3AM3u8Settings%27"><span class="hs-identifier hs-var">transportStreamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The value of the program number field in the Program Map Table.</span><span>
 </span><span id="line-207"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#m3u8Settings_programNum"><span class="hs-identifier hs-type">m3u8Settings_programNum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -426,16 +426,16 @@ $sel:transportStreamId:M3u8Settings' :: M3u8Settings -&gt; Maybe Natural
 -&gt; (M3u8Settings -&gt; Maybe Natural -&gt; M3u8Settings)
 -&gt; Lens M3u8Settings M3u8Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903086"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903095"><span class="annot"><span class="annottext">Maybe Natural
 programNum :: Maybe Natural
 $sel:programNum:M3u8Settings' :: M3u8Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679903086"><span class="hs-identifier hs-var hs-var">programNum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903086"><span class="hs-identifier hs-var">programNum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903085"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903084"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:programNum:M3u8Settings' :: Maybe Natural
+</span><a href="#local-6989586621679903095"><span class="hs-identifier hs-var hs-var">programNum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903095"><span class="hs-identifier hs-var">programNum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903094"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903093"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:programNum:M3u8Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3AprogramNum%3AM3u8Settings%27"><span class="hs-identifier hs-var">programNum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | When set to passthrough, timed metadata is passed through from input to</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- output.</span><span>
@@ -452,16 +452,16 @@ $sel:programNum:M3u8Settings' :: M3u8Settings -&gt; Maybe Natural
      (Maybe M3u8TimedMetadataBehavior)
      (Maybe M3u8TimedMetadataBehavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903082"><span class="annot"><span class="annottext">Maybe M3u8TimedMetadataBehavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903091"><span class="annot"><span class="annottext">Maybe M3u8TimedMetadataBehavior
 timedMetadataBehavior :: Maybe M3u8TimedMetadataBehavior
 $sel:timedMetadataBehavior:M3u8Settings' :: M3u8Settings -&gt; Maybe M3u8TimedMetadataBehavior
-</span><a href="#local-6989586621679903082"><span class="hs-identifier hs-var hs-var">timedMetadataBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe M3u8TimedMetadataBehavior
-</span><a href="#local-6989586621679903082"><span class="hs-identifier hs-var">timedMetadataBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903081"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903080"><span class="annot"><span class="annottext">Maybe M3u8TimedMetadataBehavior
-</span><a href="#local-6989586621679903080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedMetadataBehavior:M3u8Settings' :: Maybe M3u8TimedMetadataBehavior
+</span><a href="#local-6989586621679903091"><span class="hs-identifier hs-var hs-var">timedMetadataBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe M3u8TimedMetadataBehavior
+</span><a href="#local-6989586621679903091"><span class="hs-identifier hs-var">timedMetadataBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903090"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903089"><span class="annot"><span class="annottext">Maybe M3u8TimedMetadataBehavior
+</span><a href="#local-6989586621679903089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedMetadataBehavior:M3u8Settings' :: Maybe M3u8TimedMetadataBehavior
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3AtimedMetadataBehavior%3AM3u8Settings%27"><span class="hs-identifier hs-var">timedMetadataBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe M3u8TimedMetadataBehavior
-</span><a href="#local-6989586621679903080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The number of milliseconds between instances of this table in the output</span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- transport stream. A value of \\\&quot;0\\\&quot; writes out the PMT once per</span><span>
@@ -473,16 +473,16 @@ $sel:timedMetadataBehavior:M3u8Settings' :: M3u8Settings -&gt; Maybe M3u8TimedMe
 -&gt; (M3u8Settings -&gt; Maybe Natural -&gt; M3u8Settings)
 -&gt; Lens M3u8Settings M3u8Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903078"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903087"><span class="annot"><span class="annottext">Maybe Natural
 pmtInterval :: Maybe Natural
 $sel:pmtInterval:M3u8Settings' :: M3u8Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679903078"><span class="hs-identifier hs-var hs-var">pmtInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903078"><span class="hs-identifier hs-var">pmtInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903077"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903076"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pmtInterval:M3u8Settings' :: Maybe Natural
+</span><a href="#local-6989586621679903087"><span class="hs-identifier hs-var hs-var">pmtInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903087"><span class="hs-identifier hs-var">pmtInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903086"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903085"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pmtInterval:M3u8Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3ApmtInterval%3AM3u8Settings%27"><span class="hs-identifier hs-var">pmtInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | This parameter is unused and deprecated.</span><span>
 </span><span id="line-222"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#m3u8Settings_ecmPid"><span class="hs-identifier hs-type">m3u8Settings_ecmPid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -491,16 +491,16 @@ $sel:pmtInterval:M3u8Settings' :: M3u8Settings -&gt; Maybe Natural
 -&gt; (M3u8Settings -&gt; Maybe Text -&gt; M3u8Settings)
 -&gt; Lens M3u8Settings M3u8Settings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903074"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903083"><span class="annot"><span class="annottext">Maybe Text
 ecmPid :: Maybe Text
 $sel:ecmPid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
-</span><a href="#local-6989586621679903074"><span class="hs-identifier hs-var hs-var">ecmPid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903074"><span class="hs-identifier hs-var">ecmPid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903073"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903072"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ecmPid:M3u8Settings' :: Maybe Text
+</span><a href="#local-6989586621679903083"><span class="hs-identifier hs-var hs-var">ecmPid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903083"><span class="hs-identifier hs-var">ecmPid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903082"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903081"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ecmPid:M3u8Settings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3AecmPid%3AM3u8Settings%27"><span class="hs-identifier hs-var">ecmPid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | Packet Identifier (PID) of the timed metadata stream in the transport</span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- stream. Can be entered as a decimal or hexadecimal value. Valid values</span><span>
@@ -511,16 +511,16 @@ $sel:ecmPid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
 -&gt; (M3u8Settings -&gt; Maybe Text -&gt; M3u8Settings)
 -&gt; Lens M3u8Settings M3u8Settings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903070"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903079"><span class="annot"><span class="annottext">Maybe Text
 timedMetadataPid :: Maybe Text
 $sel:timedMetadataPid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
-</span><a href="#local-6989586621679903070"><span class="hs-identifier hs-var hs-var">timedMetadataPid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903070"><span class="hs-identifier hs-var">timedMetadataPid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903069"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903068"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedMetadataPid:M3u8Settings' :: Maybe Text
+</span><a href="#local-6989586621679903079"><span class="hs-identifier hs-var hs-var">timedMetadataPid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903079"><span class="hs-identifier hs-var">timedMetadataPid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903078"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903077"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedMetadataPid:M3u8Settings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3AtimedMetadataPid%3AM3u8Settings%27"><span class="hs-identifier hs-var">timedMetadataPid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The number of audio frames to insert for each PES packet.</span><span>
 </span><span id="line-232"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#m3u8Settings_audioFramesPerPes"><span class="hs-identifier hs-type">m3u8Settings_audioFramesPerPes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -530,16 +530,16 @@ $sel:timedMetadataPid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
 -&gt; (M3u8Settings -&gt; Maybe Natural -&gt; M3u8Settings)
 -&gt; Lens M3u8Settings M3u8Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903066"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903075"><span class="annot"><span class="annottext">Maybe Natural
 audioFramesPerPes :: Maybe Natural
 $sel:audioFramesPerPes:M3u8Settings' :: M3u8Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679903066"><span class="hs-identifier hs-var hs-var">audioFramesPerPes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903066"><span class="hs-identifier hs-var">audioFramesPerPes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903065"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903064"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioFramesPerPes:M3u8Settings' :: Maybe Natural
+</span><a href="#local-6989586621679903075"><span class="hs-identifier hs-var hs-var">audioFramesPerPes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903075"><span class="hs-identifier hs-var">audioFramesPerPes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903074"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903073"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioFramesPerPes:M3u8Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3AaudioFramesPerPes%3AM3u8Settings%27"><span class="hs-identifier hs-var">audioFramesPerPes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | Maximum time in milliseconds between Program Clock References (PCRs)</span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- inserted into the transport stream.</span><span>
@@ -550,16 +550,16 @@ $sel:audioFramesPerPes:M3u8Settings' :: M3u8Settings -&gt; Maybe Natural
 -&gt; (M3u8Settings -&gt; Maybe Natural -&gt; M3u8Settings)
 -&gt; Lens M3u8Settings M3u8Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903062"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903071"><span class="annot"><span class="annottext">Maybe Natural
 pcrPeriod :: Maybe Natural
 $sel:pcrPeriod:M3u8Settings' :: M3u8Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679903062"><span class="hs-identifier hs-var hs-var">pcrPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903062"><span class="hs-identifier hs-var">pcrPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903061"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903060"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pcrPeriod:M3u8Settings' :: Maybe Natural
+</span><a href="#local-6989586621679903071"><span class="hs-identifier hs-var hs-var">pcrPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903071"><span class="hs-identifier hs-var">pcrPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903070"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903069"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pcrPeriod:M3u8Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3ApcrPeriod%3AM3u8Settings%27"><span class="hs-identifier hs-var">pcrPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | Packet Identifier (PID) of the Program Clock Reference (PCR) in the</span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- transport stream. When no value is given, the encoder will assign the</span><span>
@@ -571,16 +571,16 @@ $sel:pcrPeriod:M3u8Settings' :: M3u8Settings -&gt; Maybe Natural
 -&gt; (M3u8Settings -&gt; Maybe Text -&gt; M3u8Settings)
 -&gt; Lens M3u8Settings M3u8Settings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903058"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903067"><span class="annot"><span class="annottext">Maybe Text
 pcrPid :: Maybe Text
 $sel:pcrPid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
-</span><a href="#local-6989586621679903058"><span class="hs-identifier hs-var hs-var">pcrPid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903058"><span class="hs-identifier hs-var">pcrPid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903057"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903056"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pcrPid:M3u8Settings' :: Maybe Text
+</span><a href="#local-6989586621679903067"><span class="hs-identifier hs-var hs-var">pcrPid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903067"><span class="hs-identifier hs-var">pcrPid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903066"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903065"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pcrPid:M3u8Settings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3ApcrPid%3AM3u8Settings%27"><span class="hs-identifier hs-var">pcrPid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>
 </span><span id="line-247"></span><span class="hs-comment">-- | The number of milliseconds between instances of this table in the output</span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- transport stream. A value of \\\&quot;0\\\&quot; writes out the PMT once per</span><span>
@@ -592,16 +592,16 @@ $sel:pcrPid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
 -&gt; (M3u8Settings -&gt; Maybe Natural -&gt; M3u8Settings)
 -&gt; Lens M3u8Settings M3u8Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903054"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903063"><span class="annot"><span class="annottext">Maybe Natural
 patInterval :: Maybe Natural
 $sel:patInterval:M3u8Settings' :: M3u8Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679903054"><span class="hs-identifier hs-var hs-var">patInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903054"><span class="hs-identifier hs-var">patInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903053"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903052"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patInterval:M3u8Settings' :: Maybe Natural
+</span><a href="#local-6989586621679903063"><span class="hs-identifier hs-var hs-var">patInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903063"><span class="hs-identifier hs-var">patInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903062"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903061"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patInterval:M3u8Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3ApatInterval%3AM3u8Settings%27"><span class="hs-identifier hs-var">patInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | Packet Identifier (PID) of the elementary audio stream(s) in the</span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- transport stream. Multiple values are accepted, and can be entered in</span><span>
@@ -613,16 +613,16 @@ $sel:patInterval:M3u8Settings' :: M3u8Settings -&gt; Maybe Natural
 -&gt; (M3u8Settings -&gt; Maybe Text -&gt; M3u8Settings)
 -&gt; Lens M3u8Settings M3u8Settings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903050"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903059"><span class="annot"><span class="annottext">Maybe Text
 audioPids :: Maybe Text
 $sel:audioPids:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
-</span><a href="#local-6989586621679903050"><span class="hs-identifier hs-var hs-var">audioPids</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903050"><span class="hs-identifier hs-var">audioPids</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903049"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903048"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioPids:M3u8Settings' :: Maybe Text
+</span><a href="#local-6989586621679903059"><span class="hs-identifier hs-var hs-var">audioPids</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903059"><span class="hs-identifier hs-var">audioPids</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903058"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903057"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioPids:M3u8Settings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3AaudioPids%3AM3u8Settings%27"><span class="hs-identifier hs-var">audioPids</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- | If set to passthrough, passes any SCTE-35 signals from the input source</span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- to this output.</span><span>
@@ -637,16 +637,16 @@ $sel:audioPids:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
      (Maybe M3u8Scte35Behavior)
      (Maybe M3u8Scte35Behavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903046"><span class="annot"><span class="annottext">Maybe M3u8Scte35Behavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903055"><span class="annot"><span class="annottext">Maybe M3u8Scte35Behavior
 scte35Behavior :: Maybe M3u8Scte35Behavior
 $sel:scte35Behavior:M3u8Settings' :: M3u8Settings -&gt; Maybe M3u8Scte35Behavior
-</span><a href="#local-6989586621679903046"><span class="hs-identifier hs-var hs-var">scte35Behavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe M3u8Scte35Behavior
-</span><a href="#local-6989586621679903046"><span class="hs-identifier hs-var">scte35Behavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903045"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903044"><span class="annot"><span class="annottext">Maybe M3u8Scte35Behavior
-</span><a href="#local-6989586621679903044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35Behavior:M3u8Settings' :: Maybe M3u8Scte35Behavior
+</span><a href="#local-6989586621679903055"><span class="hs-identifier hs-var hs-var">scte35Behavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe M3u8Scte35Behavior
+</span><a href="#local-6989586621679903055"><span class="hs-identifier hs-var">scte35Behavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903054"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903053"><span class="annot"><span class="annottext">Maybe M3u8Scte35Behavior
+</span><a href="#local-6989586621679903053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35Behavior:M3u8Settings' :: Maybe M3u8Scte35Behavior
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3Ascte35Behavior%3AM3u8Settings%27"><span class="hs-identifier hs-var">scte35Behavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe M3u8Scte35Behavior
-</span><a href="#local-6989586621679903044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- | When set to pcrEveryPesPacket, a Program Clock Reference value is</span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- inserted for every Packetized Elementary Stream (PES) header. This</span><span>
@@ -663,19 +663,19 @@ $sel:scte35Behavior:M3u8Settings' :: M3u8Settings -&gt; Maybe M3u8Scte35Behavior
      (Maybe M3u8PcrControl)
      (Maybe M3u8PcrControl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903042"><span class="annot"><span class="annottext">Maybe M3u8PcrControl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903051"><span class="annot"><span class="annottext">Maybe M3u8PcrControl
 pcrControl :: Maybe M3u8PcrControl
 $sel:pcrControl:M3u8Settings' :: M3u8Settings -&gt; Maybe M3u8PcrControl
-</span><a href="#local-6989586621679903042"><span class="hs-identifier hs-var hs-var">pcrControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe M3u8PcrControl
-</span><a href="#local-6989586621679903042"><span class="hs-identifier hs-var">pcrControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903041"><span class="annot"><span class="annottext">s :: M3u8Settings
-</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903040"><span class="annot"><span class="annottext">Maybe M3u8PcrControl
-</span><a href="#local-6989586621679903040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
-</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pcrControl:M3u8Settings' :: Maybe M3u8PcrControl
+</span><a href="#local-6989586621679903051"><span class="hs-identifier hs-var hs-var">pcrControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe M3u8PcrControl
+</span><a href="#local-6989586621679903051"><span class="hs-identifier hs-var">pcrControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903050"><span class="annot"><span class="annottext">s :: M3u8Settings
+</span><a href="#local-6989586621679903050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903049"><span class="annot"><span class="annottext">Maybe M3u8PcrControl
+</span><a href="#local-6989586621679903049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">M3u8Settings
+</span><a href="#local-6989586621679903050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pcrControl:M3u8Settings' :: Maybe M3u8PcrControl
 </span><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#%24sel%3ApcrControl%3AM3u8Settings%27"><span class="hs-identifier hs-var">pcrControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe M3u8PcrControl
-</span><a href="#local-6989586621679903040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-271"></span><span>
-</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679903037"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-273"></span><span>  </span><span id="local-6989586621679903035"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser M3u8Settings
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679903046"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679903044"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser M3u8Settings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-274"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser M3u8Settings) -&gt; Value -&gt; Parser M3u8Settings
@@ -683,8 +683,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;M3u8Settings&quot;</span></span><span>
-</span><span id="line-276"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679903032"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679903041"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-277"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe M3u8NielsenId3Behavior
@@ -743,7 +743,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pmtPid&quot;</span></span><span class="hs-special">)</span><span>
@@ -785,7 +785,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;videoPid&quot;</span></span><span class="hs-special">)</span><span>
@@ -825,7 +825,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe M3u8NielsenId3Behavior)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe M3u8NielsenId3Behavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nielsenId3Behavior&quot;</span></span><span class="hs-special">)</span><span>
@@ -863,7 +863,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35Pid&quot;</span></span><span class="hs-special">)</span><span>
@@ -899,7 +899,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transportStreamId&quot;</span></span><span class="hs-special">)</span><span>
@@ -933,7 +933,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;programNum&quot;</span></span><span class="hs-special">)</span><span>
@@ -965,7 +965,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe M3u8TimedMetadataBehavior)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe M3u8TimedMetadataBehavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timedMetadataBehavior&quot;</span></span><span class="hs-special">)</span><span>
@@ -995,7 +995,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pmtInterval&quot;</span></span><span class="hs-special">)</span><span>
@@ -1023,7 +1023,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ecmPid&quot;</span></span><span class="hs-special">)</span><span>
@@ -1049,7 +1049,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timedMetadataPid&quot;</span></span><span class="hs-special">)</span><span>
@@ -1073,7 +1073,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioFramesPerPes&quot;</span></span><span class="hs-special">)</span><span>
@@ -1095,7 +1095,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pcrPeriod&quot;</span></span><span class="hs-special">)</span><span>
@@ -1115,7 +1115,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pcrPid&quot;</span></span><span class="hs-special">)</span><span>
@@ -1133,7 +1133,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;patInterval&quot;</span></span><span class="hs-special">)</span><span>
@@ -1147,7 +1147,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe M3u8Scte35Behavior -&gt; Maybe M3u8PcrControl -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioPids&quot;</span></span><span class="hs-special">)</span><span>
@@ -1157,7 +1157,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe M3u8PcrControl -&gt; M3u8Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe M3u8Scte35Behavior)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe M3u8Scte35Behavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35Behavior&quot;</span></span><span class="hs-special">)</span><span>
@@ -1165,19 +1165,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe M3u8PcrControl) -&gt; Parser M3u8Settings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe M3u8PcrControl)
+</span><a href="#local-6989586621679903041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe M3u8PcrControl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pcrControl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-295"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-296"></span><span>
-</span><span id="line-297"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679903026"><span id="local-6989586621679903028"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span></span></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679903035"><span id="local-6989586621679903037"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span></span></span><span>
 </span><span id="line-298"></span><span>
-</span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679903023"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span></span><span>
+</span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679903032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span></span><span>
 </span><span id="line-300"></span><span>
-</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679903015"><span id="local-6989586621679903017"><span id="local-6989586621679903019"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-302"></span><span>  </span><span id="local-6989586621679903013"><span class="annot"><span class="annottext">toJSON :: M3u8Settings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679902995"><span id="local-6989586621679902996"><span id="local-6989586621679902997"><span id="local-6989586621679902998"><span id="local-6989586621679902999"><span id="local-6989586621679903000"><span id="local-6989586621679903001"><span id="local-6989586621679903002"><span id="local-6989586621679903003"><span id="local-6989586621679903004"><span id="local-6989586621679903005"><span id="local-6989586621679903006"><span id="local-6989586621679903007"><span id="local-6989586621679903008"><span id="local-6989586621679903009"><span id="local-6989586621679903010"><span id="local-6989586621679903011"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679903024"><span id="local-6989586621679903026"><span id="local-6989586621679903028"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings"><span class="hs-identifier hs-type">M3u8Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-302"></span><span>  </span><span id="local-6989586621679903022"><span class="annot"><span class="annottext">toJSON :: M3u8Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M3u8Settings.html#M3u8Settings%27"><span class="hs-identifier hs-type">M3u8Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903004"><span id="local-6989586621679903005"><span id="local-6989586621679903006"><span id="local-6989586621679903007"><span id="local-6989586621679903008"><span id="local-6989586621679903009"><span id="local-6989586621679903010"><span id="local-6989586621679903011"><span id="local-6989586621679903012"><span id="local-6989586621679903013"><span id="local-6989586621679903014"><span id="local-6989586621679903015"><span id="local-6989586621679903016"><span id="local-6989586621679903017"><span id="local-6989586621679903018"><span id="local-6989586621679903019"><span id="local-6989586621679903020"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe M3u8NielsenId3Behavior
 Maybe M3u8PcrControl
@@ -1217,7 +1217,7 @@ $sel:scte35Pid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
 $sel:nielsenId3Behavior:M3u8Settings' :: M3u8Settings -&gt; Maybe M3u8NielsenId3Behavior
 $sel:videoPid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
 $sel:pmtPid:M3u8Settings' :: M3u8Settings -&gt; Maybe Text
-</span><a href="#local-6989586621679902995"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679903004"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-303"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-304"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1229,14 +1229,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903011"><span class="hs-identifier hs-var">pmtPid</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903020"><span class="hs-identifier hs-var">pmtPid</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-306"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;videoPid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903010"><span class="hs-identifier hs-var">videoPid</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903019"><span class="hs-identifier hs-var">videoPid</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-307"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nielsenId3Behavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; M3u8NielsenId3Behavior -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1245,14 +1245,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe M3u8NielsenId3Behavior -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe M3u8NielsenId3Behavior
-</span><a href="#local-6989586621679903009"><span class="hs-identifier hs-var">nielsenId3Behavior</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903018"><span class="hs-identifier hs-var">nielsenId3Behavior</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-309"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35Pid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903008"><span class="hs-identifier hs-var">scte35Pid</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903017"><span class="hs-identifier hs-var">scte35Pid</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-310"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transportStreamId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1260,14 +1260,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-311"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903007"><span class="hs-identifier hs-var">transportStreamId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903016"><span class="hs-identifier hs-var">transportStreamId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-312"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;programNum&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903006"><span class="hs-identifier hs-var">programNum</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903015"><span class="hs-identifier hs-var">programNum</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-313"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timedMetadataBehavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; M3u8TimedMetadataBehavior -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1276,21 +1276,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe M3u8TimedMetadataBehavior -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe M3u8TimedMetadataBehavior
-</span><a href="#local-6989586621679903005"><span class="hs-identifier hs-var">timedMetadataBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903014"><span class="hs-identifier hs-var">timedMetadataBehavior</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-315"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pmtInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903004"><span class="hs-identifier hs-var">pmtInterval</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903013"><span class="hs-identifier hs-var">pmtInterval</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-316"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ecmPid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903003"><span class="hs-identifier hs-var">ecmPid</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903012"><span class="hs-identifier hs-var">ecmPid</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-317"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timedMetadataPid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1298,7 +1298,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-318"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903002"><span class="hs-identifier hs-var">timedMetadataPid</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903011"><span class="hs-identifier hs-var">timedMetadataPid</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-319"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioFramesPerPes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1306,35 +1306,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-320"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903001"><span class="hs-identifier hs-var">audioFramesPerPes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903010"><span class="hs-identifier hs-var">audioFramesPerPes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-321"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pcrPeriod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679903000"><span class="hs-identifier hs-var">pcrPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903009"><span class="hs-identifier hs-var">pcrPeriod</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-322"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pcrPid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679902999"><span class="hs-identifier hs-var">pcrPid</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903008"><span class="hs-identifier hs-var">pcrPid</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-323"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;patInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679902998"><span class="hs-identifier hs-var">patInterval</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903007"><span class="hs-identifier hs-var">patInterval</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-324"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioPids&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679902997"><span class="hs-identifier hs-var">audioPids</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903006"><span class="hs-identifier hs-var">audioPids</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-325"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35Behavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; M3u8Scte35Behavior -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1343,14 +1343,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe M3u8Scte35Behavior -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe M3u8Scte35Behavior
-</span><a href="#local-6989586621679902996"><span class="hs-identifier hs-var">scte35Behavior</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679903005"><span class="hs-identifier hs-var">scte35Behavior</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-327"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pcrControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; M3u8PcrControl -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(M3u8PcrControl -&gt; Pair) -&gt; Maybe M3u8PcrControl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe M3u8PcrControl
-</span><a href="#local-6989586621679902995"><span class="hs-identifier hs-var">pcrControl</span></a></span><span>
+</span><a href="#local-6989586621679903004"><span class="hs-identifier hs-var">pcrControl</span></a></span><span>
 </span><span id="line-328"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-329"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-330"></span></pre></body></html>

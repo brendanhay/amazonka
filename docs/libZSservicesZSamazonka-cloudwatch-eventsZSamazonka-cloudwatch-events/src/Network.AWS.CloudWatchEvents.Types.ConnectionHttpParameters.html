@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Contains additional parameters for the connection.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newConnectionHttpParameters' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679301005"><span id="local-6989586621679301006"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionHttpParameters"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-var">ConnectionHttpParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionHttpParameters%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-var">ConnectionHttpParameters'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679301014"><span id="local-6989586621679301015"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionHttpParameters"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-var">ConnectionHttpParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionHttpParameters%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-var">ConnectionHttpParameters'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains additional query string parameters for the connection.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AqueryStringParameters%3AConnectionHttpParameters%27"><span class="annot"><span class="annottext">ConnectionHttpParameters -&gt; Maybe [ConnectionQueryStringParameter]
 </span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#%24sel%3AqueryStringParameters%3AConnectionHttpParameters%27"><span class="hs-identifier hs-var hs-var">queryStringParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter.html#ConnectionQueryStringParameter"><span class="hs-identifier hs-type">ConnectionQueryStringParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AbodyParameters%3AConnectionHttpParameters%27"><span class="annot"><span class="annottext">ConnectionHttpParameters -&gt; Maybe [ConnectionBodyParameter]
 </span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#%24sel%3AbodyParameters%3AConnectionHttpParameters%27"><span class="hs-identifier hs-var hs-var">bodyParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBodyParameter.html#ConnectionBodyParameter"><span class="hs-identifier hs-type">ConnectionBodyParameter</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300997"><span id="local-6989586621679300999"><span class="annot"><span class="annottext">ConnectionHttpParameters -&gt; ConnectionHttpParameters -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301006"><span id="local-6989586621679301008"><span class="annot"><span class="annottext">ConnectionHttpParameters -&gt; ConnectionHttpParameters -&gt; Bool
 (ConnectionHttpParameters -&gt; ConnectionHttpParameters -&gt; Bool)
 -&gt; (ConnectionHttpParameters -&gt; ConnectionHttpParameters -&gt; Bool)
 -&gt; Eq ConnectionHttpParameters
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConnectionHttpParameters -&gt; ConnectionHttpParameters -&gt; Bool
 == :: ConnectionHttpParameters -&gt; ConnectionHttpParameters -&gt; Bool
 $c== :: ConnectionHttpParameters -&gt; ConnectionHttpParameters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300988"><span id="local-6989586621679300990"><span id="local-6989586621679300992"><span id="local-6989586621679300994"><span class="annot"><span class="annottext">ReadPrec [ConnectionHttpParameters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300997"><span id="local-6989586621679300999"><span id="local-6989586621679301001"><span id="local-6989586621679301003"><span class="annot"><span class="annottext">ReadPrec [ConnectionHttpParameters]
 ReadPrec ConnectionHttpParameters
 Int -&gt; ReadS ConnectionHttpParameters
 ReadS [ConnectionHttpParameters]
@@ -69,7 +69,7 @@ readList :: ReadS [ConnectionHttpParameters]
 $creadList :: ReadS [ConnectionHttpParameters]
 readsPrec :: Int -&gt; ReadS ConnectionHttpParameters
 $creadsPrec :: Int -&gt; ReadS ConnectionHttpParameters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300981"><span id="local-6989586621679300983"><span id="local-6989586621679300985"><span class="annot"><span class="annottext">Int -&gt; ConnectionHttpParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300990"><span id="local-6989586621679300992"><span id="local-6989586621679300994"><span class="annot"><span class="annottext">Int -&gt; ConnectionHttpParameters -&gt; ShowS
 [ConnectionHttpParameters] -&gt; ShowS
 ConnectionHttpParameters -&gt; String
 (Int -&gt; ConnectionHttpParameters -&gt; ShowS)
@@ -154,16 +154,16 @@ forall a. Maybe a
      (Maybe [ConnectionQueryStringParameter])
      (Maybe [ConnectionQueryStringParameter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-type">ConnectionHttpParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300972"><span class="annot"><span class="annottext">Maybe [ConnectionQueryStringParameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-type">ConnectionHttpParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300981"><span class="annot"><span class="annottext">Maybe [ConnectionQueryStringParameter]
 queryStringParameters :: Maybe [ConnectionQueryStringParameter]
 $sel:queryStringParameters:ConnectionHttpParameters' :: ConnectionHttpParameters -&gt; Maybe [ConnectionQueryStringParameter]
-</span><a href="#local-6989586621679300972"><span class="hs-identifier hs-var hs-var">queryStringParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectionQueryStringParameter]
-</span><a href="#local-6989586621679300972"><span class="hs-identifier hs-var">queryStringParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300971"><span class="annot"><span class="annottext">s :: ConnectionHttpParameters
-</span><a href="#local-6989586621679300971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-type">ConnectionHttpParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300970"><span class="annot"><span class="annottext">Maybe [ConnectionQueryStringParameter]
-</span><a href="#local-6989586621679300970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionHttpParameters
-</span><a href="#local-6989586621679300971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryStringParameters:ConnectionHttpParameters' :: Maybe [ConnectionQueryStringParameter]
+</span><a href="#local-6989586621679300981"><span class="hs-identifier hs-var hs-var">queryStringParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectionQueryStringParameter]
+</span><a href="#local-6989586621679300981"><span class="hs-identifier hs-var">queryStringParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300980"><span class="annot"><span class="annottext">s :: ConnectionHttpParameters
+</span><a href="#local-6989586621679300980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-type">ConnectionHttpParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300979"><span class="annot"><span class="annottext">Maybe [ConnectionQueryStringParameter]
+</span><a href="#local-6989586621679300979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionHttpParameters
+</span><a href="#local-6989586621679300980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryStringParameters:ConnectionHttpParameters' :: Maybe [ConnectionQueryStringParameter]
 </span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#%24sel%3AqueryStringParameters%3AConnectionHttpParameters%27"><span class="hs-identifier hs-var">queryStringParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectionQueryStringParameter]
-</span><a href="#local-6989586621679300970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConnectionQueryStringParameter]
+</span><a href="#local-6989586621679300979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConnectionQueryStringParameter]
   -&gt; f (Maybe [ConnectionQueryStringParameter]))
  -&gt; ConnectionHttpParameters -&gt; f ConnectionHttpParameters)
 -&gt; ((Maybe [ConnectionQueryStringParameter]
@@ -210,16 +210,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [ConnectionHeaderParameter])
      (Maybe [ConnectionHeaderParameter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-type">ConnectionHttpParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300965"><span class="annot"><span class="annottext">Maybe [ConnectionHeaderParameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-type">ConnectionHttpParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300974"><span class="annot"><span class="annottext">Maybe [ConnectionHeaderParameter]
 headerParameters :: Maybe [ConnectionHeaderParameter]
 $sel:headerParameters:ConnectionHttpParameters' :: ConnectionHttpParameters -&gt; Maybe [ConnectionHeaderParameter]
-</span><a href="#local-6989586621679300965"><span class="hs-identifier hs-var hs-var">headerParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectionHeaderParameter]
-</span><a href="#local-6989586621679300965"><span class="hs-identifier hs-var">headerParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300964"><span class="annot"><span class="annottext">s :: ConnectionHttpParameters
-</span><a href="#local-6989586621679300964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-type">ConnectionHttpParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300963"><span class="annot"><span class="annottext">Maybe [ConnectionHeaderParameter]
-</span><a href="#local-6989586621679300963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionHttpParameters
-</span><a href="#local-6989586621679300964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headerParameters:ConnectionHttpParameters' :: Maybe [ConnectionHeaderParameter]
+</span><a href="#local-6989586621679300974"><span class="hs-identifier hs-var hs-var">headerParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectionHeaderParameter]
+</span><a href="#local-6989586621679300974"><span class="hs-identifier hs-var">headerParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300973"><span class="annot"><span class="annottext">s :: ConnectionHttpParameters
+</span><a href="#local-6989586621679300973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-type">ConnectionHttpParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300972"><span class="annot"><span class="annottext">Maybe [ConnectionHeaderParameter]
+</span><a href="#local-6989586621679300972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionHttpParameters
+</span><a href="#local-6989586621679300973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headerParameters:ConnectionHttpParameters' :: Maybe [ConnectionHeaderParameter]
 </span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#%24sel%3AheaderParameters%3AConnectionHttpParameters%27"><span class="hs-identifier hs-var">headerParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectionHeaderParameter]
-</span><a href="#local-6989586621679300963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConnectionHeaderParameter]
+</span><a href="#local-6989586621679300972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConnectionHeaderParameter]
   -&gt; f (Maybe [ConnectionHeaderParameter]))
  -&gt; ConnectionHttpParameters -&gt; f ConnectionHttpParameters)
 -&gt; ((Maybe [ConnectionHeaderParameter]
@@ -266,16 +266,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [ConnectionBodyParameter])
      (Maybe [ConnectionBodyParameter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-type">ConnectionHttpParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300961"><span class="annot"><span class="annottext">Maybe [ConnectionBodyParameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-type">ConnectionHttpParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300970"><span class="annot"><span class="annottext">Maybe [ConnectionBodyParameter]
 bodyParameters :: Maybe [ConnectionBodyParameter]
 $sel:bodyParameters:ConnectionHttpParameters' :: ConnectionHttpParameters -&gt; Maybe [ConnectionBodyParameter]
-</span><a href="#local-6989586621679300961"><span class="hs-identifier hs-var hs-var">bodyParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectionBodyParameter]
-</span><a href="#local-6989586621679300961"><span class="hs-identifier hs-var">bodyParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300960"><span class="annot"><span class="annottext">s :: ConnectionHttpParameters
-</span><a href="#local-6989586621679300960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-type">ConnectionHttpParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300959"><span class="annot"><span class="annottext">Maybe [ConnectionBodyParameter]
-</span><a href="#local-6989586621679300959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionHttpParameters
-</span><a href="#local-6989586621679300960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bodyParameters:ConnectionHttpParameters' :: Maybe [ConnectionBodyParameter]
+</span><a href="#local-6989586621679300970"><span class="hs-identifier hs-var hs-var">bodyParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectionBodyParameter]
+</span><a href="#local-6989586621679300970"><span class="hs-identifier hs-var">bodyParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300969"><span class="annot"><span class="annottext">s :: ConnectionHttpParameters
+</span><a href="#local-6989586621679300969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-type">ConnectionHttpParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300968"><span class="annot"><span class="annottext">Maybe [ConnectionBodyParameter]
+</span><a href="#local-6989586621679300968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionHttpParameters
+</span><a href="#local-6989586621679300969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bodyParameters:ConnectionHttpParameters' :: Maybe [ConnectionBodyParameter]
 </span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#%24sel%3AbodyParameters%3AConnectionHttpParameters%27"><span class="hs-identifier hs-var">bodyParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectionBodyParameter]
-</span><a href="#local-6989586621679300959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConnectionBodyParameter]
+</span><a href="#local-6989586621679300968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConnectionBodyParameter]
   -&gt; f (Maybe [ConnectionBodyParameter]))
  -&gt; ConnectionHttpParameters -&gt; f ConnectionHttpParameters)
 -&gt; ((Maybe [ConnectionBodyParameter]
@@ -308,8 +308,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300956"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679300954"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConnectionHttpParameters
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300965"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679300963"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConnectionHttpParameters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ConnectionHttpParameters)
@@ -319,8 +319,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ConnectionHttpParameters&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300951"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300951"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300960"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ConnectionQueryStringParameter]
 -&gt; Maybe [ConnectionHeaderParameter]
 -&gt; Maybe [ConnectionBodyParameter]
@@ -336,7 +336,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe [ConnectionBodyParameter] -&gt; ConnectionHttpParameters)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [ConnectionQueryStringParameter]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -357,7 +357,7 @@ forall a. Monoid a =&gt; a
      (Maybe [ConnectionBodyParameter] -&gt; ConnectionHttpParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [ConnectionHeaderParameter]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -376,7 +376,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser ConnectionHttpParameters
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ConnectionBodyParameter]))
+</span><a href="#local-6989586621679300960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ConnectionBodyParameter]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BodyParameters&quot;</span></span><span>
@@ -390,13 +390,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-91"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300944"><span id="local-6989586621679300946"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300953"><span id="local-6989586621679300955"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300941"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300933"><span id="local-6989586621679300935"><span id="local-6989586621679300937"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679300931"><span class="annot"><span class="annottext">toJSON :: ConnectionHttpParameters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-type">ConnectionHttpParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300927"><span id="local-6989586621679300928"><span id="local-6989586621679300929"><span class="annot"><span class="annottext">Maybe [ConnectionBodyParameter]
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300942"><span id="local-6989586621679300944"><span id="local-6989586621679300946"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679300940"><span class="annot"><span class="annottext">toJSON :: ConnectionHttpParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters%27"><span class="hs-identifier hs-type">ConnectionHttpParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300936"><span id="local-6989586621679300937"><span id="local-6989586621679300938"><span class="annot"><span class="annottext">Maybe [ConnectionBodyParameter]
 Maybe [ConnectionHeaderParameter]
 Maybe [ConnectionQueryStringParameter]
 bodyParameters :: Maybe [ConnectionBodyParameter]
@@ -405,7 +405,7 @@ queryStringParameters :: Maybe [ConnectionQueryStringParameter]
 $sel:bodyParameters:ConnectionHttpParameters' :: ConnectionHttpParameters -&gt; Maybe [ConnectionBodyParameter]
 $sel:headerParameters:ConnectionHttpParameters' :: ConnectionHttpParameters -&gt; Maybe [ConnectionHeaderParameter]
 $sel:queryStringParameters:ConnectionHttpParameters' :: ConnectionHttpParameters -&gt; Maybe [ConnectionQueryStringParameter]
-</span><a href="#local-6989586621679300927"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679300936"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -419,7 +419,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ConnectionQueryStringParameter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectionQueryStringParameter]
-</span><a href="#local-6989586621679300929"><span class="hs-identifier hs-var">queryStringParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300938"><span class="hs-identifier hs-var">queryStringParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HeaderParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ConnectionHeaderParameter] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -428,7 +428,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ConnectionHeaderParameter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectionHeaderParameter]
-</span><a href="#local-6989586621679300928"><span class="hs-identifier hs-var">headerParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300937"><span class="hs-identifier hs-var">headerParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BodyParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ConnectionBodyParameter] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -437,7 +437,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ConnectionBodyParameter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectionBodyParameter]
-</span><a href="#local-6989586621679300927"><span class="hs-identifier hs-var">bodyParameters</span></a></span><span>
+</span><a href="#local-6989586621679300936"><span class="hs-identifier hs-var">bodyParameters</span></a></span><span>
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span></pre></body></html>

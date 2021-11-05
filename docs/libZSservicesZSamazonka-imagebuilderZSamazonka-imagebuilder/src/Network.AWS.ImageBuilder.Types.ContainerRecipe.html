@@ -1,0 +1,1310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ImageBuilder.Types.ContainerRecipe</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ImageBuilder.Types.ContainerRecipe</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types.ComponentConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerType.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types.ContainerType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InstanceConfiguration.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types.InstanceConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types.Platform</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.TargetContainerRepository.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types.TargetContainerRepository</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | A container recipe.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newContainerRecipe' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679319202"><span id="local-6989586621679319203"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerRecipe"><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-var">ContainerRecipe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerRecipe%27"><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-var">ContainerRecipe'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Components for build and test that are included in the container recipe.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Acomponents%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe (NonEmpty ComponentConfiguration)
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Acomponents%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">components</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration"><span class="hs-identifier hs-type">ComponentConfiguration</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specifies the type of container, such as Docker.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcontainerType%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe ContainerType
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AcontainerType%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">containerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-type">ContainerType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The system platform for the container, such as Windows or Linux.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aplatform%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe Platform
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aplatform%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform"><span class="hs-identifier hs-type">Platform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Dockerfiles are text documents that are used to build Docker containers,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- and ensure that they contain all of the elements required by the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- application running inside. The template data consists of contextual</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- variables where Image Builder places build information or scripts, based</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- on your container image recipe.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdockerfileTemplateData%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AdockerfileTemplateData%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">dockerfileTemplateData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the container recipe.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- Semantic versioning is included in each object\'s Amazon Resource Name</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- (ARN), at the level that applies to that object as follows:</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- 1.  Versionless ARNs and Name ARNs do not include specific values in any</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     of the nodes. The nodes are either left off entirely, or they are</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     specified as wildcards, for example: x.x.x.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- 2.  Version ARNs have only the first three nodes:</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- 3.  Build version ARNs have all four nodes, and point to a specific</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     build for a specific version of an object.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aarn%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aarn%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The working directory for use during build and test workflows.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AworkingDirectory%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AworkingDirectory%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">workingDirectory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The base image for the container recipe.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AparentImage%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AparentImage%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">parentImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | A flag that indicates if the target container is encrypted.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Aencrypted%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe Bool
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aencrypted%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">encrypted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The owner of the container recipe.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Aowner%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aowner%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The date when this container recipe was created.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AdateCreated%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AdateCreated%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The name of the container recipe.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Aname%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aname%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Identifies which KMS key is used to encrypt the container image for</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- distribution to the target Region.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AkmsKeyId%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The semantic version of the container recipe.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- The semantic version has four nodes:</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;\/\&lt;build&gt;. You can assign values for the</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- first three, and can filter on all of them.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- __Assignment:__ For the first three nodes you can assign any positive</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- integer value, including zero, with an upper limit of 2^30-1, or</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- 1073741823 for each node. Image Builder automatically assigns the build</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- number to the fourth node.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- __Patterns:__ You can use any numeric pattern that adheres to the</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- assignment requirements for the nodes that you can assign. For example,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- you might choose a software version pattern, such as 1.0.0, or a date,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- such as 2021.01.01.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- __Filtering:__ With semantic versioning, you have the flexibility to use</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- wildcards (x) to specify the most recent versions or nodes when</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- selecting the base image or components for your recipe. When you use a</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- wildcard in any node, all nodes to the right of the first wildcard must</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- also be wildcards.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3Aversion%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aversion%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The destination repository for the container image.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AtargetRepository%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe TargetContainerRepository
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AtargetRepository%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">targetRepository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.TargetContainerRepository.html#TargetContainerRepository"><span class="hs-identifier hs-type">TargetContainerRepository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The description of the container recipe.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3Adescription%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Adescription%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | Tags that are attached to the container recipe.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3Atags%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Atags%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | A group of options that can be used to configure an instance for</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- building and testing container images.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AinstanceConfiguration%3AContainerRecipe%27"><span class="annot"><span class="annottext">ContainerRecipe -&gt; Maybe InstanceConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AinstanceConfiguration%3AContainerRecipe%27"><span class="hs-identifier hs-var hs-var">instanceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InstanceConfiguration.html#InstanceConfiguration"><span class="hs-identifier hs-type">InstanceConfiguration</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319180"><span id="local-6989586621679319182"><span class="annot"><span class="annottext">ContainerRecipe -&gt; ContainerRecipe -&gt; Bool
+(ContainerRecipe -&gt; ContainerRecipe -&gt; Bool)
+-&gt; (ContainerRecipe -&gt; ContainerRecipe -&gt; Bool)
+-&gt; Eq ContainerRecipe
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContainerRecipe -&gt; ContainerRecipe -&gt; Bool
+$c/= :: ContainerRecipe -&gt; ContainerRecipe -&gt; Bool
+== :: ContainerRecipe -&gt; ContainerRecipe -&gt; Bool
+$c== :: ContainerRecipe -&gt; ContainerRecipe -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319171"><span id="local-6989586621679319173"><span id="local-6989586621679319175"><span id="local-6989586621679319177"><span class="annot"><span class="annottext">ReadPrec [ContainerRecipe]
+ReadPrec ContainerRecipe
+Int -&gt; ReadS ContainerRecipe
+ReadS [ContainerRecipe]
+(Int -&gt; ReadS ContainerRecipe)
+-&gt; ReadS [ContainerRecipe]
+-&gt; ReadPrec ContainerRecipe
+-&gt; ReadPrec [ContainerRecipe]
+-&gt; Read ContainerRecipe
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContainerRecipe]
+$creadListPrec :: ReadPrec [ContainerRecipe]
+readPrec :: ReadPrec ContainerRecipe
+$creadPrec :: ReadPrec ContainerRecipe
+readList :: ReadS [ContainerRecipe]
+$creadList :: ReadS [ContainerRecipe]
+readsPrec :: Int -&gt; ReadS ContainerRecipe
+$creadsPrec :: Int -&gt; ReadS ContainerRecipe
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319164"><span id="local-6989586621679319166"><span id="local-6989586621679319168"><span class="annot"><span class="annottext">Int -&gt; ContainerRecipe -&gt; ShowS
+[ContainerRecipe] -&gt; ShowS
+ContainerRecipe -&gt; String
+(Int -&gt; ContainerRecipe -&gt; ShowS)
+-&gt; (ContainerRecipe -&gt; String)
+-&gt; ([ContainerRecipe] -&gt; ShowS)
+-&gt; Show ContainerRecipe
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContainerRecipe] -&gt; ShowS
+$cshowList :: [ContainerRecipe] -&gt; ShowS
+show :: ContainerRecipe -&gt; String
+$cshow :: ContainerRecipe -&gt; String
+showsPrec :: Int -&gt; ContainerRecipe -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContainerRecipe -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ContainerRecipe -&gt; Rep ContainerRecipe x)
+-&gt; (forall x. Rep ContainerRecipe x -&gt; ContainerRecipe)
+-&gt; Generic ContainerRecipe
+forall x. Rep ContainerRecipe x -&gt; ContainerRecipe
+forall x. ContainerRecipe -&gt; Rep ContainerRecipe x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ContainerRecipe x -&gt; ContainerRecipe
+$cfrom :: forall x. ContainerRecipe -&gt; Rep ContainerRecipe x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Create a value of 'ContainerRecipe' with all optional fields omitted.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'components', 'containerRecipe_components' - Components for build and test that are included in the container recipe.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'containerType', 'containerRecipe_containerType' - Specifies the type of container, such as Docker.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'platform', 'containerRecipe_platform' - The system platform for the container, such as Windows or Linux.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'dockerfileTemplateData', 'containerRecipe_dockerfileTemplateData' - Dockerfiles are text documents that are used to build Docker containers,</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- and ensure that they contain all of the elements required by the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- application running inside. The template data consists of contextual</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- variables where Image Builder places build information or scripts, based</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- on your container image recipe.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'arn', 'containerRecipe_arn' - The Amazon Resource Name (ARN) of the container recipe.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Semantic versioning is included in each object\'s Amazon Resource Name</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- (ARN), at the level that applies to that object as follows:</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 1.  Versionless ARNs and Name ARNs do not include specific values in any</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--     of the nodes. The nodes are either left off entirely, or they are</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--     specified as wildcards, for example: x.x.x.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 2.  Version ARNs have only the first three nodes:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 3.  Build version ARNs have all four nodes, and point to a specific</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     build for a specific version of an object.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'workingDirectory', 'containerRecipe_workingDirectory' - The working directory for use during build and test workflows.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'parentImage', 'containerRecipe_parentImage' - The base image for the container recipe.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'encrypted', 'containerRecipe_encrypted' - A flag that indicates if the target container is encrypted.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'owner', 'containerRecipe_owner' - The owner of the container recipe.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'dateCreated', 'containerRecipe_dateCreated' - The date when this container recipe was created.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'name', 'containerRecipe_name' - The name of the container recipe.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'kmsKeyId', 'containerRecipe_kmsKeyId' - Identifies which KMS key is used to encrypt the container image for</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- distribution to the target Region.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'version', 'containerRecipe_version' - The semantic version of the container recipe.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The semantic version has four nodes:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;\/\&lt;build&gt;. You can assign values for the</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- first three, and can filter on all of them.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- __Assignment:__ For the first three nodes you can assign any positive</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- integer value, including zero, with an upper limit of 2^30-1, or</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 1073741823 for each node. Image Builder automatically assigns the build</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- number to the fourth node.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- __Patterns:__ You can use any numeric pattern that adheres to the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- assignment requirements for the nodes that you can assign. For example,</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- you might choose a software version pattern, such as 1.0.0, or a date,</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- such as 2021.01.01.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- __Filtering:__ With semantic versioning, you have the flexibility to use</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- wildcards (x) to specify the most recent versions or nodes when</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- selecting the base image or components for your recipe. When you use a</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- wildcard in any node, all nodes to the right of the first wildcard must</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- also be wildcards.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'targetRepository', 'containerRecipe_targetRepository' - The destination repository for the container image.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'description', 'containerRecipe_description' - The description of the container recipe.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'tags', 'containerRecipe_tags' - Tags that are attached to the container recipe.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'instanceConfiguration', 'containerRecipe_instanceConfiguration' - A group of options that can be used to configure an instance for</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- building and testing container images.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#newContainerRecipe"><span class="hs-identifier hs-type">newContainerRecipe</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span>
+</span><span id="line-193"></span><span id="newContainerRecipe"><span class="annot"><span class="annottext">newContainerRecipe :: ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#newContainerRecipe"><span class="hs-identifier hs-var hs-var">newContainerRecipe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">ContainerRecipe' :: Maybe (NonEmpty ComponentConfiguration)
+-&gt; Maybe ContainerType
+-&gt; Maybe Platform
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe TargetContainerRepository
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe InstanceConfiguration
+-&gt; ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:components:ContainerRecipe' :: Maybe (NonEmpty ComponentConfiguration)
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Acomponents%3AContainerRecipe%27"><span class="hs-identifier hs-var">components</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ComponentConfiguration)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerType:ContainerRecipe' :: Maybe ContainerType
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AcontainerType%3AContainerRecipe%27"><span class="hs-identifier hs-var">containerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:platform:ContainerRecipe' :: Maybe Platform
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aplatform%3AContainerRecipe%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Platform
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:dockerfileTemplateData:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AdockerfileTemplateData%3AContainerRecipe%27"><span class="hs-identifier hs-var">dockerfileTemplateData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aarn%3AContainerRecipe%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:workingDirectory:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AworkingDirectory%3AContainerRecipe%27"><span class="hs-identifier hs-var">workingDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:parentImage:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AparentImage%3AContainerRecipe%27"><span class="hs-identifier hs-var">parentImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:encrypted:ContainerRecipe' :: Maybe Bool
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aencrypted%3AContainerRecipe%27"><span class="hs-identifier hs-var">encrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aowner%3AContainerRecipe%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:dateCreated:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AdateCreated%3AContainerRecipe%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aname%3AContainerRecipe%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AkmsKeyId%3AContainerRecipe%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aversion%3AContainerRecipe%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetRepository:ContainerRecipe' :: Maybe TargetContainerRepository
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AtargetRepository%3AContainerRecipe%27"><span class="hs-identifier hs-var">targetRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetContainerRepository
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Adescription%3AContainerRecipe%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ContainerRecipe' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Atags%3AContainerRecipe%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceConfiguration:ContainerRecipe' :: Maybe InstanceConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AinstanceConfiguration%3AContainerRecipe%27"><span class="hs-identifier hs-var">instanceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | Components for build and test that are included in the container recipe.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_components"><span class="hs-identifier hs-type">containerRecipe_components</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration"><span class="hs-identifier hs-type">ComponentConfiguration</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="containerRecipe_components"><span class="annot"><span class="annottext">containerRecipe_components :: (Maybe (NonEmpty ComponentConfiguration)
+ -&gt; f (Maybe (NonEmpty ComponentConfiguration)))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_components"><span class="hs-identifier hs-var hs-var">containerRecipe_components</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe (NonEmpty ComponentConfiguration))
+-&gt; (ContainerRecipe
+    -&gt; Maybe (NonEmpty ComponentConfiguration) -&gt; ContainerRecipe)
+-&gt; Lens
+     ContainerRecipe
+     ContainerRecipe
+     (Maybe (NonEmpty ComponentConfiguration))
+     (Maybe (NonEmpty ComponentConfiguration))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319155"><span class="annot"><span class="annottext">Maybe (NonEmpty ComponentConfiguration)
+components :: Maybe (NonEmpty ComponentConfiguration)
+$sel:components:ContainerRecipe' :: ContainerRecipe -&gt; Maybe (NonEmpty ComponentConfiguration)
+</span><a href="#local-6989586621679319155"><span class="hs-identifier hs-var hs-var">components</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ComponentConfiguration)
+</span><a href="#local-6989586621679319155"><span class="hs-identifier hs-var">components</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319154"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319153"><span class="annot"><span class="annottext">Maybe (NonEmpty ComponentConfiguration)
+</span><a href="#local-6989586621679319153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:components:ContainerRecipe' :: Maybe (NonEmpty ComponentConfiguration)
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Acomponents%3AContainerRecipe%27"><span class="hs-identifier hs-var">components</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ComponentConfiguration)
+</span><a href="#local-6989586621679319153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ComponentConfiguration)
+  -&gt; f (Maybe (NonEmpty ComponentConfiguration)))
+ -&gt; ContainerRecipe -&gt; f ContainerRecipe)
+-&gt; ((Maybe (NonEmpty ComponentConfiguration)
+     -&gt; f (Maybe (NonEmpty ComponentConfiguration)))
+    -&gt; Maybe (NonEmpty ComponentConfiguration)
+    -&gt; f (Maybe (NonEmpty ComponentConfiguration)))
+-&gt; (Maybe (NonEmpty ComponentConfiguration)
+    -&gt; f (Maybe (NonEmpty ComponentConfiguration)))
+-&gt; ContainerRecipe
+-&gt; f ContainerRecipe
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ComponentConfiguration)
+  (NonEmpty ComponentConfiguration)
+  (NonEmpty ComponentConfiguration)
+  (NonEmpty ComponentConfiguration)
+-&gt; Iso
+     (Maybe (NonEmpty ComponentConfiguration))
+     (Maybe (NonEmpty ComponentConfiguration))
+     (Maybe (NonEmpty ComponentConfiguration))
+     (Maybe (NonEmpty ComponentConfiguration))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ComponentConfiguration)
+  (NonEmpty ComponentConfiguration)
+  (NonEmpty ComponentConfiguration)
+  (NonEmpty ComponentConfiguration)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | Specifies the type of container, such as Docker.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_containerType"><span class="hs-identifier hs-type">containerRecipe_containerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-type">ContainerType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="containerRecipe_containerType"><span class="annot"><span class="annottext">containerRecipe_containerType :: (Maybe ContainerType -&gt; f (Maybe ContainerType))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_containerType"><span class="hs-identifier hs-var hs-var">containerRecipe_containerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe ContainerType)
+-&gt; (ContainerRecipe -&gt; Maybe ContainerType -&gt; ContainerRecipe)
+-&gt; Lens
+     ContainerRecipe
+     ContainerRecipe
+     (Maybe ContainerType)
+     (Maybe ContainerType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319148"><span class="annot"><span class="annottext">Maybe ContainerType
+containerType :: Maybe ContainerType
+$sel:containerType:ContainerRecipe' :: ContainerRecipe -&gt; Maybe ContainerType
+</span><a href="#local-6989586621679319148"><span class="hs-identifier hs-var hs-var">containerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerType
+</span><a href="#local-6989586621679319148"><span class="hs-identifier hs-var">containerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319147"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319146"><span class="annot"><span class="annottext">Maybe ContainerType
+</span><a href="#local-6989586621679319146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerType:ContainerRecipe' :: Maybe ContainerType
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AcontainerType%3AContainerRecipe%27"><span class="hs-identifier hs-var">containerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerType
+</span><a href="#local-6989586621679319146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The system platform for the container, such as Windows or Linux.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_platform"><span class="hs-identifier hs-type">containerRecipe_platform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform"><span class="hs-identifier hs-type">Platform</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="containerRecipe_platform"><span class="annot"><span class="annottext">containerRecipe_platform :: (Maybe Platform -&gt; f (Maybe Platform))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_platform"><span class="hs-identifier hs-var hs-var">containerRecipe_platform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe Platform)
+-&gt; (ContainerRecipe -&gt; Maybe Platform -&gt; ContainerRecipe)
+-&gt; Lens
+     ContainerRecipe ContainerRecipe (Maybe Platform) (Maybe Platform)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319144"><span class="annot"><span class="annottext">Maybe Platform
+platform :: Maybe Platform
+$sel:platform:ContainerRecipe' :: ContainerRecipe -&gt; Maybe Platform
+</span><a href="#local-6989586621679319144"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Platform
+</span><a href="#local-6989586621679319144"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319143"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319142"><span class="annot"><span class="annottext">Maybe Platform
+</span><a href="#local-6989586621679319142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:ContainerRecipe' :: Maybe Platform
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aplatform%3AContainerRecipe%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Platform
+</span><a href="#local-6989586621679319142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | Dockerfiles are text documents that are used to build Docker containers,</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- and ensure that they contain all of the elements required by the</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- application running inside. The template data consists of contextual</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- variables where Image Builder places build information or scripts, based</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- on your container image recipe.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_dockerfileTemplateData"><span class="hs-identifier hs-type">containerRecipe_dockerfileTemplateData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="containerRecipe_dockerfileTemplateData"><span class="annot"><span class="annottext">containerRecipe_dockerfileTemplateData :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_dockerfileTemplateData"><span class="hs-identifier hs-var hs-var">containerRecipe_dockerfileTemplateData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe Text)
+-&gt; (ContainerRecipe -&gt; Maybe Text -&gt; ContainerRecipe)
+-&gt; Lens ContainerRecipe ContainerRecipe (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319140"><span class="annot"><span class="annottext">Maybe Text
+dockerfileTemplateData :: Maybe Text
+$sel:dockerfileTemplateData:ContainerRecipe' :: ContainerRecipe -&gt; Maybe Text
+</span><a href="#local-6989586621679319140"><span class="hs-identifier hs-var hs-var">dockerfileTemplateData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319140"><span class="hs-identifier hs-var">dockerfileTemplateData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319139"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319138"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dockerfileTemplateData:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AdockerfileTemplateData%3AContainerRecipe%27"><span class="hs-identifier hs-var">dockerfileTemplateData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the container recipe.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Semantic versioning is included in each object\'s Amazon Resource Name</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- (ARN), at the level that applies to that object as follows:</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 1.  Versionless ARNs and Name ARNs do not include specific values in any</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--     of the nodes. The nodes are either left off entirely, or they are</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     specified as wildcards, for example: x.x.x.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 2.  Version ARNs have only the first three nodes:</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--     \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 3.  Build version ARNs have all four nodes, and point to a specific</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--     build for a specific version of an object.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_arn"><span class="hs-identifier hs-type">containerRecipe_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="containerRecipe_arn"><span class="annot"><span class="annottext">containerRecipe_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_arn"><span class="hs-identifier hs-var hs-var">containerRecipe_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe Text)
+-&gt; (ContainerRecipe -&gt; Maybe Text -&gt; ContainerRecipe)
+-&gt; Lens ContainerRecipe ContainerRecipe (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319136"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:ContainerRecipe' :: ContainerRecipe -&gt; Maybe Text
+</span><a href="#local-6989586621679319136"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319136"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319135"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319134"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aarn%3AContainerRecipe%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The working directory for use during build and test workflows.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_workingDirectory"><span class="hs-identifier hs-type">containerRecipe_workingDirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="containerRecipe_workingDirectory"><span class="annot"><span class="annottext">containerRecipe_workingDirectory :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_workingDirectory"><span class="hs-identifier hs-var hs-var">containerRecipe_workingDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe Text)
+-&gt; (ContainerRecipe -&gt; Maybe Text -&gt; ContainerRecipe)
+-&gt; Lens ContainerRecipe ContainerRecipe (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319132"><span class="annot"><span class="annottext">Maybe Text
+workingDirectory :: Maybe Text
+$sel:workingDirectory:ContainerRecipe' :: ContainerRecipe -&gt; Maybe Text
+</span><a href="#local-6989586621679319132"><span class="hs-identifier hs-var hs-var">workingDirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319132"><span class="hs-identifier hs-var">workingDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319131"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319130"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workingDirectory:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AworkingDirectory%3AContainerRecipe%27"><span class="hs-identifier hs-var">workingDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The base image for the container recipe.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_parentImage"><span class="hs-identifier hs-type">containerRecipe_parentImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="containerRecipe_parentImage"><span class="annot"><span class="annottext">containerRecipe_parentImage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_parentImage"><span class="hs-identifier hs-var hs-var">containerRecipe_parentImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe Text)
+-&gt; (ContainerRecipe -&gt; Maybe Text -&gt; ContainerRecipe)
+-&gt; Lens ContainerRecipe ContainerRecipe (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319128"><span class="annot"><span class="annottext">Maybe Text
+parentImage :: Maybe Text
+$sel:parentImage:ContainerRecipe' :: ContainerRecipe -&gt; Maybe Text
+</span><a href="#local-6989586621679319128"><span class="hs-identifier hs-var hs-var">parentImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319128"><span class="hs-identifier hs-var">parentImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319127"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319126"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentImage:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AparentImage%3AContainerRecipe%27"><span class="hs-identifier hs-var">parentImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | A flag that indicates if the target container is encrypted.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_encrypted"><span class="hs-identifier hs-type">containerRecipe_encrypted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="containerRecipe_encrypted"><span class="annot"><span class="annottext">containerRecipe_encrypted :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_encrypted"><span class="hs-identifier hs-var hs-var">containerRecipe_encrypted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe Bool)
+-&gt; (ContainerRecipe -&gt; Maybe Bool -&gt; ContainerRecipe)
+-&gt; Lens ContainerRecipe ContainerRecipe (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319124"><span class="annot"><span class="annottext">Maybe Bool
+encrypted :: Maybe Bool
+$sel:encrypted:ContainerRecipe' :: ContainerRecipe -&gt; Maybe Bool
+</span><a href="#local-6989586621679319124"><span class="hs-identifier hs-var hs-var">encrypted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679319124"><span class="hs-identifier hs-var">encrypted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319123"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319122"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679319122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encrypted:ContainerRecipe' :: Maybe Bool
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aencrypted%3AContainerRecipe%27"><span class="hs-identifier hs-var">encrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679319122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The owner of the container recipe.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_owner"><span class="hs-identifier hs-type">containerRecipe_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="containerRecipe_owner"><span class="annot"><span class="annottext">containerRecipe_owner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_owner"><span class="hs-identifier hs-var hs-var">containerRecipe_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe Text)
+-&gt; (ContainerRecipe -&gt; Maybe Text -&gt; ContainerRecipe)
+-&gt; Lens ContainerRecipe ContainerRecipe (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319120"><span class="annot"><span class="annottext">Maybe Text
+owner :: Maybe Text
+$sel:owner:ContainerRecipe' :: ContainerRecipe -&gt; Maybe Text
+</span><a href="#local-6989586621679319120"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319120"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319119"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319118"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aowner%3AContainerRecipe%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The date when this container recipe was created.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_dateCreated"><span class="hs-identifier hs-type">containerRecipe_dateCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span id="containerRecipe_dateCreated"><span class="annot"><span class="annottext">containerRecipe_dateCreated :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_dateCreated"><span class="hs-identifier hs-var hs-var">containerRecipe_dateCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe Text)
+-&gt; (ContainerRecipe -&gt; Maybe Text -&gt; ContainerRecipe)
+-&gt; Lens ContainerRecipe ContainerRecipe (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319116"><span class="annot"><span class="annottext">Maybe Text
+dateCreated :: Maybe Text
+$sel:dateCreated:ContainerRecipe' :: ContainerRecipe -&gt; Maybe Text
+</span><a href="#local-6989586621679319116"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319116"><span class="hs-identifier hs-var">dateCreated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319115"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319114"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateCreated:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AdateCreated%3AContainerRecipe%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | The name of the container recipe.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_name"><span class="hs-identifier hs-type">containerRecipe_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span id="containerRecipe_name"><span class="annot"><span class="annottext">containerRecipe_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_name"><span class="hs-identifier hs-var hs-var">containerRecipe_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe Text)
+-&gt; (ContainerRecipe -&gt; Maybe Text -&gt; ContainerRecipe)
+-&gt; Lens ContainerRecipe ContainerRecipe (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319112"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ContainerRecipe' :: ContainerRecipe -&gt; Maybe Text
+</span><a href="#local-6989586621679319112"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319112"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319111"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319110"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aname%3AContainerRecipe%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | Identifies which KMS key is used to encrypt the container image for</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- distribution to the target Region.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_kmsKeyId"><span class="hs-identifier hs-type">containerRecipe_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="containerRecipe_kmsKeyId"><span class="annot"><span class="annottext">containerRecipe_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_kmsKeyId"><span class="hs-identifier hs-var hs-var">containerRecipe_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe Text)
+-&gt; (ContainerRecipe -&gt; Maybe Text -&gt; ContainerRecipe)
+-&gt; Lens ContainerRecipe ContainerRecipe (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319108"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyId :: Maybe Text
+$sel:kmsKeyId:ContainerRecipe' :: ContainerRecipe -&gt; Maybe Text
+</span><a href="#local-6989586621679319108"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319108"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319107"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319106"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AkmsKeyId%3AContainerRecipe%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | The semantic version of the container recipe.</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- The semantic version has four nodes:</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;\/\&lt;build&gt;. You can assign values for the</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- first three, and can filter on all of them.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- __Assignment:__ For the first three nodes you can assign any positive</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- integer value, including zero, with an upper limit of 2^30-1, or</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- 1073741823 for each node. Image Builder automatically assigns the build</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- number to the fourth node.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- __Patterns:__ You can use any numeric pattern that adheres to the</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- assignment requirements for the nodes that you can assign. For example,</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- you might choose a software version pattern, such as 1.0.0, or a date,</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- such as 2021.01.01.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- __Filtering:__ With semantic versioning, you have the flexibility to use</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- wildcards (x) to specify the most recent versions or nodes when</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- selecting the base image or components for your recipe. When you use a</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- wildcard in any node, all nodes to the right of the first wildcard must</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- also be wildcards.</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_version"><span class="hs-identifier hs-type">containerRecipe_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span id="containerRecipe_version"><span class="annot"><span class="annottext">containerRecipe_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_version"><span class="hs-identifier hs-var hs-var">containerRecipe_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe Text)
+-&gt; (ContainerRecipe -&gt; Maybe Text -&gt; ContainerRecipe)
+-&gt; Lens ContainerRecipe ContainerRecipe (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319104"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:ContainerRecipe' :: ContainerRecipe -&gt; Maybe Text
+</span><a href="#local-6989586621679319104"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319104"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319103"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319102"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Aversion%3AContainerRecipe%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | The destination repository for the container image.</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_targetRepository"><span class="hs-identifier hs-type">containerRecipe_targetRepository</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.TargetContainerRepository.html#TargetContainerRepository"><span class="hs-identifier hs-type">TargetContainerRepository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span id="containerRecipe_targetRepository"><span class="annot"><span class="annottext">containerRecipe_targetRepository :: (Maybe TargetContainerRepository
+ -&gt; f (Maybe TargetContainerRepository))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_targetRepository"><span class="hs-identifier hs-var hs-var">containerRecipe_targetRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe TargetContainerRepository)
+-&gt; (ContainerRecipe
+    -&gt; Maybe TargetContainerRepository -&gt; ContainerRecipe)
+-&gt; Lens
+     ContainerRecipe
+     ContainerRecipe
+     (Maybe TargetContainerRepository)
+     (Maybe TargetContainerRepository)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319100"><span class="annot"><span class="annottext">Maybe TargetContainerRepository
+targetRepository :: Maybe TargetContainerRepository
+$sel:targetRepository:ContainerRecipe' :: ContainerRecipe -&gt; Maybe TargetContainerRepository
+</span><a href="#local-6989586621679319100"><span class="hs-identifier hs-var hs-var">targetRepository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetContainerRepository
+</span><a href="#local-6989586621679319100"><span class="hs-identifier hs-var">targetRepository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319099"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319098"><span class="annot"><span class="annottext">Maybe TargetContainerRepository
+</span><a href="#local-6989586621679319098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetRepository:ContainerRecipe' :: Maybe TargetContainerRepository
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AtargetRepository%3AContainerRecipe%27"><span class="hs-identifier hs-var">targetRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetContainerRepository
+</span><a href="#local-6989586621679319098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- | The description of the container recipe.</span><span>
+</span><span id="line-309"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_description"><span class="hs-identifier hs-type">containerRecipe_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span id="containerRecipe_description"><span class="annot"><span class="annottext">containerRecipe_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_description"><span class="hs-identifier hs-var hs-var">containerRecipe_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe Text)
+-&gt; (ContainerRecipe -&gt; Maybe Text -&gt; ContainerRecipe)
+-&gt; Lens ContainerRecipe ContainerRecipe (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319096"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ContainerRecipe' :: ContainerRecipe -&gt; Maybe Text
+</span><a href="#local-6989586621679319096"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319096"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319095"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319094"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ContainerRecipe' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Adescription%3AContainerRecipe%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- | Tags that are attached to the container recipe.</span><span>
+</span><span id="line-313"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_tags"><span class="hs-identifier hs-type">containerRecipe_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span id="containerRecipe_tags"><span class="annot"><span class="annottext">containerRecipe_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_tags"><span class="hs-identifier hs-var hs-var">containerRecipe_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe (HashMap Text Text))
+-&gt; (ContainerRecipe
+    -&gt; Maybe (HashMap Text Text) -&gt; ContainerRecipe)
+-&gt; Lens
+     ContainerRecipe
+     ContainerRecipe
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319092"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:ContainerRecipe' :: ContainerRecipe -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679319092"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679319092"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319091"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319090"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679319090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ContainerRecipe' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3Atags%3AContainerRecipe%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679319090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ContainerRecipe -&gt; f ContainerRecipe)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ContainerRecipe
+-&gt; f ContainerRecipe
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- | A group of options that can be used to configure an instance for</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- building and testing container images.</span><span>
+</span><span id="line-318"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_instanceConfiguration"><span class="hs-identifier hs-type">containerRecipe_instanceConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InstanceConfiguration.html#InstanceConfiguration"><span class="hs-identifier hs-type">InstanceConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span id="containerRecipe_instanceConfiguration"><span class="annot"><span class="annottext">containerRecipe_instanceConfiguration :: (Maybe InstanceConfiguration -&gt; f (Maybe InstanceConfiguration))
+-&gt; ContainerRecipe -&gt; f ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#containerRecipe_instanceConfiguration"><span class="hs-identifier hs-var hs-var">containerRecipe_instanceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerRecipe -&gt; Maybe InstanceConfiguration)
+-&gt; (ContainerRecipe
+    -&gt; Maybe InstanceConfiguration -&gt; ContainerRecipe)
+-&gt; Lens
+     ContainerRecipe
+     ContainerRecipe
+     (Maybe InstanceConfiguration)
+     (Maybe InstanceConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319088"><span class="annot"><span class="annottext">Maybe InstanceConfiguration
+instanceConfiguration :: Maybe InstanceConfiguration
+$sel:instanceConfiguration:ContainerRecipe' :: ContainerRecipe -&gt; Maybe InstanceConfiguration
+</span><a href="#local-6989586621679319088"><span class="hs-identifier hs-var hs-var">instanceConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceConfiguration
+</span><a href="#local-6989586621679319088"><span class="hs-identifier hs-var">instanceConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319087"><span class="annot"><span class="annottext">s :: ContainerRecipe
+</span><a href="#local-6989586621679319087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-type">ContainerRecipe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319086"><span class="annot"><span class="annottext">Maybe InstanceConfiguration
+</span><a href="#local-6989586621679319086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerRecipe
+</span><a href="#local-6989586621679319087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceConfiguration:ContainerRecipe' :: Maybe InstanceConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#%24sel%3AinstanceConfiguration%3AContainerRecipe%27"><span class="hs-identifier hs-var">instanceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceConfiguration
+</span><a href="#local-6989586621679319086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span>
+</span><span id="line-321"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319083"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-322"></span><span>  </span><span id="local-6989586621679319081"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerRecipe
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-323"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ContainerRecipe)
+-&gt; Value
+-&gt; Parser ContainerRecipe
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-324"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ContainerRecipe&quot;</span></span><span>
+</span><span id="line-325"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679319078"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-326"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty ComponentConfiguration)
+-&gt; Maybe ContainerType
+-&gt; Maybe Platform
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe TargetContainerRepository
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe InstanceConfiguration
+-&gt; ContainerRecipe
+</span><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe%27"><span class="hs-identifier hs-var">ContainerRecipe'</span></a></span><span>
+</span><span id="line-327"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty ComponentConfiguration)
+ -&gt; Maybe ContainerType
+ -&gt; Maybe Platform
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe TargetContainerRepository
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe InstanceConfiguration
+ -&gt; ContainerRecipe)
+-&gt; Parser (Maybe (NonEmpty ComponentConfiguration))
+-&gt; Parser
+     (Maybe ContainerType
+      -&gt; Maybe Platform
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TargetContainerRepository
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration
+      -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty ComponentConfiguration))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;components&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ContainerType
+   -&gt; Maybe Platform
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TargetContainerRepository
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration
+   -&gt; ContainerRecipe)
+-&gt; Parser (Maybe ContainerType)
+-&gt; Parser
+     (Maybe Platform
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TargetContainerRepository
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration
+      -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Platform
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TargetContainerRepository
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration
+   -&gt; ContainerRecipe)
+-&gt; Parser (Maybe Platform)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TargetContainerRepository
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration
+      -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Platform)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;platform&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TargetContainerRepository
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration
+   -&gt; ContainerRecipe)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TargetContainerRepository
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration
+      -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dockerfileTemplateData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TargetContainerRepository
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration
+   -&gt; ContainerRecipe)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TargetContainerRepository
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration
+      -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TargetContainerRepository
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration
+   -&gt; ContainerRecipe)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TargetContainerRepository
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration
+      -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workingDirectory&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TargetContainerRepository
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration
+   -&gt; ContainerRecipe)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TargetContainerRepository
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration
+      -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parentImage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TargetContainerRepository
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration
+   -&gt; ContainerRecipe)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TargetContainerRepository
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration
+      -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encrypted&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TargetContainerRepository
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration
+   -&gt; ContainerRecipe)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TargetContainerRepository
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration
+      -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;owner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TargetContainerRepository
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration
+   -&gt; ContainerRecipe)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TargetContainerRepository
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration
+      -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dateCreated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TargetContainerRepository
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration
+   -&gt; ContainerRecipe)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TargetContainerRepository
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration
+      -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TargetContainerRepository
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration
+   -&gt; ContainerRecipe)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe TargetContainerRepository
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration
+      -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe TargetContainerRepository
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration
+   -&gt; ContainerRecipe)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe TargetContainerRepository
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration
+      -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TargetContainerRepository
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration
+   -&gt; ContainerRecipe)
+-&gt; Parser (Maybe TargetContainerRepository)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration
+      -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetContainerRepository)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targetRepository&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration
+   -&gt; ContainerRecipe)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe InstanceConfiguration -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe InstanceConfiguration -&gt; ContainerRecipe)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe InstanceConfiguration -&gt; ContainerRecipe)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe InstanceConfiguration -&gt; ContainerRecipe)
+-&gt; Parser (Maybe InstanceConfiguration) -&gt; Parser ContainerRecipe
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319071"><span id="local-6989586621679319073"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span></span></span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319068"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerRecipe.html#ContainerRecipe"><span class="hs-identifier hs-type">ContainerRecipe</span></a></span></span><span>
+</span><span id="line-349"></span></pre></body></html>

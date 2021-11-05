@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.FIS.Types.ExperimentStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FIS.Types.ExperimentStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus"><span class="hs-identifier">ExperimentStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Completed"><span class="hs-identifier">ExperimentStatus_Completed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Failed"><span class="hs-identifier">ExperimentStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Initiating"><span class="hs-identifier">ExperimentStatus_Initiating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Pending"><span class="hs-identifier">ExperimentStatus_Pending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Running"><span class="hs-identifier">ExperimentStatus_Running</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Stopped"><span class="hs-identifier">ExperimentStatus_Stopped</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Stopping"><span class="hs-identifier">ExperimentStatus_Stopping</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679184069"><span id="local-6989586621679184070"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExperimentStatus"><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus"><span class="hs-identifier hs-var">ExperimentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExperimentStatus%27"><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus%27"><span class="hs-identifier hs-var">ExperimentStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExperimentStatus"><span class="annot"><span class="annottext">ExperimentStatus -&gt; Text
+</span><a href="Network.AWS.FIS.Types.ExperimentStatus.html#fromExperimentStatus"><span class="hs-identifier hs-var hs-var">fromExperimentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679184061"><span id="local-6989586621679184063"><span id="local-6989586621679184065"><span class="annot"><span class="annottext">Int -&gt; ExperimentStatus -&gt; ShowS
+[ExperimentStatus] -&gt; ShowS
+ExperimentStatus -&gt; String
+(Int -&gt; ExperimentStatus -&gt; ShowS)
+-&gt; (ExperimentStatus -&gt; String)
+-&gt; ([ExperimentStatus] -&gt; ShowS)
+-&gt; Show ExperimentStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExperimentStatus] -&gt; ShowS
+$cshowList :: [ExperimentStatus] -&gt; ShowS
+show :: ExperimentStatus -&gt; String
+$cshow :: ExperimentStatus -&gt; String
+showsPrec :: Int -&gt; ExperimentStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExperimentStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679184052"><span id="local-6989586621679184054"><span id="local-6989586621679184056"><span id="local-6989586621679184058"><span class="annot"><span class="annottext">ReadPrec [ExperimentStatus]
+ReadPrec ExperimentStatus
+Int -&gt; ReadS ExperimentStatus
+ReadS [ExperimentStatus]
+(Int -&gt; ReadS ExperimentStatus)
+-&gt; ReadS [ExperimentStatus]
+-&gt; ReadPrec ExperimentStatus
+-&gt; ReadPrec [ExperimentStatus]
+-&gt; Read ExperimentStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExperimentStatus]
+$creadListPrec :: ReadPrec [ExperimentStatus]
+readPrec :: ReadPrec ExperimentStatus
+$creadPrec :: ReadPrec ExperimentStatus
+readList :: ReadS [ExperimentStatus]
+$creadList :: ReadS [ExperimentStatus]
+readsPrec :: Int -&gt; ReadS ExperimentStatus
+$creadsPrec :: Int -&gt; ReadS ExperimentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679184047"><span id="local-6989586621679184049"><span class="annot"><span class="annottext">ExperimentStatus -&gt; ExperimentStatus -&gt; Bool
+(ExperimentStatus -&gt; ExperimentStatus -&gt; Bool)
+-&gt; (ExperimentStatus -&gt; ExperimentStatus -&gt; Bool)
+-&gt; Eq ExperimentStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExperimentStatus -&gt; ExperimentStatus -&gt; Bool
+$c/= :: ExperimentStatus -&gt; ExperimentStatus -&gt; Bool
+== :: ExperimentStatus -&gt; ExperimentStatus -&gt; Bool
+$c== :: ExperimentStatus -&gt; ExperimentStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679184031"><span id="local-6989586621679184033"><span id="local-6989586621679184035"><span id="local-6989586621679184037"><span id="local-6989586621679184039"><span id="local-6989586621679184041"><span id="local-6989586621679184043"><span class="annot"><span class="annottext">Eq ExperimentStatus
+Eq ExperimentStatus
+-&gt; (ExperimentStatus -&gt; ExperimentStatus -&gt; Ordering)
+-&gt; (ExperimentStatus -&gt; ExperimentStatus -&gt; Bool)
+-&gt; (ExperimentStatus -&gt; ExperimentStatus -&gt; Bool)
+-&gt; (ExperimentStatus -&gt; ExperimentStatus -&gt; Bool)
+-&gt; (ExperimentStatus -&gt; ExperimentStatus -&gt; Bool)
+-&gt; (ExperimentStatus -&gt; ExperimentStatus -&gt; ExperimentStatus)
+-&gt; (ExperimentStatus -&gt; ExperimentStatus -&gt; ExperimentStatus)
+-&gt; Ord ExperimentStatus
+ExperimentStatus -&gt; ExperimentStatus -&gt; Bool
+ExperimentStatus -&gt; ExperimentStatus -&gt; Ordering
+ExperimentStatus -&gt; ExperimentStatus -&gt; ExperimentStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExperimentStatus -&gt; ExperimentStatus -&gt; ExperimentStatus
+$cmin :: ExperimentStatus -&gt; ExperimentStatus -&gt; ExperimentStatus
+max :: ExperimentStatus -&gt; ExperimentStatus -&gt; ExperimentStatus
+$cmax :: ExperimentStatus -&gt; ExperimentStatus -&gt; ExperimentStatus
+&gt;= :: ExperimentStatus -&gt; ExperimentStatus -&gt; Bool
+$c&gt;= :: ExperimentStatus -&gt; ExperimentStatus -&gt; Bool
+&gt; :: ExperimentStatus -&gt; ExperimentStatus -&gt; Bool
+$c&gt; :: ExperimentStatus -&gt; ExperimentStatus -&gt; Bool
+&lt;= :: ExperimentStatus -&gt; ExperimentStatus -&gt; Bool
+$c&lt;= :: ExperimentStatus -&gt; ExperimentStatus -&gt; Bool
+&lt; :: ExperimentStatus -&gt; ExperimentStatus -&gt; Bool
+$c&lt; :: ExperimentStatus -&gt; ExperimentStatus -&gt; Bool
+compare :: ExperimentStatus -&gt; ExperimentStatus -&gt; Ordering
+$ccompare :: ExperimentStatus -&gt; ExperimentStatus -&gt; Ordering
+$cp1Ord :: Eq ExperimentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ExperimentStatus -&gt; Rep ExperimentStatus x)
+-&gt; (forall x. Rep ExperimentStatus x -&gt; ExperimentStatus)
+-&gt; Generic ExperimentStatus
+forall x. Rep ExperimentStatus x -&gt; ExperimentStatus
+forall x. ExperimentStatus -&gt; Rep ExperimentStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExperimentStatus x -&gt; ExperimentStatus
+$cfrom :: forall x. ExperimentStatus -&gt; Rep ExperimentStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679184023"><span id="local-6989586621679184025"><span class="annot"><span class="annottext">Int -&gt; ExperimentStatus -&gt; Int
+ExperimentStatus -&gt; Int
+(Int -&gt; ExperimentStatus -&gt; Int)
+-&gt; (ExperimentStatus -&gt; Int) -&gt; Hashable ExperimentStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExperimentStatus -&gt; Int
+$chash :: ExperimentStatus -&gt; Int
+hashWithSalt :: Int -&gt; ExperimentStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ExperimentStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679184020"><span class="annot"><span class="annottext">ExperimentStatus -&gt; ()
+(ExperimentStatus -&gt; ()) -&gt; NFData ExperimentStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExperimentStatus -&gt; ()
+$crnf :: ExperimentStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679184017"><span class="annot"><span class="annottext">Text -&gt; Either String ExperimentStatus
+(Text -&gt; Either String ExperimentStatus)
+-&gt; FromText ExperimentStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExperimentStatus
+$cfromText :: Text -&gt; Either String ExperimentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679184014"><span class="annot"><span class="annottext">ExperimentStatus -&gt; Text
+(ExperimentStatus -&gt; Text) -&gt; ToText ExperimentStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExperimentStatus -&gt; Text
+$ctoText :: ExperimentStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679184011"><span class="annot"><span class="annottext">ExperimentStatus -&gt; ByteString
+(ExperimentStatus -&gt; ByteString) -&gt; ToByteString ExperimentStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExperimentStatus -&gt; ByteString
+$ctoBS :: ExperimentStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679184008"><span class="annot"><span class="annottext">ExperimentStatus -&gt; ByteStringBuilder
+(ExperimentStatus -&gt; ByteStringBuilder) -&gt; ToLog ExperimentStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExperimentStatus -&gt; ByteStringBuilder
+$cbuild :: ExperimentStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679184005"><span class="annot"><span class="annottext">HeaderName -&gt; ExperimentStatus -&gt; [Header]
+(HeaderName -&gt; ExperimentStatus -&gt; [Header])
+-&gt; ToHeader ExperimentStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExperimentStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExperimentStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679184002"><span class="annot"><span class="annottext">ExperimentStatus -&gt; QueryString
+(ExperimentStatus -&gt; QueryString) -&gt; ToQuery ExperimentStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExperimentStatus -&gt; QueryString
+$ctoQuery :: ExperimentStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679183997"><span id="local-6989586621679183999"><span class="annot"><span class="annottext">Value -&gt; Parser [ExperimentStatus]
+Value -&gt; Parser ExperimentStatus
+(Value -&gt; Parser ExperimentStatus)
+-&gt; (Value -&gt; Parser [ExperimentStatus])
+-&gt; FromJSON ExperimentStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExperimentStatus]
+$cparseJSONList :: Value -&gt; Parser [ExperimentStatus]
+parseJSON :: Value -&gt; Parser ExperimentStatus
+$cparseJSON :: Value -&gt; Parser ExperimentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679183992"><span id="local-6989586621679183994"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExperimentStatus]
+FromJSONKeyFunction ExperimentStatus
+FromJSONKeyFunction ExperimentStatus
+-&gt; FromJSONKeyFunction [ExperimentStatus]
+-&gt; FromJSONKey ExperimentStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExperimentStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExperimentStatus]
+fromJSONKey :: FromJSONKeyFunction ExperimentStatus
+$cfromJSONKey :: FromJSONKeyFunction ExperimentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679183983"><span id="local-6989586621679183985"><span id="local-6989586621679183987"><span id="local-6989586621679183989"><span class="annot"><span class="annottext">[ExperimentStatus] -&gt; Encoding
+[ExperimentStatus] -&gt; Value
+ExperimentStatus -&gt; Encoding
+ExperimentStatus -&gt; Value
+(ExperimentStatus -&gt; Value)
+-&gt; (ExperimentStatus -&gt; Encoding)
+-&gt; ([ExperimentStatus] -&gt; Value)
+-&gt; ([ExperimentStatus] -&gt; Encoding)
+-&gt; ToJSON ExperimentStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExperimentStatus] -&gt; Encoding
+$ctoEncodingList :: [ExperimentStatus] -&gt; Encoding
+toJSONList :: [ExperimentStatus] -&gt; Value
+$ctoJSONList :: [ExperimentStatus] -&gt; Value
+toEncoding :: ExperimentStatus -&gt; Encoding
+$ctoEncoding :: ExperimentStatus -&gt; Encoding
+toJSON :: ExperimentStatus -&gt; Value
+$ctoJSON :: ExperimentStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679183978"><span id="local-6989586621679183980"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExperimentStatus]
+ToJSONKeyFunction ExperimentStatus
+ToJSONKeyFunction ExperimentStatus
+-&gt; ToJSONKeyFunction [ExperimentStatus]
+-&gt; ToJSONKey ExperimentStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExperimentStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExperimentStatus]
+toJSONKey :: ToJSONKeyFunction ExperimentStatus
+$ctoJSONKey :: ToJSONKeyFunction ExperimentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679183975"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExperimentStatus
+([Node] -&gt; Either String ExperimentStatus)
+-&gt; FromXML ExperimentStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExperimentStatus
+$cparseXML :: [Node] -&gt; Either String ExperimentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679183972"><span class="annot"><span class="annottext">ExperimentStatus -&gt; XML
+(ExperimentStatus -&gt; XML) -&gt; ToXML ExperimentStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExperimentStatus -&gt; XML
+$ctoXML :: ExperimentStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Completed"><span class="hs-identifier hs-type">ExperimentStatus_Completed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus"><span class="hs-identifier hs-type">ExperimentStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExperimentStatus_Completed"><span id="%24mExperimentStatus_Completed"><span id="ExperimentStatus_Completed"><span class="annot"><span class="annottext">$bExperimentStatus_Completed :: ExperimentStatus
+$mExperimentStatus_Completed :: forall r. ExperimentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FIS.Types.ExperimentStatus.html#%24bExperimentStatus_Completed"><span class="hs-identifier hs-var hs-var hs-var">ExperimentStatus_Completed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus%27"><span class="hs-identifier hs-type">ExperimentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;completed&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Failed"><span class="hs-identifier hs-type">ExperimentStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus"><span class="hs-identifier hs-type">ExperimentStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExperimentStatus_Failed"><span id="%24mExperimentStatus_Failed"><span id="ExperimentStatus_Failed"><span class="annot"><span class="annottext">$bExperimentStatus_Failed :: ExperimentStatus
+$mExperimentStatus_Failed :: forall r. ExperimentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FIS.Types.ExperimentStatus.html#%24bExperimentStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">ExperimentStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus%27"><span class="hs-identifier hs-type">ExperimentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failed&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Initiating"><span class="hs-identifier hs-type">ExperimentStatus_Initiating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus"><span class="hs-identifier hs-type">ExperimentStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExperimentStatus_Initiating"><span id="%24mExperimentStatus_Initiating"><span id="ExperimentStatus_Initiating"><span class="annot"><span class="annottext">$bExperimentStatus_Initiating :: ExperimentStatus
+$mExperimentStatus_Initiating :: forall r. ExperimentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FIS.Types.ExperimentStatus.html#%24bExperimentStatus_Initiating"><span class="hs-identifier hs-var hs-var hs-var">ExperimentStatus_Initiating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus%27"><span class="hs-identifier hs-type">ExperimentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;initiating&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Pending"><span class="hs-identifier hs-type">ExperimentStatus_Pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus"><span class="hs-identifier hs-type">ExperimentStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExperimentStatus_Pending"><span id="%24mExperimentStatus_Pending"><span id="ExperimentStatus_Pending"><span class="annot"><span class="annottext">$bExperimentStatus_Pending :: ExperimentStatus
+$mExperimentStatus_Pending :: forall r. ExperimentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FIS.Types.ExperimentStatus.html#%24bExperimentStatus_Pending"><span class="hs-identifier hs-var hs-var hs-var">ExperimentStatus_Pending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus%27"><span class="hs-identifier hs-type">ExperimentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;pending&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Running"><span class="hs-identifier hs-type">ExperimentStatus_Running</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus"><span class="hs-identifier hs-type">ExperimentStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExperimentStatus_Running"><span id="%24mExperimentStatus_Running"><span id="ExperimentStatus_Running"><span class="annot"><span class="annottext">$bExperimentStatus_Running :: ExperimentStatus
+$mExperimentStatus_Running :: forall r. ExperimentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FIS.Types.ExperimentStatus.html#%24bExperimentStatus_Running"><span class="hs-identifier hs-var hs-var hs-var">ExperimentStatus_Running</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus%27"><span class="hs-identifier hs-type">ExperimentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;running&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Stopped"><span class="hs-identifier hs-type">ExperimentStatus_Stopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus"><span class="hs-identifier hs-type">ExperimentStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExperimentStatus_Stopped"><span id="%24mExperimentStatus_Stopped"><span id="ExperimentStatus_Stopped"><span class="annot"><span class="annottext">$bExperimentStatus_Stopped :: ExperimentStatus
+$mExperimentStatus_Stopped :: forall r. ExperimentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FIS.Types.ExperimentStatus.html#%24bExperimentStatus_Stopped"><span class="hs-identifier hs-var hs-var hs-var">ExperimentStatus_Stopped</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus%27"><span class="hs-identifier hs-type">ExperimentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;stopped&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Stopping"><span class="hs-identifier hs-type">ExperimentStatus_Stopping</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus"><span class="hs-identifier hs-type">ExperimentStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExperimentStatus_Stopping"><span id="%24mExperimentStatus_Stopping"><span id="ExperimentStatus_Stopping"><span class="annot"><span class="annottext">$bExperimentStatus_Stopping :: ExperimentStatus
+$mExperimentStatus_Stopping :: forall r. ExperimentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FIS.Types.ExperimentStatus.html#%24bExperimentStatus_Stopping"><span class="hs-identifier hs-var hs-var hs-var">ExperimentStatus_Stopping</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus%27"><span class="hs-identifier hs-type">ExperimentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;stopping&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Completed"><span class="hs-pragma hs-type">ExperimentStatus_Completed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Failed"><span class="hs-pragma hs-type">ExperimentStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Initiating"><span class="hs-pragma hs-type">ExperimentStatus_Initiating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Pending"><span class="hs-pragma hs-type">ExperimentStatus_Pending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Running"><span class="hs-pragma hs-type">ExperimentStatus_Running</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Stopped"><span class="hs-pragma hs-type">ExperimentStatus_Stopped</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus_Stopping"><span class="hs-pragma hs-type">ExperimentStatus_Stopping</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentStatus.html#ExperimentStatus%27"><span class="hs-pragma hs-type">ExperimentStatus'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.FraudDetector.UpdateRuleVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a rule version resulting in a new rule version. Updates a rule</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- version resulting in a new rule version (version 1, 2, 3 ...).</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FraudDetector.UpdateRuleVersion</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier">UpdateRuleVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#newUpdateRuleVersion"><span class="hs-identifier">newUpdateRuleVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_description"><span class="hs-identifier">updateRuleVersion_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_tags"><span class="hs-identifier">updateRuleVersion_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_rule"><span class="hs-identifier">updateRuleVersion_rule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_expression"><span class="hs-identifier">updateRuleVersion_expression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_language"><span class="hs-identifier">updateRuleVersion_language</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_outcomes"><span class="hs-identifier">updateRuleVersion_outcomes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse"><span class="hs-identifier">UpdateRuleVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#newUpdateRuleVersionResponse"><span class="hs-identifier">newUpdateRuleVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersionResponse_rule"><span class="hs-identifier">updateRuleVersionResponse_rule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersionResponse_httpStatus"><span class="hs-identifier">updateRuleVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUpdateRuleVersion' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679324914"><span id="local-6989586621679324915"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRuleVersion"><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-var">UpdateRuleVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRuleVersion%27"><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-var">UpdateRuleVersion'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateRuleVersion%27"><span class="annot"><span class="annottext">UpdateRuleVersion -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Adescription%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The tags to assign to the rule version.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Atags%3AUpdateRuleVersion%27"><span class="annot"><span class="annottext">UpdateRuleVersion -&gt; Maybe [Tag]
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Atags%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The rule to update.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Arule%3AUpdateRuleVersion%27"><span class="annot"><span class="annottext">UpdateRuleVersion -&gt; Rule
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Arule%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var hs-var">rule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The rule expression.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aexpression%3AUpdateRuleVersion%27"><span class="annot"><span class="annottext">UpdateRuleVersion -&gt; Sensitive Text
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Aexpression%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The language.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Alanguage%3AUpdateRuleVersion%27"><span class="annot"><span class="annottext">UpdateRuleVersion -&gt; Language
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Alanguage%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.Language.html#Language"><span class="hs-identifier hs-type">Language</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The outcomes.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Aoutcomes%3AUpdateRuleVersion%27"><span class="annot"><span class="annottext">UpdateRuleVersion -&gt; NonEmpty Text
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Aoutcomes%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var hs-var">outcomes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324903"><span id="local-6989586621679324905"><span class="annot"><span class="annottext">UpdateRuleVersion -&gt; UpdateRuleVersion -&gt; Bool
+(UpdateRuleVersion -&gt; UpdateRuleVersion -&gt; Bool)
+-&gt; (UpdateRuleVersion -&gt; UpdateRuleVersion -&gt; Bool)
+-&gt; Eq UpdateRuleVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRuleVersion -&gt; UpdateRuleVersion -&gt; Bool
+$c/= :: UpdateRuleVersion -&gt; UpdateRuleVersion -&gt; Bool
+== :: UpdateRuleVersion -&gt; UpdateRuleVersion -&gt; Bool
+$c== :: UpdateRuleVersion -&gt; UpdateRuleVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324896"><span id="local-6989586621679324898"><span id="local-6989586621679324900"><span class="annot"><span class="annottext">Int -&gt; UpdateRuleVersion -&gt; ShowS
+[UpdateRuleVersion] -&gt; ShowS
+UpdateRuleVersion -&gt; String
+(Int -&gt; UpdateRuleVersion -&gt; ShowS)
+-&gt; (UpdateRuleVersion -&gt; String)
+-&gt; ([UpdateRuleVersion] -&gt; ShowS)
+-&gt; Show UpdateRuleVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRuleVersion] -&gt; ShowS
+$cshowList :: [UpdateRuleVersion] -&gt; ShowS
+show :: UpdateRuleVersion -&gt; String
+$cshow :: UpdateRuleVersion -&gt; String
+showsPrec :: Int -&gt; UpdateRuleVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRuleVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateRuleVersion -&gt; Rep UpdateRuleVersion x)
+-&gt; (forall x. Rep UpdateRuleVersion x -&gt; UpdateRuleVersion)
+-&gt; Generic UpdateRuleVersion
+forall x. Rep UpdateRuleVersion x -&gt; UpdateRuleVersion
+forall x. UpdateRuleVersion -&gt; Rep UpdateRuleVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateRuleVersion x -&gt; UpdateRuleVersion
+$cfrom :: forall x. UpdateRuleVersion -&gt; Rep UpdateRuleVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'UpdateRuleVersion' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'description', 'updateRuleVersion_description' - The description.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'tags', 'updateRuleVersion_tags' - The tags to assign to the rule version.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'rule', 'updateRuleVersion_rule' - The rule to update.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'expression', 'updateRuleVersion_expression' - The rule expression.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'language', 'updateRuleVersion_language' - The language.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'outcomes', 'updateRuleVersion_outcomes' - The outcomes.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#newUpdateRuleVersion"><span class="hs-identifier hs-type">newUpdateRuleVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'rule'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'expression'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'language'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.Language.html#Language"><span class="hs-identifier hs-type">Language</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'outcomes'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span>
+</span><span id="line-101"></span><span id="newUpdateRuleVersion"><span class="annot"><span class="annottext">newUpdateRuleVersion :: Rule -&gt; Text -&gt; Language -&gt; NonEmpty Text -&gt; UpdateRuleVersion
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#newUpdateRuleVersion"><span class="hs-identifier hs-var hs-var">newUpdateRuleVersion</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679324891"><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679324891"><span class="hs-identifier hs-var">pRule_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679324890"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324890"><span class="hs-identifier hs-var">pExpression_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679324889"><span class="annot"><span class="annottext">Language
+</span><a href="#local-6989586621679324889"><span class="hs-identifier hs-var">pLanguage_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679324888"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679324888"><span class="hs-identifier hs-var">pOutcomes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">UpdateRuleVersion' :: Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Rule
+-&gt; Sensitive Text
+-&gt; Language
+-&gt; NonEmpty Text
+-&gt; UpdateRuleVersion
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-type">UpdateRuleVersion'</span></a></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:UpdateRuleVersion' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Adescription%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:UpdateRuleVersion' :: Maybe [Tag]
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Atags%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:rule:UpdateRuleVersion' :: Rule
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Arule%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var">rule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679324891"><span class="hs-identifier hs-var">pRule_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:expression:UpdateRuleVersion' :: Sensitive Text
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Aexpression%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324890"><span class="hs-identifier hs-var">pExpression_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:language:UpdateRuleVersion' :: Language
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Alanguage%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var">language</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Language
+</span><a href="#local-6989586621679324889"><span class="hs-identifier hs-var">pLanguage_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:outcomes:UpdateRuleVersion' :: NonEmpty Text
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Aoutcomes%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var">outcomes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679324888"><span class="hs-identifier hs-var">pOutcomes_</span></a></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The description.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_description"><span class="hs-identifier hs-type">updateRuleVersion_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="updateRuleVersion_description"><span class="annot"><span class="annottext">updateRuleVersion_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRuleVersion -&gt; f UpdateRuleVersion
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_description"><span class="hs-identifier hs-var hs-var">updateRuleVersion_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRuleVersion -&gt; Maybe Text)
+-&gt; (UpdateRuleVersion -&gt; Maybe Text -&gt; UpdateRuleVersion)
+-&gt; Lens
+     UpdateRuleVersion UpdateRuleVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-type">UpdateRuleVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324882"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateRuleVersion' :: UpdateRuleVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679324882"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324882"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324881"><span class="annot"><span class="annottext">s :: UpdateRuleVersion
+</span><a href="#local-6989586621679324881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-type">UpdateRuleVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324880"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuleVersion
+</span><a href="#local-6989586621679324881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateRuleVersion' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Adescription%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The tags to assign to the rule version.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_tags"><span class="hs-identifier hs-type">updateRuleVersion_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="updateRuleVersion_tags"><span class="annot"><span class="annottext">updateRuleVersion_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; UpdateRuleVersion -&gt; f UpdateRuleVersion
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_tags"><span class="hs-identifier hs-var hs-var">updateRuleVersion_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRuleVersion -&gt; Maybe [Tag])
+-&gt; (UpdateRuleVersion -&gt; Maybe [Tag] -&gt; UpdateRuleVersion)
+-&gt; Lens
+     UpdateRuleVersion UpdateRuleVersion (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-type">UpdateRuleVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324879"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:UpdateRuleVersion' :: UpdateRuleVersion -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679324879"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679324879"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324878"><span class="annot"><span class="annottext">s :: UpdateRuleVersion
+</span><a href="#local-6989586621679324878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-type">UpdateRuleVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324877"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679324877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuleVersion
+</span><a href="#local-6989586621679324878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UpdateRuleVersion' :: Maybe [Tag]
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Atags%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679324877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; UpdateRuleVersion -&gt; f UpdateRuleVersion)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; UpdateRuleVersion
+-&gt; f UpdateRuleVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The rule to update.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_rule"><span class="hs-identifier hs-type">updateRuleVersion_rule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span>
+</span><span id="line-125"></span><span id="updateRuleVersion_rule"><span class="annot"><span class="annottext">updateRuleVersion_rule :: (Rule -&gt; f Rule) -&gt; UpdateRuleVersion -&gt; f UpdateRuleVersion
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_rule"><span class="hs-identifier hs-var hs-var">updateRuleVersion_rule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRuleVersion -&gt; Rule)
+-&gt; (UpdateRuleVersion -&gt; Rule -&gt; UpdateRuleVersion)
+-&gt; Lens UpdateRuleVersion UpdateRuleVersion Rule Rule
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-type">UpdateRuleVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324874"><span class="annot"><span class="annottext">Rule
+rule :: Rule
+$sel:rule:UpdateRuleVersion' :: UpdateRuleVersion -&gt; Rule
+</span><a href="#local-6989586621679324874"><span class="hs-identifier hs-var hs-var">rule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679324874"><span class="hs-identifier hs-var">rule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324873"><span class="annot"><span class="annottext">s :: UpdateRuleVersion
+</span><a href="#local-6989586621679324873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-type">UpdateRuleVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324872"><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679324872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuleVersion
+</span><a href="#local-6989586621679324873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rule:UpdateRuleVersion' :: Rule
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Arule%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var">rule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679324872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The rule expression.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_expression"><span class="hs-identifier hs-type">updateRuleVersion_expression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-129"></span><span id="updateRuleVersion_expression"><span class="annot"><span class="annottext">updateRuleVersion_expression :: (Text -&gt; f Text) -&gt; UpdateRuleVersion -&gt; f UpdateRuleVersion
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_expression"><span class="hs-identifier hs-var hs-var">updateRuleVersion_expression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRuleVersion -&gt; Sensitive Text)
+-&gt; (UpdateRuleVersion -&gt; Sensitive Text -&gt; UpdateRuleVersion)
+-&gt; Lens
+     UpdateRuleVersion
+     UpdateRuleVersion
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-type">UpdateRuleVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324871"><span class="annot"><span class="annottext">Sensitive Text
+expression :: Sensitive Text
+$sel:expression:UpdateRuleVersion' :: UpdateRuleVersion -&gt; Sensitive Text
+</span><a href="#local-6989586621679324871"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679324871"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324870"><span class="annot"><span class="annottext">s :: UpdateRuleVersion
+</span><a href="#local-6989586621679324870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-type">UpdateRuleVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324869"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679324869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuleVersion
+</span><a href="#local-6989586621679324870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:UpdateRuleVersion' :: Sensitive Text
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Aexpression%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679324869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; UpdateRuleVersion -&gt; f UpdateRuleVersion)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; UpdateRuleVersion
+-&gt; f UpdateRuleVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The language.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_language"><span class="hs-identifier hs-type">updateRuleVersion_language</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.Language.html#Language"><span class="hs-identifier hs-type">Language</span></a></span><span>
+</span><span id="line-133"></span><span id="updateRuleVersion_language"><span class="annot"><span class="annottext">updateRuleVersion_language :: (Language -&gt; f Language)
+-&gt; UpdateRuleVersion -&gt; f UpdateRuleVersion
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_language"><span class="hs-identifier hs-var hs-var">updateRuleVersion_language</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRuleVersion -&gt; Language)
+-&gt; (UpdateRuleVersion -&gt; Language -&gt; UpdateRuleVersion)
+-&gt; Lens UpdateRuleVersion UpdateRuleVersion Language Language
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-type">UpdateRuleVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324868"><span class="annot"><span class="annottext">Language
+language :: Language
+$sel:language:UpdateRuleVersion' :: UpdateRuleVersion -&gt; Language
+</span><a href="#local-6989586621679324868"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Language
+</span><a href="#local-6989586621679324868"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324867"><span class="annot"><span class="annottext">s :: UpdateRuleVersion
+</span><a href="#local-6989586621679324867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-type">UpdateRuleVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324866"><span class="annot"><span class="annottext">Language
+</span><a href="#local-6989586621679324866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuleVersion
+</span><a href="#local-6989586621679324867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:language:UpdateRuleVersion' :: Language
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Alanguage%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var">language</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Language
+</span><a href="#local-6989586621679324866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The outcomes.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_outcomes"><span class="hs-identifier hs-type">updateRuleVersion_outcomes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="updateRuleVersion_outcomes"><span class="annot"><span class="annottext">updateRuleVersion_outcomes :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; UpdateRuleVersion -&gt; f UpdateRuleVersion
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersion_outcomes"><span class="hs-identifier hs-var hs-var">updateRuleVersion_outcomes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRuleVersion -&gt; NonEmpty Text)
+-&gt; (UpdateRuleVersion -&gt; NonEmpty Text -&gt; UpdateRuleVersion)
+-&gt; Lens
+     UpdateRuleVersion UpdateRuleVersion (NonEmpty Text) (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-type">UpdateRuleVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324865"><span class="annot"><span class="annottext">NonEmpty Text
+outcomes :: NonEmpty Text
+$sel:outcomes:UpdateRuleVersion' :: UpdateRuleVersion -&gt; NonEmpty Text
+</span><a href="#local-6989586621679324865"><span class="hs-identifier hs-var hs-var">outcomes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679324865"><span class="hs-identifier hs-var">outcomes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324864"><span class="annot"><span class="annottext">s :: UpdateRuleVersion
+</span><a href="#local-6989586621679324864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-type">UpdateRuleVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324863"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679324863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuleVersion
+</span><a href="#local-6989586621679324864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outcomes:UpdateRuleVersion' :: NonEmpty Text
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Aoutcomes%3AUpdateRuleVersion%27"><span class="hs-identifier hs-var">outcomes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679324863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; UpdateRuleVersion -&gt; f UpdateRuleVersion)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; UpdateRuleVersion
+-&gt; f UpdateRuleVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse"><span class="hs-identifier hs-type">UpdateRuleVersionResponse</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679324859"><span class="annot"><span class="annottext">request :: UpdateRuleVersion -&gt; Request UpdateRuleVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateRuleVersion -&gt; Request UpdateRuleVersion
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679324855"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateRuleVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRuleVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateRuleVersion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateRuleVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRuleVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679324852"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324852"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679324851"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679324851"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679324850"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324850"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Rule -&gt; Int -&gt; UpdateRuleVersionResponse
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse%27"><span class="hs-identifier hs-var">UpdateRuleVersionResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Rule -&gt; Int -&gt; UpdateRuleVersionResponse)
+-&gt; Either String (Maybe Rule)
+-&gt; Either String (Int -&gt; UpdateRuleVersionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Rule)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateRuleVersionResponse)
+-&gt; Either String Int -&gt; Either String UpdateRuleVersionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324852"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324842"><span id="local-6989586621679324844"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324839"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679324835"><span class="annot"><span class="annottext">toHeaders :: UpdateRuleVersion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRuleVersion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHawksNestServiceFacade.UpdateRuleVersion&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-163"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-167"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324825"><span id="local-6989586621679324827"><span id="local-6989586621679324829"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679324823"><span class="annot"><span class="annottext">toJSON :: UpdateRuleVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion%27"><span class="hs-identifier hs-type">UpdateRuleVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324816"><span id="local-6989586621679324817"><span id="local-6989586621679324818"><span id="local-6989586621679324819"><span id="local-6989586621679324820"><span id="local-6989586621679324821"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+NonEmpty Text
+Sensitive Text
+Language
+Rule
+outcomes :: NonEmpty Text
+language :: Language
+expression :: Sensitive Text
+rule :: Rule
+tags :: Maybe [Tag]
+description :: Maybe Text
+$sel:outcomes:UpdateRuleVersion' :: UpdateRuleVersion -&gt; NonEmpty Text
+$sel:language:UpdateRuleVersion' :: UpdateRuleVersion -&gt; Language
+$sel:expression:UpdateRuleVersion' :: UpdateRuleVersion -&gt; Sensitive Text
+$sel:rule:UpdateRuleVersion' :: UpdateRuleVersion -&gt; Rule
+$sel:tags:UpdateRuleVersion' :: UpdateRuleVersion -&gt; Maybe [Tag]
+$sel:description:UpdateRuleVersion' :: UpdateRuleVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679324816"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-175"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324821"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679324820"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rule&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Rule -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679324819"><span class="hs-identifier hs-var">rule</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;expression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679324818"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;language&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Language -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Language
+</span><a href="#local-6989586621679324817"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outcomes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679324816"><span class="hs-identifier hs-var">outcomes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679324810"><span class="annot"><span class="annottext">toPath :: UpdateRuleVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateRuleVersion -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersion"><span class="hs-identifier hs-type">UpdateRuleVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679324806"><span class="annot"><span class="annottext">toQuery :: UpdateRuleVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRuleVersion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newUpdateRuleVersionResponse' smart constructor.</span><span>
+</span><span id="line-191"></span><span id="local-6989586621679324803"><span id="local-6989586621679324804"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRuleVersionResponse"><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse"><span class="hs-identifier hs-var">UpdateRuleVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRuleVersionResponse%27"><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse%27"><span class="hs-identifier hs-var">UpdateRuleVersionResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new rule version that was created.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3Arule%3AUpdateRuleVersionResponse%27"><span class="annot"><span class="annottext">UpdateRuleVersionResponse -&gt; Maybe Rule
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Arule%3AUpdateRuleVersionResponse%27"><span class="hs-identifier hs-var hs-var">rule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRuleVersionResponse%27"><span class="annot"><span class="annottext">UpdateRuleVersionResponse -&gt; Int
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3AhttpStatus%3AUpdateRuleVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324797"><span id="local-6989586621679324799"><span class="annot"><span class="annottext">UpdateRuleVersionResponse -&gt; UpdateRuleVersionResponse -&gt; Bool
+(UpdateRuleVersionResponse -&gt; UpdateRuleVersionResponse -&gt; Bool)
+-&gt; (UpdateRuleVersionResponse -&gt; UpdateRuleVersionResponse -&gt; Bool)
+-&gt; Eq UpdateRuleVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRuleVersionResponse -&gt; UpdateRuleVersionResponse -&gt; Bool
+$c/= :: UpdateRuleVersionResponse -&gt; UpdateRuleVersionResponse -&gt; Bool
+== :: UpdateRuleVersionResponse -&gt; UpdateRuleVersionResponse -&gt; Bool
+$c== :: UpdateRuleVersionResponse -&gt; UpdateRuleVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324789"><span id="local-6989586621679324791"><span id="local-6989586621679324793"><span id="local-6989586621679324795"><span class="annot"><span class="annottext">ReadPrec [UpdateRuleVersionResponse]
+ReadPrec UpdateRuleVersionResponse
+Int -&gt; ReadS UpdateRuleVersionResponse
+ReadS [UpdateRuleVersionResponse]
+(Int -&gt; ReadS UpdateRuleVersionResponse)
+-&gt; ReadS [UpdateRuleVersionResponse]
+-&gt; ReadPrec UpdateRuleVersionResponse
+-&gt; ReadPrec [UpdateRuleVersionResponse]
+-&gt; Read UpdateRuleVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRuleVersionResponse]
+$creadListPrec :: ReadPrec [UpdateRuleVersionResponse]
+readPrec :: ReadPrec UpdateRuleVersionResponse
+$creadPrec :: ReadPrec UpdateRuleVersionResponse
+readList :: ReadS [UpdateRuleVersionResponse]
+$creadList :: ReadS [UpdateRuleVersionResponse]
+readsPrec :: Int -&gt; ReadS UpdateRuleVersionResponse
+$creadsPrec :: Int -&gt; ReadS UpdateRuleVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324782"><span id="local-6989586621679324784"><span id="local-6989586621679324786"><span class="annot"><span class="annottext">Int -&gt; UpdateRuleVersionResponse -&gt; ShowS
+[UpdateRuleVersionResponse] -&gt; ShowS
+UpdateRuleVersionResponse -&gt; String
+(Int -&gt; UpdateRuleVersionResponse -&gt; ShowS)
+-&gt; (UpdateRuleVersionResponse -&gt; String)
+-&gt; ([UpdateRuleVersionResponse] -&gt; ShowS)
+-&gt; Show UpdateRuleVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRuleVersionResponse] -&gt; ShowS
+$cshowList :: [UpdateRuleVersionResponse] -&gt; ShowS
+show :: UpdateRuleVersionResponse -&gt; String
+$cshow :: UpdateRuleVersionResponse -&gt; String
+showsPrec :: Int -&gt; UpdateRuleVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRuleVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateRuleVersionResponse -&gt; Rep UpdateRuleVersionResponse x)
+-&gt; (forall x.
+    Rep UpdateRuleVersionResponse x -&gt; UpdateRuleVersionResponse)
+-&gt; Generic UpdateRuleVersionResponse
+forall x.
+Rep UpdateRuleVersionResponse x -&gt; UpdateRuleVersionResponse
+forall x.
+UpdateRuleVersionResponse -&gt; Rep UpdateRuleVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateRuleVersionResponse x -&gt; UpdateRuleVersionResponse
+$cfrom :: forall x.
+UpdateRuleVersionResponse -&gt; Rep UpdateRuleVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Create a value of 'UpdateRuleVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'rule', 'updateRuleVersionResponse_rule' - The new rule version that was created.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'updateRuleVersionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#newUpdateRuleVersionResponse"><span class="hs-identifier hs-type">newUpdateRuleVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse"><span class="hs-identifier hs-type">UpdateRuleVersionResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newUpdateRuleVersionResponse"><span class="annot"><span class="annottext">newUpdateRuleVersionResponse :: Int -&gt; UpdateRuleVersionResponse
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#newUpdateRuleVersionResponse"><span class="hs-identifier hs-var hs-var">newUpdateRuleVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679324779"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324779"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">UpdateRuleVersionResponse' :: Maybe Rule -&gt; Int -&gt; UpdateRuleVersionResponse
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse%27"><span class="hs-identifier hs-type">UpdateRuleVersionResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rule:UpdateRuleVersionResponse' :: Maybe Rule
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Arule%3AUpdateRuleVersionResponse%27"><span class="hs-identifier hs-var">rule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Rule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRuleVersionResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3AhttpStatus%3AUpdateRuleVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324779"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The new rule version that was created.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersionResponse_rule"><span class="hs-identifier hs-type">updateRuleVersionResponse_rule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse"><span class="hs-identifier hs-type">UpdateRuleVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="updateRuleVersionResponse_rule"><span class="annot"><span class="annottext">updateRuleVersionResponse_rule :: (Maybe Rule -&gt; f (Maybe Rule))
+-&gt; UpdateRuleVersionResponse -&gt; f UpdateRuleVersionResponse
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersionResponse_rule"><span class="hs-identifier hs-var hs-var">updateRuleVersionResponse_rule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRuleVersionResponse -&gt; Maybe Rule)
+-&gt; (UpdateRuleVersionResponse
+    -&gt; Maybe Rule -&gt; UpdateRuleVersionResponse)
+-&gt; Lens
+     UpdateRuleVersionResponse
+     UpdateRuleVersionResponse
+     (Maybe Rule)
+     (Maybe Rule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse%27"><span class="hs-identifier hs-type">UpdateRuleVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324778"><span class="annot"><span class="annottext">Maybe Rule
+rule :: Maybe Rule
+$sel:rule:UpdateRuleVersionResponse' :: UpdateRuleVersionResponse -&gt; Maybe Rule
+</span><a href="#local-6989586621679324778"><span class="hs-identifier hs-var hs-var">rule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Rule
+</span><a href="#local-6989586621679324778"><span class="hs-identifier hs-var">rule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324777"><span class="annot"><span class="annottext">s :: UpdateRuleVersionResponse
+</span><a href="#local-6989586621679324777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse%27"><span class="hs-identifier hs-type">UpdateRuleVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324776"><span class="annot"><span class="annottext">Maybe Rule
+</span><a href="#local-6989586621679324776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuleVersionResponse
+</span><a href="#local-6989586621679324777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rule:UpdateRuleVersionResponse' :: Maybe Rule
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3Arule%3AUpdateRuleVersionResponse%27"><span class="hs-identifier hs-var">rule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Rule
+</span><a href="#local-6989586621679324776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse"><span class="hs-identifier hs-type">UpdateRuleVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersionResponse_httpStatus"><span class="hs-identifier hs-type">updateRuleVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse"><span class="hs-identifier hs-type">UpdateRuleVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-226"></span><span id="updateRuleVersionResponse_httpStatus"><span class="annot"><span class="annottext">updateRuleVersionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateRuleVersionResponse -&gt; f UpdateRuleVersionResponse
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#updateRuleVersionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateRuleVersionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRuleVersionResponse -&gt; Int)
+-&gt; (UpdateRuleVersionResponse -&gt; Int -&gt; UpdateRuleVersionResponse)
+-&gt; Lens UpdateRuleVersionResponse UpdateRuleVersionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse%27"><span class="hs-identifier hs-type">UpdateRuleVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324775"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateRuleVersionResponse' :: UpdateRuleVersionResponse -&gt; Int
+</span><a href="#local-6989586621679324775"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324775"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324774"><span class="annot"><span class="annottext">s :: UpdateRuleVersionResponse
+</span><a href="#local-6989586621679324774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse%27"><span class="hs-identifier hs-type">UpdateRuleVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324773"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuleVersionResponse
+</span><a href="#local-6989586621679324774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRuleVersionResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#%24sel%3AhttpStatus%3AUpdateRuleVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse"><span class="hs-identifier hs-type">UpdateRuleVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324771"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateRuleVersion.html#UpdateRuleVersionResponse"><span class="hs-identifier hs-type">UpdateRuleVersionResponse</span></a></span></span><span>
+</span><span id="line-229"></span></pre></body></html>

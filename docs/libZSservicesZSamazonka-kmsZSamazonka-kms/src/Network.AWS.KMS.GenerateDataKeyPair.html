@@ -126,7 +126,7 @@
 </span><span id="line-126"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newGenerateDataKeyPair' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679256714"><span id="local-6989586621679256715"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateDataKeyPair"><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-var">GenerateDataKeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateDataKeyPair%27"><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-var">GenerateDataKeyPair'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679256723"><span id="local-6989586621679256724"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateDataKeyPair"><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-var">GenerateDataKeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateDataKeyPair%27"><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-var">GenerateDataKeyPair'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the encryption context that will be used when encrypting the</span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-comment">-- private key in the data key pair.</span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -187,7 +187,7 @@
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3AkeyPairSpec%3AGenerateDataKeyPair%27"><span class="annot"><span class="annottext">GenerateDataKeyPair -&gt; DataKeyPairSpec
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3AkeyPairSpec%3AGenerateDataKeyPair%27"><span class="hs-identifier hs-var hs-var">keyPairSpec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.DataKeyPairSpec.html#DataKeyPairSpec"><span class="hs-identifier hs-type">DataKeyPairSpec</span></a></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256705"><span id="local-6989586621679256707"><span class="annot"><span class="annottext">GenerateDataKeyPair -&gt; GenerateDataKeyPair -&gt; Bool
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256714"><span id="local-6989586621679256716"><span class="annot"><span class="annottext">GenerateDataKeyPair -&gt; GenerateDataKeyPair -&gt; Bool
 (GenerateDataKeyPair -&gt; GenerateDataKeyPair -&gt; Bool)
 -&gt; (GenerateDataKeyPair -&gt; GenerateDataKeyPair -&gt; Bool)
 -&gt; Eq GenerateDataKeyPair
@@ -196,7 +196,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GenerateDataKeyPair -&gt; GenerateDataKeyPair -&gt; Bool
 == :: GenerateDataKeyPair -&gt; GenerateDataKeyPair -&gt; Bool
 $c== :: GenerateDataKeyPair -&gt; GenerateDataKeyPair -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256696"><span id="local-6989586621679256698"><span id="local-6989586621679256700"><span id="local-6989586621679256702"><span class="annot"><span class="annottext">ReadPrec [GenerateDataKeyPair]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256705"><span id="local-6989586621679256707"><span id="local-6989586621679256709"><span id="local-6989586621679256711"><span class="annot"><span class="annottext">ReadPrec [GenerateDataKeyPair]
 ReadPrec GenerateDataKeyPair
 Int -&gt; ReadS GenerateDataKeyPair
 ReadS [GenerateDataKeyPair]
@@ -216,7 +216,7 @@ readList :: ReadS [GenerateDataKeyPair]
 $creadList :: ReadS [GenerateDataKeyPair]
 readsPrec :: Int -&gt; ReadS GenerateDataKeyPair
 $creadsPrec :: Int -&gt; ReadS GenerateDataKeyPair
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256689"><span id="local-6989586621679256691"><span id="local-6989586621679256693"><span class="annot"><span class="annottext">Int -&gt; GenerateDataKeyPair -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256698"><span id="local-6989586621679256700"><span id="local-6989586621679256702"><span class="annot"><span class="annottext">Int -&gt; GenerateDataKeyPair -&gt; ShowS
 [GenerateDataKeyPair] -&gt; ShowS
 GenerateDataKeyPair -&gt; String
 (Int -&gt; GenerateDataKeyPair -&gt; ShowS)
@@ -311,9 +311,9 @@ $cfrom :: forall x. GenerateDataKeyPair -&gt; Rep GenerateDataKeyPair x
 </span><span id="line-254"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.DataKeyPairSpec.html#DataKeyPairSpec"><span class="hs-identifier hs-type">DataKeyPairSpec</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-255"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span><span>
 </span><span id="line-256"></span><span id="newGenerateDataKeyPair"><span class="annot"><span class="annottext">newGenerateDataKeyPair :: Text -&gt; DataKeyPairSpec -&gt; GenerateDataKeyPair
-</span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#newGenerateDataKeyPair"><span class="hs-identifier hs-var hs-var">newGenerateDataKeyPair</span></a></span></span><span> </span><span id="local-6989586621679256684"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256684"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span id="local-6989586621679256683"><span class="annot"><span class="annottext">DataKeyPairSpec
-</span><a href="#local-6989586621679256683"><span class="hs-identifier hs-var">pKeyPairSpec_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#newGenerateDataKeyPair"><span class="hs-identifier hs-var hs-var">newGenerateDataKeyPair</span></a></span></span><span> </span><span id="local-6989586621679256693"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256693"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span id="local-6989586621679256692"><span class="annot"><span class="annottext">DataKeyPairSpec
+</span><a href="#local-6989586621679256692"><span class="hs-identifier hs-var">pKeyPairSpec_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-257"></span><span>  </span><span class="annot"><span class="annottext">GenerateDataKeyPair' :: Maybe (HashMap Text Text)
 -&gt; Maybe [Text] -&gt; Text -&gt; DataKeyPairSpec -&gt; GenerateDataKeyPair
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span>
@@ -328,10 +328,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-261"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyId:GenerateDataKeyPair' :: Text
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3AkeyId%3AGenerateDataKeyPair%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256684"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256693"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-262"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyPairSpec:GenerateDataKeyPair' :: DataKeyPairSpec
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3AkeyPairSpec%3AGenerateDataKeyPair%27"><span class="hs-identifier hs-var">keyPairSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataKeyPairSpec
-</span><a href="#local-6989586621679256683"><span class="hs-identifier hs-var">pKeyPairSpec_</span></a></span><span>
+</span><a href="#local-6989586621679256692"><span class="hs-identifier hs-var">pKeyPairSpec_</span></a></span><span>
 </span><span id="line-263"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- | Specifies the encryption context that will be used when encrypting the</span><span>
@@ -359,16 +359,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256680"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256689"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 encryptionContext :: Maybe (HashMap Text Text)
 $sel:encryptionContext:GenerateDataKeyPair' :: GenerateDataKeyPair -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679256680"><span class="hs-identifier hs-var hs-var">encryptionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679256680"><span class="hs-identifier hs-var">encryptionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256679"><span class="annot"><span class="annottext">s :: GenerateDataKeyPair
-</span><a href="#local-6989586621679256679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256678"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679256678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPair
-</span><a href="#local-6989586621679256679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionContext:GenerateDataKeyPair' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679256689"><span class="hs-identifier hs-var hs-var">encryptionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679256689"><span class="hs-identifier hs-var">encryptionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256688"><span class="annot"><span class="annottext">s :: GenerateDataKeyPair
+</span><a href="#local-6989586621679256688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256687"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679256687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPair
+</span><a href="#local-6989586621679256688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionContext:GenerateDataKeyPair' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3AencryptionContext%3AGenerateDataKeyPair%27"><span class="hs-identifier hs-var">encryptionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679256678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679256687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GenerateDataKeyPair -&gt; f GenerateDataKeyPair)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -417,16 +417,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256674"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256683"><span class="annot"><span class="annottext">Maybe [Text]
 grantTokens :: Maybe [Text]
 $sel:grantTokens:GenerateDataKeyPair' :: GenerateDataKeyPair -&gt; Maybe [Text]
-</span><a href="#local-6989586621679256674"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679256674"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256673"><span class="annot"><span class="annottext">s :: GenerateDataKeyPair
-</span><a href="#local-6989586621679256673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256672"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679256672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPair
-</span><a href="#local-6989586621679256673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantTokens:GenerateDataKeyPair' :: Maybe [Text]
+</span><a href="#local-6989586621679256683"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679256683"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256682"><span class="annot"><span class="annottext">s :: GenerateDataKeyPair
+</span><a href="#local-6989586621679256682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256681"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679256681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPair
+</span><a href="#local-6989586621679256682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantTokens:GenerateDataKeyPair' :: Maybe [Text]
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3AgrantTokens%3AGenerateDataKeyPair%27"><span class="hs-identifier hs-var">grantTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679256672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679256681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; GenerateDataKeyPair -&gt; f GenerateDataKeyPair)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -472,16 +472,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GenerateDataKeyPair -&gt; Text -&gt; GenerateDataKeyPair)
 -&gt; Lens GenerateDataKeyPair GenerateDataKeyPair Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256671"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256680"><span class="annot"><span class="annottext">Text
 keyId :: Text
 $sel:keyId:GenerateDataKeyPair' :: GenerateDataKeyPair -&gt; Text
-</span><a href="#local-6989586621679256671"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256671"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256670"><span class="annot"><span class="annottext">s :: GenerateDataKeyPair
-</span><a href="#local-6989586621679256670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256669"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPair
-</span><a href="#local-6989586621679256670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:GenerateDataKeyPair' :: Text
+</span><a href="#local-6989586621679256680"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256680"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256679"><span class="annot"><span class="annottext">s :: GenerateDataKeyPair
+</span><a href="#local-6989586621679256679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256678"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPair
+</span><a href="#local-6989586621679256679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:GenerateDataKeyPair' :: Text
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3AkeyId%3AGenerateDataKeyPair%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-318"></span><span>
 </span><span id="line-319"></span><span class="hs-comment">-- | Determines the type of data key pair that is generated.</span><span>
 </span><span id="line-320"></span><span class="hs-comment">--</span><span>
@@ -500,27 +500,27 @@ $sel:keyId:GenerateDataKeyPair' :: GenerateDataKeyPair -&gt; Text
      DataKeyPairSpec
      DataKeyPairSpec
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256668"><span class="annot"><span class="annottext">DataKeyPairSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256677"><span class="annot"><span class="annottext">DataKeyPairSpec
 keyPairSpec :: DataKeyPairSpec
 $sel:keyPairSpec:GenerateDataKeyPair' :: GenerateDataKeyPair -&gt; DataKeyPairSpec
-</span><a href="#local-6989586621679256668"><span class="hs-identifier hs-var hs-var">keyPairSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataKeyPairSpec
-</span><a href="#local-6989586621679256668"><span class="hs-identifier hs-var">keyPairSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256667"><span class="annot"><span class="annottext">s :: GenerateDataKeyPair
-</span><a href="#local-6989586621679256667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256666"><span class="annot"><span class="annottext">DataKeyPairSpec
-</span><a href="#local-6989586621679256666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPair
-</span><a href="#local-6989586621679256667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairSpec:GenerateDataKeyPair' :: DataKeyPairSpec
+</span><a href="#local-6989586621679256677"><span class="hs-identifier hs-var hs-var">keyPairSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataKeyPairSpec
+</span><a href="#local-6989586621679256677"><span class="hs-identifier hs-var">keyPairSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256676"><span class="annot"><span class="annottext">s :: GenerateDataKeyPair
+</span><a href="#local-6989586621679256676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256675"><span class="annot"><span class="annottext">DataKeyPairSpec
+</span><a href="#local-6989586621679256675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPair
+</span><a href="#local-6989586621679256676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairSpec:GenerateDataKeyPair' :: DataKeyPairSpec
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3AkeyPairSpec%3AGenerateDataKeyPair%27"><span class="hs-identifier hs-var">keyPairSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataKeyPairSpec
-</span><a href="#local-6989586621679256666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-327"></span><span>
 </span><span id="line-328"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-329"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-330"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-331"></span><span>      </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span><span>
-</span><span id="line-332"></span><span>  </span><span id="local-6989586621679256662"><span class="annot"><span class="annottext">request :: GenerateDataKeyPair -&gt; Request GenerateDataKeyPair
+</span><span id="line-332"></span><span>  </span><span id="local-6989586621679256671"><span class="annot"><span class="annottext">request :: GenerateDataKeyPair -&gt; Request GenerateDataKeyPair
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GenerateDataKeyPair -&gt; Request GenerateDataKeyPair
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-333"></span><span>  </span><span id="local-6989586621679256658"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-333"></span><span>  </span><span id="local-6989586621679256667"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GenerateDataKeyPair
 -&gt; ClientResponse ClientBody
@@ -546,10 +546,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-335"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256655"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256655"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256654"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679256654"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256653"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256653"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-335"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256664"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256664"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256663"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679256663"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256662"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256662"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-336"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Base64
 -&gt; Maybe (Sensitive Base64)
@@ -576,7 +576,7 @@ MonadResource m =&gt;
       -&gt; GenerateDataKeyPairResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679256662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -598,7 +598,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; GenerateDataKeyPairResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Base64)
+</span><a href="#local-6989586621679256662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Base64)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PublicKey&quot;</span></span><span class="hs-special">)</span><span>
@@ -616,7 +616,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Base64 -&gt; Int -&gt; GenerateDataKeyPairResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Base64))
+</span><a href="#local-6989586621679256662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Base64))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrivateKeyPlaintext&quot;</span></span><span class="hs-special">)</span><span>
@@ -629,7 +629,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Base64 -&gt; Int -&gt; GenerateDataKeyPairResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DataKeyPairSpec)
+</span><a href="#local-6989586621679256662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DataKeyPairSpec)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyPairSpec&quot;</span></span><span class="hs-special">)</span><span>
@@ -638,7 +638,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GenerateDataKeyPairResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Base64)
+</span><a href="#local-6989586621679256662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Base64)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrivateKeyCiphertextBlob&quot;</span></span><span class="hs-special">)</span><span>
@@ -650,15 +650,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256655"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256664"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-343"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-344"></span><span>
-</span><span id="line-345"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256645"><span id="local-6989586621679256647"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span></span></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256654"><span id="local-6989586621679256656"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span></span></span><span>
 </span><span id="line-346"></span><span>
-</span><span id="line-347"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256642"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span></span><span>
 </span><span id="line-348"></span><span>
 </span><span id="line-349"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-350"></span><span>  </span><span id="local-6989586621679256638"><span class="annot"><span class="annottext">toHeaders :: GenerateDataKeyPair -&gt; ResponseHeaders
+</span><span id="line-350"></span><span>  </span><span id="local-6989586621679256647"><span class="annot"><span class="annottext">toHeaders :: GenerateDataKeyPair -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-351"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GenerateDataKeyPair -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -685,9 +685,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-361"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-362"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-363"></span><span>
-</span><span id="line-364"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256628"><span id="local-6989586621679256630"><span id="local-6989586621679256632"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-365"></span><span>  </span><span id="local-6989586621679256626"><span class="annot"><span class="annottext">toJSON :: GenerateDataKeyPair -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256621"><span id="local-6989586621679256622"><span id="local-6989586621679256623"><span id="local-6989586621679256624"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-364"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256637"><span id="local-6989586621679256639"><span id="local-6989586621679256641"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-365"></span><span>  </span><span id="local-6989586621679256635"><span class="annot"><span class="annottext">toJSON :: GenerateDataKeyPair -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair%27"><span class="hs-identifier hs-type">GenerateDataKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256630"><span id="local-6989586621679256631"><span id="local-6989586621679256632"><span id="local-6989586621679256633"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe (HashMap Text Text)
 Text
 DataKeyPairSpec
@@ -699,7 +699,7 @@ $sel:keyPairSpec:GenerateDataKeyPair' :: GenerateDataKeyPair -&gt; DataKeyPairSp
 $sel:keyId:GenerateDataKeyPair' :: GenerateDataKeyPair -&gt; Text
 $sel:grantTokens:GenerateDataKeyPair' :: GenerateDataKeyPair -&gt; Maybe [Text]
 $sel:encryptionContext:GenerateDataKeyPair' :: GenerateDataKeyPair -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679256621"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679256630"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-366"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-367"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -713,40 +713,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679256624"><span class="hs-identifier hs-var">encryptionContext</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256633"><span class="hs-identifier hs-var">encryptionContext</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-370"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GrantTokens&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679256623"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256632"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-371"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256622"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256631"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-372"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyPairSpec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataKeyPairSpec -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DataKeyPairSpec
-</span><a href="#local-6989586621679256621"><span class="hs-identifier hs-var">keyPairSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256630"><span class="hs-identifier hs-var">keyPairSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-373"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-374"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-375"></span><span>
 </span><span id="line-376"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-377"></span><span>  </span><span id="local-6989586621679256615"><span class="annot"><span class="annottext">toPath :: GenerateDataKeyPair -&gt; ByteString
+</span><span id="line-377"></span><span>  </span><span id="local-6989586621679256624"><span class="annot"><span class="annottext">toPath :: GenerateDataKeyPair -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GenerateDataKeyPair -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-378"></span><span>
 </span><span id="line-379"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPair"><span class="hs-identifier hs-type">GenerateDataKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-380"></span><span>  </span><span id="local-6989586621679256611"><span class="annot"><span class="annottext">toQuery :: GenerateDataKeyPair -&gt; QueryString
+</span><span id="line-380"></span><span>  </span><span id="local-6989586621679256620"><span class="annot"><span class="annottext">toQuery :: GenerateDataKeyPair -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GenerateDataKeyPair -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -754,7 +754,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-381"></span><span>
 </span><span id="line-382"></span><span class="hs-comment">-- | /See:/ 'newGenerateDataKeyPairResponse' smart constructor.</span><span>
-</span><span id="line-383"></span><span id="local-6989586621679256608"><span id="local-6989586621679256609"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateDataKeyPairResponse"><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-var">GenerateDataKeyPairResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateDataKeyPairResponse%27"><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-var">GenerateDataKeyPairResponse'</span></a></span></span><span>
+</span><span id="line-383"></span><span id="local-6989586621679256617"><span id="local-6989586621679256618"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateDataKeyPairResponse"><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-var">GenerateDataKeyPairResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateDataKeyPairResponse%27"><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-var">GenerateDataKeyPairResponse'</span></a></span></span><span>
 </span><span id="line-384"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
 </span><span id="line-385"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
 </span><span id="line-386"></span><span>    </span><span class="hs-comment">-- of the KMS key that encrypted the private key.</span><span>
@@ -780,7 +780,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-401"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGenerateDataKeyPairResponse%27"><span class="annot"><span class="annottext">GenerateDataKeyPairResponse -&gt; Int
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3AhttpStatus%3AGenerateDataKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-402"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-403"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256598"><span id="local-6989586621679256600"><span class="annot"><span class="annottext">GenerateDataKeyPairResponse -&gt; GenerateDataKeyPairResponse -&gt; Bool
+</span><span id="line-403"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256607"><span id="local-6989586621679256609"><span class="annot"><span class="annottext">GenerateDataKeyPairResponse -&gt; GenerateDataKeyPairResponse -&gt; Bool
 (GenerateDataKeyPairResponse
  -&gt; GenerateDataKeyPairResponse -&gt; Bool)
 -&gt; (GenerateDataKeyPairResponse
@@ -791,7 +791,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GenerateDataKeyPairResponse -&gt; GenerateDataKeyPairResponse -&gt; Bool
 == :: GenerateDataKeyPairResponse -&gt; GenerateDataKeyPairResponse -&gt; Bool
 $c== :: GenerateDataKeyPairResponse -&gt; GenerateDataKeyPairResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256592"><span id="local-6989586621679256594"><span id="local-6989586621679256596"><span class="annot"><span class="annottext">Int -&gt; GenerateDataKeyPairResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256601"><span id="local-6989586621679256603"><span id="local-6989586621679256605"><span class="annot"><span class="annottext">Int -&gt; GenerateDataKeyPairResponse -&gt; ShowS
 [GenerateDataKeyPairResponse] -&gt; ShowS
 GenerateDataKeyPairResponse -&gt; String
 (Int -&gt; GenerateDataKeyPairResponse -&gt; ShowS)
@@ -865,8 +865,8 @@ GenerateDataKeyPairResponse -&gt; Rep GenerateDataKeyPairResponse x
 </span><span id="line-444"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-445"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span><span>
 </span><span id="line-446"></span><span id="newGenerateDataKeyPairResponse"><span class="annot"><span class="annottext">newGenerateDataKeyPairResponse :: Int -&gt; GenerateDataKeyPairResponse
-</span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#newGenerateDataKeyPairResponse"><span class="hs-identifier hs-var hs-var">newGenerateDataKeyPairResponse</span></a></span></span><span> </span><span id="local-6989586621679256589"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256589"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#newGenerateDataKeyPairResponse"><span class="hs-identifier hs-var hs-var">newGenerateDataKeyPairResponse</span></a></span></span><span> </span><span id="local-6989586621679256598"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256598"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-447"></span><span>  </span><span class="annot"><span class="annottext">GenerateDataKeyPairResponse' :: Maybe Text
 -&gt; Maybe Base64
 -&gt; Maybe (Sensitive Base64)
@@ -898,7 +898,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-454"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GenerateDataKeyPairResponse' :: Int
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3AhttpStatus%3AGenerateDataKeyPairResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256589"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679256598"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-455"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-456"></span><span>
 </span><span id="line-457"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
@@ -916,16 +916,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256588"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256597"><span class="annot"><span class="annottext">Maybe Text
 keyId :: Maybe Text
 $sel:keyId:GenerateDataKeyPairResponse' :: GenerateDataKeyPairResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679256588"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256588"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256587"><span class="annot"><span class="annottext">s :: GenerateDataKeyPairResponse
-</span><a href="#local-6989586621679256587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256586"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPairResponse
-</span><a href="#local-6989586621679256587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:GenerateDataKeyPairResponse' :: Maybe Text
+</span><a href="#local-6989586621679256597"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256597"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256596"><span class="annot"><span class="annottext">s :: GenerateDataKeyPairResponse
+</span><a href="#local-6989586621679256596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256595"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPairResponse
+</span><a href="#local-6989586621679256596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:GenerateDataKeyPairResponse' :: Maybe Text
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3AkeyId%3AGenerateDataKeyPairResponse%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-462"></span><span>
 </span><span id="line-463"></span><span class="hs-comment">-- | The public key (in plaintext).--</span><span>
 </span><span id="line-464"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
@@ -944,16 +944,16 @@ $sel:keyId:GenerateDataKeyPairResponse' :: GenerateDataKeyPairResponse -&gt; May
      (Maybe Base64)
      (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256585"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256594"><span class="annot"><span class="annottext">Maybe Base64
 publicKey :: Maybe Base64
 $sel:publicKey:GenerateDataKeyPairResponse' :: GenerateDataKeyPairResponse -&gt; Maybe Base64
-</span><a href="#local-6989586621679256585"><span class="hs-identifier hs-var hs-var">publicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679256585"><span class="hs-identifier hs-var">publicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256584"><span class="annot"><span class="annottext">s :: GenerateDataKeyPairResponse
-</span><a href="#local-6989586621679256584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256583"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679256583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPairResponse
-</span><a href="#local-6989586621679256584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKey:GenerateDataKeyPairResponse' :: Maybe Base64
+</span><a href="#local-6989586621679256594"><span class="hs-identifier hs-var hs-var">publicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679256594"><span class="hs-identifier hs-var">publicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256593"><span class="annot"><span class="annottext">s :: GenerateDataKeyPairResponse
+</span><a href="#local-6989586621679256593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256592"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679256592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPairResponse
+</span><a href="#local-6989586621679256593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKey:GenerateDataKeyPairResponse' :: Maybe Base64
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3ApublicKey%3AGenerateDataKeyPairResponse%27"><span class="hs-identifier hs-var">publicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679256583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+</span><a href="#local-6989586621679256592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
  -&gt; GenerateDataKeyPairResponse -&gt; f GenerateDataKeyPairResponse)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
@@ -990,16 +990,16 @@ Iso' Base64 ByteString
      (Maybe (Sensitive Base64))
      (Maybe (Sensitive Base64))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256581"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256590"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
 privateKeyPlaintext :: Maybe (Sensitive Base64)
 $sel:privateKeyPlaintext:GenerateDataKeyPairResponse' :: GenerateDataKeyPairResponse -&gt; Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679256581"><span class="hs-identifier hs-var hs-var">privateKeyPlaintext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679256581"><span class="hs-identifier hs-var">privateKeyPlaintext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256580"><span class="annot"><span class="annottext">s :: GenerateDataKeyPairResponse
-</span><a href="#local-6989586621679256580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256579"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679256579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPairResponse
-</span><a href="#local-6989586621679256580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateKeyPlaintext:GenerateDataKeyPairResponse' :: Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679256590"><span class="hs-identifier hs-var hs-var">privateKeyPlaintext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679256590"><span class="hs-identifier hs-var">privateKeyPlaintext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256589"><span class="annot"><span class="annottext">s :: GenerateDataKeyPairResponse
+</span><a href="#local-6989586621679256589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256588"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679256588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPairResponse
+</span><a href="#local-6989586621679256589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateKeyPlaintext:GenerateDataKeyPairResponse' :: Maybe (Sensitive Base64)
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3AprivateKeyPlaintext%3AGenerateDataKeyPairResponse%27"><span class="hs-identifier hs-var">privateKeyPlaintext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679256579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
+</span><a href="#local-6989586621679256588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
  -&gt; GenerateDataKeyPairResponse -&gt; f GenerateDataKeyPairResponse)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
@@ -1050,16 +1050,16 @@ Iso' Base64 ByteString
      (Maybe DataKeyPairSpec)
      (Maybe DataKeyPairSpec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256577"><span class="annot"><span class="annottext">Maybe DataKeyPairSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256586"><span class="annot"><span class="annottext">Maybe DataKeyPairSpec
 keyPairSpec :: Maybe DataKeyPairSpec
 $sel:keyPairSpec:GenerateDataKeyPairResponse' :: GenerateDataKeyPairResponse -&gt; Maybe DataKeyPairSpec
-</span><a href="#local-6989586621679256577"><span class="hs-identifier hs-var hs-var">keyPairSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataKeyPairSpec
-</span><a href="#local-6989586621679256577"><span class="hs-identifier hs-var">keyPairSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256576"><span class="annot"><span class="annottext">s :: GenerateDataKeyPairResponse
-</span><a href="#local-6989586621679256576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256575"><span class="annot"><span class="annottext">Maybe DataKeyPairSpec
-</span><a href="#local-6989586621679256575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPairResponse
-</span><a href="#local-6989586621679256576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairSpec:GenerateDataKeyPairResponse' :: Maybe DataKeyPairSpec
+</span><a href="#local-6989586621679256586"><span class="hs-identifier hs-var hs-var">keyPairSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataKeyPairSpec
+</span><a href="#local-6989586621679256586"><span class="hs-identifier hs-var">keyPairSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256585"><span class="annot"><span class="annottext">s :: GenerateDataKeyPairResponse
+</span><a href="#local-6989586621679256585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256584"><span class="annot"><span class="annottext">Maybe DataKeyPairSpec
+</span><a href="#local-6989586621679256584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPairResponse
+</span><a href="#local-6989586621679256585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairSpec:GenerateDataKeyPairResponse' :: Maybe DataKeyPairSpec
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3AkeyPairSpec%3AGenerateDataKeyPairResponse%27"><span class="hs-identifier hs-var">keyPairSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataKeyPairSpec
-</span><a href="#local-6989586621679256575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-484"></span><span>
 </span><span id="line-485"></span><span class="hs-comment">-- | The encrypted copy of the private key. When you use the HTTP API or the</span><span>
 </span><span id="line-486"></span><span class="hs-comment">-- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is</span><span>
@@ -1080,16 +1080,16 @@ $sel:keyPairSpec:GenerateDataKeyPairResponse' :: GenerateDataKeyPairResponse -&g
      (Maybe Base64)
      (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256574"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256583"><span class="annot"><span class="annottext">Maybe Base64
 privateKeyCiphertextBlob :: Maybe Base64
 $sel:privateKeyCiphertextBlob:GenerateDataKeyPairResponse' :: GenerateDataKeyPairResponse -&gt; Maybe Base64
-</span><a href="#local-6989586621679256574"><span class="hs-identifier hs-var hs-var">privateKeyCiphertextBlob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679256574"><span class="hs-identifier hs-var">privateKeyCiphertextBlob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256573"><span class="annot"><span class="annottext">s :: GenerateDataKeyPairResponse
-</span><a href="#local-6989586621679256573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256572"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679256572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPairResponse
-</span><a href="#local-6989586621679256573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateKeyCiphertextBlob:GenerateDataKeyPairResponse' :: Maybe Base64
+</span><a href="#local-6989586621679256583"><span class="hs-identifier hs-var hs-var">privateKeyCiphertextBlob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679256583"><span class="hs-identifier hs-var">privateKeyCiphertextBlob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256582"><span class="annot"><span class="annottext">s :: GenerateDataKeyPairResponse
+</span><a href="#local-6989586621679256582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256581"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679256581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPairResponse
+</span><a href="#local-6989586621679256582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateKeyCiphertextBlob:GenerateDataKeyPairResponse' :: Maybe Base64
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3AprivateKeyCiphertextBlob%3AGenerateDataKeyPairResponse%27"><span class="hs-identifier hs-var">privateKeyCiphertextBlob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679256572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+</span><a href="#local-6989586621679256581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
  -&gt; GenerateDataKeyPairResponse -&gt; f GenerateDataKeyPairResponse)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
@@ -1117,16 +1117,16 @@ Iso' Base64 ByteString
 -&gt; Lens
      GenerateDataKeyPairResponse GenerateDataKeyPairResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256571"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256580"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GenerateDataKeyPairResponse' :: GenerateDataKeyPairResponse -&gt; Int
-</span><a href="#local-6989586621679256571"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256571"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256570"><span class="annot"><span class="annottext">s :: GenerateDataKeyPairResponse
-</span><a href="#local-6989586621679256570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256569"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPairResponse
-</span><a href="#local-6989586621679256570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GenerateDataKeyPairResponse' :: Int
+</span><a href="#local-6989586621679256580"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256580"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256579"><span class="annot"><span class="annottext">s :: GenerateDataKeyPairResponse
+</span><a href="#local-6989586621679256579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse%27"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256578"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataKeyPairResponse
+</span><a href="#local-6989586621679256579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GenerateDataKeyPairResponse' :: Int
 </span><a href="Network.AWS.KMS.GenerateDataKeyPair.html#%24sel%3AhttpStatus%3AGenerateDataKeyPairResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-498"></span><span>
-</span><span id="line-499"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span></span><span>
+</span><span id="line-499"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateDataKeyPair.html#GenerateDataKeyPairResponse"><span class="hs-identifier hs-type">GenerateDataKeyPairResponse</span></a></span></span><span>
 </span><span id="line-500"></span></pre></body></html>

@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newUpdateServerCertificate' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679465040"><span id="local-6989586621679465041"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateServerCertificate"><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-var">UpdateServerCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateServerCertificate%27"><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-var">UpdateServerCertificate'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679465049"><span id="local-6989586621679465050"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateServerCertificate"><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-var">UpdateServerCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateServerCertificate%27"><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-var">UpdateServerCertificate'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new name for the server certificate. Include this only if you are</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">-- updating the server certificate\'s name. The name of the certificate</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- cannot contain any spaces.</span><span>
@@ -99,7 +99,7 @@
 </span><span id="line-97"></span><span>    </span><span id="%24sel%3AserverCertificateName%3AUpdateServerCertificate%27"><span class="annot"><span class="annottext">UpdateServerCertificate -&gt; Text
 </span><a href="Network.AWS.IAM.UpdateServerCertificate.html#%24sel%3AserverCertificateName%3AUpdateServerCertificate%27"><span class="hs-identifier hs-var hs-var">serverCertificateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465032"><span id="local-6989586621679465034"><span class="annot"><span class="annottext">UpdateServerCertificate -&gt; UpdateServerCertificate -&gt; Bool
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465041"><span id="local-6989586621679465043"><span class="annot"><span class="annottext">UpdateServerCertificate -&gt; UpdateServerCertificate -&gt; Bool
 (UpdateServerCertificate -&gt; UpdateServerCertificate -&gt; Bool)
 -&gt; (UpdateServerCertificate -&gt; UpdateServerCertificate -&gt; Bool)
 -&gt; Eq UpdateServerCertificate
@@ -108,7 +108,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateServerCertificate -&gt; UpdateServerCertificate -&gt; Bool
 == :: UpdateServerCertificate -&gt; UpdateServerCertificate -&gt; Bool
 $c== :: UpdateServerCertificate -&gt; UpdateServerCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465023"><span id="local-6989586621679465025"><span id="local-6989586621679465027"><span id="local-6989586621679465029"><span class="annot"><span class="annottext">ReadPrec [UpdateServerCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465032"><span id="local-6989586621679465034"><span id="local-6989586621679465036"><span id="local-6989586621679465038"><span class="annot"><span class="annottext">ReadPrec [UpdateServerCertificate]
 ReadPrec UpdateServerCertificate
 Int -&gt; ReadS UpdateServerCertificate
 ReadS [UpdateServerCertificate]
@@ -128,7 +128,7 @@ readList :: ReadS [UpdateServerCertificate]
 $creadList :: ReadS [UpdateServerCertificate]
 readsPrec :: Int -&gt; ReadS UpdateServerCertificate
 $creadsPrec :: Int -&gt; ReadS UpdateServerCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465016"><span id="local-6989586621679465018"><span id="local-6989586621679465020"><span class="annot"><span class="annottext">Int -&gt; UpdateServerCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465025"><span id="local-6989586621679465027"><span id="local-6989586621679465029"><span class="annot"><span class="annottext">Int -&gt; UpdateServerCertificate -&gt; ShowS
 [UpdateServerCertificate] -&gt; ShowS
 UpdateServerCertificate -&gt; String
 (Int -&gt; UpdateServerCertificate -&gt; ShowS)
@@ -195,8 +195,8 @@ $cfrom :: forall x. UpdateServerCertificate -&gt; Rep UpdateServerCertificate x
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span><span>
 </span><span id="line-139"></span><span id="newUpdateServerCertificate"><span class="annot"><span class="annottext">newUpdateServerCertificate :: Text -&gt; UpdateServerCertificate
-</span><a href="Network.AWS.IAM.UpdateServerCertificate.html#newUpdateServerCertificate"><span class="hs-identifier hs-var hs-var">newUpdateServerCertificate</span></a></span></span><span> </span><span id="local-6989586621679465011"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465011"><span class="hs-identifier hs-var">pServerCertificateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.UpdateServerCertificate.html#newUpdateServerCertificate"><span class="hs-identifier hs-var hs-var">newUpdateServerCertificate</span></a></span></span><span> </span><span id="local-6989586621679465020"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465020"><span class="hs-identifier hs-var">pServerCertificateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">UpdateServerCertificate' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; UpdateServerCertificate
 </span><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:newServerCertificateName':UpdateServerCertificate' :: Maybe Text
@@ -210,7 +210,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverCertificateName:UpdateServerCertificate' :: Text
 </span><a href="Network.AWS.IAM.UpdateServerCertificate.html#%24sel%3AserverCertificateName%3AUpdateServerCertificate%27"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465011"><span class="hs-identifier hs-var">pServerCertificateName_</span></a></span><span>
+</span><a href="#local-6989586621679465020"><span class="hs-identifier hs-var">pServerCertificateName_</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The new name for the server certificate. Include this only if you are</span><span>
@@ -233,16 +233,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465008"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465017"><span class="annot"><span class="annottext">Maybe Text
 newServerCertificateName' :: Maybe Text
 $sel:newServerCertificateName':UpdateServerCertificate' :: UpdateServerCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679465008"><span class="hs-identifier hs-var hs-var">newServerCertificateName'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465008"><span class="hs-identifier hs-var">newServerCertificateName'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465007"><span class="annot"><span class="annottext">s :: UpdateServerCertificate
-</span><a href="#local-6989586621679465007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465006"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServerCertificate
-</span><a href="#local-6989586621679465007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newServerCertificateName':UpdateServerCertificate' :: Maybe Text
+</span><a href="#local-6989586621679465017"><span class="hs-identifier hs-var hs-var">newServerCertificateName'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465017"><span class="hs-identifier hs-var">newServerCertificateName'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465016"><span class="annot"><span class="annottext">s :: UpdateServerCertificate
+</span><a href="#local-6989586621679465016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465015"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServerCertificate
+</span><a href="#local-6989586621679465016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newServerCertificateName':UpdateServerCertificate' :: Maybe Text
 </span><a href="Network.AWS.IAM.UpdateServerCertificate.html#%24sel%3AnewServerCertificateName%27%3AUpdateServerCertificate%27"><span class="hs-identifier hs-var">newServerCertificateName'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The new path for the server certificate. Include this only if you are</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- updating the server certificate\'s path.</span><span>
@@ -266,16 +266,16 @@ $sel:newServerCertificateName':UpdateServerCertificate' :: UpdateServerCertifica
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465005"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465014"><span class="annot"><span class="annottext">Maybe Text
 newPath' :: Maybe Text
 $sel:newPath':UpdateServerCertificate' :: UpdateServerCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679465005"><span class="hs-identifier hs-var hs-var">newPath'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465005"><span class="hs-identifier hs-var">newPath'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465004"><span class="annot"><span class="annottext">s :: UpdateServerCertificate
-</span><a href="#local-6989586621679465004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465003"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServerCertificate
-</span><a href="#local-6989586621679465004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newPath':UpdateServerCertificate' :: Maybe Text
+</span><a href="#local-6989586621679465014"><span class="hs-identifier hs-var hs-var">newPath'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465014"><span class="hs-identifier hs-var">newPath'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465013"><span class="annot"><span class="annottext">s :: UpdateServerCertificate
+</span><a href="#local-6989586621679465013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465012"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServerCertificate
+</span><a href="#local-6989586621679465013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newPath':UpdateServerCertificate' :: Maybe Text
 </span><a href="Network.AWS.IAM.UpdateServerCertificate.html#%24sel%3AnewPath%27%3AUpdateServerCertificate%27"><span class="hs-identifier hs-var">newPath'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The name of the server certificate that you want to update.</span><span>
 </span><span id="line-172"></span><span class="hs-comment">--</span><span>
@@ -290,28 +290,28 @@ $sel:newPath':UpdateServerCertificate' :: UpdateServerCertificate -&gt; Maybe Te
 -&gt; (UpdateServerCertificate -&gt; Text -&gt; UpdateServerCertificate)
 -&gt; Lens UpdateServerCertificate UpdateServerCertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465002"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465011"><span class="annot"><span class="annottext">Text
 serverCertificateName :: Text
 $sel:serverCertificateName:UpdateServerCertificate' :: UpdateServerCertificate -&gt; Text
-</span><a href="#local-6989586621679465002"><span class="hs-identifier hs-var hs-var">serverCertificateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465002"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465001"><span class="annot"><span class="annottext">s :: UpdateServerCertificate
-</span><a href="#local-6989586621679465001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465000"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServerCertificate
-</span><a href="#local-6989586621679465001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverCertificateName:UpdateServerCertificate' :: Text
+</span><a href="#local-6989586621679465011"><span class="hs-identifier hs-var hs-var">serverCertificateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465011"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465010"><span class="annot"><span class="annottext">s :: UpdateServerCertificate
+</span><a href="#local-6989586621679465010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465009"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServerCertificate
+</span><a href="#local-6989586621679465010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverCertificateName:UpdateServerCertificate' :: Text
 </span><a href="Network.AWS.IAM.UpdateServerCertificate.html#%24sel%3AserverCertificateName%3AUpdateServerCertificate%27"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-182"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificateResponse"><span class="hs-identifier hs-type">UpdateServerCertificateResponse</span></a></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679464996"><span class="annot"><span class="annottext">request :: UpdateServerCertificate -&gt; Request UpdateServerCertificate
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679465005"><span class="annot"><span class="annottext">request :: UpdateServerCertificate -&gt; Request UpdateServerCertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdateServerCertificate -&gt; Request UpdateServerCertificate
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679464992"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679465001"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateServerCertificate
 -&gt; ClientResponse ClientBody
@@ -338,12 +338,12 @@ AWSResponse a
 UpdateServerCertificateResponse
 </span><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificateResponse%27"><span class="hs-identifier hs-var">UpdateServerCertificateResponse'</span></a></span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464985"><span id="local-6989586621679464987"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464994"><span id="local-6989586621679464996"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span></span></span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464982"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679464978"><span class="annot"><span class="annottext">toHeaders :: UpdateServerCertificate -&gt; [Header]
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679464987"><span class="annot"><span class="annottext">toHeaders :: UpdateServerCertificate -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateServerCertificate -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -351,15 +351,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679464973"><span class="annot"><span class="annottext">toPath :: UpdateServerCertificate -&gt; ByteString
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679464982"><span class="annot"><span class="annottext">toPath :: UpdateServerCertificate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateServerCertificate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate"><span class="hs-identifier hs-type">UpdateServerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679464969"><span class="annot"><span class="annottext">toQuery :: UpdateServerCertificate -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464965"><span id="local-6989586621679464966"><span id="local-6989586621679464967"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679464978"><span class="annot"><span class="annottext">toQuery :: UpdateServerCertificate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificate%27"><span class="hs-identifier hs-type">UpdateServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464974"><span id="local-6989586621679464975"><span id="local-6989586621679464976"><span class="annot"><span class="annottext">Maybe Text
 Text
 serverCertificateName :: Text
 newPath' :: Maybe Text
@@ -367,7 +367,7 @@ newServerCertificateName' :: Maybe Text
 $sel:serverCertificateName:UpdateServerCertificate' :: UpdateServerCertificate -&gt; Text
 $sel:newPath':UpdateServerCertificate' :: UpdateServerCertificate -&gt; Maybe Text
 $sel:newServerCertificateName':UpdateServerCertificate' :: UpdateServerCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679464965"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679464974"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -388,25 +388,25 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-207"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679464967"><span class="hs-identifier hs-var">newServerCertificateName'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679464976"><span class="hs-identifier hs-var">newServerCertificateName'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NewPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679464966"><span class="hs-identifier hs-var">newPath'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679464975"><span class="hs-identifier hs-var">newPath'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ServerCertificateName&quot;</span></span><span>
 </span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464965"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span>
+</span><a href="#local-6989586621679464974"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span>
 </span><span id="line-211"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | /See:/ 'newUpdateServerCertificateResponse' smart constructor.</span><span>
-</span><span id="line-214"></span><span id="local-6989586621679464962"><span id="local-6989586621679464963"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateServerCertificateResponse"><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificateResponse"><span class="hs-identifier hs-var">UpdateServerCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateServerCertificateResponse%27"><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificateResponse%27"><span class="hs-identifier hs-var">UpdateServerCertificateResponse'</span></a></span></span><span>
+</span><span id="line-214"></span><span id="local-6989586621679464971"><span id="local-6989586621679464972"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateServerCertificateResponse"><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificateResponse"><span class="hs-identifier hs-var">UpdateServerCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateServerCertificateResponse%27"><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificateResponse%27"><span class="hs-identifier hs-var">UpdateServerCertificateResponse'</span></a></span></span><span>
 </span><span id="line-215"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-216"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-217"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679464958"><span id="local-6989586621679464960"><span class="annot"><span class="annottext">UpdateServerCertificateResponse
+</span><span id="line-217"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679464967"><span id="local-6989586621679464969"><span class="annot"><span class="annottext">UpdateServerCertificateResponse
 -&gt; UpdateServerCertificateResponse -&gt; Bool
 (UpdateServerCertificateResponse
  -&gt; UpdateServerCertificateResponse -&gt; Bool)
@@ -422,7 +422,7 @@ $c/= :: UpdateServerCertificateResponse
 -&gt; UpdateServerCertificateResponse -&gt; Bool
 $c== :: UpdateServerCertificateResponse
 -&gt; UpdateServerCertificateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464950"><span id="local-6989586621679464952"><span id="local-6989586621679464954"><span id="local-6989586621679464956"><span class="annot"><span class="annottext">ReadPrec [UpdateServerCertificateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464959"><span id="local-6989586621679464961"><span id="local-6989586621679464963"><span id="local-6989586621679464965"><span class="annot"><span class="annottext">ReadPrec [UpdateServerCertificateResponse]
 ReadPrec UpdateServerCertificateResponse
 Int -&gt; ReadS UpdateServerCertificateResponse
 ReadS [UpdateServerCertificateResponse]
@@ -442,7 +442,7 @@ readList :: ReadS [UpdateServerCertificateResponse]
 $creadList :: ReadS [UpdateServerCertificateResponse]
 readsPrec :: Int -&gt; ReadS UpdateServerCertificateResponse
 $creadsPrec :: Int -&gt; ReadS UpdateServerCertificateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464944"><span id="local-6989586621679464946"><span id="local-6989586621679464948"><span class="annot"><span class="annottext">Int -&gt; UpdateServerCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464953"><span id="local-6989586621679464955"><span id="local-6989586621679464957"><span class="annot"><span class="annottext">Int -&gt; UpdateServerCertificateResponse -&gt; ShowS
 [UpdateServerCertificateResponse] -&gt; ShowS
 UpdateServerCertificateResponse -&gt; String
 (Int -&gt; UpdateServerCertificateResponse -&gt; ShowS)
@@ -492,6 +492,6 @@ UpdateServerCertificateResponse
 </span><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificateResponse%27"><span class="hs-identifier hs-var">UpdateServerCertificateResponse'</span></a></span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679464940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679464949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UpdateServerCertificate.html#UpdateServerCertificateResponse"><span class="hs-identifier hs-type">UpdateServerCertificateResponse</span></a></span></span><span>
 </span><span id="line-231"></span></pre></body></html>

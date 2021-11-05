@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679236435"><span id="local-6989586621679236436"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Origination"><span class="annot"><a href="Network.AWS.MediaPackage.Types.Origination.html#Origination"><span class="hs-identifier hs-var">Origination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Origination%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.Origination.html#Origination%27"><span class="hs-identifier hs-var">Origination'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679236444"><span id="local-6989586621679236445"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Origination"><span class="annot"><a href="Network.AWS.MediaPackage.Types.Origination.html#Origination"><span class="hs-identifier hs-var">Origination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Origination%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.Origination.html#Origination%27"><span class="hs-identifier hs-var">Origination'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOrigination"><span class="annot"><span class="annottext">Origination -&gt; Text
 </span><a href="Network.AWS.MediaPackage.Types.Origination.html#fromOrigination"><span class="hs-identifier hs-var hs-var">fromOrigination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236427"><span id="local-6989586621679236429"><span id="local-6989586621679236431"><span class="annot"><span class="annottext">Int -&gt; Origination -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236436"><span id="local-6989586621679236438"><span id="local-6989586621679236440"><span class="annot"><span class="annottext">Int -&gt; Origination -&gt; ShowS
 [Origination] -&gt; ShowS
 Origination -&gt; String
 (Int -&gt; Origination -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: Origination -&gt; String
 showsPrec :: Int -&gt; Origination -&gt; ShowS
 $cshowsPrec :: Int -&gt; Origination -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679236418"><span id="local-6989586621679236420"><span id="local-6989586621679236422"><span id="local-6989586621679236424"><span class="annot"><span class="annottext">ReadPrec [Origination]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679236427"><span id="local-6989586621679236429"><span id="local-6989586621679236431"><span id="local-6989586621679236433"><span class="annot"><span class="annottext">ReadPrec [Origination]
 ReadPrec Origination
 Int -&gt; ReadS Origination
 ReadS [Origination]
@@ -72,7 +72,7 @@ $creadList :: ReadS [Origination]
 readsPrec :: Int -&gt; ReadS Origination
 $creadsPrec :: Int -&gt; ReadS Origination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679236413"><span id="local-6989586621679236415"><span class="annot"><span class="annottext">Origination -&gt; Origination -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679236422"><span id="local-6989586621679236424"><span class="annot"><span class="annottext">Origination -&gt; Origination -&gt; Bool
 (Origination -&gt; Origination -&gt; Bool)
 -&gt; (Origination -&gt; Origination -&gt; Bool) -&gt; Eq Origination
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: Origination -&gt; Origination -&gt; Bool
 == :: Origination -&gt; Origination -&gt; Bool
 $c== :: Origination -&gt; Origination -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679236397"><span id="local-6989586621679236399"><span id="local-6989586621679236401"><span id="local-6989586621679236403"><span id="local-6989586621679236405"><span id="local-6989586621679236407"><span id="local-6989586621679236409"><span class="annot"><span class="annottext">Eq Origination
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679236406"><span id="local-6989586621679236408"><span id="local-6989586621679236410"><span id="local-6989586621679236412"><span id="local-6989586621679236414"><span id="local-6989586621679236416"><span id="local-6989586621679236418"><span class="annot"><span class="annottext">Eq Origination
 Eq Origination
 -&gt; (Origination -&gt; Origination -&gt; Ordering)
 -&gt; (Origination -&gt; Origination -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. Origination -&gt; Rep Origination x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236389"><span id="local-6989586621679236391"><span class="annot"><span class="annottext">Int -&gt; Origination -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236398"><span id="local-6989586621679236400"><span class="annot"><span class="annottext">Int -&gt; Origination -&gt; Int
 Origination -&gt; Int
 (Int -&gt; Origination -&gt; Int)
 -&gt; (Origination -&gt; Int) -&gt; Hashable Origination
@@ -142,49 +142,49 @@ $chash :: Origination -&gt; Int
 hashWithSalt :: Int -&gt; Origination -&gt; Int
 $chashWithSalt :: Int -&gt; Origination -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679236386"><span class="annot"><span class="annottext">Origination -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679236395"><span class="annot"><span class="annottext">Origination -&gt; ()
 (Origination -&gt; ()) -&gt; NFData Origination
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Origination -&gt; ()
 $crnf :: Origination -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679236383"><span class="annot"><span class="annottext">Text -&gt; Either String Origination
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679236392"><span class="annot"><span class="annottext">Text -&gt; Either String Origination
 (Text -&gt; Either String Origination) -&gt; FromText Origination
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Origination
 $cfromText :: Text -&gt; Either String Origination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679236380"><span class="annot"><span class="annottext">Origination -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679236389"><span class="annot"><span class="annottext">Origination -&gt; Text
 (Origination -&gt; Text) -&gt; ToText Origination
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Origination -&gt; Text
 $ctoText :: Origination -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679236377"><span class="annot"><span class="annottext">Origination -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679236386"><span class="annot"><span class="annottext">Origination -&gt; ByteString
 (Origination -&gt; ByteString) -&gt; ToByteString Origination
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Origination -&gt; ByteString
 $ctoBS :: Origination -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236374"><span class="annot"><span class="annottext">Origination -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236383"><span class="annot"><span class="annottext">Origination -&gt; ByteStringBuilder
 (Origination -&gt; ByteStringBuilder) -&gt; ToLog Origination
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Origination -&gt; ByteStringBuilder
 $cbuild :: Origination -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236371"><span class="annot"><span class="annottext">HeaderName -&gt; Origination -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236380"><span class="annot"><span class="annottext">HeaderName -&gt; Origination -&gt; [Header]
 (HeaderName -&gt; Origination -&gt; [Header]) -&gt; ToHeader Origination
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Origination -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Origination -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236368"><span class="annot"><span class="annottext">Origination -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236377"><span class="annot"><span class="annottext">Origination -&gt; QueryString
 (Origination -&gt; QueryString) -&gt; ToQuery Origination
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Origination -&gt; QueryString
 $ctoQuery :: Origination -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679236363"><span id="local-6989586621679236365"><span class="annot"><span class="annottext">Value -&gt; Parser [Origination]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679236372"><span id="local-6989586621679236374"><span class="annot"><span class="annottext">Value -&gt; Parser [Origination]
 Value -&gt; Parser Origination
 (Value -&gt; Parser Origination)
 -&gt; (Value -&gt; Parser [Origination]) -&gt; FromJSON Origination
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [Origination]
 parseJSON :: Value -&gt; Parser Origination
 $cparseJSON :: Value -&gt; Parser Origination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679236358"><span id="local-6989586621679236360"><span class="annot"><span class="annottext">FromJSONKeyFunction [Origination]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679236367"><span id="local-6989586621679236369"><span class="annot"><span class="annottext">FromJSONKeyFunction [Origination]
 FromJSONKeyFunction Origination
 FromJSONKeyFunction Origination
 -&gt; FromJSONKeyFunction [Origination] -&gt; FromJSONKey Origination
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Origination]
 fromJSONKey :: FromJSONKeyFunction Origination
 $cfromJSONKey :: FromJSONKeyFunction Origination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679236349"><span id="local-6989586621679236351"><span id="local-6989586621679236353"><span id="local-6989586621679236355"><span class="annot"><span class="annottext">[Origination] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679236358"><span id="local-6989586621679236360"><span id="local-6989586621679236362"><span id="local-6989586621679236364"><span class="annot"><span class="annottext">[Origination] -&gt; Encoding
 [Origination] -&gt; Value
 Origination -&gt; Encoding
 Origination -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: Origination -&gt; Encoding
 toJSON :: Origination -&gt; Value
 $ctoJSON :: Origination -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679236344"><span id="local-6989586621679236346"><span class="annot"><span class="annottext">ToJSONKeyFunction [Origination]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679236353"><span id="local-6989586621679236355"><span class="annot"><span class="annottext">ToJSONKeyFunction [Origination]
 ToJSONKeyFunction Origination
 ToJSONKeyFunction Origination
 -&gt; ToJSONKeyFunction [Origination] -&gt; ToJSONKey Origination
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Origination]
 toJSONKey :: ToJSONKeyFunction Origination
 $ctoJSONKey :: ToJSONKeyFunction Origination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236341"><span class="annot"><span class="annottext">[Node] -&gt; Either String Origination
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236350"><span class="annot"><span class="annottext">[Node] -&gt; Either String Origination
 ([Node] -&gt; Either String Origination) -&gt; FromXML Origination
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Origination
 $cparseXML :: [Node] -&gt; Either String Origination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679236338"><span class="annot"><span class="annottext">Origination -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679236347"><span class="annot"><span class="annottext">Origination -&gt; XML
 (Origination -&gt; XML) -&gt; ToXML Origination
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Origination -&gt; XML

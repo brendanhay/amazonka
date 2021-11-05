@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ComputeOptimizer.Types.FilterName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ComputeOptimizer.Types.FilterName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName"><span class="hs-identifier">FilterName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName_Finding"><span class="hs-identifier">FilterName_Finding</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName_FindingReasonCodes"><span class="hs-identifier">FilterName_FindingReasonCodes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName_RecommendationSourceType"><span class="hs-identifier">FilterName_RecommendationSourceType</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679237806"><span id="local-6989586621679237807"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FilterName"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName"><span class="hs-identifier hs-var">FilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FilterName%27"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName%27"><span class="hs-identifier hs-var">FilterName'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFilterName"><span class="annot"><span class="annottext">FilterName -&gt; Text
+</span><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#fromFilterName"><span class="hs-identifier hs-var hs-var">fromFilterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237798"><span id="local-6989586621679237800"><span id="local-6989586621679237802"><span class="annot"><span class="annottext">Int -&gt; FilterName -&gt; ShowS
+[FilterName] -&gt; ShowS
+FilterName -&gt; String
+(Int -&gt; FilterName -&gt; ShowS)
+-&gt; (FilterName -&gt; String)
+-&gt; ([FilterName] -&gt; ShowS)
+-&gt; Show FilterName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FilterName] -&gt; ShowS
+$cshowList :: [FilterName] -&gt; ShowS
+show :: FilterName -&gt; String
+$cshow :: FilterName -&gt; String
+showsPrec :: Int -&gt; FilterName -&gt; ShowS
+$cshowsPrec :: Int -&gt; FilterName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679237789"><span id="local-6989586621679237791"><span id="local-6989586621679237793"><span id="local-6989586621679237795"><span class="annot"><span class="annottext">ReadPrec [FilterName]
+ReadPrec FilterName
+Int -&gt; ReadS FilterName
+ReadS [FilterName]
+(Int -&gt; ReadS FilterName)
+-&gt; ReadS [FilterName]
+-&gt; ReadPrec FilterName
+-&gt; ReadPrec [FilterName]
+-&gt; Read FilterName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FilterName]
+$creadListPrec :: ReadPrec [FilterName]
+readPrec :: ReadPrec FilterName
+$creadPrec :: ReadPrec FilterName
+readList :: ReadS [FilterName]
+$creadList :: ReadS [FilterName]
+readsPrec :: Int -&gt; ReadS FilterName
+$creadsPrec :: Int -&gt; ReadS FilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679237784"><span id="local-6989586621679237786"><span class="annot"><span class="annottext">FilterName -&gt; FilterName -&gt; Bool
+(FilterName -&gt; FilterName -&gt; Bool)
+-&gt; (FilterName -&gt; FilterName -&gt; Bool) -&gt; Eq FilterName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FilterName -&gt; FilterName -&gt; Bool
+$c/= :: FilterName -&gt; FilterName -&gt; Bool
+== :: FilterName -&gt; FilterName -&gt; Bool
+$c== :: FilterName -&gt; FilterName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679237768"><span id="local-6989586621679237770"><span id="local-6989586621679237772"><span id="local-6989586621679237774"><span id="local-6989586621679237776"><span id="local-6989586621679237778"><span id="local-6989586621679237780"><span class="annot"><span class="annottext">Eq FilterName
+Eq FilterName
+-&gt; (FilterName -&gt; FilterName -&gt; Ordering)
+-&gt; (FilterName -&gt; FilterName -&gt; Bool)
+-&gt; (FilterName -&gt; FilterName -&gt; Bool)
+-&gt; (FilterName -&gt; FilterName -&gt; Bool)
+-&gt; (FilterName -&gt; FilterName -&gt; Bool)
+-&gt; (FilterName -&gt; FilterName -&gt; FilterName)
+-&gt; (FilterName -&gt; FilterName -&gt; FilterName)
+-&gt; Ord FilterName
+FilterName -&gt; FilterName -&gt; Bool
+FilterName -&gt; FilterName -&gt; Ordering
+FilterName -&gt; FilterName -&gt; FilterName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FilterName -&gt; FilterName -&gt; FilterName
+$cmin :: FilterName -&gt; FilterName -&gt; FilterName
+max :: FilterName -&gt; FilterName -&gt; FilterName
+$cmax :: FilterName -&gt; FilterName -&gt; FilterName
+&gt;= :: FilterName -&gt; FilterName -&gt; Bool
+$c&gt;= :: FilterName -&gt; FilterName -&gt; Bool
+&gt; :: FilterName -&gt; FilterName -&gt; Bool
+$c&gt; :: FilterName -&gt; FilterName -&gt; Bool
+&lt;= :: FilterName -&gt; FilterName -&gt; Bool
+$c&lt;= :: FilterName -&gt; FilterName -&gt; Bool
+&lt; :: FilterName -&gt; FilterName -&gt; Bool
+$c&lt; :: FilterName -&gt; FilterName -&gt; Bool
+compare :: FilterName -&gt; FilterName -&gt; Ordering
+$ccompare :: FilterName -&gt; FilterName -&gt; Ordering
+$cp1Ord :: Eq FilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FilterName -&gt; Rep FilterName x)
+-&gt; (forall x. Rep FilterName x -&gt; FilterName) -&gt; Generic FilterName
+forall x. Rep FilterName x -&gt; FilterName
+forall x. FilterName -&gt; Rep FilterName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FilterName x -&gt; FilterName
+$cfrom :: forall x. FilterName -&gt; Rep FilterName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237760"><span id="local-6989586621679237762"><span class="annot"><span class="annottext">Int -&gt; FilterName -&gt; Int
+FilterName -&gt; Int
+(Int -&gt; FilterName -&gt; Int)
+-&gt; (FilterName -&gt; Int) -&gt; Hashable FilterName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FilterName -&gt; Int
+$chash :: FilterName -&gt; Int
+hashWithSalt :: Int -&gt; FilterName -&gt; Int
+$chashWithSalt :: Int -&gt; FilterName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679237757"><span class="annot"><span class="annottext">FilterName -&gt; ()
+(FilterName -&gt; ()) -&gt; NFData FilterName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FilterName -&gt; ()
+$crnf :: FilterName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679237754"><span class="annot"><span class="annottext">Text -&gt; Either String FilterName
+(Text -&gt; Either String FilterName) -&gt; FromText FilterName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FilterName
+$cfromText :: Text -&gt; Either String FilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679237751"><span class="annot"><span class="annottext">FilterName -&gt; Text
+(FilterName -&gt; Text) -&gt; ToText FilterName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FilterName -&gt; Text
+$ctoText :: FilterName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679237748"><span class="annot"><span class="annottext">FilterName -&gt; ByteString
+(FilterName -&gt; ByteString) -&gt; ToByteString FilterName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FilterName -&gt; ByteString
+$ctoBS :: FilterName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679237745"><span class="annot"><span class="annottext">FilterName -&gt; ByteStringBuilder
+(FilterName -&gt; ByteStringBuilder) -&gt; ToLog FilterName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FilterName -&gt; ByteStringBuilder
+$cbuild :: FilterName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679237742"><span class="annot"><span class="annottext">HeaderName -&gt; FilterName -&gt; [Header]
+(HeaderName -&gt; FilterName -&gt; [Header]) -&gt; ToHeader FilterName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FilterName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FilterName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679237739"><span class="annot"><span class="annottext">FilterName -&gt; QueryString
+(FilterName -&gt; QueryString) -&gt; ToQuery FilterName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FilterName -&gt; QueryString
+$ctoQuery :: FilterName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679237734"><span id="local-6989586621679237736"><span class="annot"><span class="annottext">Value -&gt; Parser [FilterName]
+Value -&gt; Parser FilterName
+(Value -&gt; Parser FilterName)
+-&gt; (Value -&gt; Parser [FilterName]) -&gt; FromJSON FilterName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FilterName]
+$cparseJSONList :: Value -&gt; Parser [FilterName]
+parseJSON :: Value -&gt; Parser FilterName
+$cparseJSON :: Value -&gt; Parser FilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679237729"><span id="local-6989586621679237731"><span class="annot"><span class="annottext">FromJSONKeyFunction [FilterName]
+FromJSONKeyFunction FilterName
+FromJSONKeyFunction FilterName
+-&gt; FromJSONKeyFunction [FilterName] -&gt; FromJSONKey FilterName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FilterName]
+$cfromJSONKeyList :: FromJSONKeyFunction [FilterName]
+fromJSONKey :: FromJSONKeyFunction FilterName
+$cfromJSONKey :: FromJSONKeyFunction FilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679237720"><span id="local-6989586621679237722"><span id="local-6989586621679237724"><span id="local-6989586621679237726"><span class="annot"><span class="annottext">[FilterName] -&gt; Encoding
+[FilterName] -&gt; Value
+FilterName -&gt; Encoding
+FilterName -&gt; Value
+(FilterName -&gt; Value)
+-&gt; (FilterName -&gt; Encoding)
+-&gt; ([FilterName] -&gt; Value)
+-&gt; ([FilterName] -&gt; Encoding)
+-&gt; ToJSON FilterName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FilterName] -&gt; Encoding
+$ctoEncodingList :: [FilterName] -&gt; Encoding
+toJSONList :: [FilterName] -&gt; Value
+$ctoJSONList :: [FilterName] -&gt; Value
+toEncoding :: FilterName -&gt; Encoding
+$ctoEncoding :: FilterName -&gt; Encoding
+toJSON :: FilterName -&gt; Value
+$ctoJSON :: FilterName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679237715"><span id="local-6989586621679237717"><span class="annot"><span class="annottext">ToJSONKeyFunction [FilterName]
+ToJSONKeyFunction FilterName
+ToJSONKeyFunction FilterName
+-&gt; ToJSONKeyFunction [FilterName] -&gt; ToJSONKey FilterName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FilterName]
+$ctoJSONKeyList :: ToJSONKeyFunction [FilterName]
+toJSONKey :: ToJSONKeyFunction FilterName
+$ctoJSONKey :: ToJSONKeyFunction FilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679237712"><span class="annot"><span class="annottext">[Node] -&gt; Either String FilterName
+([Node] -&gt; Either String FilterName) -&gt; FromXML FilterName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FilterName
+$cparseXML :: [Node] -&gt; Either String FilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679237709"><span class="annot"><span class="annottext">FilterName -&gt; XML
+(FilterName -&gt; XML) -&gt; ToXML FilterName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FilterName -&gt; XML
+$ctoXML :: FilterName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName_Finding"><span class="hs-identifier hs-type">FilterName_Finding</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName"><span class="hs-identifier hs-type">FilterName</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFilterName_Finding"><span id="%24mFilterName_Finding"><span id="FilterName_Finding"><span class="annot"><span class="annottext">$bFilterName_Finding :: FilterName
+$mFilterName_Finding :: forall r. FilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#%24bFilterName_Finding"><span class="hs-identifier hs-var hs-var hs-var">FilterName_Finding</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName%27"><span class="hs-identifier hs-type">FilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Finding&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName_FindingReasonCodes"><span class="hs-identifier hs-type">FilterName_FindingReasonCodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName"><span class="hs-identifier hs-type">FilterName</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFilterName_FindingReasonCodes"><span id="%24mFilterName_FindingReasonCodes"><span id="FilterName_FindingReasonCodes"><span class="annot"><span class="annottext">$bFilterName_FindingReasonCodes :: FilterName
+$mFilterName_FindingReasonCodes :: forall r. FilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#%24bFilterName_FindingReasonCodes"><span class="hs-identifier hs-var hs-var hs-var">FilterName_FindingReasonCodes</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName%27"><span class="hs-identifier hs-type">FilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FindingReasonCodes&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName_RecommendationSourceType"><span class="hs-identifier hs-type">FilterName_RecommendationSourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName"><span class="hs-identifier hs-type">FilterName</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFilterName_RecommendationSourceType"><span id="%24mFilterName_RecommendationSourceType"><span id="FilterName_RecommendationSourceType"><span class="annot"><span class="annottext">$bFilterName_RecommendationSourceType :: FilterName
+$mFilterName_RecommendationSourceType :: forall r. FilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#%24bFilterName_RecommendationSourceType"><span class="hs-identifier hs-var hs-var hs-var">FilterName_RecommendationSourceType</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName%27"><span class="hs-identifier hs-type">FilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationSourceType&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName_Finding"><span class="hs-pragma hs-type">FilterName_Finding</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName_FindingReasonCodes"><span class="hs-pragma hs-type">FilterName_FindingReasonCodes</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName_RecommendationSourceType"><span class="hs-pragma hs-type">FilterName_RecommendationSourceType</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.FilterName.html#FilterName%27"><span class="hs-pragma hs-type">FilterName'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

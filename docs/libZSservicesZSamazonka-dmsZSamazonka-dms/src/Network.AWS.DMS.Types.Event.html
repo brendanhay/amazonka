@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- DMS resource type.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newEvent' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679439163"><span id="local-6989586621679439164"></span></span><span class="hs-keyword">data</span><span> </span><span id="Event"><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-var">Event</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Event%27"><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-var">Event'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679439172"><span id="local-6989586621679439173"></span></span><span class="hs-keyword">data</span><span> </span><span id="Event"><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-var">Event</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Event%27"><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-var">Event'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of DMS resource that generates events.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Valid values: replication-instance | endpoint | replication-task</span><span>
@@ -49,14 +49,14 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3Amessage%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
 </span><a href="Network.AWS.DMS.Types.Event.html#%24sel%3Amessage%3AEvent%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439153"><span id="local-6989586621679439155"><span class="annot"><span class="annottext">Event -&gt; Event -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439162"><span id="local-6989586621679439164"><span class="annot"><span class="annottext">Event -&gt; Event -&gt; Bool
 (Event -&gt; Event -&gt; Bool) -&gt; (Event -&gt; Event -&gt; Bool) -&gt; Eq Event
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Event -&gt; Event -&gt; Bool
 $c/= :: Event -&gt; Event -&gt; Bool
 == :: Event -&gt; Event -&gt; Bool
 $c== :: Event -&gt; Event -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439144"><span id="local-6989586621679439146"><span id="local-6989586621679439148"><span id="local-6989586621679439150"><span class="annot"><span class="annottext">ReadPrec [Event]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439153"><span id="local-6989586621679439155"><span id="local-6989586621679439157"><span id="local-6989586621679439159"><span class="annot"><span class="annottext">ReadPrec [Event]
 ReadPrec Event
 Int -&gt; ReadS Event
 ReadS [Event]
@@ -76,7 +76,7 @@ readList :: ReadS [Event]
 $creadList :: ReadS [Event]
 readsPrec :: Int -&gt; ReadS Event
 $creadsPrec :: Int -&gt; ReadS Event
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439137"><span id="local-6989586621679439139"><span id="local-6989586621679439141"><span class="annot"><span class="annottext">Int -&gt; Event -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439146"><span id="local-6989586621679439148"><span id="local-6989586621679439150"><span class="annot"><span class="annottext">Int -&gt; Event -&gt; ShowS
 [Event] -&gt; ShowS
 Event -&gt; String
 (Int -&gt; Event -&gt; ShowS)
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; (Event -&gt; Maybe SourceType -&gt; Event)
 -&gt; Lens Event Event (Maybe SourceType) (Maybe SourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439128"><span class="annot"><span class="annottext">Maybe SourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439137"><span class="annot"><span class="annottext">Maybe SourceType
 sourceType :: Maybe SourceType
 $sel:sourceType:Event' :: Event -&gt; Maybe SourceType
-</span><a href="#local-6989586621679439128"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceType
-</span><a href="#local-6989586621679439128"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439127"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679439127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439126"><span class="annot"><span class="annottext">Maybe SourceType
-</span><a href="#local-6989586621679439126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679439127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:Event' :: Maybe SourceType
+</span><a href="#local-6989586621679439137"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceType
+</span><a href="#local-6989586621679439137"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439136"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679439136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439135"><span class="annot"><span class="annottext">Maybe SourceType
+</span><a href="#local-6989586621679439135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679439136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:Event' :: Maybe SourceType
 </span><a href="Network.AWS.DMS.Types.Event.html#%24sel%3AsourceType%3AEvent%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceType
-</span><a href="#local-6989586621679439126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679439135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The identifier of an event source.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#event_sourceIdentifier"><span class="hs-identifier hs-type">event_sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -174,16 +174,16 @@ $sel:sourceType:Event' :: Event -&gt; Maybe SourceType
 -&gt; (Event -&gt; Maybe Text -&gt; Event)
 -&gt; Lens Event Event (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439124"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439133"><span class="annot"><span class="annottext">Maybe Text
 sourceIdentifier :: Maybe Text
 $sel:sourceIdentifier:Event' :: Event -&gt; Maybe Text
-</span><a href="#local-6989586621679439124"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439124"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439123"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679439123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439122"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679439123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentifier:Event' :: Maybe Text
+</span><a href="#local-6989586621679439133"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439133"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439132"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679439132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439131"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679439132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentifier:Event' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.Event.html#%24sel%3AsourceIdentifier%3AEvent%27"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679439131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The date of the event.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#event_date"><span class="hs-identifier hs-type">event_date</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -192,16 +192,16 @@ $sel:sourceIdentifier:Event' :: Event -&gt; Maybe Text
 -&gt; (Event -&gt; Maybe POSIX -&gt; Event)
 -&gt; Lens Event Event (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439120"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439129"><span class="annot"><span class="annottext">Maybe POSIX
 date :: Maybe POSIX
 $sel:date:Event' :: Event -&gt; Maybe POSIX
-</span><a href="#local-6989586621679439120"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679439120"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439119"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679439119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439118"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679439118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679439119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:date:Event' :: Maybe POSIX
+</span><a href="#local-6989586621679439129"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679439129"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439128"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679439128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439127"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679439127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679439128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:date:Event' :: Maybe POSIX
 </span><a href="Network.AWS.DMS.Types.Event.html#%24sel%3Adate%3AEvent%27"><span class="hs-identifier hs-var">date</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679439118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Event -&gt; f Event)
+</span><a href="#local-6989586621679439127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Event -&gt; f Event)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -224,16 +224,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Event -&gt; Maybe [Text] -&gt; Event)
 -&gt; Lens Event Event (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439113"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439122"><span class="annot"><span class="annottext">Maybe [Text]
 eventCategories :: Maybe [Text]
 $sel:eventCategories:Event' :: Event -&gt; Maybe [Text]
-</span><a href="#local-6989586621679439113"><span class="hs-identifier hs-var hs-var">eventCategories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679439113"><span class="hs-identifier hs-var">eventCategories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439112"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679439112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439111"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679439111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679439112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCategories:Event' :: Maybe [Text]
+</span><a href="#local-6989586621679439122"><span class="hs-identifier hs-var hs-var">eventCategories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679439122"><span class="hs-identifier hs-var">eventCategories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439121"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679439121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439120"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679439120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679439121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCategories:Event' :: Maybe [Text]
 </span><a href="Network.AWS.DMS.Types.Event.html#%24sel%3AeventCategories%3AEvent%27"><span class="hs-identifier hs-var">eventCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679439111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Event -&gt; f Event)
+</span><a href="#local-6989586621679439120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Event -&gt; f Event)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -256,27 +256,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Event -&gt; Maybe Text -&gt; Event)
 -&gt; Lens Event Event (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439108"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439117"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:Event' :: Event -&gt; Maybe Text
-</span><a href="#local-6989586621679439108"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439108"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439107"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679439107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439106"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679439107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Event' :: Maybe Text
+</span><a href="#local-6989586621679439117"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439117"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439116"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679439116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439115"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679439116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Event' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.Event.html#%24sel%3Amessage%3AEvent%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679439115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439103"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679439101"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Event
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439112"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679439110"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Event
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Event) -&gt; Value -&gt; Parser Event
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Event&quot;</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679439098"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439098"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679439107"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679439107"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe SourceType
 -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Event
 </span><a href="Network.AWS.DMS.Types.Event.html#Event%27"><span class="hs-identifier hs-var">Event'</span></a></span><span>
@@ -291,7 +291,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe POSIX -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Event)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceType)
+</span><a href="#local-6989586621679439107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -301,7 +301,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Event)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679439107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -310,7 +310,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text] -&gt; Maybe Text -&gt; Event)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679439107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Date&quot;</span></span><span class="hs-special">)</span><span>
@@ -318,7 +318,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Text -&gt; Event)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679439107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventCategories&quot;</span></span><span>
@@ -332,13 +332,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Event) -&gt; Parser (Maybe Text) -&gt; Parser Event
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679439107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439091"><span id="local-6989586621679439093"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439100"><span id="local-6989586621679439102"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span>
 </span><span id="line-119"></span></pre></body></html>

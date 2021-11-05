@@ -1,0 +1,1183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Panorama.DescribePackageImportJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about a package import job.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Panorama.DescribePackageImportJob</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob"><span class="hs-identifier">DescribePackageImportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#newDescribePackageImportJob"><span class="hs-identifier">newDescribePackageImportJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJob_jobId"><span class="hs-identifier">describePackageImportJob_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier">DescribePackageImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#newDescribePackageImportJobResponse"><span class="hs-identifier">newDescribePackageImportJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_clientToken"><span class="hs-identifier">describePackageImportJobResponse_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_jobTags"><span class="hs-identifier">describePackageImportJobResponse_jobTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_httpStatus"><span class="hs-identifier">describePackageImportJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_jobId"><span class="hs-identifier">describePackageImportJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_jobType"><span class="hs-identifier">describePackageImportJobResponse_jobType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_inputConfig"><span class="hs-identifier">describePackageImportJobResponse_inputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_outputConfig"><span class="hs-identifier">describePackageImportJobResponse_outputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_output"><span class="hs-identifier">describePackageImportJobResponse_output</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_createdTime"><span class="hs-identifier">describePackageImportJobResponse_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_lastUpdatedTime"><span class="hs-identifier">describePackageImportJobResponse_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_status"><span class="hs-identifier">describePackageImportJobResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_statusMessage"><span class="hs-identifier">describePackageImportJobResponse_statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.html"><span class="hs-identifier">Network.AWS.Panorama.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDescribePackageImportJob' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679264665"><span id="local-6989586621679264666"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePackageImportJob"><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob"><span class="hs-identifier hs-var">DescribePackageImportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePackageImportJob%27"><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob%27"><span class="hs-identifier hs-var">DescribePackageImportJob'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The job\'s ID.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AjobId%3ADescribePackageImportJob%27"><span class="annot"><span class="annottext">DescribePackageImportJob -&gt; Text
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AjobId%3ADescribePackageImportJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264659"><span id="local-6989586621679264661"><span class="annot"><span class="annottext">DescribePackageImportJob -&gt; DescribePackageImportJob -&gt; Bool
+(DescribePackageImportJob -&gt; DescribePackageImportJob -&gt; Bool)
+-&gt; (DescribePackageImportJob -&gt; DescribePackageImportJob -&gt; Bool)
+-&gt; Eq DescribePackageImportJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePackageImportJob -&gt; DescribePackageImportJob -&gt; Bool
+$c/= :: DescribePackageImportJob -&gt; DescribePackageImportJob -&gt; Bool
+== :: DescribePackageImportJob -&gt; DescribePackageImportJob -&gt; Bool
+$c== :: DescribePackageImportJob -&gt; DescribePackageImportJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264650"><span id="local-6989586621679264652"><span id="local-6989586621679264654"><span id="local-6989586621679264656"><span class="annot"><span class="annottext">ReadPrec [DescribePackageImportJob]
+ReadPrec DescribePackageImportJob
+Int -&gt; ReadS DescribePackageImportJob
+ReadS [DescribePackageImportJob]
+(Int -&gt; ReadS DescribePackageImportJob)
+-&gt; ReadS [DescribePackageImportJob]
+-&gt; ReadPrec DescribePackageImportJob
+-&gt; ReadPrec [DescribePackageImportJob]
+-&gt; Read DescribePackageImportJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePackageImportJob]
+$creadListPrec :: ReadPrec [DescribePackageImportJob]
+readPrec :: ReadPrec DescribePackageImportJob
+$creadPrec :: ReadPrec DescribePackageImportJob
+readList :: ReadS [DescribePackageImportJob]
+$creadList :: ReadS [DescribePackageImportJob]
+readsPrec :: Int -&gt; ReadS DescribePackageImportJob
+$creadsPrec :: Int -&gt; ReadS DescribePackageImportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264643"><span id="local-6989586621679264645"><span id="local-6989586621679264647"><span class="annot"><span class="annottext">Int -&gt; DescribePackageImportJob -&gt; ShowS
+[DescribePackageImportJob] -&gt; ShowS
+DescribePackageImportJob -&gt; String
+(Int -&gt; DescribePackageImportJob -&gt; ShowS)
+-&gt; (DescribePackageImportJob -&gt; String)
+-&gt; ([DescribePackageImportJob] -&gt; ShowS)
+-&gt; Show DescribePackageImportJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePackageImportJob] -&gt; ShowS
+$cshowList :: [DescribePackageImportJob] -&gt; ShowS
+show :: DescribePackageImportJob -&gt; String
+$cshow :: DescribePackageImportJob -&gt; String
+showsPrec :: Int -&gt; DescribePackageImportJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePackageImportJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribePackageImportJob -&gt; Rep DescribePackageImportJob x)
+-&gt; (forall x.
+    Rep DescribePackageImportJob x -&gt; DescribePackageImportJob)
+-&gt; Generic DescribePackageImportJob
+forall x.
+Rep DescribePackageImportJob x -&gt; DescribePackageImportJob
+forall x.
+DescribePackageImportJob -&gt; Rep DescribePackageImportJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePackageImportJob x -&gt; DescribePackageImportJob
+$cfrom :: forall x.
+DescribePackageImportJob -&gt; Rep DescribePackageImportJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'DescribePackageImportJob' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'jobId', 'describePackageImportJob_jobId' - The job\'s ID.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#newDescribePackageImportJob"><span class="hs-identifier hs-type">newDescribePackageImportJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob"><span class="hs-identifier hs-type">DescribePackageImportJob</span></a></span><span>
+</span><span id="line-79"></span><span id="newDescribePackageImportJob"><span class="annot"><span class="annottext">newDescribePackageImportJob :: Text -&gt; DescribePackageImportJob
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#newDescribePackageImportJob"><span class="hs-identifier hs-var hs-var">newDescribePackageImportJob</span></a></span></span><span> </span><span id="local-6989586621679264638"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264638"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DescribePackageImportJob' :: Text -&gt; DescribePackageImportJob
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob%27"><span class="hs-identifier hs-type">DescribePackageImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribePackageImportJob' :: Text
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AjobId%3ADescribePackageImportJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264638"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The job\'s ID.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJob_jobId"><span class="hs-identifier hs-type">describePackageImportJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob"><span class="hs-identifier hs-type">DescribePackageImportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="describePackageImportJob_jobId"><span class="annot"><span class="annottext">describePackageImportJob_jobId :: (Text -&gt; f Text)
+-&gt; DescribePackageImportJob -&gt; f DescribePackageImportJob
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJob_jobId"><span class="hs-identifier hs-var hs-var">describePackageImportJob_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageImportJob -&gt; Text)
+-&gt; (DescribePackageImportJob -&gt; Text -&gt; DescribePackageImportJob)
+-&gt; Lens DescribePackageImportJob DescribePackageImportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob%27"><span class="hs-identifier hs-type">DescribePackageImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264635"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DescribePackageImportJob' :: DescribePackageImportJob -&gt; Text
+</span><a href="#local-6989586621679264635"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264635"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264634"><span class="annot"><span class="annottext">s :: DescribePackageImportJob
+</span><a href="#local-6989586621679264634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob%27"><span class="hs-identifier hs-type">DescribePackageImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264633"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageImportJob
+</span><a href="#local-6989586621679264634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribePackageImportJob' :: Text
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AjobId%3ADescribePackageImportJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob"><span class="hs-identifier hs-type">DescribePackageImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob"><span class="hs-identifier hs-type">DescribePackageImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob"><span class="hs-identifier hs-type">DescribePackageImportJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679264629"><span class="annot"><span class="annottext">request :: DescribePackageImportJob -&gt; Request DescribePackageImportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribePackageImportJob -&gt; Request DescribePackageImportJob
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Panorama.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679264625"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribePackageImportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribePackageImportJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribePackageImportJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribePackageImportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribePackageImportJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264622"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264622"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679264621"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679264621"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679264620"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264620"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [JobResourceTags]
+-&gt; Int
+-&gt; Text
+-&gt; PackageImportJobType
+-&gt; PackageImportJobInputConfig
+-&gt; PackageImportJobOutputConfig
+-&gt; PackageImportJobOutput
+-&gt; POSIX
+-&gt; POSIX
+-&gt; PackageImportJobStatus
+-&gt; Text
+-&gt; DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">DescribePackageImportJobResponse'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [JobResourceTags]
+ -&gt; Int
+ -&gt; Text
+ -&gt; PackageImportJobType
+ -&gt; PackageImportJobInputConfig
+ -&gt; PackageImportJobOutputConfig
+ -&gt; PackageImportJobOutput
+ -&gt; POSIX
+ -&gt; POSIX
+ -&gt; PackageImportJobStatus
+ -&gt; Text
+ -&gt; DescribePackageImportJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [JobResourceTags]
+      -&gt; Int
+      -&gt; Text
+      -&gt; PackageImportJobType
+      -&gt; PackageImportJobInputConfig
+      -&gt; PackageImportJobOutputConfig
+      -&gt; PackageImportJobOutput
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; PackageImportJobStatus
+      -&gt; Text
+      -&gt; DescribePackageImportJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [JobResourceTags]
+   -&gt; Int
+   -&gt; Text
+   -&gt; PackageImportJobType
+   -&gt; PackageImportJobInputConfig
+   -&gt; PackageImportJobOutputConfig
+   -&gt; PackageImportJobOutput
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; PackageImportJobStatus
+   -&gt; Text
+   -&gt; DescribePackageImportJobResponse)
+-&gt; Either String (Maybe [JobResourceTags])
+-&gt; Either
+     String
+     (Int
+      -&gt; Text
+      -&gt; PackageImportJobType
+      -&gt; PackageImportJobInputConfig
+      -&gt; PackageImportJobOutputConfig
+      -&gt; PackageImportJobOutput
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; PackageImportJobStatus
+      -&gt; Text
+      -&gt; DescribePackageImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [JobResourceTags]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [JobResourceTags]))
+-&gt; Maybe [JobResourceTags]
+-&gt; Either String (Maybe [JobResourceTags])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JobResourceTags]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; Text
+   -&gt; PackageImportJobType
+   -&gt; PackageImportJobInputConfig
+   -&gt; PackageImportJobOutputConfig
+   -&gt; PackageImportJobOutput
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; PackageImportJobStatus
+   -&gt; Text
+   -&gt; DescribePackageImportJobResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Text
+      -&gt; PackageImportJobType
+      -&gt; PackageImportJobInputConfig
+      -&gt; PackageImportJobOutputConfig
+      -&gt; PackageImportJobOutput
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; PackageImportJobStatus
+      -&gt; Text
+      -&gt; DescribePackageImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264622"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; PackageImportJobType
+   -&gt; PackageImportJobInputConfig
+   -&gt; PackageImportJobOutputConfig
+   -&gt; PackageImportJobOutput
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; PackageImportJobStatus
+   -&gt; Text
+   -&gt; DescribePackageImportJobResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (PackageImportJobType
+      -&gt; PackageImportJobInputConfig
+      -&gt; PackageImportJobOutputConfig
+      -&gt; PackageImportJobOutput
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; PackageImportJobStatus
+      -&gt; Text
+      -&gt; DescribePackageImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (PackageImportJobType
+   -&gt; PackageImportJobInputConfig
+   -&gt; PackageImportJobOutputConfig
+   -&gt; PackageImportJobOutput
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; PackageImportJobStatus
+   -&gt; Text
+   -&gt; DescribePackageImportJobResponse)
+-&gt; Either String PackageImportJobType
+-&gt; Either
+     String
+     (PackageImportJobInputConfig
+      -&gt; PackageImportJobOutputConfig
+      -&gt; PackageImportJobOutput
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; PackageImportJobStatus
+      -&gt; Text
+      -&gt; DescribePackageImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String PackageImportJobType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (PackageImportJobInputConfig
+   -&gt; PackageImportJobOutputConfig
+   -&gt; PackageImportJobOutput
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; PackageImportJobStatus
+   -&gt; Text
+   -&gt; DescribePackageImportJobResponse)
+-&gt; Either String PackageImportJobInputConfig
+-&gt; Either
+     String
+     (PackageImportJobOutputConfig
+      -&gt; PackageImportJobOutput
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; PackageImportJobStatus
+      -&gt; Text
+      -&gt; DescribePackageImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String PackageImportJobInputConfig
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (PackageImportJobOutputConfig
+   -&gt; PackageImportJobOutput
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; PackageImportJobStatus
+   -&gt; Text
+   -&gt; DescribePackageImportJobResponse)
+-&gt; Either String PackageImportJobOutputConfig
+-&gt; Either
+     String
+     (PackageImportJobOutput
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; PackageImportJobStatus
+      -&gt; Text
+      -&gt; DescribePackageImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String PackageImportJobOutputConfig
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (PackageImportJobOutput
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; PackageImportJobStatus
+   -&gt; Text
+   -&gt; DescribePackageImportJobResponse)
+-&gt; Either String PackageImportJobOutput
+-&gt; Either
+     String
+     (POSIX
+      -&gt; POSIX
+      -&gt; PackageImportJobStatus
+      -&gt; Text
+      -&gt; DescribePackageImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String PackageImportJobOutput
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Output&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (POSIX
+   -&gt; POSIX
+   -&gt; PackageImportJobStatus
+   -&gt; Text
+   -&gt; DescribePackageImportJobResponse)
+-&gt; Either String POSIX
+-&gt; Either
+     String
+     (POSIX
+      -&gt; PackageImportJobStatus
+      -&gt; Text
+      -&gt; DescribePackageImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (POSIX
+   -&gt; PackageImportJobStatus
+   -&gt; Text
+   -&gt; DescribePackageImportJobResponse)
+-&gt; Either String POSIX
+-&gt; Either
+     String
+     (PackageImportJobStatus
+      -&gt; Text -&gt; DescribePackageImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (PackageImportJobStatus
+   -&gt; Text -&gt; DescribePackageImportJobResponse)
+-&gt; Either String PackageImportJobStatus
+-&gt; Either String (Text -&gt; DescribePackageImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String PackageImportJobStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; DescribePackageImportJobResponse)
+-&gt; Either String Text
+-&gt; Either String DescribePackageImportJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264610"><span id="local-6989586621679264612"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob"><span class="hs-identifier hs-type">DescribePackageImportJob</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264607"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob"><span class="hs-identifier hs-type">DescribePackageImportJob</span></a></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob"><span class="hs-identifier hs-type">DescribePackageImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679264603"><span class="annot"><span class="annottext">toHeaders :: DescribePackageImportJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribePackageImportJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-120"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob"><span class="hs-identifier hs-type">DescribePackageImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679264597"><span class="annot"><span class="annottext">toPath :: DescribePackageImportJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob%27"><span class="hs-identifier hs-type">DescribePackageImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264595"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DescribePackageImportJob' :: DescribePackageImportJob -&gt; Text
+</span><a href="#local-6989586621679264595"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/packages/import-jobs/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264595"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJob"><span class="hs-identifier hs-type">DescribePackageImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679264591"><span class="annot"><span class="annottext">toQuery :: DescribePackageImportJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribePackageImportJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newDescribePackageImportJobResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621679264588"><span id="local-6989586621679264589"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePackageImportJobResponse"><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-var">DescribePackageImportJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePackageImportJobResponse%27"><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">DescribePackageImportJobResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The job\'s client token.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AclientToken%3ADescribePackageImportJobResponse%27"><span class="annot"><span class="annottext">DescribePackageImportJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AclientToken%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The job\'s tags.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AjobTags%3ADescribePackageImportJobResponse%27"><span class="annot"><span class="annottext">DescribePackageImportJobResponse -&gt; Maybe [JobResourceTags]
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AjobTags%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var hs-var">jobTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Panorama.Types.JobResourceTags.html#JobResourceTags"><span class="hs-identifier hs-type">JobResourceTags</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribePackageImportJobResponse%27"><span class="annot"><span class="annottext">DescribePackageImportJobResponse -&gt; Int
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AhttpStatus%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The job\'s ID.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AjobId%3ADescribePackageImportJobResponse%27"><span class="annot"><span class="annottext">DescribePackageImportJobResponse -&gt; Text
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AjobId%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The job\'s type.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AjobType%3ADescribePackageImportJobResponse%27"><span class="annot"><span class="annottext">DescribePackageImportJobResponse -&gt; PackageImportJobType
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AjobType%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobType.html#PackageImportJobType"><span class="hs-identifier hs-type">PackageImportJobType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The job\'s input config.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AinputConfig%3ADescribePackageImportJobResponse%27"><span class="annot"><span class="annottext">DescribePackageImportJobResponse -&gt; PackageImportJobInputConfig
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AinputConfig%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var hs-var">inputConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobInputConfig.html#PackageImportJobInputConfig"><span class="hs-identifier hs-type">PackageImportJobInputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The job\'s output config.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AoutputConfig%3ADescribePackageImportJobResponse%27"><span class="annot"><span class="annottext">DescribePackageImportJobResponse -&gt; PackageImportJobOutputConfig
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AoutputConfig%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var hs-var">outputConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobOutputConfig.html#PackageImportJobOutputConfig"><span class="hs-identifier hs-type">PackageImportJobOutputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The job\'s output.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3Aoutput%3ADescribePackageImportJobResponse%27"><span class="annot"><span class="annottext">DescribePackageImportJobResponse -&gt; PackageImportJobOutput
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3Aoutput%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var hs-var">output</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobOutput.html#PackageImportJobOutput"><span class="hs-identifier hs-type">PackageImportJobOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | When the job was created.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AcreatedTime%3ADescribePackageImportJobResponse%27"><span class="annot"><span class="annottext">DescribePackageImportJobResponse -&gt; POSIX
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AcreatedTime%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | When the job was updated.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3ADescribePackageImportJobResponse%27"><span class="annot"><span class="annottext">DescribePackageImportJobResponse -&gt; POSIX
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AlastUpdatedTime%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The job\'s status.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3Astatus%3ADescribePackageImportJobResponse%27"><span class="annot"><span class="annottext">DescribePackageImportJobResponse -&gt; PackageImportJobStatus
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3Astatus%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobStatus.html#PackageImportJobStatus"><span class="hs-identifier hs-type">PackageImportJobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The job\'s status message.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AstatusMessage%3ADescribePackageImportJobResponse%27"><span class="annot"><span class="annottext">DescribePackageImportJobResponse -&gt; Text
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AstatusMessage%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264572"><span id="local-6989586621679264574"><span class="annot"><span class="annottext">DescribePackageImportJobResponse
+-&gt; DescribePackageImportJobResponse -&gt; Bool
+(DescribePackageImportJobResponse
+ -&gt; DescribePackageImportJobResponse -&gt; Bool)
+-&gt; (DescribePackageImportJobResponse
+    -&gt; DescribePackageImportJobResponse -&gt; Bool)
+-&gt; Eq DescribePackageImportJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePackageImportJobResponse
+-&gt; DescribePackageImportJobResponse -&gt; Bool
+$c/= :: DescribePackageImportJobResponse
+-&gt; DescribePackageImportJobResponse -&gt; Bool
+== :: DescribePackageImportJobResponse
+-&gt; DescribePackageImportJobResponse -&gt; Bool
+$c== :: DescribePackageImportJobResponse
+-&gt; DescribePackageImportJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264564"><span id="local-6989586621679264566"><span id="local-6989586621679264568"><span id="local-6989586621679264570"><span class="annot"><span class="annottext">ReadPrec [DescribePackageImportJobResponse]
+ReadPrec DescribePackageImportJobResponse
+Int -&gt; ReadS DescribePackageImportJobResponse
+ReadS [DescribePackageImportJobResponse]
+(Int -&gt; ReadS DescribePackageImportJobResponse)
+-&gt; ReadS [DescribePackageImportJobResponse]
+-&gt; ReadPrec DescribePackageImportJobResponse
+-&gt; ReadPrec [DescribePackageImportJobResponse]
+-&gt; Read DescribePackageImportJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePackageImportJobResponse]
+$creadListPrec :: ReadPrec [DescribePackageImportJobResponse]
+readPrec :: ReadPrec DescribePackageImportJobResponse
+$creadPrec :: ReadPrec DescribePackageImportJobResponse
+readList :: ReadS [DescribePackageImportJobResponse]
+$creadList :: ReadS [DescribePackageImportJobResponse]
+readsPrec :: Int -&gt; ReadS DescribePackageImportJobResponse
+$creadsPrec :: Int -&gt; ReadS DescribePackageImportJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264558"><span id="local-6989586621679264560"><span id="local-6989586621679264562"><span class="annot"><span class="annottext">Int -&gt; DescribePackageImportJobResponse -&gt; ShowS
+[DescribePackageImportJobResponse] -&gt; ShowS
+DescribePackageImportJobResponse -&gt; String
+(Int -&gt; DescribePackageImportJobResponse -&gt; ShowS)
+-&gt; (DescribePackageImportJobResponse -&gt; String)
+-&gt; ([DescribePackageImportJobResponse] -&gt; ShowS)
+-&gt; Show DescribePackageImportJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePackageImportJobResponse] -&gt; ShowS
+$cshowList :: [DescribePackageImportJobResponse] -&gt; ShowS
+show :: DescribePackageImportJobResponse -&gt; String
+$cshow :: DescribePackageImportJobResponse -&gt; String
+showsPrec :: Int -&gt; DescribePackageImportJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePackageImportJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribePackageImportJobResponse
+ -&gt; Rep DescribePackageImportJobResponse x)
+-&gt; (forall x.
+    Rep DescribePackageImportJobResponse x
+    -&gt; DescribePackageImportJobResponse)
+-&gt; Generic DescribePackageImportJobResponse
+forall x.
+Rep DescribePackageImportJobResponse x
+-&gt; DescribePackageImportJobResponse
+forall x.
+DescribePackageImportJobResponse
+-&gt; Rep DescribePackageImportJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePackageImportJobResponse x
+-&gt; DescribePackageImportJobResponse
+$cfrom :: forall x.
+DescribePackageImportJobResponse
+-&gt; Rep DescribePackageImportJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Create a value of 'DescribePackageImportJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'clientToken', 'describePackageImportJobResponse_clientToken' - The job\'s client token.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'jobTags', 'describePackageImportJobResponse_jobTags' - The job\'s tags.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'httpStatus', 'describePackageImportJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'jobId', 'describePackageImportJobResponse_jobId' - The job\'s ID.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'jobType', 'describePackageImportJobResponse_jobType' - The job\'s type.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'inputConfig', 'describePackageImportJobResponse_inputConfig' - The job\'s input config.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'outputConfig', 'describePackageImportJobResponse_outputConfig' - The job\'s output config.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'output', 'describePackageImportJobResponse_output' - The job\'s output.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'createdTime', 'describePackageImportJobResponse_createdTime' - When the job was created.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'lastUpdatedTime', 'describePackageImportJobResponse_lastUpdatedTime' - When the job was updated.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'status', 'describePackageImportJobResponse_status' - The job\'s status.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'statusMessage', 'describePackageImportJobResponse_statusMessage' - The job\'s status message.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#newDescribePackageImportJobResponse"><span class="hs-identifier hs-type">newDescribePackageImportJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-comment">-- | 'jobType'</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobType.html#PackageImportJobType"><span class="hs-identifier hs-type">PackageImportJobType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-comment">-- | 'inputConfig'</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobInputConfig.html#PackageImportJobInputConfig"><span class="hs-identifier hs-type">PackageImportJobInputConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-comment">-- | 'outputConfig'</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobOutputConfig.html#PackageImportJobOutputConfig"><span class="hs-identifier hs-type">PackageImportJobOutputConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-comment">-- | 'output'</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobOutput.html#PackageImportJobOutput"><span class="hs-identifier hs-type">PackageImportJobOutput</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-comment">-- | 'createdTime'</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-comment">-- | 'lastUpdatedTime'</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobStatus.html#PackageImportJobStatus"><span class="hs-identifier hs-type">PackageImportJobStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'statusMessage'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newDescribePackageImportJobResponse"><span class="annot"><span class="annottext">newDescribePackageImportJobResponse :: Int
+-&gt; Text
+-&gt; PackageImportJobType
+-&gt; PackageImportJobInputConfig
+-&gt; PackageImportJobOutputConfig
+-&gt; PackageImportJobOutput
+-&gt; UTCTime
+-&gt; UTCTime
+-&gt; PackageImportJobStatus
+-&gt; Text
+-&gt; DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#newDescribePackageImportJobResponse"><span class="hs-identifier hs-var hs-var">newDescribePackageImportJobResponse</span></a></span></span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679264555"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264555"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679264554"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264554"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679264553"><span class="annot"><span class="annottext">PackageImportJobType
+</span><a href="#local-6989586621679264553"><span class="hs-identifier hs-var">pJobType_</span></a></span></span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679264552"><span class="annot"><span class="annottext">PackageImportJobInputConfig
+</span><a href="#local-6989586621679264552"><span class="hs-identifier hs-var">pInputConfig_</span></a></span></span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679264551"><span class="annot"><span class="annottext">PackageImportJobOutputConfig
+</span><a href="#local-6989586621679264551"><span class="hs-identifier hs-var">pOutputConfig_</span></a></span></span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679264550"><span class="annot"><span class="annottext">PackageImportJobOutput
+</span><a href="#local-6989586621679264550"><span class="hs-identifier hs-var">pOutput_</span></a></span></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679264549"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679264549"><span class="hs-identifier hs-var">pCreatedTime_</span></a></span></span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679264548"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679264548"><span class="hs-identifier hs-var">pLastUpdatedTime_</span></a></span></span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679264547"><span class="annot"><span class="annottext">PackageImportJobStatus
+</span><a href="#local-6989586621679264547"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679264546"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264546"><span class="hs-identifier hs-var">pStatusMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">DescribePackageImportJobResponse' :: Maybe Text
+-&gt; Maybe [JobResourceTags]
+-&gt; Int
+-&gt; Text
+-&gt; PackageImportJobType
+-&gt; PackageImportJobInputConfig
+-&gt; PackageImportJobOutputConfig
+-&gt; PackageImportJobOutput
+-&gt; POSIX
+-&gt; POSIX
+-&gt; PackageImportJobStatus
+-&gt; Text
+-&gt; DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:DescribePackageImportJobResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AclientToken%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobTags:DescribePackageImportJobResponse' :: Maybe [JobResourceTags]
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AjobTags%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">jobTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobResourceTags]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePackageImportJobResponse' :: Int
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AhttpStatus%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264555"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobId:DescribePackageImportJobResponse' :: Text
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AjobId%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264554"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobType:DescribePackageImportJobResponse' :: PackageImportJobType
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AjobType%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageImportJobType
+</span><a href="#local-6989586621679264553"><span class="hs-identifier hs-var">pJobType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">$sel:inputConfig:DescribePackageImportJobResponse' :: PackageImportJobInputConfig
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AinputConfig%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">inputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageImportJobInputConfig
+</span><a href="#local-6989586621679264552"><span class="hs-identifier hs-var">pInputConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputConfig:DescribePackageImportJobResponse' :: PackageImportJobOutputConfig
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AoutputConfig%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">outputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageImportJobOutputConfig
+</span><a href="#local-6989586621679264551"><span class="hs-identifier hs-var">pOutputConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">$sel:output:DescribePackageImportJobResponse' :: PackageImportJobOutput
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3Aoutput%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">output</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageImportJobOutput
+</span><a href="#local-6989586621679264550"><span class="hs-identifier hs-var">pOutput_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdTime:DescribePackageImportJobResponse' :: POSIX
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AcreatedTime%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679264549"><span class="hs-identifier hs-var">pCreatedTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:DescribePackageImportJobResponse' :: POSIX
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AlastUpdatedTime%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679264548"><span class="hs-identifier hs-var">pLastUpdatedTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:DescribePackageImportJobResponse' :: PackageImportJobStatus
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3Astatus%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageImportJobStatus
+</span><a href="#local-6989586621679264547"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">$sel:statusMessage:DescribePackageImportJobResponse' :: Text
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AstatusMessage%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264546"><span class="hs-identifier hs-var">pStatusMessage_</span></a></span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The job\'s client token.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_clientToken"><span class="hs-identifier hs-type">describePackageImportJobResponse_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="describePackageImportJobResponse_clientToken"><span class="annot"><span class="annottext">describePackageImportJobResponse_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_clientToken"><span class="hs-identifier hs-var hs-var">describePackageImportJobResponse_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageImportJobResponse -&gt; Maybe Text)
+-&gt; (DescribePackageImportJobResponse
+    -&gt; Maybe Text -&gt; DescribePackageImportJobResponse)
+-&gt; Lens
+     DescribePackageImportJobResponse
+     DescribePackageImportJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264543"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:DescribePackageImportJobResponse' :: DescribePackageImportJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679264543"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264543"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264542"><span class="annot"><span class="annottext">s :: DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264541"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:DescribePackageImportJobResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AclientToken%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The job\'s tags.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_jobTags"><span class="hs-identifier hs-type">describePackageImportJobResponse_jobTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Panorama.Types.JobResourceTags.html#JobResourceTags"><span class="hs-identifier hs-type">JobResourceTags</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="describePackageImportJobResponse_jobTags"><span class="annot"><span class="annottext">describePackageImportJobResponse_jobTags :: (Maybe [JobResourceTags] -&gt; f (Maybe [JobResourceTags]))
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_jobTags"><span class="hs-identifier hs-var hs-var">describePackageImportJobResponse_jobTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageImportJobResponse -&gt; Maybe [JobResourceTags])
+-&gt; (DescribePackageImportJobResponse
+    -&gt; Maybe [JobResourceTags] -&gt; DescribePackageImportJobResponse)
+-&gt; Lens
+     DescribePackageImportJobResponse
+     DescribePackageImportJobResponse
+     (Maybe [JobResourceTags])
+     (Maybe [JobResourceTags])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264540"><span class="annot"><span class="annottext">Maybe [JobResourceTags]
+jobTags :: Maybe [JobResourceTags]
+$sel:jobTags:DescribePackageImportJobResponse' :: DescribePackageImportJobResponse -&gt; Maybe [JobResourceTags]
+</span><a href="#local-6989586621679264540"><span class="hs-identifier hs-var hs-var">jobTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobResourceTags]
+</span><a href="#local-6989586621679264540"><span class="hs-identifier hs-var">jobTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264539"><span class="annot"><span class="annottext">s :: DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264538"><span class="annot"><span class="annottext">Maybe [JobResourceTags]
+</span><a href="#local-6989586621679264538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobTags:DescribePackageImportJobResponse' :: Maybe [JobResourceTags]
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AjobTags%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">jobTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobResourceTags]
+</span><a href="#local-6989586621679264538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobResourceTags] -&gt; f (Maybe [JobResourceTags]))
+ -&gt; DescribePackageImportJobResponse
+ -&gt; f DescribePackageImportJobResponse)
+-&gt; ((Maybe [JobResourceTags] -&gt; f (Maybe [JobResourceTags]))
+    -&gt; Maybe [JobResourceTags] -&gt; f (Maybe [JobResourceTags]))
+-&gt; (Maybe [JobResourceTags] -&gt; f (Maybe [JobResourceTags]))
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [JobResourceTags]
+  [JobResourceTags]
+  [JobResourceTags]
+  [JobResourceTags]
+-&gt; Iso
+     (Maybe [JobResourceTags])
+     (Maybe [JobResourceTags])
+     (Maybe [JobResourceTags])
+     (Maybe [JobResourceTags])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [JobResourceTags]
+  [JobResourceTags]
+  [JobResourceTags]
+  [JobResourceTags]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_httpStatus"><span class="hs-identifier hs-type">describePackageImportJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-253"></span><span id="describePackageImportJobResponse_httpStatus"><span class="annot"><span class="annottext">describePackageImportJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describePackageImportJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageImportJobResponse -&gt; Int)
+-&gt; (DescribePackageImportJobResponse
+    -&gt; Int -&gt; DescribePackageImportJobResponse)
+-&gt; Lens
+     DescribePackageImportJobResponse
+     DescribePackageImportJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264534"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribePackageImportJobResponse' :: DescribePackageImportJobResponse -&gt; Int
+</span><a href="#local-6989586621679264534"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264534"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264533"><span class="annot"><span class="annottext">s :: DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264532"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePackageImportJobResponse' :: Int
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AhttpStatus%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The job\'s ID.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_jobId"><span class="hs-identifier hs-type">describePackageImportJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-257"></span><span id="describePackageImportJobResponse_jobId"><span class="annot"><span class="annottext">describePackageImportJobResponse_jobId :: (Text -&gt; f Text)
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_jobId"><span class="hs-identifier hs-var hs-var">describePackageImportJobResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageImportJobResponse -&gt; Text)
+-&gt; (DescribePackageImportJobResponse
+    -&gt; Text -&gt; DescribePackageImportJobResponse)
+-&gt; Lens
+     DescribePackageImportJobResponse
+     DescribePackageImportJobResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264531"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DescribePackageImportJobResponse' :: DescribePackageImportJobResponse -&gt; Text
+</span><a href="#local-6989586621679264531"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264531"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264530"><span class="annot"><span class="annottext">s :: DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264529"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribePackageImportJobResponse' :: Text
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AjobId%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The job\'s type.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_jobType"><span class="hs-identifier hs-type">describePackageImportJobResponse_jobType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobType.html#PackageImportJobType"><span class="hs-identifier hs-type">PackageImportJobType</span></a></span><span>
+</span><span id="line-261"></span><span id="describePackageImportJobResponse_jobType"><span class="annot"><span class="annottext">describePackageImportJobResponse_jobType :: (PackageImportJobType -&gt; f PackageImportJobType)
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_jobType"><span class="hs-identifier hs-var hs-var">describePackageImportJobResponse_jobType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageImportJobResponse -&gt; PackageImportJobType)
+-&gt; (DescribePackageImportJobResponse
+    -&gt; PackageImportJobType -&gt; DescribePackageImportJobResponse)
+-&gt; Lens
+     DescribePackageImportJobResponse
+     DescribePackageImportJobResponse
+     PackageImportJobType
+     PackageImportJobType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264528"><span class="annot"><span class="annottext">PackageImportJobType
+jobType :: PackageImportJobType
+$sel:jobType:DescribePackageImportJobResponse' :: DescribePackageImportJobResponse -&gt; PackageImportJobType
+</span><a href="#local-6989586621679264528"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageImportJobType
+</span><a href="#local-6989586621679264528"><span class="hs-identifier hs-var">jobType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264527"><span class="annot"><span class="annottext">s :: DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264526"><span class="annot"><span class="annottext">PackageImportJobType
+</span><a href="#local-6989586621679264526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobType:DescribePackageImportJobResponse' :: PackageImportJobType
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AjobType%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageImportJobType
+</span><a href="#local-6989586621679264526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The job\'s input config.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_inputConfig"><span class="hs-identifier hs-type">describePackageImportJobResponse_inputConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobInputConfig.html#PackageImportJobInputConfig"><span class="hs-identifier hs-type">PackageImportJobInputConfig</span></a></span><span>
+</span><span id="line-265"></span><span id="describePackageImportJobResponse_inputConfig"><span class="annot"><span class="annottext">describePackageImportJobResponse_inputConfig :: (PackageImportJobInputConfig -&gt; f PackageImportJobInputConfig)
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_inputConfig"><span class="hs-identifier hs-var hs-var">describePackageImportJobResponse_inputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageImportJobResponse -&gt; PackageImportJobInputConfig)
+-&gt; (DescribePackageImportJobResponse
+    -&gt; PackageImportJobInputConfig -&gt; DescribePackageImportJobResponse)
+-&gt; Lens
+     DescribePackageImportJobResponse
+     DescribePackageImportJobResponse
+     PackageImportJobInputConfig
+     PackageImportJobInputConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264525"><span class="annot"><span class="annottext">PackageImportJobInputConfig
+inputConfig :: PackageImportJobInputConfig
+$sel:inputConfig:DescribePackageImportJobResponse' :: DescribePackageImportJobResponse -&gt; PackageImportJobInputConfig
+</span><a href="#local-6989586621679264525"><span class="hs-identifier hs-var hs-var">inputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageImportJobInputConfig
+</span><a href="#local-6989586621679264525"><span class="hs-identifier hs-var">inputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264524"><span class="annot"><span class="annottext">s :: DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264523"><span class="annot"><span class="annottext">PackageImportJobInputConfig
+</span><a href="#local-6989586621679264523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputConfig:DescribePackageImportJobResponse' :: PackageImportJobInputConfig
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AinputConfig%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">inputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageImportJobInputConfig
+</span><a href="#local-6989586621679264523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The job\'s output config.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_outputConfig"><span class="hs-identifier hs-type">describePackageImportJobResponse_outputConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobOutputConfig.html#PackageImportJobOutputConfig"><span class="hs-identifier hs-type">PackageImportJobOutputConfig</span></a></span><span>
+</span><span id="line-269"></span><span id="describePackageImportJobResponse_outputConfig"><span class="annot"><span class="annottext">describePackageImportJobResponse_outputConfig :: (PackageImportJobOutputConfig -&gt; f PackageImportJobOutputConfig)
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_outputConfig"><span class="hs-identifier hs-var hs-var">describePackageImportJobResponse_outputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageImportJobResponse -&gt; PackageImportJobOutputConfig)
+-&gt; (DescribePackageImportJobResponse
+    -&gt; PackageImportJobOutputConfig
+    -&gt; DescribePackageImportJobResponse)
+-&gt; Lens
+     DescribePackageImportJobResponse
+     DescribePackageImportJobResponse
+     PackageImportJobOutputConfig
+     PackageImportJobOutputConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264522"><span class="annot"><span class="annottext">PackageImportJobOutputConfig
+outputConfig :: PackageImportJobOutputConfig
+$sel:outputConfig:DescribePackageImportJobResponse' :: DescribePackageImportJobResponse -&gt; PackageImportJobOutputConfig
+</span><a href="#local-6989586621679264522"><span class="hs-identifier hs-var hs-var">outputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageImportJobOutputConfig
+</span><a href="#local-6989586621679264522"><span class="hs-identifier hs-var">outputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264521"><span class="annot"><span class="annottext">s :: DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264520"><span class="annot"><span class="annottext">PackageImportJobOutputConfig
+</span><a href="#local-6989586621679264520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputConfig:DescribePackageImportJobResponse' :: PackageImportJobOutputConfig
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AoutputConfig%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">outputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageImportJobOutputConfig
+</span><a href="#local-6989586621679264520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | The job\'s output.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_output"><span class="hs-identifier hs-type">describePackageImportJobResponse_output</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobOutput.html#PackageImportJobOutput"><span class="hs-identifier hs-type">PackageImportJobOutput</span></a></span><span>
+</span><span id="line-273"></span><span id="describePackageImportJobResponse_output"><span class="annot"><span class="annottext">describePackageImportJobResponse_output :: (PackageImportJobOutput -&gt; f PackageImportJobOutput)
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_output"><span class="hs-identifier hs-var hs-var">describePackageImportJobResponse_output</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageImportJobResponse -&gt; PackageImportJobOutput)
+-&gt; (DescribePackageImportJobResponse
+    -&gt; PackageImportJobOutput -&gt; DescribePackageImportJobResponse)
+-&gt; Lens
+     DescribePackageImportJobResponse
+     DescribePackageImportJobResponse
+     PackageImportJobOutput
+     PackageImportJobOutput
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264519"><span class="annot"><span class="annottext">PackageImportJobOutput
+output :: PackageImportJobOutput
+$sel:output:DescribePackageImportJobResponse' :: DescribePackageImportJobResponse -&gt; PackageImportJobOutput
+</span><a href="#local-6989586621679264519"><span class="hs-identifier hs-var hs-var">output</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageImportJobOutput
+</span><a href="#local-6989586621679264519"><span class="hs-identifier hs-var">output</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264518"><span class="annot"><span class="annottext">s :: DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264517"><span class="annot"><span class="annottext">PackageImportJobOutput
+</span><a href="#local-6989586621679264517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:output:DescribePackageImportJobResponse' :: PackageImportJobOutput
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3Aoutput%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">output</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageImportJobOutput
+</span><a href="#local-6989586621679264517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | When the job was created.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_createdTime"><span class="hs-identifier hs-type">describePackageImportJobResponse_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-277"></span><span id="describePackageImportJobResponse_createdTime"><span class="annot"><span class="annottext">describePackageImportJobResponse_createdTime :: (UTCTime -&gt; f UTCTime)
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_createdTime"><span class="hs-identifier hs-var hs-var">describePackageImportJobResponse_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageImportJobResponse -&gt; POSIX)
+-&gt; (DescribePackageImportJobResponse
+    -&gt; POSIX -&gt; DescribePackageImportJobResponse)
+-&gt; Lens
+     DescribePackageImportJobResponse
+     DescribePackageImportJobResponse
+     POSIX
+     POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264516"><span class="annot"><span class="annottext">POSIX
+createdTime :: POSIX
+$sel:createdTime:DescribePackageImportJobResponse' :: DescribePackageImportJobResponse -&gt; POSIX
+</span><a href="#local-6989586621679264516"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679264516"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264515"><span class="annot"><span class="annottext">s :: DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264514"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679264514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:DescribePackageImportJobResponse' :: POSIX
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AcreatedTime%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679264514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; DescribePackageImportJobResponse
+ -&gt; f DescribePackageImportJobResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | When the job was updated.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_lastUpdatedTime"><span class="hs-identifier hs-type">describePackageImportJobResponse_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-281"></span><span id="describePackageImportJobResponse_lastUpdatedTime"><span class="annot"><span class="annottext">describePackageImportJobResponse_lastUpdatedTime :: (UTCTime -&gt; f UTCTime)
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">describePackageImportJobResponse_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageImportJobResponse -&gt; POSIX)
+-&gt; (DescribePackageImportJobResponse
+    -&gt; POSIX -&gt; DescribePackageImportJobResponse)
+-&gt; Lens
+     DescribePackageImportJobResponse
+     DescribePackageImportJobResponse
+     POSIX
+     POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264513"><span class="annot"><span class="annottext">POSIX
+lastUpdatedTime :: POSIX
+$sel:lastUpdatedTime:DescribePackageImportJobResponse' :: DescribePackageImportJobResponse -&gt; POSIX
+</span><a href="#local-6989586621679264513"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679264513"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264512"><span class="annot"><span class="annottext">s :: DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264511"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679264511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:DescribePackageImportJobResponse' :: POSIX
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AlastUpdatedTime%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679264511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; DescribePackageImportJobResponse
+ -&gt; f DescribePackageImportJobResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | The job\'s status.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_status"><span class="hs-identifier hs-type">describePackageImportJobResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageImportJobStatus.html#PackageImportJobStatus"><span class="hs-identifier hs-type">PackageImportJobStatus</span></a></span><span>
+</span><span id="line-285"></span><span id="describePackageImportJobResponse_status"><span class="annot"><span class="annottext">describePackageImportJobResponse_status :: (PackageImportJobStatus -&gt; f PackageImportJobStatus)
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_status"><span class="hs-identifier hs-var hs-var">describePackageImportJobResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageImportJobResponse -&gt; PackageImportJobStatus)
+-&gt; (DescribePackageImportJobResponse
+    -&gt; PackageImportJobStatus -&gt; DescribePackageImportJobResponse)
+-&gt; Lens
+     DescribePackageImportJobResponse
+     DescribePackageImportJobResponse
+     PackageImportJobStatus
+     PackageImportJobStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264510"><span class="annot"><span class="annottext">PackageImportJobStatus
+status :: PackageImportJobStatus
+$sel:status:DescribePackageImportJobResponse' :: DescribePackageImportJobResponse -&gt; PackageImportJobStatus
+</span><a href="#local-6989586621679264510"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageImportJobStatus
+</span><a href="#local-6989586621679264510"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264509"><span class="annot"><span class="annottext">s :: DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264508"><span class="annot"><span class="annottext">PackageImportJobStatus
+</span><a href="#local-6989586621679264508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribePackageImportJobResponse' :: PackageImportJobStatus
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3Astatus%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageImportJobStatus
+</span><a href="#local-6989586621679264508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | The job\'s status message.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_statusMessage"><span class="hs-identifier hs-type">describePackageImportJobResponse_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-289"></span><span id="describePackageImportJobResponse_statusMessage"><span class="annot"><span class="annottext">describePackageImportJobResponse_statusMessage :: (Text -&gt; f Text)
+-&gt; DescribePackageImportJobResponse
+-&gt; f DescribePackageImportJobResponse
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#describePackageImportJobResponse_statusMessage"><span class="hs-identifier hs-var hs-var">describePackageImportJobResponse_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageImportJobResponse -&gt; Text)
+-&gt; (DescribePackageImportJobResponse
+    -&gt; Text -&gt; DescribePackageImportJobResponse)
+-&gt; Lens
+     DescribePackageImportJobResponse
+     DescribePackageImportJobResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264507"><span class="annot"><span class="annottext">Text
+statusMessage :: Text
+$sel:statusMessage:DescribePackageImportJobResponse' :: DescribePackageImportJobResponse -&gt; Text
+</span><a href="#local-6989586621679264507"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264507"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264506"><span class="annot"><span class="annottext">s :: DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse%27"><span class="hs-identifier hs-type">DescribePackageImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264505"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageImportJobResponse
+</span><a href="#local-6989586621679264506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:DescribePackageImportJobResponse' :: Text
+</span><a href="Network.AWS.Panorama.DescribePackageImportJob.html#%24sel%3AstatusMessage%3ADescribePackageImportJobResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621679264503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribePackageImportJob.html#DescribePackageImportJobResponse"><span class="hs-identifier hs-type">DescribePackageImportJobResponse</span></a></span></span><span>
+</span><span id="line-294"></span></pre></body></html>

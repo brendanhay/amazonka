@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679176449"><span id="local-6989586621679176450"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QueryErrorCode"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode"><span class="hs-identifier hs-var">QueryErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryErrorCode%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode%27"><span class="hs-identifier hs-var">QueryErrorCode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679176458"><span id="local-6989586621679176459"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QueryErrorCode"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode"><span class="hs-identifier hs-var">QueryErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryErrorCode%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode%27"><span class="hs-identifier hs-var">QueryErrorCode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromQueryErrorCode"><span class="annot"><span class="annottext">QueryErrorCode -&gt; Text
 </span><a href="Network.AWS.ResourceGroups.Types.QueryErrorCode.html#fromQueryErrorCode"><span class="hs-identifier hs-var hs-var">fromQueryErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176441"><span id="local-6989586621679176443"><span id="local-6989586621679176445"><span class="annot"><span class="annottext">Int -&gt; QueryErrorCode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176450"><span id="local-6989586621679176452"><span id="local-6989586621679176454"><span class="annot"><span class="annottext">Int -&gt; QueryErrorCode -&gt; ShowS
 [QueryErrorCode] -&gt; ShowS
 QueryErrorCode -&gt; String
 (Int -&gt; QueryErrorCode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: QueryErrorCode -&gt; String
 showsPrec :: Int -&gt; QueryErrorCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; QueryErrorCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679176432"><span id="local-6989586621679176434"><span id="local-6989586621679176436"><span id="local-6989586621679176438"><span class="annot"><span class="annottext">ReadPrec [QueryErrorCode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679176441"><span id="local-6989586621679176443"><span id="local-6989586621679176445"><span id="local-6989586621679176447"><span class="annot"><span class="annottext">ReadPrec [QueryErrorCode]
 ReadPrec QueryErrorCode
 Int -&gt; ReadS QueryErrorCode
 ReadS [QueryErrorCode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [QueryErrorCode]
 readsPrec :: Int -&gt; ReadS QueryErrorCode
 $creadsPrec :: Int -&gt; ReadS QueryErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679176427"><span id="local-6989586621679176429"><span class="annot"><span class="annottext">QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679176436"><span id="local-6989586621679176438"><span class="annot"><span class="annottext">QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
 (QueryErrorCode -&gt; QueryErrorCode -&gt; Bool)
 -&gt; (QueryErrorCode -&gt; QueryErrorCode -&gt; Bool) -&gt; Eq QueryErrorCode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
 == :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
 $c== :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679176411"><span id="local-6989586621679176413"><span id="local-6989586621679176415"><span id="local-6989586621679176417"><span id="local-6989586621679176419"><span id="local-6989586621679176421"><span id="local-6989586621679176423"><span class="annot"><span class="annottext">Eq QueryErrorCode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679176420"><span id="local-6989586621679176422"><span id="local-6989586621679176424"><span id="local-6989586621679176426"><span id="local-6989586621679176428"><span id="local-6989586621679176430"><span id="local-6989586621679176432"><span class="annot"><span class="annottext">Eq QueryErrorCode
 Eq QueryErrorCode
 -&gt; (QueryErrorCode -&gt; QueryErrorCode -&gt; Ordering)
 -&gt; (QueryErrorCode -&gt; QueryErrorCode -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. QueryErrorCode -&gt; Rep QueryErrorCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176403"><span id="local-6989586621679176405"><span class="annot"><span class="annottext">Int -&gt; QueryErrorCode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176412"><span id="local-6989586621679176414"><span class="annot"><span class="annottext">Int -&gt; QueryErrorCode -&gt; Int
 QueryErrorCode -&gt; Int
 (Int -&gt; QueryErrorCode -&gt; Int)
 -&gt; (QueryErrorCode -&gt; Int) -&gt; Hashable QueryErrorCode
@@ -142,50 +142,50 @@ $chash :: QueryErrorCode -&gt; Int
 hashWithSalt :: Int -&gt; QueryErrorCode -&gt; Int
 $chashWithSalt :: Int -&gt; QueryErrorCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679176400"><span class="annot"><span class="annottext">QueryErrorCode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679176409"><span class="annot"><span class="annottext">QueryErrorCode -&gt; ()
 (QueryErrorCode -&gt; ()) -&gt; NFData QueryErrorCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: QueryErrorCode -&gt; ()
 $crnf :: QueryErrorCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679176397"><span class="annot"><span class="annottext">Text -&gt; Either String QueryErrorCode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679176406"><span class="annot"><span class="annottext">Text -&gt; Either String QueryErrorCode
 (Text -&gt; Either String QueryErrorCode) -&gt; FromText QueryErrorCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String QueryErrorCode
 $cfromText :: Text -&gt; Either String QueryErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679176394"><span class="annot"><span class="annottext">QueryErrorCode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679176403"><span class="annot"><span class="annottext">QueryErrorCode -&gt; Text
 (QueryErrorCode -&gt; Text) -&gt; ToText QueryErrorCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: QueryErrorCode -&gt; Text
 $ctoText :: QueryErrorCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679176391"><span class="annot"><span class="annottext">QueryErrorCode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679176400"><span class="annot"><span class="annottext">QueryErrorCode -&gt; ByteString
 (QueryErrorCode -&gt; ByteString) -&gt; ToByteString QueryErrorCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: QueryErrorCode -&gt; ByteString
 $ctoBS :: QueryErrorCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679176388"><span class="annot"><span class="annottext">QueryErrorCode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679176397"><span class="annot"><span class="annottext">QueryErrorCode -&gt; ByteStringBuilder
 (QueryErrorCode -&gt; ByteStringBuilder) -&gt; ToLog QueryErrorCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: QueryErrorCode -&gt; ByteStringBuilder
 $cbuild :: QueryErrorCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679176385"><span class="annot"><span class="annottext">HeaderName -&gt; QueryErrorCode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679176394"><span class="annot"><span class="annottext">HeaderName -&gt; QueryErrorCode -&gt; [Header]
 (HeaderName -&gt; QueryErrorCode -&gt; [Header])
 -&gt; ToHeader QueryErrorCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; QueryErrorCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; QueryErrorCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679176382"><span class="annot"><span class="annottext">QueryErrorCode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679176391"><span class="annot"><span class="annottext">QueryErrorCode -&gt; QueryString
 (QueryErrorCode -&gt; QueryString) -&gt; ToQuery QueryErrorCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: QueryErrorCode -&gt; QueryString
 $ctoQuery :: QueryErrorCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679176377"><span id="local-6989586621679176379"><span class="annot"><span class="annottext">Value -&gt; Parser [QueryErrorCode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679176386"><span id="local-6989586621679176388"><span class="annot"><span class="annottext">Value -&gt; Parser [QueryErrorCode]
 Value -&gt; Parser QueryErrorCode
 (Value -&gt; Parser QueryErrorCode)
 -&gt; (Value -&gt; Parser [QueryErrorCode]) -&gt; FromJSON QueryErrorCode
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [QueryErrorCode]
 parseJSON :: Value -&gt; Parser QueryErrorCode
 $cparseJSON :: Value -&gt; Parser QueryErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679176372"><span id="local-6989586621679176374"><span class="annot"><span class="annottext">FromJSONKeyFunction [QueryErrorCode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679176381"><span id="local-6989586621679176383"><span class="annot"><span class="annottext">FromJSONKeyFunction [QueryErrorCode]
 FromJSONKeyFunction QueryErrorCode
 FromJSONKeyFunction QueryErrorCode
 -&gt; FromJSONKeyFunction [QueryErrorCode]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [QueryErrorCode]
 fromJSONKey :: FromJSONKeyFunction QueryErrorCode
 $cfromJSONKey :: FromJSONKeyFunction QueryErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679176363"><span id="local-6989586621679176365"><span id="local-6989586621679176367"><span id="local-6989586621679176369"><span class="annot"><span class="annottext">[QueryErrorCode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679176372"><span id="local-6989586621679176374"><span id="local-6989586621679176376"><span id="local-6989586621679176378"><span class="annot"><span class="annottext">[QueryErrorCode] -&gt; Encoding
 [QueryErrorCode] -&gt; Value
 QueryErrorCode -&gt; Encoding
 QueryErrorCode -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: QueryErrorCode -&gt; Encoding
 toJSON :: QueryErrorCode -&gt; Value
 $ctoJSON :: QueryErrorCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679176358"><span id="local-6989586621679176360"><span class="annot"><span class="annottext">ToJSONKeyFunction [QueryErrorCode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679176367"><span id="local-6989586621679176369"><span class="annot"><span class="annottext">ToJSONKeyFunction [QueryErrorCode]
 ToJSONKeyFunction QueryErrorCode
 ToJSONKeyFunction QueryErrorCode
 -&gt; ToJSONKeyFunction [QueryErrorCode] -&gt; ToJSONKey QueryErrorCode
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [QueryErrorCode]
 toJSONKey :: ToJSONKeyFunction QueryErrorCode
 $ctoJSONKey :: ToJSONKeyFunction QueryErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679176355"><span class="annot"><span class="annottext">[Node] -&gt; Either String QueryErrorCode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679176364"><span class="annot"><span class="annottext">[Node] -&gt; Either String QueryErrorCode
 ([Node] -&gt; Either String QueryErrorCode) -&gt; FromXML QueryErrorCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String QueryErrorCode
 $cparseXML :: [Node] -&gt; Either String QueryErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679176352"><span class="annot"><span class="annottext">QueryErrorCode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679176361"><span class="annot"><span class="annottext">QueryErrorCode -&gt; XML
 (QueryErrorCode -&gt; XML) -&gt; ToXML QueryErrorCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: QueryErrorCode -&gt; XML

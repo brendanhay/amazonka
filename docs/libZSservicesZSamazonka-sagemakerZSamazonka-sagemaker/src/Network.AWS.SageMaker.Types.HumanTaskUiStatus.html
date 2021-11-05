@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680308026"><span id="local-6989586621680308027"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HumanTaskUiStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskUiStatus.html#HumanTaskUiStatus"><span class="hs-identifier hs-var">HumanTaskUiStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HumanTaskUiStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskUiStatus.html#HumanTaskUiStatus%27"><span class="hs-identifier hs-var">HumanTaskUiStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680308035"><span id="local-6989586621680308036"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HumanTaskUiStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskUiStatus.html#HumanTaskUiStatus"><span class="hs-identifier hs-var">HumanTaskUiStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HumanTaskUiStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskUiStatus.html#HumanTaskUiStatus%27"><span class="hs-identifier hs-var">HumanTaskUiStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHumanTaskUiStatus"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskUiStatus.html#fromHumanTaskUiStatus"><span class="hs-identifier hs-var hs-var">fromHumanTaskUiStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680308018"><span id="local-6989586621680308020"><span id="local-6989586621680308022"><span class="annot"><span class="annottext">Int -&gt; HumanTaskUiStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680308027"><span id="local-6989586621680308029"><span id="local-6989586621680308031"><span class="annot"><span class="annottext">Int -&gt; HumanTaskUiStatus -&gt; ShowS
 [HumanTaskUiStatus] -&gt; ShowS
 HumanTaskUiStatus -&gt; String
 (Int -&gt; HumanTaskUiStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: HumanTaskUiStatus -&gt; String
 showsPrec :: Int -&gt; HumanTaskUiStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; HumanTaskUiStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680308009"><span id="local-6989586621680308011"><span id="local-6989586621680308013"><span id="local-6989586621680308015"><span class="annot"><span class="annottext">ReadPrec [HumanTaskUiStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680308018"><span id="local-6989586621680308020"><span id="local-6989586621680308022"><span id="local-6989586621680308024"><span class="annot"><span class="annottext">ReadPrec [HumanTaskUiStatus]
 ReadPrec HumanTaskUiStatus
 Int -&gt; ReadS HumanTaskUiStatus
 ReadS [HumanTaskUiStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [HumanTaskUiStatus]
 readsPrec :: Int -&gt; ReadS HumanTaskUiStatus
 $creadsPrec :: Int -&gt; ReadS HumanTaskUiStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680308004"><span id="local-6989586621680308006"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; HumanTaskUiStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680308013"><span id="local-6989586621680308015"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; HumanTaskUiStatus -&gt; Bool
 (HumanTaskUiStatus -&gt; HumanTaskUiStatus -&gt; Bool)
 -&gt; (HumanTaskUiStatus -&gt; HumanTaskUiStatus -&gt; Bool)
 -&gt; Eq HumanTaskUiStatus
@@ -82,7 +82,7 @@ $c/= :: HumanTaskUiStatus -&gt; HumanTaskUiStatus -&gt; Bool
 == :: HumanTaskUiStatus -&gt; HumanTaskUiStatus -&gt; Bool
 $c== :: HumanTaskUiStatus -&gt; HumanTaskUiStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680307988"><span id="local-6989586621680307990"><span id="local-6989586621680307992"><span id="local-6989586621680307994"><span id="local-6989586621680307996"><span id="local-6989586621680307998"><span id="local-6989586621680308000"><span class="annot"><span class="annottext">Eq HumanTaskUiStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680307997"><span id="local-6989586621680307999"><span id="local-6989586621680308001"><span id="local-6989586621680308003"><span id="local-6989586621680308005"><span id="local-6989586621680308007"><span id="local-6989586621680308009"><span class="annot"><span class="annottext">Eq HumanTaskUiStatus
 Eq HumanTaskUiStatus
 -&gt; (HumanTaskUiStatus -&gt; HumanTaskUiStatus -&gt; Ordering)
 -&gt; (HumanTaskUiStatus -&gt; HumanTaskUiStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. HumanTaskUiStatus -&gt; Rep HumanTaskUiStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680307980"><span id="local-6989586621680307982"><span class="annot"><span class="annottext">Int -&gt; HumanTaskUiStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680307989"><span id="local-6989586621680307991"><span class="annot"><span class="annottext">Int -&gt; HumanTaskUiStatus -&gt; Int
 HumanTaskUiStatus -&gt; Int
 (Int -&gt; HumanTaskUiStatus -&gt; Int)
 -&gt; (HumanTaskUiStatus -&gt; Int) -&gt; Hashable HumanTaskUiStatus
@@ -143,51 +143,51 @@ $chash :: HumanTaskUiStatus -&gt; Int
 hashWithSalt :: Int -&gt; HumanTaskUiStatus -&gt; Int
 $chashWithSalt :: Int -&gt; HumanTaskUiStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680307977"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680307986"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; ()
 (HumanTaskUiStatus -&gt; ()) -&gt; NFData HumanTaskUiStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HumanTaskUiStatus -&gt; ()
 $crnf :: HumanTaskUiStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680307974"><span class="annot"><span class="annottext">Text -&gt; Either String HumanTaskUiStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680307983"><span class="annot"><span class="annottext">Text -&gt; Either String HumanTaskUiStatus
 (Text -&gt; Either String HumanTaskUiStatus)
 -&gt; FromText HumanTaskUiStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HumanTaskUiStatus
 $cfromText :: Text -&gt; Either String HumanTaskUiStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680307971"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680307980"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; Text
 (HumanTaskUiStatus -&gt; Text) -&gt; ToText HumanTaskUiStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HumanTaskUiStatus -&gt; Text
 $ctoText :: HumanTaskUiStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680307968"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680307977"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; ByteString
 (HumanTaskUiStatus -&gt; ByteString) -&gt; ToByteString HumanTaskUiStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HumanTaskUiStatus -&gt; ByteString
 $ctoBS :: HumanTaskUiStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680307965"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680307974"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; ByteStringBuilder
 (HumanTaskUiStatus -&gt; ByteStringBuilder) -&gt; ToLog HumanTaskUiStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HumanTaskUiStatus -&gt; ByteStringBuilder
 $cbuild :: HumanTaskUiStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680307962"><span class="annot"><span class="annottext">HeaderName -&gt; HumanTaskUiStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680307971"><span class="annot"><span class="annottext">HeaderName -&gt; HumanTaskUiStatus -&gt; [Header]
 (HeaderName -&gt; HumanTaskUiStatus -&gt; [Header])
 -&gt; ToHeader HumanTaskUiStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HumanTaskUiStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HumanTaskUiStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680307959"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680307968"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; QueryString
 (HumanTaskUiStatus -&gt; QueryString) -&gt; ToQuery HumanTaskUiStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HumanTaskUiStatus -&gt; QueryString
 $ctoQuery :: HumanTaskUiStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680307954"><span id="local-6989586621680307956"><span class="annot"><span class="annottext">Value -&gt; Parser [HumanTaskUiStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680307963"><span id="local-6989586621680307965"><span class="annot"><span class="annottext">Value -&gt; Parser [HumanTaskUiStatus]
 Value -&gt; Parser HumanTaskUiStatus
 (Value -&gt; Parser HumanTaskUiStatus)
 -&gt; (Value -&gt; Parser [HumanTaskUiStatus])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [HumanTaskUiStatus]
 parseJSON :: Value -&gt; Parser HumanTaskUiStatus
 $cparseJSON :: Value -&gt; Parser HumanTaskUiStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680307949"><span id="local-6989586621680307951"><span class="annot"><span class="annottext">FromJSONKeyFunction [HumanTaskUiStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680307958"><span id="local-6989586621680307960"><span class="annot"><span class="annottext">FromJSONKeyFunction [HumanTaskUiStatus]
 FromJSONKeyFunction HumanTaskUiStatus
 FromJSONKeyFunction HumanTaskUiStatus
 -&gt; FromJSONKeyFunction [HumanTaskUiStatus]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HumanTaskUiStatus]
 fromJSONKey :: FromJSONKeyFunction HumanTaskUiStatus
 $cfromJSONKey :: FromJSONKeyFunction HumanTaskUiStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680307940"><span id="local-6989586621680307942"><span id="local-6989586621680307944"><span id="local-6989586621680307946"><span class="annot"><span class="annottext">[HumanTaskUiStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680307949"><span id="local-6989586621680307951"><span id="local-6989586621680307953"><span id="local-6989586621680307955"><span class="annot"><span class="annottext">[HumanTaskUiStatus] -&gt; Encoding
 [HumanTaskUiStatus] -&gt; Value
 HumanTaskUiStatus -&gt; Encoding
 HumanTaskUiStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: HumanTaskUiStatus -&gt; Encoding
 toJSON :: HumanTaskUiStatus -&gt; Value
 $ctoJSON :: HumanTaskUiStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680307935"><span id="local-6989586621680307937"><span class="annot"><span class="annottext">ToJSONKeyFunction [HumanTaskUiStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680307944"><span id="local-6989586621680307946"><span class="annot"><span class="annottext">ToJSONKeyFunction [HumanTaskUiStatus]
 ToJSONKeyFunction HumanTaskUiStatus
 ToJSONKeyFunction HumanTaskUiStatus
 -&gt; ToJSONKeyFunction [HumanTaskUiStatus]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HumanTaskUiStatus]
 toJSONKey :: ToJSONKeyFunction HumanTaskUiStatus
 $ctoJSONKey :: ToJSONKeyFunction HumanTaskUiStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680307932"><span class="annot"><span class="annottext">[Node] -&gt; Either String HumanTaskUiStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680307941"><span class="annot"><span class="annottext">[Node] -&gt; Either String HumanTaskUiStatus
 ([Node] -&gt; Either String HumanTaskUiStatus)
 -&gt; FromXML HumanTaskUiStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HumanTaskUiStatus
 $cparseXML :: [Node] -&gt; Either String HumanTaskUiStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680307929"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680307938"><span class="annot"><span class="annottext">HumanTaskUiStatus -&gt; XML
 (HumanTaskUiStatus -&gt; XML) -&gt; ToXML HumanTaskUiStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HumanTaskUiStatus -&gt; XML

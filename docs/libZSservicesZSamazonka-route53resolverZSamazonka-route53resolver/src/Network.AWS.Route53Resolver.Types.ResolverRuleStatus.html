@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Route53Resolver.Types.ResolverRuleStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53Resolver.Types.ResolverRuleStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus"><span class="hs-identifier">ResolverRuleStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus_COMPLETE"><span class="hs-identifier">ResolverRuleStatus_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus_DELETING"><span class="hs-identifier">ResolverRuleStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus_FAILED"><span class="hs-identifier">ResolverRuleStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus_UPDATING"><span class="hs-identifier">ResolverRuleStatus_UPDATING</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679286221"><span id="local-6989586621679286222"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResolverRuleStatus"><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus"><span class="hs-identifier hs-var">ResolverRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolverRuleStatus%27"><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus%27"><span class="hs-identifier hs-var">ResolverRuleStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResolverRuleStatus"><span class="annot"><span class="annottext">ResolverRuleStatus -&gt; Text
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#fromResolverRuleStatus"><span class="hs-identifier hs-var hs-var">fromResolverRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679286213"><span id="local-6989586621679286215"><span id="local-6989586621679286217"><span class="annot"><span class="annottext">Int -&gt; ResolverRuleStatus -&gt; ShowS
+[ResolverRuleStatus] -&gt; ShowS
+ResolverRuleStatus -&gt; String
+(Int -&gt; ResolverRuleStatus -&gt; ShowS)
+-&gt; (ResolverRuleStatus -&gt; String)
+-&gt; ([ResolverRuleStatus] -&gt; ShowS)
+-&gt; Show ResolverRuleStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResolverRuleStatus] -&gt; ShowS
+$cshowList :: [ResolverRuleStatus] -&gt; ShowS
+show :: ResolverRuleStatus -&gt; String
+$cshow :: ResolverRuleStatus -&gt; String
+showsPrec :: Int -&gt; ResolverRuleStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResolverRuleStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679286204"><span id="local-6989586621679286206"><span id="local-6989586621679286208"><span id="local-6989586621679286210"><span class="annot"><span class="annottext">ReadPrec [ResolverRuleStatus]
+ReadPrec ResolverRuleStatus
+Int -&gt; ReadS ResolverRuleStatus
+ReadS [ResolverRuleStatus]
+(Int -&gt; ReadS ResolverRuleStatus)
+-&gt; ReadS [ResolverRuleStatus]
+-&gt; ReadPrec ResolverRuleStatus
+-&gt; ReadPrec [ResolverRuleStatus]
+-&gt; Read ResolverRuleStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResolverRuleStatus]
+$creadListPrec :: ReadPrec [ResolverRuleStatus]
+readPrec :: ReadPrec ResolverRuleStatus
+$creadPrec :: ReadPrec ResolverRuleStatus
+readList :: ReadS [ResolverRuleStatus]
+$creadList :: ReadS [ResolverRuleStatus]
+readsPrec :: Int -&gt; ReadS ResolverRuleStatus
+$creadsPrec :: Int -&gt; ReadS ResolverRuleStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679286199"><span id="local-6989586621679286201"><span class="annot"><span class="annottext">ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool
+(ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool)
+-&gt; (ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool)
+-&gt; Eq ResolverRuleStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool
+$c/= :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool
+== :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool
+$c== :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679286183"><span id="local-6989586621679286185"><span id="local-6989586621679286187"><span id="local-6989586621679286189"><span id="local-6989586621679286191"><span id="local-6989586621679286193"><span id="local-6989586621679286195"><span class="annot"><span class="annottext">Eq ResolverRuleStatus
+Eq ResolverRuleStatus
+-&gt; (ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Ordering)
+-&gt; (ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool)
+-&gt; (ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool)
+-&gt; (ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool)
+-&gt; (ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool)
+-&gt; (ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; ResolverRuleStatus)
+-&gt; (ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; ResolverRuleStatus)
+-&gt; Ord ResolverRuleStatus
+ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool
+ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Ordering
+ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; ResolverRuleStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; ResolverRuleStatus
+$cmin :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; ResolverRuleStatus
+max :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; ResolverRuleStatus
+$cmax :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; ResolverRuleStatus
+&gt;= :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool
+$c&gt;= :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool
+&gt; :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool
+$c&gt; :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool
+&lt;= :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool
+$c&lt;= :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool
+&lt; :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool
+$c&lt; :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Bool
+compare :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Ordering
+$ccompare :: ResolverRuleStatus -&gt; ResolverRuleStatus -&gt; Ordering
+$cp1Ord :: Eq ResolverRuleStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ResolverRuleStatus -&gt; Rep ResolverRuleStatus x)
+-&gt; (forall x. Rep ResolverRuleStatus x -&gt; ResolverRuleStatus)
+-&gt; Generic ResolverRuleStatus
+forall x. Rep ResolverRuleStatus x -&gt; ResolverRuleStatus
+forall x. ResolverRuleStatus -&gt; Rep ResolverRuleStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResolverRuleStatus x -&gt; ResolverRuleStatus
+$cfrom :: forall x. ResolverRuleStatus -&gt; Rep ResolverRuleStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679286175"><span id="local-6989586621679286177"><span class="annot"><span class="annottext">Int -&gt; ResolverRuleStatus -&gt; Int
+ResolverRuleStatus -&gt; Int
+(Int -&gt; ResolverRuleStatus -&gt; Int)
+-&gt; (ResolverRuleStatus -&gt; Int) -&gt; Hashable ResolverRuleStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ResolverRuleStatus -&gt; Int
+$chash :: ResolverRuleStatus -&gt; Int
+hashWithSalt :: Int -&gt; ResolverRuleStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ResolverRuleStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679286172"><span class="annot"><span class="annottext">ResolverRuleStatus -&gt; ()
+(ResolverRuleStatus -&gt; ()) -&gt; NFData ResolverRuleStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ResolverRuleStatus -&gt; ()
+$crnf :: ResolverRuleStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679286169"><span class="annot"><span class="annottext">Text -&gt; Either String ResolverRuleStatus
+(Text -&gt; Either String ResolverRuleStatus)
+-&gt; FromText ResolverRuleStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ResolverRuleStatus
+$cfromText :: Text -&gt; Either String ResolverRuleStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679286166"><span class="annot"><span class="annottext">ResolverRuleStatus -&gt; Text
+(ResolverRuleStatus -&gt; Text) -&gt; ToText ResolverRuleStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ResolverRuleStatus -&gt; Text
+$ctoText :: ResolverRuleStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679286163"><span class="annot"><span class="annottext">ResolverRuleStatus -&gt; ByteString
+(ResolverRuleStatus -&gt; ByteString)
+-&gt; ToByteString ResolverRuleStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ResolverRuleStatus -&gt; ByteString
+$ctoBS :: ResolverRuleStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679286160"><span class="annot"><span class="annottext">ResolverRuleStatus -&gt; ByteStringBuilder
+(ResolverRuleStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ResolverRuleStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ResolverRuleStatus -&gt; ByteStringBuilder
+$cbuild :: ResolverRuleStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679286157"><span class="annot"><span class="annottext">HeaderName -&gt; ResolverRuleStatus -&gt; [Header]
+(HeaderName -&gt; ResolverRuleStatus -&gt; [Header])
+-&gt; ToHeader ResolverRuleStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ResolverRuleStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ResolverRuleStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679286154"><span class="annot"><span class="annottext">ResolverRuleStatus -&gt; QueryString
+(ResolverRuleStatus -&gt; QueryString) -&gt; ToQuery ResolverRuleStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ResolverRuleStatus -&gt; QueryString
+$ctoQuery :: ResolverRuleStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679286149"><span id="local-6989586621679286151"><span class="annot"><span class="annottext">Value -&gt; Parser [ResolverRuleStatus]
+Value -&gt; Parser ResolverRuleStatus
+(Value -&gt; Parser ResolverRuleStatus)
+-&gt; (Value -&gt; Parser [ResolverRuleStatus])
+-&gt; FromJSON ResolverRuleStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ResolverRuleStatus]
+$cparseJSONList :: Value -&gt; Parser [ResolverRuleStatus]
+parseJSON :: Value -&gt; Parser ResolverRuleStatus
+$cparseJSON :: Value -&gt; Parser ResolverRuleStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679286144"><span id="local-6989586621679286146"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResolverRuleStatus]
+FromJSONKeyFunction ResolverRuleStatus
+FromJSONKeyFunction ResolverRuleStatus
+-&gt; FromJSONKeyFunction [ResolverRuleStatus]
+-&gt; FromJSONKey ResolverRuleStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ResolverRuleStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ResolverRuleStatus]
+fromJSONKey :: FromJSONKeyFunction ResolverRuleStatus
+$cfromJSONKey :: FromJSONKeyFunction ResolverRuleStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679286135"><span id="local-6989586621679286137"><span id="local-6989586621679286139"><span id="local-6989586621679286141"><span class="annot"><span class="annottext">[ResolverRuleStatus] -&gt; Encoding
+[ResolverRuleStatus] -&gt; Value
+ResolverRuleStatus -&gt; Encoding
+ResolverRuleStatus -&gt; Value
+(ResolverRuleStatus -&gt; Value)
+-&gt; (ResolverRuleStatus -&gt; Encoding)
+-&gt; ([ResolverRuleStatus] -&gt; Value)
+-&gt; ([ResolverRuleStatus] -&gt; Encoding)
+-&gt; ToJSON ResolverRuleStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ResolverRuleStatus] -&gt; Encoding
+$ctoEncodingList :: [ResolverRuleStatus] -&gt; Encoding
+toJSONList :: [ResolverRuleStatus] -&gt; Value
+$ctoJSONList :: [ResolverRuleStatus] -&gt; Value
+toEncoding :: ResolverRuleStatus -&gt; Encoding
+$ctoEncoding :: ResolverRuleStatus -&gt; Encoding
+toJSON :: ResolverRuleStatus -&gt; Value
+$ctoJSON :: ResolverRuleStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679286130"><span id="local-6989586621679286132"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResolverRuleStatus]
+ToJSONKeyFunction ResolverRuleStatus
+ToJSONKeyFunction ResolverRuleStatus
+-&gt; ToJSONKeyFunction [ResolverRuleStatus]
+-&gt; ToJSONKey ResolverRuleStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ResolverRuleStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ResolverRuleStatus]
+toJSONKey :: ToJSONKeyFunction ResolverRuleStatus
+$ctoJSONKey :: ToJSONKeyFunction ResolverRuleStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679286127"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResolverRuleStatus
+([Node] -&gt; Either String ResolverRuleStatus)
+-&gt; FromXML ResolverRuleStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ResolverRuleStatus
+$cparseXML :: [Node] -&gt; Either String ResolverRuleStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679286124"><span class="annot"><span class="annottext">ResolverRuleStatus -&gt; XML
+(ResolverRuleStatus -&gt; XML) -&gt; ToXML ResolverRuleStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ResolverRuleStatus -&gt; XML
+$ctoXML :: ResolverRuleStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus_COMPLETE"><span class="hs-identifier hs-type">ResolverRuleStatus_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus"><span class="hs-identifier hs-type">ResolverRuleStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverRuleStatus_COMPLETE"><span id="%24mResolverRuleStatus_COMPLETE"><span id="ResolverRuleStatus_COMPLETE"><span class="annot"><span class="annottext">$bResolverRuleStatus_COMPLETE :: ResolverRuleStatus
+$mResolverRuleStatus_COMPLETE :: forall r. ResolverRuleStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#%24bResolverRuleStatus_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">ResolverRuleStatus_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus%27"><span class="hs-identifier hs-type">ResolverRuleStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETE&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus_DELETING"><span class="hs-identifier hs-type">ResolverRuleStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus"><span class="hs-identifier hs-type">ResolverRuleStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverRuleStatus_DELETING"><span id="%24mResolverRuleStatus_DELETING"><span id="ResolverRuleStatus_DELETING"><span class="annot"><span class="annottext">$bResolverRuleStatus_DELETING :: ResolverRuleStatus
+$mResolverRuleStatus_DELETING :: forall r. ResolverRuleStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#%24bResolverRuleStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">ResolverRuleStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus%27"><span class="hs-identifier hs-type">ResolverRuleStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus_FAILED"><span class="hs-identifier hs-type">ResolverRuleStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus"><span class="hs-identifier hs-type">ResolverRuleStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverRuleStatus_FAILED"><span id="%24mResolverRuleStatus_FAILED"><span id="ResolverRuleStatus_FAILED"><span class="annot"><span class="annottext">$bResolverRuleStatus_FAILED :: ResolverRuleStatus
+$mResolverRuleStatus_FAILED :: forall r. ResolverRuleStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#%24bResolverRuleStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ResolverRuleStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus%27"><span class="hs-identifier hs-type">ResolverRuleStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus_UPDATING"><span class="hs-identifier hs-type">ResolverRuleStatus_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus"><span class="hs-identifier hs-type">ResolverRuleStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverRuleStatus_UPDATING"><span id="%24mResolverRuleStatus_UPDATING"><span id="ResolverRuleStatus_UPDATING"><span class="annot"><span class="annottext">$bResolverRuleStatus_UPDATING :: ResolverRuleStatus
+$mResolverRuleStatus_UPDATING :: forall r. ResolverRuleStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#%24bResolverRuleStatus_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">ResolverRuleStatus_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus%27"><span class="hs-identifier hs-type">ResolverRuleStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus_COMPLETE"><span class="hs-pragma hs-type">ResolverRuleStatus_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus_DELETING"><span class="hs-pragma hs-type">ResolverRuleStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus_FAILED"><span class="hs-pragma hs-type">ResolverRuleStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus_UPDATING"><span class="hs-pragma hs-type">ResolverRuleStatus_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverRuleStatus.html#ResolverRuleStatus%27"><span class="hs-pragma hs-type">ResolverRuleStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

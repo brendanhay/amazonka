@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- updated.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDatasetTrigger' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679262170"><span id="local-6989586621679262171"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatasetTrigger"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-var">DatasetTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetTrigger%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger%27"><span class="hs-identifier hs-var">DatasetTrigger'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679262179"><span id="local-6989586621679262180"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatasetTrigger"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-var">DatasetTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetTrigger%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger%27"><span class="hs-identifier hs-var">DatasetTrigger'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The dataset whose content creation triggers the creation of this</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- dataset\'s contents.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Adataset%3ADatasetTrigger%27"><span class="annot"><span class="annottext">DatasetTrigger -&gt; Maybe TriggeringDataset
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aschedule%3ADatasetTrigger%27"><span class="annot"><span class="annottext">DatasetTrigger -&gt; Maybe Schedule
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#%24sel%3Aschedule%3ADatasetTrigger%27"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262163"><span id="local-6989586621679262165"><span class="annot"><span class="annottext">DatasetTrigger -&gt; DatasetTrigger -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262172"><span id="local-6989586621679262174"><span class="annot"><span class="annottext">DatasetTrigger -&gt; DatasetTrigger -&gt; Bool
 (DatasetTrigger -&gt; DatasetTrigger -&gt; Bool)
 -&gt; (DatasetTrigger -&gt; DatasetTrigger -&gt; Bool) -&gt; Eq DatasetTrigger
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DatasetTrigger -&gt; DatasetTrigger -&gt; Bool
 == :: DatasetTrigger -&gt; DatasetTrigger -&gt; Bool
 $c== :: DatasetTrigger -&gt; DatasetTrigger -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262154"><span id="local-6989586621679262156"><span id="local-6989586621679262158"><span id="local-6989586621679262160"><span class="annot"><span class="annottext">ReadPrec [DatasetTrigger]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262163"><span id="local-6989586621679262165"><span id="local-6989586621679262167"><span id="local-6989586621679262169"><span class="annot"><span class="annottext">ReadPrec [DatasetTrigger]
 ReadPrec DatasetTrigger
 Int -&gt; ReadS DatasetTrigger
 ReadS [DatasetTrigger]
@@ -66,7 +66,7 @@ readList :: ReadS [DatasetTrigger]
 $creadList :: ReadS [DatasetTrigger]
 readsPrec :: Int -&gt; ReadS DatasetTrigger
 $creadsPrec :: Int -&gt; ReadS DatasetTrigger
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262147"><span id="local-6989586621679262149"><span id="local-6989586621679262151"><span class="annot"><span class="annottext">Int -&gt; DatasetTrigger -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262156"><span id="local-6989586621679262158"><span id="local-6989586621679262160"><span class="annot"><span class="annottext">Int -&gt; DatasetTrigger -&gt; ShowS
 [DatasetTrigger] -&gt; ShowS
 DatasetTrigger -&gt; String
 (Int -&gt; DatasetTrigger -&gt; ShowS)
@@ -133,16 +133,16 @@ forall a. Maybe a
      (Maybe TriggeringDataset)
      (Maybe TriggeringDataset)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger%27"><span class="hs-identifier hs-type">DatasetTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262138"><span class="annot"><span class="annottext">Maybe TriggeringDataset
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger%27"><span class="hs-identifier hs-type">DatasetTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262147"><span class="annot"><span class="annottext">Maybe TriggeringDataset
 dataset :: Maybe TriggeringDataset
 $sel:dataset:DatasetTrigger' :: DatasetTrigger -&gt; Maybe TriggeringDataset
-</span><a href="#local-6989586621679262138"><span class="hs-identifier hs-var hs-var">dataset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TriggeringDataset
-</span><a href="#local-6989586621679262138"><span class="hs-identifier hs-var">dataset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262137"><span class="annot"><span class="annottext">s :: DatasetTrigger
-</span><a href="#local-6989586621679262137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger%27"><span class="hs-identifier hs-type">DatasetTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262136"><span class="annot"><span class="annottext">Maybe TriggeringDataset
-</span><a href="#local-6989586621679262136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetTrigger
-</span><a href="#local-6989586621679262137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataset:DatasetTrigger' :: Maybe TriggeringDataset
+</span><a href="#local-6989586621679262147"><span class="hs-identifier hs-var hs-var">dataset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TriggeringDataset
+</span><a href="#local-6989586621679262147"><span class="hs-identifier hs-var">dataset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262146"><span class="annot"><span class="annottext">s :: DatasetTrigger
+</span><a href="#local-6989586621679262146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger%27"><span class="hs-identifier hs-type">DatasetTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262145"><span class="annot"><span class="annottext">Maybe TriggeringDataset
+</span><a href="#local-6989586621679262145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetTrigger
+</span><a href="#local-6989586621679262146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataset:DatasetTrigger' :: Maybe TriggeringDataset
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#%24sel%3Adataset%3ADatasetTrigger%27"><span class="hs-identifier hs-var">dataset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TriggeringDataset
-</span><a href="#local-6989586621679262136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-type">DatasetTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-type">DatasetTrigger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The Schedule when the trigger is initiated.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#datasetTrigger_schedule"><span class="hs-identifier hs-type">datasetTrigger_schedule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-type">DatasetTrigger</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
@@ -153,19 +153,19 @@ $sel:dataset:DatasetTrigger' :: DatasetTrigger -&gt; Maybe TriggeringDataset
 -&gt; Lens
      DatasetTrigger DatasetTrigger (Maybe Schedule) (Maybe Schedule)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger%27"><span class="hs-identifier hs-type">DatasetTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262134"><span class="annot"><span class="annottext">Maybe Schedule
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger%27"><span class="hs-identifier hs-type">DatasetTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262143"><span class="annot"><span class="annottext">Maybe Schedule
 schedule :: Maybe Schedule
 $sel:schedule:DatasetTrigger' :: DatasetTrigger -&gt; Maybe Schedule
-</span><a href="#local-6989586621679262134"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Schedule
-</span><a href="#local-6989586621679262134"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262133"><span class="annot"><span class="annottext">s :: DatasetTrigger
-</span><a href="#local-6989586621679262133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger%27"><span class="hs-identifier hs-type">DatasetTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262132"><span class="annot"><span class="annottext">Maybe Schedule
-</span><a href="#local-6989586621679262132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetTrigger
-</span><a href="#local-6989586621679262133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:DatasetTrigger' :: Maybe Schedule
+</span><a href="#local-6989586621679262143"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Schedule
+</span><a href="#local-6989586621679262143"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262142"><span class="annot"><span class="annottext">s :: DatasetTrigger
+</span><a href="#local-6989586621679262142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger%27"><span class="hs-identifier hs-type">DatasetTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262141"><span class="annot"><span class="annottext">Maybe Schedule
+</span><a href="#local-6989586621679262141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetTrigger
+</span><a href="#local-6989586621679262142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:DatasetTrigger' :: Maybe Schedule
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#%24sel%3Aschedule%3ADatasetTrigger%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Schedule
-</span><a href="#local-6989586621679262132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-type">DatasetTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-type">DatasetTrigger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262129"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-type">DatasetTrigger</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679262127"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatasetTrigger
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262138"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-type">DatasetTrigger</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679262136"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatasetTrigger
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DatasetTrigger)
@@ -175,8 +175,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DatasetTrigger&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262124"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262124"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262133"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262133"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe TriggeringDataset -&gt; Maybe Schedule -&gt; DatasetTrigger
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger%27"><span class="hs-identifier hs-var">DatasetTrigger'</span></a></span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TriggeringDataset -&gt; Maybe Schedule -&gt; DatasetTrigger)
@@ -184,7 +184,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Schedule -&gt; DatasetTrigger)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TriggeringDataset)
+</span><a href="#local-6989586621679262133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TriggeringDataset)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dataset&quot;</span></span><span class="hs-special">)</span><span>
@@ -192,25 +192,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Schedule) -&gt; Parser DatasetTrigger
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Schedule)
+</span><a href="#local-6989586621679262133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Schedule)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;schedule&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262118"><span id="local-6989586621679262120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-type">DatasetTrigger</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262127"><span id="local-6989586621679262129"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-type">DatasetTrigger</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-type">DatasetTrigger</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262124"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-type">DatasetTrigger</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262107"><span id="local-6989586621679262109"><span id="local-6989586621679262111"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-type">DatasetTrigger</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679262105"><span class="annot"><span class="annottext">toJSON :: DatasetTrigger -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger%27"><span class="hs-identifier hs-type">DatasetTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262102"><span id="local-6989586621679262103"><span class="annot"><span class="annottext">Maybe Schedule
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262116"><span id="local-6989586621679262118"><span id="local-6989586621679262120"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier hs-type">DatasetTrigger</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679262114"><span class="annot"><span class="annottext">toJSON :: DatasetTrigger -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger%27"><span class="hs-identifier hs-type">DatasetTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262111"><span id="local-6989586621679262112"><span class="annot"><span class="annottext">Maybe Schedule
 Maybe TriggeringDataset
 schedule :: Maybe Schedule
 dataset :: Maybe TriggeringDataset
 $sel:schedule:DatasetTrigger' :: DatasetTrigger -&gt; Maybe Schedule
 $sel:dataset:DatasetTrigger' :: DatasetTrigger -&gt; Maybe TriggeringDataset
-</span><a href="#local-6989586621679262102"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679262111"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -223,14 +223,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe TriggeringDataset -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TriggeringDataset
-</span><a href="#local-6989586621679262103"><span class="hs-identifier hs-var">dataset</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262112"><span class="hs-identifier hs-var">dataset</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;schedule&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Schedule -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Schedule -&gt; Pair) -&gt; Maybe Schedule -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Schedule
-</span><a href="#local-6989586621679262102"><span class="hs-identifier hs-var">schedule</span></a></span><span>
+</span><a href="#local-6989586621679262111"><span class="hs-identifier hs-var">schedule</span></a></span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AMP.UpdateWorkspaceAlias</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates an AMP workspace alias.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AMP.UpdateWorkspaceAlias</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier">UpdateWorkspaceAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#newUpdateWorkspaceAlias"><span class="hs-identifier">newUpdateWorkspaceAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#updateWorkspaceAlias_clientToken"><span class="hs-identifier">updateWorkspaceAlias_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#updateWorkspaceAlias_alias"><span class="hs-identifier">updateWorkspaceAlias_alias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#updateWorkspaceAlias_workspaceId"><span class="hs-identifier">updateWorkspaceAlias_workspaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAliasResponse"><span class="hs-identifier">UpdateWorkspaceAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#newUpdateWorkspaceAliasResponse"><span class="hs-identifier">newUpdateWorkspaceAliasResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.html"><span class="hs-identifier">Network.AWS.AMP.Types</span></a></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- | Represents the input of an UpdateWorkspaceAlias operation.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newUpdateWorkspaceAlias' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679175556"><span id="local-6989586621679175557"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorkspaceAlias"><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-var">UpdateWorkspaceAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorkspaceAlias%27"><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias%27"><span class="hs-identifier hs-var">UpdateWorkspaceAlias'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional, unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AclientToken%3AUpdateWorkspaceAlias%27"><span class="annot"><span class="annottext">UpdateWorkspaceAlias -&gt; Maybe Text
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#%24sel%3AclientToken%3AUpdateWorkspaceAlias%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The new alias of the workspace.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aalias%3AUpdateWorkspaceAlias%27"><span class="annot"><span class="annottext">UpdateWorkspaceAlias -&gt; Maybe Text
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#%24sel%3Aalias%3AUpdateWorkspaceAlias%27"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The ID of the workspace being updated.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AworkspaceId%3AUpdateWorkspaceAlias%27"><span class="annot"><span class="annottext">UpdateWorkspaceAlias -&gt; Text
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#%24sel%3AworkspaceId%3AUpdateWorkspaceAlias%27"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175548"><span id="local-6989586621679175550"><span class="annot"><span class="annottext">UpdateWorkspaceAlias -&gt; UpdateWorkspaceAlias -&gt; Bool
+(UpdateWorkspaceAlias -&gt; UpdateWorkspaceAlias -&gt; Bool)
+-&gt; (UpdateWorkspaceAlias -&gt; UpdateWorkspaceAlias -&gt; Bool)
+-&gt; Eq UpdateWorkspaceAlias
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateWorkspaceAlias -&gt; UpdateWorkspaceAlias -&gt; Bool
+$c/= :: UpdateWorkspaceAlias -&gt; UpdateWorkspaceAlias -&gt; Bool
+== :: UpdateWorkspaceAlias -&gt; UpdateWorkspaceAlias -&gt; Bool
+$c== :: UpdateWorkspaceAlias -&gt; UpdateWorkspaceAlias -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175539"><span id="local-6989586621679175541"><span id="local-6989586621679175543"><span id="local-6989586621679175545"><span class="annot"><span class="annottext">ReadPrec [UpdateWorkspaceAlias]
+ReadPrec UpdateWorkspaceAlias
+Int -&gt; ReadS UpdateWorkspaceAlias
+ReadS [UpdateWorkspaceAlias]
+(Int -&gt; ReadS UpdateWorkspaceAlias)
+-&gt; ReadS [UpdateWorkspaceAlias]
+-&gt; ReadPrec UpdateWorkspaceAlias
+-&gt; ReadPrec [UpdateWorkspaceAlias]
+-&gt; Read UpdateWorkspaceAlias
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateWorkspaceAlias]
+$creadListPrec :: ReadPrec [UpdateWorkspaceAlias]
+readPrec :: ReadPrec UpdateWorkspaceAlias
+$creadPrec :: ReadPrec UpdateWorkspaceAlias
+readList :: ReadS [UpdateWorkspaceAlias]
+$creadList :: ReadS [UpdateWorkspaceAlias]
+readsPrec :: Int -&gt; ReadS UpdateWorkspaceAlias
+$creadsPrec :: Int -&gt; ReadS UpdateWorkspaceAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175532"><span id="local-6989586621679175534"><span id="local-6989586621679175536"><span class="annot"><span class="annottext">Int -&gt; UpdateWorkspaceAlias -&gt; ShowS
+[UpdateWorkspaceAlias] -&gt; ShowS
+UpdateWorkspaceAlias -&gt; String
+(Int -&gt; UpdateWorkspaceAlias -&gt; ShowS)
+-&gt; (UpdateWorkspaceAlias -&gt; String)
+-&gt; ([UpdateWorkspaceAlias] -&gt; ShowS)
+-&gt; Show UpdateWorkspaceAlias
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateWorkspaceAlias] -&gt; ShowS
+$cshowList :: [UpdateWorkspaceAlias] -&gt; ShowS
+show :: UpdateWorkspaceAlias -&gt; String
+$cshow :: UpdateWorkspaceAlias -&gt; String
+showsPrec :: Int -&gt; UpdateWorkspaceAlias -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateWorkspaceAlias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateWorkspaceAlias -&gt; Rep UpdateWorkspaceAlias x)
+-&gt; (forall x. Rep UpdateWorkspaceAlias x -&gt; UpdateWorkspaceAlias)
+-&gt; Generic UpdateWorkspaceAlias
+forall x. Rep UpdateWorkspaceAlias x -&gt; UpdateWorkspaceAlias
+forall x. UpdateWorkspaceAlias -&gt; Rep UpdateWorkspaceAlias x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateWorkspaceAlias x -&gt; UpdateWorkspaceAlias
+$cfrom :: forall x. UpdateWorkspaceAlias -&gt; Rep UpdateWorkspaceAlias x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'UpdateWorkspaceAlias' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'clientToken', 'updateWorkspaceAlias_clientToken' - Optional, unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'alias', 'updateWorkspaceAlias_alias' - The new alias of the workspace.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'workspaceId', 'updateWorkspaceAlias_workspaceId' - The ID of the workspace being updated.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#newUpdateWorkspaceAlias"><span class="hs-identifier hs-type">newUpdateWorkspaceAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'workspaceId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span><span>
+</span><span id="line-79"></span><span id="newUpdateWorkspaceAlias"><span class="annot"><span class="annottext">newUpdateWorkspaceAlias :: Text -&gt; UpdateWorkspaceAlias
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#newUpdateWorkspaceAlias"><span class="hs-identifier hs-var hs-var">newUpdateWorkspaceAlias</span></a></span></span><span> </span><span id="local-6989586621679175527"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175527"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">UpdateWorkspaceAlias' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; UpdateWorkspaceAlias
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias%27"><span class="hs-identifier hs-type">UpdateWorkspaceAlias'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:UpdateWorkspaceAlias' :: Maybe Text
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#%24sel%3AclientToken%3AUpdateWorkspaceAlias%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:alias:UpdateWorkspaceAlias' :: Maybe Text
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#%24sel%3Aalias%3AUpdateWorkspaceAlias%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:workspaceId:UpdateWorkspaceAlias' :: Text
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#%24sel%3AworkspaceId%3AUpdateWorkspaceAlias%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175527"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Optional, unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#updateWorkspaceAlias_clientToken"><span class="hs-identifier hs-type">updateWorkspaceAlias_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="updateWorkspaceAlias_clientToken"><span class="annot"><span class="annottext">updateWorkspaceAlias_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateWorkspaceAlias -&gt; f UpdateWorkspaceAlias
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#updateWorkspaceAlias_clientToken"><span class="hs-identifier hs-var hs-var">updateWorkspaceAlias_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorkspaceAlias -&gt; Maybe Text)
+-&gt; (UpdateWorkspaceAlias -&gt; Maybe Text -&gt; UpdateWorkspaceAlias)
+-&gt; Lens
+     UpdateWorkspaceAlias UpdateWorkspaceAlias (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias%27"><span class="hs-identifier hs-type">UpdateWorkspaceAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175524"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:UpdateWorkspaceAlias' :: UpdateWorkspaceAlias -&gt; Maybe Text
+</span><a href="#local-6989586621679175524"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175524"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175523"><span class="annot"><span class="annottext">s :: UpdateWorkspaceAlias
+</span><a href="#local-6989586621679175523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias%27"><span class="hs-identifier hs-type">UpdateWorkspaceAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175522"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkspaceAlias
+</span><a href="#local-6989586621679175523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:UpdateWorkspaceAlias' :: Maybe Text
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#%24sel%3AclientToken%3AUpdateWorkspaceAlias%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The new alias of the workspace.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#updateWorkspaceAlias_alias"><span class="hs-identifier hs-type">updateWorkspaceAlias_alias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="updateWorkspaceAlias_alias"><span class="annot"><span class="annottext">updateWorkspaceAlias_alias :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateWorkspaceAlias -&gt; f UpdateWorkspaceAlias
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#updateWorkspaceAlias_alias"><span class="hs-identifier hs-var hs-var">updateWorkspaceAlias_alias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorkspaceAlias -&gt; Maybe Text)
+-&gt; (UpdateWorkspaceAlias -&gt; Maybe Text -&gt; UpdateWorkspaceAlias)
+-&gt; Lens
+     UpdateWorkspaceAlias UpdateWorkspaceAlias (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias%27"><span class="hs-identifier hs-type">UpdateWorkspaceAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175521"><span class="annot"><span class="annottext">Maybe Text
+alias :: Maybe Text
+$sel:alias:UpdateWorkspaceAlias' :: UpdateWorkspaceAlias -&gt; Maybe Text
+</span><a href="#local-6989586621679175521"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175521"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175520"><span class="annot"><span class="annottext">s :: UpdateWorkspaceAlias
+</span><a href="#local-6989586621679175520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias%27"><span class="hs-identifier hs-type">UpdateWorkspaceAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175519"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkspaceAlias
+</span><a href="#local-6989586621679175520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alias:UpdateWorkspaceAlias' :: Maybe Text
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#%24sel%3Aalias%3AUpdateWorkspaceAlias%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The ID of the workspace being updated.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#updateWorkspaceAlias_workspaceId"><span class="hs-identifier hs-type">updateWorkspaceAlias_workspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="updateWorkspaceAlias_workspaceId"><span class="annot"><span class="annottext">updateWorkspaceAlias_workspaceId :: (Text -&gt; f Text) -&gt; UpdateWorkspaceAlias -&gt; f UpdateWorkspaceAlias
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#updateWorkspaceAlias_workspaceId"><span class="hs-identifier hs-var hs-var">updateWorkspaceAlias_workspaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorkspaceAlias -&gt; Text)
+-&gt; (UpdateWorkspaceAlias -&gt; Text -&gt; UpdateWorkspaceAlias)
+-&gt; Lens UpdateWorkspaceAlias UpdateWorkspaceAlias Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias%27"><span class="hs-identifier hs-type">UpdateWorkspaceAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175518"><span class="annot"><span class="annottext">Text
+workspaceId :: Text
+$sel:workspaceId:UpdateWorkspaceAlias' :: UpdateWorkspaceAlias -&gt; Text
+</span><a href="#local-6989586621679175518"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175518"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175517"><span class="annot"><span class="annottext">s :: UpdateWorkspaceAlias
+</span><a href="#local-6989586621679175517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias%27"><span class="hs-identifier hs-type">UpdateWorkspaceAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175516"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkspaceAlias
+</span><a href="#local-6989586621679175517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceId:UpdateWorkspaceAlias' :: Text
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#%24sel%3AworkspaceId%3AUpdateWorkspaceAlias%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAliasResponse"><span class="hs-identifier hs-type">UpdateWorkspaceAliasResponse</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679175512"><span class="annot"><span class="annottext">request :: UpdateWorkspaceAlias -&gt; Request UpdateWorkspaceAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateWorkspaceAlias -&gt; Request UpdateWorkspaceAlias
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AMP.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679175508"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateWorkspaceAlias
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateWorkspaceAlias)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse UpdateWorkspaceAlias
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateWorkspaceAlias
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateWorkspaceAlias)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse UpdateWorkspaceAlias
+UpdateWorkspaceAliasResponse
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAliasResponse%27"><span class="hs-identifier hs-var">UpdateWorkspaceAliasResponse'</span></a></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175501"><span id="local-6989586621679175503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679175494"><span class="annot"><span class="annottext">toHeaders :: UpdateWorkspaceAlias -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateWorkspaceAlias -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175484"><span id="local-6989586621679175486"><span id="local-6989586621679175488"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679175482"><span class="annot"><span class="annottext">toJSON :: UpdateWorkspaceAlias -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias%27"><span class="hs-identifier hs-type">UpdateWorkspaceAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175478"><span id="local-6989586621679175479"><span id="local-6989586621679175480"><span class="annot"><span class="annottext">Maybe Text
+Text
+workspaceId :: Text
+alias :: Maybe Text
+clientToken :: Maybe Text
+$sel:workspaceId:UpdateWorkspaceAlias' :: UpdateWorkspaceAlias -&gt; Text
+$sel:alias:UpdateWorkspaceAlias' :: UpdateWorkspaceAlias -&gt; Maybe Text
+$sel:clientToken:UpdateWorkspaceAlias' :: UpdateWorkspaceAlias -&gt; Maybe Text
+</span><a href="#local-6989586621679175478"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175480"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;alias&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175479"><span class="hs-identifier hs-var">alias</span></a></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679175471"><span class="annot"><span class="annottext">toPath :: UpdateWorkspaceAlias -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias%27"><span class="hs-identifier hs-type">UpdateWorkspaceAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175467"><span id="local-6989586621679175468"><span id="local-6989586621679175469"><span class="annot"><span class="annottext">Maybe Text
+Text
+workspaceId :: Text
+alias :: Maybe Text
+clientToken :: Maybe Text
+$sel:workspaceId:UpdateWorkspaceAlias' :: UpdateWorkspaceAlias -&gt; Text
+$sel:alias:UpdateWorkspaceAlias' :: UpdateWorkspaceAlias -&gt; Maybe Text
+$sel:clientToken:UpdateWorkspaceAlias' :: UpdateWorkspaceAlias -&gt; Maybe Text
+</span><a href="#local-6989586621679175467"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/workspaces/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175467"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/alias&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAlias"><span class="hs-identifier hs-type">UpdateWorkspaceAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679175463"><span class="annot"><span class="annottext">toQuery :: UpdateWorkspaceAlias -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateWorkspaceAlias -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newUpdateWorkspaceAliasResponse' smart constructor.</span><span>
+</span><span id="line-141"></span><span id="local-6989586621679175460"><span id="local-6989586621679175461"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorkspaceAliasResponse"><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAliasResponse"><span class="hs-identifier hs-var">UpdateWorkspaceAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorkspaceAliasResponse%27"><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAliasResponse%27"><span class="hs-identifier hs-var">UpdateWorkspaceAliasResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175456"><span id="local-6989586621679175458"><span class="annot"><span class="annottext">UpdateWorkspaceAliasResponse
+-&gt; UpdateWorkspaceAliasResponse -&gt; Bool
+(UpdateWorkspaceAliasResponse
+ -&gt; UpdateWorkspaceAliasResponse -&gt; Bool)
+-&gt; (UpdateWorkspaceAliasResponse
+    -&gt; UpdateWorkspaceAliasResponse -&gt; Bool)
+-&gt; Eq UpdateWorkspaceAliasResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateWorkspaceAliasResponse
+-&gt; UpdateWorkspaceAliasResponse -&gt; Bool
+$c/= :: UpdateWorkspaceAliasResponse
+-&gt; UpdateWorkspaceAliasResponse -&gt; Bool
+== :: UpdateWorkspaceAliasResponse
+-&gt; UpdateWorkspaceAliasResponse -&gt; Bool
+$c== :: UpdateWorkspaceAliasResponse
+-&gt; UpdateWorkspaceAliasResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175448"><span id="local-6989586621679175450"><span id="local-6989586621679175452"><span id="local-6989586621679175454"><span class="annot"><span class="annottext">ReadPrec [UpdateWorkspaceAliasResponse]
+ReadPrec UpdateWorkspaceAliasResponse
+Int -&gt; ReadS UpdateWorkspaceAliasResponse
+ReadS [UpdateWorkspaceAliasResponse]
+(Int -&gt; ReadS UpdateWorkspaceAliasResponse)
+-&gt; ReadS [UpdateWorkspaceAliasResponse]
+-&gt; ReadPrec UpdateWorkspaceAliasResponse
+-&gt; ReadPrec [UpdateWorkspaceAliasResponse]
+-&gt; Read UpdateWorkspaceAliasResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateWorkspaceAliasResponse]
+$creadListPrec :: ReadPrec [UpdateWorkspaceAliasResponse]
+readPrec :: ReadPrec UpdateWorkspaceAliasResponse
+$creadPrec :: ReadPrec UpdateWorkspaceAliasResponse
+readList :: ReadS [UpdateWorkspaceAliasResponse]
+$creadList :: ReadS [UpdateWorkspaceAliasResponse]
+readsPrec :: Int -&gt; ReadS UpdateWorkspaceAliasResponse
+$creadsPrec :: Int -&gt; ReadS UpdateWorkspaceAliasResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175442"><span id="local-6989586621679175444"><span id="local-6989586621679175446"><span class="annot"><span class="annottext">Int -&gt; UpdateWorkspaceAliasResponse -&gt; ShowS
+[UpdateWorkspaceAliasResponse] -&gt; ShowS
+UpdateWorkspaceAliasResponse -&gt; String
+(Int -&gt; UpdateWorkspaceAliasResponse -&gt; ShowS)
+-&gt; (UpdateWorkspaceAliasResponse -&gt; String)
+-&gt; ([UpdateWorkspaceAliasResponse] -&gt; ShowS)
+-&gt; Show UpdateWorkspaceAliasResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateWorkspaceAliasResponse] -&gt; ShowS
+$cshowList :: [UpdateWorkspaceAliasResponse] -&gt; ShowS
+show :: UpdateWorkspaceAliasResponse -&gt; String
+$cshow :: UpdateWorkspaceAliasResponse -&gt; String
+showsPrec :: Int -&gt; UpdateWorkspaceAliasResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateWorkspaceAliasResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateWorkspaceAliasResponse -&gt; Rep UpdateWorkspaceAliasResponse x)
+-&gt; (forall x.
+    Rep UpdateWorkspaceAliasResponse x -&gt; UpdateWorkspaceAliasResponse)
+-&gt; Generic UpdateWorkspaceAliasResponse
+forall x.
+Rep UpdateWorkspaceAliasResponse x -&gt; UpdateWorkspaceAliasResponse
+forall x.
+UpdateWorkspaceAliasResponse -&gt; Rep UpdateWorkspaceAliasResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateWorkspaceAliasResponse x -&gt; UpdateWorkspaceAliasResponse
+$cfrom :: forall x.
+UpdateWorkspaceAliasResponse -&gt; Rep UpdateWorkspaceAliasResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'UpdateWorkspaceAliasResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#newUpdateWorkspaceAliasResponse"><span class="hs-identifier hs-type">newUpdateWorkspaceAliasResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAliasResponse"><span class="hs-identifier hs-type">UpdateWorkspaceAliasResponse</span></a></span><span>
+</span><span id="line-152"></span><span id="newUpdateWorkspaceAliasResponse"><span class="annot"><span class="annottext">newUpdateWorkspaceAliasResponse :: UpdateWorkspaceAliasResponse
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#newUpdateWorkspaceAliasResponse"><span class="hs-identifier hs-var hs-var">newUpdateWorkspaceAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">UpdateWorkspaceAliasResponse
+</span><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAliasResponse%27"><span class="hs-identifier hs-var">UpdateWorkspaceAliasResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.UpdateWorkspaceAlias.html#UpdateWorkspaceAliasResponse"><span class="hs-identifier hs-type">UpdateWorkspaceAliasResponse</span></a></span></span><span>
+</span><span id="line-156"></span></pre></body></html>

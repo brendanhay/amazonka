@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AccessAnalyzer.Types.OrderBy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.OrderBy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#OrderBy"><span class="hs-identifier">OrderBy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#OrderBy_ASC"><span class="hs-identifier">OrderBy_ASC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#OrderBy_DESC"><span class="hs-identifier">OrderBy_DESC</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679247753"><span id="local-6989586621679247754"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrderBy"><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#OrderBy"><span class="hs-identifier hs-var">OrderBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrderBy%27"><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#OrderBy%27"><span class="hs-identifier hs-var">OrderBy'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromOrderBy"><span class="annot"><span class="annottext">OrderBy -&gt; Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#fromOrderBy"><span class="hs-identifier hs-var hs-var">fromOrderBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247745"><span id="local-6989586621679247747"><span id="local-6989586621679247749"><span class="annot"><span class="annottext">Int -&gt; OrderBy -&gt; ShowS
+[OrderBy] -&gt; ShowS
+OrderBy -&gt; String
+(Int -&gt; OrderBy -&gt; ShowS)
+-&gt; (OrderBy -&gt; String) -&gt; ([OrderBy] -&gt; ShowS) -&gt; Show OrderBy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OrderBy] -&gt; ShowS
+$cshowList :: [OrderBy] -&gt; ShowS
+show :: OrderBy -&gt; String
+$cshow :: OrderBy -&gt; String
+showsPrec :: Int -&gt; OrderBy -&gt; ShowS
+$cshowsPrec :: Int -&gt; OrderBy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679247736"><span id="local-6989586621679247738"><span id="local-6989586621679247740"><span id="local-6989586621679247742"><span class="annot"><span class="annottext">ReadPrec [OrderBy]
+ReadPrec OrderBy
+Int -&gt; ReadS OrderBy
+ReadS [OrderBy]
+(Int -&gt; ReadS OrderBy)
+-&gt; ReadS [OrderBy]
+-&gt; ReadPrec OrderBy
+-&gt; ReadPrec [OrderBy]
+-&gt; Read OrderBy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OrderBy]
+$creadListPrec :: ReadPrec [OrderBy]
+readPrec :: ReadPrec OrderBy
+$creadPrec :: ReadPrec OrderBy
+readList :: ReadS [OrderBy]
+$creadList :: ReadS [OrderBy]
+readsPrec :: Int -&gt; ReadS OrderBy
+$creadsPrec :: Int -&gt; ReadS OrderBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679247731"><span id="local-6989586621679247733"><span class="annot"><span class="annottext">OrderBy -&gt; OrderBy -&gt; Bool
+(OrderBy -&gt; OrderBy -&gt; Bool)
+-&gt; (OrderBy -&gt; OrderBy -&gt; Bool) -&gt; Eq OrderBy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OrderBy -&gt; OrderBy -&gt; Bool
+$c/= :: OrderBy -&gt; OrderBy -&gt; Bool
+== :: OrderBy -&gt; OrderBy -&gt; Bool
+$c== :: OrderBy -&gt; OrderBy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679247715"><span id="local-6989586621679247717"><span id="local-6989586621679247719"><span id="local-6989586621679247721"><span id="local-6989586621679247723"><span id="local-6989586621679247725"><span id="local-6989586621679247727"><span class="annot"><span class="annottext">Eq OrderBy
+Eq OrderBy
+-&gt; (OrderBy -&gt; OrderBy -&gt; Ordering)
+-&gt; (OrderBy -&gt; OrderBy -&gt; Bool)
+-&gt; (OrderBy -&gt; OrderBy -&gt; Bool)
+-&gt; (OrderBy -&gt; OrderBy -&gt; Bool)
+-&gt; (OrderBy -&gt; OrderBy -&gt; Bool)
+-&gt; (OrderBy -&gt; OrderBy -&gt; OrderBy)
+-&gt; (OrderBy -&gt; OrderBy -&gt; OrderBy)
+-&gt; Ord OrderBy
+OrderBy -&gt; OrderBy -&gt; Bool
+OrderBy -&gt; OrderBy -&gt; Ordering
+OrderBy -&gt; OrderBy -&gt; OrderBy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OrderBy -&gt; OrderBy -&gt; OrderBy
+$cmin :: OrderBy -&gt; OrderBy -&gt; OrderBy
+max :: OrderBy -&gt; OrderBy -&gt; OrderBy
+$cmax :: OrderBy -&gt; OrderBy -&gt; OrderBy
+&gt;= :: OrderBy -&gt; OrderBy -&gt; Bool
+$c&gt;= :: OrderBy -&gt; OrderBy -&gt; Bool
+&gt; :: OrderBy -&gt; OrderBy -&gt; Bool
+$c&gt; :: OrderBy -&gt; OrderBy -&gt; Bool
+&lt;= :: OrderBy -&gt; OrderBy -&gt; Bool
+$c&lt;= :: OrderBy -&gt; OrderBy -&gt; Bool
+&lt; :: OrderBy -&gt; OrderBy -&gt; Bool
+$c&lt; :: OrderBy -&gt; OrderBy -&gt; Bool
+compare :: OrderBy -&gt; OrderBy -&gt; Ordering
+$ccompare :: OrderBy -&gt; OrderBy -&gt; Ordering
+$cp1Ord :: Eq OrderBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="annottext">(forall x. OrderBy -&gt; Rep OrderBy x)
+-&gt; (forall x. Rep OrderBy x -&gt; OrderBy) -&gt; Generic OrderBy
+forall x. Rep OrderBy x -&gt; OrderBy
+forall x. OrderBy -&gt; Rep OrderBy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OrderBy x -&gt; OrderBy
+$cfrom :: forall x. OrderBy -&gt; Rep OrderBy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247707"><span id="local-6989586621679247709"><span class="annot"><span class="annottext">Int -&gt; OrderBy -&gt; Int
+OrderBy -&gt; Int
+(Int -&gt; OrderBy -&gt; Int) -&gt; (OrderBy -&gt; Int) -&gt; Hashable OrderBy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OrderBy -&gt; Int
+$chash :: OrderBy -&gt; Int
+hashWithSalt :: Int -&gt; OrderBy -&gt; Int
+$chashWithSalt :: Int -&gt; OrderBy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679247704"><span class="annot"><span class="annottext">OrderBy -&gt; ()
+(OrderBy -&gt; ()) -&gt; NFData OrderBy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OrderBy -&gt; ()
+$crnf :: OrderBy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679247701"><span class="annot"><span class="annottext">Text -&gt; Either String OrderBy
+(Text -&gt; Either String OrderBy) -&gt; FromText OrderBy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OrderBy
+$cfromText :: Text -&gt; Either String OrderBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679247698"><span class="annot"><span class="annottext">OrderBy -&gt; Text
+(OrderBy -&gt; Text) -&gt; ToText OrderBy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OrderBy -&gt; Text
+$ctoText :: OrderBy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679247695"><span class="annot"><span class="annottext">OrderBy -&gt; ByteString
+(OrderBy -&gt; ByteString) -&gt; ToByteString OrderBy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OrderBy -&gt; ByteString
+$ctoBS :: OrderBy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679247692"><span class="annot"><span class="annottext">OrderBy -&gt; ByteStringBuilder
+(OrderBy -&gt; ByteStringBuilder) -&gt; ToLog OrderBy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OrderBy -&gt; ByteStringBuilder
+$cbuild :: OrderBy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679247689"><span class="annot"><span class="annottext">HeaderName -&gt; OrderBy -&gt; [Header]
+(HeaderName -&gt; OrderBy -&gt; [Header]) -&gt; ToHeader OrderBy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OrderBy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OrderBy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679247686"><span class="annot"><span class="annottext">OrderBy -&gt; QueryString
+(OrderBy -&gt; QueryString) -&gt; ToQuery OrderBy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OrderBy -&gt; QueryString
+$ctoQuery :: OrderBy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679247681"><span id="local-6989586621679247683"><span class="annot"><span class="annottext">Value -&gt; Parser [OrderBy]
+Value -&gt; Parser OrderBy
+(Value -&gt; Parser OrderBy)
+-&gt; (Value -&gt; Parser [OrderBy]) -&gt; FromJSON OrderBy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OrderBy]
+$cparseJSONList :: Value -&gt; Parser [OrderBy]
+parseJSON :: Value -&gt; Parser OrderBy
+$cparseJSON :: Value -&gt; Parser OrderBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679247676"><span id="local-6989586621679247678"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrderBy]
+FromJSONKeyFunction OrderBy
+FromJSONKeyFunction OrderBy
+-&gt; FromJSONKeyFunction [OrderBy] -&gt; FromJSONKey OrderBy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OrderBy]
+$cfromJSONKeyList :: FromJSONKeyFunction [OrderBy]
+fromJSONKey :: FromJSONKeyFunction OrderBy
+$cfromJSONKey :: FromJSONKeyFunction OrderBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247667"><span id="local-6989586621679247669"><span id="local-6989586621679247671"><span id="local-6989586621679247673"><span class="annot"><span class="annottext">[OrderBy] -&gt; Encoding
+[OrderBy] -&gt; Value
+OrderBy -&gt; Encoding
+OrderBy -&gt; Value
+(OrderBy -&gt; Value)
+-&gt; (OrderBy -&gt; Encoding)
+-&gt; ([OrderBy] -&gt; Value)
+-&gt; ([OrderBy] -&gt; Encoding)
+-&gt; ToJSON OrderBy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OrderBy] -&gt; Encoding
+$ctoEncodingList :: [OrderBy] -&gt; Encoding
+toJSONList :: [OrderBy] -&gt; Value
+$ctoJSONList :: [OrderBy] -&gt; Value
+toEncoding :: OrderBy -&gt; Encoding
+$ctoEncoding :: OrderBy -&gt; Encoding
+toJSON :: OrderBy -&gt; Value
+$ctoJSON :: OrderBy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247662"><span id="local-6989586621679247664"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrderBy]
+ToJSONKeyFunction OrderBy
+ToJSONKeyFunction OrderBy
+-&gt; ToJSONKeyFunction [OrderBy] -&gt; ToJSONKey OrderBy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OrderBy]
+$ctoJSONKeyList :: ToJSONKeyFunction [OrderBy]
+toJSONKey :: ToJSONKeyFunction OrderBy
+$ctoJSONKey :: ToJSONKeyFunction OrderBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679247659"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrderBy
+([Node] -&gt; Either String OrderBy) -&gt; FromXML OrderBy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OrderBy
+$cparseXML :: [Node] -&gt; Either String OrderBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679247656"><span class="annot"><span class="annottext">OrderBy -&gt; XML
+(OrderBy -&gt; XML) -&gt; ToXML OrderBy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OrderBy -&gt; XML
+$ctoXML :: OrderBy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#OrderBy_ASC"><span class="hs-identifier hs-type">OrderBy_ASC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#OrderBy"><span class="hs-identifier hs-type">OrderBy</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOrderBy_ASC"><span id="%24mOrderBy_ASC"><span id="OrderBy_ASC"><span class="annot"><span class="annottext">$bOrderBy_ASC :: OrderBy
+$mOrderBy_ASC :: forall r. OrderBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#%24bOrderBy_ASC"><span class="hs-identifier hs-var hs-var hs-var">OrderBy_ASC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#OrderBy%27"><span class="hs-identifier hs-type">OrderBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASC&quot;</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#OrderBy_DESC"><span class="hs-identifier hs-type">OrderBy_DESC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#OrderBy"><span class="hs-identifier hs-type">OrderBy</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOrderBy_DESC"><span id="%24mOrderBy_DESC"><span id="OrderBy_DESC"><span class="annot"><span class="annottext">$bOrderBy_DESC :: OrderBy
+$mOrderBy_DESC :: forall r. OrderBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#%24bOrderBy_DESC"><span class="hs-identifier hs-var hs-var hs-var">OrderBy_DESC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#OrderBy%27"><span class="hs-identifier hs-type">OrderBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DESC&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#OrderBy_ASC"><span class="hs-pragma hs-type">OrderBy_ASC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#OrderBy_DESC"><span class="hs-pragma hs-type">OrderBy_DESC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.OrderBy.html#OrderBy%27"><span class="hs-pragma hs-type">OrderBy'</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-68"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- split of the training dataset.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newTestingData' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679333706"><span id="local-6989586621679333707"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestingData"><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData"><span class="hs-identifier hs-var">TestingData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestingData%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData%27"><span class="hs-identifier hs-var">TestingData'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679333715"><span id="local-6989586621679333716"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestingData"><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData"><span class="hs-identifier hs-var">TestingData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestingData%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData%27"><span class="hs-identifier hs-var">TestingData'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The assets used for testing.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aassets%3ATestingData%27"><span class="annot"><span class="annottext">TestingData -&gt; Maybe [Asset]
 </span><a href="Network.AWS.Rekognition.Types.TestingData.html#%24sel%3Aassets%3ATestingData%27"><span class="hs-identifier hs-var hs-var">assets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-type">Asset</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AautoCreate%3ATestingData%27"><span class="annot"><span class="annottext">TestingData -&gt; Maybe Bool
 </span><a href="Network.AWS.Rekognition.Types.TestingData.html#%24sel%3AautoCreate%3ATestingData%27"><span class="hs-identifier hs-var hs-var">autoCreate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333699"><span id="local-6989586621679333701"><span class="annot"><span class="annottext">TestingData -&gt; TestingData -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333708"><span id="local-6989586621679333710"><span class="annot"><span class="annottext">TestingData -&gt; TestingData -&gt; Bool
 (TestingData -&gt; TestingData -&gt; Bool)
 -&gt; (TestingData -&gt; TestingData -&gt; Bool) -&gt; Eq TestingData
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TestingData -&gt; TestingData -&gt; Bool
 == :: TestingData -&gt; TestingData -&gt; Bool
 $c== :: TestingData -&gt; TestingData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333690"><span id="local-6989586621679333692"><span id="local-6989586621679333694"><span id="local-6989586621679333696"><span class="annot"><span class="annottext">ReadPrec [TestingData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333699"><span id="local-6989586621679333701"><span id="local-6989586621679333703"><span id="local-6989586621679333705"><span class="annot"><span class="annottext">ReadPrec [TestingData]
 ReadPrec TestingData
 Int -&gt; ReadS TestingData
 ReadS [TestingData]
@@ -66,7 +66,7 @@ readList :: ReadS [TestingData]
 $creadList :: ReadS [TestingData]
 readsPrec :: Int -&gt; ReadS TestingData
 $creadsPrec :: Int -&gt; ReadS TestingData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333683"><span id="local-6989586621679333685"><span id="local-6989586621679333687"><span class="annot"><span class="annottext">Int -&gt; TestingData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333692"><span id="local-6989586621679333694"><span id="local-6989586621679333696"><span class="annot"><span class="annottext">Int -&gt; TestingData -&gt; ShowS
 [TestingData] -&gt; ShowS
 TestingData -&gt; String
 (Int -&gt; TestingData -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; (TestingData -&gt; Maybe [Asset] -&gt; TestingData)
 -&gt; Lens TestingData TestingData (Maybe [Asset]) (Maybe [Asset])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData%27"><span class="hs-identifier hs-type">TestingData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333674"><span class="annot"><span class="annottext">Maybe [Asset]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData%27"><span class="hs-identifier hs-type">TestingData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333683"><span class="annot"><span class="annottext">Maybe [Asset]
 assets :: Maybe [Asset]
 $sel:assets:TestingData' :: TestingData -&gt; Maybe [Asset]
-</span><a href="#local-6989586621679333674"><span class="hs-identifier hs-var hs-var">assets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Asset]
-</span><a href="#local-6989586621679333674"><span class="hs-identifier hs-var">assets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333673"><span class="annot"><span class="annottext">s :: TestingData
-</span><a href="#local-6989586621679333673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData%27"><span class="hs-identifier hs-type">TestingData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333672"><span class="annot"><span class="annottext">Maybe [Asset]
-</span><a href="#local-6989586621679333672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestingData
-</span><a href="#local-6989586621679333673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assets:TestingData' :: Maybe [Asset]
+</span><a href="#local-6989586621679333683"><span class="hs-identifier hs-var hs-var">assets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Asset]
+</span><a href="#local-6989586621679333683"><span class="hs-identifier hs-var">assets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333682"><span class="annot"><span class="annottext">s :: TestingData
+</span><a href="#local-6989586621679333682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData%27"><span class="hs-identifier hs-type">TestingData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333681"><span class="annot"><span class="annottext">Maybe [Asset]
+</span><a href="#local-6989586621679333681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestingData
+</span><a href="#local-6989586621679333682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assets:TestingData' :: Maybe [Asset]
 </span><a href="Network.AWS.Rekognition.Types.TestingData.html#%24sel%3Aassets%3ATestingData%27"><span class="hs-identifier hs-var">assets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Asset]
-</span><a href="#local-6989586621679333672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData"><span class="hs-identifier hs-type">TestingData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Asset] -&gt; f (Maybe [Asset]))
+</span><a href="#local-6989586621679333681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData"><span class="hs-identifier hs-type">TestingData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Asset] -&gt; f (Maybe [Asset]))
  -&gt; TestingData -&gt; f TestingData)
 -&gt; ((Maybe [Asset] -&gt; f (Maybe [Asset]))
     -&gt; Maybe [Asset] -&gt; f (Maybe [Asset]))
@@ -163,19 +163,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (TestingData -&gt; Maybe Bool -&gt; TestingData)
 -&gt; Lens TestingData TestingData (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData%27"><span class="hs-identifier hs-type">TestingData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333667"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData%27"><span class="hs-identifier hs-type">TestingData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333676"><span class="annot"><span class="annottext">Maybe Bool
 autoCreate :: Maybe Bool
 $sel:autoCreate:TestingData' :: TestingData -&gt; Maybe Bool
-</span><a href="#local-6989586621679333667"><span class="hs-identifier hs-var hs-var">autoCreate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679333667"><span class="hs-identifier hs-var">autoCreate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333666"><span class="annot"><span class="annottext">s :: TestingData
-</span><a href="#local-6989586621679333666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData%27"><span class="hs-identifier hs-type">TestingData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333665"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679333665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestingData
-</span><a href="#local-6989586621679333666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoCreate:TestingData' :: Maybe Bool
+</span><a href="#local-6989586621679333676"><span class="hs-identifier hs-var hs-var">autoCreate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679333676"><span class="hs-identifier hs-var">autoCreate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333675"><span class="annot"><span class="annottext">s :: TestingData
+</span><a href="#local-6989586621679333675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData%27"><span class="hs-identifier hs-type">TestingData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333674"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679333674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestingData
+</span><a href="#local-6989586621679333675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoCreate:TestingData' :: Maybe Bool
 </span><a href="Network.AWS.Rekognition.Types.TestingData.html#%24sel%3AautoCreate%3ATestingData%27"><span class="hs-identifier hs-var">autoCreate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679333665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData"><span class="hs-identifier hs-type">TestingData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679333674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData"><span class="hs-identifier hs-type">TestingData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333662"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData"><span class="hs-identifier hs-type">TestingData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679333660"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TestingData
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333671"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData"><span class="hs-identifier hs-type">TestingData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679333669"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TestingData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TestingData) -&gt; Value -&gt; Parser TestingData
@@ -183,15 +183,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TestingData&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679333657"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679333657"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679333666"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333666"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Asset] -&gt; Maybe Bool -&gt; TestingData
 </span><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData%27"><span class="hs-identifier hs-var">TestingData'</span></a></span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Asset] -&gt; Maybe Bool -&gt; TestingData)
 -&gt; Parser (Maybe [Asset]) -&gt; Parser (Maybe Bool -&gt; TestingData)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679333657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Asset]))
+</span><a href="#local-6989586621679333666"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Asset]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Assets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Asset]))
@@ -204,25 +204,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Bool) -&gt; Parser TestingData
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679333657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679333666"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AutoCreate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333650"><span id="local-6989586621679333652"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData"><span class="hs-identifier hs-type">TestingData</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333659"><span id="local-6989586621679333661"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData"><span class="hs-identifier hs-type">TestingData</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData"><span class="hs-identifier hs-type">TestingData</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333656"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData"><span class="hs-identifier hs-type">TestingData</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333639"><span id="local-6989586621679333641"><span id="local-6989586621679333643"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData"><span class="hs-identifier hs-type">TestingData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679333637"><span class="annot"><span class="annottext">toJSON :: TestingData -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData%27"><span class="hs-identifier hs-type">TestingData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333634"><span id="local-6989586621679333635"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333648"><span id="local-6989586621679333650"><span id="local-6989586621679333652"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData"><span class="hs-identifier hs-type">TestingData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679333646"><span class="annot"><span class="annottext">toJSON :: TestingData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TestingData.html#TestingData%27"><span class="hs-identifier hs-type">TestingData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333643"><span id="local-6989586621679333644"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Asset]
 autoCreate :: Maybe Bool
 assets :: Maybe [Asset]
 $sel:autoCreate:TestingData' :: TestingData -&gt; Maybe Bool
 $sel:assets:TestingData' :: TestingData -&gt; Maybe [Asset]
-</span><a href="#local-6989586621679333634"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679333643"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -234,14 +234,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Asset] -&gt; Pair) -&gt; Maybe [Asset] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Asset]
-</span><a href="#local-6989586621679333635"><span class="hs-identifier hs-var">assets</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679333644"><span class="hs-identifier hs-var">assets</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AutoCreate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679333634"><span class="hs-identifier hs-var">autoCreate</span></a></span><span>
+</span><a href="#local-6989586621679333643"><span class="hs-identifier hs-var">autoCreate</span></a></span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

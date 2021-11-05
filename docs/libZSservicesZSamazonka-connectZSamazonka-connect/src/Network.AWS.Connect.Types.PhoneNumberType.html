@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679401590"><span id="local-6989586621679401591"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PhoneNumberType"><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberType.html#PhoneNumberType"><span class="hs-identifier hs-var">PhoneNumberType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhoneNumberType%27"><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberType.html#PhoneNumberType%27"><span class="hs-identifier hs-var">PhoneNumberType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679401599"><span id="local-6989586621679401600"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PhoneNumberType"><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberType.html#PhoneNumberType"><span class="hs-identifier hs-var">PhoneNumberType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhoneNumberType%27"><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberType.html#PhoneNumberType%27"><span class="hs-identifier hs-var">PhoneNumberType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPhoneNumberType"><span class="annot"><span class="annottext">PhoneNumberType -&gt; Text
 </span><a href="Network.AWS.Connect.Types.PhoneNumberType.html#fromPhoneNumberType"><span class="hs-identifier hs-var hs-var">fromPhoneNumberType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401582"><span id="local-6989586621679401584"><span id="local-6989586621679401586"><span class="annot"><span class="annottext">Int -&gt; PhoneNumberType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401591"><span id="local-6989586621679401593"><span id="local-6989586621679401595"><span class="annot"><span class="annottext">Int -&gt; PhoneNumberType -&gt; ShowS
 [PhoneNumberType] -&gt; ShowS
 PhoneNumberType -&gt; String
 (Int -&gt; PhoneNumberType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: PhoneNumberType -&gt; String
 showsPrec :: Int -&gt; PhoneNumberType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PhoneNumberType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679401573"><span id="local-6989586621679401575"><span id="local-6989586621679401577"><span id="local-6989586621679401579"><span class="annot"><span class="annottext">ReadPrec [PhoneNumberType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679401582"><span id="local-6989586621679401584"><span id="local-6989586621679401586"><span id="local-6989586621679401588"><span class="annot"><span class="annottext">ReadPrec [PhoneNumberType]
 ReadPrec PhoneNumberType
 Int -&gt; ReadS PhoneNumberType
 ReadS [PhoneNumberType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [PhoneNumberType]
 readsPrec :: Int -&gt; ReadS PhoneNumberType
 $creadsPrec :: Int -&gt; ReadS PhoneNumberType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679401568"><span id="local-6989586621679401570"><span class="annot"><span class="annottext">PhoneNumberType -&gt; PhoneNumberType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679401577"><span id="local-6989586621679401579"><span class="annot"><span class="annottext">PhoneNumberType -&gt; PhoneNumberType -&gt; Bool
 (PhoneNumberType -&gt; PhoneNumberType -&gt; Bool)
 -&gt; (PhoneNumberType -&gt; PhoneNumberType -&gt; Bool)
 -&gt; Eq PhoneNumberType
@@ -82,7 +82,7 @@ $c/= :: PhoneNumberType -&gt; PhoneNumberType -&gt; Bool
 == :: PhoneNumberType -&gt; PhoneNumberType -&gt; Bool
 $c== :: PhoneNumberType -&gt; PhoneNumberType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679401552"><span id="local-6989586621679401554"><span id="local-6989586621679401556"><span id="local-6989586621679401558"><span id="local-6989586621679401560"><span id="local-6989586621679401562"><span id="local-6989586621679401564"><span class="annot"><span class="annottext">Eq PhoneNumberType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679401561"><span id="local-6989586621679401563"><span id="local-6989586621679401565"><span id="local-6989586621679401567"><span id="local-6989586621679401569"><span id="local-6989586621679401571"><span id="local-6989586621679401573"><span class="annot"><span class="annottext">Eq PhoneNumberType
 Eq PhoneNumberType
 -&gt; (PhoneNumberType -&gt; PhoneNumberType -&gt; Ordering)
 -&gt; (PhoneNumberType -&gt; PhoneNumberType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. PhoneNumberType -&gt; Rep PhoneNumberType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401544"><span id="local-6989586621679401546"><span class="annot"><span class="annottext">Int -&gt; PhoneNumberType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401553"><span id="local-6989586621679401555"><span class="annot"><span class="annottext">Int -&gt; PhoneNumberType -&gt; Int
 PhoneNumberType -&gt; Int
 (Int -&gt; PhoneNumberType -&gt; Int)
 -&gt; (PhoneNumberType -&gt; Int) -&gt; Hashable PhoneNumberType
@@ -143,50 +143,50 @@ $chash :: PhoneNumberType -&gt; Int
 hashWithSalt :: Int -&gt; PhoneNumberType -&gt; Int
 $chashWithSalt :: Int -&gt; PhoneNumberType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679401541"><span class="annot"><span class="annottext">PhoneNumberType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679401550"><span class="annot"><span class="annottext">PhoneNumberType -&gt; ()
 (PhoneNumberType -&gt; ()) -&gt; NFData PhoneNumberType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PhoneNumberType -&gt; ()
 $crnf :: PhoneNumberType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679401538"><span class="annot"><span class="annottext">Text -&gt; Either String PhoneNumberType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679401547"><span class="annot"><span class="annottext">Text -&gt; Either String PhoneNumberType
 (Text -&gt; Either String PhoneNumberType) -&gt; FromText PhoneNumberType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PhoneNumberType
 $cfromText :: Text -&gt; Either String PhoneNumberType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679401535"><span class="annot"><span class="annottext">PhoneNumberType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679401544"><span class="annot"><span class="annottext">PhoneNumberType -&gt; Text
 (PhoneNumberType -&gt; Text) -&gt; ToText PhoneNumberType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PhoneNumberType -&gt; Text
 $ctoText :: PhoneNumberType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679401532"><span class="annot"><span class="annottext">PhoneNumberType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679401541"><span class="annot"><span class="annottext">PhoneNumberType -&gt; ByteString
 (PhoneNumberType -&gt; ByteString) -&gt; ToByteString PhoneNumberType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PhoneNumberType -&gt; ByteString
 $ctoBS :: PhoneNumberType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679401529"><span class="annot"><span class="annottext">PhoneNumberType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679401538"><span class="annot"><span class="annottext">PhoneNumberType -&gt; ByteStringBuilder
 (PhoneNumberType -&gt; ByteStringBuilder) -&gt; ToLog PhoneNumberType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PhoneNumberType -&gt; ByteStringBuilder
 $cbuild :: PhoneNumberType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679401526"><span class="annot"><span class="annottext">HeaderName -&gt; PhoneNumberType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679401535"><span class="annot"><span class="annottext">HeaderName -&gt; PhoneNumberType -&gt; [Header]
 (HeaderName -&gt; PhoneNumberType -&gt; [Header])
 -&gt; ToHeader PhoneNumberType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PhoneNumberType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PhoneNumberType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679401523"><span class="annot"><span class="annottext">PhoneNumberType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679401532"><span class="annot"><span class="annottext">PhoneNumberType -&gt; QueryString
 (PhoneNumberType -&gt; QueryString) -&gt; ToQuery PhoneNumberType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PhoneNumberType -&gt; QueryString
 $ctoQuery :: PhoneNumberType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679401518"><span id="local-6989586621679401520"><span class="annot"><span class="annottext">Value -&gt; Parser [PhoneNumberType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679401527"><span id="local-6989586621679401529"><span class="annot"><span class="annottext">Value -&gt; Parser [PhoneNumberType]
 Value -&gt; Parser PhoneNumberType
 (Value -&gt; Parser PhoneNumberType)
 -&gt; (Value -&gt; Parser [PhoneNumberType]) -&gt; FromJSON PhoneNumberType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [PhoneNumberType]
 parseJSON :: Value -&gt; Parser PhoneNumberType
 $cparseJSON :: Value -&gt; Parser PhoneNumberType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679401513"><span id="local-6989586621679401515"><span class="annot"><span class="annottext">FromJSONKeyFunction [PhoneNumberType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679401522"><span id="local-6989586621679401524"><span class="annot"><span class="annottext">FromJSONKeyFunction [PhoneNumberType]
 FromJSONKeyFunction PhoneNumberType
 FromJSONKeyFunction PhoneNumberType
 -&gt; FromJSONKeyFunction [PhoneNumberType]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PhoneNumberType]
 fromJSONKey :: FromJSONKeyFunction PhoneNumberType
 $cfromJSONKey :: FromJSONKeyFunction PhoneNumberType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679401504"><span id="local-6989586621679401506"><span id="local-6989586621679401508"><span id="local-6989586621679401510"><span class="annot"><span class="annottext">[PhoneNumberType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679401513"><span id="local-6989586621679401515"><span id="local-6989586621679401517"><span id="local-6989586621679401519"><span class="annot"><span class="annottext">[PhoneNumberType] -&gt; Encoding
 [PhoneNumberType] -&gt; Value
 PhoneNumberType -&gt; Encoding
 PhoneNumberType -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: PhoneNumberType -&gt; Encoding
 toJSON :: PhoneNumberType -&gt; Value
 $ctoJSON :: PhoneNumberType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679401499"><span id="local-6989586621679401501"><span class="annot"><span class="annottext">ToJSONKeyFunction [PhoneNumberType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679401508"><span id="local-6989586621679401510"><span class="annot"><span class="annottext">ToJSONKeyFunction [PhoneNumberType]
 ToJSONKeyFunction PhoneNumberType
 ToJSONKeyFunction PhoneNumberType
 -&gt; ToJSONKeyFunction [PhoneNumberType] -&gt; ToJSONKey PhoneNumberType
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PhoneNumberType]
 toJSONKey :: ToJSONKeyFunction PhoneNumberType
 $ctoJSONKey :: ToJSONKeyFunction PhoneNumberType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679401496"><span class="annot"><span class="annottext">[Node] -&gt; Either String PhoneNumberType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679401505"><span class="annot"><span class="annottext">[Node] -&gt; Either String PhoneNumberType
 ([Node] -&gt; Either String PhoneNumberType)
 -&gt; FromXML PhoneNumberType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PhoneNumberType
 $cparseXML :: [Node] -&gt; Either String PhoneNumberType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679401493"><span class="annot"><span class="annottext">PhoneNumberType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679401502"><span class="annot"><span class="annottext">PhoneNumberType -&gt; XML
 (PhoneNumberType -&gt; XML) -&gt; ToXML PhoneNumberType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PhoneNumberType -&gt; XML

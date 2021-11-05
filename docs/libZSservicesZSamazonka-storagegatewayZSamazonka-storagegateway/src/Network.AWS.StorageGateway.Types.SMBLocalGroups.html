@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- permissions for SMB file shares on the gateway.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSMBLocalGroups' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679373476"><span id="local-6989586621679373477"></span></span><span class="hs-keyword">data</span><span> </span><span id="SMBLocalGroups"><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups"><span class="hs-identifier hs-var">SMBLocalGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SMBLocalGroups%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups%27"><span class="hs-identifier hs-var">SMBLocalGroups'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679373485"><span id="local-6989586621679373486"></span></span><span class="hs-keyword">data</span><span> </span><span id="SMBLocalGroups"><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups"><span class="hs-identifier hs-var">SMBLocalGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SMBLocalGroups%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups%27"><span class="hs-identifier hs-var">SMBLocalGroups'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of Active Directory users and groups that have local Gateway</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Admin permissions. Acceptable formats include: @DOMAIN\\User1@, @user1@,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @DOMAIN\\group1@, and @group1@.</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AgatewayAdmins%3ASMBLocalGroups%27"><span class="annot"><span class="annottext">SMBLocalGroups -&gt; Maybe [Text]
 </span><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#%24sel%3AgatewayAdmins%3ASMBLocalGroups%27"><span class="hs-identifier hs-var hs-var">gatewayAdmins</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373470"><span id="local-6989586621679373472"><span class="annot"><span class="annottext">SMBLocalGroups -&gt; SMBLocalGroups -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373479"><span id="local-6989586621679373481"><span class="annot"><span class="annottext">SMBLocalGroups -&gt; SMBLocalGroups -&gt; Bool
 (SMBLocalGroups -&gt; SMBLocalGroups -&gt; Bool)
 -&gt; (SMBLocalGroups -&gt; SMBLocalGroups -&gt; Bool) -&gt; Eq SMBLocalGroups
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SMBLocalGroups -&gt; SMBLocalGroups -&gt; Bool
 == :: SMBLocalGroups -&gt; SMBLocalGroups -&gt; Bool
 $c== :: SMBLocalGroups -&gt; SMBLocalGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373461"><span id="local-6989586621679373463"><span id="local-6989586621679373465"><span id="local-6989586621679373467"><span class="annot"><span class="annottext">ReadPrec [SMBLocalGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373470"><span id="local-6989586621679373472"><span id="local-6989586621679373474"><span id="local-6989586621679373476"><span class="annot"><span class="annottext">ReadPrec [SMBLocalGroups]
 ReadPrec SMBLocalGroups
 Int -&gt; ReadS SMBLocalGroups
 ReadS [SMBLocalGroups]
@@ -65,7 +65,7 @@ readList :: ReadS [SMBLocalGroups]
 $creadList :: ReadS [SMBLocalGroups]
 readsPrec :: Int -&gt; ReadS SMBLocalGroups
 $creadsPrec :: Int -&gt; ReadS SMBLocalGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373454"><span id="local-6989586621679373456"><span id="local-6989586621679373458"><span class="annot"><span class="annottext">Int -&gt; SMBLocalGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373463"><span id="local-6989586621679373465"><span id="local-6989586621679373467"><span class="annot"><span class="annottext">Int -&gt; SMBLocalGroups -&gt; ShowS
 [SMBLocalGroups] -&gt; ShowS
 SMBLocalGroups -&gt; String
 (Int -&gt; SMBLocalGroups -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; (SMBLocalGroups -&gt; Maybe [Text] -&gt; SMBLocalGroups)
 -&gt; Lens SMBLocalGroups SMBLocalGroups (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups%27"><span class="hs-identifier hs-type">SMBLocalGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373445"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups%27"><span class="hs-identifier hs-type">SMBLocalGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373454"><span class="annot"><span class="annottext">Maybe [Text]
 gatewayAdmins :: Maybe [Text]
 $sel:gatewayAdmins:SMBLocalGroups' :: SMBLocalGroups -&gt; Maybe [Text]
-</span><a href="#local-6989586621679373445"><span class="hs-identifier hs-var hs-var">gatewayAdmins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679373445"><span class="hs-identifier hs-var">gatewayAdmins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373444"><span class="annot"><span class="annottext">s :: SMBLocalGroups
-</span><a href="#local-6989586621679373444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups%27"><span class="hs-identifier hs-type">SMBLocalGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373443"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679373443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMBLocalGroups
-</span><a href="#local-6989586621679373444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayAdmins:SMBLocalGroups' :: Maybe [Text]
+</span><a href="#local-6989586621679373454"><span class="hs-identifier hs-var hs-var">gatewayAdmins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679373454"><span class="hs-identifier hs-var">gatewayAdmins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373453"><span class="annot"><span class="annottext">s :: SMBLocalGroups
+</span><a href="#local-6989586621679373453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups%27"><span class="hs-identifier hs-type">SMBLocalGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373452"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679373452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMBLocalGroups
+</span><a href="#local-6989586621679373453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayAdmins:SMBLocalGroups' :: Maybe [Text]
 </span><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#%24sel%3AgatewayAdmins%3ASMBLocalGroups%27"><span class="hs-identifier hs-var">gatewayAdmins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679373443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups"><span class="hs-identifier hs-type">SMBLocalGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679373452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups"><span class="hs-identifier hs-type">SMBLocalGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; SMBLocalGroups -&gt; f SMBLocalGroups)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -154,8 +154,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373437"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups"><span class="hs-identifier hs-type">SMBLocalGroups</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679373435"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SMBLocalGroups
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373446"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups"><span class="hs-identifier hs-type">SMBLocalGroups</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679373444"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SMBLocalGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SMBLocalGroups)
@@ -165,15 +165,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SMBLocalGroups&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373432"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373432"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373441"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373441"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; SMBLocalGroups
 </span><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups%27"><span class="hs-identifier hs-var">SMBLocalGroups'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; SMBLocalGroups)
 -&gt; Parser (Maybe [Text]) -&gt; Parser SMBLocalGroups
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679373441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GatewayAdmins&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -184,16 +184,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373425"><span id="local-6989586621679373427"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups"><span class="hs-identifier hs-type">SMBLocalGroups</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373434"><span id="local-6989586621679373436"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups"><span class="hs-identifier hs-type">SMBLocalGroups</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373422"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups"><span class="hs-identifier hs-type">SMBLocalGroups</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373431"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups"><span class="hs-identifier hs-type">SMBLocalGroups</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373414"><span id="local-6989586621679373416"><span id="local-6989586621679373418"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups"><span class="hs-identifier hs-type">SMBLocalGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679373412"><span class="annot"><span class="annottext">toJSON :: SMBLocalGroups -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups%27"><span class="hs-identifier hs-type">SMBLocalGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373410"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373423"><span id="local-6989586621679373425"><span id="local-6989586621679373427"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups"><span class="hs-identifier hs-type">SMBLocalGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679373421"><span class="annot"><span class="annottext">toJSON :: SMBLocalGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBLocalGroups.html#SMBLocalGroups%27"><span class="hs-identifier hs-type">SMBLocalGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373419"><span class="annot"><span class="annottext">Maybe [Text]
 gatewayAdmins :: Maybe [Text]
 $sel:gatewayAdmins:SMBLocalGroups' :: SMBLocalGroups -&gt; Maybe [Text]
-</span><a href="#local-6989586621679373410"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679373419"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -206,7 +206,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-87"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679373410"><span class="hs-identifier hs-var">gatewayAdmins</span></a></span><span>
+</span><a href="#local-6989586621679373419"><span class="hs-identifier hs-var">gatewayAdmins</span></a></span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

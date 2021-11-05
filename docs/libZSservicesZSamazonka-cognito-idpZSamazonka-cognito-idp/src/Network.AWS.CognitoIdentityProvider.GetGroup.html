@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetGroup' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679446866"><span id="local-6989586621679446867"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroup"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-var">GetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroup%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup%27"><span class="hs-identifier hs-var">GetGroup'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679446875"><span id="local-6989586621679446876"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroup"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-var">GetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroup%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup%27"><span class="hs-identifier hs-var">GetGroup'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the group.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AgroupName%3AGetGroup%27"><span class="annot"><span class="annottext">GetGroup -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#%24sel%3AgroupName%3AGetGroup%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AuserPoolId%3AGetGroup%27"><span class="annot"><span class="annottext">GetGroup -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#%24sel%3AuserPoolId%3AGetGroup%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446859"><span id="local-6989586621679446861"><span class="annot"><span class="annottext">GetGroup -&gt; GetGroup -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446868"><span id="local-6989586621679446870"><span class="annot"><span class="annottext">GetGroup -&gt; GetGroup -&gt; Bool
 (GetGroup -&gt; GetGroup -&gt; Bool)
 -&gt; (GetGroup -&gt; GetGroup -&gt; Bool) -&gt; Eq GetGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetGroup -&gt; GetGroup -&gt; Bool
 == :: GetGroup -&gt; GetGroup -&gt; Bool
 $c== :: GetGroup -&gt; GetGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446850"><span id="local-6989586621679446852"><span id="local-6989586621679446854"><span id="local-6989586621679446856"><span class="annot"><span class="annottext">ReadPrec [GetGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446859"><span id="local-6989586621679446861"><span id="local-6989586621679446863"><span id="local-6989586621679446865"><span class="annot"><span class="annottext">ReadPrec [GetGroup]
 ReadPrec GetGroup
 Int -&gt; ReadS GetGroup
 ReadS [GetGroup]
@@ -86,7 +86,7 @@ readList :: ReadS [GetGroup]
 $creadList :: ReadS [GetGroup]
 readsPrec :: Int -&gt; ReadS GetGroup
 $creadsPrec :: Int -&gt; ReadS GetGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446843"><span id="local-6989586621679446845"><span id="local-6989586621679446847"><span class="annot"><span class="annottext">Int -&gt; GetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446852"><span id="local-6989586621679446854"><span id="local-6989586621679446856"><span class="annot"><span class="annottext">Int -&gt; GetGroup -&gt; ShowS
 [GetGroup] -&gt; ShowS
 GetGroup -&gt; String
 (Int -&gt; GetGroup -&gt; ShowS)
@@ -127,17 +127,17 @@ $cfrom :: forall x. GetGroup -&gt; Rep GetGroup x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span><span>
 </span><span id="line-78"></span><span id="newGetGroup"><span class="annot"><span class="annottext">newGetGroup :: Text -&gt; Text -&gt; GetGroup
-</span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#newGetGroup"><span class="hs-identifier hs-var hs-var">newGetGroup</span></a></span></span><span> </span><span id="local-6989586621679446838"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446838"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679446837"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446837"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#newGetGroup"><span class="hs-identifier hs-var hs-var">newGetGroup</span></a></span></span><span> </span><span id="local-6989586621679446847"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446847"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679446846"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446846"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">GetGroup' :: Text -&gt; Text -&gt; GetGroup
 </span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup%27"><span class="hs-identifier hs-type">GetGroup'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupName:GetGroup' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#%24sel%3AgroupName%3AGetGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446838"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446847"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolId:GetGroup' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#%24sel%3AuserPoolId%3AGetGroup%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446837"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span>
+</span><a href="#local-6989586621679446846"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The name of the group.</span><span>
@@ -147,16 +147,16 @@ $cfrom :: forall x. GetGroup -&gt; Rep GetGroup x
 -&gt; (GetGroup -&gt; Text -&gt; GetGroup)
 -&gt; Lens GetGroup GetGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup%27"><span class="hs-identifier hs-type">GetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446834"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup%27"><span class="hs-identifier hs-type">GetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446843"><span class="annot"><span class="annottext">Text
 groupName :: Text
 $sel:groupName:GetGroup' :: GetGroup -&gt; Text
-</span><a href="#local-6989586621679446834"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446834"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446833"><span class="annot"><span class="annottext">s :: GetGroup
-</span><a href="#local-6989586621679446833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup%27"><span class="hs-identifier hs-type">GetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446832"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroup
-</span><a href="#local-6989586621679446833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GetGroup' :: Text
+</span><a href="#local-6989586621679446843"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446843"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446842"><span class="annot"><span class="annottext">s :: GetGroup
+</span><a href="#local-6989586621679446842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup%27"><span class="hs-identifier hs-type">GetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446841"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroup
+</span><a href="#local-6989586621679446842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GetGroup' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#%24sel%3AgroupName%3AGetGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The user pool ID for the user pool.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#getGroup_userPoolId"><span class="hs-identifier hs-type">getGroup_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -165,25 +165,25 @@ $sel:groupName:GetGroup' :: GetGroup -&gt; Text
 -&gt; (GetGroup -&gt; Text -&gt; GetGroup)
 -&gt; Lens GetGroup GetGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup%27"><span class="hs-identifier hs-type">GetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446831"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup%27"><span class="hs-identifier hs-type">GetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446840"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:GetGroup' :: GetGroup -&gt; Text
-</span><a href="#local-6989586621679446831"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446831"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446830"><span class="annot"><span class="annottext">s :: GetGroup
-</span><a href="#local-6989586621679446830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup%27"><span class="hs-identifier hs-type">GetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446829"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroup
-</span><a href="#local-6989586621679446830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:GetGroup' :: Text
+</span><a href="#local-6989586621679446840"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446840"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446839"><span class="annot"><span class="annottext">s :: GetGroup
+</span><a href="#local-6989586621679446839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup%27"><span class="hs-identifier hs-type">GetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446838"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroup
+</span><a href="#local-6989586621679446839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:GetGroup' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#%24sel%3AuserPoolId%3AGetGroup%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse"><span class="hs-identifier hs-type">GetGroupResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679446825"><span class="annot"><span class="annottext">request :: GetGroup -&gt; Request GetGroup
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679446834"><span class="annot"><span class="annottext">request :: GetGroup -&gt; Request GetGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetGroup -&gt; Request GetGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679446821"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679446830"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetGroup
 -&gt; ClientResponse ClientBody
@@ -207,10 +207,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679446818"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446818"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679446817"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679446817"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679446816"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679446816"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679446827"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446827"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679446826"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679446826"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679446825"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679446825"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe GroupType -&gt; Int -&gt; GetGroupResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse%27"><span class="hs-identifier hs-var">GetGroupResponse'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GroupType -&gt; Int -&gt; GetGroupResponse)
@@ -218,7 +218,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679446816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GroupType)
+</span><a href="#local-6989586621679446825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GroupType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Group&quot;</span></span><span class="hs-special">)</span><span>
@@ -230,15 +230,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446818"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446827"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446808"><span id="local-6989586621679446810"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446817"><span id="local-6989586621679446819"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446805"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446814"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679446801"><span class="annot"><span class="annottext">toHeaders :: GetGroup -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679446810"><span class="annot"><span class="annottext">toHeaders :: GetGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -265,14 +265,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446791"><span id="local-6989586621679446793"><span id="local-6989586621679446795"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679446789"><span class="annot"><span class="annottext">toJSON :: GetGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup%27"><span class="hs-identifier hs-type">GetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446786"><span id="local-6989586621679446787"><span class="annot"><span class="annottext">Text
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446800"><span id="local-6989586621679446802"><span id="local-6989586621679446804"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679446798"><span class="annot"><span class="annottext">toJSON :: GetGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup%27"><span class="hs-identifier hs-type">GetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446795"><span id="local-6989586621679446796"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 groupName :: Text
 $sel:userPoolId:GetGroup' :: GetGroup -&gt; Text
 $sel:groupName:GetGroup' :: GetGroup -&gt; Text
-</span><a href="#local-6989586621679446786"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679446795"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -284,26 +284,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446787"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446796"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446786"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446795"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679446780"><span class="annot"><span class="annottext">toPath :: GetGroup -&gt; ByteString
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679446789"><span class="annot"><span class="annottext">toPath :: GetGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroup"><span class="hs-identifier hs-type">GetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679446776"><span class="annot"><span class="annottext">toQuery :: GetGroup -&gt; QueryString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679446785"><span class="annot"><span class="annottext">toQuery :: GetGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -311,7 +311,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newGetGroupResponse' smart constructor.</span><span>
-</span><span id="line-138"></span><span id="local-6989586621679446773"><span id="local-6989586621679446774"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse"><span class="hs-identifier hs-var">GetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse%27"><span class="hs-identifier hs-var">GetGroupResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span id="local-6989586621679446782"><span id="local-6989586621679446783"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse"><span class="hs-identifier hs-var">GetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse%27"><span class="hs-identifier hs-var">GetGroupResponse'</span></a></span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The group object for the group.</span><span>
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3Agroup%27%3AGetGroupResponse%27"><span class="annot"><span class="annottext">GetGroupResponse -&gt; Maybe GroupType
 </span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#%24sel%3Agroup%27%3AGetGroupResponse%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.GroupType.html#GroupType"><span class="hs-identifier hs-type">GroupType</span></a></span><span class="hs-special">,</span><span>
@@ -319,7 +319,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetGroupResponse%27"><span class="annot"><span class="annottext">GetGroupResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#%24sel%3AhttpStatus%3AGetGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446767"><span id="local-6989586621679446769"><span class="annot"><span class="annottext">GetGroupResponse -&gt; GetGroupResponse -&gt; Bool
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446776"><span id="local-6989586621679446778"><span class="annot"><span class="annottext">GetGroupResponse -&gt; GetGroupResponse -&gt; Bool
 (GetGroupResponse -&gt; GetGroupResponse -&gt; Bool)
 -&gt; (GetGroupResponse -&gt; GetGroupResponse -&gt; Bool)
 -&gt; Eq GetGroupResponse
@@ -328,7 +328,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetGroupResponse -&gt; GetGroupResponse -&gt; Bool
 == :: GetGroupResponse -&gt; GetGroupResponse -&gt; Bool
 $c== :: GetGroupResponse -&gt; GetGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446759"><span id="local-6989586621679446761"><span id="local-6989586621679446763"><span id="local-6989586621679446765"><span class="annot"><span class="annottext">ReadPrec [GetGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446768"><span id="local-6989586621679446770"><span id="local-6989586621679446772"><span id="local-6989586621679446774"><span class="annot"><span class="annottext">ReadPrec [GetGroupResponse]
 ReadPrec GetGroupResponse
 Int -&gt; ReadS GetGroupResponse
 ReadS [GetGroupResponse]
@@ -348,7 +348,7 @@ readList :: ReadS [GetGroupResponse]
 $creadList :: ReadS [GetGroupResponse]
 readsPrec :: Int -&gt; ReadS GetGroupResponse
 $creadsPrec :: Int -&gt; ReadS GetGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446753"><span id="local-6989586621679446755"><span id="local-6989586621679446757"><span class="annot"><span class="annottext">Int -&gt; GetGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446762"><span id="local-6989586621679446764"><span id="local-6989586621679446766"><span class="annot"><span class="annottext">Int -&gt; GetGroupResponse -&gt; ShowS
 [GetGroupResponse] -&gt; ShowS
 GetGroupResponse -&gt; String
 (Int -&gt; GetGroupResponse -&gt; ShowS)
@@ -390,8 +390,8 @@ $cfrom :: forall x. GetGroupResponse -&gt; Rep GetGroupResponse x
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse"><span class="hs-identifier hs-type">GetGroupResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newGetGroupResponse"><span class="annot"><span class="annottext">newGetGroupResponse :: Int -&gt; GetGroupResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#newGetGroupResponse"><span class="hs-identifier hs-var hs-var">newGetGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679446750"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446750"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#newGetGroupResponse"><span class="hs-identifier hs-var hs-var">newGetGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679446759"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446759"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">GetGroupResponse' :: Maybe GroupType -&gt; Int -&gt; GetGroupResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse%27"><span class="hs-identifier hs-type">GetGroupResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:group':GetGroupResponse' :: Maybe GroupType
@@ -400,7 +400,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#%24sel%3AhttpStatus%3AGetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446750"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679446759"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The group object for the group.</span><span>
@@ -415,16 +415,16 @@ forall a. Maybe a
      (Maybe GroupType)
      (Maybe GroupType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse%27"><span class="hs-identifier hs-type">GetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446749"><span class="annot"><span class="annottext">Maybe GroupType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse%27"><span class="hs-identifier hs-type">GetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446758"><span class="annot"><span class="annottext">Maybe GroupType
 group' :: Maybe GroupType
 $sel:group':GetGroupResponse' :: GetGroupResponse -&gt; Maybe GroupType
-</span><a href="#local-6989586621679446749"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroupType
-</span><a href="#local-6989586621679446749"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446748"><span class="annot"><span class="annottext">s :: GetGroupResponse
-</span><a href="#local-6989586621679446748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse%27"><span class="hs-identifier hs-type">GetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446747"><span class="annot"><span class="annottext">Maybe GroupType
-</span><a href="#local-6989586621679446747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupResponse
-</span><a href="#local-6989586621679446748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':GetGroupResponse' :: Maybe GroupType
+</span><a href="#local-6989586621679446758"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroupType
+</span><a href="#local-6989586621679446758"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446757"><span class="annot"><span class="annottext">s :: GetGroupResponse
+</span><a href="#local-6989586621679446757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse%27"><span class="hs-identifier hs-type">GetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446756"><span class="annot"><span class="annottext">Maybe GroupType
+</span><a href="#local-6989586621679446756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupResponse
+</span><a href="#local-6989586621679446757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':GetGroupResponse' :: Maybe GroupType
 </span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#%24sel%3Agroup%27%3AGetGroupResponse%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroupType
-</span><a href="#local-6989586621679446747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse"><span class="hs-identifier hs-type">GetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse"><span class="hs-identifier hs-type">GetGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#getGroupResponse_httpStatus"><span class="hs-identifier hs-type">getGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse"><span class="hs-identifier hs-type">GetGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -433,16 +433,16 @@ $sel:group':GetGroupResponse' :: GetGroupResponse -&gt; Maybe GroupType
 -&gt; (GetGroupResponse -&gt; Int -&gt; GetGroupResponse)
 -&gt; Lens GetGroupResponse GetGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse%27"><span class="hs-identifier hs-type">GetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446746"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse%27"><span class="hs-identifier hs-type">GetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446755"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetGroupResponse' :: GetGroupResponse -&gt; Int
-</span><a href="#local-6989586621679446746"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446746"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446745"><span class="annot"><span class="annottext">s :: GetGroupResponse
-</span><a href="#local-6989586621679446745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse%27"><span class="hs-identifier hs-type">GetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446744"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupResponse
-</span><a href="#local-6989586621679446745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupResponse' :: Int
+</span><a href="#local-6989586621679446755"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446755"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446754"><span class="annot"><span class="annottext">s :: GetGroupResponse
+</span><a href="#local-6989586621679446754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse%27"><span class="hs-identifier hs-type">GetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446753"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupResponse
+</span><a href="#local-6989586621679446754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#%24sel%3AhttpStatus%3AGetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse"><span class="hs-identifier hs-type">GetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse"><span class="hs-identifier hs-type">GetGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse"><span class="hs-identifier hs-type">GetGroupResponse</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446751"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetGroup.html#GetGroupResponse"><span class="hs-identifier hs-type">GetGroupResponse</span></a></span></span><span>
 </span><span id="line-176"></span></pre></body></html>

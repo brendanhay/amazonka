@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | Describes the physical storage of table data.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newStorageDescriptor' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679699358"><span id="local-6989586621679699359"></span></span><span class="hs-keyword">data</span><span> </span><span id="StorageDescriptor"><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-var">StorageDescriptor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageDescriptor%27"><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-var">StorageDescriptor'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679699367"><span id="local-6989586621679699368"></span></span><span class="hs-keyword">data</span><span> </span><span id="StorageDescriptor"><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-var">StorageDescriptor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageDescriptor%27"><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-var">StorageDescriptor'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list specifying the sort order of each bucket in the table.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AsortColumns%3AStorageDescriptor%27"><span class="annot"><span class="annottext">StorageDescriptor -&gt; Maybe [Order]
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3AsortColumns%3AStorageDescriptor%27"><span class="hs-identifier hs-var hs-var">sortColumns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Order.html#Order"><span class="hs-identifier hs-type">Order</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -81,7 +81,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3Acolumns%3AStorageDescriptor%27"><span class="annot"><span class="annottext">StorageDescriptor -&gt; Maybe [Column]
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3Acolumns%3AStorageDescriptor%27"><span class="hs-identifier hs-var hs-var">columns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679699340"><span id="local-6989586621679699342"><span class="annot"><span class="annottext">StorageDescriptor -&gt; StorageDescriptor -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679699349"><span id="local-6989586621679699351"><span class="annot"><span class="annottext">StorageDescriptor -&gt; StorageDescriptor -&gt; Bool
 (StorageDescriptor -&gt; StorageDescriptor -&gt; Bool)
 -&gt; (StorageDescriptor -&gt; StorageDescriptor -&gt; Bool)
 -&gt; Eq StorageDescriptor
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StorageDescriptor -&gt; StorageDescriptor -&gt; Bool
 == :: StorageDescriptor -&gt; StorageDescriptor -&gt; Bool
 $c== :: StorageDescriptor -&gt; StorageDescriptor -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679699331"><span id="local-6989586621679699333"><span id="local-6989586621679699335"><span id="local-6989586621679699337"><span class="annot"><span class="annottext">ReadPrec [StorageDescriptor]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679699340"><span id="local-6989586621679699342"><span id="local-6989586621679699344"><span id="local-6989586621679699346"><span class="annot"><span class="annottext">ReadPrec [StorageDescriptor]
 ReadPrec StorageDescriptor
 Int -&gt; ReadS StorageDescriptor
 ReadS [StorageDescriptor]
@@ -110,7 +110,7 @@ readList :: ReadS [StorageDescriptor]
 $creadList :: ReadS [StorageDescriptor]
 readsPrec :: Int -&gt; ReadS StorageDescriptor
 $creadsPrec :: Int -&gt; ReadS StorageDescriptor
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679699324"><span id="local-6989586621679699326"><span id="local-6989586621679699328"><span class="annot"><span class="annottext">Int -&gt; StorageDescriptor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679699333"><span id="local-6989586621679699335"><span id="local-6989586621679699337"><span class="annot"><span class="annottext">Int -&gt; StorageDescriptor -&gt; ShowS
 [StorageDescriptor] -&gt; ShowS
 StorageDescriptor -&gt; String
 (Int -&gt; StorageDescriptor -&gt; ShowS)
@@ -260,16 +260,16 @@ forall a. Maybe a
 -&gt; Lens
      StorageDescriptor StorageDescriptor (Maybe [Order]) (Maybe [Order])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699315"><span class="annot"><span class="annottext">Maybe [Order]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699324"><span class="annot"><span class="annottext">Maybe [Order]
 sortColumns :: Maybe [Order]
 $sel:sortColumns:StorageDescriptor' :: StorageDescriptor -&gt; Maybe [Order]
-</span><a href="#local-6989586621679699315"><span class="hs-identifier hs-var hs-var">sortColumns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Order]
-</span><a href="#local-6989586621679699315"><span class="hs-identifier hs-var">sortColumns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699314"><span class="annot"><span class="annottext">s :: StorageDescriptor
-</span><a href="#local-6989586621679699314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699313"><span class="annot"><span class="annottext">Maybe [Order]
-</span><a href="#local-6989586621679699313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
-</span><a href="#local-6989586621679699314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortColumns:StorageDescriptor' :: Maybe [Order]
+</span><a href="#local-6989586621679699324"><span class="hs-identifier hs-var hs-var">sortColumns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Order]
+</span><a href="#local-6989586621679699324"><span class="hs-identifier hs-var">sortColumns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699323"><span class="annot"><span class="annottext">s :: StorageDescriptor
+</span><a href="#local-6989586621679699323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699322"><span class="annot"><span class="annottext">Maybe [Order]
+</span><a href="#local-6989586621679699322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
+</span><a href="#local-6989586621679699323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortColumns:StorageDescriptor' :: Maybe [Order]
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3AsortColumns%3AStorageDescriptor%27"><span class="hs-identifier hs-var">sortColumns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Order]
-</span><a href="#local-6989586621679699313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Order] -&gt; f (Maybe [Order]))
+</span><a href="#local-6989586621679699322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Order] -&gt; f (Maybe [Order]))
  -&gt; StorageDescriptor -&gt; f StorageDescriptor)
 -&gt; ((Maybe [Order] -&gt; f (Maybe [Order]))
     -&gt; Maybe [Order] -&gt; f (Maybe [Order]))
@@ -296,16 +296,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      StorageDescriptor StorageDescriptor (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699308"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699317"><span class="annot"><span class="annottext">Maybe Bool
 compressed :: Maybe Bool
 $sel:compressed:StorageDescriptor' :: StorageDescriptor -&gt; Maybe Bool
-</span><a href="#local-6989586621679699308"><span class="hs-identifier hs-var hs-var">compressed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679699308"><span class="hs-identifier hs-var">compressed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699307"><span class="annot"><span class="annottext">s :: StorageDescriptor
-</span><a href="#local-6989586621679699307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699306"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679699306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
-</span><a href="#local-6989586621679699307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compressed:StorageDescriptor' :: Maybe Bool
+</span><a href="#local-6989586621679699317"><span class="hs-identifier hs-var hs-var">compressed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679699317"><span class="hs-identifier hs-var">compressed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699316"><span class="annot"><span class="annottext">s :: StorageDescriptor
+</span><a href="#local-6989586621679699316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699315"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679699315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
+</span><a href="#local-6989586621679699316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compressed:StorageDescriptor' :: Maybe Bool
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3Acompressed%3AStorageDescriptor%27"><span class="hs-identifier hs-var">compressed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679699306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679699315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The physical location of the table. By default, this takes the form of</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- the warehouse location, followed by the database location in the</span><span>
@@ -318,16 +318,16 @@ $sel:compressed:StorageDescriptor' :: StorageDescriptor -&gt; Maybe Bool
 -&gt; Lens
      StorageDescriptor StorageDescriptor (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699304"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699313"><span class="annot"><span class="annottext">Maybe Text
 location :: Maybe Text
 $sel:location:StorageDescriptor' :: StorageDescriptor -&gt; Maybe Text
-</span><a href="#local-6989586621679699304"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679699304"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699303"><span class="annot"><span class="annottext">s :: StorageDescriptor
-</span><a href="#local-6989586621679699303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699302"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679699302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
-</span><a href="#local-6989586621679699303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:StorageDescriptor' :: Maybe Text
+</span><a href="#local-6989586621679699313"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679699313"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699312"><span class="annot"><span class="annottext">s :: StorageDescriptor
+</span><a href="#local-6989586621679699312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699311"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679699311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
+</span><a href="#local-6989586621679699312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:StorageDescriptor' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3Alocation%3AStorageDescriptor%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679699302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679699311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | A list of reducer grouping columns, clustering columns, and bucketing</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- columns in the table.</span><span>
@@ -339,16 +339,16 @@ $sel:location:StorageDescriptor' :: StorageDescriptor -&gt; Maybe Text
 -&gt; Lens
      StorageDescriptor StorageDescriptor (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699300"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699309"><span class="annot"><span class="annottext">Maybe [Text]
 bucketColumns :: Maybe [Text]
 $sel:bucketColumns:StorageDescriptor' :: StorageDescriptor -&gt; Maybe [Text]
-</span><a href="#local-6989586621679699300"><span class="hs-identifier hs-var hs-var">bucketColumns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679699300"><span class="hs-identifier hs-var">bucketColumns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699299"><span class="annot"><span class="annottext">s :: StorageDescriptor
-</span><a href="#local-6989586621679699299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699298"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679699298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
-</span><a href="#local-6989586621679699299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketColumns:StorageDescriptor' :: Maybe [Text]
+</span><a href="#local-6989586621679699309"><span class="hs-identifier hs-var hs-var">bucketColumns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679699309"><span class="hs-identifier hs-var">bucketColumns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699308"><span class="annot"><span class="annottext">s :: StorageDescriptor
+</span><a href="#local-6989586621679699308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699307"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679699307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
+</span><a href="#local-6989586621679699308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketColumns:StorageDescriptor' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3AbucketColumns%3AStorageDescriptor%27"><span class="hs-identifier hs-var">bucketColumns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679699298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679699307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; StorageDescriptor -&gt; f StorageDescriptor)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -377,16 +377,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe SerDeInfo)
      (Maybe SerDeInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699296"><span class="annot"><span class="annottext">Maybe SerDeInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699305"><span class="annot"><span class="annottext">Maybe SerDeInfo
 serdeInfo :: Maybe SerDeInfo
 $sel:serdeInfo:StorageDescriptor' :: StorageDescriptor -&gt; Maybe SerDeInfo
-</span><a href="#local-6989586621679699296"><span class="hs-identifier hs-var hs-var">serdeInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SerDeInfo
-</span><a href="#local-6989586621679699296"><span class="hs-identifier hs-var">serdeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699295"><span class="annot"><span class="annottext">s :: StorageDescriptor
-</span><a href="#local-6989586621679699295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699294"><span class="annot"><span class="annottext">Maybe SerDeInfo
-</span><a href="#local-6989586621679699294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
-</span><a href="#local-6989586621679699295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serdeInfo:StorageDescriptor' :: Maybe SerDeInfo
+</span><a href="#local-6989586621679699305"><span class="hs-identifier hs-var hs-var">serdeInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SerDeInfo
+</span><a href="#local-6989586621679699305"><span class="hs-identifier hs-var">serdeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699304"><span class="annot"><span class="annottext">s :: StorageDescriptor
+</span><a href="#local-6989586621679699304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699303"><span class="annot"><span class="annottext">Maybe SerDeInfo
+</span><a href="#local-6989586621679699303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
+</span><a href="#local-6989586621679699304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serdeInfo:StorageDescriptor' :: Maybe SerDeInfo
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3AserdeInfo%3AStorageDescriptor%27"><span class="hs-identifier hs-var">serdeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SerDeInfo
-</span><a href="#local-6989586621679699294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679699303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The output format: @SequenceFileOutputFormat@ (binary), or</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- @IgnoreKeyTextOutputFormat@, or a custom format.</span><span>
@@ -398,16 +398,16 @@ $sel:serdeInfo:StorageDescriptor' :: StorageDescriptor -&gt; Maybe SerDeInfo
 -&gt; Lens
      StorageDescriptor StorageDescriptor (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699292"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699301"><span class="annot"><span class="annottext">Maybe Text
 outputFormat :: Maybe Text
 $sel:outputFormat:StorageDescriptor' :: StorageDescriptor -&gt; Maybe Text
-</span><a href="#local-6989586621679699292"><span class="hs-identifier hs-var hs-var">outputFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679699292"><span class="hs-identifier hs-var">outputFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699291"><span class="annot"><span class="annottext">s :: StorageDescriptor
-</span><a href="#local-6989586621679699291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699290"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679699290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
-</span><a href="#local-6989586621679699291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputFormat:StorageDescriptor' :: Maybe Text
+</span><a href="#local-6989586621679699301"><span class="hs-identifier hs-var hs-var">outputFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679699301"><span class="hs-identifier hs-var">outputFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699300"><span class="annot"><span class="annottext">s :: StorageDescriptor
+</span><a href="#local-6989586621679699300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699299"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679699299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
+</span><a href="#local-6989586621679699300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputFormat:StorageDescriptor' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3AoutputFormat%3AStorageDescriptor%27"><span class="hs-identifier hs-var">outputFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679699290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679699299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | Must be specified if the table contains any dimension columns.</span><span>
 </span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#storageDescriptor_numberOfBuckets"><span class="hs-identifier hs-type">storageDescriptor_numberOfBuckets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -417,16 +417,16 @@ $sel:outputFormat:StorageDescriptor' :: StorageDescriptor -&gt; Maybe Text
 -&gt; (StorageDescriptor -&gt; Maybe Int -&gt; StorageDescriptor)
 -&gt; Lens StorageDescriptor StorageDescriptor (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699288"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699297"><span class="annot"><span class="annottext">Maybe Int
 numberOfBuckets :: Maybe Int
 $sel:numberOfBuckets:StorageDescriptor' :: StorageDescriptor -&gt; Maybe Int
-</span><a href="#local-6989586621679699288"><span class="hs-identifier hs-var hs-var">numberOfBuckets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679699288"><span class="hs-identifier hs-var">numberOfBuckets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699287"><span class="annot"><span class="annottext">s :: StorageDescriptor
-</span><a href="#local-6989586621679699287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699286"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679699286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
-</span><a href="#local-6989586621679699287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfBuckets:StorageDescriptor' :: Maybe Int
+</span><a href="#local-6989586621679699297"><span class="hs-identifier hs-var hs-var">numberOfBuckets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679699297"><span class="hs-identifier hs-var">numberOfBuckets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699296"><span class="annot"><span class="annottext">s :: StorageDescriptor
+</span><a href="#local-6989586621679699296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699295"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679699295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
+</span><a href="#local-6989586621679699296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfBuckets:StorageDescriptor' :: Maybe Int
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3AnumberOfBuckets%3AStorageDescriptor%27"><span class="hs-identifier hs-var">numberOfBuckets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679699286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679699295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | An object that references a schema stored in the Glue Schema Registry.</span><span>
 </span><span id="line-167"></span><span class="hs-comment">--</span><span>
@@ -444,16 +444,16 @@ $sel:numberOfBuckets:StorageDescriptor' :: StorageDescriptor -&gt; Maybe Int
      (Maybe SchemaReference)
      (Maybe SchemaReference)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699284"><span class="annot"><span class="annottext">Maybe SchemaReference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699293"><span class="annot"><span class="annottext">Maybe SchemaReference
 schemaReference :: Maybe SchemaReference
 $sel:schemaReference:StorageDescriptor' :: StorageDescriptor -&gt; Maybe SchemaReference
-</span><a href="#local-6989586621679699284"><span class="hs-identifier hs-var hs-var">schemaReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaReference
-</span><a href="#local-6989586621679699284"><span class="hs-identifier hs-var">schemaReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699283"><span class="annot"><span class="annottext">s :: StorageDescriptor
-</span><a href="#local-6989586621679699283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699282"><span class="annot"><span class="annottext">Maybe SchemaReference
-</span><a href="#local-6989586621679699282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
-</span><a href="#local-6989586621679699283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaReference:StorageDescriptor' :: Maybe SchemaReference
+</span><a href="#local-6989586621679699293"><span class="hs-identifier hs-var hs-var">schemaReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaReference
+</span><a href="#local-6989586621679699293"><span class="hs-identifier hs-var">schemaReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699292"><span class="annot"><span class="annottext">s :: StorageDescriptor
+</span><a href="#local-6989586621679699292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699291"><span class="annot"><span class="annottext">Maybe SchemaReference
+</span><a href="#local-6989586621679699291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
+</span><a href="#local-6989586621679699292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaReference:StorageDescriptor' :: Maybe SchemaReference
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3AschemaReference%3AStorageDescriptor%27"><span class="hs-identifier hs-var">schemaReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaReference
-</span><a href="#local-6989586621679699282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679699291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | @True@ if the table data is stored in subdirectories, or @False@ if not.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#storageDescriptor_storedAsSubDirectories"><span class="hs-identifier hs-type">storageDescriptor_storedAsSubDirectories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -464,16 +464,16 @@ $sel:schemaReference:StorageDescriptor' :: StorageDescriptor -&gt; Maybe SchemaR
 -&gt; Lens
      StorageDescriptor StorageDescriptor (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699280"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699289"><span class="annot"><span class="annottext">Maybe Bool
 storedAsSubDirectories :: Maybe Bool
 $sel:storedAsSubDirectories:StorageDescriptor' :: StorageDescriptor -&gt; Maybe Bool
-</span><a href="#local-6989586621679699280"><span class="hs-identifier hs-var hs-var">storedAsSubDirectories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679699280"><span class="hs-identifier hs-var">storedAsSubDirectories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699279"><span class="annot"><span class="annottext">s :: StorageDescriptor
-</span><a href="#local-6989586621679699279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699278"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679699278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
-</span><a href="#local-6989586621679699279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storedAsSubDirectories:StorageDescriptor' :: Maybe Bool
+</span><a href="#local-6989586621679699289"><span class="hs-identifier hs-var hs-var">storedAsSubDirectories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679699289"><span class="hs-identifier hs-var">storedAsSubDirectories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699288"><span class="annot"><span class="annottext">s :: StorageDescriptor
+</span><a href="#local-6989586621679699288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699287"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679699287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
+</span><a href="#local-6989586621679699288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storedAsSubDirectories:StorageDescriptor' :: Maybe Bool
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3AstoredAsSubDirectories%3AStorageDescriptor%27"><span class="hs-identifier hs-var">storedAsSubDirectories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679699278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679699287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The user-supplied properties in key-value form.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#storageDescriptor_parameters"><span class="hs-identifier hs-type">storageDescriptor_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -488,16 +488,16 @@ $sel:storedAsSubDirectories:StorageDescriptor' :: StorageDescriptor -&gt; Maybe 
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699276"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699285"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 parameters :: Maybe (HashMap Text Text)
 $sel:parameters:StorageDescriptor' :: StorageDescriptor -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679699276"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679699276"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699275"><span class="annot"><span class="annottext">s :: StorageDescriptor
-</span><a href="#local-6989586621679699275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699274"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679699274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
-</span><a href="#local-6989586621679699275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:StorageDescriptor' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679699285"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679699285"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699284"><span class="annot"><span class="annottext">s :: StorageDescriptor
+</span><a href="#local-6989586621679699284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699283"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679699283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
+</span><a href="#local-6989586621679699284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:StorageDescriptor' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3Aparameters%3AStorageDescriptor%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679699274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679699283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; StorageDescriptor -&gt; f StorageDescriptor)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -536,16 +536,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      StorageDescriptor StorageDescriptor (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699272"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699281"><span class="annot"><span class="annottext">Maybe Text
 inputFormat :: Maybe Text
 $sel:inputFormat:StorageDescriptor' :: StorageDescriptor -&gt; Maybe Text
-</span><a href="#local-6989586621679699272"><span class="hs-identifier hs-var hs-var">inputFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679699272"><span class="hs-identifier hs-var">inputFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699271"><span class="annot"><span class="annottext">s :: StorageDescriptor
-</span><a href="#local-6989586621679699271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699270"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679699270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
-</span><a href="#local-6989586621679699271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputFormat:StorageDescriptor' :: Maybe Text
+</span><a href="#local-6989586621679699281"><span class="hs-identifier hs-var hs-var">inputFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679699281"><span class="hs-identifier hs-var">inputFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699280"><span class="annot"><span class="annottext">s :: StorageDescriptor
+</span><a href="#local-6989586621679699280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699279"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679699279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
+</span><a href="#local-6989586621679699280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputFormat:StorageDescriptor' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3AinputFormat%3AStorageDescriptor%27"><span class="hs-identifier hs-var">inputFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679699270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679699279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The information about values that appear frequently in a column (skewed</span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- values).</span><span>
@@ -560,16 +560,16 @@ $sel:inputFormat:StorageDescriptor' :: StorageDescriptor -&gt; Maybe Text
      (Maybe SkewedInfo)
      (Maybe SkewedInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699268"><span class="annot"><span class="annottext">Maybe SkewedInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699277"><span class="annot"><span class="annottext">Maybe SkewedInfo
 skewedInfo :: Maybe SkewedInfo
 $sel:skewedInfo:StorageDescriptor' :: StorageDescriptor -&gt; Maybe SkewedInfo
-</span><a href="#local-6989586621679699268"><span class="hs-identifier hs-var hs-var">skewedInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SkewedInfo
-</span><a href="#local-6989586621679699268"><span class="hs-identifier hs-var">skewedInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699267"><span class="annot"><span class="annottext">s :: StorageDescriptor
-</span><a href="#local-6989586621679699267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699266"><span class="annot"><span class="annottext">Maybe SkewedInfo
-</span><a href="#local-6989586621679699266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
-</span><a href="#local-6989586621679699267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skewedInfo:StorageDescriptor' :: Maybe SkewedInfo
+</span><a href="#local-6989586621679699277"><span class="hs-identifier hs-var hs-var">skewedInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SkewedInfo
+</span><a href="#local-6989586621679699277"><span class="hs-identifier hs-var">skewedInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699276"><span class="annot"><span class="annottext">s :: StorageDescriptor
+</span><a href="#local-6989586621679699276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699275"><span class="annot"><span class="annottext">Maybe SkewedInfo
+</span><a href="#local-6989586621679699275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
+</span><a href="#local-6989586621679699276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skewedInfo:StorageDescriptor' :: Maybe SkewedInfo
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3AskewedInfo%3AStorageDescriptor%27"><span class="hs-identifier hs-var">skewedInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SkewedInfo
-</span><a href="#local-6989586621679699266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679699275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | A list of the @Columns@ in the table.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#storageDescriptor_columns"><span class="hs-identifier hs-type">storageDescriptor_columns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -583,16 +583,16 @@ $sel:skewedInfo:StorageDescriptor' :: StorageDescriptor -&gt; Maybe SkewedInfo
      (Maybe [Column])
      (Maybe [Column])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699264"><span class="annot"><span class="annottext">Maybe [Column]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699273"><span class="annot"><span class="annottext">Maybe [Column]
 columns :: Maybe [Column]
 $sel:columns:StorageDescriptor' :: StorageDescriptor -&gt; Maybe [Column]
-</span><a href="#local-6989586621679699264"><span class="hs-identifier hs-var hs-var">columns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
-</span><a href="#local-6989586621679699264"><span class="hs-identifier hs-var">columns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699263"><span class="annot"><span class="annottext">s :: StorageDescriptor
-</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699262"><span class="annot"><span class="annottext">Maybe [Column]
-</span><a href="#local-6989586621679699262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
-</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columns:StorageDescriptor' :: Maybe [Column]
+</span><a href="#local-6989586621679699273"><span class="hs-identifier hs-var hs-var">columns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
+</span><a href="#local-6989586621679699273"><span class="hs-identifier hs-var">columns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699272"><span class="annot"><span class="annottext">s :: StorageDescriptor
+</span><a href="#local-6989586621679699272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699271"><span class="annot"><span class="annottext">Maybe [Column]
+</span><a href="#local-6989586621679699271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageDescriptor
+</span><a href="#local-6989586621679699272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columns:StorageDescriptor' :: Maybe [Column]
 </span><a href="Network.AWS.Glue.Types.StorageDescriptor.html#%24sel%3Acolumns%3AStorageDescriptor%27"><span class="hs-identifier hs-var">columns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
-</span><a href="#local-6989586621679699262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Column] -&gt; f (Maybe [Column]))
+</span><a href="#local-6989586621679699271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Column] -&gt; f (Maybe [Column]))
  -&gt; StorageDescriptor -&gt; f StorageDescriptor)
 -&gt; ((Maybe [Column] -&gt; f (Maybe [Column]))
     -&gt; Maybe [Column] -&gt; f (Maybe [Column]))
@@ -610,8 +610,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679699259"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679699257"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StorageDescriptor
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679699268"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679699266"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StorageDescriptor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StorageDescriptor)
@@ -621,8 +621,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StorageDescriptor&quot;</span></span><span>
-</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679699254"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679699254"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679699263"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Order]
 -&gt; Maybe Bool
 -&gt; Maybe Text
@@ -669,7 +669,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; StorageDescriptor)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679699254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Order]))
+</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Order]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortColumns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Order]))
@@ -708,7 +708,7 @@ forall a. Monoid a =&gt; a
       -&gt; StorageDescriptor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679699254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Compressed&quot;</span></span><span class="hs-special">)</span><span>
@@ -740,7 +740,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; StorageDescriptor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679699254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
@@ -770,7 +770,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; StorageDescriptor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679699254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BucketColumns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -803,7 +803,7 @@ forall a. Monoid a =&gt; a
       -&gt; StorageDescriptor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679699254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SerDeInfo)
+</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SerDeInfo)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SerdeInfo&quot;</span></span><span class="hs-special">)</span><span>
@@ -829,7 +829,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; StorageDescriptor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679699254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OutputFormat&quot;</span></span><span class="hs-special">)</span><span>
@@ -853,7 +853,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; StorageDescriptor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679699254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfBuckets&quot;</span></span><span class="hs-special">)</span><span>
@@ -875,7 +875,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; StorageDescriptor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679699254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SchemaReference)
+</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SchemaReference)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaReference&quot;</span></span><span class="hs-special">)</span><span>
@@ -895,7 +895,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; StorageDescriptor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679699254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StoredAsSubDirectories&quot;</span></span><span class="hs-special">)</span><span>
@@ -911,7 +911,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe SkewedInfo -&gt; Maybe [Column] -&gt; StorageDescriptor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679699254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -927,7 +927,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe SkewedInfo -&gt; Maybe [Column] -&gt; StorageDescriptor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679699254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputFormat&quot;</span></span><span class="hs-special">)</span><span>
@@ -936,7 +936,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Column] -&gt; StorageDescriptor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679699254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SkewedInfo)
+</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SkewedInfo)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SkewedInfo&quot;</span></span><span class="hs-special">)</span><span>
@@ -944,7 +944,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Column]) -&gt; Parser StorageDescriptor
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679699254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Column]))
+</span><a href="#local-6989586621679699263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Column]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Columns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Column]))
@@ -955,13 +955,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679699247"><span id="local-6989586621679699249"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span></span></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679699256"><span id="local-6989586621679699258"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span></span></span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679699244"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679699253"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span></span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679699236"><span id="local-6989586621679699238"><span id="local-6989586621679699240"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621679699234"><span class="annot"><span class="annottext">toJSON :: StorageDescriptor -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699220"><span id="local-6989586621679699221"><span id="local-6989586621679699222"><span id="local-6989586621679699223"><span id="local-6989586621679699224"><span id="local-6989586621679699225"><span id="local-6989586621679699226"><span id="local-6989586621679699227"><span id="local-6989586621679699228"><span id="local-6989586621679699229"><span id="local-6989586621679699230"><span id="local-6989586621679699231"><span id="local-6989586621679699232"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679699245"><span id="local-6989586621679699247"><span id="local-6989586621679699249"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor"><span class="hs-identifier hs-type">StorageDescriptor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679699243"><span class="annot"><span class="annottext">toJSON :: StorageDescriptor -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StorageDescriptor.html#StorageDescriptor%27"><span class="hs-identifier hs-type">StorageDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699229"><span id="local-6989586621679699230"><span id="local-6989586621679699231"><span id="local-6989586621679699232"><span id="local-6989586621679699233"><span id="local-6989586621679699234"><span id="local-6989586621679699235"><span id="local-6989586621679699236"><span id="local-6989586621679699237"><span id="local-6989586621679699238"><span id="local-6989586621679699239"><span id="local-6989586621679699240"><span id="local-6989586621679699241"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe [Text]
 Maybe [Column]
@@ -997,7 +997,7 @@ $sel:bucketColumns:StorageDescriptor' :: StorageDescriptor -&gt; Maybe [Text]
 $sel:location:StorageDescriptor' :: StorageDescriptor -&gt; Maybe Text
 $sel:compressed:StorageDescriptor' :: StorageDescriptor -&gt; Maybe Bool
 $sel:sortColumns:StorageDescriptor' :: StorageDescriptor -&gt; Maybe [Order]
-</span><a href="#local-6989586621679699220"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679699229"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-223"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1009,42 +1009,42 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Order] -&gt; Pair) -&gt; Maybe [Order] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Order]
-</span><a href="#local-6989586621679699232"><span class="hs-identifier hs-var">sortColumns</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679699241"><span class="hs-identifier hs-var">sortColumns</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Compressed&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679699231"><span class="hs-identifier hs-var">compressed</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679699240"><span class="hs-identifier hs-var">compressed</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679699230"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679699239"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BucketColumns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679699229"><span class="hs-identifier hs-var">bucketColumns</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679699238"><span class="hs-identifier hs-var">bucketColumns</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SerdeInfo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SerDeInfo -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SerDeInfo -&gt; Pair) -&gt; Maybe SerDeInfo -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SerDeInfo
-</span><a href="#local-6989586621679699228"><span class="hs-identifier hs-var">serdeInfo</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679699237"><span class="hs-identifier hs-var">serdeInfo</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OutputFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679699227"><span class="hs-identifier hs-var">outputFormat</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679699236"><span class="hs-identifier hs-var">outputFormat</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfBuckets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1052,7 +1052,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-231"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679699226"><span class="hs-identifier hs-var">numberOfBuckets</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679699235"><span class="hs-identifier hs-var">numberOfBuckets</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SchemaReference -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1060,7 +1060,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-233"></span><span>              </span><span class="annot"><span class="annottext">(SchemaReference -&gt; Pair) -&gt; Maybe SchemaReference -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SchemaReference
-</span><a href="#local-6989586621679699225"><span class="hs-identifier hs-var">schemaReference</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679699234"><span class="hs-identifier hs-var">schemaReference</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StoredAsSubDirectories&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1068,7 +1068,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-235"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679699224"><span class="hs-identifier hs-var">storedAsSubDirectories</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679699233"><span class="hs-identifier hs-var">storedAsSubDirectories</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-236"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1076,28 +1076,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679699223"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679699232"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679699222"><span class="hs-identifier hs-var">inputFormat</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679699231"><span class="hs-identifier hs-var">inputFormat</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-238"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SkewedInfo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SkewedInfo -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SkewedInfo -&gt; Pair) -&gt; Maybe SkewedInfo -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SkewedInfo
-</span><a href="#local-6989586621679699221"><span class="hs-identifier hs-var">skewedInfo</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679699230"><span class="hs-identifier hs-var">skewedInfo</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-239"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Columns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Column] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Column] -&gt; Pair) -&gt; Maybe [Column] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
-</span><a href="#local-6989586621679699220"><span class="hs-identifier hs-var">columns</span></a></span><span>
+</span><a href="#local-6989586621679699229"><span class="hs-identifier hs-var">columns</span></a></span><span>
 </span><span id="line-240"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-241"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span></pre></body></html>

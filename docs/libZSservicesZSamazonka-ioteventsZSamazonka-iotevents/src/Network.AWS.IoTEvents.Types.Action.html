@@ -1,0 +1,1037 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTEvents.Types.Action</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTEvents.Types.Action</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.ClearTimerAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.ClearTimerAction</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DynamoDBAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.DynamoDBAction</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DynamoDBv2Action.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.DynamoDBv2Action</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.FirehoseAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.FirehoseAction</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotEventsAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.IotEventsAction</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotSiteWiseAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.IotSiteWiseAction</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotTopicPublishAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.IotTopicPublishAction</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.LambdaAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.LambdaAction</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.ResetTimerAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.ResetTimerAction</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SNSTopicPublishAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.SNSTopicPublishAction</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SetTimerAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.SetTimerAction</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SetVariableAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.SetVariableAction</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SqsAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.SqsAction</span></a></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- | An action to be performed when the @condition@ is TRUE.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newAction' smart constructor.</span><span>
+</span><span id="line-42"></span><span id="local-6989586621679245987"><span id="local-6989586621679245988"></span></span><span class="hs-keyword">data</span><span> </span><span id="Action"><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-var">Action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Action%27"><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-var">Action'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Publishes an MQTT message with the given topic to the AWS IoT message</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- broker.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AiotTopicPublish%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe IotTopicPublishAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AiotTopicPublish%3AAction%27"><span class="hs-identifier hs-var hs-var">iotTopicPublish</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotTopicPublishAction.html#IotTopicPublishAction"><span class="hs-identifier hs-type">IotTopicPublishAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Writes to the DynamoDB table that you created. The default action</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- payload contains all attribute-value pairs that have the information</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- about the detector model instance and the event that triggered the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- action. You can customize the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html payload&gt;.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- A separate column of the DynamoDB table receives one attribute-value</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- pair in the payload that you specify. For more information, see</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html Actions&gt;</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- in /AWS IoT Events Developer Guide/.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdynamoDBv2%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe DynamoDBv2Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AdynamoDBv2%3AAction%27"><span class="hs-identifier hs-var hs-var">dynamoDBv2</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Information needed to reset the timer.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AresetTimer%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe ResetTimerAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AresetTimer%3AAction%27"><span class="hs-identifier hs-var hs-var">resetTimer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.ResetTimerAction.html#ResetTimerAction"><span class="hs-identifier hs-type">ResetTimerAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Information needed to set the timer.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AsetTimer%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe SetTimerAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AsetTimer%3AAction%27"><span class="hs-identifier hs-var hs-var">setTimer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SetTimerAction.html#SetTimerAction"><span class="hs-identifier hs-type">SetTimerAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Sends an Amazon SNS message.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Asns%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe SNSTopicPublishAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3Asns%3AAction%27"><span class="hs-identifier hs-var hs-var">sns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SNSTopicPublishAction.html#SNSTopicPublishAction"><span class="hs-identifier hs-type">SNSTopicPublishAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Information needed to clear the timer.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AclearTimer%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe ClearTimerAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AclearTimer%3AAction%27"><span class="hs-identifier hs-var hs-var">clearTimer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.ClearTimerAction.html#ClearTimerAction"><span class="hs-identifier hs-type">ClearTimerAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Writes to the DynamoDB table that you created. The default action</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- payload contains all attribute-value pairs that have the information</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- about the detector model instance and the event that triggered the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- action. You can customize the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html payload&gt;.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- One column of the DynamoDB table receives all attribute-value pairs in</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- the payload that you specify. For more information, see</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html Actions&gt;</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- in /AWS IoT Events Developer Guide/.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AdynamoDB%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe DynamoDBAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AdynamoDB%3AAction%27"><span class="hs-identifier hs-var hs-var">dynamoDB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DynamoDBAction.html#DynamoDBAction"><span class="hs-identifier hs-type">DynamoDBAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Sends information about the detector model instance and the event that</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- triggered the action to an Amazon Kinesis Data Firehose delivery stream.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Afirehose%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe FirehoseAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3Afirehose%3AAction%27"><span class="hs-identifier hs-var hs-var">firehose</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.FirehoseAction.html#FirehoseAction"><span class="hs-identifier hs-type">FirehoseAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Sends information about the detector model instance and the event that</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- triggered the action to an asset property in AWS IoT SiteWise .</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AiotSiteWise%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe IotSiteWiseAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AiotSiteWise%3AAction%27"><span class="hs-identifier hs-var hs-var">iotSiteWise</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotSiteWiseAction.html#IotSiteWiseAction"><span class="hs-identifier hs-type">IotSiteWiseAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Sets a variable to a specified value.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AsetVariable%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe SetVariableAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AsetVariable%3AAction%27"><span class="hs-identifier hs-var hs-var">setVariable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SetVariableAction.html#SetVariableAction"><span class="hs-identifier hs-type">SetVariableAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Calls a Lambda function, passing in information about the detector model</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- instance and the event that triggered the action.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Alambda%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe LambdaAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3Alambda%3AAction%27"><span class="hs-identifier hs-var hs-var">lambda</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Sends AWS IoT Events input, which passes information about the detector</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- model instance and the event that triggered the action.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AiotEvents%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe IotEventsAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AiotEvents%3AAction%27"><span class="hs-identifier hs-var hs-var">iotEvents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-type">IotEventsAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | Sends information about the detector model instance and the event that</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- triggered the action to an Amazon SQS queue.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Asqs%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe SqsAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3Asqs%3AAction%27"><span class="hs-identifier hs-var hs-var">sqs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245969"><span id="local-6989586621679245971"><span class="annot"><span class="annottext">Action -&gt; Action -&gt; Bool
+(Action -&gt; Action -&gt; Bool)
+-&gt; (Action -&gt; Action -&gt; Bool) -&gt; Eq Action
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Action -&gt; Action -&gt; Bool
+$c/= :: Action -&gt; Action -&gt; Bool
+== :: Action -&gt; Action -&gt; Bool
+$c== :: Action -&gt; Action -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245960"><span id="local-6989586621679245962"><span id="local-6989586621679245964"><span id="local-6989586621679245966"><span class="annot"><span class="annottext">ReadPrec [Action]
+ReadPrec Action
+Int -&gt; ReadS Action
+ReadS [Action]
+(Int -&gt; ReadS Action)
+-&gt; ReadS [Action]
+-&gt; ReadPrec Action
+-&gt; ReadPrec [Action]
+-&gt; Read Action
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Action]
+$creadListPrec :: ReadPrec [Action]
+readPrec :: ReadPrec Action
+$creadPrec :: ReadPrec Action
+readList :: ReadS [Action]
+$creadList :: ReadS [Action]
+readsPrec :: Int -&gt; ReadS Action
+$creadsPrec :: Int -&gt; ReadS Action
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245953"><span id="local-6989586621679245955"><span id="local-6989586621679245957"><span class="annot"><span class="annottext">Int -&gt; Action -&gt; ShowS
+[Action] -&gt; ShowS
+Action -&gt; String
+(Int -&gt; Action -&gt; ShowS)
+-&gt; (Action -&gt; String) -&gt; ([Action] -&gt; ShowS) -&gt; Show Action
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Action] -&gt; ShowS
+$cshowList :: [Action] -&gt; ShowS
+show :: Action -&gt; String
+$cshow :: Action -&gt; String
+showsPrec :: Int -&gt; Action -&gt; ShowS
+$cshowsPrec :: Int -&gt; Action -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Action -&gt; Rep Action x)
+-&gt; (forall x. Rep Action x -&gt; Action) -&gt; Generic Action
+forall x. Rep Action x -&gt; Action
+forall x. Action -&gt; Rep Action x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Action x -&gt; Action
+$cfrom :: forall x. Action -&gt; Rep Action x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Create a value of 'Action' with all optional fields omitted.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'iotTopicPublish', 'action_iotTopicPublish' - Publishes an MQTT message with the given topic to the AWS IoT message</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- broker.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'dynamoDBv2', 'action_dynamoDBv2' - Writes to the DynamoDB table that you created. The default action</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- payload contains all attribute-value pairs that have the information</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- about the detector model instance and the event that triggered the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- action. You can customize the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html payload&gt;.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- A separate column of the DynamoDB table receives one attribute-value</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- pair in the payload that you specify. For more information, see</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html Actions&gt;</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- in /AWS IoT Events Developer Guide/.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'resetTimer', 'action_resetTimer' - Information needed to reset the timer.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'setTimer', 'action_setTimer' - Information needed to set the timer.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'sns', 'action_sns' - Sends an Amazon SNS message.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'clearTimer', 'action_clearTimer' - Information needed to clear the timer.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'dynamoDB', 'action_dynamoDB' - Writes to the DynamoDB table that you created. The default action</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- payload contains all attribute-value pairs that have the information</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- about the detector model instance and the event that triggered the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- action. You can customize the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html payload&gt;.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- One column of the DynamoDB table receives all attribute-value pairs in</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- the payload that you specify. For more information, see</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html Actions&gt;</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- in /AWS IoT Events Developer Guide/.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'firehose', 'action_firehose' - Sends information about the detector model instance and the event that</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- triggered the action to an Amazon Kinesis Data Firehose delivery stream.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'iotSiteWise', 'action_iotSiteWise' - Sends information about the detector model instance and the event that</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- triggered the action to an asset property in AWS IoT SiteWise .</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'setVariable', 'action_setVariable' - Sets a variable to a specified value.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'lambda', 'action_lambda' - Calls a Lambda function, passing in information about the detector model</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- instance and the event that triggered the action.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'iotEvents', 'action_iotEvents' - Sends AWS IoT Events input, which passes information about the detector</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- model instance and the event that triggered the action.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'sqs', 'action_sqs' - Sends information about the detector model instance and the event that</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- triggered the action to an Amazon SQS queue.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#newAction"><span class="hs-identifier hs-type">newAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span>
+</span><span id="line-151"></span><span id="newAction"><span class="annot"><span class="annottext">newAction :: Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#newAction"><span class="hs-identifier hs-var hs-var">newAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">Action' :: Maybe IotTopicPublishAction
+-&gt; Maybe DynamoDBv2Action
+-&gt; Maybe ResetTimerAction
+-&gt; Maybe SetTimerAction
+-&gt; Maybe SNSTopicPublishAction
+-&gt; Maybe ClearTimerAction
+-&gt; Maybe DynamoDBAction
+-&gt; Maybe FirehoseAction
+-&gt; Maybe IotSiteWiseAction
+-&gt; Maybe SetVariableAction
+-&gt; Maybe LambdaAction
+-&gt; Maybe IotEventsAction
+-&gt; Maybe SqsAction
+-&gt; Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iotTopicPublish:Action' :: Maybe IotTopicPublishAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AiotTopicPublish%3AAction%27"><span class="hs-identifier hs-var">iotTopicPublish</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotTopicPublishAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:dynamoDBv2:Action' :: Maybe DynamoDBv2Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AdynamoDBv2%3AAction%27"><span class="hs-identifier hs-var">dynamoDBv2</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:resetTimer:Action' :: Maybe ResetTimerAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AresetTimer%3AAction%27"><span class="hs-identifier hs-var">resetTimer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResetTimerAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:setTimer:Action' :: Maybe SetTimerAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AsetTimer%3AAction%27"><span class="hs-identifier hs-var">setTimer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetTimerAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:sns:Action' :: Maybe SNSTopicPublishAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3Asns%3AAction%27"><span class="hs-identifier hs-var">sns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SNSTopicPublishAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:clearTimer:Action' :: Maybe ClearTimerAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AclearTimer%3AAction%27"><span class="hs-identifier hs-var">clearTimer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClearTimerAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:dynamoDB:Action' :: Maybe DynamoDBAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AdynamoDB%3AAction%27"><span class="hs-identifier hs-var">dynamoDB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:firehose:Action' :: Maybe FirehoseAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3Afirehose%3AAction%27"><span class="hs-identifier hs-var">firehose</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:iotSiteWise:Action' :: Maybe IotSiteWiseAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AiotSiteWise%3AAction%27"><span class="hs-identifier hs-var">iotSiteWise</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:setVariable:Action' :: Maybe SetVariableAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AsetVariable%3AAction%27"><span class="hs-identifier hs-var">setVariable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetVariableAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambda:Action' :: Maybe LambdaAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3Alambda%3AAction%27"><span class="hs-identifier hs-var">lambda</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:iotEvents:Action' :: Maybe IotEventsAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AiotEvents%3AAction%27"><span class="hs-identifier hs-var">iotEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:sqs:Action' :: Maybe SqsAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3Asqs%3AAction%27"><span class="hs-identifier hs-var">sqs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqsAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | Publishes an MQTT message with the given topic to the AWS IoT message</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- broker.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#action_iotTopicPublish"><span class="hs-identifier hs-type">action_iotTopicPublish</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotTopicPublishAction.html#IotTopicPublishAction"><span class="hs-identifier hs-type">IotTopicPublishAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="action_iotTopicPublish"><span class="annot"><span class="annottext">action_iotTopicPublish :: (Maybe IotTopicPublishAction -&gt; f (Maybe IotTopicPublishAction))
+-&gt; Action -&gt; f Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#action_iotTopicPublish"><span class="hs-identifier hs-var hs-var">action_iotTopicPublish</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe IotTopicPublishAction)
+-&gt; (Action -&gt; Maybe IotTopicPublishAction -&gt; Action)
+-&gt; Lens
+     Action
+     Action
+     (Maybe IotTopicPublishAction)
+     (Maybe IotTopicPublishAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245944"><span class="annot"><span class="annottext">Maybe IotTopicPublishAction
+iotTopicPublish :: Maybe IotTopicPublishAction
+$sel:iotTopicPublish:Action' :: Action -&gt; Maybe IotTopicPublishAction
+</span><a href="#local-6989586621679245944"><span class="hs-identifier hs-var hs-var">iotTopicPublish</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IotTopicPublishAction
+</span><a href="#local-6989586621679245944"><span class="hs-identifier hs-var">iotTopicPublish</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245943"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679245943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245942"><span class="annot"><span class="annottext">Maybe IotTopicPublishAction
+</span><a href="#local-6989586621679245942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679245943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotTopicPublish:Action' :: Maybe IotTopicPublishAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AiotTopicPublish%3AAction%27"><span class="hs-identifier hs-var">iotTopicPublish</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotTopicPublishAction
+</span><a href="#local-6989586621679245942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | Writes to the DynamoDB table that you created. The default action</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- payload contains all attribute-value pairs that have the information</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- about the detector model instance and the event that triggered the</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- action. You can customize the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html payload&gt;.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- A separate column of the DynamoDB table receives one attribute-value</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- pair in the payload that you specify. For more information, see</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html Actions&gt;</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- in /AWS IoT Events Developer Guide/.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#action_dynamoDBv2"><span class="hs-identifier hs-type">action_dynamoDBv2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="action_dynamoDBv2"><span class="annot"><span class="annottext">action_dynamoDBv2 :: (Maybe DynamoDBv2Action -&gt; f (Maybe DynamoDBv2Action))
+-&gt; Action -&gt; f Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#action_dynamoDBv2"><span class="hs-identifier hs-var hs-var">action_dynamoDBv2</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe DynamoDBv2Action)
+-&gt; (Action -&gt; Maybe DynamoDBv2Action -&gt; Action)
+-&gt; Lens
+     Action Action (Maybe DynamoDBv2Action) (Maybe DynamoDBv2Action)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245940"><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+dynamoDBv2 :: Maybe DynamoDBv2Action
+$sel:dynamoDBv2:Action' :: Action -&gt; Maybe DynamoDBv2Action
+</span><a href="#local-6989586621679245940"><span class="hs-identifier hs-var hs-var">dynamoDBv2</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+</span><a href="#local-6989586621679245940"><span class="hs-identifier hs-var">dynamoDBv2</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245939"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679245939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245938"><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+</span><a href="#local-6989586621679245938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679245939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamoDBv2:Action' :: Maybe DynamoDBv2Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AdynamoDBv2%3AAction%27"><span class="hs-identifier hs-var">dynamoDBv2</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+</span><a href="#local-6989586621679245938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | Information needed to reset the timer.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#action_resetTimer"><span class="hs-identifier hs-type">action_resetTimer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.ResetTimerAction.html#ResetTimerAction"><span class="hs-identifier hs-type">ResetTimerAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="action_resetTimer"><span class="annot"><span class="annottext">action_resetTimer :: (Maybe ResetTimerAction -&gt; f (Maybe ResetTimerAction))
+-&gt; Action -&gt; f Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#action_resetTimer"><span class="hs-identifier hs-var hs-var">action_resetTimer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe ResetTimerAction)
+-&gt; (Action -&gt; Maybe ResetTimerAction -&gt; Action)
+-&gt; Lens
+     Action Action (Maybe ResetTimerAction) (Maybe ResetTimerAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245936"><span class="annot"><span class="annottext">Maybe ResetTimerAction
+resetTimer :: Maybe ResetTimerAction
+$sel:resetTimer:Action' :: Action -&gt; Maybe ResetTimerAction
+</span><a href="#local-6989586621679245936"><span class="hs-identifier hs-var hs-var">resetTimer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResetTimerAction
+</span><a href="#local-6989586621679245936"><span class="hs-identifier hs-var">resetTimer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245935"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679245935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245934"><span class="annot"><span class="annottext">Maybe ResetTimerAction
+</span><a href="#local-6989586621679245934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679245935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resetTimer:Action' :: Maybe ResetTimerAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AresetTimer%3AAction%27"><span class="hs-identifier hs-var">resetTimer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResetTimerAction
+</span><a href="#local-6989586621679245934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Information needed to set the timer.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#action_setTimer"><span class="hs-identifier hs-type">action_setTimer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SetTimerAction.html#SetTimerAction"><span class="hs-identifier hs-type">SetTimerAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="action_setTimer"><span class="annot"><span class="annottext">action_setTimer :: (Maybe SetTimerAction -&gt; f (Maybe SetTimerAction))
+-&gt; Action -&gt; f Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#action_setTimer"><span class="hs-identifier hs-var hs-var">action_setTimer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe SetTimerAction)
+-&gt; (Action -&gt; Maybe SetTimerAction -&gt; Action)
+-&gt; Lens Action Action (Maybe SetTimerAction) (Maybe SetTimerAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245932"><span class="annot"><span class="annottext">Maybe SetTimerAction
+setTimer :: Maybe SetTimerAction
+$sel:setTimer:Action' :: Action -&gt; Maybe SetTimerAction
+</span><a href="#local-6989586621679245932"><span class="hs-identifier hs-var hs-var">setTimer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SetTimerAction
+</span><a href="#local-6989586621679245932"><span class="hs-identifier hs-var">setTimer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245931"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679245931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245930"><span class="annot"><span class="annottext">Maybe SetTimerAction
+</span><a href="#local-6989586621679245930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679245931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:setTimer:Action' :: Maybe SetTimerAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AsetTimer%3AAction%27"><span class="hs-identifier hs-var">setTimer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetTimerAction
+</span><a href="#local-6989586621679245930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | Sends an Amazon SNS message.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#action_sns"><span class="hs-identifier hs-type">action_sns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SNSTopicPublishAction.html#SNSTopicPublishAction"><span class="hs-identifier hs-type">SNSTopicPublishAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="action_sns"><span class="annot"><span class="annottext">action_sns :: (Maybe SNSTopicPublishAction -&gt; f (Maybe SNSTopicPublishAction))
+-&gt; Action -&gt; f Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#action_sns"><span class="hs-identifier hs-var hs-var">action_sns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe SNSTopicPublishAction)
+-&gt; (Action -&gt; Maybe SNSTopicPublishAction -&gt; Action)
+-&gt; Lens
+     Action
+     Action
+     (Maybe SNSTopicPublishAction)
+     (Maybe SNSTopicPublishAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245928"><span class="annot"><span class="annottext">Maybe SNSTopicPublishAction
+sns :: Maybe SNSTopicPublishAction
+$sel:sns:Action' :: Action -&gt; Maybe SNSTopicPublishAction
+</span><a href="#local-6989586621679245928"><span class="hs-identifier hs-var hs-var">sns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SNSTopicPublishAction
+</span><a href="#local-6989586621679245928"><span class="hs-identifier hs-var">sns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245927"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679245927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245926"><span class="annot"><span class="annottext">Maybe SNSTopicPublishAction
+</span><a href="#local-6989586621679245926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679245927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sns:Action' :: Maybe SNSTopicPublishAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3Asns%3AAction%27"><span class="hs-identifier hs-var">sns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SNSTopicPublishAction
+</span><a href="#local-6989586621679245926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | Information needed to clear the timer.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#action_clearTimer"><span class="hs-identifier hs-type">action_clearTimer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.ClearTimerAction.html#ClearTimerAction"><span class="hs-identifier hs-type">ClearTimerAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="action_clearTimer"><span class="annot"><span class="annottext">action_clearTimer :: (Maybe ClearTimerAction -&gt; f (Maybe ClearTimerAction))
+-&gt; Action -&gt; f Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#action_clearTimer"><span class="hs-identifier hs-var hs-var">action_clearTimer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe ClearTimerAction)
+-&gt; (Action -&gt; Maybe ClearTimerAction -&gt; Action)
+-&gt; Lens
+     Action Action (Maybe ClearTimerAction) (Maybe ClearTimerAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245924"><span class="annot"><span class="annottext">Maybe ClearTimerAction
+clearTimer :: Maybe ClearTimerAction
+$sel:clearTimer:Action' :: Action -&gt; Maybe ClearTimerAction
+</span><a href="#local-6989586621679245924"><span class="hs-identifier hs-var hs-var">clearTimer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClearTimerAction
+</span><a href="#local-6989586621679245924"><span class="hs-identifier hs-var">clearTimer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245923"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679245923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245922"><span class="annot"><span class="annottext">Maybe ClearTimerAction
+</span><a href="#local-6989586621679245922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679245923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clearTimer:Action' :: Maybe ClearTimerAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AclearTimer%3AAction%27"><span class="hs-identifier hs-var">clearTimer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClearTimerAction
+</span><a href="#local-6989586621679245922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | Writes to the DynamoDB table that you created. The default action</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- payload contains all attribute-value pairs that have the information</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- about the detector model instance and the event that triggered the</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- action. You can customize the</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html payload&gt;.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- One column of the DynamoDB table receives all attribute-value pairs in</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- the payload that you specify. For more information, see</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html Actions&gt;</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- in /AWS IoT Events Developer Guide/.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#action_dynamoDB"><span class="hs-identifier hs-type">action_dynamoDB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DynamoDBAction.html#DynamoDBAction"><span class="hs-identifier hs-type">DynamoDBAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="action_dynamoDB"><span class="annot"><span class="annottext">action_dynamoDB :: (Maybe DynamoDBAction -&gt; f (Maybe DynamoDBAction))
+-&gt; Action -&gt; f Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#action_dynamoDB"><span class="hs-identifier hs-var hs-var">action_dynamoDB</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe DynamoDBAction)
+-&gt; (Action -&gt; Maybe DynamoDBAction -&gt; Action)
+-&gt; Lens Action Action (Maybe DynamoDBAction) (Maybe DynamoDBAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245920"><span class="annot"><span class="annottext">Maybe DynamoDBAction
+dynamoDB :: Maybe DynamoDBAction
+$sel:dynamoDB:Action' :: Action -&gt; Maybe DynamoDBAction
+</span><a href="#local-6989586621679245920"><span class="hs-identifier hs-var hs-var">dynamoDB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBAction
+</span><a href="#local-6989586621679245920"><span class="hs-identifier hs-var">dynamoDB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245919"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679245919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245918"><span class="annot"><span class="annottext">Maybe DynamoDBAction
+</span><a href="#local-6989586621679245918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679245919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamoDB:Action' :: Maybe DynamoDBAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AdynamoDB%3AAction%27"><span class="hs-identifier hs-var">dynamoDB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBAction
+</span><a href="#local-6989586621679245918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Sends information about the detector model instance and the event that</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- triggered the action to an Amazon Kinesis Data Firehose delivery stream.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#action_firehose"><span class="hs-identifier hs-type">action_firehose</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.FirehoseAction.html#FirehoseAction"><span class="hs-identifier hs-type">FirehoseAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="action_firehose"><span class="annot"><span class="annottext">action_firehose :: (Maybe FirehoseAction -&gt; f (Maybe FirehoseAction))
+-&gt; Action -&gt; f Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#action_firehose"><span class="hs-identifier hs-var hs-var">action_firehose</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe FirehoseAction)
+-&gt; (Action -&gt; Maybe FirehoseAction -&gt; Action)
+-&gt; Lens Action Action (Maybe FirehoseAction) (Maybe FirehoseAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245916"><span class="annot"><span class="annottext">Maybe FirehoseAction
+firehose :: Maybe FirehoseAction
+$sel:firehose:Action' :: Action -&gt; Maybe FirehoseAction
+</span><a href="#local-6989586621679245916"><span class="hs-identifier hs-var hs-var">firehose</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseAction
+</span><a href="#local-6989586621679245916"><span class="hs-identifier hs-var">firehose</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245915"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679245915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245914"><span class="annot"><span class="annottext">Maybe FirehoseAction
+</span><a href="#local-6989586621679245914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679245915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firehose:Action' :: Maybe FirehoseAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3Afirehose%3AAction%27"><span class="hs-identifier hs-var">firehose</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseAction
+</span><a href="#local-6989586621679245914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | Sends information about the detector model instance and the event that</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- triggered the action to an asset property in AWS IoT SiteWise .</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#action_iotSiteWise"><span class="hs-identifier hs-type">action_iotSiteWise</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotSiteWiseAction.html#IotSiteWiseAction"><span class="hs-identifier hs-type">IotSiteWiseAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="action_iotSiteWise"><span class="annot"><span class="annottext">action_iotSiteWise :: (Maybe IotSiteWiseAction -&gt; f (Maybe IotSiteWiseAction))
+-&gt; Action -&gt; f Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#action_iotSiteWise"><span class="hs-identifier hs-var hs-var">action_iotSiteWise</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe IotSiteWiseAction)
+-&gt; (Action -&gt; Maybe IotSiteWiseAction -&gt; Action)
+-&gt; Lens
+     Action Action (Maybe IotSiteWiseAction) (Maybe IotSiteWiseAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245912"><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+iotSiteWise :: Maybe IotSiteWiseAction
+$sel:iotSiteWise:Action' :: Action -&gt; Maybe IotSiteWiseAction
+</span><a href="#local-6989586621679245912"><span class="hs-identifier hs-var hs-var">iotSiteWise</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+</span><a href="#local-6989586621679245912"><span class="hs-identifier hs-var">iotSiteWise</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245911"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679245911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245910"><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+</span><a href="#local-6989586621679245910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679245911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotSiteWise:Action' :: Maybe IotSiteWiseAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AiotSiteWise%3AAction%27"><span class="hs-identifier hs-var">iotSiteWise</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+</span><a href="#local-6989586621679245910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | Sets a variable to a specified value.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#action_setVariable"><span class="hs-identifier hs-type">action_setVariable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SetVariableAction.html#SetVariableAction"><span class="hs-identifier hs-type">SetVariableAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="action_setVariable"><span class="annot"><span class="annottext">action_setVariable :: (Maybe SetVariableAction -&gt; f (Maybe SetVariableAction))
+-&gt; Action -&gt; f Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#action_setVariable"><span class="hs-identifier hs-var hs-var">action_setVariable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe SetVariableAction)
+-&gt; (Action -&gt; Maybe SetVariableAction -&gt; Action)
+-&gt; Lens
+     Action Action (Maybe SetVariableAction) (Maybe SetVariableAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245908"><span class="annot"><span class="annottext">Maybe SetVariableAction
+setVariable :: Maybe SetVariableAction
+$sel:setVariable:Action' :: Action -&gt; Maybe SetVariableAction
+</span><a href="#local-6989586621679245908"><span class="hs-identifier hs-var hs-var">setVariable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SetVariableAction
+</span><a href="#local-6989586621679245908"><span class="hs-identifier hs-var">setVariable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245907"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679245907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245906"><span class="annot"><span class="annottext">Maybe SetVariableAction
+</span><a href="#local-6989586621679245906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679245907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:setVariable:Action' :: Maybe SetVariableAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AsetVariable%3AAction%27"><span class="hs-identifier hs-var">setVariable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetVariableAction
+</span><a href="#local-6989586621679245906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | Calls a Lambda function, passing in information about the detector model</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- instance and the event that triggered the action.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#action_lambda"><span class="hs-identifier hs-type">action_lambda</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="action_lambda"><span class="annot"><span class="annottext">action_lambda :: (Maybe LambdaAction -&gt; f (Maybe LambdaAction))
+-&gt; Action -&gt; f Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#action_lambda"><span class="hs-identifier hs-var hs-var">action_lambda</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe LambdaAction)
+-&gt; (Action -&gt; Maybe LambdaAction -&gt; Action)
+-&gt; Lens Action Action (Maybe LambdaAction) (Maybe LambdaAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245904"><span class="annot"><span class="annottext">Maybe LambdaAction
+lambda :: Maybe LambdaAction
+$sel:lambda:Action' :: Action -&gt; Maybe LambdaAction
+</span><a href="#local-6989586621679245904"><span class="hs-identifier hs-var hs-var">lambda</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
+</span><a href="#local-6989586621679245904"><span class="hs-identifier hs-var">lambda</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245903"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679245903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245902"><span class="annot"><span class="annottext">Maybe LambdaAction
+</span><a href="#local-6989586621679245902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679245903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambda:Action' :: Maybe LambdaAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3Alambda%3AAction%27"><span class="hs-identifier hs-var">lambda</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
+</span><a href="#local-6989586621679245902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | Sends AWS IoT Events input, which passes information about the detector</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- model instance and the event that triggered the action.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#action_iotEvents"><span class="hs-identifier hs-type">action_iotEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-type">IotEventsAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="action_iotEvents"><span class="annot"><span class="annottext">action_iotEvents :: (Maybe IotEventsAction -&gt; f (Maybe IotEventsAction))
+-&gt; Action -&gt; f Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#action_iotEvents"><span class="hs-identifier hs-var hs-var">action_iotEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe IotEventsAction)
+-&gt; (Action -&gt; Maybe IotEventsAction -&gt; Action)
+-&gt; Lens
+     Action Action (Maybe IotEventsAction) (Maybe IotEventsAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245900"><span class="annot"><span class="annottext">Maybe IotEventsAction
+iotEvents :: Maybe IotEventsAction
+$sel:iotEvents:Action' :: Action -&gt; Maybe IotEventsAction
+</span><a href="#local-6989586621679245900"><span class="hs-identifier hs-var hs-var">iotEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsAction
+</span><a href="#local-6989586621679245900"><span class="hs-identifier hs-var">iotEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245899"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679245899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245898"><span class="annot"><span class="annottext">Maybe IotEventsAction
+</span><a href="#local-6989586621679245898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679245899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotEvents:Action' :: Maybe IotEventsAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3AiotEvents%3AAction%27"><span class="hs-identifier hs-var">iotEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsAction
+</span><a href="#local-6989586621679245898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | Sends information about the detector model instance and the event that</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- triggered the action to an Amazon SQS queue.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#action_sqs"><span class="hs-identifier hs-type">action_sqs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="action_sqs"><span class="annot"><span class="annottext">action_sqs :: (Maybe SqsAction -&gt; f (Maybe SqsAction)) -&gt; Action -&gt; f Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#action_sqs"><span class="hs-identifier hs-var hs-var">action_sqs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Maybe SqsAction)
+-&gt; (Action -&gt; Maybe SqsAction -&gt; Action)
+-&gt; Lens Action Action (Maybe SqsAction) (Maybe SqsAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245896"><span class="annot"><span class="annottext">Maybe SqsAction
+sqs :: Maybe SqsAction
+$sel:sqs:Action' :: Action -&gt; Maybe SqsAction
+</span><a href="#local-6989586621679245896"><span class="hs-identifier hs-var hs-var">sqs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SqsAction
+</span><a href="#local-6989586621679245896"><span class="hs-identifier hs-var">sqs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245895"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679245895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245894"><span class="annot"><span class="annottext">Maybe SqsAction
+</span><a href="#local-6989586621679245894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679245895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqs:Action' :: Maybe SqsAction
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#%24sel%3Asqs%3AAction%27"><span class="hs-identifier hs-var">sqs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqsAction
+</span><a href="#local-6989586621679245894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245891"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679245889"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Action
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Action) -&gt; Value -&gt; Parser Action
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245886"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">Maybe IotTopicPublishAction
+-&gt; Maybe DynamoDBv2Action
+-&gt; Maybe ResetTimerAction
+-&gt; Maybe SetTimerAction
+-&gt; Maybe SNSTopicPublishAction
+-&gt; Maybe ClearTimerAction
+-&gt; Maybe DynamoDBAction
+-&gt; Maybe FirehoseAction
+-&gt; Maybe IotSiteWiseAction
+-&gt; Maybe SetVariableAction
+-&gt; Maybe LambdaAction
+-&gt; Maybe IotEventsAction
+-&gt; Maybe SqsAction
+-&gt; Action
+</span><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-var">Action'</span></a></span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IotTopicPublishAction
+ -&gt; Maybe DynamoDBv2Action
+ -&gt; Maybe ResetTimerAction
+ -&gt; Maybe SetTimerAction
+ -&gt; Maybe SNSTopicPublishAction
+ -&gt; Maybe ClearTimerAction
+ -&gt; Maybe DynamoDBAction
+ -&gt; Maybe FirehoseAction
+ -&gt; Maybe IotSiteWiseAction
+ -&gt; Maybe SetVariableAction
+ -&gt; Maybe LambdaAction
+ -&gt; Maybe IotEventsAction
+ -&gt; Maybe SqsAction
+ -&gt; Action)
+-&gt; Parser (Maybe IotTopicPublishAction)
+-&gt; Parser
+     (Maybe DynamoDBv2Action
+      -&gt; Maybe ResetTimerAction
+      -&gt; Maybe SetTimerAction
+      -&gt; Maybe SNSTopicPublishAction
+      -&gt; Maybe ClearTimerAction
+      -&gt; Maybe DynamoDBAction
+      -&gt; Maybe FirehoseAction
+      -&gt; Maybe IotSiteWiseAction
+      -&gt; Maybe SetVariableAction
+      -&gt; Maybe LambdaAction
+      -&gt; Maybe IotEventsAction
+      -&gt; Maybe SqsAction
+      -&gt; Action)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IotTopicPublishAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotTopicPublish&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DynamoDBv2Action
+   -&gt; Maybe ResetTimerAction
+   -&gt; Maybe SetTimerAction
+   -&gt; Maybe SNSTopicPublishAction
+   -&gt; Maybe ClearTimerAction
+   -&gt; Maybe DynamoDBAction
+   -&gt; Maybe FirehoseAction
+   -&gt; Maybe IotSiteWiseAction
+   -&gt; Maybe SetVariableAction
+   -&gt; Maybe LambdaAction
+   -&gt; Maybe IotEventsAction
+   -&gt; Maybe SqsAction
+   -&gt; Action)
+-&gt; Parser (Maybe DynamoDBv2Action)
+-&gt; Parser
+     (Maybe ResetTimerAction
+      -&gt; Maybe SetTimerAction
+      -&gt; Maybe SNSTopicPublishAction
+      -&gt; Maybe ClearTimerAction
+      -&gt; Maybe DynamoDBAction
+      -&gt; Maybe FirehoseAction
+      -&gt; Maybe IotSiteWiseAction
+      -&gt; Maybe SetVariableAction
+      -&gt; Maybe LambdaAction
+      -&gt; Maybe IotEventsAction
+      -&gt; Maybe SqsAction
+      -&gt; Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DynamoDBv2Action)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dynamoDBv2&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResetTimerAction
+   -&gt; Maybe SetTimerAction
+   -&gt; Maybe SNSTopicPublishAction
+   -&gt; Maybe ClearTimerAction
+   -&gt; Maybe DynamoDBAction
+   -&gt; Maybe FirehoseAction
+   -&gt; Maybe IotSiteWiseAction
+   -&gt; Maybe SetVariableAction
+   -&gt; Maybe LambdaAction
+   -&gt; Maybe IotEventsAction
+   -&gt; Maybe SqsAction
+   -&gt; Action)
+-&gt; Parser (Maybe ResetTimerAction)
+-&gt; Parser
+     (Maybe SetTimerAction
+      -&gt; Maybe SNSTopicPublishAction
+      -&gt; Maybe ClearTimerAction
+      -&gt; Maybe DynamoDBAction
+      -&gt; Maybe FirehoseAction
+      -&gt; Maybe IotSiteWiseAction
+      -&gt; Maybe SetVariableAction
+      -&gt; Maybe LambdaAction
+      -&gt; Maybe IotEventsAction
+      -&gt; Maybe SqsAction
+      -&gt; Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResetTimerAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resetTimer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SetTimerAction
+   -&gt; Maybe SNSTopicPublishAction
+   -&gt; Maybe ClearTimerAction
+   -&gt; Maybe DynamoDBAction
+   -&gt; Maybe FirehoseAction
+   -&gt; Maybe IotSiteWiseAction
+   -&gt; Maybe SetVariableAction
+   -&gt; Maybe LambdaAction
+   -&gt; Maybe IotEventsAction
+   -&gt; Maybe SqsAction
+   -&gt; Action)
+-&gt; Parser (Maybe SetTimerAction)
+-&gt; Parser
+     (Maybe SNSTopicPublishAction
+      -&gt; Maybe ClearTimerAction
+      -&gt; Maybe DynamoDBAction
+      -&gt; Maybe FirehoseAction
+      -&gt; Maybe IotSiteWiseAction
+      -&gt; Maybe SetVariableAction
+      -&gt; Maybe LambdaAction
+      -&gt; Maybe IotEventsAction
+      -&gt; Maybe SqsAction
+      -&gt; Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SetTimerAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;setTimer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SNSTopicPublishAction
+   -&gt; Maybe ClearTimerAction
+   -&gt; Maybe DynamoDBAction
+   -&gt; Maybe FirehoseAction
+   -&gt; Maybe IotSiteWiseAction
+   -&gt; Maybe SetVariableAction
+   -&gt; Maybe LambdaAction
+   -&gt; Maybe IotEventsAction
+   -&gt; Maybe SqsAction
+   -&gt; Action)
+-&gt; Parser (Maybe SNSTopicPublishAction)
+-&gt; Parser
+     (Maybe ClearTimerAction
+      -&gt; Maybe DynamoDBAction
+      -&gt; Maybe FirehoseAction
+      -&gt; Maybe IotSiteWiseAction
+      -&gt; Maybe SetVariableAction
+      -&gt; Maybe LambdaAction
+      -&gt; Maybe IotEventsAction
+      -&gt; Maybe SqsAction
+      -&gt; Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SNSTopicPublishAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sns&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ClearTimerAction
+   -&gt; Maybe DynamoDBAction
+   -&gt; Maybe FirehoseAction
+   -&gt; Maybe IotSiteWiseAction
+   -&gt; Maybe SetVariableAction
+   -&gt; Maybe LambdaAction
+   -&gt; Maybe IotEventsAction
+   -&gt; Maybe SqsAction
+   -&gt; Action)
+-&gt; Parser (Maybe ClearTimerAction)
+-&gt; Parser
+     (Maybe DynamoDBAction
+      -&gt; Maybe FirehoseAction
+      -&gt; Maybe IotSiteWiseAction
+      -&gt; Maybe SetVariableAction
+      -&gt; Maybe LambdaAction
+      -&gt; Maybe IotEventsAction
+      -&gt; Maybe SqsAction
+      -&gt; Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClearTimerAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clearTimer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DynamoDBAction
+   -&gt; Maybe FirehoseAction
+   -&gt; Maybe IotSiteWiseAction
+   -&gt; Maybe SetVariableAction
+   -&gt; Maybe LambdaAction
+   -&gt; Maybe IotEventsAction
+   -&gt; Maybe SqsAction
+   -&gt; Action)
+-&gt; Parser (Maybe DynamoDBAction)
+-&gt; Parser
+     (Maybe FirehoseAction
+      -&gt; Maybe IotSiteWiseAction
+      -&gt; Maybe SetVariableAction
+      -&gt; Maybe LambdaAction
+      -&gt; Maybe IotEventsAction
+      -&gt; Maybe SqsAction
+      -&gt; Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DynamoDBAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dynamoDB&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FirehoseAction
+   -&gt; Maybe IotSiteWiseAction
+   -&gt; Maybe SetVariableAction
+   -&gt; Maybe LambdaAction
+   -&gt; Maybe IotEventsAction
+   -&gt; Maybe SqsAction
+   -&gt; Action)
+-&gt; Parser (Maybe FirehoseAction)
+-&gt; Parser
+     (Maybe IotSiteWiseAction
+      -&gt; Maybe SetVariableAction
+      -&gt; Maybe LambdaAction
+      -&gt; Maybe IotEventsAction
+      -&gt; Maybe SqsAction
+      -&gt; Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FirehoseAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;firehose&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe IotSiteWiseAction
+   -&gt; Maybe SetVariableAction
+   -&gt; Maybe LambdaAction
+   -&gt; Maybe IotEventsAction
+   -&gt; Maybe SqsAction
+   -&gt; Action)
+-&gt; Parser (Maybe IotSiteWiseAction)
+-&gt; Parser
+     (Maybe SetVariableAction
+      -&gt; Maybe LambdaAction
+      -&gt; Maybe IotEventsAction
+      -&gt; Maybe SqsAction
+      -&gt; Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IotSiteWiseAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotSiteWise&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SetVariableAction
+   -&gt; Maybe LambdaAction
+   -&gt; Maybe IotEventsAction
+   -&gt; Maybe SqsAction
+   -&gt; Action)
+-&gt; Parser (Maybe SetVariableAction)
+-&gt; Parser
+     (Maybe LambdaAction
+      -&gt; Maybe IotEventsAction -&gt; Maybe SqsAction -&gt; Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SetVariableAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;setVariable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LambdaAction
+   -&gt; Maybe IotEventsAction -&gt; Maybe SqsAction -&gt; Action)
+-&gt; Parser (Maybe LambdaAction)
+-&gt; Parser (Maybe IotEventsAction -&gt; Maybe SqsAction -&gt; Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lambda&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe IotEventsAction -&gt; Maybe SqsAction -&gt; Action)
+-&gt; Parser (Maybe IotEventsAction)
+-&gt; Parser (Maybe SqsAction -&gt; Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IotEventsAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotEvents&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SqsAction -&gt; Action)
+-&gt; Parser (Maybe SqsAction) -&gt; Parser Action
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SqsAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sqs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245880"><span id="local-6989586621679245882"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span></span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245877"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245869"><span id="local-6989586621679245871"><span id="local-6989586621679245873"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679245867"><span class="annot"><span class="annottext">toJSON :: Action -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245853"><span id="local-6989586621679245854"><span id="local-6989586621679245855"><span id="local-6989586621679245856"><span id="local-6989586621679245857"><span id="local-6989586621679245858"><span id="local-6989586621679245859"><span id="local-6989586621679245860"><span id="local-6989586621679245861"><span id="local-6989586621679245862"><span id="local-6989586621679245863"><span id="local-6989586621679245864"><span id="local-6989586621679245865"><span class="annot"><span class="annottext">Maybe ClearTimerAction
+Maybe IotSiteWiseAction
+Maybe LambdaAction
+Maybe IotTopicPublishAction
+Maybe IotEventsAction
+Maybe FirehoseAction
+Maybe DynamoDBv2Action
+Maybe DynamoDBAction
+Maybe ResetTimerAction
+Maybe SNSTopicPublishAction
+Maybe SetTimerAction
+Maybe SetVariableAction
+Maybe SqsAction
+sqs :: Maybe SqsAction
+iotEvents :: Maybe IotEventsAction
+lambda :: Maybe LambdaAction
+setVariable :: Maybe SetVariableAction
+iotSiteWise :: Maybe IotSiteWiseAction
+firehose :: Maybe FirehoseAction
+dynamoDB :: Maybe DynamoDBAction
+clearTimer :: Maybe ClearTimerAction
+sns :: Maybe SNSTopicPublishAction
+setTimer :: Maybe SetTimerAction
+resetTimer :: Maybe ResetTimerAction
+dynamoDBv2 :: Maybe DynamoDBv2Action
+iotTopicPublish :: Maybe IotTopicPublishAction
+$sel:sqs:Action' :: Action -&gt; Maybe SqsAction
+$sel:iotEvents:Action' :: Action -&gt; Maybe IotEventsAction
+$sel:lambda:Action' :: Action -&gt; Maybe LambdaAction
+$sel:setVariable:Action' :: Action -&gt; Maybe SetVariableAction
+$sel:iotSiteWise:Action' :: Action -&gt; Maybe IotSiteWiseAction
+$sel:firehose:Action' :: Action -&gt; Maybe FirehoseAction
+$sel:dynamoDB:Action' :: Action -&gt; Maybe DynamoDBAction
+$sel:clearTimer:Action' :: Action -&gt; Maybe ClearTimerAction
+$sel:sns:Action' :: Action -&gt; Maybe SNSTopicPublishAction
+$sel:setTimer:Action' :: Action -&gt; Maybe SetTimerAction
+$sel:resetTimer:Action' :: Action -&gt; Maybe ResetTimerAction
+$sel:dynamoDBv2:Action' :: Action -&gt; Maybe DynamoDBv2Action
+$sel:iotTopicPublish:Action' :: Action -&gt; Maybe IotTopicPublishAction
+</span><a href="#local-6989586621679245853"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-271"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotTopicPublish&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IotTopicPublishAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>              </span><span class="annot"><span class="annottext">(IotTopicPublishAction -&gt; Pair)
+-&gt; Maybe IotTopicPublishAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IotTopicPublishAction
+</span><a href="#local-6989586621679245865"><span class="hs-identifier hs-var">iotTopicPublish</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dynamoDBv2&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DynamoDBv2Action -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DynamoDBv2Action -&gt; Pair) -&gt; Maybe DynamoDBv2Action -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+</span><a href="#local-6989586621679245864"><span class="hs-identifier hs-var">dynamoDBv2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resetTimer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResetTimerAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ResetTimerAction -&gt; Pair) -&gt; Maybe ResetTimerAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResetTimerAction
+</span><a href="#local-6989586621679245863"><span class="hs-identifier hs-var">resetTimer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;setTimer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SetTimerAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SetTimerAction -&gt; Pair) -&gt; Maybe SetTimerAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SetTimerAction
+</span><a href="#local-6989586621679245862"><span class="hs-identifier hs-var">setTimer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SNSTopicPublishAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SNSTopicPublishAction -&gt; Pair)
+-&gt; Maybe SNSTopicPublishAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SNSTopicPublishAction
+</span><a href="#local-6989586621679245861"><span class="hs-identifier hs-var">sns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clearTimer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ClearTimerAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ClearTimerAction -&gt; Pair) -&gt; Maybe ClearTimerAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ClearTimerAction
+</span><a href="#local-6989586621679245860"><span class="hs-identifier hs-var">clearTimer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dynamoDB&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DynamoDBAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DynamoDBAction -&gt; Pair) -&gt; Maybe DynamoDBAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBAction
+</span><a href="#local-6989586621679245859"><span class="hs-identifier hs-var">dynamoDB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;firehose&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FirehoseAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FirehoseAction -&gt; Pair) -&gt; Maybe FirehoseAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseAction
+</span><a href="#local-6989586621679245858"><span class="hs-identifier hs-var">firehose</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotSiteWise&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IotSiteWiseAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IotSiteWiseAction -&gt; Pair)
+-&gt; Maybe IotSiteWiseAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+</span><a href="#local-6989586621679245857"><span class="hs-identifier hs-var">iotSiteWise</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;setVariable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SetVariableAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SetVariableAction -&gt; Pair)
+-&gt; Maybe SetVariableAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SetVariableAction
+</span><a href="#local-6989586621679245856"><span class="hs-identifier hs-var">setVariable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lambda&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LambdaAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LambdaAction -&gt; Pair) -&gt; Maybe LambdaAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
+</span><a href="#local-6989586621679245855"><span class="hs-identifier hs-var">lambda</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotEvents&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IotEventsAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IotEventsAction -&gt; Pair) -&gt; Maybe IotEventsAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsAction
+</span><a href="#local-6989586621679245854"><span class="hs-identifier hs-var">iotEvents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sqs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SqsAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SqsAction -&gt; Pair) -&gt; Maybe SqsAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SqsAction
+</span><a href="#local-6989586621679245853"><span class="hs-identifier hs-var">sqs</span></a></span><span>
+</span><span id="line-285"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-286"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span></pre></body></html>

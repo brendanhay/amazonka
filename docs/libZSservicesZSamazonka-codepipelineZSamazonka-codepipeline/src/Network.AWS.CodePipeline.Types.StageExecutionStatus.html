@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679282219"><span id="local-6989586621679282220"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StageExecutionStatus"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecutionStatus.html#StageExecutionStatus"><span class="hs-identifier hs-var">StageExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StageExecutionStatus%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecutionStatus.html#StageExecutionStatus%27"><span class="hs-identifier hs-var">StageExecutionStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679282228"><span id="local-6989586621679282229"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StageExecutionStatus"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecutionStatus.html#StageExecutionStatus"><span class="hs-identifier hs-var">StageExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StageExecutionStatus%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecutionStatus.html#StageExecutionStatus%27"><span class="hs-identifier hs-var">StageExecutionStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStageExecutionStatus"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.StageExecutionStatus.html#fromStageExecutionStatus"><span class="hs-identifier hs-var hs-var">fromStageExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679282211"><span id="local-6989586621679282213"><span id="local-6989586621679282215"><span class="annot"><span class="annottext">Int -&gt; StageExecutionStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679282220"><span id="local-6989586621679282222"><span id="local-6989586621679282224"><span class="annot"><span class="annottext">Int -&gt; StageExecutionStatus -&gt; ShowS
 [StageExecutionStatus] -&gt; ShowS
 StageExecutionStatus -&gt; String
 (Int -&gt; StageExecutionStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: StageExecutionStatus -&gt; String
 showsPrec :: Int -&gt; StageExecutionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; StageExecutionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679282202"><span id="local-6989586621679282204"><span id="local-6989586621679282206"><span id="local-6989586621679282208"><span class="annot"><span class="annottext">ReadPrec [StageExecutionStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679282211"><span id="local-6989586621679282213"><span id="local-6989586621679282215"><span id="local-6989586621679282217"><span class="annot"><span class="annottext">ReadPrec [StageExecutionStatus]
 ReadPrec StageExecutionStatus
 Int -&gt; ReadS StageExecutionStatus
 ReadS [StageExecutionStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [StageExecutionStatus]
 readsPrec :: Int -&gt; ReadS StageExecutionStatus
 $creadsPrec :: Int -&gt; ReadS StageExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679282197"><span id="local-6989586621679282199"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; StageExecutionStatus -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679282206"><span id="local-6989586621679282208"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; StageExecutionStatus -&gt; Bool
 (StageExecutionStatus -&gt; StageExecutionStatus -&gt; Bool)
 -&gt; (StageExecutionStatus -&gt; StageExecutionStatus -&gt; Bool)
 -&gt; Eq StageExecutionStatus
@@ -86,7 +86,7 @@ $c/= :: StageExecutionStatus -&gt; StageExecutionStatus -&gt; Bool
 == :: StageExecutionStatus -&gt; StageExecutionStatus -&gt; Bool
 $c== :: StageExecutionStatus -&gt; StageExecutionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679282181"><span id="local-6989586621679282183"><span id="local-6989586621679282185"><span id="local-6989586621679282187"><span id="local-6989586621679282189"><span id="local-6989586621679282191"><span id="local-6989586621679282193"><span class="annot"><span class="annottext">Eq StageExecutionStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679282190"><span id="local-6989586621679282192"><span id="local-6989586621679282194"><span id="local-6989586621679282196"><span id="local-6989586621679282198"><span id="local-6989586621679282200"><span id="local-6989586621679282202"><span class="annot"><span class="annottext">Eq StageExecutionStatus
 Eq StageExecutionStatus
 -&gt; (StageExecutionStatus -&gt; StageExecutionStatus -&gt; Ordering)
 -&gt; (StageExecutionStatus -&gt; StageExecutionStatus -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. StageExecutionStatus -&gt; Rep StageExecutionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679282173"><span id="local-6989586621679282175"><span class="annot"><span class="annottext">Int -&gt; StageExecutionStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679282182"><span id="local-6989586621679282184"><span class="annot"><span class="annottext">Int -&gt; StageExecutionStatus -&gt; Int
 StageExecutionStatus -&gt; Int
 (Int -&gt; StageExecutionStatus -&gt; Int)
 -&gt; (StageExecutionStatus -&gt; Int) -&gt; Hashable StageExecutionStatus
@@ -154,54 +154,54 @@ $chash :: StageExecutionStatus -&gt; Int
 hashWithSalt :: Int -&gt; StageExecutionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; StageExecutionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679282170"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679282179"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; ()
 (StageExecutionStatus -&gt; ()) -&gt; NFData StageExecutionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StageExecutionStatus -&gt; ()
 $crnf :: StageExecutionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679282167"><span class="annot"><span class="annottext">Text -&gt; Either String StageExecutionStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679282176"><span class="annot"><span class="annottext">Text -&gt; Either String StageExecutionStatus
 (Text -&gt; Either String StageExecutionStatus)
 -&gt; FromText StageExecutionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StageExecutionStatus
 $cfromText :: Text -&gt; Either String StageExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679282164"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679282173"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; Text
 (StageExecutionStatus -&gt; Text) -&gt; ToText StageExecutionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StageExecutionStatus -&gt; Text
 $ctoText :: StageExecutionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679282161"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679282170"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; ByteString
 (StageExecutionStatus -&gt; ByteString)
 -&gt; ToByteString StageExecutionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StageExecutionStatus -&gt; ByteString
 $ctoBS :: StageExecutionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679282158"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679282167"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; ByteStringBuilder
 (StageExecutionStatus -&gt; ByteStringBuilder)
 -&gt; ToLog StageExecutionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StageExecutionStatus -&gt; ByteStringBuilder
 $cbuild :: StageExecutionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679282155"><span class="annot"><span class="annottext">HeaderName -&gt; StageExecutionStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679282164"><span class="annot"><span class="annottext">HeaderName -&gt; StageExecutionStatus -&gt; [Header]
 (HeaderName -&gt; StageExecutionStatus -&gt; [Header])
 -&gt; ToHeader StageExecutionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StageExecutionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StageExecutionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679282152"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679282161"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; QueryString
 (StageExecutionStatus -&gt; QueryString)
 -&gt; ToQuery StageExecutionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StageExecutionStatus -&gt; QueryString
 $ctoQuery :: StageExecutionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679282147"><span id="local-6989586621679282149"><span class="annot"><span class="annottext">Value -&gt; Parser [StageExecutionStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679282156"><span id="local-6989586621679282158"><span class="annot"><span class="annottext">Value -&gt; Parser [StageExecutionStatus]
 Value -&gt; Parser StageExecutionStatus
 (Value -&gt; Parser StageExecutionStatus)
 -&gt; (Value -&gt; Parser [StageExecutionStatus])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [StageExecutionStatus]
 parseJSON :: Value -&gt; Parser StageExecutionStatus
 $cparseJSON :: Value -&gt; Parser StageExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679282142"><span id="local-6989586621679282144"><span class="annot"><span class="annottext">FromJSONKeyFunction [StageExecutionStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679282151"><span id="local-6989586621679282153"><span class="annot"><span class="annottext">FromJSONKeyFunction [StageExecutionStatus]
 FromJSONKeyFunction StageExecutionStatus
 FromJSONKeyFunction StageExecutionStatus
 -&gt; FromJSONKeyFunction [StageExecutionStatus]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StageExecutionStatus]
 fromJSONKey :: FromJSONKeyFunction StageExecutionStatus
 $cfromJSONKey :: FromJSONKeyFunction StageExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679282133"><span id="local-6989586621679282135"><span id="local-6989586621679282137"><span id="local-6989586621679282139"><span class="annot"><span class="annottext">[StageExecutionStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679282142"><span id="local-6989586621679282144"><span id="local-6989586621679282146"><span id="local-6989586621679282148"><span class="annot"><span class="annottext">[StageExecutionStatus] -&gt; Encoding
 [StageExecutionStatus] -&gt; Value
 StageExecutionStatus -&gt; Encoding
 StageExecutionStatus -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: StageExecutionStatus -&gt; Encoding
 toJSON :: StageExecutionStatus -&gt; Value
 $ctoJSON :: StageExecutionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679282128"><span id="local-6989586621679282130"><span class="annot"><span class="annottext">ToJSONKeyFunction [StageExecutionStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679282137"><span id="local-6989586621679282139"><span class="annot"><span class="annottext">ToJSONKeyFunction [StageExecutionStatus]
 ToJSONKeyFunction StageExecutionStatus
 ToJSONKeyFunction StageExecutionStatus
 -&gt; ToJSONKeyFunction [StageExecutionStatus]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StageExecutionStatus]
 toJSONKey :: ToJSONKeyFunction StageExecutionStatus
 $ctoJSONKey :: ToJSONKeyFunction StageExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679282125"><span class="annot"><span class="annottext">[Node] -&gt; Either String StageExecutionStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679282134"><span class="annot"><span class="annottext">[Node] -&gt; Either String StageExecutionStatus
 ([Node] -&gt; Either String StageExecutionStatus)
 -&gt; FromXML StageExecutionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StageExecutionStatus
 $cparseXML :: [Node] -&gt; Either String StageExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679282122"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679282131"><span class="annot"><span class="annottext">StageExecutionStatus -&gt; XML
 (StageExecutionStatus -&gt; XML) -&gt; ToXML StageExecutionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StageExecutionStatus -&gt; XML

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621681189034"><span id="local-6989586621681189035"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VpcTenancy"><span class="annot"><a href="Network.AWS.EC2.Types.VpcTenancy.html#VpcTenancy"><span class="hs-identifier hs-var">VpcTenancy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcTenancy%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpcTenancy.html#VpcTenancy%27"><span class="hs-identifier hs-var">VpcTenancy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681189043"><span id="local-6989586621681189044"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VpcTenancy"><span class="annot"><a href="Network.AWS.EC2.Types.VpcTenancy.html#VpcTenancy"><span class="hs-identifier hs-var">VpcTenancy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcTenancy%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpcTenancy.html#VpcTenancy%27"><span class="hs-identifier hs-var">VpcTenancy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVpcTenancy"><span class="annot"><span class="annottext">VpcTenancy -&gt; Text
 </span><a href="Network.AWS.EC2.Types.VpcTenancy.html#fromVpcTenancy"><span class="hs-identifier hs-var hs-var">fromVpcTenancy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681189026"><span id="local-6989586621681189028"><span id="local-6989586621681189030"><span class="annot"><span class="annottext">Int -&gt; VpcTenancy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681189035"><span id="local-6989586621681189037"><span id="local-6989586621681189039"><span class="annot"><span class="annottext">Int -&gt; VpcTenancy -&gt; ShowS
 [VpcTenancy] -&gt; ShowS
 VpcTenancy -&gt; String
 (Int -&gt; VpcTenancy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: VpcTenancy -&gt; String
 showsPrec :: Int -&gt; VpcTenancy -&gt; ShowS
 $cshowsPrec :: Int -&gt; VpcTenancy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621681189017"><span id="local-6989586621681189019"><span id="local-6989586621681189021"><span id="local-6989586621681189023"><span class="annot"><span class="annottext">ReadPrec [VpcTenancy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681189026"><span id="local-6989586621681189028"><span id="local-6989586621681189030"><span id="local-6989586621681189032"><span class="annot"><span class="annottext">ReadPrec [VpcTenancy]
 ReadPrec VpcTenancy
 Int -&gt; ReadS VpcTenancy
 ReadS [VpcTenancy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [VpcTenancy]
 readsPrec :: Int -&gt; ReadS VpcTenancy
 $creadsPrec :: Int -&gt; ReadS VpcTenancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681189012"><span id="local-6989586621681189014"><span class="annot"><span class="annottext">VpcTenancy -&gt; VpcTenancy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681189021"><span id="local-6989586621681189023"><span class="annot"><span class="annottext">VpcTenancy -&gt; VpcTenancy -&gt; Bool
 (VpcTenancy -&gt; VpcTenancy -&gt; Bool)
 -&gt; (VpcTenancy -&gt; VpcTenancy -&gt; Bool) -&gt; Eq VpcTenancy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: VpcTenancy -&gt; VpcTenancy -&gt; Bool
 == :: VpcTenancy -&gt; VpcTenancy -&gt; Bool
 $c== :: VpcTenancy -&gt; VpcTenancy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681188996"><span id="local-6989586621681188998"><span id="local-6989586621681189000"><span id="local-6989586621681189002"><span id="local-6989586621681189004"><span id="local-6989586621681189006"><span id="local-6989586621681189008"><span class="annot"><span class="annottext">Eq VpcTenancy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681189005"><span id="local-6989586621681189007"><span id="local-6989586621681189009"><span id="local-6989586621681189011"><span id="local-6989586621681189013"><span id="local-6989586621681189015"><span id="local-6989586621681189017"><span class="annot"><span class="annottext">Eq VpcTenancy
 Eq VpcTenancy
 -&gt; (VpcTenancy -&gt; VpcTenancy -&gt; Ordering)
 -&gt; (VpcTenancy -&gt; VpcTenancy -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. VpcTenancy -&gt; Rep VpcTenancy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681188988"><span id="local-6989586621681188990"><span class="annot"><span class="annottext">Int -&gt; VpcTenancy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681188997"><span id="local-6989586621681188999"><span class="annot"><span class="annottext">Int -&gt; VpcTenancy -&gt; Int
 VpcTenancy -&gt; Int
 (Int -&gt; VpcTenancy -&gt; Int)
 -&gt; (VpcTenancy -&gt; Int) -&gt; Hashable VpcTenancy
@@ -141,49 +141,49 @@ $chash :: VpcTenancy -&gt; Int
 hashWithSalt :: Int -&gt; VpcTenancy -&gt; Int
 $chashWithSalt :: Int -&gt; VpcTenancy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681188985"><span class="annot"><span class="annottext">VpcTenancy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681188994"><span class="annot"><span class="annottext">VpcTenancy -&gt; ()
 (VpcTenancy -&gt; ()) -&gt; NFData VpcTenancy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VpcTenancy -&gt; ()
 $crnf :: VpcTenancy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681188982"><span class="annot"><span class="annottext">Text -&gt; Either String VpcTenancy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681188991"><span class="annot"><span class="annottext">Text -&gt; Either String VpcTenancy
 (Text -&gt; Either String VpcTenancy) -&gt; FromText VpcTenancy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VpcTenancy
 $cfromText :: Text -&gt; Either String VpcTenancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681188979"><span class="annot"><span class="annottext">VpcTenancy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681188988"><span class="annot"><span class="annottext">VpcTenancy -&gt; Text
 (VpcTenancy -&gt; Text) -&gt; ToText VpcTenancy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VpcTenancy -&gt; Text
 $ctoText :: VpcTenancy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681188976"><span class="annot"><span class="annottext">VpcTenancy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681188985"><span class="annot"><span class="annottext">VpcTenancy -&gt; ByteString
 (VpcTenancy -&gt; ByteString) -&gt; ToByteString VpcTenancy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VpcTenancy -&gt; ByteString
 $ctoBS :: VpcTenancy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681188973"><span class="annot"><span class="annottext">VpcTenancy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681188982"><span class="annot"><span class="annottext">VpcTenancy -&gt; ByteStringBuilder
 (VpcTenancy -&gt; ByteStringBuilder) -&gt; ToLog VpcTenancy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VpcTenancy -&gt; ByteStringBuilder
 $cbuild :: VpcTenancy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681188970"><span class="annot"><span class="annottext">HeaderName -&gt; VpcTenancy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681188979"><span class="annot"><span class="annottext">HeaderName -&gt; VpcTenancy -&gt; [Header]
 (HeaderName -&gt; VpcTenancy -&gt; [Header]) -&gt; ToHeader VpcTenancy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VpcTenancy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VpcTenancy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681188967"><span class="annot"><span class="annottext">VpcTenancy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681188976"><span class="annot"><span class="annottext">VpcTenancy -&gt; QueryString
 (VpcTenancy -&gt; QueryString) -&gt; ToQuery VpcTenancy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VpcTenancy -&gt; QueryString
 $ctoQuery :: VpcTenancy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681188962"><span id="local-6989586621681188964"><span class="annot"><span class="annottext">Value -&gt; Parser [VpcTenancy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681188971"><span id="local-6989586621681188973"><span class="annot"><span class="annottext">Value -&gt; Parser [VpcTenancy]
 Value -&gt; Parser VpcTenancy
 (Value -&gt; Parser VpcTenancy)
 -&gt; (Value -&gt; Parser [VpcTenancy]) -&gt; FromJSON VpcTenancy
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [VpcTenancy]
 parseJSON :: Value -&gt; Parser VpcTenancy
 $cparseJSON :: Value -&gt; Parser VpcTenancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681188957"><span id="local-6989586621681188959"><span class="annot"><span class="annottext">FromJSONKeyFunction [VpcTenancy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681188966"><span id="local-6989586621681188968"><span class="annot"><span class="annottext">FromJSONKeyFunction [VpcTenancy]
 FromJSONKeyFunction VpcTenancy
 FromJSONKeyFunction VpcTenancy
 -&gt; FromJSONKeyFunction [VpcTenancy] -&gt; FromJSONKey VpcTenancy
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VpcTenancy]
 fromJSONKey :: FromJSONKeyFunction VpcTenancy
 $cfromJSONKey :: FromJSONKeyFunction VpcTenancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681188948"><span id="local-6989586621681188950"><span id="local-6989586621681188952"><span id="local-6989586621681188954"><span class="annot"><span class="annottext">[VpcTenancy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681188957"><span id="local-6989586621681188959"><span id="local-6989586621681188961"><span id="local-6989586621681188963"><span class="annot"><span class="annottext">[VpcTenancy] -&gt; Encoding
 [VpcTenancy] -&gt; Value
 VpcTenancy -&gt; Encoding
 VpcTenancy -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: VpcTenancy -&gt; Encoding
 toJSON :: VpcTenancy -&gt; Value
 $ctoJSON :: VpcTenancy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681188943"><span id="local-6989586621681188945"><span class="annot"><span class="annottext">ToJSONKeyFunction [VpcTenancy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681188952"><span id="local-6989586621681188954"><span class="annot"><span class="annottext">ToJSONKeyFunction [VpcTenancy]
 ToJSONKeyFunction VpcTenancy
 ToJSONKeyFunction VpcTenancy
 -&gt; ToJSONKeyFunction [VpcTenancy] -&gt; ToJSONKey VpcTenancy
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VpcTenancy]
 toJSONKey :: ToJSONKeyFunction VpcTenancy
 $ctoJSONKey :: ToJSONKeyFunction VpcTenancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681188940"><span class="annot"><span class="annottext">[Node] -&gt; Either String VpcTenancy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681188949"><span class="annot"><span class="annottext">[Node] -&gt; Either String VpcTenancy
 ([Node] -&gt; Either String VpcTenancy) -&gt; FromXML VpcTenancy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VpcTenancy
 $cparseXML :: [Node] -&gt; Either String VpcTenancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681188937"><span class="annot"><span class="annottext">VpcTenancy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681188946"><span class="annot"><span class="annottext">VpcTenancy -&gt; XML
 (VpcTenancy -&gt; XML) -&gt; ToXML VpcTenancy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VpcTenancy -&gt; XML

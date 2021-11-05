@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-comment">-- referred to as limits).</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newOrigin' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679402696"><span id="local-6989586621679402697"></span></span><span class="hs-keyword">data</span><span> </span><span id="Origin"><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-var">Origin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Origin%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-var">Origin'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679402705"><span id="local-6989586621679402706"></span></span><span class="hs-keyword">data</span><span> </span><span id="Origin"><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-var">Origin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Origin%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-var">Origin'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of HTTP header names and values that CloudFront adds to the</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- requests that it sends to the origin.</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -134,7 +134,7 @@
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AdomainName%3AOrigin%27"><span class="annot"><span class="annottext">Origin -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.Origin.html#%24sel%3AdomainName%3AOrigin%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402682"><span id="local-6989586621679402684"><span class="annot"><span class="annottext">Origin -&gt; Origin -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402691"><span id="local-6989586621679402693"><span class="annot"><span class="annottext">Origin -&gt; Origin -&gt; Bool
 (Origin -&gt; Origin -&gt; Bool)
 -&gt; (Origin -&gt; Origin -&gt; Bool) -&gt; Eq Origin
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -142,7 +142,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Origin -&gt; Origin -&gt; Bool
 == :: Origin -&gt; Origin -&gt; Bool
 $c== :: Origin -&gt; Origin -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402673"><span id="local-6989586621679402675"><span id="local-6989586621679402677"><span id="local-6989586621679402679"><span class="annot"><span class="annottext">ReadPrec [Origin]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402682"><span id="local-6989586621679402684"><span id="local-6989586621679402686"><span id="local-6989586621679402688"><span class="annot"><span class="annottext">ReadPrec [Origin]
 ReadPrec Origin
 Int -&gt; ReadS Origin
 ReadS [Origin]
@@ -162,7 +162,7 @@ readList :: ReadS [Origin]
 $creadList :: ReadS [Origin]
 readsPrec :: Int -&gt; ReadS Origin
 $creadsPrec :: Int -&gt; ReadS Origin
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402666"><span id="local-6989586621679402668"><span id="local-6989586621679402670"><span class="annot"><span class="annottext">Int -&gt; Origin -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402675"><span id="local-6989586621679402677"><span id="local-6989586621679402679"><span class="annot"><span class="annottext">Int -&gt; Origin -&gt; ShowS
 [Origin] -&gt; ShowS
 Origin -&gt; String
 (Int -&gt; Origin -&gt; ShowS)
@@ -265,9 +265,9 @@ $cfrom :: forall x. Origin -&gt; Rep Origin x
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span>
 </span><span id="line-209"></span><span id="newOrigin"><span class="annot"><span class="annottext">newOrigin :: Text -&gt; Text -&gt; Origin
-</span><a href="Network.AWS.CloudFront.Types.Origin.html#newOrigin"><span class="hs-identifier hs-var hs-var">newOrigin</span></a></span></span><span> </span><span id="local-6989586621679402660"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402660"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679402659"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402659"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.Origin.html#newOrigin"><span class="hs-identifier hs-var hs-var">newOrigin</span></a></span></span><span> </span><span id="local-6989586621679402669"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402669"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679402668"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402668"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">Origin' :: Maybe CustomHeaders
 -&gt; Maybe CustomOriginConfig
 -&gt; Maybe Int
@@ -309,10 +309,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Origin' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Origin.html#%24sel%3Aid%3AOrigin%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402660"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402669"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:Origin' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Origin.html#%24sel%3AdomainName%3AOrigin%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402659"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span>
+</span><a href="#local-6989586621679402668"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | A list of HTTP header names and values that CloudFront adds to the</span><span>
@@ -328,16 +328,16 @@ forall a. Maybe a
 -&gt; (Origin -&gt; Maybe CustomHeaders -&gt; Origin)
 -&gt; Lens Origin Origin (Maybe CustomHeaders) (Maybe CustomHeaders)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402655"><span class="annot"><span class="annottext">Maybe CustomHeaders
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402664"><span class="annot"><span class="annottext">Maybe CustomHeaders
 customHeaders :: Maybe CustomHeaders
 $sel:customHeaders:Origin' :: Origin -&gt; Maybe CustomHeaders
-</span><a href="#local-6989586621679402655"><span class="hs-identifier hs-var hs-var">customHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomHeaders
-</span><a href="#local-6989586621679402655"><span class="hs-identifier hs-var">customHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402654"><span class="annot"><span class="annottext">s :: Origin
-</span><a href="#local-6989586621679402654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402653"><span class="annot"><span class="annottext">Maybe CustomHeaders
-</span><a href="#local-6989586621679402653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
-</span><a href="#local-6989586621679402654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customHeaders:Origin' :: Maybe CustomHeaders
+</span><a href="#local-6989586621679402664"><span class="hs-identifier hs-var hs-var">customHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomHeaders
+</span><a href="#local-6989586621679402664"><span class="hs-identifier hs-var">customHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402663"><span class="annot"><span class="annottext">s :: Origin
+</span><a href="#local-6989586621679402663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402662"><span class="annot"><span class="annottext">Maybe CustomHeaders
+</span><a href="#local-6989586621679402662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
+</span><a href="#local-6989586621679402663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customHeaders:Origin' :: Maybe CustomHeaders
 </span><a href="Network.AWS.CloudFront.Types.Origin.html#%24sel%3AcustomHeaders%3AOrigin%27"><span class="hs-identifier hs-var">customHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomHeaders
-</span><a href="#local-6989586621679402653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | Use this type to specify an origin that is not an Amazon S3 bucket, with</span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- one exception. If the Amazon S3 bucket is configured with static website</span><span>
@@ -351,16 +351,16 @@ $sel:customHeaders:Origin' :: Origin -&gt; Maybe CustomHeaders
 -&gt; Lens
      Origin Origin (Maybe CustomOriginConfig) (Maybe CustomOriginConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402651"><span class="annot"><span class="annottext">Maybe CustomOriginConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402660"><span class="annot"><span class="annottext">Maybe CustomOriginConfig
 customOriginConfig :: Maybe CustomOriginConfig
 $sel:customOriginConfig:Origin' :: Origin -&gt; Maybe CustomOriginConfig
-</span><a href="#local-6989586621679402651"><span class="hs-identifier hs-var hs-var">customOriginConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomOriginConfig
-</span><a href="#local-6989586621679402651"><span class="hs-identifier hs-var">customOriginConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402650"><span class="annot"><span class="annottext">s :: Origin
-</span><a href="#local-6989586621679402650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402649"><span class="annot"><span class="annottext">Maybe CustomOriginConfig
-</span><a href="#local-6989586621679402649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
-</span><a href="#local-6989586621679402650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customOriginConfig:Origin' :: Maybe CustomOriginConfig
+</span><a href="#local-6989586621679402660"><span class="hs-identifier hs-var hs-var">customOriginConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomOriginConfig
+</span><a href="#local-6989586621679402660"><span class="hs-identifier hs-var">customOriginConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402659"><span class="annot"><span class="annottext">s :: Origin
+</span><a href="#local-6989586621679402659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402658"><span class="annot"><span class="annottext">Maybe CustomOriginConfig
+</span><a href="#local-6989586621679402658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
+</span><a href="#local-6989586621679402659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customOriginConfig:Origin' :: Maybe CustomOriginConfig
 </span><a href="Network.AWS.CloudFront.Types.Origin.html#%24sel%3AcustomOriginConfig%3AOrigin%27"><span class="hs-identifier hs-var">customOriginConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomOriginConfig
-</span><a href="#local-6989586621679402649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | The number of seconds that CloudFront waits when trying to establish a</span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- connection to the origin. The minimum timeout is 1 second, the maximum</span><span>
@@ -376,16 +376,16 @@ $sel:customOriginConfig:Origin' :: Origin -&gt; Maybe CustomOriginConfig
 -&gt; (Origin -&gt; Maybe Int -&gt; Origin)
 -&gt; Lens Origin Origin (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402647"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402656"><span class="annot"><span class="annottext">Maybe Int
 connectionTimeout :: Maybe Int
 $sel:connectionTimeout:Origin' :: Origin -&gt; Maybe Int
-</span><a href="#local-6989586621679402647"><span class="hs-identifier hs-var hs-var">connectionTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402647"><span class="hs-identifier hs-var">connectionTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402646"><span class="annot"><span class="annottext">s :: Origin
-</span><a href="#local-6989586621679402646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402645"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
-</span><a href="#local-6989586621679402646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionTimeout:Origin' :: Maybe Int
+</span><a href="#local-6989586621679402656"><span class="hs-identifier hs-var hs-var">connectionTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402656"><span class="hs-identifier hs-var">connectionTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402655"><span class="annot"><span class="annottext">s :: Origin
+</span><a href="#local-6989586621679402655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402654"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
+</span><a href="#local-6989586621679402655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionTimeout:Origin' :: Maybe Int
 </span><a href="Network.AWS.CloudFront.Types.Origin.html#%24sel%3AconnectionTimeout%3AOrigin%27"><span class="hs-identifier hs-var">connectionTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | The number of times that CloudFront attempts to connect to the origin.</span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- The minimum number is 1, the maximum is 3, and the default (if you don&#8217;t</span><span>
@@ -406,16 +406,16 @@ $sel:connectionTimeout:Origin' :: Origin -&gt; Maybe Int
 -&gt; (Origin -&gt; Maybe Int -&gt; Origin)
 -&gt; Lens Origin Origin (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402643"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402652"><span class="annot"><span class="annottext">Maybe Int
 connectionAttempts :: Maybe Int
 $sel:connectionAttempts:Origin' :: Origin -&gt; Maybe Int
-</span><a href="#local-6989586621679402643"><span class="hs-identifier hs-var hs-var">connectionAttempts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402643"><span class="hs-identifier hs-var">connectionAttempts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402642"><span class="annot"><span class="annottext">s :: Origin
-</span><a href="#local-6989586621679402642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402641"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
-</span><a href="#local-6989586621679402642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionAttempts:Origin' :: Maybe Int
+</span><a href="#local-6989586621679402652"><span class="hs-identifier hs-var hs-var">connectionAttempts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402652"><span class="hs-identifier hs-var">connectionAttempts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402651"><span class="annot"><span class="annottext">s :: Origin
+</span><a href="#local-6989586621679402651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402650"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
+</span><a href="#local-6989586621679402651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionAttempts:Origin' :: Maybe Int
 </span><a href="Network.AWS.CloudFront.Types.Origin.html#%24sel%3AconnectionAttempts%3AOrigin%27"><span class="hs-identifier hs-var">connectionAttempts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- | Use this type to specify an origin that is an Amazon S3 bucket that is</span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- not configured with static website hosting. To specify any other type of</span><span>
@@ -428,16 +428,16 @@ $sel:connectionAttempts:Origin' :: Origin -&gt; Maybe Int
 -&gt; (Origin -&gt; Maybe S3OriginConfig -&gt; Origin)
 -&gt; Lens Origin Origin (Maybe S3OriginConfig) (Maybe S3OriginConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402639"><span class="annot"><span class="annottext">Maybe S3OriginConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402648"><span class="annot"><span class="annottext">Maybe S3OriginConfig
 s3OriginConfig :: Maybe S3OriginConfig
 $sel:s3OriginConfig:Origin' :: Origin -&gt; Maybe S3OriginConfig
-</span><a href="#local-6989586621679402639"><span class="hs-identifier hs-var hs-var">s3OriginConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3OriginConfig
-</span><a href="#local-6989586621679402639"><span class="hs-identifier hs-var">s3OriginConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402638"><span class="annot"><span class="annottext">s :: Origin
-</span><a href="#local-6989586621679402638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402637"><span class="annot"><span class="annottext">Maybe S3OriginConfig
-</span><a href="#local-6989586621679402637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
-</span><a href="#local-6989586621679402638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OriginConfig:Origin' :: Maybe S3OriginConfig
+</span><a href="#local-6989586621679402648"><span class="hs-identifier hs-var hs-var">s3OriginConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3OriginConfig
+</span><a href="#local-6989586621679402648"><span class="hs-identifier hs-var">s3OriginConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402647"><span class="annot"><span class="annottext">s :: Origin
+</span><a href="#local-6989586621679402647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402646"><span class="annot"><span class="annottext">Maybe S3OriginConfig
+</span><a href="#local-6989586621679402646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
+</span><a href="#local-6989586621679402647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OriginConfig:Origin' :: Maybe S3OriginConfig
 </span><a href="Network.AWS.CloudFront.Types.Origin.html#%24sel%3As3OriginConfig%3AOrigin%27"><span class="hs-identifier hs-var">s3OriginConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3OriginConfig
-</span><a href="#local-6989586621679402637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-271"></span><span>
 </span><span id="line-272"></span><span class="hs-comment">-- | An optional path that CloudFront appends to the origin domain name when</span><span>
 </span><span id="line-273"></span><span class="hs-comment">-- CloudFront requests content from the origin.</span><span>
@@ -451,16 +451,16 @@ $sel:s3OriginConfig:Origin' :: Origin -&gt; Maybe S3OriginConfig
 -&gt; (Origin -&gt; Maybe Text -&gt; Origin)
 -&gt; Lens Origin Origin (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402635"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402644"><span class="annot"><span class="annottext">Maybe Text
 originPath :: Maybe Text
 $sel:originPath:Origin' :: Origin -&gt; Maybe Text
-</span><a href="#local-6989586621679402635"><span class="hs-identifier hs-var hs-var">originPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679402635"><span class="hs-identifier hs-var">originPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402634"><span class="annot"><span class="annottext">s :: Origin
-</span><a href="#local-6989586621679402634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402633"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679402633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
-</span><a href="#local-6989586621679402634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originPath:Origin' :: Maybe Text
+</span><a href="#local-6989586621679402644"><span class="hs-identifier hs-var hs-var">originPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402644"><span class="hs-identifier hs-var">originPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402643"><span class="annot"><span class="annottext">s :: Origin
+</span><a href="#local-6989586621679402643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402642"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
+</span><a href="#local-6989586621679402643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originPath:Origin' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.Origin.html#%24sel%3AoriginPath%3AOrigin%27"><span class="hs-identifier hs-var">originPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679402633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- | CloudFront Origin Shield. Using Origin Shield can help reduce the load</span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- on your origin.</span><span>
@@ -475,16 +475,16 @@ $sel:originPath:Origin' :: Origin -&gt; Maybe Text
 -&gt; (Origin -&gt; Maybe OriginShield -&gt; Origin)
 -&gt; Lens Origin Origin (Maybe OriginShield) (Maybe OriginShield)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402631"><span class="annot"><span class="annottext">Maybe OriginShield
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402640"><span class="annot"><span class="annottext">Maybe OriginShield
 originShield :: Maybe OriginShield
 $sel:originShield:Origin' :: Origin -&gt; Maybe OriginShield
-</span><a href="#local-6989586621679402631"><span class="hs-identifier hs-var hs-var">originShield</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OriginShield
-</span><a href="#local-6989586621679402631"><span class="hs-identifier hs-var">originShield</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402630"><span class="annot"><span class="annottext">s :: Origin
-</span><a href="#local-6989586621679402630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402629"><span class="annot"><span class="annottext">Maybe OriginShield
-</span><a href="#local-6989586621679402629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
-</span><a href="#local-6989586621679402630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originShield:Origin' :: Maybe OriginShield
+</span><a href="#local-6989586621679402640"><span class="hs-identifier hs-var hs-var">originShield</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OriginShield
+</span><a href="#local-6989586621679402640"><span class="hs-identifier hs-var">originShield</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402639"><span class="annot"><span class="annottext">s :: Origin
+</span><a href="#local-6989586621679402639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402638"><span class="annot"><span class="annottext">Maybe OriginShield
+</span><a href="#local-6989586621679402638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
+</span><a href="#local-6989586621679402639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originShield:Origin' :: Maybe OriginShield
 </span><a href="Network.AWS.CloudFront.Types.Origin.html#%24sel%3AoriginShield%3AOrigin%27"><span class="hs-identifier hs-var">originShield</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OriginShield
-</span><a href="#local-6989586621679402629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-289"></span><span>
 </span><span id="line-290"></span><span class="hs-comment">-- | A unique identifier for the origin. This value must be unique within the</span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- distribution.</span><span>
@@ -496,16 +496,16 @@ $sel:originShield:Origin' :: Origin -&gt; Maybe OriginShield
 </span><a href="Network.AWS.CloudFront.Types.Origin.html#origin_id"><span class="hs-identifier hs-var hs-var">origin_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Origin -&gt; Text)
 -&gt; (Origin -&gt; Text -&gt; Origin) -&gt; Lens Origin Origin Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402627"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402636"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:Origin' :: Origin -&gt; Text
-</span><a href="#local-6989586621679402627"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402627"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402626"><span class="annot"><span class="annottext">s :: Origin
-</span><a href="#local-6989586621679402626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402625"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
-</span><a href="#local-6989586621679402626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Origin' :: Text
+</span><a href="#local-6989586621679402636"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402636"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402635"><span class="annot"><span class="annottext">s :: Origin
+</span><a href="#local-6989586621679402635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402634"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
+</span><a href="#local-6989586621679402635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Origin' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Origin.html#%24sel%3Aid%3AOrigin%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- | The domain name for the origin.</span><span>
 </span><span id="line-299"></span><span class="hs-comment">--</span><span>
@@ -517,21 +517,21 @@ $sel:id:Origin' :: Origin -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.Origin.html#origin_domainName"><span class="hs-identifier hs-var hs-var">origin_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Origin -&gt; Text)
 -&gt; (Origin -&gt; Text -&gt; Origin) -&gt; Lens Origin Origin Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402623"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402632"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:Origin' :: Origin -&gt; Text
-</span><a href="#local-6989586621679402623"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402623"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402622"><span class="annot"><span class="annottext">s :: Origin
-</span><a href="#local-6989586621679402622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402621"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
-</span><a href="#local-6989586621679402622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:Origin' :: Text
+</span><a href="#local-6989586621679402632"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402632"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402631"><span class="annot"><span class="annottext">s :: Origin
+</span><a href="#local-6989586621679402631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402630"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
+</span><a href="#local-6989586621679402631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:Origin' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Origin.html#%24sel%3AdomainName%3AOrigin%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-305"></span><span>
 </span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-307"></span><span>  </span><span id="local-6989586621679402618"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Origin
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402616"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402616"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-307"></span><span>  </span><span id="local-6989586621679402627"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Origin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402625"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402625"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-308"></span><span>    </span><span class="annot"><span class="annottext">Maybe CustomHeaders
 -&gt; Maybe CustomOriginConfig
 -&gt; Maybe Int
@@ -567,7 +567,7 @@ $sel:domainName:Origin' :: Origin -&gt; Text
       -&gt; Origin)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CustomHeaders)
+</span><a href="#local-6989586621679402625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CustomHeaders)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomHeaders&quot;</span></span><span class="hs-special">)</span><span>
@@ -595,7 +595,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Origin)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CustomOriginConfig)
+</span><a href="#local-6989586621679402625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CustomOriginConfig)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomOriginConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -621,7 +621,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Origin)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679402625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConnectionTimeout&quot;</span></span><span class="hs-special">)</span><span>
@@ -641,7 +641,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text -&gt; Maybe OriginShield -&gt; Text -&gt; Text -&gt; Origin)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679402625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConnectionAttempts&quot;</span></span><span class="hs-special">)</span><span>
@@ -654,7 +654,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Maybe OriginShield -&gt; Text -&gt; Text -&gt; Origin)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe S3OriginConfig)
+</span><a href="#local-6989586621679402625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe S3OriginConfig)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3OriginConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -664,7 +664,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe OriginShield -&gt; Text -&gt; Text -&gt; Origin)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679402625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OriginPath&quot;</span></span><span class="hs-special">)</span><span>
@@ -673,7 +673,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; Text -&gt; Origin)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe OriginShield)
+</span><a href="#local-6989586621679402625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe OriginShield)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OriginShield&quot;</span></span><span class="hs-special">)</span><span>
@@ -681,7 +681,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Text -&gt; Either String (Text -&gt; Origin)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679402625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -689,18 +689,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String Origin
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679402625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-318"></span><span>
-</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402609"><span id="local-6989586621679402611"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span></span></span><span>
+</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402618"><span id="local-6989586621679402620"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span></span></span><span>
 </span><span id="line-320"></span><span>
-</span><span id="line-321"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402606"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span></span><span>
+</span><span id="line-321"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402615"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span></span><span>
 </span><span id="line-322"></span><span>
 </span><span id="line-323"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-324"></span><span>  </span><span id="local-6989586621679402602"><span class="annot"><span class="annottext">toXML :: Origin -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402592"><span id="local-6989586621679402593"><span id="local-6989586621679402594"><span id="local-6989586621679402595"><span id="local-6989586621679402596"><span id="local-6989586621679402597"><span id="local-6989586621679402598"><span id="local-6989586621679402599"><span id="local-6989586621679402600"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-324"></span><span>  </span><span id="local-6989586621679402611"><span class="annot"><span class="annottext">toXML :: Origin -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin%27"><span class="hs-identifier hs-type">Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402601"><span id="local-6989586621679402602"><span id="local-6989586621679402603"><span id="local-6989586621679402604"><span id="local-6989586621679402605"><span id="local-6989586621679402606"><span id="local-6989586621679402607"><span id="local-6989586621679402608"><span id="local-6989586621679402609"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe CustomHeaders
 Maybe OriginShield
@@ -725,7 +725,7 @@ $sel:connectionAttempts:Origin' :: Origin -&gt; Maybe Int
 $sel:connectionTimeout:Origin' :: Origin -&gt; Maybe Int
 $sel:customOriginConfig:Origin' :: Origin -&gt; Maybe CustomOriginConfig
 $sel:customHeaders:Origin' :: Origin -&gt; Maybe CustomHeaders
-</span><a href="#local-6989586621679402592"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679402601"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-325"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -733,46 +733,46 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;CustomHeaders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe CustomHeaders -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe CustomHeaders
-</span><a href="#local-6989586621679402600"><span class="hs-identifier hs-var">customHeaders</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402609"><span class="hs-identifier hs-var">customHeaders</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-327"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;CustomOriginConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe CustomOriginConfig -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe CustomOriginConfig
-</span><a href="#local-6989586621679402599"><span class="hs-identifier hs-var">customOriginConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402608"><span class="hs-identifier hs-var">customOriginConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-328"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ConnectionTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402598"><span class="hs-identifier hs-var">connectionTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402607"><span class="hs-identifier hs-var">connectionTimeout</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-329"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ConnectionAttempts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402597"><span class="hs-identifier hs-var">connectionAttempts</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402606"><span class="hs-identifier hs-var">connectionAttempts</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-330"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;S3OriginConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe S3OriginConfig -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3OriginConfig
-</span><a href="#local-6989586621679402596"><span class="hs-identifier hs-var">s3OriginConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402605"><span class="hs-identifier hs-var">s3OriginConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-331"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;OriginPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679402595"><span class="hs-identifier hs-var">originPath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402604"><span class="hs-identifier hs-var">originPath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-332"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;OriginShield&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe OriginShield -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe OriginShield
-</span><a href="#local-6989586621679402594"><span class="hs-identifier hs-var">originShield</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402603"><span class="hs-identifier hs-var">originShield</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-333"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402593"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402602"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-334"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402592"><span class="hs-identifier hs-var">domainName</span></a></span><span>
+</span><a href="#local-6989586621679402601"><span class="hs-identifier hs-var">domainName</span></a></span><span>
 </span><span id="line-335"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-336"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- subscribed to.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSourceAlgorithm' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680344219"><span id="local-6989586621680344220"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceAlgorithm"><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-var">SourceAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceAlgorithm%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm%27"><span class="hs-identifier hs-var">SourceAlgorithm'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680344228"><span id="local-6989586621680344229"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceAlgorithm"><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-var">SourceAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceAlgorithm%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm%27"><span class="hs-identifier hs-var">SourceAlgorithm'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon S3 path where the model artifacts, which result from model</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- training, are stored. This path must point to a single @gzip@ compressed</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- tar archive (@.tar.gz@ suffix).</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AalgorithmName%3ASourceAlgorithm%27"><span class="annot"><span class="annottext">SourceAlgorithm -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#%24sel%3AalgorithmName%3ASourceAlgorithm%27"><span class="hs-identifier hs-var hs-var">algorithmName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680344212"><span id="local-6989586621680344214"><span class="annot"><span class="annottext">SourceAlgorithm -&gt; SourceAlgorithm -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680344221"><span id="local-6989586621680344223"><span class="annot"><span class="annottext">SourceAlgorithm -&gt; SourceAlgorithm -&gt; Bool
 (SourceAlgorithm -&gt; SourceAlgorithm -&gt; Bool)
 -&gt; (SourceAlgorithm -&gt; SourceAlgorithm -&gt; Bool)
 -&gt; Eq SourceAlgorithm
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SourceAlgorithm -&gt; SourceAlgorithm -&gt; Bool
 == :: SourceAlgorithm -&gt; SourceAlgorithm -&gt; Bool
 $c== :: SourceAlgorithm -&gt; SourceAlgorithm -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680344203"><span id="local-6989586621680344205"><span id="local-6989586621680344207"><span id="local-6989586621680344209"><span class="annot"><span class="annottext">ReadPrec [SourceAlgorithm]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680344212"><span id="local-6989586621680344214"><span id="local-6989586621680344216"><span id="local-6989586621680344218"><span class="annot"><span class="annottext">ReadPrec [SourceAlgorithm]
 ReadPrec SourceAlgorithm
 Int -&gt; ReadS SourceAlgorithm
 ReadS [SourceAlgorithm]
@@ -74,7 +74,7 @@ readList :: ReadS [SourceAlgorithm]
 $creadList :: ReadS [SourceAlgorithm]
 readsPrec :: Int -&gt; ReadS SourceAlgorithm
 $creadsPrec :: Int -&gt; ReadS SourceAlgorithm
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680344196"><span id="local-6989586621680344198"><span id="local-6989586621680344200"><span class="annot"><span class="annottext">Int -&gt; SourceAlgorithm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680344205"><span id="local-6989586621680344207"><span id="local-6989586621680344209"><span class="annot"><span class="annottext">Int -&gt; SourceAlgorithm -&gt; ShowS
 [SourceAlgorithm] -&gt; ShowS
 SourceAlgorithm -&gt; String
 (Int -&gt; SourceAlgorithm -&gt; ShowS)
@@ -124,8 +124,8 @@ $cfrom :: forall x. SourceAlgorithm -&gt; Rep SourceAlgorithm x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-type">SourceAlgorithm</span></a></span><span>
 </span><span id="line-71"></span><span id="newSourceAlgorithm"><span class="annot"><span class="annottext">newSourceAlgorithm :: Text -&gt; SourceAlgorithm
-</span><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#newSourceAlgorithm"><span class="hs-identifier hs-var hs-var">newSourceAlgorithm</span></a></span></span><span> </span><span id="local-6989586621680344190"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680344190"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#newSourceAlgorithm"><span class="hs-identifier hs-var hs-var">newSourceAlgorithm</span></a></span></span><span> </span><span id="local-6989586621680344199"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680344199"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">SourceAlgorithm' :: Maybe Text -&gt; Text -&gt; SourceAlgorithm
 </span><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm%27"><span class="hs-identifier hs-type">SourceAlgorithm'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:modelDataUrl:SourceAlgorithm' :: Maybe Text
@@ -134,7 +134,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:algorithmName:SourceAlgorithm' :: Text
 </span><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#%24sel%3AalgorithmName%3ASourceAlgorithm%27"><span class="hs-identifier hs-var">algorithmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680344190"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span><span>
+</span><a href="#local-6989586621680344199"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The Amazon S3 path where the model artifacts, which result from model</span><span>
@@ -150,16 +150,16 @@ forall a. Maybe a
 -&gt; (SourceAlgorithm -&gt; Maybe Text -&gt; SourceAlgorithm)
 -&gt; Lens SourceAlgorithm SourceAlgorithm (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm%27"><span class="hs-identifier hs-type">SourceAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680344186"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm%27"><span class="hs-identifier hs-type">SourceAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680344195"><span class="annot"><span class="annottext">Maybe Text
 modelDataUrl :: Maybe Text
 $sel:modelDataUrl:SourceAlgorithm' :: SourceAlgorithm -&gt; Maybe Text
-</span><a href="#local-6989586621680344186"><span class="hs-identifier hs-var hs-var">modelDataUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680344186"><span class="hs-identifier hs-var">modelDataUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680344185"><span class="annot"><span class="annottext">s :: SourceAlgorithm
-</span><a href="#local-6989586621680344185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm%27"><span class="hs-identifier hs-type">SourceAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680344184"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680344184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceAlgorithm
-</span><a href="#local-6989586621680344185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelDataUrl:SourceAlgorithm' :: Maybe Text
+</span><a href="#local-6989586621680344195"><span class="hs-identifier hs-var hs-var">modelDataUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680344195"><span class="hs-identifier hs-var">modelDataUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680344194"><span class="annot"><span class="annottext">s :: SourceAlgorithm
+</span><a href="#local-6989586621680344194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm%27"><span class="hs-identifier hs-type">SourceAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680344193"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680344193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceAlgorithm
+</span><a href="#local-6989586621680344194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelDataUrl:SourceAlgorithm' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#%24sel%3AmodelDataUrl%3ASourceAlgorithm%27"><span class="hs-identifier hs-var">modelDataUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680344184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-type">SourceAlgorithm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680344193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-type">SourceAlgorithm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The name of an algorithm that was used to create the model package. The</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- algorithm must be either an algorithm resource in your Amazon SageMaker</span><span>
@@ -171,19 +171,19 @@ $sel:modelDataUrl:SourceAlgorithm' :: SourceAlgorithm -&gt; Maybe Text
 -&gt; (SourceAlgorithm -&gt; Text -&gt; SourceAlgorithm)
 -&gt; Lens SourceAlgorithm SourceAlgorithm Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm%27"><span class="hs-identifier hs-type">SourceAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680344182"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm%27"><span class="hs-identifier hs-type">SourceAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680344191"><span class="annot"><span class="annottext">Text
 algorithmName :: Text
 $sel:algorithmName:SourceAlgorithm' :: SourceAlgorithm -&gt; Text
-</span><a href="#local-6989586621680344182"><span class="hs-identifier hs-var hs-var">algorithmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680344182"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680344181"><span class="annot"><span class="annottext">s :: SourceAlgorithm
-</span><a href="#local-6989586621680344181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm%27"><span class="hs-identifier hs-type">SourceAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680344180"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680344180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceAlgorithm
-</span><a href="#local-6989586621680344181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmName:SourceAlgorithm' :: Text
+</span><a href="#local-6989586621680344191"><span class="hs-identifier hs-var hs-var">algorithmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680344191"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680344190"><span class="annot"><span class="annottext">s :: SourceAlgorithm
+</span><a href="#local-6989586621680344190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm%27"><span class="hs-identifier hs-type">SourceAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680344189"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680344189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceAlgorithm
+</span><a href="#local-6989586621680344190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmName:SourceAlgorithm' :: Text
 </span><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#%24sel%3AalgorithmName%3ASourceAlgorithm%27"><span class="hs-identifier hs-var">algorithmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680344180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-type">SourceAlgorithm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680344189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-type">SourceAlgorithm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344177"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-type">SourceAlgorithm</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621680344175"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SourceAlgorithm
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344186"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-type">SourceAlgorithm</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621680344184"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SourceAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SourceAlgorithm)
@@ -193,15 +193,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SourceAlgorithm&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680344172"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680344172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680344181"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680344181"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; SourceAlgorithm
 </span><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm%27"><span class="hs-identifier hs-var">SourceAlgorithm'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; SourceAlgorithm)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; SourceAlgorithm)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680344172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680344181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelDataUrl&quot;</span></span><span class="hs-special">)</span><span>
@@ -209,25 +209,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser SourceAlgorithm
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680344172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680344181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlgorithmName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344165"><span id="local-6989586621680344167"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-type">SourceAlgorithm</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344174"><span id="local-6989586621680344176"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-type">SourceAlgorithm</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-type">SourceAlgorithm</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344171"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-type">SourceAlgorithm</span></a></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344154"><span id="local-6989586621680344156"><span id="local-6989586621680344158"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-type">SourceAlgorithm</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621680344152"><span class="annot"><span class="annottext">toJSON :: SourceAlgorithm -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm%27"><span class="hs-identifier hs-type">SourceAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680344149"><span id="local-6989586621680344150"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344163"><span id="local-6989586621680344165"><span id="local-6989586621680344167"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm"><span class="hs-identifier hs-type">SourceAlgorithm</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621680344161"><span class="annot"><span class="annottext">toJSON :: SourceAlgorithm -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceAlgorithm.html#SourceAlgorithm%27"><span class="hs-identifier hs-type">SourceAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680344158"><span id="local-6989586621680344159"><span class="annot"><span class="annottext">Maybe Text
 Text
 algorithmName :: Text
 modelDataUrl :: Maybe Text
 $sel:algorithmName:SourceAlgorithm' :: SourceAlgorithm -&gt; Text
 $sel:modelDataUrl:SourceAlgorithm' :: SourceAlgorithm -&gt; Maybe Text
-</span><a href="#local-6989586621680344149"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680344158"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -239,7 +239,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680344150"><span class="hs-identifier hs-var">modelDataUrl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680344159"><span class="hs-identifier hs-var">modelDataUrl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -247,7 +247,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AlgorithmName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680344149"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680344158"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span></pre></body></html>

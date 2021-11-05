@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Media Package Group Settings</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMediaPackageGroupSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679910484"><span id="local-6989586621679910485"></span></span><span class="hs-keyword">data</span><span> </span><span id="MediaPackageGroupSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings"><span class="hs-identifier hs-var">MediaPackageGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MediaPackageGroupSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings%27"><span class="hs-identifier hs-var">MediaPackageGroupSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679910493"><span id="local-6989586621679910494"></span></span><span class="hs-keyword">data</span><span> </span><span id="MediaPackageGroupSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings"><span class="hs-identifier hs-var">MediaPackageGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MediaPackageGroupSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings%27"><span class="hs-identifier hs-var">MediaPackageGroupSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | MediaPackage channel destination.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Adestination%3AMediaPackageGroupSettings%27"><span class="annot"><span class="annottext">MediaPackageGroupSettings -&gt; OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#%24sel%3Adestination%3AMediaPackageGroupSettings%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679910478"><span id="local-6989586621679910480"><span class="annot"><span class="annottext">MediaPackageGroupSettings -&gt; MediaPackageGroupSettings -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679910487"><span id="local-6989586621679910489"><span class="annot"><span class="annottext">MediaPackageGroupSettings -&gt; MediaPackageGroupSettings -&gt; Bool
 (MediaPackageGroupSettings -&gt; MediaPackageGroupSettings -&gt; Bool)
 -&gt; (MediaPackageGroupSettings -&gt; MediaPackageGroupSettings -&gt; Bool)
 -&gt; Eq MediaPackageGroupSettings
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MediaPackageGroupSettings -&gt; MediaPackageGroupSettings -&gt; Bool
 == :: MediaPackageGroupSettings -&gt; MediaPackageGroupSettings -&gt; Bool
 $c== :: MediaPackageGroupSettings -&gt; MediaPackageGroupSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910469"><span id="local-6989586621679910471"><span id="local-6989586621679910473"><span id="local-6989586621679910475"><span class="annot"><span class="annottext">ReadPrec [MediaPackageGroupSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910478"><span id="local-6989586621679910480"><span id="local-6989586621679910482"><span id="local-6989586621679910484"><span class="annot"><span class="annottext">ReadPrec [MediaPackageGroupSettings]
 ReadPrec MediaPackageGroupSettings
 Int -&gt; ReadS MediaPackageGroupSettings
 ReadS [MediaPackageGroupSettings]
@@ -61,7 +61,7 @@ readList :: ReadS [MediaPackageGroupSettings]
 $creadList :: ReadS [MediaPackageGroupSettings]
 readsPrec :: Int -&gt; ReadS MediaPackageGroupSettings
 $creadsPrec :: Int -&gt; ReadS MediaPackageGroupSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910462"><span id="local-6989586621679910464"><span id="local-6989586621679910466"><span class="annot"><span class="annottext">Int -&gt; MediaPackageGroupSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910471"><span id="local-6989586621679910473"><span id="local-6989586621679910475"><span class="annot"><span class="annottext">Int -&gt; MediaPackageGroupSettings -&gt; ShowS
 [MediaPackageGroupSettings] -&gt; ShowS
 MediaPackageGroupSettings -&gt; String
 (Int -&gt; MediaPackageGroupSettings -&gt; ShowS)
@@ -107,14 +107,14 @@ MediaPackageGroupSettings -&gt; Rep MediaPackageGroupSettings x
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings"><span class="hs-identifier hs-type">MediaPackageGroupSettings</span></a></span><span>
 </span><span id="line-49"></span><span id="newMediaPackageGroupSettings"><span class="annot"><span class="annottext">newMediaPackageGroupSettings :: OutputLocationRef -&gt; MediaPackageGroupSettings
-</span><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#newMediaPackageGroupSettings"><span class="hs-identifier hs-var hs-var">newMediaPackageGroupSettings</span></a></span></span><span> </span><span id="local-6989586621679910456"><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679910456"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#newMediaPackageGroupSettings"><span class="hs-identifier hs-var hs-var">newMediaPackageGroupSettings</span></a></span></span><span> </span><span id="local-6989586621679910465"><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679910465"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">MediaPackageGroupSettings' :: OutputLocationRef -&gt; MediaPackageGroupSettings
 </span><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings%27"><span class="hs-identifier hs-type">MediaPackageGroupSettings'</span></a></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destination:MediaPackageGroupSettings' :: OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#%24sel%3Adestination%3AMediaPackageGroupSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>        </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679910456"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
+</span><a href="#local-6989586621679910465"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | MediaPackage channel destination.</span><span>
@@ -130,19 +130,19 @@ MediaPackageGroupSettings -&gt; Rep MediaPackageGroupSettings x
      OutputLocationRef
      OutputLocationRef
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings%27"><span class="hs-identifier hs-type">MediaPackageGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910452"><span class="annot"><span class="annottext">OutputLocationRef
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings%27"><span class="hs-identifier hs-type">MediaPackageGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910461"><span class="annot"><span class="annottext">OutputLocationRef
 destination :: OutputLocationRef
 $sel:destination:MediaPackageGroupSettings' :: MediaPackageGroupSettings -&gt; OutputLocationRef
-</span><a href="#local-6989586621679910452"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679910452"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910451"><span class="annot"><span class="annottext">s :: MediaPackageGroupSettings
-</span><a href="#local-6989586621679910451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings%27"><span class="hs-identifier hs-type">MediaPackageGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910450"><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679910450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MediaPackageGroupSettings
-</span><a href="#local-6989586621679910451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:MediaPackageGroupSettings' :: OutputLocationRef
+</span><a href="#local-6989586621679910461"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679910461"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910460"><span class="annot"><span class="annottext">s :: MediaPackageGroupSettings
+</span><a href="#local-6989586621679910460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings%27"><span class="hs-identifier hs-type">MediaPackageGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910459"><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679910459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MediaPackageGroupSettings
+</span><a href="#local-6989586621679910460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:MediaPackageGroupSettings' :: OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#%24sel%3Adestination%3AMediaPackageGroupSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679910450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings"><span class="hs-identifier hs-type">MediaPackageGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679910459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings"><span class="hs-identifier hs-type">MediaPackageGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910447"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings"><span class="hs-identifier hs-type">MediaPackageGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679910445"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MediaPackageGroupSettings
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910456"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings"><span class="hs-identifier hs-type">MediaPackageGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679910454"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MediaPackageGroupSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MediaPackageGroupSettings)
@@ -152,30 +152,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MediaPackageGroupSettings&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679910442"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679910442"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679910451"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679910451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">OutputLocationRef -&gt; MediaPackageGroupSettings
 </span><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings%27"><span class="hs-identifier hs-var">MediaPackageGroupSettings'</span></a></span><span>
 </span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">(OutputLocationRef -&gt; MediaPackageGroupSettings)
 -&gt; Parser OutputLocationRef -&gt; Parser MediaPackageGroupSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679910442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputLocationRef
+</span><a href="#local-6989586621679910451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputLocationRef
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destination&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910436"><span id="local-6989586621679910438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings"><span class="hs-identifier hs-type">MediaPackageGroupSettings</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910445"><span id="local-6989586621679910447"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings"><span class="hs-identifier hs-type">MediaPackageGroupSettings</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings"><span class="hs-identifier hs-type">MediaPackageGroupSettings</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings"><span class="hs-identifier hs-type">MediaPackageGroupSettings</span></a></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910425"><span id="local-6989586621679910427"><span id="local-6989586621679910429"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings"><span class="hs-identifier hs-type">MediaPackageGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679910423"><span class="annot"><span class="annottext">toJSON :: MediaPackageGroupSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings%27"><span class="hs-identifier hs-type">MediaPackageGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910421"><span class="annot"><span class="annottext">OutputLocationRef
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910434"><span id="local-6989586621679910436"><span id="local-6989586621679910438"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings"><span class="hs-identifier hs-type">MediaPackageGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679910432"><span class="annot"><span class="annottext">toJSON :: MediaPackageGroupSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageGroupSettings.html#MediaPackageGroupSettings%27"><span class="hs-identifier hs-type">MediaPackageGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910430"><span class="annot"><span class="annottext">OutputLocationRef
 destination :: OutputLocationRef
 $sel:destination:MediaPackageGroupSettings' :: MediaPackageGroupSettings -&gt; OutputLocationRef
-</span><a href="#local-6989586621679910421"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679910430"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -187,6 +187,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputLocationRef -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679910421"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679910430"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span></pre></body></html>

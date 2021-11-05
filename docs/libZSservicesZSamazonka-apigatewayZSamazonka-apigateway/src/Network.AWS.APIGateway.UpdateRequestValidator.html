@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Updates a RequestValidator of a given RestApi.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newUpdateRequestValidator' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679397108"><span id="local-6989586621679397109"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRequestValidator"><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-var">UpdateRequestValidator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRequestValidator%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-var">UpdateRequestValidator'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679397117"><span id="local-6989586621679397118"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRequestValidator"><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-var">UpdateRequestValidator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRequestValidator%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-var">UpdateRequestValidator'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- in the order specified in this list.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3ApatchOperations%3AUpdateRequestValidator%27"><span class="annot"><span class="annottext">UpdateRequestValidator -&gt; Maybe [PatchOperation]
@@ -65,7 +65,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3ArequestValidatorId%3AUpdateRequestValidator%27"><span class="annot"><span class="annottext">UpdateRequestValidator -&gt; Text
 </span><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#%24sel%3ArequestValidatorId%3AUpdateRequestValidator%27"><span class="hs-identifier hs-var hs-var">requestValidatorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397100"><span id="local-6989586621679397102"><span class="annot"><span class="annottext">UpdateRequestValidator -&gt; UpdateRequestValidator -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397109"><span id="local-6989586621679397111"><span class="annot"><span class="annottext">UpdateRequestValidator -&gt; UpdateRequestValidator -&gt; Bool
 (UpdateRequestValidator -&gt; UpdateRequestValidator -&gt; Bool)
 -&gt; (UpdateRequestValidator -&gt; UpdateRequestValidator -&gt; Bool)
 -&gt; Eq UpdateRequestValidator
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateRequestValidator -&gt; UpdateRequestValidator -&gt; Bool
 == :: UpdateRequestValidator -&gt; UpdateRequestValidator -&gt; Bool
 $c== :: UpdateRequestValidator -&gt; UpdateRequestValidator -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397091"><span id="local-6989586621679397093"><span id="local-6989586621679397095"><span id="local-6989586621679397097"><span class="annot"><span class="annottext">ReadPrec [UpdateRequestValidator]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397100"><span id="local-6989586621679397102"><span id="local-6989586621679397104"><span id="local-6989586621679397106"><span class="annot"><span class="annottext">ReadPrec [UpdateRequestValidator]
 ReadPrec UpdateRequestValidator
 Int -&gt; ReadS UpdateRequestValidator
 ReadS [UpdateRequestValidator]
@@ -94,7 +94,7 @@ readList :: ReadS [UpdateRequestValidator]
 $creadList :: ReadS [UpdateRequestValidator]
 readsPrec :: Int -&gt; ReadS UpdateRequestValidator
 $creadsPrec :: Int -&gt; ReadS UpdateRequestValidator
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397084"><span id="local-6989586621679397086"><span id="local-6989586621679397088"><span class="annot"><span class="annottext">Int -&gt; UpdateRequestValidator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397093"><span id="local-6989586621679397095"><span id="local-6989586621679397097"><span class="annot"><span class="annottext">Int -&gt; UpdateRequestValidator -&gt; ShowS
 [UpdateRequestValidator] -&gt; ShowS
 UpdateRequestValidator -&gt; String
 (Int -&gt; UpdateRequestValidator -&gt; ShowS)
@@ -143,10 +143,10 @@ $cfrom :: forall x. UpdateRequestValidator -&gt; Rep UpdateRequestValidator x
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span><span>
 </span><span id="line-87"></span><span id="newUpdateRequestValidator"><span class="annot"><span class="annottext">newUpdateRequestValidator :: Text -&gt; Text -&gt; UpdateRequestValidator
 </span><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#newUpdateRequestValidator"><span class="hs-identifier hs-var hs-var">newUpdateRequestValidator</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679397079"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397079"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679397078"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397078"><span class="hs-identifier hs-var">pRequestValidatorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679397088"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397088"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679397087"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397087"><span class="hs-identifier hs-var">pRequestValidatorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">UpdateRequestValidator' :: Maybe [PatchOperation] -&gt; Text -&gt; Text -&gt; UpdateRequestValidator
 </span><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateRequestValidator' :: Maybe [PatchOperation]
@@ -156,10 +156,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:restApiId:UpdateRequestValidator' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#%24sel%3ArestApiId%3AUpdateRequestValidator%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397079"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397088"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:requestValidatorId:UpdateRequestValidator' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#%24sel%3ArequestValidatorId%3AUpdateRequestValidator%27"><span class="hs-identifier hs-var">requestValidatorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397078"><span class="hs-identifier hs-var">pRequestValidatorId_</span></a></span><span>
+</span><a href="#local-6989586621679397087"><span class="hs-identifier hs-var">pRequestValidatorId_</span></a></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
@@ -176,16 +176,16 @@ forall a. Maybe a
      (Maybe [PatchOperation])
      (Maybe [PatchOperation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397075"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397084"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 patchOperations :: Maybe [PatchOperation]
 $sel:patchOperations:UpdateRequestValidator' :: UpdateRequestValidator -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679397075"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679397075"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397074"><span class="annot"><span class="annottext">s :: UpdateRequestValidator
-</span><a href="#local-6989586621679397074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397073"><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679397073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRequestValidator
-</span><a href="#local-6989586621679397074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateRequestValidator' :: Maybe [PatchOperation]
+</span><a href="#local-6989586621679397084"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679397084"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397083"><span class="annot"><span class="annottext">s :: UpdateRequestValidator
+</span><a href="#local-6989586621679397083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397082"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679397082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRequestValidator
+</span><a href="#local-6989586621679397083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateRequestValidator' :: Maybe [PatchOperation]
 </span><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#%24sel%3ApatchOperations%3AUpdateRequestValidator%27"><span class="hs-identifier hs-var">patchOperations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679397073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
+</span><a href="#local-6989586621679397082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
  -&gt; UpdateRequestValidator -&gt; f UpdateRequestValidator)
 -&gt; ((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
     -&gt; Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
@@ -216,16 +216,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateRequestValidator -&gt; Text -&gt; UpdateRequestValidator)
 -&gt; Lens UpdateRequestValidator UpdateRequestValidator Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397069"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397078"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:UpdateRequestValidator' :: UpdateRequestValidator -&gt; Text
-</span><a href="#local-6989586621679397069"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397069"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397068"><span class="annot"><span class="annottext">s :: UpdateRequestValidator
-</span><a href="#local-6989586621679397068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397067"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRequestValidator
-</span><a href="#local-6989586621679397068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:UpdateRequestValidator' :: Text
+</span><a href="#local-6989586621679397078"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397078"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397077"><span class="annot"><span class="annottext">s :: UpdateRequestValidator
+</span><a href="#local-6989586621679397077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397076"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRequestValidator
+</span><a href="#local-6989586621679397077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:UpdateRequestValidator' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#%24sel%3ArestApiId%3AUpdateRequestValidator%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | [Required] The identifier of RequestValidator to be updated.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#updateRequestValidator_requestValidatorId"><span class="hs-identifier hs-type">updateRequestValidator_requestValidatorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -235,27 +235,27 @@ $sel:restApiId:UpdateRequestValidator' :: UpdateRequestValidator -&gt; Text
 -&gt; (UpdateRequestValidator -&gt; Text -&gt; UpdateRequestValidator)
 -&gt; Lens UpdateRequestValidator UpdateRequestValidator Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397066"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397075"><span class="annot"><span class="annottext">Text
 requestValidatorId :: Text
 $sel:requestValidatorId:UpdateRequestValidator' :: UpdateRequestValidator -&gt; Text
-</span><a href="#local-6989586621679397066"><span class="hs-identifier hs-var hs-var">requestValidatorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397066"><span class="hs-identifier hs-var">requestValidatorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397065"><span class="annot"><span class="annottext">s :: UpdateRequestValidator
-</span><a href="#local-6989586621679397065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397064"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRequestValidator
-</span><a href="#local-6989586621679397065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestValidatorId:UpdateRequestValidator' :: Text
+</span><a href="#local-6989586621679397075"><span class="hs-identifier hs-var hs-var">requestValidatorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397075"><span class="hs-identifier hs-var">requestValidatorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397074"><span class="annot"><span class="annottext">s :: UpdateRequestValidator
+</span><a href="#local-6989586621679397074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397073"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRequestValidator
+</span><a href="#local-6989586621679397074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestValidatorId:UpdateRequestValidator' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#%24sel%3ArequestValidatorId%3AUpdateRequestValidator%27"><span class="hs-identifier hs-var">requestValidatorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RequestValidator.html#RequestValidator"><span class="hs-identifier hs-type">RequestValidator</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679397060"><span class="annot"><span class="annottext">request :: UpdateRequestValidator -&gt; Request UpdateRequestValidator
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679397069"><span class="annot"><span class="annottext">request :: UpdateRequestValidator -&gt; Request UpdateRequestValidator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateRequestValidator -&gt; Request UpdateRequestValidator
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679397056"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679397065"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateRequestValidator
 -&gt; ClientResponse ClientBody
@@ -281,20 +281,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397053"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397053"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679397052"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679397052"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679397051"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397051"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String RequestValidator
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397062"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679397062"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679397061"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679397061"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679397060"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679397060"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String RequestValidator
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397051"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397060"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397046"><span id="local-6989586621679397048"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397055"><span id="local-6989586621679397057"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397043"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679397039"><span class="annot"><span class="annottext">toHeaders :: UpdateRequestValidator -&gt; ResponseHeaders
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679397048"><span class="annot"><span class="annottext">toHeaders :: UpdateRequestValidator -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRequestValidator -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -311,9 +311,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397029"><span id="local-6989586621679397031"><span id="local-6989586621679397033"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679397027"><span class="annot"><span class="annottext">toJSON :: UpdateRequestValidator -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397023"><span id="local-6989586621679397024"><span id="local-6989586621679397025"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397038"><span id="local-6989586621679397040"><span id="local-6989586621679397042"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679397036"><span class="annot"><span class="annottext">toJSON :: UpdateRequestValidator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397032"><span id="local-6989586621679397033"><span id="local-6989586621679397034"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 Text
 requestValidatorId :: Text
 restApiId :: Text
@@ -321,7 +321,7 @@ patchOperations :: Maybe [PatchOperation]
 $sel:requestValidatorId:UpdateRequestValidator' :: UpdateRequestValidator -&gt; Text
 $sel:restApiId:UpdateRequestValidator' :: UpdateRequestValidator -&gt; Text
 $sel:patchOperations:UpdateRequestValidator' :: UpdateRequestValidator -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679397023"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679397032"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -334,13 +334,13 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">([PatchOperation] -&gt; Pair) -&gt; Maybe [PatchOperation] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679397025"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
+</span><a href="#local-6989586621679397034"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679397016"><span class="annot"><span class="annottext">toPath :: UpdateRequestValidator -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397012"><span id="local-6989586621679397013"><span id="local-6989586621679397014"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679397025"><span class="annot"><span class="annottext">toPath :: UpdateRequestValidator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator%27"><span class="hs-identifier hs-type">UpdateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397021"><span id="local-6989586621679397022"><span id="local-6989586621679397023"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 Text
 requestValidatorId :: Text
 restApiId :: Text
@@ -348,7 +348,7 @@ patchOperations :: Maybe [PatchOperation]
 $sel:requestValidatorId:UpdateRequestValidator' :: UpdateRequestValidator -&gt; Text
 $sel:restApiId:UpdateRequestValidator' :: UpdateRequestValidator -&gt; Text
 $sel:patchOperations:UpdateRequestValidator' :: UpdateRequestValidator -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679397012"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679397021"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -357,17 +357,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397013"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397022"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/requestvalidators/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397012"><span class="hs-identifier hs-var">requestValidatorId</span></a></span><span>
+</span><a href="#local-6989586621679397021"><span class="hs-identifier hs-var">requestValidatorId</span></a></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateRequestValidator.html#UpdateRequestValidator"><span class="hs-identifier hs-type">UpdateRequestValidator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679397008"><span class="annot"><span class="annottext">toQuery :: UpdateRequestValidator -&gt; QueryString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679397017"><span class="annot"><span class="annottext">toQuery :: UpdateRequestValidator -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRequestValidator -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

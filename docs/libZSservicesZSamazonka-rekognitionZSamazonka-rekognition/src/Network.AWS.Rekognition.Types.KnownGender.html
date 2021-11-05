@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- ID.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newKnownGender' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679325532"><span id="local-6989586621679325533"></span></span><span class="hs-keyword">data</span><span> </span><span id="KnownGender"><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender"><span class="hs-identifier hs-var">KnownGender</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KnownGender%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender%27"><span class="hs-identifier hs-var">KnownGender'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679325541"><span id="local-6989586621679325542"></span></span><span class="hs-keyword">data</span><span> </span><span id="KnownGender"><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender"><span class="hs-identifier hs-var">KnownGender</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KnownGender%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender%27"><span class="hs-identifier hs-var">KnownGender'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string value of the KnownGender info about the Celebrity.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Atype%27%3AKnownGender%27"><span class="annot"><span class="annottext">KnownGender -&gt; Maybe KnownGenderType
 </span><a href="Network.AWS.Rekognition.Types.KnownGender.html#%24sel%3Atype%27%3AKnownGender%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGenderType.html#KnownGenderType"><span class="hs-identifier hs-type">KnownGenderType</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325526"><span id="local-6989586621679325528"><span class="annot"><span class="annottext">KnownGender -&gt; KnownGender -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325535"><span id="local-6989586621679325537"><span class="annot"><span class="annottext">KnownGender -&gt; KnownGender -&gt; Bool
 (KnownGender -&gt; KnownGender -&gt; Bool)
 -&gt; (KnownGender -&gt; KnownGender -&gt; Bool) -&gt; Eq KnownGender
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KnownGender -&gt; KnownGender -&gt; Bool
 == :: KnownGender -&gt; KnownGender -&gt; Bool
 $c== :: KnownGender -&gt; KnownGender -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325517"><span id="local-6989586621679325519"><span id="local-6989586621679325521"><span id="local-6989586621679325523"><span class="annot"><span class="annottext">ReadPrec [KnownGender]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325526"><span id="local-6989586621679325528"><span id="local-6989586621679325530"><span id="local-6989586621679325532"><span class="annot"><span class="annottext">ReadPrec [KnownGender]
 ReadPrec KnownGender
 Int -&gt; ReadS KnownGender
 ReadS [KnownGender]
@@ -61,7 +61,7 @@ readList :: ReadS [KnownGender]
 $creadList :: ReadS [KnownGender]
 readsPrec :: Int -&gt; ReadS KnownGender
 $creadsPrec :: Int -&gt; ReadS KnownGender
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325510"><span id="local-6989586621679325512"><span id="local-6989586621679325514"><span class="annot"><span class="annottext">Int -&gt; KnownGender -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325519"><span id="local-6989586621679325521"><span id="local-6989586621679325523"><span class="annot"><span class="annottext">Int -&gt; KnownGender -&gt; ShowS
 [KnownGender] -&gt; ShowS
 KnownGender -&gt; String
 (Int -&gt; KnownGender -&gt; ShowS)
@@ -118,19 +118,19 @@ forall a. Maybe a
      (Maybe KnownGenderType)
      (Maybe KnownGenderType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender%27"><span class="hs-identifier hs-type">KnownGender'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325501"><span class="annot"><span class="annottext">Maybe KnownGenderType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender%27"><span class="hs-identifier hs-type">KnownGender'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325510"><span class="annot"><span class="annottext">Maybe KnownGenderType
 type' :: Maybe KnownGenderType
 $sel:type':KnownGender' :: KnownGender -&gt; Maybe KnownGenderType
-</span><a href="#local-6989586621679325501"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KnownGenderType
-</span><a href="#local-6989586621679325501"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325500"><span class="annot"><span class="annottext">s :: KnownGender
-</span><a href="#local-6989586621679325500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender%27"><span class="hs-identifier hs-type">KnownGender'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325499"><span class="annot"><span class="annottext">Maybe KnownGenderType
-</span><a href="#local-6989586621679325499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KnownGender
-</span><a href="#local-6989586621679325500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':KnownGender' :: Maybe KnownGenderType
+</span><a href="#local-6989586621679325510"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KnownGenderType
+</span><a href="#local-6989586621679325510"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325509"><span class="annot"><span class="annottext">s :: KnownGender
+</span><a href="#local-6989586621679325509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender%27"><span class="hs-identifier hs-type">KnownGender'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325508"><span class="annot"><span class="annottext">Maybe KnownGenderType
+</span><a href="#local-6989586621679325508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KnownGender
+</span><a href="#local-6989586621679325509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':KnownGender' :: Maybe KnownGenderType
 </span><a href="Network.AWS.Rekognition.Types.KnownGender.html#%24sel%3Atype%27%3AKnownGender%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KnownGenderType
-</span><a href="#local-6989586621679325499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender"><span class="hs-identifier hs-type">KnownGender</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender"><span class="hs-identifier hs-type">KnownGender</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325496"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender"><span class="hs-identifier hs-type">KnownGender</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679325494"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KnownGender
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325505"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender"><span class="hs-identifier hs-type">KnownGender</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679325503"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KnownGender
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KnownGender) -&gt; Value -&gt; Parser KnownGender
@@ -138,18 +138,18 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KnownGender&quot;</span></span><span>
-</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325491"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325491"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KnownGenderType -&gt; KnownGender
+</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325500"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325500"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KnownGenderType -&gt; KnownGender
 </span><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender%27"><span class="hs-identifier hs-var">KnownGender'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe KnownGenderType -&gt; KnownGender)
 -&gt; Parser (Maybe KnownGenderType) -&gt; Parser KnownGender
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KnownGenderType)
+</span><a href="#local-6989586621679325500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KnownGenderType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325485"><span id="local-6989586621679325487"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender"><span class="hs-identifier hs-type">KnownGender</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325494"><span id="local-6989586621679325496"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender"><span class="hs-identifier hs-type">KnownGender</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender"><span class="hs-identifier hs-type">KnownGender</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325491"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender"><span class="hs-identifier hs-type">KnownGender</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

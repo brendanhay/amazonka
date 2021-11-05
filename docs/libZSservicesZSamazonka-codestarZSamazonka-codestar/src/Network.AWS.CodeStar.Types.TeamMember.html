@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a team member in a project.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTeamMember' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679174224"><span id="local-6989586621679174225"></span></span><span class="hs-keyword">data</span><span> </span><span id="TeamMember"><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-var">TeamMember</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TeamMember%27"><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-var">TeamMember'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679174233"><span id="local-6989586621679174234"></span></span><span class="hs-keyword">data</span><span> </span><span id="TeamMember"><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-var">TeamMember</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TeamMember%27"><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-var">TeamMember'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether the user is allowed to remotely access project resources using</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- an SSH public\/private key pair.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AremoteAccessAllowed%3ATeamMember%27"><span class="annot"><span class="annottext">TeamMember -&gt; Maybe Bool
@@ -41,7 +41,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AprojectRole%3ATeamMember%27"><span class="annot"><span class="annottext">TeamMember -&gt; Text
 </span><a href="Network.AWS.CodeStar.Types.TeamMember.html#%24sel%3AprojectRole%3ATeamMember%27"><span class="hs-identifier hs-var hs-var">projectRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174216"><span id="local-6989586621679174218"><span class="annot"><span class="annottext">TeamMember -&gt; TeamMember -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174225"><span id="local-6989586621679174227"><span class="annot"><span class="annottext">TeamMember -&gt; TeamMember -&gt; Bool
 (TeamMember -&gt; TeamMember -&gt; Bool)
 -&gt; (TeamMember -&gt; TeamMember -&gt; Bool) -&gt; Eq TeamMember
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TeamMember -&gt; TeamMember -&gt; Bool
 == :: TeamMember -&gt; TeamMember -&gt; Bool
 $c== :: TeamMember -&gt; TeamMember -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174207"><span id="local-6989586621679174209"><span id="local-6989586621679174211"><span id="local-6989586621679174213"><span class="annot"><span class="annottext">ReadPrec [TeamMember]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174216"><span id="local-6989586621679174218"><span id="local-6989586621679174220"><span id="local-6989586621679174222"><span class="annot"><span class="annottext">ReadPrec [TeamMember]
 ReadPrec TeamMember
 Int -&gt; ReadS TeamMember
 ReadS [TeamMember]
@@ -69,7 +69,7 @@ readList :: ReadS [TeamMember]
 $creadList :: ReadS [TeamMember]
 readsPrec :: Int -&gt; ReadS TeamMember
 $creadsPrec :: Int -&gt; ReadS TeamMember
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174200"><span id="local-6989586621679174202"><span id="local-6989586621679174204"><span class="annot"><span class="annottext">Int -&gt; TeamMember -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174209"><span id="local-6989586621679174211"><span id="local-6989586621679174213"><span class="annot"><span class="annottext">Int -&gt; TeamMember -&gt; ShowS
 [TeamMember] -&gt; ShowS
 TeamMember -&gt; String
 (Int -&gt; TeamMember -&gt; ShowS)
@@ -118,9 +118,9 @@ $cfrom :: forall x. TeamMember -&gt; Rep TeamMember x
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span><span>
 </span><span id="line-66"></span><span id="newTeamMember"><span class="annot"><span class="annottext">newTeamMember :: Text -&gt; Text -&gt; TeamMember
-</span><a href="Network.AWS.CodeStar.Types.TeamMember.html#newTeamMember"><span class="hs-identifier hs-var hs-var">newTeamMember</span></a></span></span><span> </span><span id="local-6989586621679174194"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174194"><span class="hs-identifier hs-var">pUserArn_</span></a></span></span><span> </span><span id="local-6989586621679174193"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174193"><span class="hs-identifier hs-var">pProjectRole_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeStar.Types.TeamMember.html#newTeamMember"><span class="hs-identifier hs-var hs-var">newTeamMember</span></a></span></span><span> </span><span id="local-6989586621679174203"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174203"><span class="hs-identifier hs-var">pUserArn_</span></a></span></span><span> </span><span id="local-6989586621679174202"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174202"><span class="hs-identifier hs-var">pProjectRole_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">TeamMember' :: Maybe Bool -&gt; Text -&gt; Text -&gt; TeamMember
 </span><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-type">TeamMember'</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:remoteAccessAllowed:TeamMember' :: Maybe Bool
@@ -129,10 +129,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:userArn:TeamMember' :: Text
 </span><a href="Network.AWS.CodeStar.Types.TeamMember.html#%24sel%3AuserArn%3ATeamMember%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174194"><span class="hs-identifier hs-var">pUserArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679174203"><span class="hs-identifier hs-var">pUserArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectRole:TeamMember' :: Text
 </span><a href="Network.AWS.CodeStar.Types.TeamMember.html#%24sel%3AprojectRole%3ATeamMember%27"><span class="hs-identifier hs-var">projectRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174193"><span class="hs-identifier hs-var">pProjectRole_</span></a></span><span>
+</span><a href="#local-6989586621679174202"><span class="hs-identifier hs-var">pProjectRole_</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | Whether the user is allowed to remotely access project resources using</span><span>
@@ -143,16 +143,16 @@ forall a. Maybe a
 -&gt; (TeamMember -&gt; Maybe Bool -&gt; TeamMember)
 -&gt; Lens TeamMember TeamMember (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-type">TeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174189"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-type">TeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174198"><span class="annot"><span class="annottext">Maybe Bool
 remoteAccessAllowed :: Maybe Bool
 $sel:remoteAccessAllowed:TeamMember' :: TeamMember -&gt; Maybe Bool
-</span><a href="#local-6989586621679174189"><span class="hs-identifier hs-var hs-var">remoteAccessAllowed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679174189"><span class="hs-identifier hs-var">remoteAccessAllowed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174188"><span class="annot"><span class="annottext">s :: TeamMember
-</span><a href="#local-6989586621679174188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-type">TeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174187"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679174187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TeamMember
-</span><a href="#local-6989586621679174188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteAccessAllowed:TeamMember' :: Maybe Bool
+</span><a href="#local-6989586621679174198"><span class="hs-identifier hs-var hs-var">remoteAccessAllowed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679174198"><span class="hs-identifier hs-var">remoteAccessAllowed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174197"><span class="annot"><span class="annottext">s :: TeamMember
+</span><a href="#local-6989586621679174197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-type">TeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174196"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679174196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TeamMember
+</span><a href="#local-6989586621679174197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteAccessAllowed:TeamMember' :: Maybe Bool
 </span><a href="Network.AWS.CodeStar.Types.TeamMember.html#%24sel%3AremoteAccessAllowed%3ATeamMember%27"><span class="hs-identifier hs-var">remoteAccessAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679174187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user in IAM.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#teamMember_userArn"><span class="hs-identifier hs-type">teamMember_userArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -161,16 +161,16 @@ $sel:remoteAccessAllowed:TeamMember' :: TeamMember -&gt; Maybe Bool
 -&gt; (TeamMember -&gt; Text -&gt; TeamMember)
 -&gt; Lens TeamMember TeamMember Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-type">TeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174185"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-type">TeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174194"><span class="annot"><span class="annottext">Text
 userArn :: Text
 $sel:userArn:TeamMember' :: TeamMember -&gt; Text
-</span><a href="#local-6989586621679174185"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174185"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174184"><span class="annot"><span class="annottext">s :: TeamMember
-</span><a href="#local-6989586621679174184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-type">TeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174183"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TeamMember
-</span><a href="#local-6989586621679174184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:TeamMember' :: Text
+</span><a href="#local-6989586621679174194"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174194"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174193"><span class="annot"><span class="annottext">s :: TeamMember
+</span><a href="#local-6989586621679174193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-type">TeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174192"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TeamMember
+</span><a href="#local-6989586621679174193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:TeamMember' :: Text
 </span><a href="Network.AWS.CodeStar.Types.TeamMember.html#%24sel%3AuserArn%3ATeamMember%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The role assigned to the user in the project. Project roles have</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- different levels of access. For more information, see</span><span>
@@ -182,19 +182,19 @@ $sel:userArn:TeamMember' :: TeamMember -&gt; Text
 -&gt; (TeamMember -&gt; Text -&gt; TeamMember)
 -&gt; Lens TeamMember TeamMember Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-type">TeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174181"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-type">TeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174190"><span class="annot"><span class="annottext">Text
 projectRole :: Text
 $sel:projectRole:TeamMember' :: TeamMember -&gt; Text
-</span><a href="#local-6989586621679174181"><span class="hs-identifier hs-var hs-var">projectRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174181"><span class="hs-identifier hs-var">projectRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174180"><span class="annot"><span class="annottext">s :: TeamMember
-</span><a href="#local-6989586621679174180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-type">TeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174179"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TeamMember
-</span><a href="#local-6989586621679174180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectRole:TeamMember' :: Text
+</span><a href="#local-6989586621679174190"><span class="hs-identifier hs-var hs-var">projectRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174190"><span class="hs-identifier hs-var">projectRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174189"><span class="annot"><span class="annottext">s :: TeamMember
+</span><a href="#local-6989586621679174189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-type">TeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174188"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TeamMember
+</span><a href="#local-6989586621679174189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectRole:TeamMember' :: Text
 </span><a href="Network.AWS.CodeStar.Types.TeamMember.html#%24sel%3AprojectRole%3ATeamMember%27"><span class="hs-identifier hs-var">projectRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174176"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679174174"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TeamMember
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174185"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679174183"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TeamMember
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TeamMember) -&gt; Value -&gt; Parser TeamMember
@@ -202,15 +202,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TeamMember&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174171"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174171"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174180"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174180"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Text -&gt; Text -&gt; TeamMember
 </span><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember%27"><span class="hs-identifier hs-var">TeamMember'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Text -&gt; Text -&gt; TeamMember)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Text -&gt; Text -&gt; TeamMember)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679174180"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;remoteAccessAllowed&quot;</span></span><span class="hs-special">)</span><span>
@@ -218,20 +218,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; TeamMember)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679174180"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;userArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; TeamMember) -&gt; Parser Text -&gt; Parser TeamMember
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679174180"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;projectRole&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174164"><span id="local-6989586621679174166"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174173"><span id="local-6989586621679174175"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174161"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174170"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span></span><span>
 </span><span id="line-103"></span></pre></body></html>

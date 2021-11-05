@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDescribeVpcClassicLink' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621681241665"><span id="local-6989586621681241666"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVpcClassicLink"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-var">DescribeVpcClassicLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVpcClassicLink%27"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-var">DescribeVpcClassicLink'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621681241674"><span id="local-6989586621681241675"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVpcClassicLink"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-var">DescribeVpcClassicLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVpcClassicLink%27"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-var">DescribeVpcClassicLink'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more filters.</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   @is-classic-link-enabled@ - Whether the VPC is enabled for</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeVpcClassicLink%27"><span class="annot"><span class="annottext">DescribeVpcClassicLink -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#%24sel%3AdryRun%3ADescribeVpcClassicLink%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681241657"><span id="local-6989586621681241659"><span class="annot"><span class="annottext">DescribeVpcClassicLink -&gt; DescribeVpcClassicLink -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681241666"><span id="local-6989586621681241668"><span class="annot"><span class="annottext">DescribeVpcClassicLink -&gt; DescribeVpcClassicLink -&gt; Bool
 (DescribeVpcClassicLink -&gt; DescribeVpcClassicLink -&gt; Bool)
 -&gt; (DescribeVpcClassicLink -&gt; DescribeVpcClassicLink -&gt; Bool)
 -&gt; Eq DescribeVpcClassicLink
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeVpcClassicLink -&gt; DescribeVpcClassicLink -&gt; Bool
 == :: DescribeVpcClassicLink -&gt; DescribeVpcClassicLink -&gt; Bool
 $c== :: DescribeVpcClassicLink -&gt; DescribeVpcClassicLink -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681241648"><span id="local-6989586621681241650"><span id="local-6989586621681241652"><span id="local-6989586621681241654"><span class="annot"><span class="annottext">ReadPrec [DescribeVpcClassicLink]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681241657"><span id="local-6989586621681241659"><span id="local-6989586621681241661"><span id="local-6989586621681241663"><span class="annot"><span class="annottext">ReadPrec [DescribeVpcClassicLink]
 ReadPrec DescribeVpcClassicLink
 Int -&gt; ReadS DescribeVpcClassicLink
 ReadS [DescribeVpcClassicLink]
@@ -105,7 +105,7 @@ readList :: ReadS [DescribeVpcClassicLink]
 $creadList :: ReadS [DescribeVpcClassicLink]
 readsPrec :: Int -&gt; ReadS DescribeVpcClassicLink
 $creadsPrec :: Int -&gt; ReadS DescribeVpcClassicLink
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681241641"><span id="local-6989586621681241643"><span id="local-6989586621681241645"><span class="annot"><span class="annottext">Int -&gt; DescribeVpcClassicLink -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681241650"><span id="local-6989586621681241652"><span id="local-6989586621681241654"><span class="annot"><span class="annottext">Int -&gt; DescribeVpcClassicLink -&gt; ShowS
 [DescribeVpcClassicLink] -&gt; ShowS
 DescribeVpcClassicLink -&gt; String
 (Int -&gt; DescribeVpcClassicLink -&gt; ShowS)
@@ -208,16 +208,16 @@ forall a. Maybe a
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-type">DescribeVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681241634"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-type">DescribeVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681241643"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeVpcClassicLink' :: DescribeVpcClassicLink -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681241634"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681241634"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681241633"><span class="annot"><span class="annottext">s :: DescribeVpcClassicLink
-</span><a href="#local-6989586621681241633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-type">DescribeVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681241632"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681241632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcClassicLink
-</span><a href="#local-6989586621681241633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeVpcClassicLink' :: Maybe [Filter]
+</span><a href="#local-6989586621681241643"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681241643"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681241642"><span class="annot"><span class="annottext">s :: DescribeVpcClassicLink
+</span><a href="#local-6989586621681241642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-type">DescribeVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681241641"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681241641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcClassicLink
+</span><a href="#local-6989586621681241642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeVpcClassicLink' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#%24sel%3Afilters%3ADescribeVpcClassicLink%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681241632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681241641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeVpcClassicLink -&gt; f DescribeVpcClassicLink)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -248,16 +248,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-type">DescribeVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681241628"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-type">DescribeVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681241637"><span class="annot"><span class="annottext">Maybe [Text]
 vpcIds :: Maybe [Text]
 $sel:vpcIds:DescribeVpcClassicLink' :: DescribeVpcClassicLink -&gt; Maybe [Text]
-</span><a href="#local-6989586621681241628"><span class="hs-identifier hs-var hs-var">vpcIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681241628"><span class="hs-identifier hs-var">vpcIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681241627"><span class="annot"><span class="annottext">s :: DescribeVpcClassicLink
-</span><a href="#local-6989586621681241627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-type">DescribeVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681241626"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681241626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcClassicLink
-</span><a href="#local-6989586621681241627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcIds:DescribeVpcClassicLink' :: Maybe [Text]
+</span><a href="#local-6989586621681241637"><span class="hs-identifier hs-var hs-var">vpcIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681241637"><span class="hs-identifier hs-var">vpcIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681241636"><span class="annot"><span class="annottext">s :: DescribeVpcClassicLink
+</span><a href="#local-6989586621681241636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-type">DescribeVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681241635"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681241635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcClassicLink
+</span><a href="#local-6989586621681241636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcIds:DescribeVpcClassicLink' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#%24sel%3AvpcIds%3ADescribeVpcClassicLink%27"><span class="hs-identifier hs-var">vpcIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681241626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681241635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeVpcClassicLink -&gt; f DescribeVpcClassicLink)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -289,27 +289,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-type">DescribeVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681241625"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-type">DescribeVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681241634"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:DescribeVpcClassicLink' :: DescribeVpcClassicLink -&gt; Maybe Bool
-</span><a href="#local-6989586621681241625"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681241625"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681241624"><span class="annot"><span class="annottext">s :: DescribeVpcClassicLink
-</span><a href="#local-6989586621681241624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-type">DescribeVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681241623"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681241623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcClassicLink
-</span><a href="#local-6989586621681241624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeVpcClassicLink' :: Maybe Bool
+</span><a href="#local-6989586621681241634"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681241634"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681241633"><span class="annot"><span class="annottext">s :: DescribeVpcClassicLink
+</span><a href="#local-6989586621681241633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-type">DescribeVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681241632"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681241632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcClassicLink
+</span><a href="#local-6989586621681241633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeVpcClassicLink' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#%24sel%3AdryRun%3ADescribeVpcClassicLink%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681241623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681241632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-146"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse</span></a></span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621681241619"><span class="annot"><span class="annottext">request :: DescribeVpcClassicLink -&gt; Request DescribeVpcClassicLink
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621681241628"><span class="annot"><span class="annottext">request :: DescribeVpcClassicLink -&gt; Request DescribeVpcClassicLink
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeVpcClassicLink -&gt; Request DescribeVpcClassicLink
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621681241615"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621681241624"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeVpcClassicLink
 -&gt; ClientResponse ClientBody
@@ -335,10 +335,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681241612"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681241612"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681241611"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681241611"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681241610"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681241610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681241621"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681241621"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681241620"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681241620"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681241619"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681241619"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe [VpcClassicLink] -&gt; Int -&gt; DescribeVpcClassicLinkResponse
 </span><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-var">DescribeVpcClassicLinkResponse'</span></a></span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [VpcClassicLink] -&gt; Int -&gt; DescribeVpcClassicLinkResponse)
@@ -346,7 +346,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeVpcClassicLinkResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681241610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681241619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vpcSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -377,15 +377,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681241612"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681241621"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681241599"><span id="local-6989586621681241601"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681241608"><span id="local-6989586621681241610"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span></span></span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681241596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681241605"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621681241592"><span class="annot"><span class="annottext">toHeaders :: DescribeVpcClassicLink -&gt; ResponseHeaders
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621681241601"><span class="annot"><span class="annottext">toHeaders :: DescribeVpcClassicLink -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeVpcClassicLink -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -393,15 +393,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621681241587"><span class="annot"><span class="annottext">toPath :: DescribeVpcClassicLink -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621681241596"><span class="annot"><span class="annottext">toPath :: DescribeVpcClassicLink -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeVpcClassicLink -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink"><span class="hs-identifier hs-type">DescribeVpcClassicLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621681241583"><span class="annot"><span class="annottext">toQuery :: DescribeVpcClassicLink -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-type">DescribeVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681241579"><span id="local-6989586621681241580"><span id="local-6989586621681241581"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621681241592"><span class="annot"><span class="annottext">toQuery :: DescribeVpcClassicLink -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLink%27"><span class="hs-identifier hs-type">DescribeVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681241588"><span id="local-6989586621681241589"><span id="local-6989586621681241590"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe [Filter]
 dryRun :: Maybe Bool
@@ -410,7 +410,7 @@ filters :: Maybe [Filter]
 $sel:dryRun:DescribeVpcClassicLink' :: DescribeVpcClassicLink -&gt; Maybe Bool
 $sel:vpcIds:DescribeVpcClassicLink' :: DescribeVpcClassicLink -&gt; Maybe [Text]
 $sel:filters:DescribeVpcClassicLink' :: DescribeVpcClassicLink -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681241579"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681241588"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -437,7 +437,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681241581"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681241590"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -449,16 +449,16 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;VpcId&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681241580"><span class="hs-identifier hs-var">vpcIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681241589"><span class="hs-identifier hs-var">vpcIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681241579"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
+</span><a href="#local-6989586621681241588"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newDescribeVpcClassicLinkResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621681241575"><span id="local-6989586621681241576"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVpcClassicLinkResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse"><span class="hs-identifier hs-var">DescribeVpcClassicLinkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVpcClassicLinkResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-var">DescribeVpcClassicLinkResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621681241584"><span id="local-6989586621681241585"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVpcClassicLinkResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse"><span class="hs-identifier hs-var">DescribeVpcClassicLinkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVpcClassicLinkResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-var">DescribeVpcClassicLinkResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ClassicLink status of one or more VPCs.</span><span>
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3Avpcs%3ADescribeVpcClassicLinkResponse%27"><span class="annot"><span class="annottext">DescribeVpcClassicLinkResponse -&gt; Maybe [VpcClassicLink]
 </span><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#%24sel%3Avpcs%3ADescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-var hs-var">vpcs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcClassicLink.html#VpcClassicLink"><span class="hs-identifier hs-type">VpcClassicLink</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -466,7 +466,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeVpcClassicLinkResponse%27"><span class="annot"><span class="annottext">DescribeVpcClassicLinkResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#%24sel%3AhttpStatus%3ADescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681241569"><span id="local-6989586621681241571"><span class="annot"><span class="annottext">DescribeVpcClassicLinkResponse
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681241578"><span id="local-6989586621681241580"><span class="annot"><span class="annottext">DescribeVpcClassicLinkResponse
 -&gt; DescribeVpcClassicLinkResponse -&gt; Bool
 (DescribeVpcClassicLinkResponse
  -&gt; DescribeVpcClassicLinkResponse -&gt; Bool)
@@ -482,7 +482,7 @@ $c/= :: DescribeVpcClassicLinkResponse
 -&gt; DescribeVpcClassicLinkResponse -&gt; Bool
 $c== :: DescribeVpcClassicLinkResponse
 -&gt; DescribeVpcClassicLinkResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681241561"><span id="local-6989586621681241563"><span id="local-6989586621681241565"><span id="local-6989586621681241567"><span class="annot"><span class="annottext">ReadPrec [DescribeVpcClassicLinkResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681241570"><span id="local-6989586621681241572"><span id="local-6989586621681241574"><span id="local-6989586621681241576"><span class="annot"><span class="annottext">ReadPrec [DescribeVpcClassicLinkResponse]
 ReadPrec DescribeVpcClassicLinkResponse
 Int -&gt; ReadS DescribeVpcClassicLinkResponse
 ReadS [DescribeVpcClassicLinkResponse]
@@ -502,7 +502,7 @@ readList :: ReadS [DescribeVpcClassicLinkResponse]
 $creadList :: ReadS [DescribeVpcClassicLinkResponse]
 readsPrec :: Int -&gt; ReadS DescribeVpcClassicLinkResponse
 $creadsPrec :: Int -&gt; ReadS DescribeVpcClassicLinkResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681241555"><span id="local-6989586621681241557"><span id="local-6989586621681241559"><span class="annot"><span class="annottext">Int -&gt; DescribeVpcClassicLinkResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681241564"><span id="local-6989586621681241566"><span id="local-6989586621681241568"><span class="annot"><span class="annottext">Int -&gt; DescribeVpcClassicLinkResponse -&gt; ShowS
 [DescribeVpcClassicLinkResponse] -&gt; ShowS
 DescribeVpcClassicLinkResponse -&gt; String
 (Int -&gt; DescribeVpcClassicLinkResponse -&gt; ShowS)
@@ -556,8 +556,8 @@ DescribeVpcClassicLinkResponse
 </span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-206"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse</span></a></span><span>
 </span><span id="line-207"></span><span id="newDescribeVpcClassicLinkResponse"><span class="annot"><span class="annottext">newDescribeVpcClassicLinkResponse :: Int -&gt; DescribeVpcClassicLinkResponse
-</span><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#newDescribeVpcClassicLinkResponse"><span class="hs-identifier hs-var hs-var">newDescribeVpcClassicLinkResponse</span></a></span></span><span> </span><span id="local-6989586621681241552"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681241552"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#newDescribeVpcClassicLinkResponse"><span class="hs-identifier hs-var hs-var">newDescribeVpcClassicLinkResponse</span></a></span></span><span> </span><span id="local-6989586621681241561"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681241561"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">DescribeVpcClassicLinkResponse' :: Maybe [VpcClassicLink] -&gt; Int -&gt; DescribeVpcClassicLinkResponse
 </span><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse'</span></a></span><span>
 </span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcs:DescribeVpcClassicLinkResponse' :: Maybe [VpcClassicLink]
@@ -567,7 +567,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVpcClassicLinkResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#%24sel%3AhttpStatus%3ADescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681241552"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681241561"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-212"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | The ClassicLink status of one or more VPCs.</span><span>
@@ -584,16 +584,16 @@ forall a. Maybe a
      (Maybe [VpcClassicLink])
      (Maybe [VpcClassicLink])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681241551"><span class="annot"><span class="annottext">Maybe [VpcClassicLink]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681241560"><span class="annot"><span class="annottext">Maybe [VpcClassicLink]
 vpcs :: Maybe [VpcClassicLink]
 $sel:vpcs:DescribeVpcClassicLinkResponse' :: DescribeVpcClassicLinkResponse -&gt; Maybe [VpcClassicLink]
-</span><a href="#local-6989586621681241551"><span class="hs-identifier hs-var hs-var">vpcs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcClassicLink]
-</span><a href="#local-6989586621681241551"><span class="hs-identifier hs-var">vpcs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681241550"><span class="annot"><span class="annottext">s :: DescribeVpcClassicLinkResponse
-</span><a href="#local-6989586621681241550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681241549"><span class="annot"><span class="annottext">Maybe [VpcClassicLink]
-</span><a href="#local-6989586621681241549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcClassicLinkResponse
-</span><a href="#local-6989586621681241550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcs:DescribeVpcClassicLinkResponse' :: Maybe [VpcClassicLink]
+</span><a href="#local-6989586621681241560"><span class="hs-identifier hs-var hs-var">vpcs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcClassicLink]
+</span><a href="#local-6989586621681241560"><span class="hs-identifier hs-var">vpcs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681241559"><span class="annot"><span class="annottext">s :: DescribeVpcClassicLinkResponse
+</span><a href="#local-6989586621681241559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681241558"><span class="annot"><span class="annottext">Maybe [VpcClassicLink]
+</span><a href="#local-6989586621681241558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcClassicLinkResponse
+</span><a href="#local-6989586621681241559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcs:DescribeVpcClassicLinkResponse' :: Maybe [VpcClassicLink]
 </span><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#%24sel%3Avpcs%3ADescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-var">vpcs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcClassicLink]
-</span><a href="#local-6989586621681241549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VpcClassicLink] -&gt; f (Maybe [VpcClassicLink]))
+</span><a href="#local-6989586621681241558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VpcClassicLink] -&gt; f (Maybe [VpcClassicLink]))
  -&gt; DescribeVpcClassicLinkResponse
  -&gt; f DescribeVpcClassicLinkResponse)
 -&gt; ((Maybe [VpcClassicLink] -&gt; f (Maybe [VpcClassicLink]))
@@ -631,18 +631,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681241548"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681241557"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeVpcClassicLinkResponse' :: DescribeVpcClassicLinkResponse -&gt; Int
-</span><a href="#local-6989586621681241548"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681241548"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681241547"><span class="annot"><span class="annottext">s :: DescribeVpcClassicLinkResponse
-</span><a href="#local-6989586621681241547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681241546"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681241546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcClassicLinkResponse
-</span><a href="#local-6989586621681241547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVpcClassicLinkResponse' :: Int
+</span><a href="#local-6989586621681241557"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681241557"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681241556"><span class="annot"><span class="annottext">s :: DescribeVpcClassicLinkResponse
+</span><a href="#local-6989586621681241556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681241555"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681241555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcClassicLinkResponse
+</span><a href="#local-6989586621681241556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVpcClassicLinkResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#%24sel%3AhttpStatus%3ADescribeVpcClassicLinkResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681241546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681241555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-223"></span><span>  </span><span id="local-6989586621681241544"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621681241553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-224"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcClassicLink.html#DescribeVpcClassicLinkResponse"><span class="hs-identifier hs-type">DescribeVpcClassicLinkResponse</span></a></span></span><span>
 </span><span id="line-225"></span></pre></body></html>

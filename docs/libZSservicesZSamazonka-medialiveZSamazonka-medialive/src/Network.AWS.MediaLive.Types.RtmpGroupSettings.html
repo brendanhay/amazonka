@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | Rtmp Group Settings</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newRtmpGroupSettings' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679915045"><span id="local-6989586621679915046"></span></span><span class="hs-keyword">data</span><span> </span><span id="RtmpGroupSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-var">RtmpGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RtmpGroupSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-var">RtmpGroupSettings'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679915054"><span id="local-6989586621679915055"></span></span><span class="hs-keyword">data</span><span> </span><span id="RtmpGroupSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-var">RtmpGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RtmpGroupSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-var">RtmpGroupSettings'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Controls the behavior of this RTMP group if input becomes unavailable. -</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- emitOutput: Emit a slate until input returns. - pauseOutput: Stop</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- transmitting data until input returns. This does not close the</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AcacheFullBehavior%3ARtmpGroupSettings%27"><span class="annot"><span class="annottext">RtmpGroupSettings -&gt; Maybe RtmpCacheFullBehavior
 </span><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#%24sel%3AcacheFullBehavior%3ARtmpGroupSettings%27"><span class="hs-identifier hs-var hs-var">cacheFullBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpCacheFullBehavior.html#RtmpCacheFullBehavior"><span class="hs-identifier hs-type">RtmpCacheFullBehavior</span></a></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679915033"><span id="local-6989586621679915035"><span class="annot"><span class="annottext">RtmpGroupSettings -&gt; RtmpGroupSettings -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679915042"><span id="local-6989586621679915044"><span class="annot"><span class="annottext">RtmpGroupSettings -&gt; RtmpGroupSettings -&gt; Bool
 (RtmpGroupSettings -&gt; RtmpGroupSettings -&gt; Bool)
 -&gt; (RtmpGroupSettings -&gt; RtmpGroupSettings -&gt; Bool)
 -&gt; Eq RtmpGroupSettings
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RtmpGroupSettings -&gt; RtmpGroupSettings -&gt; Bool
 == :: RtmpGroupSettings -&gt; RtmpGroupSettings -&gt; Bool
 $c== :: RtmpGroupSettings -&gt; RtmpGroupSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915024"><span id="local-6989586621679915026"><span id="local-6989586621679915028"><span id="local-6989586621679915030"><span class="annot"><span class="annottext">ReadPrec [RtmpGroupSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915033"><span id="local-6989586621679915035"><span id="local-6989586621679915037"><span id="local-6989586621679915039"><span class="annot"><span class="annottext">ReadPrec [RtmpGroupSettings]
 ReadPrec RtmpGroupSettings
 Int -&gt; ReadS RtmpGroupSettings
 ReadS [RtmpGroupSettings]
@@ -100,7 +100,7 @@ readList :: ReadS [RtmpGroupSettings]
 $creadList :: ReadS [RtmpGroupSettings]
 readsPrec :: Int -&gt; ReadS RtmpGroupSettings
 $creadsPrec :: Int -&gt; ReadS RtmpGroupSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915017"><span id="local-6989586621679915019"><span id="local-6989586621679915021"><span class="annot"><span class="annottext">Int -&gt; RtmpGroupSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915026"><span id="local-6989586621679915028"><span id="local-6989586621679915030"><span class="annot"><span class="annottext">Int -&gt; RtmpGroupSettings -&gt; ShowS
 [RtmpGroupSettings] -&gt; ShowS
 RtmpGroupSettings -&gt; String
 (Int -&gt; RtmpGroupSettings -&gt; ShowS)
@@ -225,16 +225,16 @@ forall a. Maybe a
      (Maybe InputLossActionForRtmpOut)
      (Maybe InputLossActionForRtmpOut)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915008"><span class="annot"><span class="annottext">Maybe InputLossActionForRtmpOut
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915017"><span class="annot"><span class="annottext">Maybe InputLossActionForRtmpOut
 inputLossAction :: Maybe InputLossActionForRtmpOut
 $sel:inputLossAction:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe InputLossActionForRtmpOut
-</span><a href="#local-6989586621679915008"><span class="hs-identifier hs-var hs-var">inputLossAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLossActionForRtmpOut
-</span><a href="#local-6989586621679915008"><span class="hs-identifier hs-var">inputLossAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915007"><span class="annot"><span class="annottext">s :: RtmpGroupSettings
-</span><a href="#local-6989586621679915007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915006"><span class="annot"><span class="annottext">Maybe InputLossActionForRtmpOut
-</span><a href="#local-6989586621679915006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpGroupSettings
-</span><a href="#local-6989586621679915007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputLossAction:RtmpGroupSettings' :: Maybe InputLossActionForRtmpOut
+</span><a href="#local-6989586621679915017"><span class="hs-identifier hs-var hs-var">inputLossAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLossActionForRtmpOut
+</span><a href="#local-6989586621679915017"><span class="hs-identifier hs-var">inputLossAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915016"><span class="annot"><span class="annottext">s :: RtmpGroupSettings
+</span><a href="#local-6989586621679915016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915015"><span class="annot"><span class="annottext">Maybe InputLossActionForRtmpOut
+</span><a href="#local-6989586621679915015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpGroupSettings
+</span><a href="#local-6989586621679915016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputLossAction:RtmpGroupSettings' :: Maybe InputLossActionForRtmpOut
 </span><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#%24sel%3AinputLossAction%3ARtmpGroupSettings%27"><span class="hs-identifier hs-var">inputLossAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputLossActionForRtmpOut
-</span><a href="#local-6989586621679915006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679915015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | Controls the types of data that passes to onCaptionInfo outputs. If set</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- to \'all\' then 608 and 708 carried DTVCC data will be passed. If set to</span><span>
@@ -253,16 +253,16 @@ $sel:inputLossAction:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe InputLo
      (Maybe RtmpCaptionData)
      (Maybe RtmpCaptionData)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915004"><span class="annot"><span class="annottext">Maybe RtmpCaptionData
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915013"><span class="annot"><span class="annottext">Maybe RtmpCaptionData
 captionData :: Maybe RtmpCaptionData
 $sel:captionData:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe RtmpCaptionData
-</span><a href="#local-6989586621679915004"><span class="hs-identifier hs-var hs-var">captionData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RtmpCaptionData
-</span><a href="#local-6989586621679915004"><span class="hs-identifier hs-var">captionData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915003"><span class="annot"><span class="annottext">s :: RtmpGroupSettings
-</span><a href="#local-6989586621679915003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915002"><span class="annot"><span class="annottext">Maybe RtmpCaptionData
-</span><a href="#local-6989586621679915002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpGroupSettings
-</span><a href="#local-6989586621679915003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionData:RtmpGroupSettings' :: Maybe RtmpCaptionData
+</span><a href="#local-6989586621679915013"><span class="hs-identifier hs-var hs-var">captionData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RtmpCaptionData
+</span><a href="#local-6989586621679915013"><span class="hs-identifier hs-var">captionData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915012"><span class="annot"><span class="annottext">s :: RtmpGroupSettings
+</span><a href="#local-6989586621679915012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915011"><span class="annot"><span class="annottext">Maybe RtmpCaptionData
+</span><a href="#local-6989586621679915011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpGroupSettings
+</span><a href="#local-6989586621679915012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionData:RtmpGroupSettings' :: Maybe RtmpCaptionData
 </span><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#%24sel%3AcaptionData%3ARtmpGroupSettings%27"><span class="hs-identifier hs-var">captionData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RtmpCaptionData
-</span><a href="#local-6989586621679915002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679915011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | Choose the ad marker type for this output group. MediaLive will create a</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- message based on the content of each SCTE-35 message, format it for that</span><span>
@@ -279,16 +279,16 @@ $sel:captionData:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe RtmpCaption
      (Maybe [RtmpAdMarkers])
      (Maybe [RtmpAdMarkers])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915000"><span class="annot"><span class="annottext">Maybe [RtmpAdMarkers]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915009"><span class="annot"><span class="annottext">Maybe [RtmpAdMarkers]
 adMarkers :: Maybe [RtmpAdMarkers]
 $sel:adMarkers:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe [RtmpAdMarkers]
-</span><a href="#local-6989586621679915000"><span class="hs-identifier hs-var hs-var">adMarkers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RtmpAdMarkers]
-</span><a href="#local-6989586621679915000"><span class="hs-identifier hs-var">adMarkers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679914999"><span class="annot"><span class="annottext">s :: RtmpGroupSettings
-</span><a href="#local-6989586621679914999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679914998"><span class="annot"><span class="annottext">Maybe [RtmpAdMarkers]
-</span><a href="#local-6989586621679914998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpGroupSettings
-</span><a href="#local-6989586621679914999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adMarkers:RtmpGroupSettings' :: Maybe [RtmpAdMarkers]
+</span><a href="#local-6989586621679915009"><span class="hs-identifier hs-var hs-var">adMarkers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RtmpAdMarkers]
+</span><a href="#local-6989586621679915009"><span class="hs-identifier hs-var">adMarkers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915008"><span class="annot"><span class="annottext">s :: RtmpGroupSettings
+</span><a href="#local-6989586621679915008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915007"><span class="annot"><span class="annottext">Maybe [RtmpAdMarkers]
+</span><a href="#local-6989586621679915007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpGroupSettings
+</span><a href="#local-6989586621679915008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adMarkers:RtmpGroupSettings' :: Maybe [RtmpAdMarkers]
 </span><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#%24sel%3AadMarkers%3ARtmpGroupSettings%27"><span class="hs-identifier hs-var">adMarkers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RtmpAdMarkers]
-</span><a href="#local-6989586621679914998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RtmpAdMarkers] -&gt; f (Maybe [RtmpAdMarkers]))
+</span><a href="#local-6989586621679915007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RtmpAdMarkers] -&gt; f (Maybe [RtmpAdMarkers]))
  -&gt; RtmpGroupSettings -&gt; f RtmpGroupSettings)
 -&gt; ((Maybe [RtmpAdMarkers] -&gt; f (Maybe [RtmpAdMarkers]))
     -&gt; Maybe [RtmpAdMarkers] -&gt; f (Maybe [RtmpAdMarkers]))
@@ -321,16 +321,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      RtmpGroupSettings RtmpGroupSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679914993"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915002"><span class="annot"><span class="annottext">Maybe Natural
 restartDelay :: Maybe Natural
 $sel:restartDelay:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679914993"><span class="hs-identifier hs-var hs-var">restartDelay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679914993"><span class="hs-identifier hs-var">restartDelay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679914992"><span class="annot"><span class="annottext">s :: RtmpGroupSettings
-</span><a href="#local-6989586621679914992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679914991"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679914991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpGroupSettings
-</span><a href="#local-6989586621679914992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restartDelay:RtmpGroupSettings' :: Maybe Natural
+</span><a href="#local-6989586621679915002"><span class="hs-identifier hs-var hs-var">restartDelay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679915002"><span class="hs-identifier hs-var">restartDelay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915001"><span class="annot"><span class="annottext">s :: RtmpGroupSettings
+</span><a href="#local-6989586621679915001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915000"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679915000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpGroupSettings
+</span><a href="#local-6989586621679915001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restartDelay:RtmpGroupSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#%24sel%3ArestartDelay%3ARtmpGroupSettings%27"><span class="hs-identifier hs-var">restartDelay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679914991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679915000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | Authentication scheme to use when connecting with CDN</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#rtmpGroupSettings_authenticationScheme"><span class="hs-identifier hs-type">rtmpGroupSettings_authenticationScheme</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AuthenticationScheme.html#AuthenticationScheme"><span class="hs-identifier hs-type">AuthenticationScheme</span></a></span><span class="hs-special">)</span><span>
@@ -345,16 +345,16 @@ $sel:restartDelay:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe Natural
      (Maybe AuthenticationScheme)
      (Maybe AuthenticationScheme)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679914989"><span class="annot"><span class="annottext">Maybe AuthenticationScheme
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679914998"><span class="annot"><span class="annottext">Maybe AuthenticationScheme
 authenticationScheme :: Maybe AuthenticationScheme
 $sel:authenticationScheme:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe AuthenticationScheme
-</span><a href="#local-6989586621679914989"><span class="hs-identifier hs-var hs-var">authenticationScheme</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationScheme
-</span><a href="#local-6989586621679914989"><span class="hs-identifier hs-var">authenticationScheme</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679914988"><span class="annot"><span class="annottext">s :: RtmpGroupSettings
-</span><a href="#local-6989586621679914988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679914987"><span class="annot"><span class="annottext">Maybe AuthenticationScheme
-</span><a href="#local-6989586621679914987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpGroupSettings
-</span><a href="#local-6989586621679914988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationScheme:RtmpGroupSettings' :: Maybe AuthenticationScheme
+</span><a href="#local-6989586621679914998"><span class="hs-identifier hs-var hs-var">authenticationScheme</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationScheme
+</span><a href="#local-6989586621679914998"><span class="hs-identifier hs-var">authenticationScheme</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679914997"><span class="annot"><span class="annottext">s :: RtmpGroupSettings
+</span><a href="#local-6989586621679914997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679914996"><span class="annot"><span class="annottext">Maybe AuthenticationScheme
+</span><a href="#local-6989586621679914996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpGroupSettings
+</span><a href="#local-6989586621679914997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationScheme:RtmpGroupSettings' :: Maybe AuthenticationScheme
 </span><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#%24sel%3AauthenticationScheme%3ARtmpGroupSettings%27"><span class="hs-identifier hs-var">authenticationScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationScheme
-</span><a href="#local-6989586621679914987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679914996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | Cache length, in seconds, is used to calculate buffer size.</span><span>
 </span><span id="line-152"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#rtmpGroupSettings_cacheLength"><span class="hs-identifier hs-type">rtmpGroupSettings_cacheLength</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -365,16 +365,16 @@ $sel:authenticationScheme:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe Au
 -&gt; Lens
      RtmpGroupSettings RtmpGroupSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679914985"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679914994"><span class="annot"><span class="annottext">Maybe Natural
 cacheLength :: Maybe Natural
 $sel:cacheLength:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679914985"><span class="hs-identifier hs-var hs-var">cacheLength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679914985"><span class="hs-identifier hs-var">cacheLength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679914984"><span class="annot"><span class="annottext">s :: RtmpGroupSettings
-</span><a href="#local-6989586621679914984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679914983"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679914983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpGroupSettings
-</span><a href="#local-6989586621679914984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheLength:RtmpGroupSettings' :: Maybe Natural
+</span><a href="#local-6989586621679914994"><span class="hs-identifier hs-var hs-var">cacheLength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679914994"><span class="hs-identifier hs-var">cacheLength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679914993"><span class="annot"><span class="annottext">s :: RtmpGroupSettings
+</span><a href="#local-6989586621679914993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679914992"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679914992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpGroupSettings
+</span><a href="#local-6989586621679914993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheLength:RtmpGroupSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#%24sel%3AcacheLength%3ARtmpGroupSettings%27"><span class="hs-identifier hs-var">cacheLength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679914983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679914992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | Controls behavior when content cache fills up. If remote origin server</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- stalls the RTMP connection and does not accept content fast enough the</span><span>
@@ -396,19 +396,19 @@ $sel:cacheLength:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe Natural
      (Maybe RtmpCacheFullBehavior)
      (Maybe RtmpCacheFullBehavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679914981"><span class="annot"><span class="annottext">Maybe RtmpCacheFullBehavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679914990"><span class="annot"><span class="annottext">Maybe RtmpCacheFullBehavior
 cacheFullBehavior :: Maybe RtmpCacheFullBehavior
 $sel:cacheFullBehavior:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe RtmpCacheFullBehavior
-</span><a href="#local-6989586621679914981"><span class="hs-identifier hs-var hs-var">cacheFullBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RtmpCacheFullBehavior
-</span><a href="#local-6989586621679914981"><span class="hs-identifier hs-var">cacheFullBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679914980"><span class="annot"><span class="annottext">s :: RtmpGroupSettings
-</span><a href="#local-6989586621679914980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679914979"><span class="annot"><span class="annottext">Maybe RtmpCacheFullBehavior
-</span><a href="#local-6989586621679914979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpGroupSettings
-</span><a href="#local-6989586621679914980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheFullBehavior:RtmpGroupSettings' :: Maybe RtmpCacheFullBehavior
+</span><a href="#local-6989586621679914990"><span class="hs-identifier hs-var hs-var">cacheFullBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RtmpCacheFullBehavior
+</span><a href="#local-6989586621679914990"><span class="hs-identifier hs-var">cacheFullBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679914989"><span class="annot"><span class="annottext">s :: RtmpGroupSettings
+</span><a href="#local-6989586621679914989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679914988"><span class="annot"><span class="annottext">Maybe RtmpCacheFullBehavior
+</span><a href="#local-6989586621679914988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpGroupSettings
+</span><a href="#local-6989586621679914989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheFullBehavior:RtmpGroupSettings' :: Maybe RtmpCacheFullBehavior
 </span><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#%24sel%3AcacheFullBehavior%3ARtmpGroupSettings%27"><span class="hs-identifier hs-var">cacheFullBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RtmpCacheFullBehavior
-</span><a href="#local-6989586621679914979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679914988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679914976"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679914974"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RtmpGroupSettings
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679914985"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679914983"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RtmpGroupSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RtmpGroupSettings)
@@ -418,8 +418,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RtmpGroupSettings&quot;</span></span><span>
-</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679914971"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679914971"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679914980"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679914980"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe InputLossActionForRtmpOut
 -&gt; Maybe RtmpCaptionData
 -&gt; Maybe [RtmpAdMarkers]
@@ -448,7 +448,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; RtmpGroupSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679914971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLossActionForRtmpOut)
+</span><a href="#local-6989586621679914980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLossActionForRtmpOut)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputLossAction&quot;</span></span><span class="hs-special">)</span><span>
@@ -470,7 +470,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; RtmpGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679914971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RtmpCaptionData)
+</span><a href="#local-6989586621679914980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RtmpCaptionData)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;captionData&quot;</span></span><span class="hs-special">)</span><span>
@@ -490,7 +490,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; RtmpGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679914971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RtmpAdMarkers]))
+</span><a href="#local-6989586621679914980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RtmpAdMarkers]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;adMarkers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [RtmpAdMarkers]))
@@ -513,7 +513,7 @@ forall a. Monoid a =&gt; a
       -&gt; RtmpGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679914971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679914980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;restartDelay&quot;</span></span><span class="hs-special">)</span><span>
@@ -527,7 +527,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Natural -&gt; Maybe RtmpCacheFullBehavior -&gt; RtmpGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679914971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthenticationScheme)
+</span><a href="#local-6989586621679914980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthenticationScheme)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authenticationScheme&quot;</span></span><span class="hs-special">)</span><span>
@@ -537,7 +537,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe RtmpCacheFullBehavior -&gt; RtmpGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679914971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679914980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cacheLength&quot;</span></span><span class="hs-special">)</span><span>
@@ -545,19 +545,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe RtmpCacheFullBehavior) -&gt; Parser RtmpGroupSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679914971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RtmpCacheFullBehavior)
+</span><a href="#local-6989586621679914980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RtmpCacheFullBehavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cacheFullBehavior&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679914964"><span id="local-6989586621679914966"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679914973"><span id="local-6989586621679914975"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span></span></span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679914961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679914970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span></span><span>
 </span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679914953"><span id="local-6989586621679914955"><span id="local-6989586621679914957"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679914951"><span class="annot"><span class="annottext">toJSON :: RtmpGroupSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679914943"><span id="local-6989586621679914944"><span id="local-6989586621679914945"><span id="local-6989586621679914946"><span id="local-6989586621679914947"><span id="local-6989586621679914948"><span id="local-6989586621679914949"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679914962"><span id="local-6989586621679914964"><span id="local-6989586621679914966"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings"><span class="hs-identifier hs-type">RtmpGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679914960"><span class="annot"><span class="annottext">toJSON :: RtmpGroupSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpGroupSettings.html#RtmpGroupSettings%27"><span class="hs-identifier hs-type">RtmpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679914952"><span id="local-6989586621679914953"><span id="local-6989586621679914954"><span id="local-6989586621679914955"><span id="local-6989586621679914956"><span id="local-6989586621679914957"><span id="local-6989586621679914958"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [RtmpAdMarkers]
 Maybe AuthenticationScheme
 Maybe InputLossActionForRtmpOut
@@ -577,7 +577,7 @@ $sel:restartDelay:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe Natural
 $sel:adMarkers:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe [RtmpAdMarkers]
 $sel:captionData:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe RtmpCaptionData
 $sel:inputLossAction:RtmpGroupSettings' :: RtmpGroupSettings -&gt; Maybe InputLossActionForRtmpOut
-</span><a href="#local-6989586621679914943"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679914952"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -591,28 +591,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe InputLossActionForRtmpOut -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputLossActionForRtmpOut
-</span><a href="#local-6989586621679914949"><span class="hs-identifier hs-var">inputLossAction</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679914958"><span class="hs-identifier hs-var">inputLossAction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;captionData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RtmpCaptionData -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RtmpCaptionData -&gt; Pair) -&gt; Maybe RtmpCaptionData -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RtmpCaptionData
-</span><a href="#local-6989586621679914948"><span class="hs-identifier hs-var">captionData</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679914957"><span class="hs-identifier hs-var">captionData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;adMarkers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [RtmpAdMarkers] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([RtmpAdMarkers] -&gt; Pair) -&gt; Maybe [RtmpAdMarkers] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RtmpAdMarkers]
-</span><a href="#local-6989586621679914947"><span class="hs-identifier hs-var">adMarkers</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679914956"><span class="hs-identifier hs-var">adMarkers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;restartDelay&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679914946"><span class="hs-identifier hs-var">restartDelay</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679914955"><span class="hs-identifier hs-var">restartDelay</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authenticationScheme&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AuthenticationScheme -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -621,14 +621,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AuthenticationScheme -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationScheme
-</span><a href="#local-6989586621679914945"><span class="hs-identifier hs-var">authenticationScheme</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679914954"><span class="hs-identifier hs-var">authenticationScheme</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cacheLength&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679914944"><span class="hs-identifier hs-var">cacheLength</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679914953"><span class="hs-identifier hs-var">cacheLength</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cacheFullBehavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RtmpCacheFullBehavior -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -637,7 +637,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe RtmpCacheFullBehavior -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RtmpCacheFullBehavior
-</span><a href="#local-6989586621679914943"><span class="hs-identifier hs-var">cacheFullBehavior</span></a></span><span>
+</span><a href="#local-6989586621679914952"><span class="hs-identifier hs-var">cacheFullBehavior</span></a></span><span>
 </span><span id="line-199"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span></pre></body></html>

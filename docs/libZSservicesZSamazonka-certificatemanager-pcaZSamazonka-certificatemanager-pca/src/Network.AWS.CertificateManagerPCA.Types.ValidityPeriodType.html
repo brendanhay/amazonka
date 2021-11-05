@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679213022"><span id="local-6989586621679213023"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ValidityPeriodType"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType"><span class="hs-identifier hs-var">ValidityPeriodType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidityPeriodType%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType%27"><span class="hs-identifier hs-var">ValidityPeriodType'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679213031"><span id="local-6989586621679213032"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ValidityPeriodType"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType"><span class="hs-identifier hs-var">ValidityPeriodType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidityPeriodType%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType%27"><span class="hs-identifier hs-var">ValidityPeriodType'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromValidityPeriodType"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType.html#fromValidityPeriodType"><span class="hs-identifier hs-var hs-var">fromValidityPeriodType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679213014"><span id="local-6989586621679213016"><span id="local-6989586621679213018"><span class="annot"><span class="annottext">Int -&gt; ValidityPeriodType -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679213023"><span id="local-6989586621679213025"><span id="local-6989586621679213027"><span class="annot"><span class="annottext">Int -&gt; ValidityPeriodType -&gt; ShowS
 [ValidityPeriodType] -&gt; ShowS
 ValidityPeriodType -&gt; String
 (Int -&gt; ValidityPeriodType -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ValidityPeriodType -&gt; String
 showsPrec :: Int -&gt; ValidityPeriodType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ValidityPeriodType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679213005"><span id="local-6989586621679213007"><span id="local-6989586621679213009"><span id="local-6989586621679213011"><span class="annot"><span class="annottext">ReadPrec [ValidityPeriodType]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679213014"><span id="local-6989586621679213016"><span id="local-6989586621679213018"><span id="local-6989586621679213020"><span class="annot"><span class="annottext">ReadPrec [ValidityPeriodType]
 ReadPrec ValidityPeriodType
 Int -&gt; ReadS ValidityPeriodType
 ReadS [ValidityPeriodType]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ValidityPeriodType]
 readsPrec :: Int -&gt; ReadS ValidityPeriodType
 $creadsPrec :: Int -&gt; ReadS ValidityPeriodType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679213000"><span id="local-6989586621679213002"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679213009"><span id="local-6989586621679213011"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
 (ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool)
 -&gt; (ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool)
 -&gt; Eq ValidityPeriodType
@@ -85,7 +85,7 @@ $c/= :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
 == :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
 $c== :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679212984"><span id="local-6989586621679212986"><span id="local-6989586621679212988"><span id="local-6989586621679212990"><span id="local-6989586621679212992"><span id="local-6989586621679212994"><span id="local-6989586621679212996"><span class="annot"><span class="annottext">Eq ValidityPeriodType
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679212993"><span id="local-6989586621679212995"><span id="local-6989586621679212997"><span id="local-6989586621679212999"><span id="local-6989586621679213001"><span id="local-6989586621679213003"><span id="local-6989586621679213005"><span class="annot"><span class="annottext">Eq ValidityPeriodType
 Eq ValidityPeriodType
 -&gt; (ValidityPeriodType -&gt; ValidityPeriodType -&gt; Ordering)
 -&gt; (ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. ValidityPeriodType -&gt; Rep ValidityPeriodType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679212976"><span id="local-6989586621679212978"><span class="annot"><span class="annottext">Int -&gt; ValidityPeriodType -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679212985"><span id="local-6989586621679212987"><span class="annot"><span class="annottext">Int -&gt; ValidityPeriodType -&gt; Int
 ValidityPeriodType -&gt; Int
 (Int -&gt; ValidityPeriodType -&gt; Int)
 -&gt; (ValidityPeriodType -&gt; Int) -&gt; Hashable ValidityPeriodType
@@ -146,53 +146,53 @@ $chash :: ValidityPeriodType -&gt; Int
 hashWithSalt :: Int -&gt; ValidityPeriodType -&gt; Int
 $chashWithSalt :: Int -&gt; ValidityPeriodType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679212973"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679212982"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; ()
 (ValidityPeriodType -&gt; ()) -&gt; NFData ValidityPeriodType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ValidityPeriodType -&gt; ()
 $crnf :: ValidityPeriodType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679212970"><span class="annot"><span class="annottext">Text -&gt; Either String ValidityPeriodType
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679212979"><span class="annot"><span class="annottext">Text -&gt; Either String ValidityPeriodType
 (Text -&gt; Either String ValidityPeriodType)
 -&gt; FromText ValidityPeriodType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ValidityPeriodType
 $cfromText :: Text -&gt; Either String ValidityPeriodType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679212967"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679212976"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; Text
 (ValidityPeriodType -&gt; Text) -&gt; ToText ValidityPeriodType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ValidityPeriodType -&gt; Text
 $ctoText :: ValidityPeriodType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679212964"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679212973"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; ByteString
 (ValidityPeriodType -&gt; ByteString)
 -&gt; ToByteString ValidityPeriodType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ValidityPeriodType -&gt; ByteString
 $ctoBS :: ValidityPeriodType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679212961"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679212970"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; ByteStringBuilder
 (ValidityPeriodType -&gt; ByteStringBuilder)
 -&gt; ToLog ValidityPeriodType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ValidityPeriodType -&gt; ByteStringBuilder
 $cbuild :: ValidityPeriodType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679212958"><span class="annot"><span class="annottext">HeaderName -&gt; ValidityPeriodType -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679212967"><span class="annot"><span class="annottext">HeaderName -&gt; ValidityPeriodType -&gt; [Header]
 (HeaderName -&gt; ValidityPeriodType -&gt; [Header])
 -&gt; ToHeader ValidityPeriodType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ValidityPeriodType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ValidityPeriodType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679212955"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679212964"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; QueryString
 (ValidityPeriodType -&gt; QueryString) -&gt; ToQuery ValidityPeriodType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ValidityPeriodType -&gt; QueryString
 $ctoQuery :: ValidityPeriodType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679212950"><span id="local-6989586621679212952"><span class="annot"><span class="annottext">Value -&gt; Parser [ValidityPeriodType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679212959"><span id="local-6989586621679212961"><span class="annot"><span class="annottext">Value -&gt; Parser [ValidityPeriodType]
 Value -&gt; Parser ValidityPeriodType
 (Value -&gt; Parser ValidityPeriodType)
 -&gt; (Value -&gt; Parser [ValidityPeriodType])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [ValidityPeriodType]
 parseJSON :: Value -&gt; Parser ValidityPeriodType
 $cparseJSON :: Value -&gt; Parser ValidityPeriodType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679212945"><span id="local-6989586621679212947"><span class="annot"><span class="annottext">FromJSONKeyFunction [ValidityPeriodType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679212954"><span id="local-6989586621679212956"><span class="annot"><span class="annottext">FromJSONKeyFunction [ValidityPeriodType]
 FromJSONKeyFunction ValidityPeriodType
 FromJSONKeyFunction ValidityPeriodType
 -&gt; FromJSONKeyFunction [ValidityPeriodType]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ValidityPeriodType]
 fromJSONKey :: FromJSONKeyFunction ValidityPeriodType
 $cfromJSONKey :: FromJSONKeyFunction ValidityPeriodType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679212936"><span id="local-6989586621679212938"><span id="local-6989586621679212940"><span id="local-6989586621679212942"><span class="annot"><span class="annottext">[ValidityPeriodType] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679212945"><span id="local-6989586621679212947"><span id="local-6989586621679212949"><span id="local-6989586621679212951"><span class="annot"><span class="annottext">[ValidityPeriodType] -&gt; Encoding
 [ValidityPeriodType] -&gt; Value
 ValidityPeriodType -&gt; Encoding
 ValidityPeriodType -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: ValidityPeriodType -&gt; Encoding
 toJSON :: ValidityPeriodType -&gt; Value
 $ctoJSON :: ValidityPeriodType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679212931"><span id="local-6989586621679212933"><span class="annot"><span class="annottext">ToJSONKeyFunction [ValidityPeriodType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679212940"><span id="local-6989586621679212942"><span class="annot"><span class="annottext">ToJSONKeyFunction [ValidityPeriodType]
 ToJSONKeyFunction ValidityPeriodType
 ToJSONKeyFunction ValidityPeriodType
 -&gt; ToJSONKeyFunction [ValidityPeriodType]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ValidityPeriodType]
 toJSONKey :: ToJSONKeyFunction ValidityPeriodType
 $ctoJSONKey :: ToJSONKeyFunction ValidityPeriodType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679212928"><span class="annot"><span class="annottext">[Node] -&gt; Either String ValidityPeriodType
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679212937"><span class="annot"><span class="annottext">[Node] -&gt; Either String ValidityPeriodType
 ([Node] -&gt; Either String ValidityPeriodType)
 -&gt; FromXML ValidityPeriodType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ValidityPeriodType
 $cparseXML :: [Node] -&gt; Either String ValidityPeriodType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679212925"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679212934"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; XML
 (ValidityPeriodType -&gt; XML) -&gt; ToXML ValidityPeriodType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ValidityPeriodType -&gt; XML

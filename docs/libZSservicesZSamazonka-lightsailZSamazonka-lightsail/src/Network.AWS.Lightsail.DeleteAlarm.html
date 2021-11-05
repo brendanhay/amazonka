@@ -53,12 +53,12 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDeleteAlarm' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679656171"><span id="local-6989586621679656172"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlarm"><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-var">DeleteAlarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlarm%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm%27"><span class="hs-identifier hs-var">DeleteAlarm'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679656180"><span id="local-6989586621679656181"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlarm"><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-var">DeleteAlarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlarm%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm%27"><span class="hs-identifier hs-var">DeleteAlarm'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the alarm to delete.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AalarmName%3ADeleteAlarm%27"><span class="annot"><span class="annottext">DeleteAlarm -&gt; Text
 </span><a href="Network.AWS.Lightsail.DeleteAlarm.html#%24sel%3AalarmName%3ADeleteAlarm%27"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679656165"><span id="local-6989586621679656167"><span class="annot"><span class="annottext">DeleteAlarm -&gt; DeleteAlarm -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679656174"><span id="local-6989586621679656176"><span class="annot"><span class="annottext">DeleteAlarm -&gt; DeleteAlarm -&gt; Bool
 (DeleteAlarm -&gt; DeleteAlarm -&gt; Bool)
 -&gt; (DeleteAlarm -&gt; DeleteAlarm -&gt; Bool) -&gt; Eq DeleteAlarm
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAlarm -&gt; DeleteAlarm -&gt; Bool
 == :: DeleteAlarm -&gt; DeleteAlarm -&gt; Bool
 $c== :: DeleteAlarm -&gt; DeleteAlarm -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679656156"><span id="local-6989586621679656158"><span id="local-6989586621679656160"><span id="local-6989586621679656162"><span class="annot"><span class="annottext">ReadPrec [DeleteAlarm]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679656165"><span id="local-6989586621679656167"><span id="local-6989586621679656169"><span id="local-6989586621679656171"><span class="annot"><span class="annottext">ReadPrec [DeleteAlarm]
 ReadPrec DeleteAlarm
 Int -&gt; ReadS DeleteAlarm
 ReadS [DeleteAlarm]
@@ -86,7 +86,7 @@ readList :: ReadS [DeleteAlarm]
 $creadList :: ReadS [DeleteAlarm]
 readsPrec :: Int -&gt; ReadS DeleteAlarm
 $creadsPrec :: Int -&gt; ReadS DeleteAlarm
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679656149"><span id="local-6989586621679656151"><span id="local-6989586621679656153"><span class="annot"><span class="annottext">Int -&gt; DeleteAlarm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679656158"><span id="local-6989586621679656160"><span id="local-6989586621679656162"><span class="annot"><span class="annottext">Int -&gt; DeleteAlarm -&gt; ShowS
 [DeleteAlarm] -&gt; ShowS
 DeleteAlarm -&gt; String
 (Int -&gt; DeleteAlarm -&gt; ShowS)
@@ -126,12 +126,12 @@ $cfrom :: forall x. DeleteAlarm -&gt; Rep DeleteAlarm x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span><span>
 </span><span id="line-75"></span><span id="newDeleteAlarm"><span class="annot"><span class="annottext">newDeleteAlarm :: Text -&gt; DeleteAlarm
-</span><a href="Network.AWS.Lightsail.DeleteAlarm.html#newDeleteAlarm"><span class="hs-identifier hs-var hs-var">newDeleteAlarm</span></a></span></span><span> </span><span id="local-6989586621679656144"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679656144"><span class="hs-identifier hs-var">pAlarmName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteAlarm.html#newDeleteAlarm"><span class="hs-identifier hs-var hs-var">newDeleteAlarm</span></a></span></span><span> </span><span id="local-6989586621679656153"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679656153"><span class="hs-identifier hs-var">pAlarmName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DeleteAlarm' :: Text -&gt; DeleteAlarm
 </span><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm%27"><span class="hs-identifier hs-type">DeleteAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:DeleteAlarm' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteAlarm.html#%24sel%3AalarmName%3ADeleteAlarm%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679656144"><span class="hs-identifier hs-var">pAlarmName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679656153"><span class="hs-identifier hs-var">pAlarmName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The name of the alarm to delete.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#deleteAlarm_alarmName"><span class="hs-identifier hs-type">deleteAlarm_alarmName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -140,25 +140,25 @@ $cfrom :: forall x. DeleteAlarm -&gt; Rep DeleteAlarm x
 -&gt; (DeleteAlarm -&gt; Text -&gt; DeleteAlarm)
 -&gt; Lens DeleteAlarm DeleteAlarm Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm%27"><span class="hs-identifier hs-type">DeleteAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679656141"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm%27"><span class="hs-identifier hs-type">DeleteAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679656150"><span class="annot"><span class="annottext">Text
 alarmName :: Text
 $sel:alarmName:DeleteAlarm' :: DeleteAlarm -&gt; Text
-</span><a href="#local-6989586621679656141"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679656141"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679656140"><span class="annot"><span class="annottext">s :: DeleteAlarm
-</span><a href="#local-6989586621679656140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm%27"><span class="hs-identifier hs-type">DeleteAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679656139"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679656139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlarm
-</span><a href="#local-6989586621679656140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:DeleteAlarm' :: Text
+</span><a href="#local-6989586621679656150"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679656150"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679656149"><span class="annot"><span class="annottext">s :: DeleteAlarm
+</span><a href="#local-6989586621679656149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm%27"><span class="hs-identifier hs-type">DeleteAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679656148"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679656148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlarm
+</span><a href="#local-6989586621679656149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:DeleteAlarm' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteAlarm.html#%24sel%3AalarmName%3ADeleteAlarm%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679656139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679656148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse"><span class="hs-identifier hs-type">DeleteAlarmResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679656135"><span class="annot"><span class="annottext">request :: DeleteAlarm -&gt; Request DeleteAlarm
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679656144"><span class="annot"><span class="annottext">request :: DeleteAlarm -&gt; Request DeleteAlarm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAlarm -&gt; Request DeleteAlarm
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679656131"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679656140"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteAlarm
 -&gt; ClientResponse ClientBody
@@ -182,10 +182,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679656128"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679656128"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679656127"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679656127"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679656126"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679656126"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679656137"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679656137"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679656136"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679656136"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679656135"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679656135"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; DeleteAlarmResponse
 </span><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse%27"><span class="hs-identifier hs-var">DeleteAlarmResponse'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; DeleteAlarmResponse)
@@ -193,7 +193,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteAlarmResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679656126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679656135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -210,15 +210,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679656128"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679656137"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679656117"><span id="local-6989586621679656119"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679656126"><span id="local-6989586621679656128"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679656114"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679656123"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679656110"><span class="annot"><span class="annottext">toHeaders :: DeleteAlarm -&gt; ResponseHeaders
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679656119"><span class="annot"><span class="annottext">toHeaders :: DeleteAlarm -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteAlarm -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -245,12 +245,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679656100"><span id="local-6989586621679656102"><span id="local-6989586621679656104"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679656098"><span class="annot"><span class="annottext">toJSON :: DeleteAlarm -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm%27"><span class="hs-identifier hs-type">DeleteAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679656096"><span class="annot"><span class="annottext">Text
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679656109"><span id="local-6989586621679656111"><span id="local-6989586621679656113"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679656107"><span class="annot"><span class="annottext">toJSON :: DeleteAlarm -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm%27"><span class="hs-identifier hs-type">DeleteAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679656105"><span class="annot"><span class="annottext">Text
 alarmName :: Text
 $sel:alarmName:DeleteAlarm' :: DeleteAlarm -&gt; Text
-</span><a href="#local-6989586621679656096"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679656105"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -262,18 +262,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;alarmName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679656096"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679656105"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679656090"><span class="annot"><span class="annottext">toPath :: DeleteAlarm -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679656099"><span class="annot"><span class="annottext">toPath :: DeleteAlarm -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteAlarm -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarm"><span class="hs-identifier hs-type">DeleteAlarm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679656086"><span class="annot"><span class="annottext">toQuery :: DeleteAlarm -&gt; QueryString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679656095"><span class="annot"><span class="annottext">toQuery :: DeleteAlarm -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteAlarm -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -281,7 +281,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newDeleteAlarmResponse' smart constructor.</span><span>
-</span><span id="line-126"></span><span id="local-6989586621679656083"><span id="local-6989586621679656084"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlarmResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse"><span class="hs-identifier hs-var">DeleteAlarmResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlarmResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse%27"><span class="hs-identifier hs-var">DeleteAlarmResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span id="local-6989586621679656092"><span id="local-6989586621679656093"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlarmResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse"><span class="hs-identifier hs-var">DeleteAlarmResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlarmResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse%27"><span class="hs-identifier hs-var">DeleteAlarmResponse'</span></a></span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-128"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -291,7 +291,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteAlarmResponse%27"><span class="annot"><span class="annottext">DeleteAlarmResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.DeleteAlarm.html#%24sel%3AhttpStatus%3ADeleteAlarmResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679656077"><span id="local-6989586621679656079"><span class="annot"><span class="annottext">DeleteAlarmResponse -&gt; DeleteAlarmResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679656086"><span id="local-6989586621679656088"><span class="annot"><span class="annottext">DeleteAlarmResponse -&gt; DeleteAlarmResponse -&gt; Bool
 (DeleteAlarmResponse -&gt; DeleteAlarmResponse -&gt; Bool)
 -&gt; (DeleteAlarmResponse -&gt; DeleteAlarmResponse -&gt; Bool)
 -&gt; Eq DeleteAlarmResponse
@@ -300,7 +300,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAlarmResponse -&gt; DeleteAlarmResponse -&gt; Bool
 == :: DeleteAlarmResponse -&gt; DeleteAlarmResponse -&gt; Bool
 $c== :: DeleteAlarmResponse -&gt; DeleteAlarmResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679656069"><span id="local-6989586621679656071"><span id="local-6989586621679656073"><span id="local-6989586621679656075"><span class="annot"><span class="annottext">ReadPrec [DeleteAlarmResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679656078"><span id="local-6989586621679656080"><span id="local-6989586621679656082"><span id="local-6989586621679656084"><span class="annot"><span class="annottext">ReadPrec [DeleteAlarmResponse]
 ReadPrec DeleteAlarmResponse
 Int -&gt; ReadS DeleteAlarmResponse
 ReadS [DeleteAlarmResponse]
@@ -320,7 +320,7 @@ readList :: ReadS [DeleteAlarmResponse]
 $creadList :: ReadS [DeleteAlarmResponse]
 readsPrec :: Int -&gt; ReadS DeleteAlarmResponse
 $creadsPrec :: Int -&gt; ReadS DeleteAlarmResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679656063"><span id="local-6989586621679656065"><span id="local-6989586621679656067"><span class="annot"><span class="annottext">Int -&gt; DeleteAlarmResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679656072"><span id="local-6989586621679656074"><span id="local-6989586621679656076"><span class="annot"><span class="annottext">Int -&gt; DeleteAlarmResponse -&gt; ShowS
 [DeleteAlarmResponse] -&gt; ShowS
 DeleteAlarmResponse -&gt; String
 (Int -&gt; DeleteAlarmResponse -&gt; ShowS)
@@ -364,8 +364,8 @@ $cfrom :: forall x. DeleteAlarmResponse -&gt; Rep DeleteAlarmResponse x
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse"><span class="hs-identifier hs-type">DeleteAlarmResponse</span></a></span><span>
 </span><span id="line-153"></span><span id="newDeleteAlarmResponse"><span class="annot"><span class="annottext">newDeleteAlarmResponse :: Int -&gt; DeleteAlarmResponse
-</span><a href="Network.AWS.Lightsail.DeleteAlarm.html#newDeleteAlarmResponse"><span class="hs-identifier hs-var hs-var">newDeleteAlarmResponse</span></a></span></span><span> </span><span id="local-6989586621679656060"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679656060"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteAlarm.html#newDeleteAlarmResponse"><span class="hs-identifier hs-var hs-var">newDeleteAlarmResponse</span></a></span></span><span> </span><span id="local-6989586621679656069"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679656069"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">DeleteAlarmResponse' :: Maybe [Operation] -&gt; Int -&gt; DeleteAlarmResponse
 </span><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse%27"><span class="hs-identifier hs-type">DeleteAlarmResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:DeleteAlarmResponse' :: Maybe [Operation]
@@ -374,7 +374,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAlarmResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteAlarm.html#%24sel%3AhttpStatus%3ADeleteAlarmResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679656060"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679656069"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -392,16 +392,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse%27"><span class="hs-identifier hs-type">DeleteAlarmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679656059"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse%27"><span class="hs-identifier hs-type">DeleteAlarmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679656068"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:DeleteAlarmResponse' :: DeleteAlarmResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679656059"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679656059"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679656058"><span class="annot"><span class="annottext">s :: DeleteAlarmResponse
-</span><a href="#local-6989586621679656058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse%27"><span class="hs-identifier hs-type">DeleteAlarmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679656057"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679656057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlarmResponse
-</span><a href="#local-6989586621679656058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteAlarmResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679656068"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679656068"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679656067"><span class="annot"><span class="annottext">s :: DeleteAlarmResponse
+</span><a href="#local-6989586621679656067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse%27"><span class="hs-identifier hs-type">DeleteAlarmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679656066"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679656066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlarmResponse
+</span><a href="#local-6989586621679656067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteAlarmResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.DeleteAlarm.html#%24sel%3Aoperations%3ADeleteAlarmResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679656057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse"><span class="hs-identifier hs-type">DeleteAlarmResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679656066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse"><span class="hs-identifier hs-type">DeleteAlarmResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; DeleteAlarmResponse -&gt; f DeleteAlarmResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -429,16 +429,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DeleteAlarmResponse -&gt; Int -&gt; DeleteAlarmResponse)
 -&gt; Lens DeleteAlarmResponse DeleteAlarmResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse%27"><span class="hs-identifier hs-type">DeleteAlarmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679656053"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse%27"><span class="hs-identifier hs-type">DeleteAlarmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679656062"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteAlarmResponse' :: DeleteAlarmResponse -&gt; Int
-</span><a href="#local-6989586621679656053"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679656053"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679656052"><span class="annot"><span class="annottext">s :: DeleteAlarmResponse
-</span><a href="#local-6989586621679656052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse%27"><span class="hs-identifier hs-type">DeleteAlarmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679656051"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679656051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlarmResponse
-</span><a href="#local-6989586621679656052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAlarmResponse' :: Int
+</span><a href="#local-6989586621679656062"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679656062"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679656061"><span class="annot"><span class="annottext">s :: DeleteAlarmResponse
+</span><a href="#local-6989586621679656061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse%27"><span class="hs-identifier hs-type">DeleteAlarmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679656060"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679656060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlarmResponse
+</span><a href="#local-6989586621679656061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAlarmResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteAlarm.html#%24sel%3AhttpStatus%3ADeleteAlarmResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679656051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse"><span class="hs-identifier hs-type">DeleteAlarmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679656060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse"><span class="hs-identifier hs-type">DeleteAlarmResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679656049"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse"><span class="hs-identifier hs-type">DeleteAlarmResponse</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679656058"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteAlarm.html#DeleteAlarmResponse"><span class="hs-identifier hs-type">DeleteAlarmResponse</span></a></span></span><span>
 </span><span id="line-170"></span></pre></body></html>

@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains explainability metrics for a model.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newExplainability' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680316640"><span id="local-6989586621680316641"></span></span><span class="hs-keyword">data</span><span> </span><span id="Explainability"><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability"><span class="hs-identifier hs-var">Explainability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Explainability%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability%27"><span class="hs-identifier hs-var">Explainability'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680316649"><span id="local-6989586621680316650"></span></span><span class="hs-keyword">data</span><span> </span><span id="Explainability"><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability"><span class="hs-identifier hs-var">Explainability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Explainability%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability%27"><span class="hs-identifier hs-var">Explainability'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The explainability report for a model.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Areport%3AExplainability%27"><span class="annot"><span class="annottext">Explainability -&gt; Maybe MetricsSource
 </span><a href="Network.AWS.SageMaker.Types.Explainability.html#%24sel%3Areport%3AExplainability%27"><span class="hs-identifier hs-var hs-var">report</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricsSource.html#MetricsSource"><span class="hs-identifier hs-type">MetricsSource</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680316634"><span id="local-6989586621680316636"><span class="annot"><span class="annottext">Explainability -&gt; Explainability -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680316643"><span id="local-6989586621680316645"><span class="annot"><span class="annottext">Explainability -&gt; Explainability -&gt; Bool
 (Explainability -&gt; Explainability -&gt; Bool)
 -&gt; (Explainability -&gt; Explainability -&gt; Bool) -&gt; Eq Explainability
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Explainability -&gt; Explainability -&gt; Bool
 == :: Explainability -&gt; Explainability -&gt; Bool
 $c== :: Explainability -&gt; Explainability -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680316625"><span id="local-6989586621680316627"><span id="local-6989586621680316629"><span id="local-6989586621680316631"><span class="annot"><span class="annottext">ReadPrec [Explainability]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680316634"><span id="local-6989586621680316636"><span id="local-6989586621680316638"><span id="local-6989586621680316640"><span class="annot"><span class="annottext">ReadPrec [Explainability]
 ReadPrec Explainability
 Int -&gt; ReadS Explainability
 ReadS [Explainability]
@@ -60,7 +60,7 @@ readList :: ReadS [Explainability]
 $creadList :: ReadS [Explainability]
 readsPrec :: Int -&gt; ReadS Explainability
 $creadsPrec :: Int -&gt; ReadS Explainability
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680316618"><span id="local-6989586621680316620"><span id="local-6989586621680316622"><span class="annot"><span class="annottext">Int -&gt; Explainability -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680316627"><span id="local-6989586621680316629"><span id="local-6989586621680316631"><span class="annot"><span class="annottext">Int -&gt; Explainability -&gt; ShowS
 [Explainability] -&gt; ShowS
 Explainability -&gt; String
 (Int -&gt; Explainability -&gt; ShowS)
@@ -117,19 +117,19 @@ forall a. Maybe a
      (Maybe MetricsSource)
      (Maybe MetricsSource)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability%27"><span class="hs-identifier hs-type">Explainability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680316609"><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability%27"><span class="hs-identifier hs-type">Explainability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680316618"><span class="annot"><span class="annottext">Maybe MetricsSource
 report :: Maybe MetricsSource
 $sel:report:Explainability' :: Explainability -&gt; Maybe MetricsSource
-</span><a href="#local-6989586621680316609"><span class="hs-identifier hs-var hs-var">report</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680316609"><span class="hs-identifier hs-var">report</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680316608"><span class="annot"><span class="annottext">s :: Explainability
-</span><a href="#local-6989586621680316608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability%27"><span class="hs-identifier hs-type">Explainability'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680316607"><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680316607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Explainability
-</span><a href="#local-6989586621680316608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:report:Explainability' :: Maybe MetricsSource
+</span><a href="#local-6989586621680316618"><span class="hs-identifier hs-var hs-var">report</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><a href="#local-6989586621680316618"><span class="hs-identifier hs-var">report</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680316617"><span class="annot"><span class="annottext">s :: Explainability
+</span><a href="#local-6989586621680316617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability%27"><span class="hs-identifier hs-type">Explainability'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680316616"><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><a href="#local-6989586621680316616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Explainability
+</span><a href="#local-6989586621680316617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:report:Explainability' :: Maybe MetricsSource
 </span><a href="Network.AWS.SageMaker.Types.Explainability.html#%24sel%3Areport%3AExplainability%27"><span class="hs-identifier hs-var">report</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680316607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability"><span class="hs-identifier hs-type">Explainability</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680316616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability"><span class="hs-identifier hs-type">Explainability</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316604"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability"><span class="hs-identifier hs-type">Explainability</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621680316602"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Explainability
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316613"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability"><span class="hs-identifier hs-type">Explainability</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621680316611"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Explainability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Explainability)
@@ -139,29 +139,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Explainability&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680316599"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680316599"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680316608"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680316608"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe MetricsSource -&gt; Explainability
 </span><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability%27"><span class="hs-identifier hs-var">Explainability'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe MetricsSource -&gt; Explainability)
 -&gt; Parser (Maybe MetricsSource) -&gt; Parser Explainability
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680316599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricsSource)
+</span><a href="#local-6989586621680316608"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricsSource)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Report&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316593"><span id="local-6989586621680316595"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability"><span class="hs-identifier hs-type">Explainability</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316602"><span id="local-6989586621680316604"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability"><span class="hs-identifier hs-type">Explainability</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability"><span class="hs-identifier hs-type">Explainability</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability"><span class="hs-identifier hs-type">Explainability</span></a></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316582"><span id="local-6989586621680316584"><span id="local-6989586621680316586"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability"><span class="hs-identifier hs-type">Explainability</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621680316580"><span class="annot"><span class="annottext">toJSON :: Explainability -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability%27"><span class="hs-identifier hs-type">Explainability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680316578"><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316591"><span id="local-6989586621680316593"><span id="local-6989586621680316595"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability"><span class="hs-identifier hs-type">Explainability</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621680316589"><span class="annot"><span class="annottext">toJSON :: Explainability -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Explainability.html#Explainability%27"><span class="hs-identifier hs-type">Explainability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680316587"><span class="annot"><span class="annottext">Maybe MetricsSource
 report :: Maybe MetricsSource
 $sel:report:Explainability' :: Explainability -&gt; Maybe MetricsSource
-</span><a href="#local-6989586621680316578"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680316587"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -173,6 +173,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MetricsSource -&gt; Pair) -&gt; Maybe MetricsSource -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680316578"><span class="hs-identifier hs-var">report</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680316587"><span class="hs-identifier hs-var">report</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span></pre></body></html>

@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- resources and shouldn\'t be provided.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDevice' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679259576"><span id="local-6989586621679259577"></span></span><span class="hs-keyword">data</span><span> </span><span id="Device"><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-var">Device</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Device%27"><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-var">Device'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679259585"><span id="local-6989586621679259586"></span></span><span class="hs-keyword">data</span><span> </span><span id="Device"><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-var">Device</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Device%27"><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-var">Device'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path inside the container that\'s used to expose the host device. By</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- default, the @hostPath@ value is used.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AcontainerPath%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Text
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AhostPath%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Text
 </span><a href="Network.AWS.Batch.Types.Device.html#%24sel%3AhostPath%3ADevice%27"><span class="hs-identifier hs-var hs-var">hostPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259568"><span id="local-6989586621679259570"><span class="annot"><span class="annottext">Device -&gt; Device -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259577"><span id="local-6989586621679259579"><span class="annot"><span class="annottext">Device -&gt; Device -&gt; Bool
 (Device -&gt; Device -&gt; Bool)
 -&gt; (Device -&gt; Device -&gt; Bool) -&gt; Eq Device
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Device -&gt; Device -&gt; Bool
 == :: Device -&gt; Device -&gt; Bool
 $c== :: Device -&gt; Device -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259559"><span id="local-6989586621679259561"><span id="local-6989586621679259563"><span id="local-6989586621679259565"><span class="annot"><span class="annottext">ReadPrec [Device]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259568"><span id="local-6989586621679259570"><span id="local-6989586621679259572"><span id="local-6989586621679259574"><span class="annot"><span class="annottext">ReadPrec [Device]
 ReadPrec Device
 Int -&gt; ReadS Device
 ReadS [Device]
@@ -72,7 +72,7 @@ readList :: ReadS [Device]
 $creadList :: ReadS [Device]
 readsPrec :: Int -&gt; ReadS Device
 $creadsPrec :: Int -&gt; ReadS Device
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259552"><span id="local-6989586621679259554"><span id="local-6989586621679259556"><span class="annot"><span class="annottext">Int -&gt; Device -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259561"><span id="local-6989586621679259563"><span id="local-6989586621679259565"><span class="annot"><span class="annottext">Int -&gt; Device -&gt; ShowS
 [Device] -&gt; ShowS
 Device -&gt; String
 (Int -&gt; Device -&gt; ShowS)
@@ -116,8 +116,8 @@ $cfrom :: forall x. Device -&gt; Rep Device x
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span>
 </span><span id="line-66"></span><span id="newDevice"><span class="annot"><span class="annottext">newDevice :: Text -&gt; Device
-</span><a href="Network.AWS.Batch.Types.Device.html#newDevice"><span class="hs-identifier hs-var hs-var">newDevice</span></a></span></span><span> </span><span id="local-6989586621679259546"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259546"><span class="hs-identifier hs-var">pHostPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Batch.Types.Device.html#newDevice"><span class="hs-identifier hs-var hs-var">newDevice</span></a></span></span><span> </span><span id="local-6989586621679259555"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259555"><span class="hs-identifier hs-var">pHostPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">Device' :: Maybe Text -&gt; Maybe [DeviceCgroupPermission] -&gt; Text -&gt; Device
 </span><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerPath:Device' :: Maybe Text
@@ -130,7 +130,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostPath:Device' :: Text
 </span><a href="Network.AWS.Batch.Types.Device.html#%24sel%3AhostPath%3ADevice%27"><span class="hs-identifier hs-var">hostPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259546"><span class="hs-identifier hs-var">pHostPath_</span></a></span><span>
+</span><a href="#local-6989586621679259555"><span class="hs-identifier hs-var">pHostPath_</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The path inside the container that\'s used to expose the host device. By</span><span>
@@ -141,16 +141,16 @@ forall a. Maybe a
 -&gt; (Device -&gt; Maybe Text -&gt; Device)
 -&gt; Lens Device Device (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259542"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259551"><span class="annot"><span class="annottext">Maybe Text
 containerPath :: Maybe Text
 $sel:containerPath:Device' :: Device -&gt; Maybe Text
-</span><a href="#local-6989586621679259542"><span class="hs-identifier hs-var hs-var">containerPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259542"><span class="hs-identifier hs-var">containerPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259541"><span class="annot"><span class="annottext">s :: Device
-</span><a href="#local-6989586621679259541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259540"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
-</span><a href="#local-6989586621679259541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerPath:Device' :: Maybe Text
+</span><a href="#local-6989586621679259551"><span class="hs-identifier hs-var hs-var">containerPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259551"><span class="hs-identifier hs-var">containerPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259550"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679259550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259549"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679259550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerPath:Device' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.Device.html#%24sel%3AcontainerPath%3ADevice%27"><span class="hs-identifier hs-var">containerPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The explicit permissions to provide to the container for the device. By</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- default, the container has permissions for @read@, @write@, and @mknod@</span><span>
@@ -167,16 +167,16 @@ $sel:containerPath:Device' :: Device -&gt; Maybe Text
      (Maybe [DeviceCgroupPermission])
      (Maybe [DeviceCgroupPermission])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259538"><span class="annot"><span class="annottext">Maybe [DeviceCgroupPermission]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259547"><span class="annot"><span class="annottext">Maybe [DeviceCgroupPermission]
 permissions :: Maybe [DeviceCgroupPermission]
 $sel:permissions:Device' :: Device -&gt; Maybe [DeviceCgroupPermission]
-</span><a href="#local-6989586621679259538"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceCgroupPermission]
-</span><a href="#local-6989586621679259538"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259537"><span class="annot"><span class="annottext">s :: Device
-</span><a href="#local-6989586621679259537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259536"><span class="annot"><span class="annottext">Maybe [DeviceCgroupPermission]
-</span><a href="#local-6989586621679259536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
-</span><a href="#local-6989586621679259537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:Device' :: Maybe [DeviceCgroupPermission]
+</span><a href="#local-6989586621679259547"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceCgroupPermission]
+</span><a href="#local-6989586621679259547"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259546"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679259546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259545"><span class="annot"><span class="annottext">Maybe [DeviceCgroupPermission]
+</span><a href="#local-6989586621679259545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679259546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:Device' :: Maybe [DeviceCgroupPermission]
 </span><a href="Network.AWS.Batch.Types.Device.html#%24sel%3Apermissions%3ADevice%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceCgroupPermission]
-</span><a href="#local-6989586621679259536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeviceCgroupPermission]
+</span><a href="#local-6989586621679259545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeviceCgroupPermission]
   -&gt; f (Maybe [DeviceCgroupPermission]))
  -&gt; Device -&gt; f Device)
 -&gt; ((Maybe [DeviceCgroupPermission]
@@ -215,27 +215,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><a href="Network.AWS.Batch.Types.Device.html#device_hostPath"><span class="hs-identifier hs-var hs-var">device_hostPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Text)
 -&gt; (Device -&gt; Text -&gt; Device) -&gt; Lens Device Device Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259531"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259540"><span class="annot"><span class="annottext">Text
 hostPath :: Text
 $sel:hostPath:Device' :: Device -&gt; Text
-</span><a href="#local-6989586621679259531"><span class="hs-identifier hs-var hs-var">hostPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259531"><span class="hs-identifier hs-var">hostPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259530"><span class="annot"><span class="annottext">s :: Device
-</span><a href="#local-6989586621679259530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259529"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
-</span><a href="#local-6989586621679259530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostPath:Device' :: Text
+</span><a href="#local-6989586621679259540"><span class="hs-identifier hs-var hs-var">hostPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259540"><span class="hs-identifier hs-var">hostPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259539"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679259539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259538"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679259539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostPath:Device' :: Text
 </span><a href="Network.AWS.Batch.Types.Device.html#%24sel%3AhostPath%3ADevice%27"><span class="hs-identifier hs-var">hostPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259526"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679259524"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Device
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259535"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679259533"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Device
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Device) -&gt; Value -&gt; Parser Device
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Device&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259521"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259521"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259530"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [DeviceCgroupPermission] -&gt; Text -&gt; Device
 </span><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-var">Device'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [DeviceCgroupPermission] -&gt; Text -&gt; Device)
@@ -243,7 +243,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [DeviceCgroupPermission] -&gt; Text -&gt; Device)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679259530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;containerPath&quot;</span></span><span class="hs-special">)</span><span>
@@ -252,7 +252,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; Device)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [DeviceCgroupPermission]))
+</span><a href="#local-6989586621679259530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [DeviceCgroupPermission]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;permissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DeviceCgroupPermission]))
@@ -265,19 +265,19 @@ forall a. Monoid a =&gt; a
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Device) -&gt; Parser Text -&gt; Parser Device
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679259530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hostPath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259513"><span id="local-6989586621679259515"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259522"><span id="local-6989586621679259524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259502"><span id="local-6989586621679259504"><span id="local-6989586621679259506"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679259500"><span class="annot"><span class="annottext">toJSON :: Device -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259496"><span id="local-6989586621679259497"><span id="local-6989586621679259498"><span class="annot"><span class="annottext">Maybe [DeviceCgroupPermission]
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259511"><span id="local-6989586621679259513"><span id="local-6989586621679259515"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679259509"><span class="annot"><span class="annottext">toJSON :: Device -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259505"><span id="local-6989586621679259506"><span id="local-6989586621679259507"><span class="annot"><span class="annottext">Maybe [DeviceCgroupPermission]
 Maybe Text
 Text
 hostPath :: Text
@@ -286,7 +286,7 @@ containerPath :: Maybe Text
 $sel:hostPath:Device' :: Device -&gt; Text
 $sel:permissions:Device' :: Device -&gt; Maybe [DeviceCgroupPermission]
 $sel:containerPath:Device' :: Device -&gt; Maybe Text
-</span><a href="#local-6989586621679259496"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679259505"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -298,7 +298,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259498"><span class="hs-identifier hs-var">containerPath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259507"><span class="hs-identifier hs-var">containerPath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;permissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DeviceCgroupPermission] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -306,14 +306,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [DeviceCgroupPermission] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceCgroupPermission]
-</span><a href="#local-6989586621679259497"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259506"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hostPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259496"><span class="hs-identifier hs-var">hostPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259505"><span class="hs-identifier hs-var">hostPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span></pre></body></html>

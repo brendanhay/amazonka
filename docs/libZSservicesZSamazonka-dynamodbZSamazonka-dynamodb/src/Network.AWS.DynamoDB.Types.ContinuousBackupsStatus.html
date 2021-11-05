@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679370913"><span id="local-6989586621679370914"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContinuousBackupsStatus"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContinuousBackupsStatus.html#ContinuousBackupsStatus"><span class="hs-identifier hs-var">ContinuousBackupsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinuousBackupsStatus%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContinuousBackupsStatus.html#ContinuousBackupsStatus%27"><span class="hs-identifier hs-var">ContinuousBackupsStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679370922"><span id="local-6989586621679370923"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContinuousBackupsStatus"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContinuousBackupsStatus.html#ContinuousBackupsStatus"><span class="hs-identifier hs-var">ContinuousBackupsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinuousBackupsStatus%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContinuousBackupsStatus.html#ContinuousBackupsStatus%27"><span class="hs-identifier hs-var">ContinuousBackupsStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContinuousBackupsStatus"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.ContinuousBackupsStatus.html#fromContinuousBackupsStatus"><span class="hs-identifier hs-var hs-var">fromContinuousBackupsStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370905"><span id="local-6989586621679370907"><span id="local-6989586621679370909"><span class="annot"><span class="annottext">Int -&gt; ContinuousBackupsStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370914"><span id="local-6989586621679370916"><span id="local-6989586621679370918"><span class="annot"><span class="annottext">Int -&gt; ContinuousBackupsStatus -&gt; ShowS
 [ContinuousBackupsStatus] -&gt; ShowS
 ContinuousBackupsStatus -&gt; String
 (Int -&gt; ContinuousBackupsStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ContinuousBackupsStatus -&gt; String
 showsPrec :: Int -&gt; ContinuousBackupsStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContinuousBackupsStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679370896"><span id="local-6989586621679370898"><span id="local-6989586621679370900"><span id="local-6989586621679370902"><span class="annot"><span class="annottext">ReadPrec [ContinuousBackupsStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679370905"><span id="local-6989586621679370907"><span id="local-6989586621679370909"><span id="local-6989586621679370911"><span class="annot"><span class="annottext">ReadPrec [ContinuousBackupsStatus]
 ReadPrec ContinuousBackupsStatus
 Int -&gt; ReadS ContinuousBackupsStatus
 ReadS [ContinuousBackupsStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ContinuousBackupsStatus]
 readsPrec :: Int -&gt; ReadS ContinuousBackupsStatus
 $creadsPrec :: Int -&gt; ReadS ContinuousBackupsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679370891"><span id="local-6989586621679370893"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; ContinuousBackupsStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679370900"><span id="local-6989586621679370902"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; ContinuousBackupsStatus -&gt; Bool
 (ContinuousBackupsStatus -&gt; ContinuousBackupsStatus -&gt; Bool)
 -&gt; (ContinuousBackupsStatus -&gt; ContinuousBackupsStatus -&gt; Bool)
 -&gt; Eq ContinuousBackupsStatus
@@ -82,7 +82,7 @@ $c/= :: ContinuousBackupsStatus -&gt; ContinuousBackupsStatus -&gt; Bool
 == :: ContinuousBackupsStatus -&gt; ContinuousBackupsStatus -&gt; Bool
 $c== :: ContinuousBackupsStatus -&gt; ContinuousBackupsStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679370875"><span id="local-6989586621679370877"><span id="local-6989586621679370879"><span id="local-6989586621679370881"><span id="local-6989586621679370883"><span id="local-6989586621679370885"><span id="local-6989586621679370887"><span class="annot"><span class="annottext">Eq ContinuousBackupsStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679370884"><span id="local-6989586621679370886"><span id="local-6989586621679370888"><span id="local-6989586621679370890"><span id="local-6989586621679370892"><span id="local-6989586621679370894"><span id="local-6989586621679370896"><span class="annot"><span class="annottext">Eq ContinuousBackupsStatus
 Eq ContinuousBackupsStatus
 -&gt; (ContinuousBackupsStatus -&gt; ContinuousBackupsStatus -&gt; Ordering)
 -&gt; (ContinuousBackupsStatus -&gt; ContinuousBackupsStatus -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. ContinuousBackupsStatus -&gt; Rep ContinuousBackupsStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370867"><span id="local-6989586621679370869"><span class="annot"><span class="annottext">Int -&gt; ContinuousBackupsStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370876"><span id="local-6989586621679370878"><span class="annot"><span class="annottext">Int -&gt; ContinuousBackupsStatus -&gt; Int
 ContinuousBackupsStatus -&gt; Int
 (Int -&gt; ContinuousBackupsStatus -&gt; Int)
 -&gt; (ContinuousBackupsStatus -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: ContinuousBackupsStatus -&gt; Int
 hashWithSalt :: Int -&gt; ContinuousBackupsStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ContinuousBackupsStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679370864"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679370873"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; ()
 (ContinuousBackupsStatus -&gt; ()) -&gt; NFData ContinuousBackupsStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContinuousBackupsStatus -&gt; ()
 $crnf :: ContinuousBackupsStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679370861"><span class="annot"><span class="annottext">Text -&gt; Either String ContinuousBackupsStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679370870"><span class="annot"><span class="annottext">Text -&gt; Either String ContinuousBackupsStatus
 (Text -&gt; Either String ContinuousBackupsStatus)
 -&gt; FromText ContinuousBackupsStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContinuousBackupsStatus
 $cfromText :: Text -&gt; Either String ContinuousBackupsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679370858"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679370867"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; Text
 (ContinuousBackupsStatus -&gt; Text) -&gt; ToText ContinuousBackupsStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContinuousBackupsStatus -&gt; Text
 $ctoText :: ContinuousBackupsStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679370855"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679370864"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; ByteString
 (ContinuousBackupsStatus -&gt; ByteString)
 -&gt; ToByteString ContinuousBackupsStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContinuousBackupsStatus -&gt; ByteString
 $ctoBS :: ContinuousBackupsStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679370852"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679370861"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; ByteStringBuilder
 (ContinuousBackupsStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ContinuousBackupsStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContinuousBackupsStatus -&gt; ByteStringBuilder
 $cbuild :: ContinuousBackupsStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679370849"><span class="annot"><span class="annottext">HeaderName -&gt; ContinuousBackupsStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679370858"><span class="annot"><span class="annottext">HeaderName -&gt; ContinuousBackupsStatus -&gt; [Header]
 (HeaderName -&gt; ContinuousBackupsStatus -&gt; [Header])
 -&gt; ToHeader ContinuousBackupsStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContinuousBackupsStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContinuousBackupsStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679370846"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679370855"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; QueryString
 (ContinuousBackupsStatus -&gt; QueryString)
 -&gt; ToQuery ContinuousBackupsStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContinuousBackupsStatus -&gt; QueryString
 $ctoQuery :: ContinuousBackupsStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679370841"><span id="local-6989586621679370843"><span class="annot"><span class="annottext">Value -&gt; Parser [ContinuousBackupsStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679370850"><span id="local-6989586621679370852"><span class="annot"><span class="annottext">Value -&gt; Parser [ContinuousBackupsStatus]
 Value -&gt; Parser ContinuousBackupsStatus
 (Value -&gt; Parser ContinuousBackupsStatus)
 -&gt; (Value -&gt; Parser [ContinuousBackupsStatus])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [ContinuousBackupsStatus]
 parseJSON :: Value -&gt; Parser ContinuousBackupsStatus
 $cparseJSON :: Value -&gt; Parser ContinuousBackupsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679370836"><span id="local-6989586621679370838"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContinuousBackupsStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679370845"><span id="local-6989586621679370847"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContinuousBackupsStatus]
 FromJSONKeyFunction ContinuousBackupsStatus
 FromJSONKeyFunction ContinuousBackupsStatus
 -&gt; FromJSONKeyFunction [ContinuousBackupsStatus]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContinuousBackupsStatus]
 fromJSONKey :: FromJSONKeyFunction ContinuousBackupsStatus
 $cfromJSONKey :: FromJSONKeyFunction ContinuousBackupsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679370827"><span id="local-6989586621679370829"><span id="local-6989586621679370831"><span id="local-6989586621679370833"><span class="annot"><span class="annottext">[ContinuousBackupsStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679370836"><span id="local-6989586621679370838"><span id="local-6989586621679370840"><span id="local-6989586621679370842"><span class="annot"><span class="annottext">[ContinuousBackupsStatus] -&gt; Encoding
 [ContinuousBackupsStatus] -&gt; Value
 ContinuousBackupsStatus -&gt; Encoding
 ContinuousBackupsStatus -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: ContinuousBackupsStatus -&gt; Encoding
 toJSON :: ContinuousBackupsStatus -&gt; Value
 $ctoJSON :: ContinuousBackupsStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679370822"><span id="local-6989586621679370824"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContinuousBackupsStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679370831"><span id="local-6989586621679370833"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContinuousBackupsStatus]
 ToJSONKeyFunction ContinuousBackupsStatus
 ToJSONKeyFunction ContinuousBackupsStatus
 -&gt; ToJSONKeyFunction [ContinuousBackupsStatus]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContinuousBackupsStatus]
 toJSONKey :: ToJSONKeyFunction ContinuousBackupsStatus
 $ctoJSONKey :: ToJSONKeyFunction ContinuousBackupsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679370819"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContinuousBackupsStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679370828"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContinuousBackupsStatus
 ([Node] -&gt; Either String ContinuousBackupsStatus)
 -&gt; FromXML ContinuousBackupsStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContinuousBackupsStatus
 $cparseXML :: [Node] -&gt; Either String ContinuousBackupsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679370816"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679370825"><span class="annot"><span class="annottext">ContinuousBackupsStatus -&gt; XML
 (ContinuousBackupsStatus -&gt; XML) -&gt; ToXML ContinuousBackupsStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ContinuousBackupsStatus -&gt; XML

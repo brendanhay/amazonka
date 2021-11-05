@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- in the Amazon ECS API Reference.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCapacityProviderStrategyItem' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679299788"><span id="local-6989586621679299789"></span></span><span class="hs-keyword">data</span><span> </span><span id="CapacityProviderStrategyItem"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-var">CapacityProviderStrategyItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityProviderStrategyItem%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">CapacityProviderStrategyItem'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679299797"><span id="local-6989586621679299798"></span></span><span class="hs-keyword">data</span><span> </span><span id="CapacityProviderStrategyItem"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-var">CapacityProviderStrategyItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityProviderStrategyItem%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">CapacityProviderStrategyItem'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The base value designates how many tasks, at a minimum, to run on the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- specified capacity provider. Only one capacity provider in a capacity</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- provider strategy can have a base defined. If no value is specified, the</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AcapacityProvider%3ACapacityProviderStrategyItem%27"><span class="annot"><span class="annottext">CapacityProviderStrategyItem -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#%24sel%3AcapacityProvider%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var hs-var">capacityProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299780"><span id="local-6989586621679299782"><span class="annot"><span class="annottext">CapacityProviderStrategyItem
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299789"><span id="local-6989586621679299791"><span class="annot"><span class="annottext">CapacityProviderStrategyItem
 -&gt; CapacityProviderStrategyItem -&gt; Bool
 (CapacityProviderStrategyItem
  -&gt; CapacityProviderStrategyItem -&gt; Bool)
@@ -61,7 +61,7 @@ $c/= :: CapacityProviderStrategyItem
 -&gt; CapacityProviderStrategyItem -&gt; Bool
 $c== :: CapacityProviderStrategyItem
 -&gt; CapacityProviderStrategyItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299771"><span id="local-6989586621679299773"><span id="local-6989586621679299775"><span id="local-6989586621679299777"><span class="annot"><span class="annottext">ReadPrec [CapacityProviderStrategyItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299780"><span id="local-6989586621679299782"><span id="local-6989586621679299784"><span id="local-6989586621679299786"><span class="annot"><span class="annottext">ReadPrec [CapacityProviderStrategyItem]
 ReadPrec CapacityProviderStrategyItem
 Int -&gt; ReadS CapacityProviderStrategyItem
 ReadS [CapacityProviderStrategyItem]
@@ -81,7 +81,7 @@ readList :: ReadS [CapacityProviderStrategyItem]
 $creadList :: ReadS [CapacityProviderStrategyItem]
 readsPrec :: Int -&gt; ReadS CapacityProviderStrategyItem
 $creadsPrec :: Int -&gt; ReadS CapacityProviderStrategyItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299764"><span id="local-6989586621679299766"><span id="local-6989586621679299768"><span class="annot"><span class="annottext">Int -&gt; CapacityProviderStrategyItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299773"><span id="local-6989586621679299775"><span id="local-6989586621679299777"><span class="annot"><span class="annottext">Int -&gt; CapacityProviderStrategyItem -&gt; ShowS
 [CapacityProviderStrategyItem] -&gt; ShowS
 CapacityProviderStrategyItem -&gt; String
 (Int -&gt; CapacityProviderStrategyItem -&gt; ShowS)
@@ -137,8 +137,8 @@ CapacityProviderStrategyItem -&gt; Rep CapacityProviderStrategyItem x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span>
 </span><span id="line-70"></span><span id="newCapacityProviderStrategyItem"><span class="annot"><span class="annottext">newCapacityProviderStrategyItem :: Text -&gt; CapacityProviderStrategyItem
-</span><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#newCapacityProviderStrategyItem"><span class="hs-identifier hs-var hs-var">newCapacityProviderStrategyItem</span></a></span></span><span> </span><span id="local-6989586621679299758"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299758"><span class="hs-identifier hs-var">pCapacityProvider_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#newCapacityProviderStrategyItem"><span class="hs-identifier hs-var hs-var">newCapacityProviderStrategyItem</span></a></span></span><span> </span><span id="local-6989586621679299767"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299767"><span class="hs-identifier hs-var">pCapacityProvider_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">CapacityProviderStrategyItem' :: Maybe Natural
 -&gt; Maybe Natural -&gt; Text -&gt; CapacityProviderStrategyItem
 </span><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span>
@@ -153,7 +153,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:capacityProvider:CapacityProviderStrategyItem' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#%24sel%3AcapacityProvider%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299758"><span class="hs-identifier hs-var">pCapacityProvider_</span></a></span><span>
+</span><a href="#local-6989586621679299767"><span class="hs-identifier hs-var">pCapacityProvider_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The base value designates how many tasks, at a minimum, to run on the</span><span>
@@ -172,16 +172,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299754"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299763"><span class="annot"><span class="annottext">Maybe Natural
 base :: Maybe Natural
 $sel:base:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Maybe Natural
-</span><a href="#local-6989586621679299754"><span class="hs-identifier hs-var hs-var">base</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679299754"><span class="hs-identifier hs-var">base</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299753"><span class="annot"><span class="annottext">s :: CapacityProviderStrategyItem
-</span><a href="#local-6989586621679299753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299752"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679299752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityProviderStrategyItem
-</span><a href="#local-6989586621679299753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:base:CapacityProviderStrategyItem' :: Maybe Natural
+</span><a href="#local-6989586621679299763"><span class="hs-identifier hs-var hs-var">base</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679299763"><span class="hs-identifier hs-var">base</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299762"><span class="annot"><span class="annottext">s :: CapacityProviderStrategyItem
+</span><a href="#local-6989586621679299762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299761"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679299761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityProviderStrategyItem
+</span><a href="#local-6989586621679299762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:base:CapacityProviderStrategyItem' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#%24sel%3Abase%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">base</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679299752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The weight value designates the relative percentage of the total number</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- of tasks launched that should use the specified capacity provider. The</span><span>
@@ -199,16 +199,16 @@ $sel:base:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Ma
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299750"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299759"><span class="annot"><span class="annottext">Maybe Natural
 weight :: Maybe Natural
 $sel:weight:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Maybe Natural
-</span><a href="#local-6989586621679299750"><span class="hs-identifier hs-var hs-var">weight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679299750"><span class="hs-identifier hs-var">weight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299749"><span class="annot"><span class="annottext">s :: CapacityProviderStrategyItem
-</span><a href="#local-6989586621679299749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299748"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679299748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityProviderStrategyItem
-</span><a href="#local-6989586621679299749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:weight:CapacityProviderStrategyItem' :: Maybe Natural
+</span><a href="#local-6989586621679299759"><span class="hs-identifier hs-var hs-var">weight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679299759"><span class="hs-identifier hs-var">weight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299758"><span class="annot"><span class="annottext">s :: CapacityProviderStrategyItem
+</span><a href="#local-6989586621679299758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299757"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679299757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityProviderStrategyItem
+</span><a href="#local-6989586621679299758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:weight:CapacityProviderStrategyItem' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#%24sel%3Aweight%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">weight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679299748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The short name of the capacity provider.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#capacityProviderStrategyItem_capacityProvider"><span class="hs-identifier hs-type">capacityProviderStrategyItem_capacityProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -220,19 +220,19 @@ $sel:weight:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; 
 -&gt; Lens
      CapacityProviderStrategyItem CapacityProviderStrategyItem Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299746"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299755"><span class="annot"><span class="annottext">Text
 capacityProvider :: Text
 $sel:capacityProvider:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Text
-</span><a href="#local-6989586621679299746"><span class="hs-identifier hs-var hs-var">capacityProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299746"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299745"><span class="annot"><span class="annottext">s :: CapacityProviderStrategyItem
-</span><a href="#local-6989586621679299745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299744"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityProviderStrategyItem
-</span><a href="#local-6989586621679299745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProvider:CapacityProviderStrategyItem' :: Text
+</span><a href="#local-6989586621679299755"><span class="hs-identifier hs-var hs-var">capacityProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299755"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299754"><span class="annot"><span class="annottext">s :: CapacityProviderStrategyItem
+</span><a href="#local-6989586621679299754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299753"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityProviderStrategyItem
+</span><a href="#local-6989586621679299754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProvider:CapacityProviderStrategyItem' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#%24sel%3AcapacityProvider%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299741"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679299739"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CapacityProviderStrategyItem
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299750"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679299748"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CapacityProviderStrategyItem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CapacityProviderStrategyItem)
@@ -242,8 +242,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CapacityProviderStrategyItem&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299736"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299736"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299745"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299745"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural -&gt; Text -&gt; CapacityProviderStrategyItem
 </span><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">CapacityProviderStrategyItem'</span></a></span><span>
@@ -253,7 +253,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; Text -&gt; CapacityProviderStrategyItem)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299736"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679299745"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;base&quot;</span></span><span class="hs-special">)</span><span>
@@ -262,7 +262,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; CapacityProviderStrategyItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299736"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679299745"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;weight&quot;</span></span><span class="hs-special">)</span><span>
@@ -270,21 +270,21 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser CapacityProviderStrategyItem
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299736"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679299745"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;capacityProvider&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679299729"><span id="local-6989586621679299731"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679299738"><span id="local-6989586621679299740"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299726"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299735"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299718"><span id="local-6989586621679299720"><span id="local-6989586621679299722"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679299716"><span class="annot"><span class="annottext">toJSON :: CapacityProviderStrategyItem -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299712"><span id="local-6989586621679299713"><span id="local-6989586621679299714"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299727"><span id="local-6989586621679299729"><span id="local-6989586621679299731"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679299725"><span class="annot"><span class="annottext">toJSON :: CapacityProviderStrategyItem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299721"><span id="local-6989586621679299722"><span id="local-6989586621679299723"><span class="annot"><span class="annottext">Maybe Natural
 Text
 capacityProvider :: Text
 weight :: Maybe Natural
@@ -292,7 +292,7 @@ base :: Maybe Natural
 $sel:capacityProvider:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Text
 $sel:weight:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Maybe Natural
 $sel:base:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Maybe Natural
-</span><a href="#local-6989586621679299712"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679299721"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,14 +304,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679299714"><span class="hs-identifier hs-var">base</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299723"><span class="hs-identifier hs-var">base</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;weight&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679299713"><span class="hs-identifier hs-var">weight</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299722"><span class="hs-identifier hs-var">weight</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -319,7 +319,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;capacityProvider&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299712"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299721"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span></pre></body></html>

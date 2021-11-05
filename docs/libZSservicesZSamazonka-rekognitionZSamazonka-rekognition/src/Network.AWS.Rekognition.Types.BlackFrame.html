@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- see StartSegmentDetection.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newBlackFrame' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679322022"><span id="local-6989586621679322023"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlackFrame"><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-var">BlackFrame</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlackFrame%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-var">BlackFrame'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679322031"><span id="local-6989586621679322032"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlackFrame"><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-var">BlackFrame</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlackFrame%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-var">BlackFrame'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A threshold used to determine the maximum luminance value for a pixel to</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- be considered black. In a full color range video, luminance values range</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- from 0-255. A pixel value of 0 is pure black, and the most strict</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AminCoveragePercentage%3ABlackFrame%27"><span class="annot"><span class="annottext">BlackFrame -&gt; Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#%24sel%3AminCoveragePercentage%3ABlackFrame%27"><span class="hs-identifier hs-var hs-var">minCoveragePercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322015"><span id="local-6989586621679322017"><span class="annot"><span class="annottext">BlackFrame -&gt; BlackFrame -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322024"><span id="local-6989586621679322026"><span class="annot"><span class="annottext">BlackFrame -&gt; BlackFrame -&gt; Bool
 (BlackFrame -&gt; BlackFrame -&gt; Bool)
 -&gt; (BlackFrame -&gt; BlackFrame -&gt; Bool) -&gt; Eq BlackFrame
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BlackFrame -&gt; BlackFrame -&gt; Bool
 == :: BlackFrame -&gt; BlackFrame -&gt; Bool
 $c== :: BlackFrame -&gt; BlackFrame -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322006"><span id="local-6989586621679322008"><span id="local-6989586621679322010"><span id="local-6989586621679322012"><span class="annot"><span class="annottext">ReadPrec [BlackFrame]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322015"><span id="local-6989586621679322017"><span id="local-6989586621679322019"><span id="local-6989586621679322021"><span class="annot"><span class="annottext">ReadPrec [BlackFrame]
 ReadPrec BlackFrame
 Int -&gt; ReadS BlackFrame
 ReadS [BlackFrame]
@@ -85,7 +85,7 @@ readList :: ReadS [BlackFrame]
 $creadList :: ReadS [BlackFrame]
 readsPrec :: Int -&gt; ReadS BlackFrame
 $creadsPrec :: Int -&gt; ReadS BlackFrame
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321999"><span id="local-6989586621679322001"><span id="local-6989586621679322003"><span class="annot"><span class="annottext">Int -&gt; BlackFrame -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322008"><span id="local-6989586621679322010"><span id="local-6989586621679322012"><span class="annot"><span class="annottext">Int -&gt; BlackFrame -&gt; ShowS
 [BlackFrame] -&gt; ShowS
 BlackFrame -&gt; String
 (Int -&gt; BlackFrame -&gt; ShowS)
@@ -174,16 +174,16 @@ forall a. Maybe a
 -&gt; (BlackFrame -&gt; Maybe Double -&gt; BlackFrame)
 -&gt; Lens BlackFrame BlackFrame (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321990"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321999"><span class="annot"><span class="annottext">Maybe Double
 maxPixelThreshold :: Maybe Double
 $sel:maxPixelThreshold:BlackFrame' :: BlackFrame -&gt; Maybe Double
-</span><a href="#local-6989586621679321990"><span class="hs-identifier hs-var hs-var">maxPixelThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321990"><span class="hs-identifier hs-var">maxPixelThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321989"><span class="annot"><span class="annottext">s :: BlackFrame
-</span><a href="#local-6989586621679321989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321988"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackFrame
-</span><a href="#local-6989586621679321989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxPixelThreshold:BlackFrame' :: Maybe Double
+</span><a href="#local-6989586621679321999"><span class="hs-identifier hs-var hs-var">maxPixelThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679321999"><span class="hs-identifier hs-var">maxPixelThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321998"><span class="annot"><span class="annottext">s :: BlackFrame
+</span><a href="#local-6989586621679321998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321997"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679321997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackFrame
+</span><a href="#local-6989586621679321998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxPixelThreshold:BlackFrame' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#%24sel%3AmaxPixelThreshold%3ABlackFrame%27"><span class="hs-identifier hs-var">maxPixelThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The minimum percentage of pixels in a frame that need to have a</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- luminance below the max_black_pixel_value for a frame to be considered a</span><span>
@@ -198,29 +198,29 @@ $sel:maxPixelThreshold:BlackFrame' :: BlackFrame -&gt; Maybe Double
 -&gt; (BlackFrame -&gt; Maybe Double -&gt; BlackFrame)
 -&gt; Lens BlackFrame BlackFrame (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321986"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321995"><span class="annot"><span class="annottext">Maybe Double
 minCoveragePercentage :: Maybe Double
 $sel:minCoveragePercentage:BlackFrame' :: BlackFrame -&gt; Maybe Double
-</span><a href="#local-6989586621679321986"><span class="hs-identifier hs-var hs-var">minCoveragePercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321986"><span class="hs-identifier hs-var">minCoveragePercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321985"><span class="annot"><span class="annottext">s :: BlackFrame
-</span><a href="#local-6989586621679321985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321984"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackFrame
-</span><a href="#local-6989586621679321985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minCoveragePercentage:BlackFrame' :: Maybe Double
+</span><a href="#local-6989586621679321995"><span class="hs-identifier hs-var hs-var">minCoveragePercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679321995"><span class="hs-identifier hs-var">minCoveragePercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321994"><span class="annot"><span class="annottext">s :: BlackFrame
+</span><a href="#local-6989586621679321994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321993"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679321993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackFrame
+</span><a href="#local-6989586621679321994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minCoveragePercentage:BlackFrame' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#%24sel%3AminCoveragePercentage%3ABlackFrame%27"><span class="hs-identifier hs-var">minCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321980"><span id="local-6989586621679321982"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321989"><span id="local-6989586621679321991"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321977"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321986"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321969"><span id="local-6989586621679321971"><span id="local-6989586621679321973"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679321967"><span class="annot"><span class="annottext">toJSON :: BlackFrame -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321964"><span id="local-6989586621679321965"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321978"><span id="local-6989586621679321980"><span id="local-6989586621679321982"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679321976"><span class="annot"><span class="annottext">toJSON :: BlackFrame -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321973"><span id="local-6989586621679321974"><span class="annot"><span class="annottext">Maybe Double
 minCoveragePercentage :: Maybe Double
 maxPixelThreshold :: Maybe Double
 $sel:minCoveragePercentage:BlackFrame' :: BlackFrame -&gt; Maybe Double
 $sel:maxPixelThreshold:BlackFrame' :: BlackFrame -&gt; Maybe Double
-</span><a href="#local-6989586621679321964"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679321973"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -233,7 +233,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321965"><span class="hs-identifier hs-var">maxPixelThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679321974"><span class="hs-identifier hs-var">maxPixelThreshold</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinCoveragePercentage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -241,7 +241,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321964"><span class="hs-identifier hs-var">minCoveragePercentage</span></a></span><span>
+</span><a href="#local-6989586621679321973"><span class="hs-identifier hs-var">minCoveragePercentage</span></a></span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span></pre></body></html>

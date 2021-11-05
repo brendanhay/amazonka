@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- call analytics jobs where either the customer or agent was interrupted.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newNonTalkTimeFilter' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679274492"><span id="local-6989586621679274493"></span></span><span class="hs-keyword">data</span><span> </span><span id="NonTalkTimeFilter"><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-var">NonTalkTimeFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NonTalkTimeFilter%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-var">NonTalkTimeFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679274501"><span id="local-6989586621679274502"></span></span><span class="hs-keyword">data</span><span> </span><span id="NonTalkTimeFilter"><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-var">NonTalkTimeFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NonTalkTimeFilter%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-var">NonTalkTimeFilter'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that allows percentages to specify the proportion of the call</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- where there was silence. For example, you can specify the first half of</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the call. You can also specify the period of time between halfway</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AabsoluteTimeRange%3ANonTalkTimeFilter%27"><span class="annot"><span class="annottext">NonTalkTimeFilter -&gt; Maybe AbsoluteTimeRange
 </span><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#%24sel%3AabsoluteTimeRange%3ANonTalkTimeFilter%27"><span class="hs-identifier hs-var hs-var">absoluteTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274483"><span id="local-6989586621679274485"><span class="annot"><span class="annottext">NonTalkTimeFilter -&gt; NonTalkTimeFilter -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274492"><span id="local-6989586621679274494"><span class="annot"><span class="annottext">NonTalkTimeFilter -&gt; NonTalkTimeFilter -&gt; Bool
 (NonTalkTimeFilter -&gt; NonTalkTimeFilter -&gt; Bool)
 -&gt; (NonTalkTimeFilter -&gt; NonTalkTimeFilter -&gt; Bool)
 -&gt; Eq NonTalkTimeFilter
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NonTalkTimeFilter -&gt; NonTalkTimeFilter -&gt; Bool
 == :: NonTalkTimeFilter -&gt; NonTalkTimeFilter -&gt; Bool
 $c== :: NonTalkTimeFilter -&gt; NonTalkTimeFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274474"><span id="local-6989586621679274476"><span id="local-6989586621679274478"><span id="local-6989586621679274480"><span class="annot"><span class="annottext">ReadPrec [NonTalkTimeFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274483"><span id="local-6989586621679274485"><span id="local-6989586621679274487"><span id="local-6989586621679274489"><span class="annot"><span class="annottext">ReadPrec [NonTalkTimeFilter]
 ReadPrec NonTalkTimeFilter
 Int -&gt; ReadS NonTalkTimeFilter
 ReadS [NonTalkTimeFilter]
@@ -82,7 +82,7 @@ readList :: ReadS [NonTalkTimeFilter]
 $creadList :: ReadS [NonTalkTimeFilter]
 readsPrec :: Int -&gt; ReadS NonTalkTimeFilter
 $creadsPrec :: Int -&gt; ReadS NonTalkTimeFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274467"><span id="local-6989586621679274469"><span id="local-6989586621679274471"><span class="annot"><span class="annottext">Int -&gt; NonTalkTimeFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274476"><span id="local-6989586621679274478"><span id="local-6989586621679274480"><span class="annot"><span class="annottext">Int -&gt; NonTalkTimeFilter -&gt; ShowS
 [NonTalkTimeFilter] -&gt; ShowS
 NonTalkTimeFilter -&gt; String
 (Int -&gt; NonTalkTimeFilter -&gt; ShowS)
@@ -180,16 +180,16 @@ forall a. Maybe a
      (Maybe RelativeTimeRange)
      (Maybe RelativeTimeRange)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274458"><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274467"><span class="annot"><span class="annottext">Maybe RelativeTimeRange
 relativeTimeRange :: Maybe RelativeTimeRange
 $sel:relativeTimeRange:NonTalkTimeFilter' :: NonTalkTimeFilter -&gt; Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274458"><span class="hs-identifier hs-var hs-var">relativeTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274458"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274457"><span class="annot"><span class="annottext">s :: NonTalkTimeFilter
-</span><a href="#local-6989586621679274457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274456"><span class="annot"><span class="annottext">Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonTalkTimeFilter
-</span><a href="#local-6989586621679274457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativeTimeRange:NonTalkTimeFilter' :: Maybe RelativeTimeRange
+</span><a href="#local-6989586621679274467"><span class="hs-identifier hs-var hs-var">relativeTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+</span><a href="#local-6989586621679274467"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274466"><span class="annot"><span class="annottext">s :: NonTalkTimeFilter
+</span><a href="#local-6989586621679274466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274465"><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+</span><a href="#local-6989586621679274465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonTalkTimeFilter
+</span><a href="#local-6989586621679274466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativeTimeRange:NonTalkTimeFilter' :: Maybe RelativeTimeRange
 </span><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#%24sel%3ArelativeTimeRange%3ANonTalkTimeFilter%27"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | Set to @TRUE@ to look for a time period when people were talking.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#nonTalkTimeFilter_negate"><span class="hs-identifier hs-type">nonTalkTimeFilter_negate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -200,16 +200,16 @@ $sel:relativeTimeRange:NonTalkTimeFilter' :: NonTalkTimeFilter -&gt; Maybe Relat
 -&gt; Lens
      NonTalkTimeFilter NonTalkTimeFilter (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274454"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274463"><span class="annot"><span class="annottext">Maybe Bool
 negate :: Maybe Bool
 $sel:negate:NonTalkTimeFilter' :: NonTalkTimeFilter -&gt; Maybe Bool
-</span><a href="#local-6989586621679274454"><span class="hs-identifier hs-var hs-var">negate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274454"><span class="hs-identifier hs-var">negate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274453"><span class="annot"><span class="annottext">s :: NonTalkTimeFilter
-</span><a href="#local-6989586621679274453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274452"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonTalkTimeFilter
-</span><a href="#local-6989586621679274453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:negate:NonTalkTimeFilter' :: Maybe Bool
+</span><a href="#local-6989586621679274463"><span class="hs-identifier hs-var hs-var">negate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274463"><span class="hs-identifier hs-var">negate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274462"><span class="annot"><span class="annottext">s :: NonTalkTimeFilter
+</span><a href="#local-6989586621679274462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274461"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonTalkTimeFilter
+</span><a href="#local-6989586621679274462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:negate:NonTalkTimeFilter' :: Maybe Bool
 </span><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#%24sel%3Anegate%3ANonTalkTimeFilter%27"><span class="hs-identifier hs-var">negate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The duration of the period when neither the customer nor agent was</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- talking.</span><span>
@@ -221,16 +221,16 @@ $sel:negate:NonTalkTimeFilter' :: NonTalkTimeFilter -&gt; Maybe Bool
 -&gt; Lens
      NonTalkTimeFilter NonTalkTimeFilter (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274450"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274459"><span class="annot"><span class="annottext">Maybe Natural
 threshold :: Maybe Natural
 $sel:threshold:NonTalkTimeFilter' :: NonTalkTimeFilter -&gt; Maybe Natural
-</span><a href="#local-6989586621679274450"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274450"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274449"><span class="annot"><span class="annottext">s :: NonTalkTimeFilter
-</span><a href="#local-6989586621679274449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274448"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonTalkTimeFilter
-</span><a href="#local-6989586621679274449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threshold:NonTalkTimeFilter' :: Maybe Natural
+</span><a href="#local-6989586621679274459"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274459"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274458"><span class="annot"><span class="annottext">s :: NonTalkTimeFilter
+</span><a href="#local-6989586621679274458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274457"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonTalkTimeFilter
+</span><a href="#local-6989586621679274458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threshold:NonTalkTimeFilter' :: Maybe Natural
 </span><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#%24sel%3Athreshold%3ANonTalkTimeFilter%27"><span class="hs-identifier hs-var">threshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | An object you can use to specify a time range (in milliseconds) for when</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- no one is talking. For example, you could specify a time period between</span><span>
@@ -249,19 +249,19 @@ $sel:threshold:NonTalkTimeFilter' :: NonTalkTimeFilter -&gt; Maybe Natural
      (Maybe AbsoluteTimeRange)
      (Maybe AbsoluteTimeRange)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274446"><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274455"><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
 absoluteTimeRange :: Maybe AbsoluteTimeRange
 $sel:absoluteTimeRange:NonTalkTimeFilter' :: NonTalkTimeFilter -&gt; Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274446"><span class="hs-identifier hs-var hs-var">absoluteTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274446"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274445"><span class="annot"><span class="annottext">s :: NonTalkTimeFilter
-</span><a href="#local-6989586621679274445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274444"><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonTalkTimeFilter
-</span><a href="#local-6989586621679274445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:absoluteTimeRange:NonTalkTimeFilter' :: Maybe AbsoluteTimeRange
+</span><a href="#local-6989586621679274455"><span class="hs-identifier hs-var hs-var">absoluteTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+</span><a href="#local-6989586621679274455"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274454"><span class="annot"><span class="annottext">s :: NonTalkTimeFilter
+</span><a href="#local-6989586621679274454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274453"><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+</span><a href="#local-6989586621679274453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonTalkTimeFilter
+</span><a href="#local-6989586621679274454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:absoluteTimeRange:NonTalkTimeFilter' :: Maybe AbsoluteTimeRange
 </span><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#%24sel%3AabsoluteTimeRange%3ANonTalkTimeFilter%27"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274441"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679274439"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NonTalkTimeFilter
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274450"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679274448"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NonTalkTimeFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NonTalkTimeFilter)
@@ -271,8 +271,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NonTalkTimeFilter&quot;</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274436"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274436"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274445"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274445"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
 -&gt; Maybe Bool
 -&gt; Maybe Natural
@@ -290,7 +290,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Natural -&gt; Maybe AbsoluteTimeRange -&gt; NonTalkTimeFilter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RelativeTimeRange)
+</span><a href="#local-6989586621679274445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RelativeTimeRange)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RelativeTimeRange&quot;</span></span><span class="hs-special">)</span><span>
@@ -302,7 +302,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Natural -&gt; Maybe AbsoluteTimeRange -&gt; NonTalkTimeFilter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679274445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Negate&quot;</span></span><span class="hs-special">)</span><span>
@@ -312,7 +312,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe AbsoluteTimeRange -&gt; NonTalkTimeFilter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679274445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Threshold&quot;</span></span><span class="hs-special">)</span><span>
@@ -320,19 +320,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe AbsoluteTimeRange) -&gt; Parser NonTalkTimeFilter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AbsoluteTimeRange)
+</span><a href="#local-6989586621679274445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AbsoluteTimeRange)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AbsoluteTimeRange&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274430"><span id="local-6989586621679274432"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274439"><span id="local-6989586621679274441"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274427"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274436"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274419"><span id="local-6989586621679274421"><span id="local-6989586621679274423"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679274417"><span class="annot"><span class="annottext">toJSON :: NonTalkTimeFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274412"><span id="local-6989586621679274413"><span id="local-6989586621679274414"><span id="local-6989586621679274415"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274428"><span id="local-6989586621679274430"><span id="local-6989586621679274432"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679274426"><span class="annot"><span class="annottext">toJSON :: NonTalkTimeFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter%27"><span class="hs-identifier hs-type">NonTalkTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274421"><span id="local-6989586621679274422"><span id="local-6989586621679274423"><span id="local-6989586621679274424"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe AbsoluteTimeRange
 Maybe RelativeTimeRange
@@ -344,7 +344,7 @@ $sel:absoluteTimeRange:NonTalkTimeFilter' :: NonTalkTimeFilter -&gt; Maybe Absol
 $sel:threshold:NonTalkTimeFilter' :: NonTalkTimeFilter -&gt; Maybe Natural
 $sel:negate:NonTalkTimeFilter' :: NonTalkTimeFilter -&gt; Maybe Bool
 $sel:relativeTimeRange:NonTalkTimeFilter' :: NonTalkTimeFilter -&gt; Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274412"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679274421"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -358,21 +358,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe RelativeTimeRange -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274415"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274424"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Negate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274414"><span class="hs-identifier hs-var">negate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274423"><span class="hs-identifier hs-var">negate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Threshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274413"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274422"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AbsoluteTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AbsoluteTimeRange -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -381,7 +381,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AbsoluteTimeRange -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274412"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span>
+</span><a href="#local-6989586621679274421"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span>
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span></pre></body></html>

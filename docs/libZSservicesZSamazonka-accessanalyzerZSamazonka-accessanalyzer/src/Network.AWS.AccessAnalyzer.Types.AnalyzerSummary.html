@@ -1,0 +1,655 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AccessAnalyzer.Types.AnalyzerSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.AnalyzerSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerStatus.html"><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.AnalyzerStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.StatusReason.html"><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.StatusReason</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Type.html"><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.Type</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Contains information about the analyzer.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAnalyzerSummary' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679251752"><span id="local-6989586621679251753"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnalyzerSummary"><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-var">AnalyzerSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalyzerSummary%27"><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-var">AnalyzerSummary'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time at which the most recently analyzed resource was analyzed.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastResourceAnalyzedAt%3AAnalyzerSummary%27"><span class="annot"><span class="annottext">AnalyzerSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3AlastResourceAnalyzedAt%3AAnalyzerSummary%27"><span class="hs-identifier hs-var hs-var">lastResourceAnalyzedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The resource that was most recently analyzed by the analyzer.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlastResourceAnalyzed%3AAnalyzerSummary%27"><span class="annot"><span class="annottext">AnalyzerSummary -&gt; Maybe Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3AlastResourceAnalyzed%3AAnalyzerSummary%27"><span class="hs-identifier hs-var hs-var">lastResourceAnalyzed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The @statusReason@ provides more details about the current status of the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- analyzer. For example, if the creation for the analyzer fails, a</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @Failed@ status is returned. For an analyzer with organization as the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- type, this failure can be due to an issue with creating the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- service-linked roles required in the member accounts of the Amazon Web</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Services organization.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AstatusReason%3AAnalyzerSummary%27"><span class="annot"><span class="annottext">AnalyzerSummary -&gt; Maybe StatusReason
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3AstatusReason%3AAnalyzerSummary%27"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.StatusReason.html#StatusReason"><span class="hs-identifier hs-type">StatusReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The tags added to the analyzer.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atags%3AAnalyzerSummary%27"><span class="annot"><span class="annottext">AnalyzerSummary -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Atags%3AAnalyzerSummary%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The ARN of the analyzer.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aarn%3AAnalyzerSummary%27"><span class="annot"><span class="annottext">AnalyzerSummary -&gt; Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Aarn%3AAnalyzerSummary%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | A timestamp for the time at which the analyzer was created.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AcreatedAt%3AAnalyzerSummary%27"><span class="annot"><span class="annottext">AnalyzerSummary -&gt; POSIX
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3AcreatedAt%3AAnalyzerSummary%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The name of the analyzer.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aname%3AAnalyzerSummary%27"><span class="annot"><span class="annottext">AnalyzerSummary -&gt; Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Aname%3AAnalyzerSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The status of the analyzer. An @Active@ analyzer successfully monitors</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- supported resources and generates new findings. The analyzer is</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @Disabled@ when a user action, such as removing trusted access for</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Identity and Access Management Access Analyzer from Organizations,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- causes the analyzer to stop generating new findings. The status is</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @Creating@ when the analyzer creation is in progress and @Failed@ when</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the analyzer creation has failed.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Astatus%3AAnalyzerSummary%27"><span class="annot"><span class="annottext">AnalyzerSummary -&gt; AnalyzerStatus
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Astatus%3AAnalyzerSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerStatus.html#AnalyzerStatus"><span class="hs-identifier hs-type">AnalyzerStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The type of analyzer, which corresponds to the zone of trust chosen for</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the analyzer.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Atype%27%3AAnalyzerSummary%27"><span class="annot"><span class="annottext">AnalyzerSummary -&gt; Type
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Atype%27%3AAnalyzerSummary%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251738"><span id="local-6989586621679251740"><span class="annot"><span class="annottext">AnalyzerSummary -&gt; AnalyzerSummary -&gt; Bool
+(AnalyzerSummary -&gt; AnalyzerSummary -&gt; Bool)
+-&gt; (AnalyzerSummary -&gt; AnalyzerSummary -&gt; Bool)
+-&gt; Eq AnalyzerSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AnalyzerSummary -&gt; AnalyzerSummary -&gt; Bool
+$c/= :: AnalyzerSummary -&gt; AnalyzerSummary -&gt; Bool
+== :: AnalyzerSummary -&gt; AnalyzerSummary -&gt; Bool
+$c== :: AnalyzerSummary -&gt; AnalyzerSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251729"><span id="local-6989586621679251731"><span id="local-6989586621679251733"><span id="local-6989586621679251735"><span class="annot"><span class="annottext">ReadPrec [AnalyzerSummary]
+ReadPrec AnalyzerSummary
+Int -&gt; ReadS AnalyzerSummary
+ReadS [AnalyzerSummary]
+(Int -&gt; ReadS AnalyzerSummary)
+-&gt; ReadS [AnalyzerSummary]
+-&gt; ReadPrec AnalyzerSummary
+-&gt; ReadPrec [AnalyzerSummary]
+-&gt; Read AnalyzerSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AnalyzerSummary]
+$creadListPrec :: ReadPrec [AnalyzerSummary]
+readPrec :: ReadPrec AnalyzerSummary
+$creadPrec :: ReadPrec AnalyzerSummary
+readList :: ReadS [AnalyzerSummary]
+$creadList :: ReadS [AnalyzerSummary]
+readsPrec :: Int -&gt; ReadS AnalyzerSummary
+$creadsPrec :: Int -&gt; ReadS AnalyzerSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251722"><span id="local-6989586621679251724"><span id="local-6989586621679251726"><span class="annot"><span class="annottext">Int -&gt; AnalyzerSummary -&gt; ShowS
+[AnalyzerSummary] -&gt; ShowS
+AnalyzerSummary -&gt; String
+(Int -&gt; AnalyzerSummary -&gt; ShowS)
+-&gt; (AnalyzerSummary -&gt; String)
+-&gt; ([AnalyzerSummary] -&gt; ShowS)
+-&gt; Show AnalyzerSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AnalyzerSummary] -&gt; ShowS
+$cshowList :: [AnalyzerSummary] -&gt; ShowS
+show :: AnalyzerSummary -&gt; String
+$cshow :: AnalyzerSummary -&gt; String
+showsPrec :: Int -&gt; AnalyzerSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; AnalyzerSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AnalyzerSummary -&gt; Rep AnalyzerSummary x)
+-&gt; (forall x. Rep AnalyzerSummary x -&gt; AnalyzerSummary)
+-&gt; Generic AnalyzerSummary
+forall x. Rep AnalyzerSummary x -&gt; AnalyzerSummary
+forall x. AnalyzerSummary -&gt; Rep AnalyzerSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AnalyzerSummary x -&gt; AnalyzerSummary
+$cfrom :: forall x. AnalyzerSummary -&gt; Rep AnalyzerSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'AnalyzerSummary' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'lastResourceAnalyzedAt', 'analyzerSummary_lastResourceAnalyzedAt' - The time at which the most recently analyzed resource was analyzed.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'lastResourceAnalyzed', 'analyzerSummary_lastResourceAnalyzed' - The resource that was most recently analyzed by the analyzer.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'statusReason', 'analyzerSummary_statusReason' - The @statusReason@ provides more details about the current status of the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- analyzer. For example, if the creation for the analyzer fails, a</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- @Failed@ status is returned. For an analyzer with organization as the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- type, this failure can be due to an issue with creating the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- service-linked roles required in the member accounts of the Amazon Web</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Services organization.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'tags', 'analyzerSummary_tags' - The tags added to the analyzer.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'arn', 'analyzerSummary_arn' - The ARN of the analyzer.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'createdAt', 'analyzerSummary_createdAt' - A timestamp for the time at which the analyzer was created.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'name', 'analyzerSummary_name' - The name of the analyzer.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'status', 'analyzerSummary_status' - The status of the analyzer. An @Active@ analyzer successfully monitors</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- supported resources and generates new findings. The analyzer is</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- @Disabled@ when a user action, such as removing trusted access for</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Identity and Access Management Access Analyzer from Organizations,</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- causes the analyzer to stop generating new findings. The status is</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- @Creating@ when the analyzer creation is in progress and @Failed@ when</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- the analyzer creation has failed.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'type'', 'analyzerSummary_type' - The type of analyzer, which corresponds to the zone of trust chosen for</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the analyzer.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#newAnalyzerSummary"><span class="hs-identifier hs-type">newAnalyzerSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerStatus.html#AnalyzerStatus"><span class="hs-identifier hs-type">AnalyzerStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span>
+</span><span id="line-115"></span><span id="newAnalyzerSummary"><span class="annot"><span class="annottext">newAnalyzerSummary :: Text
+-&gt; UTCTime -&gt; Text -&gt; AnalyzerStatus -&gt; Type -&gt; AnalyzerSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#newAnalyzerSummary"><span class="hs-identifier hs-var hs-var">newAnalyzerSummary</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679251716"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251716"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679251715"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679251715"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679251714"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251714"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679251713"><span class="annot"><span class="annottext">AnalyzerStatus
+</span><a href="#local-6989586621679251713"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679251712"><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679251712"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">AnalyzerSummary' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe StatusReason
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; AnalyzerStatus
+-&gt; Type
+-&gt; AnalyzerSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastResourceAnalyzedAt:AnalyzerSummary' :: Maybe POSIX
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3AlastResourceAnalyzedAt%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">lastResourceAnalyzedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastResourceAnalyzed:AnalyzerSummary' :: Maybe Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3AlastResourceAnalyzed%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">lastResourceAnalyzed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:statusReason:AnalyzerSummary' :: Maybe StatusReason
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3AstatusReason%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusReason
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:AnalyzerSummary' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Atags%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:AnalyzerSummary' :: Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Aarn%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251716"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:AnalyzerSummary' :: POSIX
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3AcreatedAt%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679251715"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:AnalyzerSummary' :: Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Aname%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251714"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:AnalyzerSummary' :: AnalyzerStatus
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Astatus%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AnalyzerStatus
+</span><a href="#local-6989586621679251713"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':AnalyzerSummary' :: Type
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Atype%27%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679251712"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The time at which the most recently analyzed resource was analyzed.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_lastResourceAnalyzedAt"><span class="hs-identifier hs-type">analyzerSummary_lastResourceAnalyzedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="analyzerSummary_lastResourceAnalyzedAt"><span class="annot"><span class="annottext">analyzerSummary_lastResourceAnalyzedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AnalyzerSummary -&gt; f AnalyzerSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_lastResourceAnalyzedAt"><span class="hs-identifier hs-var hs-var">analyzerSummary_lastResourceAnalyzedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalyzerSummary -&gt; Maybe POSIX)
+-&gt; (AnalyzerSummary -&gt; Maybe POSIX -&gt; AnalyzerSummary)
+-&gt; Lens AnalyzerSummary AnalyzerSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251706"><span class="annot"><span class="annottext">Maybe POSIX
+lastResourceAnalyzedAt :: Maybe POSIX
+$sel:lastResourceAnalyzedAt:AnalyzerSummary' :: AnalyzerSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679251706"><span class="hs-identifier hs-var hs-var">lastResourceAnalyzedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679251706"><span class="hs-identifier hs-var">lastResourceAnalyzedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251705"><span class="annot"><span class="annottext">s :: AnalyzerSummary
+</span><a href="#local-6989586621679251705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251704"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679251704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalyzerSummary
+</span><a href="#local-6989586621679251705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastResourceAnalyzedAt:AnalyzerSummary' :: Maybe POSIX
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3AlastResourceAnalyzedAt%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">lastResourceAnalyzedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679251704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AnalyzerSummary -&gt; f AnalyzerSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AnalyzerSummary
+-&gt; f AnalyzerSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The resource that was most recently analyzed by the analyzer.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_lastResourceAnalyzed"><span class="hs-identifier hs-type">analyzerSummary_lastResourceAnalyzed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="analyzerSummary_lastResourceAnalyzed"><span class="annot"><span class="annottext">analyzerSummary_lastResourceAnalyzed :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AnalyzerSummary -&gt; f AnalyzerSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_lastResourceAnalyzed"><span class="hs-identifier hs-var hs-var">analyzerSummary_lastResourceAnalyzed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalyzerSummary -&gt; Maybe Text)
+-&gt; (AnalyzerSummary -&gt; Maybe Text -&gt; AnalyzerSummary)
+-&gt; Lens AnalyzerSummary AnalyzerSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251700"><span class="annot"><span class="annottext">Maybe Text
+lastResourceAnalyzed :: Maybe Text
+$sel:lastResourceAnalyzed:AnalyzerSummary' :: AnalyzerSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679251700"><span class="hs-identifier hs-var hs-var">lastResourceAnalyzed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251700"><span class="hs-identifier hs-var">lastResourceAnalyzed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251699"><span class="annot"><span class="annottext">s :: AnalyzerSummary
+</span><a href="#local-6989586621679251699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251698"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalyzerSummary
+</span><a href="#local-6989586621679251699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastResourceAnalyzed:AnalyzerSummary' :: Maybe Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3AlastResourceAnalyzed%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">lastResourceAnalyzed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The @statusReason@ provides more details about the current status of the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- analyzer. For example, if the creation for the analyzer fails, a</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- @Failed@ status is returned. For an analyzer with organization as the</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- type, this failure can be due to an issue with creating the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- service-linked roles required in the member accounts of the Amazon Web</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Services organization.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_statusReason"><span class="hs-identifier hs-type">analyzerSummary_statusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.StatusReason.html#StatusReason"><span class="hs-identifier hs-type">StatusReason</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="analyzerSummary_statusReason"><span class="annot"><span class="annottext">analyzerSummary_statusReason :: (Maybe StatusReason -&gt; f (Maybe StatusReason))
+-&gt; AnalyzerSummary -&gt; f AnalyzerSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_statusReason"><span class="hs-identifier hs-var hs-var">analyzerSummary_statusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalyzerSummary -&gt; Maybe StatusReason)
+-&gt; (AnalyzerSummary -&gt; Maybe StatusReason -&gt; AnalyzerSummary)
+-&gt; Lens
+     AnalyzerSummary
+     AnalyzerSummary
+     (Maybe StatusReason)
+     (Maybe StatusReason)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251696"><span class="annot"><span class="annottext">Maybe StatusReason
+statusReason :: Maybe StatusReason
+$sel:statusReason:AnalyzerSummary' :: AnalyzerSummary -&gt; Maybe StatusReason
+</span><a href="#local-6989586621679251696"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatusReason
+</span><a href="#local-6989586621679251696"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251695"><span class="annot"><span class="annottext">s :: AnalyzerSummary
+</span><a href="#local-6989586621679251695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251694"><span class="annot"><span class="annottext">Maybe StatusReason
+</span><a href="#local-6989586621679251694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalyzerSummary
+</span><a href="#local-6989586621679251695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:AnalyzerSummary' :: Maybe StatusReason
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3AstatusReason%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusReason
+</span><a href="#local-6989586621679251694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The tags added to the analyzer.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_tags"><span class="hs-identifier hs-type">analyzerSummary_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="analyzerSummary_tags"><span class="annot"><span class="annottext">analyzerSummary_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; AnalyzerSummary -&gt; f AnalyzerSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_tags"><span class="hs-identifier hs-var hs-var">analyzerSummary_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalyzerSummary -&gt; Maybe (HashMap Text Text))
+-&gt; (AnalyzerSummary
+    -&gt; Maybe (HashMap Text Text) -&gt; AnalyzerSummary)
+-&gt; Lens
+     AnalyzerSummary
+     AnalyzerSummary
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251692"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:AnalyzerSummary' :: AnalyzerSummary -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679251692"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679251692"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251691"><span class="annot"><span class="annottext">s :: AnalyzerSummary
+</span><a href="#local-6989586621679251691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251690"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679251690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalyzerSummary
+</span><a href="#local-6989586621679251691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AnalyzerSummary' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Atags%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679251690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; AnalyzerSummary -&gt; f AnalyzerSummary)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; AnalyzerSummary
+-&gt; f AnalyzerSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The ARN of the analyzer.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_arn"><span class="hs-identifier hs-type">analyzerSummary_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-157"></span><span id="analyzerSummary_arn"><span class="annot"><span class="annottext">analyzerSummary_arn :: (Text -&gt; f Text) -&gt; AnalyzerSummary -&gt; f AnalyzerSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_arn"><span class="hs-identifier hs-var hs-var">analyzerSummary_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalyzerSummary -&gt; Text)
+-&gt; (AnalyzerSummary -&gt; Text -&gt; AnalyzerSummary)
+-&gt; Lens AnalyzerSummary AnalyzerSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251687"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:AnalyzerSummary' :: AnalyzerSummary -&gt; Text
+</span><a href="#local-6989586621679251687"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251687"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251686"><span class="annot"><span class="annottext">s :: AnalyzerSummary
+</span><a href="#local-6989586621679251686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251685"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalyzerSummary
+</span><a href="#local-6989586621679251686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:AnalyzerSummary' :: Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Aarn%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | A timestamp for the time at which the analyzer was created.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_createdAt"><span class="hs-identifier hs-type">analyzerSummary_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-161"></span><span id="analyzerSummary_createdAt"><span class="annot"><span class="annottext">analyzerSummary_createdAt :: (UTCTime -&gt; f UTCTime) -&gt; AnalyzerSummary -&gt; f AnalyzerSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_createdAt"><span class="hs-identifier hs-var hs-var">analyzerSummary_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalyzerSummary -&gt; POSIX)
+-&gt; (AnalyzerSummary -&gt; POSIX -&gt; AnalyzerSummary)
+-&gt; Lens AnalyzerSummary AnalyzerSummary POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251683"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:AnalyzerSummary' :: AnalyzerSummary -&gt; POSIX
+</span><a href="#local-6989586621679251683"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679251683"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251682"><span class="annot"><span class="annottext">s :: AnalyzerSummary
+</span><a href="#local-6989586621679251682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251681"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679251681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalyzerSummary
+</span><a href="#local-6989586621679251682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:AnalyzerSummary' :: POSIX
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3AcreatedAt%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679251681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; AnalyzerSummary -&gt; f AnalyzerSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; AnalyzerSummary
+-&gt; f AnalyzerSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The name of the analyzer.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_name"><span class="hs-identifier hs-type">analyzerSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-165"></span><span id="analyzerSummary_name"><span class="annot"><span class="annottext">analyzerSummary_name :: (Text -&gt; f Text) -&gt; AnalyzerSummary -&gt; f AnalyzerSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_name"><span class="hs-identifier hs-var hs-var">analyzerSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalyzerSummary -&gt; Text)
+-&gt; (AnalyzerSummary -&gt; Text -&gt; AnalyzerSummary)
+-&gt; Lens AnalyzerSummary AnalyzerSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251679"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:AnalyzerSummary' :: AnalyzerSummary -&gt; Text
+</span><a href="#local-6989586621679251679"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251679"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251678"><span class="annot"><span class="annottext">s :: AnalyzerSummary
+</span><a href="#local-6989586621679251678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251677"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalyzerSummary
+</span><a href="#local-6989586621679251678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AnalyzerSummary' :: Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Aname%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The status of the analyzer. An @Active@ analyzer successfully monitors</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- supported resources and generates new findings. The analyzer is</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- @Disabled@ when a user action, such as removing trusted access for</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Identity and Access Management Access Analyzer from Organizations,</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- causes the analyzer to stop generating new findings. The status is</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- @Creating@ when the analyzer creation is in progress and @Failed@ when</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- the analyzer creation has failed.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_status"><span class="hs-identifier hs-type">analyzerSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerStatus.html#AnalyzerStatus"><span class="hs-identifier hs-type">AnalyzerStatus</span></a></span><span>
+</span><span id="line-175"></span><span id="analyzerSummary_status"><span class="annot"><span class="annottext">analyzerSummary_status :: (AnalyzerStatus -&gt; f AnalyzerStatus)
+-&gt; AnalyzerSummary -&gt; f AnalyzerSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_status"><span class="hs-identifier hs-var hs-var">analyzerSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalyzerSummary -&gt; AnalyzerStatus)
+-&gt; (AnalyzerSummary -&gt; AnalyzerStatus -&gt; AnalyzerSummary)
+-&gt; Lens
+     AnalyzerSummary AnalyzerSummary AnalyzerStatus AnalyzerStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251675"><span class="annot"><span class="annottext">AnalyzerStatus
+status :: AnalyzerStatus
+$sel:status:AnalyzerSummary' :: AnalyzerSummary -&gt; AnalyzerStatus
+</span><a href="#local-6989586621679251675"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalyzerStatus
+</span><a href="#local-6989586621679251675"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251674"><span class="annot"><span class="annottext">s :: AnalyzerSummary
+</span><a href="#local-6989586621679251674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251673"><span class="annot"><span class="annottext">AnalyzerStatus
+</span><a href="#local-6989586621679251673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalyzerSummary
+</span><a href="#local-6989586621679251674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AnalyzerSummary' :: AnalyzerStatus
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Astatus%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AnalyzerStatus
+</span><a href="#local-6989586621679251673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The type of analyzer, which corresponds to the zone of trust chosen for</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- the analyzer.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_type"><span class="hs-identifier hs-type">analyzerSummary_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span>
+</span><span id="line-180"></span><span id="analyzerSummary_type"><span class="annot"><span class="annottext">analyzerSummary_type :: (Type -&gt; f Type) -&gt; AnalyzerSummary -&gt; f AnalyzerSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#analyzerSummary_type"><span class="hs-identifier hs-var hs-var">analyzerSummary_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalyzerSummary -&gt; Type)
+-&gt; (AnalyzerSummary -&gt; Type -&gt; AnalyzerSummary)
+-&gt; Lens AnalyzerSummary AnalyzerSummary Type Type
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251671"><span class="annot"><span class="annottext">Type
+type' :: Type
+$sel:type':AnalyzerSummary' :: AnalyzerSummary -&gt; Type
+</span><a href="#local-6989586621679251671"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679251671"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251670"><span class="annot"><span class="annottext">s :: AnalyzerSummary
+</span><a href="#local-6989586621679251670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-type">AnalyzerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251669"><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679251669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalyzerSummary
+</span><a href="#local-6989586621679251670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':AnalyzerSummary' :: Type
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#%24sel%3Atype%27%3AAnalyzerSummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679251669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251666"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679251664"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AnalyzerSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AnalyzerSummary)
+-&gt; Value
+-&gt; Parser AnalyzerSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AnalyzerSummary&quot;</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251661"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251661"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe StatusReason
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; AnalyzerStatus
+-&gt; Type
+-&gt; AnalyzerSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary%27"><span class="hs-identifier hs-var">AnalyzerSummary'</span></a></span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe StatusReason
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; AnalyzerStatus
+ -&gt; Type
+ -&gt; AnalyzerSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe StatusReason
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; AnalyzerStatus
+      -&gt; Type
+      -&gt; AnalyzerSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastResourceAnalyzedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe StatusReason
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; AnalyzerStatus
+   -&gt; Type
+   -&gt; AnalyzerSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe StatusReason
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; AnalyzerStatus
+      -&gt; Type
+      -&gt; AnalyzerSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastResourceAnalyzed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe StatusReason
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; AnalyzerStatus
+   -&gt; Type
+   -&gt; AnalyzerSummary)
+-&gt; Parser (Maybe StatusReason)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; AnalyzerStatus
+      -&gt; Type
+      -&gt; AnalyzerSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StatusReason)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; AnalyzerStatus
+   -&gt; Type
+   -&gt; AnalyzerSummary)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Text
+      -&gt; POSIX -&gt; Text -&gt; AnalyzerStatus -&gt; Type -&gt; AnalyzerSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; POSIX -&gt; Text -&gt; AnalyzerStatus -&gt; Type -&gt; AnalyzerSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (POSIX -&gt; Text -&gt; AnalyzerStatus -&gt; Type -&gt; AnalyzerSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Text -&gt; AnalyzerStatus -&gt; Type -&gt; AnalyzerSummary)
+-&gt; Parser POSIX
+-&gt; Parser (Text -&gt; AnalyzerStatus -&gt; Type -&gt; AnalyzerSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; AnalyzerStatus -&gt; Type -&gt; AnalyzerSummary)
+-&gt; Parser Text
+-&gt; Parser (AnalyzerStatus -&gt; Type -&gt; AnalyzerSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser (AnalyzerStatus -&gt; Type -&gt; AnalyzerSummary)
+-&gt; Parser AnalyzerStatus -&gt; Parser (Type -&gt; AnalyzerSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AnalyzerStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser (Type -&gt; AnalyzerSummary)
+-&gt; Parser Type -&gt; Parser AnalyzerSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Type
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251653"><span id="local-6989586621679251655"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span></span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251650"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzerSummary.html#AnalyzerSummary"><span class="hs-identifier hs-type">AnalyzerSummary</span></a></span></span><span>
+</span><span id="line-202"></span></pre></body></html>

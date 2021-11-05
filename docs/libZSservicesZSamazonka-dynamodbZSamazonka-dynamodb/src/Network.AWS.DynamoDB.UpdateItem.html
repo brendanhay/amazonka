@@ -69,7 +69,7 @@
 </span><span id="line-69"></span><span class="hs-comment">-- | Represents the input of an @UpdateItem@ operation.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- /See:/ 'newUpdateItem' smart constructor.</span><span>
-</span><span id="line-72"></span><span id="local-6989586621679397455"><span id="local-6989586621679397456"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateItem"><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-var">UpdateItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateItem%27"><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-var">UpdateItem'</span></a></span></span><span>
+</span><span id="line-72"></span><span id="local-6989586621679397464"><span id="local-6989586621679397465"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateItem"><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-var">UpdateItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateItem%27"><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-var">UpdateItem'</span></a></span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more substitution tokens for attribute names in an expression.</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- The following are some use cases for using @ExpressionAttributeNames@:</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -300,7 +300,7 @@
 </span><span id="line-289"></span><span>    </span><span id="%24sel%3Akey%3AUpdateItem%27"><span class="annot"><span class="annottext">UpdateItem -&gt; HashMap Text AttributeValue
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3Akey%3AUpdateItem%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span>
 </span><span id="line-290"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-291"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397438"><span id="local-6989586621679397440"><span class="annot"><span class="annottext">UpdateItem -&gt; UpdateItem -&gt; Bool
+</span><span id="line-291"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397447"><span id="local-6989586621679397449"><span class="annot"><span class="annottext">UpdateItem -&gt; UpdateItem -&gt; Bool
 (UpdateItem -&gt; UpdateItem -&gt; Bool)
 -&gt; (UpdateItem -&gt; UpdateItem -&gt; Bool) -&gt; Eq UpdateItem
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -308,7 +308,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateItem -&gt; UpdateItem -&gt; Bool
 == :: UpdateItem -&gt; UpdateItem -&gt; Bool
 $c== :: UpdateItem -&gt; UpdateItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397429"><span id="local-6989586621679397431"><span id="local-6989586621679397433"><span id="local-6989586621679397435"><span class="annot"><span class="annottext">ReadPrec [UpdateItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397438"><span id="local-6989586621679397440"><span id="local-6989586621679397442"><span id="local-6989586621679397444"><span class="annot"><span class="annottext">ReadPrec [UpdateItem]
 ReadPrec UpdateItem
 Int -&gt; ReadS UpdateItem
 ReadS [UpdateItem]
@@ -328,7 +328,7 @@ readList :: ReadS [UpdateItem]
 $creadList :: ReadS [UpdateItem]
 readsPrec :: Int -&gt; ReadS UpdateItem
 $creadsPrec :: Int -&gt; ReadS UpdateItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397422"><span id="local-6989586621679397424"><span id="local-6989586621679397426"><span class="annot"><span class="annottext">Int -&gt; UpdateItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397431"><span id="local-6989586621679397433"><span id="local-6989586621679397435"><span class="annot"><span class="annottext">Int -&gt; UpdateItem -&gt; ShowS
 [UpdateItem] -&gt; ShowS
 UpdateItem -&gt; String
 (Int -&gt; UpdateItem -&gt; ShowS)
@@ -583,8 +583,8 @@ $cfrom :: forall x. UpdateItem -&gt; Rep UpdateItem x
 </span><span id="line-520"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-521"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span>
 </span><span id="line-522"></span><span id="newUpdateItem"><span class="annot"><span class="annottext">newUpdateItem :: Text -&gt; UpdateItem
-</span><a href="Network.AWS.DynamoDB.UpdateItem.html#newUpdateItem"><span class="hs-identifier hs-var hs-var">newUpdateItem</span></a></span></span><span> </span><span id="local-6989586621679397417"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397417"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.UpdateItem.html#newUpdateItem"><span class="hs-identifier hs-var hs-var">newUpdateItem</span></a></span></span><span> </span><span id="local-6989586621679397426"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397426"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-523"></span><span>  </span><span class="annot"><span class="annottext">UpdateItem' :: Maybe (HashMap Text Text)
 -&gt; Maybe ReturnValue
 -&gt; Maybe Text
@@ -642,7 +642,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-535"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:UpdateItem' :: Text
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AtableName%3AUpdateItem%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397417"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397426"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-536"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:UpdateItem' :: HashMap Text AttributeValue
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3Akey%3AUpdateItem%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
 forall a. Monoid a =&gt; a
@@ -697,16 +697,16 @@ forall a. Monoid a =&gt; a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397414"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397423"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 expressionAttributeNames :: Maybe (HashMap Text Text)
 $sel:expressionAttributeNames:UpdateItem' :: UpdateItem -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679397414"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679397414"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397413"><span class="annot"><span class="annottext">s :: UpdateItem
-</span><a href="#local-6989586621679397413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397412"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679397412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
-</span><a href="#local-6989586621679397413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:UpdateItem' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679397423"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679397423"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397422"><span class="annot"><span class="annottext">s :: UpdateItem
+</span><a href="#local-6989586621679397422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397421"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679397421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
+</span><a href="#local-6989586621679397422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:UpdateItem' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AexpressionAttributeNames%3AUpdateItem%27"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679397412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679397421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; UpdateItem -&gt; f UpdateItem)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -768,16 +768,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      UpdateItem UpdateItem (Maybe ReturnValue) (Maybe ReturnValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397408"><span class="annot"><span class="annottext">Maybe ReturnValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397417"><span class="annot"><span class="annottext">Maybe ReturnValue
 returnValues :: Maybe ReturnValue
 $sel:returnValues:UpdateItem' :: UpdateItem -&gt; Maybe ReturnValue
-</span><a href="#local-6989586621679397408"><span class="hs-identifier hs-var hs-var">returnValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValue
-</span><a href="#local-6989586621679397408"><span class="hs-identifier hs-var">returnValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397407"><span class="annot"><span class="annottext">s :: UpdateItem
-</span><a href="#local-6989586621679397407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397406"><span class="annot"><span class="annottext">Maybe ReturnValue
-</span><a href="#local-6989586621679397406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
-</span><a href="#local-6989586621679397407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnValues:UpdateItem' :: Maybe ReturnValue
+</span><a href="#local-6989586621679397417"><span class="hs-identifier hs-var hs-var">returnValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValue
+</span><a href="#local-6989586621679397417"><span class="hs-identifier hs-var">returnValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397416"><span class="annot"><span class="annottext">s :: UpdateItem
+</span><a href="#local-6989586621679397416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397415"><span class="annot"><span class="annottext">Maybe ReturnValue
+</span><a href="#local-6989586621679397415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
+</span><a href="#local-6989586621679397416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnValues:UpdateItem' :: Maybe ReturnValue
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AreturnValues%3AUpdateItem%27"><span class="hs-identifier hs-var">returnValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValue
-</span><a href="#local-6989586621679397406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-606"></span><span>
 </span><span id="line-607"></span><span class="hs-comment">-- | An expression that defines one or more attributes to be updated, the</span><span>
 </span><span id="line-608"></span><span class="hs-comment">-- action to be performed on them, and new values for them.</span><span>
@@ -868,16 +868,16 @@ $sel:returnValues:UpdateItem' :: UpdateItem -&gt; Maybe ReturnValue
 -&gt; (UpdateItem -&gt; Maybe Text -&gt; UpdateItem)
 -&gt; Lens UpdateItem UpdateItem (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397405"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397414"><span class="annot"><span class="annottext">Maybe Text
 updateExpression :: Maybe Text
 $sel:updateExpression:UpdateItem' :: UpdateItem -&gt; Maybe Text
-</span><a href="#local-6989586621679397405"><span class="hs-identifier hs-var hs-var">updateExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397405"><span class="hs-identifier hs-var">updateExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397404"><span class="annot"><span class="annottext">s :: UpdateItem
-</span><a href="#local-6989586621679397404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397403"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
-</span><a href="#local-6989586621679397404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateExpression:UpdateItem' :: Maybe Text
+</span><a href="#local-6989586621679397414"><span class="hs-identifier hs-var hs-var">updateExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397414"><span class="hs-identifier hs-var">updateExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397413"><span class="annot"><span class="annottext">s :: UpdateItem
+</span><a href="#local-6989586621679397413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397412"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
+</span><a href="#local-6989586621679397413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateExpression:UpdateItem' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AupdateExpression%3AUpdateItem%27"><span class="hs-identifier hs-var">updateExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-692"></span><span>
 </span><span id="line-693"></span><span class="hs-comment">-- | One or more values that can be substituted in an expression.</span><span>
 </span><span id="line-694"></span><span class="hs-comment">--</span><span>
@@ -911,16 +911,16 @@ $sel:updateExpression:UpdateItem' :: UpdateItem -&gt; Maybe Text
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397402"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397411"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 expressionAttributeValues :: Maybe (HashMap Text AttributeValue)
 $sel:expressionAttributeValues:UpdateItem' :: UpdateItem -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679397402"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679397402"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397401"><span class="annot"><span class="annottext">s :: UpdateItem
-</span><a href="#local-6989586621679397401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397400"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679397400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
-</span><a href="#local-6989586621679397401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:UpdateItem' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679397411"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679397411"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397410"><span class="annot"><span class="annottext">s :: UpdateItem
+</span><a href="#local-6989586621679397410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397409"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679397409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
+</span><a href="#local-6989586621679397410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:UpdateItem' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AexpressionAttributeValues%3AUpdateItem%27"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679397400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679397409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; UpdateItem -&gt; f UpdateItem)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -970,16 +970,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (HashMap Text AttributeValueUpdate))
      (Maybe (HashMap Text AttributeValueUpdate))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397399"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValueUpdate)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397408"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValueUpdate)
 attributeUpdates :: Maybe (HashMap Text AttributeValueUpdate)
 $sel:attributeUpdates:UpdateItem' :: UpdateItem -&gt; Maybe (HashMap Text AttributeValueUpdate)
-</span><a href="#local-6989586621679397399"><span class="hs-identifier hs-var hs-var">attributeUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValueUpdate)
-</span><a href="#local-6989586621679397399"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397398"><span class="annot"><span class="annottext">s :: UpdateItem
-</span><a href="#local-6989586621679397398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397397"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValueUpdate)
-</span><a href="#local-6989586621679397397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
-</span><a href="#local-6989586621679397398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeUpdates:UpdateItem' :: Maybe (HashMap Text AttributeValueUpdate)
+</span><a href="#local-6989586621679397408"><span class="hs-identifier hs-var hs-var">attributeUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValueUpdate)
+</span><a href="#local-6989586621679397408"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397407"><span class="annot"><span class="annottext">s :: UpdateItem
+</span><a href="#local-6989586621679397407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397406"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValueUpdate)
+</span><a href="#local-6989586621679397406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
+</span><a href="#local-6989586621679397407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeUpdates:UpdateItem' :: Maybe (HashMap Text AttributeValueUpdate)
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AattributeUpdates%3AUpdateItem%27"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValueUpdate)
-</span><a href="#local-6989586621679397397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValueUpdate)
+</span><a href="#local-6989586621679397406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValueUpdate)
   -&gt; f (Maybe (HashMap Text AttributeValueUpdate)))
  -&gt; UpdateItem -&gt; f UpdateItem)
 -&gt; ((Maybe (HashMap Text AttributeValueUpdate)
@@ -1024,16 +1024,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ReturnConsumedCapacity)
      (Maybe ReturnConsumedCapacity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397396"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397405"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
 returnConsumedCapacity :: Maybe ReturnConsumedCapacity
 $sel:returnConsumedCapacity:UpdateItem' :: UpdateItem -&gt; Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679397396"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679397396"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397395"><span class="annot"><span class="annottext">s :: UpdateItem
-</span><a href="#local-6989586621679397395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397394"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679397394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
-</span><a href="#local-6989586621679397395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:UpdateItem' :: Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679397405"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679397405"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397404"><span class="annot"><span class="annottext">s :: UpdateItem
+</span><a href="#local-6989586621679397404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397403"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679397403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
+</span><a href="#local-6989586621679397404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:UpdateItem' :: Maybe ReturnConsumedCapacity
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AreturnConsumedCapacity%3AUpdateItem%27"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679397394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-725"></span><span>
 </span><span id="line-726"></span><span class="hs-comment">-- | Determines whether item collection metrics are returned. If set to</span><span>
 </span><span id="line-727"></span><span class="hs-comment">-- @SIZE@, the response includes statistics about item collections, if any,</span><span>
@@ -1051,16 +1051,16 @@ $sel:returnConsumedCapacity:UpdateItem' :: UpdateItem -&gt; Maybe ReturnConsumed
      (Maybe ReturnItemCollectionMetrics)
      (Maybe ReturnItemCollectionMetrics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397393"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397402"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
 returnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
 $sel:returnItemCollectionMetrics:UpdateItem' :: UpdateItem -&gt; Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679397393"><span class="hs-identifier hs-var hs-var">returnItemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679397393"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397392"><span class="annot"><span class="annottext">s :: UpdateItem
-</span><a href="#local-6989586621679397392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397391"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679397391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
-</span><a href="#local-6989586621679397392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnItemCollectionMetrics:UpdateItem' :: Maybe ReturnItemCollectionMetrics
+</span><a href="#local-6989586621679397402"><span class="hs-identifier hs-var hs-var">returnItemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
+</span><a href="#local-6989586621679397402"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397401"><span class="annot"><span class="annottext">s :: UpdateItem
+</span><a href="#local-6989586621679397401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397400"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
+</span><a href="#local-6989586621679397400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
+</span><a href="#local-6989586621679397401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnItemCollectionMetrics:UpdateItem' :: Maybe ReturnItemCollectionMetrics
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AreturnItemCollectionMetrics%3AUpdateItem%27"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679397391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-732"></span><span>
 </span><span id="line-733"></span><span class="hs-comment">-- | A condition that must be satisfied in order for a conditional update to</span><span>
 </span><span id="line-734"></span><span class="hs-comment">-- succeed.</span><span>
@@ -1085,16 +1085,16 @@ $sel:returnItemCollectionMetrics:UpdateItem' :: UpdateItem -&gt; Maybe ReturnIte
 -&gt; (UpdateItem -&gt; Maybe Text -&gt; UpdateItem)
 -&gt; Lens UpdateItem UpdateItem (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397390"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397399"><span class="annot"><span class="annottext">Maybe Text
 conditionExpression :: Maybe Text
 $sel:conditionExpression:UpdateItem' :: UpdateItem -&gt; Maybe Text
-</span><a href="#local-6989586621679397390"><span class="hs-identifier hs-var hs-var">conditionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397390"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397389"><span class="annot"><span class="annottext">s :: UpdateItem
-</span><a href="#local-6989586621679397389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397388"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
-</span><a href="#local-6989586621679397389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionExpression:UpdateItem' :: Maybe Text
+</span><a href="#local-6989586621679397399"><span class="hs-identifier hs-var hs-var">conditionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397399"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397398"><span class="annot"><span class="annottext">s :: UpdateItem
+</span><a href="#local-6989586621679397398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397397"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
+</span><a href="#local-6989586621679397398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionExpression:UpdateItem' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AconditionExpression%3AUpdateItem%27"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-752"></span><span>
 </span><span id="line-753"></span><span class="hs-comment">-- | This is a legacy parameter. Use @ConditionExpression@ instead. For more</span><span>
 </span><span id="line-754"></span><span class="hs-comment">-- information, see</span><span>
@@ -1111,16 +1111,16 @@ $sel:conditionExpression:UpdateItem' :: UpdateItem -&gt; Maybe Text
      (Maybe ConditionalOperator)
      (Maybe ConditionalOperator)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397387"><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397396"><span class="annot"><span class="annottext">Maybe ConditionalOperator
 conditionalOperator :: Maybe ConditionalOperator
 $sel:conditionalOperator:UpdateItem' :: UpdateItem -&gt; Maybe ConditionalOperator
-</span><a href="#local-6989586621679397387"><span class="hs-identifier hs-var hs-var">conditionalOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679397387"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397386"><span class="annot"><span class="annottext">s :: UpdateItem
-</span><a href="#local-6989586621679397386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397385"><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679397385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
-</span><a href="#local-6989586621679397386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionalOperator:UpdateItem' :: Maybe ConditionalOperator
+</span><a href="#local-6989586621679397396"><span class="hs-identifier hs-var hs-var">conditionalOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><a href="#local-6989586621679397396"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397395"><span class="annot"><span class="annottext">s :: UpdateItem
+</span><a href="#local-6989586621679397395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397394"><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><a href="#local-6989586621679397394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
+</span><a href="#local-6989586621679397395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionalOperator:UpdateItem' :: Maybe ConditionalOperator
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AconditionalOperator%3AUpdateItem%27"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679397385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-759"></span><span>
 </span><span id="line-760"></span><span class="hs-comment">-- | This is a legacy parameter. Use @ConditionExpression@ instead. For more</span><span>
 </span><span id="line-761"></span><span class="hs-comment">-- information, see</span><span>
@@ -1139,16 +1139,16 @@ $sel:conditionalOperator:UpdateItem' :: UpdateItem -&gt; Maybe ConditionalOperat
      (Maybe (HashMap Text ExpectedAttributeValue))
      (Maybe (HashMap Text ExpectedAttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397384"><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397393"><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
 expected :: Maybe (HashMap Text ExpectedAttributeValue)
 $sel:expected:UpdateItem' :: UpdateItem -&gt; Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679397384"><span class="hs-identifier hs-var hs-var">expected</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679397384"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397383"><span class="annot"><span class="annottext">s :: UpdateItem
-</span><a href="#local-6989586621679397383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397382"><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679397382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
-</span><a href="#local-6989586621679397383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expected:UpdateItem' :: Maybe (HashMap Text ExpectedAttributeValue)
+</span><a href="#local-6989586621679397393"><span class="hs-identifier hs-var hs-var">expected</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
+</span><a href="#local-6989586621679397393"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397392"><span class="annot"><span class="annottext">s :: UpdateItem
+</span><a href="#local-6989586621679397392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397391"><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
+</span><a href="#local-6989586621679397391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
+</span><a href="#local-6989586621679397392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expected:UpdateItem' :: Maybe (HashMap Text ExpectedAttributeValue)
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3Aexpected%3AUpdateItem%27"><span class="hs-identifier hs-var">expected</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679397382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text ExpectedAttributeValue)
+</span><a href="#local-6989586621679397391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text ExpectedAttributeValue)
   -&gt; f (Maybe (HashMap Text ExpectedAttributeValue)))
  -&gt; UpdateItem -&gt; f UpdateItem)
 -&gt; ((Maybe (HashMap Text ExpectedAttributeValue)
@@ -1188,16 +1188,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateItem -&gt; Text -&gt; UpdateItem)
 -&gt; Lens UpdateItem UpdateItem Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397381"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397390"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:UpdateItem' :: UpdateItem -&gt; Text
-</span><a href="#local-6989586621679397381"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397381"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397380"><span class="annot"><span class="annottext">s :: UpdateItem
-</span><a href="#local-6989586621679397380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397379"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
-</span><a href="#local-6989586621679397380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:UpdateItem' :: Text
+</span><a href="#local-6989586621679397390"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397390"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397389"><span class="annot"><span class="annottext">s :: UpdateItem
+</span><a href="#local-6989586621679397389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397388"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
+</span><a href="#local-6989586621679397389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:UpdateItem' :: Text
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AtableName%3AUpdateItem%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-770"></span><span>
 </span><span id="line-771"></span><span class="hs-comment">-- | The primary key of the item to be updated. Each element consists of an</span><span>
 </span><span id="line-772"></span><span class="hs-comment">-- attribute name and a value for that attribute.</span><span>
@@ -1217,16 +1217,16 @@ $sel:tableName:UpdateItem' :: UpdateItem -&gt; Text
      (HashMap Text AttributeValue)
      (HashMap Text AttributeValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397378"><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397387"><span class="annot"><span class="annottext">HashMap Text AttributeValue
 key :: HashMap Text AttributeValue
 $sel:key:UpdateItem' :: UpdateItem -&gt; HashMap Text AttributeValue
-</span><a href="#local-6989586621679397378"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679397378"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397377"><span class="annot"><span class="annottext">s :: UpdateItem
-</span><a href="#local-6989586621679397377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397376"><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679397376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
-</span><a href="#local-6989586621679397377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:UpdateItem' :: HashMap Text AttributeValue
+</span><a href="#local-6989586621679397387"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679397387"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397386"><span class="annot"><span class="annottext">s :: UpdateItem
+</span><a href="#local-6989586621679397386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397385"><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679397385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItem
+</span><a href="#local-6989586621679397386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:UpdateItem' :: HashMap Text AttributeValue
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3Akey%3AUpdateItem%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679397376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+</span><a href="#local-6989586621679397385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
  -&gt; UpdateItem -&gt; f UpdateItem)
 -&gt; ((HashMap Text AttributeValue
      -&gt; f (HashMap Text AttributeValue))
@@ -1242,12 +1242,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-780"></span><span>
 </span><span id="line-781"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-782"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse"><span class="hs-identifier hs-type">UpdateItemResponse</span></a></span><span>
-</span><span id="line-783"></span><span>  </span><span id="local-6989586621679397372"><span class="annot"><span class="annottext">request :: UpdateItem -&gt; Request UpdateItem
+</span><span id="line-783"></span><span>  </span><span id="local-6989586621679397381"><span class="annot"><span class="annottext">request :: UpdateItem -&gt; Request UpdateItem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateItem -&gt; Request UpdateItem
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-784"></span><span>  </span><span id="local-6989586621679397368"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-784"></span><span>  </span><span id="local-6989586621679397377"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateItem
 -&gt; ClientResponse ClientBody
@@ -1271,10 +1271,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-786"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679397365"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397365"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679397364"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679397364"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679397363"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397363"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-786"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679397374"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679397374"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679397373"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679397373"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679397372"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679397372"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-787"></span><span>          </span><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
 -&gt; Maybe ConsumedCapacity
 -&gt; Maybe (HashMap Text AttributeValue)
@@ -1295,7 +1295,7 @@ MonadResource m =&gt;
       -&gt; UpdateItemResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ItemCollectionMetrics)
+</span><a href="#local-6989586621679397372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ItemCollectionMetrics)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ItemCollectionMetrics&quot;</span></span><span class="hs-special">)</span><span>
@@ -1311,7 +1311,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      (Maybe (HashMap Text AttributeValue) -&gt; Int -&gt; UpdateItemResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConsumedCapacity)
+</span><a href="#local-6989586621679397372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConsumedCapacity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsumedCapacity&quot;</span></span><span class="hs-special">)</span><span>
@@ -1322,7 +1322,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; UpdateItemResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679397372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe (HashMap Text AttributeValue)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -1342,15 +1342,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397365"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397374"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-792"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-793"></span><span>
-</span><span id="line-794"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397354"><span id="local-6989586621679397356"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span></span></span><span>
+</span><span id="line-794"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397363"><span id="local-6989586621679397365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span></span></span><span>
 </span><span id="line-795"></span><span>
-</span><span id="line-796"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span></span><span>
+</span><span id="line-796"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span></span><span>
 </span><span id="line-797"></span><span>
 </span><span id="line-798"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-799"></span><span>  </span><span id="local-6989586621679397347"><span class="annot"><span class="annottext">toHeaders :: UpdateItem -&gt; ResponseHeaders
+</span><span id="line-799"></span><span>  </span><span id="local-6989586621679397356"><span class="annot"><span class="annottext">toHeaders :: UpdateItem -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-800"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateItem -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -1377,9 +1377,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-810"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-811"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-812"></span><span>
-</span><span id="line-813"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397337"><span id="local-6989586621679397339"><span id="local-6989586621679397341"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-814"></span><span>  </span><span id="local-6989586621679397335"><span class="annot"><span class="annottext">toJSON :: UpdateItem -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397322"><span id="local-6989586621679397323"><span id="local-6989586621679397324"><span id="local-6989586621679397325"><span id="local-6989586621679397326"><span id="local-6989586621679397327"><span id="local-6989586621679397328"><span id="local-6989586621679397329"><span id="local-6989586621679397330"><span id="local-6989586621679397331"><span id="local-6989586621679397332"><span id="local-6989586621679397333"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-813"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397346"><span id="local-6989586621679397348"><span id="local-6989586621679397350"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-814"></span><span>  </span><span id="local-6989586621679397344"><span class="annot"><span class="annottext">toJSON :: UpdateItem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem%27"><span class="hs-identifier hs-type">UpdateItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397331"><span id="local-6989586621679397332"><span id="local-6989586621679397333"><span id="local-6989586621679397334"><span id="local-6989586621679397335"><span id="local-6989586621679397336"><span id="local-6989586621679397337"><span id="local-6989586621679397338"><span id="local-6989586621679397339"><span id="local-6989586621679397340"><span id="local-6989586621679397341"><span id="local-6989586621679397342"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Text)
 Maybe (HashMap Text AttributeValue)
 Maybe (HashMap Text AttributeValueUpdate)
@@ -1414,7 +1414,7 @@ $sel:expressionAttributeValues:UpdateItem' :: UpdateItem -&gt; Maybe (HashMap Te
 $sel:updateExpression:UpdateItem' :: UpdateItem -&gt; Maybe Text
 $sel:returnValues:UpdateItem' :: UpdateItem -&gt; Maybe ReturnValue
 $sel:expressionAttributeNames:UpdateItem' :: UpdateItem -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679397322"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679397331"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-815"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-816"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1428,14 +1428,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679397333"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397342"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-819"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReturnValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ReturnValue -&gt; Pair) -&gt; Maybe ReturnValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValue
-</span><a href="#local-6989586621679397332"><span class="hs-identifier hs-var">returnValues</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397341"><span class="hs-identifier hs-var">returnValues</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-820"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UpdateExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1443,7 +1443,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-821"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397331"><span class="hs-identifier hs-var">updateExpression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397340"><span class="hs-identifier hs-var">updateExpression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-822"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExpressionAttributeValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1452,7 +1452,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text AttributeValue) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679397330"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397339"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-824"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttributeUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValueUpdate -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1461,7 +1461,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text AttributeValueUpdate) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValueUpdate)
-</span><a href="#local-6989586621679397329"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397338"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-826"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReturnConsumedCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnConsumedCapacity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1470,7 +1470,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ReturnConsumedCapacity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679397328"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397337"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-828"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReturnItemCollectionMetrics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnItemCollectionMetrics -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1479,7 +1479,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ReturnItemCollectionMetrics -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679397327"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397336"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-830"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConditionExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1487,7 +1487,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-831"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397326"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397335"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-832"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConditionalOperator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConditionalOperator -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1496,7 +1496,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ConditionalOperator -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679397325"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397334"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-834"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Expected&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text ExpectedAttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1504,33 +1504,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text ExpectedAttributeValue) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679397324"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397333"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-835"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397323"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397332"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-836"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679397322"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397331"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-837"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-838"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-839"></span><span>
 </span><span id="line-840"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-841"></span><span>  </span><span id="local-6989586621679397316"><span class="annot"><span class="annottext">toPath :: UpdateItem -&gt; ByteString
+</span><span id="line-841"></span><span>  </span><span id="local-6989586621679397325"><span class="annot"><span class="annottext">toPath :: UpdateItem -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateItem -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-842"></span><span>
 </span><span id="line-843"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItem"><span class="hs-identifier hs-type">UpdateItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-844"></span><span>  </span><span id="local-6989586621679397312"><span class="annot"><span class="annottext">toQuery :: UpdateItem -&gt; QueryString
+</span><span id="line-844"></span><span>  </span><span id="local-6989586621679397321"><span class="annot"><span class="annottext">toQuery :: UpdateItem -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateItem -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -1540,7 +1540,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-846"></span><span class="hs-comment">-- | Represents the output of an @UpdateItem@ operation.</span><span>
 </span><span id="line-847"></span><span class="hs-comment">--</span><span>
 </span><span id="line-848"></span><span class="hs-comment">-- /See:/ 'newUpdateItemResponse' smart constructor.</span><span>
-</span><span id="line-849"></span><span id="local-6989586621679397309"><span id="local-6989586621679397310"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateItemResponse"><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse"><span class="hs-identifier hs-var">UpdateItemResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateItemResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-var">UpdateItemResponse'</span></a></span></span><span>
+</span><span id="line-849"></span><span id="local-6989586621679397318"><span id="local-6989586621679397319"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateItemResponse"><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse"><span class="hs-identifier hs-var">UpdateItemResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateItemResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-var">UpdateItemResponse'</span></a></span></span><span>
 </span><span id="line-850"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about item collections, if any, that were affected by the</span><span>
 </span><span id="line-851"></span><span>    </span><span class="hs-comment">-- @UpdateItem@ operation. @ItemCollectionMetrics@ is only returned if the</span><span>
 </span><span id="line-852"></span><span>    </span><span class="hs-comment">-- @ReturnItemCollectionMetrics@ parameter was specified. If the table does</span><span>
@@ -1586,7 +1586,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-889"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateItemResponse%27"><span class="annot"><span class="annottext">UpdateItemResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AhttpStatus%3AUpdateItemResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-890"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-891"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397301"><span id="local-6989586621679397303"><span class="annot"><span class="annottext">UpdateItemResponse -&gt; UpdateItemResponse -&gt; Bool
+</span><span id="line-891"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397310"><span id="local-6989586621679397312"><span class="annot"><span class="annottext">UpdateItemResponse -&gt; UpdateItemResponse -&gt; Bool
 (UpdateItemResponse -&gt; UpdateItemResponse -&gt; Bool)
 -&gt; (UpdateItemResponse -&gt; UpdateItemResponse -&gt; Bool)
 -&gt; Eq UpdateItemResponse
@@ -1595,7 +1595,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateItemResponse -&gt; UpdateItemResponse -&gt; Bool
 == :: UpdateItemResponse -&gt; UpdateItemResponse -&gt; Bool
 $c== :: UpdateItemResponse -&gt; UpdateItemResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397293"><span id="local-6989586621679397295"><span id="local-6989586621679397297"><span id="local-6989586621679397299"><span class="annot"><span class="annottext">ReadPrec [UpdateItemResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397302"><span id="local-6989586621679397304"><span id="local-6989586621679397306"><span id="local-6989586621679397308"><span class="annot"><span class="annottext">ReadPrec [UpdateItemResponse]
 ReadPrec UpdateItemResponse
 Int -&gt; ReadS UpdateItemResponse
 ReadS [UpdateItemResponse]
@@ -1615,7 +1615,7 @@ readList :: ReadS [UpdateItemResponse]
 $creadList :: ReadS [UpdateItemResponse]
 readsPrec :: Int -&gt; ReadS UpdateItemResponse
 $creadsPrec :: Int -&gt; ReadS UpdateItemResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397287"><span id="local-6989586621679397289"><span id="local-6989586621679397291"><span class="annot"><span class="annottext">Int -&gt; UpdateItemResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397296"><span id="local-6989586621679397298"><span id="local-6989586621679397300"><span class="annot"><span class="annottext">Int -&gt; UpdateItemResponse -&gt; ShowS
 [UpdateItemResponse] -&gt; ShowS
 UpdateItemResponse -&gt; String
 (Int -&gt; UpdateItemResponse -&gt; ShowS)
@@ -1693,8 +1693,8 @@ $cfrom :: forall x. UpdateItemResponse -&gt; Rep UpdateItemResponse x
 </span><span id="line-942"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-943"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse"><span class="hs-identifier hs-type">UpdateItemResponse</span></a></span><span>
 </span><span id="line-944"></span><span id="newUpdateItemResponse"><span class="annot"><span class="annottext">newUpdateItemResponse :: Int -&gt; UpdateItemResponse
-</span><a href="Network.AWS.DynamoDB.UpdateItem.html#newUpdateItemResponse"><span class="hs-identifier hs-var hs-var">newUpdateItemResponse</span></a></span></span><span> </span><span id="local-6989586621679397284"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397284"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.UpdateItem.html#newUpdateItemResponse"><span class="hs-identifier hs-var hs-var">newUpdateItemResponse</span></a></span></span><span> </span><span id="local-6989586621679397293"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679397293"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-945"></span><span>  </span><span class="annot"><span class="annottext">UpdateItemResponse' :: Maybe ItemCollectionMetrics
 -&gt; Maybe ConsumedCapacity
 -&gt; Maybe (HashMap Text AttributeValue)
@@ -1716,7 +1716,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-950"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateItemResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AhttpStatus%3AUpdateItemResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397284"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679397293"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-951"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-952"></span><span>
 </span><span id="line-953"></span><span class="hs-comment">-- | Information about item collections, if any, that were affected by the</span><span>
@@ -1753,16 +1753,16 @@ forall a. Maybe a
      (Maybe ItemCollectionMetrics)
      (Maybe ItemCollectionMetrics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397283"><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397292"><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
 itemCollectionMetrics :: Maybe ItemCollectionMetrics
 $sel:itemCollectionMetrics:UpdateItemResponse' :: UpdateItemResponse -&gt; Maybe ItemCollectionMetrics
-</span><a href="#local-6989586621679397283"><span class="hs-identifier hs-var hs-var">itemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
-</span><a href="#local-6989586621679397283"><span class="hs-identifier hs-var">itemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397282"><span class="annot"><span class="annottext">s :: UpdateItemResponse
-</span><a href="#local-6989586621679397282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397281"><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
-</span><a href="#local-6989586621679397281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItemResponse
-</span><a href="#local-6989586621679397282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemCollectionMetrics:UpdateItemResponse' :: Maybe ItemCollectionMetrics
+</span><a href="#local-6989586621679397292"><span class="hs-identifier hs-var hs-var">itemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
+</span><a href="#local-6989586621679397292"><span class="hs-identifier hs-var">itemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397291"><span class="annot"><span class="annottext">s :: UpdateItemResponse
+</span><a href="#local-6989586621679397291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397290"><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
+</span><a href="#local-6989586621679397290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItemResponse
+</span><a href="#local-6989586621679397291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemCollectionMetrics:UpdateItemResponse' :: Maybe ItemCollectionMetrics
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AitemCollectionMetrics%3AUpdateItemResponse%27"><span class="hs-identifier hs-var">itemCollectionMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
-</span><a href="#local-6989586621679397281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse"><span class="hs-identifier hs-type">UpdateItemResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse"><span class="hs-identifier hs-type">UpdateItemResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-977"></span><span>
 </span><span id="line-978"></span><span class="hs-comment">-- | The capacity units consumed by the @UpdateItem@ operation. The data</span><span>
 </span><span id="line-979"></span><span class="hs-comment">-- returned includes the total provisioned throughput consumed, along with</span><span>
@@ -1783,16 +1783,16 @@ $sel:itemCollectionMetrics:UpdateItemResponse' :: UpdateItemResponse -&gt; Maybe
      (Maybe ConsumedCapacity)
      (Maybe ConsumedCapacity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397280"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397289"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
 consumedCapacity :: Maybe ConsumedCapacity
 $sel:consumedCapacity:UpdateItemResponse' :: UpdateItemResponse -&gt; Maybe ConsumedCapacity
-</span><a href="#local-6989586621679397280"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679397280"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397279"><span class="annot"><span class="annottext">s :: UpdateItemResponse
-</span><a href="#local-6989586621679397279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397278"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679397278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItemResponse
-</span><a href="#local-6989586621679397279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:UpdateItemResponse' :: Maybe ConsumedCapacity
+</span><a href="#local-6989586621679397289"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><a href="#local-6989586621679397289"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397288"><span class="annot"><span class="annottext">s :: UpdateItemResponse
+</span><a href="#local-6989586621679397288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397287"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><a href="#local-6989586621679397287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItemResponse
+</span><a href="#local-6989586621679397288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:UpdateItemResponse' :: Maybe ConsumedCapacity
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AconsumedCapacity%3AUpdateItemResponse%27"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679397278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse"><span class="hs-identifier hs-type">UpdateItemResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse"><span class="hs-identifier hs-type">UpdateItemResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-987"></span><span>
 </span><span id="line-988"></span><span class="hs-comment">-- | A map of attribute values as they appear before or after the</span><span>
 </span><span id="line-989"></span><span class="hs-comment">-- @UpdateItem@ operation, as determined by the @ReturnValues@ parameter.</span><span>
@@ -1813,16 +1813,16 @@ $sel:consumedCapacity:UpdateItemResponse' :: UpdateItemResponse -&gt; Maybe Cons
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397277"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397286"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 attributes :: Maybe (HashMap Text AttributeValue)
 $sel:attributes:UpdateItemResponse' :: UpdateItemResponse -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679397277"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679397277"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397276"><span class="annot"><span class="annottext">s :: UpdateItemResponse
-</span><a href="#local-6989586621679397276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397275"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679397275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItemResponse
-</span><a href="#local-6989586621679397276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:UpdateItemResponse' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679397286"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679397286"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397285"><span class="annot"><span class="annottext">s :: UpdateItemResponse
+</span><a href="#local-6989586621679397285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397284"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679397284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItemResponse
+</span><a href="#local-6989586621679397285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:UpdateItemResponse' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3Aattributes%3AUpdateItemResponse%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679397275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse"><span class="hs-identifier hs-type">UpdateItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679397284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse"><span class="hs-identifier hs-type">UpdateItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; UpdateItemResponse -&gt; f UpdateItemResponse)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -1862,16 +1862,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateItemResponse -&gt; Int -&gt; UpdateItemResponse)
 -&gt; Lens UpdateItemResponse UpdateItemResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397274"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397283"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateItemResponse' :: UpdateItemResponse -&gt; Int
-</span><a href="#local-6989586621679397274"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397274"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397273"><span class="annot"><span class="annottext">s :: UpdateItemResponse
-</span><a href="#local-6989586621679397273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397272"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItemResponse
-</span><a href="#local-6989586621679397273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateItemResponse' :: Int
+</span><a href="#local-6989586621679397283"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679397283"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397282"><span class="annot"><span class="annottext">s :: UpdateItemResponse
+</span><a href="#local-6989586621679397282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse%27"><span class="hs-identifier hs-type">UpdateItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397281"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679397281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateItemResponse
+</span><a href="#local-6989586621679397282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateItemResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.UpdateItem.html#%24sel%3AhttpStatus%3AUpdateItemResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse"><span class="hs-identifier hs-type">UpdateItemResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse"><span class="hs-identifier hs-type">UpdateItemResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1000"></span><span>
-</span><span id="line-1001"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397270"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse"><span class="hs-identifier hs-type">UpdateItemResponse</span></a></span></span><span>
+</span><span id="line-1001"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397279"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.UpdateItem.html#UpdateItemResponse"><span class="hs-identifier hs-type">UpdateItemResponse</span></a></span></span><span>
 </span><span id="line-1002"></span></pre></body></html>

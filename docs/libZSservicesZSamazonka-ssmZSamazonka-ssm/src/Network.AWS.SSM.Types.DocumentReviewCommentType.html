@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679794208"><span id="local-6989586621679794209"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentReviewCommentType"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentType.html#DocumentReviewCommentType"><span class="hs-identifier hs-var">DocumentReviewCommentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentReviewCommentType%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentType.html#DocumentReviewCommentType%27"><span class="hs-identifier hs-var">DocumentReviewCommentType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679794217"><span id="local-6989586621679794218"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentReviewCommentType"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentType.html#DocumentReviewCommentType"><span class="hs-identifier hs-var">DocumentReviewCommentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentReviewCommentType%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentType.html#DocumentReviewCommentType%27"><span class="hs-identifier hs-var">DocumentReviewCommentType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDocumentReviewCommentType"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; Text
 </span><a href="Network.AWS.SSM.Types.DocumentReviewCommentType.html#fromDocumentReviewCommentType"><span class="hs-identifier hs-var hs-var">fromDocumentReviewCommentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794200"><span id="local-6989586621679794202"><span id="local-6989586621679794204"><span class="annot"><span class="annottext">Int -&gt; DocumentReviewCommentType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794209"><span id="local-6989586621679794211"><span id="local-6989586621679794213"><span class="annot"><span class="annottext">Int -&gt; DocumentReviewCommentType -&gt; ShowS
 [DocumentReviewCommentType] -&gt; ShowS
 DocumentReviewCommentType -&gt; String
 (Int -&gt; DocumentReviewCommentType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: DocumentReviewCommentType -&gt; String
 showsPrec :: Int -&gt; DocumentReviewCommentType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DocumentReviewCommentType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679794191"><span id="local-6989586621679794193"><span id="local-6989586621679794195"><span id="local-6989586621679794197"><span class="annot"><span class="annottext">ReadPrec [DocumentReviewCommentType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679794200"><span id="local-6989586621679794202"><span id="local-6989586621679794204"><span id="local-6989586621679794206"><span class="annot"><span class="annottext">ReadPrec [DocumentReviewCommentType]
 ReadPrec DocumentReviewCommentType
 Int -&gt; ReadS DocumentReviewCommentType
 ReadS [DocumentReviewCommentType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [DocumentReviewCommentType]
 readsPrec :: Int -&gt; ReadS DocumentReviewCommentType
 $creadsPrec :: Int -&gt; ReadS DocumentReviewCommentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679794186"><span id="local-6989586621679794188"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; DocumentReviewCommentType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679794195"><span id="local-6989586621679794197"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; DocumentReviewCommentType -&gt; Bool
 (DocumentReviewCommentType -&gt; DocumentReviewCommentType -&gt; Bool)
 -&gt; (DocumentReviewCommentType -&gt; DocumentReviewCommentType -&gt; Bool)
 -&gt; Eq DocumentReviewCommentType
@@ -81,7 +81,7 @@ $c/= :: DocumentReviewCommentType -&gt; DocumentReviewCommentType -&gt; Bool
 == :: DocumentReviewCommentType -&gt; DocumentReviewCommentType -&gt; Bool
 $c== :: DocumentReviewCommentType -&gt; DocumentReviewCommentType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679794170"><span id="local-6989586621679794172"><span id="local-6989586621679794174"><span id="local-6989586621679794176"><span id="local-6989586621679794178"><span id="local-6989586621679794180"><span id="local-6989586621679794182"><span class="annot"><span class="annottext">Eq DocumentReviewCommentType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679794179"><span id="local-6989586621679794181"><span id="local-6989586621679794183"><span id="local-6989586621679794185"><span id="local-6989586621679794187"><span id="local-6989586621679794189"><span id="local-6989586621679794191"><span class="annot"><span class="annottext">Eq DocumentReviewCommentType
 Eq DocumentReviewCommentType
 -&gt; (DocumentReviewCommentType
     -&gt; DocumentReviewCommentType -&gt; Ordering)
@@ -146,7 +146,7 @@ DocumentReviewCommentType -&gt; Rep DocumentReviewCommentType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794162"><span id="local-6989586621679794164"><span class="annot"><span class="annottext">Int -&gt; DocumentReviewCommentType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794171"><span id="local-6989586621679794173"><span class="annot"><span class="annottext">Int -&gt; DocumentReviewCommentType -&gt; Int
 DocumentReviewCommentType -&gt; Int
 (Int -&gt; DocumentReviewCommentType -&gt; Int)
 -&gt; (DocumentReviewCommentType -&gt; Int)
@@ -157,56 +157,56 @@ $chash :: DocumentReviewCommentType -&gt; Int
 hashWithSalt :: Int -&gt; DocumentReviewCommentType -&gt; Int
 $chashWithSalt :: Int -&gt; DocumentReviewCommentType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679794159"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679794168"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; ()
 (DocumentReviewCommentType -&gt; ())
 -&gt; NFData DocumentReviewCommentType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DocumentReviewCommentType -&gt; ()
 $crnf :: DocumentReviewCommentType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679794156"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentReviewCommentType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679794165"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentReviewCommentType
 (Text -&gt; Either String DocumentReviewCommentType)
 -&gt; FromText DocumentReviewCommentType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DocumentReviewCommentType
 $cfromText :: Text -&gt; Either String DocumentReviewCommentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679794153"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679794162"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; Text
 (DocumentReviewCommentType -&gt; Text)
 -&gt; ToText DocumentReviewCommentType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DocumentReviewCommentType -&gt; Text
 $ctoText :: DocumentReviewCommentType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679794150"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679794159"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; ByteString
 (DocumentReviewCommentType -&gt; ByteString)
 -&gt; ToByteString DocumentReviewCommentType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DocumentReviewCommentType -&gt; ByteString
 $ctoBS :: DocumentReviewCommentType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679794147"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679794156"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; ByteStringBuilder
 (DocumentReviewCommentType -&gt; ByteStringBuilder)
 -&gt; ToLog DocumentReviewCommentType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DocumentReviewCommentType -&gt; ByteStringBuilder
 $cbuild :: DocumentReviewCommentType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679794144"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentReviewCommentType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679794153"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentReviewCommentType -&gt; [Header]
 (HeaderName -&gt; DocumentReviewCommentType -&gt; [Header])
 -&gt; ToHeader DocumentReviewCommentType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DocumentReviewCommentType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DocumentReviewCommentType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679794141"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679794150"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; QueryString
 (DocumentReviewCommentType -&gt; QueryString)
 -&gt; ToQuery DocumentReviewCommentType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DocumentReviewCommentType -&gt; QueryString
 $ctoQuery :: DocumentReviewCommentType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679794136"><span id="local-6989586621679794138"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentReviewCommentType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679794145"><span id="local-6989586621679794147"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentReviewCommentType]
 Value -&gt; Parser DocumentReviewCommentType
 (Value -&gt; Parser DocumentReviewCommentType)
 -&gt; (Value -&gt; Parser [DocumentReviewCommentType])
@@ -218,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [DocumentReviewCommentType]
 parseJSON :: Value -&gt; Parser DocumentReviewCommentType
 $cparseJSON :: Value -&gt; Parser DocumentReviewCommentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679794131"><span id="local-6989586621679794133"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentReviewCommentType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679794140"><span id="local-6989586621679794142"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentReviewCommentType]
 FromJSONKeyFunction DocumentReviewCommentType
 FromJSONKeyFunction DocumentReviewCommentType
 -&gt; FromJSONKeyFunction [DocumentReviewCommentType]
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DocumentReviewCommentType]
 fromJSONKey :: FromJSONKeyFunction DocumentReviewCommentType
 $cfromJSONKey :: FromJSONKeyFunction DocumentReviewCommentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679794122"><span id="local-6989586621679794124"><span id="local-6989586621679794126"><span id="local-6989586621679794128"><span class="annot"><span class="annottext">[DocumentReviewCommentType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679794131"><span id="local-6989586621679794133"><span id="local-6989586621679794135"><span id="local-6989586621679794137"><span class="annot"><span class="annottext">[DocumentReviewCommentType] -&gt; Encoding
 [DocumentReviewCommentType] -&gt; Value
 DocumentReviewCommentType -&gt; Encoding
 DocumentReviewCommentType -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: DocumentReviewCommentType -&gt; Encoding
 toJSON :: DocumentReviewCommentType -&gt; Value
 $ctoJSON :: DocumentReviewCommentType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679794117"><span id="local-6989586621679794119"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentReviewCommentType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679794126"><span id="local-6989586621679794128"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentReviewCommentType]
 ToJSONKeyFunction DocumentReviewCommentType
 ToJSONKeyFunction DocumentReviewCommentType
 -&gt; ToJSONKeyFunction [DocumentReviewCommentType]
@@ -266,14 +266,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DocumentReviewCommentType]
 toJSONKey :: ToJSONKeyFunction DocumentReviewCommentType
 $ctoJSONKey :: ToJSONKeyFunction DocumentReviewCommentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679794114"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentReviewCommentType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679794123"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentReviewCommentType
 ([Node] -&gt; Either String DocumentReviewCommentType)
 -&gt; FromXML DocumentReviewCommentType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DocumentReviewCommentType
 $cparseXML :: [Node] -&gt; Either String DocumentReviewCommentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679794111"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679794120"><span class="annot"><span class="annottext">DocumentReviewCommentType -&gt; XML
 (DocumentReviewCommentType -&gt; XML)
 -&gt; ToXML DocumentReviewCommentType
 forall a. (a -&gt; XML) -&gt; ToXML a

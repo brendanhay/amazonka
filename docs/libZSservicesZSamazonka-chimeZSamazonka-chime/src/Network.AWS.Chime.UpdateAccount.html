@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.UpdateAccount</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates account details for the specified Amazon Chime account.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Currently, only account name and default license updates are supported</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- for this action.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.UpdateAccount</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier">UpdateAccount</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#newUpdateAccount"><span class="hs-identifier">newUpdateAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#updateAccount_defaultLicense"><span class="hs-identifier">updateAccount_defaultLicense</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#updateAccount_name"><span class="hs-identifier">updateAccount_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#updateAccount_accountId"><span class="hs-identifier">updateAccount_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse"><span class="hs-identifier">UpdateAccountResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#newUpdateAccountResponse"><span class="hs-identifier">newUpdateAccountResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#updateAccountResponse_account"><span class="hs-identifier">updateAccountResponse_account</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#updateAccountResponse_httpStatus"><span class="hs-identifier">updateAccountResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUpdateAccount' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679559875"><span id="local-6989586621679559876"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAccount"><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-var">UpdateAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAccount%27"><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-var">UpdateAccount'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default license applied when you add users to an Amazon Chime</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdefaultLicense%3AUpdateAccount%27"><span class="annot"><span class="annottext">UpdateAccount -&gt; Maybe License
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3AdefaultLicense%3AUpdateAccount%27"><span class="hs-identifier hs-var hs-var">defaultLicense</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The new name for the specified Amazon Chime account.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aname%3AUpdateAccount%27"><span class="annot"><span class="annottext">UpdateAccount -&gt; Maybe Text
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3Aname%3AUpdateAccount%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AaccountId%3AUpdateAccount%27"><span class="annot"><span class="annottext">UpdateAccount -&gt; Text
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3AaccountId%3AUpdateAccount%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679559867"><span id="local-6989586621679559869"><span class="annot"><span class="annottext">UpdateAccount -&gt; UpdateAccount -&gt; Bool
+(UpdateAccount -&gt; UpdateAccount -&gt; Bool)
+-&gt; (UpdateAccount -&gt; UpdateAccount -&gt; Bool) -&gt; Eq UpdateAccount
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAccount -&gt; UpdateAccount -&gt; Bool
+$c/= :: UpdateAccount -&gt; UpdateAccount -&gt; Bool
+== :: UpdateAccount -&gt; UpdateAccount -&gt; Bool
+$c== :: UpdateAccount -&gt; UpdateAccount -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559858"><span id="local-6989586621679559860"><span id="local-6989586621679559862"><span id="local-6989586621679559864"><span class="annot"><span class="annottext">ReadPrec [UpdateAccount]
+ReadPrec UpdateAccount
+Int -&gt; ReadS UpdateAccount
+ReadS [UpdateAccount]
+(Int -&gt; ReadS UpdateAccount)
+-&gt; ReadS [UpdateAccount]
+-&gt; ReadPrec UpdateAccount
+-&gt; ReadPrec [UpdateAccount]
+-&gt; Read UpdateAccount
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAccount]
+$creadListPrec :: ReadPrec [UpdateAccount]
+readPrec :: ReadPrec UpdateAccount
+$creadPrec :: ReadPrec UpdateAccount
+readList :: ReadS [UpdateAccount]
+$creadList :: ReadS [UpdateAccount]
+readsPrec :: Int -&gt; ReadS UpdateAccount
+$creadsPrec :: Int -&gt; ReadS UpdateAccount
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559851"><span id="local-6989586621679559853"><span id="local-6989586621679559855"><span class="annot"><span class="annottext">Int -&gt; UpdateAccount -&gt; ShowS
+[UpdateAccount] -&gt; ShowS
+UpdateAccount -&gt; String
+(Int -&gt; UpdateAccount -&gt; ShowS)
+-&gt; (UpdateAccount -&gt; String)
+-&gt; ([UpdateAccount] -&gt; ShowS)
+-&gt; Show UpdateAccount
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAccount] -&gt; ShowS
+$cshowList :: [UpdateAccount] -&gt; ShowS
+show :: UpdateAccount -&gt; String
+$cshow :: UpdateAccount -&gt; String
+showsPrec :: Int -&gt; UpdateAccount -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAccount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateAccount -&gt; Rep UpdateAccount x)
+-&gt; (forall x. Rep UpdateAccount x -&gt; UpdateAccount)
+-&gt; Generic UpdateAccount
+forall x. Rep UpdateAccount x -&gt; UpdateAccount
+forall x. UpdateAccount -&gt; Rep UpdateAccount x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateAccount x -&gt; UpdateAccount
+$cfrom :: forall x. UpdateAccount -&gt; Rep UpdateAccount x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'UpdateAccount' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'defaultLicense', 'updateAccount_defaultLicense' - The default license applied when you add users to an Amazon Chime</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'name', 'updateAccount_name' - The new name for the specified Amazon Chime account.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'accountId', 'updateAccount_accountId' - The Amazon Chime account ID.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#newUpdateAccount"><span class="hs-identifier hs-type">newUpdateAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span>
+</span><span id="line-83"></span><span id="newUpdateAccount"><span class="annot"><span class="annottext">newUpdateAccount :: Text -&gt; UpdateAccount
+</span><a href="Network.AWS.Chime.UpdateAccount.html#newUpdateAccount"><span class="hs-identifier hs-var hs-var">newUpdateAccount</span></a></span></span><span> </span><span id="local-6989586621679559846"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559846"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">UpdateAccount' :: Maybe License -&gt; Maybe Text -&gt; Text -&gt; UpdateAccount
+</span><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:defaultLicense:UpdateAccount' :: Maybe License
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3AdefaultLicense%3AUpdateAccount%27"><span class="hs-identifier hs-var">defaultLicense</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe License
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateAccount' :: Maybe Text
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3Aname%3AUpdateAccount%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:UpdateAccount' :: Text
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3AaccountId%3AUpdateAccount%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559846"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The default license applied when you add users to an Amazon Chime</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#updateAccount_defaultLicense"><span class="hs-identifier hs-type">updateAccount_defaultLicense</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="updateAccount_defaultLicense"><span class="annot"><span class="annottext">updateAccount_defaultLicense :: (Maybe License -&gt; f (Maybe License))
+-&gt; UpdateAccount -&gt; f UpdateAccount
+</span><a href="Network.AWS.Chime.UpdateAccount.html#updateAccount_defaultLicense"><span class="hs-identifier hs-var hs-var">updateAccount_defaultLicense</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccount -&gt; Maybe License)
+-&gt; (UpdateAccount -&gt; Maybe License -&gt; UpdateAccount)
+-&gt; Lens UpdateAccount UpdateAccount (Maybe License) (Maybe License)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559843"><span class="annot"><span class="annottext">Maybe License
+defaultLicense :: Maybe License
+$sel:defaultLicense:UpdateAccount' :: UpdateAccount -&gt; Maybe License
+</span><a href="#local-6989586621679559843"><span class="hs-identifier hs-var hs-var">defaultLicense</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe License
+</span><a href="#local-6989586621679559843"><span class="hs-identifier hs-var">defaultLicense</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559842"><span class="annot"><span class="annottext">s :: UpdateAccount
+</span><a href="#local-6989586621679559842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559841"><span class="annot"><span class="annottext">Maybe License
+</span><a href="#local-6989586621679559841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccount
+</span><a href="#local-6989586621679559842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultLicense:UpdateAccount' :: Maybe License
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3AdefaultLicense%3AUpdateAccount%27"><span class="hs-identifier hs-var">defaultLicense</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe License
+</span><a href="#local-6989586621679559841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The new name for the specified Amazon Chime account.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#updateAccount_name"><span class="hs-identifier hs-type">updateAccount_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="updateAccount_name"><span class="annot"><span class="annottext">updateAccount_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAccount -&gt; f UpdateAccount
+</span><a href="Network.AWS.Chime.UpdateAccount.html#updateAccount_name"><span class="hs-identifier hs-var hs-var">updateAccount_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccount -&gt; Maybe Text)
+-&gt; (UpdateAccount -&gt; Maybe Text -&gt; UpdateAccount)
+-&gt; Lens UpdateAccount UpdateAccount (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559840"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateAccount' :: UpdateAccount -&gt; Maybe Text
+</span><a href="#local-6989586621679559840"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679559840"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559839"><span class="annot"><span class="annottext">s :: UpdateAccount
+</span><a href="#local-6989586621679559839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559838"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679559838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccount
+</span><a href="#local-6989586621679559839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateAccount' :: Maybe Text
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3Aname%3AUpdateAccount%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679559838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#updateAccount_accountId"><span class="hs-identifier hs-type">updateAccount_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="updateAccount_accountId"><span class="annot"><span class="annottext">updateAccount_accountId :: (Text -&gt; f Text) -&gt; UpdateAccount -&gt; f UpdateAccount
+</span><a href="Network.AWS.Chime.UpdateAccount.html#updateAccount_accountId"><span class="hs-identifier hs-var hs-var">updateAccount_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccount -&gt; Text)
+-&gt; (UpdateAccount -&gt; Text -&gt; UpdateAccount)
+-&gt; Lens UpdateAccount UpdateAccount Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559837"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:UpdateAccount' :: UpdateAccount -&gt; Text
+</span><a href="#local-6989586621679559837"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559837"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559836"><span class="annot"><span class="annottext">s :: UpdateAccount
+</span><a href="#local-6989586621679559836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559835"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccount
+</span><a href="#local-6989586621679559836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:UpdateAccount' :: Text
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3AaccountId%3AUpdateAccount%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse"><span class="hs-identifier hs-type">UpdateAccountResponse</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679559831"><span class="annot"><span class="annottext">request :: UpdateAccount -&gt; Request UpdateAccount
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateAccount -&gt; Request UpdateAccount
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679559827"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateAccount
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateAccount)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateAccount))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateAccount
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateAccount)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679559824"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679559824"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679559823"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679559823"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679559822"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679559822"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Account -&gt; Int -&gt; UpdateAccountResponse
+</span><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse%27"><span class="hs-identifier hs-var">UpdateAccountResponse'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Account -&gt; Int -&gt; UpdateAccountResponse)
+-&gt; Either String (Maybe Account)
+-&gt; Either String (Int -&gt; UpdateAccountResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679559822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Account)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Account&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateAccountResponse)
+-&gt; Either String Int -&gt; Either String UpdateAccountResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679559824"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559814"><span id="local-6989586621679559816"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559811"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679559807"><span class="annot"><span class="annottext">toHeaders :: UpdateAccount -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateAccount -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559798"><span id="local-6989586621679559800"><span id="local-6989586621679559802"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679559796"><span class="annot"><span class="annottext">toJSON :: UpdateAccount -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559792"><span id="local-6989586621679559793"><span id="local-6989586621679559794"><span class="annot"><span class="annottext">Maybe Text
+Maybe License
+Text
+accountId :: Text
+name :: Maybe Text
+defaultLicense :: Maybe License
+$sel:accountId:UpdateAccount' :: UpdateAccount -&gt; Text
+$sel:name:UpdateAccount' :: UpdateAccount -&gt; Maybe Text
+$sel:defaultLicense:UpdateAccount' :: UpdateAccount -&gt; Maybe License
+</span><a href="#local-6989586621679559792"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultLicense&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; License -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">(License -&gt; Pair) -&gt; Maybe License -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe License
+</span><a href="#local-6989586621679559794"><span class="hs-identifier hs-var">defaultLicense</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679559793"><span class="hs-identifier hs-var">name</span></a></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679559786"><span class="annot"><span class="annottext">toPath :: UpdateAccount -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559782"><span id="local-6989586621679559783"><span id="local-6989586621679559784"><span class="annot"><span class="annottext">Maybe Text
+Maybe License
+Text
+accountId :: Text
+name :: Maybe Text
+defaultLicense :: Maybe License
+$sel:accountId:UpdateAccount' :: UpdateAccount -&gt; Text
+$sel:name:UpdateAccount' :: UpdateAccount -&gt; Maybe Text
+$sel:defaultLicense:UpdateAccount' :: UpdateAccount -&gt; Maybe License
+</span><a href="#local-6989586621679559782"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559782"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679559778"><span class="annot"><span class="annottext">toQuery :: UpdateAccount -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateAccount -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newUpdateAccountResponse' smart constructor.</span><span>
+</span><span id="line-141"></span><span id="local-6989586621679559775"><span id="local-6989586621679559776"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAccountResponse"><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse"><span class="hs-identifier hs-var">UpdateAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAccountResponse%27"><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse%27"><span class="hs-identifier hs-var">UpdateAccountResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated Amazon Chime account details.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3Aaccount%3AUpdateAccountResponse%27"><span class="annot"><span class="annottext">UpdateAccountResponse -&gt; Maybe Account
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3Aaccount%3AUpdateAccountResponse%27"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateAccountResponse%27"><span class="annot"><span class="annottext">UpdateAccountResponse -&gt; Int
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3AhttpStatus%3AUpdateAccountResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679559769"><span id="local-6989586621679559771"><span class="annot"><span class="annottext">UpdateAccountResponse -&gt; UpdateAccountResponse -&gt; Bool
+(UpdateAccountResponse -&gt; UpdateAccountResponse -&gt; Bool)
+-&gt; (UpdateAccountResponse -&gt; UpdateAccountResponse -&gt; Bool)
+-&gt; Eq UpdateAccountResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAccountResponse -&gt; UpdateAccountResponse -&gt; Bool
+$c/= :: UpdateAccountResponse -&gt; UpdateAccountResponse -&gt; Bool
+== :: UpdateAccountResponse -&gt; UpdateAccountResponse -&gt; Bool
+$c== :: UpdateAccountResponse -&gt; UpdateAccountResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559761"><span id="local-6989586621679559763"><span id="local-6989586621679559765"><span id="local-6989586621679559767"><span class="annot"><span class="annottext">ReadPrec [UpdateAccountResponse]
+ReadPrec UpdateAccountResponse
+Int -&gt; ReadS UpdateAccountResponse
+ReadS [UpdateAccountResponse]
+(Int -&gt; ReadS UpdateAccountResponse)
+-&gt; ReadS [UpdateAccountResponse]
+-&gt; ReadPrec UpdateAccountResponse
+-&gt; ReadPrec [UpdateAccountResponse]
+-&gt; Read UpdateAccountResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAccountResponse]
+$creadListPrec :: ReadPrec [UpdateAccountResponse]
+readPrec :: ReadPrec UpdateAccountResponse
+$creadPrec :: ReadPrec UpdateAccountResponse
+readList :: ReadS [UpdateAccountResponse]
+$creadList :: ReadS [UpdateAccountResponse]
+readsPrec :: Int -&gt; ReadS UpdateAccountResponse
+$creadsPrec :: Int -&gt; ReadS UpdateAccountResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559755"><span id="local-6989586621679559757"><span id="local-6989586621679559759"><span class="annot"><span class="annottext">Int -&gt; UpdateAccountResponse -&gt; ShowS
+[UpdateAccountResponse] -&gt; ShowS
+UpdateAccountResponse -&gt; String
+(Int -&gt; UpdateAccountResponse -&gt; ShowS)
+-&gt; (UpdateAccountResponse -&gt; String)
+-&gt; ([UpdateAccountResponse] -&gt; ShowS)
+-&gt; Show UpdateAccountResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAccountResponse] -&gt; ShowS
+$cshowList :: [UpdateAccountResponse] -&gt; ShowS
+show :: UpdateAccountResponse -&gt; String
+$cshow :: UpdateAccountResponse -&gt; String
+showsPrec :: Int -&gt; UpdateAccountResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAccountResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateAccountResponse -&gt; Rep UpdateAccountResponse x)
+-&gt; (forall x. Rep UpdateAccountResponse x -&gt; UpdateAccountResponse)
+-&gt; Generic UpdateAccountResponse
+forall x. Rep UpdateAccountResponse x -&gt; UpdateAccountResponse
+forall x. UpdateAccountResponse -&gt; Rep UpdateAccountResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateAccountResponse x -&gt; UpdateAccountResponse
+$cfrom :: forall x. UpdateAccountResponse -&gt; Rep UpdateAccountResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Create a value of 'UpdateAccountResponse' with all optional fields omitted.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'account', 'updateAccountResponse_account' - The updated Amazon Chime account details.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'httpStatus', 'updateAccountResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#newUpdateAccountResponse"><span class="hs-identifier hs-type">newUpdateAccountResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse"><span class="hs-identifier hs-type">UpdateAccountResponse</span></a></span><span>
+</span><span id="line-164"></span><span id="newUpdateAccountResponse"><span class="annot"><span class="annottext">newUpdateAccountResponse :: Int -&gt; UpdateAccountResponse
+</span><a href="Network.AWS.Chime.UpdateAccount.html#newUpdateAccountResponse"><span class="hs-identifier hs-var hs-var">newUpdateAccountResponse</span></a></span></span><span> </span><span id="local-6989586621679559752"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679559752"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">UpdateAccountResponse' :: Maybe Account -&gt; Int -&gt; UpdateAccountResponse
+</span><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse%27"><span class="hs-identifier hs-type">UpdateAccountResponse'</span></a></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:account:UpdateAccountResponse' :: Maybe Account
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3Aaccount%3AUpdateAccountResponse%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Account
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAccountResponse' :: Int
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3AhttpStatus%3AUpdateAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679559752"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The updated Amazon Chime account details.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#updateAccountResponse_account"><span class="hs-identifier hs-type">updateAccountResponse_account</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse"><span class="hs-identifier hs-type">UpdateAccountResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="updateAccountResponse_account"><span class="annot"><span class="annottext">updateAccountResponse_account :: (Maybe Account -&gt; f (Maybe Account))
+-&gt; UpdateAccountResponse -&gt; f UpdateAccountResponse
+</span><a href="Network.AWS.Chime.UpdateAccount.html#updateAccountResponse_account"><span class="hs-identifier hs-var hs-var">updateAccountResponse_account</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccountResponse -&gt; Maybe Account)
+-&gt; (UpdateAccountResponse
+    -&gt; Maybe Account -&gt; UpdateAccountResponse)
+-&gt; Lens
+     UpdateAccountResponse
+     UpdateAccountResponse
+     (Maybe Account)
+     (Maybe Account)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse%27"><span class="hs-identifier hs-type">UpdateAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559751"><span class="annot"><span class="annottext">Maybe Account
+account :: Maybe Account
+$sel:account:UpdateAccountResponse' :: UpdateAccountResponse -&gt; Maybe Account
+</span><a href="#local-6989586621679559751"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Account
+</span><a href="#local-6989586621679559751"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559750"><span class="annot"><span class="annottext">s :: UpdateAccountResponse
+</span><a href="#local-6989586621679559750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse%27"><span class="hs-identifier hs-type">UpdateAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559749"><span class="annot"><span class="annottext">Maybe Account
+</span><a href="#local-6989586621679559749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccountResponse
+</span><a href="#local-6989586621679559750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:account:UpdateAccountResponse' :: Maybe Account
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3Aaccount%3AUpdateAccountResponse%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Account
+</span><a href="#local-6989586621679559749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse"><span class="hs-identifier hs-type">UpdateAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#updateAccountResponse_httpStatus"><span class="hs-identifier hs-type">updateAccountResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse"><span class="hs-identifier hs-type">UpdateAccountResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-176"></span><span id="updateAccountResponse_httpStatus"><span class="annot"><span class="annottext">updateAccountResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateAccountResponse -&gt; f UpdateAccountResponse
+</span><a href="Network.AWS.Chime.UpdateAccount.html#updateAccountResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateAccountResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccountResponse -&gt; Int)
+-&gt; (UpdateAccountResponse -&gt; Int -&gt; UpdateAccountResponse)
+-&gt; Lens UpdateAccountResponse UpdateAccountResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse%27"><span class="hs-identifier hs-type">UpdateAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559748"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateAccountResponse' :: UpdateAccountResponse -&gt; Int
+</span><a href="#local-6989586621679559748"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679559748"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559747"><span class="annot"><span class="annottext">s :: UpdateAccountResponse
+</span><a href="#local-6989586621679559747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse%27"><span class="hs-identifier hs-type">UpdateAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559746"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679559746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccountResponse
+</span><a href="#local-6989586621679559747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAccountResponse' :: Int
+</span><a href="Network.AWS.Chime.UpdateAccount.html#%24sel%3AhttpStatus%3AUpdateAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679559746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse"><span class="hs-identifier hs-type">UpdateAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559744"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateAccount.html#UpdateAccountResponse"><span class="hs-identifier hs-type">UpdateAccountResponse</span></a></span></span><span>
+</span><span id="line-179"></span></pre></body></html>

@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newPurchaseProvisionedCapacity' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679220830"><span id="local-6989586621679220831"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseProvisionedCapacity"><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-var">PurchaseProvisionedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseProvisionedCapacity%27"><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity%27"><span class="hs-identifier hs-var">PurchaseProvisionedCapacity'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679220839"><span id="local-6989586621679220840"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseProvisionedCapacity"><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-var">PurchaseProvisionedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseProvisionedCapacity%27"><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity%27"><span class="hs-identifier hs-var">PurchaseProvisionedCapacity'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS account ID of the account that owns the vault. You can either</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- specify an AWS account ID or optionally a single \'-\' (hyphen), in</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- which case Amazon S3 Glacier uses the AWS account ID associated with the</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AaccountId%3APurchaseProvisionedCapacity%27"><span class="annot"><span class="annottext">PurchaseProvisionedCapacity -&gt; Text
 </span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#%24sel%3AaccountId%3APurchaseProvisionedCapacity%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220824"><span id="local-6989586621679220826"><span class="annot"><span class="annottext">PurchaseProvisionedCapacity -&gt; PurchaseProvisionedCapacity -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220833"><span id="local-6989586621679220835"><span class="annot"><span class="annottext">PurchaseProvisionedCapacity -&gt; PurchaseProvisionedCapacity -&gt; Bool
 (PurchaseProvisionedCapacity
  -&gt; PurchaseProvisionedCapacity -&gt; Bool)
 -&gt; (PurchaseProvisionedCapacity
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PurchaseProvisionedCapacity -&gt; PurchaseProvisionedCapacity -&gt; Bool
 == :: PurchaseProvisionedCapacity -&gt; PurchaseProvisionedCapacity -&gt; Bool
 $c== :: PurchaseProvisionedCapacity -&gt; PurchaseProvisionedCapacity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220815"><span id="local-6989586621679220817"><span id="local-6989586621679220819"><span id="local-6989586621679220821"><span class="annot"><span class="annottext">ReadPrec [PurchaseProvisionedCapacity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220824"><span id="local-6989586621679220826"><span id="local-6989586621679220828"><span id="local-6989586621679220830"><span class="annot"><span class="annottext">ReadPrec [PurchaseProvisionedCapacity]
 ReadPrec PurchaseProvisionedCapacity
 Int -&gt; ReadS PurchaseProvisionedCapacity
 ReadS [PurchaseProvisionedCapacity]
@@ -87,7 +87,7 @@ readList :: ReadS [PurchaseProvisionedCapacity]
 $creadList :: ReadS [PurchaseProvisionedCapacity]
 readsPrec :: Int -&gt; ReadS PurchaseProvisionedCapacity
 $creadsPrec :: Int -&gt; ReadS PurchaseProvisionedCapacity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220808"><span id="local-6989586621679220810"><span id="local-6989586621679220812"><span class="annot"><span class="annottext">Int -&gt; PurchaseProvisionedCapacity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220817"><span id="local-6989586621679220819"><span id="local-6989586621679220821"><span class="annot"><span class="annottext">Int -&gt; PurchaseProvisionedCapacity -&gt; ShowS
 [PurchaseProvisionedCapacity] -&gt; ShowS
 PurchaseProvisionedCapacity -&gt; String
 (Int -&gt; PurchaseProvisionedCapacity -&gt; ShowS)
@@ -137,14 +137,14 @@ PurchaseProvisionedCapacity -&gt; Rep PurchaseProvisionedCapacity x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity</span></a></span><span>
 </span><span id="line-77"></span><span id="newPurchaseProvisionedCapacity"><span class="annot"><span class="annottext">newPurchaseProvisionedCapacity :: Text -&gt; PurchaseProvisionedCapacity
-</span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#newPurchaseProvisionedCapacity"><span class="hs-identifier hs-var hs-var">newPurchaseProvisionedCapacity</span></a></span></span><span> </span><span id="local-6989586621679220803"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220803"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#newPurchaseProvisionedCapacity"><span class="hs-identifier hs-var hs-var">newPurchaseProvisionedCapacity</span></a></span></span><span> </span><span id="local-6989586621679220812"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220812"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">PurchaseProvisionedCapacity' :: Text -&gt; PurchaseProvisionedCapacity
 </span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:PurchaseProvisionedCapacity' :: Text
 </span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#%24sel%3AaccountId%3APurchaseProvisionedCapacity%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220803"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span>
+</span><a href="#local-6989586621679220812"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The AWS account ID of the account that owns the vault. You can either</span><span>
@@ -161,22 +161,22 @@ PurchaseProvisionedCapacity -&gt; Rep PurchaseProvisionedCapacity x
 -&gt; Lens
      PurchaseProvisionedCapacity PurchaseProvisionedCapacity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220800"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220809"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:PurchaseProvisionedCapacity' :: PurchaseProvisionedCapacity -&gt; Text
-</span><a href="#local-6989586621679220800"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220800"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220799"><span class="annot"><span class="annottext">s :: PurchaseProvisionedCapacity
-</span><a href="#local-6989586621679220799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220798"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseProvisionedCapacity
-</span><a href="#local-6989586621679220799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:PurchaseProvisionedCapacity' :: Text
+</span><a href="#local-6989586621679220809"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220809"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220808"><span class="annot"><span class="annottext">s :: PurchaseProvisionedCapacity
+</span><a href="#local-6989586621679220808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220807"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseProvisionedCapacity
+</span><a href="#local-6989586621679220808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:PurchaseProvisionedCapacity' :: Text
 </span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#%24sel%3AaccountId%3APurchaseProvisionedCapacity%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679220794"><span class="annot"><span class="annottext">request :: PurchaseProvisionedCapacity -&gt; Request PurchaseProvisionedCapacity
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679220803"><span class="annot"><span class="annottext">request :: PurchaseProvisionedCapacity -&gt; Request PurchaseProvisionedCapacity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ByteString
 -&gt; Request PurchaseProvisionedCapacity
@@ -198,7 +198,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679220787"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679220796"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PurchaseProvisionedCapacity
 -&gt; ClientResponse ClientBody
@@ -224,10 +224,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679220784"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679220784"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679220783"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679220783"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679220782"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679220782"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679220793"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220793"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679220792"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679220792"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679220791"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679220791"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; PurchaseProvisionedCapacityResponse
 </span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-var">PurchaseProvisionedCapacityResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; PurchaseProvisionedCapacityResponse)
@@ -235,7 +235,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PurchaseProvisionedCapacityResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679220783"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679220792"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -250,23 +250,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679220784"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220793"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220774"><span id="local-6989586621679220776"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220783"><span id="local-6989586621679220785"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220771"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220780"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679220767"><span class="annot"><span class="annottext">toHeaders :: PurchaseProvisionedCapacity -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679220776"><span class="annot"><span class="annottext">toHeaders :: PurchaseProvisionedCapacity -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PurchaseProvisionedCapacity -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220758"><span id="local-6989586621679220760"><span id="local-6989586621679220762"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679220756"><span class="annot"><span class="annottext">toJSON :: PurchaseProvisionedCapacity -&gt; Value
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220767"><span id="local-6989586621679220769"><span id="local-6989586621679220771"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679220765"><span class="annot"><span class="annottext">toJSON :: PurchaseProvisionedCapacity -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; PurchaseProvisionedCapacity -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -275,11 +275,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679220751"><span class="annot"><span class="annottext">toPath :: PurchaseProvisionedCapacity -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220749"><span class="annot"><span class="annottext">Text
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679220760"><span class="annot"><span class="annottext">toPath :: PurchaseProvisionedCapacity -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220758"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:PurchaseProvisionedCapacity' :: PurchaseProvisionedCapacity -&gt; Text
-</span><a href="#local-6989586621679220749"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679220758"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -287,11 +287,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220749"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679220758"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/provisioned-capacity&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacity"><span class="hs-identifier hs-type">PurchaseProvisionedCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679220745"><span class="annot"><span class="annottext">toQuery :: PurchaseProvisionedCapacity -&gt; QueryString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679220754"><span class="annot"><span class="annottext">toQuery :: PurchaseProvisionedCapacity -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PurchaseProvisionedCapacity -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -299,7 +299,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newPurchaseProvisionedCapacityResponse' smart constructor.</span><span>
-</span><span id="line-125"></span><span id="local-6989586621679220742"><span id="local-6989586621679220743"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseProvisionedCapacityResponse"><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse"><span class="hs-identifier hs-var">PurchaseProvisionedCapacityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseProvisionedCapacityResponse%27"><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-var">PurchaseProvisionedCapacityResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span id="local-6989586621679220751"><span id="local-6989586621679220752"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseProvisionedCapacityResponse"><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse"><span class="hs-identifier hs-var">PurchaseProvisionedCapacityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseProvisionedCapacityResponse%27"><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-var">PurchaseProvisionedCapacityResponse'</span></a></span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID that identifies the provisioned capacity unit.</span><span>
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AcapacityId%3APurchaseProvisionedCapacityResponse%27"><span class="annot"><span class="annottext">PurchaseProvisionedCapacityResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#%24sel%3AcapacityId%3APurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-var hs-var">capacityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -307,7 +307,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3APurchaseProvisionedCapacityResponse%27"><span class="annot"><span class="annottext">PurchaseProvisionedCapacityResponse -&gt; Int
 </span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#%24sel%3AhttpStatus%3APurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220736"><span id="local-6989586621679220738"><span class="annot"><span class="annottext">PurchaseProvisionedCapacityResponse
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220745"><span id="local-6989586621679220747"><span class="annot"><span class="annottext">PurchaseProvisionedCapacityResponse
 -&gt; PurchaseProvisionedCapacityResponse -&gt; Bool
 (PurchaseProvisionedCapacityResponse
  -&gt; PurchaseProvisionedCapacityResponse -&gt; Bool)
@@ -323,7 +323,7 @@ $c/= :: PurchaseProvisionedCapacityResponse
 -&gt; PurchaseProvisionedCapacityResponse -&gt; Bool
 $c== :: PurchaseProvisionedCapacityResponse
 -&gt; PurchaseProvisionedCapacityResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220728"><span id="local-6989586621679220730"><span id="local-6989586621679220732"><span id="local-6989586621679220734"><span class="annot"><span class="annottext">ReadPrec [PurchaseProvisionedCapacityResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220737"><span id="local-6989586621679220739"><span id="local-6989586621679220741"><span id="local-6989586621679220743"><span class="annot"><span class="annottext">ReadPrec [PurchaseProvisionedCapacityResponse]
 ReadPrec PurchaseProvisionedCapacityResponse
 Int -&gt; ReadS PurchaseProvisionedCapacityResponse
 ReadS [PurchaseProvisionedCapacityResponse]
@@ -343,7 +343,7 @@ readList :: ReadS [PurchaseProvisionedCapacityResponse]
 $creadList :: ReadS [PurchaseProvisionedCapacityResponse]
 readsPrec :: Int -&gt; ReadS PurchaseProvisionedCapacityResponse
 $creadsPrec :: Int -&gt; ReadS PurchaseProvisionedCapacityResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220722"><span id="local-6989586621679220724"><span id="local-6989586621679220726"><span class="annot"><span class="annottext">Int -&gt; PurchaseProvisionedCapacityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220731"><span id="local-6989586621679220733"><span id="local-6989586621679220735"><span class="annot"><span class="annottext">Int -&gt; PurchaseProvisionedCapacityResponse -&gt; ShowS
 [PurchaseProvisionedCapacityResponse] -&gt; ShowS
 PurchaseProvisionedCapacityResponse -&gt; String
 (Int -&gt; PurchaseProvisionedCapacityResponse -&gt; ShowS)
@@ -397,8 +397,8 @@ PurchaseProvisionedCapacityResponse
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse</span></a></span><span>
 </span><span id="line-148"></span><span id="newPurchaseProvisionedCapacityResponse"><span class="annot"><span class="annottext">newPurchaseProvisionedCapacityResponse :: Int -&gt; PurchaseProvisionedCapacityResponse
-</span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#newPurchaseProvisionedCapacityResponse"><span class="hs-identifier hs-var hs-var">newPurchaseProvisionedCapacityResponse</span></a></span></span><span> </span><span id="local-6989586621679220719"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679220719"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#newPurchaseProvisionedCapacityResponse"><span class="hs-identifier hs-var hs-var">newPurchaseProvisionedCapacityResponse</span></a></span></span><span> </span><span id="local-6989586621679220728"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220728"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><span class="annottext">PurchaseProvisionedCapacityResponse' :: Maybe Text -&gt; Int -&gt; PurchaseProvisionedCapacityResponse
 </span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse'</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:capacityId:PurchaseProvisionedCapacityResponse' :: Maybe Text
@@ -408,7 +408,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PurchaseProvisionedCapacityResponse' :: Int
 </span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#%24sel%3AhttpStatus%3APurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679220719"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679220728"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The ID that identifies the provisioned capacity unit.</span><span>
@@ -425,16 +425,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220718"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220727"><span class="annot"><span class="annottext">Maybe Text
 capacityId :: Maybe Text
 $sel:capacityId:PurchaseProvisionedCapacityResponse' :: PurchaseProvisionedCapacityResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679220718"><span class="hs-identifier hs-var hs-var">capacityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679220718"><span class="hs-identifier hs-var">capacityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220717"><span class="annot"><span class="annottext">s :: PurchaseProvisionedCapacityResponse
-</span><a href="#local-6989586621679220717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220716"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679220716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseProvisionedCapacityResponse
-</span><a href="#local-6989586621679220717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityId:PurchaseProvisionedCapacityResponse' :: Maybe Text
+</span><a href="#local-6989586621679220727"><span class="hs-identifier hs-var hs-var">capacityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220727"><span class="hs-identifier hs-var">capacityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220726"><span class="annot"><span class="annottext">s :: PurchaseProvisionedCapacityResponse
+</span><a href="#local-6989586621679220726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220725"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseProvisionedCapacityResponse
+</span><a href="#local-6989586621679220726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityId:PurchaseProvisionedCapacityResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#%24sel%3AcapacityId%3APurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-var">capacityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679220716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#purchaseProvisionedCapacityResponse_httpStatus"><span class="hs-identifier hs-type">purchaseProvisionedCapacityResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -450,18 +450,18 @@ $sel:capacityId:PurchaseProvisionedCapacityResponse' :: PurchaseProvisionedCapac
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220715"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220724"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PurchaseProvisionedCapacityResponse' :: PurchaseProvisionedCapacityResponse -&gt; Int
-</span><a href="#local-6989586621679220715"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679220715"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220714"><span class="annot"><span class="annottext">s :: PurchaseProvisionedCapacityResponse
-</span><a href="#local-6989586621679220714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220713"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679220713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseProvisionedCapacityResponse
-</span><a href="#local-6989586621679220714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PurchaseProvisionedCapacityResponse' :: Int
+</span><a href="#local-6989586621679220724"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220724"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220723"><span class="annot"><span class="annottext">s :: PurchaseProvisionedCapacityResponse
+</span><a href="#local-6989586621679220723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220722"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseProvisionedCapacityResponse
+</span><a href="#local-6989586621679220723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PurchaseProvisionedCapacityResponse' :: Int
 </span><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#%24sel%3AhttpStatus%3APurchaseProvisionedCapacityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679220713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679220711"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679220720"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.PurchaseProvisionedCapacity.html#PurchaseProvisionedCapacityResponse"><span class="hs-identifier hs-type">PurchaseProvisionedCapacityResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

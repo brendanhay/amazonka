@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621680321881"><span id="local-6989586621680321882"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MonitoringScheduleSortKey"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleSortKey.html#MonitoringScheduleSortKey"><span class="hs-identifier hs-var">MonitoringScheduleSortKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringScheduleSortKey%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleSortKey.html#MonitoringScheduleSortKey%27"><span class="hs-identifier hs-var">MonitoringScheduleSortKey'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680321890"><span id="local-6989586621680321891"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MonitoringScheduleSortKey"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleSortKey.html#MonitoringScheduleSortKey"><span class="hs-identifier hs-var">MonitoringScheduleSortKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringScheduleSortKey%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleSortKey.html#MonitoringScheduleSortKey%27"><span class="hs-identifier hs-var">MonitoringScheduleSortKey'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMonitoringScheduleSortKey"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleSortKey.html#fromMonitoringScheduleSortKey"><span class="hs-identifier hs-var hs-var">fromMonitoringScheduleSortKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680321873"><span id="local-6989586621680321875"><span id="local-6989586621680321877"><span class="annot"><span class="annottext">Int -&gt; MonitoringScheduleSortKey -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680321882"><span id="local-6989586621680321884"><span id="local-6989586621680321886"><span class="annot"><span class="annottext">Int -&gt; MonitoringScheduleSortKey -&gt; ShowS
 [MonitoringScheduleSortKey] -&gt; ShowS
 MonitoringScheduleSortKey -&gt; String
 (Int -&gt; MonitoringScheduleSortKey -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: MonitoringScheduleSortKey -&gt; String
 showsPrec :: Int -&gt; MonitoringScheduleSortKey -&gt; ShowS
 $cshowsPrec :: Int -&gt; MonitoringScheduleSortKey -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680321864"><span id="local-6989586621680321866"><span id="local-6989586621680321868"><span id="local-6989586621680321870"><span class="annot"><span class="annottext">ReadPrec [MonitoringScheduleSortKey]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680321873"><span id="local-6989586621680321875"><span id="local-6989586621680321877"><span id="local-6989586621680321879"><span class="annot"><span class="annottext">ReadPrec [MonitoringScheduleSortKey]
 ReadPrec MonitoringScheduleSortKey
 Int -&gt; ReadS MonitoringScheduleSortKey
 ReadS [MonitoringScheduleSortKey]
@@ -73,7 +73,7 @@ $creadList :: ReadS [MonitoringScheduleSortKey]
 readsPrec :: Int -&gt; ReadS MonitoringScheduleSortKey
 $creadsPrec :: Int -&gt; ReadS MonitoringScheduleSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680321859"><span id="local-6989586621680321861"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; MonitoringScheduleSortKey -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680321868"><span id="local-6989586621680321870"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; MonitoringScheduleSortKey -&gt; Bool
 (MonitoringScheduleSortKey -&gt; MonitoringScheduleSortKey -&gt; Bool)
 -&gt; (MonitoringScheduleSortKey -&gt; MonitoringScheduleSortKey -&gt; Bool)
 -&gt; Eq MonitoringScheduleSortKey
@@ -83,7 +83,7 @@ $c/= :: MonitoringScheduleSortKey -&gt; MonitoringScheduleSortKey -&gt; Bool
 == :: MonitoringScheduleSortKey -&gt; MonitoringScheduleSortKey -&gt; Bool
 $c== :: MonitoringScheduleSortKey -&gt; MonitoringScheduleSortKey -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680321843"><span id="local-6989586621680321845"><span id="local-6989586621680321847"><span id="local-6989586621680321849"><span id="local-6989586621680321851"><span id="local-6989586621680321853"><span id="local-6989586621680321855"><span class="annot"><span class="annottext">Eq MonitoringScheduleSortKey
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680321852"><span id="local-6989586621680321854"><span id="local-6989586621680321856"><span id="local-6989586621680321858"><span id="local-6989586621680321860"><span id="local-6989586621680321862"><span id="local-6989586621680321864"><span class="annot"><span class="annottext">Eq MonitoringScheduleSortKey
 Eq MonitoringScheduleSortKey
 -&gt; (MonitoringScheduleSortKey
     -&gt; MonitoringScheduleSortKey -&gt; Ordering)
@@ -148,7 +148,7 @@ MonitoringScheduleSortKey -&gt; Rep MonitoringScheduleSortKey x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680321835"><span id="local-6989586621680321837"><span class="annot"><span class="annottext">Int -&gt; MonitoringScheduleSortKey -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680321844"><span id="local-6989586621680321846"><span class="annot"><span class="annottext">Int -&gt; MonitoringScheduleSortKey -&gt; Int
 MonitoringScheduleSortKey -&gt; Int
 (Int -&gt; MonitoringScheduleSortKey -&gt; Int)
 -&gt; (MonitoringScheduleSortKey -&gt; Int)
@@ -159,56 +159,56 @@ $chash :: MonitoringScheduleSortKey -&gt; Int
 hashWithSalt :: Int -&gt; MonitoringScheduleSortKey -&gt; Int
 $chashWithSalt :: Int -&gt; MonitoringScheduleSortKey -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680321832"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680321841"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; ()
 (MonitoringScheduleSortKey -&gt; ())
 -&gt; NFData MonitoringScheduleSortKey
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MonitoringScheduleSortKey -&gt; ()
 $crnf :: MonitoringScheduleSortKey -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680321829"><span class="annot"><span class="annottext">Text -&gt; Either String MonitoringScheduleSortKey
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680321838"><span class="annot"><span class="annottext">Text -&gt; Either String MonitoringScheduleSortKey
 (Text -&gt; Either String MonitoringScheduleSortKey)
 -&gt; FromText MonitoringScheduleSortKey
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MonitoringScheduleSortKey
 $cfromText :: Text -&gt; Either String MonitoringScheduleSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680321826"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680321835"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; Text
 (MonitoringScheduleSortKey -&gt; Text)
 -&gt; ToText MonitoringScheduleSortKey
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MonitoringScheduleSortKey -&gt; Text
 $ctoText :: MonitoringScheduleSortKey -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680321823"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680321832"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; ByteString
 (MonitoringScheduleSortKey -&gt; ByteString)
 -&gt; ToByteString MonitoringScheduleSortKey
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MonitoringScheduleSortKey -&gt; ByteString
 $ctoBS :: MonitoringScheduleSortKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680321820"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680321829"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; ByteStringBuilder
 (MonitoringScheduleSortKey -&gt; ByteStringBuilder)
 -&gt; ToLog MonitoringScheduleSortKey
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MonitoringScheduleSortKey -&gt; ByteStringBuilder
 $cbuild :: MonitoringScheduleSortKey -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680321817"><span class="annot"><span class="annottext">HeaderName -&gt; MonitoringScheduleSortKey -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680321826"><span class="annot"><span class="annottext">HeaderName -&gt; MonitoringScheduleSortKey -&gt; [Header]
 (HeaderName -&gt; MonitoringScheduleSortKey -&gt; [Header])
 -&gt; ToHeader MonitoringScheduleSortKey
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MonitoringScheduleSortKey -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MonitoringScheduleSortKey -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680321814"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680321823"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; QueryString
 (MonitoringScheduleSortKey -&gt; QueryString)
 -&gt; ToQuery MonitoringScheduleSortKey
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MonitoringScheduleSortKey -&gt; QueryString
 $ctoQuery :: MonitoringScheduleSortKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680321809"><span id="local-6989586621680321811"><span class="annot"><span class="annottext">Value -&gt; Parser [MonitoringScheduleSortKey]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680321818"><span id="local-6989586621680321820"><span class="annot"><span class="annottext">Value -&gt; Parser [MonitoringScheduleSortKey]
 Value -&gt; Parser MonitoringScheduleSortKey
 (Value -&gt; Parser MonitoringScheduleSortKey)
 -&gt; (Value -&gt; Parser [MonitoringScheduleSortKey])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [MonitoringScheduleSortKey]
 parseJSON :: Value -&gt; Parser MonitoringScheduleSortKey
 $cparseJSON :: Value -&gt; Parser MonitoringScheduleSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680321804"><span id="local-6989586621680321806"><span class="annot"><span class="annottext">FromJSONKeyFunction [MonitoringScheduleSortKey]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680321813"><span id="local-6989586621680321815"><span class="annot"><span class="annottext">FromJSONKeyFunction [MonitoringScheduleSortKey]
 FromJSONKeyFunction MonitoringScheduleSortKey
 FromJSONKeyFunction MonitoringScheduleSortKey
 -&gt; FromJSONKeyFunction [MonitoringScheduleSortKey]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MonitoringScheduleSortKey]
 fromJSONKey :: FromJSONKeyFunction MonitoringScheduleSortKey
 $cfromJSONKey :: FromJSONKeyFunction MonitoringScheduleSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680321795"><span id="local-6989586621680321797"><span id="local-6989586621680321799"><span id="local-6989586621680321801"><span class="annot"><span class="annottext">[MonitoringScheduleSortKey] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680321804"><span id="local-6989586621680321806"><span id="local-6989586621680321808"><span id="local-6989586621680321810"><span class="annot"><span class="annottext">[MonitoringScheduleSortKey] -&gt; Encoding
 [MonitoringScheduleSortKey] -&gt; Value
 MonitoringScheduleSortKey -&gt; Encoding
 MonitoringScheduleSortKey -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: MonitoringScheduleSortKey -&gt; Encoding
 toJSON :: MonitoringScheduleSortKey -&gt; Value
 $ctoJSON :: MonitoringScheduleSortKey -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680321790"><span id="local-6989586621680321792"><span class="annot"><span class="annottext">ToJSONKeyFunction [MonitoringScheduleSortKey]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680321799"><span id="local-6989586621680321801"><span class="annot"><span class="annottext">ToJSONKeyFunction [MonitoringScheduleSortKey]
 ToJSONKeyFunction MonitoringScheduleSortKey
 ToJSONKeyFunction MonitoringScheduleSortKey
 -&gt; ToJSONKeyFunction [MonitoringScheduleSortKey]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MonitoringScheduleSortKey]
 toJSONKey :: ToJSONKeyFunction MonitoringScheduleSortKey
 $ctoJSONKey :: ToJSONKeyFunction MonitoringScheduleSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680321787"><span class="annot"><span class="annottext">[Node] -&gt; Either String MonitoringScheduleSortKey
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680321796"><span class="annot"><span class="annottext">[Node] -&gt; Either String MonitoringScheduleSortKey
 ([Node] -&gt; Either String MonitoringScheduleSortKey)
 -&gt; FromXML MonitoringScheduleSortKey
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MonitoringScheduleSortKey
 $cparseXML :: [Node] -&gt; Either String MonitoringScheduleSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680321784"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680321793"><span class="annot"><span class="annottext">MonitoringScheduleSortKey -&gt; XML
 (MonitoringScheduleSortKey -&gt; XML)
 -&gt; ToXML MonitoringScheduleSortKey
 forall a. (a -&gt; XML) -&gt; ToXML a

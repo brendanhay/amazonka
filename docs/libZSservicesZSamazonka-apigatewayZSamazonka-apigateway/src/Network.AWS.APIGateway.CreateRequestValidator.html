@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Creates a RequestValidator of a given RestApi.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newCreateRequestValidator' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679391606"><span id="local-6989586621679391607"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRequestValidator"><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-var">CreateRequestValidator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRequestValidator%27"><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-var">CreateRequestValidator'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679391615"><span id="local-6989586621679391616"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRequestValidator"><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-var">CreateRequestValidator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRequestValidator%27"><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-var">CreateRequestValidator'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A Boolean flag to indicate whether to validate request parameters,</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @true@, or not @false@.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AvalidateRequestParameters%3ACreateRequestValidator%27"><span class="annot"><span class="annottext">CreateRequestValidator -&gt; Maybe Bool
@@ -70,7 +70,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3ArestApiId%3ACreateRequestValidator%27"><span class="annot"><span class="annottext">CreateRequestValidator -&gt; Text
 </span><a href="Network.AWS.APIGateway.CreateRequestValidator.html#%24sel%3ArestApiId%3ACreateRequestValidator%27"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391597"><span id="local-6989586621679391599"><span class="annot"><span class="annottext">CreateRequestValidator -&gt; CreateRequestValidator -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391606"><span id="local-6989586621679391608"><span class="annot"><span class="annottext">CreateRequestValidator -&gt; CreateRequestValidator -&gt; Bool
 (CreateRequestValidator -&gt; CreateRequestValidator -&gt; Bool)
 -&gt; (CreateRequestValidator -&gt; CreateRequestValidator -&gt; Bool)
 -&gt; Eq CreateRequestValidator
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateRequestValidator -&gt; CreateRequestValidator -&gt; Bool
 == :: CreateRequestValidator -&gt; CreateRequestValidator -&gt; Bool
 $c== :: CreateRequestValidator -&gt; CreateRequestValidator -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391588"><span id="local-6989586621679391590"><span id="local-6989586621679391592"><span id="local-6989586621679391594"><span class="annot"><span class="annottext">ReadPrec [CreateRequestValidator]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391597"><span id="local-6989586621679391599"><span id="local-6989586621679391601"><span id="local-6989586621679391603"><span class="annot"><span class="annottext">ReadPrec [CreateRequestValidator]
 ReadPrec CreateRequestValidator
 Int -&gt; ReadS CreateRequestValidator
 ReadS [CreateRequestValidator]
@@ -99,7 +99,7 @@ readList :: ReadS [CreateRequestValidator]
 $creadList :: ReadS [CreateRequestValidator]
 readsPrec :: Int -&gt; ReadS CreateRequestValidator
 $creadsPrec :: Int -&gt; ReadS CreateRequestValidator
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391581"><span id="local-6989586621679391583"><span id="local-6989586621679391585"><span class="annot"><span class="annottext">Int -&gt; CreateRequestValidator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391590"><span id="local-6989586621679391592"><span id="local-6989586621679391594"><span class="annot"><span class="annottext">Int -&gt; CreateRequestValidator -&gt; ShowS
 [CreateRequestValidator] -&gt; ShowS
 CreateRequestValidator -&gt; String
 (Int -&gt; CreateRequestValidator -&gt; ShowS)
@@ -148,8 +148,8 @@ $cfrom :: forall x. CreateRequestValidator -&gt; Rep CreateRequestValidator x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span>
 </span><span id="line-92"></span><span id="newCreateRequestValidator"><span class="annot"><span class="annottext">newCreateRequestValidator :: Text -&gt; CreateRequestValidator
-</span><a href="Network.AWS.APIGateway.CreateRequestValidator.html#newCreateRequestValidator"><span class="hs-identifier hs-var hs-var">newCreateRequestValidator</span></a></span></span><span> </span><span id="local-6989586621679391576"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391576"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.CreateRequestValidator.html#newCreateRequestValidator"><span class="hs-identifier hs-var hs-var">newCreateRequestValidator</span></a></span></span><span> </span><span id="local-6989586621679391585"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391585"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">CreateRequestValidator' :: Maybe Bool
 -&gt; Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; CreateRequestValidator
 </span><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span>
@@ -168,7 +168,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:restApiId:CreateRequestValidator' :: Text
 </span><a href="Network.AWS.APIGateway.CreateRequestValidator.html#%24sel%3ArestApiId%3ACreateRequestValidator%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391576"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span>
+</span><a href="#local-6989586621679391585"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | A Boolean flag to indicate whether to validate request parameters,</span><span>
@@ -184,16 +184,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391573"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391582"><span class="annot"><span class="annottext">Maybe Bool
 validateRequestParameters :: Maybe Bool
 $sel:validateRequestParameters:CreateRequestValidator' :: CreateRequestValidator -&gt; Maybe Bool
-</span><a href="#local-6989586621679391573"><span class="hs-identifier hs-var hs-var">validateRequestParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679391573"><span class="hs-identifier hs-var">validateRequestParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391572"><span class="annot"><span class="annottext">s :: CreateRequestValidator
-</span><a href="#local-6989586621679391572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391571"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679391571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRequestValidator
-</span><a href="#local-6989586621679391572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validateRequestParameters:CreateRequestValidator' :: Maybe Bool
+</span><a href="#local-6989586621679391582"><span class="hs-identifier hs-var hs-var">validateRequestParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679391582"><span class="hs-identifier hs-var">validateRequestParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391581"><span class="annot"><span class="annottext">s :: CreateRequestValidator
+</span><a href="#local-6989586621679391581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391580"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679391580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRequestValidator
+</span><a href="#local-6989586621679391581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validateRequestParameters:CreateRequestValidator' :: Maybe Bool
 </span><a href="Network.AWS.APIGateway.CreateRequestValidator.html#%24sel%3AvalidateRequestParameters%3ACreateRequestValidator%27"><span class="hs-identifier hs-var">validateRequestParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679391571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The name of the to-be-created RequestValidator.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#createRequestValidator_name"><span class="hs-identifier hs-type">createRequestValidator_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -207,16 +207,16 @@ $sel:validateRequestParameters:CreateRequestValidator' :: CreateRequestValidator
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391570"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391579"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:CreateRequestValidator' :: CreateRequestValidator -&gt; Maybe Text
-</span><a href="#local-6989586621679391570"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391570"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391569"><span class="annot"><span class="annottext">s :: CreateRequestValidator
-</span><a href="#local-6989586621679391569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391568"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRequestValidator
-</span><a href="#local-6989586621679391569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateRequestValidator' :: Maybe Text
+</span><a href="#local-6989586621679391579"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391579"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391578"><span class="annot"><span class="annottext">s :: CreateRequestValidator
+</span><a href="#local-6989586621679391578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391577"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRequestValidator
+</span><a href="#local-6989586621679391578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateRequestValidator' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.CreateRequestValidator.html#%24sel%3Aname%3ACreateRequestValidator%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | A Boolean flag to indicate whether to validate request body according to</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- the configured model schema for the method (@true@) or not (@false@).</span><span>
@@ -231,16 +231,16 @@ $sel:name:CreateRequestValidator' :: CreateRequestValidator -&gt; Maybe Text
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391567"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391576"><span class="annot"><span class="annottext">Maybe Bool
 validateRequestBody :: Maybe Bool
 $sel:validateRequestBody:CreateRequestValidator' :: CreateRequestValidator -&gt; Maybe Bool
-</span><a href="#local-6989586621679391567"><span class="hs-identifier hs-var hs-var">validateRequestBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679391567"><span class="hs-identifier hs-var">validateRequestBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391566"><span class="annot"><span class="annottext">s :: CreateRequestValidator
-</span><a href="#local-6989586621679391566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391565"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679391565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRequestValidator
-</span><a href="#local-6989586621679391566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validateRequestBody:CreateRequestValidator' :: Maybe Bool
+</span><a href="#local-6989586621679391576"><span class="hs-identifier hs-var hs-var">validateRequestBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679391576"><span class="hs-identifier hs-var">validateRequestBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391575"><span class="annot"><span class="annottext">s :: CreateRequestValidator
+</span><a href="#local-6989586621679391575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391574"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679391574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRequestValidator
+</span><a href="#local-6989586621679391575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validateRequestBody:CreateRequestValidator' :: Maybe Bool
 </span><a href="Network.AWS.APIGateway.CreateRequestValidator.html#%24sel%3AvalidateRequestBody%3ACreateRequestValidator%27"><span class="hs-identifier hs-var">validateRequestBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679391565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#createRequestValidator_restApiId"><span class="hs-identifier hs-type">createRequestValidator_restApiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -250,27 +250,27 @@ $sel:validateRequestBody:CreateRequestValidator' :: CreateRequestValidator -&gt;
 -&gt; (CreateRequestValidator -&gt; Text -&gt; CreateRequestValidator)
 -&gt; Lens CreateRequestValidator CreateRequestValidator Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391564"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391573"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:CreateRequestValidator' :: CreateRequestValidator -&gt; Text
-</span><a href="#local-6989586621679391564"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391564"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391563"><span class="annot"><span class="annottext">s :: CreateRequestValidator
-</span><a href="#local-6989586621679391563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391562"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRequestValidator
-</span><a href="#local-6989586621679391563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:CreateRequestValidator' :: Text
+</span><a href="#local-6989586621679391573"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391573"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391572"><span class="annot"><span class="annottext">s :: CreateRequestValidator
+</span><a href="#local-6989586621679391572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391571"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRequestValidator
+</span><a href="#local-6989586621679391572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:CreateRequestValidator' :: Text
 </span><a href="Network.AWS.APIGateway.CreateRequestValidator.html#%24sel%3ArestApiId%3ACreateRequestValidator%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.APIGateway.Types.RequestValidator.html#RequestValidator"><span class="hs-identifier hs-type">RequestValidator</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679391558"><span class="annot"><span class="annottext">request :: CreateRequestValidator -&gt; Request CreateRequestValidator
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679391567"><span class="annot"><span class="annottext">request :: CreateRequestValidator -&gt; Request CreateRequestValidator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateRequestValidator -&gt; Request CreateRequestValidator
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679391554"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679391563"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateRequestValidator
 -&gt; ClientResponse ClientBody
@@ -296,20 +296,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391551"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391551"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391550"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679391550"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391549"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391549"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String RequestValidator
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391560"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391560"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391559"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679391559"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391558"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391558"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String RequestValidator
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391549"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391558"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391544"><span id="local-6989586621679391546"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391553"><span id="local-6989586621679391555"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391550"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679391537"><span class="annot"><span class="annottext">toHeaders :: CreateRequestValidator -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679391546"><span class="annot"><span class="annottext">toHeaders :: CreateRequestValidator -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRequestValidator -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -326,9 +326,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391527"><span id="local-6989586621679391529"><span id="local-6989586621679391531"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679391525"><span class="annot"><span class="annottext">toJSON :: CreateRequestValidator -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391520"><span id="local-6989586621679391521"><span id="local-6989586621679391522"><span id="local-6989586621679391523"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391536"><span id="local-6989586621679391538"><span id="local-6989586621679391540"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679391534"><span class="annot"><span class="annottext">toJSON :: CreateRequestValidator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391529"><span id="local-6989586621679391530"><span id="local-6989586621679391531"><span id="local-6989586621679391532"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 restApiId :: Text
@@ -339,7 +339,7 @@ $sel:restApiId:CreateRequestValidator' :: CreateRequestValidator -&gt; Text
 $sel:validateRequestBody:CreateRequestValidator' :: CreateRequestValidator -&gt; Maybe Bool
 $sel:name:CreateRequestValidator' :: CreateRequestValidator -&gt; Maybe Text
 $sel:validateRequestParameters:CreateRequestValidator' :: CreateRequestValidator -&gt; Maybe Bool
-</span><a href="#local-6989586621679391520"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679391529"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -352,14 +352,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679391523"><span class="hs-identifier hs-var">validateRequestParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391532"><span class="hs-identifier hs-var">validateRequestParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391522"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391531"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;validateRequestBody&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -367,13 +367,13 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679391521"><span class="hs-identifier hs-var">validateRequestBody</span></a></span><span>
+</span><a href="#local-6989586621679391530"><span class="hs-identifier hs-var">validateRequestBody</span></a></span><span>
 </span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679391513"><span class="annot"><span class="annottext">toPath :: CreateRequestValidator -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391508"><span id="local-6989586621679391509"><span id="local-6989586621679391510"><span id="local-6989586621679391511"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679391522"><span class="annot"><span class="annottext">toPath :: CreateRequestValidator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator%27"><span class="hs-identifier hs-type">CreateRequestValidator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391517"><span id="local-6989586621679391518"><span id="local-6989586621679391519"><span id="local-6989586621679391520"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 restApiId :: Text
@@ -384,7 +384,7 @@ $sel:restApiId:CreateRequestValidator' :: CreateRequestValidator -&gt; Text
 $sel:validateRequestBody:CreateRequestValidator' :: CreateRequestValidator -&gt; Maybe Bool
 $sel:name:CreateRequestValidator' :: CreateRequestValidator -&gt; Maybe Text
 $sel:validateRequestParameters:CreateRequestValidator' :: CreateRequestValidator -&gt; Maybe Bool
-</span><a href="#local-6989586621679391508"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679391517"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -393,13 +393,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391508"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391517"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/requestvalidators&quot;</span></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateRequestValidator.html#CreateRequestValidator"><span class="hs-identifier hs-type">CreateRequestValidator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679391504"><span class="annot"><span class="annottext">toQuery :: CreateRequestValidator -&gt; QueryString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679391513"><span class="annot"><span class="annottext">toQuery :: CreateRequestValidator -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateRequestValidator -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

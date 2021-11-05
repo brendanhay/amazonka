@@ -56,12 +56,12 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDescribeTimeBasedAutoScaling' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679386335"><span id="local-6989586621679386336"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTimeBasedAutoScaling"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling"><span class="hs-identifier hs-var">DescribeTimeBasedAutoScaling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTimeBasedAutoScaling%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling%27"><span class="hs-identifier hs-var">DescribeTimeBasedAutoScaling'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679386344"><span id="local-6989586621679386345"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTimeBasedAutoScaling"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling"><span class="hs-identifier hs-var">DescribeTimeBasedAutoScaling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTimeBasedAutoScaling%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling%27"><span class="hs-identifier hs-var">DescribeTimeBasedAutoScaling'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of instance IDs.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AinstanceIds%3ADescribeTimeBasedAutoScaling%27"><span class="annot"><span class="annottext">DescribeTimeBasedAutoScaling -&gt; [Text]
 </span><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#%24sel%3AinstanceIds%3ADescribeTimeBasedAutoScaling%27"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386329"><span id="local-6989586621679386331"><span class="annot"><span class="annottext">DescribeTimeBasedAutoScaling
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386338"><span id="local-6989586621679386340"><span class="annot"><span class="annottext">DescribeTimeBasedAutoScaling
 -&gt; DescribeTimeBasedAutoScaling -&gt; Bool
 (DescribeTimeBasedAutoScaling
  -&gt; DescribeTimeBasedAutoScaling -&gt; Bool)
@@ -77,7 +77,7 @@ $c/= :: DescribeTimeBasedAutoScaling
 -&gt; DescribeTimeBasedAutoScaling -&gt; Bool
 $c== :: DescribeTimeBasedAutoScaling
 -&gt; DescribeTimeBasedAutoScaling -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386320"><span id="local-6989586621679386322"><span id="local-6989586621679386324"><span id="local-6989586621679386326"><span class="annot"><span class="annottext">ReadPrec [DescribeTimeBasedAutoScaling]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386329"><span id="local-6989586621679386331"><span id="local-6989586621679386333"><span id="local-6989586621679386335"><span class="annot"><span class="annottext">ReadPrec [DescribeTimeBasedAutoScaling]
 ReadPrec DescribeTimeBasedAutoScaling
 Int -&gt; ReadS DescribeTimeBasedAutoScaling
 ReadS [DescribeTimeBasedAutoScaling]
@@ -97,7 +97,7 @@ readList :: ReadS [DescribeTimeBasedAutoScaling]
 $creadList :: ReadS [DescribeTimeBasedAutoScaling]
 readsPrec :: Int -&gt; ReadS DescribeTimeBasedAutoScaling
 $creadsPrec :: Int -&gt; ReadS DescribeTimeBasedAutoScaling
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386313"><span id="local-6989586621679386315"><span id="local-6989586621679386317"><span class="annot"><span class="annottext">Int -&gt; DescribeTimeBasedAutoScaling -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386322"><span id="local-6989586621679386324"><span id="local-6989586621679386326"><span class="annot"><span class="annottext">Int -&gt; DescribeTimeBasedAutoScaling -&gt; ShowS
 [DescribeTimeBasedAutoScaling] -&gt; ShowS
 DescribeTimeBasedAutoScaling -&gt; String
 (Int -&gt; DescribeTimeBasedAutoScaling -&gt; ShowS)
@@ -164,16 +164,16 @@ forall a. Monoid a =&gt; a
      [Text]
      [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386306"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386315"><span class="annot"><span class="annottext">[Text]
 instanceIds :: [Text]
 $sel:instanceIds:DescribeTimeBasedAutoScaling' :: DescribeTimeBasedAutoScaling -&gt; [Text]
-</span><a href="#local-6989586621679386306"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679386306"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386305"><span class="annot"><span class="annottext">s :: DescribeTimeBasedAutoScaling
-</span><a href="#local-6989586621679386305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386304"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679386304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTimeBasedAutoScaling
-</span><a href="#local-6989586621679386305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:DescribeTimeBasedAutoScaling' :: [Text]
+</span><a href="#local-6989586621679386315"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679386315"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386314"><span class="annot"><span class="annottext">s :: DescribeTimeBasedAutoScaling
+</span><a href="#local-6989586621679386314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386313"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679386313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTimeBasedAutoScaling
+</span><a href="#local-6989586621679386314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:DescribeTimeBasedAutoScaling' :: [Text]
 </span><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#%24sel%3AinstanceIds%3ADescribeTimeBasedAutoScaling%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679386304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679386313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; DescribeTimeBasedAutoScaling -&gt; f DescribeTimeBasedAutoScaling)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -188,7 +188,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679386298"><span class="annot"><span class="annottext">request :: DescribeTimeBasedAutoScaling
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679386307"><span class="annot"><span class="annottext">request :: DescribeTimeBasedAutoScaling
 -&gt; Request DescribeTimeBasedAutoScaling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeTimeBasedAutoScaling
@@ -196,7 +196,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679386294"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679386303"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeTimeBasedAutoScaling
 -&gt; ClientResponse ClientBody
@@ -222,10 +222,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386291"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386291"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386290"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679386290"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386289"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386289"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386300"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386300"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386299"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679386299"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386298"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386298"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TimeBasedAutoScalingConfiguration]
 -&gt; Int -&gt; DescribeTimeBasedAutoScalingResponse
 </span><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-var">DescribeTimeBasedAutoScalingResponse'</span></a></span><span>
@@ -235,7 +235,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeTimeBasedAutoScalingResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386298"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either
      String (Maybe (Maybe [TimeBasedAutoScalingConfiguration]))
@@ -259,17 +259,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386291"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386300"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679386280"><span id="local-6989586621679386282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679386289"><span id="local-6989586621679386291"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386286"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679386273"><span class="annot"><span class="annottext">toHeaders :: DescribeTimeBasedAutoScaling -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679386282"><span class="annot"><span class="annottext">toHeaders :: DescribeTimeBasedAutoScaling -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeTimeBasedAutoScaling -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -296,12 +296,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386263"><span id="local-6989586621679386265"><span id="local-6989586621679386267"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679386261"><span class="annot"><span class="annottext">toJSON :: DescribeTimeBasedAutoScaling -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386259"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386272"><span id="local-6989586621679386274"><span id="local-6989586621679386276"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679386270"><span class="annot"><span class="annottext">toJSON :: DescribeTimeBasedAutoScaling -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386268"><span class="annot"><span class="annottext">[Text]
 instanceIds :: [Text]
 $sel:instanceIds:DescribeTimeBasedAutoScaling' :: DescribeTimeBasedAutoScaling -&gt; [Text]
-</span><a href="#local-6989586621679386259"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679386268"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -313,18 +313,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;InstanceIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679386259"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679386268"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679386253"><span class="annot"><span class="annottext">toPath :: DescribeTimeBasedAutoScaling -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679386262"><span class="annot"><span class="annottext">toPath :: DescribeTimeBasedAutoScaling -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeTimeBasedAutoScaling -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScaling"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScaling</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679386249"><span class="annot"><span class="annottext">toQuery :: DescribeTimeBasedAutoScaling -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679386258"><span class="annot"><span class="annottext">toQuery :: DescribeTimeBasedAutoScaling -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeTimeBasedAutoScaling -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -334,7 +334,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span class="hs-comment">-- | Contains the response to a @DescribeTimeBasedAutoScaling@ request.</span><span>
 </span><span id="line-136"></span><span class="hs-comment">--</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- /See:/ 'newDescribeTimeBasedAutoScalingResponse' smart constructor.</span><span>
-</span><span id="line-138"></span><span id="local-6989586621679386246"><span id="local-6989586621679386247"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTimeBasedAutoScalingResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse"><span class="hs-identifier hs-var">DescribeTimeBasedAutoScalingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTimeBasedAutoScalingResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-var">DescribeTimeBasedAutoScalingResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span id="local-6989586621679386255"><span id="local-6989586621679386256"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTimeBasedAutoScalingResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse"><span class="hs-identifier hs-var">DescribeTimeBasedAutoScalingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTimeBasedAutoScalingResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-var">DescribeTimeBasedAutoScalingResponse'</span></a></span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe</span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-comment">-- the configuration for the specified instances.</span><span>
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AtimeBasedAutoScalingConfigurations%3ADescribeTimeBasedAutoScalingResponse%27"><span class="annot"><span class="annottext">DescribeTimeBasedAutoScalingResponse
@@ -344,7 +344,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeTimeBasedAutoScalingResponse%27"><span class="annot"><span class="annottext">DescribeTimeBasedAutoScalingResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#%24sel%3AhttpStatus%3ADescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386240"><span id="local-6989586621679386242"><span class="annot"><span class="annottext">DescribeTimeBasedAutoScalingResponse
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386249"><span id="local-6989586621679386251"><span class="annot"><span class="annottext">DescribeTimeBasedAutoScalingResponse
 -&gt; DescribeTimeBasedAutoScalingResponse -&gt; Bool
 (DescribeTimeBasedAutoScalingResponse
  -&gt; DescribeTimeBasedAutoScalingResponse -&gt; Bool)
@@ -360,7 +360,7 @@ $c/= :: DescribeTimeBasedAutoScalingResponse
 -&gt; DescribeTimeBasedAutoScalingResponse -&gt; Bool
 $c== :: DescribeTimeBasedAutoScalingResponse
 -&gt; DescribeTimeBasedAutoScalingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386232"><span id="local-6989586621679386234"><span id="local-6989586621679386236"><span id="local-6989586621679386238"><span class="annot"><span class="annottext">ReadPrec [DescribeTimeBasedAutoScalingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386241"><span id="local-6989586621679386243"><span id="local-6989586621679386245"><span id="local-6989586621679386247"><span class="annot"><span class="annottext">ReadPrec [DescribeTimeBasedAutoScalingResponse]
 ReadPrec DescribeTimeBasedAutoScalingResponse
 Int -&gt; ReadS DescribeTimeBasedAutoScalingResponse
 ReadS [DescribeTimeBasedAutoScalingResponse]
@@ -380,7 +380,7 @@ readList :: ReadS [DescribeTimeBasedAutoScalingResponse]
 $creadList :: ReadS [DescribeTimeBasedAutoScalingResponse]
 readsPrec :: Int -&gt; ReadS DescribeTimeBasedAutoScalingResponse
 $creadsPrec :: Int -&gt; ReadS DescribeTimeBasedAutoScalingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386226"><span id="local-6989586621679386228"><span id="local-6989586621679386230"><span class="annot"><span class="annottext">Int -&gt; DescribeTimeBasedAutoScalingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386235"><span id="local-6989586621679386237"><span id="local-6989586621679386239"><span class="annot"><span class="annottext">Int -&gt; DescribeTimeBasedAutoScalingResponse -&gt; ShowS
 [DescribeTimeBasedAutoScalingResponse] -&gt; ShowS
 DescribeTimeBasedAutoScalingResponse -&gt; String
 (Int -&gt; DescribeTimeBasedAutoScalingResponse -&gt; ShowS)
@@ -435,8 +435,8 @@ DescribeTimeBasedAutoScalingResponse
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse</span></a></span><span>
 </span><span id="line-163"></span><span id="newDescribeTimeBasedAutoScalingResponse"><span class="annot"><span class="annottext">newDescribeTimeBasedAutoScalingResponse :: Int -&gt; DescribeTimeBasedAutoScalingResponse
-</span><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#newDescribeTimeBasedAutoScalingResponse"><span class="hs-identifier hs-var hs-var">newDescribeTimeBasedAutoScalingResponse</span></a></span></span><span> </span><span id="local-6989586621679386223"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386223"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#newDescribeTimeBasedAutoScalingResponse"><span class="hs-identifier hs-var hs-var">newDescribeTimeBasedAutoScalingResponse</span></a></span></span><span> </span><span id="local-6989586621679386232"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386232"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">DescribeTimeBasedAutoScalingResponse' :: Maybe [TimeBasedAutoScalingConfiguration]
 -&gt; Int -&gt; DescribeTimeBasedAutoScalingResponse
 </span><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse'</span></a></span><span>
@@ -447,7 +447,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTimeBasedAutoScalingResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#%24sel%3AhttpStatus%3ADescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386223"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679386232"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe</span><span>
@@ -468,17 +468,17 @@ forall a. Maybe a
      (Maybe [TimeBasedAutoScalingConfiguration])
      (Maybe [TimeBasedAutoScalingConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386222"><span class="annot"><span class="annottext">Maybe [TimeBasedAutoScalingConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386231"><span class="annot"><span class="annottext">Maybe [TimeBasedAutoScalingConfiguration]
 timeBasedAutoScalingConfigurations :: Maybe [TimeBasedAutoScalingConfiguration]
 $sel:timeBasedAutoScalingConfigurations:DescribeTimeBasedAutoScalingResponse' :: DescribeTimeBasedAutoScalingResponse
 -&gt; Maybe [TimeBasedAutoScalingConfiguration]
-</span><a href="#local-6989586621679386222"><span class="hs-identifier hs-var hs-var">timeBasedAutoScalingConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TimeBasedAutoScalingConfiguration]
-</span><a href="#local-6989586621679386222"><span class="hs-identifier hs-var">timeBasedAutoScalingConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386221"><span class="annot"><span class="annottext">s :: DescribeTimeBasedAutoScalingResponse
-</span><a href="#local-6989586621679386221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386220"><span class="annot"><span class="annottext">Maybe [TimeBasedAutoScalingConfiguration]
-</span><a href="#local-6989586621679386220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTimeBasedAutoScalingResponse
-</span><a href="#local-6989586621679386221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeBasedAutoScalingConfigurations:DescribeTimeBasedAutoScalingResponse' :: Maybe [TimeBasedAutoScalingConfiguration]
+</span><a href="#local-6989586621679386231"><span class="hs-identifier hs-var hs-var">timeBasedAutoScalingConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TimeBasedAutoScalingConfiguration]
+</span><a href="#local-6989586621679386231"><span class="hs-identifier hs-var">timeBasedAutoScalingConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386230"><span class="annot"><span class="annottext">s :: DescribeTimeBasedAutoScalingResponse
+</span><a href="#local-6989586621679386230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386229"><span class="annot"><span class="annottext">Maybe [TimeBasedAutoScalingConfiguration]
+</span><a href="#local-6989586621679386229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTimeBasedAutoScalingResponse
+</span><a href="#local-6989586621679386230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeBasedAutoScalingConfigurations:DescribeTimeBasedAutoScalingResponse' :: Maybe [TimeBasedAutoScalingConfiguration]
 </span><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#%24sel%3AtimeBasedAutoScalingConfigurations%3ADescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-var">timeBasedAutoScalingConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TimeBasedAutoScalingConfiguration]
-</span><a href="#local-6989586621679386220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TimeBasedAutoScalingConfiguration]
+</span><a href="#local-6989586621679386229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TimeBasedAutoScalingConfiguration]
   -&gt; f (Maybe [TimeBasedAutoScalingConfiguration]))
  -&gt; DescribeTimeBasedAutoScalingResponse
  -&gt; f DescribeTimeBasedAutoScalingResponse)
@@ -526,18 +526,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386218"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386227"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeTimeBasedAutoScalingResponse' :: DescribeTimeBasedAutoScalingResponse -&gt; Int
-</span><a href="#local-6989586621679386218"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386218"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386217"><span class="annot"><span class="annottext">s :: DescribeTimeBasedAutoScalingResponse
-</span><a href="#local-6989586621679386217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386216"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTimeBasedAutoScalingResponse
-</span><a href="#local-6989586621679386217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTimeBasedAutoScalingResponse' :: Int
+</span><a href="#local-6989586621679386227"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386227"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386226"><span class="annot"><span class="annottext">s :: DescribeTimeBasedAutoScalingResponse
+</span><a href="#local-6989586621679386226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386225"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTimeBasedAutoScalingResponse
+</span><a href="#local-6989586621679386226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTimeBasedAutoScalingResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#%24sel%3AhttpStatus%3ADescribeTimeBasedAutoScalingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679386214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679386223"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling.html#DescribeTimeBasedAutoScalingResponse"><span class="hs-identifier hs-type">DescribeTimeBasedAutoScalingResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

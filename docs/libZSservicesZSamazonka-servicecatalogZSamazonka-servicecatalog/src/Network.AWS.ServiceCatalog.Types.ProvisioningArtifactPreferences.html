@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- in the /AWS CloudFormation User Guide/.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newProvisioningArtifactPreferences' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679403287"><span id="local-6989586621679403288"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProvisioningArtifactPreferences"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences"><span class="hs-identifier hs-var">ProvisioningArtifactPreferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisioningArtifactPreferences%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences%27"><span class="hs-identifier hs-var">ProvisioningArtifactPreferences'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679403296"><span id="local-6989586621679403297"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProvisioningArtifactPreferences"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences"><span class="hs-identifier hs-var">ProvisioningArtifactPreferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisioningArtifactPreferences%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences%27"><span class="hs-identifier hs-var">ProvisioningArtifactPreferences'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more AWS Regions where stack instances are deployed from the</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- stack set. These regions can be scoped in</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @ProvisioningPreferences$StackSetRegions@ and</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AstackSetAccounts%3AProvisioningArtifactPreferences%27"><span class="annot"><span class="annottext">ProvisioningArtifactPreferences -&gt; Maybe [Text]
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#%24sel%3AstackSetAccounts%3AProvisioningArtifactPreferences%27"><span class="hs-identifier hs-var hs-var">stackSetAccounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403280"><span id="local-6989586621679403282"><span class="annot"><span class="annottext">ProvisioningArtifactPreferences
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403289"><span id="local-6989586621679403291"><span class="annot"><span class="annottext">ProvisioningArtifactPreferences
 -&gt; ProvisioningArtifactPreferences -&gt; Bool
 (ProvisioningArtifactPreferences
  -&gt; ProvisioningArtifactPreferences -&gt; Bool)
@@ -67,7 +67,7 @@ $c/= :: ProvisioningArtifactPreferences
 -&gt; ProvisioningArtifactPreferences -&gt; Bool
 $c== :: ProvisioningArtifactPreferences
 -&gt; ProvisioningArtifactPreferences -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403271"><span id="local-6989586621679403273"><span id="local-6989586621679403275"><span id="local-6989586621679403277"><span class="annot"><span class="annottext">ReadPrec [ProvisioningArtifactPreferences]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403280"><span id="local-6989586621679403282"><span id="local-6989586621679403284"><span id="local-6989586621679403286"><span class="annot"><span class="annottext">ReadPrec [ProvisioningArtifactPreferences]
 ReadPrec ProvisioningArtifactPreferences
 Int -&gt; ReadS ProvisioningArtifactPreferences
 ReadS [ProvisioningArtifactPreferences]
@@ -87,7 +87,7 @@ readList :: ReadS [ProvisioningArtifactPreferences]
 $creadList :: ReadS [ProvisioningArtifactPreferences]
 readsPrec :: Int -&gt; ReadS ProvisioningArtifactPreferences
 $creadsPrec :: Int -&gt; ReadS ProvisioningArtifactPreferences
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403264"><span id="local-6989586621679403266"><span id="local-6989586621679403268"><span class="annot"><span class="annottext">Int -&gt; ProvisioningArtifactPreferences -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403273"><span id="local-6989586621679403275"><span id="local-6989586621679403277"><span class="annot"><span class="annottext">Int -&gt; ProvisioningArtifactPreferences -&gt; ShowS
 [ProvisioningArtifactPreferences] -&gt; ShowS
 ProvisioningArtifactPreferences -&gt; String
 (Int -&gt; ProvisioningArtifactPreferences -&gt; ShowS)
@@ -182,16 +182,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences%27"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403255"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences%27"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403264"><span class="annot"><span class="annottext">Maybe [Text]
 stackSetRegions :: Maybe [Text]
 $sel:stackSetRegions:ProvisioningArtifactPreferences' :: ProvisioningArtifactPreferences -&gt; Maybe [Text]
-</span><a href="#local-6989586621679403255"><span class="hs-identifier hs-var hs-var">stackSetRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679403255"><span class="hs-identifier hs-var">stackSetRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403254"><span class="annot"><span class="annottext">s :: ProvisioningArtifactPreferences
-</span><a href="#local-6989586621679403254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences%27"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403253"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679403253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningArtifactPreferences
-</span><a href="#local-6989586621679403254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackSetRegions:ProvisioningArtifactPreferences' :: Maybe [Text]
+</span><a href="#local-6989586621679403264"><span class="hs-identifier hs-var hs-var">stackSetRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679403264"><span class="hs-identifier hs-var">stackSetRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403263"><span class="annot"><span class="annottext">s :: ProvisioningArtifactPreferences
+</span><a href="#local-6989586621679403263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences%27"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403262"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679403262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningArtifactPreferences
+</span><a href="#local-6989586621679403263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackSetRegions:ProvisioningArtifactPreferences' :: Maybe [Text]
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#%24sel%3AstackSetRegions%3AProvisioningArtifactPreferences%27"><span class="hs-identifier hs-var">stackSetRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679403253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679403262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ProvisioningArtifactPreferences
  -&gt; f ProvisioningArtifactPreferences)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -228,16 +228,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences%27"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403248"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences%27"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403257"><span class="annot"><span class="annottext">Maybe [Text]
 stackSetAccounts :: Maybe [Text]
 $sel:stackSetAccounts:ProvisioningArtifactPreferences' :: ProvisioningArtifactPreferences -&gt; Maybe [Text]
-</span><a href="#local-6989586621679403248"><span class="hs-identifier hs-var hs-var">stackSetAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679403248"><span class="hs-identifier hs-var">stackSetAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403247"><span class="annot"><span class="annottext">s :: ProvisioningArtifactPreferences
-</span><a href="#local-6989586621679403247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences%27"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403246"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679403246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningArtifactPreferences
-</span><a href="#local-6989586621679403247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackSetAccounts:ProvisioningArtifactPreferences' :: Maybe [Text]
+</span><a href="#local-6989586621679403257"><span class="hs-identifier hs-var hs-var">stackSetAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679403257"><span class="hs-identifier hs-var">stackSetAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403256"><span class="annot"><span class="annottext">s :: ProvisioningArtifactPreferences
+</span><a href="#local-6989586621679403256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences%27"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403255"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679403255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningArtifactPreferences
+</span><a href="#local-6989586621679403256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackSetAccounts:ProvisioningArtifactPreferences' :: Maybe [Text]
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#%24sel%3AstackSetAccounts%3AProvisioningArtifactPreferences%27"><span class="hs-identifier hs-var">stackSetAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679403246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679403255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ProvisioningArtifactPreferences
  -&gt; f ProvisioningArtifactPreferences)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -256,10 +256,10 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679403243"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679403252"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences</span></a></span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679403241"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProvisioningArtifactPreferences
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679403250"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProvisioningArtifactPreferences
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProvisioningArtifactPreferences)
@@ -269,8 +269,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProvisioningArtifactPreferences&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679403238"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679403238"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679403247"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403247"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe [Text] -&gt; ProvisioningArtifactPreferences
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences%27"><span class="hs-identifier hs-var">ProvisioningArtifactPreferences'</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe [Text] -&gt; ProvisioningArtifactPreferences)
@@ -278,7 +278,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Text] -&gt; ProvisioningArtifactPreferences)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679403238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679403247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackSetRegions&quot;</span></span><span>
@@ -293,7 +293,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [Text]) -&gt; Parser ProvisioningArtifactPreferences
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679403238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679403247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackSetAccounts&quot;</span></span><span>
@@ -307,10 +307,10 @@ forall a. Monoid a =&gt; a
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679403231"><span id="local-6989586621679403233"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679403240"><span id="local-6989586621679403242"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679403228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679403237"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences</span></a></span></span><span>
 </span><span id="line-126"></span></pre></body></html>

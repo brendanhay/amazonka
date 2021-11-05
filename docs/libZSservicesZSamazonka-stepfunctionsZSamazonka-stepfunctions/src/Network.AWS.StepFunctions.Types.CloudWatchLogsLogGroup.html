@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCloudWatchLogsLogGroup' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679223485"><span id="local-6989586621679223486"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchLogsLogGroup"><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup"><span class="hs-identifier hs-var">CloudWatchLogsLogGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchLogsLogGroup%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup%27"><span class="hs-identifier hs-var">CloudWatchLogsLogGroup'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679223494"><span id="local-6989586621679223495"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchLogsLogGroup"><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup"><span class="hs-identifier hs-var">CloudWatchLogsLogGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchLogsLogGroup%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup%27"><span class="hs-identifier hs-var">CloudWatchLogsLogGroup'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the the CloudWatch log group to which you want your logs</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- emitted to. The ARN must end with @:*@</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AlogGroupArn%3ACloudWatchLogsLogGroup%27"><span class="annot"><span class="annottext">CloudWatchLogsLogGroup -&gt; Maybe Text
 </span><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#%24sel%3AlogGroupArn%3ACloudWatchLogsLogGroup%27"><span class="hs-identifier hs-var hs-var">logGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223479"><span id="local-6989586621679223481"><span class="annot"><span class="annottext">CloudWatchLogsLogGroup -&gt; CloudWatchLogsLogGroup -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223488"><span id="local-6989586621679223490"><span class="annot"><span class="annottext">CloudWatchLogsLogGroup -&gt; CloudWatchLogsLogGroup -&gt; Bool
 (CloudWatchLogsLogGroup -&gt; CloudWatchLogsLogGroup -&gt; Bool)
 -&gt; (CloudWatchLogsLogGroup -&gt; CloudWatchLogsLogGroup -&gt; Bool)
 -&gt; Eq CloudWatchLogsLogGroup
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CloudWatchLogsLogGroup -&gt; CloudWatchLogsLogGroup -&gt; Bool
 == :: CloudWatchLogsLogGroup -&gt; CloudWatchLogsLogGroup -&gt; Bool
 $c== :: CloudWatchLogsLogGroup -&gt; CloudWatchLogsLogGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223470"><span id="local-6989586621679223472"><span id="local-6989586621679223474"><span id="local-6989586621679223476"><span class="annot"><span class="annottext">ReadPrec [CloudWatchLogsLogGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223479"><span id="local-6989586621679223481"><span id="local-6989586621679223483"><span id="local-6989586621679223485"><span class="annot"><span class="annottext">ReadPrec [CloudWatchLogsLogGroup]
 ReadPrec CloudWatchLogsLogGroup
 Int -&gt; ReadS CloudWatchLogsLogGroup
 ReadS [CloudWatchLogsLogGroup]
@@ -61,7 +61,7 @@ readList :: ReadS [CloudWatchLogsLogGroup]
 $creadList :: ReadS [CloudWatchLogsLogGroup]
 readsPrec :: Int -&gt; ReadS CloudWatchLogsLogGroup
 $creadsPrec :: Int -&gt; ReadS CloudWatchLogsLogGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223463"><span id="local-6989586621679223465"><span id="local-6989586621679223467"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsLogGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223472"><span id="local-6989586621679223474"><span id="local-6989586621679223476"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsLogGroup -&gt; ShowS
 [CloudWatchLogsLogGroup] -&gt; ShowS
 CloudWatchLogsLogGroup -&gt; String
 (Int -&gt; CloudWatchLogsLogGroup -&gt; ShowS)
@@ -124,19 +124,19 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup%27"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223454"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup%27"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223463"><span class="annot"><span class="annottext">Maybe Text
 logGroupArn :: Maybe Text
 $sel:logGroupArn:CloudWatchLogsLogGroup' :: CloudWatchLogsLogGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679223454"><span class="hs-identifier hs-var hs-var">logGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223454"><span class="hs-identifier hs-var">logGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223453"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogGroup
-</span><a href="#local-6989586621679223453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup%27"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223452"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogGroup
-</span><a href="#local-6989586621679223453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupArn:CloudWatchLogsLogGroup' :: Maybe Text
+</span><a href="#local-6989586621679223463"><span class="hs-identifier hs-var hs-var">logGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223463"><span class="hs-identifier hs-var">logGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223462"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogGroup
+</span><a href="#local-6989586621679223462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup%27"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223461"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogGroup
+</span><a href="#local-6989586621679223462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupArn:CloudWatchLogsLogGroup' :: Maybe Text
 </span><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#%24sel%3AlogGroupArn%3ACloudWatchLogsLogGroup%27"><span class="hs-identifier hs-var">logGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223449"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679223447"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchLogsLogGroup
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223458"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679223456"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchLogsLogGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CloudWatchLogsLogGroup)
@@ -146,30 +146,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CloudWatchLogsLogGroup&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223444"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223444"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223453"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223453"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; CloudWatchLogsLogGroup
 </span><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup%27"><span class="hs-identifier hs-var">CloudWatchLogsLogGroup'</span></a></span><span>
 </span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; CloudWatchLogsLogGroup)
 -&gt; Parser (Maybe Text) -&gt; Parser CloudWatchLogsLogGroup
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679223453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logGroupArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223438"><span id="local-6989586621679223440"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223447"><span id="local-6989586621679223449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223435"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup</span></a></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223427"><span id="local-6989586621679223429"><span id="local-6989586621679223431"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679223425"><span class="annot"><span class="annottext">toJSON :: CloudWatchLogsLogGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup%27"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223423"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223436"><span id="local-6989586621679223438"><span id="local-6989586621679223440"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679223434"><span class="annot"><span class="annottext">toJSON :: CloudWatchLogsLogGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.html#CloudWatchLogsLogGroup%27"><span class="hs-identifier hs-type">CloudWatchLogsLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223432"><span class="annot"><span class="annottext">Maybe Text
 logGroupArn :: Maybe Text
 $sel:logGroupArn:CloudWatchLogsLogGroup' :: CloudWatchLogsLogGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679223423"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679223432"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -181,6 +181,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223423"><span class="hs-identifier hs-var">logGroupArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679223432"><span class="hs-identifier hs-var">logGroupArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span></pre></body></html>

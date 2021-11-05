@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newListCreatedArtifacts' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679172526"><span id="local-6989586621679172527"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCreatedArtifacts"><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-var">ListCreatedArtifacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCreatedArtifacts%27"><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-var">ListCreatedArtifacts'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679172535"><span id="local-6989586621679172536"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCreatedArtifacts"><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-var">ListCreatedArtifacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCreatedArtifacts%27"><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-var">ListCreatedArtifacts'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a @NextToken@ was returned by a previous call, there are more results</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- available. To retrieve the next page of results, make the call again</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- using the returned token in @NextToken@.</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AmigrationTaskName%3AListCreatedArtifacts%27"><span class="annot"><span class="annottext">ListCreatedArtifacts -&gt; Text
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#%24sel%3AmigrationTaskName%3AListCreatedArtifacts%27"><span class="hs-identifier hs-var hs-var">migrationTaskName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172517"><span id="local-6989586621679172519"><span class="annot"><span class="annottext">ListCreatedArtifacts -&gt; ListCreatedArtifacts -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172526"><span id="local-6989586621679172528"><span class="annot"><span class="annottext">ListCreatedArtifacts -&gt; ListCreatedArtifacts -&gt; Bool
 (ListCreatedArtifacts -&gt; ListCreatedArtifacts -&gt; Bool)
 -&gt; (ListCreatedArtifacts -&gt; ListCreatedArtifacts -&gt; Bool)
 -&gt; Eq ListCreatedArtifacts
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListCreatedArtifacts -&gt; ListCreatedArtifacts -&gt; Bool
 == :: ListCreatedArtifacts -&gt; ListCreatedArtifacts -&gt; Bool
 $c== :: ListCreatedArtifacts -&gt; ListCreatedArtifacts -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172508"><span id="local-6989586621679172510"><span id="local-6989586621679172512"><span id="local-6989586621679172514"><span class="annot"><span class="annottext">ReadPrec [ListCreatedArtifacts]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172517"><span id="local-6989586621679172519"><span id="local-6989586621679172521"><span id="local-6989586621679172523"><span class="annot"><span class="annottext">ReadPrec [ListCreatedArtifacts]
 ReadPrec ListCreatedArtifacts
 Int -&gt; ReadS ListCreatedArtifacts
 ReadS [ListCreatedArtifacts]
@@ -108,7 +108,7 @@ readList :: ReadS [ListCreatedArtifacts]
 $creadList :: ReadS [ListCreatedArtifacts]
 readsPrec :: Int -&gt; ReadS ListCreatedArtifacts
 $creadsPrec :: Int -&gt; ReadS ListCreatedArtifacts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172501"><span id="local-6989586621679172503"><span id="local-6989586621679172505"><span class="annot"><span class="annottext">Int -&gt; ListCreatedArtifacts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172510"><span id="local-6989586621679172512"><span id="local-6989586621679172514"><span class="annot"><span class="annottext">Int -&gt; ListCreatedArtifacts -&gt; ShowS
 [ListCreatedArtifacts] -&gt; ShowS
 ListCreatedArtifacts -&gt; String
 (Int -&gt; ListCreatedArtifacts -&gt; ShowS)
@@ -160,10 +160,10 @@ $cfrom :: forall x. ListCreatedArtifacts -&gt; Rep ListCreatedArtifacts x
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span>
 </span><span id="line-104"></span><span id="newListCreatedArtifacts"><span class="annot"><span class="annottext">newListCreatedArtifacts :: Text -&gt; Text -&gt; ListCreatedArtifacts
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#newListCreatedArtifacts"><span class="hs-identifier hs-var hs-var">newListCreatedArtifacts</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679172496"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172496"><span class="hs-identifier hs-var">pProgressUpdateStream_</span></a></span></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679172495"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172495"><span class="hs-identifier hs-var">pMigrationTaskName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679172505"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172505"><span class="hs-identifier hs-var">pProgressUpdateStream_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679172504"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172504"><span class="hs-identifier hs-var">pMigrationTaskName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ListCreatedArtifacts' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; Text -&gt; ListCreatedArtifacts
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListCreatedArtifacts' :: Maybe Text
@@ -176,10 +176,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:progressUpdateStream:ListCreatedArtifacts' :: Text
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#%24sel%3AprogressUpdateStream%3AListCreatedArtifacts%27"><span class="hs-identifier hs-var">progressUpdateStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172496"><span class="hs-identifier hs-var">pProgressUpdateStream_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679172505"><span class="hs-identifier hs-var">pProgressUpdateStream_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:migrationTaskName:ListCreatedArtifacts' :: Text
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#%24sel%3AmigrationTaskName%3AListCreatedArtifacts%27"><span class="hs-identifier hs-var">migrationTaskName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172495"><span class="hs-identifier hs-var">pMigrationTaskName_</span></a></span><span>
+</span><a href="#local-6989586621679172504"><span class="hs-identifier hs-var">pMigrationTaskName_</span></a></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | If a @NextToken@ was returned by a previous call, there are more results</span><span>
@@ -193,16 +193,16 @@ forall a. Maybe a
 -&gt; Lens
      ListCreatedArtifacts ListCreatedArtifacts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172493"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172502"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListCreatedArtifacts' :: ListCreatedArtifacts -&gt; Maybe Text
-</span><a href="#local-6989586621679172493"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172493"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172492"><span class="annot"><span class="annottext">s :: ListCreatedArtifacts
-</span><a href="#local-6989586621679172492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172491"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCreatedArtifacts
-</span><a href="#local-6989586621679172492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCreatedArtifacts' :: Maybe Text
+</span><a href="#local-6989586621679172502"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172502"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172501"><span class="annot"><span class="annottext">s :: ListCreatedArtifacts
+</span><a href="#local-6989586621679172501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172500"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCreatedArtifacts
+</span><a href="#local-6989586621679172501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCreatedArtifacts' :: Maybe Text
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#%24sel%3AnextToken%3AListCreatedArtifacts%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | Maximum number of results to be returned per page.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#listCreatedArtifacts_maxResults"><span class="hs-identifier hs-type">listCreatedArtifacts_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -216,16 +216,16 @@ $sel:nextToken:ListCreatedArtifacts' :: ListCreatedArtifacts -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172490"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172499"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListCreatedArtifacts' :: ListCreatedArtifacts -&gt; Maybe Natural
-</span><a href="#local-6989586621679172490"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679172490"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172489"><span class="annot"><span class="annottext">s :: ListCreatedArtifacts
-</span><a href="#local-6989586621679172489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172488"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679172488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCreatedArtifacts
-</span><a href="#local-6989586621679172489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListCreatedArtifacts' :: Maybe Natural
+</span><a href="#local-6989586621679172499"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679172499"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172498"><span class="annot"><span class="annottext">s :: ListCreatedArtifacts
+</span><a href="#local-6989586621679172498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172497"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679172497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCreatedArtifacts
+</span><a href="#local-6989586621679172498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListCreatedArtifacts' :: Maybe Natural
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#%24sel%3AmaxResults%3AListCreatedArtifacts%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679172488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The name of the ProgressUpdateStream.</span><span>
 </span><span id="line-125"></span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#listCreatedArtifacts_progressUpdateStream"><span class="hs-identifier hs-type">listCreatedArtifacts_progressUpdateStream</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -234,16 +234,16 @@ $sel:maxResults:ListCreatedArtifacts' :: ListCreatedArtifacts -&gt; Maybe Natura
 -&gt; (ListCreatedArtifacts -&gt; Text -&gt; ListCreatedArtifacts)
 -&gt; Lens ListCreatedArtifacts ListCreatedArtifacts Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172487"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172496"><span class="annot"><span class="annottext">Text
 progressUpdateStream :: Text
 $sel:progressUpdateStream:ListCreatedArtifacts' :: ListCreatedArtifacts -&gt; Text
-</span><a href="#local-6989586621679172487"><span class="hs-identifier hs-var hs-var">progressUpdateStream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172487"><span class="hs-identifier hs-var">progressUpdateStream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172486"><span class="annot"><span class="annottext">s :: ListCreatedArtifacts
-</span><a href="#local-6989586621679172486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172485"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCreatedArtifacts
-</span><a href="#local-6989586621679172486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressUpdateStream:ListCreatedArtifacts' :: Text
+</span><a href="#local-6989586621679172496"><span class="hs-identifier hs-var hs-var">progressUpdateStream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172496"><span class="hs-identifier hs-var">progressUpdateStream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172495"><span class="annot"><span class="annottext">s :: ListCreatedArtifacts
+</span><a href="#local-6989586621679172495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172494"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCreatedArtifacts
+</span><a href="#local-6989586621679172495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressUpdateStream:ListCreatedArtifacts' :: Text
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#%24sel%3AprogressUpdateStream%3AListCreatedArtifacts%27"><span class="hs-identifier hs-var">progressUpdateStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | Unique identifier that references the migration task. /Do not store</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- personal data in this field./</span><span>
@@ -253,29 +253,29 @@ $sel:progressUpdateStream:ListCreatedArtifacts' :: ListCreatedArtifacts -&gt; Te
 -&gt; (ListCreatedArtifacts -&gt; Text -&gt; ListCreatedArtifacts)
 -&gt; Lens ListCreatedArtifacts ListCreatedArtifacts Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172484"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172493"><span class="annot"><span class="annottext">Text
 migrationTaskName :: Text
 $sel:migrationTaskName:ListCreatedArtifacts' :: ListCreatedArtifacts -&gt; Text
-</span><a href="#local-6989586621679172484"><span class="hs-identifier hs-var hs-var">migrationTaskName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172484"><span class="hs-identifier hs-var">migrationTaskName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172483"><span class="annot"><span class="annottext">s :: ListCreatedArtifacts
-</span><a href="#local-6989586621679172483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172482"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCreatedArtifacts
-</span><a href="#local-6989586621679172483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationTaskName:ListCreatedArtifacts' :: Text
+</span><a href="#local-6989586621679172493"><span class="hs-identifier hs-var hs-var">migrationTaskName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172493"><span class="hs-identifier hs-var">migrationTaskName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172492"><span class="annot"><span class="annottext">s :: ListCreatedArtifacts
+</span><a href="#local-6989586621679172492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172491"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCreatedArtifacts
+</span><a href="#local-6989586621679172492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationTaskName:ListCreatedArtifacts' :: Text
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#%24sel%3AmigrationTaskName%3AListCreatedArtifacts%27"><span class="hs-identifier hs-var">migrationTaskName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679172478"><span class="annot"><span class="annottext">page :: ListCreatedArtifacts
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679172487"><span class="annot"><span class="annottext">page :: ListCreatedArtifacts
 -&gt; AWSResponse ListCreatedArtifacts -&gt; Maybe ListCreatedArtifacts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679172476"><span class="annot"><span class="annottext">ListCreatedArtifacts
-</span><a href="#local-6989586621679172476"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679172475"><span class="annot"><span class="annottext">AWSResponse ListCreatedArtifacts
-</span><a href="#local-6989586621679172475"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679172485"><span class="annot"><span class="annottext">ListCreatedArtifacts
+</span><a href="#local-6989586621679172485"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679172484"><span class="annot"><span class="annottext">AWSResponse ListCreatedArtifacts
+</span><a href="#local-6989586621679172484"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-136"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCreatedArtifacts
 ListCreatedArtifactsResponse
-</span><a href="#local-6989586621679172475"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679172484"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">ListCreatedArtifactsResponse
 -&gt; Getting (First Text) ListCreatedArtifactsResponse Text
 -&gt; Maybe Text
@@ -305,7 +305,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-142"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCreatedArtifacts
 ListCreatedArtifactsResponse
-</span><a href="#local-6989586621679172475"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679172484"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">ListCreatedArtifactsResponse
 -&gt; Getting
      (First [CreatedArtifact])
@@ -351,7 +351,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ListCreatedArtifacts
-</span><a href="#local-6989586621679172476"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679172485"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">ListCreatedArtifacts
 -&gt; (ListCreatedArtifacts -&gt; ListCreatedArtifacts)
 -&gt; ListCreatedArtifacts
@@ -367,7 +367,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCreatedArtifacts
 ListCreatedArtifactsResponse
-</span><a href="#local-6989586621679172475"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679172484"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">ListCreatedArtifactsResponse
 -&gt; Getting (First Text) ListCreatedArtifactsResponse Text
 -&gt; Maybe Text
@@ -393,12 +393,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-156"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-157"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse</span></a></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679172465"><span class="annot"><span class="annottext">request :: ListCreatedArtifacts -&gt; Request ListCreatedArtifacts
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679172474"><span class="annot"><span class="annottext">request :: ListCreatedArtifacts -&gt; Request ListCreatedArtifacts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListCreatedArtifacts -&gt; Request ListCreatedArtifacts
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MigrationHub.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679172461"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679172470"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListCreatedArtifacts
 -&gt; ClientResponse ClientBody
@@ -424,10 +424,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679172458"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679172458"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679172457"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679172457"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679172456"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172456"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679172467"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172467"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679172466"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679172466"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679172465"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172465"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [CreatedArtifact] -&gt; Int -&gt; ListCreatedArtifactsResponse
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-var">ListCreatedArtifactsResponse'</span></a></span><span>
@@ -439,7 +439,7 @@ MonadResource m =&gt;
      (Maybe [CreatedArtifact] -&gt; Int -&gt; ListCreatedArtifactsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679172465"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -450,7 +450,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListCreatedArtifactsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CreatedArtifact]))
+</span><a href="#local-6989586621679172465"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CreatedArtifact]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreatedArtifactList&quot;</span></span><span>
@@ -470,15 +470,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679172458"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172467"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172447"><span id="local-6989586621679172449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172456"><span id="local-6989586621679172458"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679172440"><span class="annot"><span class="annottext">toHeaders :: ListCreatedArtifacts -&gt; ResponseHeaders
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679172449"><span class="annot"><span class="annottext">toHeaders :: ListCreatedArtifacts -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListCreatedArtifacts -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -505,9 +505,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172430"><span id="local-6989586621679172432"><span id="local-6989586621679172434"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679172428"><span class="annot"><span class="annottext">toJSON :: ListCreatedArtifacts -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172423"><span id="local-6989586621679172424"><span id="local-6989586621679172425"><span id="local-6989586621679172426"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172439"><span id="local-6989586621679172441"><span id="local-6989586621679172443"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679172437"><span class="annot"><span class="annottext">toJSON :: ListCreatedArtifacts -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts%27"><span class="hs-identifier hs-type">ListCreatedArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172432"><span id="local-6989586621679172433"><span id="local-6989586621679172434"><span id="local-6989586621679172435"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 migrationTaskName :: Text
@@ -518,7 +518,7 @@ $sel:migrationTaskName:ListCreatedArtifacts' :: ListCreatedArtifacts -&gt; Text
 $sel:progressUpdateStream:ListCreatedArtifacts' :: ListCreatedArtifacts -&gt; Text
 $sel:maxResults:ListCreatedArtifacts' :: ListCreatedArtifacts -&gt; Maybe Natural
 $sel:nextToken:ListCreatedArtifacts' :: ListCreatedArtifacts -&gt; Maybe Text
-</span><a href="#local-6989586621679172423"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679172432"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -530,14 +530,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172426"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679172435"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679172425"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679172434"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -546,7 +546,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-198"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172424"><span class="hs-identifier hs-var">progressUpdateStream</span></a></span><span>
+</span><a href="#local-6989586621679172433"><span class="hs-identifier hs-var">progressUpdateStream</span></a></span><span>
 </span><span id="line-199"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -555,19 +555,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;MigrationTaskName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172423"><span class="hs-identifier hs-var">migrationTaskName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172432"><span class="hs-identifier hs-var">migrationTaskName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679172417"><span class="annot"><span class="annottext">toPath :: ListCreatedArtifacts -&gt; ByteString
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679172426"><span class="annot"><span class="annottext">toPath :: ListCreatedArtifacts -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListCreatedArtifacts -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifacts"><span class="hs-identifier hs-type">ListCreatedArtifacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621679172413"><span class="annot"><span class="annottext">toQuery :: ListCreatedArtifacts -&gt; QueryString
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679172422"><span class="annot"><span class="annottext">toQuery :: ListCreatedArtifacts -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListCreatedArtifacts -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -575,7 +575,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | /See:/ 'newListCreatedArtifactsResponse' smart constructor.</span><span>
-</span><span id="line-212"></span><span id="local-6989586621679172410"><span id="local-6989586621679172411"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCreatedArtifactsResponse"><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse"><span class="hs-identifier hs-var">ListCreatedArtifactsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCreatedArtifactsResponse%27"><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-var">ListCreatedArtifactsResponse'</span></a></span></span><span>
+</span><span id="line-212"></span><span id="local-6989586621679172419"><span id="local-6989586621679172420"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCreatedArtifactsResponse"><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse"><span class="hs-identifier hs-var">ListCreatedArtifactsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCreatedArtifactsResponse%27"><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-var">ListCreatedArtifactsResponse'</span></a></span></span><span>
 </span><span id="line-213"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If there are more created artifacts than the max result, return the next</span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-comment">-- token to be passed to the next call as a bookmark of where to start</span><span>
 </span><span id="line-215"></span><span>    </span><span class="hs-comment">-- from.</span><span>
@@ -589,7 +589,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-221"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListCreatedArtifactsResponse%27"><span class="annot"><span class="annottext">ListCreatedArtifactsResponse -&gt; Int
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#%24sel%3AhttpStatus%3AListCreatedArtifactsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-222"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172403"><span id="local-6989586621679172405"><span class="annot"><span class="annottext">ListCreatedArtifactsResponse
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172412"><span id="local-6989586621679172414"><span class="annot"><span class="annottext">ListCreatedArtifactsResponse
 -&gt; ListCreatedArtifactsResponse -&gt; Bool
 (ListCreatedArtifactsResponse
  -&gt; ListCreatedArtifactsResponse -&gt; Bool)
@@ -605,7 +605,7 @@ $c/= :: ListCreatedArtifactsResponse
 -&gt; ListCreatedArtifactsResponse -&gt; Bool
 $c== :: ListCreatedArtifactsResponse
 -&gt; ListCreatedArtifactsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172395"><span id="local-6989586621679172397"><span id="local-6989586621679172399"><span id="local-6989586621679172401"><span class="annot"><span class="annottext">ReadPrec [ListCreatedArtifactsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172404"><span id="local-6989586621679172406"><span id="local-6989586621679172408"><span id="local-6989586621679172410"><span class="annot"><span class="annottext">ReadPrec [ListCreatedArtifactsResponse]
 ReadPrec ListCreatedArtifactsResponse
 Int -&gt; ReadS ListCreatedArtifactsResponse
 ReadS [ListCreatedArtifactsResponse]
@@ -625,7 +625,7 @@ readList :: ReadS [ListCreatedArtifactsResponse]
 $creadList :: ReadS [ListCreatedArtifactsResponse]
 readsPrec :: Int -&gt; ReadS ListCreatedArtifactsResponse
 $creadsPrec :: Int -&gt; ReadS ListCreatedArtifactsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172389"><span id="local-6989586621679172391"><span id="local-6989586621679172393"><span class="annot"><span class="annottext">Int -&gt; ListCreatedArtifactsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172398"><span id="local-6989586621679172400"><span id="local-6989586621679172402"><span class="annot"><span class="annottext">Int -&gt; ListCreatedArtifactsResponse -&gt; ShowS
 [ListCreatedArtifactsResponse] -&gt; ShowS
 ListCreatedArtifactsResponse -&gt; String
 (Int -&gt; ListCreatedArtifactsResponse -&gt; ShowS)
@@ -678,8 +678,8 @@ ListCreatedArtifactsResponse -&gt; Rep ListCreatedArtifactsResponse x
 </span><span id="line-243"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-244"></span><span>  </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse</span></a></span><span>
 </span><span id="line-245"></span><span id="newListCreatedArtifactsResponse"><span class="annot"><span class="annottext">newListCreatedArtifactsResponse :: Int -&gt; ListCreatedArtifactsResponse
-</span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#newListCreatedArtifactsResponse"><span class="hs-identifier hs-var hs-var">newListCreatedArtifactsResponse</span></a></span></span><span> </span><span id="local-6989586621679172386"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679172386"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#newListCreatedArtifactsResponse"><span class="hs-identifier hs-var hs-var">newListCreatedArtifactsResponse</span></a></span></span><span> </span><span id="local-6989586621679172395"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172395"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>  </span><span class="annot"><span class="annottext">ListCreatedArtifactsResponse' :: Maybe Text
 -&gt; Maybe [CreatedArtifact] -&gt; Int -&gt; ListCreatedArtifactsResponse
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse'</span></a></span><span>
@@ -694,7 +694,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListCreatedArtifactsResponse' :: Int
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#%24sel%3AhttpStatus%3AListCreatedArtifactsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679172386"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679172395"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-251"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | If there are more created artifacts than the max result, return the next</span><span>
@@ -708,16 +708,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListCreatedArtifactsResponse)
 -&gt; Lens' ListCreatedArtifactsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172385"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172394"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListCreatedArtifactsResponse' :: ListCreatedArtifactsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679172385"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172385"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172384"><span class="annot"><span class="annottext">s :: ListCreatedArtifactsResponse
-</span><a href="#local-6989586621679172384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172383"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCreatedArtifactsResponse
-</span><a href="#local-6989586621679172384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCreatedArtifactsResponse' :: Maybe Text
+</span><a href="#local-6989586621679172394"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172394"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172393"><span class="annot"><span class="annottext">s :: ListCreatedArtifactsResponse
+</span><a href="#local-6989586621679172393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172392"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCreatedArtifactsResponse
+</span><a href="#local-6989586621679172393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCreatedArtifactsResponse' :: Maybe Text
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#%24sel%3AnextToken%3AListCreatedArtifactsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- | List of created artifacts up to the maximum number of results specified</span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- in the request.</span><span>
@@ -729,16 +729,16 @@ $sel:nextToken:ListCreatedArtifactsResponse' :: ListCreatedArtifactsResponse -&g
     -&gt; Maybe [CreatedArtifact] -&gt; ListCreatedArtifactsResponse)
 -&gt; Lens' ListCreatedArtifactsResponse (Maybe [CreatedArtifact])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172382"><span class="annot"><span class="annottext">Maybe [CreatedArtifact]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172391"><span class="annot"><span class="annottext">Maybe [CreatedArtifact]
 createdArtifactList :: Maybe [CreatedArtifact]
 $sel:createdArtifactList:ListCreatedArtifactsResponse' :: ListCreatedArtifactsResponse -&gt; Maybe [CreatedArtifact]
-</span><a href="#local-6989586621679172382"><span class="hs-identifier hs-var hs-var">createdArtifactList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CreatedArtifact]
-</span><a href="#local-6989586621679172382"><span class="hs-identifier hs-var">createdArtifactList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172381"><span class="annot"><span class="annottext">s :: ListCreatedArtifactsResponse
-</span><a href="#local-6989586621679172381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172380"><span class="annot"><span class="annottext">Maybe [CreatedArtifact]
-</span><a href="#local-6989586621679172380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCreatedArtifactsResponse
-</span><a href="#local-6989586621679172381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdArtifactList:ListCreatedArtifactsResponse' :: Maybe [CreatedArtifact]
+</span><a href="#local-6989586621679172391"><span class="hs-identifier hs-var hs-var">createdArtifactList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CreatedArtifact]
+</span><a href="#local-6989586621679172391"><span class="hs-identifier hs-var">createdArtifactList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172390"><span class="annot"><span class="annottext">s :: ListCreatedArtifactsResponse
+</span><a href="#local-6989586621679172390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172389"><span class="annot"><span class="annottext">Maybe [CreatedArtifact]
+</span><a href="#local-6989586621679172389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCreatedArtifactsResponse
+</span><a href="#local-6989586621679172390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdArtifactList:ListCreatedArtifactsResponse' :: Maybe [CreatedArtifact]
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#%24sel%3AcreatedArtifactList%3AListCreatedArtifactsResponse%27"><span class="hs-identifier hs-var">createdArtifactList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CreatedArtifact]
-</span><a href="#local-6989586621679172380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CreatedArtifact] -&gt; f (Maybe [CreatedArtifact]))
+</span><a href="#local-6989586621679172389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CreatedArtifact] -&gt; f (Maybe [CreatedArtifact]))
  -&gt; ListCreatedArtifactsResponse -&gt; f ListCreatedArtifactsResponse)
 -&gt; ((Maybe [CreatedArtifact] -&gt; f (Maybe [CreatedArtifact]))
     -&gt; Maybe [CreatedArtifact] -&gt; f (Maybe [CreatedArtifact]))
@@ -777,16 +777,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListCreatedArtifactsResponse ListCreatedArtifactsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172377"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172386"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListCreatedArtifactsResponse' :: ListCreatedArtifactsResponse -&gt; Int
-</span><a href="#local-6989586621679172377"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679172377"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172376"><span class="annot"><span class="annottext">s :: ListCreatedArtifactsResponse
-</span><a href="#local-6989586621679172376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172375"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679172375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCreatedArtifactsResponse
-</span><a href="#local-6989586621679172376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCreatedArtifactsResponse' :: Int
+</span><a href="#local-6989586621679172386"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172386"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172385"><span class="annot"><span class="annottext">s :: ListCreatedArtifactsResponse
+</span><a href="#local-6989586621679172385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse%27"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172384"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCreatedArtifactsResponse
+</span><a href="#local-6989586621679172385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCreatedArtifactsResponse' :: Int
 </span><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#%24sel%3AhttpStatus%3AListCreatedArtifactsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679172375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>
-</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172373"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse</span></a></span></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172382"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.ListCreatedArtifacts.html#ListCreatedArtifactsResponse"><span class="hs-identifier hs-type">ListCreatedArtifactsResponse</span></a></span></span><span>
 </span><span id="line-269"></span></pre></body></html>

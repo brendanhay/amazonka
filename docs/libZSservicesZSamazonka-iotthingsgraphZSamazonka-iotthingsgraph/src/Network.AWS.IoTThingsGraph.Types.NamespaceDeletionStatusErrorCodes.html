@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes.html#NamespaceDeletionStatusErrorCodes"><span class="hs-identifier">NamespaceDeletionStatusErrorCodes</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes.html#NamespaceDeletionStatusErrorCodes_VALIDATION_FAILED"><span class="hs-identifier">NamespaceDeletionStatusErrorCodes_VALIDATION_FAILED</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679218505"><span id="local-6989586621679218506"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NamespaceDeletionStatusErrorCodes"><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes.html#NamespaceDeletionStatusErrorCodes"><span class="hs-identifier hs-var">NamespaceDeletionStatusErrorCodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NamespaceDeletionStatusErrorCodes%27"><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes.html#NamespaceDeletionStatusErrorCodes%27"><span class="hs-identifier hs-var">NamespaceDeletionStatusErrorCodes'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNamespaceDeletionStatusErrorCodes"><span class="annot"><span class="annottext">NamespaceDeletionStatusErrorCodes -&gt; Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes.html#fromNamespaceDeletionStatusErrorCodes"><span class="hs-identifier hs-var hs-var">fromNamespaceDeletionStatusErrorCodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679218497"><span id="local-6989586621679218499"><span id="local-6989586621679218501"><span class="annot"><span class="annottext">Int -&gt; NamespaceDeletionStatusErrorCodes -&gt; ShowS
+[NamespaceDeletionStatusErrorCodes] -&gt; ShowS
+NamespaceDeletionStatusErrorCodes -&gt; String
+(Int -&gt; NamespaceDeletionStatusErrorCodes -&gt; ShowS)
+-&gt; (NamespaceDeletionStatusErrorCodes -&gt; String)
+-&gt; ([NamespaceDeletionStatusErrorCodes] -&gt; ShowS)
+-&gt; Show NamespaceDeletionStatusErrorCodes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NamespaceDeletionStatusErrorCodes] -&gt; ShowS
+$cshowList :: [NamespaceDeletionStatusErrorCodes] -&gt; ShowS
+show :: NamespaceDeletionStatusErrorCodes -&gt; String
+$cshow :: NamespaceDeletionStatusErrorCodes -&gt; String
+showsPrec :: Int -&gt; NamespaceDeletionStatusErrorCodes -&gt; ShowS
+$cshowsPrec :: Int -&gt; NamespaceDeletionStatusErrorCodes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679218488"><span id="local-6989586621679218490"><span id="local-6989586621679218492"><span id="local-6989586621679218494"><span class="annot"><span class="annottext">ReadPrec [NamespaceDeletionStatusErrorCodes]
+ReadPrec NamespaceDeletionStatusErrorCodes
+Int -&gt; ReadS NamespaceDeletionStatusErrorCodes
+ReadS [NamespaceDeletionStatusErrorCodes]
+(Int -&gt; ReadS NamespaceDeletionStatusErrorCodes)
+-&gt; ReadS [NamespaceDeletionStatusErrorCodes]
+-&gt; ReadPrec NamespaceDeletionStatusErrorCodes
+-&gt; ReadPrec [NamespaceDeletionStatusErrorCodes]
+-&gt; Read NamespaceDeletionStatusErrorCodes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NamespaceDeletionStatusErrorCodes]
+$creadListPrec :: ReadPrec [NamespaceDeletionStatusErrorCodes]
+readPrec :: ReadPrec NamespaceDeletionStatusErrorCodes
+$creadPrec :: ReadPrec NamespaceDeletionStatusErrorCodes
+readList :: ReadS [NamespaceDeletionStatusErrorCodes]
+$creadList :: ReadS [NamespaceDeletionStatusErrorCodes]
+readsPrec :: Int -&gt; ReadS NamespaceDeletionStatusErrorCodes
+$creadsPrec :: Int -&gt; ReadS NamespaceDeletionStatusErrorCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679218483"><span id="local-6989586621679218485"><span class="annot"><span class="annottext">NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool
+(NamespaceDeletionStatusErrorCodes
+ -&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool)
+-&gt; (NamespaceDeletionStatusErrorCodes
+    -&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool)
+-&gt; Eq NamespaceDeletionStatusErrorCodes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool
+$c/= :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool
+== :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool
+$c== :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679218467"><span id="local-6989586621679218469"><span id="local-6989586621679218471"><span id="local-6989586621679218473"><span id="local-6989586621679218475"><span id="local-6989586621679218477"><span id="local-6989586621679218479"><span class="annot"><span class="annottext">Eq NamespaceDeletionStatusErrorCodes
+Eq NamespaceDeletionStatusErrorCodes
+-&gt; (NamespaceDeletionStatusErrorCodes
+    -&gt; NamespaceDeletionStatusErrorCodes -&gt; Ordering)
+-&gt; (NamespaceDeletionStatusErrorCodes
+    -&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool)
+-&gt; (NamespaceDeletionStatusErrorCodes
+    -&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool)
+-&gt; (NamespaceDeletionStatusErrorCodes
+    -&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool)
+-&gt; (NamespaceDeletionStatusErrorCodes
+    -&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool)
+-&gt; (NamespaceDeletionStatusErrorCodes
+    -&gt; NamespaceDeletionStatusErrorCodes
+    -&gt; NamespaceDeletionStatusErrorCodes)
+-&gt; (NamespaceDeletionStatusErrorCodes
+    -&gt; NamespaceDeletionStatusErrorCodes
+    -&gt; NamespaceDeletionStatusErrorCodes)
+-&gt; Ord NamespaceDeletionStatusErrorCodes
+NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool
+NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Ordering
+NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes
+$cmin :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes
+max :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes
+$cmax :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes
+&gt;= :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool
+$c&gt;= :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool
+&gt; :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool
+$c&gt; :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool
+&lt;= :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool
+$c&lt;= :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool
+&lt; :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool
+$c&lt; :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Bool
+compare :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Ordering
+$ccompare :: NamespaceDeletionStatusErrorCodes
+-&gt; NamespaceDeletionStatusErrorCodes -&gt; Ordering
+$cp1Ord :: Eq NamespaceDeletionStatusErrorCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ NamespaceDeletionStatusErrorCodes
+ -&gt; Rep NamespaceDeletionStatusErrorCodes x)
+-&gt; (forall x.
+    Rep NamespaceDeletionStatusErrorCodes x
+    -&gt; NamespaceDeletionStatusErrorCodes)
+-&gt; Generic NamespaceDeletionStatusErrorCodes
+forall x.
+Rep NamespaceDeletionStatusErrorCodes x
+-&gt; NamespaceDeletionStatusErrorCodes
+forall x.
+NamespaceDeletionStatusErrorCodes
+-&gt; Rep NamespaceDeletionStatusErrorCodes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NamespaceDeletionStatusErrorCodes x
+-&gt; NamespaceDeletionStatusErrorCodes
+$cfrom :: forall x.
+NamespaceDeletionStatusErrorCodes
+-&gt; Rep NamespaceDeletionStatusErrorCodes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679218459"><span id="local-6989586621679218461"><span class="annot"><span class="annottext">Int -&gt; NamespaceDeletionStatusErrorCodes -&gt; Int
+NamespaceDeletionStatusErrorCodes -&gt; Int
+(Int -&gt; NamespaceDeletionStatusErrorCodes -&gt; Int)
+-&gt; (NamespaceDeletionStatusErrorCodes -&gt; Int)
+-&gt; Hashable NamespaceDeletionStatusErrorCodes
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NamespaceDeletionStatusErrorCodes -&gt; Int
+$chash :: NamespaceDeletionStatusErrorCodes -&gt; Int
+hashWithSalt :: Int -&gt; NamespaceDeletionStatusErrorCodes -&gt; Int
+$chashWithSalt :: Int -&gt; NamespaceDeletionStatusErrorCodes -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679218456"><span class="annot"><span class="annottext">NamespaceDeletionStatusErrorCodes -&gt; ()
+(NamespaceDeletionStatusErrorCodes -&gt; ())
+-&gt; NFData NamespaceDeletionStatusErrorCodes
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NamespaceDeletionStatusErrorCodes -&gt; ()
+$crnf :: NamespaceDeletionStatusErrorCodes -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679218453"><span class="annot"><span class="annottext">Text -&gt; Either String NamespaceDeletionStatusErrorCodes
+(Text -&gt; Either String NamespaceDeletionStatusErrorCodes)
+-&gt; FromText NamespaceDeletionStatusErrorCodes
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NamespaceDeletionStatusErrorCodes
+$cfromText :: Text -&gt; Either String NamespaceDeletionStatusErrorCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679218450"><span class="annot"><span class="annottext">NamespaceDeletionStatusErrorCodes -&gt; Text
+(NamespaceDeletionStatusErrorCodes -&gt; Text)
+-&gt; ToText NamespaceDeletionStatusErrorCodes
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NamespaceDeletionStatusErrorCodes -&gt; Text
+$ctoText :: NamespaceDeletionStatusErrorCodes -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679218447"><span class="annot"><span class="annottext">NamespaceDeletionStatusErrorCodes -&gt; ByteString
+(NamespaceDeletionStatusErrorCodes -&gt; ByteString)
+-&gt; ToByteString NamespaceDeletionStatusErrorCodes
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NamespaceDeletionStatusErrorCodes -&gt; ByteString
+$ctoBS :: NamespaceDeletionStatusErrorCodes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679218444"><span class="annot"><span class="annottext">NamespaceDeletionStatusErrorCodes -&gt; ByteStringBuilder
+(NamespaceDeletionStatusErrorCodes -&gt; ByteStringBuilder)
+-&gt; ToLog NamespaceDeletionStatusErrorCodes
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NamespaceDeletionStatusErrorCodes -&gt; ByteStringBuilder
+$cbuild :: NamespaceDeletionStatusErrorCodes -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679218441"><span class="annot"><span class="annottext">HeaderName -&gt; NamespaceDeletionStatusErrorCodes -&gt; [Header]
+(HeaderName -&gt; NamespaceDeletionStatusErrorCodes -&gt; [Header])
+-&gt; ToHeader NamespaceDeletionStatusErrorCodes
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NamespaceDeletionStatusErrorCodes -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NamespaceDeletionStatusErrorCodes -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679218438"><span class="annot"><span class="annottext">NamespaceDeletionStatusErrorCodes -&gt; QueryString
+(NamespaceDeletionStatusErrorCodes -&gt; QueryString)
+-&gt; ToQuery NamespaceDeletionStatusErrorCodes
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NamespaceDeletionStatusErrorCodes -&gt; QueryString
+$ctoQuery :: NamespaceDeletionStatusErrorCodes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679218433"><span id="local-6989586621679218435"><span class="annot"><span class="annottext">Value -&gt; Parser [NamespaceDeletionStatusErrorCodes]
+Value -&gt; Parser NamespaceDeletionStatusErrorCodes
+(Value -&gt; Parser NamespaceDeletionStatusErrorCodes)
+-&gt; (Value -&gt; Parser [NamespaceDeletionStatusErrorCodes])
+-&gt; FromJSON NamespaceDeletionStatusErrorCodes
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NamespaceDeletionStatusErrorCodes]
+$cparseJSONList :: Value -&gt; Parser [NamespaceDeletionStatusErrorCodes]
+parseJSON :: Value -&gt; Parser NamespaceDeletionStatusErrorCodes
+$cparseJSON :: Value -&gt; Parser NamespaceDeletionStatusErrorCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679218428"><span id="local-6989586621679218430"><span class="annot"><span class="annottext">FromJSONKeyFunction [NamespaceDeletionStatusErrorCodes]
+FromJSONKeyFunction NamespaceDeletionStatusErrorCodes
+FromJSONKeyFunction NamespaceDeletionStatusErrorCodes
+-&gt; FromJSONKeyFunction [NamespaceDeletionStatusErrorCodes]
+-&gt; FromJSONKey NamespaceDeletionStatusErrorCodes
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NamespaceDeletionStatusErrorCodes]
+$cfromJSONKeyList :: FromJSONKeyFunction [NamespaceDeletionStatusErrorCodes]
+fromJSONKey :: FromJSONKeyFunction NamespaceDeletionStatusErrorCodes
+$cfromJSONKey :: FromJSONKeyFunction NamespaceDeletionStatusErrorCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679218419"><span id="local-6989586621679218421"><span id="local-6989586621679218423"><span id="local-6989586621679218425"><span class="annot"><span class="annottext">[NamespaceDeletionStatusErrorCodes] -&gt; Encoding
+[NamespaceDeletionStatusErrorCodes] -&gt; Value
+NamespaceDeletionStatusErrorCodes -&gt; Encoding
+NamespaceDeletionStatusErrorCodes -&gt; Value
+(NamespaceDeletionStatusErrorCodes -&gt; Value)
+-&gt; (NamespaceDeletionStatusErrorCodes -&gt; Encoding)
+-&gt; ([NamespaceDeletionStatusErrorCodes] -&gt; Value)
+-&gt; ([NamespaceDeletionStatusErrorCodes] -&gt; Encoding)
+-&gt; ToJSON NamespaceDeletionStatusErrorCodes
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NamespaceDeletionStatusErrorCodes] -&gt; Encoding
+$ctoEncodingList :: [NamespaceDeletionStatusErrorCodes] -&gt; Encoding
+toJSONList :: [NamespaceDeletionStatusErrorCodes] -&gt; Value
+$ctoJSONList :: [NamespaceDeletionStatusErrorCodes] -&gt; Value
+toEncoding :: NamespaceDeletionStatusErrorCodes -&gt; Encoding
+$ctoEncoding :: NamespaceDeletionStatusErrorCodes -&gt; Encoding
+toJSON :: NamespaceDeletionStatusErrorCodes -&gt; Value
+$ctoJSON :: NamespaceDeletionStatusErrorCodes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679218414"><span id="local-6989586621679218416"><span class="annot"><span class="annottext">ToJSONKeyFunction [NamespaceDeletionStatusErrorCodes]
+ToJSONKeyFunction NamespaceDeletionStatusErrorCodes
+ToJSONKeyFunction NamespaceDeletionStatusErrorCodes
+-&gt; ToJSONKeyFunction [NamespaceDeletionStatusErrorCodes]
+-&gt; ToJSONKey NamespaceDeletionStatusErrorCodes
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NamespaceDeletionStatusErrorCodes]
+$ctoJSONKeyList :: ToJSONKeyFunction [NamespaceDeletionStatusErrorCodes]
+toJSONKey :: ToJSONKeyFunction NamespaceDeletionStatusErrorCodes
+$ctoJSONKey :: ToJSONKeyFunction NamespaceDeletionStatusErrorCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679218411"><span class="annot"><span class="annottext">[Node] -&gt; Either String NamespaceDeletionStatusErrorCodes
+([Node] -&gt; Either String NamespaceDeletionStatusErrorCodes)
+-&gt; FromXML NamespaceDeletionStatusErrorCodes
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NamespaceDeletionStatusErrorCodes
+$cparseXML :: [Node] -&gt; Either String NamespaceDeletionStatusErrorCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679218408"><span class="annot"><span class="annottext">NamespaceDeletionStatusErrorCodes -&gt; XML
+(NamespaceDeletionStatusErrorCodes -&gt; XML)
+-&gt; ToXML NamespaceDeletionStatusErrorCodes
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NamespaceDeletionStatusErrorCodes -&gt; XML
+$ctoXML :: NamespaceDeletionStatusErrorCodes -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes.html#NamespaceDeletionStatusErrorCodes_VALIDATION_FAILED"><span class="hs-identifier hs-type">NamespaceDeletionStatusErrorCodes_VALIDATION_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes.html#NamespaceDeletionStatusErrorCodes"><span class="hs-identifier hs-type">NamespaceDeletionStatusErrorCodes</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNamespaceDeletionStatusErrorCodes_VALIDATION_FAILED"><span id="%24mNamespaceDeletionStatusErrorCodes_VALIDATION_FAILED"><span id="NamespaceDeletionStatusErrorCodes_VALIDATION_FAILED"><span class="annot"><span class="annottext">$bNamespaceDeletionStatusErrorCodes_VALIDATION_FAILED :: NamespaceDeletionStatusErrorCodes
+$mNamespaceDeletionStatusErrorCodes_VALIDATION_FAILED :: forall r.
+NamespaceDeletionStatusErrorCodes
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes.html#%24bNamespaceDeletionStatusErrorCodes_VALIDATION_FAILED"><span class="hs-identifier hs-var hs-var hs-var">NamespaceDeletionStatusErrorCodes_VALIDATION_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes.html#NamespaceDeletionStatusErrorCodes%27"><span class="hs-identifier hs-type">NamespaceDeletionStatusErrorCodes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATION_FAILED&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes.html#NamespaceDeletionStatusErrorCodes_VALIDATION_FAILED"><span class="hs-pragma hs-type">NamespaceDeletionStatusErrorCodes_VALIDATION_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes.html#NamespaceDeletionStatusErrorCodes%27"><span class="hs-pragma hs-type">NamespaceDeletionStatusErrorCodes'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

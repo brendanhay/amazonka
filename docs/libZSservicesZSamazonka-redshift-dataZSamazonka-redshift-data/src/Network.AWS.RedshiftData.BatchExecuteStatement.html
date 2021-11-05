@@ -1,0 +1,1062 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.RedshiftData.BatchExecuteStatement</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Runs one or more SQL statements, which can be data manipulation language</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- (DML) or data definition language (DDL). Depending on the authorization</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- method, use one of the following combinations of request parameters:</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- -   Secrets Manager - specify the Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--     secret, the database name, and the cluster identifier that matches</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--     the cluster in the secret.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- -   Temporary credentials - specify the cluster identifier, the database</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     name, and the database user name. Permission to call the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     @redshift:GetClusterCredentials@ operation is required to use this</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     method.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RedshiftData.BatchExecuteStatement</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier">BatchExecuteStatement</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#newBatchExecuteStatement"><span class="hs-identifier">newBatchExecuteStatement</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_dbUser"><span class="hs-identifier">batchExecuteStatement_dbUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_statementName"><span class="hs-identifier">batchExecuteStatement_statementName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_secretArn"><span class="hs-identifier">batchExecuteStatement_secretArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_withEvent"><span class="hs-identifier">batchExecuteStatement_withEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_clusterIdentifier"><span class="hs-identifier">batchExecuteStatement_clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_database"><span class="hs-identifier">batchExecuteStatement_database</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_sqls"><span class="hs-identifier">batchExecuteStatement_sqls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier">BatchExecuteStatementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#newBatchExecuteStatementResponse"><span class="hs-identifier">newBatchExecuteStatementResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_dbUser"><span class="hs-identifier">batchExecuteStatementResponse_dbUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_database"><span class="hs-identifier">batchExecuteStatementResponse_database</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_createdAt"><span class="hs-identifier">batchExecuteStatementResponse_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_clusterIdentifier"><span class="hs-identifier">batchExecuteStatementResponse_clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_id"><span class="hs-identifier">batchExecuteStatementResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_secretArn"><span class="hs-identifier">batchExecuteStatementResponse_secretArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_httpStatus"><span class="hs-identifier">batchExecuteStatementResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.Types.html"><span class="hs-identifier">Network.AWS.RedshiftData.Types</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | /See:/ 'newBatchExecuteStatement' smart constructor.</span><span>
+</span><span id="line-72"></span><span id="local-6989586621679182120"><span id="local-6989586621679182121"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchExecuteStatement"><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-var">BatchExecuteStatement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchExecuteStatement%27"><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-var">BatchExecuteStatement'</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The database user name. This parameter is required when authenticating</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- using temporary credentials.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AdbUser%3ABatchExecuteStatement%27"><span class="annot"><span class="annottext">BatchExecuteStatement -&gt; Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AdbUser%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var hs-var">dbUser</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The name of the SQL statements. You can name the SQL statements when you</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- create them to identify the query.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AstatementName%3ABatchExecuteStatement%27"><span class="annot"><span class="annottext">BatchExecuteStatement -&gt; Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AstatementName%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var hs-var">statementName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The name or ARN of the secret that enables access to the database. This</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- parameter is required when authenticating using Secrets Manager.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AsecretArn%3ABatchExecuteStatement%27"><span class="annot"><span class="annottext">BatchExecuteStatement -&gt; Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AsecretArn%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var hs-var">secretArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether to send an event to the Amazon</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- EventBridge event bus after the SQL statements run.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AwithEvent%3ABatchExecuteStatement%27"><span class="annot"><span class="annottext">BatchExecuteStatement -&gt; Maybe Bool
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AwithEvent%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var hs-var">withEvent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The cluster identifier. This parameter is required when authenticating</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- using either Secrets Manager or temporary credentials.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3ABatchExecuteStatement%27"><span class="annot"><span class="annottext">BatchExecuteStatement -&gt; Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AclusterIdentifier%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The name of the database. This parameter is required when authenticating</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- using either Secrets Manager or temporary credentials.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Adatabase%3ABatchExecuteStatement%27"><span class="annot"><span class="annottext">BatchExecuteStatement -&gt; Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3Adatabase%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | One or more SQL statements to run.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3Asqls%3ABatchExecuteStatement%27"><span class="annot"><span class="annottext">BatchExecuteStatement -&gt; NonEmpty Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3Asqls%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var hs-var">sqls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182108"><span id="local-6989586621679182110"><span class="annot"><span class="annottext">BatchExecuteStatement -&gt; BatchExecuteStatement -&gt; Bool
+(BatchExecuteStatement -&gt; BatchExecuteStatement -&gt; Bool)
+-&gt; (BatchExecuteStatement -&gt; BatchExecuteStatement -&gt; Bool)
+-&gt; Eq BatchExecuteStatement
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchExecuteStatement -&gt; BatchExecuteStatement -&gt; Bool
+$c/= :: BatchExecuteStatement -&gt; BatchExecuteStatement -&gt; Bool
+== :: BatchExecuteStatement -&gt; BatchExecuteStatement -&gt; Bool
+$c== :: BatchExecuteStatement -&gt; BatchExecuteStatement -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182099"><span id="local-6989586621679182101"><span id="local-6989586621679182103"><span id="local-6989586621679182105"><span class="annot"><span class="annottext">ReadPrec [BatchExecuteStatement]
+ReadPrec BatchExecuteStatement
+Int -&gt; ReadS BatchExecuteStatement
+ReadS [BatchExecuteStatement]
+(Int -&gt; ReadS BatchExecuteStatement)
+-&gt; ReadS [BatchExecuteStatement]
+-&gt; ReadPrec BatchExecuteStatement
+-&gt; ReadPrec [BatchExecuteStatement]
+-&gt; Read BatchExecuteStatement
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchExecuteStatement]
+$creadListPrec :: ReadPrec [BatchExecuteStatement]
+readPrec :: ReadPrec BatchExecuteStatement
+$creadPrec :: ReadPrec BatchExecuteStatement
+readList :: ReadS [BatchExecuteStatement]
+$creadList :: ReadS [BatchExecuteStatement]
+readsPrec :: Int -&gt; ReadS BatchExecuteStatement
+$creadsPrec :: Int -&gt; ReadS BatchExecuteStatement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182092"><span id="local-6989586621679182094"><span id="local-6989586621679182096"><span class="annot"><span class="annottext">Int -&gt; BatchExecuteStatement -&gt; ShowS
+[BatchExecuteStatement] -&gt; ShowS
+BatchExecuteStatement -&gt; String
+(Int -&gt; BatchExecuteStatement -&gt; ShowS)
+-&gt; (BatchExecuteStatement -&gt; String)
+-&gt; ([BatchExecuteStatement] -&gt; ShowS)
+-&gt; Show BatchExecuteStatement
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchExecuteStatement] -&gt; ShowS
+$cshowList :: [BatchExecuteStatement] -&gt; ShowS
+show :: BatchExecuteStatement -&gt; String
+$cshow :: BatchExecuteStatement -&gt; String
+showsPrec :: Int -&gt; BatchExecuteStatement -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchExecuteStatement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchExecuteStatement -&gt; Rep BatchExecuteStatement x)
+-&gt; (forall x. Rep BatchExecuteStatement x -&gt; BatchExecuteStatement)
+-&gt; Generic BatchExecuteStatement
+forall x. Rep BatchExecuteStatement x -&gt; BatchExecuteStatement
+forall x. BatchExecuteStatement -&gt; Rep BatchExecuteStatement x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchExecuteStatement x -&gt; BatchExecuteStatement
+$cfrom :: forall x. BatchExecuteStatement -&gt; Rep BatchExecuteStatement x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'BatchExecuteStatement' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'dbUser', 'batchExecuteStatement_dbUser' - The database user name. This parameter is required when authenticating</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- using temporary credentials.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'statementName', 'batchExecuteStatement_statementName' - The name of the SQL statements. You can name the SQL statements when you</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- create them to identify the query.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'secretArn', 'batchExecuteStatement_secretArn' - The name or ARN of the secret that enables access to the database. This</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- parameter is required when authenticating using Secrets Manager.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'withEvent', 'batchExecuteStatement_withEvent' - A value that indicates whether to send an event to the Amazon</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- EventBridge event bus after the SQL statements run.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'clusterIdentifier', 'batchExecuteStatement_clusterIdentifier' - The cluster identifier. This parameter is required when authenticating</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- using either Secrets Manager or temporary credentials.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'database', 'batchExecuteStatement_database' - The name of the database. This parameter is required when authenticating</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- using either Secrets Manager or temporary credentials.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'sqls', 'batchExecuteStatement_sqls' - One or more SQL statements to run.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#newBatchExecuteStatement"><span class="hs-identifier hs-type">newBatchExecuteStatement</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-comment">-- | 'clusterIdentifier'</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'database'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'sqls'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span>
+</span><span id="line-131"></span><span id="newBatchExecuteStatement"><span class="annot"><span class="annottext">newBatchExecuteStatement :: Text -&gt; Text -&gt; NonEmpty Text -&gt; BatchExecuteStatement
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#newBatchExecuteStatement"><span class="hs-identifier hs-var hs-var">newBatchExecuteStatement</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679182087"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182087"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679182086"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182086"><span class="hs-identifier hs-var">pDatabase_</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679182085"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679182085"><span class="hs-identifier hs-var">pSqls_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">BatchExecuteStatement' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; Text
+-&gt; NonEmpty Text
+-&gt; BatchExecuteStatement
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbUser:BatchExecuteStatement' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AdbUser%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">dbUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:statementName:BatchExecuteStatement' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AstatementName%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">statementName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:secretArn:BatchExecuteStatement' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AsecretArn%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">secretArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:withEvent:BatchExecuteStatement' :: Maybe Bool
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AwithEvent%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">withEvent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:BatchExecuteStatement' :: Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AclusterIdentifier%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182087"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:database:BatchExecuteStatement' :: Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3Adatabase%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182086"><span class="hs-identifier hs-var">pDatabase_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:sqls:BatchExecuteStatement' :: NonEmpty Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3Asqls%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">sqls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679182085"><span class="hs-identifier hs-var">pSqls_</span></a></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The database user name. This parameter is required when authenticating</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- using temporary credentials.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_dbUser"><span class="hs-identifier hs-type">batchExecuteStatement_dbUser</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="batchExecuteStatement_dbUser"><span class="annot"><span class="annottext">batchExecuteStatement_dbUser :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchExecuteStatement -&gt; f BatchExecuteStatement
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_dbUser"><span class="hs-identifier hs-var hs-var">batchExecuteStatement_dbUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchExecuteStatement -&gt; Maybe Text)
+-&gt; (BatchExecuteStatement -&gt; Maybe Text -&gt; BatchExecuteStatement)
+-&gt; Lens
+     BatchExecuteStatement
+     BatchExecuteStatement
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182080"><span class="annot"><span class="annottext">Maybe Text
+dbUser :: Maybe Text
+$sel:dbUser:BatchExecuteStatement' :: BatchExecuteStatement -&gt; Maybe Text
+</span><a href="#local-6989586621679182080"><span class="hs-identifier hs-var hs-var">dbUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182080"><span class="hs-identifier hs-var">dbUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182079"><span class="annot"><span class="annottext">s :: BatchExecuteStatement
+</span><a href="#local-6989586621679182079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182078"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatement
+</span><a href="#local-6989586621679182079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbUser:BatchExecuteStatement' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AdbUser%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">dbUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The name of the SQL statements. You can name the SQL statements when you</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- create them to identify the query.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_statementName"><span class="hs-identifier hs-type">batchExecuteStatement_statementName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="batchExecuteStatement_statementName"><span class="annot"><span class="annottext">batchExecuteStatement_statementName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchExecuteStatement -&gt; f BatchExecuteStatement
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_statementName"><span class="hs-identifier hs-var hs-var">batchExecuteStatement_statementName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchExecuteStatement -&gt; Maybe Text)
+-&gt; (BatchExecuteStatement -&gt; Maybe Text -&gt; BatchExecuteStatement)
+-&gt; Lens
+     BatchExecuteStatement
+     BatchExecuteStatement
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182077"><span class="annot"><span class="annottext">Maybe Text
+statementName :: Maybe Text
+$sel:statementName:BatchExecuteStatement' :: BatchExecuteStatement -&gt; Maybe Text
+</span><a href="#local-6989586621679182077"><span class="hs-identifier hs-var hs-var">statementName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182077"><span class="hs-identifier hs-var">statementName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182076"><span class="annot"><span class="annottext">s :: BatchExecuteStatement
+</span><a href="#local-6989586621679182076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182075"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatement
+</span><a href="#local-6989586621679182076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementName:BatchExecuteStatement' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AstatementName%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">statementName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The name or ARN of the secret that enables access to the database. This</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- parameter is required when authenticating using Secrets Manager.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_secretArn"><span class="hs-identifier hs-type">batchExecuteStatement_secretArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="batchExecuteStatement_secretArn"><span class="annot"><span class="annottext">batchExecuteStatement_secretArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchExecuteStatement -&gt; f BatchExecuteStatement
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_secretArn"><span class="hs-identifier hs-var hs-var">batchExecuteStatement_secretArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchExecuteStatement -&gt; Maybe Text)
+-&gt; (BatchExecuteStatement -&gt; Maybe Text -&gt; BatchExecuteStatement)
+-&gt; Lens
+     BatchExecuteStatement
+     BatchExecuteStatement
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182074"><span class="annot"><span class="annottext">Maybe Text
+secretArn :: Maybe Text
+$sel:secretArn:BatchExecuteStatement' :: BatchExecuteStatement -&gt; Maybe Text
+</span><a href="#local-6989586621679182074"><span class="hs-identifier hs-var hs-var">secretArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182074"><span class="hs-identifier hs-var">secretArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182073"><span class="annot"><span class="annottext">s :: BatchExecuteStatement
+</span><a href="#local-6989586621679182073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182072"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatement
+</span><a href="#local-6989586621679182073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretArn:BatchExecuteStatement' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AsecretArn%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">secretArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | A value that indicates whether to send an event to the Amazon</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- EventBridge event bus after the SQL statements run.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_withEvent"><span class="hs-identifier hs-type">batchExecuteStatement_withEvent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="batchExecuteStatement_withEvent"><span class="annot"><span class="annottext">batchExecuteStatement_withEvent :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; BatchExecuteStatement -&gt; f BatchExecuteStatement
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_withEvent"><span class="hs-identifier hs-var hs-var">batchExecuteStatement_withEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchExecuteStatement -&gt; Maybe Bool)
+-&gt; (BatchExecuteStatement -&gt; Maybe Bool -&gt; BatchExecuteStatement)
+-&gt; Lens
+     BatchExecuteStatement
+     BatchExecuteStatement
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182071"><span class="annot"><span class="annottext">Maybe Bool
+withEvent :: Maybe Bool
+$sel:withEvent:BatchExecuteStatement' :: BatchExecuteStatement -&gt; Maybe Bool
+</span><a href="#local-6989586621679182071"><span class="hs-identifier hs-var hs-var">withEvent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679182071"><span class="hs-identifier hs-var">withEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182070"><span class="annot"><span class="annottext">s :: BatchExecuteStatement
+</span><a href="#local-6989586621679182070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182069"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679182069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatement
+</span><a href="#local-6989586621679182070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:withEvent:BatchExecuteStatement' :: Maybe Bool
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AwithEvent%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">withEvent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679182069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The cluster identifier. This parameter is required when authenticating</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- using either Secrets Manager or temporary credentials.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_clusterIdentifier"><span class="hs-identifier hs-type">batchExecuteStatement_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-168"></span><span id="batchExecuteStatement_clusterIdentifier"><span class="annot"><span class="annottext">batchExecuteStatement_clusterIdentifier :: (Text -&gt; f Text)
+-&gt; BatchExecuteStatement -&gt; f BatchExecuteStatement
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_clusterIdentifier"><span class="hs-identifier hs-var hs-var">batchExecuteStatement_clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchExecuteStatement -&gt; Text)
+-&gt; (BatchExecuteStatement -&gt; Text -&gt; BatchExecuteStatement)
+-&gt; Lens BatchExecuteStatement BatchExecuteStatement Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182068"><span class="annot"><span class="annottext">Text
+clusterIdentifier :: Text
+$sel:clusterIdentifier:BatchExecuteStatement' :: BatchExecuteStatement -&gt; Text
+</span><a href="#local-6989586621679182068"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182068"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182067"><span class="annot"><span class="annottext">s :: BatchExecuteStatement
+</span><a href="#local-6989586621679182067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182066"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatement
+</span><a href="#local-6989586621679182067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:BatchExecuteStatement' :: Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AclusterIdentifier%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The name of the database. This parameter is required when authenticating</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- using either Secrets Manager or temporary credentials.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_database"><span class="hs-identifier hs-type">batchExecuteStatement_database</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-173"></span><span id="batchExecuteStatement_database"><span class="annot"><span class="annottext">batchExecuteStatement_database :: (Text -&gt; f Text)
+-&gt; BatchExecuteStatement -&gt; f BatchExecuteStatement
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_database"><span class="hs-identifier hs-var hs-var">batchExecuteStatement_database</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchExecuteStatement -&gt; Text)
+-&gt; (BatchExecuteStatement -&gt; Text -&gt; BatchExecuteStatement)
+-&gt; Lens BatchExecuteStatement BatchExecuteStatement Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182065"><span class="annot"><span class="annottext">Text
+database :: Text
+$sel:database:BatchExecuteStatement' :: BatchExecuteStatement -&gt; Text
+</span><a href="#local-6989586621679182065"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182065"><span class="hs-identifier hs-var">database</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182064"><span class="annot"><span class="annottext">s :: BatchExecuteStatement
+</span><a href="#local-6989586621679182064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182063"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatement
+</span><a href="#local-6989586621679182064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:database:BatchExecuteStatement' :: Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3Adatabase%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | One or more SQL statements to run.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_sqls"><span class="hs-identifier hs-type">batchExecuteStatement_sqls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="batchExecuteStatement_sqls"><span class="annot"><span class="annottext">batchExecuteStatement_sqls :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; BatchExecuteStatement -&gt; f BatchExecuteStatement
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatement_sqls"><span class="hs-identifier hs-var hs-var">batchExecuteStatement_sqls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchExecuteStatement -&gt; NonEmpty Text)
+-&gt; (BatchExecuteStatement
+    -&gt; NonEmpty Text -&gt; BatchExecuteStatement)
+-&gt; Lens
+     BatchExecuteStatement
+     BatchExecuteStatement
+     (NonEmpty Text)
+     (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182062"><span class="annot"><span class="annottext">NonEmpty Text
+sqls :: NonEmpty Text
+$sel:sqls:BatchExecuteStatement' :: BatchExecuteStatement -&gt; NonEmpty Text
+</span><a href="#local-6989586621679182062"><span class="hs-identifier hs-var hs-var">sqls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679182062"><span class="hs-identifier hs-var">sqls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182061"><span class="annot"><span class="annottext">s :: BatchExecuteStatement
+</span><a href="#local-6989586621679182061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182060"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679182060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatement
+</span><a href="#local-6989586621679182061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqls:BatchExecuteStatement' :: NonEmpty Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3Asqls%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">sqls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679182060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; BatchExecuteStatement -&gt; f BatchExecuteStatement)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; BatchExecuteStatement
+-&gt; f BatchExecuteStatement
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-181"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679182055"><span class="annot"><span class="annottext">request :: BatchExecuteStatement -&gt; Request BatchExecuteStatement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchExecuteStatement -&gt; Request BatchExecuteStatement
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.RedshiftData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679182051"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchExecuteStatement
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchExecuteStatement)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchExecuteStatement))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchExecuteStatement
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchExecuteStatement)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182048"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182048"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679182047"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679182047"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679182046"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182046"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; BatchExecuteStatementResponse
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">BatchExecuteStatementResponse'</span></a></span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; BatchExecuteStatementResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; BatchExecuteStatementResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DbUser&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; BatchExecuteStatementResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; BatchExecuteStatementResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Database&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; BatchExecuteStatementResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; BatchExecuteStatementResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; BatchExecuteStatementResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; BatchExecuteStatementResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; BatchExecuteStatementResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; BatchExecuteStatementResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; BatchExecuteStatementResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; BatchExecuteStatementResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchExecuteStatementResponse)
+-&gt; Either String Int -&gt; Either String BatchExecuteStatementResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182048"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182038"><span id="local-6989586621679182040"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span></span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182035"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679182031"><span class="annot"><span class="annottext">toHeaders :: BatchExecuteStatement -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchExecuteStatement -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-205"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RedshiftData.BatchExecuteStatement&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-208"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-210"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-212"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182021"><span id="local-6989586621679182023"><span id="local-6989586621679182025"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679182019"><span class="annot"><span class="annottext">toJSON :: BatchExecuteStatement -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182011"><span id="local-6989586621679182012"><span id="local-6989586621679182013"><span id="local-6989586621679182014"><span id="local-6989586621679182015"><span id="local-6989586621679182016"><span id="local-6989586621679182017"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+NonEmpty Text
+Text
+sqls :: NonEmpty Text
+database :: Text
+clusterIdentifier :: Text
+withEvent :: Maybe Bool
+secretArn :: Maybe Text
+statementName :: Maybe Text
+dbUser :: Maybe Text
+$sel:sqls:BatchExecuteStatement' :: BatchExecuteStatement -&gt; NonEmpty Text
+$sel:database:BatchExecuteStatement' :: BatchExecuteStatement -&gt; Text
+$sel:clusterIdentifier:BatchExecuteStatement' :: BatchExecuteStatement -&gt; Text
+$sel:withEvent:BatchExecuteStatement' :: BatchExecuteStatement -&gt; Maybe Bool
+$sel:secretArn:BatchExecuteStatement' :: BatchExecuteStatement -&gt; Maybe Text
+$sel:statementName:BatchExecuteStatement' :: BatchExecuteStatement -&gt; Maybe Text
+$sel:dbUser:BatchExecuteStatement' :: BatchExecuteStatement -&gt; Maybe Text
+</span><a href="#local-6989586621679182011"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DbUser&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182017"><span class="hs-identifier hs-var">dbUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatementName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182016"><span class="hs-identifier hs-var">statementName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182015"><span class="hs-identifier hs-var">secretArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WithEvent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679182014"><span class="hs-identifier hs-var">withEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-225"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182013"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Database&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182012"><span class="hs-identifier hs-var">database</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sqls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679182011"><span class="hs-identifier hs-var">sqls</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679182005"><span class="annot"><span class="annottext">toPath :: BatchExecuteStatement -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchExecuteStatement -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679182001"><span class="annot"><span class="annottext">toQuery :: BatchExecuteStatement -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchExecuteStatement -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | /See:/ 'newBatchExecuteStatementResponse' smart constructor.</span><span>
+</span><span id="line-238"></span><span id="local-6989586621679181998"><span id="local-6989586621679181999"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchExecuteStatementResponse"><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-var">BatchExecuteStatementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchExecuteStatementResponse%27"><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">BatchExecuteStatementResponse'</span></a></span></span><span>
+</span><span id="line-239"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The database user name.</span><span>
+</span><span id="line-240"></span><span>    </span><span id="%24sel%3AdbUser%3ABatchExecuteStatementResponse%27"><span class="annot"><span class="annottext">BatchExecuteStatementResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AdbUser%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var hs-var">dbUser</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">-- | The name of the database.</span><span>
+</span><span id="line-242"></span><span>    </span><span id="%24sel%3Adatabase%3ABatchExecuteStatementResponse%27"><span class="annot"><span class="annottext">BatchExecuteStatementResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3Adatabase%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">-- | The date and time (UTC) the statement was created.</span><span>
+</span><span id="line-244"></span><span>    </span><span id="%24sel%3AcreatedAt%3ABatchExecuteStatementResponse%27"><span class="annot"><span class="annottext">BatchExecuteStatementResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AcreatedAt%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">-- | The cluster identifier.</span><span>
+</span><span id="line-246"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3ABatchExecuteStatementResponse%27"><span class="annot"><span class="annottext">BatchExecuteStatementResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AclusterIdentifier%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-comment">-- | The identifier of the SQL statement whose results are to be fetched.</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">-- This value is a universally unique identifier (UUID) generated by Amazon</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">-- Redshift Data API. This identifier is returned by</span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-comment">-- @BatchExecuteStatment@.</span><span>
+</span><span id="line-251"></span><span>    </span><span id="%24sel%3Aid%3ABatchExecuteStatementResponse%27"><span class="annot"><span class="annottext">BatchExecuteStatementResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3Aid%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">-- | The name or ARN of the secret that enables access to the database.</span><span>
+</span><span id="line-253"></span><span>    </span><span id="%24sel%3AsecretArn%3ABatchExecuteStatementResponse%27"><span class="annot"><span class="annottext">BatchExecuteStatementResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AsecretArn%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var hs-var">secretArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-255"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchExecuteStatementResponse%27"><span class="annot"><span class="annottext">BatchExecuteStatementResponse -&gt; Int
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AhttpStatus%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-256"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181987"><span id="local-6989586621679181989"><span class="annot"><span class="annottext">BatchExecuteStatementResponse
+-&gt; BatchExecuteStatementResponse -&gt; Bool
+(BatchExecuteStatementResponse
+ -&gt; BatchExecuteStatementResponse -&gt; Bool)
+-&gt; (BatchExecuteStatementResponse
+    -&gt; BatchExecuteStatementResponse -&gt; Bool)
+-&gt; Eq BatchExecuteStatementResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchExecuteStatementResponse
+-&gt; BatchExecuteStatementResponse -&gt; Bool
+$c/= :: BatchExecuteStatementResponse
+-&gt; BatchExecuteStatementResponse -&gt; Bool
+== :: BatchExecuteStatementResponse
+-&gt; BatchExecuteStatementResponse -&gt; Bool
+$c== :: BatchExecuteStatementResponse
+-&gt; BatchExecuteStatementResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181979"><span id="local-6989586621679181981"><span id="local-6989586621679181983"><span id="local-6989586621679181985"><span class="annot"><span class="annottext">ReadPrec [BatchExecuteStatementResponse]
+ReadPrec BatchExecuteStatementResponse
+Int -&gt; ReadS BatchExecuteStatementResponse
+ReadS [BatchExecuteStatementResponse]
+(Int -&gt; ReadS BatchExecuteStatementResponse)
+-&gt; ReadS [BatchExecuteStatementResponse]
+-&gt; ReadPrec BatchExecuteStatementResponse
+-&gt; ReadPrec [BatchExecuteStatementResponse]
+-&gt; Read BatchExecuteStatementResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchExecuteStatementResponse]
+$creadListPrec :: ReadPrec [BatchExecuteStatementResponse]
+readPrec :: ReadPrec BatchExecuteStatementResponse
+$creadPrec :: ReadPrec BatchExecuteStatementResponse
+readList :: ReadS [BatchExecuteStatementResponse]
+$creadList :: ReadS [BatchExecuteStatementResponse]
+readsPrec :: Int -&gt; ReadS BatchExecuteStatementResponse
+$creadsPrec :: Int -&gt; ReadS BatchExecuteStatementResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181973"><span id="local-6989586621679181975"><span id="local-6989586621679181977"><span class="annot"><span class="annottext">Int -&gt; BatchExecuteStatementResponse -&gt; ShowS
+[BatchExecuteStatementResponse] -&gt; ShowS
+BatchExecuteStatementResponse -&gt; String
+(Int -&gt; BatchExecuteStatementResponse -&gt; ShowS)
+-&gt; (BatchExecuteStatementResponse -&gt; String)
+-&gt; ([BatchExecuteStatementResponse] -&gt; ShowS)
+-&gt; Show BatchExecuteStatementResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchExecuteStatementResponse] -&gt; ShowS
+$cshowList :: [BatchExecuteStatementResponse] -&gt; ShowS
+show :: BatchExecuteStatementResponse -&gt; String
+$cshow :: BatchExecuteStatementResponse -&gt; String
+showsPrec :: Int -&gt; BatchExecuteStatementResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchExecuteStatementResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchExecuteStatementResponse
+ -&gt; Rep BatchExecuteStatementResponse x)
+-&gt; (forall x.
+    Rep BatchExecuteStatementResponse x
+    -&gt; BatchExecuteStatementResponse)
+-&gt; Generic BatchExecuteStatementResponse
+forall x.
+Rep BatchExecuteStatementResponse x
+-&gt; BatchExecuteStatementResponse
+forall x.
+BatchExecuteStatementResponse
+-&gt; Rep BatchExecuteStatementResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchExecuteStatementResponse x
+-&gt; BatchExecuteStatementResponse
+$cfrom :: forall x.
+BatchExecuteStatementResponse
+-&gt; Rep BatchExecuteStatementResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- Create a value of 'BatchExecuteStatementResponse' with all optional fields omitted.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'dbUser', 'batchExecuteStatementResponse_dbUser' - The database user name.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- 'database', 'batchExecuteStatementResponse_database' - The name of the database.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- 'createdAt', 'batchExecuteStatementResponse_createdAt' - The date and time (UTC) the statement was created.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- 'clusterIdentifier', 'batchExecuteStatementResponse_clusterIdentifier' - The cluster identifier.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- 'id', 'batchExecuteStatementResponse_id' - The identifier of the SQL statement whose results are to be fetched.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- This value is a universally unique identifier (UUID) generated by Amazon</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- Redshift Data API. This identifier is returned by</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- @BatchExecuteStatment@.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- 'secretArn', 'batchExecuteStatementResponse_secretArn' - The name or ARN of the secret that enables access to the database.</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- 'httpStatus', 'batchExecuteStatementResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#newBatchExecuteStatementResponse"><span class="hs-identifier hs-type">newBatchExecuteStatementResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-284"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-285"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-286"></span><span>  </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span>
+</span><span id="line-287"></span><span id="newBatchExecuteStatementResponse"><span class="annot"><span class="annottext">newBatchExecuteStatementResponse :: Int -&gt; BatchExecuteStatementResponse
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#newBatchExecuteStatementResponse"><span class="hs-identifier hs-var hs-var">newBatchExecuteStatementResponse</span></a></span></span><span> </span><span id="local-6989586621679181970"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181970"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-288"></span><span>  </span><span class="annot"><span class="annottext">BatchExecuteStatementResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; BatchExecuteStatementResponse
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span>
+</span><span id="line-289"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbUser:BatchExecuteStatementResponse' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AdbUser%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">dbUser</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-290"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>      </span><span class="annot"><span class="annottext">$sel:database:BatchExecuteStatementResponse' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3Adatabase%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:BatchExecuteStatementResponse' :: Maybe POSIX
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AcreatedAt%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:BatchExecuteStatementResponse' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AclusterIdentifier%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:BatchExecuteStatementResponse' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3Aid%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretArn:BatchExecuteStatementResponse' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AsecretArn%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">secretArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchExecuteStatementResponse' :: Int
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AhttpStatus%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181970"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-297"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | The database user name.</span><span>
+</span><span id="line-300"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_dbUser"><span class="hs-identifier hs-type">batchExecuteStatementResponse_dbUser</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span id="batchExecuteStatementResponse_dbUser"><span class="annot"><span class="annottext">batchExecuteStatementResponse_dbUser :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchExecuteStatementResponse -&gt; f BatchExecuteStatementResponse
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_dbUser"><span class="hs-identifier hs-var hs-var">batchExecuteStatementResponse_dbUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchExecuteStatementResponse -&gt; Maybe Text)
+-&gt; (BatchExecuteStatementResponse
+    -&gt; Maybe Text -&gt; BatchExecuteStatementResponse)
+-&gt; Lens
+     BatchExecuteStatementResponse
+     BatchExecuteStatementResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181969"><span class="annot"><span class="annottext">Maybe Text
+dbUser :: Maybe Text
+$sel:dbUser:BatchExecuteStatementResponse' :: BatchExecuteStatementResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679181969"><span class="hs-identifier hs-var hs-var">dbUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181969"><span class="hs-identifier hs-var">dbUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181968"><span class="annot"><span class="annottext">s :: BatchExecuteStatementResponse
+</span><a href="#local-6989586621679181968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181967"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatementResponse
+</span><a href="#local-6989586621679181968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbUser:BatchExecuteStatementResponse' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AdbUser%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">dbUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- | The name of the database.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_database"><span class="hs-identifier hs-type">batchExecuteStatementResponse_database</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span id="batchExecuteStatementResponse_database"><span class="annot"><span class="annottext">batchExecuteStatementResponse_database :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchExecuteStatementResponse -&gt; f BatchExecuteStatementResponse
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_database"><span class="hs-identifier hs-var hs-var">batchExecuteStatementResponse_database</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchExecuteStatementResponse -&gt; Maybe Text)
+-&gt; (BatchExecuteStatementResponse
+    -&gt; Maybe Text -&gt; BatchExecuteStatementResponse)
+-&gt; Lens
+     BatchExecuteStatementResponse
+     BatchExecuteStatementResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181966"><span class="annot"><span class="annottext">Maybe Text
+database :: Maybe Text
+$sel:database:BatchExecuteStatementResponse' :: BatchExecuteStatementResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679181966"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181966"><span class="hs-identifier hs-var">database</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181965"><span class="annot"><span class="annottext">s :: BatchExecuteStatementResponse
+</span><a href="#local-6989586621679181965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181964"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatementResponse
+</span><a href="#local-6989586621679181965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:database:BatchExecuteStatementResponse' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3Adatabase%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- | The date and time (UTC) the statement was created.</span><span>
+</span><span id="line-308"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_createdAt"><span class="hs-identifier hs-type">batchExecuteStatementResponse_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span id="batchExecuteStatementResponse_createdAt"><span class="annot"><span class="annottext">batchExecuteStatementResponse_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BatchExecuteStatementResponse -&gt; f BatchExecuteStatementResponse
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_createdAt"><span class="hs-identifier hs-var hs-var">batchExecuteStatementResponse_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchExecuteStatementResponse -&gt; Maybe POSIX)
+-&gt; (BatchExecuteStatementResponse
+    -&gt; Maybe POSIX -&gt; BatchExecuteStatementResponse)
+-&gt; Lens
+     BatchExecuteStatementResponse
+     BatchExecuteStatementResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181963"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:BatchExecuteStatementResponse' :: BatchExecuteStatementResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679181963"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679181963"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181962"><span class="annot"><span class="annottext">s :: BatchExecuteStatementResponse
+</span><a href="#local-6989586621679181962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181961"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679181961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatementResponse
+</span><a href="#local-6989586621679181962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:BatchExecuteStatementResponse' :: Maybe POSIX
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AcreatedAt%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679181961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; BatchExecuteStatementResponse
+ -&gt; f BatchExecuteStatementResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BatchExecuteStatementResponse
+-&gt; f BatchExecuteStatementResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- | The cluster identifier.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_clusterIdentifier"><span class="hs-identifier hs-type">batchExecuteStatementResponse_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span id="batchExecuteStatementResponse_clusterIdentifier"><span class="annot"><span class="annottext">batchExecuteStatementResponse_clusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchExecuteStatementResponse -&gt; f BatchExecuteStatementResponse
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_clusterIdentifier"><span class="hs-identifier hs-var hs-var">batchExecuteStatementResponse_clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchExecuteStatementResponse -&gt; Maybe Text)
+-&gt; (BatchExecuteStatementResponse
+    -&gt; Maybe Text -&gt; BatchExecuteStatementResponse)
+-&gt; Lens
+     BatchExecuteStatementResponse
+     BatchExecuteStatementResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181958"><span class="annot"><span class="annottext">Maybe Text
+clusterIdentifier :: Maybe Text
+$sel:clusterIdentifier:BatchExecuteStatementResponse' :: BatchExecuteStatementResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679181958"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181958"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181957"><span class="annot"><span class="annottext">s :: BatchExecuteStatementResponse
+</span><a href="#local-6989586621679181957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181956"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatementResponse
+</span><a href="#local-6989586621679181957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:BatchExecuteStatementResponse' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AclusterIdentifier%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | The identifier of the SQL statement whose results are to be fetched.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- This value is a universally unique identifier (UUID) generated by Amazon</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- Redshift Data API. This identifier is returned by</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- @BatchExecuteStatment@.</span><span>
+</span><span id="line-319"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_id"><span class="hs-identifier hs-type">batchExecuteStatementResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span id="batchExecuteStatementResponse_id"><span class="annot"><span class="annottext">batchExecuteStatementResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchExecuteStatementResponse -&gt; f BatchExecuteStatementResponse
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_id"><span class="hs-identifier hs-var hs-var">batchExecuteStatementResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchExecuteStatementResponse -&gt; Maybe Text)
+-&gt; (BatchExecuteStatementResponse
+    -&gt; Maybe Text -&gt; BatchExecuteStatementResponse)
+-&gt; Lens
+     BatchExecuteStatementResponse
+     BatchExecuteStatementResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181955"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:BatchExecuteStatementResponse' :: BatchExecuteStatementResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679181955"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181955"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181954"><span class="annot"><span class="annottext">s :: BatchExecuteStatementResponse
+</span><a href="#local-6989586621679181954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181953"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatementResponse
+</span><a href="#local-6989586621679181954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:BatchExecuteStatementResponse' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3Aid%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- | The name or ARN of the secret that enables access to the database.</span><span>
+</span><span id="line-323"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_secretArn"><span class="hs-identifier hs-type">batchExecuteStatementResponse_secretArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span id="batchExecuteStatementResponse_secretArn"><span class="annot"><span class="annottext">batchExecuteStatementResponse_secretArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchExecuteStatementResponse -&gt; f BatchExecuteStatementResponse
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_secretArn"><span class="hs-identifier hs-var hs-var">batchExecuteStatementResponse_secretArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchExecuteStatementResponse -&gt; Maybe Text)
+-&gt; (BatchExecuteStatementResponse
+    -&gt; Maybe Text -&gt; BatchExecuteStatementResponse)
+-&gt; Lens
+     BatchExecuteStatementResponse
+     BatchExecuteStatementResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181952"><span class="annot"><span class="annottext">Maybe Text
+secretArn :: Maybe Text
+$sel:secretArn:BatchExecuteStatementResponse' :: BatchExecuteStatementResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679181952"><span class="hs-identifier hs-var hs-var">secretArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181952"><span class="hs-identifier hs-var">secretArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181951"><span class="annot"><span class="annottext">s :: BatchExecuteStatementResponse
+</span><a href="#local-6989586621679181951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181950"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatementResponse
+</span><a href="#local-6989586621679181951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretArn:BatchExecuteStatementResponse' :: Maybe Text
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AsecretArn%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">secretArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-327"></span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_httpStatus"><span class="hs-identifier hs-type">batchExecuteStatementResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-328"></span><span id="batchExecuteStatementResponse_httpStatus"><span class="annot"><span class="annottext">batchExecuteStatementResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchExecuteStatementResponse -&gt; f BatchExecuteStatementResponse
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#batchExecuteStatementResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchExecuteStatementResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchExecuteStatementResponse -&gt; Int)
+-&gt; (BatchExecuteStatementResponse
+    -&gt; Int -&gt; BatchExecuteStatementResponse)
+-&gt; Lens
+     BatchExecuteStatementResponse BatchExecuteStatementResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181949"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchExecuteStatementResponse' :: BatchExecuteStatementResponse -&gt; Int
+</span><a href="#local-6989586621679181949"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181949"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181948"><span class="annot"><span class="annottext">s :: BatchExecuteStatementResponse
+</span><a href="#local-6989586621679181948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181947"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatementResponse
+</span><a href="#local-6989586621679181948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchExecuteStatementResponse' :: Int
+</span><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#%24sel%3AhttpStatus%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RedshiftData.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span></span><span>
+</span><span id="line-331"></span></pre></body></html>

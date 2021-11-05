@@ -1,0 +1,647 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.CreateChannelMembership</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds a user to a channel. The @InvitedBy@ response field is derived from</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the request header. A channel member can:</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- -   List messages</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- -   Send messages</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   Receive messages</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   Edit their own messages</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   Leave the channel</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Privacy settings impact this action as follows:</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   Public Channels: You do not need to be a member to list messages,</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     but you must be a member to send messages.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   Private Channels: You must be a member to list or send messages.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The @x-amz-chime-bearer@ request header is mandatory. Use the</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- @AppInstanceUserArn@ of the user that makes the API call as the value in</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- the header.</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.CreateChannelMembership</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier">CreateChannelMembership</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#newCreateChannelMembership"><span class="hs-identifier">newCreateChannelMembership</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembership_chimeBearer"><span class="hs-identifier">createChannelMembership_chimeBearer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembership_channelArn"><span class="hs-identifier">createChannelMembership_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembership_memberArn"><span class="hs-identifier">createChannelMembership_memberArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembership_type"><span class="hs-identifier">createChannelMembership_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse"><span class="hs-identifier">CreateChannelMembershipResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#newCreateChannelMembershipResponse"><span class="hs-identifier">newCreateChannelMembershipResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembershipResponse_channelArn"><span class="hs-identifier">createChannelMembershipResponse_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembershipResponse_member"><span class="hs-identifier">createChannelMembershipResponse_member</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembershipResponse_httpStatus"><span class="hs-identifier">createChannelMembershipResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | /See:/ 'newCreateChannelMembership' smart constructor.</span><span>
+</span><span id="line-76"></span><span id="local-6989586621679554342"><span id="local-6989586621679554343"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateChannelMembership"><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-var">CreateChannelMembership</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateChannelMembership%27"><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership%27"><span class="hs-identifier hs-var">CreateChannelMembership'</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AchimeBearer%3ACreateChannelMembership%27"><span class="annot"><span class="annottext">CreateChannelMembership -&gt; Maybe Text
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AchimeBearer%3ACreateChannelMembership%27"><span class="hs-identifier hs-var hs-var">chimeBearer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The ARN of the channel to which you\'re adding users.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AchannelArn%3ACreateChannelMembership%27"><span class="annot"><span class="annottext">CreateChannelMembership -&gt; Text
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AchannelArn%3ACreateChannelMembership%27"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The ARN of the member you want to add to the channel.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AmemberArn%3ACreateChannelMembership%27"><span class="annot"><span class="annottext">CreateChannelMembership -&gt; Text
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AmemberArn%3ACreateChannelMembership%27"><span class="hs-identifier hs-var hs-var">memberArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The membership type of a user, @DEFAULT@ or @HIDDEN@. Default members</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- are always returned as part of @ListChannelMemberships@. Hidden members</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- are only returned if the type filter in @ListChannelMemberships@ equals</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- @HIDDEN@. Otherwise hidden members are not returned. This is only</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- supported by moderators.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Atype%27%3ACreateChannelMembership%27"><span class="annot"><span class="annottext">CreateChannelMembership -&gt; ChannelMembershipType
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3Atype%27%3ACreateChannelMembership%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMembershipType.html#ChannelMembershipType"><span class="hs-identifier hs-type">ChannelMembershipType</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679554333"><span id="local-6989586621679554335"><span class="annot"><span class="annottext">CreateChannelMembership -&gt; CreateChannelMembership -&gt; Bool
+(CreateChannelMembership -&gt; CreateChannelMembership -&gt; Bool)
+-&gt; (CreateChannelMembership -&gt; CreateChannelMembership -&gt; Bool)
+-&gt; Eq CreateChannelMembership
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateChannelMembership -&gt; CreateChannelMembership -&gt; Bool
+$c/= :: CreateChannelMembership -&gt; CreateChannelMembership -&gt; Bool
+== :: CreateChannelMembership -&gt; CreateChannelMembership -&gt; Bool
+$c== :: CreateChannelMembership -&gt; CreateChannelMembership -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679554324"><span id="local-6989586621679554326"><span id="local-6989586621679554328"><span id="local-6989586621679554330"><span class="annot"><span class="annottext">ReadPrec [CreateChannelMembership]
+ReadPrec CreateChannelMembership
+Int -&gt; ReadS CreateChannelMembership
+ReadS [CreateChannelMembership]
+(Int -&gt; ReadS CreateChannelMembership)
+-&gt; ReadS [CreateChannelMembership]
+-&gt; ReadPrec CreateChannelMembership
+-&gt; ReadPrec [CreateChannelMembership]
+-&gt; Read CreateChannelMembership
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateChannelMembership]
+$creadListPrec :: ReadPrec [CreateChannelMembership]
+readPrec :: ReadPrec CreateChannelMembership
+$creadPrec :: ReadPrec CreateChannelMembership
+readList :: ReadS [CreateChannelMembership]
+$creadList :: ReadS [CreateChannelMembership]
+readsPrec :: Int -&gt; ReadS CreateChannelMembership
+$creadsPrec :: Int -&gt; ReadS CreateChannelMembership
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679554317"><span id="local-6989586621679554319"><span id="local-6989586621679554321"><span class="annot"><span class="annottext">Int -&gt; CreateChannelMembership -&gt; ShowS
+[CreateChannelMembership] -&gt; ShowS
+CreateChannelMembership -&gt; String
+(Int -&gt; CreateChannelMembership -&gt; ShowS)
+-&gt; (CreateChannelMembership -&gt; String)
+-&gt; ([CreateChannelMembership] -&gt; ShowS)
+-&gt; Show CreateChannelMembership
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateChannelMembership] -&gt; ShowS
+$cshowList :: [CreateChannelMembership] -&gt; ShowS
+show :: CreateChannelMembership -&gt; String
+$cshow :: CreateChannelMembership -&gt; String
+showsPrec :: Int -&gt; CreateChannelMembership -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateChannelMembership -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateChannelMembership -&gt; Rep CreateChannelMembership x)
+-&gt; (forall x.
+    Rep CreateChannelMembership x -&gt; CreateChannelMembership)
+-&gt; Generic CreateChannelMembership
+forall x. Rep CreateChannelMembership x -&gt; CreateChannelMembership
+forall x. CreateChannelMembership -&gt; Rep CreateChannelMembership x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateChannelMembership x -&gt; CreateChannelMembership
+$cfrom :: forall x. CreateChannelMembership -&gt; Rep CreateChannelMembership x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Create a value of 'CreateChannelMembership' with all optional fields omitted.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'chimeBearer', 'createChannelMembership_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'channelArn', 'createChannelMembership_channelArn' - The ARN of the channel to which you\'re adding users.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'memberArn', 'createChannelMembership_memberArn' - The ARN of the member you want to add to the channel.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'type'', 'createChannelMembership_type' - The membership type of a user, @DEFAULT@ or @HIDDEN@. Default members</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- are always returned as part of @ListChannelMemberships@. Hidden members</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- are only returned if the type filter in @ListChannelMemberships@ equals</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- @HIDDEN@. Otherwise hidden members are not returned. This is only</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- supported by moderators.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#newCreateChannelMembership"><span class="hs-identifier hs-type">newCreateChannelMembership</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'channelArn'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'memberArn'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMembershipType.html#ChannelMembershipType"><span class="hs-identifier hs-type">ChannelMembershipType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span><span>
+</span><span id="line-119"></span><span id="newCreateChannelMembership"><span class="annot"><span class="annottext">newCreateChannelMembership :: Text -&gt; Text -&gt; ChannelMembershipType -&gt; CreateChannelMembership
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#newCreateChannelMembership"><span class="hs-identifier hs-var hs-var">newCreateChannelMembership</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679554312"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679554312"><span class="hs-identifier hs-var">pChannelArn_</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679554311"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679554311"><span class="hs-identifier hs-var">pMemberArn_</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679554310"><span class="annot"><span class="annottext">ChannelMembershipType
+</span><a href="#local-6989586621679554310"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">CreateChannelMembership' :: Maybe Text
+-&gt; Text -&gt; Text -&gt; ChannelMembershipType -&gt; CreateChannelMembership
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership%27"><span class="hs-identifier hs-type">CreateChannelMembership'</span></a></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:chimeBearer:CreateChannelMembership' :: Maybe Text
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AchimeBearer%3ACreateChannelMembership%27"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:channelArn:CreateChannelMembership' :: Text
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AchannelArn%3ACreateChannelMembership%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679554312"><span class="hs-identifier hs-var">pChannelArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:memberArn:CreateChannelMembership' :: Text
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AmemberArn%3ACreateChannelMembership%27"><span class="hs-identifier hs-var">memberArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679554311"><span class="hs-identifier hs-var">pMemberArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':CreateChannelMembership' :: ChannelMembershipType
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3Atype%27%3ACreateChannelMembership%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChannelMembershipType
+</span><a href="#local-6989586621679554310"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembership_chimeBearer"><span class="hs-identifier hs-type">createChannelMembership_chimeBearer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="createChannelMembership_chimeBearer"><span class="annot"><span class="annottext">createChannelMembership_chimeBearer :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateChannelMembership -&gt; f CreateChannelMembership
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembership_chimeBearer"><span class="hs-identifier hs-var hs-var">createChannelMembership_chimeBearer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateChannelMembership -&gt; Maybe Text)
+-&gt; (CreateChannelMembership
+    -&gt; Maybe Text -&gt; CreateChannelMembership)
+-&gt; Lens
+     CreateChannelMembership
+     CreateChannelMembership
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership%27"><span class="hs-identifier hs-type">CreateChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554307"><span class="annot"><span class="annottext">Maybe Text
+chimeBearer :: Maybe Text
+$sel:chimeBearer:CreateChannelMembership' :: CreateChannelMembership -&gt; Maybe Text
+</span><a href="#local-6989586621679554307"><span class="hs-identifier hs-var hs-var">chimeBearer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679554307"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554306"><span class="annot"><span class="annottext">s :: CreateChannelMembership
+</span><a href="#local-6989586621679554306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership%27"><span class="hs-identifier hs-type">CreateChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554305"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679554305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateChannelMembership
+</span><a href="#local-6989586621679554306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:chimeBearer:CreateChannelMembership' :: Maybe Text
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AchimeBearer%3ACreateChannelMembership%27"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679554305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The ARN of the channel to which you\'re adding users.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembership_channelArn"><span class="hs-identifier hs-type">createChannelMembership_channelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="createChannelMembership_channelArn"><span class="annot"><span class="annottext">createChannelMembership_channelArn :: (Text -&gt; f Text)
+-&gt; CreateChannelMembership -&gt; f CreateChannelMembership
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembership_channelArn"><span class="hs-identifier hs-var hs-var">createChannelMembership_channelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateChannelMembership -&gt; Text)
+-&gt; (CreateChannelMembership -&gt; Text -&gt; CreateChannelMembership)
+-&gt; Lens CreateChannelMembership CreateChannelMembership Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership%27"><span class="hs-identifier hs-type">CreateChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554304"><span class="annot"><span class="annottext">Text
+channelArn :: Text
+$sel:channelArn:CreateChannelMembership' :: CreateChannelMembership -&gt; Text
+</span><a href="#local-6989586621679554304"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679554304"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554303"><span class="annot"><span class="annottext">s :: CreateChannelMembership
+</span><a href="#local-6989586621679554303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership%27"><span class="hs-identifier hs-type">CreateChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554302"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679554302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateChannelMembership
+</span><a href="#local-6989586621679554303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelArn:CreateChannelMembership' :: Text
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AchannelArn%3ACreateChannelMembership%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679554302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The ARN of the member you want to add to the channel.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembership_memberArn"><span class="hs-identifier hs-type">createChannelMembership_memberArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-141"></span><span id="createChannelMembership_memberArn"><span class="annot"><span class="annottext">createChannelMembership_memberArn :: (Text -&gt; f Text)
+-&gt; CreateChannelMembership -&gt; f CreateChannelMembership
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembership_memberArn"><span class="hs-identifier hs-var hs-var">createChannelMembership_memberArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateChannelMembership -&gt; Text)
+-&gt; (CreateChannelMembership -&gt; Text -&gt; CreateChannelMembership)
+-&gt; Lens CreateChannelMembership CreateChannelMembership Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership%27"><span class="hs-identifier hs-type">CreateChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554301"><span class="annot"><span class="annottext">Text
+memberArn :: Text
+$sel:memberArn:CreateChannelMembership' :: CreateChannelMembership -&gt; Text
+</span><a href="#local-6989586621679554301"><span class="hs-identifier hs-var hs-var">memberArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679554301"><span class="hs-identifier hs-var">memberArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554300"><span class="annot"><span class="annottext">s :: CreateChannelMembership
+</span><a href="#local-6989586621679554300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership%27"><span class="hs-identifier hs-type">CreateChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554299"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679554299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateChannelMembership
+</span><a href="#local-6989586621679554300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberArn:CreateChannelMembership' :: Text
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AmemberArn%3ACreateChannelMembership%27"><span class="hs-identifier hs-var">memberArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679554299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The membership type of a user, @DEFAULT@ or @HIDDEN@. Default members</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- are always returned as part of @ListChannelMemberships@. Hidden members</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- are only returned if the type filter in @ListChannelMemberships@ equals</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- @HIDDEN@. Otherwise hidden members are not returned. This is only</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- supported by moderators.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembership_type"><span class="hs-identifier hs-type">createChannelMembership_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMembershipType.html#ChannelMembershipType"><span class="hs-identifier hs-type">ChannelMembershipType</span></a></span><span>
+</span><span id="line-149"></span><span id="createChannelMembership_type"><span class="annot"><span class="annottext">createChannelMembership_type :: (ChannelMembershipType -&gt; f ChannelMembershipType)
+-&gt; CreateChannelMembership -&gt; f CreateChannelMembership
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembership_type"><span class="hs-identifier hs-var hs-var">createChannelMembership_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateChannelMembership -&gt; ChannelMembershipType)
+-&gt; (CreateChannelMembership
+    -&gt; ChannelMembershipType -&gt; CreateChannelMembership)
+-&gt; Lens
+     CreateChannelMembership
+     CreateChannelMembership
+     ChannelMembershipType
+     ChannelMembershipType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership%27"><span class="hs-identifier hs-type">CreateChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554298"><span class="annot"><span class="annottext">ChannelMembershipType
+type' :: ChannelMembershipType
+$sel:type':CreateChannelMembership' :: CreateChannelMembership -&gt; ChannelMembershipType
+</span><a href="#local-6989586621679554298"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelMembershipType
+</span><a href="#local-6989586621679554298"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554297"><span class="annot"><span class="annottext">s :: CreateChannelMembership
+</span><a href="#local-6989586621679554297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership%27"><span class="hs-identifier hs-type">CreateChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554296"><span class="annot"><span class="annottext">ChannelMembershipType
+</span><a href="#local-6989586621679554296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateChannelMembership
+</span><a href="#local-6989586621679554297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CreateChannelMembership' :: ChannelMembershipType
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3Atype%27%3ACreateChannelMembership%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChannelMembershipType
+</span><a href="#local-6989586621679554296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-153"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse"><span class="hs-identifier hs-type">CreateChannelMembershipResponse</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679554292"><span class="annot"><span class="annottext">request :: CreateChannelMembership -&gt; Request CreateChannelMembership
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateChannelMembership -&gt; Request CreateChannelMembership
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679554288"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateChannelMembership
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateChannelMembership)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateChannelMembership))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateChannelMembership
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateChannelMembership)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679554285"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679554285"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679554284"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679554284"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679554283"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679554283"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Identity -&gt; Int -&gt; CreateChannelMembershipResponse
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse%27"><span class="hs-identifier hs-var">CreateChannelMembershipResponse'</span></a></span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Identity -&gt; Int -&gt; CreateChannelMembershipResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Identity -&gt; Int -&gt; CreateChannelMembershipResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679554283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Identity -&gt; Int -&gt; CreateChannelMembershipResponse)
+-&gt; Either String (Maybe Identity)
+-&gt; Either String (Int -&gt; CreateChannelMembershipResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679554283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Identity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateChannelMembershipResponse)
+-&gt; Either String Int
+-&gt; Either String CreateChannelMembershipResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679554285"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679554275"><span id="local-6989586621679554277"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span></span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679554272"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679554268"><span class="annot"><span class="annottext">toHeaders :: CreateChannelMembership -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership%27"><span class="hs-identifier hs-type">CreateChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554263"><span id="local-6989586621679554264"><span id="local-6989586621679554265"><span id="local-6989586621679554266"><span class="annot"><span class="annottext">Maybe Text
+Text
+ChannelMembershipType
+type' :: ChannelMembershipType
+memberArn :: Text
+channelArn :: Text
+chimeBearer :: Maybe Text
+$sel:type':CreateChannelMembership' :: CreateChannelMembership -&gt; ChannelMembershipType
+$sel:memberArn:CreateChannelMembership' :: CreateChannelMembership -&gt; Text
+$sel:channelArn:CreateChannelMembership' :: CreateChannelMembership -&gt; Text
+$sel:chimeBearer:CreateChannelMembership' :: CreateChannelMembership -&gt; Maybe Text
+</span><a href="#local-6989586621679554263"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-chime-bearer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679554266"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679554255"><span id="local-6989586621679554257"><span id="local-6989586621679554259"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679554253"><span class="annot"><span class="annottext">toJSON :: CreateChannelMembership -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership%27"><span class="hs-identifier hs-type">CreateChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554248"><span id="local-6989586621679554249"><span id="local-6989586621679554250"><span id="local-6989586621679554251"><span class="annot"><span class="annottext">Maybe Text
+Text
+ChannelMembershipType
+type' :: ChannelMembershipType
+memberArn :: Text
+channelArn :: Text
+chimeBearer :: Maybe Text
+$sel:type':CreateChannelMembership' :: CreateChannelMembership -&gt; ChannelMembershipType
+$sel:memberArn:CreateChannelMembership' :: CreateChannelMembership -&gt; Text
+$sel:channelArn:CreateChannelMembership' :: CreateChannelMembership -&gt; Text
+$sel:chimeBearer:CreateChannelMembership' :: CreateChannelMembership -&gt; Maybe Text
+</span><a href="#local-6989586621679554248"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MemberArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679554249"><span class="hs-identifier hs-var">memberArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ChannelMembershipType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ChannelMembershipType
+</span><a href="#local-6989586621679554248"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679554242"><span class="annot"><span class="annottext">toPath :: CreateChannelMembership -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership%27"><span class="hs-identifier hs-type">CreateChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554237"><span id="local-6989586621679554238"><span id="local-6989586621679554239"><span id="local-6989586621679554240"><span class="annot"><span class="annottext">Maybe Text
+Text
+ChannelMembershipType
+type' :: ChannelMembershipType
+memberArn :: Text
+channelArn :: Text
+chimeBearer :: Maybe Text
+$sel:type':CreateChannelMembership' :: CreateChannelMembership -&gt; ChannelMembershipType
+$sel:memberArn:CreateChannelMembership' :: CreateChannelMembership -&gt; Text
+$sel:channelArn:CreateChannelMembership' :: CreateChannelMembership -&gt; Text
+$sel:chimeBearer:CreateChannelMembership' :: CreateChannelMembership -&gt; Maybe Text
+</span><a href="#local-6989586621679554237"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/channels/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679554239"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/memberships&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembership"><span class="hs-identifier hs-type">CreateChannelMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679554233"><span class="annot"><span class="annottext">toQuery :: CreateChannelMembership -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateChannelMembership -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newCreateChannelMembershipResponse' smart constructor.</span><span>
+</span><span id="line-192"></span><span id="local-6989586621679554229"><span id="local-6989586621679554230"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateChannelMembershipResponse"><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse"><span class="hs-identifier hs-var">CreateChannelMembershipResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateChannelMembershipResponse%27"><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse%27"><span class="hs-identifier hs-var">CreateChannelMembershipResponse'</span></a></span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AchannelArn%3ACreateChannelMembershipResponse%27"><span class="annot"><span class="annottext">CreateChannelMembershipResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AchannelArn%3ACreateChannelMembershipResponse%27"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The ARN and metadata of the member being added.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3Amember%3ACreateChannelMembershipResponse%27"><span class="annot"><span class="annottext">CreateChannelMembershipResponse -&gt; Maybe Identity
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3Amember%3ACreateChannelMembershipResponse%27"><span class="hs-identifier hs-var hs-var">member</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateChannelMembershipResponse%27"><span class="annot"><span class="annottext">CreateChannelMembershipResponse -&gt; Int
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AhttpStatus%3ACreateChannelMembershipResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679554222"><span id="local-6989586621679554224"><span class="annot"><span class="annottext">CreateChannelMembershipResponse
+-&gt; CreateChannelMembershipResponse -&gt; Bool
+(CreateChannelMembershipResponse
+ -&gt; CreateChannelMembershipResponse -&gt; Bool)
+-&gt; (CreateChannelMembershipResponse
+    -&gt; CreateChannelMembershipResponse -&gt; Bool)
+-&gt; Eq CreateChannelMembershipResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateChannelMembershipResponse
+-&gt; CreateChannelMembershipResponse -&gt; Bool
+$c/= :: CreateChannelMembershipResponse
+-&gt; CreateChannelMembershipResponse -&gt; Bool
+== :: CreateChannelMembershipResponse
+-&gt; CreateChannelMembershipResponse -&gt; Bool
+$c== :: CreateChannelMembershipResponse
+-&gt; CreateChannelMembershipResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679554216"><span id="local-6989586621679554218"><span id="local-6989586621679554220"><span class="annot"><span class="annottext">Int -&gt; CreateChannelMembershipResponse -&gt; ShowS
+[CreateChannelMembershipResponse] -&gt; ShowS
+CreateChannelMembershipResponse -&gt; String
+(Int -&gt; CreateChannelMembershipResponse -&gt; ShowS)
+-&gt; (CreateChannelMembershipResponse -&gt; String)
+-&gt; ([CreateChannelMembershipResponse] -&gt; ShowS)
+-&gt; Show CreateChannelMembershipResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateChannelMembershipResponse] -&gt; ShowS
+$cshowList :: [CreateChannelMembershipResponse] -&gt; ShowS
+show :: CreateChannelMembershipResponse -&gt; String
+$cshow :: CreateChannelMembershipResponse -&gt; String
+showsPrec :: Int -&gt; CreateChannelMembershipResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateChannelMembershipResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateChannelMembershipResponse
+ -&gt; Rep CreateChannelMembershipResponse x)
+-&gt; (forall x.
+    Rep CreateChannelMembershipResponse x
+    -&gt; CreateChannelMembershipResponse)
+-&gt; Generic CreateChannelMembershipResponse
+forall x.
+Rep CreateChannelMembershipResponse x
+-&gt; CreateChannelMembershipResponse
+forall x.
+CreateChannelMembershipResponse
+-&gt; Rep CreateChannelMembershipResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateChannelMembershipResponse x
+-&gt; CreateChannelMembershipResponse
+$cfrom :: forall x.
+CreateChannelMembershipResponse
+-&gt; Rep CreateChannelMembershipResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Create a value of 'CreateChannelMembershipResponse' with all optional fields omitted.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'channelArn', 'createChannelMembershipResponse_channelArn' - The ARN of the channel.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'member', 'createChannelMembershipResponse_member' - The ARN and metadata of the member being added.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'httpStatus', 'createChannelMembershipResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#newCreateChannelMembershipResponse"><span class="hs-identifier hs-type">newCreateChannelMembershipResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse"><span class="hs-identifier hs-type">CreateChannelMembershipResponse</span></a></span><span>
+</span><span id="line-219"></span><span id="newCreateChannelMembershipResponse"><span class="annot"><span class="annottext">newCreateChannelMembershipResponse :: Int -&gt; CreateChannelMembershipResponse
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#newCreateChannelMembershipResponse"><span class="hs-identifier hs-var hs-var">newCreateChannelMembershipResponse</span></a></span></span><span> </span><span id="local-6989586621679554213"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679554213"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><span class="annottext">CreateChannelMembershipResponse' :: Maybe Text
+-&gt; Maybe Identity -&gt; Int -&gt; CreateChannelMembershipResponse
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse%27"><span class="hs-identifier hs-type">CreateChannelMembershipResponse'</span></a></span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channelArn:CreateChannelMembershipResponse' :: Maybe Text
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AchannelArn%3ACreateChannelMembershipResponse%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:member:CreateChannelMembershipResponse' :: Maybe Identity
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3Amember%3ACreateChannelMembershipResponse%27"><span class="hs-identifier hs-var">member</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateChannelMembershipResponse' :: Int
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AhttpStatus%3ACreateChannelMembershipResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679554213"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembershipResponse_channelArn"><span class="hs-identifier hs-type">createChannelMembershipResponse_channelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse"><span class="hs-identifier hs-type">CreateChannelMembershipResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="createChannelMembershipResponse_channelArn"><span class="annot"><span class="annottext">createChannelMembershipResponse_channelArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateChannelMembershipResponse
+-&gt; f CreateChannelMembershipResponse
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembershipResponse_channelArn"><span class="hs-identifier hs-var hs-var">createChannelMembershipResponse_channelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateChannelMembershipResponse -&gt; Maybe Text)
+-&gt; (CreateChannelMembershipResponse
+    -&gt; Maybe Text -&gt; CreateChannelMembershipResponse)
+-&gt; Lens
+     CreateChannelMembershipResponse
+     CreateChannelMembershipResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse%27"><span class="hs-identifier hs-type">CreateChannelMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554212"><span class="annot"><span class="annottext">Maybe Text
+channelArn :: Maybe Text
+$sel:channelArn:CreateChannelMembershipResponse' :: CreateChannelMembershipResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679554212"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679554212"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554211"><span class="annot"><span class="annottext">s :: CreateChannelMembershipResponse
+</span><a href="#local-6989586621679554211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse%27"><span class="hs-identifier hs-type">CreateChannelMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554210"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679554210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateChannelMembershipResponse
+</span><a href="#local-6989586621679554211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelArn:CreateChannelMembershipResponse' :: Maybe Text
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AchannelArn%3ACreateChannelMembershipResponse%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679554210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse"><span class="hs-identifier hs-type">CreateChannelMembershipResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The ARN and metadata of the member being added.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembershipResponse_member"><span class="hs-identifier hs-type">createChannelMembershipResponse_member</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse"><span class="hs-identifier hs-type">CreateChannelMembershipResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="createChannelMembershipResponse_member"><span class="annot"><span class="annottext">createChannelMembershipResponse_member :: (Maybe Identity -&gt; f (Maybe Identity))
+-&gt; CreateChannelMembershipResponse
+-&gt; f CreateChannelMembershipResponse
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembershipResponse_member"><span class="hs-identifier hs-var hs-var">createChannelMembershipResponse_member</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateChannelMembershipResponse -&gt; Maybe Identity)
+-&gt; (CreateChannelMembershipResponse
+    -&gt; Maybe Identity -&gt; CreateChannelMembershipResponse)
+-&gt; Lens
+     CreateChannelMembershipResponse
+     CreateChannelMembershipResponse
+     (Maybe Identity)
+     (Maybe Identity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse%27"><span class="hs-identifier hs-type">CreateChannelMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554209"><span class="annot"><span class="annottext">Maybe Identity
+member :: Maybe Identity
+$sel:member:CreateChannelMembershipResponse' :: CreateChannelMembershipResponse -&gt; Maybe Identity
+</span><a href="#local-6989586621679554209"><span class="hs-identifier hs-var hs-var">member</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679554209"><span class="hs-identifier hs-var">member</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554208"><span class="annot"><span class="annottext">s :: CreateChannelMembershipResponse
+</span><a href="#local-6989586621679554208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse%27"><span class="hs-identifier hs-type">CreateChannelMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554207"><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679554207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateChannelMembershipResponse
+</span><a href="#local-6989586621679554208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:member:CreateChannelMembershipResponse' :: Maybe Identity
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3Amember%3ACreateChannelMembershipResponse%27"><span class="hs-identifier hs-var">member</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679554207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse"><span class="hs-identifier hs-type">CreateChannelMembershipResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembershipResponse_httpStatus"><span class="hs-identifier hs-type">createChannelMembershipResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse"><span class="hs-identifier hs-type">CreateChannelMembershipResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-237"></span><span id="createChannelMembershipResponse_httpStatus"><span class="annot"><span class="annottext">createChannelMembershipResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateChannelMembershipResponse
+-&gt; f CreateChannelMembershipResponse
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#createChannelMembershipResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createChannelMembershipResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateChannelMembershipResponse -&gt; Int)
+-&gt; (CreateChannelMembershipResponse
+    -&gt; Int -&gt; CreateChannelMembershipResponse)
+-&gt; Lens
+     CreateChannelMembershipResponse
+     CreateChannelMembershipResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse%27"><span class="hs-identifier hs-type">CreateChannelMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554206"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateChannelMembershipResponse' :: CreateChannelMembershipResponse -&gt; Int
+</span><a href="#local-6989586621679554206"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679554206"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554205"><span class="annot"><span class="annottext">s :: CreateChannelMembershipResponse
+</span><a href="#local-6989586621679554205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse%27"><span class="hs-identifier hs-type">CreateChannelMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554204"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679554204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateChannelMembershipResponse
+</span><a href="#local-6989586621679554205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateChannelMembershipResponse' :: Int
+</span><a href="Network.AWS.Chime.CreateChannelMembership.html#%24sel%3AhttpStatus%3ACreateChannelMembershipResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679554204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse"><span class="hs-identifier hs-type">CreateChannelMembershipResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679554202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.CreateChannelMembership.html#CreateChannelMembershipResponse"><span class="hs-identifier hs-type">CreateChannelMembershipResponse</span></a></span></span><span>
+</span><span id="line-242"></span></pre></body></html>

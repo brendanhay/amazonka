@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ApplicationInsights.Types.ApplicationComponent</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApplicationInsights.Types.ApplicationComponent</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.OsType.html"><span class="hs-identifier">Network.AWS.ApplicationInsights.Types.OsType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.Tier.html"><span class="hs-identifier">Network.AWS.ApplicationInsights.Types.Tier</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes a standalone resource or similarly grouped resources that the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- application is made up of.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newApplicationComponent' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679217734"><span id="local-6989586621679217735"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationComponent"><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-var">ApplicationComponent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationComponent%27"><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-var">ApplicationComponent'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The operating system of the component.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AosType%3AApplicationComponent%27"><span class="annot"><span class="annottext">ApplicationComponent -&gt; Maybe OsType
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AosType%3AApplicationComponent%27"><span class="hs-identifier hs-var hs-var">osType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.OsType.html#OsType"><span class="hs-identifier hs-type">OsType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The resource type. Supported resource types include EC2 instances, Auto</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Scaling group, Classic ELB, Application ELB, and SQS Queue.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AresourceType%3AApplicationComponent%27"><span class="annot"><span class="annottext">ApplicationComponent -&gt; Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AresourceType%3AApplicationComponent%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Workloads detected in the application component.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdetectedWorkload%3AApplicationComponent%27"><span class="annot"><span class="annottext">ApplicationComponent -&gt; Maybe (HashMap Tier (HashMap Text Text))
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AdetectedWorkload%3AApplicationComponent%27"><span class="hs-identifier hs-var hs-var">detectedWorkload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.Tier.html#Tier"><span class="hs-identifier hs-type">Tier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Indicates whether the application component is monitored.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Amonitor%3AApplicationComponent%27"><span class="annot"><span class="annottext">ApplicationComponent -&gt; Maybe Bool
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3Amonitor%3AApplicationComponent%27"><span class="hs-identifier hs-var hs-var">monitor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The stack tier of the application component.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atier%3AApplicationComponent%27"><span class="annot"><span class="annottext">ApplicationComponent -&gt; Maybe Tier
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3Atier%3AApplicationComponent%27"><span class="hs-identifier hs-var hs-var">tier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.Tier.html#Tier"><span class="hs-identifier hs-type">Tier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the component.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcomponentName%3AApplicationComponent%27"><span class="annot"><span class="annottext">ApplicationComponent -&gt; Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AcomponentName%3AApplicationComponent%27"><span class="hs-identifier hs-var hs-var">componentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | If logging is supported for the resource type, indicates whether the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- component has configured logs to be monitored.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcomponentRemarks%3AApplicationComponent%27"><span class="annot"><span class="annottext">ApplicationComponent -&gt; Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AcomponentRemarks%3AApplicationComponent%27"><span class="hs-identifier hs-var hs-var">componentRemarks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217722"><span id="local-6989586621679217724"><span class="annot"><span class="annottext">ApplicationComponent -&gt; ApplicationComponent -&gt; Bool
+(ApplicationComponent -&gt; ApplicationComponent -&gt; Bool)
+-&gt; (ApplicationComponent -&gt; ApplicationComponent -&gt; Bool)
+-&gt; Eq ApplicationComponent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplicationComponent -&gt; ApplicationComponent -&gt; Bool
+$c/= :: ApplicationComponent -&gt; ApplicationComponent -&gt; Bool
+== :: ApplicationComponent -&gt; ApplicationComponent -&gt; Bool
+$c== :: ApplicationComponent -&gt; ApplicationComponent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217713"><span id="local-6989586621679217715"><span id="local-6989586621679217717"><span id="local-6989586621679217719"><span class="annot"><span class="annottext">ReadPrec [ApplicationComponent]
+ReadPrec ApplicationComponent
+Int -&gt; ReadS ApplicationComponent
+ReadS [ApplicationComponent]
+(Int -&gt; ReadS ApplicationComponent)
+-&gt; ReadS [ApplicationComponent]
+-&gt; ReadPrec ApplicationComponent
+-&gt; ReadPrec [ApplicationComponent]
+-&gt; Read ApplicationComponent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplicationComponent]
+$creadListPrec :: ReadPrec [ApplicationComponent]
+readPrec :: ReadPrec ApplicationComponent
+$creadPrec :: ReadPrec ApplicationComponent
+readList :: ReadS [ApplicationComponent]
+$creadList :: ReadS [ApplicationComponent]
+readsPrec :: Int -&gt; ReadS ApplicationComponent
+$creadsPrec :: Int -&gt; ReadS ApplicationComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217706"><span id="local-6989586621679217708"><span id="local-6989586621679217710"><span class="annot"><span class="annottext">Int -&gt; ApplicationComponent -&gt; ShowS
+[ApplicationComponent] -&gt; ShowS
+ApplicationComponent -&gt; String
+(Int -&gt; ApplicationComponent -&gt; ShowS)
+-&gt; (ApplicationComponent -&gt; String)
+-&gt; ([ApplicationComponent] -&gt; ShowS)
+-&gt; Show ApplicationComponent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplicationComponent] -&gt; ShowS
+$cshowList :: [ApplicationComponent] -&gt; ShowS
+show :: ApplicationComponent -&gt; String
+$cshow :: ApplicationComponent -&gt; String
+showsPrec :: Int -&gt; ApplicationComponent -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplicationComponent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ApplicationComponent -&gt; Rep ApplicationComponent x)
+-&gt; (forall x. Rep ApplicationComponent x -&gt; ApplicationComponent)
+-&gt; Generic ApplicationComponent
+forall x. Rep ApplicationComponent x -&gt; ApplicationComponent
+forall x. ApplicationComponent -&gt; Rep ApplicationComponent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ApplicationComponent x -&gt; ApplicationComponent
+$cfrom :: forall x. ApplicationComponent -&gt; Rep ApplicationComponent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'ApplicationComponent' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'osType', 'applicationComponent_osType' - The operating system of the component.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'resourceType', 'applicationComponent_resourceType' - The resource type. Supported resource types include EC2 instances, Auto</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Scaling group, Classic ELB, Application ELB, and SQS Queue.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'detectedWorkload', 'applicationComponent_detectedWorkload' - Workloads detected in the application component.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'monitor', 'applicationComponent_monitor' - Indicates whether the application component is monitored.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'tier', 'applicationComponent_tier' - The stack tier of the application component.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'componentName', 'applicationComponent_componentName' - The name of the component.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'componentRemarks', 'applicationComponent_componentRemarks' - If logging is supported for the resource type, indicates whether the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- component has configured logs to be monitored.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#newApplicationComponent"><span class="hs-identifier hs-type">newApplicationComponent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span>
+</span><span id="line-77"></span><span id="newApplicationComponent"><span class="annot"><span class="annottext">newApplicationComponent :: ApplicationComponent
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#newApplicationComponent"><span class="hs-identifier hs-var hs-var">newApplicationComponent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">ApplicationComponent' :: Maybe OsType
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Tier (HashMap Text Text))
+-&gt; Maybe Bool
+-&gt; Maybe Tier
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ApplicationComponent
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:osType:ApplicationComponent' :: Maybe OsType
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AosType%3AApplicationComponent%27"><span class="hs-identifier hs-var">osType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OsType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:ApplicationComponent' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AresourceType%3AApplicationComponent%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:detectedWorkload:ApplicationComponent' :: Maybe (HashMap Tier (HashMap Text Text))
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AdetectedWorkload%3AApplicationComponent%27"><span class="hs-identifier hs-var">detectedWorkload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Tier (HashMap Text Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:monitor:ApplicationComponent' :: Maybe Bool
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3Amonitor%3AApplicationComponent%27"><span class="hs-identifier hs-var">monitor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:tier:ApplicationComponent' :: Maybe Tier
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3Atier%3AApplicationComponent%27"><span class="hs-identifier hs-var">tier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tier
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:componentName:ApplicationComponent' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AcomponentName%3AApplicationComponent%27"><span class="hs-identifier hs-var">componentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:componentRemarks:ApplicationComponent' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AcomponentRemarks%3AApplicationComponent%27"><span class="hs-identifier hs-var">componentRemarks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The operating system of the component.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#applicationComponent_osType"><span class="hs-identifier hs-type">applicationComponent_osType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.OsType.html#OsType"><span class="hs-identifier hs-type">OsType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="applicationComponent_osType"><span class="annot"><span class="annottext">applicationComponent_osType :: (Maybe OsType -&gt; f (Maybe OsType))
+-&gt; ApplicationComponent -&gt; f ApplicationComponent
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#applicationComponent_osType"><span class="hs-identifier hs-var hs-var">applicationComponent_osType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationComponent -&gt; Maybe OsType)
+-&gt; (ApplicationComponent -&gt; Maybe OsType -&gt; ApplicationComponent)
+-&gt; Lens
+     ApplicationComponent
+     ApplicationComponent
+     (Maybe OsType)
+     (Maybe OsType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217697"><span class="annot"><span class="annottext">Maybe OsType
+osType :: Maybe OsType
+$sel:osType:ApplicationComponent' :: ApplicationComponent -&gt; Maybe OsType
+</span><a href="#local-6989586621679217697"><span class="hs-identifier hs-var hs-var">osType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OsType
+</span><a href="#local-6989586621679217697"><span class="hs-identifier hs-var">osType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217696"><span class="annot"><span class="annottext">s :: ApplicationComponent
+</span><a href="#local-6989586621679217696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217695"><span class="annot"><span class="annottext">Maybe OsType
+</span><a href="#local-6989586621679217695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationComponent
+</span><a href="#local-6989586621679217696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:osType:ApplicationComponent' :: Maybe OsType
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AosType%3AApplicationComponent%27"><span class="hs-identifier hs-var">osType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OsType
+</span><a href="#local-6989586621679217695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The resource type. Supported resource types include EC2 instances, Auto</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Scaling group, Classic ELB, Application ELB, and SQS Queue.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#applicationComponent_resourceType"><span class="hs-identifier hs-type">applicationComponent_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="applicationComponent_resourceType"><span class="annot"><span class="annottext">applicationComponent_resourceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationComponent -&gt; f ApplicationComponent
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#applicationComponent_resourceType"><span class="hs-identifier hs-var hs-var">applicationComponent_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationComponent -&gt; Maybe Text)
+-&gt; (ApplicationComponent -&gt; Maybe Text -&gt; ApplicationComponent)
+-&gt; Lens
+     ApplicationComponent ApplicationComponent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217693"><span class="annot"><span class="annottext">Maybe Text
+resourceType :: Maybe Text
+$sel:resourceType:ApplicationComponent' :: ApplicationComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679217693"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217693"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217692"><span class="annot"><span class="annottext">s :: ApplicationComponent
+</span><a href="#local-6989586621679217692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217691"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationComponent
+</span><a href="#local-6989586621679217692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ApplicationComponent' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AresourceType%3AApplicationComponent%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Workloads detected in the application component.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#applicationComponent_detectedWorkload"><span class="hs-identifier hs-type">applicationComponent_detectedWorkload</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.Tier.html#Tier"><span class="hs-identifier hs-type">Tier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="applicationComponent_detectedWorkload"><span class="annot"><span class="annottext">applicationComponent_detectedWorkload :: (Maybe (HashMap Tier (HashMap Text Text))
+ -&gt; f (Maybe (HashMap Tier (HashMap Text Text))))
+-&gt; ApplicationComponent -&gt; f ApplicationComponent
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#applicationComponent_detectedWorkload"><span class="hs-identifier hs-var hs-var">applicationComponent_detectedWorkload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationComponent -&gt; Maybe (HashMap Tier (HashMap Text Text)))
+-&gt; (ApplicationComponent
+    -&gt; Maybe (HashMap Tier (HashMap Text Text))
+    -&gt; ApplicationComponent)
+-&gt; Lens
+     ApplicationComponent
+     ApplicationComponent
+     (Maybe (HashMap Tier (HashMap Text Text)))
+     (Maybe (HashMap Tier (HashMap Text Text)))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217689"><span class="annot"><span class="annottext">Maybe (HashMap Tier (HashMap Text Text))
+detectedWorkload :: Maybe (HashMap Tier (HashMap Text Text))
+$sel:detectedWorkload:ApplicationComponent' :: ApplicationComponent -&gt; Maybe (HashMap Tier (HashMap Text Text))
+</span><a href="#local-6989586621679217689"><span class="hs-identifier hs-var hs-var">detectedWorkload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Tier (HashMap Text Text))
+</span><a href="#local-6989586621679217689"><span class="hs-identifier hs-var">detectedWorkload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217688"><span class="annot"><span class="annottext">s :: ApplicationComponent
+</span><a href="#local-6989586621679217688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217687"><span class="annot"><span class="annottext">Maybe (HashMap Tier (HashMap Text Text))
+</span><a href="#local-6989586621679217687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationComponent
+</span><a href="#local-6989586621679217688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectedWorkload:ApplicationComponent' :: Maybe (HashMap Tier (HashMap Text Text))
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AdetectedWorkload%3AApplicationComponent%27"><span class="hs-identifier hs-var">detectedWorkload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Tier (HashMap Text Text))
+</span><a href="#local-6989586621679217687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Tier (HashMap Text Text))
+  -&gt; f (Maybe (HashMap Tier (HashMap Text Text))))
+ -&gt; ApplicationComponent -&gt; f ApplicationComponent)
+-&gt; ((Maybe (HashMap Tier (HashMap Text Text))
+     -&gt; f (Maybe (HashMap Tier (HashMap Text Text))))
+    -&gt; Maybe (HashMap Tier (HashMap Text Text))
+    -&gt; f (Maybe (HashMap Tier (HashMap Text Text))))
+-&gt; (Maybe (HashMap Tier (HashMap Text Text))
+    -&gt; f (Maybe (HashMap Tier (HashMap Text Text))))
+-&gt; ApplicationComponent
+-&gt; f ApplicationComponent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Tier (HashMap Text Text))
+  (HashMap Tier (HashMap Text Text))
+  (HashMap Tier (HashMap Text Text))
+  (HashMap Tier (HashMap Text Text))
+-&gt; Iso
+     (Maybe (HashMap Tier (HashMap Text Text)))
+     (Maybe (HashMap Tier (HashMap Text Text)))
+     (Maybe (HashMap Tier (HashMap Text Text)))
+     (Maybe (HashMap Tier (HashMap Text Text)))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Tier (HashMap Text Text))
+  (HashMap Tier (HashMap Text Text))
+  (HashMap Tier (HashMap Text Text))
+  (HashMap Tier (HashMap Text Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Indicates whether the application component is monitored.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#applicationComponent_monitor"><span class="hs-identifier hs-type">applicationComponent_monitor</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="applicationComponent_monitor"><span class="annot"><span class="annottext">applicationComponent_monitor :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ApplicationComponent -&gt; f ApplicationComponent
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#applicationComponent_monitor"><span class="hs-identifier hs-var hs-var">applicationComponent_monitor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationComponent -&gt; Maybe Bool)
+-&gt; (ApplicationComponent -&gt; Maybe Bool -&gt; ApplicationComponent)
+-&gt; Lens
+     ApplicationComponent ApplicationComponent (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217682"><span class="annot"><span class="annottext">Maybe Bool
+monitor :: Maybe Bool
+$sel:monitor:ApplicationComponent' :: ApplicationComponent -&gt; Maybe Bool
+</span><a href="#local-6989586621679217682"><span class="hs-identifier hs-var hs-var">monitor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679217682"><span class="hs-identifier hs-var">monitor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217681"><span class="annot"><span class="annottext">s :: ApplicationComponent
+</span><a href="#local-6989586621679217681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217680"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679217680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationComponent
+</span><a href="#local-6989586621679217681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitor:ApplicationComponent' :: Maybe Bool
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3Amonitor%3AApplicationComponent%27"><span class="hs-identifier hs-var">monitor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679217680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The stack tier of the application component.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#applicationComponent_tier"><span class="hs-identifier hs-type">applicationComponent_tier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.Tier.html#Tier"><span class="hs-identifier hs-type">Tier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="applicationComponent_tier"><span class="annot"><span class="annottext">applicationComponent_tier :: (Maybe Tier -&gt; f (Maybe Tier))
+-&gt; ApplicationComponent -&gt; f ApplicationComponent
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#applicationComponent_tier"><span class="hs-identifier hs-var hs-var">applicationComponent_tier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationComponent -&gt; Maybe Tier)
+-&gt; (ApplicationComponent -&gt; Maybe Tier -&gt; ApplicationComponent)
+-&gt; Lens
+     ApplicationComponent ApplicationComponent (Maybe Tier) (Maybe Tier)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217678"><span class="annot"><span class="annottext">Maybe Tier
+tier :: Maybe Tier
+$sel:tier:ApplicationComponent' :: ApplicationComponent -&gt; Maybe Tier
+</span><a href="#local-6989586621679217678"><span class="hs-identifier hs-var hs-var">tier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tier
+</span><a href="#local-6989586621679217678"><span class="hs-identifier hs-var">tier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217677"><span class="annot"><span class="annottext">s :: ApplicationComponent
+</span><a href="#local-6989586621679217677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217676"><span class="annot"><span class="annottext">Maybe Tier
+</span><a href="#local-6989586621679217676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationComponent
+</span><a href="#local-6989586621679217677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tier:ApplicationComponent' :: Maybe Tier
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3Atier%3AApplicationComponent%27"><span class="hs-identifier hs-var">tier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tier
+</span><a href="#local-6989586621679217676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name of the component.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#applicationComponent_componentName"><span class="hs-identifier hs-type">applicationComponent_componentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="applicationComponent_componentName"><span class="annot"><span class="annottext">applicationComponent_componentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationComponent -&gt; f ApplicationComponent
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#applicationComponent_componentName"><span class="hs-identifier hs-var hs-var">applicationComponent_componentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationComponent -&gt; Maybe Text)
+-&gt; (ApplicationComponent -&gt; Maybe Text -&gt; ApplicationComponent)
+-&gt; Lens
+     ApplicationComponent ApplicationComponent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217674"><span class="annot"><span class="annottext">Maybe Text
+componentName :: Maybe Text
+$sel:componentName:ApplicationComponent' :: ApplicationComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679217674"><span class="hs-identifier hs-var hs-var">componentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217674"><span class="hs-identifier hs-var">componentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217673"><span class="annot"><span class="annottext">s :: ApplicationComponent
+</span><a href="#local-6989586621679217673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217672"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationComponent
+</span><a href="#local-6989586621679217673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:componentName:ApplicationComponent' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AcomponentName%3AApplicationComponent%27"><span class="hs-identifier hs-var">componentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | If logging is supported for the resource type, indicates whether the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- component has configured logs to be monitored.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#applicationComponent_componentRemarks"><span class="hs-identifier hs-type">applicationComponent_componentRemarks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="applicationComponent_componentRemarks"><span class="annot"><span class="annottext">applicationComponent_componentRemarks :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationComponent -&gt; f ApplicationComponent
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#applicationComponent_componentRemarks"><span class="hs-identifier hs-var hs-var">applicationComponent_componentRemarks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationComponent -&gt; Maybe Text)
+-&gt; (ApplicationComponent -&gt; Maybe Text -&gt; ApplicationComponent)
+-&gt; Lens
+     ApplicationComponent ApplicationComponent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217670"><span class="annot"><span class="annottext">Maybe Text
+componentRemarks :: Maybe Text
+$sel:componentRemarks:ApplicationComponent' :: ApplicationComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679217670"><span class="hs-identifier hs-var hs-var">componentRemarks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217670"><span class="hs-identifier hs-var">componentRemarks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217669"><span class="annot"><span class="annottext">s :: ApplicationComponent
+</span><a href="#local-6989586621679217669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-type">ApplicationComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217668"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationComponent
+</span><a href="#local-6989586621679217669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:componentRemarks:ApplicationComponent' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#%24sel%3AcomponentRemarks%3AApplicationComponent%27"><span class="hs-identifier hs-var">componentRemarks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217665"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679217663"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApplicationComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ApplicationComponent)
+-&gt; Value
+-&gt; Parser ApplicationComponent
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ApplicationComponent&quot;</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217660"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217660"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe OsType
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Tier (HashMap Text Text))
+-&gt; Maybe Bool
+-&gt; Maybe Tier
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ApplicationComponent
+</span><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent%27"><span class="hs-identifier hs-var">ApplicationComponent'</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OsType
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Tier (HashMap Text Text))
+ -&gt; Maybe Bool
+ -&gt; Maybe Tier
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ApplicationComponent)
+-&gt; Parser (Maybe OsType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Tier (HashMap Text Text))
+      -&gt; Maybe Bool
+      -&gt; Maybe Tier
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ApplicationComponent)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OsType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OsType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Tier (HashMap Text Text))
+   -&gt; Maybe Bool
+   -&gt; Maybe Tier
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ApplicationComponent)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Tier (HashMap Text Text))
+      -&gt; Maybe Bool
+      -&gt; Maybe Tier
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ApplicationComponent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Tier (HashMap Text Text))
+   -&gt; Maybe Bool
+   -&gt; Maybe Tier
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ApplicationComponent)
+-&gt; Parser (Maybe (HashMap Tier (HashMap Text Text)))
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Tier -&gt; Maybe Text -&gt; Maybe Text -&gt; ApplicationComponent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe (HashMap Tier (HashMap Text Text))))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DetectedWorkload&quot;</span></span><span>
+</span><span id="line-127"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Tier (HashMap Text Text))))
+-&gt; Maybe (HashMap Tier (HashMap Text Text))
+-&gt; Parser (Maybe (HashMap Tier (HashMap Text Text)))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Tier (HashMap Text Text))
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Tier -&gt; Maybe Text -&gt; Maybe Text -&gt; ApplicationComponent)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Tier -&gt; Maybe Text -&gt; Maybe Text -&gt; ApplicationComponent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Monitor&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Tier -&gt; Maybe Text -&gt; Maybe Text -&gt; ApplicationComponent)
+-&gt; Parser (Maybe Tier)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ApplicationComponent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Tier)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ApplicationComponent)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; ApplicationComponent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComponentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ApplicationComponent)
+-&gt; Parser (Maybe Text) -&gt; Parser ApplicationComponent
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComponentRemarks&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217653"><span id="local-6989586621679217655"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217650"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ApplicationComponent.html#ApplicationComponent"><span class="hs-identifier hs-type">ApplicationComponent</span></a></span></span><span>
+</span><span id="line-138"></span></pre></body></html>

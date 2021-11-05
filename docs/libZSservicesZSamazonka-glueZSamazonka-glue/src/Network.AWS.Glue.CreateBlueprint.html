@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newCreateBlueprint' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679742252"><span id="local-6989586621679742253"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBlueprint"><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-var">CreateBlueprint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBlueprint%27"><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-var">CreateBlueprint'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679742261"><span id="local-6989586621679742262"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBlueprint"><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-var">CreateBlueprint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBlueprint%27"><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-var">CreateBlueprint'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the blueprint.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Adescription%3ACreateBlueprint%27"><span class="annot"><span class="annottext">CreateBlueprint -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#%24sel%3Adescription%3ACreateBlueprint%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AblueprintLocation%3ACreateBlueprint%27"><span class="annot"><span class="annottext">CreateBlueprint -&gt; Text
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#%24sel%3AblueprintLocation%3ACreateBlueprint%27"><span class="hs-identifier hs-var hs-var">blueprintLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742243"><span id="local-6989586621679742245"><span class="annot"><span class="annottext">CreateBlueprint -&gt; CreateBlueprint -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742252"><span id="local-6989586621679742254"><span class="annot"><span class="annottext">CreateBlueprint -&gt; CreateBlueprint -&gt; Bool
 (CreateBlueprint -&gt; CreateBlueprint -&gt; Bool)
 -&gt; (CreateBlueprint -&gt; CreateBlueprint -&gt; Bool)
 -&gt; Eq CreateBlueprint
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateBlueprint -&gt; CreateBlueprint -&gt; Bool
 == :: CreateBlueprint -&gt; CreateBlueprint -&gt; Bool
 $c== :: CreateBlueprint -&gt; CreateBlueprint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742234"><span id="local-6989586621679742236"><span id="local-6989586621679742238"><span id="local-6989586621679742240"><span class="annot"><span class="annottext">ReadPrec [CreateBlueprint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742243"><span id="local-6989586621679742245"><span id="local-6989586621679742247"><span id="local-6989586621679742249"><span class="annot"><span class="annottext">ReadPrec [CreateBlueprint]
 ReadPrec CreateBlueprint
 Int -&gt; ReadS CreateBlueprint
 ReadS [CreateBlueprint]
@@ -93,7 +93,7 @@ readList :: ReadS [CreateBlueprint]
 $creadList :: ReadS [CreateBlueprint]
 readsPrec :: Int -&gt; ReadS CreateBlueprint
 $creadsPrec :: Int -&gt; ReadS CreateBlueprint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742227"><span id="local-6989586621679742229"><span id="local-6989586621679742231"><span class="annot"><span class="annottext">Int -&gt; CreateBlueprint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742236"><span id="local-6989586621679742238"><span id="local-6989586621679742240"><span class="annot"><span class="annottext">Int -&gt; CreateBlueprint -&gt; ShowS
 [CreateBlueprint] -&gt; ShowS
 CreateBlueprint -&gt; String
 (Int -&gt; CreateBlueprint -&gt; ShowS)
@@ -141,9 +141,9 @@ $cfrom :: forall x. CreateBlueprint -&gt; Rep CreateBlueprint x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span>
 </span><span id="line-86"></span><span id="newCreateBlueprint"><span class="annot"><span class="annottext">newCreateBlueprint :: Text -&gt; Text -&gt; CreateBlueprint
-</span><a href="Network.AWS.Glue.CreateBlueprint.html#newCreateBlueprint"><span class="hs-identifier hs-var hs-var">newCreateBlueprint</span></a></span></span><span> </span><span id="local-6989586621679742222"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742222"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679742221"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742221"><span class="hs-identifier hs-var">pBlueprintLocation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.CreateBlueprint.html#newCreateBlueprint"><span class="hs-identifier hs-var hs-var">newCreateBlueprint</span></a></span></span><span> </span><span id="local-6989586621679742231"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742231"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679742230"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742230"><span class="hs-identifier hs-var">pBlueprintLocation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">CreateBlueprint' :: Maybe Text
 -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; Text -&gt; CreateBlueprint
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span>
@@ -157,10 +157,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateBlueprint' :: Text
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#%24sel%3Aname%3ACreateBlueprint%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742222"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679742231"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:blueprintLocation:CreateBlueprint' :: Text
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#%24sel%3AblueprintLocation%3ACreateBlueprint%27"><span class="hs-identifier hs-var">blueprintLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742221"><span class="hs-identifier hs-var">pBlueprintLocation_</span></a></span><span>
+</span><a href="#local-6989586621679742230"><span class="hs-identifier hs-var">pBlueprintLocation_</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | A description of the blueprint.</span><span>
@@ -171,16 +171,16 @@ forall a. Maybe a
 -&gt; (CreateBlueprint -&gt; Maybe Text -&gt; CreateBlueprint)
 -&gt; Lens CreateBlueprint CreateBlueprint (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742218"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742227"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreateBlueprint' :: CreateBlueprint -&gt; Maybe Text
-</span><a href="#local-6989586621679742218"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742218"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742217"><span class="annot"><span class="annottext">s :: CreateBlueprint
-</span><a href="#local-6989586621679742217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742216"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBlueprint
-</span><a href="#local-6989586621679742217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateBlueprint' :: Maybe Text
+</span><a href="#local-6989586621679742227"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742227"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742226"><span class="annot"><span class="annottext">s :: CreateBlueprint
+</span><a href="#local-6989586621679742226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742225"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBlueprint
+</span><a href="#local-6989586621679742226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateBlueprint' :: Maybe Text
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#%24sel%3Adescription%3ACreateBlueprint%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The tags to be applied to this blueprint.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#createBlueprint_tags"><span class="hs-identifier hs-type">createBlueprint_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -195,16 +195,16 @@ $sel:description:CreateBlueprint' :: CreateBlueprint -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742215"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742224"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:CreateBlueprint' :: CreateBlueprint -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679742215"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679742215"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742214"><span class="annot"><span class="annottext">s :: CreateBlueprint
-</span><a href="#local-6989586621679742214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742213"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679742213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBlueprint
-</span><a href="#local-6989586621679742214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateBlueprint' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679742224"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679742224"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742223"><span class="annot"><span class="annottext">s :: CreateBlueprint
+</span><a href="#local-6989586621679742223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742222"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679742222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBlueprint
+</span><a href="#local-6989586621679742223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateBlueprint' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#%24sel%3Atags%3ACreateBlueprint%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679742213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679742222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; CreateBlueprint -&gt; f CreateBlueprint)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -240,16 +240,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateBlueprint -&gt; Text -&gt; CreateBlueprint)
 -&gt; Lens CreateBlueprint CreateBlueprint Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742209"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742218"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateBlueprint' :: CreateBlueprint -&gt; Text
-</span><a href="#local-6989586621679742209"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742209"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742208"><span class="annot"><span class="annottext">s :: CreateBlueprint
-</span><a href="#local-6989586621679742208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742207"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBlueprint
-</span><a href="#local-6989586621679742208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateBlueprint' :: Text
+</span><a href="#local-6989586621679742218"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742218"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742217"><span class="annot"><span class="annottext">s :: CreateBlueprint
+</span><a href="#local-6989586621679742217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742216"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBlueprint
+</span><a href="#local-6989586621679742217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateBlueprint' :: Text
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#%24sel%3Aname%3ACreateBlueprint%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | Specifies a path in Amazon S3 where the blueprint is published.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#createBlueprint_blueprintLocation"><span class="hs-identifier hs-type">createBlueprint_blueprintLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -258,27 +258,27 @@ $sel:name:CreateBlueprint' :: CreateBlueprint -&gt; Text
 -&gt; (CreateBlueprint -&gt; Text -&gt; CreateBlueprint)
 -&gt; Lens CreateBlueprint CreateBlueprint Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742206"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742215"><span class="annot"><span class="annottext">Text
 blueprintLocation :: Text
 $sel:blueprintLocation:CreateBlueprint' :: CreateBlueprint -&gt; Text
-</span><a href="#local-6989586621679742206"><span class="hs-identifier hs-var hs-var">blueprintLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742206"><span class="hs-identifier hs-var">blueprintLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742205"><span class="annot"><span class="annottext">s :: CreateBlueprint
-</span><a href="#local-6989586621679742205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742204"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBlueprint
-</span><a href="#local-6989586621679742205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintLocation:CreateBlueprint' :: Text
+</span><a href="#local-6989586621679742215"><span class="hs-identifier hs-var hs-var">blueprintLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742215"><span class="hs-identifier hs-var">blueprintLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742214"><span class="annot"><span class="annottext">s :: CreateBlueprint
+</span><a href="#local-6989586621679742214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742213"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBlueprint
+</span><a href="#local-6989586621679742214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintLocation:CreateBlueprint' :: Text
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#%24sel%3AblueprintLocation%3ACreateBlueprint%27"><span class="hs-identifier hs-var">blueprintLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse"><span class="hs-identifier hs-type">CreateBlueprintResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679742200"><span class="annot"><span class="annottext">request :: CreateBlueprint -&gt; Request CreateBlueprint
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679742209"><span class="annot"><span class="annottext">request :: CreateBlueprint -&gt; Request CreateBlueprint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateBlueprint -&gt; Request CreateBlueprint
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679742196"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679742205"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateBlueprint
 -&gt; ClientResponse ClientBody
@@ -302,10 +302,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679742193"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742193"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679742192"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679742192"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679742191"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679742191"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679742202"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742202"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679742201"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679742201"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679742200"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679742200"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateBlueprintResponse
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse%27"><span class="hs-identifier hs-var">CreateBlueprintResponse'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateBlueprintResponse)
@@ -313,7 +313,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateBlueprintResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679742191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679742200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -325,15 +325,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742193"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742202"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742183"><span id="local-6989586621679742185"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742192"><span id="local-6989586621679742194"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742180"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679742176"><span class="annot"><span class="annottext">toHeaders :: CreateBlueprint -&gt; ResponseHeaders
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679742185"><span class="annot"><span class="annottext">toHeaders :: CreateBlueprint -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateBlueprint -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -358,9 +358,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742166"><span id="local-6989586621679742168"><span id="local-6989586621679742170"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679742164"><span class="annot"><span class="annottext">toJSON :: CreateBlueprint -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742159"><span id="local-6989586621679742160"><span id="local-6989586621679742161"><span id="local-6989586621679742162"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742175"><span id="local-6989586621679742177"><span id="local-6989586621679742179"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679742173"><span class="annot"><span class="annottext">toJSON :: CreateBlueprint -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint%27"><span class="hs-identifier hs-type">CreateBlueprint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742168"><span id="local-6989586621679742169"><span id="local-6989586621679742170"><span id="local-6989586621679742171"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Text)
 Text
 blueprintLocation :: Text
@@ -371,7 +371,7 @@ $sel:blueprintLocation:CreateBlueprint' :: CreateBlueprint -&gt; Text
 $sel:name:CreateBlueprint' :: CreateBlueprint -&gt; Text
 $sel:tags:CreateBlueprint' :: CreateBlueprint -&gt; Maybe (HashMap Text Text)
 $sel:description:CreateBlueprint' :: CreateBlueprint -&gt; Maybe Text
-</span><a href="#local-6989586621679742159"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679742168"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -383,7 +383,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742162"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679742171"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -391,14 +391,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679742161"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679742170"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742160"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679742169"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -406,19 +406,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;BlueprintLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742159"><span class="hs-identifier hs-var">blueprintLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742168"><span class="hs-identifier hs-var">blueprintLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679742153"><span class="annot"><span class="annottext">toPath :: CreateBlueprint -&gt; ByteString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679742162"><span class="annot"><span class="annottext">toPath :: CreateBlueprint -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateBlueprint -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprint"><span class="hs-identifier hs-type">CreateBlueprint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679742149"><span class="annot"><span class="annottext">toQuery :: CreateBlueprint -&gt; QueryString
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679742158"><span class="annot"><span class="annottext">toQuery :: CreateBlueprint -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateBlueprint -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -426,7 +426,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newCreateBlueprintResponse' smart constructor.</span><span>
-</span><span id="line-159"></span><span id="local-6989586621679742146"><span id="local-6989586621679742147"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBlueprintResponse"><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse"><span class="hs-identifier hs-var">CreateBlueprintResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBlueprintResponse%27"><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse%27"><span class="hs-identifier hs-var">CreateBlueprintResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span id="local-6989586621679742155"><span id="local-6989586621679742156"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBlueprintResponse"><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse"><span class="hs-identifier hs-var">CreateBlueprintResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBlueprintResponse%27"><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse%27"><span class="hs-identifier hs-var">CreateBlueprintResponse'</span></a></span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns the name of the blueprint that was registered.</span><span>
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3Aname%3ACreateBlueprintResponse%27"><span class="annot"><span class="annottext">CreateBlueprintResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#%24sel%3Aname%3ACreateBlueprintResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -434,7 +434,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateBlueprintResponse%27"><span class="annot"><span class="annottext">CreateBlueprintResponse -&gt; Int
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#%24sel%3AhttpStatus%3ACreateBlueprintResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742140"><span id="local-6989586621679742142"><span class="annot"><span class="annottext">CreateBlueprintResponse -&gt; CreateBlueprintResponse -&gt; Bool
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742149"><span id="local-6989586621679742151"><span class="annot"><span class="annottext">CreateBlueprintResponse -&gt; CreateBlueprintResponse -&gt; Bool
 (CreateBlueprintResponse -&gt; CreateBlueprintResponse -&gt; Bool)
 -&gt; (CreateBlueprintResponse -&gt; CreateBlueprintResponse -&gt; Bool)
 -&gt; Eq CreateBlueprintResponse
@@ -443,7 +443,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateBlueprintResponse -&gt; CreateBlueprintResponse -&gt; Bool
 == :: CreateBlueprintResponse -&gt; CreateBlueprintResponse -&gt; Bool
 $c== :: CreateBlueprintResponse -&gt; CreateBlueprintResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742132"><span id="local-6989586621679742134"><span id="local-6989586621679742136"><span id="local-6989586621679742138"><span class="annot"><span class="annottext">ReadPrec [CreateBlueprintResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742141"><span id="local-6989586621679742143"><span id="local-6989586621679742145"><span id="local-6989586621679742147"><span class="annot"><span class="annottext">ReadPrec [CreateBlueprintResponse]
 ReadPrec CreateBlueprintResponse
 Int -&gt; ReadS CreateBlueprintResponse
 ReadS [CreateBlueprintResponse]
@@ -463,7 +463,7 @@ readList :: ReadS [CreateBlueprintResponse]
 $creadList :: ReadS [CreateBlueprintResponse]
 readsPrec :: Int -&gt; ReadS CreateBlueprintResponse
 $creadsPrec :: Int -&gt; ReadS CreateBlueprintResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742126"><span id="local-6989586621679742128"><span id="local-6989586621679742130"><span class="annot"><span class="annottext">Int -&gt; CreateBlueprintResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742135"><span id="local-6989586621679742137"><span id="local-6989586621679742139"><span class="annot"><span class="annottext">Int -&gt; CreateBlueprintResponse -&gt; ShowS
 [CreateBlueprintResponse] -&gt; ShowS
 CreateBlueprintResponse -&gt; String
 (Int -&gt; CreateBlueprintResponse -&gt; ShowS)
@@ -507,8 +507,8 @@ $cfrom :: forall x. CreateBlueprintResponse -&gt; Rep CreateBlueprintResponse x
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse"><span class="hs-identifier hs-type">CreateBlueprintResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newCreateBlueprintResponse"><span class="annot"><span class="annottext">newCreateBlueprintResponse :: Int -&gt; CreateBlueprintResponse
-</span><a href="Network.AWS.Glue.CreateBlueprint.html#newCreateBlueprintResponse"><span class="hs-identifier hs-var hs-var">newCreateBlueprintResponse</span></a></span></span><span> </span><span id="local-6989586621679742123"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742123"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.CreateBlueprint.html#newCreateBlueprintResponse"><span class="hs-identifier hs-var hs-var">newCreateBlueprintResponse</span></a></span></span><span> </span><span id="local-6989586621679742132"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742132"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">CreateBlueprintResponse' :: Maybe Text -&gt; Int -&gt; CreateBlueprintResponse
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse%27"><span class="hs-identifier hs-type">CreateBlueprintResponse'</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:CreateBlueprintResponse' :: Maybe Text
@@ -517,7 +517,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBlueprintResponse' :: Int
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#%24sel%3AhttpStatus%3ACreateBlueprintResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742123"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679742132"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | Returns the name of the blueprint that was registered.</span><span>
@@ -533,16 +533,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse%27"><span class="hs-identifier hs-type">CreateBlueprintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742122"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse%27"><span class="hs-identifier hs-type">CreateBlueprintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742131"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:CreateBlueprintResponse' :: CreateBlueprintResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679742122"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742122"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742121"><span class="annot"><span class="annottext">s :: CreateBlueprintResponse
-</span><a href="#local-6989586621679742121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse%27"><span class="hs-identifier hs-type">CreateBlueprintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742120"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBlueprintResponse
-</span><a href="#local-6989586621679742121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateBlueprintResponse' :: Maybe Text
+</span><a href="#local-6989586621679742131"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742131"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742130"><span class="annot"><span class="annottext">s :: CreateBlueprintResponse
+</span><a href="#local-6989586621679742130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse%27"><span class="hs-identifier hs-type">CreateBlueprintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742129"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBlueprintResponse
+</span><a href="#local-6989586621679742130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateBlueprintResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#%24sel%3Aname%3ACreateBlueprintResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse"><span class="hs-identifier hs-type">CreateBlueprintResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse"><span class="hs-identifier hs-type">CreateBlueprintResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#createBlueprintResponse_httpStatus"><span class="hs-identifier hs-type">createBlueprintResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse"><span class="hs-identifier hs-type">CreateBlueprintResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -552,16 +552,16 @@ $sel:name:CreateBlueprintResponse' :: CreateBlueprintResponse -&gt; Maybe Text
 -&gt; (CreateBlueprintResponse -&gt; Int -&gt; CreateBlueprintResponse)
 -&gt; Lens CreateBlueprintResponse CreateBlueprintResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse%27"><span class="hs-identifier hs-type">CreateBlueprintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742119"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse%27"><span class="hs-identifier hs-type">CreateBlueprintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742128"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateBlueprintResponse' :: CreateBlueprintResponse -&gt; Int
-</span><a href="#local-6989586621679742119"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742119"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742118"><span class="annot"><span class="annottext">s :: CreateBlueprintResponse
-</span><a href="#local-6989586621679742118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse%27"><span class="hs-identifier hs-type">CreateBlueprintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742117"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBlueprintResponse
-</span><a href="#local-6989586621679742118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBlueprintResponse' :: Int
+</span><a href="#local-6989586621679742128"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742128"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742127"><span class="annot"><span class="annottext">s :: CreateBlueprintResponse
+</span><a href="#local-6989586621679742127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse%27"><span class="hs-identifier hs-type">CreateBlueprintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742126"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBlueprintResponse
+</span><a href="#local-6989586621679742127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBlueprintResponse' :: Int
 </span><a href="Network.AWS.Glue.CreateBlueprint.html#%24sel%3AhttpStatus%3ACreateBlueprintResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse"><span class="hs-identifier hs-type">CreateBlueprintResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse"><span class="hs-identifier hs-type">CreateBlueprintResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse"><span class="hs-identifier hs-type">CreateBlueprintResponse</span></a></span></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742124"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateBlueprint.html#CreateBlueprintResponse"><span class="hs-identifier hs-type">CreateBlueprintResponse</span></a></span></span><span>
 </span><span id="line-197"></span></pre></body></html>

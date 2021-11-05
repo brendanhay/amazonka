@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus"><span class="hs-identifier">FraudsterRegistrationJobStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_COMPLETED"><span class="hs-identifier">FraudsterRegistrationJobStatus_COMPLETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_COMPLETED_WITH_ERRORS"><span class="hs-identifier">FraudsterRegistrationJobStatus_COMPLETED_WITH_ERRORS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_FAILED"><span class="hs-identifier">FraudsterRegistrationJobStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_IN_PROGRESS"><span class="hs-identifier">FraudsterRegistrationJobStatus_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_SUBMITTED"><span class="hs-identifier">FraudsterRegistrationJobStatus_SUBMITTED</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679202402"><span id="local-6989586621679202403"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FraudsterRegistrationJobStatus"><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus"><span class="hs-identifier hs-var">FraudsterRegistrationJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FraudsterRegistrationJobStatus%27"><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus%27"><span class="hs-identifier hs-var">FraudsterRegistrationJobStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFraudsterRegistrationJobStatus"><span class="annot"><span class="annottext">FraudsterRegistrationJobStatus -&gt; Text
+</span><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#fromFraudsterRegistrationJobStatus"><span class="hs-identifier hs-var hs-var">fromFraudsterRegistrationJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202394"><span id="local-6989586621679202396"><span id="local-6989586621679202398"><span class="annot"><span class="annottext">Int -&gt; FraudsterRegistrationJobStatus -&gt; ShowS
+[FraudsterRegistrationJobStatus] -&gt; ShowS
+FraudsterRegistrationJobStatus -&gt; String
+(Int -&gt; FraudsterRegistrationJobStatus -&gt; ShowS)
+-&gt; (FraudsterRegistrationJobStatus -&gt; String)
+-&gt; ([FraudsterRegistrationJobStatus] -&gt; ShowS)
+-&gt; Show FraudsterRegistrationJobStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FraudsterRegistrationJobStatus] -&gt; ShowS
+$cshowList :: [FraudsterRegistrationJobStatus] -&gt; ShowS
+show :: FraudsterRegistrationJobStatus -&gt; String
+$cshow :: FraudsterRegistrationJobStatus -&gt; String
+showsPrec :: Int -&gt; FraudsterRegistrationJobStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; FraudsterRegistrationJobStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679202385"><span id="local-6989586621679202387"><span id="local-6989586621679202389"><span id="local-6989586621679202391"><span class="annot"><span class="annottext">ReadPrec [FraudsterRegistrationJobStatus]
+ReadPrec FraudsterRegistrationJobStatus
+Int -&gt; ReadS FraudsterRegistrationJobStatus
+ReadS [FraudsterRegistrationJobStatus]
+(Int -&gt; ReadS FraudsterRegistrationJobStatus)
+-&gt; ReadS [FraudsterRegistrationJobStatus]
+-&gt; ReadPrec FraudsterRegistrationJobStatus
+-&gt; ReadPrec [FraudsterRegistrationJobStatus]
+-&gt; Read FraudsterRegistrationJobStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FraudsterRegistrationJobStatus]
+$creadListPrec :: ReadPrec [FraudsterRegistrationJobStatus]
+readPrec :: ReadPrec FraudsterRegistrationJobStatus
+$creadPrec :: ReadPrec FraudsterRegistrationJobStatus
+readList :: ReadS [FraudsterRegistrationJobStatus]
+$creadList :: ReadS [FraudsterRegistrationJobStatus]
+readsPrec :: Int -&gt; ReadS FraudsterRegistrationJobStatus
+$creadsPrec :: Int -&gt; ReadS FraudsterRegistrationJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679202380"><span id="local-6989586621679202382"><span class="annot"><span class="annottext">FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Bool
+(FraudsterRegistrationJobStatus
+ -&gt; FraudsterRegistrationJobStatus -&gt; Bool)
+-&gt; (FraudsterRegistrationJobStatus
+    -&gt; FraudsterRegistrationJobStatus -&gt; Bool)
+-&gt; Eq FraudsterRegistrationJobStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Bool
+$c/= :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Bool
+== :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Bool
+$c== :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679202364"><span id="local-6989586621679202366"><span id="local-6989586621679202368"><span id="local-6989586621679202370"><span id="local-6989586621679202372"><span id="local-6989586621679202374"><span id="local-6989586621679202376"><span class="annot"><span class="annottext">Eq FraudsterRegistrationJobStatus
+Eq FraudsterRegistrationJobStatus
+-&gt; (FraudsterRegistrationJobStatus
+    -&gt; FraudsterRegistrationJobStatus -&gt; Ordering)
+-&gt; (FraudsterRegistrationJobStatus
+    -&gt; FraudsterRegistrationJobStatus -&gt; Bool)
+-&gt; (FraudsterRegistrationJobStatus
+    -&gt; FraudsterRegistrationJobStatus -&gt; Bool)
+-&gt; (FraudsterRegistrationJobStatus
+    -&gt; FraudsterRegistrationJobStatus -&gt; Bool)
+-&gt; (FraudsterRegistrationJobStatus
+    -&gt; FraudsterRegistrationJobStatus -&gt; Bool)
+-&gt; (FraudsterRegistrationJobStatus
+    -&gt; FraudsterRegistrationJobStatus
+    -&gt; FraudsterRegistrationJobStatus)
+-&gt; (FraudsterRegistrationJobStatus
+    -&gt; FraudsterRegistrationJobStatus
+    -&gt; FraudsterRegistrationJobStatus)
+-&gt; Ord FraudsterRegistrationJobStatus
+FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Bool
+FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Ordering
+FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; FraudsterRegistrationJobStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; FraudsterRegistrationJobStatus
+$cmin :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; FraudsterRegistrationJobStatus
+max :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; FraudsterRegistrationJobStatus
+$cmax :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; FraudsterRegistrationJobStatus
+&gt;= :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Bool
+$c&gt;= :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Bool
+&gt; :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Bool
+$c&gt; :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Bool
+&lt;= :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Bool
+$c&lt;= :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Bool
+&lt; :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Bool
+$c&lt; :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Bool
+compare :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Ordering
+$ccompare :: FraudsterRegistrationJobStatus
+-&gt; FraudsterRegistrationJobStatus -&gt; Ordering
+$cp1Ord :: Eq FraudsterRegistrationJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ FraudsterRegistrationJobStatus
+ -&gt; Rep FraudsterRegistrationJobStatus x)
+-&gt; (forall x.
+    Rep FraudsterRegistrationJobStatus x
+    -&gt; FraudsterRegistrationJobStatus)
+-&gt; Generic FraudsterRegistrationJobStatus
+forall x.
+Rep FraudsterRegistrationJobStatus x
+-&gt; FraudsterRegistrationJobStatus
+forall x.
+FraudsterRegistrationJobStatus
+-&gt; Rep FraudsterRegistrationJobStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FraudsterRegistrationJobStatus x
+-&gt; FraudsterRegistrationJobStatus
+$cfrom :: forall x.
+FraudsterRegistrationJobStatus
+-&gt; Rep FraudsterRegistrationJobStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202356"><span id="local-6989586621679202358"><span class="annot"><span class="annottext">Int -&gt; FraudsterRegistrationJobStatus -&gt; Int
+FraudsterRegistrationJobStatus -&gt; Int
+(Int -&gt; FraudsterRegistrationJobStatus -&gt; Int)
+-&gt; (FraudsterRegistrationJobStatus -&gt; Int)
+-&gt; Hashable FraudsterRegistrationJobStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FraudsterRegistrationJobStatus -&gt; Int
+$chash :: FraudsterRegistrationJobStatus -&gt; Int
+hashWithSalt :: Int -&gt; FraudsterRegistrationJobStatus -&gt; Int
+$chashWithSalt :: Int -&gt; FraudsterRegistrationJobStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679202353"><span class="annot"><span class="annottext">FraudsterRegistrationJobStatus -&gt; ()
+(FraudsterRegistrationJobStatus -&gt; ())
+-&gt; NFData FraudsterRegistrationJobStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FraudsterRegistrationJobStatus -&gt; ()
+$crnf :: FraudsterRegistrationJobStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679202350"><span class="annot"><span class="annottext">Text -&gt; Either String FraudsterRegistrationJobStatus
+(Text -&gt; Either String FraudsterRegistrationJobStatus)
+-&gt; FromText FraudsterRegistrationJobStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FraudsterRegistrationJobStatus
+$cfromText :: Text -&gt; Either String FraudsterRegistrationJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679202347"><span class="annot"><span class="annottext">FraudsterRegistrationJobStatus -&gt; Text
+(FraudsterRegistrationJobStatus -&gt; Text)
+-&gt; ToText FraudsterRegistrationJobStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FraudsterRegistrationJobStatus -&gt; Text
+$ctoText :: FraudsterRegistrationJobStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679202344"><span class="annot"><span class="annottext">FraudsterRegistrationJobStatus -&gt; ByteString
+(FraudsterRegistrationJobStatus -&gt; ByteString)
+-&gt; ToByteString FraudsterRegistrationJobStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FraudsterRegistrationJobStatus -&gt; ByteString
+$ctoBS :: FraudsterRegistrationJobStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679202341"><span class="annot"><span class="annottext">FraudsterRegistrationJobStatus -&gt; ByteStringBuilder
+(FraudsterRegistrationJobStatus -&gt; ByteStringBuilder)
+-&gt; ToLog FraudsterRegistrationJobStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FraudsterRegistrationJobStatus -&gt; ByteStringBuilder
+$cbuild :: FraudsterRegistrationJobStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679202338"><span class="annot"><span class="annottext">HeaderName -&gt; FraudsterRegistrationJobStatus -&gt; [Header]
+(HeaderName -&gt; FraudsterRegistrationJobStatus -&gt; [Header])
+-&gt; ToHeader FraudsterRegistrationJobStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FraudsterRegistrationJobStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FraudsterRegistrationJobStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679202335"><span class="annot"><span class="annottext">FraudsterRegistrationJobStatus -&gt; QueryString
+(FraudsterRegistrationJobStatus -&gt; QueryString)
+-&gt; ToQuery FraudsterRegistrationJobStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FraudsterRegistrationJobStatus -&gt; QueryString
+$ctoQuery :: FraudsterRegistrationJobStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679202330"><span id="local-6989586621679202332"><span class="annot"><span class="annottext">Value -&gt; Parser [FraudsterRegistrationJobStatus]
+Value -&gt; Parser FraudsterRegistrationJobStatus
+(Value -&gt; Parser FraudsterRegistrationJobStatus)
+-&gt; (Value -&gt; Parser [FraudsterRegistrationJobStatus])
+-&gt; FromJSON FraudsterRegistrationJobStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FraudsterRegistrationJobStatus]
+$cparseJSONList :: Value -&gt; Parser [FraudsterRegistrationJobStatus]
+parseJSON :: Value -&gt; Parser FraudsterRegistrationJobStatus
+$cparseJSON :: Value -&gt; Parser FraudsterRegistrationJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679202325"><span id="local-6989586621679202327"><span class="annot"><span class="annottext">FromJSONKeyFunction [FraudsterRegistrationJobStatus]
+FromJSONKeyFunction FraudsterRegistrationJobStatus
+FromJSONKeyFunction FraudsterRegistrationJobStatus
+-&gt; FromJSONKeyFunction [FraudsterRegistrationJobStatus]
+-&gt; FromJSONKey FraudsterRegistrationJobStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FraudsterRegistrationJobStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [FraudsterRegistrationJobStatus]
+fromJSONKey :: FromJSONKeyFunction FraudsterRegistrationJobStatus
+$cfromJSONKey :: FromJSONKeyFunction FraudsterRegistrationJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679202316"><span id="local-6989586621679202318"><span id="local-6989586621679202320"><span id="local-6989586621679202322"><span class="annot"><span class="annottext">[FraudsterRegistrationJobStatus] -&gt; Encoding
+[FraudsterRegistrationJobStatus] -&gt; Value
+FraudsterRegistrationJobStatus -&gt; Encoding
+FraudsterRegistrationJobStatus -&gt; Value
+(FraudsterRegistrationJobStatus -&gt; Value)
+-&gt; (FraudsterRegistrationJobStatus -&gt; Encoding)
+-&gt; ([FraudsterRegistrationJobStatus] -&gt; Value)
+-&gt; ([FraudsterRegistrationJobStatus] -&gt; Encoding)
+-&gt; ToJSON FraudsterRegistrationJobStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FraudsterRegistrationJobStatus] -&gt; Encoding
+$ctoEncodingList :: [FraudsterRegistrationJobStatus] -&gt; Encoding
+toJSONList :: [FraudsterRegistrationJobStatus] -&gt; Value
+$ctoJSONList :: [FraudsterRegistrationJobStatus] -&gt; Value
+toEncoding :: FraudsterRegistrationJobStatus -&gt; Encoding
+$ctoEncoding :: FraudsterRegistrationJobStatus -&gt; Encoding
+toJSON :: FraudsterRegistrationJobStatus -&gt; Value
+$ctoJSON :: FraudsterRegistrationJobStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679202311"><span id="local-6989586621679202313"><span class="annot"><span class="annottext">ToJSONKeyFunction [FraudsterRegistrationJobStatus]
+ToJSONKeyFunction FraudsterRegistrationJobStatus
+ToJSONKeyFunction FraudsterRegistrationJobStatus
+-&gt; ToJSONKeyFunction [FraudsterRegistrationJobStatus]
+-&gt; ToJSONKey FraudsterRegistrationJobStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FraudsterRegistrationJobStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [FraudsterRegistrationJobStatus]
+toJSONKey :: ToJSONKeyFunction FraudsterRegistrationJobStatus
+$ctoJSONKey :: ToJSONKeyFunction FraudsterRegistrationJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679202308"><span class="annot"><span class="annottext">[Node] -&gt; Either String FraudsterRegistrationJobStatus
+([Node] -&gt; Either String FraudsterRegistrationJobStatus)
+-&gt; FromXML FraudsterRegistrationJobStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FraudsterRegistrationJobStatus
+$cparseXML :: [Node] -&gt; Either String FraudsterRegistrationJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679202305"><span class="annot"><span class="annottext">FraudsterRegistrationJobStatus -&gt; XML
+(FraudsterRegistrationJobStatus -&gt; XML)
+-&gt; ToXML FraudsterRegistrationJobStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FraudsterRegistrationJobStatus -&gt; XML
+$ctoXML :: FraudsterRegistrationJobStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_COMPLETED"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFraudsterRegistrationJobStatus_COMPLETED"><span id="%24mFraudsterRegistrationJobStatus_COMPLETED"><span id="FraudsterRegistrationJobStatus_COMPLETED"><span class="annot"><span class="annottext">$bFraudsterRegistrationJobStatus_COMPLETED :: FraudsterRegistrationJobStatus
+$mFraudsterRegistrationJobStatus_COMPLETED :: forall r.
+FraudsterRegistrationJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#%24bFraudsterRegistrationJobStatus_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">FraudsterRegistrationJobStatus_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus%27"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_COMPLETED_WITH_ERRORS"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus_COMPLETED_WITH_ERRORS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFraudsterRegistrationJobStatus_COMPLETED_WITH_ERRORS"><span id="%24mFraudsterRegistrationJobStatus_COMPLETED_WITH_ERRORS"><span id="FraudsterRegistrationJobStatus_COMPLETED_WITH_ERRORS"><span class="annot"><span class="annottext">$bFraudsterRegistrationJobStatus_COMPLETED_WITH_ERRORS :: FraudsterRegistrationJobStatus
+$mFraudsterRegistrationJobStatus_COMPLETED_WITH_ERRORS :: forall r.
+FraudsterRegistrationJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#%24bFraudsterRegistrationJobStatus_COMPLETED_WITH_ERRORS"><span class="hs-identifier hs-var hs-var hs-var">FraudsterRegistrationJobStatus_COMPLETED_WITH_ERRORS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus%27"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED_WITH_ERRORS&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_FAILED"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFraudsterRegistrationJobStatus_FAILED"><span id="%24mFraudsterRegistrationJobStatus_FAILED"><span id="FraudsterRegistrationJobStatus_FAILED"><span class="annot"><span class="annottext">$bFraudsterRegistrationJobStatus_FAILED :: FraudsterRegistrationJobStatus
+$mFraudsterRegistrationJobStatus_FAILED :: forall r.
+FraudsterRegistrationJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#%24bFraudsterRegistrationJobStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">FraudsterRegistrationJobStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus%27"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_IN_PROGRESS"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFraudsterRegistrationJobStatus_IN_PROGRESS"><span id="%24mFraudsterRegistrationJobStatus_IN_PROGRESS"><span id="FraudsterRegistrationJobStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bFraudsterRegistrationJobStatus_IN_PROGRESS :: FraudsterRegistrationJobStatus
+$mFraudsterRegistrationJobStatus_IN_PROGRESS :: forall r.
+FraudsterRegistrationJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#%24bFraudsterRegistrationJobStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">FraudsterRegistrationJobStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus%27"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_SUBMITTED"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus_SUBMITTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFraudsterRegistrationJobStatus_SUBMITTED"><span id="%24mFraudsterRegistrationJobStatus_SUBMITTED"><span id="FraudsterRegistrationJobStatus_SUBMITTED"><span class="annot"><span class="annottext">$bFraudsterRegistrationJobStatus_SUBMITTED :: FraudsterRegistrationJobStatus
+$mFraudsterRegistrationJobStatus_SUBMITTED :: forall r.
+FraudsterRegistrationJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#%24bFraudsterRegistrationJobStatus_SUBMITTED"><span class="hs-identifier hs-var hs-var hs-var">FraudsterRegistrationJobStatus_SUBMITTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus%27"><span class="hs-identifier hs-type">FraudsterRegistrationJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUBMITTED&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_COMPLETED"><span class="hs-pragma hs-type">FraudsterRegistrationJobStatus_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_COMPLETED_WITH_ERRORS"><span class="hs-pragma hs-type">FraudsterRegistrationJobStatus_COMPLETED_WITH_ERRORS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_FAILED"><span class="hs-pragma hs-type">FraudsterRegistrationJobStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_IN_PROGRESS"><span class="hs-pragma hs-type">FraudsterRegistrationJobStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus_SUBMITTED"><span class="hs-pragma hs-type">FraudsterRegistrationJobStatus_SUBMITTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus.html#FraudsterRegistrationJobStatus%27"><span class="hs-pragma hs-type">FraudsterRegistrationJobStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

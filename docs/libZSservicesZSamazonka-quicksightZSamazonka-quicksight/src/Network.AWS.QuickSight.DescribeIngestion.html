@@ -1,0 +1,528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.DescribeIngestion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes a SPICE ingestion.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.DescribeIngestion</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier">DescribeIngestion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#newDescribeIngestion"><span class="hs-identifier">newDescribeIngestion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestion_awsAccountId"><span class="hs-identifier">describeIngestion_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestion_dataSetId"><span class="hs-identifier">describeIngestion_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestion_ingestionId"><span class="hs-identifier">describeIngestion_ingestionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse"><span class="hs-identifier">DescribeIngestionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#newDescribeIngestionResponse"><span class="hs-identifier">newDescribeIngestionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestionResponse_requestId"><span class="hs-identifier">describeIngestionResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestionResponse_ingestion"><span class="hs-identifier">describeIngestionResponse_ingestion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestionResponse_status"><span class="hs-identifier">describeIngestionResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.html"><span class="hs-identifier">Network.AWS.QuickSight.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDescribeIngestion' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679585535"><span id="local-6989586621679585536"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIngestion"><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-var">DescribeIngestion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIngestion%27"><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion%27"><span class="hs-identifier hs-var">DescribeIngestion'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AawsAccountId%3ADescribeIngestion%27"><span class="annot"><span class="annottext">DescribeIngestion -&gt; Text
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3AawsAccountId%3ADescribeIngestion%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The ID of the dataset used in the ingestion.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdataSetId%3ADescribeIngestion%27"><span class="annot"><span class="annottext">DescribeIngestion -&gt; Text
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3AdataSetId%3ADescribeIngestion%27"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | An ID for the ingestion.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AingestionId%3ADescribeIngestion%27"><span class="annot"><span class="annottext">DescribeIngestion -&gt; Text
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3AingestionId%3ADescribeIngestion%27"><span class="hs-identifier hs-var hs-var">ingestionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679585527"><span id="local-6989586621679585529"><span class="annot"><span class="annottext">DescribeIngestion -&gt; DescribeIngestion -&gt; Bool
+(DescribeIngestion -&gt; DescribeIngestion -&gt; Bool)
+-&gt; (DescribeIngestion -&gt; DescribeIngestion -&gt; Bool)
+-&gt; Eq DescribeIngestion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeIngestion -&gt; DescribeIngestion -&gt; Bool
+$c/= :: DescribeIngestion -&gt; DescribeIngestion -&gt; Bool
+== :: DescribeIngestion -&gt; DescribeIngestion -&gt; Bool
+$c== :: DescribeIngestion -&gt; DescribeIngestion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679585518"><span id="local-6989586621679585520"><span id="local-6989586621679585522"><span id="local-6989586621679585524"><span class="annot"><span class="annottext">ReadPrec [DescribeIngestion]
+ReadPrec DescribeIngestion
+Int -&gt; ReadS DescribeIngestion
+ReadS [DescribeIngestion]
+(Int -&gt; ReadS DescribeIngestion)
+-&gt; ReadS [DescribeIngestion]
+-&gt; ReadPrec DescribeIngestion
+-&gt; ReadPrec [DescribeIngestion]
+-&gt; Read DescribeIngestion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeIngestion]
+$creadListPrec :: ReadPrec [DescribeIngestion]
+readPrec :: ReadPrec DescribeIngestion
+$creadPrec :: ReadPrec DescribeIngestion
+readList :: ReadS [DescribeIngestion]
+$creadList :: ReadS [DescribeIngestion]
+readsPrec :: Int -&gt; ReadS DescribeIngestion
+$creadsPrec :: Int -&gt; ReadS DescribeIngestion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679585511"><span id="local-6989586621679585513"><span id="local-6989586621679585515"><span class="annot"><span class="annottext">Int -&gt; DescribeIngestion -&gt; ShowS
+[DescribeIngestion] -&gt; ShowS
+DescribeIngestion -&gt; String
+(Int -&gt; DescribeIngestion -&gt; ShowS)
+-&gt; (DescribeIngestion -&gt; String)
+-&gt; ([DescribeIngestion] -&gt; ShowS)
+-&gt; Show DescribeIngestion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeIngestion] -&gt; ShowS
+$cshowList :: [DescribeIngestion] -&gt; ShowS
+show :: DescribeIngestion -&gt; String
+$cshow :: DescribeIngestion -&gt; String
+showsPrec :: Int -&gt; DescribeIngestion -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeIngestion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeIngestion -&gt; Rep DescribeIngestion x)
+-&gt; (forall x. Rep DescribeIngestion x -&gt; DescribeIngestion)
+-&gt; Generic DescribeIngestion
+forall x. Rep DescribeIngestion x -&gt; DescribeIngestion
+forall x. DescribeIngestion -&gt; Rep DescribeIngestion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeIngestion x -&gt; DescribeIngestion
+$cfrom :: forall x. DescribeIngestion -&gt; Rep DescribeIngestion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DescribeIngestion' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'awsAccountId', 'describeIngestion_awsAccountId' - The Amazon Web Services account ID.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'dataSetId', 'describeIngestion_dataSetId' - The ID of the dataset used in the ingestion.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'ingestionId', 'describeIngestion_ingestionId' - An ID for the ingestion.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#newDescribeIngestion"><span class="hs-identifier hs-type">newDescribeIngestion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'dataSetId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'ingestionId'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-type">DescribeIngestion</span></a></span><span>
+</span><span id="line-84"></span><span id="newDescribeIngestion"><span class="annot"><span class="annottext">newDescribeIngestion :: Text -&gt; Text -&gt; Text -&gt; DescribeIngestion
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#newDescribeIngestion"><span class="hs-identifier hs-var hs-var">newDescribeIngestion</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679585506"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585506"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679585505"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585505"><span class="hs-identifier hs-var">pDataSetId_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679585504"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585504"><span class="hs-identifier hs-var">pIngestionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">DescribeIngestion' :: Text -&gt; Text -&gt; Text -&gt; DescribeIngestion
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion%27"><span class="hs-identifier hs-type">DescribeIngestion'</span></a></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeIngestion' :: Text
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3AawsAccountId%3ADescribeIngestion%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585506"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSetId:DescribeIngestion' :: Text
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3AdataSetId%3ADescribeIngestion%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585505"><span class="hs-identifier hs-var">pDataSetId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:ingestionId:DescribeIngestion' :: Text
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3AingestionId%3ADescribeIngestion%27"><span class="hs-identifier hs-var">ingestionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585504"><span class="hs-identifier hs-var">pIngestionId_</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestion_awsAccountId"><span class="hs-identifier hs-type">describeIngestion_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-type">DescribeIngestion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="describeIngestion_awsAccountId"><span class="annot"><span class="annottext">describeIngestion_awsAccountId :: (Text -&gt; f Text) -&gt; DescribeIngestion -&gt; f DescribeIngestion
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestion_awsAccountId"><span class="hs-identifier hs-var hs-var">describeIngestion_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIngestion -&gt; Text)
+-&gt; (DescribeIngestion -&gt; Text -&gt; DescribeIngestion)
+-&gt; Lens DescribeIngestion DescribeIngestion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion%27"><span class="hs-identifier hs-type">DescribeIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679585501"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:DescribeIngestion' :: DescribeIngestion -&gt; Text
+</span><a href="#local-6989586621679585501"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585501"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679585500"><span class="annot"><span class="annottext">s :: DescribeIngestion
+</span><a href="#local-6989586621679585500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion%27"><span class="hs-identifier hs-type">DescribeIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679585499"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIngestion
+</span><a href="#local-6989586621679585500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeIngestion' :: Text
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3AawsAccountId%3ADescribeIngestion%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-type">DescribeIngestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The ID of the dataset used in the ingestion.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestion_dataSetId"><span class="hs-identifier hs-type">describeIngestion_dataSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-type">DescribeIngestion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-100"></span><span id="describeIngestion_dataSetId"><span class="annot"><span class="annottext">describeIngestion_dataSetId :: (Text -&gt; f Text) -&gt; DescribeIngestion -&gt; f DescribeIngestion
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestion_dataSetId"><span class="hs-identifier hs-var hs-var">describeIngestion_dataSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIngestion -&gt; Text)
+-&gt; (DescribeIngestion -&gt; Text -&gt; DescribeIngestion)
+-&gt; Lens DescribeIngestion DescribeIngestion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion%27"><span class="hs-identifier hs-type">DescribeIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679585498"><span class="annot"><span class="annottext">Text
+dataSetId :: Text
+$sel:dataSetId:DescribeIngestion' :: DescribeIngestion -&gt; Text
+</span><a href="#local-6989586621679585498"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585498"><span class="hs-identifier hs-var">dataSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679585497"><span class="annot"><span class="annottext">s :: DescribeIngestion
+</span><a href="#local-6989586621679585497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion%27"><span class="hs-identifier hs-type">DescribeIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679585496"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIngestion
+</span><a href="#local-6989586621679585497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetId:DescribeIngestion' :: Text
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3AdataSetId%3ADescribeIngestion%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-type">DescribeIngestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | An ID for the ingestion.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestion_ingestionId"><span class="hs-identifier hs-type">describeIngestion_ingestionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-type">DescribeIngestion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="describeIngestion_ingestionId"><span class="annot"><span class="annottext">describeIngestion_ingestionId :: (Text -&gt; f Text) -&gt; DescribeIngestion -&gt; f DescribeIngestion
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestion_ingestionId"><span class="hs-identifier hs-var hs-var">describeIngestion_ingestionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIngestion -&gt; Text)
+-&gt; (DescribeIngestion -&gt; Text -&gt; DescribeIngestion)
+-&gt; Lens DescribeIngestion DescribeIngestion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion%27"><span class="hs-identifier hs-type">DescribeIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679585495"><span class="annot"><span class="annottext">Text
+ingestionId :: Text
+$sel:ingestionId:DescribeIngestion' :: DescribeIngestion -&gt; Text
+</span><a href="#local-6989586621679585495"><span class="hs-identifier hs-var hs-var">ingestionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585495"><span class="hs-identifier hs-var">ingestionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679585494"><span class="annot"><span class="annottext">s :: DescribeIngestion
+</span><a href="#local-6989586621679585494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion%27"><span class="hs-identifier hs-type">DescribeIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679585493"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIngestion
+</span><a href="#local-6989586621679585494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestionId:DescribeIngestion' :: Text
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3AingestionId%3ADescribeIngestion%27"><span class="hs-identifier hs-var">ingestionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-type">DescribeIngestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-type">DescribeIngestion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-type">DescribeIngestion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse"><span class="hs-identifier hs-type">DescribeIngestionResponse</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679585489"><span class="annot"><span class="annottext">request :: DescribeIngestion -&gt; Request DescribeIngestion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeIngestion -&gt; Request DescribeIngestion
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679585485"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeIngestion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeIngestion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeIngestion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeIngestion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeIngestion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679585482"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679585482"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679585481"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679585481"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679585480"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679585480"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Ingestion -&gt; Int -&gt; DescribeIngestionResponse
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse%27"><span class="hs-identifier hs-var">DescribeIngestionResponse'</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Ingestion -&gt; Int -&gt; DescribeIngestionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Ingestion -&gt; Int -&gt; DescribeIngestionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679585480"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Ingestion -&gt; Int -&gt; DescribeIngestionResponse)
+-&gt; Either String (Maybe Ingestion)
+-&gt; Either String (Int -&gt; DescribeIngestionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679585480"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Ingestion)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Ingestion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeIngestionResponse)
+-&gt; Either String Int -&gt; Either String DescribeIngestionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679585482"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679585472"><span id="local-6989586621679585474"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-type">DescribeIngestion</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679585469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-type">DescribeIngestion</span></a></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-type">DescribeIngestion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679585465"><span class="annot"><span class="annottext">toHeaders :: DescribeIngestion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeIngestion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-131"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-type">DescribeIngestion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679585459"><span class="annot"><span class="annottext">toPath :: DescribeIngestion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion%27"><span class="hs-identifier hs-type">DescribeIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679585455"><span id="local-6989586621679585456"><span id="local-6989586621679585457"><span class="annot"><span class="annottext">Text
+ingestionId :: Text
+dataSetId :: Text
+awsAccountId :: Text
+$sel:ingestionId:DescribeIngestion' :: DescribeIngestion -&gt; Text
+$sel:dataSetId:DescribeIngestion' :: DescribeIngestion -&gt; Text
+$sel:awsAccountId:DescribeIngestion' :: DescribeIngestion -&gt; Text
+</span><a href="#local-6989586621679585455"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585457"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/data-sets/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585456"><span class="hs-identifier hs-var">dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/ingestions/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679585455"><span class="hs-identifier hs-var">ingestionId</span></a></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestion"><span class="hs-identifier hs-type">DescribeIngestion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679585451"><span class="annot"><span class="annottext">toQuery :: DescribeIngestion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeIngestion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newDescribeIngestionResponse' smart constructor.</span><span>
+</span><span id="line-150"></span><span id="local-6989586621679585448"><span id="local-6989586621679585449"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIngestionResponse"><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse"><span class="hs-identifier hs-var">DescribeIngestionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIngestionResponse%27"><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse%27"><span class="hs-identifier hs-var">DescribeIngestionResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3ArequestId%3ADescribeIngestionResponse%27"><span class="annot"><span class="annottext">DescribeIngestionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3ArequestId%3ADescribeIngestionResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | Information about the ingestion.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3Aingestion%3ADescribeIngestionResponse%27"><span class="annot"><span class="annottext">DescribeIngestionResponse -&gt; Maybe Ingestion
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3Aingestion%3ADescribeIngestionResponse%27"><span class="hs-identifier hs-var hs-var">ingestion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3Astatus%3ADescribeIngestionResponse%27"><span class="annot"><span class="annottext">DescribeIngestionResponse -&gt; Int
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3Astatus%3ADescribeIngestionResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679585441"><span id="local-6989586621679585443"><span class="annot"><span class="annottext">DescribeIngestionResponse -&gt; DescribeIngestionResponse -&gt; Bool
+(DescribeIngestionResponse -&gt; DescribeIngestionResponse -&gt; Bool)
+-&gt; (DescribeIngestionResponse -&gt; DescribeIngestionResponse -&gt; Bool)
+-&gt; Eq DescribeIngestionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeIngestionResponse -&gt; DescribeIngestionResponse -&gt; Bool
+$c/= :: DescribeIngestionResponse -&gt; DescribeIngestionResponse -&gt; Bool
+== :: DescribeIngestionResponse -&gt; DescribeIngestionResponse -&gt; Bool
+$c== :: DescribeIngestionResponse -&gt; DescribeIngestionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679585433"><span id="local-6989586621679585435"><span id="local-6989586621679585437"><span id="local-6989586621679585439"><span class="annot"><span class="annottext">ReadPrec [DescribeIngestionResponse]
+ReadPrec DescribeIngestionResponse
+Int -&gt; ReadS DescribeIngestionResponse
+ReadS [DescribeIngestionResponse]
+(Int -&gt; ReadS DescribeIngestionResponse)
+-&gt; ReadS [DescribeIngestionResponse]
+-&gt; ReadPrec DescribeIngestionResponse
+-&gt; ReadPrec [DescribeIngestionResponse]
+-&gt; Read DescribeIngestionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeIngestionResponse]
+$creadListPrec :: ReadPrec [DescribeIngestionResponse]
+readPrec :: ReadPrec DescribeIngestionResponse
+$creadPrec :: ReadPrec DescribeIngestionResponse
+readList :: ReadS [DescribeIngestionResponse]
+$creadList :: ReadS [DescribeIngestionResponse]
+readsPrec :: Int -&gt; ReadS DescribeIngestionResponse
+$creadsPrec :: Int -&gt; ReadS DescribeIngestionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679585427"><span id="local-6989586621679585429"><span id="local-6989586621679585431"><span class="annot"><span class="annottext">Int -&gt; DescribeIngestionResponse -&gt; ShowS
+[DescribeIngestionResponse] -&gt; ShowS
+DescribeIngestionResponse -&gt; String
+(Int -&gt; DescribeIngestionResponse -&gt; ShowS)
+-&gt; (DescribeIngestionResponse -&gt; String)
+-&gt; ([DescribeIngestionResponse] -&gt; ShowS)
+-&gt; Show DescribeIngestionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeIngestionResponse] -&gt; ShowS
+$cshowList :: [DescribeIngestionResponse] -&gt; ShowS
+show :: DescribeIngestionResponse -&gt; String
+$cshow :: DescribeIngestionResponse -&gt; String
+showsPrec :: Int -&gt; DescribeIngestionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeIngestionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeIngestionResponse -&gt; Rep DescribeIngestionResponse x)
+-&gt; (forall x.
+    Rep DescribeIngestionResponse x -&gt; DescribeIngestionResponse)
+-&gt; Generic DescribeIngestionResponse
+forall x.
+Rep DescribeIngestionResponse x -&gt; DescribeIngestionResponse
+forall x.
+DescribeIngestionResponse -&gt; Rep DescribeIngestionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeIngestionResponse x -&gt; DescribeIngestionResponse
+$cfrom :: forall x.
+DescribeIngestionResponse -&gt; Rep DescribeIngestionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Create a value of 'DescribeIngestionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'requestId', 'describeIngestionResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'ingestion', 'describeIngestionResponse_ingestion' - Information about the ingestion.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'status', 'describeIngestionResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#newDescribeIngestionResponse"><span class="hs-identifier hs-type">newDescribeIngestionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse"><span class="hs-identifier hs-type">DescribeIngestionResponse</span></a></span><span>
+</span><span id="line-177"></span><span id="newDescribeIngestionResponse"><span class="annot"><span class="annottext">newDescribeIngestionResponse :: Int -&gt; DescribeIngestionResponse
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#newDescribeIngestionResponse"><span class="hs-identifier hs-var hs-var">newDescribeIngestionResponse</span></a></span></span><span> </span><span id="local-6989586621679585424"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679585424"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">DescribeIngestionResponse' :: Maybe Text -&gt; Maybe Ingestion -&gt; Int -&gt; DescribeIngestionResponse
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse%27"><span class="hs-identifier hs-type">DescribeIngestionResponse'</span></a></span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:DescribeIngestionResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3ArequestId%3ADescribeIngestionResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:ingestion:DescribeIngestionResponse' :: Maybe Ingestion
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3Aingestion%3ADescribeIngestionResponse%27"><span class="hs-identifier hs-var">ingestion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ingestion
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DescribeIngestionResponse' :: Int
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3Astatus%3ADescribeIngestionResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679585424"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestionResponse_requestId"><span class="hs-identifier hs-type">describeIngestionResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse"><span class="hs-identifier hs-type">DescribeIngestionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="describeIngestionResponse_requestId"><span class="annot"><span class="annottext">describeIngestionResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeIngestionResponse -&gt; f DescribeIngestionResponse
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestionResponse_requestId"><span class="hs-identifier hs-var hs-var">describeIngestionResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIngestionResponse -&gt; Maybe Text)
+-&gt; (DescribeIngestionResponse
+    -&gt; Maybe Text -&gt; DescribeIngestionResponse)
+-&gt; Lens
+     DescribeIngestionResponse
+     DescribeIngestionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse%27"><span class="hs-identifier hs-type">DescribeIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679585423"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:DescribeIngestionResponse' :: DescribeIngestionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679585423"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679585423"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679585422"><span class="annot"><span class="annottext">s :: DescribeIngestionResponse
+</span><a href="#local-6989586621679585422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse%27"><span class="hs-identifier hs-type">DescribeIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679585421"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679585421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIngestionResponse
+</span><a href="#local-6989586621679585422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:DescribeIngestionResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3ArequestId%3ADescribeIngestionResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679585421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse"><span class="hs-identifier hs-type">DescribeIngestionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Information about the ingestion.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestionResponse_ingestion"><span class="hs-identifier hs-type">describeIngestionResponse_ingestion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse"><span class="hs-identifier hs-type">DescribeIngestionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="describeIngestionResponse_ingestion"><span class="annot"><span class="annottext">describeIngestionResponse_ingestion :: (Maybe Ingestion -&gt; f (Maybe Ingestion))
+-&gt; DescribeIngestionResponse -&gt; f DescribeIngestionResponse
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestionResponse_ingestion"><span class="hs-identifier hs-var hs-var">describeIngestionResponse_ingestion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIngestionResponse -&gt; Maybe Ingestion)
+-&gt; (DescribeIngestionResponse
+    -&gt; Maybe Ingestion -&gt; DescribeIngestionResponse)
+-&gt; Lens
+     DescribeIngestionResponse
+     DescribeIngestionResponse
+     (Maybe Ingestion)
+     (Maybe Ingestion)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse%27"><span class="hs-identifier hs-type">DescribeIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679585420"><span class="annot"><span class="annottext">Maybe Ingestion
+ingestion :: Maybe Ingestion
+$sel:ingestion:DescribeIngestionResponse' :: DescribeIngestionResponse -&gt; Maybe Ingestion
+</span><a href="#local-6989586621679585420"><span class="hs-identifier hs-var hs-var">ingestion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ingestion
+</span><a href="#local-6989586621679585420"><span class="hs-identifier hs-var">ingestion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679585419"><span class="annot"><span class="annottext">s :: DescribeIngestionResponse
+</span><a href="#local-6989586621679585419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse%27"><span class="hs-identifier hs-type">DescribeIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679585418"><span class="annot"><span class="annottext">Maybe Ingestion
+</span><a href="#local-6989586621679585418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIngestionResponse
+</span><a href="#local-6989586621679585419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestion:DescribeIngestionResponse' :: Maybe Ingestion
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3Aingestion%3ADescribeIngestionResponse%27"><span class="hs-identifier hs-var">ingestion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ingestion
+</span><a href="#local-6989586621679585418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse"><span class="hs-identifier hs-type">DescribeIngestionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestionResponse_status"><span class="hs-identifier hs-type">describeIngestionResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse"><span class="hs-identifier hs-type">DescribeIngestionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-195"></span><span id="describeIngestionResponse_status"><span class="annot"><span class="annottext">describeIngestionResponse_status :: (Int -&gt; f Int)
+-&gt; DescribeIngestionResponse -&gt; f DescribeIngestionResponse
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#describeIngestionResponse_status"><span class="hs-identifier hs-var hs-var">describeIngestionResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIngestionResponse -&gt; Int)
+-&gt; (DescribeIngestionResponse -&gt; Int -&gt; DescribeIngestionResponse)
+-&gt; Lens DescribeIngestionResponse DescribeIngestionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse%27"><span class="hs-identifier hs-type">DescribeIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679585417"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:DescribeIngestionResponse' :: DescribeIngestionResponse -&gt; Int
+</span><a href="#local-6989586621679585417"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679585417"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679585416"><span class="annot"><span class="annottext">s :: DescribeIngestionResponse
+</span><a href="#local-6989586621679585416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse%27"><span class="hs-identifier hs-type">DescribeIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679585415"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679585415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIngestionResponse
+</span><a href="#local-6989586621679585416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribeIngestionResponse' :: Int
+</span><a href="Network.AWS.QuickSight.DescribeIngestion.html#%24sel%3Astatus%3ADescribeIngestionResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679585415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse"><span class="hs-identifier hs-type">DescribeIngestionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679585413"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeIngestion.html#DescribeIngestionResponse"><span class="hs-identifier hs-type">DescribeIngestionResponse</span></a></span></span><span>
+</span><span id="line-198"></span></pre></body></html>

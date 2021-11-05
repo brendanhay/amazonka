@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListDocumentClassificationJobs' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679360472"><span id="local-6989586621679360473"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDocumentClassificationJobs"><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-var">ListDocumentClassificationJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDocumentClassificationJobs%27"><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-var">ListDocumentClassificationJobs'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679360481"><span id="local-6989586621679360482"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDocumentClassificationJobs"><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-var">ListDocumentClassificationJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDocumentClassificationJobs%27"><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-var">ListDocumentClassificationJobs'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies the next page of results to return.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListDocumentClassificationJobs%27"><span class="annot"><span class="annottext">ListDocumentClassificationJobs -&gt; Maybe Text
 </span><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#%24sel%3AnextToken%3AListDocumentClassificationJobs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3AListDocumentClassificationJobs%27"><span class="annot"><span class="annottext">ListDocumentClassificationJobs -&gt; Maybe Natural
 </span><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#%24sel%3AmaxResults%3AListDocumentClassificationJobs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360464"><span id="local-6989586621679360466"><span class="annot"><span class="annottext">ListDocumentClassificationJobs
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360473"><span id="local-6989586621679360475"><span class="annot"><span class="annottext">ListDocumentClassificationJobs
 -&gt; ListDocumentClassificationJobs -&gt; Bool
 (ListDocumentClassificationJobs
  -&gt; ListDocumentClassificationJobs -&gt; Bool)
@@ -84,7 +84,7 @@ $c/= :: ListDocumentClassificationJobs
 -&gt; ListDocumentClassificationJobs -&gt; Bool
 $c== :: ListDocumentClassificationJobs
 -&gt; ListDocumentClassificationJobs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360455"><span id="local-6989586621679360457"><span id="local-6989586621679360459"><span id="local-6989586621679360461"><span class="annot"><span class="annottext">ReadPrec [ListDocumentClassificationJobs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360464"><span id="local-6989586621679360466"><span id="local-6989586621679360468"><span id="local-6989586621679360470"><span class="annot"><span class="annottext">ReadPrec [ListDocumentClassificationJobs]
 ReadPrec ListDocumentClassificationJobs
 Int -&gt; ReadS ListDocumentClassificationJobs
 ReadS [ListDocumentClassificationJobs]
@@ -104,7 +104,7 @@ readList :: ReadS [ListDocumentClassificationJobs]
 $creadList :: ReadS [ListDocumentClassificationJobs]
 readsPrec :: Int -&gt; ReadS ListDocumentClassificationJobs
 $creadsPrec :: Int -&gt; ReadS ListDocumentClassificationJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360448"><span id="local-6989586621679360450"><span id="local-6989586621679360452"><span class="annot"><span class="annottext">Int -&gt; ListDocumentClassificationJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360457"><span id="local-6989586621679360459"><span id="local-6989586621679360461"><span class="annot"><span class="annottext">Int -&gt; ListDocumentClassificationJobs -&gt; ShowS
 [ListDocumentClassificationJobs] -&gt; ShowS
 ListDocumentClassificationJobs -&gt; String
 (Int -&gt; ListDocumentClassificationJobs -&gt; ShowS)
@@ -196,16 +196,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360442"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360451"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDocumentClassificationJobs' :: ListDocumentClassificationJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679360442"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360442"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360441"><span class="annot"><span class="annottext">s :: ListDocumentClassificationJobs
-</span><a href="#local-6989586621679360441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360440"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDocumentClassificationJobs
-</span><a href="#local-6989586621679360441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDocumentClassificationJobs' :: Maybe Text
+</span><a href="#local-6989586621679360451"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360451"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360450"><span class="annot"><span class="annottext">s :: ListDocumentClassificationJobs
+</span><a href="#local-6989586621679360450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360449"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDocumentClassificationJobs
+</span><a href="#local-6989586621679360450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDocumentClassificationJobs' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#%24sel%3AnextToken%3AListDocumentClassificationJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | Filters the jobs that are returned. You can filter jobs on their names,</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- status, or the date and time that they were submitted. You can only set</span><span>
@@ -226,17 +226,17 @@ $sel:nextToken:ListDocumentClassificationJobs' :: ListDocumentClassificationJobs
      (Maybe DocumentClassificationJobFilter)
      (Maybe DocumentClassificationJobFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360439"><span class="annot"><span class="annottext">Maybe DocumentClassificationJobFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360448"><span class="annot"><span class="annottext">Maybe DocumentClassificationJobFilter
 filter' :: Maybe DocumentClassificationJobFilter
 $sel:filter':ListDocumentClassificationJobs' :: ListDocumentClassificationJobs
 -&gt; Maybe DocumentClassificationJobFilter
-</span><a href="#local-6989586621679360439"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentClassificationJobFilter
-</span><a href="#local-6989586621679360439"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360438"><span class="annot"><span class="annottext">s :: ListDocumentClassificationJobs
-</span><a href="#local-6989586621679360438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360437"><span class="annot"><span class="annottext">Maybe DocumentClassificationJobFilter
-</span><a href="#local-6989586621679360437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDocumentClassificationJobs
-</span><a href="#local-6989586621679360438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':ListDocumentClassificationJobs' :: Maybe DocumentClassificationJobFilter
+</span><a href="#local-6989586621679360448"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentClassificationJobFilter
+</span><a href="#local-6989586621679360448"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360447"><span class="annot"><span class="annottext">s :: ListDocumentClassificationJobs
+</span><a href="#local-6989586621679360447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360446"><span class="annot"><span class="annottext">Maybe DocumentClassificationJobFilter
+</span><a href="#local-6989586621679360446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDocumentClassificationJobs
+</span><a href="#local-6989586621679360447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':ListDocumentClassificationJobs' :: Maybe DocumentClassificationJobFilter
 </span><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#%24sel%3Afilter%27%3AListDocumentClassificationJobs%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentClassificationJobFilter
-</span><a href="#local-6989586621679360437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The maximum number of results to return in each page. The default is</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- 100.</span><span>
@@ -253,30 +253,30 @@ $sel:filter':ListDocumentClassificationJobs' :: ListDocumentClassificationJobs
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360436"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360445"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListDocumentClassificationJobs' :: ListDocumentClassificationJobs -&gt; Maybe Natural
-</span><a href="#local-6989586621679360436"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679360436"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360435"><span class="annot"><span class="annottext">s :: ListDocumentClassificationJobs
-</span><a href="#local-6989586621679360435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360434"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679360434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDocumentClassificationJobs
-</span><a href="#local-6989586621679360435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDocumentClassificationJobs' :: Maybe Natural
+</span><a href="#local-6989586621679360445"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679360445"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360444"><span class="annot"><span class="annottext">s :: ListDocumentClassificationJobs
+</span><a href="#local-6989586621679360444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360443"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679360443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDocumentClassificationJobs
+</span><a href="#local-6989586621679360444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDocumentClassificationJobs' :: Maybe Natural
 </span><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#%24sel%3AmaxResults%3AListDocumentClassificationJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679360434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679360430"><span class="annot"><span class="annottext">page :: ListDocumentClassificationJobs
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679360439"><span class="annot"><span class="annottext">page :: ListDocumentClassificationJobs
 -&gt; AWSResponse ListDocumentClassificationJobs
 -&gt; Maybe ListDocumentClassificationJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679360428"><span class="annot"><span class="annottext">ListDocumentClassificationJobs
-</span><a href="#local-6989586621679360428"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679360427"><span class="annot"><span class="annottext">AWSResponse ListDocumentClassificationJobs
-</span><a href="#local-6989586621679360427"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679360437"><span class="annot"><span class="annottext">ListDocumentClassificationJobs
+</span><a href="#local-6989586621679360437"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679360436"><span class="annot"><span class="annottext">AWSResponse ListDocumentClassificationJobs
+</span><a href="#local-6989586621679360436"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDocumentClassificationJobs
 ListDocumentClassificationJobsResponse
-</span><a href="#local-6989586621679360427"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679360436"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListDocumentClassificationJobsResponse
 -&gt; Getting (First Text) ListDocumentClassificationJobsResponse Text
 -&gt; Maybe Text
@@ -306,7 +306,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-119"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDocumentClassificationJobs
 ListDocumentClassificationJobsResponse
-</span><a href="#local-6989586621679360427"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679360436"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">ListDocumentClassificationJobsResponse
 -&gt; Getting
      (First [DocumentClassificationJobProperties])
@@ -373,7 +373,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ListDocumentClassificationJobs
-</span><a href="#local-6989586621679360428"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679360437"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ListDocumentClassificationJobs
 -&gt; (ListDocumentClassificationJobs
     -&gt; ListDocumentClassificationJobs)
@@ -397,7 +397,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDocumentClassificationJobs
 ListDocumentClassificationJobsResponse
-</span><a href="#local-6989586621679360427"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679360436"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ListDocumentClassificationJobsResponse
 -&gt; Getting (First Text) ListDocumentClassificationJobsResponse Text
 -&gt; Maybe Text
@@ -426,7 +426,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-137"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679360417"><span class="annot"><span class="annottext">request :: ListDocumentClassificationJobs
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679360426"><span class="annot"><span class="annottext">request :: ListDocumentClassificationJobs
 -&gt; Request ListDocumentClassificationJobs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListDocumentClassificationJobs
@@ -434,7 +434,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679360413"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679360422"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListDocumentClassificationJobs
 -&gt; ClientResponse ClientBody
@@ -462,10 +462,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679360410"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679360410"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679360409"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679360409"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679360408"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360408"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679360419"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360419"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679360418"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679360418"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679360417"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360417"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [DocumentClassificationJobProperties]
 -&gt; Int
@@ -482,7 +482,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; ListDocumentClassificationJobsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679360417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -494,7 +494,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListDocumentClassificationJobsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either
      String (Maybe (Maybe [DocumentClassificationJobProperties]))
@@ -518,22 +518,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679360410"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360419"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679360399"><span id="local-6989586621679360401"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679360408"><span id="local-6989586621679360410"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679360396"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679360405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679360392"><span class="annot"><span class="annottext">toHeaders :: ListDocumentClassificationJobs -&gt; ResponseHeaders
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679360401"><span class="annot"><span class="annottext">toHeaders :: ListDocumentClassificationJobs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; ListDocumentClassificationJobs -&gt; ResponseHeaders
@@ -561,9 +561,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360382"><span id="local-6989586621679360384"><span id="local-6989586621679360386"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679360380"><span class="annot"><span class="annottext">toJSON :: ListDocumentClassificationJobs -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360376"><span id="local-6989586621679360377"><span id="local-6989586621679360378"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360391"><span id="local-6989586621679360393"><span id="local-6989586621679360395"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679360389"><span class="annot"><span class="annottext">toJSON :: ListDocumentClassificationJobs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360385"><span id="local-6989586621679360386"><span id="local-6989586621679360387"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe DocumentClassificationJobFilter
 maxResults :: Maybe Natural
@@ -573,7 +573,7 @@ $sel:maxResults:ListDocumentClassificationJobs' :: ListDocumentClassificationJob
 $sel:filter':ListDocumentClassificationJobs' :: ListDocumentClassificationJobs
 -&gt; Maybe DocumentClassificationJobFilter
 $sel:nextToken:ListDocumentClassificationJobs' :: ListDocumentClassificationJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679360376"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679360385"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -585,7 +585,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360378"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679360387"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DocumentClassificationJobFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -593,26 +593,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DocumentClassificationJobFilter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DocumentClassificationJobFilter
-</span><a href="#local-6989586621679360377"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679360386"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679360376"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679360385"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679360370"><span class="annot"><span class="annottext">toPath :: ListDocumentClassificationJobs -&gt; ByteString
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679360379"><span class="annot"><span class="annottext">toPath :: ListDocumentClassificationJobs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListDocumentClassificationJobs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobs"><span class="hs-identifier hs-type">ListDocumentClassificationJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679360366"><span class="annot"><span class="annottext">toQuery :: ListDocumentClassificationJobs -&gt; QueryString
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679360375"><span class="annot"><span class="annottext">toQuery :: ListDocumentClassificationJobs -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListDocumentClassificationJobs -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -620,7 +620,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | /See:/ 'newListDocumentClassificationJobsResponse' smart constructor.</span><span>
-</span><span id="line-194"></span><span id="local-6989586621679360363"><span id="local-6989586621679360364"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDocumentClassificationJobsResponse"><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse"><span class="hs-identifier hs-var">ListDocumentClassificationJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDocumentClassificationJobsResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-var">ListDocumentClassificationJobsResponse'</span></a></span></span><span>
+</span><span id="line-194"></span><span id="local-6989586621679360372"><span id="local-6989586621679360373"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDocumentClassificationJobsResponse"><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse"><span class="hs-identifier hs-var">ListDocumentClassificationJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDocumentClassificationJobsResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-var">ListDocumentClassificationJobsResponse'</span></a></span></span><span>
 </span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies the next page of results to return.</span><span>
 </span><span id="line-196"></span><span>    </span><span id="%24sel%3AnextToken%3AListDocumentClassificationJobsResponse%27"><span class="annot"><span class="annottext">ListDocumentClassificationJobsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#%24sel%3AnextToken%3AListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -632,7 +632,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-200"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDocumentClassificationJobsResponse%27"><span class="annot"><span class="annottext">ListDocumentClassificationJobsResponse -&gt; Int
 </span><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#%24sel%3AhttpStatus%3AListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360356"><span id="local-6989586621679360358"><span class="annot"><span class="annottext">ListDocumentClassificationJobsResponse
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360365"><span id="local-6989586621679360367"><span class="annot"><span class="annottext">ListDocumentClassificationJobsResponse
 -&gt; ListDocumentClassificationJobsResponse -&gt; Bool
 (ListDocumentClassificationJobsResponse
  -&gt; ListDocumentClassificationJobsResponse -&gt; Bool)
@@ -648,7 +648,7 @@ $c/= :: ListDocumentClassificationJobsResponse
 -&gt; ListDocumentClassificationJobsResponse -&gt; Bool
 $c== :: ListDocumentClassificationJobsResponse
 -&gt; ListDocumentClassificationJobsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360348"><span id="local-6989586621679360350"><span id="local-6989586621679360352"><span id="local-6989586621679360354"><span class="annot"><span class="annottext">ReadPrec [ListDocumentClassificationJobsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360357"><span id="local-6989586621679360359"><span id="local-6989586621679360361"><span id="local-6989586621679360363"><span class="annot"><span class="annottext">ReadPrec [ListDocumentClassificationJobsResponse]
 ReadPrec ListDocumentClassificationJobsResponse
 Int -&gt; ReadS ListDocumentClassificationJobsResponse
 ReadS [ListDocumentClassificationJobsResponse]
@@ -668,7 +668,7 @@ readList :: ReadS [ListDocumentClassificationJobsResponse]
 $creadList :: ReadS [ListDocumentClassificationJobsResponse]
 readsPrec :: Int -&gt; ReadS ListDocumentClassificationJobsResponse
 $creadsPrec :: Int -&gt; ReadS ListDocumentClassificationJobsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360342"><span id="local-6989586621679360344"><span id="local-6989586621679360346"><span class="annot"><span class="annottext">Int -&gt; ListDocumentClassificationJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360351"><span id="local-6989586621679360353"><span id="local-6989586621679360355"><span class="annot"><span class="annottext">Int -&gt; ListDocumentClassificationJobsResponse -&gt; ShowS
 [ListDocumentClassificationJobsResponse] -&gt; ShowS
 ListDocumentClassificationJobsResponse -&gt; String
 (Int -&gt; ListDocumentClassificationJobsResponse -&gt; ShowS)
@@ -725,8 +725,8 @@ ListDocumentClassificationJobsResponse
 </span><span id="line-220"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse</span></a></span><span>
 </span><span id="line-221"></span><span id="newListDocumentClassificationJobsResponse"><span class="annot"><span class="annottext">newListDocumentClassificationJobsResponse :: Int -&gt; ListDocumentClassificationJobsResponse
 </span><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#newListDocumentClassificationJobsResponse"><span class="hs-identifier hs-var hs-var">newListDocumentClassificationJobsResponse</span></a></span></span><span>
-</span><span id="line-222"></span><span>  </span><span id="local-6989586621679360339"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679360339"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679360348"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360348"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">ListDocumentClassificationJobsResponse' :: Maybe Text
 -&gt; Maybe [DocumentClassificationJobProperties]
 -&gt; Int
@@ -744,7 +744,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDocumentClassificationJobsResponse' :: Int
 </span><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#%24sel%3AhttpStatus%3AListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679360339"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679360348"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-229"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | Identifies the next page of results to return.</span><span>
@@ -757,16 +757,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListDocumentClassificationJobsResponse)
 -&gt; Lens' ListDocumentClassificationJobsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360338"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360347"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDocumentClassificationJobsResponse' :: ListDocumentClassificationJobsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679360338"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360338"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360337"><span class="annot"><span class="annottext">s :: ListDocumentClassificationJobsResponse
-</span><a href="#local-6989586621679360337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360336"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDocumentClassificationJobsResponse
-</span><a href="#local-6989586621679360337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDocumentClassificationJobsResponse' :: Maybe Text
+</span><a href="#local-6989586621679360347"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360347"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360346"><span class="annot"><span class="annottext">s :: ListDocumentClassificationJobsResponse
+</span><a href="#local-6989586621679360346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360345"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDocumentClassificationJobsResponse
+</span><a href="#local-6989586621679360346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDocumentClassificationJobsResponse' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#%24sel%3AnextToken%3AListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | A list containing the properties of each job returned.</span><span>
 </span><span id="line-236"></span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#listDocumentClassificationJobsResponse_documentClassificationJobPropertiesList"><span class="hs-identifier hs-type">listDocumentClassificationJobsResponse_documentClassificationJobPropertiesList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassificationJobProperties.html#DocumentClassificationJobProperties"><span class="hs-identifier hs-type">DocumentClassificationJobProperties</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -783,17 +783,17 @@ $sel:nextToken:ListDocumentClassificationJobsResponse' :: ListDocumentClassifica
      ListDocumentClassificationJobsResponse
      (Maybe [DocumentClassificationJobProperties])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360335"><span class="annot"><span class="annottext">Maybe [DocumentClassificationJobProperties]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360344"><span class="annot"><span class="annottext">Maybe [DocumentClassificationJobProperties]
 documentClassificationJobPropertiesList :: Maybe [DocumentClassificationJobProperties]
 $sel:documentClassificationJobPropertiesList:ListDocumentClassificationJobsResponse' :: ListDocumentClassificationJobsResponse
 -&gt; Maybe [DocumentClassificationJobProperties]
-</span><a href="#local-6989586621679360335"><span class="hs-identifier hs-var hs-var">documentClassificationJobPropertiesList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentClassificationJobProperties]
-</span><a href="#local-6989586621679360335"><span class="hs-identifier hs-var">documentClassificationJobPropertiesList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360334"><span class="annot"><span class="annottext">s :: ListDocumentClassificationJobsResponse
-</span><a href="#local-6989586621679360334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360333"><span class="annot"><span class="annottext">Maybe [DocumentClassificationJobProperties]
-</span><a href="#local-6989586621679360333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDocumentClassificationJobsResponse
-</span><a href="#local-6989586621679360334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentClassificationJobPropertiesList:ListDocumentClassificationJobsResponse' :: Maybe [DocumentClassificationJobProperties]
+</span><a href="#local-6989586621679360344"><span class="hs-identifier hs-var hs-var">documentClassificationJobPropertiesList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentClassificationJobProperties]
+</span><a href="#local-6989586621679360344"><span class="hs-identifier hs-var">documentClassificationJobPropertiesList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360343"><span class="annot"><span class="annottext">s :: ListDocumentClassificationJobsResponse
+</span><a href="#local-6989586621679360343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360342"><span class="annot"><span class="annottext">Maybe [DocumentClassificationJobProperties]
+</span><a href="#local-6989586621679360342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDocumentClassificationJobsResponse
+</span><a href="#local-6989586621679360343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentClassificationJobPropertiesList:ListDocumentClassificationJobsResponse' :: Maybe [DocumentClassificationJobProperties]
 </span><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#%24sel%3AdocumentClassificationJobPropertiesList%3AListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-var">documentClassificationJobPropertiesList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentClassificationJobProperties]
-</span><a href="#local-6989586621679360333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DocumentClassificationJobProperties]
+</span><a href="#local-6989586621679360342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DocumentClassificationJobProperties]
   -&gt; f (Maybe [DocumentClassificationJobProperties]))
  -&gt; ListDocumentClassificationJobsResponse
  -&gt; f ListDocumentClassificationJobsResponse)
@@ -841,18 +841,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360330"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360339"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListDocumentClassificationJobsResponse' :: ListDocumentClassificationJobsResponse -&gt; Int
-</span><a href="#local-6989586621679360330"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679360330"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360329"><span class="annot"><span class="annottext">s :: ListDocumentClassificationJobsResponse
-</span><a href="#local-6989586621679360329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360328"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679360328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDocumentClassificationJobsResponse
-</span><a href="#local-6989586621679360329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDocumentClassificationJobsResponse' :: Int
+</span><a href="#local-6989586621679360339"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360339"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360338"><span class="annot"><span class="annottext">s :: ListDocumentClassificationJobsResponse
+</span><a href="#local-6989586621679360338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360337"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDocumentClassificationJobsResponse
+</span><a href="#local-6989586621679360338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDocumentClassificationJobsResponse' :: Int
 </span><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#%24sel%3AhttpStatus%3AListDocumentClassificationJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679360328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>
 </span><span id="line-243"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621679360326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679360335"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-245"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListDocumentClassificationJobs.html#ListDocumentClassificationJobsResponse"><span class="hs-identifier hs-type">ListDocumentClassificationJobsResponse</span></a></span></span><span>
 </span><span id="line-246"></span></pre></body></html>

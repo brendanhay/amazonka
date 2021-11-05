@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621680346514"><span id="local-6989586621680346515"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetPlatformArch"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatformArch.html#TargetPlatformArch"><span class="hs-identifier hs-var">TargetPlatformArch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetPlatformArch%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatformArch.html#TargetPlatformArch%27"><span class="hs-identifier hs-var">TargetPlatformArch'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680346523"><span id="local-6989586621680346524"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetPlatformArch"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatformArch.html#TargetPlatformArch"><span class="hs-identifier hs-var">TargetPlatformArch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetPlatformArch%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatformArch.html#TargetPlatformArch%27"><span class="hs-identifier hs-var">TargetPlatformArch'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTargetPlatformArch"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.TargetPlatformArch.html#fromTargetPlatformArch"><span class="hs-identifier hs-var hs-var">fromTargetPlatformArch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680346506"><span id="local-6989586621680346508"><span id="local-6989586621680346510"><span class="annot"><span class="annottext">Int -&gt; TargetPlatformArch -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680346515"><span id="local-6989586621680346517"><span id="local-6989586621680346519"><span class="annot"><span class="annottext">Int -&gt; TargetPlatformArch -&gt; ShowS
 [TargetPlatformArch] -&gt; ShowS
 TargetPlatformArch -&gt; String
 (Int -&gt; TargetPlatformArch -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: TargetPlatformArch -&gt; String
 showsPrec :: Int -&gt; TargetPlatformArch -&gt; ShowS
 $cshowsPrec :: Int -&gt; TargetPlatformArch -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680346497"><span id="local-6989586621680346499"><span id="local-6989586621680346501"><span id="local-6989586621680346503"><span class="annot"><span class="annottext">ReadPrec [TargetPlatformArch]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680346506"><span id="local-6989586621680346508"><span id="local-6989586621680346510"><span id="local-6989586621680346512"><span class="annot"><span class="annottext">ReadPrec [TargetPlatformArch]
 ReadPrec TargetPlatformArch
 Int -&gt; ReadS TargetPlatformArch
 ReadS [TargetPlatformArch]
@@ -75,7 +75,7 @@ $creadList :: ReadS [TargetPlatformArch]
 readsPrec :: Int -&gt; ReadS TargetPlatformArch
 $creadsPrec :: Int -&gt; ReadS TargetPlatformArch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680346492"><span id="local-6989586621680346494"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; TargetPlatformArch -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680346501"><span id="local-6989586621680346503"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; TargetPlatformArch -&gt; Bool
 (TargetPlatformArch -&gt; TargetPlatformArch -&gt; Bool)
 -&gt; (TargetPlatformArch -&gt; TargetPlatformArch -&gt; Bool)
 -&gt; Eq TargetPlatformArch
@@ -85,7 +85,7 @@ $c/= :: TargetPlatformArch -&gt; TargetPlatformArch -&gt; Bool
 == :: TargetPlatformArch -&gt; TargetPlatformArch -&gt; Bool
 $c== :: TargetPlatformArch -&gt; TargetPlatformArch -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680346476"><span id="local-6989586621680346478"><span id="local-6989586621680346480"><span id="local-6989586621680346482"><span id="local-6989586621680346484"><span id="local-6989586621680346486"><span id="local-6989586621680346488"><span class="annot"><span class="annottext">Eq TargetPlatformArch
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680346485"><span id="local-6989586621680346487"><span id="local-6989586621680346489"><span id="local-6989586621680346491"><span id="local-6989586621680346493"><span id="local-6989586621680346495"><span id="local-6989586621680346497"><span class="annot"><span class="annottext">Eq TargetPlatformArch
 Eq TargetPlatformArch
 -&gt; (TargetPlatformArch -&gt; TargetPlatformArch -&gt; Ordering)
 -&gt; (TargetPlatformArch -&gt; TargetPlatformArch -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. TargetPlatformArch -&gt; Rep TargetPlatformArch x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680346468"><span id="local-6989586621680346470"><span class="annot"><span class="annottext">Int -&gt; TargetPlatformArch -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680346477"><span id="local-6989586621680346479"><span class="annot"><span class="annottext">Int -&gt; TargetPlatformArch -&gt; Int
 TargetPlatformArch -&gt; Int
 (Int -&gt; TargetPlatformArch -&gt; Int)
 -&gt; (TargetPlatformArch -&gt; Int) -&gt; Hashable TargetPlatformArch
@@ -146,53 +146,53 @@ $chash :: TargetPlatformArch -&gt; Int
 hashWithSalt :: Int -&gt; TargetPlatformArch -&gt; Int
 $chashWithSalt :: Int -&gt; TargetPlatformArch -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680346465"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680346474"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; ()
 (TargetPlatformArch -&gt; ()) -&gt; NFData TargetPlatformArch
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TargetPlatformArch -&gt; ()
 $crnf :: TargetPlatformArch -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680346462"><span class="annot"><span class="annottext">Text -&gt; Either String TargetPlatformArch
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680346471"><span class="annot"><span class="annottext">Text -&gt; Either String TargetPlatformArch
 (Text -&gt; Either String TargetPlatformArch)
 -&gt; FromText TargetPlatformArch
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TargetPlatformArch
 $cfromText :: Text -&gt; Either String TargetPlatformArch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680346459"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680346468"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; Text
 (TargetPlatformArch -&gt; Text) -&gt; ToText TargetPlatformArch
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TargetPlatformArch -&gt; Text
 $ctoText :: TargetPlatformArch -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680346456"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680346465"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; ByteString
 (TargetPlatformArch -&gt; ByteString)
 -&gt; ToByteString TargetPlatformArch
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TargetPlatformArch -&gt; ByteString
 $ctoBS :: TargetPlatformArch -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680346453"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680346462"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; ByteStringBuilder
 (TargetPlatformArch -&gt; ByteStringBuilder)
 -&gt; ToLog TargetPlatformArch
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TargetPlatformArch -&gt; ByteStringBuilder
 $cbuild :: TargetPlatformArch -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680346450"><span class="annot"><span class="annottext">HeaderName -&gt; TargetPlatformArch -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680346459"><span class="annot"><span class="annottext">HeaderName -&gt; TargetPlatformArch -&gt; [Header]
 (HeaderName -&gt; TargetPlatformArch -&gt; [Header])
 -&gt; ToHeader TargetPlatformArch
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TargetPlatformArch -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TargetPlatformArch -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680346447"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680346456"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; QueryString
 (TargetPlatformArch -&gt; QueryString) -&gt; ToQuery TargetPlatformArch
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TargetPlatformArch -&gt; QueryString
 $ctoQuery :: TargetPlatformArch -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680346442"><span id="local-6989586621680346444"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetPlatformArch]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680346451"><span id="local-6989586621680346453"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetPlatformArch]
 Value -&gt; Parser TargetPlatformArch
 (Value -&gt; Parser TargetPlatformArch)
 -&gt; (Value -&gt; Parser [TargetPlatformArch])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [TargetPlatformArch]
 parseJSON :: Value -&gt; Parser TargetPlatformArch
 $cparseJSON :: Value -&gt; Parser TargetPlatformArch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680346437"><span id="local-6989586621680346439"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetPlatformArch]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680346446"><span id="local-6989586621680346448"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetPlatformArch]
 FromJSONKeyFunction TargetPlatformArch
 FromJSONKeyFunction TargetPlatformArch
 -&gt; FromJSONKeyFunction [TargetPlatformArch]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TargetPlatformArch]
 fromJSONKey :: FromJSONKeyFunction TargetPlatformArch
 $cfromJSONKey :: FromJSONKeyFunction TargetPlatformArch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680346428"><span id="local-6989586621680346430"><span id="local-6989586621680346432"><span id="local-6989586621680346434"><span class="annot"><span class="annottext">[TargetPlatformArch] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680346437"><span id="local-6989586621680346439"><span id="local-6989586621680346441"><span id="local-6989586621680346443"><span class="annot"><span class="annottext">[TargetPlatformArch] -&gt; Encoding
 [TargetPlatformArch] -&gt; Value
 TargetPlatformArch -&gt; Encoding
 TargetPlatformArch -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: TargetPlatformArch -&gt; Encoding
 toJSON :: TargetPlatformArch -&gt; Value
 $ctoJSON :: TargetPlatformArch -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680346423"><span id="local-6989586621680346425"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetPlatformArch]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680346432"><span id="local-6989586621680346434"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetPlatformArch]
 ToJSONKeyFunction TargetPlatformArch
 ToJSONKeyFunction TargetPlatformArch
 -&gt; ToJSONKeyFunction [TargetPlatformArch]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TargetPlatformArch]
 toJSONKey :: ToJSONKeyFunction TargetPlatformArch
 $ctoJSONKey :: ToJSONKeyFunction TargetPlatformArch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680346420"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetPlatformArch
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680346429"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetPlatformArch
 ([Node] -&gt; Either String TargetPlatformArch)
 -&gt; FromXML TargetPlatformArch
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TargetPlatformArch
 $cparseXML :: [Node] -&gt; Either String TargetPlatformArch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680346417"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680346426"><span class="annot"><span class="annottext">TargetPlatformArch -&gt; XML
 (TargetPlatformArch -&gt; XML) -&gt; ToXML TargetPlatformArch
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TargetPlatformArch -&gt; XML

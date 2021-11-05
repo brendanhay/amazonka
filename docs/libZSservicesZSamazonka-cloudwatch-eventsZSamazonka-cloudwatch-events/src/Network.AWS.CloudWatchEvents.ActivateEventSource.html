@@ -45,12 +45,12 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newActivateEventSource' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679319938"><span id="local-6989586621679319939"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivateEventSource"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-var">ActivateEventSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivateEventSource%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource%27"><span class="hs-identifier hs-var">ActivateEventSource'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679319947"><span id="local-6989586621679319948"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivateEventSource"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-var">ActivateEventSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivateEventSource%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource%27"><span class="hs-identifier hs-var">ActivateEventSource'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the partner event source to activate.</span><span>
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Aname%3AActivateEventSource%27"><span class="annot"><span class="annottext">ActivateEventSource -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#%24sel%3Aname%3AActivateEventSource%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319932"><span id="local-6989586621679319934"><span class="annot"><span class="annottext">ActivateEventSource -&gt; ActivateEventSource -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319941"><span id="local-6989586621679319943"><span class="annot"><span class="annottext">ActivateEventSource -&gt; ActivateEventSource -&gt; Bool
 (ActivateEventSource -&gt; ActivateEventSource -&gt; Bool)
 -&gt; (ActivateEventSource -&gt; ActivateEventSource -&gt; Bool)
 -&gt; Eq ActivateEventSource
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActivateEventSource -&gt; ActivateEventSource -&gt; Bool
 == :: ActivateEventSource -&gt; ActivateEventSource -&gt; Bool
 $c== :: ActivateEventSource -&gt; ActivateEventSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319923"><span id="local-6989586621679319925"><span id="local-6989586621679319927"><span id="local-6989586621679319929"><span class="annot"><span class="annottext">ReadPrec [ActivateEventSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319932"><span id="local-6989586621679319934"><span id="local-6989586621679319936"><span id="local-6989586621679319938"><span class="annot"><span class="annottext">ReadPrec [ActivateEventSource]
 ReadPrec ActivateEventSource
 Int -&gt; ReadS ActivateEventSource
 ReadS [ActivateEventSource]
@@ -79,7 +79,7 @@ readList :: ReadS [ActivateEventSource]
 $creadList :: ReadS [ActivateEventSource]
 readsPrec :: Int -&gt; ReadS ActivateEventSource
 $creadsPrec :: Int -&gt; ReadS ActivateEventSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319916"><span id="local-6989586621679319918"><span id="local-6989586621679319920"><span class="annot"><span class="annottext">Int -&gt; ActivateEventSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319925"><span id="local-6989586621679319927"><span id="local-6989586621679319929"><span class="annot"><span class="annottext">Int -&gt; ActivateEventSource -&gt; ShowS
 [ActivateEventSource] -&gt; ShowS
 ActivateEventSource -&gt; String
 (Int -&gt; ActivateEventSource -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. ActivateEventSource -&gt; Rep ActivateEventSource x
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span><span>
 </span><span id="line-67"></span><span id="newActivateEventSource"><span class="annot"><span class="annottext">newActivateEventSource :: Text -&gt; ActivateEventSource
-</span><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#newActivateEventSource"><span class="hs-identifier hs-var hs-var">newActivateEventSource</span></a></span></span><span> </span><span id="local-6989586621679319911"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319911"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#newActivateEventSource"><span class="hs-identifier hs-var hs-var">newActivateEventSource</span></a></span></span><span> </span><span id="local-6989586621679319920"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319920"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">ActivateEventSource' :: Text -&gt; ActivateEventSource
 </span><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource%27"><span class="hs-identifier hs-type">ActivateEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ActivateEventSource' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#%24sel%3Aname%3AActivateEventSource%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319911"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679319920"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The name of the partner event source to activate.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#activateEventSource_name"><span class="hs-identifier hs-type">activateEventSource_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -133,27 +133,27 @@ $cfrom :: forall x. ActivateEventSource -&gt; Rep ActivateEventSource x
 -&gt; (ActivateEventSource -&gt; Text -&gt; ActivateEventSource)
 -&gt; Lens ActivateEventSource ActivateEventSource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource%27"><span class="hs-identifier hs-type">ActivateEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319908"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource%27"><span class="hs-identifier hs-type">ActivateEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319917"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ActivateEventSource' :: ActivateEventSource -&gt; Text
-</span><a href="#local-6989586621679319908"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319908"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319907"><span class="annot"><span class="annottext">s :: ActivateEventSource
-</span><a href="#local-6989586621679319907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource%27"><span class="hs-identifier hs-type">ActivateEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319906"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateEventSource
-</span><a href="#local-6989586621679319907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ActivateEventSource' :: Text
+</span><a href="#local-6989586621679319917"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319917"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319916"><span class="annot"><span class="annottext">s :: ActivateEventSource
+</span><a href="#local-6989586621679319916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource%27"><span class="hs-identifier hs-type">ActivateEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319915"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateEventSource
+</span><a href="#local-6989586621679319916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ActivateEventSource' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#%24sel%3Aname%3AActivateEventSource%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-76"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSourceResponse"><span class="hs-identifier hs-type">ActivateEventSourceResponse</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679319902"><span class="annot"><span class="annottext">request :: ActivateEventSource -&gt; Request ActivateEventSource
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679319911"><span class="annot"><span class="annottext">request :: ActivateEventSource -&gt; Request ActivateEventSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ActivateEventSource -&gt; Request ActivateEventSource
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679319898"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679319907"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ActivateEventSource
 -&gt; ClientResponse ClientBody
@@ -179,12 +179,12 @@ AWSResponse a
 ActivateEventSourceResponse
 </span><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSourceResponse%27"><span class="hs-identifier hs-var">ActivateEventSourceResponse'</span></a></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319891"><span id="local-6989586621679319893"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319900"><span id="local-6989586621679319902"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319888"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319897"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span></span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679319884"><span class="annot"><span class="annottext">toHeaders :: ActivateEventSource -&gt; [Header]
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679319893"><span class="annot"><span class="annottext">toHeaders :: ActivateEventSource -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; ActivateEventSource -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -211,12 +211,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319874"><span id="local-6989586621679319876"><span id="local-6989586621679319878"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679319872"><span class="annot"><span class="annottext">toJSON :: ActivateEventSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource%27"><span class="hs-identifier hs-type">ActivateEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319870"><span class="annot"><span class="annottext">Text
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319883"><span id="local-6989586621679319885"><span id="local-6989586621679319887"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679319881"><span class="annot"><span class="annottext">toJSON :: ActivateEventSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource%27"><span class="hs-identifier hs-type">ActivateEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319879"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ActivateEventSource' :: ActivateEventSource -&gt; Text
-</span><a href="#local-6989586621679319870"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679319879"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -228,18 +228,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319870"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679319879"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679319864"><span class="annot"><span class="annottext">toPath :: ActivateEventSource -&gt; ByteString
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679319873"><span class="annot"><span class="annottext">toPath :: ActivateEventSource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ActivateEventSource -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSource"><span class="hs-identifier hs-type">ActivateEventSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679319860"><span class="annot"><span class="annottext">toQuery :: ActivateEventSource -&gt; QueryString
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679319869"><span class="annot"><span class="annottext">toQuery :: ActivateEventSource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ActivateEventSource -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -247,10 +247,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | /See:/ 'newActivateEventSourceResponse' smart constructor.</span><span>
-</span><span id="line-115"></span><span id="local-6989586621679319857"><span id="local-6989586621679319858"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivateEventSourceResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSourceResponse"><span class="hs-identifier hs-var">ActivateEventSourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivateEventSourceResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSourceResponse%27"><span class="hs-identifier hs-var">ActivateEventSourceResponse'</span></a></span></span><span>
+</span><span id="line-115"></span><span id="local-6989586621679319866"><span id="local-6989586621679319867"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivateEventSourceResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSourceResponse"><span class="hs-identifier hs-var">ActivateEventSourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivateEventSourceResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSourceResponse%27"><span class="hs-identifier hs-var">ActivateEventSourceResponse'</span></a></span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319853"><span id="local-6989586621679319855"><span class="annot"><span class="annottext">ActivateEventSourceResponse -&gt; ActivateEventSourceResponse -&gt; Bool
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319862"><span id="local-6989586621679319864"><span class="annot"><span class="annottext">ActivateEventSourceResponse -&gt; ActivateEventSourceResponse -&gt; Bool
 (ActivateEventSourceResponse
  -&gt; ActivateEventSourceResponse -&gt; Bool)
 -&gt; (ActivateEventSourceResponse
@@ -261,7 +261,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActivateEventSourceResponse -&gt; ActivateEventSourceResponse -&gt; Bool
 == :: ActivateEventSourceResponse -&gt; ActivateEventSourceResponse -&gt; Bool
 $c== :: ActivateEventSourceResponse -&gt; ActivateEventSourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319845"><span id="local-6989586621679319847"><span id="local-6989586621679319849"><span id="local-6989586621679319851"><span class="annot"><span class="annottext">ReadPrec [ActivateEventSourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319854"><span id="local-6989586621679319856"><span id="local-6989586621679319858"><span id="local-6989586621679319860"><span class="annot"><span class="annottext">ReadPrec [ActivateEventSourceResponse]
 ReadPrec ActivateEventSourceResponse
 Int -&gt; ReadS ActivateEventSourceResponse
 ReadS [ActivateEventSourceResponse]
@@ -281,7 +281,7 @@ readList :: ReadS [ActivateEventSourceResponse]
 $creadList :: ReadS [ActivateEventSourceResponse]
 readsPrec :: Int -&gt; ReadS ActivateEventSourceResponse
 $creadsPrec :: Int -&gt; ReadS ActivateEventSourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319839"><span id="local-6989586621679319841"><span id="local-6989586621679319843"><span class="annot"><span class="annottext">Int -&gt; ActivateEventSourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319848"><span id="local-6989586621679319850"><span id="local-6989586621679319852"><span class="annot"><span class="annottext">Int -&gt; ActivateEventSourceResponse -&gt; ShowS
 [ActivateEventSourceResponse] -&gt; ShowS
 ActivateEventSourceResponse -&gt; String
 (Int -&gt; ActivateEventSourceResponse -&gt; ShowS)
@@ -324,5 +324,5 @@ ActivateEventSourceResponse -&gt; Rep ActivateEventSourceResponse x
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">ActivateEventSourceResponse
 </span><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSourceResponse%27"><span class="hs-identifier hs-var">ActivateEventSourceResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319835"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSourceResponse"><span class="hs-identifier hs-type">ActivateEventSourceResponse</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319844"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ActivateEventSource.html#ActivateEventSourceResponse"><span class="hs-identifier hs-type">ActivateEventSourceResponse</span></a></span></span><span>
 </span><span id="line-130"></span></pre></body></html>

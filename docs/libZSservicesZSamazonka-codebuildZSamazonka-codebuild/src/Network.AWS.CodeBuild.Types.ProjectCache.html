@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Information about the cache for the build project.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newProjectCache' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679373701"><span id="local-6989586621679373702"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectCache"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-var">ProjectCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectCache%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-var">ProjectCache'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679373710"><span id="local-6989586621679373711"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectCache"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-var">ProjectCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectCache%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-var">ProjectCache'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the cache location:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   @NO_CACHE@ or @LOCAL@: This value is ignored.</span><span>
@@ -92,7 +92,7 @@
 </span><span id="line-90"></span><span>    </span><span id="%24sel%3Atype%27%3AProjectCache%27"><span class="annot"><span class="annottext">ProjectCache -&gt; CacheType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#%24sel%3Atype%27%3AProjectCache%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CacheType.html#CacheType"><span class="hs-identifier hs-type">CacheType</span></a></span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373693"><span id="local-6989586621679373695"><span class="annot"><span class="annottext">ProjectCache -&gt; ProjectCache -&gt; Bool
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373702"><span id="local-6989586621679373704"><span class="annot"><span class="annottext">ProjectCache -&gt; ProjectCache -&gt; Bool
 (ProjectCache -&gt; ProjectCache -&gt; Bool)
 -&gt; (ProjectCache -&gt; ProjectCache -&gt; Bool) -&gt; Eq ProjectCache
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -100,7 +100,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProjectCache -&gt; ProjectCache -&gt; Bool
 == :: ProjectCache -&gt; ProjectCache -&gt; Bool
 $c== :: ProjectCache -&gt; ProjectCache -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373684"><span id="local-6989586621679373686"><span id="local-6989586621679373688"><span id="local-6989586621679373690"><span class="annot"><span class="annottext">ReadPrec [ProjectCache]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373693"><span id="local-6989586621679373695"><span id="local-6989586621679373697"><span id="local-6989586621679373699"><span class="annot"><span class="annottext">ReadPrec [ProjectCache]
 ReadPrec ProjectCache
 Int -&gt; ReadS ProjectCache
 ReadS [ProjectCache]
@@ -120,7 +120,7 @@ readList :: ReadS [ProjectCache]
 $creadList :: ReadS [ProjectCache]
 readsPrec :: Int -&gt; ReadS ProjectCache
 $creadsPrec :: Int -&gt; ReadS ProjectCache
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373677"><span id="local-6989586621679373679"><span id="local-6989586621679373681"><span class="annot"><span class="annottext">Int -&gt; ProjectCache -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373686"><span id="local-6989586621679373688"><span id="local-6989586621679373690"><span class="annot"><span class="annottext">Int -&gt; ProjectCache -&gt; ShowS
 [ProjectCache] -&gt; ShowS
 ProjectCache -&gt; String
 (Int -&gt; ProjectCache -&gt; ShowS)
@@ -217,8 +217,8 @@ $cfrom :: forall x. ProjectCache -&gt; Rep ProjectCache x
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CacheType.html#CacheType"><span class="hs-identifier hs-type">CacheType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span><span>
 </span><span id="line-164"></span><span id="newProjectCache"><span class="annot"><span class="annottext">newProjectCache :: CacheType -&gt; ProjectCache
-</span><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#newProjectCache"><span class="hs-identifier hs-var hs-var">newProjectCache</span></a></span></span><span> </span><span id="local-6989586621679373671"><span class="annot"><span class="annottext">CacheType
-</span><a href="#local-6989586621679373671"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#newProjectCache"><span class="hs-identifier hs-var hs-var">newProjectCache</span></a></span></span><span> </span><span id="local-6989586621679373680"><span class="annot"><span class="annottext">CacheType
+</span><a href="#local-6989586621679373680"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">ProjectCache' :: Maybe Text -&gt; Maybe [CacheMode] -&gt; CacheType -&gt; ProjectCache
 </span><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:location:ProjectCache' :: Maybe Text
@@ -231,7 +231,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ProjectCache' :: CacheType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#%24sel%3Atype%27%3AProjectCache%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CacheType
-</span><a href="#local-6989586621679373671"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679373680"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | Information about the cache location:</span><span>
@@ -245,16 +245,16 @@ forall a. Maybe a
 -&gt; (ProjectCache -&gt; Maybe Text -&gt; ProjectCache)
 -&gt; Lens ProjectCache ProjectCache (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373667"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373676"><span class="annot"><span class="annottext">Maybe Text
 location :: Maybe Text
 $sel:location:ProjectCache' :: ProjectCache -&gt; Maybe Text
-</span><a href="#local-6989586621679373667"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373667"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373666"><span class="annot"><span class="annottext">s :: ProjectCache
-</span><a href="#local-6989586621679373666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373665"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectCache
-</span><a href="#local-6989586621679373666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:ProjectCache' :: Maybe Text
+</span><a href="#local-6989586621679373676"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373676"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373675"><span class="annot"><span class="annottext">s :: ProjectCache
+</span><a href="#local-6989586621679373675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373674"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectCache
+</span><a href="#local-6989586621679373675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:ProjectCache' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#%24sel%3Alocation%3AProjectCache%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | An array of strings that specify the local cache modes. You can use one</span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- or more local cache modes at the same time. This is only used for</span><span>
@@ -307,16 +307,16 @@ $sel:location:ProjectCache' :: ProjectCache -&gt; Maybe Text
 -&gt; Lens
      ProjectCache ProjectCache (Maybe [CacheMode]) (Maybe [CacheMode])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373663"><span class="annot"><span class="annottext">Maybe [CacheMode]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373672"><span class="annot"><span class="annottext">Maybe [CacheMode]
 modes :: Maybe [CacheMode]
 $sel:modes:ProjectCache' :: ProjectCache -&gt; Maybe [CacheMode]
-</span><a href="#local-6989586621679373663"><span class="hs-identifier hs-var hs-var">modes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CacheMode]
-</span><a href="#local-6989586621679373663"><span class="hs-identifier hs-var">modes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373662"><span class="annot"><span class="annottext">s :: ProjectCache
-</span><a href="#local-6989586621679373662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373661"><span class="annot"><span class="annottext">Maybe [CacheMode]
-</span><a href="#local-6989586621679373661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectCache
-</span><a href="#local-6989586621679373662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modes:ProjectCache' :: Maybe [CacheMode]
+</span><a href="#local-6989586621679373672"><span class="hs-identifier hs-var hs-var">modes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CacheMode]
+</span><a href="#local-6989586621679373672"><span class="hs-identifier hs-var">modes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373671"><span class="annot"><span class="annottext">s :: ProjectCache
+</span><a href="#local-6989586621679373671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373670"><span class="annot"><span class="annottext">Maybe [CacheMode]
+</span><a href="#local-6989586621679373670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectCache
+</span><a href="#local-6989586621679373671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modes:ProjectCache' :: Maybe [CacheMode]
 </span><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#%24sel%3Amodes%3AProjectCache%27"><span class="hs-identifier hs-var">modes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CacheMode]
-</span><a href="#local-6989586621679373661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CacheMode] -&gt; f (Maybe [CacheMode]))
+</span><a href="#local-6989586621679373670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CacheMode] -&gt; f (Maybe [CacheMode]))
  -&gt; ProjectCache -&gt; f ProjectCache)
 -&gt; ((Maybe [CacheMode] -&gt; f (Maybe [CacheMode]))
     -&gt; Maybe [CacheMode] -&gt; f (Maybe [CacheMode]))
@@ -351,19 +351,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ProjectCache -&gt; CacheType -&gt; ProjectCache)
 -&gt; Lens ProjectCache ProjectCache CacheType CacheType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373656"><span class="annot"><span class="annottext">CacheType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373665"><span class="annot"><span class="annottext">CacheType
 type' :: CacheType
 $sel:type':ProjectCache' :: ProjectCache -&gt; CacheType
-</span><a href="#local-6989586621679373656"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheType
-</span><a href="#local-6989586621679373656"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373655"><span class="annot"><span class="annottext">s :: ProjectCache
-</span><a href="#local-6989586621679373655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373654"><span class="annot"><span class="annottext">CacheType
-</span><a href="#local-6989586621679373654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectCache
-</span><a href="#local-6989586621679373655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ProjectCache' :: CacheType
+</span><a href="#local-6989586621679373665"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheType
+</span><a href="#local-6989586621679373665"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373664"><span class="annot"><span class="annottext">s :: ProjectCache
+</span><a href="#local-6989586621679373664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373663"><span class="annot"><span class="annottext">CacheType
+</span><a href="#local-6989586621679373663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectCache
+</span><a href="#local-6989586621679373664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ProjectCache' :: CacheType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#%24sel%3Atype%27%3AProjectCache%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CacheType
-</span><a href="#local-6989586621679373654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373651"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-237"></span><span>  </span><span id="local-6989586621679373649"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectCache
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373660"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679373658"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProjectCache) -&gt; Value -&gt; Parser ProjectCache
@@ -371,8 +371,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProjectCache&quot;</span></span><span>
-</span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373646"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373646"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373655"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373655"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [CacheMode] -&gt; CacheType -&gt; ProjectCache
 </span><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-var">ProjectCache'</span></a></span><span>
 </span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [CacheMode] -&gt; CacheType -&gt; ProjectCache)
@@ -380,7 +380,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [CacheMode] -&gt; CacheType -&gt; ProjectCache)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679373655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
@@ -388,7 +388,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [CacheMode]) -&gt; Parser (CacheType -&gt; ProjectCache)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CacheMode]))
+</span><a href="#local-6989586621679373655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CacheMode]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;modes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [CacheMode]))
@@ -401,19 +401,19 @@ forall a. Monoid a =&gt; a
 -&gt; Parser CacheType -&gt; Parser ProjectCache
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CacheType
+</span><a href="#local-6989586621679373655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CacheType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>
-</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373638"><span id="local-6989586621679373640"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span></span></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373647"><span id="local-6989586621679373649"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span></span></span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373635"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373644"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span></span><span>
 </span><span id="line-250"></span><span>
-</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373627"><span id="local-6989586621679373629"><span id="local-6989586621679373631"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621679373625"><span class="annot"><span class="annottext">toJSON :: ProjectCache -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373621"><span id="local-6989586621679373622"><span id="local-6989586621679373623"><span class="annot"><span class="annottext">Maybe [CacheMode]
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373636"><span id="local-6989586621679373638"><span id="local-6989586621679373640"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache"><span class="hs-identifier hs-type">ProjectCache</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679373634"><span class="annot"><span class="annottext">toJSON :: ProjectCache -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectCache.html#ProjectCache%27"><span class="hs-identifier hs-type">ProjectCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373630"><span id="local-6989586621679373631"><span id="local-6989586621679373632"><span class="annot"><span class="annottext">Maybe [CacheMode]
 Maybe Text
 CacheType
 type' :: CacheType
@@ -422,7 +422,7 @@ location :: Maybe Text
 $sel:type':ProjectCache' :: ProjectCache -&gt; CacheType
 $sel:modes:ProjectCache' :: ProjectCache -&gt; Maybe [CacheMode]
 $sel:location:ProjectCache' :: ProjectCache -&gt; Maybe Text
-</span><a href="#local-6989586621679373621"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679373630"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-253"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-254"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -434,21 +434,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373623"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373632"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;modes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CacheMode] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([CacheMode] -&gt; Pair) -&gt; Maybe [CacheMode] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CacheMode]
-</span><a href="#local-6989586621679373622"><span class="hs-identifier hs-var">modes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373631"><span class="hs-identifier hs-var">modes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CacheType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">CacheType
-</span><a href="#local-6989586621679373621"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373630"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-259"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span></pre></body></html>

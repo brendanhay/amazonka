@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Use Rectangle to identify a specific area of the video frame.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRectangle' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680002957"><span id="local-6989586621680002958"></span></span><span class="hs-keyword">data</span><span> </span><span id="Rectangle"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-var">Rectangle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Rectangle%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-var">Rectangle'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680002966"><span id="local-6989586621680002967"></span></span><span class="hs-keyword">data</span><span> </span><span id="Rectangle"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-var">Rectangle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Rectangle%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-var">Rectangle'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Height of rectangle in pixels. Specify only even numbers.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aheight%3ARectangle%27"><span class="annot"><span class="annottext">Rectangle -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Rectangle.html#%24sel%3Aheight%3ARectangle%27"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Ay%3ARectangle%27"><span class="annot"><span class="annottext">Rectangle -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Rectangle.html#%24sel%3Ay%3ARectangle%27"><span class="hs-identifier hs-var hs-var">y</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680002948"><span id="local-6989586621680002950"><span class="annot"><span class="annottext">Rectangle -&gt; Rectangle -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680002957"><span id="local-6989586621680002959"><span class="annot"><span class="annottext">Rectangle -&gt; Rectangle -&gt; Bool
 (Rectangle -&gt; Rectangle -&gt; Bool)
 -&gt; (Rectangle -&gt; Rectangle -&gt; Bool) -&gt; Eq Rectangle
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Rectangle -&gt; Rectangle -&gt; Bool
 == :: Rectangle -&gt; Rectangle -&gt; Bool
 $c== :: Rectangle -&gt; Rectangle -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680002939"><span id="local-6989586621680002941"><span id="local-6989586621680002943"><span id="local-6989586621680002945"><span class="annot"><span class="annottext">ReadPrec [Rectangle]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680002948"><span id="local-6989586621680002950"><span id="local-6989586621680002952"><span id="local-6989586621680002954"><span class="annot"><span class="annottext">ReadPrec [Rectangle]
 ReadPrec Rectangle
 Int -&gt; ReadS Rectangle
 ReadS [Rectangle]
@@ -70,7 +70,7 @@ readList :: ReadS [Rectangle]
 $creadList :: ReadS [Rectangle]
 readsPrec :: Int -&gt; ReadS Rectangle
 $creadsPrec :: Int -&gt; ReadS Rectangle
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680002932"><span id="local-6989586621680002934"><span id="local-6989586621680002936"><span class="annot"><span class="annottext">Int -&gt; Rectangle -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680002941"><span id="local-6989586621680002943"><span id="local-6989586621680002945"><span class="annot"><span class="annottext">Int -&gt; Rectangle -&gt; ShowS
 [Rectangle] -&gt; ShowS
 Rectangle -&gt; String
 (Int -&gt; Rectangle -&gt; ShowS)
@@ -144,16 +144,16 @@ forall a. Maybe a
 -&gt; (Rectangle -&gt; Maybe Natural -&gt; Rectangle)
 -&gt; Lens Rectangle Rectangle (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002923"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002932"><span class="annot"><span class="annottext">Maybe Natural
 height :: Maybe Natural
 $sel:height:Rectangle' :: Rectangle -&gt; Maybe Natural
-</span><a href="#local-6989586621680002923"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002923"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002922"><span class="annot"><span class="annottext">s :: Rectangle
-</span><a href="#local-6989586621680002922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002921"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rectangle
-</span><a href="#local-6989586621680002922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:height:Rectangle' :: Maybe Natural
+</span><a href="#local-6989586621680002932"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680002932"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002931"><span class="annot"><span class="annottext">s :: Rectangle
+</span><a href="#local-6989586621680002931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002930"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680002930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rectangle
+</span><a href="#local-6989586621680002931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:height:Rectangle' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Rectangle.html#%24sel%3Aheight%3ARectangle%27"><span class="hs-identifier hs-var">height</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680002930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | Width of rectangle in pixels. Specify only even numbers.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#rectangle_width"><span class="hs-identifier hs-type">rectangle_width</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -162,16 +162,16 @@ $sel:height:Rectangle' :: Rectangle -&gt; Maybe Natural
 -&gt; (Rectangle -&gt; Maybe Natural -&gt; Rectangle)
 -&gt; Lens Rectangle Rectangle (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002919"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002928"><span class="annot"><span class="annottext">Maybe Natural
 width :: Maybe Natural
 $sel:width:Rectangle' :: Rectangle -&gt; Maybe Natural
-</span><a href="#local-6989586621680002919"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002919"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002918"><span class="annot"><span class="annottext">s :: Rectangle
-</span><a href="#local-6989586621680002918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002917"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rectangle
-</span><a href="#local-6989586621680002918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:width:Rectangle' :: Maybe Natural
+</span><a href="#local-6989586621680002928"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680002928"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002927"><span class="annot"><span class="annottext">s :: Rectangle
+</span><a href="#local-6989586621680002927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002926"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680002926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rectangle
+</span><a href="#local-6989586621680002927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:width:Rectangle' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Rectangle.html#%24sel%3Awidth%3ARectangle%27"><span class="hs-identifier hs-var">width</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680002926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The distance, in pixels, between the rectangle and the left edge of the</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- video frame. Specify only even numbers.</span><span>
@@ -181,16 +181,16 @@ $sel:width:Rectangle' :: Rectangle -&gt; Maybe Natural
 -&gt; (Rectangle -&gt; Maybe Natural -&gt; Rectangle)
 -&gt; Lens Rectangle Rectangle (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002915"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002924"><span class="annot"><span class="annottext">Maybe Natural
 x :: Maybe Natural
 $sel:x:Rectangle' :: Rectangle -&gt; Maybe Natural
-</span><a href="#local-6989586621680002915"><span class="hs-identifier hs-var hs-var">x</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002915"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002914"><span class="annot"><span class="annottext">s :: Rectangle
-</span><a href="#local-6989586621680002914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002913"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rectangle
-</span><a href="#local-6989586621680002914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:x:Rectangle' :: Maybe Natural
+</span><a href="#local-6989586621680002924"><span class="hs-identifier hs-var hs-var">x</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680002924"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002923"><span class="annot"><span class="annottext">s :: Rectangle
+</span><a href="#local-6989586621680002923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002922"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680002922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rectangle
+</span><a href="#local-6989586621680002923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:x:Rectangle' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Rectangle.html#%24sel%3Ax%3ARectangle%27"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680002922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The distance, in pixels, between the rectangle and the top edge of the</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- video frame. Specify only even numbers.</span><span>
@@ -200,27 +200,27 @@ $sel:x:Rectangle' :: Rectangle -&gt; Maybe Natural
 -&gt; (Rectangle -&gt; Maybe Natural -&gt; Rectangle)
 -&gt; Lens Rectangle Rectangle (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002911"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002920"><span class="annot"><span class="annottext">Maybe Natural
 y :: Maybe Natural
 $sel:y:Rectangle' :: Rectangle -&gt; Maybe Natural
-</span><a href="#local-6989586621680002911"><span class="hs-identifier hs-var hs-var">y</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002911"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002910"><span class="annot"><span class="annottext">s :: Rectangle
-</span><a href="#local-6989586621680002910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002909"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rectangle
-</span><a href="#local-6989586621680002910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:y:Rectangle' :: Maybe Natural
+</span><a href="#local-6989586621680002920"><span class="hs-identifier hs-var hs-var">y</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680002920"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002919"><span class="annot"><span class="annottext">s :: Rectangle
+</span><a href="#local-6989586621680002919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002918"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680002918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rectangle
+</span><a href="#local-6989586621680002919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:y:Rectangle' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Rectangle.html#%24sel%3Ay%3ARectangle%27"><span class="hs-identifier hs-var">y</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680002918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002906"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621680002904"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Rectangle
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002915"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621680002913"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Rectangle
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Rectangle) -&gt; Value -&gt; Parser Rectangle
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Rectangle&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680002901"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680002901"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680002910"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680002910"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Rectangle
 </span><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-var">Rectangle'</span></a></span><span>
@@ -231,7 +231,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Rectangle)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680002901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680002910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;height&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,7 +241,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; Rectangle)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680002901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680002910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;width&quot;</span></span><span class="hs-special">)</span><span>
@@ -249,7 +249,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Natural -&gt; Rectangle)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680002901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680002910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;x&quot;</span></span><span class="hs-special">)</span><span>
@@ -257,19 +257,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser Rectangle
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680002901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680002910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;y&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002895"><span id="local-6989586621680002897"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002904"><span id="local-6989586621680002906"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002892"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002901"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002884"><span id="local-6989586621680002886"><span id="local-6989586621680002888"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621680002882"><span class="annot"><span class="annottext">toJSON :: Rectangle -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002877"><span id="local-6989586621680002878"><span id="local-6989586621680002879"><span id="local-6989586621680002880"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002893"><span id="local-6989586621680002895"><span id="local-6989586621680002897"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle"><span class="hs-identifier hs-type">Rectangle</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621680002891"><span class="annot"><span class="annottext">toJSON :: Rectangle -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Rectangle.html#Rectangle%27"><span class="hs-identifier hs-type">Rectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002886"><span id="local-6989586621680002887"><span id="local-6989586621680002888"><span id="local-6989586621680002889"><span class="annot"><span class="annottext">Maybe Natural
 y :: Maybe Natural
 x :: Maybe Natural
 width :: Maybe Natural
@@ -278,7 +278,7 @@ $sel:y:Rectangle' :: Rectangle -&gt; Maybe Natural
 $sel:x:Rectangle' :: Rectangle -&gt; Maybe Natural
 $sel:width:Rectangle' :: Rectangle -&gt; Maybe Natural
 $sel:height:Rectangle' :: Rectangle -&gt; Maybe Natural
-</span><a href="#local-6989586621680002877"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680002886"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -290,28 +290,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002880"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680002889"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;width&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002879"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680002888"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;x&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002878"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680002887"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;y&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680002877"><span class="hs-identifier hs-var">y</span></a></span><span>
+</span><a href="#local-6989586621680002886"><span class="hs-identifier hs-var">y</span></a></span><span>
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span></pre></body></html>

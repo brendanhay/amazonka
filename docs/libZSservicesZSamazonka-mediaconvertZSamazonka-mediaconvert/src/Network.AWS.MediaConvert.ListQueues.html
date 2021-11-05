@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListQueues' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621680031155"><span id="local-6989586621680031156"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQueues"><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-var">ListQueues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQueues%27"><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-var">ListQueues'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621680031164"><span id="local-6989586621680031165"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQueues"><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-var">ListQueues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQueues%27"><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-var">ListQueues'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. When you request a list of queues, you can choose to list them</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- alphabetically by NAME or chronologically by CREATION_DATE. If you</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- don\'t specify, the service will list them by creation date.</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxResults%3AListQueues%27"><span class="annot"><span class="annottext">ListQueues -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.ListQueues.html#%24sel%3AmaxResults%3AListQueues%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680031146"><span id="local-6989586621680031148"><span class="annot"><span class="annottext">ListQueues -&gt; ListQueues -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680031155"><span id="local-6989586621680031157"><span class="annot"><span class="annottext">ListQueues -&gt; ListQueues -&gt; Bool
 (ListQueues -&gt; ListQueues -&gt; Bool)
 -&gt; (ListQueues -&gt; ListQueues -&gt; Bool) -&gt; Eq ListQueues
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListQueues -&gt; ListQueues -&gt; Bool
 == :: ListQueues -&gt; ListQueues -&gt; Bool
 $c== :: ListQueues -&gt; ListQueues -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680031137"><span id="local-6989586621680031139"><span id="local-6989586621680031141"><span id="local-6989586621680031143"><span class="annot"><span class="annottext">ReadPrec [ListQueues]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680031146"><span id="local-6989586621680031148"><span id="local-6989586621680031150"><span id="local-6989586621680031152"><span class="annot"><span class="annottext">ReadPrec [ListQueues]
 ReadPrec ListQueues
 Int -&gt; ReadS ListQueues
 ReadS [ListQueues]
@@ -103,7 +103,7 @@ readList :: ReadS [ListQueues]
 $creadList :: ReadS [ListQueues]
 readsPrec :: Int -&gt; ReadS ListQueues
 $creadsPrec :: Int -&gt; ReadS ListQueues
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680031130"><span id="local-6989586621680031132"><span id="local-6989586621680031134"><span class="annot"><span class="annottext">Int -&gt; ListQueues -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680031139"><span id="local-6989586621680031141"><span id="local-6989586621680031143"><span class="annot"><span class="annottext">Int -&gt; ListQueues -&gt; ShowS
 [ListQueues] -&gt; ShowS
 ListQueues -&gt; String
 (Int -&gt; ListQueues -&gt; ShowS)
@@ -185,16 +185,16 @@ forall a. Maybe a
 -&gt; Lens
      ListQueues ListQueues (Maybe QueueListBy) (Maybe QueueListBy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031124"><span class="annot"><span class="annottext">Maybe QueueListBy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031133"><span class="annot"><span class="annottext">Maybe QueueListBy
 listBy :: Maybe QueueListBy
 $sel:listBy:ListQueues' :: ListQueues -&gt; Maybe QueueListBy
-</span><a href="#local-6989586621680031124"><span class="hs-identifier hs-var hs-var">listBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueueListBy
-</span><a href="#local-6989586621680031124"><span class="hs-identifier hs-var">listBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031123"><span class="annot"><span class="annottext">s :: ListQueues
-</span><a href="#local-6989586621680031123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031122"><span class="annot"><span class="annottext">Maybe QueueListBy
-</span><a href="#local-6989586621680031122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueues
-</span><a href="#local-6989586621680031123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listBy:ListQueues' :: Maybe QueueListBy
+</span><a href="#local-6989586621680031133"><span class="hs-identifier hs-var hs-var">listBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueueListBy
+</span><a href="#local-6989586621680031133"><span class="hs-identifier hs-var">listBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031132"><span class="annot"><span class="annottext">s :: ListQueues
+</span><a href="#local-6989586621680031132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031131"><span class="annot"><span class="annottext">Maybe QueueListBy
+</span><a href="#local-6989586621680031131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueues
+</span><a href="#local-6989586621680031132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listBy:ListQueues' :: Maybe QueueListBy
 </span><a href="Network.AWS.MediaConvert.ListQueues.html#%24sel%3AlistBy%3AListQueues%27"><span class="hs-identifier hs-var">listBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueueListBy
-</span><a href="#local-6989586621680031122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680031131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | Use this string, provided with the response to a previous request, to</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- request the next batch of queues.</span><span>
@@ -204,16 +204,16 @@ $sel:listBy:ListQueues' :: ListQueues -&gt; Maybe QueueListBy
 -&gt; (ListQueues -&gt; Maybe Text -&gt; ListQueues)
 -&gt; Lens ListQueues ListQueues (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031121"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031130"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListQueues' :: ListQueues -&gt; Maybe Text
-</span><a href="#local-6989586621680031121"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680031121"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031120"><span class="annot"><span class="annottext">s :: ListQueues
-</span><a href="#local-6989586621680031120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031119"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680031119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueues
-</span><a href="#local-6989586621680031120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQueues' :: Maybe Text
+</span><a href="#local-6989586621680031130"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680031130"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031129"><span class="annot"><span class="annottext">s :: ListQueues
+</span><a href="#local-6989586621680031129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031128"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680031128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueues
+</span><a href="#local-6989586621680031129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQueues' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.ListQueues.html#%24sel%3AnextToken%3AListQueues%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680031119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680031128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Optional. When you request lists of resources, you can specify whether</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- they are sorted in ASCENDING or DESCENDING order. Default varies by</span><span>
@@ -224,16 +224,16 @@ $sel:nextToken:ListQueues' :: ListQueues -&gt; Maybe Text
 -&gt; (ListQueues -&gt; Maybe Order -&gt; ListQueues)
 -&gt; Lens ListQueues ListQueues (Maybe Order) (Maybe Order)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031118"><span class="annot"><span class="annottext">Maybe Order
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031127"><span class="annot"><span class="annottext">Maybe Order
 order :: Maybe Order
 $sel:order:ListQueues' :: ListQueues -&gt; Maybe Order
-</span><a href="#local-6989586621680031118"><span class="hs-identifier hs-var hs-var">order</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Order
-</span><a href="#local-6989586621680031118"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031117"><span class="annot"><span class="annottext">s :: ListQueues
-</span><a href="#local-6989586621680031117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031116"><span class="annot"><span class="annottext">Maybe Order
-</span><a href="#local-6989586621680031116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueues
-</span><a href="#local-6989586621680031117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:order:ListQueues' :: Maybe Order
+</span><a href="#local-6989586621680031127"><span class="hs-identifier hs-var hs-var">order</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Order
+</span><a href="#local-6989586621680031127"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031126"><span class="annot"><span class="annottext">s :: ListQueues
+</span><a href="#local-6989586621680031126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031125"><span class="annot"><span class="annottext">Maybe Order
+</span><a href="#local-6989586621680031125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueues
+</span><a href="#local-6989586621680031126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:order:ListQueues' :: Maybe Order
 </span><a href="Network.AWS.MediaConvert.ListQueues.html#%24sel%3Aorder%3AListQueues%27"><span class="hs-identifier hs-var">order</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Order
-</span><a href="#local-6989586621680031116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680031125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | Optional. Number of queues, up to twenty, that will be returned at one</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- time.</span><span>
@@ -243,28 +243,28 @@ $sel:order:ListQueues' :: ListQueues -&gt; Maybe Order
 -&gt; (ListQueues -&gt; Maybe Natural -&gt; ListQueues)
 -&gt; Lens ListQueues ListQueues (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031115"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031124"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListQueues' :: ListQueues -&gt; Maybe Natural
-</span><a href="#local-6989586621680031115"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680031115"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031114"><span class="annot"><span class="annottext">s :: ListQueues
-</span><a href="#local-6989586621680031114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031113"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680031113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueues
-</span><a href="#local-6989586621680031114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListQueues' :: Maybe Natural
+</span><a href="#local-6989586621680031124"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680031124"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031123"><span class="annot"><span class="annottext">s :: ListQueues
+</span><a href="#local-6989586621680031123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031122"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680031122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueues
+</span><a href="#local-6989586621680031123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListQueues' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.ListQueues.html#%24sel%3AmaxResults%3AListQueues%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680031113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680031122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621680031109"><span class="annot"><span class="annottext">page :: ListQueues -&gt; AWSResponse ListQueues -&gt; Maybe ListQueues
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680031107"><span class="annot"><span class="annottext">ListQueues
-</span><a href="#local-6989586621680031107"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680031106"><span class="annot"><span class="annottext">AWSResponse ListQueues
-</span><a href="#local-6989586621680031106"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621680031118"><span class="annot"><span class="annottext">page :: ListQueues -&gt; AWSResponse ListQueues -&gt; Maybe ListQueues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680031116"><span class="annot"><span class="annottext">ListQueues
+</span><a href="#local-6989586621680031116"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680031115"><span class="annot"><span class="annottext">AWSResponse ListQueues
+</span><a href="#local-6989586621680031115"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-132"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListQueues
 ListQueuesResponse
-</span><a href="#local-6989586621680031106"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680031115"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">ListQueuesResponse
 -&gt; Getting (First Text) ListQueuesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -290,7 +290,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-137"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListQueues
 ListQueuesResponse
-</span><a href="#local-6989586621680031106"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680031115"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">ListQueuesResponse
 -&gt; Getting (First [Queue]) ListQueuesResponse [Queue]
 -&gt; Maybe [Queue]
@@ -320,7 +320,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ListQueues
-</span><a href="#local-6989586621680031107"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621680031116"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">ListQueues -&gt; (ListQueues -&gt; ListQueues) -&gt; ListQueues
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -333,7 +333,7 @@ Lens ListQueues ListQueues (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListQueues
 ListQueuesResponse
-</span><a href="#local-6989586621680031106"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680031115"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">ListQueuesResponse
 -&gt; Getting (First Text) ListQueuesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -353,12 +353,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse"><span class="hs-identifier hs-type">ListQueuesResponse</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621680031096"><span class="annot"><span class="annottext">request :: ListQueues -&gt; Request ListQueues
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621680031105"><span class="annot"><span class="annottext">request :: ListQueues -&gt; Request ListQueues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListQueues -&gt; Request ListQueues
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaConvert.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621680031092"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621680031101"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListQueues
 -&gt; ClientResponse ClientBody
@@ -382,10 +382,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680031089"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680031089"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680031088"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680031088"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680031087"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680031087"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680031098"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680031098"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680031097"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680031097"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680031096"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680031096"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Queue] -&gt; Maybe Text -&gt; Int -&gt; ListQueuesResponse
 </span><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-var">ListQueuesResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Queue] -&gt; Maybe Text -&gt; Int -&gt; ListQueuesResponse)
@@ -393,7 +393,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListQueuesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680031087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Queue]))
+</span><a href="#local-6989586621680031096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Queue]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Queue]))
@@ -407,7 +407,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListQueuesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680031087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680031096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -419,15 +419,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680031089"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680031098"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680031078"><span id="local-6989586621680031080"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680031087"><span id="local-6989586621680031089"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span></span></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680031075"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680031084"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621680031071"><span class="annot"><span class="annottext">toHeaders :: ListQueues -&gt; ResponseHeaders
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621680031080"><span class="annot"><span class="annottext">toHeaders :: ListQueues -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListQueues -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -447,15 +447,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621680031065"><span class="annot"><span class="annottext">toPath :: ListQueues -&gt; ByteString
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621680031074"><span class="annot"><span class="annottext">toPath :: ListQueues -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListQueues -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2017-08-29/queues&quot;</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues"><span class="hs-identifier hs-type">ListQueues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621680031061"><span class="annot"><span class="annottext">toQuery :: ListQueues -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031056"><span id="local-6989586621680031057"><span id="local-6989586621680031058"><span id="local-6989586621680031059"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621680031070"><span class="annot"><span class="annottext">toQuery :: ListQueues -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueues%27"><span class="hs-identifier hs-type">ListQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031065"><span id="local-6989586621680031066"><span id="local-6989586621680031067"><span id="local-6989586621680031068"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe Order
 Maybe QueueListBy
@@ -467,7 +467,7 @@ $sel:maxResults:ListQueues' :: ListQueues -&gt; Maybe Natural
 $sel:order:ListQueues' :: ListQueues -&gt; Maybe Order
 $sel:nextToken:ListQueues' :: ListQueues -&gt; Maybe Text
 $sel:listBy:ListQueues' :: ListQueues -&gt; Maybe QueueListBy
-</span><a href="#local-6989586621680031056"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680031065"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -475,26 +475,26 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;listBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe QueueListBy -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueueListBy
-</span><a href="#local-6989586621680031059"><span class="hs-identifier hs-var">listBy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680031068"><span class="hs-identifier hs-var">listBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680031058"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680031067"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;order&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Order -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Order
-</span><a href="#local-6989586621680031057"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680031066"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680031056"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621680031065"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | /See:/ 'newListQueuesResponse' smart constructor.</span><span>
-</span><span id="line-188"></span><span id="local-6989586621680031053"><span id="local-6989586621680031054"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQueuesResponse"><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse"><span class="hs-identifier hs-var">ListQueuesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQueuesResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-var">ListQueuesResponse'</span></a></span></span><span>
+</span><span id="line-188"></span><span id="local-6989586621680031062"><span id="local-6989586621680031063"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQueuesResponse"><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse"><span class="hs-identifier hs-var">ListQueuesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQueuesResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-var">ListQueuesResponse'</span></a></span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of queues.</span><span>
 </span><span id="line-190"></span><span>    </span><span id="%24sel%3Aqueues%3AListQueuesResponse%27"><span class="annot"><span class="annottext">ListQueuesResponse -&gt; Maybe [Queue]
 </span><a href="Network.AWS.MediaConvert.ListQueues.html#%24sel%3Aqueues%3AListQueuesResponse%27"><span class="hs-identifier hs-var hs-var">queues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Queue.html#Queue"><span class="hs-identifier hs-type">Queue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -505,7 +505,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-194"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListQueuesResponse%27"><span class="annot"><span class="annottext">ListQueuesResponse -&gt; Int
 </span><a href="Network.AWS.MediaConvert.ListQueues.html#%24sel%3AhttpStatus%3AListQueuesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680031046"><span id="local-6989586621680031048"><span class="annot"><span class="annottext">ListQueuesResponse -&gt; ListQueuesResponse -&gt; Bool
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680031055"><span id="local-6989586621680031057"><span class="annot"><span class="annottext">ListQueuesResponse -&gt; ListQueuesResponse -&gt; Bool
 (ListQueuesResponse -&gt; ListQueuesResponse -&gt; Bool)
 -&gt; (ListQueuesResponse -&gt; ListQueuesResponse -&gt; Bool)
 -&gt; Eq ListQueuesResponse
@@ -514,7 +514,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListQueuesResponse -&gt; ListQueuesResponse -&gt; Bool
 == :: ListQueuesResponse -&gt; ListQueuesResponse -&gt; Bool
 $c== :: ListQueuesResponse -&gt; ListQueuesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680031038"><span id="local-6989586621680031040"><span id="local-6989586621680031042"><span id="local-6989586621680031044"><span class="annot"><span class="annottext">ReadPrec [ListQueuesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680031047"><span id="local-6989586621680031049"><span id="local-6989586621680031051"><span id="local-6989586621680031053"><span class="annot"><span class="annottext">ReadPrec [ListQueuesResponse]
 ReadPrec ListQueuesResponse
 Int -&gt; ReadS ListQueuesResponse
 ReadS [ListQueuesResponse]
@@ -534,7 +534,7 @@ readList :: ReadS [ListQueuesResponse]
 $creadList :: ReadS [ListQueuesResponse]
 readsPrec :: Int -&gt; ReadS ListQueuesResponse
 $creadsPrec :: Int -&gt; ReadS ListQueuesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680031032"><span id="local-6989586621680031034"><span id="local-6989586621680031036"><span class="annot"><span class="annottext">Int -&gt; ListQueuesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680031041"><span id="local-6989586621680031043"><span id="local-6989586621680031045"><span class="annot"><span class="annottext">Int -&gt; ListQueuesResponse -&gt; ShowS
 [ListQueuesResponse] -&gt; ShowS
 ListQueuesResponse -&gt; String
 (Int -&gt; ListQueuesResponse -&gt; ShowS)
@@ -578,8 +578,8 @@ $cfrom :: forall x. ListQueuesResponse -&gt; Rep ListQueuesResponse x
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse"><span class="hs-identifier hs-type">ListQueuesResponse</span></a></span><span>
 </span><span id="line-215"></span><span id="newListQueuesResponse"><span class="annot"><span class="annottext">newListQueuesResponse :: Int -&gt; ListQueuesResponse
-</span><a href="Network.AWS.MediaConvert.ListQueues.html#newListQueuesResponse"><span class="hs-identifier hs-var hs-var">newListQueuesResponse</span></a></span></span><span> </span><span id="local-6989586621680031029"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680031029"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaConvert.ListQueues.html#newListQueuesResponse"><span class="hs-identifier hs-var hs-var">newListQueuesResponse</span></a></span></span><span> </span><span id="local-6989586621680031038"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680031038"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="annottext">ListQueuesResponse' :: Maybe [Queue] -&gt; Maybe Text -&gt; Int -&gt; ListQueuesResponse
 </span><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-type">ListQueuesResponse'</span></a></span><span>
 </span><span id="line-217"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queues:ListQueuesResponse' :: Maybe [Queue]
@@ -592,7 +592,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListQueuesResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.ListQueues.html#%24sel%3AhttpStatus%3AListQueuesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680031029"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680031038"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | List of queues.</span><span>
@@ -603,16 +603,16 @@ forall a. Maybe a
 -&gt; (ListQueuesResponse -&gt; Maybe [Queue] -&gt; ListQueuesResponse)
 -&gt; Lens' ListQueuesResponse (Maybe [Queue])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-type">ListQueuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031028"><span class="annot"><span class="annottext">Maybe [Queue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-type">ListQueuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031037"><span class="annot"><span class="annottext">Maybe [Queue]
 queues :: Maybe [Queue]
 $sel:queues:ListQueuesResponse' :: ListQueuesResponse -&gt; Maybe [Queue]
-</span><a href="#local-6989586621680031028"><span class="hs-identifier hs-var hs-var">queues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Queue]
-</span><a href="#local-6989586621680031028"><span class="hs-identifier hs-var">queues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031027"><span class="annot"><span class="annottext">s :: ListQueuesResponse
-</span><a href="#local-6989586621680031027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-type">ListQueuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031026"><span class="annot"><span class="annottext">Maybe [Queue]
-</span><a href="#local-6989586621680031026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueuesResponse
-</span><a href="#local-6989586621680031027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queues:ListQueuesResponse' :: Maybe [Queue]
+</span><a href="#local-6989586621680031037"><span class="hs-identifier hs-var hs-var">queues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Queue]
+</span><a href="#local-6989586621680031037"><span class="hs-identifier hs-var">queues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031036"><span class="annot"><span class="annottext">s :: ListQueuesResponse
+</span><a href="#local-6989586621680031036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-type">ListQueuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031035"><span class="annot"><span class="annottext">Maybe [Queue]
+</span><a href="#local-6989586621680031035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueuesResponse
+</span><a href="#local-6989586621680031036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queues:ListQueuesResponse' :: Maybe [Queue]
 </span><a href="Network.AWS.MediaConvert.ListQueues.html#%24sel%3Aqueues%3AListQueuesResponse%27"><span class="hs-identifier hs-var">queues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Queue]
-</span><a href="#local-6989586621680031026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse"><span class="hs-identifier hs-type">ListQueuesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Queue] -&gt; f (Maybe [Queue]))
+</span><a href="#local-6989586621680031035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse"><span class="hs-identifier hs-type">ListQueuesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Queue] -&gt; f (Maybe [Queue]))
  -&gt; ListQueuesResponse -&gt; f ListQueuesResponse)
 -&gt; ((Maybe [Queue] -&gt; f (Maybe [Queue]))
     -&gt; Maybe [Queue] -&gt; f (Maybe [Queue]))
@@ -638,16 +638,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListQueuesResponse -&gt; Maybe Text -&gt; ListQueuesResponse)
 -&gt; Lens' ListQueuesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-type">ListQueuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031023"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-type">ListQueuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031032"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListQueuesResponse' :: ListQueuesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680031023"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680031023"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031022"><span class="annot"><span class="annottext">s :: ListQueuesResponse
-</span><a href="#local-6989586621680031022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-type">ListQueuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031021"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680031021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueuesResponse
-</span><a href="#local-6989586621680031022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQueuesResponse' :: Maybe Text
+</span><a href="#local-6989586621680031032"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680031032"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031031"><span class="annot"><span class="annottext">s :: ListQueuesResponse
+</span><a href="#local-6989586621680031031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-type">ListQueuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031030"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680031030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueuesResponse
+</span><a href="#local-6989586621680031031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQueuesResponse' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.ListQueues.html#%24sel%3AnextToken%3AListQueuesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680031021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse"><span class="hs-identifier hs-type">ListQueuesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680031030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse"><span class="hs-identifier hs-type">ListQueuesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-231"></span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#listQueuesResponse_httpStatus"><span class="hs-identifier hs-type">listQueuesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse"><span class="hs-identifier hs-type">ListQueuesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -656,16 +656,16 @@ $sel:nextToken:ListQueuesResponse' :: ListQueuesResponse -&gt; Maybe Text
 -&gt; (ListQueuesResponse -&gt; Int -&gt; ListQueuesResponse)
 -&gt; Lens ListQueuesResponse ListQueuesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-type">ListQueuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031020"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-type">ListQueuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031029"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListQueuesResponse' :: ListQueuesResponse -&gt; Int
-</span><a href="#local-6989586621680031020"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680031020"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031019"><span class="annot"><span class="annottext">s :: ListQueuesResponse
-</span><a href="#local-6989586621680031019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-type">ListQueuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031018"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680031018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueuesResponse
-</span><a href="#local-6989586621680031019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListQueuesResponse' :: Int
+</span><a href="#local-6989586621680031029"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680031029"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031028"><span class="annot"><span class="annottext">s :: ListQueuesResponse
+</span><a href="#local-6989586621680031028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse%27"><span class="hs-identifier hs-type">ListQueuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031027"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680031027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueuesResponse
+</span><a href="#local-6989586621680031028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListQueuesResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.ListQueues.html#%24sel%3AhttpStatus%3AListQueuesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680031018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse"><span class="hs-identifier hs-type">ListQueuesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680031027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse"><span class="hs-identifier hs-type">ListQueuesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680031016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse"><span class="hs-identifier hs-type">ListQueuesResponse</span></a></span></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680031025"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.ListQueues.html#ListQueuesResponse"><span class="hs-identifier hs-type">ListQueuesResponse</span></a></span></span><span>
 </span><span id="line-235"></span></pre></body></html>

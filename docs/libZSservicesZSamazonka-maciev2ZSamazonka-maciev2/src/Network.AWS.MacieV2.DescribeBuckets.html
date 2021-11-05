@@ -1,0 +1,776 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.DescribeBuckets</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves (queries) statistical data and other information about one or</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- more S3 buckets that Amazon Macie monitors and analyzes.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.DescribeBuckets</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier">DescribeBuckets</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#newDescribeBuckets"><span class="hs-identifier">newDescribeBuckets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBuckets_sortCriteria"><span class="hs-identifier">describeBuckets_sortCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBuckets_nextToken"><span class="hs-identifier">describeBuckets_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBuckets_criteria"><span class="hs-identifier">describeBuckets_criteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBuckets_maxResults"><span class="hs-identifier">describeBuckets_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse"><span class="hs-identifier">DescribeBucketsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#newDescribeBucketsResponse"><span class="hs-identifier">newDescribeBucketsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBucketsResponse_buckets"><span class="hs-identifier">describeBucketsResponse_buckets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBucketsResponse_nextToken"><span class="hs-identifier">describeBucketsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBucketsResponse_httpStatus"><span class="hs-identifier">describeBucketsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.html"><span class="hs-identifier">Network.AWS.MacieV2.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeBuckets' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679414285"><span id="local-6989586621679414286"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeBuckets"><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-var">DescribeBuckets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeBuckets%27"><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets%27"><span class="hs-identifier hs-var">DescribeBuckets'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The criteria to use to sort the query results.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AsortCriteria%3ADescribeBuckets%27"><span class="annot"><span class="annottext">DescribeBuckets -&gt; Maybe BucketSortCriteria
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AsortCriteria%3ADescribeBuckets%27"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketSortCriteria.html#BucketSortCriteria"><span class="hs-identifier hs-type">BucketSortCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The nextToken string that specifies which page of results to return in a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- paginated response.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeBuckets%27"><span class="annot"><span class="annottext">DescribeBuckets -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AnextToken%3ADescribeBuckets%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The criteria to use to filter the query results.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Acriteria%3ADescribeBuckets%27"><span class="annot"><span class="annottext">DescribeBuckets
+-&gt; Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3Acriteria%3ADescribeBuckets%27"><span class="hs-identifier hs-var hs-var">criteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCriteriaAdditionalProperties.html#BucketCriteriaAdditionalProperties"><span class="hs-identifier hs-type">BucketCriteriaAdditionalProperties</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to include in each page of the response. The</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- default value is 50.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeBuckets%27"><span class="annot"><span class="annottext">DescribeBuckets -&gt; Maybe Int
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AmaxResults%3ADescribeBuckets%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414276"><span id="local-6989586621679414278"><span class="annot"><span class="annottext">DescribeBuckets -&gt; DescribeBuckets -&gt; Bool
+(DescribeBuckets -&gt; DescribeBuckets -&gt; Bool)
+-&gt; (DescribeBuckets -&gt; DescribeBuckets -&gt; Bool)
+-&gt; Eq DescribeBuckets
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeBuckets -&gt; DescribeBuckets -&gt; Bool
+$c/= :: DescribeBuckets -&gt; DescribeBuckets -&gt; Bool
+== :: DescribeBuckets -&gt; DescribeBuckets -&gt; Bool
+$c== :: DescribeBuckets -&gt; DescribeBuckets -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414267"><span id="local-6989586621679414269"><span id="local-6989586621679414271"><span id="local-6989586621679414273"><span class="annot"><span class="annottext">ReadPrec [DescribeBuckets]
+ReadPrec DescribeBuckets
+Int -&gt; ReadS DescribeBuckets
+ReadS [DescribeBuckets]
+(Int -&gt; ReadS DescribeBuckets)
+-&gt; ReadS [DescribeBuckets]
+-&gt; ReadPrec DescribeBuckets
+-&gt; ReadPrec [DescribeBuckets]
+-&gt; Read DescribeBuckets
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeBuckets]
+$creadListPrec :: ReadPrec [DescribeBuckets]
+readPrec :: ReadPrec DescribeBuckets
+$creadPrec :: ReadPrec DescribeBuckets
+readList :: ReadS [DescribeBuckets]
+$creadList :: ReadS [DescribeBuckets]
+readsPrec :: Int -&gt; ReadS DescribeBuckets
+$creadsPrec :: Int -&gt; ReadS DescribeBuckets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414260"><span id="local-6989586621679414262"><span id="local-6989586621679414264"><span class="annot"><span class="annottext">Int -&gt; DescribeBuckets -&gt; ShowS
+[DescribeBuckets] -&gt; ShowS
+DescribeBuckets -&gt; String
+(Int -&gt; DescribeBuckets -&gt; ShowS)
+-&gt; (DescribeBuckets -&gt; String)
+-&gt; ([DescribeBuckets] -&gt; ShowS)
+-&gt; Show DescribeBuckets
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeBuckets] -&gt; ShowS
+$cshowList :: [DescribeBuckets] -&gt; ShowS
+show :: DescribeBuckets -&gt; String
+$cshow :: DescribeBuckets -&gt; String
+showsPrec :: Int -&gt; DescribeBuckets -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeBuckets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeBuckets -&gt; Rep DescribeBuckets x)
+-&gt; (forall x. Rep DescribeBuckets x -&gt; DescribeBuckets)
+-&gt; Generic DescribeBuckets
+forall x. Rep DescribeBuckets x -&gt; DescribeBuckets
+forall x. DescribeBuckets -&gt; Rep DescribeBuckets x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeBuckets x -&gt; DescribeBuckets
+$cfrom :: forall x. DescribeBuckets -&gt; Rep DescribeBuckets x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'DescribeBuckets' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'sortCriteria', 'describeBuckets_sortCriteria' - The criteria to use to sort the query results.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'nextToken', 'describeBuckets_nextToken' - The nextToken string that specifies which page of results to return in a</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- paginated response.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'criteria', 'describeBuckets_criteria' - The criteria to use to filter the query results.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'maxResults', 'describeBuckets_maxResults' - The maximum number of items to include in each page of the response. The</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- default value is 50.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#newDescribeBuckets"><span class="hs-identifier hs-type">newDescribeBuckets</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span>
+</span><span id="line-90"></span><span id="newDescribeBuckets"><span class="annot"><span class="annottext">newDescribeBuckets :: DescribeBuckets
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#newDescribeBuckets"><span class="hs-identifier hs-var hs-var">newDescribeBuckets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">DescribeBuckets' :: Maybe BucketSortCriteria
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+-&gt; Maybe Int
+-&gt; DescribeBuckets
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets%27"><span class="hs-identifier hs-type">DescribeBuckets'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sortCriteria:DescribeBuckets' :: Maybe BucketSortCriteria
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AsortCriteria%3ADescribeBuckets%27"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BucketSortCriteria
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeBuckets' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AnextToken%3ADescribeBuckets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:criteria:DescribeBuckets' :: Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3Acriteria%3ADescribeBuckets%27"><span class="hs-identifier hs-var">criteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeBuckets' :: Maybe Int
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AmaxResults%3ADescribeBuckets%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The criteria to use to sort the query results.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBuckets_sortCriteria"><span class="hs-identifier hs-type">describeBuckets_sortCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketSortCriteria.html#BucketSortCriteria"><span class="hs-identifier hs-type">BucketSortCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="describeBuckets_sortCriteria"><span class="annot"><span class="annottext">describeBuckets_sortCriteria :: (Maybe BucketSortCriteria -&gt; f (Maybe BucketSortCriteria))
+-&gt; DescribeBuckets -&gt; f DescribeBuckets
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBuckets_sortCriteria"><span class="hs-identifier hs-var hs-var">describeBuckets_sortCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBuckets -&gt; Maybe BucketSortCriteria)
+-&gt; (DescribeBuckets -&gt; Maybe BucketSortCriteria -&gt; DescribeBuckets)
+-&gt; Lens
+     DescribeBuckets
+     DescribeBuckets
+     (Maybe BucketSortCriteria)
+     (Maybe BucketSortCriteria)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets%27"><span class="hs-identifier hs-type">DescribeBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414254"><span class="annot"><span class="annottext">Maybe BucketSortCriteria
+sortCriteria :: Maybe BucketSortCriteria
+$sel:sortCriteria:DescribeBuckets' :: DescribeBuckets -&gt; Maybe BucketSortCriteria
+</span><a href="#local-6989586621679414254"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BucketSortCriteria
+</span><a href="#local-6989586621679414254"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414253"><span class="annot"><span class="annottext">s :: DescribeBuckets
+</span><a href="#local-6989586621679414253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets%27"><span class="hs-identifier hs-type">DescribeBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414252"><span class="annot"><span class="annottext">Maybe BucketSortCriteria
+</span><a href="#local-6989586621679414252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBuckets
+</span><a href="#local-6989586621679414253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortCriteria:DescribeBuckets' :: Maybe BucketSortCriteria
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AsortCriteria%3ADescribeBuckets%27"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BucketSortCriteria
+</span><a href="#local-6989586621679414252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The nextToken string that specifies which page of results to return in a</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- paginated response.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBuckets_nextToken"><span class="hs-identifier hs-type">describeBuckets_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="describeBuckets_nextToken"><span class="annot"><span class="annottext">describeBuckets_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeBuckets -&gt; f DescribeBuckets
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBuckets_nextToken"><span class="hs-identifier hs-var hs-var">describeBuckets_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBuckets -&gt; Maybe Text)
+-&gt; (DescribeBuckets -&gt; Maybe Text -&gt; DescribeBuckets)
+-&gt; Lens DescribeBuckets DescribeBuckets (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets%27"><span class="hs-identifier hs-type">DescribeBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414251"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeBuckets' :: DescribeBuckets -&gt; Maybe Text
+</span><a href="#local-6989586621679414251"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414251"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414250"><span class="annot"><span class="annottext">s :: DescribeBuckets
+</span><a href="#local-6989586621679414250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets%27"><span class="hs-identifier hs-type">DescribeBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414249"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBuckets
+</span><a href="#local-6989586621679414250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeBuckets' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AnextToken%3ADescribeBuckets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The criteria to use to filter the query results.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBuckets_criteria"><span class="hs-identifier hs-type">describeBuckets_criteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCriteriaAdditionalProperties.html#BucketCriteriaAdditionalProperties"><span class="hs-identifier hs-type">BucketCriteriaAdditionalProperties</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="describeBuckets_criteria"><span class="annot"><span class="annottext">describeBuckets_criteria :: (Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+ -&gt; f (Maybe (HashMap Text BucketCriteriaAdditionalProperties)))
+-&gt; DescribeBuckets -&gt; f DescribeBuckets
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBuckets_criteria"><span class="hs-identifier hs-var hs-var">describeBuckets_criteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBuckets
+ -&gt; Maybe (HashMap Text BucketCriteriaAdditionalProperties))
+-&gt; (DescribeBuckets
+    -&gt; Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+    -&gt; DescribeBuckets)
+-&gt; Lens
+     DescribeBuckets
+     DescribeBuckets
+     (Maybe (HashMap Text BucketCriteriaAdditionalProperties))
+     (Maybe (HashMap Text BucketCriteriaAdditionalProperties))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets%27"><span class="hs-identifier hs-type">DescribeBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414248"><span class="annot"><span class="annottext">Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+criteria :: Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+$sel:criteria:DescribeBuckets' :: DescribeBuckets
+-&gt; Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+</span><a href="#local-6989586621679414248"><span class="hs-identifier hs-var hs-var">criteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+</span><a href="#local-6989586621679414248"><span class="hs-identifier hs-var">criteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414247"><span class="annot"><span class="annottext">s :: DescribeBuckets
+</span><a href="#local-6989586621679414247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets%27"><span class="hs-identifier hs-type">DescribeBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414246"><span class="annot"><span class="annottext">Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+</span><a href="#local-6989586621679414246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBuckets
+</span><a href="#local-6989586621679414247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:criteria:DescribeBuckets' :: Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3Acriteria%3ADescribeBuckets%27"><span class="hs-identifier hs-var">criteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+</span><a href="#local-6989586621679414246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+  -&gt; f (Maybe (HashMap Text BucketCriteriaAdditionalProperties)))
+ -&gt; DescribeBuckets -&gt; f DescribeBuckets)
+-&gt; ((Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+     -&gt; f (Maybe (HashMap Text BucketCriteriaAdditionalProperties)))
+    -&gt; Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+    -&gt; f (Maybe (HashMap Text BucketCriteriaAdditionalProperties)))
+-&gt; (Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+    -&gt; f (Maybe (HashMap Text BucketCriteriaAdditionalProperties)))
+-&gt; DescribeBuckets
+-&gt; f DescribeBuckets
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text BucketCriteriaAdditionalProperties)
+  (HashMap Text BucketCriteriaAdditionalProperties)
+  (HashMap Text BucketCriteriaAdditionalProperties)
+  (HashMap Text BucketCriteriaAdditionalProperties)
+-&gt; Iso
+     (Maybe (HashMap Text BucketCriteriaAdditionalProperties))
+     (Maybe (HashMap Text BucketCriteriaAdditionalProperties))
+     (Maybe (HashMap Text BucketCriteriaAdditionalProperties))
+     (Maybe (HashMap Text BucketCriteriaAdditionalProperties))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text BucketCriteriaAdditionalProperties)
+  (HashMap Text BucketCriteriaAdditionalProperties)
+  (HashMap Text BucketCriteriaAdditionalProperties)
+  (HashMap Text BucketCriteriaAdditionalProperties)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The maximum number of items to include in each page of the response. The</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- default value is 50.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBuckets_maxResults"><span class="hs-identifier hs-type">describeBuckets_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="describeBuckets_maxResults"><span class="annot"><span class="annottext">describeBuckets_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeBuckets -&gt; f DescribeBuckets
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBuckets_maxResults"><span class="hs-identifier hs-var hs-var">describeBuckets_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBuckets -&gt; Maybe Int)
+-&gt; (DescribeBuckets -&gt; Maybe Int -&gt; DescribeBuckets)
+-&gt; Lens DescribeBuckets DescribeBuckets (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets%27"><span class="hs-identifier hs-type">DescribeBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414242"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:DescribeBuckets' :: DescribeBuckets -&gt; Maybe Int
+</span><a href="#local-6989586621679414242"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679414242"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414241"><span class="annot"><span class="annottext">s :: DescribeBuckets
+</span><a href="#local-6989586621679414241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets%27"><span class="hs-identifier hs-type">DescribeBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414240"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679414240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBuckets
+</span><a href="#local-6989586621679414241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeBuckets' :: Maybe Int
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AmaxResults%3ADescribeBuckets%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679414240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679414236"><span class="annot"><span class="annottext">page :: DescribeBuckets
+-&gt; AWSResponse DescribeBuckets -&gt; Maybe DescribeBuckets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679414234"><span class="annot"><span class="annottext">DescribeBuckets
+</span><a href="#local-6989586621679414234"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679414233"><span class="annot"><span class="annottext">AWSResponse DescribeBuckets
+</span><a href="#local-6989586621679414233"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-119"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeBuckets
+DescribeBucketsResponse
+</span><a href="#local-6989586621679414233"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">DescribeBucketsResponse
+-&gt; Getting (First Text) DescribeBucketsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeBucketsResponse
+-&gt; Const (First Text) DescribeBucketsResponse
+Lens' DescribeBucketsResponse (Maybe Text)
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBucketsResponse_nextToken"><span class="hs-identifier hs-var">describeBucketsResponse_nextToken</span></a></span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeBucketsResponse
+ -&gt; Const (First Text) DescribeBucketsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeBucketsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-122"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeBuckets
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [BucketMetadata] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-125"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeBuckets
+DescribeBucketsResponse
+</span><a href="#local-6989586621679414233"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">DescribeBucketsResponse
+-&gt; Getting
+     (First [BucketMetadata]) DescribeBucketsResponse [BucketMetadata]
+-&gt; Maybe [BucketMetadata]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [BucketMetadata]
+ -&gt; Const (First [BucketMetadata]) (Maybe [BucketMetadata]))
+-&gt; DescribeBucketsResponse
+-&gt; Const (First [BucketMetadata]) DescribeBucketsResponse
+Lens' DescribeBucketsResponse (Maybe [BucketMetadata])
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBucketsResponse_buckets"><span class="hs-identifier hs-var">describeBucketsResponse_buckets</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [BucketMetadata]
+  -&gt; Const (First [BucketMetadata]) (Maybe [BucketMetadata]))
+ -&gt; DescribeBucketsResponse
+ -&gt; Const (First [BucketMetadata]) DescribeBucketsResponse)
+-&gt; (([BucketMetadata]
+     -&gt; Const (First [BucketMetadata]) [BucketMetadata])
+    -&gt; Maybe [BucketMetadata]
+    -&gt; Const (First [BucketMetadata]) (Maybe [BucketMetadata]))
+-&gt; Getting
+     (First [BucketMetadata]) DescribeBucketsResponse [BucketMetadata]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BucketMetadata]
+ -&gt; Const (First [BucketMetadata]) [BucketMetadata])
+-&gt; Maybe [BucketMetadata]
+-&gt; Const (First [BucketMetadata]) (Maybe [BucketMetadata])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-127"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeBuckets
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">DescribeBuckets -&gt; Maybe DescribeBuckets
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeBuckets -&gt; Maybe DescribeBuckets)
+-&gt; DescribeBuckets -&gt; Maybe DescribeBuckets
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">DescribeBuckets
+</span><a href="#local-6989586621679414234"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">DescribeBuckets
+-&gt; (DescribeBuckets -&gt; DescribeBuckets) -&gt; DescribeBuckets
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeBuckets -&gt; Identity DescribeBuckets
+Lens DescribeBuckets DescribeBuckets (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBuckets_nextToken"><span class="hs-identifier hs-var">describeBuckets_nextToken</span></a></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeBuckets -&gt; Identity DescribeBuckets)
+-&gt; Maybe Text -&gt; DescribeBuckets -&gt; DescribeBuckets
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeBuckets
+DescribeBucketsResponse
+</span><a href="#local-6989586621679414233"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">DescribeBucketsResponse
+-&gt; Getting (First Text) DescribeBucketsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeBucketsResponse
+-&gt; Const (First Text) DescribeBucketsResponse
+Lens' DescribeBucketsResponse (Maybe Text)
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBucketsResponse_nextToken"><span class="hs-identifier hs-var">describeBucketsResponse_nextToken</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeBucketsResponse
+ -&gt; Const (First Text) DescribeBucketsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeBucketsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse"><span class="hs-identifier hs-type">DescribeBucketsResponse</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679414224"><span class="annot"><span class="annottext">request :: DescribeBuckets -&gt; Request DescribeBuckets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeBuckets -&gt; Request DescribeBuckets
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MacieV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679414220"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeBuckets
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeBuckets)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeBuckets))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeBuckets
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeBuckets)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679414217"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414217"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679414216"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679414216"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679414215"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679414215"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BucketMetadata]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeBucketsResponse
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse%27"><span class="hs-identifier hs-var">DescribeBucketsResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [BucketMetadata]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeBucketsResponse)
+-&gt; Either String (Maybe [BucketMetadata])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeBucketsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679414215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BucketMetadata]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;buckets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BucketMetadata]))
+-&gt; Maybe [BucketMetadata] -&gt; Either String (Maybe [BucketMetadata])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BucketMetadata]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeBucketsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeBucketsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679414215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeBucketsResponse)
+-&gt; Either String Int -&gt; Either String DescribeBucketsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414217"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414206"><span id="local-6989586621679414208"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414203"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679414199"><span class="annot"><span class="annottext">toHeaders :: DescribeBuckets -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeBuckets -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-162"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414189"><span id="local-6989586621679414191"><span id="local-6989586621679414193"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679414187"><span class="annot"><span class="annottext">toJSON :: DescribeBuckets -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets%27"><span class="hs-identifier hs-type">DescribeBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414182"><span id="local-6989586621679414183"><span id="local-6989586621679414184"><span id="local-6989586621679414185"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+Maybe BucketSortCriteria
+maxResults :: Maybe Int
+criteria :: Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+nextToken :: Maybe Text
+sortCriteria :: Maybe BucketSortCriteria
+$sel:maxResults:DescribeBuckets' :: DescribeBuckets -&gt; Maybe Int
+$sel:criteria:DescribeBuckets' :: DescribeBuckets
+-&gt; Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+$sel:nextToken:DescribeBuckets' :: DescribeBuckets -&gt; Maybe Text
+$sel:sortCriteria:DescribeBuckets' :: DescribeBuckets -&gt; Maybe BucketSortCriteria
+</span><a href="#local-6989586621679414182"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sortCriteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BucketSortCriteria -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(BucketSortCriteria -&gt; Pair)
+-&gt; Maybe BucketSortCriteria -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BucketSortCriteria
+</span><a href="#local-6989586621679414185"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414184"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;criteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text BucketCriteriaAdditionalProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text BucketCriteriaAdditionalProperties -&gt; Pair)
+-&gt; Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text BucketCriteriaAdditionalProperties)
+</span><a href="#local-6989586621679414183"><span class="hs-identifier hs-var">criteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679414182"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679414176"><span class="annot"><span class="annottext">toPath :: DescribeBuckets -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeBuckets -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/datasources/s3&quot;</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBuckets"><span class="hs-identifier hs-type">DescribeBuckets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679414172"><span class="annot"><span class="annottext">toQuery :: DescribeBuckets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeBuckets -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newDescribeBucketsResponse' smart constructor.</span><span>
+</span><span id="line-184"></span><span id="local-6989586621679414169"><span id="local-6989586621679414170"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeBucketsResponse"><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse"><span class="hs-identifier hs-var">DescribeBucketsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeBucketsResponse%27"><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse%27"><span class="hs-identifier hs-var">DescribeBucketsResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects, one for each bucket that meets the filter criteria</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- specified in the request.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3Abuckets%3ADescribeBucketsResponse%27"><span class="annot"><span class="annottext">DescribeBucketsResponse -&gt; Maybe [BucketMetadata]
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3Abuckets%3ADescribeBucketsResponse%27"><span class="hs-identifier hs-var hs-var">buckets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketMetadata.html#BucketMetadata"><span class="hs-identifier hs-type">BucketMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- results in a paginated response. This value is null if there are no</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- additional pages.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeBucketsResponse%27"><span class="annot"><span class="annottext">DescribeBucketsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AnextToken%3ADescribeBucketsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeBucketsResponse%27"><span class="annot"><span class="annottext">DescribeBucketsResponse -&gt; Int
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AhttpStatus%3ADescribeBucketsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414162"><span id="local-6989586621679414164"><span class="annot"><span class="annottext">DescribeBucketsResponse -&gt; DescribeBucketsResponse -&gt; Bool
+(DescribeBucketsResponse -&gt; DescribeBucketsResponse -&gt; Bool)
+-&gt; (DescribeBucketsResponse -&gt; DescribeBucketsResponse -&gt; Bool)
+-&gt; Eq DescribeBucketsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeBucketsResponse -&gt; DescribeBucketsResponse -&gt; Bool
+$c/= :: DescribeBucketsResponse -&gt; DescribeBucketsResponse -&gt; Bool
+== :: DescribeBucketsResponse -&gt; DescribeBucketsResponse -&gt; Bool
+$c== :: DescribeBucketsResponse -&gt; DescribeBucketsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414154"><span id="local-6989586621679414156"><span id="local-6989586621679414158"><span id="local-6989586621679414160"><span class="annot"><span class="annottext">ReadPrec [DescribeBucketsResponse]
+ReadPrec DescribeBucketsResponse
+Int -&gt; ReadS DescribeBucketsResponse
+ReadS [DescribeBucketsResponse]
+(Int -&gt; ReadS DescribeBucketsResponse)
+-&gt; ReadS [DescribeBucketsResponse]
+-&gt; ReadPrec DescribeBucketsResponse
+-&gt; ReadPrec [DescribeBucketsResponse]
+-&gt; Read DescribeBucketsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeBucketsResponse]
+$creadListPrec :: ReadPrec [DescribeBucketsResponse]
+readPrec :: ReadPrec DescribeBucketsResponse
+$creadPrec :: ReadPrec DescribeBucketsResponse
+readList :: ReadS [DescribeBucketsResponse]
+$creadList :: ReadS [DescribeBucketsResponse]
+readsPrec :: Int -&gt; ReadS DescribeBucketsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeBucketsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414148"><span id="local-6989586621679414150"><span id="local-6989586621679414152"><span class="annot"><span class="annottext">Int -&gt; DescribeBucketsResponse -&gt; ShowS
+[DescribeBucketsResponse] -&gt; ShowS
+DescribeBucketsResponse -&gt; String
+(Int -&gt; DescribeBucketsResponse -&gt; ShowS)
+-&gt; (DescribeBucketsResponse -&gt; String)
+-&gt; ([DescribeBucketsResponse] -&gt; ShowS)
+-&gt; Show DescribeBucketsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeBucketsResponse] -&gt; ShowS
+$cshowList :: [DescribeBucketsResponse] -&gt; ShowS
+show :: DescribeBucketsResponse -&gt; String
+$cshow :: DescribeBucketsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeBucketsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeBucketsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeBucketsResponse -&gt; Rep DescribeBucketsResponse x)
+-&gt; (forall x.
+    Rep DescribeBucketsResponse x -&gt; DescribeBucketsResponse)
+-&gt; Generic DescribeBucketsResponse
+forall x. Rep DescribeBucketsResponse x -&gt; DescribeBucketsResponse
+forall x. DescribeBucketsResponse -&gt; Rep DescribeBucketsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeBucketsResponse x -&gt; DescribeBucketsResponse
+$cfrom :: forall x. DescribeBucketsResponse -&gt; Rep DescribeBucketsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Create a value of 'DescribeBucketsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'buckets', 'describeBucketsResponse_buckets' - An array of objects, one for each bucket that meets the filter criteria</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- specified in the request.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'nextToken', 'describeBucketsResponse_nextToken' - The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- results in a paginated response. This value is null if there are no</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- additional pages.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'httpStatus', 'describeBucketsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#newDescribeBucketsResponse"><span class="hs-identifier hs-type">newDescribeBucketsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse"><span class="hs-identifier hs-type">DescribeBucketsResponse</span></a></span><span>
+</span><span id="line-217"></span><span id="newDescribeBucketsResponse"><span class="annot"><span class="annottext">newDescribeBucketsResponse :: Int -&gt; DescribeBucketsResponse
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#newDescribeBucketsResponse"><span class="hs-identifier hs-var hs-var">newDescribeBucketsResponse</span></a></span></span><span> </span><span id="local-6989586621679414145"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414145"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><span class="annottext">DescribeBucketsResponse' :: Maybe [BucketMetadata]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeBucketsResponse
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse%27"><span class="hs-identifier hs-type">DescribeBucketsResponse'</span></a></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:buckets:DescribeBucketsResponse' :: Maybe [BucketMetadata]
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3Abuckets%3ADescribeBucketsResponse%27"><span class="hs-identifier hs-var">buckets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BucketMetadata]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeBucketsResponse' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AnextToken%3ADescribeBucketsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeBucketsResponse' :: Int
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AhttpStatus%3ADescribeBucketsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414145"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | An array of objects, one for each bucket that meets the filter criteria</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- specified in the request.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBucketsResponse_buckets"><span class="hs-identifier hs-type">describeBucketsResponse_buckets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse"><span class="hs-identifier hs-type">DescribeBucketsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketMetadata.html#BucketMetadata"><span class="hs-identifier hs-type">BucketMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="describeBucketsResponse_buckets"><span class="annot"><span class="annottext">describeBucketsResponse_buckets :: (Maybe [BucketMetadata] -&gt; f (Maybe [BucketMetadata]))
+-&gt; DescribeBucketsResponse -&gt; f DescribeBucketsResponse
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBucketsResponse_buckets"><span class="hs-identifier hs-var hs-var">describeBucketsResponse_buckets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBucketsResponse -&gt; Maybe [BucketMetadata])
+-&gt; (DescribeBucketsResponse
+    -&gt; Maybe [BucketMetadata] -&gt; DescribeBucketsResponse)
+-&gt; Lens' DescribeBucketsResponse (Maybe [BucketMetadata])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse%27"><span class="hs-identifier hs-type">DescribeBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414144"><span class="annot"><span class="annottext">Maybe [BucketMetadata]
+buckets :: Maybe [BucketMetadata]
+$sel:buckets:DescribeBucketsResponse' :: DescribeBucketsResponse -&gt; Maybe [BucketMetadata]
+</span><a href="#local-6989586621679414144"><span class="hs-identifier hs-var hs-var">buckets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BucketMetadata]
+</span><a href="#local-6989586621679414144"><span class="hs-identifier hs-var">buckets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414143"><span class="annot"><span class="annottext">s :: DescribeBucketsResponse
+</span><a href="#local-6989586621679414143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse%27"><span class="hs-identifier hs-type">DescribeBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414142"><span class="annot"><span class="annottext">Maybe [BucketMetadata]
+</span><a href="#local-6989586621679414142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBucketsResponse
+</span><a href="#local-6989586621679414143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buckets:DescribeBucketsResponse' :: Maybe [BucketMetadata]
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3Abuckets%3ADescribeBucketsResponse%27"><span class="hs-identifier hs-var">buckets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BucketMetadata]
+</span><a href="#local-6989586621679414142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse"><span class="hs-identifier hs-type">DescribeBucketsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BucketMetadata] -&gt; f (Maybe [BucketMetadata]))
+ -&gt; DescribeBucketsResponse -&gt; f DescribeBucketsResponse)
+-&gt; ((Maybe [BucketMetadata] -&gt; f (Maybe [BucketMetadata]))
+    -&gt; Maybe [BucketMetadata] -&gt; f (Maybe [BucketMetadata]))
+-&gt; (Maybe [BucketMetadata] -&gt; f (Maybe [BucketMetadata]))
+-&gt; DescribeBucketsResponse
+-&gt; f DescribeBucketsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BucketMetadata] [BucketMetadata] [BucketMetadata] [BucketMetadata]
+-&gt; Iso
+     (Maybe [BucketMetadata])
+     (Maybe [BucketMetadata])
+     (Maybe [BucketMetadata])
+     (Maybe [BucketMetadata])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BucketMetadata] [BucketMetadata] [BucketMetadata] [BucketMetadata]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- results in a paginated response. This value is null if there are no</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- additional pages.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBucketsResponse_nextToken"><span class="hs-identifier hs-type">describeBucketsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse"><span class="hs-identifier hs-type">DescribeBucketsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="describeBucketsResponse_nextToken"><span class="annot"><span class="annottext">describeBucketsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeBucketsResponse -&gt; f DescribeBucketsResponse
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBucketsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeBucketsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBucketsResponse -&gt; Maybe Text)
+-&gt; (DescribeBucketsResponse
+    -&gt; Maybe Text -&gt; DescribeBucketsResponse)
+-&gt; Lens' DescribeBucketsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse%27"><span class="hs-identifier hs-type">DescribeBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414141"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeBucketsResponse' :: DescribeBucketsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679414141"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414141"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414140"><span class="annot"><span class="annottext">s :: DescribeBucketsResponse
+</span><a href="#local-6989586621679414140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse%27"><span class="hs-identifier hs-type">DescribeBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414139"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBucketsResponse
+</span><a href="#local-6989586621679414140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeBucketsResponse' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AnextToken%3ADescribeBucketsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse"><span class="hs-identifier hs-type">DescribeBucketsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBucketsResponse_httpStatus"><span class="hs-identifier hs-type">describeBucketsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse"><span class="hs-identifier hs-type">DescribeBucketsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-237"></span><span id="describeBucketsResponse_httpStatus"><span class="annot"><span class="annottext">describeBucketsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeBucketsResponse -&gt; f DescribeBucketsResponse
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#describeBucketsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeBucketsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBucketsResponse -&gt; Int)
+-&gt; (DescribeBucketsResponse -&gt; Int -&gt; DescribeBucketsResponse)
+-&gt; Lens DescribeBucketsResponse DescribeBucketsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse%27"><span class="hs-identifier hs-type">DescribeBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414138"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeBucketsResponse' :: DescribeBucketsResponse -&gt; Int
+</span><a href="#local-6989586621679414138"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414138"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414137"><span class="annot"><span class="annottext">s :: DescribeBucketsResponse
+</span><a href="#local-6989586621679414137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse%27"><span class="hs-identifier hs-type">DescribeBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414136"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBucketsResponse
+</span><a href="#local-6989586621679414137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeBucketsResponse' :: Int
+</span><a href="Network.AWS.MacieV2.DescribeBuckets.html#%24sel%3AhttpStatus%3ADescribeBucketsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse"><span class="hs-identifier hs-type">DescribeBucketsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.DescribeBuckets.html#DescribeBucketsResponse"><span class="hs-identifier hs-type">DescribeBucketsResponse</span></a></span></span><span>
+</span><span id="line-240"></span></pre></body></html>

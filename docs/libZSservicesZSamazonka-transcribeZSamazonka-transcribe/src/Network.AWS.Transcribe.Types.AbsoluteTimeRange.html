@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A time range, set in seconds, between two points in the call.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAbsoluteTimeRange' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679271016"><span id="local-6989586621679271017"></span></span><span class="hs-keyword">data</span><span> </span><span id="AbsoluteTimeRange"><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-var">AbsoluteTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AbsoluteTimeRange%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-var">AbsoluteTimeRange'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679271025"><span id="local-6989586621679271026"></span></span><span class="hs-keyword">data</span><span> </span><span id="AbsoluteTimeRange"><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-var">AbsoluteTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AbsoluteTimeRange%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-var">AbsoluteTimeRange'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A time range from the beginning of the call to the value that you\'ve</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- specified. For example, if you specify 100000, the time range is set to</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the first 100,000 milliseconds of the call.</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AendTime%3AAbsoluteTimeRange%27"><span class="annot"><span class="annottext">AbsoluteTimeRange -&gt; Maybe Natural
 </span><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#%24sel%3AendTime%3AAbsoluteTimeRange%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271007"><span id="local-6989586621679271009"><span class="annot"><span class="annottext">AbsoluteTimeRange -&gt; AbsoluteTimeRange -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271016"><span id="local-6989586621679271018"><span class="annot"><span class="annottext">AbsoluteTimeRange -&gt; AbsoluteTimeRange -&gt; Bool
 (AbsoluteTimeRange -&gt; AbsoluteTimeRange -&gt; Bool)
 -&gt; (AbsoluteTimeRange -&gt; AbsoluteTimeRange -&gt; Bool)
 -&gt; Eq AbsoluteTimeRange
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AbsoluteTimeRange -&gt; AbsoluteTimeRange -&gt; Bool
 == :: AbsoluteTimeRange -&gt; AbsoluteTimeRange -&gt; Bool
 $c== :: AbsoluteTimeRange -&gt; AbsoluteTimeRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270998"><span id="local-6989586621679271000"><span id="local-6989586621679271002"><span id="local-6989586621679271004"><span class="annot"><span class="annottext">ReadPrec [AbsoluteTimeRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271007"><span id="local-6989586621679271009"><span id="local-6989586621679271011"><span id="local-6989586621679271013"><span class="annot"><span class="annottext">ReadPrec [AbsoluteTimeRange]
 ReadPrec AbsoluteTimeRange
 Int -&gt; ReadS AbsoluteTimeRange
 ReadS [AbsoluteTimeRange]
@@ -91,7 +91,7 @@ readList :: ReadS [AbsoluteTimeRange]
 $creadList :: ReadS [AbsoluteTimeRange]
 readsPrec :: Int -&gt; ReadS AbsoluteTimeRange
 $creadsPrec :: Int -&gt; ReadS AbsoluteTimeRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270991"><span id="local-6989586621679270993"><span id="local-6989586621679270995"><span class="annot"><span class="annottext">Int -&gt; AbsoluteTimeRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271000"><span id="local-6989586621679271002"><span id="local-6989586621679271004"><span class="annot"><span class="annottext">Int -&gt; AbsoluteTimeRange -&gt; ShowS
 [AbsoluteTimeRange] -&gt; ShowS
 AbsoluteTimeRange -&gt; String
 (Int -&gt; AbsoluteTimeRange -&gt; ShowS)
@@ -193,16 +193,16 @@ forall a. Maybe a
 -&gt; Lens
      AbsoluteTimeRange AbsoluteTimeRange (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270982"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270991"><span class="annot"><span class="annottext">Maybe Natural
 first :: Maybe Natural
 $sel:first:AbsoluteTimeRange' :: AbsoluteTimeRange -&gt; Maybe Natural
-</span><a href="#local-6989586621679270982"><span class="hs-identifier hs-var hs-var">first</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270982"><span class="hs-identifier hs-var">first</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270981"><span class="annot"><span class="annottext">s :: AbsoluteTimeRange
-</span><a href="#local-6989586621679270981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270980"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbsoluteTimeRange
-</span><a href="#local-6989586621679270981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:first:AbsoluteTimeRange' :: Maybe Natural
+</span><a href="#local-6989586621679270991"><span class="hs-identifier hs-var hs-var">first</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270991"><span class="hs-identifier hs-var">first</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270990"><span class="annot"><span class="annottext">s :: AbsoluteTimeRange
+</span><a href="#local-6989586621679270990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270989"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbsoluteTimeRange
+</span><a href="#local-6989586621679270990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:first:AbsoluteTimeRange' :: Maybe Natural
 </span><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#%24sel%3Afirst%3AAbsoluteTimeRange%27"><span class="hs-identifier hs-var">first</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | A value that indicates the beginning of the time range in seconds. To</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- set absolute time range, you must specify a start time and an end time.</span><span>
@@ -222,16 +222,16 @@ $sel:first:AbsoluteTimeRange' :: AbsoluteTimeRange -&gt; Maybe Natural
 -&gt; Lens
      AbsoluteTimeRange AbsoluteTimeRange (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270978"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270987"><span class="annot"><span class="annottext">Maybe Natural
 startTime :: Maybe Natural
 $sel:startTime:AbsoluteTimeRange' :: AbsoluteTimeRange -&gt; Maybe Natural
-</span><a href="#local-6989586621679270978"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270978"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270977"><span class="annot"><span class="annottext">s :: AbsoluteTimeRange
-</span><a href="#local-6989586621679270977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270976"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbsoluteTimeRange
-</span><a href="#local-6989586621679270977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:AbsoluteTimeRange' :: Maybe Natural
+</span><a href="#local-6989586621679270987"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270987"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270986"><span class="annot"><span class="annottext">s :: AbsoluteTimeRange
+</span><a href="#local-6989586621679270986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270985"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbsoluteTimeRange
+</span><a href="#local-6989586621679270986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:AbsoluteTimeRange' :: Maybe Natural
 </span><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#%24sel%3AstartTime%3AAbsoluteTimeRange%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | A time range from the value that you\'ve specified to the end of the</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- call. For example, if you specify 100000, the time range is set to the</span><span>
@@ -244,16 +244,16 @@ $sel:startTime:AbsoluteTimeRange' :: AbsoluteTimeRange -&gt; Maybe Natural
 -&gt; Lens
      AbsoluteTimeRange AbsoluteTimeRange (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270974"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270983"><span class="annot"><span class="annottext">Maybe Natural
 last :: Maybe Natural
 $sel:last:AbsoluteTimeRange' :: AbsoluteTimeRange -&gt; Maybe Natural
-</span><a href="#local-6989586621679270974"><span class="hs-identifier hs-var hs-var">last</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270974"><span class="hs-identifier hs-var">last</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270973"><span class="annot"><span class="annottext">s :: AbsoluteTimeRange
-</span><a href="#local-6989586621679270973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270972"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbsoluteTimeRange
-</span><a href="#local-6989586621679270973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:last:AbsoluteTimeRange' :: Maybe Natural
+</span><a href="#local-6989586621679270983"><span class="hs-identifier hs-var hs-var">last</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270983"><span class="hs-identifier hs-var">last</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270982"><span class="annot"><span class="annottext">s :: AbsoluteTimeRange
+</span><a href="#local-6989586621679270982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270981"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbsoluteTimeRange
+</span><a href="#local-6989586621679270982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:last:AbsoluteTimeRange' :: Maybe Natural
 </span><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#%24sel%3Alast%3AAbsoluteTimeRange%27"><span class="hs-identifier hs-var">last</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | A value that indicates the end of the time range in milliseconds. To set</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- absolute time range, you must specify a start time and an end time. For</span><span>
@@ -273,19 +273,19 @@ $sel:last:AbsoluteTimeRange' :: AbsoluteTimeRange -&gt; Maybe Natural
 -&gt; Lens
      AbsoluteTimeRange AbsoluteTimeRange (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270970"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270979"><span class="annot"><span class="annottext">Maybe Natural
 endTime :: Maybe Natural
 $sel:endTime:AbsoluteTimeRange' :: AbsoluteTimeRange -&gt; Maybe Natural
-</span><a href="#local-6989586621679270970"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270970"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270969"><span class="annot"><span class="annottext">s :: AbsoluteTimeRange
-</span><a href="#local-6989586621679270969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270968"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbsoluteTimeRange
-</span><a href="#local-6989586621679270969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:AbsoluteTimeRange' :: Maybe Natural
+</span><a href="#local-6989586621679270979"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270979"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270978"><span class="annot"><span class="annottext">s :: AbsoluteTimeRange
+</span><a href="#local-6989586621679270978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270977"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbsoluteTimeRange
+</span><a href="#local-6989586621679270978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:AbsoluteTimeRange' :: Maybe Natural
 </span><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#%24sel%3AendTime%3AAbsoluteTimeRange%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270965"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679270963"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AbsoluteTimeRange
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270974"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679270972"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AbsoluteTimeRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AbsoluteTimeRange)
@@ -295,8 +295,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AbsoluteTimeRange&quot;</span></span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270960"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270969"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270969"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe Natural
@@ -314,7 +314,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Natural -&gt; Maybe Natural -&gt; AbsoluteTimeRange)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679270969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;First&quot;</span></span><span class="hs-special">)</span><span>
@@ -325,7 +325,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; AbsoluteTimeRange)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679270969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -334,7 +334,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; AbsoluteTimeRange)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679270969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Last&quot;</span></span><span class="hs-special">)</span><span>
@@ -342,19 +342,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser AbsoluteTimeRange
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679270969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270954"><span id="local-6989586621679270956"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270963"><span id="local-6989586621679270965"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span></span></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270951"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270943"><span id="local-6989586621679270945"><span id="local-6989586621679270947"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679270941"><span class="annot"><span class="annottext">toJSON :: AbsoluteTimeRange -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270936"><span id="local-6989586621679270937"><span id="local-6989586621679270938"><span id="local-6989586621679270939"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270952"><span id="local-6989586621679270954"><span id="local-6989586621679270956"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679270950"><span class="annot"><span class="annottext">toJSON :: AbsoluteTimeRange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange%27"><span class="hs-identifier hs-type">AbsoluteTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270945"><span id="local-6989586621679270946"><span id="local-6989586621679270947"><span id="local-6989586621679270948"><span class="annot"><span class="annottext">Maybe Natural
 endTime :: Maybe Natural
 last :: Maybe Natural
 startTime :: Maybe Natural
@@ -363,7 +363,7 @@ $sel:endTime:AbsoluteTimeRange' :: AbsoluteTimeRange -&gt; Maybe Natural
 $sel:last:AbsoluteTimeRange' :: AbsoluteTimeRange -&gt; Maybe Natural
 $sel:startTime:AbsoluteTimeRange' :: AbsoluteTimeRange -&gt; Maybe Natural
 $sel:first:AbsoluteTimeRange' :: AbsoluteTimeRange -&gt; Maybe Natural
-</span><a href="#local-6989586621679270936"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679270945"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -375,28 +375,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270939"><span class="hs-identifier hs-var">first</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270948"><span class="hs-identifier hs-var">first</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270938"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270947"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Last&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270937"><span class="hs-identifier hs-var">last</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270946"><span class="hs-identifier hs-var">last</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270936"><span class="hs-identifier hs-var">endTime</span></a></span><span>
+</span><a href="#local-6989586621679270945"><span class="hs-identifier hs-var">endTime</span></a></span><span>
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span></pre></body></html>

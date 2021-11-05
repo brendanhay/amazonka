@@ -74,7 +74,7 @@
 </span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | /See:/ 'newTagInstanceProfile' smart constructor.</span><span>
-</span><span id="line-77"></span><span id="local-6989586621679436130"><span id="local-6989586621679436131"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagInstanceProfile"><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-var">TagInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagInstanceProfile%27"><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile%27"><span class="hs-identifier hs-var">TagInstanceProfile'</span></a></span></span><span>
+</span><span id="line-77"></span><span id="local-6989586621679436139"><span id="local-6989586621679436140"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagInstanceProfile"><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-var">TagInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagInstanceProfile%27"><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile%27"><span class="hs-identifier hs-var">TagInstanceProfile'</span></a></span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the IAM instance profile to which you want to add tags.</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
@@ -88,7 +88,7 @@
 </span><span id="line-87"></span><span>    </span><span id="%24sel%3Atags%3ATagInstanceProfile%27"><span class="annot"><span class="annottext">TagInstanceProfile -&gt; [Tag]
 </span><a href="Network.AWS.IAM.TagInstanceProfile.html#%24sel%3Atags%3ATagInstanceProfile%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436123"><span id="local-6989586621679436125"><span class="annot"><span class="annottext">TagInstanceProfile -&gt; TagInstanceProfile -&gt; Bool
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436132"><span id="local-6989586621679436134"><span class="annot"><span class="annottext">TagInstanceProfile -&gt; TagInstanceProfile -&gt; Bool
 (TagInstanceProfile -&gt; TagInstanceProfile -&gt; Bool)
 -&gt; (TagInstanceProfile -&gt; TagInstanceProfile -&gt; Bool)
 -&gt; Eq TagInstanceProfile
@@ -97,7 +97,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagInstanceProfile -&gt; TagInstanceProfile -&gt; Bool
 == :: TagInstanceProfile -&gt; TagInstanceProfile -&gt; Bool
 $c== :: TagInstanceProfile -&gt; TagInstanceProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436114"><span id="local-6989586621679436116"><span id="local-6989586621679436118"><span id="local-6989586621679436120"><span class="annot"><span class="annottext">ReadPrec [TagInstanceProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436123"><span id="local-6989586621679436125"><span id="local-6989586621679436127"><span id="local-6989586621679436129"><span class="annot"><span class="annottext">ReadPrec [TagInstanceProfile]
 ReadPrec TagInstanceProfile
 Int -&gt; ReadS TagInstanceProfile
 ReadS [TagInstanceProfile]
@@ -117,7 +117,7 @@ readList :: ReadS [TagInstanceProfile]
 $creadList :: ReadS [TagInstanceProfile]
 readsPrec :: Int -&gt; ReadS TagInstanceProfile
 $creadsPrec :: Int -&gt; ReadS TagInstanceProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436107"><span id="local-6989586621679436109"><span id="local-6989586621679436111"><span class="annot"><span class="annottext">Int -&gt; TagInstanceProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436116"><span id="local-6989586621679436118"><span id="local-6989586621679436120"><span class="annot"><span class="annottext">Int -&gt; TagInstanceProfile -&gt; ShowS
 [TagInstanceProfile] -&gt; ShowS
 TagInstanceProfile -&gt; String
 (Int -&gt; TagInstanceProfile -&gt; ShowS)
@@ -165,14 +165,14 @@ $cfrom :: forall x. TagInstanceProfile -&gt; Rep TagInstanceProfile x
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-type">TagInstanceProfile</span></a></span><span>
 </span><span id="line-112"></span><span id="newTagInstanceProfile"><span class="annot"><span class="annottext">newTagInstanceProfile :: Text -&gt; TagInstanceProfile
-</span><a href="Network.AWS.IAM.TagInstanceProfile.html#newTagInstanceProfile"><span class="hs-identifier hs-var hs-var">newTagInstanceProfile</span></a></span></span><span> </span><span id="local-6989586621679436102"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679436102"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.TagInstanceProfile.html#newTagInstanceProfile"><span class="hs-identifier hs-var hs-var">newTagInstanceProfile</span></a></span></span><span> </span><span id="local-6989586621679436111"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679436111"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">TagInstanceProfile' :: Text -&gt; [Tag] -&gt; TagInstanceProfile
 </span><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile%27"><span class="hs-identifier hs-type">TagInstanceProfile'</span></a></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceProfileName:TagInstanceProfile' :: Text
 </span><a href="Network.AWS.IAM.TagInstanceProfile.html#%24sel%3AinstanceProfileName%3ATagInstanceProfile%27"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679436102"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679436111"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TagInstanceProfile' :: [Tag]
 </span><a href="Network.AWS.IAM.TagInstanceProfile.html#%24sel%3Atags%3ATagInstanceProfile%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -191,16 +191,16 @@ forall a. Monoid a =&gt; a
 -&gt; (TagInstanceProfile -&gt; Text -&gt; TagInstanceProfile)
 -&gt; Lens TagInstanceProfile TagInstanceProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile%27"><span class="hs-identifier hs-type">TagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436099"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile%27"><span class="hs-identifier hs-type">TagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436108"><span class="annot"><span class="annottext">Text
 instanceProfileName :: Text
 $sel:instanceProfileName:TagInstanceProfile' :: TagInstanceProfile -&gt; Text
-</span><a href="#local-6989586621679436099"><span class="hs-identifier hs-var hs-var">instanceProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679436099"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436098"><span class="annot"><span class="annottext">s :: TagInstanceProfile
-</span><a href="#local-6989586621679436098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile%27"><span class="hs-identifier hs-type">TagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436097"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679436097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagInstanceProfile
-</span><a href="#local-6989586621679436098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceProfileName:TagInstanceProfile' :: Text
+</span><a href="#local-6989586621679436108"><span class="hs-identifier hs-var hs-var">instanceProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679436108"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436107"><span class="annot"><span class="annottext">s :: TagInstanceProfile
+</span><a href="#local-6989586621679436107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile%27"><span class="hs-identifier hs-type">TagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436106"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679436106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagInstanceProfile
+</span><a href="#local-6989586621679436107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceProfileName:TagInstanceProfile' :: Text
 </span><a href="Network.AWS.IAM.TagInstanceProfile.html#%24sel%3AinstanceProfileName%3ATagInstanceProfile%27"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679436097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-type">TagInstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-type">TagInstanceProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The list of tags that you want to attach to the IAM instance profile.</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- Each tag consists of a key name and an associated value.</span><span>
@@ -210,16 +210,16 @@ $sel:instanceProfileName:TagInstanceProfile' :: TagInstanceProfile -&gt; Text
 -&gt; (TagInstanceProfile -&gt; [Tag] -&gt; TagInstanceProfile)
 -&gt; Lens TagInstanceProfile TagInstanceProfile [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile%27"><span class="hs-identifier hs-type">TagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436096"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile%27"><span class="hs-identifier hs-type">TagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436105"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:TagInstanceProfile' :: TagInstanceProfile -&gt; [Tag]
-</span><a href="#local-6989586621679436096"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679436096"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436095"><span class="annot"><span class="annottext">s :: TagInstanceProfile
-</span><a href="#local-6989586621679436095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile%27"><span class="hs-identifier hs-type">TagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436094"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679436094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagInstanceProfile
-</span><a href="#local-6989586621679436095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagInstanceProfile' :: [Tag]
+</span><a href="#local-6989586621679436105"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679436105"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436104"><span class="annot"><span class="annottext">s :: TagInstanceProfile
+</span><a href="#local-6989586621679436104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile%27"><span class="hs-identifier hs-type">TagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436103"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679436103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagInstanceProfile
+</span><a href="#local-6989586621679436104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagInstanceProfile' :: [Tag]
 </span><a href="Network.AWS.IAM.TagInstanceProfile.html#%24sel%3Atags%3ATagInstanceProfile%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679436094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-type">TagInstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; TagInstanceProfile -&gt; f TagInstanceProfile)
+</span><a href="#local-6989586621679436103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-type">TagInstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; TagInstanceProfile -&gt; f TagInstanceProfile)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
 -&gt; TagInstanceProfile
@@ -233,12 +233,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-type">TagInstanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfileResponse"><span class="hs-identifier hs-type">TagInstanceProfileResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679436088"><span class="annot"><span class="annottext">request :: TagInstanceProfile -&gt; Request TagInstanceProfile
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679436097"><span class="annot"><span class="annottext">request :: TagInstanceProfile -&gt; Request TagInstanceProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TagInstanceProfile -&gt; Request TagInstanceProfile
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679436084"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679436093"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TagInstanceProfile
 -&gt; ClientResponse ClientBody
@@ -264,12 +264,12 @@ AWSResponse a
 TagInstanceProfileResponse
 </span><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfileResponse%27"><span class="hs-identifier hs-var">TagInstanceProfileResponse'</span></a></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436077"><span id="local-6989586621679436079"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-type">TagInstanceProfile</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436086"><span id="local-6989586621679436088"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-type">TagInstanceProfile</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436074"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-type">TagInstanceProfile</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436083"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-type">TagInstanceProfile</span></a></span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-type">TagInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679436070"><span class="annot"><span class="annottext">toHeaders :: TagInstanceProfile -&gt; [Header]
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679436079"><span class="annot"><span class="annottext">toHeaders :: TagInstanceProfile -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; TagInstanceProfile -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -277,21 +277,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-type">TagInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679436065"><span class="annot"><span class="annottext">toPath :: TagInstanceProfile -&gt; ByteString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679436074"><span class="annot"><span class="annottext">toPath :: TagInstanceProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TagInstanceProfile -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile"><span class="hs-identifier hs-type">TagInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679436061"><span class="annot"><span class="annottext">toQuery :: TagInstanceProfile -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile%27"><span class="hs-identifier hs-type">TagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436058"><span id="local-6989586621679436059"><span class="annot"><span class="annottext">[Tag]
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679436070"><span class="annot"><span class="annottext">toQuery :: TagInstanceProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfile%27"><span class="hs-identifier hs-type">TagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436067"><span id="local-6989586621679436068"><span class="annot"><span class="annottext">[Tag]
 Text
 tags :: [Tag]
 instanceProfileName :: Text
 $sel:tags:TagInstanceProfile' :: TagInstanceProfile -&gt; [Tag]
 $sel:instanceProfileName:TagInstanceProfile' :: TagInstanceProfile -&gt; Text
-</span><a href="#local-6989586621679436058"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679436067"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -311,7 +311,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;InstanceProfileName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679436059"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679436068"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
@@ -321,14 +321,14 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679436058"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><a href="#local-6989586621679436067"><span class="hs-identifier hs-var">tags</span></a></span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | /See:/ 'newTagInstanceProfileResponse' smart constructor.</span><span>
-</span><span id="line-163"></span><span id="local-6989586621679436054"><span id="local-6989586621679436055"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagInstanceProfileResponse"><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfileResponse"><span class="hs-identifier hs-var">TagInstanceProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagInstanceProfileResponse%27"><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfileResponse%27"><span class="hs-identifier hs-var">TagInstanceProfileResponse'</span></a></span></span><span>
+</span><span id="line-163"></span><span id="local-6989586621679436063"><span id="local-6989586621679436064"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagInstanceProfileResponse"><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfileResponse"><span class="hs-identifier hs-var">TagInstanceProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagInstanceProfileResponse%27"><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfileResponse%27"><span class="hs-identifier hs-var">TagInstanceProfileResponse'</span></a></span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436050"><span id="local-6989586621679436052"><span class="annot"><span class="annottext">TagInstanceProfileResponse -&gt; TagInstanceProfileResponse -&gt; Bool
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436059"><span id="local-6989586621679436061"><span class="annot"><span class="annottext">TagInstanceProfileResponse -&gt; TagInstanceProfileResponse -&gt; Bool
 (TagInstanceProfileResponse -&gt; TagInstanceProfileResponse -&gt; Bool)
 -&gt; (TagInstanceProfileResponse
     -&gt; TagInstanceProfileResponse -&gt; Bool)
@@ -338,7 +338,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagInstanceProfileResponse -&gt; TagInstanceProfileResponse -&gt; Bool
 == :: TagInstanceProfileResponse -&gt; TagInstanceProfileResponse -&gt; Bool
 $c== :: TagInstanceProfileResponse -&gt; TagInstanceProfileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436042"><span id="local-6989586621679436044"><span id="local-6989586621679436046"><span id="local-6989586621679436048"><span class="annot"><span class="annottext">ReadPrec [TagInstanceProfileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436051"><span id="local-6989586621679436053"><span id="local-6989586621679436055"><span id="local-6989586621679436057"><span class="annot"><span class="annottext">ReadPrec [TagInstanceProfileResponse]
 ReadPrec TagInstanceProfileResponse
 Int -&gt; ReadS TagInstanceProfileResponse
 ReadS [TagInstanceProfileResponse]
@@ -358,7 +358,7 @@ readList :: ReadS [TagInstanceProfileResponse]
 $creadList :: ReadS [TagInstanceProfileResponse]
 readsPrec :: Int -&gt; ReadS TagInstanceProfileResponse
 $creadsPrec :: Int -&gt; ReadS TagInstanceProfileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436036"><span id="local-6989586621679436038"><span id="local-6989586621679436040"><span class="annot"><span class="annottext">Int -&gt; TagInstanceProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436045"><span id="local-6989586621679436047"><span id="local-6989586621679436049"><span class="annot"><span class="annottext">Int -&gt; TagInstanceProfileResponse -&gt; ShowS
 [TagInstanceProfileResponse] -&gt; ShowS
 TagInstanceProfileResponse -&gt; String
 (Int -&gt; TagInstanceProfileResponse -&gt; ShowS)
@@ -401,5 +401,5 @@ TagInstanceProfileResponse -&gt; Rep TagInstanceProfileResponse x
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">TagInstanceProfileResponse
 </span><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfileResponse%27"><span class="hs-identifier hs-var">TagInstanceProfileResponse'</span></a></span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfileResponse"><span class="hs-identifier hs-type">TagInstanceProfileResponse</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagInstanceProfile.html#TagInstanceProfileResponse"><span class="hs-identifier hs-type">TagInstanceProfileResponse</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

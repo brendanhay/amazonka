@@ -1,0 +1,1523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaTailor.Types.PlaybackConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaTailor.Types.PlaybackConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.AvailSuppression.html"><span class="hs-identifier">Network.AWS.MediaTailor.Types.AvailSuppression</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.Bumper.html"><span class="hs-identifier">Network.AWS.MediaTailor.Types.Bumper</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.CdnConfiguration.html"><span class="hs-identifier">Network.AWS.MediaTailor.Types.CdnConfiguration</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.DashConfiguration.html"><span class="hs-identifier">Network.AWS.MediaTailor.Types.DashConfiguration</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.HlsConfiguration.html"><span class="hs-identifier">Network.AWS.MediaTailor.Types.HlsConfiguration</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.LivePreRollConfiguration.html"><span class="hs-identifier">Network.AWS.MediaTailor.Types.LivePreRollConfiguration</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.LogConfiguration.html"><span class="hs-identifier">Network.AWS.MediaTailor.Types.LogConfiguration</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ManifestProcessingRules.html"><span class="hs-identifier">Network.AWS.MediaTailor.Types.ManifestProcessingRules</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Creates a playback configuration. For information about MediaTailor</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- configurations, see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html Working with configurations in AWS Elemental MediaTailor&gt;.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newPlaybackConfiguration' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679266093"><span id="local-6989586621679266094"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlaybackConfiguration"><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-var">PlaybackConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlaybackConfiguration%27"><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-var">PlaybackConfiguration'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URL that the player accesses to get a manifest from AWS Elemental</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- MediaTailor.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AplaybackEndpointPrefix%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AplaybackEndpointPrefix%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">playbackEndpointPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The configuration for HLS content.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AhlsConfiguration%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe HlsConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AhlsConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">hlsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.HlsConfiguration.html#HlsConfiguration"><span class="hs-identifier hs-type">HlsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Defines the maximum duration of underfilled ad time (in seconds) allowed</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- in an ad break. If the duration of underfilled ad time exceeds the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- personalization threshold, then the personalization of the ad break is</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- abandoned and the underlying content is shown. This feature applies to</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- /ad replacement/ in live and VOD streams, rather than ad insertion,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- because it relies on an underlying content stream. For more information</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- about ad break behavior, including ad replacement and insertion, see</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html Ad Behavior in AWS Elemental MediaTailor&gt;.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3ApersonalizationThresholdSeconds%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3ApersonalizationThresholdSeconds%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">personalizationThresholdSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the playback configuration.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AplaybackConfigurationArn%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AplaybackConfigurationArn%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">playbackConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The configuration for avail suppression, also known as ad suppression.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- For more information about ad suppression, see</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html Ad Suppression&gt;.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AavailSuppression%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe AvailSuppression
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AavailSuppression%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">availSuppression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.AvailSuppression.html#AvailSuppression"><span class="hs-identifier hs-type">AvailSuppression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The configuration for bumpers. Bumpers are short audio or video clips</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- that play at the start or before the end of an ad break. To learn more</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- about bumpers, see</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html Bumpers&gt;.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Abumper%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe Bumper
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3Abumper%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">bumper</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.Bumper.html#Bumper"><span class="hs-identifier hs-type">Bumper</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The URL for the ad decision server (ADS). This includes the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- specification of static parameters and placeholders for dynamic</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- parameters. AWS Elemental MediaTailor substitutes player-specific and</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- session-specific parameters as needed when calling the ADS. Alternately,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- for testing you can provide a static VAST URL. The maximum length is</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- 25,000 characters.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AadDecisionServerUrl%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AadDecisionServerUrl%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">adDecisionServerUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The URL prefix for the parent manifest for the stream, minus the asset</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- ID. The maximum length is 512 characters.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AvideoContentSourceUrl%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AvideoContentSourceUrl%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">videoContentSourceUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The configuration for a DASH source.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AdashConfiguration%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe DashConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AdashConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">dashConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.DashConfiguration.html#DashConfiguration"><span class="hs-identifier hs-type">DashConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The configuration for manifest processing rules. Manifest processing</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- rules enable customization of the personalized manifests created by</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- MediaTailor.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AmanifestProcessingRules%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe ManifestProcessingRules
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AmanifestProcessingRules%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">manifestProcessingRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ManifestProcessingRules.html#ManifestProcessingRules"><span class="hs-identifier hs-type">ManifestProcessingRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The Amazon CloudWatch log settings for a playback configuration.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AlogConfiguration%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe LogConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AlogConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">logConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The configuration for pre-roll ad insertion.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AlivePreRollConfiguration%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe LivePreRollConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AlivePreRollConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">livePreRollConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.LivePreRollConfiguration.html#LivePreRollConfiguration"><span class="hs-identifier hs-type">LivePreRollConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The identifier for the playback configuration.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Aname%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3Aname%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The URL that the player uses to initialize a session that uses</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- client-side reporting.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AsessionInitializationEndpointPrefix%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AsessionInitializationEndpointPrefix%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">sessionInitializationEndpointPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The player parameters and aliases used as dynamic variables during</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- session initialization. For more information, see</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html Domain Variables&gt;.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AconfigurationAliases%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe (HashMap Text (HashMap Text Text))
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AconfigurationAliases%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">configurationAliases</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The name that is used to associate this playback configuration with a</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- custom transcode profile. This overrides the dynamic transcoding</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- defaults of MediaTailor. Use this only if you have already set up custom</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- profiles with the help of AWS Support.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AtranscodeProfileName%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AtranscodeProfileName%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">transcodeProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The tags to assign to the playback configuration.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3Atags%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3Atags%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The URL for a video asset to transcode and use to fill in time that\'s</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- not used by ads. AWS Elemental MediaTailor shows the slate to fill in</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- gaps in media content. Configuring the slate is optional for non-VPAID</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- playback configurations. For VPAID, the slate is required because</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- MediaTailor provides it in the slots designated for dynamic ad content.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- The slate must be a high-quality asset that contains both audio and</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- video.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AslateAdUrl%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AslateAdUrl%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">slateAdUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The configuration for using a content delivery network (CDN), like</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- Amazon CloudFront, for content and ad segment management.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AcdnConfiguration%3APlaybackConfiguration%27"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; Maybe CdnConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AcdnConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var hs-var">cdnConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.CdnConfiguration.html#CdnConfiguration"><span class="hs-identifier hs-type">CdnConfiguration</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266069"><span id="local-6989586621679266071"><span class="annot"><span class="annottext">PlaybackConfiguration -&gt; PlaybackConfiguration -&gt; Bool
+(PlaybackConfiguration -&gt; PlaybackConfiguration -&gt; Bool)
+-&gt; (PlaybackConfiguration -&gt; PlaybackConfiguration -&gt; Bool)
+-&gt; Eq PlaybackConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PlaybackConfiguration -&gt; PlaybackConfiguration -&gt; Bool
+$c/= :: PlaybackConfiguration -&gt; PlaybackConfiguration -&gt; Bool
+== :: PlaybackConfiguration -&gt; PlaybackConfiguration -&gt; Bool
+$c== :: PlaybackConfiguration -&gt; PlaybackConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266060"><span id="local-6989586621679266062"><span id="local-6989586621679266064"><span id="local-6989586621679266066"><span class="annot"><span class="annottext">ReadPrec [PlaybackConfiguration]
+ReadPrec PlaybackConfiguration
+Int -&gt; ReadS PlaybackConfiguration
+ReadS [PlaybackConfiguration]
+(Int -&gt; ReadS PlaybackConfiguration)
+-&gt; ReadS [PlaybackConfiguration]
+-&gt; ReadPrec PlaybackConfiguration
+-&gt; ReadPrec [PlaybackConfiguration]
+-&gt; Read PlaybackConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PlaybackConfiguration]
+$creadListPrec :: ReadPrec [PlaybackConfiguration]
+readPrec :: ReadPrec PlaybackConfiguration
+$creadPrec :: ReadPrec PlaybackConfiguration
+readList :: ReadS [PlaybackConfiguration]
+$creadList :: ReadS [PlaybackConfiguration]
+readsPrec :: Int -&gt; ReadS PlaybackConfiguration
+$creadsPrec :: Int -&gt; ReadS PlaybackConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266053"><span id="local-6989586621679266055"><span id="local-6989586621679266057"><span class="annot"><span class="annottext">Int -&gt; PlaybackConfiguration -&gt; ShowS
+[PlaybackConfiguration] -&gt; ShowS
+PlaybackConfiguration -&gt; String
+(Int -&gt; PlaybackConfiguration -&gt; ShowS)
+-&gt; (PlaybackConfiguration -&gt; String)
+-&gt; ([PlaybackConfiguration] -&gt; ShowS)
+-&gt; Show PlaybackConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PlaybackConfiguration] -&gt; ShowS
+$cshowList :: [PlaybackConfiguration] -&gt; ShowS
+show :: PlaybackConfiguration -&gt; String
+$cshow :: PlaybackConfiguration -&gt; String
+showsPrec :: Int -&gt; PlaybackConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; PlaybackConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PlaybackConfiguration -&gt; Rep PlaybackConfiguration x)
+-&gt; (forall x. Rep PlaybackConfiguration x -&gt; PlaybackConfiguration)
+-&gt; Generic PlaybackConfiguration
+forall x. Rep PlaybackConfiguration x -&gt; PlaybackConfiguration
+forall x. PlaybackConfiguration -&gt; Rep PlaybackConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PlaybackConfiguration x -&gt; PlaybackConfiguration
+$cfrom :: forall x. PlaybackConfiguration -&gt; Rep PlaybackConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Create a value of 'PlaybackConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'playbackEndpointPrefix', 'playbackConfiguration_playbackEndpointPrefix' - The URL that the player accesses to get a manifest from AWS Elemental</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- MediaTailor.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'hlsConfiguration', 'playbackConfiguration_hlsConfiguration' - The configuration for HLS content.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'personalizationThresholdSeconds', 'playbackConfiguration_personalizationThresholdSeconds' - Defines the maximum duration of underfilled ad time (in seconds) allowed</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- in an ad break. If the duration of underfilled ad time exceeds the</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- personalization threshold, then the personalization of the ad break is</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- abandoned and the underlying content is shown. This feature applies to</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- /ad replacement/ in live and VOD streams, rather than ad insertion,</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- because it relies on an underlying content stream. For more information</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- about ad break behavior, including ad replacement and insertion, see</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html Ad Behavior in AWS Elemental MediaTailor&gt;.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'playbackConfigurationArn', 'playbackConfiguration_playbackConfigurationArn' - The Amazon Resource Name (ARN) for the playback configuration.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'availSuppression', 'playbackConfiguration_availSuppression' - The configuration for avail suppression, also known as ad suppression.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- For more information about ad suppression, see</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html Ad Suppression&gt;.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'bumper', 'playbackConfiguration_bumper' - The configuration for bumpers. Bumpers are short audio or video clips</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- that play at the start or before the end of an ad break. To learn more</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- about bumpers, see</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html Bumpers&gt;.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'adDecisionServerUrl', 'playbackConfiguration_adDecisionServerUrl' - The URL for the ad decision server (ADS). This includes the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- specification of static parameters and placeholders for dynamic</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- parameters. AWS Elemental MediaTailor substitutes player-specific and</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- session-specific parameters as needed when calling the ADS. Alternately,</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for testing you can provide a static VAST URL. The maximum length is</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 25,000 characters.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'videoContentSourceUrl', 'playbackConfiguration_videoContentSourceUrl' - The URL prefix for the parent manifest for the stream, minus the asset</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- ID. The maximum length is 512 characters.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'dashConfiguration', 'playbackConfiguration_dashConfiguration' - The configuration for a DASH source.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'manifestProcessingRules', 'playbackConfiguration_manifestProcessingRules' - The configuration for manifest processing rules. Manifest processing</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- rules enable customization of the personalized manifests created by</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- MediaTailor.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'logConfiguration', 'playbackConfiguration_logConfiguration' - The Amazon CloudWatch log settings for a playback configuration.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'livePreRollConfiguration', 'playbackConfiguration_livePreRollConfiguration' - The configuration for pre-roll ad insertion.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'name', 'playbackConfiguration_name' - The identifier for the playback configuration.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'sessionInitializationEndpointPrefix', 'playbackConfiguration_sessionInitializationEndpointPrefix' - The URL that the player uses to initialize a session that uses</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- client-side reporting.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'configurationAliases', 'playbackConfiguration_configurationAliases' - The player parameters and aliases used as dynamic variables during</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- session initialization. For more information, see</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html Domain Variables&gt;.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'transcodeProfileName', 'playbackConfiguration_transcodeProfileName' - The name that is used to associate this playback configuration with a</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- custom transcode profile. This overrides the dynamic transcoding</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- defaults of MediaTailor. Use this only if you have already set up custom</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- profiles with the help of AWS Support.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'tags', 'playbackConfiguration_tags' - The tags to assign to the playback configuration.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'slateAdUrl', 'playbackConfiguration_slateAdUrl' - The URL for a video asset to transcode and use to fill in time that\'s</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- not used by ads. AWS Elemental MediaTailor shows the slate to fill in</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- gaps in media content. Configuring the slate is optional for non-VPAID</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- playback configurations. For VPAID, the slate is required because</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- MediaTailor provides it in the slots designated for dynamic ad content.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- The slate must be a high-quality asset that contains both audio and</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- video.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'cdnConfiguration', 'playbackConfiguration_cdnConfiguration' - The configuration for using a content delivery network (CDN), like</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Amazon CloudFront, for content and ad segment management.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#newPlaybackConfiguration"><span class="hs-identifier hs-type">newPlaybackConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span>
+</span><span id="line-196"></span><span id="newPlaybackConfiguration"><span class="annot"><span class="annottext">newPlaybackConfiguration :: PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#newPlaybackConfiguration"><span class="hs-identifier hs-var hs-var">newPlaybackConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">PlaybackConfiguration' :: Maybe Text
+-&gt; Maybe HlsConfiguration
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe AvailSuppression
+-&gt; Maybe Bumper
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe DashConfiguration
+-&gt; Maybe ManifestProcessingRules
+-&gt; Maybe LogConfiguration
+-&gt; Maybe LivePreRollConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text (HashMap Text Text))
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe CdnConfiguration
+-&gt; PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:playbackEndpointPrefix:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AplaybackEndpointPrefix%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">playbackEndpointPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:hlsConfiguration:PlaybackConfiguration' :: Maybe HlsConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AhlsConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">hlsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:personalizationThresholdSeconds:PlaybackConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3ApersonalizationThresholdSeconds%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">personalizationThresholdSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:playbackConfigurationArn:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AplaybackConfigurationArn%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">playbackConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:availSuppression:PlaybackConfiguration' :: Maybe AvailSuppression
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AavailSuppression%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">availSuppression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvailSuppression
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:bumper:PlaybackConfiguration' :: Maybe Bumper
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3Abumper%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">bumper</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bumper
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:adDecisionServerUrl:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AadDecisionServerUrl%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">adDecisionServerUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:videoContentSourceUrl:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AvideoContentSourceUrl%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">videoContentSourceUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:dashConfiguration:PlaybackConfiguration' :: Maybe DashConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AdashConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">dashConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:manifestProcessingRules:PlaybackConfiguration' :: Maybe ManifestProcessingRules
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AmanifestProcessingRules%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">manifestProcessingRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ManifestProcessingRules
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:logConfiguration:PlaybackConfiguration' :: Maybe LogConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AlogConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">logConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:livePreRollConfiguration:PlaybackConfiguration' :: Maybe LivePreRollConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AlivePreRollConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">livePreRollConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LivePreRollConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3Aname%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:sessionInitializationEndpointPrefix:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AsessionInitializationEndpointPrefix%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">sessionInitializationEndpointPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:configurationAliases:PlaybackConfiguration' :: Maybe (HashMap Text (HashMap Text Text))
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AconfigurationAliases%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">configurationAliases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:transcodeProfileName:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AtranscodeProfileName%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">transcodeProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:PlaybackConfiguration' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3Atags%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:slateAdUrl:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AslateAdUrl%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">slateAdUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:cdnConfiguration:PlaybackConfiguration' :: Maybe CdnConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AcdnConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">cdnConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CdnConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The URL that the player accesses to get a manifest from AWS Elemental</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- MediaTailor.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_playbackEndpointPrefix"><span class="hs-identifier hs-type">playbackConfiguration_playbackEndpointPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="playbackConfiguration_playbackEndpointPrefix"><span class="annot"><span class="annottext">playbackConfiguration_playbackEndpointPrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_playbackEndpointPrefix"><span class="hs-identifier hs-var hs-var">playbackConfiguration_playbackEndpointPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe Text)
+-&gt; (PlaybackConfiguration -&gt; Maybe Text -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266044"><span class="annot"><span class="annottext">Maybe Text
+playbackEndpointPrefix :: Maybe Text
+$sel:playbackEndpointPrefix:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679266044"><span class="hs-identifier hs-var hs-var">playbackEndpointPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266044"><span class="hs-identifier hs-var">playbackEndpointPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266043"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679266043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266042"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679266043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playbackEndpointPrefix:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AplaybackEndpointPrefix%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">playbackEndpointPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The configuration for HLS content.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_hlsConfiguration"><span class="hs-identifier hs-type">playbackConfiguration_hlsConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.HlsConfiguration.html#HlsConfiguration"><span class="hs-identifier hs-type">HlsConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="playbackConfiguration_hlsConfiguration"><span class="annot"><span class="annottext">playbackConfiguration_hlsConfiguration :: (Maybe HlsConfiguration -&gt; f (Maybe HlsConfiguration))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_hlsConfiguration"><span class="hs-identifier hs-var hs-var">playbackConfiguration_hlsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe HlsConfiguration)
+-&gt; (PlaybackConfiguration
+    -&gt; Maybe HlsConfiguration -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe HlsConfiguration)
+     (Maybe HlsConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266040"><span class="annot"><span class="annottext">Maybe HlsConfiguration
+hlsConfiguration :: Maybe HlsConfiguration
+$sel:hlsConfiguration:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe HlsConfiguration
+</span><a href="#local-6989586621679266040"><span class="hs-identifier hs-var hs-var">hlsConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsConfiguration
+</span><a href="#local-6989586621679266040"><span class="hs-identifier hs-var">hlsConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266039"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679266039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266038"><span class="annot"><span class="annottext">Maybe HlsConfiguration
+</span><a href="#local-6989586621679266038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679266039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsConfiguration:PlaybackConfiguration' :: Maybe HlsConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AhlsConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">hlsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsConfiguration
+</span><a href="#local-6989586621679266038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | Defines the maximum duration of underfilled ad time (in seconds) allowed</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- in an ad break. If the duration of underfilled ad time exceeds the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- personalization threshold, then the personalization of the ad break is</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- abandoned and the underlying content is shown. This feature applies to</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- /ad replacement/ in live and VOD streams, rather than ad insertion,</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- because it relies on an underlying content stream. For more information</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- about ad break behavior, including ad replacement and insertion, see</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html Ad Behavior in AWS Elemental MediaTailor&gt;.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_personalizationThresholdSeconds"><span class="hs-identifier hs-type">playbackConfiguration_personalizationThresholdSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="playbackConfiguration_personalizationThresholdSeconds"><span class="annot"><span class="annottext">playbackConfiguration_personalizationThresholdSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_personalizationThresholdSeconds"><span class="hs-identifier hs-var hs-var">playbackConfiguration_personalizationThresholdSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe Natural)
+-&gt; (PlaybackConfiguration
+    -&gt; Maybe Natural -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266036"><span class="annot"><span class="annottext">Maybe Natural
+personalizationThresholdSeconds :: Maybe Natural
+$sel:personalizationThresholdSeconds:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe Natural
+</span><a href="#local-6989586621679266036"><span class="hs-identifier hs-var hs-var">personalizationThresholdSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679266036"><span class="hs-identifier hs-var">personalizationThresholdSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266035"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679266035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266034"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679266034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679266035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:personalizationThresholdSeconds:PlaybackConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3ApersonalizationThresholdSeconds%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">personalizationThresholdSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679266034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the playback configuration.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_playbackConfigurationArn"><span class="hs-identifier hs-type">playbackConfiguration_playbackConfigurationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="playbackConfiguration_playbackConfigurationArn"><span class="annot"><span class="annottext">playbackConfiguration_playbackConfigurationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_playbackConfigurationArn"><span class="hs-identifier hs-var hs-var">playbackConfiguration_playbackConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe Text)
+-&gt; (PlaybackConfiguration -&gt; Maybe Text -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266032"><span class="annot"><span class="annottext">Maybe Text
+playbackConfigurationArn :: Maybe Text
+$sel:playbackConfigurationArn:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679266032"><span class="hs-identifier hs-var hs-var">playbackConfigurationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266032"><span class="hs-identifier hs-var">playbackConfigurationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266031"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679266031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266030"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679266031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playbackConfigurationArn:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AplaybackConfigurationArn%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">playbackConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The configuration for avail suppression, also known as ad suppression.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- For more information about ad suppression, see</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html Ad Suppression&gt;.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_availSuppression"><span class="hs-identifier hs-type">playbackConfiguration_availSuppression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.AvailSuppression.html#AvailSuppression"><span class="hs-identifier hs-type">AvailSuppression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="playbackConfiguration_availSuppression"><span class="annot"><span class="annottext">playbackConfiguration_availSuppression :: (Maybe AvailSuppression -&gt; f (Maybe AvailSuppression))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_availSuppression"><span class="hs-identifier hs-var hs-var">playbackConfiguration_availSuppression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe AvailSuppression)
+-&gt; (PlaybackConfiguration
+    -&gt; Maybe AvailSuppression -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe AvailSuppression)
+     (Maybe AvailSuppression)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266028"><span class="annot"><span class="annottext">Maybe AvailSuppression
+availSuppression :: Maybe AvailSuppression
+$sel:availSuppression:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe AvailSuppression
+</span><a href="#local-6989586621679266028"><span class="hs-identifier hs-var hs-var">availSuppression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvailSuppression
+</span><a href="#local-6989586621679266028"><span class="hs-identifier hs-var">availSuppression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266027"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679266027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266026"><span class="annot"><span class="annottext">Maybe AvailSuppression
+</span><a href="#local-6989586621679266026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679266027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availSuppression:PlaybackConfiguration' :: Maybe AvailSuppression
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AavailSuppression%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">availSuppression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvailSuppression
+</span><a href="#local-6989586621679266026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The configuration for bumpers. Bumpers are short audio or video clips</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- that play at the start or before the end of an ad break. To learn more</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- about bumpers, see</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html Bumpers&gt;.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_bumper"><span class="hs-identifier hs-type">playbackConfiguration_bumper</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.Bumper.html#Bumper"><span class="hs-identifier hs-type">Bumper</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="playbackConfiguration_bumper"><span class="annot"><span class="annottext">playbackConfiguration_bumper :: (Maybe Bumper -&gt; f (Maybe Bumper))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_bumper"><span class="hs-identifier hs-var hs-var">playbackConfiguration_bumper</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe Bumper)
+-&gt; (PlaybackConfiguration -&gt; Maybe Bumper -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe Bumper)
+     (Maybe Bumper)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266024"><span class="annot"><span class="annottext">Maybe Bumper
+bumper :: Maybe Bumper
+$sel:bumper:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe Bumper
+</span><a href="#local-6989586621679266024"><span class="hs-identifier hs-var hs-var">bumper</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bumper
+</span><a href="#local-6989586621679266024"><span class="hs-identifier hs-var">bumper</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266023"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679266023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266022"><span class="annot"><span class="annottext">Maybe Bumper
+</span><a href="#local-6989586621679266022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679266023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bumper:PlaybackConfiguration' :: Maybe Bumper
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3Abumper%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">bumper</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bumper
+</span><a href="#local-6989586621679266022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The URL for the ad decision server (ADS). This includes the</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- specification of static parameters and placeholders for dynamic</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- parameters. AWS Elemental MediaTailor substitutes player-specific and</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- session-specific parameters as needed when calling the ADS. Alternately,</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- for testing you can provide a static VAST URL. The maximum length is</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- 25,000 characters.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_adDecisionServerUrl"><span class="hs-identifier hs-type">playbackConfiguration_adDecisionServerUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="playbackConfiguration_adDecisionServerUrl"><span class="annot"><span class="annottext">playbackConfiguration_adDecisionServerUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_adDecisionServerUrl"><span class="hs-identifier hs-var hs-var">playbackConfiguration_adDecisionServerUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe Text)
+-&gt; (PlaybackConfiguration -&gt; Maybe Text -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266020"><span class="annot"><span class="annottext">Maybe Text
+adDecisionServerUrl :: Maybe Text
+$sel:adDecisionServerUrl:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679266020"><span class="hs-identifier hs-var hs-var">adDecisionServerUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266020"><span class="hs-identifier hs-var">adDecisionServerUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266019"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679266019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266018"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679266019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adDecisionServerUrl:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AadDecisionServerUrl%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">adDecisionServerUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The URL prefix for the parent manifest for the stream, minus the asset</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- ID. The maximum length is 512 characters.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_videoContentSourceUrl"><span class="hs-identifier hs-type">playbackConfiguration_videoContentSourceUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="playbackConfiguration_videoContentSourceUrl"><span class="annot"><span class="annottext">playbackConfiguration_videoContentSourceUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_videoContentSourceUrl"><span class="hs-identifier hs-var hs-var">playbackConfiguration_videoContentSourceUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe Text)
+-&gt; (PlaybackConfiguration -&gt; Maybe Text -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266016"><span class="annot"><span class="annottext">Maybe Text
+videoContentSourceUrl :: Maybe Text
+$sel:videoContentSourceUrl:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679266016"><span class="hs-identifier hs-var hs-var">videoContentSourceUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266016"><span class="hs-identifier hs-var">videoContentSourceUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266015"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679266015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266014"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679266015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoContentSourceUrl:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AvideoContentSourceUrl%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">videoContentSourceUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The configuration for a DASH source.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_dashConfiguration"><span class="hs-identifier hs-type">playbackConfiguration_dashConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.DashConfiguration.html#DashConfiguration"><span class="hs-identifier hs-type">DashConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="playbackConfiguration_dashConfiguration"><span class="annot"><span class="annottext">playbackConfiguration_dashConfiguration :: (Maybe DashConfiguration -&gt; f (Maybe DashConfiguration))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_dashConfiguration"><span class="hs-identifier hs-var hs-var">playbackConfiguration_dashConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe DashConfiguration)
+-&gt; (PlaybackConfiguration
+    -&gt; Maybe DashConfiguration -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe DashConfiguration)
+     (Maybe DashConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266012"><span class="annot"><span class="annottext">Maybe DashConfiguration
+dashConfiguration :: Maybe DashConfiguration
+$sel:dashConfiguration:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe DashConfiguration
+</span><a href="#local-6989586621679266012"><span class="hs-identifier hs-var hs-var">dashConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DashConfiguration
+</span><a href="#local-6989586621679266012"><span class="hs-identifier hs-var">dashConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266011"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679266011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266010"><span class="annot"><span class="annottext">Maybe DashConfiguration
+</span><a href="#local-6989586621679266010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679266011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashConfiguration:PlaybackConfiguration' :: Maybe DashConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AdashConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">dashConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashConfiguration
+</span><a href="#local-6989586621679266010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | The configuration for manifest processing rules. Manifest processing</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- rules enable customization of the personalized manifests created by</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- MediaTailor.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_manifestProcessingRules"><span class="hs-identifier hs-type">playbackConfiguration_manifestProcessingRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ManifestProcessingRules.html#ManifestProcessingRules"><span class="hs-identifier hs-type">ManifestProcessingRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="playbackConfiguration_manifestProcessingRules"><span class="annot"><span class="annottext">playbackConfiguration_manifestProcessingRules :: (Maybe ManifestProcessingRules
+ -&gt; f (Maybe ManifestProcessingRules))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_manifestProcessingRules"><span class="hs-identifier hs-var hs-var">playbackConfiguration_manifestProcessingRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe ManifestProcessingRules)
+-&gt; (PlaybackConfiguration
+    -&gt; Maybe ManifestProcessingRules -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe ManifestProcessingRules)
+     (Maybe ManifestProcessingRules)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266008"><span class="annot"><span class="annottext">Maybe ManifestProcessingRules
+manifestProcessingRules :: Maybe ManifestProcessingRules
+$sel:manifestProcessingRules:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe ManifestProcessingRules
+</span><a href="#local-6989586621679266008"><span class="hs-identifier hs-var hs-var">manifestProcessingRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ManifestProcessingRules
+</span><a href="#local-6989586621679266008"><span class="hs-identifier hs-var">manifestProcessingRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266007"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679266007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266006"><span class="annot"><span class="annottext">Maybe ManifestProcessingRules
+</span><a href="#local-6989586621679266006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679266007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manifestProcessingRules:PlaybackConfiguration' :: Maybe ManifestProcessingRules
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AmanifestProcessingRules%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">manifestProcessingRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ManifestProcessingRules
+</span><a href="#local-6989586621679266006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The Amazon CloudWatch log settings for a playback configuration.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_logConfiguration"><span class="hs-identifier hs-type">playbackConfiguration_logConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span id="playbackConfiguration_logConfiguration"><span class="annot"><span class="annottext">playbackConfiguration_logConfiguration :: (Maybe LogConfiguration -&gt; f (Maybe LogConfiguration))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_logConfiguration"><span class="hs-identifier hs-var hs-var">playbackConfiguration_logConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe LogConfiguration)
+-&gt; (PlaybackConfiguration
+    -&gt; Maybe LogConfiguration -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe LogConfiguration)
+     (Maybe LogConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266004"><span class="annot"><span class="annottext">Maybe LogConfiguration
+logConfiguration :: Maybe LogConfiguration
+$sel:logConfiguration:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe LogConfiguration
+</span><a href="#local-6989586621679266004"><span class="hs-identifier hs-var hs-var">logConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfiguration
+</span><a href="#local-6989586621679266004"><span class="hs-identifier hs-var">logConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266003"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679266003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266002"><span class="annot"><span class="annottext">Maybe LogConfiguration
+</span><a href="#local-6989586621679266002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679266003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logConfiguration:PlaybackConfiguration' :: Maybe LogConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AlogConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">logConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfiguration
+</span><a href="#local-6989586621679266002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | The configuration for pre-roll ad insertion.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_livePreRollConfiguration"><span class="hs-identifier hs-type">playbackConfiguration_livePreRollConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.LivePreRollConfiguration.html#LivePreRollConfiguration"><span class="hs-identifier hs-type">LivePreRollConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span id="playbackConfiguration_livePreRollConfiguration"><span class="annot"><span class="annottext">playbackConfiguration_livePreRollConfiguration :: (Maybe LivePreRollConfiguration
+ -&gt; f (Maybe LivePreRollConfiguration))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_livePreRollConfiguration"><span class="hs-identifier hs-var hs-var">playbackConfiguration_livePreRollConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe LivePreRollConfiguration)
+-&gt; (PlaybackConfiguration
+    -&gt; Maybe LivePreRollConfiguration -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe LivePreRollConfiguration)
+     (Maybe LivePreRollConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266000"><span class="annot"><span class="annottext">Maybe LivePreRollConfiguration
+livePreRollConfiguration :: Maybe LivePreRollConfiguration
+$sel:livePreRollConfiguration:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe LivePreRollConfiguration
+</span><a href="#local-6989586621679266000"><span class="hs-identifier hs-var hs-var">livePreRollConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LivePreRollConfiguration
+</span><a href="#local-6989586621679266000"><span class="hs-identifier hs-var">livePreRollConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265999"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679265999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265998"><span class="annot"><span class="annottext">Maybe LivePreRollConfiguration
+</span><a href="#local-6989586621679265998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679265999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:livePreRollConfiguration:PlaybackConfiguration' :: Maybe LivePreRollConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AlivePreRollConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">livePreRollConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LivePreRollConfiguration
+</span><a href="#local-6989586621679265998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | The identifier for the playback configuration.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_name"><span class="hs-identifier hs-type">playbackConfiguration_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="playbackConfiguration_name"><span class="annot"><span class="annottext">playbackConfiguration_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_name"><span class="hs-identifier hs-var hs-var">playbackConfiguration_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe Text)
+-&gt; (PlaybackConfiguration -&gt; Maybe Text -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265996"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679265996"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265996"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265995"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679265995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265994"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679265995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3Aname%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | The URL that the player uses to initialize a session that uses</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- client-side reporting.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_sessionInitializationEndpointPrefix"><span class="hs-identifier hs-type">playbackConfiguration_sessionInitializationEndpointPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span id="playbackConfiguration_sessionInitializationEndpointPrefix"><span class="annot"><span class="annottext">playbackConfiguration_sessionInitializationEndpointPrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_sessionInitializationEndpointPrefix"><span class="hs-identifier hs-var hs-var">playbackConfiguration_sessionInitializationEndpointPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe Text)
+-&gt; (PlaybackConfiguration -&gt; Maybe Text -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265992"><span class="annot"><span class="annottext">Maybe Text
+sessionInitializationEndpointPrefix :: Maybe Text
+$sel:sessionInitializationEndpointPrefix:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679265992"><span class="hs-identifier hs-var hs-var">sessionInitializationEndpointPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265992"><span class="hs-identifier hs-var">sessionInitializationEndpointPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265991"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679265991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265990"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679265991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionInitializationEndpointPrefix:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AsessionInitializationEndpointPrefix%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">sessionInitializationEndpointPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | The player parameters and aliases used as dynamic variables during</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- session initialization. For more information, see</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html Domain Variables&gt;.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_configurationAliases"><span class="hs-identifier hs-type">playbackConfiguration_configurationAliases</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="playbackConfiguration_configurationAliases"><span class="annot"><span class="annottext">playbackConfiguration_configurationAliases :: (Maybe (HashMap Text (HashMap Text Text))
+ -&gt; f (Maybe (HashMap Text (HashMap Text Text))))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_configurationAliases"><span class="hs-identifier hs-var hs-var">playbackConfiguration_configurationAliases</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe (HashMap Text (HashMap Text Text)))
+-&gt; (PlaybackConfiguration
+    -&gt; Maybe (HashMap Text (HashMap Text Text))
+    -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe (HashMap Text (HashMap Text Text)))
+     (Maybe (HashMap Text (HashMap Text Text)))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265988"><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text Text))
+configurationAliases :: Maybe (HashMap Text (HashMap Text Text))
+$sel:configurationAliases:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe (HashMap Text (HashMap Text Text))
+</span><a href="#local-6989586621679265988"><span class="hs-identifier hs-var hs-var">configurationAliases</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text Text))
+</span><a href="#local-6989586621679265988"><span class="hs-identifier hs-var">configurationAliases</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265987"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679265987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265986"><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text Text))
+</span><a href="#local-6989586621679265986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679265987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationAliases:PlaybackConfiguration' :: Maybe (HashMap Text (HashMap Text Text))
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AconfigurationAliases%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">configurationAliases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text Text))
+</span><a href="#local-6989586621679265986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text (HashMap Text Text))
+  -&gt; f (Maybe (HashMap Text (HashMap Text Text))))
+ -&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration)
+-&gt; ((Maybe (HashMap Text (HashMap Text Text))
+     -&gt; f (Maybe (HashMap Text (HashMap Text Text))))
+    -&gt; Maybe (HashMap Text (HashMap Text Text))
+    -&gt; f (Maybe (HashMap Text (HashMap Text Text))))
+-&gt; (Maybe (HashMap Text (HashMap Text Text))
+    -&gt; f (Maybe (HashMap Text (HashMap Text Text))))
+-&gt; PlaybackConfiguration
+-&gt; f PlaybackConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text (HashMap Text Text))
+  (HashMap Text (HashMap Text Text))
+  (HashMap Text (HashMap Text Text))
+  (HashMap Text (HashMap Text Text))
+-&gt; Iso
+     (Maybe (HashMap Text (HashMap Text Text)))
+     (Maybe (HashMap Text (HashMap Text Text)))
+     (Maybe (HashMap Text (HashMap Text Text)))
+     (Maybe (HashMap Text (HashMap Text Text)))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text (HashMap Text Text))
+  (HashMap Text (HashMap Text Text))
+  (HashMap Text (HashMap Text Text))
+  (HashMap Text (HashMap Text Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | The name that is used to associate this playback configuration with a</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- custom transcode profile. This overrides the dynamic transcoding</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- defaults of MediaTailor. Use this only if you have already set up custom</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- profiles with the help of AWS Support.</span><span>
+</span><span id="line-309"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_transcodeProfileName"><span class="hs-identifier hs-type">playbackConfiguration_transcodeProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span id="playbackConfiguration_transcodeProfileName"><span class="annot"><span class="annottext">playbackConfiguration_transcodeProfileName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_transcodeProfileName"><span class="hs-identifier hs-var hs-var">playbackConfiguration_transcodeProfileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe Text)
+-&gt; (PlaybackConfiguration -&gt; Maybe Text -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265981"><span class="annot"><span class="annottext">Maybe Text
+transcodeProfileName :: Maybe Text
+$sel:transcodeProfileName:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var hs-var">transcodeProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">transcodeProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265980"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679265980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265979"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679265980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transcodeProfileName:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AtranscodeProfileName%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">transcodeProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- | The tags to assign to the playback configuration.</span><span>
+</span><span id="line-313"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_tags"><span class="hs-identifier hs-type">playbackConfiguration_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span id="playbackConfiguration_tags"><span class="annot"><span class="annottext">playbackConfiguration_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_tags"><span class="hs-identifier hs-var hs-var">playbackConfiguration_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe (HashMap Text Text))
+-&gt; (PlaybackConfiguration
+    -&gt; Maybe (HashMap Text Text) -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265977"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679265977"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679265977"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265976"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679265976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265975"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679265975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679265976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PlaybackConfiguration' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3Atags%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679265975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; PlaybackConfiguration
+-&gt; f PlaybackConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- | The URL for a video asset to transcode and use to fill in time that\'s</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- not used by ads. AWS Elemental MediaTailor shows the slate to fill in</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- gaps in media content. Configuring the slate is optional for non-VPAID</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- playback configurations. For VPAID, the slate is required because</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- MediaTailor provides it in the slots designated for dynamic ad content.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- The slate must be a high-quality asset that contains both audio and</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- video.</span><span>
+</span><span id="line-323"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_slateAdUrl"><span class="hs-identifier hs-type">playbackConfiguration_slateAdUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span id="playbackConfiguration_slateAdUrl"><span class="annot"><span class="annottext">playbackConfiguration_slateAdUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_slateAdUrl"><span class="hs-identifier hs-var hs-var">playbackConfiguration_slateAdUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe Text)
+-&gt; (PlaybackConfiguration -&gt; Maybe Text -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265973"><span class="annot"><span class="annottext">Maybe Text
+slateAdUrl :: Maybe Text
+$sel:slateAdUrl:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679265973"><span class="hs-identifier hs-var hs-var">slateAdUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265973"><span class="hs-identifier hs-var">slateAdUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265972"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679265972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679265972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slateAdUrl:PlaybackConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AslateAdUrl%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">slateAdUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- | The configuration for using a content delivery network (CDN), like</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- Amazon CloudFront, for content and ad segment management.</span><span>
+</span><span id="line-328"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_cdnConfiguration"><span class="hs-identifier hs-type">playbackConfiguration_cdnConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.CdnConfiguration.html#CdnConfiguration"><span class="hs-identifier hs-type">CdnConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span id="playbackConfiguration_cdnConfiguration"><span class="annot"><span class="annottext">playbackConfiguration_cdnConfiguration :: (Maybe CdnConfiguration -&gt; f (Maybe CdnConfiguration))
+-&gt; PlaybackConfiguration -&gt; f PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_cdnConfiguration"><span class="hs-identifier hs-var hs-var">playbackConfiguration_cdnConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlaybackConfiguration -&gt; Maybe CdnConfiguration)
+-&gt; (PlaybackConfiguration
+    -&gt; Maybe CdnConfiguration -&gt; PlaybackConfiguration)
+-&gt; Lens
+     PlaybackConfiguration
+     PlaybackConfiguration
+     (Maybe CdnConfiguration)
+     (Maybe CdnConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265969"><span class="annot"><span class="annottext">Maybe CdnConfiguration
+cdnConfiguration :: Maybe CdnConfiguration
+$sel:cdnConfiguration:PlaybackConfiguration' :: PlaybackConfiguration -&gt; Maybe CdnConfiguration
+</span><a href="#local-6989586621679265969"><span class="hs-identifier hs-var hs-var">cdnConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CdnConfiguration
+</span><a href="#local-6989586621679265969"><span class="hs-identifier hs-var">cdnConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265968"><span class="annot"><span class="annottext">s :: PlaybackConfiguration
+</span><a href="#local-6989586621679265968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-type">PlaybackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265967"><span class="annot"><span class="annottext">Maybe CdnConfiguration
+</span><a href="#local-6989586621679265967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlaybackConfiguration
+</span><a href="#local-6989586621679265968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cdnConfiguration:PlaybackConfiguration' :: Maybe CdnConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#%24sel%3AcdnConfiguration%3APlaybackConfiguration%27"><span class="hs-identifier hs-var">cdnConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CdnConfiguration
+</span><a href="#local-6989586621679265967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265964"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-332"></span><span>  </span><span id="local-6989586621679265962"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PlaybackConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-333"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PlaybackConfiguration)
+-&gt; Value
+-&gt; Parser PlaybackConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-334"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PlaybackConfiguration&quot;</span></span><span>
+</span><span id="line-335"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265959"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-336"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe HlsConfiguration
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe AvailSuppression
+-&gt; Maybe Bumper
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe DashConfiguration
+-&gt; Maybe ManifestProcessingRules
+-&gt; Maybe LogConfiguration
+-&gt; Maybe LivePreRollConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text (HashMap Text Text))
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe CdnConfiguration
+-&gt; PlaybackConfiguration
+</span><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration%27"><span class="hs-identifier hs-var">PlaybackConfiguration'</span></a></span><span>
+</span><span id="line-337"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe HlsConfiguration
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe AvailSuppression
+ -&gt; Maybe Bumper
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe DashConfiguration
+ -&gt; Maybe ManifestProcessingRules
+ -&gt; Maybe LogConfiguration
+ -&gt; Maybe LivePreRollConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text (HashMap Text Text))
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Maybe CdnConfiguration
+ -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe HlsConfiguration
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe AvailSuppression
+      -&gt; Maybe Bumper
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DashConfiguration
+      -&gt; Maybe ManifestProcessingRules
+      -&gt; Maybe LogConfiguration
+      -&gt; Maybe LivePreRollConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlaybackEndpointPrefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe HlsConfiguration
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe AvailSuppression
+   -&gt; Maybe Bumper
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DashConfiguration
+   -&gt; Maybe ManifestProcessingRules
+   -&gt; Maybe LogConfiguration
+   -&gt; Maybe LivePreRollConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe HlsConfiguration)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe AvailSuppression
+      -&gt; Maybe Bumper
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DashConfiguration
+      -&gt; Maybe ManifestProcessingRules
+      -&gt; Maybe LogConfiguration
+      -&gt; Maybe LivePreRollConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HlsConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe AvailSuppression
+   -&gt; Maybe Bumper
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DashConfiguration
+   -&gt; Maybe ManifestProcessingRules
+   -&gt; Maybe LogConfiguration
+   -&gt; Maybe LivePreRollConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AvailSuppression
+      -&gt; Maybe Bumper
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DashConfiguration
+      -&gt; Maybe ManifestProcessingRules
+      -&gt; Maybe LogConfiguration
+      -&gt; Maybe LivePreRollConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PersonalizationThresholdSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AvailSuppression
+   -&gt; Maybe Bumper
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DashConfiguration
+   -&gt; Maybe ManifestProcessingRules
+   -&gt; Maybe LogConfiguration
+   -&gt; Maybe LivePreRollConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AvailSuppression
+      -&gt; Maybe Bumper
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DashConfiguration
+      -&gt; Maybe ManifestProcessingRules
+      -&gt; Maybe LogConfiguration
+      -&gt; Maybe LivePreRollConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlaybackConfigurationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AvailSuppression
+   -&gt; Maybe Bumper
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DashConfiguration
+   -&gt; Maybe ManifestProcessingRules
+   -&gt; Maybe LogConfiguration
+   -&gt; Maybe LivePreRollConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe AvailSuppression)
+-&gt; Parser
+     (Maybe Bumper
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DashConfiguration
+      -&gt; Maybe ManifestProcessingRules
+      -&gt; Maybe LogConfiguration
+      -&gt; Maybe LivePreRollConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvailSuppression)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AvailSuppression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bumper
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DashConfiguration
+   -&gt; Maybe ManifestProcessingRules
+   -&gt; Maybe LogConfiguration
+   -&gt; Maybe LivePreRollConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe Bumper)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DashConfiguration
+      -&gt; Maybe ManifestProcessingRules
+      -&gt; Maybe LogConfiguration
+      -&gt; Maybe LivePreRollConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bumper)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Bumper&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DashConfiguration
+   -&gt; Maybe ManifestProcessingRules
+   -&gt; Maybe LogConfiguration
+   -&gt; Maybe LivePreRollConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe DashConfiguration
+      -&gt; Maybe ManifestProcessingRules
+      -&gt; Maybe LogConfiguration
+      -&gt; Maybe LivePreRollConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AdDecisionServerUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe DashConfiguration
+   -&gt; Maybe ManifestProcessingRules
+   -&gt; Maybe LogConfiguration
+   -&gt; Maybe LivePreRollConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe DashConfiguration
+      -&gt; Maybe ManifestProcessingRules
+      -&gt; Maybe LogConfiguration
+      -&gt; Maybe LivePreRollConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VideoContentSourceUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DashConfiguration
+   -&gt; Maybe ManifestProcessingRules
+   -&gt; Maybe LogConfiguration
+   -&gt; Maybe LivePreRollConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe DashConfiguration)
+-&gt; Parser
+     (Maybe ManifestProcessingRules
+      -&gt; Maybe LogConfiguration
+      -&gt; Maybe LivePreRollConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DashConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DashConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-346"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ManifestProcessingRules
+   -&gt; Maybe LogConfiguration
+   -&gt; Maybe LivePreRollConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe ManifestProcessingRules)
+-&gt; Parser
+     (Maybe LogConfiguration
+      -&gt; Maybe LivePreRollConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ManifestProcessingRules)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ManifestProcessingRules&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LogConfiguration
+   -&gt; Maybe LivePreRollConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe LogConfiguration)
+-&gt; Parser
+     (Maybe LivePreRollConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LogConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LivePreRollConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe LivePreRollConfiguration)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LivePreRollConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LivePreRollConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SessionInitializationEndpointPrefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe (HashMap Text (HashMap Text Text)))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe CdnConfiguration
+      -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe (HashMap Text (HashMap Text Text))))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConfigurationAliases&quot;</span></span><span>
+</span><span id="line-352"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text (HashMap Text Text))))
+-&gt; Maybe (HashMap Text (HashMap Text Text))
+-&gt; Parser (Maybe (HashMap Text (HashMap Text Text)))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text Text))
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-353"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe CdnConfiguration
+   -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text -&gt; Maybe CdnConfiguration -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TranscodeProfileName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text -&gt; Maybe CdnConfiguration -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe Text -&gt; Maybe CdnConfiguration -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe CdnConfiguration -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe CdnConfiguration -&gt; PlaybackConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SlateAdUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CdnConfiguration -&gt; PlaybackConfiguration)
+-&gt; Parser (Maybe CdnConfiguration) -&gt; Parser PlaybackConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CdnConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CdnConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265952"><span id="local-6989586621679265954"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span></span></span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span></span><span>
+</span><span id="line-363"></span></pre></body></html>

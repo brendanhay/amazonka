@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A hostname and IP address mapping to append to the __\/etc\/hosts__ file</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- on the container.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679949648"><span id="local-6989586621679949649"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"><span class="hs-identifier hs-var">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="hs-identifier hs-var">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The hostname to use in the __\/etc\/hosts__ entry.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Ahostname%3AAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#%24sel%3Ahostname%3AAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="hs-identifier hs-var hs-var">hostname</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The IP address to use in the __\/etc\/hosts__ entry.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AipAddress%3AAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#%24sel%3AipAddress%3AAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679949641"><span id="local-6989586621679949643"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; Bool
+(AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+ -&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+ -&gt; Bool)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+    -&gt; Bool)
+-&gt; Eq AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; Bool
+$c/= :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; Bool
+== :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; Bool
+$c== :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679949632"><span id="local-6989586621679949634"><span id="local-6989586621679949636"><span id="local-6989586621679949638"><span class="annot"><span class="annottext">ReadPrec
+  [AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]
+ReadPrec AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+Int
+-&gt; ReadS AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+ReadS [AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]
+(Int
+ -&gt; ReadS AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails)
+-&gt; ReadS
+     [AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]
+-&gt; ReadPrec
+     AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; ReadPrec
+     [AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]
+-&gt; Read AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec
+  [AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]
+$creadListPrec :: ReadPrec
+  [AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]
+readPrec :: ReadPrec AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+$creadPrec :: ReadPrec AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+readList :: ReadS [AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]
+$creadList :: ReadS [AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]
+readsPrec :: Int
+-&gt; ReadS AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+$creadsPrec :: Int
+-&gt; ReadS AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679949625"><span id="local-6989586621679949627"><span id="local-6989586621679949629"><span class="annot"><span class="annottext">Int
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; ShowS
+[AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]
+-&gt; ShowS
+AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails -&gt; String
+(Int
+ -&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+ -&gt; ShowS)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+    -&gt; String)
+-&gt; ([AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]
+    -&gt; ShowS)
+-&gt; Show AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]
+-&gt; ShowS
+$cshowList :: [AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]
+-&gt; ShowS
+show :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails -&gt; String
+$cshow :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails -&gt; String
+showsPrec :: Int
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; ShowS
+$cshowsPrec :: Int
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+ -&gt; Rep AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails x)
+-&gt; (forall x.
+    Rep AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails x
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails)
+-&gt; Generic
+     AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+forall x.
+Rep AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails x
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+forall x.
+AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; Rep AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails x
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+$cfrom :: forall x.
+AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; Rep AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'hostname', 'awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_hostname' - The hostname to use in the __\/etc\/hosts__ entry.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'ipAddress', 'awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_ipAddress' - The IP address to use in the __\/etc\/hosts__ entry.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#newAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"><span class="hs-identifier hs-type">newAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails</span></a></span><span>
+</span><span id="line-51"></span><span id="newAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"><span class="annot"><span class="annottext">newAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#newAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"><span class="hs-identifier hs-var hs-var">newAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' :: Maybe Text
+-&gt; Maybe Text
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hostname:AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#%24sel%3Ahostname%3AAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="hs-identifier hs-var">hostname</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddress:AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#%24sel%3AipAddress%3AAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The hostname to use in the __\/etc\/hosts__ entry.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_hostname"><span class="hs-identifier hs-type">awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_hostname</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_hostname"><span class="annot"><span class="annottext">awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_hostname :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; f AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_hostname"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_hostname</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+ -&gt; Maybe Text)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+    -&gt; Maybe Text
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+     AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949616"><span class="annot"><span class="annottext">Maybe Text
+hostname :: Maybe Text
+$sel:hostname:AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; Maybe Text
+</span><a href="#local-6989586621679949616"><span class="hs-identifier hs-var hs-var">hostname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679949616"><span class="hs-identifier hs-var">hostname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679949615"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+</span><a href="#local-6989586621679949615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679949614"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679949614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+</span><a href="#local-6989586621679949615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostname:AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#%24sel%3Ahostname%3AAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="hs-identifier hs-var">hostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679949614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The IP address to use in the __\/etc\/hosts__ entry.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_ipAddress"><span class="hs-identifier hs-type">awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_ipAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_ipAddress"><span class="annot"><span class="annottext">awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_ipAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; f AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_ipAddress"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_ipAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+ -&gt; Maybe Text)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+    -&gt; Maybe Text
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+     AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949612"><span class="annot"><span class="annottext">Maybe Text
+ipAddress :: Maybe Text
+$sel:ipAddress:AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; Maybe Text
+</span><a href="#local-6989586621679949612"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679949612"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679949611"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+</span><a href="#local-6989586621679949611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679949610"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679949610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+</span><a href="#local-6989586621679949611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#%24sel%3AipAddress%3AAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679949610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679949607"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679949605"><span class="annot"><span class="annottext">parseJSON :: Value
+-&gt; Parser AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object
+    -&gt; Parser
+         AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails)
+-&gt; Value
+-&gt; Parser AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails&quot;</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679949602"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679949602"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="hs-identifier hs-var">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails'</span></a></span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679949602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Hostname&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679949602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679949596"><span id="local-6989586621679949598"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails</span></a></span></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679949593"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails</span></a></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679949585"><span id="local-6989586621679949587"><span id="local-6989586621679949589"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails</span></a></span></span></span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679949583"><span class="annot"><span class="annottext">toJSON :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949580"><span id="local-6989586621679949581"><span class="annot"><span class="annottext">Maybe Text
+ipAddress :: Maybe Text
+hostname :: Maybe Text
+$sel:ipAddress:AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; Maybe Text
+$sel:hostname:AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+-&gt; Maybe Text
+</span><a href="#local-6989586621679949580"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-95"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-96"></span><span>            </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Hostname&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679949581"><span class="hs-identifier hs-var">hostname</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679949580"><span class="hs-identifier hs-var">ipAddress</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>        </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span></pre></body></html>

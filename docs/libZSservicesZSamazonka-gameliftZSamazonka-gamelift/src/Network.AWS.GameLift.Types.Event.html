@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- DescribeFleetEvents</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newEvent' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679430203"><span id="local-6989586621679430204"></span></span><span class="hs-keyword">data</span><span> </span><span id="Event"><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-var">Event</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Event%27"><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-var">Event'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679430212"><span id="local-6989586621679430213"></span></span><span class="hs-keyword">data</span><span> </span><span id="Event"><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-var">Event</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Event%27"><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-var">Event'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for an event resource, such as a fleet ID.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AresourceId%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Event.html#%24sel%3AresourceId%3AEvent%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -160,14 +160,14 @@
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AeventId%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Event.html#%24sel%3AeventId%3AEvent%27"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430192"><span id="local-6989586621679430194"><span class="annot"><span class="annottext">Event -&gt; Event -&gt; Bool
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430201"><span id="local-6989586621679430203"><span class="annot"><span class="annottext">Event -&gt; Event -&gt; Bool
 (Event -&gt; Event -&gt; Bool) -&gt; (Event -&gt; Event -&gt; Bool) -&gt; Eq Event
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Event -&gt; Event -&gt; Bool
 $c/= :: Event -&gt; Event -&gt; Bool
 == :: Event -&gt; Event -&gt; Bool
 $c== :: Event -&gt; Event -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430183"><span id="local-6989586621679430185"><span id="local-6989586621679430187"><span id="local-6989586621679430189"><span class="annot"><span class="annottext">ReadPrec [Event]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430192"><span id="local-6989586621679430194"><span id="local-6989586621679430196"><span id="local-6989586621679430198"><span class="annot"><span class="annottext">ReadPrec [Event]
 ReadPrec Event
 Int -&gt; ReadS Event
 ReadS [Event]
@@ -187,7 +187,7 @@ readList :: ReadS [Event]
 $creadList :: ReadS [Event]
 readsPrec :: Int -&gt; ReadS Event
 $creadsPrec :: Int -&gt; ReadS Event
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430176"><span id="local-6989586621679430178"><span id="local-6989586621679430180"><span class="annot"><span class="annottext">Int -&gt; Event -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430185"><span id="local-6989586621679430187"><span id="local-6989586621679430189"><span class="annot"><span class="annottext">Int -&gt; Event -&gt; ShowS
 [Event] -&gt; ShowS
 Event -&gt; String
 (Int -&gt; Event -&gt; ShowS)
@@ -380,16 +380,16 @@ forall a. Maybe a
 -&gt; (Event -&gt; Maybe Text -&gt; Event)
 -&gt; Lens Event Event (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430167"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430176"><span class="annot"><span class="annottext">Maybe Text
 resourceId :: Maybe Text
 $sel:resourceId:Event' :: Event -&gt; Maybe Text
-</span><a href="#local-6989586621679430167"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430167"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430166"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679430166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430165"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679430166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:Event' :: Maybe Text
+</span><a href="#local-6989586621679430176"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430176"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430175"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679430175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430174"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679430175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:Event' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Event.html#%24sel%3AresourceId%3AEvent%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-299"></span><span>
 </span><span id="line-300"></span><span class="hs-comment">-- | Location of stored logs with additional detail that is related to the</span><span>
 </span><span id="line-301"></span><span class="hs-comment">-- event. This is useful for debugging issues. The URL is valid for 15</span><span>
@@ -401,16 +401,16 @@ $sel:resourceId:Event' :: Event -&gt; Maybe Text
 -&gt; (Event -&gt; Maybe Text -&gt; Event)
 -&gt; Lens Event Event (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430163"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430172"><span class="annot"><span class="annottext">Maybe Text
 preSignedLogUrl :: Maybe Text
 $sel:preSignedLogUrl:Event' :: Event -&gt; Maybe Text
-</span><a href="#local-6989586621679430163"><span class="hs-identifier hs-var hs-var">preSignedLogUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430163"><span class="hs-identifier hs-var">preSignedLogUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430162"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679430162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430161"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679430162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preSignedLogUrl:Event' :: Maybe Text
+</span><a href="#local-6989586621679430172"><span class="hs-identifier hs-var hs-var">preSignedLogUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430172"><span class="hs-identifier hs-var">preSignedLogUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430171"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679430171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430170"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679430171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preSignedLogUrl:Event' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Event.html#%24sel%3ApreSignedLogUrl%3AEvent%27"><span class="hs-identifier hs-var">preSignedLogUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-306"></span><span>
 </span><span id="line-307"></span><span class="hs-comment">-- | Time stamp indicating when this event occurred. Format is a number</span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- expressed in Unix time as milliseconds (for example</span><span>
@@ -421,16 +421,16 @@ $sel:preSignedLogUrl:Event' :: Event -&gt; Maybe Text
 -&gt; (Event -&gt; Maybe POSIX -&gt; Event)
 -&gt; Lens Event Event (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430159"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430168"><span class="annot"><span class="annottext">Maybe POSIX
 eventTime :: Maybe POSIX
 $sel:eventTime:Event' :: Event -&gt; Maybe POSIX
-</span><a href="#local-6989586621679430159"><span class="hs-identifier hs-var hs-var">eventTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679430159"><span class="hs-identifier hs-var">eventTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430158"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679430158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430157"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679430157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679430158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTime:Event' :: Maybe POSIX
+</span><a href="#local-6989586621679430168"><span class="hs-identifier hs-var hs-var">eventTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679430168"><span class="hs-identifier hs-var">eventTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430167"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679430167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430166"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679430166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679430167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTime:Event' :: Maybe POSIX
 </span><a href="Network.AWS.GameLift.Types.Event.html#%24sel%3AeventTime%3AEvent%27"><span class="hs-identifier hs-var">eventTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679430157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Event -&gt; f Event)
+</span><a href="#local-6989586621679430166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Event -&gt; f Event)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -453,16 +453,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Event -&gt; Maybe Text -&gt; Event)
 -&gt; Lens Event Event (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430152"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430161"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:Event' :: Event -&gt; Maybe Text
-</span><a href="#local-6989586621679430152"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430152"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430151"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679430151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430150"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679430151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Event' :: Maybe Text
+</span><a href="#local-6989586621679430161"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430161"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430160"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679430160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430159"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679430160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Event' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Event.html#%24sel%3Amessage%3AEvent%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-316"></span><span>
 </span><span id="line-317"></span><span class="hs-comment">-- | The type of event being logged.</span><span>
 </span><span id="line-318"></span><span class="hs-comment">--</span><span>
@@ -572,16 +572,16 @@ $sel:message:Event' :: Event -&gt; Maybe Text
 -&gt; (Event -&gt; Maybe EventCode -&gt; Event)
 -&gt; Lens Event Event (Maybe EventCode) (Maybe EventCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430148"><span class="annot"><span class="annottext">Maybe EventCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430157"><span class="annot"><span class="annottext">Maybe EventCode
 eventCode :: Maybe EventCode
 $sel:eventCode:Event' :: Event -&gt; Maybe EventCode
-</span><a href="#local-6989586621679430148"><span class="hs-identifier hs-var hs-var">eventCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventCode
-</span><a href="#local-6989586621679430148"><span class="hs-identifier hs-var">eventCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430147"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679430147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430146"><span class="annot"><span class="annottext">Maybe EventCode
-</span><a href="#local-6989586621679430146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679430147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCode:Event' :: Maybe EventCode
+</span><a href="#local-6989586621679430157"><span class="hs-identifier hs-var hs-var">eventCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventCode
+</span><a href="#local-6989586621679430157"><span class="hs-identifier hs-var">eventCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430156"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679430156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430155"><span class="annot"><span class="annottext">Maybe EventCode
+</span><a href="#local-6989586621679430155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679430156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCode:Event' :: Maybe EventCode
 </span><a href="Network.AWS.GameLift.Types.Event.html#%24sel%3AeventCode%3AEvent%27"><span class="hs-identifier hs-var">eventCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventCode
-</span><a href="#local-6989586621679430146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-421"></span><span>
 </span><span id="line-422"></span><span class="hs-comment">-- | A unique identifier for a fleet event.</span><span>
 </span><span id="line-423"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#event_eventId"><span class="hs-identifier hs-type">event_eventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -590,27 +590,27 @@ $sel:eventCode:Event' :: Event -&gt; Maybe EventCode
 -&gt; (Event -&gt; Maybe Text -&gt; Event)
 -&gt; Lens Event Event (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430144"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430153"><span class="annot"><span class="annottext">Maybe Text
 eventId :: Maybe Text
 $sel:eventId:Event' :: Event -&gt; Maybe Text
-</span><a href="#local-6989586621679430144"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430144"><span class="hs-identifier hs-var">eventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430143"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679430143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430142"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679430143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventId:Event' :: Maybe Text
+</span><a href="#local-6989586621679430153"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430153"><span class="hs-identifier hs-var">eventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430152"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679430152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430151"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679430152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventId:Event' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Event.html#%24sel%3AeventId%3AEvent%27"><span class="hs-identifier hs-var">eventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-425"></span><span>
-</span><span id="line-426"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430139"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-427"></span><span>  </span><span id="local-6989586621679430137"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Event
+</span><span id="line-426"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430148"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-427"></span><span>  </span><span id="local-6989586621679430146"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Event
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-428"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Event) -&gt; Value -&gt; Parser Event
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-429"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Event&quot;</span></span><span>
-</span><span id="line-430"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679430134"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679430134"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-430"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679430143"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430143"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-431"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe POSIX
@@ -636,7 +636,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Event)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679430134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679430143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -653,7 +653,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe EventCode -&gt; Maybe Text -&gt; Event)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679430134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679430143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PreSignedLogUrl&quot;</span></span><span class="hs-special">)</span><span>
@@ -664,7 +664,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe EventCode -&gt; Maybe Text -&gt; Event)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679430134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679430143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -673,7 +673,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe EventCode -&gt; Maybe Text -&gt; Event)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679430134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679430143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
@@ -681,20 +681,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe EventCode) -&gt; Parser (Maybe Text -&gt; Event)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679430134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventCode)
+</span><a href="#local-6989586621679430143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-437"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Event) -&gt; Parser (Maybe Text) -&gt; Parser Event
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679430134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679430143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-438"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-439"></span><span>
-</span><span id="line-440"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430128"><span id="local-6989586621679430130"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span></span><span>
+</span><span id="line-440"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430137"><span id="local-6989586621679430139"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span></span><span>
 </span><span id="line-441"></span><span>
-</span><span id="line-442"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span>
+</span><span id="line-442"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span>
 </span><span id="line-443"></span></pre></body></html>

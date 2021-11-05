@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon EC2 Auto Scaling User Guide/.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newInstanceMetadataOptions' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679326581"><span id="local-6989586621679326582"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceMetadataOptions"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-var">InstanceMetadataOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceMetadataOptions%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-var">InstanceMetadataOptions'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679326590"><span id="local-6989586621679326591"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceMetadataOptions"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-var">InstanceMetadataOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceMetadataOptions%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-var">InstanceMetadataOptions'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This parameter enables or disables the HTTP metadata endpoint on your</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- instances. If the parameter is not specified, the default state is</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @enabled@.</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AhttpTokens%3AInstanceMetadataOptions%27"><span class="annot"><span class="annottext">InstanceMetadataOptions -&gt; Maybe InstanceMetadataHttpTokensState
 </span><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#%24sel%3AhttpTokens%3AInstanceMetadataOptions%27"><span class="hs-identifier hs-var hs-var">httpTokens</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataHttpTokensState.html#InstanceMetadataHttpTokensState"><span class="hs-identifier hs-type">InstanceMetadataHttpTokensState</span></a></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326573"><span id="local-6989586621679326575"><span class="annot"><span class="annottext">InstanceMetadataOptions -&gt; InstanceMetadataOptions -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326582"><span id="local-6989586621679326584"><span class="annot"><span class="annottext">InstanceMetadataOptions -&gt; InstanceMetadataOptions -&gt; Bool
 (InstanceMetadataOptions -&gt; InstanceMetadataOptions -&gt; Bool)
 -&gt; (InstanceMetadataOptions -&gt; InstanceMetadataOptions -&gt; Bool)
 -&gt; Eq InstanceMetadataOptions
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceMetadataOptions -&gt; InstanceMetadataOptions -&gt; Bool
 == :: InstanceMetadataOptions -&gt; InstanceMetadataOptions -&gt; Bool
 $c== :: InstanceMetadataOptions -&gt; InstanceMetadataOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326564"><span id="local-6989586621679326566"><span id="local-6989586621679326568"><span id="local-6989586621679326570"><span class="annot"><span class="annottext">ReadPrec [InstanceMetadataOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326573"><span id="local-6989586621679326575"><span id="local-6989586621679326577"><span id="local-6989586621679326579"><span class="annot"><span class="annottext">ReadPrec [InstanceMetadataOptions]
 ReadPrec InstanceMetadataOptions
 Int -&gt; ReadS InstanceMetadataOptions
 ReadS [InstanceMetadataOptions]
@@ -92,7 +92,7 @@ readList :: ReadS [InstanceMetadataOptions]
 $creadList :: ReadS [InstanceMetadataOptions]
 readsPrec :: Int -&gt; ReadS InstanceMetadataOptions
 $creadsPrec :: Int -&gt; ReadS InstanceMetadataOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326557"><span id="local-6989586621679326559"><span id="local-6989586621679326561"><span class="annot"><span class="annottext">Int -&gt; InstanceMetadataOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326566"><span id="local-6989586621679326568"><span id="local-6989586621679326570"><span class="annot"><span class="annottext">Int -&gt; InstanceMetadataOptions -&gt; ShowS
 [InstanceMetadataOptions] -&gt; ShowS
 InstanceMetadataOptions -&gt; String
 (Int -&gt; InstanceMetadataOptions -&gt; ShowS)
@@ -198,16 +198,16 @@ forall a. Maybe a
      (Maybe InstanceMetadataEndpointState)
      (Maybe InstanceMetadataEndpointState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-type">InstanceMetadataOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326548"><span class="annot"><span class="annottext">Maybe InstanceMetadataEndpointState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-type">InstanceMetadataOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326557"><span class="annot"><span class="annottext">Maybe InstanceMetadataEndpointState
 httpEndpoint :: Maybe InstanceMetadataEndpointState
 $sel:httpEndpoint:InstanceMetadataOptions' :: InstanceMetadataOptions -&gt; Maybe InstanceMetadataEndpointState
-</span><a href="#local-6989586621679326548"><span class="hs-identifier hs-var hs-var">httpEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceMetadataEndpointState
-</span><a href="#local-6989586621679326548"><span class="hs-identifier hs-var">httpEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326547"><span class="annot"><span class="annottext">s :: InstanceMetadataOptions
-</span><a href="#local-6989586621679326547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-type">InstanceMetadataOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326546"><span class="annot"><span class="annottext">Maybe InstanceMetadataEndpointState
-</span><a href="#local-6989586621679326546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceMetadataOptions
-</span><a href="#local-6989586621679326547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpEndpoint:InstanceMetadataOptions' :: Maybe InstanceMetadataEndpointState
+</span><a href="#local-6989586621679326557"><span class="hs-identifier hs-var hs-var">httpEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceMetadataEndpointState
+</span><a href="#local-6989586621679326557"><span class="hs-identifier hs-var">httpEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326556"><span class="annot"><span class="annottext">s :: InstanceMetadataOptions
+</span><a href="#local-6989586621679326556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-type">InstanceMetadataOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326555"><span class="annot"><span class="annottext">Maybe InstanceMetadataEndpointState
+</span><a href="#local-6989586621679326555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceMetadataOptions
+</span><a href="#local-6989586621679326556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpEndpoint:InstanceMetadataOptions' :: Maybe InstanceMetadataEndpointState
 </span><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#%24sel%3AhttpEndpoint%3AInstanceMetadataOptions%27"><span class="hs-identifier hs-var">httpEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceMetadataEndpointState
-</span><a href="#local-6989586621679326546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-type">InstanceMetadataOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-type">InstanceMetadataOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The desired HTTP PUT response hop limit for instance metadata requests.</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- The larger the number, the further instance metadata requests can</span><span>
@@ -226,16 +226,16 @@ $sel:httpEndpoint:InstanceMetadataOptions' :: InstanceMetadataOptions -&gt; Mayb
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-type">InstanceMetadataOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326544"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-type">InstanceMetadataOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326553"><span class="annot"><span class="annottext">Maybe Natural
 httpPutResponseHopLimit :: Maybe Natural
 $sel:httpPutResponseHopLimit:InstanceMetadataOptions' :: InstanceMetadataOptions -&gt; Maybe Natural
-</span><a href="#local-6989586621679326544"><span class="hs-identifier hs-var hs-var">httpPutResponseHopLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679326544"><span class="hs-identifier hs-var">httpPutResponseHopLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326543"><span class="annot"><span class="annottext">s :: InstanceMetadataOptions
-</span><a href="#local-6989586621679326543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-type">InstanceMetadataOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326542"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679326542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceMetadataOptions
-</span><a href="#local-6989586621679326543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpPutResponseHopLimit:InstanceMetadataOptions' :: Maybe Natural
+</span><a href="#local-6989586621679326553"><span class="hs-identifier hs-var hs-var">httpPutResponseHopLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679326553"><span class="hs-identifier hs-var">httpPutResponseHopLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326552"><span class="annot"><span class="annottext">s :: InstanceMetadataOptions
+</span><a href="#local-6989586621679326552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-type">InstanceMetadataOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326551"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679326551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceMetadataOptions
+</span><a href="#local-6989586621679326552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpPutResponseHopLimit:InstanceMetadataOptions' :: Maybe Natural
 </span><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#%24sel%3AhttpPutResponseHopLimit%3AInstanceMetadataOptions%27"><span class="hs-identifier hs-var">httpPutResponseHopLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679326542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-type">InstanceMetadataOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-type">InstanceMetadataOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The state of token usage for your instance metadata requests. If the</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- parameter is not specified in the request, the default state is</span><span>
@@ -265,21 +265,21 @@ $sel:httpPutResponseHopLimit:InstanceMetadataOptions' :: InstanceMetadataOptions
      (Maybe InstanceMetadataHttpTokensState)
      (Maybe InstanceMetadataHttpTokensState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-type">InstanceMetadataOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326540"><span class="annot"><span class="annottext">Maybe InstanceMetadataHttpTokensState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-type">InstanceMetadataOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326549"><span class="annot"><span class="annottext">Maybe InstanceMetadataHttpTokensState
 httpTokens :: Maybe InstanceMetadataHttpTokensState
 $sel:httpTokens:InstanceMetadataOptions' :: InstanceMetadataOptions -&gt; Maybe InstanceMetadataHttpTokensState
-</span><a href="#local-6989586621679326540"><span class="hs-identifier hs-var hs-var">httpTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceMetadataHttpTokensState
-</span><a href="#local-6989586621679326540"><span class="hs-identifier hs-var">httpTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326539"><span class="annot"><span class="annottext">s :: InstanceMetadataOptions
-</span><a href="#local-6989586621679326539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-type">InstanceMetadataOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326538"><span class="annot"><span class="annottext">Maybe InstanceMetadataHttpTokensState
-</span><a href="#local-6989586621679326538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceMetadataOptions
-</span><a href="#local-6989586621679326539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpTokens:InstanceMetadataOptions' :: Maybe InstanceMetadataHttpTokensState
+</span><a href="#local-6989586621679326549"><span class="hs-identifier hs-var hs-var">httpTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceMetadataHttpTokensState
+</span><a href="#local-6989586621679326549"><span class="hs-identifier hs-var">httpTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326548"><span class="annot"><span class="annottext">s :: InstanceMetadataOptions
+</span><a href="#local-6989586621679326548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-type">InstanceMetadataOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326547"><span class="annot"><span class="annottext">Maybe InstanceMetadataHttpTokensState
+</span><a href="#local-6989586621679326547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceMetadataOptions
+</span><a href="#local-6989586621679326548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpTokens:InstanceMetadataOptions' :: Maybe InstanceMetadataHttpTokensState
 </span><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#%24sel%3AhttpTokens%3AInstanceMetadataOptions%27"><span class="hs-identifier hs-var">httpTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceMetadataHttpTokensState
-</span><a href="#local-6989586621679326538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-type">InstanceMetadataOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-type">InstanceMetadataOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-type">InstanceMetadataOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679326535"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceMetadataOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679326533"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679326533"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679326544"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceMetadataOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679326542"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679326542"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">Maybe InstanceMetadataEndpointState
 -&gt; Maybe Natural
 -&gt; Maybe InstanceMetadataHttpTokensState
@@ -297,7 +297,7 @@ $sel:httpTokens:InstanceMetadataOptions' :: InstanceMetadataOptions -&gt; Maybe 
       -&gt; InstanceMetadataOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679326533"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679326542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe InstanceMetadataEndpointState)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -313,7 +313,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe InstanceMetadataHttpTokensState -&gt; InstanceMetadataOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679326533"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679326542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HttpPutResponseHopLimit&quot;</span></span><span class="hs-special">)</span><span>
@@ -324,19 +324,19 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String InstanceMetadataOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679326533"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679326542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe InstanceMetadataHttpTokensState)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HttpTokens&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326527"><span id="local-6989586621679326529"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-type">InstanceMetadataOptions</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326536"><span id="local-6989586621679326538"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-type">InstanceMetadataOptions</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326524"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-type">InstanceMetadataOptions</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-type">InstanceMetadataOptions</span></a></span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-type">InstanceMetadataOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679326520"><span class="annot"><span class="annottext">toQuery :: InstanceMetadataOptions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-type">InstanceMetadataOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326516"><span id="local-6989586621679326517"><span id="local-6989586621679326518"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679326529"><span class="annot"><span class="annottext">toQuery :: InstanceMetadataOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMetadataOptions.html#InstanceMetadataOptions%27"><span class="hs-identifier hs-type">InstanceMetadataOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326525"><span id="local-6989586621679326526"><span id="local-6989586621679326527"><span class="annot"><span class="annottext">Maybe Natural
 Maybe InstanceMetadataEndpointState
 Maybe InstanceMetadataHttpTokensState
 httpTokens :: Maybe InstanceMetadataHttpTokensState
@@ -345,7 +345,7 @@ httpEndpoint :: Maybe InstanceMetadataEndpointState
 $sel:httpTokens:InstanceMetadataOptions' :: InstanceMetadataOptions -&gt; Maybe InstanceMetadataHttpTokensState
 $sel:httpPutResponseHopLimit:InstanceMetadataOptions' :: InstanceMetadataOptions -&gt; Maybe Natural
 $sel:httpEndpoint:InstanceMetadataOptions' :: InstanceMetadataOptions -&gt; Maybe InstanceMetadataEndpointState
-</span><a href="#local-6989586621679326516"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679326525"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -353,17 +353,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;HttpEndpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe InstanceMetadataEndpointState -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe InstanceMetadataEndpointState
-</span><a href="#local-6989586621679326518"><span class="hs-identifier hs-var">httpEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326527"><span class="hs-identifier hs-var">httpEndpoint</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;HttpPutResponseHopLimit&quot;</span></span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679326517"><span class="hs-identifier hs-var">httpPutResponseHopLimit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326526"><span class="hs-identifier hs-var">httpPutResponseHopLimit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;HttpTokens&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe InstanceMetadataHttpTokensState -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe InstanceMetadataHttpTokensState
-</span><a href="#local-6989586621679326516"><span class="hs-identifier hs-var">httpTokens</span></a></span><span>
+</span><a href="#local-6989586621679326525"><span class="hs-identifier hs-var">httpTokens</span></a></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span></pre></body></html>

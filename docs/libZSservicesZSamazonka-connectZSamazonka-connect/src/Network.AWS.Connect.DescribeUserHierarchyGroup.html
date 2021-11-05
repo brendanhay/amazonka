@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeUserHierarchyGroup' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679420568"><span id="local-6989586621679420569"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserHierarchyGroup"><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-var">DescribeUserHierarchyGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserHierarchyGroup%27"><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var">DescribeUserHierarchyGroup'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679420577"><span id="local-6989586621679420578"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserHierarchyGroup"><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-var">DescribeUserHierarchyGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserHierarchyGroup%27"><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var">DescribeUserHierarchyGroup'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the hierarchy group.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AhierarchyGroupId%3ADescribeUserHierarchyGroup%27"><span class="annot"><span class="annottext">DescribeUserHierarchyGroup -&gt; Text
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhierarchyGroupId%3ADescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var hs-var">hierarchyGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AinstanceId%3ADescribeUserHierarchyGroup%27"><span class="annot"><span class="annottext">DescribeUserHierarchyGroup -&gt; Text
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#%24sel%3AinstanceId%3ADescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420561"><span id="local-6989586621679420563"><span class="annot"><span class="annottext">DescribeUserHierarchyGroup -&gt; DescribeUserHierarchyGroup -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420570"><span id="local-6989586621679420572"><span class="annot"><span class="annottext">DescribeUserHierarchyGroup -&gt; DescribeUserHierarchyGroup -&gt; Bool
 (DescribeUserHierarchyGroup -&gt; DescribeUserHierarchyGroup -&gt; Bool)
 -&gt; (DescribeUserHierarchyGroup
     -&gt; DescribeUserHierarchyGroup -&gt; Bool)
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeUserHierarchyGroup -&gt; DescribeUserHierarchyGroup -&gt; Bool
 == :: DescribeUserHierarchyGroup -&gt; DescribeUserHierarchyGroup -&gt; Bool
 $c== :: DescribeUserHierarchyGroup -&gt; DescribeUserHierarchyGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420552"><span id="local-6989586621679420554"><span id="local-6989586621679420556"><span id="local-6989586621679420558"><span class="annot"><span class="annottext">ReadPrec [DescribeUserHierarchyGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420561"><span id="local-6989586621679420563"><span id="local-6989586621679420565"><span id="local-6989586621679420567"><span class="annot"><span class="annottext">ReadPrec [DescribeUserHierarchyGroup]
 ReadPrec DescribeUserHierarchyGroup
 Int -&gt; ReadS DescribeUserHierarchyGroup
 ReadS [DescribeUserHierarchyGroup]
@@ -87,7 +87,7 @@ readList :: ReadS [DescribeUserHierarchyGroup]
 $creadList :: ReadS [DescribeUserHierarchyGroup]
 readsPrec :: Int -&gt; ReadS DescribeUserHierarchyGroup
 $creadsPrec :: Int -&gt; ReadS DescribeUserHierarchyGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420545"><span id="local-6989586621679420547"><span id="local-6989586621679420549"><span class="annot"><span class="annottext">Int -&gt; DescribeUserHierarchyGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420554"><span id="local-6989586621679420556"><span id="local-6989586621679420558"><span class="annot"><span class="annottext">Int -&gt; DescribeUserHierarchyGroup -&gt; ShowS
 [DescribeUserHierarchyGroup] -&gt; ShowS
 DescribeUserHierarchyGroup -&gt; String
 (Int -&gt; DescribeUserHierarchyGroup -&gt; ShowS)
@@ -139,19 +139,19 @@ DescribeUserHierarchyGroup -&gt; Rep DescribeUserHierarchyGroup x
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span>
 </span><span id="line-78"></span><span id="newDescribeUserHierarchyGroup"><span class="annot"><span class="annottext">newDescribeUserHierarchyGroup :: Text -&gt; Text -&gt; DescribeUserHierarchyGroup
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#newDescribeUserHierarchyGroup"><span class="hs-identifier hs-var hs-var">newDescribeUserHierarchyGroup</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679420540"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679420540"><span class="hs-identifier hs-var">pHierarchyGroupId_</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679420539"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679420539"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679420549"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420549"><span class="hs-identifier hs-var">pHierarchyGroupId_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679420548"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420548"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroup' :: Text -&gt; Text -&gt; DescribeUserHierarchyGroup
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hierarchyGroupId:DescribeUserHierarchyGroup' :: Text
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhierarchyGroupId%3ADescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var">hierarchyGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679420540"><span class="hs-identifier hs-var">pHierarchyGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679420549"><span class="hs-identifier hs-var">pHierarchyGroupId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceId:DescribeUserHierarchyGroup' :: Text
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#%24sel%3AinstanceId%3ADescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679420539"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679420548"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The identifier of the hierarchy group.</span><span>
@@ -164,16 +164,16 @@ DescribeUserHierarchyGroup -&gt; Rep DescribeUserHierarchyGroup x
 -&gt; Lens
      DescribeUserHierarchyGroup DescribeUserHierarchyGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420536"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420545"><span class="annot"><span class="annottext">Text
 hierarchyGroupId :: Text
 $sel:hierarchyGroupId:DescribeUserHierarchyGroup' :: DescribeUserHierarchyGroup -&gt; Text
-</span><a href="#local-6989586621679420536"><span class="hs-identifier hs-var hs-var">hierarchyGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679420536"><span class="hs-identifier hs-var">hierarchyGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420535"><span class="annot"><span class="annottext">s :: DescribeUserHierarchyGroup
-</span><a href="#local-6989586621679420535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420534"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679420534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroup
-</span><a href="#local-6989586621679420535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hierarchyGroupId:DescribeUserHierarchyGroup' :: Text
+</span><a href="#local-6989586621679420545"><span class="hs-identifier hs-var hs-var">hierarchyGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420545"><span class="hs-identifier hs-var">hierarchyGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420544"><span class="annot"><span class="annottext">s :: DescribeUserHierarchyGroup
+</span><a href="#local-6989586621679420544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420543"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroup
+</span><a href="#local-6989586621679420544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hierarchyGroupId:DescribeUserHierarchyGroup' :: Text
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhierarchyGroupId%3ADescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var">hierarchyGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679420534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679420543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -186,28 +186,28 @@ $sel:hierarchyGroupId:DescribeUserHierarchyGroup' :: DescribeUserHierarchyGroup 
 -&gt; Lens
      DescribeUserHierarchyGroup DescribeUserHierarchyGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420533"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420542"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:DescribeUserHierarchyGroup' :: DescribeUserHierarchyGroup -&gt; Text
-</span><a href="#local-6989586621679420533"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679420533"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420532"><span class="annot"><span class="annottext">s :: DescribeUserHierarchyGroup
-</span><a href="#local-6989586621679420532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420531"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679420531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroup
-</span><a href="#local-6989586621679420532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DescribeUserHierarchyGroup' :: Text
+</span><a href="#local-6989586621679420542"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420542"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420541"><span class="annot"><span class="annottext">s :: DescribeUserHierarchyGroup
+</span><a href="#local-6989586621679420541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420540"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroup
+</span><a href="#local-6989586621679420541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DescribeUserHierarchyGroup' :: Text
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#%24sel%3AinstanceId%3ADescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679420531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679420540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679420527"><span class="annot"><span class="annottext">request :: DescribeUserHierarchyGroup -&gt; Request DescribeUserHierarchyGroup
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679420536"><span class="annot"><span class="annottext">request :: DescribeUserHierarchyGroup -&gt; Request DescribeUserHierarchyGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeUserHierarchyGroup -&gt; Request DescribeUserHierarchyGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679420523"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679420532"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeUserHierarchyGroup
 -&gt; ClientResponse ClientBody
@@ -233,10 +233,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679420520"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679420520"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679420519"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679420519"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679420518"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679420518"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679420529"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420529"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679420528"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679420528"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679420527"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679420527"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe HierarchyGroup -&gt; Int -&gt; DescribeUserHierarchyGroupResponse
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var">DescribeUserHierarchyGroupResponse'</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe HierarchyGroup -&gt; Int -&gt; DescribeUserHierarchyGroupResponse)
@@ -244,7 +244,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeUserHierarchyGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679420518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe HierarchyGroup)
+</span><a href="#local-6989586621679420527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe HierarchyGroup)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HierarchyGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -257,15 +257,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679420520"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679420529"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420510"><span id="local-6989586621679420512"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420519"><span id="local-6989586621679420521"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420507"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420516"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679420503"><span class="annot"><span class="annottext">toHeaders :: DescribeUserHierarchyGroup -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679420512"><span class="annot"><span class="annottext">toHeaders :: DescribeUserHierarchyGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeUserHierarchyGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -285,13 +285,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679420497"><span class="annot"><span class="annottext">toPath :: DescribeUserHierarchyGroup -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420494"><span id="local-6989586621679420495"><span class="annot"><span class="annottext">Text
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679420506"><span class="annot"><span class="annottext">toPath :: DescribeUserHierarchyGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420503"><span id="local-6989586621679420504"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 hierarchyGroupId :: Text
 $sel:instanceId:DescribeUserHierarchyGroup' :: DescribeUserHierarchyGroup -&gt; Text
 $sel:hierarchyGroupId:DescribeUserHierarchyGroup' :: DescribeUserHierarchyGroup -&gt; Text
-</span><a href="#local-6989586621679420494"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679420503"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -300,17 +300,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679420494"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679420503"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679420495"><span class="hs-identifier hs-var">hierarchyGroupId</span></a></span><span>
+</span><a href="#local-6989586621679420504"><span class="hs-identifier hs-var">hierarchyGroupId</span></a></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679420490"><span class="annot"><span class="annottext">toQuery :: DescribeUserHierarchyGroup -&gt; QueryString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679420499"><span class="annot"><span class="annottext">toQuery :: DescribeUserHierarchyGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeUserHierarchyGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -318,7 +318,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newDescribeUserHierarchyGroupResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679420487"><span id="local-6989586621679420488"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserHierarchyGroupResponse"><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-var">DescribeUserHierarchyGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserHierarchyGroupResponse%27"><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var">DescribeUserHierarchyGroupResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679420496"><span id="local-6989586621679420497"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserHierarchyGroupResponse"><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-var">DescribeUserHierarchyGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserHierarchyGroupResponse%27"><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var">DescribeUserHierarchyGroupResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the hierarchy group.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3AhierarchyGroup%3ADescribeUserHierarchyGroupResponse%27"><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse -&gt; Maybe HierarchyGroup
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhierarchyGroup%3ADescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var hs-var">hierarchyGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroup.html#HierarchyGroup"><span class="hs-identifier hs-type">HierarchyGroup</span></a></span><span class="hs-special">,</span><span>
@@ -326,7 +326,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeUserHierarchyGroupResponse%27"><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse -&gt; Int
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhttpStatus%3ADescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420481"><span id="local-6989586621679420483"><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420490"><span id="local-6989586621679420492"><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse
 -&gt; DescribeUserHierarchyGroupResponse -&gt; Bool
 (DescribeUserHierarchyGroupResponse
  -&gt; DescribeUserHierarchyGroupResponse -&gt; Bool)
@@ -342,7 +342,7 @@ $c/= :: DescribeUserHierarchyGroupResponse
 -&gt; DescribeUserHierarchyGroupResponse -&gt; Bool
 $c== :: DescribeUserHierarchyGroupResponse
 -&gt; DescribeUserHierarchyGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420473"><span id="local-6989586621679420475"><span id="local-6989586621679420477"><span id="local-6989586621679420479"><span class="annot"><span class="annottext">ReadPrec [DescribeUserHierarchyGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420482"><span id="local-6989586621679420484"><span id="local-6989586621679420486"><span id="local-6989586621679420488"><span class="annot"><span class="annottext">ReadPrec [DescribeUserHierarchyGroupResponse]
 ReadPrec DescribeUserHierarchyGroupResponse
 Int -&gt; ReadS DescribeUserHierarchyGroupResponse
 ReadS [DescribeUserHierarchyGroupResponse]
@@ -362,7 +362,7 @@ readList :: ReadS [DescribeUserHierarchyGroupResponse]
 $creadList :: ReadS [DescribeUserHierarchyGroupResponse]
 readsPrec :: Int -&gt; ReadS DescribeUserHierarchyGroupResponse
 $creadsPrec :: Int -&gt; ReadS DescribeUserHierarchyGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420467"><span id="local-6989586621679420469"><span id="local-6989586621679420471"><span class="annot"><span class="annottext">Int -&gt; DescribeUserHierarchyGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420476"><span id="local-6989586621679420478"><span id="local-6989586621679420480"><span class="annot"><span class="annottext">Int -&gt; DescribeUserHierarchyGroupResponse -&gt; ShowS
 [DescribeUserHierarchyGroupResponse] -&gt; ShowS
 DescribeUserHierarchyGroupResponse -&gt; String
 (Int -&gt; DescribeUserHierarchyGroupResponse -&gt; ShowS)
@@ -416,8 +416,8 @@ DescribeUserHierarchyGroupResponse
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newDescribeUserHierarchyGroupResponse"><span class="annot"><span class="annottext">newDescribeUserHierarchyGroupResponse :: Int -&gt; DescribeUserHierarchyGroupResponse
-</span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#newDescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-var hs-var">newDescribeUserHierarchyGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679420464"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679420464"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#newDescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-var hs-var">newDescribeUserHierarchyGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679420473"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420473"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse' :: Maybe HierarchyGroup -&gt; Int -&gt; DescribeUserHierarchyGroupResponse
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hierarchyGroup:DescribeUserHierarchyGroupResponse' :: Maybe HierarchyGroup
@@ -427,7 +427,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUserHierarchyGroupResponse' :: Int
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhttpStatus%3ADescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679420464"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679420473"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | Information about the hierarchy group.</span><span>
@@ -444,16 +444,16 @@ forall a. Maybe a
      (Maybe HierarchyGroup)
      (Maybe HierarchyGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420463"><span class="annot"><span class="annottext">Maybe HierarchyGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420472"><span class="annot"><span class="annottext">Maybe HierarchyGroup
 hierarchyGroup :: Maybe HierarchyGroup
 $sel:hierarchyGroup:DescribeUserHierarchyGroupResponse' :: DescribeUserHierarchyGroupResponse -&gt; Maybe HierarchyGroup
-</span><a href="#local-6989586621679420463"><span class="hs-identifier hs-var hs-var">hierarchyGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroup
-</span><a href="#local-6989586621679420463"><span class="hs-identifier hs-var">hierarchyGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420462"><span class="annot"><span class="annottext">s :: DescribeUserHierarchyGroupResponse
-</span><a href="#local-6989586621679420462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420461"><span class="annot"><span class="annottext">Maybe HierarchyGroup
-</span><a href="#local-6989586621679420461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse
-</span><a href="#local-6989586621679420462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hierarchyGroup:DescribeUserHierarchyGroupResponse' :: Maybe HierarchyGroup
+</span><a href="#local-6989586621679420472"><span class="hs-identifier hs-var hs-var">hierarchyGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroup
+</span><a href="#local-6989586621679420472"><span class="hs-identifier hs-var">hierarchyGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420471"><span class="annot"><span class="annottext">s :: DescribeUserHierarchyGroupResponse
+</span><a href="#local-6989586621679420471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420470"><span class="annot"><span class="annottext">Maybe HierarchyGroup
+</span><a href="#local-6989586621679420470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse
+</span><a href="#local-6989586621679420471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hierarchyGroup:DescribeUserHierarchyGroupResponse' :: Maybe HierarchyGroup
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhierarchyGroup%3ADescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var">hierarchyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroup
-</span><a href="#local-6989586621679420461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679420470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#describeUserHierarchyGroupResponse_httpStatus"><span class="hs-identifier hs-type">describeUserHierarchyGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -469,18 +469,18 @@ $sel:hierarchyGroup:DescribeUserHierarchyGroupResponse' :: DescribeUserHierarchy
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420460"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420469"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeUserHierarchyGroupResponse' :: DescribeUserHierarchyGroupResponse -&gt; Int
-</span><a href="#local-6989586621679420460"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679420460"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420459"><span class="annot"><span class="annottext">s :: DescribeUserHierarchyGroupResponse
-</span><a href="#local-6989586621679420459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420458"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679420458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse
-</span><a href="#local-6989586621679420459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUserHierarchyGroupResponse' :: Int
+</span><a href="#local-6989586621679420469"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420469"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420468"><span class="annot"><span class="annottext">s :: DescribeUserHierarchyGroupResponse
+</span><a href="#local-6989586621679420468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420467"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse
+</span><a href="#local-6989586621679420468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUserHierarchyGroupResponse' :: Int
 </span><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhttpStatus%3ADescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679420458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679420467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679420456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679420465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

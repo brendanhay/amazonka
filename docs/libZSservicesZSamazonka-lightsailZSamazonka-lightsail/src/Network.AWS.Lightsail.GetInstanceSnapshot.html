@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetInstanceSnapshot' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679641280"><span id="local-6989586621679641281"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceSnapshot"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-var">GetInstanceSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceSnapshot%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot%27"><span class="hs-identifier hs-var">GetInstanceSnapshot'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679641289"><span id="local-6989586621679641290"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceSnapshot"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-var">GetInstanceSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceSnapshot%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot%27"><span class="hs-identifier hs-var">GetInstanceSnapshot'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the snapshot for which you are requesting information.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AinstanceSnapshotName%3AGetInstanceSnapshot%27"><span class="annot"><span class="annottext">GetInstanceSnapshot -&gt; Text
 </span><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#%24sel%3AinstanceSnapshotName%3AGetInstanceSnapshot%27"><span class="hs-identifier hs-var hs-var">instanceSnapshotName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679641274"><span id="local-6989586621679641276"><span class="annot"><span class="annottext">GetInstanceSnapshot -&gt; GetInstanceSnapshot -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679641283"><span id="local-6989586621679641285"><span class="annot"><span class="annottext">GetInstanceSnapshot -&gt; GetInstanceSnapshot -&gt; Bool
 (GetInstanceSnapshot -&gt; GetInstanceSnapshot -&gt; Bool)
 -&gt; (GetInstanceSnapshot -&gt; GetInstanceSnapshot -&gt; Bool)
 -&gt; Eq GetInstanceSnapshot
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetInstanceSnapshot -&gt; GetInstanceSnapshot -&gt; Bool
 == :: GetInstanceSnapshot -&gt; GetInstanceSnapshot -&gt; Bool
 $c== :: GetInstanceSnapshot -&gt; GetInstanceSnapshot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641265"><span id="local-6989586621679641267"><span id="local-6989586621679641269"><span id="local-6989586621679641271"><span class="annot"><span class="annottext">ReadPrec [GetInstanceSnapshot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641274"><span id="local-6989586621679641276"><span id="local-6989586621679641278"><span id="local-6989586621679641280"><span class="annot"><span class="annottext">ReadPrec [GetInstanceSnapshot]
 ReadPrec GetInstanceSnapshot
 Int -&gt; ReadS GetInstanceSnapshot
 ReadS [GetInstanceSnapshot]
@@ -81,7 +81,7 @@ readList :: ReadS [GetInstanceSnapshot]
 $creadList :: ReadS [GetInstanceSnapshot]
 readsPrec :: Int -&gt; ReadS GetInstanceSnapshot
 $creadsPrec :: Int -&gt; ReadS GetInstanceSnapshot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641258"><span id="local-6989586621679641260"><span id="local-6989586621679641262"><span class="annot"><span class="annottext">Int -&gt; GetInstanceSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641267"><span id="local-6989586621679641269"><span id="local-6989586621679641271"><span class="annot"><span class="annottext">Int -&gt; GetInstanceSnapshot -&gt; ShowS
 [GetInstanceSnapshot] -&gt; ShowS
 GetInstanceSnapshot -&gt; String
 (Int -&gt; GetInstanceSnapshot -&gt; ShowS)
@@ -121,14 +121,14 @@ $cfrom :: forall x. GetInstanceSnapshot -&gt; Rep GetInstanceSnapshot x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-type">GetInstanceSnapshot</span></a></span><span>
 </span><span id="line-69"></span><span id="newGetInstanceSnapshot"><span class="annot"><span class="annottext">newGetInstanceSnapshot :: Text -&gt; GetInstanceSnapshot
-</span><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#newGetInstanceSnapshot"><span class="hs-identifier hs-var hs-var">newGetInstanceSnapshot</span></a></span></span><span> </span><span id="local-6989586621679641253"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679641253"><span class="hs-identifier hs-var">pInstanceSnapshotName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#newGetInstanceSnapshot"><span class="hs-identifier hs-var hs-var">newGetInstanceSnapshot</span></a></span></span><span> </span><span id="local-6989586621679641262"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679641262"><span class="hs-identifier hs-var">pInstanceSnapshotName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetInstanceSnapshot' :: Text -&gt; GetInstanceSnapshot
 </span><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot%27"><span class="hs-identifier hs-type">GetInstanceSnapshot'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceSnapshotName:GetInstanceSnapshot' :: Text
 </span><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#%24sel%3AinstanceSnapshotName%3AGetInstanceSnapshot%27"><span class="hs-identifier hs-var">instanceSnapshotName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679641253"><span class="hs-identifier hs-var">pInstanceSnapshotName_</span></a></span><span>
+</span><a href="#local-6989586621679641262"><span class="hs-identifier hs-var">pInstanceSnapshotName_</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The name of the snapshot for which you are requesting information.</span><span>
@@ -138,27 +138,27 @@ $cfrom :: forall x. GetInstanceSnapshot -&gt; Rep GetInstanceSnapshot x
 -&gt; (GetInstanceSnapshot -&gt; Text -&gt; GetInstanceSnapshot)
 -&gt; Lens GetInstanceSnapshot GetInstanceSnapshot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot%27"><span class="hs-identifier hs-type">GetInstanceSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641250"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot%27"><span class="hs-identifier hs-type">GetInstanceSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641259"><span class="annot"><span class="annottext">Text
 instanceSnapshotName :: Text
 $sel:instanceSnapshotName:GetInstanceSnapshot' :: GetInstanceSnapshot -&gt; Text
-</span><a href="#local-6989586621679641250"><span class="hs-identifier hs-var hs-var">instanceSnapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679641250"><span class="hs-identifier hs-var">instanceSnapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641249"><span class="annot"><span class="annottext">s :: GetInstanceSnapshot
-</span><a href="#local-6989586621679641249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot%27"><span class="hs-identifier hs-type">GetInstanceSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641248"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679641248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceSnapshot
-</span><a href="#local-6989586621679641249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceSnapshotName:GetInstanceSnapshot' :: Text
+</span><a href="#local-6989586621679641259"><span class="hs-identifier hs-var hs-var">instanceSnapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679641259"><span class="hs-identifier hs-var">instanceSnapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641258"><span class="annot"><span class="annottext">s :: GetInstanceSnapshot
+</span><a href="#local-6989586621679641258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot%27"><span class="hs-identifier hs-type">GetInstanceSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641257"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679641257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceSnapshot
+</span><a href="#local-6989586621679641258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceSnapshotName:GetInstanceSnapshot' :: Text
 </span><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#%24sel%3AinstanceSnapshotName%3AGetInstanceSnapshot%27"><span class="hs-identifier hs-var">instanceSnapshotName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679641248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-type">GetInstanceSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-type">GetInstanceSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-type">GetInstanceSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-type">GetInstanceSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679641244"><span class="annot"><span class="annottext">request :: GetInstanceSnapshot -&gt; Request GetInstanceSnapshot
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679641253"><span class="annot"><span class="annottext">request :: GetInstanceSnapshot -&gt; Request GetInstanceSnapshot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetInstanceSnapshot -&gt; Request GetInstanceSnapshot
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679641240"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679641249"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetInstanceSnapshot
 -&gt; ClientResponse ClientBody
@@ -184,10 +184,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679641237"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679641237"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679641236"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679641236"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679641235"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679641235"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679641246"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679641246"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679641245"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679641245"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679641244"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679641244"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe InstanceSnapshot -&gt; Int -&gt; GetInstanceSnapshotResponse
 </span><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse%27"><span class="hs-identifier hs-var">GetInstanceSnapshotResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InstanceSnapshot -&gt; Int -&gt; GetInstanceSnapshotResponse)
@@ -195,7 +195,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetInstanceSnapshotResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679641235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InstanceSnapshot)
+</span><a href="#local-6989586621679641244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InstanceSnapshot)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceSnapshot&quot;</span></span><span class="hs-special">)</span><span>
@@ -207,15 +207,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679641237"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641246"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641227"><span id="local-6989586621679641229"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-type">GetInstanceSnapshot</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641236"><span id="local-6989586621679641238"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-type">GetInstanceSnapshot</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-type">GetInstanceSnapshot</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641233"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-type">GetInstanceSnapshot</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-type">GetInstanceSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679641220"><span class="annot"><span class="annottext">toHeaders :: GetInstanceSnapshot -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679641229"><span class="annot"><span class="annottext">toHeaders :: GetInstanceSnapshot -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetInstanceSnapshot -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -242,12 +242,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641210"><span id="local-6989586621679641212"><span id="local-6989586621679641214"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-type">GetInstanceSnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679641208"><span class="annot"><span class="annottext">toJSON :: GetInstanceSnapshot -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot%27"><span class="hs-identifier hs-type">GetInstanceSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641206"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641219"><span id="local-6989586621679641221"><span id="local-6989586621679641223"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-type">GetInstanceSnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679641217"><span class="annot"><span class="annottext">toJSON :: GetInstanceSnapshot -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot%27"><span class="hs-identifier hs-type">GetInstanceSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641215"><span class="annot"><span class="annottext">Text
 instanceSnapshotName :: Text
 $sel:instanceSnapshotName:GetInstanceSnapshot' :: GetInstanceSnapshot -&gt; Text
-</span><a href="#local-6989586621679641206"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679641215"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -261,20 +261,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-117"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679641206"><span class="hs-identifier hs-var">instanceSnapshotName</span></a></span><span>
+</span><a href="#local-6989586621679641215"><span class="hs-identifier hs-var">instanceSnapshotName</span></a></span><span>
 </span><span id="line-118"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-type">GetInstanceSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679641200"><span class="annot"><span class="annottext">toPath :: GetInstanceSnapshot -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679641209"><span class="annot"><span class="annottext">toPath :: GetInstanceSnapshot -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetInstanceSnapshot -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshot"><span class="hs-identifier hs-type">GetInstanceSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679641196"><span class="annot"><span class="annottext">toQuery :: GetInstanceSnapshot -&gt; QueryString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679641205"><span class="annot"><span class="annottext">toQuery :: GetInstanceSnapshot -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetInstanceSnapshot -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -282,7 +282,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newGetInstanceSnapshotResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679641193"><span id="local-6989586621679641194"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceSnapshotResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse"><span class="hs-identifier hs-var">GetInstanceSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceSnapshotResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse%27"><span class="hs-identifier hs-var">GetInstanceSnapshotResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679641202"><span id="local-6989586621679641203"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceSnapshotResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse"><span class="hs-identifier hs-var">GetInstanceSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceSnapshotResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse%27"><span class="hs-identifier hs-var">GetInstanceSnapshotResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of key-value pairs containing information about the results of</span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-comment">-- your get instance snapshot request.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AinstanceSnapshot%3AGetInstanceSnapshotResponse%27"><span class="annot"><span class="annottext">GetInstanceSnapshotResponse -&gt; Maybe InstanceSnapshot
@@ -291,7 +291,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetInstanceSnapshotResponse%27"><span class="annot"><span class="annottext">GetInstanceSnapshotResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#%24sel%3AhttpStatus%3AGetInstanceSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679641187"><span id="local-6989586621679641189"><span class="annot"><span class="annottext">GetInstanceSnapshotResponse -&gt; GetInstanceSnapshotResponse -&gt; Bool
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679641196"><span id="local-6989586621679641198"><span class="annot"><span class="annottext">GetInstanceSnapshotResponse -&gt; GetInstanceSnapshotResponse -&gt; Bool
 (GetInstanceSnapshotResponse
  -&gt; GetInstanceSnapshotResponse -&gt; Bool)
 -&gt; (GetInstanceSnapshotResponse
@@ -302,7 +302,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetInstanceSnapshotResponse -&gt; GetInstanceSnapshotResponse -&gt; Bool
 == :: GetInstanceSnapshotResponse -&gt; GetInstanceSnapshotResponse -&gt; Bool
 $c== :: GetInstanceSnapshotResponse -&gt; GetInstanceSnapshotResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641179"><span id="local-6989586621679641181"><span id="local-6989586621679641183"><span id="local-6989586621679641185"><span class="annot"><span class="annottext">ReadPrec [GetInstanceSnapshotResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641188"><span id="local-6989586621679641190"><span id="local-6989586621679641192"><span id="local-6989586621679641194"><span class="annot"><span class="annottext">ReadPrec [GetInstanceSnapshotResponse]
 ReadPrec GetInstanceSnapshotResponse
 Int -&gt; ReadS GetInstanceSnapshotResponse
 ReadS [GetInstanceSnapshotResponse]
@@ -322,7 +322,7 @@ readList :: ReadS [GetInstanceSnapshotResponse]
 $creadList :: ReadS [GetInstanceSnapshotResponse]
 readsPrec :: Int -&gt; ReadS GetInstanceSnapshotResponse
 $creadsPrec :: Int -&gt; ReadS GetInstanceSnapshotResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641173"><span id="local-6989586621679641175"><span id="local-6989586621679641177"><span class="annot"><span class="annottext">Int -&gt; GetInstanceSnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641182"><span id="local-6989586621679641184"><span id="local-6989586621679641186"><span class="annot"><span class="annottext">Int -&gt; GetInstanceSnapshotResponse -&gt; ShowS
 [GetInstanceSnapshotResponse] -&gt; ShowS
 GetInstanceSnapshotResponse -&gt; String
 (Int -&gt; GetInstanceSnapshotResponse -&gt; ShowS)
@@ -371,8 +371,8 @@ GetInstanceSnapshotResponse -&gt; Rep GetInstanceSnapshotResponse x
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newGetInstanceSnapshotResponse"><span class="annot"><span class="annottext">newGetInstanceSnapshotResponse :: Int -&gt; GetInstanceSnapshotResponse
-</span><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#newGetInstanceSnapshotResponse"><span class="hs-identifier hs-var hs-var">newGetInstanceSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679641170"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679641170"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#newGetInstanceSnapshotResponse"><span class="hs-identifier hs-var hs-var">newGetInstanceSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679641179"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679641179"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">GetInstanceSnapshotResponse' :: Maybe InstanceSnapshot -&gt; Int -&gt; GetInstanceSnapshotResponse
 </span><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceSnapshot:GetInstanceSnapshotResponse' :: Maybe InstanceSnapshot
@@ -382,7 +382,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstanceSnapshotResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#%24sel%3AhttpStatus%3AGetInstanceSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679641170"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679641179"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | An array of key-value pairs containing information about the results of</span><span>
@@ -399,16 +399,16 @@ forall a. Maybe a
      (Maybe InstanceSnapshot)
      (Maybe InstanceSnapshot)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641169"><span class="annot"><span class="annottext">Maybe InstanceSnapshot
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641178"><span class="annot"><span class="annottext">Maybe InstanceSnapshot
 instanceSnapshot :: Maybe InstanceSnapshot
 $sel:instanceSnapshot:GetInstanceSnapshotResponse' :: GetInstanceSnapshotResponse -&gt; Maybe InstanceSnapshot
-</span><a href="#local-6989586621679641169"><span class="hs-identifier hs-var hs-var">instanceSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceSnapshot
-</span><a href="#local-6989586621679641169"><span class="hs-identifier hs-var">instanceSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641168"><span class="annot"><span class="annottext">s :: GetInstanceSnapshotResponse
-</span><a href="#local-6989586621679641168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641167"><span class="annot"><span class="annottext">Maybe InstanceSnapshot
-</span><a href="#local-6989586621679641167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceSnapshotResponse
-</span><a href="#local-6989586621679641168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceSnapshot:GetInstanceSnapshotResponse' :: Maybe InstanceSnapshot
+</span><a href="#local-6989586621679641178"><span class="hs-identifier hs-var hs-var">instanceSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceSnapshot
+</span><a href="#local-6989586621679641178"><span class="hs-identifier hs-var">instanceSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641177"><span class="annot"><span class="annottext">s :: GetInstanceSnapshotResponse
+</span><a href="#local-6989586621679641177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641176"><span class="annot"><span class="annottext">Maybe InstanceSnapshot
+</span><a href="#local-6989586621679641176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceSnapshotResponse
+</span><a href="#local-6989586621679641177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceSnapshot:GetInstanceSnapshotResponse' :: Maybe InstanceSnapshot
 </span><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#%24sel%3AinstanceSnapshot%3AGetInstanceSnapshotResponse%27"><span class="hs-identifier hs-var">instanceSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceSnapshot
-</span><a href="#local-6989586621679641167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#getInstanceSnapshotResponse_httpStatus"><span class="hs-identifier hs-type">getInstanceSnapshotResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -420,16 +420,16 @@ $sel:instanceSnapshot:GetInstanceSnapshotResponse' :: GetInstanceSnapshotRespons
 -&gt; Lens
      GetInstanceSnapshotResponse GetInstanceSnapshotResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641166"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641175"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetInstanceSnapshotResponse' :: GetInstanceSnapshotResponse -&gt; Int
-</span><a href="#local-6989586621679641166"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679641166"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641165"><span class="annot"><span class="annottext">s :: GetInstanceSnapshotResponse
-</span><a href="#local-6989586621679641165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641164"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679641164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceSnapshotResponse
-</span><a href="#local-6989586621679641165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstanceSnapshotResponse' :: Int
+</span><a href="#local-6989586621679641175"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679641175"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641174"><span class="annot"><span class="annottext">s :: GetInstanceSnapshotResponse
+</span><a href="#local-6989586621679641174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse%27"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641173"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679641173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceSnapshotResponse
+</span><a href="#local-6989586621679641174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstanceSnapshotResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#%24sel%3AhttpStatus%3AGetInstanceSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679641164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse</span></a></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641171"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceSnapshot.html#GetInstanceSnapshotResponse"><span class="hs-identifier hs-type">GetInstanceSnapshotResponse</span></a></span></span><span>
 </span><span id="line-171"></span></pre></body></html>

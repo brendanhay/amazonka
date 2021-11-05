@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The recurrence of the reports.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBusinessReportRecurrence' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679363834"><span id="local-6989586621679363835"></span></span><span class="hs-keyword">data</span><span> </span><span id="BusinessReportRecurrence"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence"><span class="hs-identifier hs-var">BusinessReportRecurrence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BusinessReportRecurrence%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence%27"><span class="hs-identifier hs-var">BusinessReportRecurrence'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679363843"><span id="local-6989586621679363844"></span></span><span class="hs-keyword">data</span><span> </span><span id="BusinessReportRecurrence"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence"><span class="hs-identifier hs-var">BusinessReportRecurrence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BusinessReportRecurrence%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence%27"><span class="hs-identifier hs-var">BusinessReportRecurrence'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start date.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AstartDate%3ABusinessReportRecurrence%27"><span class="annot"><span class="annottext">BusinessReportRecurrence -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#%24sel%3AstartDate%3ABusinessReportRecurrence%27"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363828"><span id="local-6989586621679363830"><span class="annot"><span class="annottext">BusinessReportRecurrence -&gt; BusinessReportRecurrence -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363837"><span id="local-6989586621679363839"><span class="annot"><span class="annottext">BusinessReportRecurrence -&gt; BusinessReportRecurrence -&gt; Bool
 (BusinessReportRecurrence -&gt; BusinessReportRecurrence -&gt; Bool)
 -&gt; (BusinessReportRecurrence -&gt; BusinessReportRecurrence -&gt; Bool)
 -&gt; Eq BusinessReportRecurrence
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BusinessReportRecurrence -&gt; BusinessReportRecurrence -&gt; Bool
 == :: BusinessReportRecurrence -&gt; BusinessReportRecurrence -&gt; Bool
 $c== :: BusinessReportRecurrence -&gt; BusinessReportRecurrence -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363819"><span id="local-6989586621679363821"><span id="local-6989586621679363823"><span id="local-6989586621679363825"><span class="annot"><span class="annottext">ReadPrec [BusinessReportRecurrence]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363828"><span id="local-6989586621679363830"><span id="local-6989586621679363832"><span id="local-6989586621679363834"><span class="annot"><span class="annottext">ReadPrec [BusinessReportRecurrence]
 ReadPrec BusinessReportRecurrence
 Int -&gt; ReadS BusinessReportRecurrence
 ReadS [BusinessReportRecurrence]
@@ -60,7 +60,7 @@ readList :: ReadS [BusinessReportRecurrence]
 $creadList :: ReadS [BusinessReportRecurrence]
 readsPrec :: Int -&gt; ReadS BusinessReportRecurrence
 $creadsPrec :: Int -&gt; ReadS BusinessReportRecurrence
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363812"><span id="local-6989586621679363814"><span id="local-6989586621679363816"><span class="annot"><span class="annottext">Int -&gt; BusinessReportRecurrence -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363821"><span id="local-6989586621679363823"><span id="local-6989586621679363825"><span class="annot"><span class="annottext">Int -&gt; BusinessReportRecurrence -&gt; ShowS
 [BusinessReportRecurrence] -&gt; ShowS
 BusinessReportRecurrence -&gt; String
 (Int -&gt; BusinessReportRecurrence -&gt; ShowS)
@@ -127,19 +127,19 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence%27"><span class="hs-identifier hs-type">BusinessReportRecurrence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363803"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence%27"><span class="hs-identifier hs-type">BusinessReportRecurrence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363812"><span class="annot"><span class="annottext">Maybe Text
 startDate :: Maybe Text
 $sel:startDate:BusinessReportRecurrence' :: BusinessReportRecurrence -&gt; Maybe Text
-</span><a href="#local-6989586621679363803"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363803"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363802"><span class="annot"><span class="annottext">s :: BusinessReportRecurrence
-</span><a href="#local-6989586621679363802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence%27"><span class="hs-identifier hs-type">BusinessReportRecurrence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363801"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReportRecurrence
-</span><a href="#local-6989586621679363802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDate:BusinessReportRecurrence' :: Maybe Text
+</span><a href="#local-6989586621679363812"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363812"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363811"><span class="annot"><span class="annottext">s :: BusinessReportRecurrence
+</span><a href="#local-6989586621679363811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence%27"><span class="hs-identifier hs-type">BusinessReportRecurrence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363810"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReportRecurrence
+</span><a href="#local-6989586621679363811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDate:BusinessReportRecurrence' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#%24sel%3AstartDate%3ABusinessReportRecurrence%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence"><span class="hs-identifier hs-type">BusinessReportRecurrence</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence"><span class="hs-identifier hs-type">BusinessReportRecurrence</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363798"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence"><span class="hs-identifier hs-type">BusinessReportRecurrence</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679363796"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BusinessReportRecurrence
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363807"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence"><span class="hs-identifier hs-type">BusinessReportRecurrence</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679363805"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BusinessReportRecurrence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BusinessReportRecurrence)
@@ -149,30 +149,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BusinessReportRecurrence&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679363793"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363793"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679363802"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363802"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; BusinessReportRecurrence
 </span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence%27"><span class="hs-identifier hs-var">BusinessReportRecurrence'</span></a></span><span>
 </span><span id="line-62"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; BusinessReportRecurrence)
 -&gt; Parser (Maybe Text) -&gt; Parser BusinessReportRecurrence
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679363802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363787"><span id="local-6989586621679363789"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence"><span class="hs-identifier hs-type">BusinessReportRecurrence</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363796"><span id="local-6989586621679363798"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence"><span class="hs-identifier hs-type">BusinessReportRecurrence</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence"><span class="hs-identifier hs-type">BusinessReportRecurrence</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence"><span class="hs-identifier hs-type">BusinessReportRecurrence</span></a></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363776"><span id="local-6989586621679363778"><span id="local-6989586621679363780"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence"><span class="hs-identifier hs-type">BusinessReportRecurrence</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679363774"><span class="annot"><span class="annottext">toJSON :: BusinessReportRecurrence -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence%27"><span class="hs-identifier hs-type">BusinessReportRecurrence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363772"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363785"><span id="local-6989586621679363787"><span id="local-6989586621679363789"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence"><span class="hs-identifier hs-type">BusinessReportRecurrence</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679363783"><span class="annot"><span class="annottext">toJSON :: BusinessReportRecurrence -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence%27"><span class="hs-identifier hs-type">BusinessReportRecurrence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363781"><span class="annot"><span class="annottext">Maybe Text
 startDate :: Maybe Text
 $sel:startDate:BusinessReportRecurrence' :: BusinessReportRecurrence -&gt; Maybe Text
-</span><a href="#local-6989586621679363772"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679363781"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -184,6 +184,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363772"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679363781"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span></pre></body></html>

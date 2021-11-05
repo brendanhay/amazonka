@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MGN.Types.LifeCycleLastCutover</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MGN.Types.LifeCycleLastCutover</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutoverFinalized.html"><span class="hs-identifier">Network.AWS.MGN.Types.LifeCycleLastCutoverFinalized</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutoverInitiated.html"><span class="hs-identifier">Network.AWS.MGN.Types.LifeCycleLastCutoverInitiated</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutoverReverted.html"><span class="hs-identifier">Network.AWS.MGN.Types.LifeCycleLastCutoverReverted</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Lifecycle last Cutover .</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLifeCycleLastCutover' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679227709"><span id="local-6989586621679227710"></span></span><span class="hs-keyword">data</span><span> </span><span id="LifeCycleLastCutover"><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover"><span class="hs-identifier hs-var">LifeCycleLastCutover</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifeCycleLastCutover%27"><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover%27"><span class="hs-identifier hs-var">LifeCycleLastCutover'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Lifecycle last Cutover initiated.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Ainitiated%3ALifeCycleLastCutover%27"><span class="annot"><span class="annottext">LifeCycleLastCutover -&gt; Maybe LifeCycleLastCutoverInitiated
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#%24sel%3Ainitiated%3ALifeCycleLastCutover%27"><span class="hs-identifier hs-var hs-var">initiated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutoverInitiated.html#LifeCycleLastCutoverInitiated"><span class="hs-identifier hs-type">LifeCycleLastCutoverInitiated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Lifecycle last Cutover reverted.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Areverted%3ALifeCycleLastCutover%27"><span class="annot"><span class="annottext">LifeCycleLastCutover -&gt; Maybe LifeCycleLastCutoverReverted
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#%24sel%3Areverted%3ALifeCycleLastCutover%27"><span class="hs-identifier hs-var hs-var">reverted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutoverReverted.html#LifeCycleLastCutoverReverted"><span class="hs-identifier hs-type">LifeCycleLastCutoverReverted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Lifecycle Cutover finalized date and time.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Afinalized%3ALifeCycleLastCutover%27"><span class="annot"><span class="annottext">LifeCycleLastCutover -&gt; Maybe LifeCycleLastCutoverFinalized
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#%24sel%3Afinalized%3ALifeCycleLastCutover%27"><span class="hs-identifier hs-var hs-var">finalized</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutoverFinalized.html#LifeCycleLastCutoverFinalized"><span class="hs-identifier hs-type">LifeCycleLastCutoverFinalized</span></a></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227701"><span id="local-6989586621679227703"><span class="annot"><span class="annottext">LifeCycleLastCutover -&gt; LifeCycleLastCutover -&gt; Bool
+(LifeCycleLastCutover -&gt; LifeCycleLastCutover -&gt; Bool)
+-&gt; (LifeCycleLastCutover -&gt; LifeCycleLastCutover -&gt; Bool)
+-&gt; Eq LifeCycleLastCutover
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LifeCycleLastCutover -&gt; LifeCycleLastCutover -&gt; Bool
+$c/= :: LifeCycleLastCutover -&gt; LifeCycleLastCutover -&gt; Bool
+== :: LifeCycleLastCutover -&gt; LifeCycleLastCutover -&gt; Bool
+$c== :: LifeCycleLastCutover -&gt; LifeCycleLastCutover -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227692"><span id="local-6989586621679227694"><span id="local-6989586621679227696"><span id="local-6989586621679227698"><span class="annot"><span class="annottext">ReadPrec [LifeCycleLastCutover]
+ReadPrec LifeCycleLastCutover
+Int -&gt; ReadS LifeCycleLastCutover
+ReadS [LifeCycleLastCutover]
+(Int -&gt; ReadS LifeCycleLastCutover)
+-&gt; ReadS [LifeCycleLastCutover]
+-&gt; ReadPrec LifeCycleLastCutover
+-&gt; ReadPrec [LifeCycleLastCutover]
+-&gt; Read LifeCycleLastCutover
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LifeCycleLastCutover]
+$creadListPrec :: ReadPrec [LifeCycleLastCutover]
+readPrec :: ReadPrec LifeCycleLastCutover
+$creadPrec :: ReadPrec LifeCycleLastCutover
+readList :: ReadS [LifeCycleLastCutover]
+$creadList :: ReadS [LifeCycleLastCutover]
+readsPrec :: Int -&gt; ReadS LifeCycleLastCutover
+$creadsPrec :: Int -&gt; ReadS LifeCycleLastCutover
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227685"><span id="local-6989586621679227687"><span id="local-6989586621679227689"><span class="annot"><span class="annottext">Int -&gt; LifeCycleLastCutover -&gt; ShowS
+[LifeCycleLastCutover] -&gt; ShowS
+LifeCycleLastCutover -&gt; String
+(Int -&gt; LifeCycleLastCutover -&gt; ShowS)
+-&gt; (LifeCycleLastCutover -&gt; String)
+-&gt; ([LifeCycleLastCutover] -&gt; ShowS)
+-&gt; Show LifeCycleLastCutover
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LifeCycleLastCutover] -&gt; ShowS
+$cshowList :: [LifeCycleLastCutover] -&gt; ShowS
+show :: LifeCycleLastCutover -&gt; String
+$cshow :: LifeCycleLastCutover -&gt; String
+showsPrec :: Int -&gt; LifeCycleLastCutover -&gt; ShowS
+$cshowsPrec :: Int -&gt; LifeCycleLastCutover -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LifeCycleLastCutover -&gt; Rep LifeCycleLastCutover x)
+-&gt; (forall x. Rep LifeCycleLastCutover x -&gt; LifeCycleLastCutover)
+-&gt; Generic LifeCycleLastCutover
+forall x. Rep LifeCycleLastCutover x -&gt; LifeCycleLastCutover
+forall x. LifeCycleLastCutover -&gt; Rep LifeCycleLastCutover x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LifeCycleLastCutover x -&gt; LifeCycleLastCutover
+$cfrom :: forall x. LifeCycleLastCutover -&gt; Rep LifeCycleLastCutover x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'LifeCycleLastCutover' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'initiated', 'lifeCycleLastCutover_initiated' - Lifecycle last Cutover initiated.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'reverted', 'lifeCycleLastCutover_reverted' - Lifecycle last Cutover reverted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'finalized', 'lifeCycleLastCutover_finalized' - Lifecycle Cutover finalized date and time.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#newLifeCycleLastCutover"><span class="hs-identifier hs-type">newLifeCycleLastCutover</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover"><span class="hs-identifier hs-type">LifeCycleLastCutover</span></a></span><span>
+</span><span id="line-57"></span><span id="newLifeCycleLastCutover"><span class="annot"><span class="annottext">newLifeCycleLastCutover :: LifeCycleLastCutover
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#newLifeCycleLastCutover"><span class="hs-identifier hs-var hs-var">newLifeCycleLastCutover</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">LifeCycleLastCutover' :: Maybe LifeCycleLastCutoverInitiated
+-&gt; Maybe LifeCycleLastCutoverReverted
+-&gt; Maybe LifeCycleLastCutoverFinalized
+-&gt; LifeCycleLastCutover
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover%27"><span class="hs-identifier hs-type">LifeCycleLastCutover'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:initiated:LifeCycleLastCutover' :: Maybe LifeCycleLastCutoverInitiated
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#%24sel%3Ainitiated%3ALifeCycleLastCutover%27"><span class="hs-identifier hs-var">initiated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverInitiated
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:reverted:LifeCycleLastCutover' :: Maybe LifeCycleLastCutoverReverted
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#%24sel%3Areverted%3ALifeCycleLastCutover%27"><span class="hs-identifier hs-var">reverted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverReverted
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:finalized:LifeCycleLastCutover' :: Maybe LifeCycleLastCutoverFinalized
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#%24sel%3Afinalized%3ALifeCycleLastCutover%27"><span class="hs-identifier hs-var">finalized</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverFinalized
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Lifecycle last Cutover initiated.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#lifeCycleLastCutover_initiated"><span class="hs-identifier hs-type">lifeCycleLastCutover_initiated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover"><span class="hs-identifier hs-type">LifeCycleLastCutover</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutoverInitiated.html#LifeCycleLastCutoverInitiated"><span class="hs-identifier hs-type">LifeCycleLastCutoverInitiated</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="lifeCycleLastCutover_initiated"><span class="annot"><span class="annottext">lifeCycleLastCutover_initiated :: (Maybe LifeCycleLastCutoverInitiated
+ -&gt; f (Maybe LifeCycleLastCutoverInitiated))
+-&gt; LifeCycleLastCutover -&gt; f LifeCycleLastCutover
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#lifeCycleLastCutover_initiated"><span class="hs-identifier hs-var hs-var">lifeCycleLastCutover_initiated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifeCycleLastCutover -&gt; Maybe LifeCycleLastCutoverInitiated)
+-&gt; (LifeCycleLastCutover
+    -&gt; Maybe LifeCycleLastCutoverInitiated -&gt; LifeCycleLastCutover)
+-&gt; Lens
+     LifeCycleLastCutover
+     LifeCycleLastCutover
+     (Maybe LifeCycleLastCutoverInitiated)
+     (Maybe LifeCycleLastCutoverInitiated)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover%27"><span class="hs-identifier hs-type">LifeCycleLastCutover'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227676"><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverInitiated
+initiated :: Maybe LifeCycleLastCutoverInitiated
+$sel:initiated:LifeCycleLastCutover' :: LifeCycleLastCutover -&gt; Maybe LifeCycleLastCutoverInitiated
+</span><a href="#local-6989586621679227676"><span class="hs-identifier hs-var hs-var">initiated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverInitiated
+</span><a href="#local-6989586621679227676"><span class="hs-identifier hs-var">initiated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227675"><span class="annot"><span class="annottext">s :: LifeCycleLastCutover
+</span><a href="#local-6989586621679227675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover%27"><span class="hs-identifier hs-type">LifeCycleLastCutover'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227674"><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverInitiated
+</span><a href="#local-6989586621679227674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifeCycleLastCutover
+</span><a href="#local-6989586621679227675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiated:LifeCycleLastCutover' :: Maybe LifeCycleLastCutoverInitiated
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#%24sel%3Ainitiated%3ALifeCycleLastCutover%27"><span class="hs-identifier hs-var">initiated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverInitiated
+</span><a href="#local-6989586621679227674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover"><span class="hs-identifier hs-type">LifeCycleLastCutover</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Lifecycle last Cutover reverted.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#lifeCycleLastCutover_reverted"><span class="hs-identifier hs-type">lifeCycleLastCutover_reverted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover"><span class="hs-identifier hs-type">LifeCycleLastCutover</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutoverReverted.html#LifeCycleLastCutoverReverted"><span class="hs-identifier hs-type">LifeCycleLastCutoverReverted</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="lifeCycleLastCutover_reverted"><span class="annot"><span class="annottext">lifeCycleLastCutover_reverted :: (Maybe LifeCycleLastCutoverReverted
+ -&gt; f (Maybe LifeCycleLastCutoverReverted))
+-&gt; LifeCycleLastCutover -&gt; f LifeCycleLastCutover
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#lifeCycleLastCutover_reverted"><span class="hs-identifier hs-var hs-var">lifeCycleLastCutover_reverted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifeCycleLastCutover -&gt; Maybe LifeCycleLastCutoverReverted)
+-&gt; (LifeCycleLastCutover
+    -&gt; Maybe LifeCycleLastCutoverReverted -&gt; LifeCycleLastCutover)
+-&gt; Lens
+     LifeCycleLastCutover
+     LifeCycleLastCutover
+     (Maybe LifeCycleLastCutoverReverted)
+     (Maybe LifeCycleLastCutoverReverted)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover%27"><span class="hs-identifier hs-type">LifeCycleLastCutover'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227672"><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverReverted
+reverted :: Maybe LifeCycleLastCutoverReverted
+$sel:reverted:LifeCycleLastCutover' :: LifeCycleLastCutover -&gt; Maybe LifeCycleLastCutoverReverted
+</span><a href="#local-6989586621679227672"><span class="hs-identifier hs-var hs-var">reverted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverReverted
+</span><a href="#local-6989586621679227672"><span class="hs-identifier hs-var">reverted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227671"><span class="annot"><span class="annottext">s :: LifeCycleLastCutover
+</span><a href="#local-6989586621679227671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover%27"><span class="hs-identifier hs-type">LifeCycleLastCutover'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227670"><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverReverted
+</span><a href="#local-6989586621679227670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifeCycleLastCutover
+</span><a href="#local-6989586621679227671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reverted:LifeCycleLastCutover' :: Maybe LifeCycleLastCutoverReverted
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#%24sel%3Areverted%3ALifeCycleLastCutover%27"><span class="hs-identifier hs-var">reverted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverReverted
+</span><a href="#local-6989586621679227670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover"><span class="hs-identifier hs-type">LifeCycleLastCutover</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Lifecycle Cutover finalized date and time.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#lifeCycleLastCutover_finalized"><span class="hs-identifier hs-type">lifeCycleLastCutover_finalized</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover"><span class="hs-identifier hs-type">LifeCycleLastCutover</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutoverFinalized.html#LifeCycleLastCutoverFinalized"><span class="hs-identifier hs-type">LifeCycleLastCutoverFinalized</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="lifeCycleLastCutover_finalized"><span class="annot"><span class="annottext">lifeCycleLastCutover_finalized :: (Maybe LifeCycleLastCutoverFinalized
+ -&gt; f (Maybe LifeCycleLastCutoverFinalized))
+-&gt; LifeCycleLastCutover -&gt; f LifeCycleLastCutover
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#lifeCycleLastCutover_finalized"><span class="hs-identifier hs-var hs-var">lifeCycleLastCutover_finalized</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifeCycleLastCutover -&gt; Maybe LifeCycleLastCutoverFinalized)
+-&gt; (LifeCycleLastCutover
+    -&gt; Maybe LifeCycleLastCutoverFinalized -&gt; LifeCycleLastCutover)
+-&gt; Lens
+     LifeCycleLastCutover
+     LifeCycleLastCutover
+     (Maybe LifeCycleLastCutoverFinalized)
+     (Maybe LifeCycleLastCutoverFinalized)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover%27"><span class="hs-identifier hs-type">LifeCycleLastCutover'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227668"><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverFinalized
+finalized :: Maybe LifeCycleLastCutoverFinalized
+$sel:finalized:LifeCycleLastCutover' :: LifeCycleLastCutover -&gt; Maybe LifeCycleLastCutoverFinalized
+</span><a href="#local-6989586621679227668"><span class="hs-identifier hs-var hs-var">finalized</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverFinalized
+</span><a href="#local-6989586621679227668"><span class="hs-identifier hs-var">finalized</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227667"><span class="annot"><span class="annottext">s :: LifeCycleLastCutover
+</span><a href="#local-6989586621679227667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover%27"><span class="hs-identifier hs-type">LifeCycleLastCutover'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227666"><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverFinalized
+</span><a href="#local-6989586621679227666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifeCycleLastCutover
+</span><a href="#local-6989586621679227667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalized:LifeCycleLastCutover' :: Maybe LifeCycleLastCutoverFinalized
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#%24sel%3Afinalized%3ALifeCycleLastCutover%27"><span class="hs-identifier hs-var">finalized</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverFinalized
+</span><a href="#local-6989586621679227666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover"><span class="hs-identifier hs-type">LifeCycleLastCutover</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227663"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover"><span class="hs-identifier hs-type">LifeCycleLastCutover</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679227661"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LifeCycleLastCutover
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LifeCycleLastCutover)
+-&gt; Value
+-&gt; Parser LifeCycleLastCutover
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LifeCycleLastCutover&quot;</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227658"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227658"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe LifeCycleLastCutoverInitiated
+-&gt; Maybe LifeCycleLastCutoverReverted
+-&gt; Maybe LifeCycleLastCutoverFinalized
+-&gt; LifeCycleLastCutover
+</span><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover%27"><span class="hs-identifier hs-var">LifeCycleLastCutover'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LifeCycleLastCutoverInitiated
+ -&gt; Maybe LifeCycleLastCutoverReverted
+ -&gt; Maybe LifeCycleLastCutoverFinalized
+ -&gt; LifeCycleLastCutover)
+-&gt; Parser (Maybe LifeCycleLastCutoverInitiated)
+-&gt; Parser
+     (Maybe LifeCycleLastCutoverReverted
+      -&gt; Maybe LifeCycleLastCutoverFinalized -&gt; LifeCycleLastCutover)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LifeCycleLastCutoverInitiated)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;initiated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LifeCycleLastCutoverReverted
+   -&gt; Maybe LifeCycleLastCutoverFinalized -&gt; LifeCycleLastCutover)
+-&gt; Parser (Maybe LifeCycleLastCutoverReverted)
+-&gt; Parser
+     (Maybe LifeCycleLastCutoverFinalized -&gt; LifeCycleLastCutover)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LifeCycleLastCutoverReverted)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reverted&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LifeCycleLastCutoverFinalized -&gt; LifeCycleLastCutover)
+-&gt; Parser (Maybe LifeCycleLastCutoverFinalized)
+-&gt; Parser LifeCycleLastCutover
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LifeCycleLastCutoverFinalized)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;finalized&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227652"><span id="local-6989586621679227654"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover"><span class="hs-identifier hs-type">LifeCycleLastCutover</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227649"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.LifeCycleLastCutover.html#LifeCycleLastCutover"><span class="hs-identifier hs-type">LifeCycleLastCutover</span></a></span></span><span>
+</span><span id="line-90"></span></pre></body></html>

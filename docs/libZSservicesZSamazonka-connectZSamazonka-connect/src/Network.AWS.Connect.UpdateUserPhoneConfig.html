@@ -45,7 +45,7 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newUpdateUserPhoneConfig' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679433378"><span id="local-6989586621679433379"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserPhoneConfig"><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-var">UpdateUserPhoneConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserPhoneConfig%27"><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-var">UpdateUserPhoneConfig'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679433387"><span id="local-6989586621679433388"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserPhoneConfig"><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-var">UpdateUserPhoneConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserPhoneConfig%27"><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-var">UpdateUserPhoneConfig'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about phone configuration settings for the user.</span><span>
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AphoneConfig%3AUpdateUserPhoneConfig%27"><span class="annot"><span class="annottext">UpdateUserPhoneConfig -&gt; UserPhoneConfig
 </span><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#%24sel%3AphoneConfig%3AUpdateUserPhoneConfig%27"><span class="hs-identifier hs-var hs-var">phoneConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserPhoneConfig.html#UserPhoneConfig"><span class="hs-identifier hs-type">UserPhoneConfig</span></a></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AinstanceId%3AUpdateUserPhoneConfig%27"><span class="annot"><span class="annottext">UpdateUserPhoneConfig -&gt; Text
 </span><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#%24sel%3AinstanceId%3AUpdateUserPhoneConfig%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433370"><span id="local-6989586621679433372"><span class="annot"><span class="annottext">UpdateUserPhoneConfig -&gt; UpdateUserPhoneConfig -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433379"><span id="local-6989586621679433381"><span class="annot"><span class="annottext">UpdateUserPhoneConfig -&gt; UpdateUserPhoneConfig -&gt; Bool
 (UpdateUserPhoneConfig -&gt; UpdateUserPhoneConfig -&gt; Bool)
 -&gt; (UpdateUserPhoneConfig -&gt; UpdateUserPhoneConfig -&gt; Bool)
 -&gt; Eq UpdateUserPhoneConfig
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateUserPhoneConfig -&gt; UpdateUserPhoneConfig -&gt; Bool
 == :: UpdateUserPhoneConfig -&gt; UpdateUserPhoneConfig -&gt; Bool
 $c== :: UpdateUserPhoneConfig -&gt; UpdateUserPhoneConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433361"><span id="local-6989586621679433363"><span id="local-6989586621679433365"><span id="local-6989586621679433367"><span class="annot"><span class="annottext">ReadPrec [UpdateUserPhoneConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433370"><span id="local-6989586621679433372"><span id="local-6989586621679433374"><span id="local-6989586621679433376"><span class="annot"><span class="annottext">ReadPrec [UpdateUserPhoneConfig]
 ReadPrec UpdateUserPhoneConfig
 Int -&gt; ReadS UpdateUserPhoneConfig
 ReadS [UpdateUserPhoneConfig]
@@ -86,7 +86,7 @@ readList :: ReadS [UpdateUserPhoneConfig]
 $creadList :: ReadS [UpdateUserPhoneConfig]
 readsPrec :: Int -&gt; ReadS UpdateUserPhoneConfig
 $creadsPrec :: Int -&gt; ReadS UpdateUserPhoneConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433354"><span id="local-6989586621679433356"><span id="local-6989586621679433358"><span class="annot"><span class="annottext">Int -&gt; UpdateUserPhoneConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433363"><span id="local-6989586621679433365"><span id="local-6989586621679433367"><span class="annot"><span class="annottext">Int -&gt; UpdateUserPhoneConfig -&gt; ShowS
 [UpdateUserPhoneConfig] -&gt; ShowS
 UpdateUserPhoneConfig -&gt; String
 (Int -&gt; UpdateUserPhoneConfig -&gt; ShowS)
@@ -136,23 +136,23 @@ $cfrom :: forall x. UpdateUserPhoneConfig -&gt; Rep UpdateUserPhoneConfig x
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span><span>
 </span><span id="line-81"></span><span id="newUpdateUserPhoneConfig"><span class="annot"><span class="annottext">newUpdateUserPhoneConfig :: UserPhoneConfig -&gt; Text -&gt; Text -&gt; UpdateUserPhoneConfig
 </span><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#newUpdateUserPhoneConfig"><span class="hs-identifier hs-var hs-var">newUpdateUserPhoneConfig</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679433349"><span class="annot"><span class="annottext">UserPhoneConfig
-</span><a href="#local-6989586621679433349"><span class="hs-identifier hs-var">pPhoneConfig_</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679433348"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433348"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679433347"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433347"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679433358"><span class="annot"><span class="annottext">UserPhoneConfig
+</span><a href="#local-6989586621679433358"><span class="hs-identifier hs-var">pPhoneConfig_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679433357"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433357"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679433356"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433356"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">UpdateUserPhoneConfig' :: UserPhoneConfig -&gt; Text -&gt; Text -&gt; UpdateUserPhoneConfig
 </span><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:phoneConfig:UpdateUserPhoneConfig' :: UserPhoneConfig
 </span><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#%24sel%3AphoneConfig%3AUpdateUserPhoneConfig%27"><span class="hs-identifier hs-var">phoneConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UserPhoneConfig
-</span><a href="#local-6989586621679433349"><span class="hs-identifier hs-var">pPhoneConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433358"><span class="hs-identifier hs-var">pPhoneConfig_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:userId:UpdateUserPhoneConfig' :: Text
 </span><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#%24sel%3AuserId%3AUpdateUserPhoneConfig%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433348"><span class="hs-identifier hs-var">pUserId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433357"><span class="hs-identifier hs-var">pUserId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceId:UpdateUserPhoneConfig' :: Text
 </span><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#%24sel%3AinstanceId%3AUpdateUserPhoneConfig%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433347"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679433356"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | Information about phone configuration settings for the user.</span><span>
@@ -168,16 +168,16 @@ $cfrom :: forall x. UpdateUserPhoneConfig -&gt; Rep UpdateUserPhoneConfig x
      UserPhoneConfig
      UserPhoneConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433344"><span class="annot"><span class="annottext">UserPhoneConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433353"><span class="annot"><span class="annottext">UserPhoneConfig
 phoneConfig :: UserPhoneConfig
 $sel:phoneConfig:UpdateUserPhoneConfig' :: UpdateUserPhoneConfig -&gt; UserPhoneConfig
-</span><a href="#local-6989586621679433344"><span class="hs-identifier hs-var hs-var">phoneConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserPhoneConfig
-</span><a href="#local-6989586621679433344"><span class="hs-identifier hs-var">phoneConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433343"><span class="annot"><span class="annottext">s :: UpdateUserPhoneConfig
-</span><a href="#local-6989586621679433343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433342"><span class="annot"><span class="annottext">UserPhoneConfig
-</span><a href="#local-6989586621679433342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserPhoneConfig
-</span><a href="#local-6989586621679433343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneConfig:UpdateUserPhoneConfig' :: UserPhoneConfig
+</span><a href="#local-6989586621679433353"><span class="hs-identifier hs-var hs-var">phoneConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserPhoneConfig
+</span><a href="#local-6989586621679433353"><span class="hs-identifier hs-var">phoneConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433352"><span class="annot"><span class="annottext">s :: UpdateUserPhoneConfig
+</span><a href="#local-6989586621679433352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433351"><span class="annot"><span class="annottext">UserPhoneConfig
+</span><a href="#local-6989586621679433351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserPhoneConfig
+</span><a href="#local-6989586621679433352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneConfig:UpdateUserPhoneConfig' :: UserPhoneConfig
 </span><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#%24sel%3AphoneConfig%3AUpdateUserPhoneConfig%27"><span class="hs-identifier hs-var">phoneConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UserPhoneConfig
-</span><a href="#local-6989586621679433342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The identifier of the user account.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#updateUserPhoneConfig_userId"><span class="hs-identifier hs-type">updateUserPhoneConfig_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -187,16 +187,16 @@ $sel:phoneConfig:UpdateUserPhoneConfig' :: UpdateUserPhoneConfig -&gt; UserPhone
 -&gt; (UpdateUserPhoneConfig -&gt; Text -&gt; UpdateUserPhoneConfig)
 -&gt; Lens UpdateUserPhoneConfig UpdateUserPhoneConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433341"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433350"><span class="annot"><span class="annottext">Text
 userId :: Text
 $sel:userId:UpdateUserPhoneConfig' :: UpdateUserPhoneConfig -&gt; Text
-</span><a href="#local-6989586621679433341"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433341"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433340"><span class="annot"><span class="annottext">s :: UpdateUserPhoneConfig
-</span><a href="#local-6989586621679433340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433339"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserPhoneConfig
-</span><a href="#local-6989586621679433340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:UpdateUserPhoneConfig' :: Text
+</span><a href="#local-6989586621679433350"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433350"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433349"><span class="annot"><span class="annottext">s :: UpdateUserPhoneConfig
+</span><a href="#local-6989586621679433349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433348"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserPhoneConfig
+</span><a href="#local-6989586621679433349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:UpdateUserPhoneConfig' :: Text
 </span><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#%24sel%3AuserId%3AUpdateUserPhoneConfig%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -207,27 +207,27 @@ $sel:userId:UpdateUserPhoneConfig' :: UpdateUserPhoneConfig -&gt; Text
 -&gt; (UpdateUserPhoneConfig -&gt; Text -&gt; UpdateUserPhoneConfig)
 -&gt; Lens UpdateUserPhoneConfig UpdateUserPhoneConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433338"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433347"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:UpdateUserPhoneConfig' :: UpdateUserPhoneConfig -&gt; Text
-</span><a href="#local-6989586621679433338"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433338"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433337"><span class="annot"><span class="annottext">s :: UpdateUserPhoneConfig
-</span><a href="#local-6989586621679433337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433336"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserPhoneConfig
-</span><a href="#local-6989586621679433337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:UpdateUserPhoneConfig' :: Text
+</span><a href="#local-6989586621679433347"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433347"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433346"><span class="annot"><span class="annottext">s :: UpdateUserPhoneConfig
+</span><a href="#local-6989586621679433346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433345"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserPhoneConfig
+</span><a href="#local-6989586621679433346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:UpdateUserPhoneConfig' :: Text
 </span><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#%24sel%3AinstanceId%3AUpdateUserPhoneConfig%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfigResponse"><span class="hs-identifier hs-type">UpdateUserPhoneConfigResponse</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679433332"><span class="annot"><span class="annottext">request :: UpdateUserPhoneConfig -&gt; Request UpdateUserPhoneConfig
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679433341"><span class="annot"><span class="annottext">request :: UpdateUserPhoneConfig -&gt; Request UpdateUserPhoneConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateUserPhoneConfig -&gt; Request UpdateUserPhoneConfig
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679433328"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679433337"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateUserPhoneConfig
 -&gt; ClientResponse ClientBody
@@ -253,12 +253,12 @@ AWSResponse a
 UpdateUserPhoneConfigResponse
 </span><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfigResponse%27"><span class="hs-identifier hs-var">UpdateUserPhoneConfigResponse'</span></a></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433321"><span id="local-6989586621679433323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433330"><span id="local-6989586621679433332"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679433314"><span class="annot"><span class="annottext">toHeaders :: UpdateUserPhoneConfig -&gt; [Header]
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679433323"><span class="annot"><span class="annottext">toHeaders :: UpdateUserPhoneConfig -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateUserPhoneConfig -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -277,9 +277,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433304"><span id="local-6989586621679433306"><span id="local-6989586621679433308"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679433302"><span class="annot"><span class="annottext">toJSON :: UpdateUserPhoneConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433298"><span id="local-6989586621679433299"><span id="local-6989586621679433300"><span class="annot"><span class="annottext">Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433313"><span id="local-6989586621679433315"><span id="local-6989586621679433317"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679433311"><span class="annot"><span class="annottext">toJSON :: UpdateUserPhoneConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433307"><span id="local-6989586621679433308"><span id="local-6989586621679433309"><span class="annot"><span class="annottext">Text
 UserPhoneConfig
 instanceId :: Text
 userId :: Text
@@ -287,7 +287,7 @@ phoneConfig :: UserPhoneConfig
 $sel:instanceId:UpdateUserPhoneConfig' :: UpdateUserPhoneConfig -&gt; Text
 $sel:userId:UpdateUserPhoneConfig' :: UpdateUserPhoneConfig -&gt; Text
 $sel:phoneConfig:UpdateUserPhoneConfig' :: UpdateUserPhoneConfig -&gt; UserPhoneConfig
-</span><a href="#local-6989586621679433298"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679433307"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -299,12 +299,12 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;PhoneConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UserPhoneConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">UserPhoneConfig
-</span><a href="#local-6989586621679433300"><span class="hs-identifier hs-var">phoneConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679433309"><span class="hs-identifier hs-var">phoneConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679433292"><span class="annot"><span class="annottext">toPath :: UpdateUserPhoneConfig -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433288"><span id="local-6989586621679433289"><span id="local-6989586621679433290"><span class="annot"><span class="annottext">Text
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679433301"><span class="annot"><span class="annottext">toPath :: UpdateUserPhoneConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig%27"><span class="hs-identifier hs-type">UpdateUserPhoneConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433297"><span id="local-6989586621679433298"><span id="local-6989586621679433299"><span class="annot"><span class="annottext">Text
 UserPhoneConfig
 instanceId :: Text
 userId :: Text
@@ -312,7 +312,7 @@ phoneConfig :: UserPhoneConfig
 $sel:instanceId:UpdateUserPhoneConfig' :: UpdateUserPhoneConfig -&gt; Text
 $sel:userId:UpdateUserPhoneConfig' :: UpdateUserPhoneConfig -&gt; Text
 $sel:phoneConfig:UpdateUserPhoneConfig' :: UpdateUserPhoneConfig -&gt; UserPhoneConfig
-</span><a href="#local-6989586621679433288"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679433297"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -321,19 +321,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433288"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433297"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433289"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433298"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/phone-config&quot;</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfig"><span class="hs-identifier hs-type">UpdateUserPhoneConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679433284"><span class="annot"><span class="annottext">toQuery :: UpdateUserPhoneConfig -&gt; QueryString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679433293"><span class="annot"><span class="annottext">toQuery :: UpdateUserPhoneConfig -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateUserPhoneConfig -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -341,10 +341,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newUpdateUserPhoneConfigResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679433281"><span id="local-6989586621679433282"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserPhoneConfigResponse"><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfigResponse"><span class="hs-identifier hs-var">UpdateUserPhoneConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserPhoneConfigResponse%27"><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfigResponse%27"><span class="hs-identifier hs-var">UpdateUserPhoneConfigResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679433290"><span id="local-6989586621679433291"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserPhoneConfigResponse"><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfigResponse"><span class="hs-identifier hs-var">UpdateUserPhoneConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserPhoneConfigResponse%27"><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfigResponse%27"><span class="hs-identifier hs-var">UpdateUserPhoneConfigResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433277"><span id="local-6989586621679433279"><span class="annot"><span class="annottext">UpdateUserPhoneConfigResponse
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433286"><span id="local-6989586621679433288"><span class="annot"><span class="annottext">UpdateUserPhoneConfigResponse
 -&gt; UpdateUserPhoneConfigResponse -&gt; Bool
 (UpdateUserPhoneConfigResponse
  -&gt; UpdateUserPhoneConfigResponse -&gt; Bool)
@@ -360,7 +360,7 @@ $c/= :: UpdateUserPhoneConfigResponse
 -&gt; UpdateUserPhoneConfigResponse -&gt; Bool
 $c== :: UpdateUserPhoneConfigResponse
 -&gt; UpdateUserPhoneConfigResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433269"><span id="local-6989586621679433271"><span id="local-6989586621679433273"><span id="local-6989586621679433275"><span class="annot"><span class="annottext">ReadPrec [UpdateUserPhoneConfigResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433278"><span id="local-6989586621679433280"><span id="local-6989586621679433282"><span id="local-6989586621679433284"><span class="annot"><span class="annottext">ReadPrec [UpdateUserPhoneConfigResponse]
 ReadPrec UpdateUserPhoneConfigResponse
 Int -&gt; ReadS UpdateUserPhoneConfigResponse
 ReadS [UpdateUserPhoneConfigResponse]
@@ -380,7 +380,7 @@ readList :: ReadS [UpdateUserPhoneConfigResponse]
 $creadList :: ReadS [UpdateUserPhoneConfigResponse]
 readsPrec :: Int -&gt; ReadS UpdateUserPhoneConfigResponse
 $creadsPrec :: Int -&gt; ReadS UpdateUserPhoneConfigResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433263"><span id="local-6989586621679433265"><span id="local-6989586621679433267"><span class="annot"><span class="annottext">Int -&gt; UpdateUserPhoneConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433272"><span id="local-6989586621679433274"><span id="local-6989586621679433276"><span class="annot"><span class="annottext">Int -&gt; UpdateUserPhoneConfigResponse -&gt; ShowS
 [UpdateUserPhoneConfigResponse] -&gt; ShowS
 UpdateUserPhoneConfigResponse -&gt; String
 (Int -&gt; UpdateUserPhoneConfigResponse -&gt; ShowS)
@@ -429,5 +429,5 @@ UpdateUserPhoneConfigResponse
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">UpdateUserPhoneConfigResponse
 </span><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfigResponse%27"><span class="hs-identifier hs-var">UpdateUserPhoneConfigResponse'</span></a></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfigResponse"><span class="hs-identifier hs-type">UpdateUserPhoneConfigResponse</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserPhoneConfig.html#UpdateUserPhoneConfigResponse"><span class="hs-identifier hs-type">UpdateUserPhoneConfigResponse</span></a></span></span><span>
 </span><span id="line-163"></span></pre></body></html>

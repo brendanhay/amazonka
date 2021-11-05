@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newGetOriginRequestPolicy' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679414490"><span id="local-6989586621679414491"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOriginRequestPolicy"><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy"><span class="hs-identifier hs-var">GetOriginRequestPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOriginRequestPolicy%27"><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy%27"><span class="hs-identifier hs-var">GetOriginRequestPolicy'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679414499"><span id="local-6989586621679414500"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOriginRequestPolicy"><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy"><span class="hs-identifier hs-var">GetOriginRequestPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOriginRequestPolicy%27"><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy%27"><span class="hs-identifier hs-var">GetOriginRequestPolicy'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the origin request policy. If the origin</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- request policy is attached to a distribution&#8217;s cache behavior, you can</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- get the policy&#8217;s identifier using @ListDistributions@ or</span><span>
@@ -69,7 +69,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3Aid%3AGetOriginRequestPolicy%27"><span class="annot"><span class="annottext">GetOriginRequestPolicy -&gt; Text
 </span><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#%24sel%3Aid%3AGetOriginRequestPolicy%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414484"><span id="local-6989586621679414486"><span class="annot"><span class="annottext">GetOriginRequestPolicy -&gt; GetOriginRequestPolicy -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414493"><span id="local-6989586621679414495"><span class="annot"><span class="annottext">GetOriginRequestPolicy -&gt; GetOriginRequestPolicy -&gt; Bool
 (GetOriginRequestPolicy -&gt; GetOriginRequestPolicy -&gt; Bool)
 -&gt; (GetOriginRequestPolicy -&gt; GetOriginRequestPolicy -&gt; Bool)
 -&gt; Eq GetOriginRequestPolicy
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetOriginRequestPolicy -&gt; GetOriginRequestPolicy -&gt; Bool
 == :: GetOriginRequestPolicy -&gt; GetOriginRequestPolicy -&gt; Bool
 $c== :: GetOriginRequestPolicy -&gt; GetOriginRequestPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414475"><span id="local-6989586621679414477"><span id="local-6989586621679414479"><span id="local-6989586621679414481"><span class="annot"><span class="annottext">ReadPrec [GetOriginRequestPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414484"><span id="local-6989586621679414486"><span id="local-6989586621679414488"><span id="local-6989586621679414490"><span class="annot"><span class="annottext">ReadPrec [GetOriginRequestPolicy]
 ReadPrec GetOriginRequestPolicy
 Int -&gt; ReadS GetOriginRequestPolicy
 ReadS [GetOriginRequestPolicy]
@@ -98,7 +98,7 @@ readList :: ReadS [GetOriginRequestPolicy]
 $creadList :: ReadS [GetOriginRequestPolicy]
 readsPrec :: Int -&gt; ReadS GetOriginRequestPolicy
 $creadsPrec :: Int -&gt; ReadS GetOriginRequestPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414468"><span id="local-6989586621679414470"><span id="local-6989586621679414472"><span class="annot"><span class="annottext">Int -&gt; GetOriginRequestPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414477"><span id="local-6989586621679414479"><span id="local-6989586621679414481"><span class="annot"><span class="annottext">Int -&gt; GetOriginRequestPolicy -&gt; ShowS
 [GetOriginRequestPolicy] -&gt; ShowS
 GetOriginRequestPolicy -&gt; String
 (Int -&gt; GetOriginRequestPolicy -&gt; ShowS)
@@ -144,12 +144,12 @@ $cfrom :: forall x. GetOriginRequestPolicy -&gt; Rep GetOriginRequestPolicy x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy"><span class="hs-identifier hs-type">GetOriginRequestPolicy</span></a></span><span>
 </span><span id="line-91"></span><span id="newGetOriginRequestPolicy"><span class="annot"><span class="annottext">newGetOriginRequestPolicy :: Text -&gt; GetOriginRequestPolicy
-</span><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#newGetOriginRequestPolicy"><span class="hs-identifier hs-var hs-var">newGetOriginRequestPolicy</span></a></span></span><span> </span><span id="local-6989586621679414463"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414463"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#newGetOriginRequestPolicy"><span class="hs-identifier hs-var hs-var">newGetOriginRequestPolicy</span></a></span></span><span> </span><span id="local-6989586621679414472"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414472"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">GetOriginRequestPolicy' :: Text -&gt; GetOriginRequestPolicy
 </span><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy%27"><span class="hs-identifier hs-type">GetOriginRequestPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetOriginRequestPolicy' :: Text
 </span><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#%24sel%3Aid%3AGetOriginRequestPolicy%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414463"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679414472"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The unique identifier for the origin request policy. If the origin</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- request policy is attached to a distribution&#8217;s cache behavior, you can</span><span>
@@ -164,27 +164,27 @@ $cfrom :: forall x. GetOriginRequestPolicy -&gt; Rep GetOriginRequestPolicy x
 -&gt; (GetOriginRequestPolicy -&gt; Text -&gt; GetOriginRequestPolicy)
 -&gt; Lens GetOriginRequestPolicy GetOriginRequestPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy%27"><span class="hs-identifier hs-type">GetOriginRequestPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414460"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy%27"><span class="hs-identifier hs-type">GetOriginRequestPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414469"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:GetOriginRequestPolicy' :: GetOriginRequestPolicy -&gt; Text
-</span><a href="#local-6989586621679414460"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414460"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414459"><span class="annot"><span class="annottext">s :: GetOriginRequestPolicy
-</span><a href="#local-6989586621679414459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy%27"><span class="hs-identifier hs-type">GetOriginRequestPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414458"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOriginRequestPolicy
-</span><a href="#local-6989586621679414459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetOriginRequestPolicy' :: Text
+</span><a href="#local-6989586621679414469"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414469"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414468"><span class="annot"><span class="annottext">s :: GetOriginRequestPolicy
+</span><a href="#local-6989586621679414468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy%27"><span class="hs-identifier hs-type">GetOriginRequestPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414467"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOriginRequestPolicy
+</span><a href="#local-6989586621679414468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetOriginRequestPolicy' :: Text
 </span><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#%24sel%3Aid%3AGetOriginRequestPolicy%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy"><span class="hs-identifier hs-type">GetOriginRequestPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy"><span class="hs-identifier hs-type">GetOriginRequestPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy"><span class="hs-identifier hs-type">GetOriginRequestPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy"><span class="hs-identifier hs-type">GetOriginRequestPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679414454"><span class="annot"><span class="annottext">request :: GetOriginRequestPolicy -&gt; Request GetOriginRequestPolicy
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679414463"><span class="annot"><span class="annottext">request :: GetOriginRequestPolicy -&gt; Request GetOriginRequestPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetOriginRequestPolicy -&gt; Request GetOriginRequestPolicy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679414450"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679414459"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetOriginRequestPolicy
 -&gt; ClientResponse ClientBody
@@ -210,10 +210,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679414447"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414447"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679414446"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679414446"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679414445"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679414445"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679414456"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414456"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679414455"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679414455"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679414454"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414454"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe OriginRequestPolicy
 -&gt; Int
@@ -230,7 +230,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; GetOriginRequestPolicyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679414446"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679414455"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -246,7 +246,7 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe OriginRequestPolicy)
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679414445"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414454"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetOriginRequestPolicyResponse)
 -&gt; Either String Int
 -&gt; Either String GetOriginRequestPolicyResponse
@@ -256,15 +256,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414447"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414456"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414436"><span id="local-6989586621679414438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy"><span class="hs-identifier hs-type">GetOriginRequestPolicy</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414445"><span id="local-6989586621679414447"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy"><span class="hs-identifier hs-type">GetOriginRequestPolicy</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy"><span class="hs-identifier hs-type">GetOriginRequestPolicy</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy"><span class="hs-identifier hs-type">GetOriginRequestPolicy</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy"><span class="hs-identifier hs-type">GetOriginRequestPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679414429"><span class="annot"><span class="annottext">toHeaders :: GetOriginRequestPolicy -&gt; ResponseHeaders
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679414438"><span class="annot"><span class="annottext">toHeaders :: GetOriginRequestPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetOriginRequestPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -272,11 +272,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy"><span class="hs-identifier hs-type">GetOriginRequestPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679414424"><span class="annot"><span class="annottext">toPath :: GetOriginRequestPolicy -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy%27"><span class="hs-identifier hs-type">GetOriginRequestPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414422"><span class="annot"><span class="annottext">Text
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679414433"><span class="annot"><span class="annottext">toPath :: GetOriginRequestPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy%27"><span class="hs-identifier hs-type">GetOriginRequestPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414431"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:GetOriginRequestPolicy' :: GetOriginRequestPolicy -&gt; Text
-</span><a href="#local-6989586621679414422"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679414431"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -284,10 +284,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2020-05-31/origin-request-policy/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414422"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679414431"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicy"><span class="hs-identifier hs-type">GetOriginRequestPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679414418"><span class="annot"><span class="annottext">toQuery :: GetOriginRequestPolicy -&gt; QueryString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679414427"><span class="annot"><span class="annottext">toQuery :: GetOriginRequestPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetOriginRequestPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -295,7 +295,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newGetOriginRequestPolicyResponse' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621679414415"><span id="local-6989586621679414416"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOriginRequestPolicyResponse"><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse"><span class="hs-identifier hs-var">GetOriginRequestPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOriginRequestPolicyResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-var">GetOriginRequestPolicyResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span id="local-6989586621679414424"><span id="local-6989586621679414425"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOriginRequestPolicyResponse"><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse"><span class="hs-identifier hs-var">GetOriginRequestPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOriginRequestPolicyResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-var">GetOriginRequestPolicyResponse'</span></a></span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current version of the origin request policy.</span><span>
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AeTag%3AGetOriginRequestPolicyResponse%27"><span class="annot"><span class="annottext">GetOriginRequestPolicyResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#%24sel%3AeTag%3AGetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -306,7 +306,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetOriginRequestPolicyResponse%27"><span class="annot"><span class="annottext">GetOriginRequestPolicyResponse -&gt; Int
 </span><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#%24sel%3AhttpStatus%3AGetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414408"><span id="local-6989586621679414410"><span class="annot"><span class="annottext">GetOriginRequestPolicyResponse
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414417"><span id="local-6989586621679414419"><span class="annot"><span class="annottext">GetOriginRequestPolicyResponse
 -&gt; GetOriginRequestPolicyResponse -&gt; Bool
 (GetOriginRequestPolicyResponse
  -&gt; GetOriginRequestPolicyResponse -&gt; Bool)
@@ -322,7 +322,7 @@ $c/= :: GetOriginRequestPolicyResponse
 -&gt; GetOriginRequestPolicyResponse -&gt; Bool
 $c== :: GetOriginRequestPolicyResponse
 -&gt; GetOriginRequestPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414400"><span id="local-6989586621679414402"><span id="local-6989586621679414404"><span id="local-6989586621679414406"><span class="annot"><span class="annottext">ReadPrec [GetOriginRequestPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414409"><span id="local-6989586621679414411"><span id="local-6989586621679414413"><span id="local-6989586621679414415"><span class="annot"><span class="annottext">ReadPrec [GetOriginRequestPolicyResponse]
 ReadPrec GetOriginRequestPolicyResponse
 Int -&gt; ReadS GetOriginRequestPolicyResponse
 ReadS [GetOriginRequestPolicyResponse]
@@ -342,7 +342,7 @@ readList :: ReadS [GetOriginRequestPolicyResponse]
 $creadList :: ReadS [GetOriginRequestPolicyResponse]
 readsPrec :: Int -&gt; ReadS GetOriginRequestPolicyResponse
 $creadsPrec :: Int -&gt; ReadS GetOriginRequestPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414394"><span id="local-6989586621679414396"><span id="local-6989586621679414398"><span class="annot"><span class="annottext">Int -&gt; GetOriginRequestPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414403"><span id="local-6989586621679414405"><span id="local-6989586621679414407"><span class="annot"><span class="annottext">Int -&gt; GetOriginRequestPolicyResponse -&gt; ShowS
 [GetOriginRequestPolicyResponse] -&gt; ShowS
 GetOriginRequestPolicyResponse -&gt; String
 (Int -&gt; GetOriginRequestPolicyResponse -&gt; ShowS)
@@ -398,8 +398,8 @@ GetOriginRequestPolicyResponse
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newGetOriginRequestPolicyResponse"><span class="annot"><span class="annottext">newGetOriginRequestPolicyResponse :: Int -&gt; GetOriginRequestPolicyResponse
-</span><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#newGetOriginRequestPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetOriginRequestPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679414391"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414391"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#newGetOriginRequestPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetOriginRequestPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679414400"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414400"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">GetOriginRequestPolicyResponse' :: Maybe Text
 -&gt; Maybe OriginRequestPolicy
 -&gt; Int
@@ -416,7 +416,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetOriginRequestPolicyResponse' :: Int
 </span><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#%24sel%3AhttpStatus%3AGetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414391"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679414400"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The current version of the origin request policy.</span><span>
@@ -433,16 +433,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414390"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414399"><span class="annot"><span class="annottext">Maybe Text
 eTag :: Maybe Text
 $sel:eTag:GetOriginRequestPolicyResponse' :: GetOriginRequestPolicyResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679414390"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414390"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414389"><span class="annot"><span class="annottext">s :: GetOriginRequestPolicyResponse
-</span><a href="#local-6989586621679414389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414388"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOriginRequestPolicyResponse
-</span><a href="#local-6989586621679414389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:GetOriginRequestPolicyResponse' :: Maybe Text
+</span><a href="#local-6989586621679414399"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414399"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414398"><span class="annot"><span class="annottext">s :: GetOriginRequestPolicyResponse
+</span><a href="#local-6989586621679414398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414397"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOriginRequestPolicyResponse
+</span><a href="#local-6989586621679414398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:GetOriginRequestPolicyResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#%24sel%3AeTag%3AGetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The origin request policy.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#getOriginRequestPolicyResponse_originRequestPolicy"><span class="hs-identifier hs-type">getOriginRequestPolicyResponse_originRequestPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy"><span class="hs-identifier hs-type">OriginRequestPolicy</span></a></span><span class="hs-special">)</span><span>
@@ -458,16 +458,16 @@ $sel:eTag:GetOriginRequestPolicyResponse' :: GetOriginRequestPolicyResponse -&gt
      (Maybe OriginRequestPolicy)
      (Maybe OriginRequestPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414387"><span class="annot"><span class="annottext">Maybe OriginRequestPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414396"><span class="annot"><span class="annottext">Maybe OriginRequestPolicy
 originRequestPolicy :: Maybe OriginRequestPolicy
 $sel:originRequestPolicy:GetOriginRequestPolicyResponse' :: GetOriginRequestPolicyResponse -&gt; Maybe OriginRequestPolicy
-</span><a href="#local-6989586621679414387"><span class="hs-identifier hs-var hs-var">originRequestPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OriginRequestPolicy
-</span><a href="#local-6989586621679414387"><span class="hs-identifier hs-var">originRequestPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414386"><span class="annot"><span class="annottext">s :: GetOriginRequestPolicyResponse
-</span><a href="#local-6989586621679414386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414385"><span class="annot"><span class="annottext">Maybe OriginRequestPolicy
-</span><a href="#local-6989586621679414385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOriginRequestPolicyResponse
-</span><a href="#local-6989586621679414386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originRequestPolicy:GetOriginRequestPolicyResponse' :: Maybe OriginRequestPolicy
+</span><a href="#local-6989586621679414396"><span class="hs-identifier hs-var hs-var">originRequestPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OriginRequestPolicy
+</span><a href="#local-6989586621679414396"><span class="hs-identifier hs-var">originRequestPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414395"><span class="annot"><span class="annottext">s :: GetOriginRequestPolicyResponse
+</span><a href="#local-6989586621679414395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414394"><span class="annot"><span class="annottext">Maybe OriginRequestPolicy
+</span><a href="#local-6989586621679414394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOriginRequestPolicyResponse
+</span><a href="#local-6989586621679414395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originRequestPolicy:GetOriginRequestPolicyResponse' :: Maybe OriginRequestPolicy
 </span><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#%24sel%3AoriginRequestPolicy%3AGetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-var">originRequestPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OriginRequestPolicy
-</span><a href="#local-6989586621679414385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-177"></span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#getOriginRequestPolicyResponse_httpStatus"><span class="hs-identifier hs-type">getOriginRequestPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -483,18 +483,18 @@ $sel:originRequestPolicy:GetOriginRequestPolicyResponse' :: GetOriginRequestPoli
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414384"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414393"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetOriginRequestPolicyResponse' :: GetOriginRequestPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679414384"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414384"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414383"><span class="annot"><span class="annottext">s :: GetOriginRequestPolicyResponse
-</span><a href="#local-6989586621679414383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414382"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOriginRequestPolicyResponse
-</span><a href="#local-6989586621679414383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetOriginRequestPolicyResponse' :: Int
+</span><a href="#local-6989586621679414393"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414393"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414392"><span class="annot"><span class="annottext">s :: GetOriginRequestPolicyResponse
+</span><a href="#local-6989586621679414392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414391"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOriginRequestPolicyResponse
+</span><a href="#local-6989586621679414392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetOriginRequestPolicyResponse' :: Int
 </span><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#%24sel%3AhttpStatus%3AGetOriginRequestPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679414380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679414389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetOriginRequestPolicy.html#GetOriginRequestPolicyResponse"><span class="hs-identifier hs-type">GetOriginRequestPolicyResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

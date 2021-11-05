@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.Types.UserError</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.Types.UserError</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ErrorCode.html"><span class="hs-identifier">Network.AWS.Chime.Types.ErrorCode</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The list of errors returned when errors are encountered during the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- BatchSuspendUser, BatchUnsuspendUser, or BatchUpdateUser actions. This</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- includes user IDs, error codes, and error messages.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newUserError' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679521675"><span id="local-6989586621679521676"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserError"><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError"><span class="hs-identifier hs-var">UserError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserError%27"><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError%27"><span class="hs-identifier hs-var">UserError'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user ID for which the action failed.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AuserId%3AUserError%27"><span class="annot"><span class="annottext">UserError -&gt; Maybe Text
+</span><a href="Network.AWS.Chime.Types.UserError.html#%24sel%3AuserId%3AUserError%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The error code.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AerrorCode%3AUserError%27"><span class="annot"><span class="annottext">UserError -&gt; Maybe ErrorCode
+</span><a href="Network.AWS.Chime.Types.UserError.html#%24sel%3AerrorCode%3AUserError%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The error message.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AerrorMessage%3AUserError%27"><span class="annot"><span class="annottext">UserError -&gt; Maybe Text
+</span><a href="Network.AWS.Chime.Types.UserError.html#%24sel%3AerrorMessage%3AUserError%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679521667"><span id="local-6989586621679521669"><span class="annot"><span class="annottext">UserError -&gt; UserError -&gt; Bool
+(UserError -&gt; UserError -&gt; Bool)
+-&gt; (UserError -&gt; UserError -&gt; Bool) -&gt; Eq UserError
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UserError -&gt; UserError -&gt; Bool
+$c/= :: UserError -&gt; UserError -&gt; Bool
+== :: UserError -&gt; UserError -&gt; Bool
+$c== :: UserError -&gt; UserError -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521658"><span id="local-6989586621679521660"><span id="local-6989586621679521662"><span id="local-6989586621679521664"><span class="annot"><span class="annottext">ReadPrec [UserError]
+ReadPrec UserError
+Int -&gt; ReadS UserError
+ReadS [UserError]
+(Int -&gt; ReadS UserError)
+-&gt; ReadS [UserError]
+-&gt; ReadPrec UserError
+-&gt; ReadPrec [UserError]
+-&gt; Read UserError
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UserError]
+$creadListPrec :: ReadPrec [UserError]
+readPrec :: ReadPrec UserError
+$creadPrec :: ReadPrec UserError
+readList :: ReadS [UserError]
+$creadList :: ReadS [UserError]
+readsPrec :: Int -&gt; ReadS UserError
+$creadsPrec :: Int -&gt; ReadS UserError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521651"><span id="local-6989586621679521653"><span id="local-6989586621679521655"><span class="annot"><span class="annottext">Int -&gt; UserError -&gt; ShowS
+[UserError] -&gt; ShowS
+UserError -&gt; String
+(Int -&gt; UserError -&gt; ShowS)
+-&gt; (UserError -&gt; String)
+-&gt; ([UserError] -&gt; ShowS)
+-&gt; Show UserError
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UserError] -&gt; ShowS
+$cshowList :: [UserError] -&gt; ShowS
+show :: UserError -&gt; String
+$cshow :: UserError -&gt; String
+showsPrec :: Int -&gt; UserError -&gt; ShowS
+$cshowsPrec :: Int -&gt; UserError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UserError -&gt; Rep UserError x)
+-&gt; (forall x. Rep UserError x -&gt; UserError) -&gt; Generic UserError
+forall x. Rep UserError x -&gt; UserError
+forall x. UserError -&gt; Rep UserError x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UserError x -&gt; UserError
+$cfrom :: forall x. UserError -&gt; Rep UserError x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'UserError' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'userId', 'userError_userId' - The user ID for which the action failed.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'errorCode', 'userError_errorCode' - The error code.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'errorMessage', 'userError_errorMessage' - The error message.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#newUserError"><span class="hs-identifier hs-type">newUserError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError"><span class="hs-identifier hs-type">UserError</span></a></span><span>
+</span><span id="line-57"></span><span id="newUserError"><span class="annot"><span class="annottext">newUserError :: UserError
+</span><a href="Network.AWS.Chime.Types.UserError.html#newUserError"><span class="hs-identifier hs-var hs-var">newUserError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">UserError' :: Maybe Text -&gt; Maybe ErrorCode -&gt; Maybe Text -&gt; UserError
+</span><a href="Network.AWS.Chime.Types.UserError.html#UserError%27"><span class="hs-identifier hs-type">UserError'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userId:UserError' :: Maybe Text
+</span><a href="Network.AWS.Chime.Types.UserError.html#%24sel%3AuserId%3AUserError%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:UserError' :: Maybe ErrorCode
+</span><a href="Network.AWS.Chime.Types.UserError.html#%24sel%3AerrorCode%3AUserError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:UserError' :: Maybe Text
+</span><a href="Network.AWS.Chime.Types.UserError.html#%24sel%3AerrorMessage%3AUserError%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The user ID for which the action failed.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#userError_userId"><span class="hs-identifier hs-type">userError_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError"><span class="hs-identifier hs-type">UserError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="userError_userId"><span class="annot"><span class="annottext">userError_userId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UserError -&gt; f UserError
+</span><a href="Network.AWS.Chime.Types.UserError.html#userError_userId"><span class="hs-identifier hs-var hs-var">userError_userId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserError -&gt; Maybe Text)
+-&gt; (UserError -&gt; Maybe Text -&gt; UserError)
+-&gt; Lens UserError UserError (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError%27"><span class="hs-identifier hs-type">UserError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521642"><span class="annot"><span class="annottext">Maybe Text
+userId :: Maybe Text
+$sel:userId:UserError' :: UserError -&gt; Maybe Text
+</span><a href="#local-6989586621679521642"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521642"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521641"><span class="annot"><span class="annottext">s :: UserError
+</span><a href="#local-6989586621679521641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError%27"><span class="hs-identifier hs-type">UserError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521640"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserError
+</span><a href="#local-6989586621679521641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:UserError' :: Maybe Text
+</span><a href="Network.AWS.Chime.Types.UserError.html#%24sel%3AuserId%3AUserError%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError"><span class="hs-identifier hs-type">UserError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The error code.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#userError_errorCode"><span class="hs-identifier hs-type">userError_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError"><span class="hs-identifier hs-type">UserError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="userError_errorCode"><span class="annot"><span class="annottext">userError_errorCode :: (Maybe ErrorCode -&gt; f (Maybe ErrorCode))
+-&gt; UserError -&gt; f UserError
+</span><a href="Network.AWS.Chime.Types.UserError.html#userError_errorCode"><span class="hs-identifier hs-var hs-var">userError_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserError -&gt; Maybe ErrorCode)
+-&gt; (UserError -&gt; Maybe ErrorCode -&gt; UserError)
+-&gt; Lens UserError UserError (Maybe ErrorCode) (Maybe ErrorCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError%27"><span class="hs-identifier hs-type">UserError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521638"><span class="annot"><span class="annottext">Maybe ErrorCode
+errorCode :: Maybe ErrorCode
+$sel:errorCode:UserError' :: UserError -&gt; Maybe ErrorCode
+</span><a href="#local-6989586621679521638"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorCode
+</span><a href="#local-6989586621679521638"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521637"><span class="annot"><span class="annottext">s :: UserError
+</span><a href="#local-6989586621679521637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError%27"><span class="hs-identifier hs-type">UserError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521636"><span class="annot"><span class="annottext">Maybe ErrorCode
+</span><a href="#local-6989586621679521636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserError
+</span><a href="#local-6989586621679521637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:UserError' :: Maybe ErrorCode
+</span><a href="Network.AWS.Chime.Types.UserError.html#%24sel%3AerrorCode%3AUserError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorCode
+</span><a href="#local-6989586621679521636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError"><span class="hs-identifier hs-type">UserError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The error message.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#userError_errorMessage"><span class="hs-identifier hs-type">userError_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError"><span class="hs-identifier hs-type">UserError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="userError_errorMessage"><span class="annot"><span class="annottext">userError_errorMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UserError -&gt; f UserError
+</span><a href="Network.AWS.Chime.Types.UserError.html#userError_errorMessage"><span class="hs-identifier hs-var hs-var">userError_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserError -&gt; Maybe Text)
+-&gt; (UserError -&gt; Maybe Text -&gt; UserError)
+-&gt; Lens UserError UserError (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError%27"><span class="hs-identifier hs-type">UserError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521634"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:UserError' :: UserError -&gt; Maybe Text
+</span><a href="#local-6989586621679521634"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521634"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521633"><span class="annot"><span class="annottext">s :: UserError
+</span><a href="#local-6989586621679521633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError%27"><span class="hs-identifier hs-type">UserError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521632"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserError
+</span><a href="#local-6989586621679521633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:UserError' :: Maybe Text
+</span><a href="Network.AWS.Chime.Types.UserError.html#%24sel%3AerrorMessage%3AUserError%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError"><span class="hs-identifier hs-type">UserError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521629"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError"><span class="hs-identifier hs-type">UserError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679521627"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser UserError) -&gt; Value -&gt; Parser UserError
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;UserError&quot;</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679521624"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521624"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe ErrorCode -&gt; Maybe Text -&gt; UserError
+</span><a href="Network.AWS.Chime.Types.UserError.html#UserError%27"><span class="hs-identifier hs-var">UserError'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe ErrorCode -&gt; Maybe Text -&gt; UserError)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ErrorCode -&gt; Maybe Text -&gt; UserError)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521624"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ErrorCode -&gt; Maybe Text -&gt; UserError)
+-&gt; Parser (Maybe ErrorCode) -&gt; Parser (Maybe Text -&gt; UserError)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521624"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ErrorCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; UserError)
+-&gt; Parser (Maybe Text) -&gt; Parser UserError
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521624"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521618"><span id="local-6989586621679521620"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError"><span class="hs-identifier hs-type">UserError</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521615"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.UserError.html#UserError"><span class="hs-identifier hs-type">UserError</span></a></span></span><span>
+</span><span id="line-90"></span></pre></body></html>

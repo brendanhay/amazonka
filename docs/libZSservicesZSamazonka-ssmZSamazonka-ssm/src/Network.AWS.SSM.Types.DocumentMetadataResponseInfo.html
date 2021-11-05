@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Details about the response to a document review request.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDocumentMetadataResponseInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679814266"><span id="local-6989586621679814267"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentMetadataResponseInfo"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo"><span class="hs-identifier hs-var">DocumentMetadataResponseInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentMetadataResponseInfo%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo%27"><span class="hs-identifier hs-var">DocumentMetadataResponseInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679814275"><span id="local-6989586621679814276"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentMetadataResponseInfo"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo"><span class="hs-identifier hs-var">DocumentMetadataResponseInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentMetadataResponseInfo%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo%27"><span class="hs-identifier hs-var">DocumentMetadataResponseInfo'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about a reviewer\'s response to a document review request.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AreviewerResponse%3ADocumentMetadataResponseInfo%27"><span class="annot"><span class="annottext">DocumentMetadataResponseInfo
 -&gt; Maybe [DocumentReviewerResponseSource]
 </span><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#%24sel%3AreviewerResponse%3ADocumentMetadataResponseInfo%27"><span class="hs-identifier hs-var hs-var">reviewerResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewerResponseSource.html#DocumentReviewerResponseSource"><span class="hs-identifier hs-type">DocumentReviewerResponseSource</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814260"><span id="local-6989586621679814262"><span class="annot"><span class="annottext">DocumentMetadataResponseInfo
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814269"><span id="local-6989586621679814271"><span class="annot"><span class="annottext">DocumentMetadataResponseInfo
 -&gt; DocumentMetadataResponseInfo -&gt; Bool
 (DocumentMetadataResponseInfo
  -&gt; DocumentMetadataResponseInfo -&gt; Bool)
@@ -49,7 +49,7 @@ $c/= :: DocumentMetadataResponseInfo
 -&gt; DocumentMetadataResponseInfo -&gt; Bool
 $c== :: DocumentMetadataResponseInfo
 -&gt; DocumentMetadataResponseInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814251"><span id="local-6989586621679814253"><span id="local-6989586621679814255"><span id="local-6989586621679814257"><span class="annot"><span class="annottext">ReadPrec [DocumentMetadataResponseInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814260"><span id="local-6989586621679814262"><span id="local-6989586621679814264"><span id="local-6989586621679814266"><span class="annot"><span class="annottext">ReadPrec [DocumentMetadataResponseInfo]
 ReadPrec DocumentMetadataResponseInfo
 Int -&gt; ReadS DocumentMetadataResponseInfo
 ReadS [DocumentMetadataResponseInfo]
@@ -69,7 +69,7 @@ readList :: ReadS [DocumentMetadataResponseInfo]
 $creadList :: ReadS [DocumentMetadataResponseInfo]
 readsPrec :: Int -&gt; ReadS DocumentMetadataResponseInfo
 $creadsPrec :: Int -&gt; ReadS DocumentMetadataResponseInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814244"><span id="local-6989586621679814246"><span id="local-6989586621679814248"><span class="annot"><span class="annottext">Int -&gt; DocumentMetadataResponseInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814253"><span id="local-6989586621679814255"><span id="local-6989586621679814257"><span class="annot"><span class="annottext">Int -&gt; DocumentMetadataResponseInfo -&gt; ShowS
 [DocumentMetadataResponseInfo] -&gt; ShowS
 DocumentMetadataResponseInfo -&gt; String
 (Int -&gt; DocumentMetadataResponseInfo -&gt; ShowS)
@@ -140,17 +140,17 @@ forall a. Maybe a
      (Maybe [DocumentReviewerResponseSource])
      (Maybe [DocumentReviewerResponseSource])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo%27"><span class="hs-identifier hs-type">DocumentMetadataResponseInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814235"><span class="annot"><span class="annottext">Maybe [DocumentReviewerResponseSource]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo%27"><span class="hs-identifier hs-type">DocumentMetadataResponseInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814244"><span class="annot"><span class="annottext">Maybe [DocumentReviewerResponseSource]
 reviewerResponse :: Maybe [DocumentReviewerResponseSource]
 $sel:reviewerResponse:DocumentMetadataResponseInfo' :: DocumentMetadataResponseInfo
 -&gt; Maybe [DocumentReviewerResponseSource]
-</span><a href="#local-6989586621679814235"><span class="hs-identifier hs-var hs-var">reviewerResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentReviewerResponseSource]
-</span><a href="#local-6989586621679814235"><span class="hs-identifier hs-var">reviewerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814234"><span class="annot"><span class="annottext">s :: DocumentMetadataResponseInfo
-</span><a href="#local-6989586621679814234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo%27"><span class="hs-identifier hs-type">DocumentMetadataResponseInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814233"><span class="annot"><span class="annottext">Maybe [DocumentReviewerResponseSource]
-</span><a href="#local-6989586621679814233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentMetadataResponseInfo
-</span><a href="#local-6989586621679814234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reviewerResponse:DocumentMetadataResponseInfo' :: Maybe [DocumentReviewerResponseSource]
+</span><a href="#local-6989586621679814244"><span class="hs-identifier hs-var hs-var">reviewerResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentReviewerResponseSource]
+</span><a href="#local-6989586621679814244"><span class="hs-identifier hs-var">reviewerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814243"><span class="annot"><span class="annottext">s :: DocumentMetadataResponseInfo
+</span><a href="#local-6989586621679814243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo%27"><span class="hs-identifier hs-type">DocumentMetadataResponseInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814242"><span class="annot"><span class="annottext">Maybe [DocumentReviewerResponseSource]
+</span><a href="#local-6989586621679814242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentMetadataResponseInfo
+</span><a href="#local-6989586621679814243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reviewerResponse:DocumentMetadataResponseInfo' :: Maybe [DocumentReviewerResponseSource]
 </span><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#%24sel%3AreviewerResponse%3ADocumentMetadataResponseInfo%27"><span class="hs-identifier hs-var">reviewerResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentReviewerResponseSource]
-</span><a href="#local-6989586621679814233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo"><span class="hs-identifier hs-type">DocumentMetadataResponseInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DocumentReviewerResponseSource]
+</span><a href="#local-6989586621679814242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo"><span class="hs-identifier hs-type">DocumentMetadataResponseInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DocumentReviewerResponseSource]
   -&gt; f (Maybe [DocumentReviewerResponseSource]))
  -&gt; DocumentMetadataResponseInfo -&gt; f DocumentMetadataResponseInfo)
 -&gt; ((Maybe [DocumentReviewerResponseSource]
@@ -183,8 +183,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814227"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo"><span class="hs-identifier hs-type">DocumentMetadataResponseInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679814225"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentMetadataResponseInfo
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814236"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo"><span class="hs-identifier hs-type">DocumentMetadataResponseInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679814234"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentMetadataResponseInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DocumentMetadataResponseInfo)
@@ -194,8 +194,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DocumentMetadataResponseInfo&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679814222"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814222"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679814231"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679814231"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DocumentReviewerResponseSource]
 -&gt; DocumentMetadataResponseInfo
 </span><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo%27"><span class="hs-identifier hs-var">DocumentMetadataResponseInfo'</span></a></span><span>
@@ -205,7 +205,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser DocumentMetadataResponseInfo
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679814231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [DocumentReviewerResponseSource]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -221,8 +221,8 @@ forall a. Monoid a =&gt; a
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679814215"><span id="local-6989586621679814217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679814224"><span id="local-6989586621679814226"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo"><span class="hs-identifier hs-type">DocumentMetadataResponseInfo</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo"><span class="hs-identifier hs-type">DocumentMetadataResponseInfo</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataResponseInfo.html#DocumentMetadataResponseInfo"><span class="hs-identifier hs-type">DocumentMetadataResponseInfo</span></a></span></span><span>
 </span><span id="line-73"></span></pre></body></html>

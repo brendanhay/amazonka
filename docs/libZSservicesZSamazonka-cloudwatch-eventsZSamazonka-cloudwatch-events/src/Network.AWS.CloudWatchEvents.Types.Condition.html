@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- @\'{\&quot;Type\&quot; : \&quot;StringEquals\&quot;, \&quot;Key\&quot;: \&quot;aws:PrincipalOrgID\&quot;, \&quot;Value\&quot;: \&quot;o-1234567890\&quot;}\'@</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newCondition' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679299909"><span id="local-6989586621679299910"></span></span><span class="hs-keyword">data</span><span> </span><span id="Condition"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-var">Condition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Condition%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-var">Condition'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679299918"><span id="local-6989586621679299919"></span></span><span class="hs-keyword">data</span><span> </span><span id="Condition"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-var">Condition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Condition%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-var">Condition'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the type of condition. Currently the only supported value is</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @StringEquals@.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Atype%27%3ACondition%27"><span class="annot"><span class="annottext">Condition -&gt; Text
@@ -47,7 +47,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3Avalue%3ACondition%27"><span class="annot"><span class="annottext">Condition -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#%24sel%3Avalue%3ACondition%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299901"><span id="local-6989586621679299903"><span class="annot"><span class="annottext">Condition -&gt; Condition -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299910"><span id="local-6989586621679299912"><span class="annot"><span class="annottext">Condition -&gt; Condition -&gt; Bool
 (Condition -&gt; Condition -&gt; Bool)
 -&gt; (Condition -&gt; Condition -&gt; Bool) -&gt; Eq Condition
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Condition -&gt; Condition -&gt; Bool
 == :: Condition -&gt; Condition -&gt; Bool
 $c== :: Condition -&gt; Condition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299892"><span id="local-6989586621679299894"><span id="local-6989586621679299896"><span id="local-6989586621679299898"><span class="annot"><span class="annottext">ReadPrec [Condition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299901"><span id="local-6989586621679299903"><span id="local-6989586621679299905"><span id="local-6989586621679299907"><span class="annot"><span class="annottext">ReadPrec [Condition]
 ReadPrec Condition
 Int -&gt; ReadS Condition
 ReadS [Condition]
@@ -75,7 +75,7 @@ readList :: ReadS [Condition]
 $creadList :: ReadS [Condition]
 readsPrec :: Int -&gt; ReadS Condition
 $creadsPrec :: Int -&gt; ReadS Condition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299885"><span id="local-6989586621679299887"><span id="local-6989586621679299889"><span class="annot"><span class="annottext">Int -&gt; Condition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299894"><span id="local-6989586621679299896"><span id="local-6989586621679299898"><span class="annot"><span class="annottext">Int -&gt; Condition -&gt; ShowS
 [Condition] -&gt; ShowS
 Condition -&gt; String
 (Int -&gt; Condition -&gt; ShowS)
@@ -125,21 +125,21 @@ $cfrom :: forall x. Condition -&gt; Rep Condition x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span>
 </span><span id="line-73"></span><span id="newCondition"><span class="annot"><span class="annottext">newCondition :: Text -&gt; Text -&gt; Text -&gt; Condition
-</span><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#newCondition"><span class="hs-identifier hs-var hs-var">newCondition</span></a></span></span><span> </span><span id="local-6989586621679299879"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299879"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679299878"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299878"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679299877"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299877"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#newCondition"><span class="hs-identifier hs-var hs-var">newCondition</span></a></span></span><span> </span><span id="local-6989586621679299888"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299888"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679299887"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299887"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679299886"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299886"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">Condition' :: Text -&gt; Text -&gt; Text -&gt; Condition
 </span><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:type':Condition' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#%24sel%3Atype%27%3ACondition%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299879"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299888"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:Condition' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#%24sel%3Akey%3ACondition%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299878"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299887"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:Condition' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#%24sel%3Avalue%3ACondition%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299877"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
+</span><a href="#local-6989586621679299886"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Specifies the type of condition. Currently the only supported value is</span><span>
@@ -150,16 +150,16 @@ $cfrom :: forall x. Condition -&gt; Rep Condition x
 -&gt; (Condition -&gt; Text -&gt; Condition)
 -&gt; Lens Condition Condition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299873"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299882"><span class="annot"><span class="annottext">Text
 type' :: Text
 $sel:type':Condition' :: Condition -&gt; Text
-</span><a href="#local-6989586621679299873"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299873"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299872"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679299872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299871"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679299872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Condition' :: Text
+</span><a href="#local-6989586621679299882"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299882"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299881"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679299881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299880"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679299881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Condition' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#%24sel%3Atype%27%3ACondition%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Specifies the key for the condition. Currently the only supported key is</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- @aws:PrincipalOrgID@.</span><span>
@@ -169,16 +169,16 @@ $sel:type':Condition' :: Condition -&gt; Text
 -&gt; (Condition -&gt; Text -&gt; Condition)
 -&gt; Lens Condition Condition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299869"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299878"><span class="annot"><span class="annottext">Text
 key :: Text
 $sel:key:Condition' :: Condition -&gt; Text
-</span><a href="#local-6989586621679299869"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299869"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299868"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679299868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299867"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679299868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Condition' :: Text
+</span><a href="#local-6989586621679299878"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299878"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299877"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679299877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299876"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679299877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Condition' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#%24sel%3Akey%3ACondition%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Specifies the value for the key. Currently, this must be the ID of the</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- organization.</span><span>
@@ -188,31 +188,31 @@ $sel:key:Condition' :: Condition -&gt; Text
 -&gt; (Condition -&gt; Text -&gt; Condition)
 -&gt; Lens Condition Condition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299865"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299874"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:Condition' :: Condition -&gt; Text
-</span><a href="#local-6989586621679299865"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299865"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299864"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679299864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299863"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679299864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Condition' :: Text
+</span><a href="#local-6989586621679299874"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299874"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299873"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679299873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299872"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679299873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Condition' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#%24sel%3Avalue%3ACondition%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299859"><span id="local-6989586621679299861"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299868"><span id="local-6989586621679299870"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299848"><span id="local-6989586621679299850"><span id="local-6989586621679299852"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679299846"><span class="annot"><span class="annottext">toJSON :: Condition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299842"><span id="local-6989586621679299843"><span id="local-6989586621679299844"><span class="annot"><span class="annottext">Text
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299857"><span id="local-6989586621679299859"><span id="local-6989586621679299861"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679299855"><span class="annot"><span class="annottext">toJSON :: Condition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299851"><span id="local-6989586621679299852"><span id="local-6989586621679299853"><span class="annot"><span class="annottext">Text
 value :: Text
 key :: Text
 type' :: Text
 $sel:value:Condition' :: Condition -&gt; Text
 $sel:key:Condition' :: Condition -&gt; Text
 $sel:type':Condition' :: Condition -&gt; Text
-</span><a href="#local-6989586621679299842"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679299851"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -224,21 +224,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299844"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299853"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299843"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299852"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299842"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299851"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span></pre></body></html>

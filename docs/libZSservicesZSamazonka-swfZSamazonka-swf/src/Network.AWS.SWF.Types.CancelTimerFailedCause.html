@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679342958"><span id="local-6989586621679342959"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CancelTimerFailedCause"><span class="annot"><a href="Network.AWS.SWF.Types.CancelTimerFailedCause.html#CancelTimerFailedCause"><span class="hs-identifier hs-var">CancelTimerFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelTimerFailedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.CancelTimerFailedCause.html#CancelTimerFailedCause%27"><span class="hs-identifier hs-var">CancelTimerFailedCause'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679342967"><span id="local-6989586621679342968"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CancelTimerFailedCause"><span class="annot"><a href="Network.AWS.SWF.Types.CancelTimerFailedCause.html#CancelTimerFailedCause"><span class="hs-identifier hs-var">CancelTimerFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelTimerFailedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.CancelTimerFailedCause.html#CancelTimerFailedCause%27"><span class="hs-identifier hs-var">CancelTimerFailedCause'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCancelTimerFailedCause"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; Text
 </span><a href="Network.AWS.SWF.Types.CancelTimerFailedCause.html#fromCancelTimerFailedCause"><span class="hs-identifier hs-var hs-var">fromCancelTimerFailedCause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679342950"><span id="local-6989586621679342952"><span id="local-6989586621679342954"><span class="annot"><span class="annottext">Int -&gt; CancelTimerFailedCause -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679342959"><span id="local-6989586621679342961"><span id="local-6989586621679342963"><span class="annot"><span class="annottext">Int -&gt; CancelTimerFailedCause -&gt; ShowS
 [CancelTimerFailedCause] -&gt; ShowS
 CancelTimerFailedCause -&gt; String
 (Int -&gt; CancelTimerFailedCause -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CancelTimerFailedCause -&gt; String
 showsPrec :: Int -&gt; CancelTimerFailedCause -&gt; ShowS
 $cshowsPrec :: Int -&gt; CancelTimerFailedCause -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679342941"><span id="local-6989586621679342943"><span id="local-6989586621679342945"><span id="local-6989586621679342947"><span class="annot"><span class="annottext">ReadPrec [CancelTimerFailedCause]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679342950"><span id="local-6989586621679342952"><span id="local-6989586621679342954"><span id="local-6989586621679342956"><span class="annot"><span class="annottext">ReadPrec [CancelTimerFailedCause]
 ReadPrec CancelTimerFailedCause
 Int -&gt; ReadS CancelTimerFailedCause
 ReadS [CancelTimerFailedCause]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CancelTimerFailedCause]
 readsPrec :: Int -&gt; ReadS CancelTimerFailedCause
 $creadsPrec :: Int -&gt; ReadS CancelTimerFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679342936"><span id="local-6989586621679342938"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; CancelTimerFailedCause -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679342945"><span id="local-6989586621679342947"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; CancelTimerFailedCause -&gt; Bool
 (CancelTimerFailedCause -&gt; CancelTimerFailedCause -&gt; Bool)
 -&gt; (CancelTimerFailedCause -&gt; CancelTimerFailedCause -&gt; Bool)
 -&gt; Eq CancelTimerFailedCause
@@ -82,7 +82,7 @@ $c/= :: CancelTimerFailedCause -&gt; CancelTimerFailedCause -&gt; Bool
 == :: CancelTimerFailedCause -&gt; CancelTimerFailedCause -&gt; Bool
 $c== :: CancelTimerFailedCause -&gt; CancelTimerFailedCause -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679342920"><span id="local-6989586621679342922"><span id="local-6989586621679342924"><span id="local-6989586621679342926"><span id="local-6989586621679342928"><span id="local-6989586621679342930"><span id="local-6989586621679342932"><span class="annot"><span class="annottext">Eq CancelTimerFailedCause
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679342929"><span id="local-6989586621679342931"><span id="local-6989586621679342933"><span id="local-6989586621679342935"><span id="local-6989586621679342937"><span id="local-6989586621679342939"><span id="local-6989586621679342941"><span class="annot"><span class="annottext">Eq CancelTimerFailedCause
 Eq CancelTimerFailedCause
 -&gt; (CancelTimerFailedCause -&gt; CancelTimerFailedCause -&gt; Ordering)
 -&gt; (CancelTimerFailedCause -&gt; CancelTimerFailedCause -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. CancelTimerFailedCause -&gt; Rep CancelTimerFailedCause x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679342912"><span id="local-6989586621679342914"><span class="annot"><span class="annottext">Int -&gt; CancelTimerFailedCause -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679342921"><span id="local-6989586621679342923"><span class="annot"><span class="annottext">Int -&gt; CancelTimerFailedCause -&gt; Int
 CancelTimerFailedCause -&gt; Int
 (Int -&gt; CancelTimerFailedCause -&gt; Int)
 -&gt; (CancelTimerFailedCause -&gt; Int)
@@ -152,54 +152,54 @@ $chash :: CancelTimerFailedCause -&gt; Int
 hashWithSalt :: Int -&gt; CancelTimerFailedCause -&gt; Int
 $chashWithSalt :: Int -&gt; CancelTimerFailedCause -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679342909"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679342918"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; ()
 (CancelTimerFailedCause -&gt; ()) -&gt; NFData CancelTimerFailedCause
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CancelTimerFailedCause -&gt; ()
 $crnf :: CancelTimerFailedCause -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679342906"><span class="annot"><span class="annottext">Text -&gt; Either String CancelTimerFailedCause
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679342915"><span class="annot"><span class="annottext">Text -&gt; Either String CancelTimerFailedCause
 (Text -&gt; Either String CancelTimerFailedCause)
 -&gt; FromText CancelTimerFailedCause
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CancelTimerFailedCause
 $cfromText :: Text -&gt; Either String CancelTimerFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679342903"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679342912"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; Text
 (CancelTimerFailedCause -&gt; Text) -&gt; ToText CancelTimerFailedCause
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CancelTimerFailedCause -&gt; Text
 $ctoText :: CancelTimerFailedCause -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679342900"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679342909"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; ByteString
 (CancelTimerFailedCause -&gt; ByteString)
 -&gt; ToByteString CancelTimerFailedCause
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CancelTimerFailedCause -&gt; ByteString
 $ctoBS :: CancelTimerFailedCause -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679342897"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679342906"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; ByteStringBuilder
 (CancelTimerFailedCause -&gt; ByteStringBuilder)
 -&gt; ToLog CancelTimerFailedCause
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CancelTimerFailedCause -&gt; ByteStringBuilder
 $cbuild :: CancelTimerFailedCause -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679342894"><span class="annot"><span class="annottext">HeaderName -&gt; CancelTimerFailedCause -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679342903"><span class="annot"><span class="annottext">HeaderName -&gt; CancelTimerFailedCause -&gt; [Header]
 (HeaderName -&gt; CancelTimerFailedCause -&gt; [Header])
 -&gt; ToHeader CancelTimerFailedCause
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CancelTimerFailedCause -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CancelTimerFailedCause -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679342891"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679342900"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; QueryString
 (CancelTimerFailedCause -&gt; QueryString)
 -&gt; ToQuery CancelTimerFailedCause
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CancelTimerFailedCause -&gt; QueryString
 $ctoQuery :: CancelTimerFailedCause -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679342886"><span id="local-6989586621679342888"><span class="annot"><span class="annottext">Value -&gt; Parser [CancelTimerFailedCause]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679342895"><span id="local-6989586621679342897"><span class="annot"><span class="annottext">Value -&gt; Parser [CancelTimerFailedCause]
 Value -&gt; Parser CancelTimerFailedCause
 (Value -&gt; Parser CancelTimerFailedCause)
 -&gt; (Value -&gt; Parser [CancelTimerFailedCause])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [CancelTimerFailedCause]
 parseJSON :: Value -&gt; Parser CancelTimerFailedCause
 $cparseJSON :: Value -&gt; Parser CancelTimerFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679342881"><span id="local-6989586621679342883"><span class="annot"><span class="annottext">FromJSONKeyFunction [CancelTimerFailedCause]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679342890"><span id="local-6989586621679342892"><span class="annot"><span class="annottext">FromJSONKeyFunction [CancelTimerFailedCause]
 FromJSONKeyFunction CancelTimerFailedCause
 FromJSONKeyFunction CancelTimerFailedCause
 -&gt; FromJSONKeyFunction [CancelTimerFailedCause]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CancelTimerFailedCause]
 fromJSONKey :: FromJSONKeyFunction CancelTimerFailedCause
 $cfromJSONKey :: FromJSONKeyFunction CancelTimerFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679342872"><span id="local-6989586621679342874"><span id="local-6989586621679342876"><span id="local-6989586621679342878"><span class="annot"><span class="annottext">[CancelTimerFailedCause] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679342881"><span id="local-6989586621679342883"><span id="local-6989586621679342885"><span id="local-6989586621679342887"><span class="annot"><span class="annottext">[CancelTimerFailedCause] -&gt; Encoding
 [CancelTimerFailedCause] -&gt; Value
 CancelTimerFailedCause -&gt; Encoding
 CancelTimerFailedCause -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: CancelTimerFailedCause -&gt; Encoding
 toJSON :: CancelTimerFailedCause -&gt; Value
 $ctoJSON :: CancelTimerFailedCause -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679342867"><span id="local-6989586621679342869"><span class="annot"><span class="annottext">ToJSONKeyFunction [CancelTimerFailedCause]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679342876"><span id="local-6989586621679342878"><span class="annot"><span class="annottext">ToJSONKeyFunction [CancelTimerFailedCause]
 ToJSONKeyFunction CancelTimerFailedCause
 ToJSONKeyFunction CancelTimerFailedCause
 -&gt; ToJSONKeyFunction [CancelTimerFailedCause]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CancelTimerFailedCause]
 toJSONKey :: ToJSONKeyFunction CancelTimerFailedCause
 $ctoJSONKey :: ToJSONKeyFunction CancelTimerFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679342864"><span class="annot"><span class="annottext">[Node] -&gt; Either String CancelTimerFailedCause
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679342873"><span class="annot"><span class="annottext">[Node] -&gt; Either String CancelTimerFailedCause
 ([Node] -&gt; Either String CancelTimerFailedCause)
 -&gt; FromXML CancelTimerFailedCause
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CancelTimerFailedCause
 $cparseXML :: [Node] -&gt; Either String CancelTimerFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679342861"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679342870"><span class="annot"><span class="annottext">CancelTimerFailedCause -&gt; XML
 (CancelTimerFailedCause -&gt; XML) -&gt; ToXML CancelTimerFailedCause
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CancelTimerFailedCause -&gt; XML

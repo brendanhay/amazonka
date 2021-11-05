@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- AWS resources that are members of the group.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newGroupQuery' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679177327"><span id="local-6989586621679177328"></span></span><span class="hs-keyword">data</span><span> </span><span id="GroupQuery"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery"><span class="hs-identifier hs-var">GroupQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupQuery%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery%27"><span class="hs-identifier hs-var">GroupQuery'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679177336"><span id="local-6989586621679177337"></span></span><span class="hs-keyword">data</span><span> </span><span id="GroupQuery"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery"><span class="hs-identifier hs-var">GroupQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupQuery%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery%27"><span class="hs-identifier hs-var">GroupQuery'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the resource group that is associated with the specified</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- resource query.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AgroupName%3AGroupQuery%27"><span class="annot"><span class="annottext">GroupQuery -&gt; Text
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AresourceQuery%3AGroupQuery%27"><span class="annot"><span class="annottext">GroupQuery -&gt; ResourceQuery
 </span><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#%24sel%3AresourceQuery%3AGroupQuery%27"><span class="hs-identifier hs-var hs-var">resourceQuery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177320"><span id="local-6989586621679177322"><span class="annot"><span class="annottext">GroupQuery -&gt; GroupQuery -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177329"><span id="local-6989586621679177331"><span class="annot"><span class="annottext">GroupQuery -&gt; GroupQuery -&gt; Bool
 (GroupQuery -&gt; GroupQuery -&gt; Bool)
 -&gt; (GroupQuery -&gt; GroupQuery -&gt; Bool) -&gt; Eq GroupQuery
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GroupQuery -&gt; GroupQuery -&gt; Bool
 == :: GroupQuery -&gt; GroupQuery -&gt; Bool
 $c== :: GroupQuery -&gt; GroupQuery -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177311"><span id="local-6989586621679177313"><span id="local-6989586621679177315"><span id="local-6989586621679177317"><span class="annot"><span class="annottext">ReadPrec [GroupQuery]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177320"><span id="local-6989586621679177322"><span id="local-6989586621679177324"><span id="local-6989586621679177326"><span class="annot"><span class="annottext">ReadPrec [GroupQuery]
 ReadPrec GroupQuery
 Int -&gt; ReadS GroupQuery
 ReadS [GroupQuery]
@@ -66,7 +66,7 @@ readList :: ReadS [GroupQuery]
 $creadList :: ReadS [GroupQuery]
 readsPrec :: Int -&gt; ReadS GroupQuery
 $creadsPrec :: Int -&gt; ReadS GroupQuery
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177304"><span id="local-6989586621679177306"><span id="local-6989586621679177308"><span class="annot"><span class="annottext">Int -&gt; GroupQuery -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177313"><span id="local-6989586621679177315"><span id="local-6989586621679177317"><span class="annot"><span class="annottext">Int -&gt; GroupQuery -&gt; ShowS
 [GroupQuery] -&gt; ShowS
 GroupQuery -&gt; String
 (Int -&gt; GroupQuery -&gt; ShowS)
@@ -111,17 +111,17 @@ $cfrom :: forall x. GroupQuery -&gt; Rep GroupQuery x
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery"><span class="hs-identifier hs-type">GroupQuery</span></a></span><span>
 </span><span id="line-60"></span><span id="newGroupQuery"><span class="annot"><span class="annottext">newGroupQuery :: Text -&gt; ResourceQuery -&gt; GroupQuery
-</span><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#newGroupQuery"><span class="hs-identifier hs-var hs-var">newGroupQuery</span></a></span></span><span> </span><span id="local-6989586621679177298"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177298"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679177297"><span class="annot"><span class="annottext">ResourceQuery
-</span><a href="#local-6989586621679177297"><span class="hs-identifier hs-var">pResourceQuery_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#newGroupQuery"><span class="hs-identifier hs-var hs-var">newGroupQuery</span></a></span></span><span> </span><span id="local-6989586621679177307"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177307"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679177306"><span class="annot"><span class="annottext">ResourceQuery
+</span><a href="#local-6989586621679177306"><span class="hs-identifier hs-var">pResourceQuery_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">GroupQuery' :: Text -&gt; ResourceQuery -&gt; GroupQuery
 </span><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery%27"><span class="hs-identifier hs-type">GroupQuery'</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupName:GroupQuery' :: Text
 </span><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#%24sel%3AgroupName%3AGroupQuery%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177298"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177307"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceQuery:GroupQuery' :: ResourceQuery
 </span><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#%24sel%3AresourceQuery%3AGroupQuery%27"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceQuery
-</span><a href="#local-6989586621679177297"><span class="hs-identifier hs-var">pResourceQuery_</span></a></span><span>
+</span><a href="#local-6989586621679177306"><span class="hs-identifier hs-var">pResourceQuery_</span></a></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The name of the resource group that is associated with the specified</span><span>
@@ -132,16 +132,16 @@ $cfrom :: forall x. GroupQuery -&gt; Rep GroupQuery x
 -&gt; (GroupQuery -&gt; Text -&gt; GroupQuery)
 -&gt; Lens GroupQuery GroupQuery Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery%27"><span class="hs-identifier hs-type">GroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177293"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery%27"><span class="hs-identifier hs-type">GroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177302"><span class="annot"><span class="annottext">Text
 groupName :: Text
 $sel:groupName:GroupQuery' :: GroupQuery -&gt; Text
-</span><a href="#local-6989586621679177293"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177293"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177292"><span class="annot"><span class="annottext">s :: GroupQuery
-</span><a href="#local-6989586621679177292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery%27"><span class="hs-identifier hs-type">GroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177291"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupQuery
-</span><a href="#local-6989586621679177292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GroupQuery' :: Text
+</span><a href="#local-6989586621679177302"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177302"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177301"><span class="annot"><span class="annottext">s :: GroupQuery
+</span><a href="#local-6989586621679177301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery%27"><span class="hs-identifier hs-type">GroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177300"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupQuery
+</span><a href="#local-6989586621679177301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GroupQuery' :: Text
 </span><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#%24sel%3AgroupName%3AGroupQuery%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery"><span class="hs-identifier hs-type">GroupQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery"><span class="hs-identifier hs-type">GroupQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The resource query that determines which AWS resources are members of</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- the associated resource group.</span><span>
@@ -151,19 +151,19 @@ $sel:groupName:GroupQuery' :: GroupQuery -&gt; Text
 -&gt; (GroupQuery -&gt; ResourceQuery -&gt; GroupQuery)
 -&gt; Lens GroupQuery GroupQuery ResourceQuery ResourceQuery
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery%27"><span class="hs-identifier hs-type">GroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177289"><span class="annot"><span class="annottext">ResourceQuery
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery%27"><span class="hs-identifier hs-type">GroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177298"><span class="annot"><span class="annottext">ResourceQuery
 resourceQuery :: ResourceQuery
 $sel:resourceQuery:GroupQuery' :: GroupQuery -&gt; ResourceQuery
-</span><a href="#local-6989586621679177289"><span class="hs-identifier hs-var hs-var">resourceQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceQuery
-</span><a href="#local-6989586621679177289"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177288"><span class="annot"><span class="annottext">s :: GroupQuery
-</span><a href="#local-6989586621679177288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery%27"><span class="hs-identifier hs-type">GroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177287"><span class="annot"><span class="annottext">ResourceQuery
-</span><a href="#local-6989586621679177287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupQuery
-</span><a href="#local-6989586621679177288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceQuery:GroupQuery' :: ResourceQuery
+</span><a href="#local-6989586621679177298"><span class="hs-identifier hs-var hs-var">resourceQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceQuery
+</span><a href="#local-6989586621679177298"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177297"><span class="annot"><span class="annottext">s :: GroupQuery
+</span><a href="#local-6989586621679177297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery%27"><span class="hs-identifier hs-type">GroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177296"><span class="annot"><span class="annottext">ResourceQuery
+</span><a href="#local-6989586621679177296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupQuery
+</span><a href="#local-6989586621679177297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceQuery:GroupQuery' :: ResourceQuery
 </span><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#%24sel%3AresourceQuery%3AGroupQuery%27"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceQuery
-</span><a href="#local-6989586621679177287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery"><span class="hs-identifier hs-type">GroupQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery"><span class="hs-identifier hs-type">GroupQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177284"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery"><span class="hs-identifier hs-type">GroupQuery</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679177282"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GroupQuery
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177293"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery"><span class="hs-identifier hs-type">GroupQuery</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679177291"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GroupQuery
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GroupQuery) -&gt; Value -&gt; Parser GroupQuery
@@ -171,15 +171,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GroupQuery&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177279"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177279"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177288"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177288"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; ResourceQuery -&gt; GroupQuery
 </span><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery%27"><span class="hs-identifier hs-var">GroupQuery'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; ResourceQuery -&gt; GroupQuery)
 -&gt; Parser Text -&gt; Parser (ResourceQuery -&gt; GroupQuery)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679177288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span class="hs-special">)</span><span>
@@ -187,13 +187,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ResourceQuery -&gt; Parser GroupQuery
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceQuery
+</span><a href="#local-6989586621679177288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceQuery
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceQuery&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177273"><span id="local-6989586621679177275"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery"><span class="hs-identifier hs-type">GroupQuery</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177282"><span id="local-6989586621679177284"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery"><span class="hs-identifier hs-type">GroupQuery</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177270"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery"><span class="hs-identifier hs-type">GroupQuery</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177279"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupQuery.html#GroupQuery"><span class="hs-identifier hs-type">GroupQuery</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

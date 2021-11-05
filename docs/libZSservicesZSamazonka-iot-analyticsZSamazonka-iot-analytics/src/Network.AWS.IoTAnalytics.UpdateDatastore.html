@@ -46,7 +46,7 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newUpdateDatastore' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679271006"><span id="local-6989586621679271007"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDatastore"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-var">UpdateDatastore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDatastore%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-var">UpdateDatastore'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679271015"><span id="local-6989586621679271016"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDatastore"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-var">UpdateDatastore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDatastore%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-var">UpdateDatastore'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the configuration information of file formats. IoT Analytics</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- data stores support JSON and &lt;https://parquet.apache.org/ Parquet&gt;.</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AdatastoreName%3AUpdateDatastore%27"><span class="annot"><span class="annottext">UpdateDatastore -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#%24sel%3AdatastoreName%3AUpdateDatastore%27"><span class="hs-identifier hs-var hs-var">datastoreName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270997"><span id="local-6989586621679270999"><span class="annot"><span class="annottext">UpdateDatastore -&gt; UpdateDatastore -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271006"><span id="local-6989586621679271008"><span class="annot"><span class="annottext">UpdateDatastore -&gt; UpdateDatastore -&gt; Bool
 (UpdateDatastore -&gt; UpdateDatastore -&gt; Bool)
 -&gt; (UpdateDatastore -&gt; UpdateDatastore -&gt; Bool)
 -&gt; Eq UpdateDatastore
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDatastore -&gt; UpdateDatastore -&gt; Bool
 == :: UpdateDatastore -&gt; UpdateDatastore -&gt; Bool
 $c== :: UpdateDatastore -&gt; UpdateDatastore -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270988"><span id="local-6989586621679270990"><span id="local-6989586621679270992"><span id="local-6989586621679270994"><span class="annot"><span class="annottext">ReadPrec [UpdateDatastore]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270997"><span id="local-6989586621679270999"><span id="local-6989586621679271001"><span id="local-6989586621679271003"><span class="annot"><span class="annottext">ReadPrec [UpdateDatastore]
 ReadPrec UpdateDatastore
 Int -&gt; ReadS UpdateDatastore
 ReadS [UpdateDatastore]
@@ -99,7 +99,7 @@ readList :: ReadS [UpdateDatastore]
 $creadList :: ReadS [UpdateDatastore]
 readsPrec :: Int -&gt; ReadS UpdateDatastore
 $creadsPrec :: Int -&gt; ReadS UpdateDatastore
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270981"><span id="local-6989586621679270983"><span id="local-6989586621679270985"><span class="annot"><span class="annottext">Int -&gt; UpdateDatastore -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270990"><span id="local-6989586621679270992"><span id="local-6989586621679270994"><span class="annot"><span class="annottext">Int -&gt; UpdateDatastore -&gt; ShowS
 [UpdateDatastore] -&gt; ShowS
 UpdateDatastore -&gt; String
 (Int -&gt; UpdateDatastore -&gt; ShowS)
@@ -155,8 +155,8 @@ $cfrom :: forall x. UpdateDatastore -&gt; Rep UpdateDatastore x
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span>
 </span><span id="line-100"></span><span id="newUpdateDatastore"><span class="annot"><span class="annottext">newUpdateDatastore :: Text -&gt; UpdateDatastore
-</span><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#newUpdateDatastore"><span class="hs-identifier hs-var hs-var">newUpdateDatastore</span></a></span></span><span> </span><span id="local-6989586621679270976"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270976"><span class="hs-identifier hs-var">pDatastoreName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#newUpdateDatastore"><span class="hs-identifier hs-var hs-var">newUpdateDatastore</span></a></span></span><span> </span><span id="local-6989586621679270985"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270985"><span class="hs-identifier hs-var">pDatastoreName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">UpdateDatastore' :: Maybe FileFormatConfiguration
 -&gt; Maybe RetentionPeriod
 -&gt; Maybe DatastoreStorage
@@ -178,7 +178,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:datastoreName:UpdateDatastore' :: Text
 </span><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#%24sel%3AdatastoreName%3AUpdateDatastore%27"><span class="hs-identifier hs-var">datastoreName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270976"><span class="hs-identifier hs-var">pDatastoreName_</span></a></span><span>
+</span><a href="#local-6989586621679270985"><span class="hs-identifier hs-var">pDatastoreName_</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | Contains the configuration information of file formats. IoT Analytics</span><span>
@@ -200,16 +200,16 @@ forall a. Maybe a
      (Maybe FileFormatConfiguration)
      (Maybe FileFormatConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270973"><span class="annot"><span class="annottext">Maybe FileFormatConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270982"><span class="annot"><span class="annottext">Maybe FileFormatConfiguration
 fileFormatConfiguration :: Maybe FileFormatConfiguration
 $sel:fileFormatConfiguration:UpdateDatastore' :: UpdateDatastore -&gt; Maybe FileFormatConfiguration
-</span><a href="#local-6989586621679270973"><span class="hs-identifier hs-var hs-var">fileFormatConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileFormatConfiguration
-</span><a href="#local-6989586621679270973"><span class="hs-identifier hs-var">fileFormatConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270972"><span class="annot"><span class="annottext">s :: UpdateDatastore
-</span><a href="#local-6989586621679270972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270971"><span class="annot"><span class="annottext">Maybe FileFormatConfiguration
-</span><a href="#local-6989586621679270971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDatastore
-</span><a href="#local-6989586621679270972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileFormatConfiguration:UpdateDatastore' :: Maybe FileFormatConfiguration
+</span><a href="#local-6989586621679270982"><span class="hs-identifier hs-var hs-var">fileFormatConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileFormatConfiguration
+</span><a href="#local-6989586621679270982"><span class="hs-identifier hs-var">fileFormatConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270981"><span class="annot"><span class="annottext">s :: UpdateDatastore
+</span><a href="#local-6989586621679270981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270980"><span class="annot"><span class="annottext">Maybe FileFormatConfiguration
+</span><a href="#local-6989586621679270980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDatastore
+</span><a href="#local-6989586621679270981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileFormatConfiguration:UpdateDatastore' :: Maybe FileFormatConfiguration
 </span><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#%24sel%3AfileFormatConfiguration%3AUpdateDatastore%27"><span class="hs-identifier hs-var">fileFormatConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileFormatConfiguration
-</span><a href="#local-6989586621679270971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | How long, in days, message data is kept for the data store. The</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- retention period can\'t be updated if the data store\'s Amazon S3</span><span>
@@ -225,16 +225,16 @@ $sel:fileFormatConfiguration:UpdateDatastore' :: UpdateDatastore -&gt; Maybe Fil
      (Maybe RetentionPeriod)
      (Maybe RetentionPeriod)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270970"><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270979"><span class="annot"><span class="annottext">Maybe RetentionPeriod
 retentionPeriod :: Maybe RetentionPeriod
 $sel:retentionPeriod:UpdateDatastore' :: UpdateDatastore -&gt; Maybe RetentionPeriod
-</span><a href="#local-6989586621679270970"><span class="hs-identifier hs-var hs-var">retentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679270970"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270969"><span class="annot"><span class="annottext">s :: UpdateDatastore
-</span><a href="#local-6989586621679270969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270968"><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679270968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDatastore
-</span><a href="#local-6989586621679270969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriod:UpdateDatastore' :: Maybe RetentionPeriod
+</span><a href="#local-6989586621679270979"><span class="hs-identifier hs-var hs-var">retentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><a href="#local-6989586621679270979"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270978"><span class="annot"><span class="annottext">s :: UpdateDatastore
+</span><a href="#local-6989586621679270978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270977"><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><a href="#local-6989586621679270977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDatastore
+</span><a href="#local-6989586621679270978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriod:UpdateDatastore' :: Maybe RetentionPeriod
 </span><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#%24sel%3AretentionPeriod%3AUpdateDatastore%27"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679270968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | Where data in a data store is stored.. You can choose @serviceManagedS3@</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- storage, @customerManagedS3@ storage, or @iotSiteWiseMultiLayerStorage@</span><span>
@@ -251,16 +251,16 @@ $sel:retentionPeriod:UpdateDatastore' :: UpdateDatastore -&gt; Maybe RetentionPe
      (Maybe DatastoreStorage)
      (Maybe DatastoreStorage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270967"><span class="annot"><span class="annottext">Maybe DatastoreStorage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270976"><span class="annot"><span class="annottext">Maybe DatastoreStorage
 datastoreStorage :: Maybe DatastoreStorage
 $sel:datastoreStorage:UpdateDatastore' :: UpdateDatastore -&gt; Maybe DatastoreStorage
-</span><a href="#local-6989586621679270967"><span class="hs-identifier hs-var hs-var">datastoreStorage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreStorage
-</span><a href="#local-6989586621679270967"><span class="hs-identifier hs-var">datastoreStorage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270966"><span class="annot"><span class="annottext">s :: UpdateDatastore
-</span><a href="#local-6989586621679270966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270965"><span class="annot"><span class="annottext">Maybe DatastoreStorage
-</span><a href="#local-6989586621679270965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDatastore
-</span><a href="#local-6989586621679270966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreStorage:UpdateDatastore' :: Maybe DatastoreStorage
+</span><a href="#local-6989586621679270976"><span class="hs-identifier hs-var hs-var">datastoreStorage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreStorage
+</span><a href="#local-6989586621679270976"><span class="hs-identifier hs-var">datastoreStorage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270975"><span class="annot"><span class="annottext">s :: UpdateDatastore
+</span><a href="#local-6989586621679270975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270974"><span class="annot"><span class="annottext">Maybe DatastoreStorage
+</span><a href="#local-6989586621679270974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDatastore
+</span><a href="#local-6989586621679270975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreStorage:UpdateDatastore' :: Maybe DatastoreStorage
 </span><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#%24sel%3AdatastoreStorage%3AUpdateDatastore%27"><span class="hs-identifier hs-var">datastoreStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreStorage
-</span><a href="#local-6989586621679270965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The name of the data store to be updated.</span><span>
 </span><span id="line-132"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#updateDatastore_datastoreName"><span class="hs-identifier hs-type">updateDatastore_datastoreName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -269,27 +269,27 @@ $sel:datastoreStorage:UpdateDatastore' :: UpdateDatastore -&gt; Maybe DatastoreS
 -&gt; (UpdateDatastore -&gt; Text -&gt; UpdateDatastore)
 -&gt; Lens UpdateDatastore UpdateDatastore Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270964"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270973"><span class="annot"><span class="annottext">Text
 datastoreName :: Text
 $sel:datastoreName:UpdateDatastore' :: UpdateDatastore -&gt; Text
-</span><a href="#local-6989586621679270964"><span class="hs-identifier hs-var hs-var">datastoreName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270964"><span class="hs-identifier hs-var">datastoreName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270963"><span class="annot"><span class="annottext">s :: UpdateDatastore
-</span><a href="#local-6989586621679270963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270962"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDatastore
-</span><a href="#local-6989586621679270963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreName:UpdateDatastore' :: Text
+</span><a href="#local-6989586621679270973"><span class="hs-identifier hs-var hs-var">datastoreName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270973"><span class="hs-identifier hs-var">datastoreName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270972"><span class="annot"><span class="annottext">s :: UpdateDatastore
+</span><a href="#local-6989586621679270972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270971"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDatastore
+</span><a href="#local-6989586621679270972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreName:UpdateDatastore' :: Text
 </span><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#%24sel%3AdatastoreName%3AUpdateDatastore%27"><span class="hs-identifier hs-var">datastoreName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-137"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastoreResponse"><span class="hs-identifier hs-type">UpdateDatastoreResponse</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679270958"><span class="annot"><span class="annottext">request :: UpdateDatastore -&gt; Request UpdateDatastore
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679270967"><span class="annot"><span class="annottext">request :: UpdateDatastore -&gt; Request UpdateDatastore
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDatastore -&gt; Request UpdateDatastore
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679270954"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679270963"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateDatastore
 -&gt; ClientResponse ClientBody
@@ -313,21 +313,21 @@ AWSResponse a
 UpdateDatastoreResponse
 </span><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastoreResponse%27"><span class="hs-identifier hs-var">UpdateDatastoreResponse'</span></a></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270947"><span id="local-6989586621679270949"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270956"><span id="local-6989586621679270958"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270944"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679270940"><span class="annot"><span class="annottext">toHeaders :: UpdateDatastore -&gt; [Header]
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679270949"><span class="annot"><span class="annottext">toHeaders :: UpdateDatastore -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateDatastore -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270931"><span id="local-6989586621679270933"><span id="local-6989586621679270935"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679270929"><span class="annot"><span class="annottext">toJSON :: UpdateDatastore -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270924"><span id="local-6989586621679270925"><span id="local-6989586621679270926"><span id="local-6989586621679270927"><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270940"><span id="local-6989586621679270942"><span id="local-6989586621679270944"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679270938"><span class="annot"><span class="annottext">toJSON :: UpdateDatastore -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270933"><span id="local-6989586621679270934"><span id="local-6989586621679270935"><span id="local-6989586621679270936"><span class="annot"><span class="annottext">Maybe RetentionPeriod
 Maybe FileFormatConfiguration
 Maybe DatastoreStorage
 Text
@@ -339,7 +339,7 @@ $sel:datastoreName:UpdateDatastore' :: UpdateDatastore -&gt; Text
 $sel:datastoreStorage:UpdateDatastore' :: UpdateDatastore -&gt; Maybe DatastoreStorage
 $sel:retentionPeriod:UpdateDatastore' :: UpdateDatastore -&gt; Maybe RetentionPeriod
 $sel:fileFormatConfiguration:UpdateDatastore' :: UpdateDatastore -&gt; Maybe FileFormatConfiguration
-</span><a href="#local-6989586621679270924"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679270933"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -353,7 +353,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe FileFormatConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FileFormatConfiguration
-</span><a href="#local-6989586621679270927"><span class="hs-identifier hs-var">fileFormatConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270936"><span class="hs-identifier hs-var">fileFormatConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;retentionPeriod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RetentionPeriod -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -361,7 +361,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">(RetentionPeriod -&gt; Pair) -&gt; Maybe RetentionPeriod -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679270926"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270935"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;datastoreStorage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DatastoreStorage -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -369,13 +369,13 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">(DatastoreStorage -&gt; Pair) -&gt; Maybe DatastoreStorage -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreStorage
-</span><a href="#local-6989586621679270925"><span class="hs-identifier hs-var">datastoreStorage</span></a></span><span>
+</span><a href="#local-6989586621679270934"><span class="hs-identifier hs-var">datastoreStorage</span></a></span><span>
 </span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679270917"><span class="annot"><span class="annottext">toPath :: UpdateDatastore -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270912"><span id="local-6989586621679270913"><span id="local-6989586621679270914"><span id="local-6989586621679270915"><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679270926"><span class="annot"><span class="annottext">toPath :: UpdateDatastore -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore%27"><span class="hs-identifier hs-type">UpdateDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270921"><span id="local-6989586621679270922"><span id="local-6989586621679270923"><span id="local-6989586621679270924"><span class="annot"><span class="annottext">Maybe RetentionPeriod
 Maybe FileFormatConfiguration
 Maybe DatastoreStorage
 Text
@@ -387,7 +387,7 @@ $sel:datastoreName:UpdateDatastore' :: UpdateDatastore -&gt; Text
 $sel:datastoreStorage:UpdateDatastore' :: UpdateDatastore -&gt; Maybe DatastoreStorage
 $sel:retentionPeriod:UpdateDatastore' :: UpdateDatastore -&gt; Maybe RetentionPeriod
 $sel:fileFormatConfiguration:UpdateDatastore' :: UpdateDatastore -&gt; Maybe FileFormatConfiguration
-</span><a href="#local-6989586621679270912"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679270921"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -395,10 +395,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/datastores/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270912"><span class="hs-identifier hs-var">datastoreName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679270921"><span class="hs-identifier hs-var">datastoreName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastore"><span class="hs-identifier hs-type">UpdateDatastore</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679270908"><span class="annot"><span class="annottext">toQuery :: UpdateDatastore -&gt; QueryString
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679270917"><span class="annot"><span class="annottext">toQuery :: UpdateDatastore -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDatastore -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -406,10 +406,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | /See:/ 'newUpdateDatastoreResponse' smart constructor.</span><span>
-</span><span id="line-172"></span><span id="local-6989586621679270905"><span id="local-6989586621679270906"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDatastoreResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastoreResponse"><span class="hs-identifier hs-var">UpdateDatastoreResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDatastoreResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastoreResponse%27"><span class="hs-identifier hs-var">UpdateDatastoreResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span id="local-6989586621679270914"><span id="local-6989586621679270915"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDatastoreResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastoreResponse"><span class="hs-identifier hs-var">UpdateDatastoreResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDatastoreResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastoreResponse%27"><span class="hs-identifier hs-var">UpdateDatastoreResponse'</span></a></span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270901"><span id="local-6989586621679270903"><span class="annot"><span class="annottext">UpdateDatastoreResponse -&gt; UpdateDatastoreResponse -&gt; Bool
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270910"><span id="local-6989586621679270912"><span class="annot"><span class="annottext">UpdateDatastoreResponse -&gt; UpdateDatastoreResponse -&gt; Bool
 (UpdateDatastoreResponse -&gt; UpdateDatastoreResponse -&gt; Bool)
 -&gt; (UpdateDatastoreResponse -&gt; UpdateDatastoreResponse -&gt; Bool)
 -&gt; Eq UpdateDatastoreResponse
@@ -418,7 +418,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDatastoreResponse -&gt; UpdateDatastoreResponse -&gt; Bool
 == :: UpdateDatastoreResponse -&gt; UpdateDatastoreResponse -&gt; Bool
 $c== :: UpdateDatastoreResponse -&gt; UpdateDatastoreResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270893"><span id="local-6989586621679270895"><span id="local-6989586621679270897"><span id="local-6989586621679270899"><span class="annot"><span class="annottext">ReadPrec [UpdateDatastoreResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270902"><span id="local-6989586621679270904"><span id="local-6989586621679270906"><span id="local-6989586621679270908"><span class="annot"><span class="annottext">ReadPrec [UpdateDatastoreResponse]
 ReadPrec UpdateDatastoreResponse
 Int -&gt; ReadS UpdateDatastoreResponse
 ReadS [UpdateDatastoreResponse]
@@ -438,7 +438,7 @@ readList :: ReadS [UpdateDatastoreResponse]
 $creadList :: ReadS [UpdateDatastoreResponse]
 readsPrec :: Int -&gt; ReadS UpdateDatastoreResponse
 $creadsPrec :: Int -&gt; ReadS UpdateDatastoreResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270887"><span id="local-6989586621679270889"><span id="local-6989586621679270891"><span class="annot"><span class="annottext">Int -&gt; UpdateDatastoreResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270896"><span id="local-6989586621679270898"><span id="local-6989586621679270900"><span class="annot"><span class="annottext">Int -&gt; UpdateDatastoreResponse -&gt; ShowS
 [UpdateDatastoreResponse] -&gt; ShowS
 UpdateDatastoreResponse -&gt; String
 (Int -&gt; UpdateDatastoreResponse -&gt; ShowS)
@@ -476,5 +476,5 @@ $cfrom :: forall x. UpdateDatastoreResponse -&gt; Rep UpdateDatastoreResponse x
 </span><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#newUpdateDatastoreResponse"><span class="hs-identifier hs-var hs-var">newUpdateDatastoreResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateDatastoreResponse
 </span><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastoreResponse%27"><span class="hs-identifier hs-var">UpdateDatastoreResponse'</span></a></span><span>
 </span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastoreResponse"><span class="hs-identifier hs-type">UpdateDatastoreResponse</span></a></span></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270892"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDatastore.html#UpdateDatastoreResponse"><span class="hs-identifier hs-type">UpdateDatastoreResponse</span></a></span></span><span>
 </span><span id="line-186"></span></pre></body></html>

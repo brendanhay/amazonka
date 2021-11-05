@@ -28,14 +28,14 @@
 </span><span id="line-28"></span><span class="hs-comment">-- is @0@ hours.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSnapshotOptions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679301852"><span id="local-6989586621679301853"></span></span><span class="hs-keyword">data</span><span> </span><span id="SnapshotOptions"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions"><span class="hs-identifier hs-var">SnapshotOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SnapshotOptions%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions%27"><span class="hs-identifier hs-var">SnapshotOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679301861"><span id="local-6989586621679301862"></span></span><span class="hs-keyword">data</span><span> </span><span id="SnapshotOptions"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions"><span class="hs-identifier hs-var">SnapshotOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SnapshotOptions%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions%27"><span class="hs-identifier hs-var">SnapshotOptions'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the time, in UTC format, when the service takes a daily</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- automated snapshot of the specified Elasticsearch domain. Default value</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- is @0@ hours.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AautomatedSnapshotStartHour%3ASnapshotOptions%27"><span class="annot"><span class="annottext">SnapshotOptions -&gt; Maybe Int
 </span><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#%24sel%3AautomatedSnapshotStartHour%3ASnapshotOptions%27"><span class="hs-identifier hs-var hs-var">automatedSnapshotStartHour</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301846"><span id="local-6989586621679301848"><span class="annot"><span class="annottext">SnapshotOptions -&gt; SnapshotOptions -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301855"><span id="local-6989586621679301857"><span class="annot"><span class="annottext">SnapshotOptions -&gt; SnapshotOptions -&gt; Bool
 (SnapshotOptions -&gt; SnapshotOptions -&gt; Bool)
 -&gt; (SnapshotOptions -&gt; SnapshotOptions -&gt; Bool)
 -&gt; Eq SnapshotOptions
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SnapshotOptions -&gt; SnapshotOptions -&gt; Bool
 == :: SnapshotOptions -&gt; SnapshotOptions -&gt; Bool
 $c== :: SnapshotOptions -&gt; SnapshotOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301837"><span id="local-6989586621679301839"><span id="local-6989586621679301841"><span id="local-6989586621679301843"><span class="annot"><span class="annottext">ReadPrec [SnapshotOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301846"><span id="local-6989586621679301848"><span id="local-6989586621679301850"><span id="local-6989586621679301852"><span class="annot"><span class="annottext">ReadPrec [SnapshotOptions]
 ReadPrec SnapshotOptions
 Int -&gt; ReadS SnapshotOptions
 ReadS [SnapshotOptions]
@@ -64,7 +64,7 @@ readList :: ReadS [SnapshotOptions]
 $creadList :: ReadS [SnapshotOptions]
 readsPrec :: Int -&gt; ReadS SnapshotOptions
 $creadsPrec :: Int -&gt; ReadS SnapshotOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301830"><span id="local-6989586621679301832"><span id="local-6989586621679301834"><span class="annot"><span class="annottext">Int -&gt; SnapshotOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301839"><span id="local-6989586621679301841"><span id="local-6989586621679301843"><span class="annot"><span class="annottext">Int -&gt; SnapshotOptions -&gt; ShowS
 [SnapshotOptions] -&gt; ShowS
 SnapshotOptions -&gt; String
 (Int -&gt; SnapshotOptions -&gt; ShowS)
@@ -124,19 +124,19 @@ forall a. Maybe a
 -&gt; (SnapshotOptions -&gt; Maybe Int -&gt; SnapshotOptions)
 -&gt; Lens SnapshotOptions SnapshotOptions (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions%27"><span class="hs-identifier hs-type">SnapshotOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301821"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions%27"><span class="hs-identifier hs-type">SnapshotOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301830"><span class="annot"><span class="annottext">Maybe Int
 automatedSnapshotStartHour :: Maybe Int
 $sel:automatedSnapshotStartHour:SnapshotOptions' :: SnapshotOptions -&gt; Maybe Int
-</span><a href="#local-6989586621679301821"><span class="hs-identifier hs-var hs-var">automatedSnapshotStartHour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679301821"><span class="hs-identifier hs-var">automatedSnapshotStartHour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301820"><span class="annot"><span class="annottext">s :: SnapshotOptions
-</span><a href="#local-6989586621679301820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions%27"><span class="hs-identifier hs-type">SnapshotOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301819"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679301819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotOptions
-</span><a href="#local-6989586621679301820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:automatedSnapshotStartHour:SnapshotOptions' :: Maybe Int
+</span><a href="#local-6989586621679301830"><span class="hs-identifier hs-var hs-var">automatedSnapshotStartHour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679301830"><span class="hs-identifier hs-var">automatedSnapshotStartHour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301829"><span class="annot"><span class="annottext">s :: SnapshotOptions
+</span><a href="#local-6989586621679301829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions%27"><span class="hs-identifier hs-type">SnapshotOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301828"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679301828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotOptions
+</span><a href="#local-6989586621679301829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:automatedSnapshotStartHour:SnapshotOptions' :: Maybe Int
 </span><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#%24sel%3AautomatedSnapshotStartHour%3ASnapshotOptions%27"><span class="hs-identifier hs-var">automatedSnapshotStartHour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679301819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions"><span class="hs-identifier hs-type">SnapshotOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions"><span class="hs-identifier hs-type">SnapshotOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301816"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions"><span class="hs-identifier hs-type">SnapshotOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679301814"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SnapshotOptions
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301825"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions"><span class="hs-identifier hs-type">SnapshotOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679301823"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SnapshotOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SnapshotOptions)
@@ -146,30 +146,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SnapshotOptions&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301811"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301811"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301820"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301820"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; SnapshotOptions
 </span><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions%27"><span class="hs-identifier hs-var">SnapshotOptions'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; SnapshotOptions)
 -&gt; Parser (Maybe Int) -&gt; Parser SnapshotOptions
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679301820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AutomatedSnapshotStartHour&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301805"><span id="local-6989586621679301807"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions"><span class="hs-identifier hs-type">SnapshotOptions</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301814"><span id="local-6989586621679301816"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions"><span class="hs-identifier hs-type">SnapshotOptions</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301802"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions"><span class="hs-identifier hs-type">SnapshotOptions</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301811"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions"><span class="hs-identifier hs-type">SnapshotOptions</span></a></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301794"><span id="local-6989586621679301796"><span id="local-6989586621679301798"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions"><span class="hs-identifier hs-type">SnapshotOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679301792"><span class="annot"><span class="annottext">toJSON :: SnapshotOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions%27"><span class="hs-identifier hs-type">SnapshotOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301790"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301803"><span id="local-6989586621679301805"><span id="local-6989586621679301807"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions"><span class="hs-identifier hs-type">SnapshotOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679301801"><span class="annot"><span class="annottext">toJSON :: SnapshotOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SnapshotOptions.html#SnapshotOptions%27"><span class="hs-identifier hs-type">SnapshotOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301799"><span class="annot"><span class="annottext">Maybe Int
 automatedSnapshotStartHour :: Maybe Int
 $sel:automatedSnapshotStartHour:SnapshotOptions' :: SnapshotOptions -&gt; Maybe Int
-</span><a href="#local-6989586621679301790"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679301799"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -182,7 +182,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-82"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679301790"><span class="hs-identifier hs-var">automatedSnapshotStartHour</span></a></span><span>
+</span><a href="#local-6989586621679301799"><span class="hs-identifier hs-var">automatedSnapshotStartHour</span></a></span><span>
 </span><span id="line-83"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span></pre></body></html>

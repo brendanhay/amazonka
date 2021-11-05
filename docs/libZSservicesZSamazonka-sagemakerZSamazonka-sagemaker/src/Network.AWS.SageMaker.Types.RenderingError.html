@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A description of an error that occurred while rendering the template.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRenderingError' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680337276"><span id="local-6989586621680337277"></span></span><span class="hs-keyword">data</span><span> </span><span id="RenderingError"><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-var">RenderingError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenderingError%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError%27"><span class="hs-identifier hs-var">RenderingError'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680337285"><span id="local-6989586621680337286"></span></span><span class="hs-keyword">data</span><span> </span><span id="RenderingError"><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-var">RenderingError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenderingError%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError%27"><span class="hs-identifier hs-var">RenderingError'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for a specific class of errors.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Acode%3ARenderingError%27"><span class="annot"><span class="annottext">RenderingError -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.RenderingError.html#%24sel%3Acode%3ARenderingError%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Amessage%3ARenderingError%27"><span class="annot"><span class="annottext">RenderingError -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.RenderingError.html#%24sel%3Amessage%3ARenderingError%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680337269"><span id="local-6989586621680337271"><span class="annot"><span class="annottext">RenderingError -&gt; RenderingError -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680337278"><span id="local-6989586621680337280"><span class="annot"><span class="annottext">RenderingError -&gt; RenderingError -&gt; Bool
 (RenderingError -&gt; RenderingError -&gt; Bool)
 -&gt; (RenderingError -&gt; RenderingError -&gt; Bool) -&gt; Eq RenderingError
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RenderingError -&gt; RenderingError -&gt; Bool
 == :: RenderingError -&gt; RenderingError -&gt; Bool
 $c== :: RenderingError -&gt; RenderingError -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680337260"><span id="local-6989586621680337262"><span id="local-6989586621680337264"><span id="local-6989586621680337266"><span class="annot"><span class="annottext">ReadPrec [RenderingError]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680337269"><span id="local-6989586621680337271"><span id="local-6989586621680337273"><span id="local-6989586621680337275"><span class="annot"><span class="annottext">ReadPrec [RenderingError]
 ReadPrec RenderingError
 Int -&gt; ReadS RenderingError
 ReadS [RenderingError]
@@ -62,7 +62,7 @@ readList :: ReadS [RenderingError]
 $creadList :: ReadS [RenderingError]
 readsPrec :: Int -&gt; ReadS RenderingError
 $creadsPrec :: Int -&gt; ReadS RenderingError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680337253"><span id="local-6989586621680337255"><span id="local-6989586621680337257"><span class="annot"><span class="annottext">Int -&gt; RenderingError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680337262"><span id="local-6989586621680337264"><span id="local-6989586621680337266"><span class="annot"><span class="annottext">Int -&gt; RenderingError -&gt; ShowS
 [RenderingError] -&gt; ShowS
 RenderingError -&gt; String
 (Int -&gt; RenderingError -&gt; ShowS)
@@ -106,15 +106,15 @@ $cfrom :: forall x. RenderingError -&gt; Rep RenderingError x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-type">RenderingError</span></a></span><span>
 </span><span id="line-54"></span><span id="newRenderingError"><span class="annot"><span class="annottext">newRenderingError :: Text -&gt; Text -&gt; RenderingError
-</span><a href="Network.AWS.SageMaker.Types.RenderingError.html#newRenderingError"><span class="hs-identifier hs-var hs-var">newRenderingError</span></a></span></span><span> </span><span id="local-6989586621680337247"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680337247"><span class="hs-identifier hs-var">pCode_</span></a></span></span><span> </span><span id="local-6989586621680337246"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680337246"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.RenderingError.html#newRenderingError"><span class="hs-identifier hs-var hs-var">newRenderingError</span></a></span></span><span> </span><span id="local-6989586621680337256"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680337256"><span class="hs-identifier hs-var">pCode_</span></a></span></span><span> </span><span id="local-6989586621680337255"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680337255"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">RenderingError' :: Text -&gt; Text -&gt; RenderingError
 </span><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError%27"><span class="hs-identifier hs-type">RenderingError'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:RenderingError' :: Text
 </span><a href="Network.AWS.SageMaker.Types.RenderingError.html#%24sel%3Acode%3ARenderingError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680337247"><span class="hs-identifier hs-var">pCode_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:message:RenderingError' :: Text
+</span><a href="#local-6989586621680337256"><span class="hs-identifier hs-var">pCode_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:message:RenderingError' :: Text
 </span><a href="Network.AWS.SageMaker.Types.RenderingError.html#%24sel%3Amessage%3ARenderingError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680337246"><span class="hs-identifier hs-var">pMessage_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680337255"><span class="hs-identifier hs-var">pMessage_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | A unique identifier for a specific class of errors.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#renderingError_code"><span class="hs-identifier hs-type">renderingError_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-type">RenderingError</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -123,16 +123,16 @@ $cfrom :: forall x. RenderingError -&gt; Rep RenderingError x
 -&gt; (RenderingError -&gt; Text -&gt; RenderingError)
 -&gt; Lens RenderingError RenderingError Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError%27"><span class="hs-identifier hs-type">RenderingError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337242"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError%27"><span class="hs-identifier hs-type">RenderingError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337251"><span class="annot"><span class="annottext">Text
 code :: Text
 $sel:code:RenderingError' :: RenderingError -&gt; Text
-</span><a href="#local-6989586621680337242"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680337242"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337241"><span class="annot"><span class="annottext">s :: RenderingError
-</span><a href="#local-6989586621680337241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError%27"><span class="hs-identifier hs-type">RenderingError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337240"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680337240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenderingError
-</span><a href="#local-6989586621680337241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:RenderingError' :: Text
+</span><a href="#local-6989586621680337251"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680337251"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337250"><span class="annot"><span class="annottext">s :: RenderingError
+</span><a href="#local-6989586621680337250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError%27"><span class="hs-identifier hs-type">RenderingError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337249"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680337249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenderingError
+</span><a href="#local-6989586621680337250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:RenderingError' :: Text
 </span><a href="Network.AWS.SageMaker.Types.RenderingError.html#%24sel%3Acode%3ARenderingError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680337240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-type">RenderingError</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680337249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-type">RenderingError</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | A human-readable message describing the error.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#renderingError_message"><span class="hs-identifier hs-type">renderingError_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-type">RenderingError</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -141,19 +141,19 @@ $sel:code:RenderingError' :: RenderingError -&gt; Text
 -&gt; (RenderingError -&gt; Text -&gt; RenderingError)
 -&gt; Lens RenderingError RenderingError Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError%27"><span class="hs-identifier hs-type">RenderingError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337238"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError%27"><span class="hs-identifier hs-type">RenderingError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337247"><span class="annot"><span class="annottext">Text
 message :: Text
 $sel:message:RenderingError' :: RenderingError -&gt; Text
-</span><a href="#local-6989586621680337238"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680337238"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337237"><span class="annot"><span class="annottext">s :: RenderingError
-</span><a href="#local-6989586621680337237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError%27"><span class="hs-identifier hs-type">RenderingError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337236"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680337236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenderingError
-</span><a href="#local-6989586621680337237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:RenderingError' :: Text
+</span><a href="#local-6989586621680337247"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680337247"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337246"><span class="annot"><span class="annottext">s :: RenderingError
+</span><a href="#local-6989586621680337246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError%27"><span class="hs-identifier hs-type">RenderingError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337245"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680337245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenderingError
+</span><a href="#local-6989586621680337246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:RenderingError' :: Text
 </span><a href="Network.AWS.SageMaker.Types.RenderingError.html#%24sel%3Amessage%3ARenderingError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680337236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-type">RenderingError</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680337245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-type">RenderingError</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337233"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-type">RenderingError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621680337231"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RenderingError
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337242"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-type">RenderingError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621680337240"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RenderingError
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RenderingError)
@@ -163,28 +163,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RenderingError&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680337228"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680337228"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680337237"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680337237"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; RenderingError
 </span><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError%27"><span class="hs-identifier hs-var">RenderingError'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; RenderingError)
 -&gt; Parser Text -&gt; Parser (Text -&gt; RenderingError)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680337228"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680337237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Code&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; RenderingError)
 -&gt; Parser Text -&gt; Parser RenderingError
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680337228"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680337237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337222"><span id="local-6989586621680337224"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-type">RenderingError</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337231"><span id="local-6989586621680337233"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-type">RenderingError</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-type">RenderingError</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RenderingError.html#RenderingError"><span class="hs-identifier hs-type">RenderingError</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- | When encoding 3\/2 audio, sets whether an extra center back surround</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- channel is matrix encoded into the left and right surround channels.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679963638"><span id="local-6989586621679963639"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3SurroundExMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3SurroundExMode.html#Eac3SurroundExMode"><span class="hs-identifier hs-var">Eac3SurroundExMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3SurroundExMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3SurroundExMode.html#Eac3SurroundExMode%27"><span class="hs-identifier hs-var">Eac3SurroundExMode'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679963647"><span id="local-6989586621679963648"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3SurroundExMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3SurroundExMode.html#Eac3SurroundExMode"><span class="hs-identifier hs-var">Eac3SurroundExMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3SurroundExMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3SurroundExMode.html#Eac3SurroundExMode%27"><span class="hs-identifier hs-var">Eac3SurroundExMode'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3SurroundExMode"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Eac3SurroundExMode.html#fromEac3SurroundExMode"><span class="hs-identifier hs-var hs-var">fromEac3SurroundExMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679963630"><span id="local-6989586621679963632"><span id="local-6989586621679963634"><span class="annot"><span class="annottext">Int -&gt; Eac3SurroundExMode -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679963639"><span id="local-6989586621679963641"><span id="local-6989586621679963643"><span class="annot"><span class="annottext">Int -&gt; Eac3SurroundExMode -&gt; ShowS
 [Eac3SurroundExMode] -&gt; ShowS
 Eac3SurroundExMode -&gt; String
 (Int -&gt; Eac3SurroundExMode -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: Eac3SurroundExMode -&gt; String
 showsPrec :: Int -&gt; Eac3SurroundExMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; Eac3SurroundExMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679963621"><span id="local-6989586621679963623"><span id="local-6989586621679963625"><span id="local-6989586621679963627"><span class="annot"><span class="annottext">ReadPrec [Eac3SurroundExMode]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679963630"><span id="local-6989586621679963632"><span id="local-6989586621679963634"><span id="local-6989586621679963636"><span class="annot"><span class="annottext">ReadPrec [Eac3SurroundExMode]
 ReadPrec Eac3SurroundExMode
 Int -&gt; ReadS Eac3SurroundExMode
 ReadS [Eac3SurroundExMode]
@@ -75,7 +75,7 @@ $creadList :: ReadS [Eac3SurroundExMode]
 readsPrec :: Int -&gt; ReadS Eac3SurroundExMode
 $creadsPrec :: Int -&gt; ReadS Eac3SurroundExMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679963616"><span id="local-6989586621679963618"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; Eac3SurroundExMode -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679963625"><span id="local-6989586621679963627"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; Eac3SurroundExMode -&gt; Bool
 (Eac3SurroundExMode -&gt; Eac3SurroundExMode -&gt; Bool)
 -&gt; (Eac3SurroundExMode -&gt; Eac3SurroundExMode -&gt; Bool)
 -&gt; Eq Eac3SurroundExMode
@@ -85,7 +85,7 @@ $c/= :: Eac3SurroundExMode -&gt; Eac3SurroundExMode -&gt; Bool
 == :: Eac3SurroundExMode -&gt; Eac3SurroundExMode -&gt; Bool
 $c== :: Eac3SurroundExMode -&gt; Eac3SurroundExMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679963600"><span id="local-6989586621679963602"><span id="local-6989586621679963604"><span id="local-6989586621679963606"><span id="local-6989586621679963608"><span id="local-6989586621679963610"><span id="local-6989586621679963612"><span class="annot"><span class="annottext">Eq Eac3SurroundExMode
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679963609"><span id="local-6989586621679963611"><span id="local-6989586621679963613"><span id="local-6989586621679963615"><span id="local-6989586621679963617"><span id="local-6989586621679963619"><span id="local-6989586621679963621"><span class="annot"><span class="annottext">Eq Eac3SurroundExMode
 Eq Eac3SurroundExMode
 -&gt; (Eac3SurroundExMode -&gt; Eac3SurroundExMode -&gt; Ordering)
 -&gt; (Eac3SurroundExMode -&gt; Eac3SurroundExMode -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. Eac3SurroundExMode -&gt; Rep Eac3SurroundExMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679963592"><span id="local-6989586621679963594"><span class="annot"><span class="annottext">Int -&gt; Eac3SurroundExMode -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679963601"><span id="local-6989586621679963603"><span class="annot"><span class="annottext">Int -&gt; Eac3SurroundExMode -&gt; Int
 Eac3SurroundExMode -&gt; Int
 (Int -&gt; Eac3SurroundExMode -&gt; Int)
 -&gt; (Eac3SurroundExMode -&gt; Int) -&gt; Hashable Eac3SurroundExMode
@@ -146,53 +146,53 @@ $chash :: Eac3SurroundExMode -&gt; Int
 hashWithSalt :: Int -&gt; Eac3SurroundExMode -&gt; Int
 $chashWithSalt :: Int -&gt; Eac3SurroundExMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679963589"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679963598"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; ()
 (Eac3SurroundExMode -&gt; ()) -&gt; NFData Eac3SurroundExMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Eac3SurroundExMode -&gt; ()
 $crnf :: Eac3SurroundExMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679963586"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3SurroundExMode
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679963595"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3SurroundExMode
 (Text -&gt; Either String Eac3SurroundExMode)
 -&gt; FromText Eac3SurroundExMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Eac3SurroundExMode
 $cfromText :: Text -&gt; Either String Eac3SurroundExMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679963583"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679963592"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; Text
 (Eac3SurroundExMode -&gt; Text) -&gt; ToText Eac3SurroundExMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Eac3SurroundExMode -&gt; Text
 $ctoText :: Eac3SurroundExMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679963580"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679963589"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; ByteString
 (Eac3SurroundExMode -&gt; ByteString)
 -&gt; ToByteString Eac3SurroundExMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Eac3SurroundExMode -&gt; ByteString
 $ctoBS :: Eac3SurroundExMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679963577"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679963586"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; ByteStringBuilder
 (Eac3SurroundExMode -&gt; ByteStringBuilder)
 -&gt; ToLog Eac3SurroundExMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Eac3SurroundExMode -&gt; ByteStringBuilder
 $cbuild :: Eac3SurroundExMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679963574"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3SurroundExMode -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679963583"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3SurroundExMode -&gt; [Header]
 (HeaderName -&gt; Eac3SurroundExMode -&gt; [Header])
 -&gt; ToHeader Eac3SurroundExMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Eac3SurroundExMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Eac3SurroundExMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679963571"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679963580"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; QueryString
 (Eac3SurroundExMode -&gt; QueryString) -&gt; ToQuery Eac3SurroundExMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Eac3SurroundExMode -&gt; QueryString
 $ctoQuery :: Eac3SurroundExMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679963566"><span id="local-6989586621679963568"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3SurroundExMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679963575"><span id="local-6989586621679963577"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3SurroundExMode]
 Value -&gt; Parser Eac3SurroundExMode
 (Value -&gt; Parser Eac3SurroundExMode)
 -&gt; (Value -&gt; Parser [Eac3SurroundExMode])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [Eac3SurroundExMode]
 parseJSON :: Value -&gt; Parser Eac3SurroundExMode
 $cparseJSON :: Value -&gt; Parser Eac3SurroundExMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679963561"><span id="local-6989586621679963563"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3SurroundExMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679963570"><span id="local-6989586621679963572"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3SurroundExMode]
 FromJSONKeyFunction Eac3SurroundExMode
 FromJSONKeyFunction Eac3SurroundExMode
 -&gt; FromJSONKeyFunction [Eac3SurroundExMode]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Eac3SurroundExMode]
 fromJSONKey :: FromJSONKeyFunction Eac3SurroundExMode
 $cfromJSONKey :: FromJSONKeyFunction Eac3SurroundExMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679963552"><span id="local-6989586621679963554"><span id="local-6989586621679963556"><span id="local-6989586621679963558"><span class="annot"><span class="annottext">[Eac3SurroundExMode] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679963561"><span id="local-6989586621679963563"><span id="local-6989586621679963565"><span id="local-6989586621679963567"><span class="annot"><span class="annottext">[Eac3SurroundExMode] -&gt; Encoding
 [Eac3SurroundExMode] -&gt; Value
 Eac3SurroundExMode -&gt; Encoding
 Eac3SurroundExMode -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: Eac3SurroundExMode -&gt; Encoding
 toJSON :: Eac3SurroundExMode -&gt; Value
 $ctoJSON :: Eac3SurroundExMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679963547"><span id="local-6989586621679963549"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3SurroundExMode]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679963556"><span id="local-6989586621679963558"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3SurroundExMode]
 ToJSONKeyFunction Eac3SurroundExMode
 ToJSONKeyFunction Eac3SurroundExMode
 -&gt; ToJSONKeyFunction [Eac3SurroundExMode]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Eac3SurroundExMode]
 toJSONKey :: ToJSONKeyFunction Eac3SurroundExMode
 $ctoJSONKey :: ToJSONKeyFunction Eac3SurroundExMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679963544"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3SurroundExMode
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679963553"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3SurroundExMode
 ([Node] -&gt; Either String Eac3SurroundExMode)
 -&gt; FromXML Eac3SurroundExMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Eac3SurroundExMode
 $cparseXML :: [Node] -&gt; Either String Eac3SurroundExMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679963541"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679963550"><span class="annot"><span class="annottext">Eac3SurroundExMode -&gt; XML
 (Eac3SurroundExMode -&gt; XML) -&gt; ToXML Eac3SurroundExMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Eac3SurroundExMode -&gt; XML

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679220912"><span id="local-6989586621679220913"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NamespaceType"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceType.html#NamespaceType"><span class="hs-identifier hs-var">NamespaceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NamespaceType%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceType.html#NamespaceType%27"><span class="hs-identifier hs-var">NamespaceType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679220921"><span id="local-6989586621679220922"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NamespaceType"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceType.html#NamespaceType"><span class="hs-identifier hs-var">NamespaceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NamespaceType%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceType.html#NamespaceType%27"><span class="hs-identifier hs-var">NamespaceType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNamespaceType"><span class="annot"><span class="annottext">NamespaceType -&gt; Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceType.html#fromNamespaceType"><span class="hs-identifier hs-var hs-var">fromNamespaceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220904"><span id="local-6989586621679220906"><span id="local-6989586621679220908"><span class="annot"><span class="annottext">Int -&gt; NamespaceType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220913"><span id="local-6989586621679220915"><span id="local-6989586621679220917"><span class="annot"><span class="annottext">Int -&gt; NamespaceType -&gt; ShowS
 [NamespaceType] -&gt; ShowS
 NamespaceType -&gt; String
 (Int -&gt; NamespaceType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: NamespaceType -&gt; String
 showsPrec :: Int -&gt; NamespaceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; NamespaceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679220895"><span id="local-6989586621679220897"><span id="local-6989586621679220899"><span id="local-6989586621679220901"><span class="annot"><span class="annottext">ReadPrec [NamespaceType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679220904"><span id="local-6989586621679220906"><span id="local-6989586621679220908"><span id="local-6989586621679220910"><span class="annot"><span class="annottext">ReadPrec [NamespaceType]
 ReadPrec NamespaceType
 Int -&gt; ReadS NamespaceType
 ReadS [NamespaceType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [NamespaceType]
 readsPrec :: Int -&gt; ReadS NamespaceType
 $creadsPrec :: Int -&gt; ReadS NamespaceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679220890"><span id="local-6989586621679220892"><span class="annot"><span class="annottext">NamespaceType -&gt; NamespaceType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679220899"><span id="local-6989586621679220901"><span class="annot"><span class="annottext">NamespaceType -&gt; NamespaceType -&gt; Bool
 (NamespaceType -&gt; NamespaceType -&gt; Bool)
 -&gt; (NamespaceType -&gt; NamespaceType -&gt; Bool) -&gt; Eq NamespaceType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: NamespaceType -&gt; NamespaceType -&gt; Bool
 == :: NamespaceType -&gt; NamespaceType -&gt; Bool
 $c== :: NamespaceType -&gt; NamespaceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679220874"><span id="local-6989586621679220876"><span id="local-6989586621679220878"><span id="local-6989586621679220880"><span id="local-6989586621679220882"><span id="local-6989586621679220884"><span id="local-6989586621679220886"><span class="annot"><span class="annottext">Eq NamespaceType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679220883"><span id="local-6989586621679220885"><span id="local-6989586621679220887"><span id="local-6989586621679220889"><span id="local-6989586621679220891"><span id="local-6989586621679220893"><span id="local-6989586621679220895"><span class="annot"><span class="annottext">Eq NamespaceType
 Eq NamespaceType
 -&gt; (NamespaceType -&gt; NamespaceType -&gt; Ordering)
 -&gt; (NamespaceType -&gt; NamespaceType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. NamespaceType -&gt; Rep NamespaceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220866"><span id="local-6989586621679220868"><span class="annot"><span class="annottext">Int -&gt; NamespaceType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220875"><span id="local-6989586621679220877"><span class="annot"><span class="annottext">Int -&gt; NamespaceType -&gt; Int
 NamespaceType -&gt; Int
 (Int -&gt; NamespaceType -&gt; Int)
 -&gt; (NamespaceType -&gt; Int) -&gt; Hashable NamespaceType
@@ -143,49 +143,49 @@ $chash :: NamespaceType -&gt; Int
 hashWithSalt :: Int -&gt; NamespaceType -&gt; Int
 $chashWithSalt :: Int -&gt; NamespaceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679220863"><span class="annot"><span class="annottext">NamespaceType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679220872"><span class="annot"><span class="annottext">NamespaceType -&gt; ()
 (NamespaceType -&gt; ()) -&gt; NFData NamespaceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NamespaceType -&gt; ()
 $crnf :: NamespaceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679220860"><span class="annot"><span class="annottext">Text -&gt; Either String NamespaceType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679220869"><span class="annot"><span class="annottext">Text -&gt; Either String NamespaceType
 (Text -&gt; Either String NamespaceType) -&gt; FromText NamespaceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NamespaceType
 $cfromText :: Text -&gt; Either String NamespaceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679220857"><span class="annot"><span class="annottext">NamespaceType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679220866"><span class="annot"><span class="annottext">NamespaceType -&gt; Text
 (NamespaceType -&gt; Text) -&gt; ToText NamespaceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NamespaceType -&gt; Text
 $ctoText :: NamespaceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679220854"><span class="annot"><span class="annottext">NamespaceType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679220863"><span class="annot"><span class="annottext">NamespaceType -&gt; ByteString
 (NamespaceType -&gt; ByteString) -&gt; ToByteString NamespaceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NamespaceType -&gt; ByteString
 $ctoBS :: NamespaceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679220851"><span class="annot"><span class="annottext">NamespaceType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679220860"><span class="annot"><span class="annottext">NamespaceType -&gt; ByteStringBuilder
 (NamespaceType -&gt; ByteStringBuilder) -&gt; ToLog NamespaceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NamespaceType -&gt; ByteStringBuilder
 $cbuild :: NamespaceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679220848"><span class="annot"><span class="annottext">HeaderName -&gt; NamespaceType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679220857"><span class="annot"><span class="annottext">HeaderName -&gt; NamespaceType -&gt; [Header]
 (HeaderName -&gt; NamespaceType -&gt; [Header]) -&gt; ToHeader NamespaceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NamespaceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NamespaceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679220845"><span class="annot"><span class="annottext">NamespaceType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679220854"><span class="annot"><span class="annottext">NamespaceType -&gt; QueryString
 (NamespaceType -&gt; QueryString) -&gt; ToQuery NamespaceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NamespaceType -&gt; QueryString
 $ctoQuery :: NamespaceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679220840"><span id="local-6989586621679220842"><span class="annot"><span class="annottext">Value -&gt; Parser [NamespaceType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679220849"><span id="local-6989586621679220851"><span class="annot"><span class="annottext">Value -&gt; Parser [NamespaceType]
 Value -&gt; Parser NamespaceType
 (Value -&gt; Parser NamespaceType)
 -&gt; (Value -&gt; Parser [NamespaceType]) -&gt; FromJSON NamespaceType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [NamespaceType]
 parseJSON :: Value -&gt; Parser NamespaceType
 $cparseJSON :: Value -&gt; Parser NamespaceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679220835"><span id="local-6989586621679220837"><span class="annot"><span class="annottext">FromJSONKeyFunction [NamespaceType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679220844"><span id="local-6989586621679220846"><span class="annot"><span class="annottext">FromJSONKeyFunction [NamespaceType]
 FromJSONKeyFunction NamespaceType
 FromJSONKeyFunction NamespaceType
 -&gt; FromJSONKeyFunction [NamespaceType] -&gt; FromJSONKey NamespaceType
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NamespaceType]
 fromJSONKey :: FromJSONKeyFunction NamespaceType
 $cfromJSONKey :: FromJSONKeyFunction NamespaceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679220826"><span id="local-6989586621679220828"><span id="local-6989586621679220830"><span id="local-6989586621679220832"><span class="annot"><span class="annottext">[NamespaceType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679220835"><span id="local-6989586621679220837"><span id="local-6989586621679220839"><span id="local-6989586621679220841"><span class="annot"><span class="annottext">[NamespaceType] -&gt; Encoding
 [NamespaceType] -&gt; Value
 NamespaceType -&gt; Encoding
 NamespaceType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: NamespaceType -&gt; Encoding
 toJSON :: NamespaceType -&gt; Value
 $ctoJSON :: NamespaceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679220821"><span id="local-6989586621679220823"><span class="annot"><span class="annottext">ToJSONKeyFunction [NamespaceType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679220830"><span id="local-6989586621679220832"><span class="annot"><span class="annottext">ToJSONKeyFunction [NamespaceType]
 ToJSONKeyFunction NamespaceType
 ToJSONKeyFunction NamespaceType
 -&gt; ToJSONKeyFunction [NamespaceType] -&gt; ToJSONKey NamespaceType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NamespaceType]
 toJSONKey :: ToJSONKeyFunction NamespaceType
 $ctoJSONKey :: ToJSONKeyFunction NamespaceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679220818"><span class="annot"><span class="annottext">[Node] -&gt; Either String NamespaceType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679220827"><span class="annot"><span class="annottext">[Node] -&gt; Either String NamespaceType
 ([Node] -&gt; Either String NamespaceType) -&gt; FromXML NamespaceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NamespaceType
 $cparseXML :: [Node] -&gt; Either String NamespaceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679220815"><span class="annot"><span class="annottext">NamespaceType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679220824"><span class="annot"><span class="annottext">NamespaceType -&gt; XML
 (NamespaceType -&gt; XML) -&gt; ToXML NamespaceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NamespaceType -&gt; XML

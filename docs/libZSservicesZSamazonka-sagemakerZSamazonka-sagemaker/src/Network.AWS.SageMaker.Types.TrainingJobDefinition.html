@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | Defines the input needed to run a training job using the algorithm.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newTrainingJobDefinition' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621680349354"><span id="local-6989586621680349355"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrainingJobDefinition"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-var">TrainingJobDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrainingJobDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-var">TrainingJobDefinition'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680349363"><span id="local-6989586621680349364"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrainingJobDefinition"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-var">TrainingJobDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrainingJobDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-var">TrainingJobDefinition'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The hyperparameters used for the training job.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AhyperParameters%3ATrainingJobDefinition%27"><span class="annot"><span class="annottext">TrainingJobDefinition -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#%24sel%3AhyperParameters%3ATrainingJobDefinition%27"><span class="hs-identifier hs-var hs-var">hyperParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AstoppingCondition%3ATrainingJobDefinition%27"><span class="annot"><span class="annottext">TrainingJobDefinition -&gt; StoppingCondition
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#%24sel%3AstoppingCondition%3ATrainingJobDefinition%27"><span class="hs-identifier hs-var hs-var">stoppingCondition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StoppingCondition.html#StoppingCondition"><span class="hs-identifier hs-type">StoppingCondition</span></a></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680349343"><span id="local-6989586621680349345"><span class="annot"><span class="annottext">TrainingJobDefinition -&gt; TrainingJobDefinition -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680349352"><span id="local-6989586621680349354"><span class="annot"><span class="annottext">TrainingJobDefinition -&gt; TrainingJobDefinition -&gt; Bool
 (TrainingJobDefinition -&gt; TrainingJobDefinition -&gt; Bool)
 -&gt; (TrainingJobDefinition -&gt; TrainingJobDefinition -&gt; Bool)
 -&gt; Eq TrainingJobDefinition
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TrainingJobDefinition -&gt; TrainingJobDefinition -&gt; Bool
 == :: TrainingJobDefinition -&gt; TrainingJobDefinition -&gt; Bool
 $c== :: TrainingJobDefinition -&gt; TrainingJobDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680349334"><span id="local-6989586621680349336"><span id="local-6989586621680349338"><span id="local-6989586621680349340"><span class="annot"><span class="annottext">ReadPrec [TrainingJobDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680349343"><span id="local-6989586621680349345"><span id="local-6989586621680349347"><span id="local-6989586621680349349"><span class="annot"><span class="annottext">ReadPrec [TrainingJobDefinition]
 ReadPrec TrainingJobDefinition
 Int -&gt; ReadS TrainingJobDefinition
 ReadS [TrainingJobDefinition]
@@ -88,7 +88,7 @@ readList :: ReadS [TrainingJobDefinition]
 $creadList :: ReadS [TrainingJobDefinition]
 readsPrec :: Int -&gt; ReadS TrainingJobDefinition
 $creadsPrec :: Int -&gt; ReadS TrainingJobDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680349327"><span id="local-6989586621680349329"><span id="local-6989586621680349331"><span class="annot"><span class="annottext">Int -&gt; TrainingJobDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680349336"><span id="local-6989586621680349338"><span id="local-6989586621680349340"><span class="annot"><span class="annottext">Int -&gt; TrainingJobDefinition -&gt; ShowS
 [TrainingJobDefinition] -&gt; ShowS
 TrainingJobDefinition -&gt; String
 (Int -&gt; TrainingJobDefinition -&gt; ShowS)
@@ -161,16 +161,16 @@ $cfrom :: forall x. TrainingJobDefinition -&gt; Rep TrainingJobDefinition x
 -&gt; StoppingCondition
 -&gt; TrainingJobDefinition
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#newTrainingJobDefinition"><span class="hs-identifier hs-var hs-var">newTrainingJobDefinition</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621680349321"><span class="annot"><span class="annottext">TrainingInputMode
-</span><a href="#local-6989586621680349321"><span class="hs-identifier hs-var">pTrainingInputMode_</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621680349320"><span class="annot"><span class="annottext">NonEmpty Channel
-</span><a href="#local-6989586621680349320"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621680349319"><span class="annot"><span class="annottext">OutputDataConfig
-</span><a href="#local-6989586621680349319"><span class="hs-identifier hs-var">pOutputDataConfig_</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621680349318"><span class="annot"><span class="annottext">ResourceConfig
-</span><a href="#local-6989586621680349318"><span class="hs-identifier hs-var">pResourceConfig_</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621680349317"><span class="annot"><span class="annottext">StoppingCondition
-</span><a href="#local-6989586621680349317"><span class="hs-identifier hs-var">pStoppingCondition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621680349330"><span class="annot"><span class="annottext">TrainingInputMode
+</span><a href="#local-6989586621680349330"><span class="hs-identifier hs-var">pTrainingInputMode_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621680349329"><span class="annot"><span class="annottext">NonEmpty Channel
+</span><a href="#local-6989586621680349329"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621680349328"><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621680349328"><span class="hs-identifier hs-var">pOutputDataConfig_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621680349327"><span class="annot"><span class="annottext">ResourceConfig
+</span><a href="#local-6989586621680349327"><span class="hs-identifier hs-var">pResourceConfig_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621680349326"><span class="annot"><span class="annottext">StoppingCondition
+</span><a href="#local-6989586621680349326"><span class="hs-identifier hs-var">pStoppingCondition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">TrainingJobDefinition' :: Maybe (HashMap Text Text)
 -&gt; TrainingInputMode
 -&gt; NonEmpty Channel
@@ -186,7 +186,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:trainingInputMode:TrainingJobDefinition' :: TrainingInputMode
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#%24sel%3AtrainingInputMode%3ATrainingJobDefinition%27"><span class="hs-identifier hs-var">trainingInputMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrainingInputMode
-</span><a href="#local-6989586621680349321"><span class="hs-identifier hs-var">pTrainingInputMode_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680349330"><span class="hs-identifier hs-var">pTrainingInputMode_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:inputDataConfig:TrainingJobDefinition' :: NonEmpty Channel
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#%24sel%3AinputDataConfig%3ATrainingJobDefinition%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Channel) (Identity (NonEmpty Channel))
@@ -197,16 +197,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Channel -&gt; NonEmpty Channel
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Channel
-</span><a href="#local-6989586621680349320"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680349329"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputDataConfig:TrainingJobDefinition' :: OutputDataConfig
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#%24sel%3AoutputDataConfig%3ATrainingJobDefinition%27"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
-</span><a href="#local-6989586621680349319"><span class="hs-identifier hs-var">pOutputDataConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680349328"><span class="hs-identifier hs-var">pOutputDataConfig_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceConfig:TrainingJobDefinition' :: ResourceConfig
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#%24sel%3AresourceConfig%3ATrainingJobDefinition%27"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceConfig
-</span><a href="#local-6989586621680349318"><span class="hs-identifier hs-var">pResourceConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680349327"><span class="hs-identifier hs-var">pResourceConfig_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:stoppingCondition:TrainingJobDefinition' :: StoppingCondition
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#%24sel%3AstoppingCondition%3ATrainingJobDefinition%27"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StoppingCondition
-</span><a href="#local-6989586621680349317"><span class="hs-identifier hs-var">pStoppingCondition_</span></a></span><span>
+</span><a href="#local-6989586621680349326"><span class="hs-identifier hs-var">pStoppingCondition_</span></a></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The hyperparameters used for the training job.</span><span>
@@ -222,16 +222,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349311"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349320"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 hyperParameters :: Maybe (HashMap Text Text)
 $sel:hyperParameters:TrainingJobDefinition' :: TrainingJobDefinition -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680349311"><span class="hs-identifier hs-var hs-var">hyperParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680349311"><span class="hs-identifier hs-var">hyperParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349310"><span class="annot"><span class="annottext">s :: TrainingJobDefinition
-</span><a href="#local-6989586621680349310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349309"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680349309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobDefinition
-</span><a href="#local-6989586621680349310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hyperParameters:TrainingJobDefinition' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680349320"><span class="hs-identifier hs-var hs-var">hyperParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680349320"><span class="hs-identifier hs-var">hyperParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349319"><span class="annot"><span class="annottext">s :: TrainingJobDefinition
+</span><a href="#local-6989586621680349319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349318"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680349318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobDefinition
+</span><a href="#local-6989586621680349319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hyperParameters:TrainingJobDefinition' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#%24sel%3AhyperParameters%3ATrainingJobDefinition%27"><span class="hs-identifier hs-var">hyperParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680349309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680349318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; TrainingJobDefinition -&gt; f TrainingJobDefinition)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -273,16 +273,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      TrainingInputMode
      TrainingInputMode
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349305"><span class="annot"><span class="annottext">TrainingInputMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349314"><span class="annot"><span class="annottext">TrainingInputMode
 trainingInputMode :: TrainingInputMode
 $sel:trainingInputMode:TrainingJobDefinition' :: TrainingJobDefinition -&gt; TrainingInputMode
-</span><a href="#local-6989586621680349305"><span class="hs-identifier hs-var hs-var">trainingInputMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingInputMode
-</span><a href="#local-6989586621680349305"><span class="hs-identifier hs-var">trainingInputMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349304"><span class="annot"><span class="annottext">s :: TrainingJobDefinition
-</span><a href="#local-6989586621680349304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349303"><span class="annot"><span class="annottext">TrainingInputMode
-</span><a href="#local-6989586621680349303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobDefinition
-</span><a href="#local-6989586621680349304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingInputMode:TrainingJobDefinition' :: TrainingInputMode
+</span><a href="#local-6989586621680349314"><span class="hs-identifier hs-var hs-var">trainingInputMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingInputMode
+</span><a href="#local-6989586621680349314"><span class="hs-identifier hs-var">trainingInputMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349313"><span class="annot"><span class="annottext">s :: TrainingJobDefinition
+</span><a href="#local-6989586621680349313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349312"><span class="annot"><span class="annottext">TrainingInputMode
+</span><a href="#local-6989586621680349312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobDefinition
+</span><a href="#local-6989586621680349313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingInputMode:TrainingJobDefinition' :: TrainingInputMode
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#%24sel%3AtrainingInputMode%3ATrainingJobDefinition%27"><span class="hs-identifier hs-var">trainingInputMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrainingInputMode
-</span><a href="#local-6989586621680349303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680349312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | An array of @Channel@ objects, each of which specifies an input source.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#trainingJobDefinition_inputDataConfig"><span class="hs-identifier hs-type">trainingJobDefinition_inputDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
@@ -297,16 +297,16 @@ $sel:trainingInputMode:TrainingJobDefinition' :: TrainingJobDefinition -&gt; Tra
      (NonEmpty Channel)
      (NonEmpty Channel)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349301"><span class="annot"><span class="annottext">NonEmpty Channel
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349310"><span class="annot"><span class="annottext">NonEmpty Channel
 inputDataConfig :: NonEmpty Channel
 $sel:inputDataConfig:TrainingJobDefinition' :: TrainingJobDefinition -&gt; NonEmpty Channel
-</span><a href="#local-6989586621680349301"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Channel
-</span><a href="#local-6989586621680349301"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349300"><span class="annot"><span class="annottext">s :: TrainingJobDefinition
-</span><a href="#local-6989586621680349300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349299"><span class="annot"><span class="annottext">NonEmpty Channel
-</span><a href="#local-6989586621680349299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobDefinition
-</span><a href="#local-6989586621680349300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDataConfig:TrainingJobDefinition' :: NonEmpty Channel
+</span><a href="#local-6989586621680349310"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Channel
+</span><a href="#local-6989586621680349310"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349309"><span class="annot"><span class="annottext">s :: TrainingJobDefinition
+</span><a href="#local-6989586621680349309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349308"><span class="annot"><span class="annottext">NonEmpty Channel
+</span><a href="#local-6989586621680349308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobDefinition
+</span><a href="#local-6989586621680349309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDataConfig:TrainingJobDefinition' :: NonEmpty Channel
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#%24sel%3AinputDataConfig%3ATrainingJobDefinition%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Channel
-</span><a href="#local-6989586621680349299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Channel -&gt; f (NonEmpty Channel))
+</span><a href="#local-6989586621680349308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Channel -&gt; f (NonEmpty Channel))
  -&gt; TrainingJobDefinition -&gt; f TrainingJobDefinition)
 -&gt; ((NonEmpty Channel -&gt; f (NonEmpty Channel))
     -&gt; NonEmpty Channel -&gt; f (NonEmpty Channel))
@@ -333,16 +333,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      OutputDataConfig
      OutputDataConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349297"><span class="annot"><span class="annottext">OutputDataConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349306"><span class="annot"><span class="annottext">OutputDataConfig
 outputDataConfig :: OutputDataConfig
 $sel:outputDataConfig:TrainingJobDefinition' :: TrainingJobDefinition -&gt; OutputDataConfig
-</span><a href="#local-6989586621680349297"><span class="hs-identifier hs-var hs-var">outputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
-</span><a href="#local-6989586621680349297"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349296"><span class="annot"><span class="annottext">s :: TrainingJobDefinition
-</span><a href="#local-6989586621680349296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349295"><span class="annot"><span class="annottext">OutputDataConfig
-</span><a href="#local-6989586621680349295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobDefinition
-</span><a href="#local-6989586621680349296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputDataConfig:TrainingJobDefinition' :: OutputDataConfig
+</span><a href="#local-6989586621680349306"><span class="hs-identifier hs-var hs-var">outputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621680349306"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349305"><span class="annot"><span class="annottext">s :: TrainingJobDefinition
+</span><a href="#local-6989586621680349305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349304"><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621680349304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobDefinition
+</span><a href="#local-6989586621680349305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputDataConfig:TrainingJobDefinition' :: OutputDataConfig
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#%24sel%3AoutputDataConfig%3ATrainingJobDefinition%27"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
-</span><a href="#local-6989586621680349295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680349304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The resources, including the ML compute instances and ML storage</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- volumes, to use for model training.</span><span>
@@ -358,16 +358,16 @@ $sel:outputDataConfig:TrainingJobDefinition' :: TrainingJobDefinition -&gt; Outp
      ResourceConfig
      ResourceConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349293"><span class="annot"><span class="annottext">ResourceConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349302"><span class="annot"><span class="annottext">ResourceConfig
 resourceConfig :: ResourceConfig
 $sel:resourceConfig:TrainingJobDefinition' :: TrainingJobDefinition -&gt; ResourceConfig
-</span><a href="#local-6989586621680349293"><span class="hs-identifier hs-var hs-var">resourceConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceConfig
-</span><a href="#local-6989586621680349293"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349292"><span class="annot"><span class="annottext">s :: TrainingJobDefinition
-</span><a href="#local-6989586621680349292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349291"><span class="annot"><span class="annottext">ResourceConfig
-</span><a href="#local-6989586621680349291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobDefinition
-</span><a href="#local-6989586621680349292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceConfig:TrainingJobDefinition' :: ResourceConfig
+</span><a href="#local-6989586621680349302"><span class="hs-identifier hs-var hs-var">resourceConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceConfig
+</span><a href="#local-6989586621680349302"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349301"><span class="annot"><span class="annottext">s :: TrainingJobDefinition
+</span><a href="#local-6989586621680349301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349300"><span class="annot"><span class="annottext">ResourceConfig
+</span><a href="#local-6989586621680349300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobDefinition
+</span><a href="#local-6989586621680349301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceConfig:TrainingJobDefinition' :: ResourceConfig
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#%24sel%3AresourceConfig%3ATrainingJobDefinition%27"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceConfig
-</span><a href="#local-6989586621680349291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680349300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | Specifies a limit to how long a model training job can run. It also</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- specifies how long a managed Spot training job has to complete. When the</span><span>
@@ -389,19 +389,19 @@ $sel:resourceConfig:TrainingJobDefinition' :: TrainingJobDefinition -&gt; Resour
      StoppingCondition
      StoppingCondition
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349289"><span class="annot"><span class="annottext">StoppingCondition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349298"><span class="annot"><span class="annottext">StoppingCondition
 stoppingCondition :: StoppingCondition
 $sel:stoppingCondition:TrainingJobDefinition' :: TrainingJobDefinition -&gt; StoppingCondition
-</span><a href="#local-6989586621680349289"><span class="hs-identifier hs-var hs-var">stoppingCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoppingCondition
-</span><a href="#local-6989586621680349289"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349288"><span class="annot"><span class="annottext">s :: TrainingJobDefinition
-</span><a href="#local-6989586621680349288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349287"><span class="annot"><span class="annottext">StoppingCondition
-</span><a href="#local-6989586621680349287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobDefinition
-</span><a href="#local-6989586621680349288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stoppingCondition:TrainingJobDefinition' :: StoppingCondition
+</span><a href="#local-6989586621680349298"><span class="hs-identifier hs-var hs-var">stoppingCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoppingCondition
+</span><a href="#local-6989586621680349298"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349297"><span class="annot"><span class="annottext">s :: TrainingJobDefinition
+</span><a href="#local-6989586621680349297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349296"><span class="annot"><span class="annottext">StoppingCondition
+</span><a href="#local-6989586621680349296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobDefinition
+</span><a href="#local-6989586621680349297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stoppingCondition:TrainingJobDefinition' :: StoppingCondition
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#%24sel%3AstoppingCondition%3ATrainingJobDefinition%27"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StoppingCondition
-</span><a href="#local-6989586621680349287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680349296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349284"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621680349282"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrainingJobDefinition
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349293"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621680349291"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrainingJobDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TrainingJobDefinition)
@@ -411,8 +411,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TrainingJobDefinition&quot;</span></span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680349279"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349279"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680349288"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680349288"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 -&gt; TrainingInputMode
 -&gt; NonEmpty Channel
@@ -438,7 +438,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; TrainingJobDefinition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680349288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HyperParameters&quot;</span></span><span>
@@ -465,7 +465,7 @@ forall a. Monoid a =&gt; a
       -&gt; TrainingJobDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TrainingInputMode
+</span><a href="#local-6989586621680349288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TrainingInputMode
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrainingInputMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -481,7 +481,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; ResourceConfig -&gt; StoppingCondition -&gt; TrainingJobDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Channel)
+</span><a href="#local-6989586621680349288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Channel)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputDataConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -493,7 +493,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (ResourceConfig -&gt; StoppingCondition -&gt; TrainingJobDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputDataConfig
+</span><a href="#local-6989586621680349288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputDataConfig
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OutputDataConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -503,7 +503,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (StoppingCondition -&gt; TrainingJobDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceConfig
+</span><a href="#local-6989586621680349288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceConfig
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -511,19 +511,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser StoppingCondition -&gt; Parser TrainingJobDefinition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser StoppingCondition
+</span><a href="#local-6989586621680349288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser StoppingCondition
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StoppingCondition&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349271"><span id="local-6989586621680349273"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349280"><span id="local-6989586621680349282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span></span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349260"><span id="local-6989586621680349262"><span id="local-6989586621680349264"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621680349258"><span class="annot"><span class="annottext">toJSON :: TrainingJobDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349251"><span id="local-6989586621680349252"><span id="local-6989586621680349253"><span id="local-6989586621680349254"><span id="local-6989586621680349255"><span id="local-6989586621680349256"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349269"><span id="local-6989586621680349271"><span id="local-6989586621680349273"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition"><span class="hs-identifier hs-type">TrainingJobDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621680349267"><span class="annot"><span class="annottext">toJSON :: TrainingJobDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobDefinition.html#TrainingJobDefinition%27"><span class="hs-identifier hs-type">TrainingJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349260"><span id="local-6989586621680349261"><span id="local-6989586621680349262"><span id="local-6989586621680349263"><span id="local-6989586621680349264"><span id="local-6989586621680349265"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 NonEmpty Channel
 OutputDataConfig
 StoppingCondition
@@ -541,7 +541,7 @@ $sel:outputDataConfig:TrainingJobDefinition' :: TrainingJobDefinition -&gt; Outp
 $sel:inputDataConfig:TrainingJobDefinition' :: TrainingJobDefinition -&gt; NonEmpty Channel
 $sel:trainingInputMode:TrainingJobDefinition' :: TrainingJobDefinition -&gt; TrainingInputMode
 $sel:hyperParameters:TrainingJobDefinition' :: TrainingJobDefinition -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680349251"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680349260"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -555,7 +555,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680349256"><span class="hs-identifier hs-var">hyperParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680349265"><span class="hs-identifier hs-var">hyperParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -563,7 +563,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TrainingInputMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TrainingInputMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TrainingInputMode
-</span><a href="#local-6989586621680349255"><span class="hs-identifier hs-var">trainingInputMode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680349264"><span class="hs-identifier hs-var">trainingInputMode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -571,7 +571,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;InputDataConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Channel -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Channel
-</span><a href="#local-6989586621680349254"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680349263"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -579,7 +579,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;OutputDataConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputDataConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
-</span><a href="#local-6989586621680349253"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680349262"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -587,7 +587,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceConfig
-</span><a href="#local-6989586621680349252"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680349261"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -595,7 +595,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StoppingCondition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StoppingCondition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">StoppingCondition
-</span><a href="#local-6989586621680349251"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680349260"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span></pre></body></html>

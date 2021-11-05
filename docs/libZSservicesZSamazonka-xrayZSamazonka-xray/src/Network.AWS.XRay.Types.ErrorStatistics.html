@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- code.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newErrorStatistics' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679251142"><span id="local-6989586621679251143"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorStatistics"><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-var">ErrorStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorStatistics%27"><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-var">ErrorStatistics'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679251151"><span id="local-6989586621679251152"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorStatistics"><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-var">ErrorStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorStatistics%27"><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-var">ErrorStatistics'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of requests that failed with untracked 4xx Client Error</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- status codes.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AotherCount%3AErrorStatistics%27"><span class="annot"><span class="annottext">ErrorStatistics -&gt; Maybe Integer
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AtotalCount%3AErrorStatistics%27"><span class="annot"><span class="annottext">ErrorStatistics -&gt; Maybe Integer
 </span><a href="Network.AWS.XRay.Types.ErrorStatistics.html#%24sel%3AtotalCount%3AErrorStatistics%27"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251134"><span id="local-6989586621679251136"><span class="annot"><span class="annottext">ErrorStatistics -&gt; ErrorStatistics -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251143"><span id="local-6989586621679251145"><span class="annot"><span class="annottext">ErrorStatistics -&gt; ErrorStatistics -&gt; Bool
 (ErrorStatistics -&gt; ErrorStatistics -&gt; Bool)
 -&gt; (ErrorStatistics -&gt; ErrorStatistics -&gt; Bool)
 -&gt; Eq ErrorStatistics
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ErrorStatistics -&gt; ErrorStatistics -&gt; Bool
 == :: ErrorStatistics -&gt; ErrorStatistics -&gt; Bool
 $c== :: ErrorStatistics -&gt; ErrorStatistics -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251125"><span id="local-6989586621679251127"><span id="local-6989586621679251129"><span id="local-6989586621679251131"><span class="annot"><span class="annottext">ReadPrec [ErrorStatistics]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251134"><span id="local-6989586621679251136"><span id="local-6989586621679251138"><span id="local-6989586621679251140"><span class="annot"><span class="annottext">ReadPrec [ErrorStatistics]
 ReadPrec ErrorStatistics
 Int -&gt; ReadS ErrorStatistics
 ReadS [ErrorStatistics]
@@ -69,7 +69,7 @@ readList :: ReadS [ErrorStatistics]
 $creadList :: ReadS [ErrorStatistics]
 readsPrec :: Int -&gt; ReadS ErrorStatistics
 $creadsPrec :: Int -&gt; ReadS ErrorStatistics
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251118"><span id="local-6989586621679251120"><span id="local-6989586621679251122"><span class="annot"><span class="annottext">Int -&gt; ErrorStatistics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251127"><span id="local-6989586621679251129"><span id="local-6989586621679251131"><span class="annot"><span class="annottext">Int -&gt; ErrorStatistics -&gt; ShowS
 [ErrorStatistics] -&gt; ShowS
 ErrorStatistics -&gt; String
 (Int -&gt; ErrorStatistics -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
 -&gt; Lens
      ErrorStatistics ErrorStatistics (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-type">ErrorStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251109"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-type">ErrorStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251118"><span class="annot"><span class="annottext">Maybe Integer
 otherCount :: Maybe Integer
 $sel:otherCount:ErrorStatistics' :: ErrorStatistics -&gt; Maybe Integer
-</span><a href="#local-6989586621679251109"><span class="hs-identifier hs-var hs-var">otherCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679251109"><span class="hs-identifier hs-var">otherCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251108"><span class="annot"><span class="annottext">s :: ErrorStatistics
-</span><a href="#local-6989586621679251108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-type">ErrorStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251107"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679251107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorStatistics
-</span><a href="#local-6989586621679251108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otherCount:ErrorStatistics' :: Maybe Integer
+</span><a href="#local-6989586621679251118"><span class="hs-identifier hs-var hs-var">otherCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679251118"><span class="hs-identifier hs-var">otherCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251117"><span class="annot"><span class="annottext">s :: ErrorStatistics
+</span><a href="#local-6989586621679251117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-type">ErrorStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251116"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679251116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorStatistics
+</span><a href="#local-6989586621679251117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otherCount:ErrorStatistics' :: Maybe Integer
 </span><a href="Network.AWS.XRay.Types.ErrorStatistics.html#%24sel%3AotherCount%3AErrorStatistics%27"><span class="hs-identifier hs-var">otherCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679251107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-type">ErrorStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-type">ErrorStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The number of requests that failed with a 419 throttling status code.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#errorStatistics_throttleCount"><span class="hs-identifier hs-type">errorStatistics_throttleCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-type">ErrorStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
@@ -160,16 +160,16 @@ $sel:otherCount:ErrorStatistics' :: ErrorStatistics -&gt; Maybe Integer
 -&gt; Lens
      ErrorStatistics ErrorStatistics (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-type">ErrorStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251105"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-type">ErrorStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251114"><span class="annot"><span class="annottext">Maybe Integer
 throttleCount :: Maybe Integer
 $sel:throttleCount:ErrorStatistics' :: ErrorStatistics -&gt; Maybe Integer
-</span><a href="#local-6989586621679251105"><span class="hs-identifier hs-var hs-var">throttleCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679251105"><span class="hs-identifier hs-var">throttleCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251104"><span class="annot"><span class="annottext">s :: ErrorStatistics
-</span><a href="#local-6989586621679251104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-type">ErrorStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251103"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679251103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorStatistics
-</span><a href="#local-6989586621679251104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:throttleCount:ErrorStatistics' :: Maybe Integer
+</span><a href="#local-6989586621679251114"><span class="hs-identifier hs-var hs-var">throttleCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679251114"><span class="hs-identifier hs-var">throttleCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251113"><span class="annot"><span class="annottext">s :: ErrorStatistics
+</span><a href="#local-6989586621679251113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-type">ErrorStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251112"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679251112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorStatistics
+</span><a href="#local-6989586621679251113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:throttleCount:ErrorStatistics' :: Maybe Integer
 </span><a href="Network.AWS.XRay.Types.ErrorStatistics.html#%24sel%3AthrottleCount%3AErrorStatistics%27"><span class="hs-identifier hs-var">throttleCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679251103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-type">ErrorStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-type">ErrorStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The total number of requests that failed with a 4xx Client Error status</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- code.</span><span>
@@ -181,19 +181,19 @@ $sel:throttleCount:ErrorStatistics' :: ErrorStatistics -&gt; Maybe Integer
 -&gt; Lens
      ErrorStatistics ErrorStatistics (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-type">ErrorStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251101"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-type">ErrorStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251110"><span class="annot"><span class="annottext">Maybe Integer
 totalCount :: Maybe Integer
 $sel:totalCount:ErrorStatistics' :: ErrorStatistics -&gt; Maybe Integer
-</span><a href="#local-6989586621679251101"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679251101"><span class="hs-identifier hs-var">totalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251100"><span class="annot"><span class="annottext">s :: ErrorStatistics
-</span><a href="#local-6989586621679251100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-type">ErrorStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251099"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679251099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorStatistics
-</span><a href="#local-6989586621679251100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalCount:ErrorStatistics' :: Maybe Integer
+</span><a href="#local-6989586621679251110"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679251110"><span class="hs-identifier hs-var">totalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251109"><span class="annot"><span class="annottext">s :: ErrorStatistics
+</span><a href="#local-6989586621679251109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-type">ErrorStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251108"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679251108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorStatistics
+</span><a href="#local-6989586621679251109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalCount:ErrorStatistics' :: Maybe Integer
 </span><a href="Network.AWS.XRay.Types.ErrorStatistics.html#%24sel%3AtotalCount%3AErrorStatistics%27"><span class="hs-identifier hs-var">totalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679251099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-type">ErrorStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-type">ErrorStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251096"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-type">ErrorStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679251094"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ErrorStatistics
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251105"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-type">ErrorStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679251103"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ErrorStatistics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ErrorStatistics)
@@ -203,8 +203,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ErrorStatistics&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251091"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251091"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251100"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251100"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe Integer -&gt; Maybe Integer -&gt; ErrorStatistics
 </span><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics%27"><span class="hs-identifier hs-var">ErrorStatistics'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
@@ -213,7 +213,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Integer -&gt; Maybe Integer -&gt; ErrorStatistics)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679251100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OtherCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -222,7 +222,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integer -&gt; ErrorStatistics)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679251100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ThrottleCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -230,13 +230,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integer) -&gt; Parser ErrorStatistics
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679251100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TotalCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251085"><span id="local-6989586621679251087"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-type">ErrorStatistics</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251094"><span id="local-6989586621679251096"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-type">ErrorStatistics</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251082"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-type">ErrorStatistics</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251091"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ErrorStatistics.html#ErrorStatistics"><span class="hs-identifier hs-type">ErrorStatistics</span></a></span></span><span>
 </span><span id="line-94"></span></pre></body></html>

@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-40"></span><span>
-</span><span id="line-41"></span><span id="local-6989586621679203988"><span id="local-6989586621679203989"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImportStatus"><span class="annot"><a href="Network.AWS.Discovery.Types.ImportStatus.html#ImportStatus"><span class="hs-identifier hs-var">ImportStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportStatus%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ImportStatus.html#ImportStatus%27"><span class="hs-identifier hs-var">ImportStatus'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679203997"><span id="local-6989586621679203998"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImportStatus"><span class="annot"><a href="Network.AWS.Discovery.Types.ImportStatus.html#ImportStatus"><span class="hs-identifier hs-var">ImportStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportStatus%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ImportStatus.html#ImportStatus%27"><span class="hs-identifier hs-var">ImportStatus'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromImportStatus"><span class="annot"><span class="annottext">ImportStatus -&gt; Text
 </span><a href="Network.AWS.Discovery.Types.ImportStatus.html#fromImportStatus"><span class="hs-identifier hs-var hs-var">fromImportStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679203980"><span id="local-6989586621679203982"><span id="local-6989586621679203984"><span class="annot"><span class="annottext">Int -&gt; ImportStatus -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679203989"><span id="local-6989586621679203991"><span id="local-6989586621679203993"><span class="annot"><span class="annottext">Int -&gt; ImportStatus -&gt; ShowS
 [ImportStatus] -&gt; ShowS
 ImportStatus -&gt; String
 (Int -&gt; ImportStatus -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: ImportStatus -&gt; String
 showsPrec :: Int -&gt; ImportStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ImportStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679203971"><span id="local-6989586621679203973"><span id="local-6989586621679203975"><span id="local-6989586621679203977"><span class="annot"><span class="annottext">ReadPrec [ImportStatus]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679203980"><span id="local-6989586621679203982"><span id="local-6989586621679203984"><span id="local-6989586621679203986"><span class="annot"><span class="annottext">ReadPrec [ImportStatus]
 ReadPrec ImportStatus
 Int -&gt; ReadS ImportStatus
 ReadS [ImportStatus]
@@ -81,7 +81,7 @@ $creadList :: ReadS [ImportStatus]
 readsPrec :: Int -&gt; ReadS ImportStatus
 $creadsPrec :: Int -&gt; ReadS ImportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679203966"><span id="local-6989586621679203968"><span class="annot"><span class="annottext">ImportStatus -&gt; ImportStatus -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679203975"><span id="local-6989586621679203977"><span class="annot"><span class="annottext">ImportStatus -&gt; ImportStatus -&gt; Bool
 (ImportStatus -&gt; ImportStatus -&gt; Bool)
 -&gt; (ImportStatus -&gt; ImportStatus -&gt; Bool) -&gt; Eq ImportStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ $c/= :: ImportStatus -&gt; ImportStatus -&gt; Bool
 == :: ImportStatus -&gt; ImportStatus -&gt; Bool
 $c== :: ImportStatus -&gt; ImportStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679203950"><span id="local-6989586621679203952"><span id="local-6989586621679203954"><span id="local-6989586621679203956"><span id="local-6989586621679203958"><span id="local-6989586621679203960"><span id="local-6989586621679203962"><span class="annot"><span class="annottext">Eq ImportStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679203959"><span id="local-6989586621679203961"><span id="local-6989586621679203963"><span id="local-6989586621679203965"><span id="local-6989586621679203967"><span id="local-6989586621679203969"><span id="local-6989586621679203971"><span class="annot"><span class="annottext">Eq ImportStatus
 Eq ImportStatus
 -&gt; (ImportStatus -&gt; ImportStatus -&gt; Ordering)
 -&gt; (ImportStatus -&gt; ImportStatus -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. ImportStatus -&gt; Rep ImportStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679203942"><span id="local-6989586621679203944"><span class="annot"><span class="annottext">Int -&gt; ImportStatus -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679203951"><span id="local-6989586621679203953"><span class="annot"><span class="annottext">Int -&gt; ImportStatus -&gt; Int
 ImportStatus -&gt; Int
 (Int -&gt; ImportStatus -&gt; Int)
 -&gt; (ImportStatus -&gt; Int) -&gt; Hashable ImportStatus
@@ -151,49 +151,49 @@ $chash :: ImportStatus -&gt; Int
 hashWithSalt :: Int -&gt; ImportStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ImportStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679203939"><span class="annot"><span class="annottext">ImportStatus -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679203948"><span class="annot"><span class="annottext">ImportStatus -&gt; ()
 (ImportStatus -&gt; ()) -&gt; NFData ImportStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ImportStatus -&gt; ()
 $crnf :: ImportStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679203936"><span class="annot"><span class="annottext">Text -&gt; Either String ImportStatus
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679203945"><span class="annot"><span class="annottext">Text -&gt; Either String ImportStatus
 (Text -&gt; Either String ImportStatus) -&gt; FromText ImportStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ImportStatus
 $cfromText :: Text -&gt; Either String ImportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679203933"><span class="annot"><span class="annottext">ImportStatus -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679203942"><span class="annot"><span class="annottext">ImportStatus -&gt; Text
 (ImportStatus -&gt; Text) -&gt; ToText ImportStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ImportStatus -&gt; Text
 $ctoText :: ImportStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679203930"><span class="annot"><span class="annottext">ImportStatus -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679203939"><span class="annot"><span class="annottext">ImportStatus -&gt; ByteString
 (ImportStatus -&gt; ByteString) -&gt; ToByteString ImportStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ImportStatus -&gt; ByteString
 $ctoBS :: ImportStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679203927"><span class="annot"><span class="annottext">ImportStatus -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679203936"><span class="annot"><span class="annottext">ImportStatus -&gt; ByteStringBuilder
 (ImportStatus -&gt; ByteStringBuilder) -&gt; ToLog ImportStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ImportStatus -&gt; ByteStringBuilder
 $cbuild :: ImportStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679203924"><span class="annot"><span class="annottext">HeaderName -&gt; ImportStatus -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679203933"><span class="annot"><span class="annottext">HeaderName -&gt; ImportStatus -&gt; [Header]
 (HeaderName -&gt; ImportStatus -&gt; [Header]) -&gt; ToHeader ImportStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ImportStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ImportStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679203921"><span class="annot"><span class="annottext">ImportStatus -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679203930"><span class="annot"><span class="annottext">ImportStatus -&gt; QueryString
 (ImportStatus -&gt; QueryString) -&gt; ToQuery ImportStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ImportStatus -&gt; QueryString
 $ctoQuery :: ImportStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679203916"><span id="local-6989586621679203918"><span class="annot"><span class="annottext">Value -&gt; Parser [ImportStatus]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679203925"><span id="local-6989586621679203927"><span class="annot"><span class="annottext">Value -&gt; Parser [ImportStatus]
 Value -&gt; Parser ImportStatus
 (Value -&gt; Parser ImportStatus)
 -&gt; (Value -&gt; Parser [ImportStatus]) -&gt; FromJSON ImportStatus
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [ImportStatus]
 parseJSON :: Value -&gt; Parser ImportStatus
 $cparseJSON :: Value -&gt; Parser ImportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679203911"><span id="local-6989586621679203913"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImportStatus]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679203920"><span id="local-6989586621679203922"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImportStatus]
 FromJSONKeyFunction ImportStatus
 FromJSONKeyFunction ImportStatus
 -&gt; FromJSONKeyFunction [ImportStatus] -&gt; FromJSONKey ImportStatus
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ImportStatus]
 fromJSONKey :: FromJSONKeyFunction ImportStatus
 $cfromJSONKey :: FromJSONKeyFunction ImportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679203902"><span id="local-6989586621679203904"><span id="local-6989586621679203906"><span id="local-6989586621679203908"><span class="annot"><span class="annottext">[ImportStatus] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679203911"><span id="local-6989586621679203913"><span id="local-6989586621679203915"><span id="local-6989586621679203917"><span class="annot"><span class="annottext">[ImportStatus] -&gt; Encoding
 [ImportStatus] -&gt; Value
 ImportStatus -&gt; Encoding
 ImportStatus -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: ImportStatus -&gt; Encoding
 toJSON :: ImportStatus -&gt; Value
 $ctoJSON :: ImportStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679203897"><span id="local-6989586621679203899"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImportStatus]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679203906"><span id="local-6989586621679203908"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImportStatus]
 ToJSONKeyFunction ImportStatus
 ToJSONKeyFunction ImportStatus
 -&gt; ToJSONKeyFunction [ImportStatus] -&gt; ToJSONKey ImportStatus
@@ -250,13 +250,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ImportStatus]
 toJSONKey :: ToJSONKeyFunction ImportStatus
 $ctoJSONKey :: ToJSONKeyFunction ImportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679203894"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImportStatus
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679203903"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImportStatus
 ([Node] -&gt; Either String ImportStatus) -&gt; FromXML ImportStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ImportStatus
 $cparseXML :: [Node] -&gt; Either String ImportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679203891"><span class="annot"><span class="annottext">ImportStatus -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679203900"><span class="annot"><span class="annottext">ImportStatus -&gt; XML
 (ImportStatus -&gt; XML) -&gt; ToXML ImportStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ImportStatus -&gt; XML

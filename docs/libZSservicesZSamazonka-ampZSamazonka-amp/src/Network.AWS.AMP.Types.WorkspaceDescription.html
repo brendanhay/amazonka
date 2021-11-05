@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AMP.Types.WorkspaceDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AMP.Types.WorkspaceDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatus.html"><span class="hs-identifier">Network.AWS.AMP.Types.WorkspaceStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Represents the properties of a workspace.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newWorkspaceDescription' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679171401"><span id="local-6989586621679171402"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkspaceDescription"><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-var">WorkspaceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceDescription%27"><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-var">WorkspaceDescription'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Alias of this workspace.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aalias%3AWorkspaceDescription%27"><span class="annot"><span class="annottext">WorkspaceDescription -&gt; Maybe Text
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3Aalias%3AWorkspaceDescription%27"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Prometheus endpoint URI.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AprometheusEndpoint%3AWorkspaceDescription%27"><span class="annot"><span class="annottext">WorkspaceDescription -&gt; Maybe Text
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3AprometheusEndpoint%3AWorkspaceDescription%27"><span class="hs-identifier hs-var hs-var">prometheusEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The tags of this workspace.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Atags%3AWorkspaceDescription%27"><span class="annot"><span class="annottext">WorkspaceDescription -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3Atags%3AWorkspaceDescription%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of this workspace.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aarn%3AWorkspaceDescription%27"><span class="annot"><span class="annottext">WorkspaceDescription -&gt; Text
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3Aarn%3AWorkspaceDescription%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The time when the workspace was created.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcreatedAt%3AWorkspaceDescription%27"><span class="annot"><span class="annottext">WorkspaceDescription -&gt; POSIX
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3AcreatedAt%3AWorkspaceDescription%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The status of this workspace.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Astatus%3AWorkspaceDescription%27"><span class="annot"><span class="annottext">WorkspaceDescription -&gt; WorkspaceStatus
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3Astatus%3AWorkspaceDescription%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatus.html#WorkspaceStatus"><span class="hs-identifier hs-type">WorkspaceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Unique string identifying this workspace.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AworkspaceId%3AWorkspaceDescription%27"><span class="annot"><span class="annottext">WorkspaceDescription -&gt; Text
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3AworkspaceId%3AWorkspaceDescription%27"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171389"><span id="local-6989586621679171391"><span class="annot"><span class="annottext">WorkspaceDescription -&gt; WorkspaceDescription -&gt; Bool
+(WorkspaceDescription -&gt; WorkspaceDescription -&gt; Bool)
+-&gt; (WorkspaceDescription -&gt; WorkspaceDescription -&gt; Bool)
+-&gt; Eq WorkspaceDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WorkspaceDescription -&gt; WorkspaceDescription -&gt; Bool
+$c/= :: WorkspaceDescription -&gt; WorkspaceDescription -&gt; Bool
+== :: WorkspaceDescription -&gt; WorkspaceDescription -&gt; Bool
+$c== :: WorkspaceDescription -&gt; WorkspaceDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171380"><span id="local-6989586621679171382"><span id="local-6989586621679171384"><span id="local-6989586621679171386"><span class="annot"><span class="annottext">ReadPrec [WorkspaceDescription]
+ReadPrec WorkspaceDescription
+Int -&gt; ReadS WorkspaceDescription
+ReadS [WorkspaceDescription]
+(Int -&gt; ReadS WorkspaceDescription)
+-&gt; ReadS [WorkspaceDescription]
+-&gt; ReadPrec WorkspaceDescription
+-&gt; ReadPrec [WorkspaceDescription]
+-&gt; Read WorkspaceDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WorkspaceDescription]
+$creadListPrec :: ReadPrec [WorkspaceDescription]
+readPrec :: ReadPrec WorkspaceDescription
+$creadPrec :: ReadPrec WorkspaceDescription
+readList :: ReadS [WorkspaceDescription]
+$creadList :: ReadS [WorkspaceDescription]
+readsPrec :: Int -&gt; ReadS WorkspaceDescription
+$creadsPrec :: Int -&gt; ReadS WorkspaceDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171373"><span id="local-6989586621679171375"><span id="local-6989586621679171377"><span class="annot"><span class="annottext">Int -&gt; WorkspaceDescription -&gt; ShowS
+[WorkspaceDescription] -&gt; ShowS
+WorkspaceDescription -&gt; String
+(Int -&gt; WorkspaceDescription -&gt; ShowS)
+-&gt; (WorkspaceDescription -&gt; String)
+-&gt; ([WorkspaceDescription] -&gt; ShowS)
+-&gt; Show WorkspaceDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WorkspaceDescription] -&gt; ShowS
+$cshowList :: [WorkspaceDescription] -&gt; ShowS
+show :: WorkspaceDescription -&gt; String
+$cshow :: WorkspaceDescription -&gt; String
+showsPrec :: Int -&gt; WorkspaceDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; WorkspaceDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. WorkspaceDescription -&gt; Rep WorkspaceDescription x)
+-&gt; (forall x. Rep WorkspaceDescription x -&gt; WorkspaceDescription)
+-&gt; Generic WorkspaceDescription
+forall x. Rep WorkspaceDescription x -&gt; WorkspaceDescription
+forall x. WorkspaceDescription -&gt; Rep WorkspaceDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WorkspaceDescription x -&gt; WorkspaceDescription
+$cfrom :: forall x. WorkspaceDescription -&gt; Rep WorkspaceDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'WorkspaceDescription' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'alias', 'workspaceDescription_alias' - Alias of this workspace.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'prometheusEndpoint', 'workspaceDescription_prometheusEndpoint' - Prometheus endpoint URI.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'tags', 'workspaceDescription_tags' - The tags of this workspace.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'arn', 'workspaceDescription_arn' - The Amazon Resource Name (ARN) of this workspace.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'createdAt', 'workspaceDescription_createdAt' - The time when the workspace was created.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'status', 'workspaceDescription_status' - The status of this workspace.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'workspaceId', 'workspaceDescription_workspaceId' - Unique string identifying this workspace.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#newWorkspaceDescription"><span class="hs-identifier hs-type">newWorkspaceDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatus.html#WorkspaceStatus"><span class="hs-identifier hs-type">WorkspaceStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'workspaceId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span>
+</span><span id="line-79"></span><span id="newWorkspaceDescription"><span class="annot"><span class="annottext">newWorkspaceDescription :: Text -&gt; UTCTime -&gt; WorkspaceStatus -&gt; Text -&gt; WorkspaceDescription
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#newWorkspaceDescription"><span class="hs-identifier hs-var hs-var">newWorkspaceDescription</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679171367"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171367"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679171366"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679171366"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679171365"><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679171365"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679171364"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171364"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">WorkspaceDescription' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; POSIX
+-&gt; WorkspaceStatus
+-&gt; Text
+-&gt; WorkspaceDescription
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:alias:WorkspaceDescription' :: Maybe Text
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3Aalias%3AWorkspaceDescription%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:prometheusEndpoint:WorkspaceDescription' :: Maybe Text
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3AprometheusEndpoint%3AWorkspaceDescription%27"><span class="hs-identifier hs-var">prometheusEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:WorkspaceDescription' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3Atags%3AWorkspaceDescription%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:WorkspaceDescription' :: Text
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3Aarn%3AWorkspaceDescription%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171367"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:WorkspaceDescription' :: POSIX
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3AcreatedAt%3AWorkspaceDescription%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679171366"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:WorkspaceDescription' :: WorkspaceStatus
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3Astatus%3AWorkspaceDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679171365"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:workspaceId:WorkspaceDescription' :: Text
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3AworkspaceId%3AWorkspaceDescription%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171364"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Alias of this workspace.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#workspaceDescription_alias"><span class="hs-identifier hs-type">workspaceDescription_alias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="workspaceDescription_alias"><span class="annot"><span class="annottext">workspaceDescription_alias :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceDescription -&gt; f WorkspaceDescription
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#workspaceDescription_alias"><span class="hs-identifier hs-var hs-var">workspaceDescription_alias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDescription -&gt; Maybe Text)
+-&gt; (WorkspaceDescription -&gt; Maybe Text -&gt; WorkspaceDescription)
+-&gt; Lens
+     WorkspaceDescription WorkspaceDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171358"><span class="annot"><span class="annottext">Maybe Text
+alias :: Maybe Text
+$sel:alias:WorkspaceDescription' :: WorkspaceDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679171358"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171358"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171357"><span class="annot"><span class="annottext">s :: WorkspaceDescription
+</span><a href="#local-6989586621679171357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171356"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679171357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alias:WorkspaceDescription' :: Maybe Text
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3Aalias%3AWorkspaceDescription%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Prometheus endpoint URI.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#workspaceDescription_prometheusEndpoint"><span class="hs-identifier hs-type">workspaceDescription_prometheusEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="workspaceDescription_prometheusEndpoint"><span class="annot"><span class="annottext">workspaceDescription_prometheusEndpoint :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceDescription -&gt; f WorkspaceDescription
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#workspaceDescription_prometheusEndpoint"><span class="hs-identifier hs-var hs-var">workspaceDescription_prometheusEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDescription -&gt; Maybe Text)
+-&gt; (WorkspaceDescription -&gt; Maybe Text -&gt; WorkspaceDescription)
+-&gt; Lens
+     WorkspaceDescription WorkspaceDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171354"><span class="annot"><span class="annottext">Maybe Text
+prometheusEndpoint :: Maybe Text
+$sel:prometheusEndpoint:WorkspaceDescription' :: WorkspaceDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679171354"><span class="hs-identifier hs-var hs-var">prometheusEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171354"><span class="hs-identifier hs-var">prometheusEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171353"><span class="annot"><span class="annottext">s :: WorkspaceDescription
+</span><a href="#local-6989586621679171353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171352"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679171353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prometheusEndpoint:WorkspaceDescription' :: Maybe Text
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3AprometheusEndpoint%3AWorkspaceDescription%27"><span class="hs-identifier hs-var">prometheusEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The tags of this workspace.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#workspaceDescription_tags"><span class="hs-identifier hs-type">workspaceDescription_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="workspaceDescription_tags"><span class="annot"><span class="annottext">workspaceDescription_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; WorkspaceDescription -&gt; f WorkspaceDescription
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#workspaceDescription_tags"><span class="hs-identifier hs-var hs-var">workspaceDescription_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDescription -&gt; Maybe (HashMap Text Text))
+-&gt; (WorkspaceDescription
+    -&gt; Maybe (HashMap Text Text) -&gt; WorkspaceDescription)
+-&gt; Lens
+     WorkspaceDescription
+     WorkspaceDescription
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171350"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:WorkspaceDescription' :: WorkspaceDescription -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679171350"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679171350"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171349"><span class="annot"><span class="annottext">s :: WorkspaceDescription
+</span><a href="#local-6989586621679171349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171348"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679171348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679171349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:WorkspaceDescription' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3Atags%3AWorkspaceDescription%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679171348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; WorkspaceDescription -&gt; f WorkspaceDescription)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; WorkspaceDescription
+-&gt; f WorkspaceDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of this workspace.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#workspaceDescription_arn"><span class="hs-identifier hs-type">workspaceDescription_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="workspaceDescription_arn"><span class="annot"><span class="annottext">workspaceDescription_arn :: (Text -&gt; f Text) -&gt; WorkspaceDescription -&gt; f WorkspaceDescription
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#workspaceDescription_arn"><span class="hs-identifier hs-var hs-var">workspaceDescription_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDescription -&gt; Text)
+-&gt; (WorkspaceDescription -&gt; Text -&gt; WorkspaceDescription)
+-&gt; Lens WorkspaceDescription WorkspaceDescription Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171343"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:WorkspaceDescription' :: WorkspaceDescription -&gt; Text
+</span><a href="#local-6989586621679171343"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171343"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171342"><span class="annot"><span class="annottext">s :: WorkspaceDescription
+</span><a href="#local-6989586621679171342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679171342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:WorkspaceDescription' :: Text
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3Aarn%3AWorkspaceDescription%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The time when the workspace was created.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#workspaceDescription_createdAt"><span class="hs-identifier hs-type">workspaceDescription_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-112"></span><span id="workspaceDescription_createdAt"><span class="annot"><span class="annottext">workspaceDescription_createdAt :: (UTCTime -&gt; f UTCTime)
+-&gt; WorkspaceDescription -&gt; f WorkspaceDescription
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#workspaceDescription_createdAt"><span class="hs-identifier hs-var hs-var">workspaceDescription_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDescription -&gt; POSIX)
+-&gt; (WorkspaceDescription -&gt; POSIX -&gt; WorkspaceDescription)
+-&gt; Lens WorkspaceDescription WorkspaceDescription POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171339"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:WorkspaceDescription' :: WorkspaceDescription -&gt; POSIX
+</span><a href="#local-6989586621679171339"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679171339"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171338"><span class="annot"><span class="annottext">s :: WorkspaceDescription
+</span><a href="#local-6989586621679171338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171337"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679171337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679171338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:WorkspaceDescription' :: POSIX
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3AcreatedAt%3AWorkspaceDescription%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679171337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; WorkspaceDescription -&gt; f WorkspaceDescription)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; WorkspaceDescription
+-&gt; f WorkspaceDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The status of this workspace.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#workspaceDescription_status"><span class="hs-identifier hs-type">workspaceDescription_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatus.html#WorkspaceStatus"><span class="hs-identifier hs-type">WorkspaceStatus</span></a></span><span>
+</span><span id="line-116"></span><span id="workspaceDescription_status"><span class="annot"><span class="annottext">workspaceDescription_status :: (WorkspaceStatus -&gt; f WorkspaceStatus)
+-&gt; WorkspaceDescription -&gt; f WorkspaceDescription
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#workspaceDescription_status"><span class="hs-identifier hs-var hs-var">workspaceDescription_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDescription -&gt; WorkspaceStatus)
+-&gt; (WorkspaceDescription
+    -&gt; WorkspaceStatus -&gt; WorkspaceDescription)
+-&gt; Lens
+     WorkspaceDescription
+     WorkspaceDescription
+     WorkspaceStatus
+     WorkspaceStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171335"><span class="annot"><span class="annottext">WorkspaceStatus
+status :: WorkspaceStatus
+$sel:status:WorkspaceDescription' :: WorkspaceDescription -&gt; WorkspaceStatus
+</span><a href="#local-6989586621679171335"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679171335"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171334"><span class="annot"><span class="annottext">s :: WorkspaceDescription
+</span><a href="#local-6989586621679171334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171333"><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679171333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679171334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:WorkspaceDescription' :: WorkspaceStatus
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3Astatus%3AWorkspaceDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679171333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | Unique string identifying this workspace.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#workspaceDescription_workspaceId"><span class="hs-identifier hs-type">workspaceDescription_workspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="workspaceDescription_workspaceId"><span class="annot"><span class="annottext">workspaceDescription_workspaceId :: (Text -&gt; f Text) -&gt; WorkspaceDescription -&gt; f WorkspaceDescription
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#workspaceDescription_workspaceId"><span class="hs-identifier hs-var hs-var">workspaceDescription_workspaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDescription -&gt; Text)
+-&gt; (WorkspaceDescription -&gt; Text -&gt; WorkspaceDescription)
+-&gt; Lens WorkspaceDescription WorkspaceDescription Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171331"><span class="annot"><span class="annottext">Text
+workspaceId :: Text
+$sel:workspaceId:WorkspaceDescription' :: WorkspaceDescription -&gt; Text
+</span><a href="#local-6989586621679171331"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171331"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171330"><span class="annot"><span class="annottext">s :: WorkspaceDescription
+</span><a href="#local-6989586621679171330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-type">WorkspaceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171329"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679171330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceId:WorkspaceDescription' :: Text
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#%24sel%3AworkspaceId%3AWorkspaceDescription%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171326"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679171324"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkspaceDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser WorkspaceDescription)
+-&gt; Value
+-&gt; Parser WorkspaceDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;WorkspaceDescription&quot;</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679171321"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171321"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; POSIX
+-&gt; WorkspaceStatus
+-&gt; Text
+-&gt; WorkspaceDescription
+</span><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription%27"><span class="hs-identifier hs-var">WorkspaceDescription'</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; WorkspaceStatus
+ -&gt; Text
+ -&gt; WorkspaceDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; WorkspaceStatus
+      -&gt; Text
+      -&gt; WorkspaceDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;alias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; WorkspaceStatus
+   -&gt; Text
+   -&gt; WorkspaceDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; WorkspaceStatus
+      -&gt; Text
+      -&gt; WorkspaceDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;prometheusEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; WorkspaceStatus
+   -&gt; Text
+   -&gt; WorkspaceDescription)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Text -&gt; POSIX -&gt; WorkspaceStatus -&gt; Text -&gt; WorkspaceDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; POSIX -&gt; WorkspaceStatus -&gt; Text -&gt; WorkspaceDescription)
+-&gt; Parser Text
+-&gt; Parser
+     (POSIX -&gt; WorkspaceStatus -&gt; Text -&gt; WorkspaceDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; WorkspaceStatus -&gt; Text -&gt; WorkspaceDescription)
+-&gt; Parser POSIX
+-&gt; Parser (WorkspaceStatus -&gt; Text -&gt; WorkspaceDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (WorkspaceStatus -&gt; Text -&gt; WorkspaceDescription)
+-&gt; Parser WorkspaceStatus -&gt; Parser (Text -&gt; WorkspaceDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkspaceStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; WorkspaceDescription)
+-&gt; Parser Text -&gt; Parser WorkspaceDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workspaceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171313"><span id="local-6989586621679171315"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span></span><span>
+</span><span id="line-140"></span></pre></body></html>

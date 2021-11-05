@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679183587"><span id="local-6989586621679183588"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ParallelDataStatus"><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus"><span class="hs-identifier hs-var">ParallelDataStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParallelDataStatus%27"><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus%27"><span class="hs-identifier hs-var">ParallelDataStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679183596"><span id="local-6989586621679183597"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ParallelDataStatus"><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus"><span class="hs-identifier hs-var">ParallelDataStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParallelDataStatus%27"><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus%27"><span class="hs-identifier hs-var">ParallelDataStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromParallelDataStatus"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; Text
 </span><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#fromParallelDataStatus"><span class="hs-identifier hs-var hs-var">fromParallelDataStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183579"><span id="local-6989586621679183581"><span id="local-6989586621679183583"><span class="annot"><span class="annottext">Int -&gt; ParallelDataStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183588"><span id="local-6989586621679183590"><span id="local-6989586621679183592"><span class="annot"><span class="annottext">Int -&gt; ParallelDataStatus -&gt; ShowS
 [ParallelDataStatus] -&gt; ShowS
 ParallelDataStatus -&gt; String
 (Int -&gt; ParallelDataStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ParallelDataStatus -&gt; String
 showsPrec :: Int -&gt; ParallelDataStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ParallelDataStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679183570"><span id="local-6989586621679183572"><span id="local-6989586621679183574"><span id="local-6989586621679183576"><span class="annot"><span class="annottext">ReadPrec [ParallelDataStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679183579"><span id="local-6989586621679183581"><span id="local-6989586621679183583"><span id="local-6989586621679183585"><span class="annot"><span class="annottext">ReadPrec [ParallelDataStatus]
 ReadPrec ParallelDataStatus
 Int -&gt; ReadS ParallelDataStatus
 ReadS [ParallelDataStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ParallelDataStatus]
 readsPrec :: Int -&gt; ReadS ParallelDataStatus
 $creadsPrec :: Int -&gt; ReadS ParallelDataStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679183565"><span id="local-6989586621679183567"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679183574"><span id="local-6989586621679183576"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
 (ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool)
 -&gt; (ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool)
 -&gt; Eq ParallelDataStatus
@@ -85,7 +85,7 @@ $c/= :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
 == :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
 $c== :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679183549"><span id="local-6989586621679183551"><span id="local-6989586621679183553"><span id="local-6989586621679183555"><span id="local-6989586621679183557"><span id="local-6989586621679183559"><span id="local-6989586621679183561"><span class="annot"><span class="annottext">Eq ParallelDataStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679183558"><span id="local-6989586621679183560"><span id="local-6989586621679183562"><span id="local-6989586621679183564"><span id="local-6989586621679183566"><span id="local-6989586621679183568"><span id="local-6989586621679183570"><span class="annot"><span class="annottext">Eq ParallelDataStatus
 Eq ParallelDataStatus
 -&gt; (ParallelDataStatus -&gt; ParallelDataStatus -&gt; Ordering)
 -&gt; (ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. ParallelDataStatus -&gt; Rep ParallelDataStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183541"><span id="local-6989586621679183543"><span class="annot"><span class="annottext">Int -&gt; ParallelDataStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183550"><span id="local-6989586621679183552"><span class="annot"><span class="annottext">Int -&gt; ParallelDataStatus -&gt; Int
 ParallelDataStatus -&gt; Int
 (Int -&gt; ParallelDataStatus -&gt; Int)
 -&gt; (ParallelDataStatus -&gt; Int) -&gt; Hashable ParallelDataStatus
@@ -146,53 +146,53 @@ $chash :: ParallelDataStatus -&gt; Int
 hashWithSalt :: Int -&gt; ParallelDataStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ParallelDataStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679183538"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679183547"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; ()
 (ParallelDataStatus -&gt; ()) -&gt; NFData ParallelDataStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ParallelDataStatus -&gt; ()
 $crnf :: ParallelDataStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679183535"><span class="annot"><span class="annottext">Text -&gt; Either String ParallelDataStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679183544"><span class="annot"><span class="annottext">Text -&gt; Either String ParallelDataStatus
 (Text -&gt; Either String ParallelDataStatus)
 -&gt; FromText ParallelDataStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ParallelDataStatus
 $cfromText :: Text -&gt; Either String ParallelDataStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679183532"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679183541"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; Text
 (ParallelDataStatus -&gt; Text) -&gt; ToText ParallelDataStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ParallelDataStatus -&gt; Text
 $ctoText :: ParallelDataStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679183529"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679183538"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; ByteString
 (ParallelDataStatus -&gt; ByteString)
 -&gt; ToByteString ParallelDataStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ParallelDataStatus -&gt; ByteString
 $ctoBS :: ParallelDataStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679183526"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679183535"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; ByteStringBuilder
 (ParallelDataStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ParallelDataStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ParallelDataStatus -&gt; ByteStringBuilder
 $cbuild :: ParallelDataStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679183523"><span class="annot"><span class="annottext">HeaderName -&gt; ParallelDataStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679183532"><span class="annot"><span class="annottext">HeaderName -&gt; ParallelDataStatus -&gt; [Header]
 (HeaderName -&gt; ParallelDataStatus -&gt; [Header])
 -&gt; ToHeader ParallelDataStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ParallelDataStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ParallelDataStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679183520"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679183529"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; QueryString
 (ParallelDataStatus -&gt; QueryString) -&gt; ToQuery ParallelDataStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ParallelDataStatus -&gt; QueryString
 $ctoQuery :: ParallelDataStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679183515"><span id="local-6989586621679183517"><span class="annot"><span class="annottext">Value -&gt; Parser [ParallelDataStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679183524"><span id="local-6989586621679183526"><span class="annot"><span class="annottext">Value -&gt; Parser [ParallelDataStatus]
 Value -&gt; Parser ParallelDataStatus
 (Value -&gt; Parser ParallelDataStatus)
 -&gt; (Value -&gt; Parser [ParallelDataStatus])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [ParallelDataStatus]
 parseJSON :: Value -&gt; Parser ParallelDataStatus
 $cparseJSON :: Value -&gt; Parser ParallelDataStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679183510"><span id="local-6989586621679183512"><span class="annot"><span class="annottext">FromJSONKeyFunction [ParallelDataStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679183519"><span id="local-6989586621679183521"><span class="annot"><span class="annottext">FromJSONKeyFunction [ParallelDataStatus]
 FromJSONKeyFunction ParallelDataStatus
 FromJSONKeyFunction ParallelDataStatus
 -&gt; FromJSONKeyFunction [ParallelDataStatus]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ParallelDataStatus]
 fromJSONKey :: FromJSONKeyFunction ParallelDataStatus
 $cfromJSONKey :: FromJSONKeyFunction ParallelDataStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679183501"><span id="local-6989586621679183503"><span id="local-6989586621679183505"><span id="local-6989586621679183507"><span class="annot"><span class="annottext">[ParallelDataStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679183510"><span id="local-6989586621679183512"><span id="local-6989586621679183514"><span id="local-6989586621679183516"><span class="annot"><span class="annottext">[ParallelDataStatus] -&gt; Encoding
 [ParallelDataStatus] -&gt; Value
 ParallelDataStatus -&gt; Encoding
 ParallelDataStatus -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: ParallelDataStatus -&gt; Encoding
 toJSON :: ParallelDataStatus -&gt; Value
 $ctoJSON :: ParallelDataStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679183496"><span id="local-6989586621679183498"><span class="annot"><span class="annottext">ToJSONKeyFunction [ParallelDataStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679183505"><span id="local-6989586621679183507"><span class="annot"><span class="annottext">ToJSONKeyFunction [ParallelDataStatus]
 ToJSONKeyFunction ParallelDataStatus
 ToJSONKeyFunction ParallelDataStatus
 -&gt; ToJSONKeyFunction [ParallelDataStatus]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ParallelDataStatus]
 toJSONKey :: ToJSONKeyFunction ParallelDataStatus
 $ctoJSONKey :: ToJSONKeyFunction ParallelDataStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679183493"><span class="annot"><span class="annottext">[Node] -&gt; Either String ParallelDataStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679183502"><span class="annot"><span class="annottext">[Node] -&gt; Either String ParallelDataStatus
 ([Node] -&gt; Either String ParallelDataStatus)
 -&gt; FromXML ParallelDataStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ParallelDataStatus
 $cparseXML :: [Node] -&gt; Either String ParallelDataStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679183490"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679183499"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; XML
 (ParallelDataStatus -&gt; XML) -&gt; ToXML ParallelDataStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ParallelDataStatus -&gt; XML

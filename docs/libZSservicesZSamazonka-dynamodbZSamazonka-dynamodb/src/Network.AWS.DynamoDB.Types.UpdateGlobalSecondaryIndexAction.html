@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- global secondary index.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newUpdateGlobalSecondaryIndexAction' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679383960"><span id="local-6989586621679383961"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGlobalSecondaryIndexAction"><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction"><span class="hs-identifier hs-var">UpdateGlobalSecondaryIndexAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGlobalSecondaryIndexAction%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">UpdateGlobalSecondaryIndexAction'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679383969"><span id="local-6989586621679383970"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGlobalSecondaryIndexAction"><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction"><span class="hs-identifier hs-var">UpdateGlobalSecondaryIndexAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGlobalSecondaryIndexAction%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">UpdateGlobalSecondaryIndexAction'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the global secondary index to be updated.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AindexName%3AUpdateGlobalSecondaryIndexAction%27"><span class="annot"><span class="annottext">UpdateGlobalSecondaryIndexAction -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#%24sel%3AindexName%3AUpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AprovisionedThroughput%3AUpdateGlobalSecondaryIndexAction%27"><span class="annot"><span class="annottext">UpdateGlobalSecondaryIndexAction -&gt; ProvisionedThroughput
 </span><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#%24sel%3AprovisionedThroughput%3AUpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var hs-var">provisionedThroughput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughput.html#ProvisionedThroughput"><span class="hs-identifier hs-type">ProvisionedThroughput</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383953"><span id="local-6989586621679383955"><span class="annot"><span class="annottext">UpdateGlobalSecondaryIndexAction
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383962"><span id="local-6989586621679383964"><span class="annot"><span class="annottext">UpdateGlobalSecondaryIndexAction
 -&gt; UpdateGlobalSecondaryIndexAction -&gt; Bool
 (UpdateGlobalSecondaryIndexAction
  -&gt; UpdateGlobalSecondaryIndexAction -&gt; Bool)
@@ -57,7 +57,7 @@ $c/= :: UpdateGlobalSecondaryIndexAction
 -&gt; UpdateGlobalSecondaryIndexAction -&gt; Bool
 $c== :: UpdateGlobalSecondaryIndexAction
 -&gt; UpdateGlobalSecondaryIndexAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383944"><span id="local-6989586621679383946"><span id="local-6989586621679383948"><span id="local-6989586621679383950"><span class="annot"><span class="annottext">ReadPrec [UpdateGlobalSecondaryIndexAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383953"><span id="local-6989586621679383955"><span id="local-6989586621679383957"><span id="local-6989586621679383959"><span class="annot"><span class="annottext">ReadPrec [UpdateGlobalSecondaryIndexAction]
 ReadPrec UpdateGlobalSecondaryIndexAction
 Int -&gt; ReadS UpdateGlobalSecondaryIndexAction
 ReadS [UpdateGlobalSecondaryIndexAction]
@@ -77,7 +77,7 @@ readList :: ReadS [UpdateGlobalSecondaryIndexAction]
 $creadList :: ReadS [UpdateGlobalSecondaryIndexAction]
 readsPrec :: Int -&gt; ReadS UpdateGlobalSecondaryIndexAction
 $creadsPrec :: Int -&gt; ReadS UpdateGlobalSecondaryIndexAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383937"><span id="local-6989586621679383939"><span id="local-6989586621679383941"><span class="annot"><span class="annottext">Int -&gt; UpdateGlobalSecondaryIndexAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383946"><span id="local-6989586621679383948"><span id="local-6989586621679383950"><span class="annot"><span class="annottext">Int -&gt; UpdateGlobalSecondaryIndexAction -&gt; ShowS
 [UpdateGlobalSecondaryIndexAction] -&gt; ShowS
 UpdateGlobalSecondaryIndexAction -&gt; String
 (Int -&gt; UpdateGlobalSecondaryIndexAction -&gt; ShowS)
@@ -139,20 +139,20 @@ UpdateGlobalSecondaryIndexAction
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction</span></a></span><span>
 </span><span id="line-66"></span><span id="newUpdateGlobalSecondaryIndexAction"><span class="annot"><span class="annottext">newUpdateGlobalSecondaryIndexAction :: Text -&gt; ProvisionedThroughput -&gt; UpdateGlobalSecondaryIndexAction
 </span><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#newUpdateGlobalSecondaryIndexAction"><span class="hs-identifier hs-var hs-var">newUpdateGlobalSecondaryIndexAction</span></a></span></span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679383931"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383931"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679383930"><span class="annot"><span class="annottext">ProvisionedThroughput
-</span><a href="#local-6989586621679383930"><span class="hs-identifier hs-var">pProvisionedThroughput_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679383940"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383940"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679383939"><span class="annot"><span class="annottext">ProvisionedThroughput
+</span><a href="#local-6989586621679383939"><span class="hs-identifier hs-var">pProvisionedThroughput_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">UpdateGlobalSecondaryIndexAction' :: Text -&gt; ProvisionedThroughput -&gt; UpdateGlobalSecondaryIndexAction
 </span><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction'</span></a></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:indexName:UpdateGlobalSecondaryIndexAction' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#%24sel%3AindexName%3AUpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383931"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679383940"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">$sel:provisionedThroughput:UpdateGlobalSecondaryIndexAction' :: ProvisionedThroughput
 </span><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#%24sel%3AprovisionedThroughput%3AUpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">ProvisionedThroughput
-</span><a href="#local-6989586621679383930"><span class="hs-identifier hs-var">pProvisionedThroughput_</span></a></span><span>
+</span><a href="#local-6989586621679383939"><span class="hs-identifier hs-var">pProvisionedThroughput_</span></a></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The name of the global secondary index to be updated.</span><span>
@@ -169,16 +169,16 @@ UpdateGlobalSecondaryIndexAction
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383926"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383935"><span class="annot"><span class="annottext">Text
 indexName :: Text
 $sel:indexName:UpdateGlobalSecondaryIndexAction' :: UpdateGlobalSecondaryIndexAction -&gt; Text
-</span><a href="#local-6989586621679383926"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383926"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383925"><span class="annot"><span class="annottext">s :: UpdateGlobalSecondaryIndexAction
-</span><a href="#local-6989586621679383925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383924"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGlobalSecondaryIndexAction
-</span><a href="#local-6989586621679383925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:UpdateGlobalSecondaryIndexAction' :: Text
+</span><a href="#local-6989586621679383935"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383935"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383934"><span class="annot"><span class="annottext">s :: UpdateGlobalSecondaryIndexAction
+</span><a href="#local-6989586621679383934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383933"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGlobalSecondaryIndexAction
+</span><a href="#local-6989586621679383934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:UpdateGlobalSecondaryIndexAction' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#%24sel%3AindexName%3AUpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Represents the provisioned throughput settings for the specified global</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- secondary index.</span><span>
@@ -199,34 +199,34 @@ $sel:indexName:UpdateGlobalSecondaryIndexAction' :: UpdateGlobalSecondaryIndexAc
      ProvisionedThroughput
      ProvisionedThroughput
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383922"><span class="annot"><span class="annottext">ProvisionedThroughput
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383931"><span class="annot"><span class="annottext">ProvisionedThroughput
 provisionedThroughput :: ProvisionedThroughput
 $sel:provisionedThroughput:UpdateGlobalSecondaryIndexAction' :: UpdateGlobalSecondaryIndexAction -&gt; ProvisionedThroughput
-</span><a href="#local-6989586621679383922"><span class="hs-identifier hs-var hs-var">provisionedThroughput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughput
-</span><a href="#local-6989586621679383922"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383921"><span class="annot"><span class="annottext">s :: UpdateGlobalSecondaryIndexAction
-</span><a href="#local-6989586621679383921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383920"><span class="annot"><span class="annottext">ProvisionedThroughput
-</span><a href="#local-6989586621679383920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGlobalSecondaryIndexAction
-</span><a href="#local-6989586621679383921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedThroughput:UpdateGlobalSecondaryIndexAction' :: ProvisionedThroughput
+</span><a href="#local-6989586621679383931"><span class="hs-identifier hs-var hs-var">provisionedThroughput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughput
+</span><a href="#local-6989586621679383931"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383930"><span class="annot"><span class="annottext">s :: UpdateGlobalSecondaryIndexAction
+</span><a href="#local-6989586621679383930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383929"><span class="annot"><span class="annottext">ProvisionedThroughput
+</span><a href="#local-6989586621679383929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGlobalSecondaryIndexAction
+</span><a href="#local-6989586621679383930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedThroughput:UpdateGlobalSecondaryIndexAction' :: ProvisionedThroughput
 </span><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#%24sel%3AprovisionedThroughput%3AUpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughput
-</span><a href="#local-6989586621679383920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679383916"><span id="local-6989586621679383918"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679383925"><span id="local-6989586621679383927"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679383913"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679383922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383905"><span id="local-6989586621679383907"><span id="local-6989586621679383909"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679383903"><span class="annot"><span class="annottext">toJSON :: UpdateGlobalSecondaryIndexAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383900"><span id="local-6989586621679383901"><span class="annot"><span class="annottext">Text
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383914"><span id="local-6989586621679383916"><span id="local-6989586621679383918"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679383912"><span class="annot"><span class="annottext">toJSON :: UpdateGlobalSecondaryIndexAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction.html#UpdateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">UpdateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383909"><span id="local-6989586621679383910"><span class="annot"><span class="annottext">Text
 ProvisionedThroughput
 provisionedThroughput :: ProvisionedThroughput
 indexName :: Text
 $sel:provisionedThroughput:UpdateGlobalSecondaryIndexAction' :: UpdateGlobalSecondaryIndexAction -&gt; ProvisionedThroughput
 $sel:indexName:UpdateGlobalSecondaryIndexAction' :: UpdateGlobalSecondaryIndexAction -&gt; Text
-</span><a href="#local-6989586621679383900"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679383909"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -238,7 +238,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;IndexName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383901"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679383910"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -247,7 +247,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-104"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ProvisionedThroughput -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughput
-</span><a href="#local-6989586621679383900"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span>
+</span><a href="#local-6989586621679383909"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span>
 </span><span id="line-105"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>

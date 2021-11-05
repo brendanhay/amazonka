@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newAbortIncompleteMultipartUpload' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679537514"><span id="local-6989586621679537515"></span></span><span class="hs-keyword">data</span><span> </span><span id="AbortIncompleteMultipartUpload"><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload"><span class="hs-identifier hs-var">AbortIncompleteMultipartUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AbortIncompleteMultipartUpload%27"><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload%27"><span class="hs-identifier hs-var">AbortIncompleteMultipartUpload'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679537523"><span id="local-6989586621679537524"></span></span><span class="hs-keyword">data</span><span> </span><span id="AbortIncompleteMultipartUpload"><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload"><span class="hs-identifier hs-var">AbortIncompleteMultipartUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AbortIncompleteMultipartUpload%27"><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload%27"><span class="hs-identifier hs-var">AbortIncompleteMultipartUpload'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the number of days after which Amazon S3 aborts an incomplete</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- multipart upload.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AdaysAfterInitiation%3AAbortIncompleteMultipartUpload%27"><span class="annot"><span class="annottext">AbortIncompleteMultipartUpload -&gt; Maybe Int
 </span><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#%24sel%3AdaysAfterInitiation%3AAbortIncompleteMultipartUpload%27"><span class="hs-identifier hs-var hs-var">daysAfterInitiation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679537508"><span id="local-6989586621679537510"><span class="annot"><span class="annottext">AbortIncompleteMultipartUpload
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679537517"><span id="local-6989586621679537519"><span class="annot"><span class="annottext">AbortIncompleteMultipartUpload
 -&gt; AbortIncompleteMultipartUpload -&gt; Bool
 (AbortIncompleteMultipartUpload
  -&gt; AbortIncompleteMultipartUpload -&gt; Bool)
@@ -53,7 +53,7 @@ $c/= :: AbortIncompleteMultipartUpload
 -&gt; AbortIncompleteMultipartUpload -&gt; Bool
 $c== :: AbortIncompleteMultipartUpload
 -&gt; AbortIncompleteMultipartUpload -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537499"><span id="local-6989586621679537501"><span id="local-6989586621679537503"><span id="local-6989586621679537505"><span class="annot"><span class="annottext">ReadPrec [AbortIncompleteMultipartUpload]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537508"><span id="local-6989586621679537510"><span id="local-6989586621679537512"><span id="local-6989586621679537514"><span class="annot"><span class="annottext">ReadPrec [AbortIncompleteMultipartUpload]
 ReadPrec AbortIncompleteMultipartUpload
 Int -&gt; ReadS AbortIncompleteMultipartUpload
 ReadS [AbortIncompleteMultipartUpload]
@@ -73,7 +73,7 @@ readList :: ReadS [AbortIncompleteMultipartUpload]
 $creadList :: ReadS [AbortIncompleteMultipartUpload]
 readsPrec :: Int -&gt; ReadS AbortIncompleteMultipartUpload
 $creadsPrec :: Int -&gt; ReadS AbortIncompleteMultipartUpload
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537492"><span id="local-6989586621679537494"><span id="local-6989586621679537496"><span class="annot"><span class="annottext">Int -&gt; AbortIncompleteMultipartUpload -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537501"><span id="local-6989586621679537503"><span id="local-6989586621679537505"><span class="annot"><span class="annottext">Int -&gt; AbortIncompleteMultipartUpload -&gt; ShowS
 [AbortIncompleteMultipartUpload] -&gt; ShowS
 AbortIncompleteMultipartUpload -&gt; String
 (Int -&gt; AbortIncompleteMultipartUpload -&gt; ShowS)
@@ -149,21 +149,21 @@ forall a. Maybe a
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload%27"><span class="hs-identifier hs-type">AbortIncompleteMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679537483"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload%27"><span class="hs-identifier hs-type">AbortIncompleteMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679537492"><span class="annot"><span class="annottext">Maybe Int
 daysAfterInitiation :: Maybe Int
 $sel:daysAfterInitiation:AbortIncompleteMultipartUpload' :: AbortIncompleteMultipartUpload -&gt; Maybe Int
-</span><a href="#local-6989586621679537483"><span class="hs-identifier hs-var hs-var">daysAfterInitiation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679537483"><span class="hs-identifier hs-var">daysAfterInitiation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679537482"><span class="annot"><span class="annottext">s :: AbortIncompleteMultipartUpload
-</span><a href="#local-6989586621679537482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload%27"><span class="hs-identifier hs-type">AbortIncompleteMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679537481"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679537481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbortIncompleteMultipartUpload
-</span><a href="#local-6989586621679537482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:daysAfterInitiation:AbortIncompleteMultipartUpload' :: Maybe Int
+</span><a href="#local-6989586621679537492"><span class="hs-identifier hs-var hs-var">daysAfterInitiation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679537492"><span class="hs-identifier hs-var">daysAfterInitiation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679537491"><span class="annot"><span class="annottext">s :: AbortIncompleteMultipartUpload
+</span><a href="#local-6989586621679537491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload%27"><span class="hs-identifier hs-type">AbortIncompleteMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679537490"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679537490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbortIncompleteMultipartUpload
+</span><a href="#local-6989586621679537491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:daysAfterInitiation:AbortIncompleteMultipartUpload' :: Maybe Int
 </span><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#%24sel%3AdaysAfterInitiation%3AAbortIncompleteMultipartUpload%27"><span class="hs-identifier hs-var">daysAfterInitiation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679537481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload"><span class="hs-identifier hs-type">AbortIncompleteMultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679537490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload"><span class="hs-identifier hs-type">AbortIncompleteMultipartUpload</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload"><span class="hs-identifier hs-type">AbortIncompleteMultipartUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679537478"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AbortIncompleteMultipartUpload
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679537476"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679537476"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679537487"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AbortIncompleteMultipartUpload
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679537485"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679537485"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; AbortIncompleteMultipartUpload
 </span><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload%27"><span class="hs-identifier hs-var">AbortIncompleteMultipartUpload'</span></a></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; AbortIncompleteMultipartUpload)
@@ -171,25 +171,25 @@ $sel:daysAfterInitiation:AbortIncompleteMultipartUpload' :: AbortIncompleteMulti
 -&gt; Either String AbortIncompleteMultipartUpload
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679537476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679537485"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DaysAfterInitiation&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679537470"><span id="local-6989586621679537472"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679537479"><span id="local-6989586621679537481"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload"><span class="hs-identifier hs-type">AbortIncompleteMultipartUpload</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679537467"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679537476"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload"><span class="hs-identifier hs-type">AbortIncompleteMultipartUpload</span></a></span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload"><span class="hs-identifier hs-type">AbortIncompleteMultipartUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679537463"><span class="annot"><span class="annottext">toXML :: AbortIncompleteMultipartUpload -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload%27"><span class="hs-identifier hs-type">AbortIncompleteMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679537461"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679537472"><span class="annot"><span class="annottext">toXML :: AbortIncompleteMultipartUpload -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload%27"><span class="hs-identifier hs-type">AbortIncompleteMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679537470"><span class="annot"><span class="annottext">Maybe Int
 daysAfterInitiation :: Maybe Int
 $sel:daysAfterInitiation:AbortIncompleteMultipartUpload' :: AbortIncompleteMultipartUpload -&gt; Maybe Int
-</span><a href="#local-6989586621679537461"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679537470"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -197,5 +197,5 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;DaysAfterInitiation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679537461"><span class="hs-identifier hs-var">daysAfterInitiation</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679537470"><span class="hs-identifier hs-var">daysAfterInitiation</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span></pre></body></html>
